@@ -13,15 +13,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel.DataAnnotations;
-using System.IO;
 using System.Linq;
+using System.IO;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 
 namespace Dropbox.Sign.Model
@@ -31,28 +31,22 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "TemplateAddUserRequest")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class TemplateAddUserRequest
-        : IEquatable<TemplateAddUserRequest>,
-            IValidatableObject
+    public partial class TemplateAddUserRequest : IEquatable<TemplateAddUserRequest>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="TemplateAddUserRequest" /> class.
         /// </summary>
         [JsonConstructorAttribute]
         protected TemplateAddUserRequest() { }
-
         /// <summary>
         /// Initializes a new instance of the <see cref="TemplateAddUserRequest" /> class.
         /// </summary>
         /// <param name="accountId">The id of the Account to give access to the Template. **NOTE:** The account id prevails if email address is also provided..</param>
         /// <param name="emailAddress">The email address of the Account to give access to the Template. **NOTE:** The account id prevails if it is also provided..</param>
         /// <param name="skipNotification">If set to &#x60;true&#x60;, the user does not receive an email notification when a template has been shared with them. Defaults to &#x60;false&#x60;. (default to false).</param>
-        public TemplateAddUserRequest(
-            string accountId = default(string),
-            string emailAddress = default(string),
-            bool skipNotification = false
-        )
+        public TemplateAddUserRequest(string accountId = default(string), string emailAddress = default(string), bool skipNotification = false)
         {
+            
             this.AccountId = accountId;
             this.EmailAddress = emailAddress;
             this.SkipNotification = skipNotification;
@@ -68,9 +62,7 @@ namespace Dropbox.Sign.Model
 
             if (obj == null)
             {
-                throw new Exception(
-                    "Unable to deserialize JSON to instance of TemplateAddUserRequest"
-                );
+                throw new Exception("Unable to deserialize JSON to instance of TemplateAddUserRequest");
             }
 
             return obj;
@@ -82,6 +74,7 @@ namespace Dropbox.Sign.Model
         /// <value>The id of the Account to give access to the Template. **NOTE:** The account id prevails if email address is also provided.</value>
         [DataMember(Name = "account_id", EmitDefaultValue = true)]
         public string AccountId { get; set; }
+        
 
         /// <summary>
         /// The email address of the Account to give access to the Template. **NOTE:** The account id prevails if it is also provided.
@@ -89,6 +82,7 @@ namespace Dropbox.Sign.Model
         /// <value>The email address of the Account to give access to the Template. **NOTE:** The account id prevails if it is also provided.</value>
         [DataMember(Name = "email_address", EmitDefaultValue = true)]
         public string EmailAddress { get; set; }
+        
 
         /// <summary>
         /// If set to &#x60;true&#x60;, the user does not receive an email notification when a template has been shared with them. Defaults to &#x60;false&#x60;.
@@ -96,6 +90,7 @@ namespace Dropbox.Sign.Model
         /// <value>If set to &#x60;true&#x60;, the user does not receive an email notification when a template has been shared with them. Defaults to &#x60;false&#x60;.</value>
         [DataMember(Name = "skip_notification", EmitDefaultValue = true)]
         public bool SkipNotification { get; set; }
+        
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -118,10 +113,7 @@ namespace Dropbox.Sign.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(
-                this,
-                Newtonsoft.Json.Formatting.Indented
-            );
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>
@@ -145,17 +137,20 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return (
-                    this.AccountId == input.AccountId
-                    || (this.AccountId != null && this.AccountId.Equals(input.AccountId))
-                )
-                && (
-                    this.EmailAddress == input.EmailAddress
-                    || (this.EmailAddress != null && this.EmailAddress.Equals(input.EmailAddress))
-                )
-                && (
-                    this.SkipNotification == input.SkipNotification
-                    || this.SkipNotification.Equals(input.SkipNotification)
+            return 
+                (
+                    this.AccountId == input.AccountId ||
+                    (this.AccountId != null &&
+                    this.AccountId.Equals(input.AccountId))
+                ) && 
+                (
+                    this.EmailAddress == input.EmailAddress ||
+                    (this.EmailAddress != null &&
+                    this.EmailAddress.Equals(input.EmailAddress))
+                ) && 
+                (
+                    this.SkipNotification == input.SkipNotification ||
+                    this.SkipNotification.Equals(input.SkipNotification)
                 );
         }
 
@@ -186,9 +181,7 @@ namespace Dropbox.Sign.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<ValidationResult> IValidatableObject.Validate(
-            ValidationContext validationContext
-        )
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }
@@ -196,35 +189,27 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "account_id",
-                    Property = "AccountId",
-                    Type = "string",
-                    Value = AccountId,
-                }
-            );
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "email_address",
-                    Property = "EmailAddress",
-                    Type = "string",
-                    Value = EmailAddress,
-                }
-            );
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "skip_notification",
-                    Property = "SkipNotification",
-                    Type = "bool",
-                    Value = SkipNotification,
-                }
-            );
+            types.Add(new OpenApiType(){
+                Name = "account_id",
+                Property = "AccountId",
+                Type = "string",
+                Value = AccountId,
+            });
+            types.Add(new OpenApiType(){
+                Name = "email_address",
+                Property = "EmailAddress",
+                Type = "string",
+                Value = EmailAddress,
+            });
+            types.Add(new OpenApiType(){
+                Name = "skip_notification",
+                Property = "SkipNotification",
+                Type = "bool",
+                Value = SkipNotification,
+            });
 
             return types;
         }
     }
+
 }

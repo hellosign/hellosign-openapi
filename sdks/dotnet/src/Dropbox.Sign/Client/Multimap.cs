@@ -160,8 +160,7 @@ namespace Dropbox.Sign.Client
             {
                 if (_dictionary.TryGetValue(key, out var list))
                 {
-                    foreach (var k in value)
-                        list.Add(k);
+                    foreach (var k in value) list.Add(k);
                 }
                 else
                 {

@@ -13,15 +13,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel.DataAnnotations;
-using System.IO;
 using System.Linq;
+using System.IO;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 
 namespace Dropbox.Sign.Model
@@ -31,26 +31,21 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "ApiAppResponseOwnerAccount")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class ApiAppResponseOwnerAccount
-        : IEquatable<ApiAppResponseOwnerAccount>,
-            IValidatableObject
+    public partial class ApiAppResponseOwnerAccount : IEquatable<ApiAppResponseOwnerAccount>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiAppResponseOwnerAccount" /> class.
         /// </summary>
         [JsonConstructorAttribute]
         protected ApiAppResponseOwnerAccount() { }
-
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiAppResponseOwnerAccount" /> class.
         /// </summary>
         /// <param name="accountId">The owner account&#39;s ID.</param>
         /// <param name="emailAddress">The owner account&#39;s email address.</param>
-        public ApiAppResponseOwnerAccount(
-            string accountId = default(string),
-            string emailAddress = default(string)
-        )
+        public ApiAppResponseOwnerAccount(string accountId = default(string), string emailAddress = default(string))
         {
+            
             this.AccountId = accountId;
             this.EmailAddress = emailAddress;
         }
@@ -65,9 +60,7 @@ namespace Dropbox.Sign.Model
 
             if (obj == null)
             {
-                throw new Exception(
-                    "Unable to deserialize JSON to instance of ApiAppResponseOwnerAccount"
-                );
+                throw new Exception("Unable to deserialize JSON to instance of ApiAppResponseOwnerAccount");
             }
 
             return obj;
@@ -79,6 +72,7 @@ namespace Dropbox.Sign.Model
         /// <value>The owner account&#39;s ID</value>
         [DataMember(Name = "account_id", EmitDefaultValue = true)]
         public string AccountId { get; set; }
+        
 
         /// <summary>
         /// The owner account&#39;s email address
@@ -86,6 +80,7 @@ namespace Dropbox.Sign.Model
         /// <value>The owner account&#39;s email address</value>
         [DataMember(Name = "email_address", EmitDefaultValue = true)]
         public string EmailAddress { get; set; }
+        
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -107,10 +102,7 @@ namespace Dropbox.Sign.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(
-                this,
-                Newtonsoft.Json.Formatting.Indented
-            );
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>
@@ -134,13 +126,16 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return (
-                    this.AccountId == input.AccountId
-                    || (this.AccountId != null && this.AccountId.Equals(input.AccountId))
-                )
-                && (
-                    this.EmailAddress == input.EmailAddress
-                    || (this.EmailAddress != null && this.EmailAddress.Equals(input.EmailAddress))
+            return 
+                (
+                    this.AccountId == input.AccountId ||
+                    (this.AccountId != null &&
+                    this.AccountId.Equals(input.AccountId))
+                ) && 
+                (
+                    this.EmailAddress == input.EmailAddress ||
+                    (this.EmailAddress != null &&
+                    this.EmailAddress.Equals(input.EmailAddress))
                 );
         }
 
@@ -170,9 +165,7 @@ namespace Dropbox.Sign.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<ValidationResult> IValidatableObject.Validate(
-            ValidationContext validationContext
-        )
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }
@@ -180,26 +173,21 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "account_id",
-                    Property = "AccountId",
-                    Type = "string",
-                    Value = AccountId,
-                }
-            );
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "email_address",
-                    Property = "EmailAddress",
-                    Type = "string",
-                    Value = EmailAddress,
-                }
-            );
+            types.Add(new OpenApiType(){
+                Name = "account_id",
+                Property = "AccountId",
+                Type = "string",
+                Value = AccountId,
+            });
+            types.Add(new OpenApiType(){
+                Name = "email_address",
+                Property = "EmailAddress",
+                Type = "string",
+                Value = EmailAddress,
+            });
 
             return types;
         }
     }
+
 }

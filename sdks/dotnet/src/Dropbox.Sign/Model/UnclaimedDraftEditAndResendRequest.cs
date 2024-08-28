@@ -13,15 +13,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel.DataAnnotations;
-using System.IO;
 using System.Linq;
+using System.IO;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 
 namespace Dropbox.Sign.Model
@@ -31,16 +31,13 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "UnclaimedDraftEditAndResendRequest")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class UnclaimedDraftEditAndResendRequest
-        : IEquatable<UnclaimedDraftEditAndResendRequest>,
-            IValidatableObject
+    public partial class UnclaimedDraftEditAndResendRequest : IEquatable<UnclaimedDraftEditAndResendRequest>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="UnclaimedDraftEditAndResendRequest" /> class.
         /// </summary>
         [JsonConstructorAttribute]
         protected UnclaimedDraftEditAndResendRequest() { }
-
         /// <summary>
         /// Initializes a new instance of the <see cref="UnclaimedDraftEditAndResendRequest" /> class.
         /// </summary>
@@ -52,23 +49,13 @@ namespace Dropbox.Sign.Model
         /// <param name="showProgressStepper">When only one step remains in the signature request process and this parameter is set to &#x60;false&#x60; then the progress stepper will be hidden. (default to true).</param>
         /// <param name="signingRedirectUrl">The URL you want signers redirected to after they successfully sign..</param>
         /// <param name="testMode">Whether this is a test, the signature request created from this draft will not be legally binding if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;. (default to false).</param>
-        public UnclaimedDraftEditAndResendRequest(
-            string clientId = default(string),
-            SubEditorOptions editorOptions = default(SubEditorOptions),
-            bool isForEmbeddedSigning = default(bool),
-            string requesterEmailAddress = default(string),
-            string requestingRedirectUrl = default(string),
-            bool showProgressStepper = true,
-            string signingRedirectUrl = default(string),
-            bool testMode = false
-        )
+        public UnclaimedDraftEditAndResendRequest(string clientId = default(string), SubEditorOptions editorOptions = default(SubEditorOptions), bool isForEmbeddedSigning = default(bool), string requesterEmailAddress = default(string), string requestingRedirectUrl = default(string), bool showProgressStepper = true, string signingRedirectUrl = default(string), bool testMode = false)
         {
+            
             // to ensure "clientId" is required (not null)
             if (clientId == null)
             {
-                throw new ArgumentNullException(
-                    "clientId is a required property for UnclaimedDraftEditAndResendRequest and cannot be null"
-                );
+                throw new ArgumentNullException("clientId is a required property for UnclaimedDraftEditAndResendRequest and cannot be null");
             }
             this.ClientId = clientId;
             this.EditorOptions = editorOptions;
@@ -90,9 +77,7 @@ namespace Dropbox.Sign.Model
 
             if (obj == null)
             {
-                throw new Exception(
-                    "Unable to deserialize JSON to instance of UnclaimedDraftEditAndResendRequest"
-                );
+                throw new Exception("Unable to deserialize JSON to instance of UnclaimedDraftEditAndResendRequest");
             }
 
             return obj;
@@ -104,12 +89,14 @@ namespace Dropbox.Sign.Model
         /// <value>Client id of the app used to create the draft. Used to apply the branding and callback url defined for the app.</value>
         [DataMember(Name = "client_id", IsRequired = true, EmitDefaultValue = true)]
         public string ClientId { get; set; }
+        
 
         /// <summary>
         /// Gets or Sets EditorOptions
         /// </summary>
         [DataMember(Name = "editor_options", EmitDefaultValue = true)]
         public SubEditorOptions EditorOptions { get; set; }
+        
 
         /// <summary>
         /// The request created from this draft will also be signable in embedded mode if set to &#x60;true&#x60;.
@@ -117,6 +104,7 @@ namespace Dropbox.Sign.Model
         /// <value>The request created from this draft will also be signable in embedded mode if set to &#x60;true&#x60;.</value>
         [DataMember(Name = "is_for_embedded_signing", EmitDefaultValue = true)]
         public bool IsForEmbeddedSigning { get; set; }
+        
 
         /// <summary>
         /// The email address of the user that should be designated as the requester of this draft. If not set, original requester&#39;s email address will be used.
@@ -124,6 +112,7 @@ namespace Dropbox.Sign.Model
         /// <value>The email address of the user that should be designated as the requester of this draft. If not set, original requester&#39;s email address will be used.</value>
         [DataMember(Name = "requester_email_address", EmitDefaultValue = true)]
         public string RequesterEmailAddress { get; set; }
+        
 
         /// <summary>
         /// The URL you want signers redirected to after they successfully request a signature.
@@ -131,6 +120,7 @@ namespace Dropbox.Sign.Model
         /// <value>The URL you want signers redirected to after they successfully request a signature.</value>
         [DataMember(Name = "requesting_redirect_url", EmitDefaultValue = true)]
         public string RequestingRedirectUrl { get; set; }
+        
 
         /// <summary>
         /// When only one step remains in the signature request process and this parameter is set to &#x60;false&#x60; then the progress stepper will be hidden.
@@ -138,6 +128,7 @@ namespace Dropbox.Sign.Model
         /// <value>When only one step remains in the signature request process and this parameter is set to &#x60;false&#x60; then the progress stepper will be hidden.</value>
         [DataMember(Name = "show_progress_stepper", EmitDefaultValue = true)]
         public bool ShowProgressStepper { get; set; }
+        
 
         /// <summary>
         /// The URL you want signers redirected to after they successfully sign.
@@ -145,6 +136,7 @@ namespace Dropbox.Sign.Model
         /// <value>The URL you want signers redirected to after they successfully sign.</value>
         [DataMember(Name = "signing_redirect_url", EmitDefaultValue = true)]
         public string SigningRedirectUrl { get; set; }
+        
 
         /// <summary>
         /// Whether this is a test, the signature request created from this draft will not be legally binding if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.
@@ -152,6 +144,7 @@ namespace Dropbox.Sign.Model
         /// <value>Whether this is a test, the signature request created from this draft will not be legally binding if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.</value>
         [DataMember(Name = "test_mode", EmitDefaultValue = true)]
         public bool TestMode { get; set; }
+        
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -179,10 +172,7 @@ namespace Dropbox.Sign.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(
-                this,
-                Newtonsoft.Json.Formatting.Indented
-            );
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>
@@ -206,46 +196,44 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return (
-                    this.ClientId == input.ClientId
-                    || (this.ClientId != null && this.ClientId.Equals(input.ClientId))
-                )
-                && (
-                    this.EditorOptions == input.EditorOptions
-                    || (
-                        this.EditorOptions != null && this.EditorOptions.Equals(input.EditorOptions)
-                    )
-                )
-                && (
-                    this.IsForEmbeddedSigning == input.IsForEmbeddedSigning
-                    || this.IsForEmbeddedSigning.Equals(input.IsForEmbeddedSigning)
-                )
-                && (
-                    this.RequesterEmailAddress == input.RequesterEmailAddress
-                    || (
-                        this.RequesterEmailAddress != null
-                        && this.RequesterEmailAddress.Equals(input.RequesterEmailAddress)
-                    )
-                )
-                && (
-                    this.RequestingRedirectUrl == input.RequestingRedirectUrl
-                    || (
-                        this.RequestingRedirectUrl != null
-                        && this.RequestingRedirectUrl.Equals(input.RequestingRedirectUrl)
-                    )
-                )
-                && (
-                    this.ShowProgressStepper == input.ShowProgressStepper
-                    || this.ShowProgressStepper.Equals(input.ShowProgressStepper)
-                )
-                && (
-                    this.SigningRedirectUrl == input.SigningRedirectUrl
-                    || (
-                        this.SigningRedirectUrl != null
-                        && this.SigningRedirectUrl.Equals(input.SigningRedirectUrl)
-                    )
-                )
-                && (this.TestMode == input.TestMode || this.TestMode.Equals(input.TestMode));
+            return 
+                (
+                    this.ClientId == input.ClientId ||
+                    (this.ClientId != null &&
+                    this.ClientId.Equals(input.ClientId))
+                ) && 
+                (
+                    this.EditorOptions == input.EditorOptions ||
+                    (this.EditorOptions != null &&
+                    this.EditorOptions.Equals(input.EditorOptions))
+                ) && 
+                (
+                    this.IsForEmbeddedSigning == input.IsForEmbeddedSigning ||
+                    this.IsForEmbeddedSigning.Equals(input.IsForEmbeddedSigning)
+                ) && 
+                (
+                    this.RequesterEmailAddress == input.RequesterEmailAddress ||
+                    (this.RequesterEmailAddress != null &&
+                    this.RequesterEmailAddress.Equals(input.RequesterEmailAddress))
+                ) && 
+                (
+                    this.RequestingRedirectUrl == input.RequestingRedirectUrl ||
+                    (this.RequestingRedirectUrl != null &&
+                    this.RequestingRedirectUrl.Equals(input.RequestingRedirectUrl))
+                ) && 
+                (
+                    this.ShowProgressStepper == input.ShowProgressStepper ||
+                    this.ShowProgressStepper.Equals(input.ShowProgressStepper)
+                ) && 
+                (
+                    this.SigningRedirectUrl == input.SigningRedirectUrl ||
+                    (this.SigningRedirectUrl != null &&
+                    this.SigningRedirectUrl.Equals(input.SigningRedirectUrl))
+                ) && 
+                (
+                    this.TestMode == input.TestMode ||
+                    this.TestMode.Equals(input.TestMode)
+                );
         }
 
         /// <summary>
@@ -289,9 +277,7 @@ namespace Dropbox.Sign.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<ValidationResult> IValidatableObject.Validate(
-            ValidationContext validationContext
-        )
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }
@@ -299,80 +285,57 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "client_id",
-                    Property = "ClientId",
-                    Type = "string",
-                    Value = ClientId,
-                }
-            );
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "editor_options",
-                    Property = "EditorOptions",
-                    Type = "SubEditorOptions",
-                    Value = EditorOptions,
-                }
-            );
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "is_for_embedded_signing",
-                    Property = "IsForEmbeddedSigning",
-                    Type = "bool",
-                    Value = IsForEmbeddedSigning,
-                }
-            );
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "requester_email_address",
-                    Property = "RequesterEmailAddress",
-                    Type = "string",
-                    Value = RequesterEmailAddress,
-                }
-            );
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "requesting_redirect_url",
-                    Property = "RequestingRedirectUrl",
-                    Type = "string",
-                    Value = RequestingRedirectUrl,
-                }
-            );
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "show_progress_stepper",
-                    Property = "ShowProgressStepper",
-                    Type = "bool",
-                    Value = ShowProgressStepper,
-                }
-            );
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "signing_redirect_url",
-                    Property = "SigningRedirectUrl",
-                    Type = "string",
-                    Value = SigningRedirectUrl,
-                }
-            );
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "test_mode",
-                    Property = "TestMode",
-                    Type = "bool",
-                    Value = TestMode,
-                }
-            );
+            types.Add(new OpenApiType(){
+                Name = "client_id",
+                Property = "ClientId",
+                Type = "string",
+                Value = ClientId,
+            });
+            types.Add(new OpenApiType(){
+                Name = "editor_options",
+                Property = "EditorOptions",
+                Type = "SubEditorOptions",
+                Value = EditorOptions,
+            });
+            types.Add(new OpenApiType(){
+                Name = "is_for_embedded_signing",
+                Property = "IsForEmbeddedSigning",
+                Type = "bool",
+                Value = IsForEmbeddedSigning,
+            });
+            types.Add(new OpenApiType(){
+                Name = "requester_email_address",
+                Property = "RequesterEmailAddress",
+                Type = "string",
+                Value = RequesterEmailAddress,
+            });
+            types.Add(new OpenApiType(){
+                Name = "requesting_redirect_url",
+                Property = "RequestingRedirectUrl",
+                Type = "string",
+                Value = RequestingRedirectUrl,
+            });
+            types.Add(new OpenApiType(){
+                Name = "show_progress_stepper",
+                Property = "ShowProgressStepper",
+                Type = "bool",
+                Value = ShowProgressStepper,
+            });
+            types.Add(new OpenApiType(){
+                Name = "signing_redirect_url",
+                Property = "SigningRedirectUrl",
+                Type = "string",
+                Value = SigningRedirectUrl,
+            });
+            types.Add(new OpenApiType(){
+                Name = "test_mode",
+                Property = "TestMode",
+                Type = "bool",
+                Value = TestMode,
+            });
 
             return types;
         }
     }
+
 }

@@ -13,15 +13,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel.DataAnnotations;
-using System.IO;
 using System.Linq;
+using System.IO;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 
 namespace Dropbox.Sign.Model
@@ -31,16 +31,13 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "TemplateCreateEmbeddedDraftResponseTemplate")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class TemplateCreateEmbeddedDraftResponseTemplate
-        : IEquatable<TemplateCreateEmbeddedDraftResponseTemplate>,
-            IValidatableObject
+    public partial class TemplateCreateEmbeddedDraftResponseTemplate : IEquatable<TemplateCreateEmbeddedDraftResponseTemplate>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="TemplateCreateEmbeddedDraftResponseTemplate" /> class.
         /// </summary>
         [JsonConstructorAttribute]
         protected TemplateCreateEmbeddedDraftResponseTemplate() { }
-
         /// <summary>
         /// Initializes a new instance of the <see cref="TemplateCreateEmbeddedDraftResponseTemplate" /> class.
         /// </summary>
@@ -48,13 +45,9 @@ namespace Dropbox.Sign.Model
         /// <param name="editUrl">Link to edit the template..</param>
         /// <param name="expiresAt">When the link expires..</param>
         /// <param name="warnings">A list of warnings..</param>
-        public TemplateCreateEmbeddedDraftResponseTemplate(
-            string templateId = default(string),
-            string editUrl = default(string),
-            int expiresAt = default(int),
-            List<WarningResponse> warnings = default(List<WarningResponse>)
-        )
+        public TemplateCreateEmbeddedDraftResponseTemplate(string templateId = default(string), string editUrl = default(string), int expiresAt = default(int), List<WarningResponse> warnings = default(List<WarningResponse>))
         {
+            
             this.TemplateId = templateId;
             this.EditUrl = editUrl;
             this.ExpiresAt = expiresAt;
@@ -67,15 +60,11 @@ namespace Dropbox.Sign.Model
         /// <param name="jsonData">String of JSON data representing target object</param>
         public static TemplateCreateEmbeddedDraftResponseTemplate Init(string jsonData)
         {
-            var obj = JsonConvert.DeserializeObject<TemplateCreateEmbeddedDraftResponseTemplate>(
-                jsonData
-            );
+            var obj = JsonConvert.DeserializeObject<TemplateCreateEmbeddedDraftResponseTemplate>(jsonData);
 
             if (obj == null)
             {
-                throw new Exception(
-                    "Unable to deserialize JSON to instance of TemplateCreateEmbeddedDraftResponseTemplate"
-                );
+                throw new Exception("Unable to deserialize JSON to instance of TemplateCreateEmbeddedDraftResponseTemplate");
             }
 
             return obj;
@@ -87,6 +76,7 @@ namespace Dropbox.Sign.Model
         /// <value>The id of the Template.</value>
         [DataMember(Name = "template_id", EmitDefaultValue = true)]
         public string TemplateId { get; set; }
+        
 
         /// <summary>
         /// Link to edit the template.
@@ -94,6 +84,7 @@ namespace Dropbox.Sign.Model
         /// <value>Link to edit the template.</value>
         [DataMember(Name = "edit_url", EmitDefaultValue = true)]
         public string EditUrl { get; set; }
+        
 
         /// <summary>
         /// When the link expires.
@@ -101,6 +92,7 @@ namespace Dropbox.Sign.Model
         /// <value>When the link expires.</value>
         [DataMember(Name = "expires_at", EmitDefaultValue = true)]
         public int ExpiresAt { get; set; }
+        
 
         /// <summary>
         /// A list of warnings.
@@ -109,6 +101,7 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "warnings", EmitDefaultValue = true)]
         [Obsolete]
         public List<WarningResponse> Warnings { get; set; }
+        
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -132,10 +125,7 @@ namespace Dropbox.Sign.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(
-                this,
-                Newtonsoft.Json.Formatting.Indented
-            );
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>
@@ -159,20 +149,26 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return (
-                    this.TemplateId == input.TemplateId
-                    || (this.TemplateId != null && this.TemplateId.Equals(input.TemplateId))
-                )
-                && (
-                    this.EditUrl == input.EditUrl
-                    || (this.EditUrl != null && this.EditUrl.Equals(input.EditUrl))
-                )
-                && (this.ExpiresAt == input.ExpiresAt || this.ExpiresAt.Equals(input.ExpiresAt))
-                && (
-                    this.Warnings == input.Warnings
-                    || this.Warnings != null
-                        && input.Warnings != null
-                        && this.Warnings.SequenceEqual(input.Warnings)
+            return 
+                (
+                    this.TemplateId == input.TemplateId ||
+                    (this.TemplateId != null &&
+                    this.TemplateId.Equals(input.TemplateId))
+                ) && 
+                (
+                    this.EditUrl == input.EditUrl ||
+                    (this.EditUrl != null &&
+                    this.EditUrl.Equals(input.EditUrl))
+                ) && 
+                (
+                    this.ExpiresAt == input.ExpiresAt ||
+                    this.ExpiresAt.Equals(input.ExpiresAt)
+                ) && 
+                (
+                    this.Warnings == input.Warnings ||
+                    this.Warnings != null &&
+                    input.Warnings != null &&
+                    this.Warnings.SequenceEqual(input.Warnings)
                 );
         }
 
@@ -207,9 +203,7 @@ namespace Dropbox.Sign.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<ValidationResult> IValidatableObject.Validate(
-            ValidationContext validationContext
-        )
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }
@@ -217,44 +211,33 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "template_id",
-                    Property = "TemplateId",
-                    Type = "string",
-                    Value = TemplateId,
-                }
-            );
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "edit_url",
-                    Property = "EditUrl",
-                    Type = "string",
-                    Value = EditUrl,
-                }
-            );
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "expires_at",
-                    Property = "ExpiresAt",
-                    Type = "int",
-                    Value = ExpiresAt,
-                }
-            );
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "warnings",
-                    Property = "Warnings",
-                    Type = "List<WarningResponse>",
-                    Value = Warnings,
-                }
-            );
+            types.Add(new OpenApiType(){
+                Name = "template_id",
+                Property = "TemplateId",
+                Type = "string",
+                Value = TemplateId,
+            });
+            types.Add(new OpenApiType(){
+                Name = "edit_url",
+                Property = "EditUrl",
+                Type = "string",
+                Value = EditUrl,
+            });
+            types.Add(new OpenApiType(){
+                Name = "expires_at",
+                Property = "ExpiresAt",
+                Type = "int",
+                Value = ExpiresAt,
+            });
+            types.Add(new OpenApiType(){
+                Name = "warnings",
+                Property = "Warnings",
+                Type = "List<WarningResponse>",
+                Value = Warnings,
+            });
 
             return types;
         }
     }
+
 }

@@ -20,6 +20,7 @@ using Dropbox.Sign.Model;
 
 namespace Dropbox.Sign.Api
 {
+
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
@@ -37,11 +38,7 @@ namespace Dropbox.Sign.Api
         /// <param name="embeddedEditUrlRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>EmbeddedEditUrlResponse</returns>
-        EmbeddedEditUrlResponse EmbeddedEditUrl(
-            string templateId,
-            EmbeddedEditUrlRequest embeddedEditUrlRequest,
-            int operationIndex = 0
-        );
+        EmbeddedEditUrlResponse EmbeddedEditUrl(string templateId, EmbeddedEditUrlRequest embeddedEditUrlRequest, int operationIndex = 0);
 
         /// <summary>
         /// Get Embedded Template Edit URL
@@ -54,12 +51,7 @@ namespace Dropbox.Sign.Api
         /// <param name="embeddedEditUrlRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of EmbeddedEditUrlResponse</returns>
-        ApiResponse<EmbeddedEditUrlResponse> EmbeddedEditUrlWithHttpInfo(
-            string templateId,
-            EmbeddedEditUrlRequest embeddedEditUrlRequest,
-            int operationIndex = 0
-        );
-
+        ApiResponse<EmbeddedEditUrlResponse> EmbeddedEditUrlWithHttpInfo(string templateId, EmbeddedEditUrlRequest embeddedEditUrlRequest, int operationIndex = 0);
         /// <summary>
         /// Get Embedded Sign URL
         /// </summary>
@@ -82,10 +74,7 @@ namespace Dropbox.Sign.Api
         /// <param name="signatureId">The id of the signature to get a signature url for.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of EmbeddedSignUrlResponse</returns>
-        ApiResponse<EmbeddedSignUrlResponse> EmbeddedSignUrlWithHttpInfo(
-            string signatureId,
-            int operationIndex = 0
-        );
+        ApiResponse<EmbeddedSignUrlResponse> EmbeddedSignUrlWithHttpInfo(string signatureId, int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -107,13 +96,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EmbeddedEditUrlResponse</returns>
-        System.Threading.Tasks.Task<EmbeddedEditUrlResponse> EmbeddedEditUrlAsync(
-            string templateId,
-            EmbeddedEditUrlRequest embeddedEditUrlRequest,
-            int operationIndex = 0,
-            System.Threading.CancellationToken cancellationToken =
-                default(System.Threading.CancellationToken)
-        );
+        System.Threading.Tasks.Task<EmbeddedEditUrlResponse> EmbeddedEditUrlAsync(string templateId, EmbeddedEditUrlRequest embeddedEditUrlRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get Embedded Template Edit URL
@@ -127,16 +110,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EmbeddedEditUrlResponse)</returns>
-        System.Threading.Tasks.Task<
-            ApiResponse<EmbeddedEditUrlResponse>
-        > EmbeddedEditUrlWithHttpInfoAsync(
-            string templateId,
-            EmbeddedEditUrlRequest embeddedEditUrlRequest,
-            int operationIndex = 0,
-            System.Threading.CancellationToken cancellationToken =
-                default(System.Threading.CancellationToken)
-        );
-
+        System.Threading.Tasks.Task<ApiResponse<EmbeddedEditUrlResponse>> EmbeddedEditUrlWithHttpInfoAsync(string templateId, EmbeddedEditUrlRequest embeddedEditUrlRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get Embedded Sign URL
         /// </summary>
@@ -148,12 +122,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EmbeddedSignUrlResponse</returns>
-        System.Threading.Tasks.Task<EmbeddedSignUrlResponse> EmbeddedSignUrlAsync(
-            string signatureId,
-            int operationIndex = 0,
-            System.Threading.CancellationToken cancellationToken =
-                default(System.Threading.CancellationToken)
-        );
+        System.Threading.Tasks.Task<EmbeddedSignUrlResponse> EmbeddedSignUrlAsync(string signatureId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get Embedded Sign URL
@@ -166,21 +135,17 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EmbeddedSignUrlResponse)</returns>
-        System.Threading.Tasks.Task<
-            ApiResponse<EmbeddedSignUrlResponse>
-        > EmbeddedSignUrlWithHttpInfoAsync(
-            string signatureId,
-            int operationIndex = 0,
-            System.Threading.CancellationToken cancellationToken =
-                default(System.Threading.CancellationToken)
-        );
+        System.Threading.Tasks.Task<ApiResponse<EmbeddedSignUrlResponse>> EmbeddedSignUrlWithHttpInfoAsync(string signatureId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IEmbeddedApi : IEmbeddedApiSync, IEmbeddedApiAsync { }
+    public interface IEmbeddedApi : IEmbeddedApiSync, IEmbeddedApiAsync
+    {
+
+    }
 
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
@@ -193,8 +158,9 @@ namespace Dropbox.Sign.Api
         /// Initializes a new instance of the <see cref="EmbeddedApi"/> class.
         /// </summary>
         /// <returns></returns>
-        public EmbeddedApi()
-            : this((string)null) { }
+        public EmbeddedApi() : this((string)null)
+        {
+        }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="EmbeddedApi"/> class.
@@ -207,9 +173,7 @@ namespace Dropbox.Sign.Api
                 new Dropbox.Sign.Client.Configuration { BasePath = basePath }
             );
             this.Client = new Dropbox.Sign.Client.ApiClient(this.Configuration.BasePath);
-            this.AsynchronousClient = new Dropbox.Sign.Client.ApiClient(
-                this.Configuration.BasePath
-            );
+            this.AsynchronousClient = new Dropbox.Sign.Client.ApiClient(this.Configuration.BasePath);
             this.ExceptionFactory = Dropbox.Sign.Client.Configuration.DefaultExceptionFactory;
         }
 
@@ -221,17 +185,14 @@ namespace Dropbox.Sign.Api
         /// <returns></returns>
         public EmbeddedApi(Dropbox.Sign.Client.Configuration configuration)
         {
-            if (configuration == null)
-                throw new ArgumentNullException("configuration");
+            if (configuration == null) throw new ArgumentNullException("configuration");
 
             this.Configuration = Dropbox.Sign.Client.Configuration.MergeConfigurations(
                 Dropbox.Sign.Client.GlobalConfiguration.Instance,
                 configuration
             );
             this.Client = new Dropbox.Sign.Client.ApiClient(this.Configuration.BasePath);
-            this.AsynchronousClient = new Dropbox.Sign.Client.ApiClient(
-                this.Configuration.BasePath
-            );
+            this.AsynchronousClient = new Dropbox.Sign.Client.ApiClient(this.Configuration.BasePath);
             ExceptionFactory = Dropbox.Sign.Client.Configuration.DefaultExceptionFactory;
         }
 
@@ -242,18 +203,11 @@ namespace Dropbox.Sign.Api
         /// <param name="client">The client interface for synchronous API access.</param>
         /// <param name="asyncClient">The client interface for asynchronous API access.</param>
         /// <param name="configuration">The configuration object.</param>
-        public EmbeddedApi(
-            Dropbox.Sign.Client.ISynchronousClient client,
-            Dropbox.Sign.Client.IAsynchronousClient asyncClient,
-            Dropbox.Sign.Client.IReadableConfiguration configuration
-        )
+        public EmbeddedApi(Dropbox.Sign.Client.ISynchronousClient client, Dropbox.Sign.Client.IAsynchronousClient asyncClient, Dropbox.Sign.Client.IReadableConfiguration configuration)
         {
-            if (client == null)
-                throw new ArgumentNullException("client");
-            if (asyncClient == null)
-                throw new ArgumentNullException("asyncClient");
-            if (configuration == null)
-                throw new ArgumentNullException("configuration");
+            if (client == null) throw new ArgumentNullException("client");
+            if (asyncClient == null) throw new ArgumentNullException("asyncClient");
+            if (configuration == null) throw new ArgumentNullException("configuration");
 
             this.Client = client;
             this.AsynchronousClient = asyncClient;
@@ -295,9 +249,7 @@ namespace Dropbox.Sign.Api
             {
                 if (_exceptionFactory != null && _exceptionFactory.GetInvocationList().Length > 1)
                 {
-                    throw new InvalidOperationException(
-                        "Multicast delegate for ExceptionFactory is unsupported."
-                    );
+                    throw new InvalidOperationException("Multicast delegate for ExceptionFactory is unsupported.");
                 }
                 return _exceptionFactory;
             }
@@ -312,14 +264,9 @@ namespace Dropbox.Sign.Api
         /// <param name="embeddedEditUrlRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>EmbeddedEditUrlResponse</returns>
-        public EmbeddedEditUrlResponse EmbeddedEditUrl(
-            string templateId,
-            EmbeddedEditUrlRequest embeddedEditUrlRequest,
-            int operationIndex = 0
-        )
+        public EmbeddedEditUrlResponse EmbeddedEditUrl(string templateId, EmbeddedEditUrlRequest embeddedEditUrlRequest, int operationIndex = 0)
         {
-            Dropbox.Sign.Client.ApiResponse<EmbeddedEditUrlResponse> localVarResponse =
-                EmbeddedEditUrlWithHttpInfo(templateId, embeddedEditUrlRequest);
+            Dropbox.Sign.Client.ApiResponse<EmbeddedEditUrlResponse> localVarResponse = EmbeddedEditUrlWithHttpInfo(templateId, embeddedEditUrlRequest);
             return localVarResponse.Data;
         }
 
@@ -331,32 +278,21 @@ namespace Dropbox.Sign.Api
         /// <param name="embeddedEditUrlRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of EmbeddedEditUrlResponse</returns>
-        public Dropbox.Sign.Client.ApiResponse<EmbeddedEditUrlResponse> EmbeddedEditUrlWithHttpInfo(
-            string templateId,
-            EmbeddedEditUrlRequest embeddedEditUrlRequest,
-            int operationIndex = 0
-        )
+        public Dropbox.Sign.Client.ApiResponse<EmbeddedEditUrlResponse> EmbeddedEditUrlWithHttpInfo(string templateId, EmbeddedEditUrlRequest embeddedEditUrlRequest, int operationIndex = 0)
         {
             // verify the required parameter 'templateId' is set
             if (templateId == null)
             {
-                throw new Dropbox.Sign.Client.ApiException(
-                    400,
-                    "Missing required parameter 'templateId' when calling EmbeddedApi->EmbeddedEditUrl"
-                );
+                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'templateId' when calling EmbeddedApi->EmbeddedEditUrl");
             }
 
             // verify the required parameter 'embeddedEditUrlRequest' is set
             if (embeddedEditUrlRequest == null)
             {
-                throw new Dropbox.Sign.Client.ApiException(
-                    400,
-                    "Missing required parameter 'embeddedEditUrlRequest' when calling EmbeddedApi->EmbeddedEditUrl"
-                );
+                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'embeddedEditUrlRequest' when calling EmbeddedApi->EmbeddedEditUrl");
             }
 
-            Dropbox.Sign.Client.RequestOptions localVarRequestOptions =
-                new Dropbox.Sign.Client.RequestOptions();
+            Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
 
             var localVarContentType = "";
             var openApiTypes = embeddedEditUrlRequest.GetOpenApiTypes();
@@ -372,7 +308,9 @@ namespace Dropbox.Sign.Api
             }
 
             // to determine the Accept header
-            string[] _accepts = new string[] { "application/json" };
+            string[] _accepts = new string[] {
+                "application/json"
+            };
 
             if (localVarContentType != null)
             {
@@ -385,49 +323,26 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add(
-                "template_id",
-                Dropbox.Sign.Client.ClientUtils.ParameterToString(templateId)
-            ); // path parameter
+            localVarRequestOptions.PathParameters.Add("template_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(templateId)); // path parameter
 
             localVarRequestOptions.Operation = "EmbeddedApi.EmbeddedEditUrl";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (api_key) required
             // http basic authentication required
-            if (
-                !string.IsNullOrEmpty(this.Configuration.Username)
-                || !string.IsNullOrEmpty(this.Configuration.Password)
-                    && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization")
-            )
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add(
-                    "Authorization",
-                    "Basic "
-                        + Dropbox.Sign.Client.ClientUtils.Base64Encode(
-                            this.Configuration.Username + ":" + this.Configuration.Password
-                        )
-                );
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Dropbox.Sign.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (oauth2) required
             // bearer authentication required
-            if (
-                !string.IsNullOrEmpty(this.Configuration.AccessToken)
-                && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization")
-            )
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add(
-                    "Authorization",
-                    "Bearer " + this.Configuration.AccessToken
-                );
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<EmbeddedEditUrlResponse>(
-                "/embedded/edit_url/{template_id}",
-                localVarRequestOptions,
-                this.Configuration
-            );
+            var localVarResponse = this.Client.Post<EmbeddedEditUrlResponse>("/embedded/edit_url/{template_id}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("EmbeddedEditUrl", localVarResponse);
@@ -449,22 +364,9 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EmbeddedEditUrlResponse</returns>
-        public async System.Threading.Tasks.Task<EmbeddedEditUrlResponse> EmbeddedEditUrlAsync(
-            string templateId,
-            EmbeddedEditUrlRequest embeddedEditUrlRequest,
-            int operationIndex = 0,
-            System.Threading.CancellationToken cancellationToken =
-                default(System.Threading.CancellationToken)
-        )
+        public async System.Threading.Tasks.Task<EmbeddedEditUrlResponse> EmbeddedEditUrlAsync(string templateId, EmbeddedEditUrlRequest embeddedEditUrlRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Dropbox.Sign.Client.ApiResponse<EmbeddedEditUrlResponse> localVarResponse =
-                await EmbeddedEditUrlWithHttpInfoAsync(
-                        templateId,
-                        embeddedEditUrlRequest,
-                        operationIndex,
-                        cancellationToken
-                    )
-                    .ConfigureAwait(false);
+            Dropbox.Sign.Client.ApiResponse<EmbeddedEditUrlResponse> localVarResponse = await EmbeddedEditUrlWithHttpInfoAsync(templateId, embeddedEditUrlRequest, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -477,34 +379,22 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EmbeddedEditUrlResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<EmbeddedEditUrlResponse>> EmbeddedEditUrlWithHttpInfoAsync(
-            string templateId,
-            EmbeddedEditUrlRequest embeddedEditUrlRequest,
-            int operationIndex = 0,
-            System.Threading.CancellationToken cancellationToken =
-                default(System.Threading.CancellationToken)
-        )
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<EmbeddedEditUrlResponse>> EmbeddedEditUrlWithHttpInfoAsync(string templateId, EmbeddedEditUrlRequest embeddedEditUrlRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'templateId' is set
             if (templateId == null)
             {
-                throw new Dropbox.Sign.Client.ApiException(
-                    400,
-                    "Missing required parameter 'templateId' when calling EmbeddedApi->EmbeddedEditUrl"
-                );
+                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'templateId' when calling EmbeddedApi->EmbeddedEditUrl");
             }
 
             // verify the required parameter 'embeddedEditUrlRequest' is set
             if (embeddedEditUrlRequest == null)
             {
-                throw new Dropbox.Sign.Client.ApiException(
-                    400,
-                    "Missing required parameter 'embeddedEditUrlRequest' when calling EmbeddedApi->EmbeddedEditUrl"
-                );
+                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'embeddedEditUrlRequest' when calling EmbeddedApi->EmbeddedEditUrl");
             }
 
-            Dropbox.Sign.Client.RequestOptions localVarRequestOptions =
-                new Dropbox.Sign.Client.RequestOptions();
+
+            Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
 
             var localVarContentType = "";
             var openApiTypes = embeddedEditUrlRequest.GetOpenApiTypes();
@@ -520,7 +410,9 @@ namespace Dropbox.Sign.Api
             }
 
             // to determine the Accept header
-            string[] _accepts = new string[] { "application/json" };
+            string[] _accepts = new string[] {
+                "application/json"
+            };
 
             if (localVarContentType != null)
             {
@@ -533,52 +425,26 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add(
-                "template_id",
-                Dropbox.Sign.Client.ClientUtils.ParameterToString(templateId)
-            ); // path parameter
+            localVarRequestOptions.PathParameters.Add("template_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(templateId)); // path parameter
 
             localVarRequestOptions.Operation = "EmbeddedApi.EmbeddedEditUrl";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (api_key) required
             // http basic authentication required
-            if (
-                !string.IsNullOrEmpty(this.Configuration.Username)
-                || !string.IsNullOrEmpty(this.Configuration.Password)
-                    && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization")
-            )
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add(
-                    "Authorization",
-                    "Basic "
-                        + Dropbox.Sign.Client.ClientUtils.Base64Encode(
-                            this.Configuration.Username + ":" + this.Configuration.Password
-                        )
-                );
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Dropbox.Sign.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (oauth2) required
             // bearer authentication required
-            if (
-                !string.IsNullOrEmpty(this.Configuration.AccessToken)
-                && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization")
-            )
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add(
-                    "Authorization",
-                    "Bearer " + this.Configuration.AccessToken
-                );
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
 
             // make the HTTP request
-            var localVarResponse = await this
-                .AsynchronousClient.PostAsync<EmbeddedEditUrlResponse>(
-                    "/embedded/edit_url/{template_id}",
-                    localVarRequestOptions,
-                    this.Configuration,
-                    cancellationToken
-                )
-                .ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<EmbeddedEditUrlResponse>("/embedded/edit_url/{template_id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -601,8 +467,7 @@ namespace Dropbox.Sign.Api
         /// <returns>EmbeddedSignUrlResponse</returns>
         public EmbeddedSignUrlResponse EmbeddedSignUrl(string signatureId, int operationIndex = 0)
         {
-            Dropbox.Sign.Client.ApiResponse<EmbeddedSignUrlResponse> localVarResponse =
-                EmbeddedSignUrlWithHttpInfo(signatureId);
+            Dropbox.Sign.Client.ApiResponse<EmbeddedSignUrlResponse> localVarResponse = EmbeddedSignUrlWithHttpInfo(signatureId);
             return localVarResponse.Data;
         }
 
@@ -613,30 +478,24 @@ namespace Dropbox.Sign.Api
         /// <param name="signatureId">The id of the signature to get a signature url for.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of EmbeddedSignUrlResponse</returns>
-        public Dropbox.Sign.Client.ApiResponse<EmbeddedSignUrlResponse> EmbeddedSignUrlWithHttpInfo(
-            string signatureId,
-            int operationIndex = 0
-        )
+        public Dropbox.Sign.Client.ApiResponse<EmbeddedSignUrlResponse> EmbeddedSignUrlWithHttpInfo(string signatureId, int operationIndex = 0)
         {
             // verify the required parameter 'signatureId' is set
             if (signatureId == null)
             {
-                throw new Dropbox.Sign.Client.ApiException(
-                    400,
-                    "Missing required parameter 'signatureId' when calling EmbeddedApi->EmbeddedSignUrl"
-                );
+                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'signatureId' when calling EmbeddedApi->EmbeddedSignUrl");
             }
 
-            Dropbox.Sign.Client.RequestOptions localVarRequestOptions =
-                new Dropbox.Sign.Client.RequestOptions();
+            Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
 
-            string[] _contentTypes = new string[] { };
-            var localVarContentType = Dropbox.Sign.Client.ClientUtils.SelectHeaderContentType(
-                _contentTypes
-            );
+            string[] _contentTypes = new string[] {
+            };
+            var localVarContentType = Dropbox.Sign.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
 
             // to determine the Accept header
-            string[] _accepts = new string[] { "application/json" };
+            string[] _accepts = new string[] {
+                "application/json"
+            };
 
             if (localVarContentType != null)
             {
@@ -649,49 +508,26 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add(
-                "signature_id",
-                Dropbox.Sign.Client.ClientUtils.ParameterToString(signatureId)
-            ); // path parameter
+            localVarRequestOptions.PathParameters.Add("signature_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(signatureId)); // path parameter
 
             localVarRequestOptions.Operation = "EmbeddedApi.EmbeddedSignUrl";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (api_key) required
             // http basic authentication required
-            if (
-                !string.IsNullOrEmpty(this.Configuration.Username)
-                || !string.IsNullOrEmpty(this.Configuration.Password)
-                    && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization")
-            )
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add(
-                    "Authorization",
-                    "Basic "
-                        + Dropbox.Sign.Client.ClientUtils.Base64Encode(
-                            this.Configuration.Username + ":" + this.Configuration.Password
-                        )
-                );
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Dropbox.Sign.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (oauth2) required
             // bearer authentication required
-            if (
-                !string.IsNullOrEmpty(this.Configuration.AccessToken)
-                && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization")
-            )
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add(
-                    "Authorization",
-                    "Bearer " + this.Configuration.AccessToken
-                );
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<EmbeddedSignUrlResponse>(
-                "/embedded/sign_url/{signature_id}",
-                localVarRequestOptions,
-                this.Configuration
-            );
+            var localVarResponse = this.Client.Get<EmbeddedSignUrlResponse>("/embedded/sign_url/{signature_id}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("EmbeddedSignUrl", localVarResponse);
@@ -712,20 +548,9 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EmbeddedSignUrlResponse</returns>
-        public async System.Threading.Tasks.Task<EmbeddedSignUrlResponse> EmbeddedSignUrlAsync(
-            string signatureId,
-            int operationIndex = 0,
-            System.Threading.CancellationToken cancellationToken =
-                default(System.Threading.CancellationToken)
-        )
+        public async System.Threading.Tasks.Task<EmbeddedSignUrlResponse> EmbeddedSignUrlAsync(string signatureId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Dropbox.Sign.Client.ApiResponse<EmbeddedSignUrlResponse> localVarResponse =
-                await EmbeddedSignUrlWithHttpInfoAsync(
-                        signatureId,
-                        operationIndex,
-                        cancellationToken
-                    )
-                    .ConfigureAwait(false);
+            Dropbox.Sign.Client.ApiResponse<EmbeddedSignUrlResponse> localVarResponse = await EmbeddedSignUrlWithHttpInfoAsync(signatureId, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -737,32 +562,25 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EmbeddedSignUrlResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<EmbeddedSignUrlResponse>> EmbeddedSignUrlWithHttpInfoAsync(
-            string signatureId,
-            int operationIndex = 0,
-            System.Threading.CancellationToken cancellationToken =
-                default(System.Threading.CancellationToken)
-        )
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<EmbeddedSignUrlResponse>> EmbeddedSignUrlWithHttpInfoAsync(string signatureId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'signatureId' is set
             if (signatureId == null)
             {
-                throw new Dropbox.Sign.Client.ApiException(
-                    400,
-                    "Missing required parameter 'signatureId' when calling EmbeddedApi->EmbeddedSignUrl"
-                );
+                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'signatureId' when calling EmbeddedApi->EmbeddedSignUrl");
             }
 
-            Dropbox.Sign.Client.RequestOptions localVarRequestOptions =
-                new Dropbox.Sign.Client.RequestOptions();
 
-            string[] _contentTypes = new string[] { };
-            var localVarContentType = Dropbox.Sign.Client.ClientUtils.SelectHeaderContentType(
-                _contentTypes
-            );
+            Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+            var localVarContentType = Dropbox.Sign.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
 
             // to determine the Accept header
-            string[] _accepts = new string[] { "application/json" };
+            string[] _accepts = new string[] {
+                "application/json"
+            };
 
             if (localVarContentType != null)
             {
@@ -775,52 +593,26 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add(
-                "signature_id",
-                Dropbox.Sign.Client.ClientUtils.ParameterToString(signatureId)
-            ); // path parameter
+            localVarRequestOptions.PathParameters.Add("signature_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(signatureId)); // path parameter
 
             localVarRequestOptions.Operation = "EmbeddedApi.EmbeddedSignUrl";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (api_key) required
             // http basic authentication required
-            if (
-                !string.IsNullOrEmpty(this.Configuration.Username)
-                || !string.IsNullOrEmpty(this.Configuration.Password)
-                    && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization")
-            )
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add(
-                    "Authorization",
-                    "Basic "
-                        + Dropbox.Sign.Client.ClientUtils.Base64Encode(
-                            this.Configuration.Username + ":" + this.Configuration.Password
-                        )
-                );
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Dropbox.Sign.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (oauth2) required
             // bearer authentication required
-            if (
-                !string.IsNullOrEmpty(this.Configuration.AccessToken)
-                && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization")
-            )
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add(
-                    "Authorization",
-                    "Bearer " + this.Configuration.AccessToken
-                );
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
 
             // make the HTTP request
-            var localVarResponse = await this
-                .AsynchronousClient.GetAsync<EmbeddedSignUrlResponse>(
-                    "/embedded/sign_url/{signature_id}",
-                    localVarRequestOptions,
-                    this.Configuration,
-                    cancellationToken
-                )
-                .ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<EmbeddedSignUrlResponse>("/embedded/sign_url/{signature_id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -833,5 +625,6 @@ namespace Dropbox.Sign.Api
 
             return localVarResponse;
         }
+
     }
 }

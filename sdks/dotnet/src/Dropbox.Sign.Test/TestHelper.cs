@@ -1,8 +1,8 @@
 using System;
 using System.IO;
+using Newtonsoft.Json;
 using Dropbox.Sign.Model;
 using JsonDiffPatchDotNet;
-using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Xunit;
 
@@ -14,7 +14,9 @@ namespace Dropbox.Sign.Test
 
         public static StreamReader ReadFileFromResource(string fileName)
         {
-            return new StreamReader(RootPath + $"/{fileName}.json");
+            return new StreamReader(
+                RootPath + $"/{fileName}.json"
+            );
         }
 
         public static FileStream GetFile(string fileName)
@@ -27,8 +29,10 @@ namespace Dropbox.Sign.Test
             );
         }
 
-        public static T SerializeFromFile<T>(string fileName, string key = "default")
-            where T : IOpenApiTyped
+        public static T SerializeFromFile<T>(
+            string fileName,
+            string key = "default"
+        ) where T : IOpenApiTyped
         {
             T instance = (T)Activator.CreateInstance(typeof(T), true);
 
@@ -68,7 +72,10 @@ namespace Dropbox.Sign.Test
 
             var result = patch.ToString();
 
-            Assert.True(result == "", result);
+            Assert.True(
+                result == "",
+                result
+            );
         }
     }
 }

@@ -13,15 +13,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel.DataAnnotations;
-using System.IO;
 using System.Linq;
+using System.IO;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 
 namespace Dropbox.Sign.Model
@@ -38,19 +38,15 @@ namespace Dropbox.Sign.Model
         /// </summary>
         [JsonConstructorAttribute]
         protected TeamSubTeamsResponse() { }
-
         /// <summary>
         /// Initializes a new instance of the <see cref="TeamSubTeamsResponse" /> class.
         /// </summary>
         /// <param name="subTeams">Contains a list with sub teams..</param>
         /// <param name="listInfo">listInfo.</param>
         /// <param name="warnings">warnings.</param>
-        public TeamSubTeamsResponse(
-            List<SubTeamResponse> subTeams = default(List<SubTeamResponse>),
-            ListInfoResponse listInfo = default(ListInfoResponse),
-            List<WarningResponse> warnings = default(List<WarningResponse>)
-        )
+        public TeamSubTeamsResponse(List<SubTeamResponse> subTeams = default(List<SubTeamResponse>), ListInfoResponse listInfo = default(ListInfoResponse), List<WarningResponse> warnings = default(List<WarningResponse>))
         {
+            
             this.SubTeams = subTeams;
             this.ListInfo = listInfo;
             this.Warnings = warnings;
@@ -66,9 +62,7 @@ namespace Dropbox.Sign.Model
 
             if (obj == null)
             {
-                throw new Exception(
-                    "Unable to deserialize JSON to instance of TeamSubTeamsResponse"
-                );
+                throw new Exception("Unable to deserialize JSON to instance of TeamSubTeamsResponse");
             }
 
             return obj;
@@ -80,18 +74,21 @@ namespace Dropbox.Sign.Model
         /// <value>Contains a list with sub teams.</value>
         [DataMember(Name = "sub_teams", EmitDefaultValue = true)]
         public List<SubTeamResponse> SubTeams { get; set; }
+        
 
         /// <summary>
         /// Gets or Sets ListInfo
         /// </summary>
         [DataMember(Name = "list_info", EmitDefaultValue = true)]
         public ListInfoResponse ListInfo { get; set; }
+        
 
         /// <summary>
         /// Gets or Sets Warnings
         /// </summary>
         [DataMember(Name = "warnings", EmitDefaultValue = true)]
         public List<WarningResponse> Warnings { get; set; }
+        
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -114,10 +111,7 @@ namespace Dropbox.Sign.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(
-                this,
-                Newtonsoft.Json.Formatting.Indented
-            );
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>
@@ -141,21 +135,23 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return (
-                    this.SubTeams == input.SubTeams
-                    || this.SubTeams != null
-                        && input.SubTeams != null
-                        && this.SubTeams.SequenceEqual(input.SubTeams)
-                )
-                && (
-                    this.ListInfo == input.ListInfo
-                    || (this.ListInfo != null && this.ListInfo.Equals(input.ListInfo))
-                )
-                && (
-                    this.Warnings == input.Warnings
-                    || this.Warnings != null
-                        && input.Warnings != null
-                        && this.Warnings.SequenceEqual(input.Warnings)
+            return 
+                (
+                    this.SubTeams == input.SubTeams ||
+                    this.SubTeams != null &&
+                    input.SubTeams != null &&
+                    this.SubTeams.SequenceEqual(input.SubTeams)
+                ) && 
+                (
+                    this.ListInfo == input.ListInfo ||
+                    (this.ListInfo != null &&
+                    this.ListInfo.Equals(input.ListInfo))
+                ) && 
+                (
+                    this.Warnings == input.Warnings ||
+                    this.Warnings != null &&
+                    input.Warnings != null &&
+                    this.Warnings.SequenceEqual(input.Warnings)
                 );
         }
 
@@ -189,9 +185,7 @@ namespace Dropbox.Sign.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<ValidationResult> IValidatableObject.Validate(
-            ValidationContext validationContext
-        )
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }
@@ -199,35 +193,27 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "sub_teams",
-                    Property = "SubTeams",
-                    Type = "List<SubTeamResponse>",
-                    Value = SubTeams,
-                }
-            );
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "list_info",
-                    Property = "ListInfo",
-                    Type = "ListInfoResponse",
-                    Value = ListInfo,
-                }
-            );
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "warnings",
-                    Property = "Warnings",
-                    Type = "List<WarningResponse>",
-                    Value = Warnings,
-                }
-            );
+            types.Add(new OpenApiType(){
+                Name = "sub_teams",
+                Property = "SubTeams",
+                Type = "List<SubTeamResponse>",
+                Value = SubTeams,
+            });
+            types.Add(new OpenApiType(){
+                Name = "list_info",
+                Property = "ListInfo",
+                Type = "ListInfoResponse",
+                Value = ListInfo,
+            });
+            types.Add(new OpenApiType(){
+                Name = "warnings",
+                Property = "Warnings",
+                Type = "List<WarningResponse>",
+                Value = Warnings,
+            });
 
             return types;
         }
     }
+
 }

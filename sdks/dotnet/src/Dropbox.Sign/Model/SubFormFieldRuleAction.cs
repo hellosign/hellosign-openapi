@@ -13,15 +13,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel.DataAnnotations;
-using System.IO;
 using System.Linq;
+using System.IO;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 
 namespace Dropbox.Sign.Model
@@ -31,9 +31,7 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "SubFormFieldRuleAction")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class SubFormFieldRuleAction
-        : IEquatable<SubFormFieldRuleAction>,
-            IValidatableObject
+    public partial class SubFormFieldRuleAction : IEquatable<SubFormFieldRuleAction>, IValidatableObject
     {
         /// <summary>
         /// Defines Type
@@ -51,21 +49,20 @@ namespace Dropbox.Sign.Model
             /// Enum GroupVisibility for value: change-group-visibility
             /// </summary>
             [EnumMember(Value = "change-group-visibility")]
-            GroupVisibility = 2,
+            GroupVisibility = 2
         }
+
 
         /// <summary>
         /// Gets or Sets Type
         /// </summary>
         [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
         public TypeEnum Type { get; set; }
-
         /// <summary>
         /// Initializes a new instance of the <see cref="SubFormFieldRuleAction" /> class.
         /// </summary>
         [JsonConstructorAttribute]
         protected SubFormFieldRuleAction() { }
-
         /// <summary>
         /// Initializes a new instance of the <see cref="SubFormFieldRuleAction" /> class.
         /// </summary>
@@ -73,13 +70,9 @@ namespace Dropbox.Sign.Model
         /// <param name="groupId">**group_id** or **field_id** is required, but not both.  Must reference the ID of an existing group defined within &#x60;form_field_groups&#x60;.  Cannot use with &#x60;field_id&#x60;. Trigger and action fields and groups must belong to the same signer..</param>
         /// <param name="hidden">&#x60;true&#x60; to hide the target field when rule is satisfied, otherwise &#x60;false&#x60;. (required).</param>
         /// <param name="type">type (required).</param>
-        public SubFormFieldRuleAction(
-            string fieldId = default(string),
-            string groupId = default(string),
-            bool hidden = default(bool),
-            TypeEnum type = default(TypeEnum)
-        )
+        public SubFormFieldRuleAction(string fieldId = default(string), string groupId = default(string), bool hidden = default(bool), TypeEnum type = default(TypeEnum))
         {
+            
             this.Hidden = hidden;
             this.Type = type;
             this.FieldId = fieldId;
@@ -96,9 +89,7 @@ namespace Dropbox.Sign.Model
 
             if (obj == null)
             {
-                throw new Exception(
-                    "Unable to deserialize JSON to instance of SubFormFieldRuleAction"
-                );
+                throw new Exception("Unable to deserialize JSON to instance of SubFormFieldRuleAction");
             }
 
             return obj;
@@ -110,6 +101,7 @@ namespace Dropbox.Sign.Model
         /// <value>&#x60;true&#x60; to hide the target field when rule is satisfied, otherwise &#x60;false&#x60;.</value>
         [DataMember(Name = "hidden", IsRequired = true, EmitDefaultValue = true)]
         public bool Hidden { get; set; }
+        
 
         /// <summary>
         /// **field_id** or **group_id** is required, but not both.  Must reference the &#x60;api_id&#x60; of an existing field defined within &#x60;form_fields_per_document&#x60;.  Cannot use with &#x60;group_id&#x60;. Trigger and action fields must belong to the same signer.
@@ -117,6 +109,7 @@ namespace Dropbox.Sign.Model
         /// <value>**field_id** or **group_id** is required, but not both.  Must reference the &#x60;api_id&#x60; of an existing field defined within &#x60;form_fields_per_document&#x60;.  Cannot use with &#x60;group_id&#x60;. Trigger and action fields must belong to the same signer.</value>
         [DataMember(Name = "field_id", EmitDefaultValue = true)]
         public string FieldId { get; set; }
+        
 
         /// <summary>
         /// **group_id** or **field_id** is required, but not both.  Must reference the ID of an existing group defined within &#x60;form_field_groups&#x60;.  Cannot use with &#x60;field_id&#x60;. Trigger and action fields and groups must belong to the same signer.
@@ -124,6 +117,7 @@ namespace Dropbox.Sign.Model
         /// <value>**group_id** or **field_id** is required, but not both.  Must reference the ID of an existing group defined within &#x60;form_field_groups&#x60;.  Cannot use with &#x60;field_id&#x60;. Trigger and action fields and groups must belong to the same signer.</value>
         [DataMember(Name = "group_id", EmitDefaultValue = true)]
         public string GroupId { get; set; }
+        
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -147,10 +141,7 @@ namespace Dropbox.Sign.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(
-                this,
-                Newtonsoft.Json.Formatting.Indented
-            );
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>
@@ -174,15 +165,24 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return (this.Hidden == input.Hidden || this.Hidden.Equals(input.Hidden))
-                && (this.Type == input.Type || this.Type.Equals(input.Type))
-                && (
-                    this.FieldId == input.FieldId
-                    || (this.FieldId != null && this.FieldId.Equals(input.FieldId))
-                )
-                && (
-                    this.GroupId == input.GroupId
-                    || (this.GroupId != null && this.GroupId.Equals(input.GroupId))
+            return 
+                (
+                    this.Hidden == input.Hidden ||
+                    this.Hidden.Equals(input.Hidden)
+                ) && 
+                (
+                    this.Type == input.Type ||
+                    this.Type.Equals(input.Type)
+                ) && 
+                (
+                    this.FieldId == input.FieldId ||
+                    (this.FieldId != null &&
+                    this.FieldId.Equals(input.FieldId))
+                ) && 
+                (
+                    this.GroupId == input.GroupId ||
+                    (this.GroupId != null &&
+                    this.GroupId.Equals(input.GroupId))
                 );
         }
 
@@ -214,9 +214,7 @@ namespace Dropbox.Sign.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<ValidationResult> IValidatableObject.Validate(
-            ValidationContext validationContext
-        )
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }
@@ -224,44 +222,33 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "hidden",
-                    Property = "Hidden",
-                    Type = "bool",
-                    Value = Hidden,
-                }
-            );
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "type",
-                    Property = "Type",
-                    Type = "string",
-                    Value = Type,
-                }
-            );
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "field_id",
-                    Property = "FieldId",
-                    Type = "string",
-                    Value = FieldId,
-                }
-            );
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "group_id",
-                    Property = "GroupId",
-                    Type = "string",
-                    Value = GroupId,
-                }
-            );
+            types.Add(new OpenApiType(){
+                Name = "hidden",
+                Property = "Hidden",
+                Type = "bool",
+                Value = Hidden,
+            });
+            types.Add(new OpenApiType(){
+                Name = "type",
+                Property = "Type",
+                Type = "string",
+                Value = Type,
+            });
+            types.Add(new OpenApiType(){
+                Name = "field_id",
+                Property = "FieldId",
+                Type = "string",
+                Value = FieldId,
+            });
+            types.Add(new OpenApiType(){
+                Name = "group_id",
+                Property = "GroupId",
+                Type = "string",
+                Value = GroupId,
+            });
 
             return types;
         }
     }
+
 }

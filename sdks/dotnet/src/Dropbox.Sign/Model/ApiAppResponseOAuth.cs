@@ -13,15 +13,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel.DataAnnotations;
-using System.IO;
 using System.Linq;
+using System.IO;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 
 namespace Dropbox.Sign.Model
@@ -38,7 +38,6 @@ namespace Dropbox.Sign.Model
         /// </summary>
         [JsonConstructorAttribute]
         protected ApiAppResponseOAuth() { }
-
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiAppResponseOAuth" /> class.
         /// </summary>
@@ -46,13 +45,9 @@ namespace Dropbox.Sign.Model
         /// <param name="secret">The app&#39;s OAuth secret, or null if the app does not belong to user..</param>
         /// <param name="scopes">Array of OAuth scopes used by the app..</param>
         /// <param name="chargesUsers">Boolean indicating whether the app owner or the account granting permission is billed for OAuth requests..</param>
-        public ApiAppResponseOAuth(
-            string callbackUrl = default(string),
-            string secret = default(string),
-            List<string> scopes = default(List<string>),
-            bool chargesUsers = default(bool)
-        )
+        public ApiAppResponseOAuth(string callbackUrl = default(string), string secret = default(string), List<string> scopes = default(List<string>), bool chargesUsers = default(bool))
         {
+            
             this.CallbackUrl = callbackUrl;
             this.Secret = secret;
             this.Scopes = scopes;
@@ -69,9 +64,7 @@ namespace Dropbox.Sign.Model
 
             if (obj == null)
             {
-                throw new Exception(
-                    "Unable to deserialize JSON to instance of ApiAppResponseOAuth"
-                );
+                throw new Exception("Unable to deserialize JSON to instance of ApiAppResponseOAuth");
             }
 
             return obj;
@@ -83,6 +76,7 @@ namespace Dropbox.Sign.Model
         /// <value>The app&#39;s OAuth callback URL.</value>
         [DataMember(Name = "callback_url", EmitDefaultValue = true)]
         public string CallbackUrl { get; set; }
+        
 
         /// <summary>
         /// The app&#39;s OAuth secret, or null if the app does not belong to user.
@@ -90,6 +84,7 @@ namespace Dropbox.Sign.Model
         /// <value>The app&#39;s OAuth secret, or null if the app does not belong to user.</value>
         [DataMember(Name = "secret", EmitDefaultValue = true)]
         public string Secret { get; set; }
+        
 
         /// <summary>
         /// Array of OAuth scopes used by the app.
@@ -97,6 +92,7 @@ namespace Dropbox.Sign.Model
         /// <value>Array of OAuth scopes used by the app.</value>
         [DataMember(Name = "scopes", EmitDefaultValue = true)]
         public List<string> Scopes { get; set; }
+        
 
         /// <summary>
         /// Boolean indicating whether the app owner or the account granting permission is billed for OAuth requests.
@@ -104,6 +100,7 @@ namespace Dropbox.Sign.Model
         /// <value>Boolean indicating whether the app owner or the account granting permission is billed for OAuth requests.</value>
         [DataMember(Name = "charges_users", EmitDefaultValue = true)]
         public bool ChargesUsers { get; set; }
+        
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -127,10 +124,7 @@ namespace Dropbox.Sign.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(
-                this,
-                Newtonsoft.Json.Formatting.Indented
-            );
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>
@@ -154,23 +148,26 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return (
-                    this.CallbackUrl == input.CallbackUrl
-                    || (this.CallbackUrl != null && this.CallbackUrl.Equals(input.CallbackUrl))
-                )
-                && (
-                    this.Secret == input.Secret
-                    || (this.Secret != null && this.Secret.Equals(input.Secret))
-                )
-                && (
-                    this.Scopes == input.Scopes
-                    || this.Scopes != null
-                        && input.Scopes != null
-                        && this.Scopes.SequenceEqual(input.Scopes)
-                )
-                && (
-                    this.ChargesUsers == input.ChargesUsers
-                    || this.ChargesUsers.Equals(input.ChargesUsers)
+            return 
+                (
+                    this.CallbackUrl == input.CallbackUrl ||
+                    (this.CallbackUrl != null &&
+                    this.CallbackUrl.Equals(input.CallbackUrl))
+                ) && 
+                (
+                    this.Secret == input.Secret ||
+                    (this.Secret != null &&
+                    this.Secret.Equals(input.Secret))
+                ) && 
+                (
+                    this.Scopes == input.Scopes ||
+                    this.Scopes != null &&
+                    input.Scopes != null &&
+                    this.Scopes.SequenceEqual(input.Scopes)
+                ) && 
+                (
+                    this.ChargesUsers == input.ChargesUsers ||
+                    this.ChargesUsers.Equals(input.ChargesUsers)
                 );
         }
 
@@ -205,9 +202,7 @@ namespace Dropbox.Sign.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<ValidationResult> IValidatableObject.Validate(
-            ValidationContext validationContext
-        )
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }
@@ -215,44 +210,33 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "callback_url",
-                    Property = "CallbackUrl",
-                    Type = "string",
-                    Value = CallbackUrl,
-                }
-            );
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "secret",
-                    Property = "Secret",
-                    Type = "string",
-                    Value = Secret,
-                }
-            );
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "scopes",
-                    Property = "Scopes",
-                    Type = "List<string>",
-                    Value = Scopes,
-                }
-            );
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "charges_users",
-                    Property = "ChargesUsers",
-                    Type = "bool",
-                    Value = ChargesUsers,
-                }
-            );
+            types.Add(new OpenApiType(){
+                Name = "callback_url",
+                Property = "CallbackUrl",
+                Type = "string",
+                Value = CallbackUrl,
+            });
+            types.Add(new OpenApiType(){
+                Name = "secret",
+                Property = "Secret",
+                Type = "string",
+                Value = Secret,
+            });
+            types.Add(new OpenApiType(){
+                Name = "scopes",
+                Property = "Scopes",
+                Type = "List<string>",
+                Value = Scopes,
+            });
+            types.Add(new OpenApiType(){
+                Name = "charges_users",
+                Property = "ChargesUsers",
+                Type = "bool",
+                Value = ChargesUsers,
+            });
 
             return types;
         }
     }
+
 }

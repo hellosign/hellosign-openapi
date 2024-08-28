@@ -13,15 +13,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel.DataAnnotations;
-using System.IO;
 using System.Linq;
+using System.IO;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 
 namespace Dropbox.Sign.Model
@@ -31,40 +31,31 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "SubBulkSignerListCustomField")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class SubBulkSignerListCustomField
-        : IEquatable<SubBulkSignerListCustomField>,
-            IValidatableObject
+    public partial class SubBulkSignerListCustomField : IEquatable<SubBulkSignerListCustomField>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SubBulkSignerListCustomField" /> class.
         /// </summary>
         [JsonConstructorAttribute]
         protected SubBulkSignerListCustomField() { }
-
         /// <summary>
         /// Initializes a new instance of the <see cref="SubBulkSignerListCustomField" /> class.
         /// </summary>
         /// <param name="name">The name of the custom field. Must be the field&#39;s &#x60;name&#x60; or &#x60;api_id&#x60;. (required).</param>
         /// <param name="value">The value of the custom field. (required).</param>
-        public SubBulkSignerListCustomField(
-            string name = default(string),
-            string value = default(string)
-        )
+        public SubBulkSignerListCustomField(string name = default(string), string value = default(string))
         {
+            
             // to ensure "name" is required (not null)
             if (name == null)
             {
-                throw new ArgumentNullException(
-                    "name is a required property for SubBulkSignerListCustomField and cannot be null"
-                );
+                throw new ArgumentNullException("name is a required property for SubBulkSignerListCustomField and cannot be null");
             }
             this.Name = name;
             // to ensure "value" is required (not null)
             if (value == null)
             {
-                throw new ArgumentNullException(
-                    "value is a required property for SubBulkSignerListCustomField and cannot be null"
-                );
+                throw new ArgumentNullException("value is a required property for SubBulkSignerListCustomField and cannot be null");
             }
             this.Value = value;
         }
@@ -79,9 +70,7 @@ namespace Dropbox.Sign.Model
 
             if (obj == null)
             {
-                throw new Exception(
-                    "Unable to deserialize JSON to instance of SubBulkSignerListCustomField"
-                );
+                throw new Exception("Unable to deserialize JSON to instance of SubBulkSignerListCustomField");
             }
 
             return obj;
@@ -93,6 +82,7 @@ namespace Dropbox.Sign.Model
         /// <value>The name of the custom field. Must be the field&#39;s &#x60;name&#x60; or &#x60;api_id&#x60;.</value>
         [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
         public string Name { get; set; }
+        
 
         /// <summary>
         /// The value of the custom field.
@@ -100,6 +90,7 @@ namespace Dropbox.Sign.Model
         /// <value>The value of the custom field.</value>
         [DataMember(Name = "value", IsRequired = true, EmitDefaultValue = true)]
         public string Value { get; set; }
+        
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -121,10 +112,7 @@ namespace Dropbox.Sign.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(
-                this,
-                Newtonsoft.Json.Formatting.Indented
-            );
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>
@@ -148,10 +136,16 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return (this.Name == input.Name || (this.Name != null && this.Name.Equals(input.Name)))
-                && (
-                    this.Value == input.Value
-                    || (this.Value != null && this.Value.Equals(input.Value))
+            return 
+                (
+                    this.Name == input.Name ||
+                    (this.Name != null &&
+                    this.Name.Equals(input.Name))
+                ) && 
+                (
+                    this.Value == input.Value ||
+                    (this.Value != null &&
+                    this.Value.Equals(input.Value))
                 );
         }
 
@@ -181,9 +175,7 @@ namespace Dropbox.Sign.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<ValidationResult> IValidatableObject.Validate(
-            ValidationContext validationContext
-        )
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }
@@ -191,26 +183,21 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "name",
-                    Property = "Name",
-                    Type = "string",
-                    Value = Name,
-                }
-            );
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "value",
-                    Property = "Value",
-                    Type = "string",
-                    Value = Value,
-                }
-            );
+            types.Add(new OpenApiType(){
+                Name = "name",
+                Property = "Name",
+                Type = "string",
+                Value = Name,
+            });
+            types.Add(new OpenApiType(){
+                Name = "value",
+                Property = "Value",
+                Type = "string",
+                Value = Value,
+            });
 
             return types;
         }
     }
+
 }

@@ -13,16 +13,16 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel.DataAnnotations;
-using System.IO;
 using System.Linq;
+using System.IO;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Text.RegularExpressions;
-using JsonSubTypes;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
+using JsonSubTypes;
+using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 
 namespace Dropbox.Sign.Model
@@ -35,16 +35,13 @@ namespace Dropbox.Sign.Model
     [JsonSubtypes.KnownSubType(typeof(SignatureRequestResponseCustomFieldCheckbox), "checkbox")]
     [JsonSubtypes.KnownSubType(typeof(SignatureRequestResponseCustomFieldText), "text")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class SignatureRequestResponseCustomFieldBase
-        : IEquatable<SignatureRequestResponseCustomFieldBase>,
-            IValidatableObject
+    public partial class SignatureRequestResponseCustomFieldBase : IEquatable<SignatureRequestResponseCustomFieldBase>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SignatureRequestResponseCustomFieldBase" /> class.
         /// </summary>
         [JsonConstructorAttribute]
         protected SignatureRequestResponseCustomFieldBase() { }
-
         /// <summary>
         /// Initializes a new instance of the <see cref="SignatureRequestResponseCustomFieldBase" /> class.
         /// </summary>
@@ -53,28 +50,19 @@ namespace Dropbox.Sign.Model
         /// <param name="required">A boolean value denoting if this field is required..</param>
         /// <param name="apiId">The unique ID for this field..</param>
         /// <param name="editor">The name of the Role that is able to edit this field..</param>
-        public SignatureRequestResponseCustomFieldBase(
-            string type = default(string),
-            string name = default(string),
-            bool required = default(bool),
-            string apiId = default(string),
-            string editor = default(string)
-        )
+        public SignatureRequestResponseCustomFieldBase(string type = default(string), string name = default(string), bool required = default(bool), string apiId = default(string), string editor = default(string))
         {
+            
             // to ensure "type" is required (not null)
             if (type == null)
             {
-                throw new ArgumentNullException(
-                    "type is a required property for SignatureRequestResponseCustomFieldBase and cannot be null"
-                );
+                throw new ArgumentNullException("type is a required property for SignatureRequestResponseCustomFieldBase and cannot be null");
             }
             this.Type = type;
             // to ensure "name" is required (not null)
             if (name == null)
             {
-                throw new ArgumentNullException(
-                    "name is a required property for SignatureRequestResponseCustomFieldBase and cannot be null"
-                );
+                throw new ArgumentNullException("name is a required property for SignatureRequestResponseCustomFieldBase and cannot be null");
             }
             this.Name = name;
             this.Required = required;
@@ -88,15 +76,11 @@ namespace Dropbox.Sign.Model
         /// <param name="jsonData">String of JSON data representing target object</param>
         public static SignatureRequestResponseCustomFieldBase Init(string jsonData)
         {
-            var obj = JsonConvert.DeserializeObject<SignatureRequestResponseCustomFieldBase>(
-                jsonData
-            );
+            var obj = JsonConvert.DeserializeObject<SignatureRequestResponseCustomFieldBase>(jsonData);
 
             if (obj == null)
             {
-                throw new Exception(
-                    "Unable to deserialize JSON to instance of SignatureRequestResponseCustomFieldBase"
-                );
+                throw new Exception("Unable to deserialize JSON to instance of SignatureRequestResponseCustomFieldBase");
             }
 
             return obj;
@@ -108,6 +92,7 @@ namespace Dropbox.Sign.Model
         /// <value>The type of this Custom Field. Only &#39;text&#39; and &#39;checkbox&#39; are currently supported.</value>
         [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
         public string Type { get; set; }
+        
 
         /// <summary>
         /// The name of the Custom Field.
@@ -115,6 +100,7 @@ namespace Dropbox.Sign.Model
         /// <value>The name of the Custom Field.</value>
         [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
         public string Name { get; set; }
+        
 
         /// <summary>
         /// A boolean value denoting if this field is required.
@@ -122,6 +108,7 @@ namespace Dropbox.Sign.Model
         /// <value>A boolean value denoting if this field is required.</value>
         [DataMember(Name = "required", EmitDefaultValue = true)]
         public bool Required { get; set; }
+        
 
         /// <summary>
         /// The unique ID for this field.
@@ -129,6 +116,7 @@ namespace Dropbox.Sign.Model
         /// <value>The unique ID for this field.</value>
         [DataMember(Name = "api_id", EmitDefaultValue = true)]
         public string ApiId { get; set; }
+        
 
         /// <summary>
         /// The name of the Role that is able to edit this field.
@@ -136,6 +124,7 @@ namespace Dropbox.Sign.Model
         /// <value>The name of the Role that is able to edit this field.</value>
         [DataMember(Name = "editor", EmitDefaultValue = true)]
         public string Editor { get; set; }
+        
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -160,10 +149,7 @@ namespace Dropbox.Sign.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(
-                this,
-                Newtonsoft.Json.Formatting.Indented
-            );
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>
@@ -187,16 +173,30 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return (this.Type == input.Type || (this.Type != null && this.Type.Equals(input.Type)))
-                && (this.Name == input.Name || (this.Name != null && this.Name.Equals(input.Name)))
-                && (this.Required == input.Required || this.Required.Equals(input.Required))
-                && (
-                    this.ApiId == input.ApiId
-                    || (this.ApiId != null && this.ApiId.Equals(input.ApiId))
-                )
-                && (
-                    this.Editor == input.Editor
-                    || (this.Editor != null && this.Editor.Equals(input.Editor))
+            return 
+                (
+                    this.Type == input.Type ||
+                    (this.Type != null &&
+                    this.Type.Equals(input.Type))
+                ) && 
+                (
+                    this.Name == input.Name ||
+                    (this.Name != null &&
+                    this.Name.Equals(input.Name))
+                ) && 
+                (
+                    this.Required == input.Required ||
+                    this.Required.Equals(input.Required)
+                ) && 
+                (
+                    this.ApiId == input.ApiId ||
+                    (this.ApiId != null &&
+                    this.ApiId.Equals(input.ApiId))
+                ) && 
+                (
+                    this.Editor == input.Editor ||
+                    (this.Editor != null &&
+                    this.Editor.Equals(input.Editor))
                 );
         }
 
@@ -235,9 +235,7 @@ namespace Dropbox.Sign.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<ValidationResult> IValidatableObject.Validate(
-            ValidationContext validationContext
-        )
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             return this.BaseValidate(validationContext);
         }
@@ -255,53 +253,39 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "type",
-                    Property = "Type",
-                    Type = "string",
-                    Value = Type,
-                }
-            );
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "name",
-                    Property = "Name",
-                    Type = "string",
-                    Value = Name,
-                }
-            );
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "required",
-                    Property = "Required",
-                    Type = "bool",
-                    Value = Required,
-                }
-            );
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "api_id",
-                    Property = "ApiId",
-                    Type = "string",
-                    Value = ApiId,
-                }
-            );
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "editor",
-                    Property = "Editor",
-                    Type = "string",
-                    Value = Editor,
-                }
-            );
+            types.Add(new OpenApiType(){
+                Name = "type",
+                Property = "Type",
+                Type = "string",
+                Value = Type,
+            });
+            types.Add(new OpenApiType(){
+                Name = "name",
+                Property = "Name",
+                Type = "string",
+                Value = Name,
+            });
+            types.Add(new OpenApiType(){
+                Name = "required",
+                Property = "Required",
+                Type = "bool",
+                Value = Required,
+            });
+            types.Add(new OpenApiType(){
+                Name = "api_id",
+                Property = "ApiId",
+                Type = "string",
+                Value = ApiId,
+            });
+            types.Add(new OpenApiType(){
+                Name = "editor",
+                Property = "Editor",
+                Type = "string",
+                Value = Editor,
+            });
 
             return types;
         }
     }
+
 }

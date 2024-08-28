@@ -13,15 +13,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel.DataAnnotations;
-using System.IO;
 using System.Linq;
+using System.IO;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 
 namespace Dropbox.Sign.Model
@@ -31,18 +31,13 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "SubFormFieldsPerDocumentCheckbox")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class SubFormFieldsPerDocumentCheckbox
-        : SubFormFieldsPerDocumentBase,
-            IOpenApiTyped,
-            IEquatable<SubFormFieldsPerDocumentCheckbox>,
-            IValidatableObject
+    public partial class SubFormFieldsPerDocumentCheckbox : SubFormFieldsPerDocumentBase, IOpenApiTyped, IEquatable<SubFormFieldsPerDocumentCheckbox>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SubFormFieldsPerDocumentCheckbox" /> class.
         /// </summary>
         [JsonConstructorAttribute]
         protected SubFormFieldsPerDocumentCheckbox() { }
-
         /// <summary>
         /// Initializes a new instance of the <see cref="SubFormFieldsPerDocumentCheckbox" /> class.
         /// </summary>
@@ -59,21 +54,7 @@ namespace Dropbox.Sign.Model
         /// <param name="width">Size of the field in pixels. (required).</param>
         /// <param name="x">Location coordinates of the field in pixels. (required).</param>
         /// <param name="y">Location coordinates of the field in pixels. (required).</param>
-        public SubFormFieldsPerDocumentCheckbox(
-            string type = @"checkbox",
-            string group = default(string),
-            bool isChecked = default(bool),
-            int documentIndex = default(int),
-            string apiId = default(string),
-            int height = default(int),
-            string name = default(string),
-            int? page = default(int?),
-            bool required = default(bool),
-            Object signer = null,
-            int width = default(int),
-            int x = default(int),
-            int y = default(int)
-        )
+        public SubFormFieldsPerDocumentCheckbox(string type = @"checkbox", string group = default(string), bool isChecked = default(bool), int documentIndex = default(int), string apiId = default(string), int height = default(int), string name = default(string), int? page = default(int?), bool required = default(bool), Object signer = null, int width = default(int), int x = default(int), int y = default(int))
         {
             this.DocumentIndex = documentIndex;
             this.ApiId = apiId;
@@ -85,13 +66,11 @@ namespace Dropbox.Sign.Model
             this.Y = y;
             this.Name = name;
             this.Page = page;
-
+            
             // to ensure "type" is required (not null)
             if (type == null)
             {
-                throw new ArgumentNullException(
-                    "type is a required property for SubFormFieldsPerDocumentCheckbox and cannot be null"
-                );
+                throw new ArgumentNullException("type is a required property for SubFormFieldsPerDocumentCheckbox and cannot be null");
             }
             this.Type = type;
             this.IsChecked = isChecked;
@@ -108,9 +87,7 @@ namespace Dropbox.Sign.Model
 
             if (obj == null)
             {
-                throw new Exception(
-                    "Unable to deserialize JSON to instance of SubFormFieldsPerDocumentCheckbox"
-                );
+                throw new Exception("Unable to deserialize JSON to instance of SubFormFieldsPerDocumentCheckbox");
             }
 
             return obj;
@@ -122,6 +99,7 @@ namespace Dropbox.Sign.Model
         /// <value>A yes/no checkbox. Use the &#x60;SubFormFieldsPerDocumentCheckbox&#x60; class.</value>
         [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
         public string Type { get; set; }
+        
 
         /// <summary>
         /// &#x60;true&#x60; for checking the checkbox field by default, otherwise &#x60;false&#x60;.
@@ -129,6 +107,7 @@ namespace Dropbox.Sign.Model
         /// <value>&#x60;true&#x60; for checking the checkbox field by default, otherwise &#x60;false&#x60;.</value>
         [DataMember(Name = "is_checked", IsRequired = true, EmitDefaultValue = true)]
         public bool IsChecked { get; set; }
+        
 
         /// <summary>
         /// String referencing group defined in &#x60;form_field_groups&#x60; parameter.
@@ -136,6 +115,7 @@ namespace Dropbox.Sign.Model
         /// <value>String referencing group defined in &#x60;form_field_groups&#x60; parameter.</value>
         [DataMember(Name = "group", EmitDefaultValue = true)]
         public string Group { get; set; }
+        
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -159,10 +139,7 @@ namespace Dropbox.Sign.Model
         /// <returns>JSON string presentation of the object</returns>
         public override string ToJson()
         {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(
-                this,
-                Newtonsoft.Json.Formatting.Indented
-            );
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>
@@ -186,14 +163,20 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return base.Equals(input)
-                && (this.Type == input.Type || (this.Type != null && this.Type.Equals(input.Type)))
-                && base.Equals(input)
-                && (this.IsChecked == input.IsChecked || this.IsChecked.Equals(input.IsChecked))
-                && base.Equals(input)
-                && (
-                    this.Group == input.Group
-                    || (this.Group != null && this.Group.Equals(input.Group))
+            return base.Equals(input) && 
+                (
+                    this.Type == input.Type ||
+                    (this.Type != null &&
+                    this.Type.Equals(input.Type))
+                ) && base.Equals(input) && 
+                (
+                    this.IsChecked == input.IsChecked ||
+                    this.IsChecked.Equals(input.IsChecked)
+                ) && base.Equals(input) && 
+                (
+                    this.Group == input.Group ||
+                    (this.Group != null &&
+                    this.Group.Equals(input.Group))
                 );
         }
 
@@ -224,9 +207,7 @@ namespace Dropbox.Sign.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<ValidationResult> IValidatableObject.Validate(
-            ValidationContext validationContext
-        )
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             return this.BaseValidate(validationContext);
         }
@@ -248,35 +229,27 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "type",
-                    Property = "Type",
-                    Type = "string",
-                    Value = Type,
-                }
-            );
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "is_checked",
-                    Property = "IsChecked",
-                    Type = "bool",
-                    Value = IsChecked,
-                }
-            );
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "group",
-                    Property = "Group",
-                    Type = "string",
-                    Value = Group,
-                }
-            );
+            types.Add(new OpenApiType(){
+                Name = "type",
+                Property = "Type",
+                Type = "string",
+                Value = Type,
+            });
+            types.Add(new OpenApiType(){
+                Name = "is_checked",
+                Property = "IsChecked",
+                Type = "bool",
+                Value = IsChecked,
+            });
+            types.Add(new OpenApiType(){
+                Name = "group",
+                Property = "Group",
+                Type = "string",
+                Value = Group,
+            });
 
             return types;
         }
     }
+
 }

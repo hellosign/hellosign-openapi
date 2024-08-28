@@ -13,15 +13,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel.DataAnnotations;
-using System.IO;
 using System.Linq;
+using System.IO;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 
 namespace Dropbox.Sign.Model
@@ -31,26 +31,21 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "TemplateResponseFieldAvgTextLength")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class TemplateResponseFieldAvgTextLength
-        : IEquatable<TemplateResponseFieldAvgTextLength>,
-            IValidatableObject
+    public partial class TemplateResponseFieldAvgTextLength : IEquatable<TemplateResponseFieldAvgTextLength>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="TemplateResponseFieldAvgTextLength" /> class.
         /// </summary>
         [JsonConstructorAttribute]
         protected TemplateResponseFieldAvgTextLength() { }
-
         /// <summary>
         /// Initializes a new instance of the <see cref="TemplateResponseFieldAvgTextLength" /> class.
         /// </summary>
         /// <param name="numLines">Number of lines..</param>
         /// <param name="numCharsPerLine">Number of characters per line..</param>
-        public TemplateResponseFieldAvgTextLength(
-            int numLines = default(int),
-            int numCharsPerLine = default(int)
-        )
+        public TemplateResponseFieldAvgTextLength(int numLines = default(int), int numCharsPerLine = default(int))
         {
+            
             this.NumLines = numLines;
             this.NumCharsPerLine = numCharsPerLine;
         }
@@ -65,9 +60,7 @@ namespace Dropbox.Sign.Model
 
             if (obj == null)
             {
-                throw new Exception(
-                    "Unable to deserialize JSON to instance of TemplateResponseFieldAvgTextLength"
-                );
+                throw new Exception("Unable to deserialize JSON to instance of TemplateResponseFieldAvgTextLength");
             }
 
             return obj;
@@ -79,6 +72,7 @@ namespace Dropbox.Sign.Model
         /// <value>Number of lines.</value>
         [DataMember(Name = "num_lines", EmitDefaultValue = true)]
         public int NumLines { get; set; }
+        
 
         /// <summary>
         /// Number of characters per line.
@@ -86,6 +80,7 @@ namespace Dropbox.Sign.Model
         /// <value>Number of characters per line.</value>
         [DataMember(Name = "num_chars_per_line", EmitDefaultValue = true)]
         public int NumCharsPerLine { get; set; }
+        
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -107,10 +102,7 @@ namespace Dropbox.Sign.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(
-                this,
-                Newtonsoft.Json.Formatting.Indented
-            );
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>
@@ -134,10 +126,14 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return (this.NumLines == input.NumLines || this.NumLines.Equals(input.NumLines))
-                && (
-                    this.NumCharsPerLine == input.NumCharsPerLine
-                    || this.NumCharsPerLine.Equals(input.NumCharsPerLine)
+            return 
+                (
+                    this.NumLines == input.NumLines ||
+                    this.NumLines.Equals(input.NumLines)
+                ) && 
+                (
+                    this.NumCharsPerLine == input.NumCharsPerLine ||
+                    this.NumCharsPerLine.Equals(input.NumCharsPerLine)
                 );
         }
 
@@ -161,9 +157,7 @@ namespace Dropbox.Sign.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<ValidationResult> IValidatableObject.Validate(
-            ValidationContext validationContext
-        )
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }
@@ -171,26 +165,21 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "num_lines",
-                    Property = "NumLines",
-                    Type = "int",
-                    Value = NumLines,
-                }
-            );
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "num_chars_per_line",
-                    Property = "NumCharsPerLine",
-                    Type = "int",
-                    Value = NumCharsPerLine,
-                }
-            );
+            types.Add(new OpenApiType(){
+                Name = "num_lines",
+                Property = "NumLines",
+                Type = "int",
+                Value = NumLines,
+            });
+            types.Add(new OpenApiType(){
+                Name = "num_chars_per_line",
+                Property = "NumCharsPerLine",
+                Type = "int",
+                Value = NumCharsPerLine,
+            });
 
             return types;
         }
     }
+
 }

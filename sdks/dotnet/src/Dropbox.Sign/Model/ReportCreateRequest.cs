@@ -13,15 +13,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel.DataAnnotations;
-using System.IO;
 using System.Linq;
+using System.IO;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 
 namespace Dropbox.Sign.Model
@@ -49,7 +49,7 @@ namespace Dropbox.Sign.Model
             /// Enum DocumentStatus for value: document_status
             /// </summary>
             [EnumMember(Value = "document_status")]
-            DocumentStatus = 2,
+            DocumentStatus = 2
         }
 
         /// <summary>
@@ -57,41 +57,31 @@ namespace Dropbox.Sign.Model
         /// </summary>
         [JsonConstructorAttribute]
         protected ReportCreateRequest() { }
-
         /// <summary>
         /// Initializes a new instance of the <see cref="ReportCreateRequest" /> class.
         /// </summary>
         /// <param name="endDate">The (inclusive) end date for the report data in &#x60;MM/DD/YYYY&#x60; format. (required).</param>
         /// <param name="reportType">The type(s) of the report you are requesting. Allowed values are &#x60;user_activity&#x60; and &#x60;document_status&#x60;. User activity reports contain list of all users and their activity during the specified date range. Document status report contain a list of signature requests created in the specified time range (and their status). (required).</param>
         /// <param name="startDate">The (inclusive) start date for the report data in &#x60;MM/DD/YYYY&#x60; format. (required).</param>
-        public ReportCreateRequest(
-            string endDate = default(string),
-            List<ReportTypeEnum> reportType = default(List<ReportTypeEnum>),
-            string startDate = default(string)
-        )
+        public ReportCreateRequest(string endDate = default(string), List<ReportTypeEnum> reportType = default(List<ReportTypeEnum>), string startDate = default(string))
         {
+            
             // to ensure "endDate" is required (not null)
             if (endDate == null)
             {
-                throw new ArgumentNullException(
-                    "endDate is a required property for ReportCreateRequest and cannot be null"
-                );
+                throw new ArgumentNullException("endDate is a required property for ReportCreateRequest and cannot be null");
             }
             this.EndDate = endDate;
             // to ensure "reportType" is required (not null)
             if (reportType == null)
             {
-                throw new ArgumentNullException(
-                    "reportType is a required property for ReportCreateRequest and cannot be null"
-                );
+                throw new ArgumentNullException("reportType is a required property for ReportCreateRequest and cannot be null");
             }
             this.ReportType = reportType;
             // to ensure "startDate" is required (not null)
             if (startDate == null)
             {
-                throw new ArgumentNullException(
-                    "startDate is a required property for ReportCreateRequest and cannot be null"
-                );
+                throw new ArgumentNullException("startDate is a required property for ReportCreateRequest and cannot be null");
             }
             this.StartDate = startDate;
         }
@@ -106,9 +96,7 @@ namespace Dropbox.Sign.Model
 
             if (obj == null)
             {
-                throw new Exception(
-                    "Unable to deserialize JSON to instance of ReportCreateRequest"
-                );
+                throw new Exception("Unable to deserialize JSON to instance of ReportCreateRequest");
             }
 
             return obj;
@@ -120,6 +108,7 @@ namespace Dropbox.Sign.Model
         /// <value>The (inclusive) end date for the report data in &#x60;MM/DD/YYYY&#x60; format.</value>
         [DataMember(Name = "end_date", IsRequired = true, EmitDefaultValue = true)]
         public string EndDate { get; set; }
+        
 
         /// <summary>
         /// The type(s) of the report you are requesting. Allowed values are &#x60;user_activity&#x60; and &#x60;document_status&#x60;. User activity reports contain list of all users and their activity during the specified date range. Document status report contain a list of signature requests created in the specified time range (and their status).
@@ -127,6 +116,7 @@ namespace Dropbox.Sign.Model
         /// <value>The type(s) of the report you are requesting. Allowed values are &#x60;user_activity&#x60; and &#x60;document_status&#x60;. User activity reports contain list of all users and their activity during the specified date range. Document status report contain a list of signature requests created in the specified time range (and their status).</value>
         [DataMember(Name = "report_type", IsRequired = true, EmitDefaultValue = true)]
         public List<ReportCreateRequest.ReportTypeEnum> ReportType { get; set; }
+        
 
         /// <summary>
         /// The (inclusive) start date for the report data in &#x60;MM/DD/YYYY&#x60; format.
@@ -134,6 +124,7 @@ namespace Dropbox.Sign.Model
         /// <value>The (inclusive) start date for the report data in &#x60;MM/DD/YYYY&#x60; format.</value>
         [DataMember(Name = "start_date", IsRequired = true, EmitDefaultValue = true)]
         public string StartDate { get; set; }
+        
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -156,10 +147,7 @@ namespace Dropbox.Sign.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(
-                this,
-                Newtonsoft.Json.Formatting.Indented
-            );
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>
@@ -183,19 +171,22 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return (
-                    this.EndDate == input.EndDate
-                    || (this.EndDate != null && this.EndDate.Equals(input.EndDate))
-                )
-                && (
-                    this.ReportType == input.ReportType
-                    || this.ReportType != null
-                        && input.ReportType != null
-                        && this.ReportType.SequenceEqual(input.ReportType)
-                )
-                && (
-                    this.StartDate == input.StartDate
-                    || (this.StartDate != null && this.StartDate.Equals(input.StartDate))
+            return 
+                (
+                    this.EndDate == input.EndDate ||
+                    (this.EndDate != null &&
+                    this.EndDate.Equals(input.EndDate))
+                ) && 
+                (
+                    this.ReportType == input.ReportType ||
+                    this.ReportType != null &&
+                    input.ReportType != null &&
+                    this.ReportType.SequenceEqual(input.ReportType)
+                ) && 
+                (
+                    this.StartDate == input.StartDate ||
+                    (this.StartDate != null &&
+                    this.StartDate.Equals(input.StartDate))
                 );
         }
 
@@ -229,9 +220,7 @@ namespace Dropbox.Sign.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<ValidationResult> IValidatableObject.Validate(
-            ValidationContext validationContext
-        )
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }
@@ -239,35 +228,27 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "end_date",
-                    Property = "EndDate",
-                    Type = "string",
-                    Value = EndDate,
-                }
-            );
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "report_type",
-                    Property = "ReportType",
-                    Type = "List<ReportCreateRequest.ReportTypeEnum>",
-                    Value = ReportType,
-                }
-            );
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "start_date",
-                    Property = "StartDate",
-                    Type = "string",
-                    Value = StartDate,
-                }
-            );
+            types.Add(new OpenApiType(){
+                Name = "end_date",
+                Property = "EndDate",
+                Type = "string",
+                Value = EndDate,
+            });
+            types.Add(new OpenApiType(){
+                Name = "report_type",
+                Property = "ReportType",
+                Type = "List<ReportCreateRequest.ReportTypeEnum>",
+                Value = ReportType,
+            });
+            types.Add(new OpenApiType(){
+                Name = "start_date",
+                Property = "StartDate",
+                Type = "string",
+                Value = StartDate,
+            });
 
             return types;
         }
     }
+
 }

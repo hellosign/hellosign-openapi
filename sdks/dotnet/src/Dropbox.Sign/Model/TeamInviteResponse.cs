@@ -13,15 +13,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel.DataAnnotations;
-using System.IO;
 using System.Linq;
+using System.IO;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 
 namespace Dropbox.Sign.Model
@@ -38,7 +38,6 @@ namespace Dropbox.Sign.Model
         /// </summary>
         [JsonConstructorAttribute]
         protected TeamInviteResponse() { }
-
         /// <summary>
         /// Initializes a new instance of the <see cref="TeamInviteResponse" /> class.
         /// </summary>
@@ -48,15 +47,9 @@ namespace Dropbox.Sign.Model
         /// <param name="sentAt">Timestamp when the invitation was sent..</param>
         /// <param name="redeemedAt">Timestamp when the invitation was redeemed..</param>
         /// <param name="expiresAt">Timestamp when the invitation is expiring..</param>
-        public TeamInviteResponse(
-            string emailAddress = default(string),
-            string teamId = default(string),
-            string role = default(string),
-            int sentAt = default(int),
-            int redeemedAt = default(int),
-            int expiresAt = default(int)
-        )
+        public TeamInviteResponse(string emailAddress = default(string), string teamId = default(string), string role = default(string), int sentAt = default(int), int redeemedAt = default(int), int expiresAt = default(int))
         {
+            
             this.EmailAddress = emailAddress;
             this.TeamId = teamId;
             this.Role = role;
@@ -87,6 +80,7 @@ namespace Dropbox.Sign.Model
         /// <value>Email address of the user invited to this team.</value>
         [DataMember(Name = "email_address", EmitDefaultValue = true)]
         public string EmailAddress { get; set; }
+        
 
         /// <summary>
         /// Id of the team.
@@ -94,6 +88,7 @@ namespace Dropbox.Sign.Model
         /// <value>Id of the team.</value>
         [DataMember(Name = "team_id", EmitDefaultValue = true)]
         public string TeamId { get; set; }
+        
 
         /// <summary>
         /// Role of the user invited to this team.
@@ -101,6 +96,7 @@ namespace Dropbox.Sign.Model
         /// <value>Role of the user invited to this team.</value>
         [DataMember(Name = "role", EmitDefaultValue = true)]
         public string Role { get; set; }
+        
 
         /// <summary>
         /// Timestamp when the invitation was sent.
@@ -108,6 +104,7 @@ namespace Dropbox.Sign.Model
         /// <value>Timestamp when the invitation was sent.</value>
         [DataMember(Name = "sent_at", EmitDefaultValue = true)]
         public int SentAt { get; set; }
+        
 
         /// <summary>
         /// Timestamp when the invitation was redeemed.
@@ -115,6 +112,7 @@ namespace Dropbox.Sign.Model
         /// <value>Timestamp when the invitation was redeemed.</value>
         [DataMember(Name = "redeemed_at", EmitDefaultValue = true)]
         public int RedeemedAt { get; set; }
+        
 
         /// <summary>
         /// Timestamp when the invitation is expiring.
@@ -122,6 +120,7 @@ namespace Dropbox.Sign.Model
         /// <value>Timestamp when the invitation is expiring.</value>
         [DataMember(Name = "expires_at", EmitDefaultValue = true)]
         public int ExpiresAt { get; set; }
+        
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -147,10 +146,7 @@ namespace Dropbox.Sign.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(
-                this,
-                Newtonsoft.Json.Formatting.Indented
-            );
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>
@@ -174,18 +170,34 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return (
-                    this.EmailAddress == input.EmailAddress
-                    || (this.EmailAddress != null && this.EmailAddress.Equals(input.EmailAddress))
-                )
-                && (
-                    this.TeamId == input.TeamId
-                    || (this.TeamId != null && this.TeamId.Equals(input.TeamId))
-                )
-                && (this.Role == input.Role || (this.Role != null && this.Role.Equals(input.Role)))
-                && (this.SentAt == input.SentAt || this.SentAt.Equals(input.SentAt))
-                && (this.RedeemedAt == input.RedeemedAt || this.RedeemedAt.Equals(input.RedeemedAt))
-                && (this.ExpiresAt == input.ExpiresAt || this.ExpiresAt.Equals(input.ExpiresAt));
+            return 
+                (
+                    this.EmailAddress == input.EmailAddress ||
+                    (this.EmailAddress != null &&
+                    this.EmailAddress.Equals(input.EmailAddress))
+                ) && 
+                (
+                    this.TeamId == input.TeamId ||
+                    (this.TeamId != null &&
+                    this.TeamId.Equals(input.TeamId))
+                ) && 
+                (
+                    this.Role == input.Role ||
+                    (this.Role != null &&
+                    this.Role.Equals(input.Role))
+                ) && 
+                (
+                    this.SentAt == input.SentAt ||
+                    this.SentAt.Equals(input.SentAt)
+                ) && 
+                (
+                    this.RedeemedAt == input.RedeemedAt ||
+                    this.RedeemedAt.Equals(input.RedeemedAt)
+                ) && 
+                (
+                    this.ExpiresAt == input.ExpiresAt ||
+                    this.ExpiresAt.Equals(input.ExpiresAt)
+                );
         }
 
         /// <summary>
@@ -221,9 +233,7 @@ namespace Dropbox.Sign.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<ValidationResult> IValidatableObject.Validate(
-            ValidationContext validationContext
-        )
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }
@@ -231,62 +241,45 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "email_address",
-                    Property = "EmailAddress",
-                    Type = "string",
-                    Value = EmailAddress,
-                }
-            );
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "team_id",
-                    Property = "TeamId",
-                    Type = "string",
-                    Value = TeamId,
-                }
-            );
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "role",
-                    Property = "Role",
-                    Type = "string",
-                    Value = Role,
-                }
-            );
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "sent_at",
-                    Property = "SentAt",
-                    Type = "int",
-                    Value = SentAt,
-                }
-            );
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "redeemed_at",
-                    Property = "RedeemedAt",
-                    Type = "int",
-                    Value = RedeemedAt,
-                }
-            );
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "expires_at",
-                    Property = "ExpiresAt",
-                    Type = "int",
-                    Value = ExpiresAt,
-                }
-            );
+            types.Add(new OpenApiType(){
+                Name = "email_address",
+                Property = "EmailAddress",
+                Type = "string",
+                Value = EmailAddress,
+            });
+            types.Add(new OpenApiType(){
+                Name = "team_id",
+                Property = "TeamId",
+                Type = "string",
+                Value = TeamId,
+            });
+            types.Add(new OpenApiType(){
+                Name = "role",
+                Property = "Role",
+                Type = "string",
+                Value = Role,
+            });
+            types.Add(new OpenApiType(){
+                Name = "sent_at",
+                Property = "SentAt",
+                Type = "int",
+                Value = SentAt,
+            });
+            types.Add(new OpenApiType(){
+                Name = "redeemed_at",
+                Property = "RedeemedAt",
+                Type = "int",
+                Value = RedeemedAt,
+            });
+            types.Add(new OpenApiType(){
+                Name = "expires_at",
+                Property = "ExpiresAt",
+                Type = "int",
+                Value = ExpiresAt,
+            });
 
             return types;
         }
     }
+
 }

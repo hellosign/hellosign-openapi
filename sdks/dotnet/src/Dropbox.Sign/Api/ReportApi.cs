@@ -20,6 +20,7 @@ using Dropbox.Sign.Model;
 
 namespace Dropbox.Sign.Api
 {
+
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
@@ -36,10 +37,7 @@ namespace Dropbox.Sign.Api
         /// <param name="reportCreateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ReportCreateResponse</returns>
-        ReportCreateResponse ReportCreate(
-            ReportCreateRequest reportCreateRequest,
-            int operationIndex = 0
-        );
+        ReportCreateResponse ReportCreate(ReportCreateRequest reportCreateRequest, int operationIndex = 0);
 
         /// <summary>
         /// Create Report
@@ -51,10 +49,7 @@ namespace Dropbox.Sign.Api
         /// <param name="reportCreateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ReportCreateResponse</returns>
-        ApiResponse<ReportCreateResponse> ReportCreateWithHttpInfo(
-            ReportCreateRequest reportCreateRequest,
-            int operationIndex = 0
-        );
+        ApiResponse<ReportCreateResponse> ReportCreateWithHttpInfo(ReportCreateRequest reportCreateRequest, int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -75,12 +70,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ReportCreateResponse</returns>
-        System.Threading.Tasks.Task<ReportCreateResponse> ReportCreateAsync(
-            ReportCreateRequest reportCreateRequest,
-            int operationIndex = 0,
-            System.Threading.CancellationToken cancellationToken =
-                default(System.Threading.CancellationToken)
-        );
+        System.Threading.Tasks.Task<ReportCreateResponse> ReportCreateAsync(ReportCreateRequest reportCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Create Report
@@ -93,21 +83,17 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ReportCreateResponse)</returns>
-        System.Threading.Tasks.Task<
-            ApiResponse<ReportCreateResponse>
-        > ReportCreateWithHttpInfoAsync(
-            ReportCreateRequest reportCreateRequest,
-            int operationIndex = 0,
-            System.Threading.CancellationToken cancellationToken =
-                default(System.Threading.CancellationToken)
-        );
+        System.Threading.Tasks.Task<ApiResponse<ReportCreateResponse>> ReportCreateWithHttpInfoAsync(ReportCreateRequest reportCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IReportApi : IReportApiSync, IReportApiAsync { }
+    public interface IReportApi : IReportApiSync, IReportApiAsync
+    {
+
+    }
 
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
@@ -120,8 +106,9 @@ namespace Dropbox.Sign.Api
         /// Initializes a new instance of the <see cref="ReportApi"/> class.
         /// </summary>
         /// <returns></returns>
-        public ReportApi()
-            : this((string)null) { }
+        public ReportApi() : this((string)null)
+        {
+        }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ReportApi"/> class.
@@ -134,9 +121,7 @@ namespace Dropbox.Sign.Api
                 new Dropbox.Sign.Client.Configuration { BasePath = basePath }
             );
             this.Client = new Dropbox.Sign.Client.ApiClient(this.Configuration.BasePath);
-            this.AsynchronousClient = new Dropbox.Sign.Client.ApiClient(
-                this.Configuration.BasePath
-            );
+            this.AsynchronousClient = new Dropbox.Sign.Client.ApiClient(this.Configuration.BasePath);
             this.ExceptionFactory = Dropbox.Sign.Client.Configuration.DefaultExceptionFactory;
         }
 
@@ -148,17 +133,14 @@ namespace Dropbox.Sign.Api
         /// <returns></returns>
         public ReportApi(Dropbox.Sign.Client.Configuration configuration)
         {
-            if (configuration == null)
-                throw new ArgumentNullException("configuration");
+            if (configuration == null) throw new ArgumentNullException("configuration");
 
             this.Configuration = Dropbox.Sign.Client.Configuration.MergeConfigurations(
                 Dropbox.Sign.Client.GlobalConfiguration.Instance,
                 configuration
             );
             this.Client = new Dropbox.Sign.Client.ApiClient(this.Configuration.BasePath);
-            this.AsynchronousClient = new Dropbox.Sign.Client.ApiClient(
-                this.Configuration.BasePath
-            );
+            this.AsynchronousClient = new Dropbox.Sign.Client.ApiClient(this.Configuration.BasePath);
             ExceptionFactory = Dropbox.Sign.Client.Configuration.DefaultExceptionFactory;
         }
 
@@ -169,18 +151,11 @@ namespace Dropbox.Sign.Api
         /// <param name="client">The client interface for synchronous API access.</param>
         /// <param name="asyncClient">The client interface for asynchronous API access.</param>
         /// <param name="configuration">The configuration object.</param>
-        public ReportApi(
-            Dropbox.Sign.Client.ISynchronousClient client,
-            Dropbox.Sign.Client.IAsynchronousClient asyncClient,
-            Dropbox.Sign.Client.IReadableConfiguration configuration
-        )
+        public ReportApi(Dropbox.Sign.Client.ISynchronousClient client, Dropbox.Sign.Client.IAsynchronousClient asyncClient, Dropbox.Sign.Client.IReadableConfiguration configuration)
         {
-            if (client == null)
-                throw new ArgumentNullException("client");
-            if (asyncClient == null)
-                throw new ArgumentNullException("asyncClient");
-            if (configuration == null)
-                throw new ArgumentNullException("configuration");
+            if (client == null) throw new ArgumentNullException("client");
+            if (asyncClient == null) throw new ArgumentNullException("asyncClient");
+            if (configuration == null) throw new ArgumentNullException("configuration");
 
             this.Client = client;
             this.AsynchronousClient = asyncClient;
@@ -222,9 +197,7 @@ namespace Dropbox.Sign.Api
             {
                 if (_exceptionFactory != null && _exceptionFactory.GetInvocationList().Length > 1)
                 {
-                    throw new InvalidOperationException(
-                        "Multicast delegate for ExceptionFactory is unsupported."
-                    );
+                    throw new InvalidOperationException("Multicast delegate for ExceptionFactory is unsupported.");
                 }
                 return _exceptionFactory;
             }
@@ -238,13 +211,9 @@ namespace Dropbox.Sign.Api
         /// <param name="reportCreateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ReportCreateResponse</returns>
-        public ReportCreateResponse ReportCreate(
-            ReportCreateRequest reportCreateRequest,
-            int operationIndex = 0
-        )
+        public ReportCreateResponse ReportCreate(ReportCreateRequest reportCreateRequest, int operationIndex = 0)
         {
-            Dropbox.Sign.Client.ApiResponse<ReportCreateResponse> localVarResponse =
-                ReportCreateWithHttpInfo(reportCreateRequest);
+            Dropbox.Sign.Client.ApiResponse<ReportCreateResponse> localVarResponse = ReportCreateWithHttpInfo(reportCreateRequest);
             return localVarResponse.Data;
         }
 
@@ -255,22 +224,15 @@ namespace Dropbox.Sign.Api
         /// <param name="reportCreateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ReportCreateResponse</returns>
-        public Dropbox.Sign.Client.ApiResponse<ReportCreateResponse> ReportCreateWithHttpInfo(
-            ReportCreateRequest reportCreateRequest,
-            int operationIndex = 0
-        )
+        public Dropbox.Sign.Client.ApiResponse<ReportCreateResponse> ReportCreateWithHttpInfo(ReportCreateRequest reportCreateRequest, int operationIndex = 0)
         {
             // verify the required parameter 'reportCreateRequest' is set
             if (reportCreateRequest == null)
             {
-                throw new Dropbox.Sign.Client.ApiException(
-                    400,
-                    "Missing required parameter 'reportCreateRequest' when calling ReportApi->ReportCreate"
-                );
+                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'reportCreateRequest' when calling ReportApi->ReportCreate");
             }
 
-            Dropbox.Sign.Client.RequestOptions localVarRequestOptions =
-                new Dropbox.Sign.Client.RequestOptions();
+            Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
 
             var localVarContentType = "";
             var openApiTypes = reportCreateRequest.GetOpenApiTypes();
@@ -286,7 +248,9 @@ namespace Dropbox.Sign.Api
             }
 
             // to determine the Accept header
-            string[] _accepts = new string[] { "application/json" };
+            string[] _accepts = new string[] {
+                "application/json"
+            };
 
             if (localVarContentType != null)
             {
@@ -299,32 +263,19 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+
             localVarRequestOptions.Operation = "ReportApi.ReportCreate";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (api_key) required
             // http basic authentication required
-            if (
-                !string.IsNullOrEmpty(this.Configuration.Username)
-                || !string.IsNullOrEmpty(this.Configuration.Password)
-                    && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization")
-            )
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add(
-                    "Authorization",
-                    "Basic "
-                        + Dropbox.Sign.Client.ClientUtils.Base64Encode(
-                            this.Configuration.Username + ":" + this.Configuration.Password
-                        )
-                );
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Dropbox.Sign.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<ReportCreateResponse>(
-                "/report/create",
-                localVarRequestOptions,
-                this.Configuration
-            );
+            var localVarResponse = this.Client.Post<ReportCreateResponse>("/report/create", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ReportCreate", localVarResponse);
@@ -345,20 +296,9 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ReportCreateResponse</returns>
-        public async System.Threading.Tasks.Task<ReportCreateResponse> ReportCreateAsync(
-            ReportCreateRequest reportCreateRequest,
-            int operationIndex = 0,
-            System.Threading.CancellationToken cancellationToken =
-                default(System.Threading.CancellationToken)
-        )
+        public async System.Threading.Tasks.Task<ReportCreateResponse> ReportCreateAsync(ReportCreateRequest reportCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Dropbox.Sign.Client.ApiResponse<ReportCreateResponse> localVarResponse =
-                await ReportCreateWithHttpInfoAsync(
-                        reportCreateRequest,
-                        operationIndex,
-                        cancellationToken
-                    )
-                    .ConfigureAwait(false);
+            Dropbox.Sign.Client.ApiResponse<ReportCreateResponse> localVarResponse = await ReportCreateWithHttpInfoAsync(reportCreateRequest, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -370,24 +310,16 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ReportCreateResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<ReportCreateResponse>> ReportCreateWithHttpInfoAsync(
-            ReportCreateRequest reportCreateRequest,
-            int operationIndex = 0,
-            System.Threading.CancellationToken cancellationToken =
-                default(System.Threading.CancellationToken)
-        )
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<ReportCreateResponse>> ReportCreateWithHttpInfoAsync(ReportCreateRequest reportCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'reportCreateRequest' is set
             if (reportCreateRequest == null)
             {
-                throw new Dropbox.Sign.Client.ApiException(
-                    400,
-                    "Missing required parameter 'reportCreateRequest' when calling ReportApi->ReportCreate"
-                );
+                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'reportCreateRequest' when calling ReportApi->ReportCreate");
             }
 
-            Dropbox.Sign.Client.RequestOptions localVarRequestOptions =
-                new Dropbox.Sign.Client.RequestOptions();
+
+            Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
 
             var localVarContentType = "";
             var openApiTypes = reportCreateRequest.GetOpenApiTypes();
@@ -403,7 +335,9 @@ namespace Dropbox.Sign.Api
             }
 
             // to determine the Accept header
-            string[] _accepts = new string[] { "application/json" };
+            string[] _accepts = new string[] {
+                "application/json"
+            };
 
             if (localVarContentType != null)
             {
@@ -416,35 +350,19 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+
             localVarRequestOptions.Operation = "ReportApi.ReportCreate";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (api_key) required
             // http basic authentication required
-            if (
-                !string.IsNullOrEmpty(this.Configuration.Username)
-                || !string.IsNullOrEmpty(this.Configuration.Password)
-                    && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization")
-            )
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add(
-                    "Authorization",
-                    "Basic "
-                        + Dropbox.Sign.Client.ClientUtils.Base64Encode(
-                            this.Configuration.Username + ":" + this.Configuration.Password
-                        )
-                );
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Dropbox.Sign.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
 
             // make the HTTP request
-            var localVarResponse = await this
-                .AsynchronousClient.PostAsync<ReportCreateResponse>(
-                    "/report/create",
-                    localVarRequestOptions,
-                    this.Configuration,
-                    cancellationToken
-                )
-                .ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<ReportCreateResponse>("/report/create", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -457,5 +375,6 @@ namespace Dropbox.Sign.Api
 
             return localVarResponse;
         }
+
     }
 }

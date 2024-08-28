@@ -1,9 +1,10 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Net;
+using Xunit;
+
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Model;
-using Xunit;
 
 namespace Dropbox.Sign.Test.Api
 {
@@ -43,7 +44,9 @@ namespace Dropbox.Sign.Test.Api
         }
 
         [Fact(Skip = "DELETE /api_app/{client_id} skipped")]
-        public void ApiAppDeleteTest() { }
+        public void ApiAppDeleteTest()
+        {
+        }
 
         [Fact]
         public void ApiAppListTest()

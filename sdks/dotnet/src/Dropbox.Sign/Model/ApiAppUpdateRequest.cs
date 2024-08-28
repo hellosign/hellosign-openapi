@@ -13,15 +13,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel.DataAnnotations;
-using System.IO;
 using System.Linq;
+using System.IO;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 
 namespace Dropbox.Sign.Model
@@ -38,7 +38,6 @@ namespace Dropbox.Sign.Model
         /// </summary>
         [JsonConstructorAttribute]
         protected ApiAppUpdateRequest() { }
-
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiAppUpdateRequest" /> class.
         /// </summary>
@@ -49,16 +48,9 @@ namespace Dropbox.Sign.Model
         /// <param name="oauth">oauth.</param>
         /// <param name="options">options.</param>
         /// <param name="whiteLabelingOptions">whiteLabelingOptions.</param>
-        public ApiAppUpdateRequest(
-            string callbackUrl = default(string),
-            System.IO.Stream customLogoFile = default(System.IO.Stream),
-            List<string> domains = default(List<string>),
-            string name = default(string),
-            SubOAuth oauth = default(SubOAuth),
-            SubOptions options = default(SubOptions),
-            SubWhiteLabelingOptions whiteLabelingOptions = default(SubWhiteLabelingOptions)
-        )
+        public ApiAppUpdateRequest(string callbackUrl = default(string), System.IO.Stream customLogoFile = default(System.IO.Stream), List<string> domains = default(List<string>), string name = default(string), SubOAuth oauth = default(SubOAuth), SubOptions options = default(SubOptions), SubWhiteLabelingOptions whiteLabelingOptions = default(SubWhiteLabelingOptions))
         {
+            
             this.CallbackUrl = callbackUrl;
             this.CustomLogoFile = customLogoFile;
             this.Domains = domains;
@@ -78,9 +70,7 @@ namespace Dropbox.Sign.Model
 
             if (obj == null)
             {
-                throw new Exception(
-                    "Unable to deserialize JSON to instance of ApiAppUpdateRequest"
-                );
+                throw new Exception("Unable to deserialize JSON to instance of ApiAppUpdateRequest");
             }
 
             return obj;
@@ -92,6 +82,7 @@ namespace Dropbox.Sign.Model
         /// <value>The URL at which the API App should receive event callbacks.</value>
         [DataMember(Name = "callback_url", EmitDefaultValue = true)]
         public string CallbackUrl { get; set; }
+        
 
         /// <summary>
         /// An image file to use as a custom logo in embedded contexts. (Only applies to some API plans)
@@ -99,6 +90,7 @@ namespace Dropbox.Sign.Model
         /// <value>An image file to use as a custom logo in embedded contexts. (Only applies to some API plans)</value>
         [DataMember(Name = "custom_logo_file", EmitDefaultValue = true)]
         public System.IO.Stream CustomLogoFile { get; set; }
+        
 
         /// <summary>
         /// The domain names the ApiApp will be associated with.
@@ -106,6 +98,7 @@ namespace Dropbox.Sign.Model
         /// <value>The domain names the ApiApp will be associated with.</value>
         [DataMember(Name = "domains", EmitDefaultValue = true)]
         public List<string> Domains { get; set; }
+        
 
         /// <summary>
         /// The name you want to assign to the ApiApp.
@@ -113,24 +106,28 @@ namespace Dropbox.Sign.Model
         /// <value>The name you want to assign to the ApiApp.</value>
         [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
+        
 
         /// <summary>
         /// Gets or Sets Oauth
         /// </summary>
         [DataMember(Name = "oauth", EmitDefaultValue = true)]
         public SubOAuth Oauth { get; set; }
+        
 
         /// <summary>
         /// Gets or Sets Options
         /// </summary>
         [DataMember(Name = "options", EmitDefaultValue = true)]
         public SubOptions Options { get; set; }
+        
 
         /// <summary>
         /// Gets or Sets WhiteLabelingOptions
         /// </summary>
         [DataMember(Name = "white_labeling_options", EmitDefaultValue = true)]
         public SubWhiteLabelingOptions WhiteLabelingOptions { get; set; }
+        
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -157,10 +154,7 @@ namespace Dropbox.Sign.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(
-                this,
-                Newtonsoft.Json.Formatting.Indented
-            );
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>
@@ -184,38 +178,42 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return (
-                    this.CallbackUrl == input.CallbackUrl
-                    || (this.CallbackUrl != null && this.CallbackUrl.Equals(input.CallbackUrl))
-                )
-                && (
-                    this.CustomLogoFile == input.CustomLogoFile
-                    || (
-                        this.CustomLogoFile != null
-                        && this.CustomLogoFile.Equals(input.CustomLogoFile)
-                    )
-                )
-                && (
-                    this.Domains == input.Domains
-                    || this.Domains != null
-                        && input.Domains != null
-                        && this.Domains.SequenceEqual(input.Domains)
-                )
-                && (this.Name == input.Name || (this.Name != null && this.Name.Equals(input.Name)))
-                && (
-                    this.Oauth == input.Oauth
-                    || (this.Oauth != null && this.Oauth.Equals(input.Oauth))
-                )
-                && (
-                    this.Options == input.Options
-                    || (this.Options != null && this.Options.Equals(input.Options))
-                )
-                && (
-                    this.WhiteLabelingOptions == input.WhiteLabelingOptions
-                    || (
-                        this.WhiteLabelingOptions != null
-                        && this.WhiteLabelingOptions.Equals(input.WhiteLabelingOptions)
-                    )
+            return 
+                (
+                    this.CallbackUrl == input.CallbackUrl ||
+                    (this.CallbackUrl != null &&
+                    this.CallbackUrl.Equals(input.CallbackUrl))
+                ) && 
+                (
+                    this.CustomLogoFile == input.CustomLogoFile ||
+                    (this.CustomLogoFile != null &&
+                    this.CustomLogoFile.Equals(input.CustomLogoFile))
+                ) && 
+                (
+                    this.Domains == input.Domains ||
+                    this.Domains != null &&
+                    input.Domains != null &&
+                    this.Domains.SequenceEqual(input.Domains)
+                ) && 
+                (
+                    this.Name == input.Name ||
+                    (this.Name != null &&
+                    this.Name.Equals(input.Name))
+                ) && 
+                (
+                    this.Oauth == input.Oauth ||
+                    (this.Oauth != null &&
+                    this.Oauth.Equals(input.Oauth))
+                ) && 
+                (
+                    this.Options == input.Options ||
+                    (this.Options != null &&
+                    this.Options.Equals(input.Options))
+                ) && 
+                (
+                    this.WhiteLabelingOptions == input.WhiteLabelingOptions ||
+                    (this.WhiteLabelingOptions != null &&
+                    this.WhiteLabelingOptions.Equals(input.WhiteLabelingOptions))
                 );
         }
 
@@ -265,9 +263,7 @@ namespace Dropbox.Sign.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<ValidationResult> IValidatableObject.Validate(
-            ValidationContext validationContext
-        )
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }
@@ -275,71 +271,51 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "callback_url",
-                    Property = "CallbackUrl",
-                    Type = "string",
-                    Value = CallbackUrl,
-                }
-            );
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "custom_logo_file",
-                    Property = "CustomLogoFile",
-                    Type = "System.IO.Stream",
-                    Value = CustomLogoFile,
-                }
-            );
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "domains",
-                    Property = "Domains",
-                    Type = "List<string>",
-                    Value = Domains,
-                }
-            );
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "name",
-                    Property = "Name",
-                    Type = "string",
-                    Value = Name,
-                }
-            );
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "oauth",
-                    Property = "Oauth",
-                    Type = "SubOAuth",
-                    Value = Oauth,
-                }
-            );
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "options",
-                    Property = "Options",
-                    Type = "SubOptions",
-                    Value = Options,
-                }
-            );
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "white_labeling_options",
-                    Property = "WhiteLabelingOptions",
-                    Type = "SubWhiteLabelingOptions",
-                    Value = WhiteLabelingOptions,
-                }
-            );
+            types.Add(new OpenApiType(){
+                Name = "callback_url",
+                Property = "CallbackUrl",
+                Type = "string",
+                Value = CallbackUrl,
+            });
+            types.Add(new OpenApiType(){
+                Name = "custom_logo_file",
+                Property = "CustomLogoFile",
+                Type = "System.IO.Stream",
+                Value = CustomLogoFile,
+            });
+            types.Add(new OpenApiType(){
+                Name = "domains",
+                Property = "Domains",
+                Type = "List<string>",
+                Value = Domains,
+            });
+            types.Add(new OpenApiType(){
+                Name = "name",
+                Property = "Name",
+                Type = "string",
+                Value = Name,
+            });
+            types.Add(new OpenApiType(){
+                Name = "oauth",
+                Property = "Oauth",
+                Type = "SubOAuth",
+                Value = Oauth,
+            });
+            types.Add(new OpenApiType(){
+                Name = "options",
+                Property = "Options",
+                Type = "SubOptions",
+                Value = Options,
+            });
+            types.Add(new OpenApiType(){
+                Name = "white_labeling_options",
+                Property = "WhiteLabelingOptions",
+                Type = "SubWhiteLabelingOptions",
+                Value = WhiteLabelingOptions,
+            });
 
             return types;
         }
     }
+
 }

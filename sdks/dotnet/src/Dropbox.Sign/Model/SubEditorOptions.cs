@@ -13,15 +13,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel.DataAnnotations;
-using System.IO;
 using System.Linq;
+using System.IO;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 
 namespace Dropbox.Sign.Model
@@ -38,7 +38,6 @@ namespace Dropbox.Sign.Model
         /// </summary>
         [JsonConstructorAttribute]
         protected SubEditorOptions() { }
-
         /// <summary>
         /// Initializes a new instance of the <see cref="SubEditorOptions" /> class.
         /// </summary>
@@ -46,6 +45,7 @@ namespace Dropbox.Sign.Model
         /// <param name="allowEditDocuments">Allows requesters to edit documents, including delete and add (default to false).</param>
         public SubEditorOptions(bool allowEditSigners = false, bool allowEditDocuments = false)
         {
+            
             this.AllowEditSigners = allowEditSigners;
             this.AllowEditDocuments = allowEditDocuments;
         }
@@ -72,6 +72,7 @@ namespace Dropbox.Sign.Model
         /// <value>Allows requesters to edit the list of signers</value>
         [DataMember(Name = "allow_edit_signers", EmitDefaultValue = true)]
         public bool AllowEditSigners { get; set; }
+        
 
         /// <summary>
         /// Allows requesters to edit documents, including delete and add
@@ -79,6 +80,7 @@ namespace Dropbox.Sign.Model
         /// <value>Allows requesters to edit documents, including delete and add</value>
         [DataMember(Name = "allow_edit_documents", EmitDefaultValue = true)]
         public bool AllowEditDocuments { get; set; }
+        
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -100,10 +102,7 @@ namespace Dropbox.Sign.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(
-                this,
-                Newtonsoft.Json.Formatting.Indented
-            );
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>
@@ -127,13 +126,14 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return (
-                    this.AllowEditSigners == input.AllowEditSigners
-                    || this.AllowEditSigners.Equals(input.AllowEditSigners)
-                )
-                && (
-                    this.AllowEditDocuments == input.AllowEditDocuments
-                    || this.AllowEditDocuments.Equals(input.AllowEditDocuments)
+            return 
+                (
+                    this.AllowEditSigners == input.AllowEditSigners ||
+                    this.AllowEditSigners.Equals(input.AllowEditSigners)
+                ) && 
+                (
+                    this.AllowEditDocuments == input.AllowEditDocuments ||
+                    this.AllowEditDocuments.Equals(input.AllowEditDocuments)
                 );
         }
 
@@ -157,9 +157,7 @@ namespace Dropbox.Sign.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<ValidationResult> IValidatableObject.Validate(
-            ValidationContext validationContext
-        )
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }
@@ -167,26 +165,21 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "allow_edit_signers",
-                    Property = "AllowEditSigners",
-                    Type = "bool",
-                    Value = AllowEditSigners,
-                }
-            );
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "allow_edit_documents",
-                    Property = "AllowEditDocuments",
-                    Type = "bool",
-                    Value = AllowEditDocuments,
-                }
-            );
+            types.Add(new OpenApiType(){
+                Name = "allow_edit_signers",
+                Property = "AllowEditSigners",
+                Type = "bool",
+                Value = AllowEditSigners,
+            });
+            types.Add(new OpenApiType(){
+                Name = "allow_edit_documents",
+                Property = "AllowEditDocuments",
+                Type = "bool",
+                Value = AllowEditDocuments,
+            });
 
             return types;
         }
     }
+
 }

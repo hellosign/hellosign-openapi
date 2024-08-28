@@ -20,6 +20,7 @@ using Dropbox.Sign.Model;
 
 namespace Dropbox.Sign.Api
 {
+
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
@@ -36,10 +37,7 @@ namespace Dropbox.Sign.Api
         /// <param name="accountCreateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>AccountCreateResponse</returns>
-        AccountCreateResponse AccountCreate(
-            AccountCreateRequest accountCreateRequest,
-            int operationIndex = 0
-        );
+        AccountCreateResponse AccountCreate(AccountCreateRequest accountCreateRequest, int operationIndex = 0);
 
         /// <summary>
         /// Create Account
@@ -51,11 +49,7 @@ namespace Dropbox.Sign.Api
         /// <param name="accountCreateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of AccountCreateResponse</returns>
-        ApiResponse<AccountCreateResponse> AccountCreateWithHttpInfo(
-            AccountCreateRequest accountCreateRequest,
-            int operationIndex = 0
-        );
-
+        ApiResponse<AccountCreateResponse> AccountCreateWithHttpInfo(AccountCreateRequest accountCreateRequest, int operationIndex = 0);
         /// <summary>
         /// Get Account
         /// </summary>
@@ -67,11 +61,7 @@ namespace Dropbox.Sign.Api
         /// <param name="emailAddress">&#x60;account_id&#x60; or &#x60;email_address&#x60; is required, If both are provided, the account id prevails.  The email address of the Account. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>AccountGetResponse</returns>
-        AccountGetResponse AccountGet(
-            string? accountId = default(string?),
-            string? emailAddress = default(string?),
-            int operationIndex = 0
-        );
+        AccountGetResponse AccountGet(string? accountId = default(string?), string? emailAddress = default(string?), int operationIndex = 0);
 
         /// <summary>
         /// Get Account
@@ -84,12 +74,7 @@ namespace Dropbox.Sign.Api
         /// <param name="emailAddress">&#x60;account_id&#x60; or &#x60;email_address&#x60; is required, If both are provided, the account id prevails.  The email address of the Account. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of AccountGetResponse</returns>
-        ApiResponse<AccountGetResponse> AccountGetWithHttpInfo(
-            string? accountId = default(string?),
-            string? emailAddress = default(string?),
-            int operationIndex = 0
-        );
-
+        ApiResponse<AccountGetResponse> AccountGetWithHttpInfo(string? accountId = default(string?), string? emailAddress = default(string?), int operationIndex = 0);
         /// <summary>
         /// Update Account
         /// </summary>
@@ -100,10 +85,7 @@ namespace Dropbox.Sign.Api
         /// <param name="accountUpdateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>AccountGetResponse</returns>
-        AccountGetResponse AccountUpdate(
-            AccountUpdateRequest accountUpdateRequest,
-            int operationIndex = 0
-        );
+        AccountGetResponse AccountUpdate(AccountUpdateRequest accountUpdateRequest, int operationIndex = 0);
 
         /// <summary>
         /// Update Account
@@ -115,11 +97,7 @@ namespace Dropbox.Sign.Api
         /// <param name="accountUpdateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of AccountGetResponse</returns>
-        ApiResponse<AccountGetResponse> AccountUpdateWithHttpInfo(
-            AccountUpdateRequest accountUpdateRequest,
-            int operationIndex = 0
-        );
-
+        ApiResponse<AccountGetResponse> AccountUpdateWithHttpInfo(AccountUpdateRequest accountUpdateRequest, int operationIndex = 0);
         /// <summary>
         /// Verify Account
         /// </summary>
@@ -130,10 +108,7 @@ namespace Dropbox.Sign.Api
         /// <param name="accountVerifyRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>AccountVerifyResponse</returns>
-        AccountVerifyResponse AccountVerify(
-            AccountVerifyRequest accountVerifyRequest,
-            int operationIndex = 0
-        );
+        AccountVerifyResponse AccountVerify(AccountVerifyRequest accountVerifyRequest, int operationIndex = 0);
 
         /// <summary>
         /// Verify Account
@@ -145,10 +120,7 @@ namespace Dropbox.Sign.Api
         /// <param name="accountVerifyRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of AccountVerifyResponse</returns>
-        ApiResponse<AccountVerifyResponse> AccountVerifyWithHttpInfo(
-            AccountVerifyRequest accountVerifyRequest,
-            int operationIndex = 0
-        );
+        ApiResponse<AccountVerifyResponse> AccountVerifyWithHttpInfo(AccountVerifyRequest accountVerifyRequest, int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -169,12 +141,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of AccountCreateResponse</returns>
-        System.Threading.Tasks.Task<AccountCreateResponse> AccountCreateAsync(
-            AccountCreateRequest accountCreateRequest,
-            int operationIndex = 0,
-            System.Threading.CancellationToken cancellationToken =
-                default(System.Threading.CancellationToken)
-        );
+        System.Threading.Tasks.Task<AccountCreateResponse> AccountCreateAsync(AccountCreateRequest accountCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Create Account
@@ -187,15 +154,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (AccountCreateResponse)</returns>
-        System.Threading.Tasks.Task<
-            ApiResponse<AccountCreateResponse>
-        > AccountCreateWithHttpInfoAsync(
-            AccountCreateRequest accountCreateRequest,
-            int operationIndex = 0,
-            System.Threading.CancellationToken cancellationToken =
-                default(System.Threading.CancellationToken)
-        );
-
+        System.Threading.Tasks.Task<ApiResponse<AccountCreateResponse>> AccountCreateWithHttpInfoAsync(AccountCreateRequest accountCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get Account
         /// </summary>
@@ -208,13 +167,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of AccountGetResponse</returns>
-        System.Threading.Tasks.Task<AccountGetResponse> AccountGetAsync(
-            string? accountId = default(string?),
-            string? emailAddress = default(string?),
-            int operationIndex = 0,
-            System.Threading.CancellationToken cancellationToken =
-                default(System.Threading.CancellationToken)
-        );
+        System.Threading.Tasks.Task<AccountGetResponse> AccountGetAsync(string? accountId = default(string?), string? emailAddress = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get Account
@@ -228,14 +181,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (AccountGetResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<AccountGetResponse>> AccountGetWithHttpInfoAsync(
-            string? accountId = default(string?),
-            string? emailAddress = default(string?),
-            int operationIndex = 0,
-            System.Threading.CancellationToken cancellationToken =
-                default(System.Threading.CancellationToken)
-        );
-
+        System.Threading.Tasks.Task<ApiResponse<AccountGetResponse>> AccountGetWithHttpInfoAsync(string? accountId = default(string?), string? emailAddress = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Update Account
         /// </summary>
@@ -247,12 +193,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of AccountGetResponse</returns>
-        System.Threading.Tasks.Task<AccountGetResponse> AccountUpdateAsync(
-            AccountUpdateRequest accountUpdateRequest,
-            int operationIndex = 0,
-            System.Threading.CancellationToken cancellationToken =
-                default(System.Threading.CancellationToken)
-        );
+        System.Threading.Tasks.Task<AccountGetResponse> AccountUpdateAsync(AccountUpdateRequest accountUpdateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Update Account
@@ -265,13 +206,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (AccountGetResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<AccountGetResponse>> AccountUpdateWithHttpInfoAsync(
-            AccountUpdateRequest accountUpdateRequest,
-            int operationIndex = 0,
-            System.Threading.CancellationToken cancellationToken =
-                default(System.Threading.CancellationToken)
-        );
-
+        System.Threading.Tasks.Task<ApiResponse<AccountGetResponse>> AccountUpdateWithHttpInfoAsync(AccountUpdateRequest accountUpdateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Verify Account
         /// </summary>
@@ -283,12 +218,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of AccountVerifyResponse</returns>
-        System.Threading.Tasks.Task<AccountVerifyResponse> AccountVerifyAsync(
-            AccountVerifyRequest accountVerifyRequest,
-            int operationIndex = 0,
-            System.Threading.CancellationToken cancellationToken =
-                default(System.Threading.CancellationToken)
-        );
+        System.Threading.Tasks.Task<AccountVerifyResponse> AccountVerifyAsync(AccountVerifyRequest accountVerifyRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Verify Account
@@ -301,21 +231,17 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (AccountVerifyResponse)</returns>
-        System.Threading.Tasks.Task<
-            ApiResponse<AccountVerifyResponse>
-        > AccountVerifyWithHttpInfoAsync(
-            AccountVerifyRequest accountVerifyRequest,
-            int operationIndex = 0,
-            System.Threading.CancellationToken cancellationToken =
-                default(System.Threading.CancellationToken)
-        );
+        System.Threading.Tasks.Task<ApiResponse<AccountVerifyResponse>> AccountVerifyWithHttpInfoAsync(AccountVerifyRequest accountVerifyRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IAccountApi : IAccountApiSync, IAccountApiAsync { }
+    public interface IAccountApi : IAccountApiSync, IAccountApiAsync
+    {
+
+    }
 
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
@@ -328,8 +254,9 @@ namespace Dropbox.Sign.Api
         /// Initializes a new instance of the <see cref="AccountApi"/> class.
         /// </summary>
         /// <returns></returns>
-        public AccountApi()
-            : this((string)null) { }
+        public AccountApi() : this((string)null)
+        {
+        }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="AccountApi"/> class.
@@ -342,9 +269,7 @@ namespace Dropbox.Sign.Api
                 new Dropbox.Sign.Client.Configuration { BasePath = basePath }
             );
             this.Client = new Dropbox.Sign.Client.ApiClient(this.Configuration.BasePath);
-            this.AsynchronousClient = new Dropbox.Sign.Client.ApiClient(
-                this.Configuration.BasePath
-            );
+            this.AsynchronousClient = new Dropbox.Sign.Client.ApiClient(this.Configuration.BasePath);
             this.ExceptionFactory = Dropbox.Sign.Client.Configuration.DefaultExceptionFactory;
         }
 
@@ -356,17 +281,14 @@ namespace Dropbox.Sign.Api
         /// <returns></returns>
         public AccountApi(Dropbox.Sign.Client.Configuration configuration)
         {
-            if (configuration == null)
-                throw new ArgumentNullException("configuration");
+            if (configuration == null) throw new ArgumentNullException("configuration");
 
             this.Configuration = Dropbox.Sign.Client.Configuration.MergeConfigurations(
                 Dropbox.Sign.Client.GlobalConfiguration.Instance,
                 configuration
             );
             this.Client = new Dropbox.Sign.Client.ApiClient(this.Configuration.BasePath);
-            this.AsynchronousClient = new Dropbox.Sign.Client.ApiClient(
-                this.Configuration.BasePath
-            );
+            this.AsynchronousClient = new Dropbox.Sign.Client.ApiClient(this.Configuration.BasePath);
             ExceptionFactory = Dropbox.Sign.Client.Configuration.DefaultExceptionFactory;
         }
 
@@ -377,18 +299,11 @@ namespace Dropbox.Sign.Api
         /// <param name="client">The client interface for synchronous API access.</param>
         /// <param name="asyncClient">The client interface for asynchronous API access.</param>
         /// <param name="configuration">The configuration object.</param>
-        public AccountApi(
-            Dropbox.Sign.Client.ISynchronousClient client,
-            Dropbox.Sign.Client.IAsynchronousClient asyncClient,
-            Dropbox.Sign.Client.IReadableConfiguration configuration
-        )
+        public AccountApi(Dropbox.Sign.Client.ISynchronousClient client, Dropbox.Sign.Client.IAsynchronousClient asyncClient, Dropbox.Sign.Client.IReadableConfiguration configuration)
         {
-            if (client == null)
-                throw new ArgumentNullException("client");
-            if (asyncClient == null)
-                throw new ArgumentNullException("asyncClient");
-            if (configuration == null)
-                throw new ArgumentNullException("configuration");
+            if (client == null) throw new ArgumentNullException("client");
+            if (asyncClient == null) throw new ArgumentNullException("asyncClient");
+            if (configuration == null) throw new ArgumentNullException("configuration");
 
             this.Client = client;
             this.AsynchronousClient = asyncClient;
@@ -430,9 +345,7 @@ namespace Dropbox.Sign.Api
             {
                 if (_exceptionFactory != null && _exceptionFactory.GetInvocationList().Length > 1)
                 {
-                    throw new InvalidOperationException(
-                        "Multicast delegate for ExceptionFactory is unsupported."
-                    );
+                    throw new InvalidOperationException("Multicast delegate for ExceptionFactory is unsupported.");
                 }
                 return _exceptionFactory;
             }
@@ -446,13 +359,9 @@ namespace Dropbox.Sign.Api
         /// <param name="accountCreateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>AccountCreateResponse</returns>
-        public AccountCreateResponse AccountCreate(
-            AccountCreateRequest accountCreateRequest,
-            int operationIndex = 0
-        )
+        public AccountCreateResponse AccountCreate(AccountCreateRequest accountCreateRequest, int operationIndex = 0)
         {
-            Dropbox.Sign.Client.ApiResponse<AccountCreateResponse> localVarResponse =
-                AccountCreateWithHttpInfo(accountCreateRequest);
+            Dropbox.Sign.Client.ApiResponse<AccountCreateResponse> localVarResponse = AccountCreateWithHttpInfo(accountCreateRequest);
             return localVarResponse.Data;
         }
 
@@ -463,22 +372,15 @@ namespace Dropbox.Sign.Api
         /// <param name="accountCreateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of AccountCreateResponse</returns>
-        public Dropbox.Sign.Client.ApiResponse<AccountCreateResponse> AccountCreateWithHttpInfo(
-            AccountCreateRequest accountCreateRequest,
-            int operationIndex = 0
-        )
+        public Dropbox.Sign.Client.ApiResponse<AccountCreateResponse> AccountCreateWithHttpInfo(AccountCreateRequest accountCreateRequest, int operationIndex = 0)
         {
             // verify the required parameter 'accountCreateRequest' is set
             if (accountCreateRequest == null)
             {
-                throw new Dropbox.Sign.Client.ApiException(
-                    400,
-                    "Missing required parameter 'accountCreateRequest' when calling AccountApi->AccountCreate"
-                );
+                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'accountCreateRequest' when calling AccountApi->AccountCreate");
             }
 
-            Dropbox.Sign.Client.RequestOptions localVarRequestOptions =
-                new Dropbox.Sign.Client.RequestOptions();
+            Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
 
             var localVarContentType = "";
             var openApiTypes = accountCreateRequest.GetOpenApiTypes();
@@ -494,7 +396,9 @@ namespace Dropbox.Sign.Api
             }
 
             // to determine the Accept header
-            string[] _accepts = new string[] { "application/json" };
+            string[] _accepts = new string[] {
+                "application/json"
+            };
 
             if (localVarContentType != null)
             {
@@ -507,44 +411,25 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+
             localVarRequestOptions.Operation = "AccountApi.AccountCreate";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (api_key) required
             // http basic authentication required
-            if (
-                !string.IsNullOrEmpty(this.Configuration.Username)
-                || !string.IsNullOrEmpty(this.Configuration.Password)
-                    && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization")
-            )
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add(
-                    "Authorization",
-                    "Basic "
-                        + Dropbox.Sign.Client.ClientUtils.Base64Encode(
-                            this.Configuration.Username + ":" + this.Configuration.Password
-                        )
-                );
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Dropbox.Sign.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (oauth2) required
             // bearer authentication required
-            if (
-                !string.IsNullOrEmpty(this.Configuration.AccessToken)
-                && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization")
-            )
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add(
-                    "Authorization",
-                    "Bearer " + this.Configuration.AccessToken
-                );
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<AccountCreateResponse>(
-                "/account/create",
-                localVarRequestOptions,
-                this.Configuration
-            );
+            var localVarResponse = this.Client.Post<AccountCreateResponse>("/account/create", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("AccountCreate", localVarResponse);
@@ -565,20 +450,9 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of AccountCreateResponse</returns>
-        public async System.Threading.Tasks.Task<AccountCreateResponse> AccountCreateAsync(
-            AccountCreateRequest accountCreateRequest,
-            int operationIndex = 0,
-            System.Threading.CancellationToken cancellationToken =
-                default(System.Threading.CancellationToken)
-        )
+        public async System.Threading.Tasks.Task<AccountCreateResponse> AccountCreateAsync(AccountCreateRequest accountCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Dropbox.Sign.Client.ApiResponse<AccountCreateResponse> localVarResponse =
-                await AccountCreateWithHttpInfoAsync(
-                        accountCreateRequest,
-                        operationIndex,
-                        cancellationToken
-                    )
-                    .ConfigureAwait(false);
+            Dropbox.Sign.Client.ApiResponse<AccountCreateResponse> localVarResponse = await AccountCreateWithHttpInfoAsync(accountCreateRequest, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -590,24 +464,16 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (AccountCreateResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<AccountCreateResponse>> AccountCreateWithHttpInfoAsync(
-            AccountCreateRequest accountCreateRequest,
-            int operationIndex = 0,
-            System.Threading.CancellationToken cancellationToken =
-                default(System.Threading.CancellationToken)
-        )
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<AccountCreateResponse>> AccountCreateWithHttpInfoAsync(AccountCreateRequest accountCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'accountCreateRequest' is set
             if (accountCreateRequest == null)
             {
-                throw new Dropbox.Sign.Client.ApiException(
-                    400,
-                    "Missing required parameter 'accountCreateRequest' when calling AccountApi->AccountCreate"
-                );
+                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'accountCreateRequest' when calling AccountApi->AccountCreate");
             }
 
-            Dropbox.Sign.Client.RequestOptions localVarRequestOptions =
-                new Dropbox.Sign.Client.RequestOptions();
+
+            Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
 
             var localVarContentType = "";
             var openApiTypes = accountCreateRequest.GetOpenApiTypes();
@@ -623,7 +489,9 @@ namespace Dropbox.Sign.Api
             }
 
             // to determine the Accept header
-            string[] _accepts = new string[] { "application/json" };
+            string[] _accepts = new string[] {
+                "application/json"
+            };
 
             if (localVarContentType != null)
             {
@@ -636,47 +504,25 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+
             localVarRequestOptions.Operation = "AccountApi.AccountCreate";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (api_key) required
             // http basic authentication required
-            if (
-                !string.IsNullOrEmpty(this.Configuration.Username)
-                || !string.IsNullOrEmpty(this.Configuration.Password)
-                    && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization")
-            )
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add(
-                    "Authorization",
-                    "Basic "
-                        + Dropbox.Sign.Client.ClientUtils.Base64Encode(
-                            this.Configuration.Username + ":" + this.Configuration.Password
-                        )
-                );
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Dropbox.Sign.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (oauth2) required
             // bearer authentication required
-            if (
-                !string.IsNullOrEmpty(this.Configuration.AccessToken)
-                && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization")
-            )
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add(
-                    "Authorization",
-                    "Bearer " + this.Configuration.AccessToken
-                );
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
 
             // make the HTTP request
-            var localVarResponse = await this
-                .AsynchronousClient.PostAsync<AccountCreateResponse>(
-                    "/account/create",
-                    localVarRequestOptions,
-                    this.Configuration,
-                    cancellationToken
-                )
-                .ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<AccountCreateResponse>("/account/create", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -698,14 +544,9 @@ namespace Dropbox.Sign.Api
         /// <param name="emailAddress">&#x60;account_id&#x60; or &#x60;email_address&#x60; is required, If both are provided, the account id prevails.  The email address of the Account. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>AccountGetResponse</returns>
-        public AccountGetResponse AccountGet(
-            string? accountId = default(string?),
-            string? emailAddress = default(string?),
-            int operationIndex = 0
-        )
+        public AccountGetResponse AccountGet(string? accountId = default(string?), string? emailAddress = default(string?), int operationIndex = 0)
         {
-            Dropbox.Sign.Client.ApiResponse<AccountGetResponse> localVarResponse =
-                AccountGetWithHttpInfo(accountId, emailAddress);
+            Dropbox.Sign.Client.ApiResponse<AccountGetResponse> localVarResponse = AccountGetWithHttpInfo(accountId, emailAddress);
             return localVarResponse.Data;
         }
 
@@ -717,22 +558,18 @@ namespace Dropbox.Sign.Api
         /// <param name="emailAddress">&#x60;account_id&#x60; or &#x60;email_address&#x60; is required, If both are provided, the account id prevails.  The email address of the Account. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of AccountGetResponse</returns>
-        public Dropbox.Sign.Client.ApiResponse<AccountGetResponse> AccountGetWithHttpInfo(
-            string? accountId = default(string?),
-            string? emailAddress = default(string?),
-            int operationIndex = 0
-        )
+        public Dropbox.Sign.Client.ApiResponse<AccountGetResponse> AccountGetWithHttpInfo(string? accountId = default(string?), string? emailAddress = default(string?), int operationIndex = 0)
         {
-            Dropbox.Sign.Client.RequestOptions localVarRequestOptions =
-                new Dropbox.Sign.Client.RequestOptions();
+            Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
 
-            string[] _contentTypes = new string[] { };
-            var localVarContentType = Dropbox.Sign.Client.ClientUtils.SelectHeaderContentType(
-                _contentTypes
-            );
+            string[] _contentTypes = new string[] {
+            };
+            var localVarContentType = Dropbox.Sign.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
 
             // to determine the Accept header
-            string[] _accepts = new string[] { "application/json" };
+            string[] _accepts = new string[] {
+                "application/json"
+            };
 
             if (localVarContentType != null)
             {
@@ -747,19 +584,11 @@ namespace Dropbox.Sign.Api
 
             if (accountId != null)
             {
-                localVarRequestOptions.QueryParameters.Add(
-                    Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "account_id", accountId)
-                );
+                localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "account_id", accountId));
             }
             if (emailAddress != null)
             {
-                localVarRequestOptions.QueryParameters.Add(
-                    Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap(
-                        "",
-                        "email_address",
-                        emailAddress
-                    )
-                );
+                localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "email_address", emailAddress));
             }
 
             localVarRequestOptions.Operation = "AccountApi.AccountGet";
@@ -767,39 +596,19 @@ namespace Dropbox.Sign.Api
 
             // authentication (api_key) required
             // http basic authentication required
-            if (
-                !string.IsNullOrEmpty(this.Configuration.Username)
-                || !string.IsNullOrEmpty(this.Configuration.Password)
-                    && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization")
-            )
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add(
-                    "Authorization",
-                    "Basic "
-                        + Dropbox.Sign.Client.ClientUtils.Base64Encode(
-                            this.Configuration.Username + ":" + this.Configuration.Password
-                        )
-                );
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Dropbox.Sign.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (oauth2) required
             // bearer authentication required
-            if (
-                !string.IsNullOrEmpty(this.Configuration.AccessToken)
-                && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization")
-            )
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add(
-                    "Authorization",
-                    "Bearer " + this.Configuration.AccessToken
-                );
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<AccountGetResponse>(
-                "/account",
-                localVarRequestOptions,
-                this.Configuration
-            );
+            var localVarResponse = this.Client.Get<AccountGetResponse>("/account", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("AccountGet", localVarResponse);
@@ -821,22 +630,9 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of AccountGetResponse</returns>
-        public async System.Threading.Tasks.Task<AccountGetResponse> AccountGetAsync(
-            string? accountId = default(string?),
-            string? emailAddress = default(string?),
-            int operationIndex = 0,
-            System.Threading.CancellationToken cancellationToken =
-                default(System.Threading.CancellationToken)
-        )
+        public async System.Threading.Tasks.Task<AccountGetResponse> AccountGetAsync(string? accountId = default(string?), string? emailAddress = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Dropbox.Sign.Client.ApiResponse<AccountGetResponse> localVarResponse =
-                await AccountGetWithHttpInfoAsync(
-                        accountId,
-                        emailAddress,
-                        operationIndex,
-                        cancellationToken
-                    )
-                    .ConfigureAwait(false);
+            Dropbox.Sign.Client.ApiResponse<AccountGetResponse> localVarResponse = await AccountGetWithHttpInfoAsync(accountId, emailAddress, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -849,24 +645,19 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (AccountGetResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<AccountGetResponse>> AccountGetWithHttpInfoAsync(
-            string? accountId = default(string?),
-            string? emailAddress = default(string?),
-            int operationIndex = 0,
-            System.Threading.CancellationToken cancellationToken =
-                default(System.Threading.CancellationToken)
-        )
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<AccountGetResponse>> AccountGetWithHttpInfoAsync(string? accountId = default(string?), string? emailAddress = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Dropbox.Sign.Client.RequestOptions localVarRequestOptions =
-                new Dropbox.Sign.Client.RequestOptions();
 
-            string[] _contentTypes = new string[] { };
-            var localVarContentType = Dropbox.Sign.Client.ClientUtils.SelectHeaderContentType(
-                _contentTypes
-            );
+            Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+            var localVarContentType = Dropbox.Sign.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
 
             // to determine the Accept header
-            string[] _accepts = new string[] { "application/json" };
+            string[] _accepts = new string[] {
+                "application/json"
+            };
 
             if (localVarContentType != null)
             {
@@ -881,19 +672,11 @@ namespace Dropbox.Sign.Api
 
             if (accountId != null)
             {
-                localVarRequestOptions.QueryParameters.Add(
-                    Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "account_id", accountId)
-                );
+                localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "account_id", accountId));
             }
             if (emailAddress != null)
             {
-                localVarRequestOptions.QueryParameters.Add(
-                    Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap(
-                        "",
-                        "email_address",
-                        emailAddress
-                    )
-                );
+                localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "email_address", emailAddress));
             }
 
             localVarRequestOptions.Operation = "AccountApi.AccountGet";
@@ -901,42 +684,19 @@ namespace Dropbox.Sign.Api
 
             // authentication (api_key) required
             // http basic authentication required
-            if (
-                !string.IsNullOrEmpty(this.Configuration.Username)
-                || !string.IsNullOrEmpty(this.Configuration.Password)
-                    && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization")
-            )
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add(
-                    "Authorization",
-                    "Basic "
-                        + Dropbox.Sign.Client.ClientUtils.Base64Encode(
-                            this.Configuration.Username + ":" + this.Configuration.Password
-                        )
-                );
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Dropbox.Sign.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (oauth2) required
             // bearer authentication required
-            if (
-                !string.IsNullOrEmpty(this.Configuration.AccessToken)
-                && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization")
-            )
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add(
-                    "Authorization",
-                    "Bearer " + this.Configuration.AccessToken
-                );
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
 
             // make the HTTP request
-            var localVarResponse = await this
-                .AsynchronousClient.GetAsync<AccountGetResponse>(
-                    "/account",
-                    localVarRequestOptions,
-                    this.Configuration,
-                    cancellationToken
-                )
-                .ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<AccountGetResponse>("/account", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -957,13 +717,9 @@ namespace Dropbox.Sign.Api
         /// <param name="accountUpdateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>AccountGetResponse</returns>
-        public AccountGetResponse AccountUpdate(
-            AccountUpdateRequest accountUpdateRequest,
-            int operationIndex = 0
-        )
+        public AccountGetResponse AccountUpdate(AccountUpdateRequest accountUpdateRequest, int operationIndex = 0)
         {
-            Dropbox.Sign.Client.ApiResponse<AccountGetResponse> localVarResponse =
-                AccountUpdateWithHttpInfo(accountUpdateRequest);
+            Dropbox.Sign.Client.ApiResponse<AccountGetResponse> localVarResponse = AccountUpdateWithHttpInfo(accountUpdateRequest);
             return localVarResponse.Data;
         }
 
@@ -974,22 +730,15 @@ namespace Dropbox.Sign.Api
         /// <param name="accountUpdateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of AccountGetResponse</returns>
-        public Dropbox.Sign.Client.ApiResponse<AccountGetResponse> AccountUpdateWithHttpInfo(
-            AccountUpdateRequest accountUpdateRequest,
-            int operationIndex = 0
-        )
+        public Dropbox.Sign.Client.ApiResponse<AccountGetResponse> AccountUpdateWithHttpInfo(AccountUpdateRequest accountUpdateRequest, int operationIndex = 0)
         {
             // verify the required parameter 'accountUpdateRequest' is set
             if (accountUpdateRequest == null)
             {
-                throw new Dropbox.Sign.Client.ApiException(
-                    400,
-                    "Missing required parameter 'accountUpdateRequest' when calling AccountApi->AccountUpdate"
-                );
+                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'accountUpdateRequest' when calling AccountApi->AccountUpdate");
             }
 
-            Dropbox.Sign.Client.RequestOptions localVarRequestOptions =
-                new Dropbox.Sign.Client.RequestOptions();
+            Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
 
             var localVarContentType = "";
             var openApiTypes = accountUpdateRequest.GetOpenApiTypes();
@@ -1005,7 +754,9 @@ namespace Dropbox.Sign.Api
             }
 
             // to determine the Accept header
-            string[] _accepts = new string[] { "application/json" };
+            string[] _accepts = new string[] {
+                "application/json"
+            };
 
             if (localVarContentType != null)
             {
@@ -1018,44 +769,25 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+
             localVarRequestOptions.Operation = "AccountApi.AccountUpdate";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (api_key) required
             // http basic authentication required
-            if (
-                !string.IsNullOrEmpty(this.Configuration.Username)
-                || !string.IsNullOrEmpty(this.Configuration.Password)
-                    && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization")
-            )
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add(
-                    "Authorization",
-                    "Basic "
-                        + Dropbox.Sign.Client.ClientUtils.Base64Encode(
-                            this.Configuration.Username + ":" + this.Configuration.Password
-                        )
-                );
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Dropbox.Sign.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (oauth2) required
             // bearer authentication required
-            if (
-                !string.IsNullOrEmpty(this.Configuration.AccessToken)
-                && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization")
-            )
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add(
-                    "Authorization",
-                    "Bearer " + this.Configuration.AccessToken
-                );
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Put<AccountGetResponse>(
-                "/account",
-                localVarRequestOptions,
-                this.Configuration
-            );
+            var localVarResponse = this.Client.Put<AccountGetResponse>("/account", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("AccountUpdate", localVarResponse);
@@ -1076,20 +808,9 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of AccountGetResponse</returns>
-        public async System.Threading.Tasks.Task<AccountGetResponse> AccountUpdateAsync(
-            AccountUpdateRequest accountUpdateRequest,
-            int operationIndex = 0,
-            System.Threading.CancellationToken cancellationToken =
-                default(System.Threading.CancellationToken)
-        )
+        public async System.Threading.Tasks.Task<AccountGetResponse> AccountUpdateAsync(AccountUpdateRequest accountUpdateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Dropbox.Sign.Client.ApiResponse<AccountGetResponse> localVarResponse =
-                await AccountUpdateWithHttpInfoAsync(
-                        accountUpdateRequest,
-                        operationIndex,
-                        cancellationToken
-                    )
-                    .ConfigureAwait(false);
+            Dropbox.Sign.Client.ApiResponse<AccountGetResponse> localVarResponse = await AccountUpdateWithHttpInfoAsync(accountUpdateRequest, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1101,24 +822,16 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (AccountGetResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<AccountGetResponse>> AccountUpdateWithHttpInfoAsync(
-            AccountUpdateRequest accountUpdateRequest,
-            int operationIndex = 0,
-            System.Threading.CancellationToken cancellationToken =
-                default(System.Threading.CancellationToken)
-        )
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<AccountGetResponse>> AccountUpdateWithHttpInfoAsync(AccountUpdateRequest accountUpdateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'accountUpdateRequest' is set
             if (accountUpdateRequest == null)
             {
-                throw new Dropbox.Sign.Client.ApiException(
-                    400,
-                    "Missing required parameter 'accountUpdateRequest' when calling AccountApi->AccountUpdate"
-                );
+                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'accountUpdateRequest' when calling AccountApi->AccountUpdate");
             }
 
-            Dropbox.Sign.Client.RequestOptions localVarRequestOptions =
-                new Dropbox.Sign.Client.RequestOptions();
+
+            Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
 
             var localVarContentType = "";
             var openApiTypes = accountUpdateRequest.GetOpenApiTypes();
@@ -1134,7 +847,9 @@ namespace Dropbox.Sign.Api
             }
 
             // to determine the Accept header
-            string[] _accepts = new string[] { "application/json" };
+            string[] _accepts = new string[] {
+                "application/json"
+            };
 
             if (localVarContentType != null)
             {
@@ -1147,47 +862,25 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+
             localVarRequestOptions.Operation = "AccountApi.AccountUpdate";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (api_key) required
             // http basic authentication required
-            if (
-                !string.IsNullOrEmpty(this.Configuration.Username)
-                || !string.IsNullOrEmpty(this.Configuration.Password)
-                    && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization")
-            )
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add(
-                    "Authorization",
-                    "Basic "
-                        + Dropbox.Sign.Client.ClientUtils.Base64Encode(
-                            this.Configuration.Username + ":" + this.Configuration.Password
-                        )
-                );
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Dropbox.Sign.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (oauth2) required
             // bearer authentication required
-            if (
-                !string.IsNullOrEmpty(this.Configuration.AccessToken)
-                && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization")
-            )
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add(
-                    "Authorization",
-                    "Bearer " + this.Configuration.AccessToken
-                );
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
 
             // make the HTTP request
-            var localVarResponse = await this
-                .AsynchronousClient.PutAsync<AccountGetResponse>(
-                    "/account",
-                    localVarRequestOptions,
-                    this.Configuration,
-                    cancellationToken
-                )
-                .ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PutAsync<AccountGetResponse>("/account", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -1208,13 +901,9 @@ namespace Dropbox.Sign.Api
         /// <param name="accountVerifyRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>AccountVerifyResponse</returns>
-        public AccountVerifyResponse AccountVerify(
-            AccountVerifyRequest accountVerifyRequest,
-            int operationIndex = 0
-        )
+        public AccountVerifyResponse AccountVerify(AccountVerifyRequest accountVerifyRequest, int operationIndex = 0)
         {
-            Dropbox.Sign.Client.ApiResponse<AccountVerifyResponse> localVarResponse =
-                AccountVerifyWithHttpInfo(accountVerifyRequest);
+            Dropbox.Sign.Client.ApiResponse<AccountVerifyResponse> localVarResponse = AccountVerifyWithHttpInfo(accountVerifyRequest);
             return localVarResponse.Data;
         }
 
@@ -1225,22 +914,15 @@ namespace Dropbox.Sign.Api
         /// <param name="accountVerifyRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of AccountVerifyResponse</returns>
-        public Dropbox.Sign.Client.ApiResponse<AccountVerifyResponse> AccountVerifyWithHttpInfo(
-            AccountVerifyRequest accountVerifyRequest,
-            int operationIndex = 0
-        )
+        public Dropbox.Sign.Client.ApiResponse<AccountVerifyResponse> AccountVerifyWithHttpInfo(AccountVerifyRequest accountVerifyRequest, int operationIndex = 0)
         {
             // verify the required parameter 'accountVerifyRequest' is set
             if (accountVerifyRequest == null)
             {
-                throw new Dropbox.Sign.Client.ApiException(
-                    400,
-                    "Missing required parameter 'accountVerifyRequest' when calling AccountApi->AccountVerify"
-                );
+                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'accountVerifyRequest' when calling AccountApi->AccountVerify");
             }
 
-            Dropbox.Sign.Client.RequestOptions localVarRequestOptions =
-                new Dropbox.Sign.Client.RequestOptions();
+            Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
 
             var localVarContentType = "";
             var openApiTypes = accountVerifyRequest.GetOpenApiTypes();
@@ -1256,7 +938,9 @@ namespace Dropbox.Sign.Api
             }
 
             // to determine the Accept header
-            string[] _accepts = new string[] { "application/json" };
+            string[] _accepts = new string[] {
+                "application/json"
+            };
 
             if (localVarContentType != null)
             {
@@ -1269,44 +953,25 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+
             localVarRequestOptions.Operation = "AccountApi.AccountVerify";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (api_key) required
             // http basic authentication required
-            if (
-                !string.IsNullOrEmpty(this.Configuration.Username)
-                || !string.IsNullOrEmpty(this.Configuration.Password)
-                    && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization")
-            )
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add(
-                    "Authorization",
-                    "Basic "
-                        + Dropbox.Sign.Client.ClientUtils.Base64Encode(
-                            this.Configuration.Username + ":" + this.Configuration.Password
-                        )
-                );
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Dropbox.Sign.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (oauth2) required
             // bearer authentication required
-            if (
-                !string.IsNullOrEmpty(this.Configuration.AccessToken)
-                && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization")
-            )
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add(
-                    "Authorization",
-                    "Bearer " + this.Configuration.AccessToken
-                );
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<AccountVerifyResponse>(
-                "/account/verify",
-                localVarRequestOptions,
-                this.Configuration
-            );
+            var localVarResponse = this.Client.Post<AccountVerifyResponse>("/account/verify", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("AccountVerify", localVarResponse);
@@ -1327,20 +992,9 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of AccountVerifyResponse</returns>
-        public async System.Threading.Tasks.Task<AccountVerifyResponse> AccountVerifyAsync(
-            AccountVerifyRequest accountVerifyRequest,
-            int operationIndex = 0,
-            System.Threading.CancellationToken cancellationToken =
-                default(System.Threading.CancellationToken)
-        )
+        public async System.Threading.Tasks.Task<AccountVerifyResponse> AccountVerifyAsync(AccountVerifyRequest accountVerifyRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Dropbox.Sign.Client.ApiResponse<AccountVerifyResponse> localVarResponse =
-                await AccountVerifyWithHttpInfoAsync(
-                        accountVerifyRequest,
-                        operationIndex,
-                        cancellationToken
-                    )
-                    .ConfigureAwait(false);
+            Dropbox.Sign.Client.ApiResponse<AccountVerifyResponse> localVarResponse = await AccountVerifyWithHttpInfoAsync(accountVerifyRequest, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1352,24 +1006,16 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (AccountVerifyResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<AccountVerifyResponse>> AccountVerifyWithHttpInfoAsync(
-            AccountVerifyRequest accountVerifyRequest,
-            int operationIndex = 0,
-            System.Threading.CancellationToken cancellationToken =
-                default(System.Threading.CancellationToken)
-        )
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<AccountVerifyResponse>> AccountVerifyWithHttpInfoAsync(AccountVerifyRequest accountVerifyRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'accountVerifyRequest' is set
             if (accountVerifyRequest == null)
             {
-                throw new Dropbox.Sign.Client.ApiException(
-                    400,
-                    "Missing required parameter 'accountVerifyRequest' when calling AccountApi->AccountVerify"
-                );
+                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'accountVerifyRequest' when calling AccountApi->AccountVerify");
             }
 
-            Dropbox.Sign.Client.RequestOptions localVarRequestOptions =
-                new Dropbox.Sign.Client.RequestOptions();
+
+            Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
 
             var localVarContentType = "";
             var openApiTypes = accountVerifyRequest.GetOpenApiTypes();
@@ -1385,7 +1031,9 @@ namespace Dropbox.Sign.Api
             }
 
             // to determine the Accept header
-            string[] _accepts = new string[] { "application/json" };
+            string[] _accepts = new string[] {
+                "application/json"
+            };
 
             if (localVarContentType != null)
             {
@@ -1398,47 +1046,25 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+
             localVarRequestOptions.Operation = "AccountApi.AccountVerify";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (api_key) required
             // http basic authentication required
-            if (
-                !string.IsNullOrEmpty(this.Configuration.Username)
-                || !string.IsNullOrEmpty(this.Configuration.Password)
-                    && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization")
-            )
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add(
-                    "Authorization",
-                    "Basic "
-                        + Dropbox.Sign.Client.ClientUtils.Base64Encode(
-                            this.Configuration.Username + ":" + this.Configuration.Password
-                        )
-                );
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Dropbox.Sign.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (oauth2) required
             // bearer authentication required
-            if (
-                !string.IsNullOrEmpty(this.Configuration.AccessToken)
-                && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization")
-            )
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add(
-                    "Authorization",
-                    "Bearer " + this.Configuration.AccessToken
-                );
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
 
             // make the HTTP request
-            var localVarResponse = await this
-                .AsynchronousClient.PostAsync<AccountVerifyResponse>(
-                    "/account/verify",
-                    localVarRequestOptions,
-                    this.Configuration,
-                    cancellationToken
-                )
-                .ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<AccountVerifyResponse>("/account/verify", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -1451,5 +1077,6 @@ namespace Dropbox.Sign.Api
 
             return localVarResponse;
         }
+
     }
 }

@@ -13,15 +13,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel.DataAnnotations;
-using System.IO;
 using System.Linq;
+using System.IO;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 
 namespace Dropbox.Sign.Model
@@ -31,16 +31,13 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "SignatureRequestUpdateRequest")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class SignatureRequestUpdateRequest
-        : IEquatable<SignatureRequestUpdateRequest>,
-            IValidatableObject
+    public partial class SignatureRequestUpdateRequest : IEquatable<SignatureRequestUpdateRequest>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SignatureRequestUpdateRequest" /> class.
         /// </summary>
         [JsonConstructorAttribute]
         protected SignatureRequestUpdateRequest() { }
-
         /// <summary>
         /// Initializes a new instance of the <see cref="SignatureRequestUpdateRequest" /> class.
         /// </summary>
@@ -48,19 +45,13 @@ namespace Dropbox.Sign.Model
         /// <param name="name">The new name for the recipient.  **NOTE:** Optional if &#x60;email_address&#x60; is provided..</param>
         /// <param name="signatureId">The signature ID for the recipient. (required).</param>
         /// <param name="expiresAt">The new time when the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details..</param>
-        public SignatureRequestUpdateRequest(
-            string emailAddress = default(string),
-            string name = default(string),
-            string signatureId = default(string),
-            int? expiresAt = default(int?)
-        )
+        public SignatureRequestUpdateRequest(string emailAddress = default(string), string name = default(string), string signatureId = default(string), int? expiresAt = default(int?))
         {
+            
             // to ensure "signatureId" is required (not null)
             if (signatureId == null)
             {
-                throw new ArgumentNullException(
-                    "signatureId is a required property for SignatureRequestUpdateRequest and cannot be null"
-                );
+                throw new ArgumentNullException("signatureId is a required property for SignatureRequestUpdateRequest and cannot be null");
             }
             this.SignatureId = signatureId;
             this.EmailAddress = emailAddress;
@@ -78,9 +69,7 @@ namespace Dropbox.Sign.Model
 
             if (obj == null)
             {
-                throw new Exception(
-                    "Unable to deserialize JSON to instance of SignatureRequestUpdateRequest"
-                );
+                throw new Exception("Unable to deserialize JSON to instance of SignatureRequestUpdateRequest");
             }
 
             return obj;
@@ -92,6 +81,7 @@ namespace Dropbox.Sign.Model
         /// <value>The signature ID for the recipient.</value>
         [DataMember(Name = "signature_id", IsRequired = true, EmitDefaultValue = true)]
         public string SignatureId { get; set; }
+        
 
         /// <summary>
         /// The new email address for the recipient.  This will generate a new &#x60;signature_id&#x60; value.  **NOTE:** Optional if &#x60;name&#x60; is provided.
@@ -99,6 +89,7 @@ namespace Dropbox.Sign.Model
         /// <value>The new email address for the recipient.  This will generate a new &#x60;signature_id&#x60; value.  **NOTE:** Optional if &#x60;name&#x60; is provided.</value>
         [DataMember(Name = "email_address", EmitDefaultValue = true)]
         public string EmailAddress { get; set; }
+        
 
         /// <summary>
         /// The new name for the recipient.  **NOTE:** Optional if &#x60;email_address&#x60; is provided.
@@ -106,6 +97,7 @@ namespace Dropbox.Sign.Model
         /// <value>The new name for the recipient.  **NOTE:** Optional if &#x60;email_address&#x60; is provided.</value>
         [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
+        
 
         /// <summary>
         /// The new time when the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.
@@ -113,6 +105,7 @@ namespace Dropbox.Sign.Model
         /// <value>The new time when the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.</value>
         [DataMember(Name = "expires_at", EmitDefaultValue = true)]
         public int? ExpiresAt { get; set; }
+        
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -136,10 +129,7 @@ namespace Dropbox.Sign.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(
-                this,
-                Newtonsoft.Json.Formatting.Indented
-            );
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>
@@ -163,18 +153,26 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return (
-                    this.SignatureId == input.SignatureId
-                    || (this.SignatureId != null && this.SignatureId.Equals(input.SignatureId))
-                )
-                && (
-                    this.EmailAddress == input.EmailAddress
-                    || (this.EmailAddress != null && this.EmailAddress.Equals(input.EmailAddress))
-                )
-                && (this.Name == input.Name || (this.Name != null && this.Name.Equals(input.Name)))
-                && (
-                    this.ExpiresAt == input.ExpiresAt
-                    || (this.ExpiresAt != null && this.ExpiresAt.Equals(input.ExpiresAt))
+            return 
+                (
+                    this.SignatureId == input.SignatureId ||
+                    (this.SignatureId != null &&
+                    this.SignatureId.Equals(input.SignatureId))
+                ) && 
+                (
+                    this.EmailAddress == input.EmailAddress ||
+                    (this.EmailAddress != null &&
+                    this.EmailAddress.Equals(input.EmailAddress))
+                ) && 
+                (
+                    this.Name == input.Name ||
+                    (this.Name != null &&
+                    this.Name.Equals(input.Name))
+                ) && 
+                (
+                    this.ExpiresAt == input.ExpiresAt ||
+                    (this.ExpiresAt != null &&
+                    this.ExpiresAt.Equals(input.ExpiresAt))
                 );
         }
 
@@ -212,9 +210,7 @@ namespace Dropbox.Sign.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<ValidationResult> IValidatableObject.Validate(
-            ValidationContext validationContext
-        )
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }
@@ -222,44 +218,33 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "signature_id",
-                    Property = "SignatureId",
-                    Type = "string",
-                    Value = SignatureId,
-                }
-            );
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "email_address",
-                    Property = "EmailAddress",
-                    Type = "string",
-                    Value = EmailAddress,
-                }
-            );
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "name",
-                    Property = "Name",
-                    Type = "string",
-                    Value = Name,
-                }
-            );
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "expires_at",
-                    Property = "ExpiresAt",
-                    Type = "int?",
-                    Value = ExpiresAt,
-                }
-            );
+            types.Add(new OpenApiType(){
+                Name = "signature_id",
+                Property = "SignatureId",
+                Type = "string",
+                Value = SignatureId,
+            });
+            types.Add(new OpenApiType(){
+                Name = "email_address",
+                Property = "EmailAddress",
+                Type = "string",
+                Value = EmailAddress,
+            });
+            types.Add(new OpenApiType(){
+                Name = "name",
+                Property = "Name",
+                Type = "string",
+                Value = Name,
+            });
+            types.Add(new OpenApiType(){
+                Name = "expires_at",
+                Property = "ExpiresAt",
+                Type = "int?",
+                Value = ExpiresAt,
+            });
 
             return types;
         }
     }
+
 }

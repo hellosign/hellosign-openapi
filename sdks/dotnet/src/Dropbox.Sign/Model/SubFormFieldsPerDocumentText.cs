@@ -13,15 +13,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel.DataAnnotations;
-using System.IO;
 using System.Linq;
+using System.IO;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 
 namespace Dropbox.Sign.Model
@@ -31,11 +31,7 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "SubFormFieldsPerDocumentText")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class SubFormFieldsPerDocumentText
-        : SubFormFieldsPerDocumentBase,
-            IOpenApiTyped,
-            IEquatable<SubFormFieldsPerDocumentText>,
-            IValidatableObject
+    public partial class SubFormFieldsPerDocumentText : SubFormFieldsPerDocumentBase, IOpenApiTyped, IEquatable<SubFormFieldsPerDocumentText>, IValidatableObject
     {
         /// <summary>
         /// Each text field may contain a &#x60;validation_type&#x60; parameter. Check out the list of [validation types](https://faq.hellosign.com/hc/en-us/articles/217115577) to learn more about the possible values.  **NOTE:** When using &#x60;custom_regex&#x60; you are required to pass a second parameter &#x60;validation_custom_regex&#x60; and you can optionally provide &#x60;validation_custom_regex_format_label&#x60; for the error message the user will see in case of an invalid value.
@@ -102,8 +98,9 @@ namespace Dropbox.Sign.Model
             /// Enum CustomRegex for value: custom_regex
             /// </summary>
             [EnumMember(Value = "custom_regex")]
-            CustomRegex = 10,
+            CustomRegex = 10
         }
+
 
         /// <summary>
         /// Each text field may contain a &#x60;validation_type&#x60; parameter. Check out the list of [validation types](https://faq.hellosign.com/hc/en-us/articles/217115577) to learn more about the possible values.  **NOTE:** When using &#x60;custom_regex&#x60; you are required to pass a second parameter &#x60;validation_custom_regex&#x60; and you can optionally provide &#x60;validation_custom_regex_format_label&#x60; for the error message the user will see in case of an invalid value.
@@ -111,7 +108,6 @@ namespace Dropbox.Sign.Model
         /// <value>Each text field may contain a &#x60;validation_type&#x60; parameter. Check out the list of [validation types](https://faq.hellosign.com/hc/en-us/articles/217115577) to learn more about the possible values.  **NOTE:** When using &#x60;custom_regex&#x60; you are required to pass a second parameter &#x60;validation_custom_regex&#x60; and you can optionally provide &#x60;validation_custom_regex_format_label&#x60; for the error message the user will see in case of an invalid value.</value>
         [DataMember(Name = "validation_type", EmitDefaultValue = true)]
         public ValidationTypeEnum? ValidationType { get; set; }
-
         /// <summary>
         /// Font family for the field.
         /// </summary>
@@ -213,8 +209,9 @@ namespace Dropbox.Sign.Model
             /// Enum NotoSanThaiMerged for value: notoSanThaiMerged
             /// </summary>
             [EnumMember(Value = "notoSanThaiMerged")]
-            NotoSanThaiMerged = 16,
+            NotoSanThaiMerged = 16
         }
+
 
         /// <summary>
         /// Font family for the field.
@@ -222,13 +219,11 @@ namespace Dropbox.Sign.Model
         /// <value>Font family for the field.</value>
         [DataMember(Name = "font_family", EmitDefaultValue = true)]
         public FontFamilyEnum? FontFamily { get; set; }
-
         /// <summary>
         /// Initializes a new instance of the <see cref="SubFormFieldsPerDocumentText" /> class.
         /// </summary>
         [JsonConstructorAttribute]
         protected SubFormFieldsPerDocumentText() { }
-
         /// <summary>
         /// Initializes a new instance of the <see cref="SubFormFieldsPerDocumentText" /> class.
         /// </summary>
@@ -253,29 +248,7 @@ namespace Dropbox.Sign.Model
         /// <param name="width">Size of the field in pixels. (required).</param>
         /// <param name="x">Location coordinates of the field in pixels. (required).</param>
         /// <param name="y">Location coordinates of the field in pixels. (required).</param>
-        public SubFormFieldsPerDocumentText(
-            string type = @"text",
-            string placeholder = default(string),
-            string autoFillType = default(string),
-            string linkId = default(string),
-            bool masked = default(bool),
-            ValidationTypeEnum? validationType = default(ValidationTypeEnum?),
-            string validationCustomRegex = default(string),
-            string validationCustomRegexFormatLabel = default(string),
-            string content = default(string),
-            FontFamilyEnum? fontFamily = default(FontFamilyEnum?),
-            int fontSize = 12,
-            int documentIndex = default(int),
-            string apiId = default(string),
-            int height = default(int),
-            string name = default(string),
-            int? page = default(int?),
-            bool required = default(bool),
-            Object signer = null,
-            int width = default(int),
-            int x = default(int),
-            int y = default(int)
-        )
+        public SubFormFieldsPerDocumentText(string type = @"text", string placeholder = default(string), string autoFillType = default(string), string linkId = default(string), bool masked = default(bool), ValidationTypeEnum? validationType = default(ValidationTypeEnum?), string validationCustomRegex = default(string), string validationCustomRegexFormatLabel = default(string), string content = default(string), FontFamilyEnum? fontFamily = default(FontFamilyEnum?), int fontSize = 12, int documentIndex = default(int), string apiId = default(string), int height = default(int), string name = default(string), int? page = default(int?), bool required = default(bool), Object signer = null, int width = default(int), int x = default(int), int y = default(int))
         {
             this.DocumentIndex = documentIndex;
             this.ApiId = apiId;
@@ -287,13 +260,11 @@ namespace Dropbox.Sign.Model
             this.Y = y;
             this.Name = name;
             this.Page = page;
-
+            
             // to ensure "type" is required (not null)
             if (type == null)
             {
-                throw new ArgumentNullException(
-                    "type is a required property for SubFormFieldsPerDocumentText and cannot be null"
-                );
+                throw new ArgumentNullException("type is a required property for SubFormFieldsPerDocumentText and cannot be null");
             }
             this.Type = type;
             this.Placeholder = placeholder;
@@ -318,9 +289,7 @@ namespace Dropbox.Sign.Model
 
             if (obj == null)
             {
-                throw new Exception(
-                    "Unable to deserialize JSON to instance of SubFormFieldsPerDocumentText"
-                );
+                throw new Exception("Unable to deserialize JSON to instance of SubFormFieldsPerDocumentText");
             }
 
             return obj;
@@ -332,6 +301,7 @@ namespace Dropbox.Sign.Model
         /// <value>A text input field. Use the &#x60;SubFormFieldsPerDocumentText&#x60; class.</value>
         [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
         public string Type { get; set; }
+        
 
         /// <summary>
         /// Placeholder value for text field.
@@ -339,6 +309,7 @@ namespace Dropbox.Sign.Model
         /// <value>Placeholder value for text field.</value>
         [DataMember(Name = "placeholder", EmitDefaultValue = true)]
         public string Placeholder { get; set; }
+        
 
         /// <summary>
         /// Auto fill type for populating fields automatically. Check out the list of [auto fill types](/api/reference/constants/#auto-fill-types) to learn more about the possible values.
@@ -346,6 +317,7 @@ namespace Dropbox.Sign.Model
         /// <value>Auto fill type for populating fields automatically. Check out the list of [auto fill types](/api/reference/constants/#auto-fill-types) to learn more about the possible values.</value>
         [DataMember(Name = "auto_fill_type", EmitDefaultValue = true)]
         public string AutoFillType { get; set; }
+        
 
         /// <summary>
         /// Link two or more text fields. Enter data into one linked text field, which automatically fill all other linked text fields.
@@ -353,6 +325,7 @@ namespace Dropbox.Sign.Model
         /// <value>Link two or more text fields. Enter data into one linked text field, which automatically fill all other linked text fields.</value>
         [DataMember(Name = "link_id", EmitDefaultValue = true)]
         public string LinkId { get; set; }
+        
 
         /// <summary>
         /// Masks entered data. For more information see [Masking sensitive information](https://faq.hellosign.com/hc/en-us/articles/360040742811-Masking-sensitive-information). &#x60;true&#x60; for masking the data in a text field, otherwise &#x60;false&#x60;.
@@ -360,18 +333,21 @@ namespace Dropbox.Sign.Model
         /// <value>Masks entered data. For more information see [Masking sensitive information](https://faq.hellosign.com/hc/en-us/articles/360040742811-Masking-sensitive-information). &#x60;true&#x60; for masking the data in a text field, otherwise &#x60;false&#x60;.</value>
         [DataMember(Name = "masked", EmitDefaultValue = true)]
         public bool Masked { get; set; }
+        
 
         /// <summary>
         /// Gets or Sets ValidationCustomRegex
         /// </summary>
         [DataMember(Name = "validation_custom_regex", EmitDefaultValue = true)]
         public string ValidationCustomRegex { get; set; }
+        
 
         /// <summary>
         /// Gets or Sets ValidationCustomRegexFormatLabel
         /// </summary>
         [DataMember(Name = "validation_custom_regex_format_label", EmitDefaultValue = true)]
         public string ValidationCustomRegexFormatLabel { get; set; }
+        
 
         /// <summary>
         /// Content of a &#x60;me_now&#x60; text field
@@ -379,6 +355,7 @@ namespace Dropbox.Sign.Model
         /// <value>Content of a &#x60;me_now&#x60; text field</value>
         [DataMember(Name = "content", EmitDefaultValue = true)]
         public string Content { get; set; }
+        
 
         /// <summary>
         /// The initial px font size for the field contents. Can be any integer value between &#x60;7&#x60; and &#x60;49&#x60;.  **NOTE:** Font size may be reduced during processing in order to fit the contents within the dimensions of the field.
@@ -386,6 +363,7 @@ namespace Dropbox.Sign.Model
         /// <value>The initial px font size for the field contents. Can be any integer value between &#x60;7&#x60; and &#x60;49&#x60;.  **NOTE:** Font size may be reduced during processing in order to fit the contents within the dimensions of the field.</value>
         [DataMember(Name = "font_size", EmitDefaultValue = true)]
         public int FontSize { get; set; }
+        
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -403,9 +381,7 @@ namespace Dropbox.Sign.Model
             sb.Append("  Masked: ").Append(Masked).Append("\n");
             sb.Append("  ValidationType: ").Append(ValidationType).Append("\n");
             sb.Append("  ValidationCustomRegex: ").Append(ValidationCustomRegex).Append("\n");
-            sb.Append("  ValidationCustomRegexFormatLabel: ")
-                .Append(ValidationCustomRegexFormatLabel)
-                .Append("\n");
+            sb.Append("  ValidationCustomRegexFormatLabel: ").Append(ValidationCustomRegexFormatLabel).Append("\n");
             sb.Append("  Content: ").Append(Content).Append("\n");
             sb.Append("  FontFamily: ").Append(FontFamily).Append("\n");
             sb.Append("  FontSize: ").Append(FontSize).Append("\n");
@@ -419,10 +395,7 @@ namespace Dropbox.Sign.Model
         /// <returns>JSON string presentation of the object</returns>
         public override string ToJson()
         {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(
-                this,
-                Newtonsoft.Json.Formatting.Indented
-            );
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>
@@ -446,57 +419,58 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return base.Equals(input)
-                && (this.Type == input.Type || (this.Type != null && this.Type.Equals(input.Type)))
-                && base.Equals(input)
-                && (
-                    this.Placeholder == input.Placeholder
-                    || (this.Placeholder != null && this.Placeholder.Equals(input.Placeholder))
-                )
-                && base.Equals(input)
-                && (
-                    this.AutoFillType == input.AutoFillType
-                    || (this.AutoFillType != null && this.AutoFillType.Equals(input.AutoFillType))
-                )
-                && base.Equals(input)
-                && (
-                    this.LinkId == input.LinkId
-                    || (this.LinkId != null && this.LinkId.Equals(input.LinkId))
-                )
-                && base.Equals(input)
-                && (this.Masked == input.Masked || this.Masked.Equals(input.Masked))
-                && base.Equals(input)
-                && (
-                    this.ValidationType == input.ValidationType
-                    || this.ValidationType.Equals(input.ValidationType)
-                )
-                && base.Equals(input)
-                && (
-                    this.ValidationCustomRegex == input.ValidationCustomRegex
-                    || (
-                        this.ValidationCustomRegex != null
-                        && this.ValidationCustomRegex.Equals(input.ValidationCustomRegex)
-                    )
-                )
-                && base.Equals(input)
-                && (
-                    this.ValidationCustomRegexFormatLabel == input.ValidationCustomRegexFormatLabel
-                    || (
-                        this.ValidationCustomRegexFormatLabel != null
-                        && this.ValidationCustomRegexFormatLabel.Equals(
-                            input.ValidationCustomRegexFormatLabel
-                        )
-                    )
-                )
-                && base.Equals(input)
-                && (
-                    this.Content == input.Content
-                    || (this.Content != null && this.Content.Equals(input.Content))
-                )
-                && base.Equals(input)
-                && (this.FontFamily == input.FontFamily || this.FontFamily.Equals(input.FontFamily))
-                && base.Equals(input)
-                && (this.FontSize == input.FontSize || this.FontSize.Equals(input.FontSize));
+            return base.Equals(input) && 
+                (
+                    this.Type == input.Type ||
+                    (this.Type != null &&
+                    this.Type.Equals(input.Type))
+                ) && base.Equals(input) && 
+                (
+                    this.Placeholder == input.Placeholder ||
+                    (this.Placeholder != null &&
+                    this.Placeholder.Equals(input.Placeholder))
+                ) && base.Equals(input) && 
+                (
+                    this.AutoFillType == input.AutoFillType ||
+                    (this.AutoFillType != null &&
+                    this.AutoFillType.Equals(input.AutoFillType))
+                ) && base.Equals(input) && 
+                (
+                    this.LinkId == input.LinkId ||
+                    (this.LinkId != null &&
+                    this.LinkId.Equals(input.LinkId))
+                ) && base.Equals(input) && 
+                (
+                    this.Masked == input.Masked ||
+                    this.Masked.Equals(input.Masked)
+                ) && base.Equals(input) && 
+                (
+                    this.ValidationType == input.ValidationType ||
+                    this.ValidationType.Equals(input.ValidationType)
+                ) && base.Equals(input) && 
+                (
+                    this.ValidationCustomRegex == input.ValidationCustomRegex ||
+                    (this.ValidationCustomRegex != null &&
+                    this.ValidationCustomRegex.Equals(input.ValidationCustomRegex))
+                ) && base.Equals(input) && 
+                (
+                    this.ValidationCustomRegexFormatLabel == input.ValidationCustomRegexFormatLabel ||
+                    (this.ValidationCustomRegexFormatLabel != null &&
+                    this.ValidationCustomRegexFormatLabel.Equals(input.ValidationCustomRegexFormatLabel))
+                ) && base.Equals(input) && 
+                (
+                    this.Content == input.Content ||
+                    (this.Content != null &&
+                    this.Content.Equals(input.Content))
+                ) && base.Equals(input) && 
+                (
+                    this.FontFamily == input.FontFamily ||
+                    this.FontFamily.Equals(input.FontFamily)
+                ) && base.Equals(input) && 
+                (
+                    this.FontSize == input.FontSize ||
+                    this.FontSize.Equals(input.FontSize)
+                );
         }
 
         /// <summary>
@@ -532,8 +506,7 @@ namespace Dropbox.Sign.Model
                 }
                 if (this.ValidationCustomRegexFormatLabel != null)
                 {
-                    hashCode =
-                        (hashCode * 59) + this.ValidationCustomRegexFormatLabel.GetHashCode();
+                    hashCode = (hashCode * 59) + this.ValidationCustomRegexFormatLabel.GetHashCode();
                 }
                 if (this.Content != null)
                 {
@@ -550,9 +523,7 @@ namespace Dropbox.Sign.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<ValidationResult> IValidatableObject.Validate(
-            ValidationContext validationContext
-        )
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             return this.BaseValidate(validationContext);
         }
@@ -574,107 +545,75 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "type",
-                    Property = "Type",
-                    Type = "string",
-                    Value = Type,
-                }
-            );
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "placeholder",
-                    Property = "Placeholder",
-                    Type = "string",
-                    Value = Placeholder,
-                }
-            );
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "auto_fill_type",
-                    Property = "AutoFillType",
-                    Type = "string",
-                    Value = AutoFillType,
-                }
-            );
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "link_id",
-                    Property = "LinkId",
-                    Type = "string",
-                    Value = LinkId,
-                }
-            );
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "masked",
-                    Property = "Masked",
-                    Type = "bool",
-                    Value = Masked,
-                }
-            );
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "validation_type",
-                    Property = "ValidationType",
-                    Type = "string",
-                    Value = ValidationType,
-                }
-            );
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "validation_custom_regex",
-                    Property = "ValidationCustomRegex",
-                    Type = "string",
-                    Value = ValidationCustomRegex,
-                }
-            );
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "validation_custom_regex_format_label",
-                    Property = "ValidationCustomRegexFormatLabel",
-                    Type = "string",
-                    Value = ValidationCustomRegexFormatLabel,
-                }
-            );
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "content",
-                    Property = "Content",
-                    Type = "string",
-                    Value = Content,
-                }
-            );
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "font_family",
-                    Property = "FontFamily",
-                    Type = "string",
-                    Value = FontFamily,
-                }
-            );
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "font_size",
-                    Property = "FontSize",
-                    Type = "int",
-                    Value = FontSize,
-                }
-            );
+            types.Add(new OpenApiType(){
+                Name = "type",
+                Property = "Type",
+                Type = "string",
+                Value = Type,
+            });
+            types.Add(new OpenApiType(){
+                Name = "placeholder",
+                Property = "Placeholder",
+                Type = "string",
+                Value = Placeholder,
+            });
+            types.Add(new OpenApiType(){
+                Name = "auto_fill_type",
+                Property = "AutoFillType",
+                Type = "string",
+                Value = AutoFillType,
+            });
+            types.Add(new OpenApiType(){
+                Name = "link_id",
+                Property = "LinkId",
+                Type = "string",
+                Value = LinkId,
+            });
+            types.Add(new OpenApiType(){
+                Name = "masked",
+                Property = "Masked",
+                Type = "bool",
+                Value = Masked,
+            });
+            types.Add(new OpenApiType(){
+                Name = "validation_type",
+                Property = "ValidationType",
+                Type = "string",
+                Value = ValidationType,
+            });
+            types.Add(new OpenApiType(){
+                Name = "validation_custom_regex",
+                Property = "ValidationCustomRegex",
+                Type = "string",
+                Value = ValidationCustomRegex,
+            });
+            types.Add(new OpenApiType(){
+                Name = "validation_custom_regex_format_label",
+                Property = "ValidationCustomRegexFormatLabel",
+                Type = "string",
+                Value = ValidationCustomRegexFormatLabel,
+            });
+            types.Add(new OpenApiType(){
+                Name = "content",
+                Property = "Content",
+                Type = "string",
+                Value = Content,
+            });
+            types.Add(new OpenApiType(){
+                Name = "font_family",
+                Property = "FontFamily",
+                Type = "string",
+                Value = FontFamily,
+            });
+            types.Add(new OpenApiType(){
+                Name = "font_size",
+                Property = "FontSize",
+                Type = "int",
+                Value = FontSize,
+            });
 
             return types;
         }
     }
+
 }

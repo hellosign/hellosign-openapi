@@ -1,6 +1,7 @@
+using Xunit;
+
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Model;
-using Xunit;
 
 namespace Dropbox.Sign.Test.Api
 {
@@ -34,8 +35,10 @@ namespace Dropbox.Sign.Test.Api
             TestHelper.AssertJsonSame(responseData.ToString(), response.ToJson());
         }
 
-        [Fact(Skip = "DELETE /team/destroy skipped")]
-        public void TeamDeleteTest() { }
+        [Fact(Skip="DELETE /team/destroy skipped")]
+        public void TeamDeleteTest()
+        {
+        }
 
         [Fact]
         public void TeamGetTest()

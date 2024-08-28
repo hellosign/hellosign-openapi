@@ -13,15 +13,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel.DataAnnotations;
-using System.IO;
 using System.Linq;
+using System.IO;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 
 namespace Dropbox.Sign.Model
@@ -31,11 +31,7 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "SubFormFieldsPerDocumentHyperlink")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class SubFormFieldsPerDocumentHyperlink
-        : SubFormFieldsPerDocumentBase,
-            IOpenApiTyped,
-            IEquatable<SubFormFieldsPerDocumentHyperlink>,
-            IValidatableObject
+    public partial class SubFormFieldsPerDocumentHyperlink : SubFormFieldsPerDocumentBase, IOpenApiTyped, IEquatable<SubFormFieldsPerDocumentHyperlink>, IValidatableObject
     {
         /// <summary>
         /// Font family for the field.
@@ -138,8 +134,9 @@ namespace Dropbox.Sign.Model
             /// Enum NotoSanThaiMerged for value: notoSanThaiMerged
             /// </summary>
             [EnumMember(Value = "notoSanThaiMerged")]
-            NotoSanThaiMerged = 16,
+            NotoSanThaiMerged = 16
         }
+
 
         /// <summary>
         /// Font family for the field.
@@ -147,13 +144,11 @@ namespace Dropbox.Sign.Model
         /// <value>Font family for the field.</value>
         [DataMember(Name = "font_family", EmitDefaultValue = true)]
         public FontFamilyEnum? FontFamily { get; set; }
-
         /// <summary>
         /// Initializes a new instance of the <see cref="SubFormFieldsPerDocumentHyperlink" /> class.
         /// </summary>
         [JsonConstructorAttribute]
         protected SubFormFieldsPerDocumentHyperlink() { }
-
         /// <summary>
         /// Initializes a new instance of the <see cref="SubFormFieldsPerDocumentHyperlink" /> class.
         /// </summary>
@@ -172,23 +167,7 @@ namespace Dropbox.Sign.Model
         /// <param name="width">Size of the field in pixels. (required).</param>
         /// <param name="x">Location coordinates of the field in pixels. (required).</param>
         /// <param name="y">Location coordinates of the field in pixels. (required).</param>
-        public SubFormFieldsPerDocumentHyperlink(
-            string type = @"hyperlink",
-            string content = default(string),
-            string contentUrl = default(string),
-            FontFamilyEnum? fontFamily = default(FontFamilyEnum?),
-            int fontSize = 12,
-            int documentIndex = default(int),
-            string apiId = default(string),
-            int height = default(int),
-            string name = default(string),
-            int? page = default(int?),
-            bool required = default(bool),
-            Object signer = null,
-            int width = default(int),
-            int x = default(int),
-            int y = default(int)
-        )
+        public SubFormFieldsPerDocumentHyperlink(string type = @"hyperlink", string content = default(string), string contentUrl = default(string), FontFamilyEnum? fontFamily = default(FontFamilyEnum?), int fontSize = 12, int documentIndex = default(int), string apiId = default(string), int height = default(int), string name = default(string), int? page = default(int?), bool required = default(bool), Object signer = null, int width = default(int), int x = default(int), int y = default(int))
         {
             this.DocumentIndex = documentIndex;
             this.ApiId = apiId;
@@ -200,29 +179,23 @@ namespace Dropbox.Sign.Model
             this.Y = y;
             this.Name = name;
             this.Page = page;
-
+            
             // to ensure "type" is required (not null)
             if (type == null)
             {
-                throw new ArgumentNullException(
-                    "type is a required property for SubFormFieldsPerDocumentHyperlink and cannot be null"
-                );
+                throw new ArgumentNullException("type is a required property for SubFormFieldsPerDocumentHyperlink and cannot be null");
             }
             this.Type = type;
             // to ensure "content" is required (not null)
             if (content == null)
             {
-                throw new ArgumentNullException(
-                    "content is a required property for SubFormFieldsPerDocumentHyperlink and cannot be null"
-                );
+                throw new ArgumentNullException("content is a required property for SubFormFieldsPerDocumentHyperlink and cannot be null");
             }
             this.Content = content;
             // to ensure "contentUrl" is required (not null)
             if (contentUrl == null)
             {
-                throw new ArgumentNullException(
-                    "contentUrl is a required property for SubFormFieldsPerDocumentHyperlink and cannot be null"
-                );
+                throw new ArgumentNullException("contentUrl is a required property for SubFormFieldsPerDocumentHyperlink and cannot be null");
             }
             this.ContentUrl = contentUrl;
             this.FontFamily = fontFamily;
@@ -239,9 +212,7 @@ namespace Dropbox.Sign.Model
 
             if (obj == null)
             {
-                throw new Exception(
-                    "Unable to deserialize JSON to instance of SubFormFieldsPerDocumentHyperlink"
-                );
+                throw new Exception("Unable to deserialize JSON to instance of SubFormFieldsPerDocumentHyperlink");
             }
 
             return obj;
@@ -253,6 +224,7 @@ namespace Dropbox.Sign.Model
         /// <value>A hyperlink field. Use the &#x60;SubFormFieldsPerDocumentHyperlink&#x60; class.</value>
         [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
         public string Type { get; set; }
+        
 
         /// <summary>
         /// Link Text.
@@ -260,6 +232,7 @@ namespace Dropbox.Sign.Model
         /// <value>Link Text.</value>
         [DataMember(Name = "content", IsRequired = true, EmitDefaultValue = true)]
         public string Content { get; set; }
+        
 
         /// <summary>
         /// Link URL.
@@ -267,6 +240,7 @@ namespace Dropbox.Sign.Model
         /// <value>Link URL.</value>
         [DataMember(Name = "content_url", IsRequired = true, EmitDefaultValue = true)]
         public string ContentUrl { get; set; }
+        
 
         /// <summary>
         /// The initial px font size for the field contents. Can be any integer value between &#x60;7&#x60; and &#x60;49&#x60;.  **NOTE:** Font size may be reduced during processing in order to fit the contents within the dimensions of the field.
@@ -274,6 +248,7 @@ namespace Dropbox.Sign.Model
         /// <value>The initial px font size for the field contents. Can be any integer value between &#x60;7&#x60; and &#x60;49&#x60;.  **NOTE:** Font size may be reduced during processing in order to fit the contents within the dimensions of the field.</value>
         [DataMember(Name = "font_size", EmitDefaultValue = true)]
         public int FontSize { get; set; }
+        
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -299,10 +274,7 @@ namespace Dropbox.Sign.Model
         /// <returns>JSON string presentation of the object</returns>
         public override string ToJson()
         {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(
-                this,
-                Newtonsoft.Json.Formatting.Indented
-            );
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>
@@ -326,22 +298,30 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return base.Equals(input)
-                && (this.Type == input.Type || (this.Type != null && this.Type.Equals(input.Type)))
-                && base.Equals(input)
-                && (
-                    this.Content == input.Content
-                    || (this.Content != null && this.Content.Equals(input.Content))
-                )
-                && base.Equals(input)
-                && (
-                    this.ContentUrl == input.ContentUrl
-                    || (this.ContentUrl != null && this.ContentUrl.Equals(input.ContentUrl))
-                )
-                && base.Equals(input)
-                && (this.FontFamily == input.FontFamily || this.FontFamily.Equals(input.FontFamily))
-                && base.Equals(input)
-                && (this.FontSize == input.FontSize || this.FontSize.Equals(input.FontSize));
+            return base.Equals(input) && 
+                (
+                    this.Type == input.Type ||
+                    (this.Type != null &&
+                    this.Type.Equals(input.Type))
+                ) && base.Equals(input) && 
+                (
+                    this.Content == input.Content ||
+                    (this.Content != null &&
+                    this.Content.Equals(input.Content))
+                ) && base.Equals(input) && 
+                (
+                    this.ContentUrl == input.ContentUrl ||
+                    (this.ContentUrl != null &&
+                    this.ContentUrl.Equals(input.ContentUrl))
+                ) && base.Equals(input) && 
+                (
+                    this.FontFamily == input.FontFamily ||
+                    this.FontFamily.Equals(input.FontFamily)
+                ) && base.Equals(input) && 
+                (
+                    this.FontSize == input.FontSize ||
+                    this.FontSize.Equals(input.FontSize)
+                );
         }
 
         /// <summary>
@@ -376,9 +356,7 @@ namespace Dropbox.Sign.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<ValidationResult> IValidatableObject.Validate(
-            ValidationContext validationContext
-        )
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             return this.BaseValidate(validationContext);
         }
@@ -400,53 +378,39 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "type",
-                    Property = "Type",
-                    Type = "string",
-                    Value = Type,
-                }
-            );
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "content",
-                    Property = "Content",
-                    Type = "string",
-                    Value = Content,
-                }
-            );
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "content_url",
-                    Property = "ContentUrl",
-                    Type = "string",
-                    Value = ContentUrl,
-                }
-            );
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "font_family",
-                    Property = "FontFamily",
-                    Type = "string",
-                    Value = FontFamily,
-                }
-            );
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "font_size",
-                    Property = "FontSize",
-                    Type = "int",
-                    Value = FontSize,
-                }
-            );
+            types.Add(new OpenApiType(){
+                Name = "type",
+                Property = "Type",
+                Type = "string",
+                Value = Type,
+            });
+            types.Add(new OpenApiType(){
+                Name = "content",
+                Property = "Content",
+                Type = "string",
+                Value = Content,
+            });
+            types.Add(new OpenApiType(){
+                Name = "content_url",
+                Property = "ContentUrl",
+                Type = "string",
+                Value = ContentUrl,
+            });
+            types.Add(new OpenApiType(){
+                Name = "font_family",
+                Property = "FontFamily",
+                Type = "string",
+                Value = FontFamily,
+            });
+            types.Add(new OpenApiType(){
+                Name = "font_size",
+                Property = "FontSize",
+                Type = "int",
+                Value = FontSize,
+            });
 
             return types;
         }
     }
+
 }

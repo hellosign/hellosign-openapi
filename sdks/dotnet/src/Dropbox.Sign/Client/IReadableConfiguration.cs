@@ -110,10 +110,7 @@ namespace Dropbox.Sign.Client
         /// Get the servers associated with the operation.
         /// </summary>
         /// <value>Operation servers.</value>
-        IReadOnlyDictionary<
-            string,
-            List<IReadOnlyDictionary<string, object>>
-        > OperationServers { get; }
+        IReadOnlyDictionary<string, List<IReadOnlyDictionary<string, object>>> OperationServers { get; }
 
         /// <summary>
         /// Gets the API key with prefix.

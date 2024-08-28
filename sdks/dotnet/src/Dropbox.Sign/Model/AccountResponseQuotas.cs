@@ -13,15 +13,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel.DataAnnotations;
-using System.IO;
 using System.Linq;
+using System.IO;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 
 namespace Dropbox.Sign.Model
@@ -31,16 +31,13 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "AccountResponseQuotas")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class AccountResponseQuotas
-        : IEquatable<AccountResponseQuotas>,
-            IValidatableObject
+    public partial class AccountResponseQuotas : IEquatable<AccountResponseQuotas>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="AccountResponseQuotas" /> class.
         /// </summary>
         [JsonConstructorAttribute]
         protected AccountResponseQuotas() { }
-
         /// <summary>
         /// Initializes a new instance of the <see cref="AccountResponseQuotas" /> class.
         /// </summary>
@@ -50,15 +47,9 @@ namespace Dropbox.Sign.Model
         /// <param name="templatesLeft">API templates remaining..</param>
         /// <param name="smsVerificationsLeft">SMS verifications  remaining..</param>
         /// <param name="numFaxPagesLeft">Number of fax pages left.</param>
-        public AccountResponseQuotas(
-            int? apiSignatureRequestsLeft = default(int?),
-            int? documentsLeft = default(int?),
-            int? templatesTotal = default(int?),
-            int? templatesLeft = default(int?),
-            int? smsVerificationsLeft = default(int?),
-            int? numFaxPagesLeft = default(int?)
-        )
+        public AccountResponseQuotas(int? apiSignatureRequestsLeft = default(int?), int? documentsLeft = default(int?), int? templatesTotal = default(int?), int? templatesLeft = default(int?), int? smsVerificationsLeft = default(int?), int? numFaxPagesLeft = default(int?))
         {
+            
             this.ApiSignatureRequestsLeft = apiSignatureRequestsLeft;
             this.DocumentsLeft = documentsLeft;
             this.TemplatesTotal = templatesTotal;
@@ -77,9 +68,7 @@ namespace Dropbox.Sign.Model
 
             if (obj == null)
             {
-                throw new Exception(
-                    "Unable to deserialize JSON to instance of AccountResponseQuotas"
-                );
+                throw new Exception("Unable to deserialize JSON to instance of AccountResponseQuotas");
             }
 
             return obj;
@@ -91,6 +80,7 @@ namespace Dropbox.Sign.Model
         /// <value>API signature requests remaining.</value>
         [DataMember(Name = "api_signature_requests_left", EmitDefaultValue = true)]
         public int? ApiSignatureRequestsLeft { get; set; }
+        
 
         /// <summary>
         /// Signature requests remaining.
@@ -98,6 +88,7 @@ namespace Dropbox.Sign.Model
         /// <value>Signature requests remaining.</value>
         [DataMember(Name = "documents_left", EmitDefaultValue = true)]
         public int? DocumentsLeft { get; set; }
+        
 
         /// <summary>
         /// Total API templates allowed.
@@ -105,6 +96,7 @@ namespace Dropbox.Sign.Model
         /// <value>Total API templates allowed.</value>
         [DataMember(Name = "templates_total", EmitDefaultValue = true)]
         public int? TemplatesTotal { get; set; }
+        
 
         /// <summary>
         /// API templates remaining.
@@ -112,6 +104,7 @@ namespace Dropbox.Sign.Model
         /// <value>API templates remaining.</value>
         [DataMember(Name = "templates_left", EmitDefaultValue = true)]
         public int? TemplatesLeft { get; set; }
+        
 
         /// <summary>
         /// SMS verifications  remaining.
@@ -119,6 +112,7 @@ namespace Dropbox.Sign.Model
         /// <value>SMS verifications  remaining.</value>
         [DataMember(Name = "sms_verifications_left", EmitDefaultValue = true)]
         public int? SmsVerificationsLeft { get; set; }
+        
 
         /// <summary>
         /// Number of fax pages left
@@ -126,6 +120,7 @@ namespace Dropbox.Sign.Model
         /// <value>Number of fax pages left</value>
         [DataMember(Name = "num_fax_pages_left", EmitDefaultValue = true)]
         public int? NumFaxPagesLeft { get; set; }
+        
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -151,10 +146,7 @@ namespace Dropbox.Sign.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(
-                this,
-                Newtonsoft.Json.Formatting.Indented
-            );
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>
@@ -178,45 +170,36 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return (
-                    this.ApiSignatureRequestsLeft == input.ApiSignatureRequestsLeft
-                    || (
-                        this.ApiSignatureRequestsLeft != null
-                        && this.ApiSignatureRequestsLeft.Equals(input.ApiSignatureRequestsLeft)
-                    )
-                )
-                && (
-                    this.DocumentsLeft == input.DocumentsLeft
-                    || (
-                        this.DocumentsLeft != null && this.DocumentsLeft.Equals(input.DocumentsLeft)
-                    )
-                )
-                && (
-                    this.TemplatesTotal == input.TemplatesTotal
-                    || (
-                        this.TemplatesTotal != null
-                        && this.TemplatesTotal.Equals(input.TemplatesTotal)
-                    )
-                )
-                && (
-                    this.TemplatesLeft == input.TemplatesLeft
-                    || (
-                        this.TemplatesLeft != null && this.TemplatesLeft.Equals(input.TemplatesLeft)
-                    )
-                )
-                && (
-                    this.SmsVerificationsLeft == input.SmsVerificationsLeft
-                    || (
-                        this.SmsVerificationsLeft != null
-                        && this.SmsVerificationsLeft.Equals(input.SmsVerificationsLeft)
-                    )
-                )
-                && (
-                    this.NumFaxPagesLeft == input.NumFaxPagesLeft
-                    || (
-                        this.NumFaxPagesLeft != null
-                        && this.NumFaxPagesLeft.Equals(input.NumFaxPagesLeft)
-                    )
+            return 
+                (
+                    this.ApiSignatureRequestsLeft == input.ApiSignatureRequestsLeft ||
+                    (this.ApiSignatureRequestsLeft != null &&
+                    this.ApiSignatureRequestsLeft.Equals(input.ApiSignatureRequestsLeft))
+                ) && 
+                (
+                    this.DocumentsLeft == input.DocumentsLeft ||
+                    (this.DocumentsLeft != null &&
+                    this.DocumentsLeft.Equals(input.DocumentsLeft))
+                ) && 
+                (
+                    this.TemplatesTotal == input.TemplatesTotal ||
+                    (this.TemplatesTotal != null &&
+                    this.TemplatesTotal.Equals(input.TemplatesTotal))
+                ) && 
+                (
+                    this.TemplatesLeft == input.TemplatesLeft ||
+                    (this.TemplatesLeft != null &&
+                    this.TemplatesLeft.Equals(input.TemplatesLeft))
+                ) && 
+                (
+                    this.SmsVerificationsLeft == input.SmsVerificationsLeft ||
+                    (this.SmsVerificationsLeft != null &&
+                    this.SmsVerificationsLeft.Equals(input.SmsVerificationsLeft))
+                ) && 
+                (
+                    this.NumFaxPagesLeft == input.NumFaxPagesLeft ||
+                    (this.NumFaxPagesLeft != null &&
+                    this.NumFaxPagesLeft.Equals(input.NumFaxPagesLeft))
                 );
         }
 
@@ -262,9 +245,7 @@ namespace Dropbox.Sign.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<ValidationResult> IValidatableObject.Validate(
-            ValidationContext validationContext
-        )
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }
@@ -272,62 +253,45 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "api_signature_requests_left",
-                    Property = "ApiSignatureRequestsLeft",
-                    Type = "int?",
-                    Value = ApiSignatureRequestsLeft,
-                }
-            );
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "documents_left",
-                    Property = "DocumentsLeft",
-                    Type = "int?",
-                    Value = DocumentsLeft,
-                }
-            );
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "templates_total",
-                    Property = "TemplatesTotal",
-                    Type = "int?",
-                    Value = TemplatesTotal,
-                }
-            );
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "templates_left",
-                    Property = "TemplatesLeft",
-                    Type = "int?",
-                    Value = TemplatesLeft,
-                }
-            );
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "sms_verifications_left",
-                    Property = "SmsVerificationsLeft",
-                    Type = "int?",
-                    Value = SmsVerificationsLeft,
-                }
-            );
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "num_fax_pages_left",
-                    Property = "NumFaxPagesLeft",
-                    Type = "int?",
-                    Value = NumFaxPagesLeft,
-                }
-            );
+            types.Add(new OpenApiType(){
+                Name = "api_signature_requests_left",
+                Property = "ApiSignatureRequestsLeft",
+                Type = "int?",
+                Value = ApiSignatureRequestsLeft,
+            });
+            types.Add(new OpenApiType(){
+                Name = "documents_left",
+                Property = "DocumentsLeft",
+                Type = "int?",
+                Value = DocumentsLeft,
+            });
+            types.Add(new OpenApiType(){
+                Name = "templates_total",
+                Property = "TemplatesTotal",
+                Type = "int?",
+                Value = TemplatesTotal,
+            });
+            types.Add(new OpenApiType(){
+                Name = "templates_left",
+                Property = "TemplatesLeft",
+                Type = "int?",
+                Value = TemplatesLeft,
+            });
+            types.Add(new OpenApiType(){
+                Name = "sms_verifications_left",
+                Property = "SmsVerificationsLeft",
+                Type = "int?",
+                Value = SmsVerificationsLeft,
+            });
+            types.Add(new OpenApiType(){
+                Name = "num_fax_pages_left",
+                Property = "NumFaxPagesLeft",
+                Type = "int?",
+                Value = NumFaxPagesLeft,
+            });
 
             return types;
         }
     }
+
 }

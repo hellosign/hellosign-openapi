@@ -125,12 +125,7 @@ namespace Dropbox.Sign.Client
         /// <param name="headers">HTTP headers.</param>
         /// <param name="data">Data (parsed HTTP body)</param>
         /// <param name="rawContent">Raw content.</param>
-        public ApiResponse(
-            HttpStatusCode statusCode,
-            Multimap<string, string> headers,
-            T data,
-            string rawContent
-        )
+        public ApiResponse(HttpStatusCode statusCode, Multimap<string, string> headers, T data, string rawContent)
         {
             StatusCode = statusCode;
             Headers = headers;
@@ -144,8 +139,9 @@ namespace Dropbox.Sign.Client
         /// <param name="statusCode">HTTP status code.</param>
         /// <param name="headers">HTTP headers.</param>
         /// <param name="data">Data (parsed HTTP body)</param>
-        public ApiResponse(HttpStatusCode statusCode, Multimap<string, string> headers, T data)
-            : this(statusCode, headers, data, null) { }
+        public ApiResponse(HttpStatusCode statusCode, Multimap<string, string> headers, T data) : this(statusCode, headers, data, null)
+        {
+        }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiResponse{T}" /> class.
@@ -153,16 +149,18 @@ namespace Dropbox.Sign.Client
         /// <param name="statusCode">HTTP status code.</param>
         /// <param name="data">Data (parsed HTTP body)</param>
         /// <param name="rawContent">Raw content.</param>
-        public ApiResponse(HttpStatusCode statusCode, T data, string rawContent)
-            : this(statusCode, null, data, rawContent) { }
+        public ApiResponse(HttpStatusCode statusCode, T data, string rawContent) : this(statusCode, null, data, rawContent)
+        {
+        }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiResponse{T}" /> class.
         /// </summary>
         /// <param name="statusCode">HTTP status code.</param>
         /// <param name="data">Data (parsed HTTP body)</param>
-        public ApiResponse(HttpStatusCode statusCode, T data)
-            : this(statusCode, data, null) { }
+        public ApiResponse(HttpStatusCode statusCode, T data) : this(statusCode, data, null)
+        {
+        }
 
         #endregion Constructors
     }

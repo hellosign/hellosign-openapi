@@ -13,15 +13,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel.DataAnnotations;
-using System.IO;
 using System.Linq;
+using System.IO;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 
 namespace Dropbox.Sign.Model
@@ -74,8 +74,9 @@ namespace Dropbox.Sign.Model
             /// Enum YYYY_MM_DD for value: YYYY - MM - DD
             /// </summary>
             [EnumMember(Value = "YYYY - MM - DD")]
-            YYYY_MM_DD = 6,
+            YYYY_MM_DD = 6
         }
+
 
         /// <summary>
         /// Allows requester to specify the date format (see list of allowed [formats](/api/reference/constants/#date-formats))  **NOTE:** Only available for Premium and higher.
@@ -83,19 +84,18 @@ namespace Dropbox.Sign.Model
         /// <value>Allows requester to specify the date format (see list of allowed [formats](/api/reference/constants/#date-formats))  **NOTE:** Only available for Premium and higher.</value>
         [DataMember(Name = "date_format", IsRequired = true, EmitDefaultValue = true)]
         public DateFormatEnum DateFormat { get; set; }
-
         /// <summary>
         /// Initializes a new instance of the <see cref="SubFieldOptions" /> class.
         /// </summary>
         [JsonConstructorAttribute]
         protected SubFieldOptions() { }
-
         /// <summary>
         /// Initializes a new instance of the <see cref="SubFieldOptions" /> class.
         /// </summary>
         /// <param name="dateFormat">Allows requester to specify the date format (see list of allowed [formats](/api/reference/constants/#date-formats))  **NOTE:** Only available for Premium and higher. (required).</param>
         public SubFieldOptions(DateFormatEnum dateFormat = default(DateFormatEnum))
         {
+            
             this.DateFormat = dateFormat;
         }
 
@@ -134,10 +134,7 @@ namespace Dropbox.Sign.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(
-                this,
-                Newtonsoft.Json.Formatting.Indented
-            );
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>
@@ -161,9 +158,11 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return (
-                this.DateFormat == input.DateFormat || this.DateFormat.Equals(input.DateFormat)
-            );
+            return 
+                (
+                    this.DateFormat == input.DateFormat ||
+                    this.DateFormat.Equals(input.DateFormat)
+                );
         }
 
         /// <summary>
@@ -185,9 +184,7 @@ namespace Dropbox.Sign.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<ValidationResult> IValidatableObject.Validate(
-            ValidationContext validationContext
-        )
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }
@@ -195,17 +192,15 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "date_format",
-                    Property = "DateFormat",
-                    Type = "string",
-                    Value = DateFormat,
-                }
-            );
+            types.Add(new OpenApiType(){
+                Name = "date_format",
+                Property = "DateFormat",
+                Type = "string",
+                Value = DateFormat,
+            });
 
             return types;
         }
     }
+
 }

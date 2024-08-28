@@ -13,15 +13,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel.DataAnnotations;
-using System.IO;
 using System.Linq;
+using System.IO;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 
 namespace Dropbox.Sign.Model
@@ -84,6 +84,7 @@ namespace Dropbox.Sign.Model
         /// Enum CheckboxMerge for value: checkbox-merge
         /// </summary>
         [EnumMember(Value = "checkbox-merge")]
-        CheckboxMerge = 9,
+        CheckboxMerge = 9
     }
+
 }

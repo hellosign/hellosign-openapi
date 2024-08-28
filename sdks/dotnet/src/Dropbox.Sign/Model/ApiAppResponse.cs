@@ -13,15 +13,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel.DataAnnotations;
-using System.IO;
 using System.Linq;
+using System.IO;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 
 namespace Dropbox.Sign.Model
@@ -38,7 +38,6 @@ namespace Dropbox.Sign.Model
         /// </summary>
         [JsonConstructorAttribute]
         protected ApiAppResponse() { }
-
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiAppResponse" /> class.
         /// </summary>
@@ -52,20 +51,9 @@ namespace Dropbox.Sign.Model
         /// <param name="options">options.</param>
         /// <param name="ownerAccount">ownerAccount.</param>
         /// <param name="whiteLabelingOptions">whiteLabelingOptions.</param>
-        public ApiAppResponse(
-            string callbackUrl = default(string),
-            string clientId = default(string),
-            int createdAt = default(int),
-            List<string> domains = default(List<string>),
-            string name = default(string),
-            bool isApproved = default(bool),
-            ApiAppResponseOAuth oauth = default(ApiAppResponseOAuth),
-            ApiAppResponseOptions options = default(ApiAppResponseOptions),
-            ApiAppResponseOwnerAccount ownerAccount = default(ApiAppResponseOwnerAccount),
-            ApiAppResponseWhiteLabelingOptions whiteLabelingOptions =
-                default(ApiAppResponseWhiteLabelingOptions)
-        )
+        public ApiAppResponse(string callbackUrl = default(string), string clientId = default(string), int createdAt = default(int), List<string> domains = default(List<string>), string name = default(string), bool isApproved = default(bool), ApiAppResponseOAuth oauth = default(ApiAppResponseOAuth), ApiAppResponseOptions options = default(ApiAppResponseOptions), ApiAppResponseOwnerAccount ownerAccount = default(ApiAppResponseOwnerAccount), ApiAppResponseWhiteLabelingOptions whiteLabelingOptions = default(ApiAppResponseWhiteLabelingOptions))
         {
+            
             this.CallbackUrl = callbackUrl;
             this.ClientId = clientId;
             this.CreatedAt = createdAt;
@@ -100,6 +88,7 @@ namespace Dropbox.Sign.Model
         /// <value>The app&#39;s callback URL (for events)</value>
         [DataMember(Name = "callback_url", EmitDefaultValue = true)]
         public string CallbackUrl { get; set; }
+        
 
         /// <summary>
         /// The app&#39;s client id
@@ -107,6 +96,7 @@ namespace Dropbox.Sign.Model
         /// <value>The app&#39;s client id</value>
         [DataMember(Name = "client_id", EmitDefaultValue = true)]
         public string ClientId { get; set; }
+        
 
         /// <summary>
         /// The time that the app was created
@@ -114,6 +104,7 @@ namespace Dropbox.Sign.Model
         /// <value>The time that the app was created</value>
         [DataMember(Name = "created_at", EmitDefaultValue = true)]
         public int CreatedAt { get; set; }
+        
 
         /// <summary>
         /// The domain name(s) associated with the app
@@ -121,6 +112,7 @@ namespace Dropbox.Sign.Model
         /// <value>The domain name(s) associated with the app</value>
         [DataMember(Name = "domains", EmitDefaultValue = true)]
         public List<string> Domains { get; set; }
+        
 
         /// <summary>
         /// The name of the app
@@ -128,6 +120,7 @@ namespace Dropbox.Sign.Model
         /// <value>The name of the app</value>
         [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
+        
 
         /// <summary>
         /// Boolean to indicate if the app has been approved
@@ -135,30 +128,35 @@ namespace Dropbox.Sign.Model
         /// <value>Boolean to indicate if the app has been approved</value>
         [DataMember(Name = "is_approved", EmitDefaultValue = true)]
         public bool IsApproved { get; set; }
+        
 
         /// <summary>
         /// Gets or Sets Oauth
         /// </summary>
         [DataMember(Name = "oauth", EmitDefaultValue = true)]
         public ApiAppResponseOAuth Oauth { get; set; }
+        
 
         /// <summary>
         /// Gets or Sets Options
         /// </summary>
         [DataMember(Name = "options", EmitDefaultValue = true)]
         public ApiAppResponseOptions Options { get; set; }
+        
 
         /// <summary>
         /// Gets or Sets OwnerAccount
         /// </summary>
         [DataMember(Name = "owner_account", EmitDefaultValue = true)]
         public ApiAppResponseOwnerAccount OwnerAccount { get; set; }
+        
 
         /// <summary>
         /// Gets or Sets WhiteLabelingOptions
         /// </summary>
         [DataMember(Name = "white_labeling_options", EmitDefaultValue = true)]
         public ApiAppResponseWhiteLabelingOptions WhiteLabelingOptions { get; set; }
+        
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -188,10 +186,7 @@ namespace Dropbox.Sign.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(
-                this,
-                Newtonsoft.Json.Formatting.Indented
-            );
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>
@@ -215,41 +210,55 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return (
-                    this.CallbackUrl == input.CallbackUrl
-                    || (this.CallbackUrl != null && this.CallbackUrl.Equals(input.CallbackUrl))
-                )
-                && (
-                    this.ClientId == input.ClientId
-                    || (this.ClientId != null && this.ClientId.Equals(input.ClientId))
-                )
-                && (this.CreatedAt == input.CreatedAt || this.CreatedAt.Equals(input.CreatedAt))
-                && (
-                    this.Domains == input.Domains
-                    || this.Domains != null
-                        && input.Domains != null
-                        && this.Domains.SequenceEqual(input.Domains)
-                )
-                && (this.Name == input.Name || (this.Name != null && this.Name.Equals(input.Name)))
-                && (this.IsApproved == input.IsApproved || this.IsApproved.Equals(input.IsApproved))
-                && (
-                    this.Oauth == input.Oauth
-                    || (this.Oauth != null && this.Oauth.Equals(input.Oauth))
-                )
-                && (
-                    this.Options == input.Options
-                    || (this.Options != null && this.Options.Equals(input.Options))
-                )
-                && (
-                    this.OwnerAccount == input.OwnerAccount
-                    || (this.OwnerAccount != null && this.OwnerAccount.Equals(input.OwnerAccount))
-                )
-                && (
-                    this.WhiteLabelingOptions == input.WhiteLabelingOptions
-                    || (
-                        this.WhiteLabelingOptions != null
-                        && this.WhiteLabelingOptions.Equals(input.WhiteLabelingOptions)
-                    )
+            return 
+                (
+                    this.CallbackUrl == input.CallbackUrl ||
+                    (this.CallbackUrl != null &&
+                    this.CallbackUrl.Equals(input.CallbackUrl))
+                ) && 
+                (
+                    this.ClientId == input.ClientId ||
+                    (this.ClientId != null &&
+                    this.ClientId.Equals(input.ClientId))
+                ) && 
+                (
+                    this.CreatedAt == input.CreatedAt ||
+                    this.CreatedAt.Equals(input.CreatedAt)
+                ) && 
+                (
+                    this.Domains == input.Domains ||
+                    this.Domains != null &&
+                    input.Domains != null &&
+                    this.Domains.SequenceEqual(input.Domains)
+                ) && 
+                (
+                    this.Name == input.Name ||
+                    (this.Name != null &&
+                    this.Name.Equals(input.Name))
+                ) && 
+                (
+                    this.IsApproved == input.IsApproved ||
+                    this.IsApproved.Equals(input.IsApproved)
+                ) && 
+                (
+                    this.Oauth == input.Oauth ||
+                    (this.Oauth != null &&
+                    this.Oauth.Equals(input.Oauth))
+                ) && 
+                (
+                    this.Options == input.Options ||
+                    (this.Options != null &&
+                    this.Options.Equals(input.Options))
+                ) && 
+                (
+                    this.OwnerAccount == input.OwnerAccount ||
+                    (this.OwnerAccount != null &&
+                    this.OwnerAccount.Equals(input.OwnerAccount))
+                ) && 
+                (
+                    this.WhiteLabelingOptions == input.WhiteLabelingOptions ||
+                    (this.WhiteLabelingOptions != null &&
+                    this.WhiteLabelingOptions.Equals(input.WhiteLabelingOptions))
                 );
         }
 
@@ -305,9 +314,7 @@ namespace Dropbox.Sign.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<ValidationResult> IValidatableObject.Validate(
-            ValidationContext validationContext
-        )
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }
@@ -315,98 +322,69 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "callback_url",
-                    Property = "CallbackUrl",
-                    Type = "string",
-                    Value = CallbackUrl,
-                }
-            );
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "client_id",
-                    Property = "ClientId",
-                    Type = "string",
-                    Value = ClientId,
-                }
-            );
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "created_at",
-                    Property = "CreatedAt",
-                    Type = "int",
-                    Value = CreatedAt,
-                }
-            );
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "domains",
-                    Property = "Domains",
-                    Type = "List<string>",
-                    Value = Domains,
-                }
-            );
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "name",
-                    Property = "Name",
-                    Type = "string",
-                    Value = Name,
-                }
-            );
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "is_approved",
-                    Property = "IsApproved",
-                    Type = "bool",
-                    Value = IsApproved,
-                }
-            );
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "oauth",
-                    Property = "Oauth",
-                    Type = "ApiAppResponseOAuth",
-                    Value = Oauth,
-                }
-            );
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "options",
-                    Property = "Options",
-                    Type = "ApiAppResponseOptions",
-                    Value = Options,
-                }
-            );
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "owner_account",
-                    Property = "OwnerAccount",
-                    Type = "ApiAppResponseOwnerAccount",
-                    Value = OwnerAccount,
-                }
-            );
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "white_labeling_options",
-                    Property = "WhiteLabelingOptions",
-                    Type = "ApiAppResponseWhiteLabelingOptions",
-                    Value = WhiteLabelingOptions,
-                }
-            );
+            types.Add(new OpenApiType(){
+                Name = "callback_url",
+                Property = "CallbackUrl",
+                Type = "string",
+                Value = CallbackUrl,
+            });
+            types.Add(new OpenApiType(){
+                Name = "client_id",
+                Property = "ClientId",
+                Type = "string",
+                Value = ClientId,
+            });
+            types.Add(new OpenApiType(){
+                Name = "created_at",
+                Property = "CreatedAt",
+                Type = "int",
+                Value = CreatedAt,
+            });
+            types.Add(new OpenApiType(){
+                Name = "domains",
+                Property = "Domains",
+                Type = "List<string>",
+                Value = Domains,
+            });
+            types.Add(new OpenApiType(){
+                Name = "name",
+                Property = "Name",
+                Type = "string",
+                Value = Name,
+            });
+            types.Add(new OpenApiType(){
+                Name = "is_approved",
+                Property = "IsApproved",
+                Type = "bool",
+                Value = IsApproved,
+            });
+            types.Add(new OpenApiType(){
+                Name = "oauth",
+                Property = "Oauth",
+                Type = "ApiAppResponseOAuth",
+                Value = Oauth,
+            });
+            types.Add(new OpenApiType(){
+                Name = "options",
+                Property = "Options",
+                Type = "ApiAppResponseOptions",
+                Value = Options,
+            });
+            types.Add(new OpenApiType(){
+                Name = "owner_account",
+                Property = "OwnerAccount",
+                Type = "ApiAppResponseOwnerAccount",
+                Value = OwnerAccount,
+            });
+            types.Add(new OpenApiType(){
+                Name = "white_labeling_options",
+                Property = "WhiteLabelingOptions",
+                Type = "ApiAppResponseWhiteLabelingOptions",
+                Value = WhiteLabelingOptions,
+            });
 
             return types;
         }
     }
+
 }

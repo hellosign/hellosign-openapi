@@ -20,6 +20,7 @@ using Dropbox.Sign.Model;
 
 namespace Dropbox.Sign.Api
 {
+
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
@@ -36,10 +37,7 @@ namespace Dropbox.Sign.Api
         /// <param name="faxLineAddUserRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>FaxLineResponse</returns>
-        FaxLineResponse FaxLineAddUser(
-            FaxLineAddUserRequest faxLineAddUserRequest,
-            int operationIndex = 0
-        );
+        FaxLineResponse FaxLineAddUser(FaxLineAddUserRequest faxLineAddUserRequest, int operationIndex = 0);
 
         /// <summary>
         /// Add Fax Line User
@@ -51,11 +49,7 @@ namespace Dropbox.Sign.Api
         /// <param name="faxLineAddUserRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of FaxLineResponse</returns>
-        ApiResponse<FaxLineResponse> FaxLineAddUserWithHttpInfo(
-            FaxLineAddUserRequest faxLineAddUserRequest,
-            int operationIndex = 0
-        );
-
+        ApiResponse<FaxLineResponse> FaxLineAddUserWithHttpInfo(FaxLineAddUserRequest faxLineAddUserRequest, int operationIndex = 0);
         /// <summary>
         /// Get Available Fax Line Area Codes
         /// </summary>
@@ -69,13 +63,7 @@ namespace Dropbox.Sign.Api
         /// <param name="city">Filter area codes by city. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>FaxLineAreaCodeGetResponse</returns>
-        FaxLineAreaCodeGetResponse FaxLineAreaCodeGet(
-            string country,
-            string? state = default(string?),
-            string? province = default(string?),
-            string? city = default(string?),
-            int operationIndex = 0
-        );
+        FaxLineAreaCodeGetResponse FaxLineAreaCodeGet(string country, string? state = default(string?), string? province = default(string?), string? city = default(string?), int operationIndex = 0);
 
         /// <summary>
         /// Get Available Fax Line Area Codes
@@ -90,14 +78,7 @@ namespace Dropbox.Sign.Api
         /// <param name="city">Filter area codes by city. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of FaxLineAreaCodeGetResponse</returns>
-        ApiResponse<FaxLineAreaCodeGetResponse> FaxLineAreaCodeGetWithHttpInfo(
-            string country,
-            string? state = default(string?),
-            string? province = default(string?),
-            string? city = default(string?),
-            int operationIndex = 0
-        );
-
+        ApiResponse<FaxLineAreaCodeGetResponse> FaxLineAreaCodeGetWithHttpInfo(string country, string? state = default(string?), string? province = default(string?), string? city = default(string?), int operationIndex = 0);
         /// <summary>
         /// Purchase Fax Line
         /// </summary>
@@ -108,10 +89,7 @@ namespace Dropbox.Sign.Api
         /// <param name="faxLineCreateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>FaxLineResponse</returns>
-        FaxLineResponse FaxLineCreate(
-            FaxLineCreateRequest faxLineCreateRequest,
-            int operationIndex = 0
-        );
+        FaxLineResponse FaxLineCreate(FaxLineCreateRequest faxLineCreateRequest, int operationIndex = 0);
 
         /// <summary>
         /// Purchase Fax Line
@@ -123,11 +101,7 @@ namespace Dropbox.Sign.Api
         /// <param name="faxLineCreateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of FaxLineResponse</returns>
-        ApiResponse<FaxLineResponse> FaxLineCreateWithHttpInfo(
-            FaxLineCreateRequest faxLineCreateRequest,
-            int operationIndex = 0
-        );
-
+        ApiResponse<FaxLineResponse> FaxLineCreateWithHttpInfo(FaxLineCreateRequest faxLineCreateRequest, int operationIndex = 0);
         /// <summary>
         /// Delete Fax Line
         /// </summary>
@@ -150,11 +124,7 @@ namespace Dropbox.Sign.Api
         /// <param name="faxLineDeleteRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> FaxLineDeleteWithHttpInfo(
-            FaxLineDeleteRequest faxLineDeleteRequest,
-            int operationIndex = 0
-        );
-
+        ApiResponse<Object> FaxLineDeleteWithHttpInfo(FaxLineDeleteRequest faxLineDeleteRequest, int operationIndex = 0);
         /// <summary>
         /// Get Fax Line
         /// </summary>
@@ -178,7 +148,6 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of FaxLineResponse</returns>
         ApiResponse<FaxLineResponse> FaxLineGetWithHttpInfo(string number, int operationIndex = 0);
-
         /// <summary>
         /// List Fax Lines
         /// </summary>
@@ -192,13 +161,7 @@ namespace Dropbox.Sign.Api
         /// <param name="showTeamLines">Show team lines (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>FaxLineListResponse</returns>
-        FaxLineListResponse FaxLineList(
-            string? accountId = default(string?),
-            int? page = default(int?),
-            int? pageSize = default(int?),
-            bool? showTeamLines = default(bool?),
-            int operationIndex = 0
-        );
+        FaxLineListResponse FaxLineList(string? accountId = default(string?), int? page = default(int?), int? pageSize = default(int?), bool? showTeamLines = default(bool?), int operationIndex = 0);
 
         /// <summary>
         /// List Fax Lines
@@ -213,14 +176,7 @@ namespace Dropbox.Sign.Api
         /// <param name="showTeamLines">Show team lines (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of FaxLineListResponse</returns>
-        ApiResponse<FaxLineListResponse> FaxLineListWithHttpInfo(
-            string? accountId = default(string?),
-            int? page = default(int?),
-            int? pageSize = default(int?),
-            bool? showTeamLines = default(bool?),
-            int operationIndex = 0
-        );
-
+        ApiResponse<FaxLineListResponse> FaxLineListWithHttpInfo(string? accountId = default(string?), int? page = default(int?), int? pageSize = default(int?), bool? showTeamLines = default(bool?), int operationIndex = 0);
         /// <summary>
         /// Remove Fax Line Access
         /// </summary>
@@ -231,10 +187,7 @@ namespace Dropbox.Sign.Api
         /// <param name="faxLineRemoveUserRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>FaxLineResponse</returns>
-        FaxLineResponse FaxLineRemoveUser(
-            FaxLineRemoveUserRequest faxLineRemoveUserRequest,
-            int operationIndex = 0
-        );
+        FaxLineResponse FaxLineRemoveUser(FaxLineRemoveUserRequest faxLineRemoveUserRequest, int operationIndex = 0);
 
         /// <summary>
         /// Remove Fax Line Access
@@ -246,10 +199,7 @@ namespace Dropbox.Sign.Api
         /// <param name="faxLineRemoveUserRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of FaxLineResponse</returns>
-        ApiResponse<FaxLineResponse> FaxLineRemoveUserWithHttpInfo(
-            FaxLineRemoveUserRequest faxLineRemoveUserRequest,
-            int operationIndex = 0
-        );
+        ApiResponse<FaxLineResponse> FaxLineRemoveUserWithHttpInfo(FaxLineRemoveUserRequest faxLineRemoveUserRequest, int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -270,12 +220,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FaxLineResponse</returns>
-        System.Threading.Tasks.Task<FaxLineResponse> FaxLineAddUserAsync(
-            FaxLineAddUserRequest faxLineAddUserRequest,
-            int operationIndex = 0,
-            System.Threading.CancellationToken cancellationToken =
-                default(System.Threading.CancellationToken)
-        );
+        System.Threading.Tasks.Task<FaxLineResponse> FaxLineAddUserAsync(FaxLineAddUserRequest faxLineAddUserRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Add Fax Line User
@@ -288,13 +233,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FaxLineResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FaxLineResponse>> FaxLineAddUserWithHttpInfoAsync(
-            FaxLineAddUserRequest faxLineAddUserRequest,
-            int operationIndex = 0,
-            System.Threading.CancellationToken cancellationToken =
-                default(System.Threading.CancellationToken)
-        );
-
+        System.Threading.Tasks.Task<ApiResponse<FaxLineResponse>> FaxLineAddUserWithHttpInfoAsync(FaxLineAddUserRequest faxLineAddUserRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get Available Fax Line Area Codes
         /// </summary>
@@ -309,15 +248,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FaxLineAreaCodeGetResponse</returns>
-        System.Threading.Tasks.Task<FaxLineAreaCodeGetResponse> FaxLineAreaCodeGetAsync(
-            string country,
-            string? state = default(string?),
-            string? province = default(string?),
-            string? city = default(string?),
-            int operationIndex = 0,
-            System.Threading.CancellationToken cancellationToken =
-                default(System.Threading.CancellationToken)
-        );
+        System.Threading.Tasks.Task<FaxLineAreaCodeGetResponse> FaxLineAreaCodeGetAsync(string country, string? state = default(string?), string? province = default(string?), string? city = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get Available Fax Line Area Codes
@@ -333,18 +264,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FaxLineAreaCodeGetResponse)</returns>
-        System.Threading.Tasks.Task<
-            ApiResponse<FaxLineAreaCodeGetResponse>
-        > FaxLineAreaCodeGetWithHttpInfoAsync(
-            string country,
-            string? state = default(string?),
-            string? province = default(string?),
-            string? city = default(string?),
-            int operationIndex = 0,
-            System.Threading.CancellationToken cancellationToken =
-                default(System.Threading.CancellationToken)
-        );
-
+        System.Threading.Tasks.Task<ApiResponse<FaxLineAreaCodeGetResponse>> FaxLineAreaCodeGetWithHttpInfoAsync(string country, string? state = default(string?), string? province = default(string?), string? city = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Purchase Fax Line
         /// </summary>
@@ -356,12 +276,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FaxLineResponse</returns>
-        System.Threading.Tasks.Task<FaxLineResponse> FaxLineCreateAsync(
-            FaxLineCreateRequest faxLineCreateRequest,
-            int operationIndex = 0,
-            System.Threading.CancellationToken cancellationToken =
-                default(System.Threading.CancellationToken)
-        );
+        System.Threading.Tasks.Task<FaxLineResponse> FaxLineCreateAsync(FaxLineCreateRequest faxLineCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Purchase Fax Line
@@ -374,13 +289,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FaxLineResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FaxLineResponse>> FaxLineCreateWithHttpInfoAsync(
-            FaxLineCreateRequest faxLineCreateRequest,
-            int operationIndex = 0,
-            System.Threading.CancellationToken cancellationToken =
-                default(System.Threading.CancellationToken)
-        );
-
+        System.Threading.Tasks.Task<ApiResponse<FaxLineResponse>> FaxLineCreateWithHttpInfoAsync(FaxLineCreateRequest faxLineCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Delete Fax Line
         /// </summary>
@@ -392,12 +301,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task FaxLineDeleteAsync(
-            FaxLineDeleteRequest faxLineDeleteRequest,
-            int operationIndex = 0,
-            System.Threading.CancellationToken cancellationToken =
-                default(System.Threading.CancellationToken)
-        );
+        System.Threading.Tasks.Task FaxLineDeleteAsync(FaxLineDeleteRequest faxLineDeleteRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Delete Fax Line
@@ -410,13 +314,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> FaxLineDeleteWithHttpInfoAsync(
-            FaxLineDeleteRequest faxLineDeleteRequest,
-            int operationIndex = 0,
-            System.Threading.CancellationToken cancellationToken =
-                default(System.Threading.CancellationToken)
-        );
-
+        System.Threading.Tasks.Task<ApiResponse<Object>> FaxLineDeleteWithHttpInfoAsync(FaxLineDeleteRequest faxLineDeleteRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get Fax Line
         /// </summary>
@@ -428,12 +326,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FaxLineResponse</returns>
-        System.Threading.Tasks.Task<FaxLineResponse> FaxLineGetAsync(
-            string number,
-            int operationIndex = 0,
-            System.Threading.CancellationToken cancellationToken =
-                default(System.Threading.CancellationToken)
-        );
+        System.Threading.Tasks.Task<FaxLineResponse> FaxLineGetAsync(string number, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get Fax Line
@@ -446,13 +339,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FaxLineResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FaxLineResponse>> FaxLineGetWithHttpInfoAsync(
-            string number,
-            int operationIndex = 0,
-            System.Threading.CancellationToken cancellationToken =
-                default(System.Threading.CancellationToken)
-        );
-
+        System.Threading.Tasks.Task<ApiResponse<FaxLineResponse>> FaxLineGetWithHttpInfoAsync(string number, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List Fax Lines
         /// </summary>
@@ -467,15 +354,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FaxLineListResponse</returns>
-        System.Threading.Tasks.Task<FaxLineListResponse> FaxLineListAsync(
-            string? accountId = default(string?),
-            int? page = default(int?),
-            int? pageSize = default(int?),
-            bool? showTeamLines = default(bool?),
-            int operationIndex = 0,
-            System.Threading.CancellationToken cancellationToken =
-                default(System.Threading.CancellationToken)
-        );
+        System.Threading.Tasks.Task<FaxLineListResponse> FaxLineListAsync(string? accountId = default(string?), int? page = default(int?), int? pageSize = default(int?), bool? showTeamLines = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// List Fax Lines
@@ -491,16 +370,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FaxLineListResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FaxLineListResponse>> FaxLineListWithHttpInfoAsync(
-            string? accountId = default(string?),
-            int? page = default(int?),
-            int? pageSize = default(int?),
-            bool? showTeamLines = default(bool?),
-            int operationIndex = 0,
-            System.Threading.CancellationToken cancellationToken =
-                default(System.Threading.CancellationToken)
-        );
-
+        System.Threading.Tasks.Task<ApiResponse<FaxLineListResponse>> FaxLineListWithHttpInfoAsync(string? accountId = default(string?), int? page = default(int?), int? pageSize = default(int?), bool? showTeamLines = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Remove Fax Line Access
         /// </summary>
@@ -512,12 +382,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FaxLineResponse</returns>
-        System.Threading.Tasks.Task<FaxLineResponse> FaxLineRemoveUserAsync(
-            FaxLineRemoveUserRequest faxLineRemoveUserRequest,
-            int operationIndex = 0,
-            System.Threading.CancellationToken cancellationToken =
-                default(System.Threading.CancellationToken)
-        );
+        System.Threading.Tasks.Task<FaxLineResponse> FaxLineRemoveUserAsync(FaxLineRemoveUserRequest faxLineRemoveUserRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Remove Fax Line Access
@@ -530,21 +395,17 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FaxLineResponse)</returns>
-        System.Threading.Tasks.Task<
-            ApiResponse<FaxLineResponse>
-        > FaxLineRemoveUserWithHttpInfoAsync(
-            FaxLineRemoveUserRequest faxLineRemoveUserRequest,
-            int operationIndex = 0,
-            System.Threading.CancellationToken cancellationToken =
-                default(System.Threading.CancellationToken)
-        );
+        System.Threading.Tasks.Task<ApiResponse<FaxLineResponse>> FaxLineRemoveUserWithHttpInfoAsync(FaxLineRemoveUserRequest faxLineRemoveUserRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IFaxLineApi : IFaxLineApiSync, IFaxLineApiAsync { }
+    public interface IFaxLineApi : IFaxLineApiSync, IFaxLineApiAsync
+    {
+
+    }
 
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
@@ -557,8 +418,9 @@ namespace Dropbox.Sign.Api
         /// Initializes a new instance of the <see cref="FaxLineApi"/> class.
         /// </summary>
         /// <returns></returns>
-        public FaxLineApi()
-            : this((string)null) { }
+        public FaxLineApi() : this((string)null)
+        {
+        }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="FaxLineApi"/> class.
@@ -571,9 +433,7 @@ namespace Dropbox.Sign.Api
                 new Dropbox.Sign.Client.Configuration { BasePath = basePath }
             );
             this.Client = new Dropbox.Sign.Client.ApiClient(this.Configuration.BasePath);
-            this.AsynchronousClient = new Dropbox.Sign.Client.ApiClient(
-                this.Configuration.BasePath
-            );
+            this.AsynchronousClient = new Dropbox.Sign.Client.ApiClient(this.Configuration.BasePath);
             this.ExceptionFactory = Dropbox.Sign.Client.Configuration.DefaultExceptionFactory;
         }
 
@@ -585,17 +445,14 @@ namespace Dropbox.Sign.Api
         /// <returns></returns>
         public FaxLineApi(Dropbox.Sign.Client.Configuration configuration)
         {
-            if (configuration == null)
-                throw new ArgumentNullException("configuration");
+            if (configuration == null) throw new ArgumentNullException("configuration");
 
             this.Configuration = Dropbox.Sign.Client.Configuration.MergeConfigurations(
                 Dropbox.Sign.Client.GlobalConfiguration.Instance,
                 configuration
             );
             this.Client = new Dropbox.Sign.Client.ApiClient(this.Configuration.BasePath);
-            this.AsynchronousClient = new Dropbox.Sign.Client.ApiClient(
-                this.Configuration.BasePath
-            );
+            this.AsynchronousClient = new Dropbox.Sign.Client.ApiClient(this.Configuration.BasePath);
             ExceptionFactory = Dropbox.Sign.Client.Configuration.DefaultExceptionFactory;
         }
 
@@ -606,18 +463,11 @@ namespace Dropbox.Sign.Api
         /// <param name="client">The client interface for synchronous API access.</param>
         /// <param name="asyncClient">The client interface for asynchronous API access.</param>
         /// <param name="configuration">The configuration object.</param>
-        public FaxLineApi(
-            Dropbox.Sign.Client.ISynchronousClient client,
-            Dropbox.Sign.Client.IAsynchronousClient asyncClient,
-            Dropbox.Sign.Client.IReadableConfiguration configuration
-        )
+        public FaxLineApi(Dropbox.Sign.Client.ISynchronousClient client, Dropbox.Sign.Client.IAsynchronousClient asyncClient, Dropbox.Sign.Client.IReadableConfiguration configuration)
         {
-            if (client == null)
-                throw new ArgumentNullException("client");
-            if (asyncClient == null)
-                throw new ArgumentNullException("asyncClient");
-            if (configuration == null)
-                throw new ArgumentNullException("configuration");
+            if (client == null) throw new ArgumentNullException("client");
+            if (asyncClient == null) throw new ArgumentNullException("asyncClient");
+            if (configuration == null) throw new ArgumentNullException("configuration");
 
             this.Client = client;
             this.AsynchronousClient = asyncClient;
@@ -659,9 +509,7 @@ namespace Dropbox.Sign.Api
             {
                 if (_exceptionFactory != null && _exceptionFactory.GetInvocationList().Length > 1)
                 {
-                    throw new InvalidOperationException(
-                        "Multicast delegate for ExceptionFactory is unsupported."
-                    );
+                    throw new InvalidOperationException("Multicast delegate for ExceptionFactory is unsupported.");
                 }
                 return _exceptionFactory;
             }
@@ -675,13 +523,9 @@ namespace Dropbox.Sign.Api
         /// <param name="faxLineAddUserRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>FaxLineResponse</returns>
-        public FaxLineResponse FaxLineAddUser(
-            FaxLineAddUserRequest faxLineAddUserRequest,
-            int operationIndex = 0
-        )
+        public FaxLineResponse FaxLineAddUser(FaxLineAddUserRequest faxLineAddUserRequest, int operationIndex = 0)
         {
-            Dropbox.Sign.Client.ApiResponse<FaxLineResponse> localVarResponse =
-                FaxLineAddUserWithHttpInfo(faxLineAddUserRequest);
+            Dropbox.Sign.Client.ApiResponse<FaxLineResponse> localVarResponse = FaxLineAddUserWithHttpInfo(faxLineAddUserRequest);
             return localVarResponse.Data;
         }
 
@@ -692,22 +536,15 @@ namespace Dropbox.Sign.Api
         /// <param name="faxLineAddUserRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of FaxLineResponse</returns>
-        public Dropbox.Sign.Client.ApiResponse<FaxLineResponse> FaxLineAddUserWithHttpInfo(
-            FaxLineAddUserRequest faxLineAddUserRequest,
-            int operationIndex = 0
-        )
+        public Dropbox.Sign.Client.ApiResponse<FaxLineResponse> FaxLineAddUserWithHttpInfo(FaxLineAddUserRequest faxLineAddUserRequest, int operationIndex = 0)
         {
             // verify the required parameter 'faxLineAddUserRequest' is set
             if (faxLineAddUserRequest == null)
             {
-                throw new Dropbox.Sign.Client.ApiException(
-                    400,
-                    "Missing required parameter 'faxLineAddUserRequest' when calling FaxLineApi->FaxLineAddUser"
-                );
+                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'faxLineAddUserRequest' when calling FaxLineApi->FaxLineAddUser");
             }
 
-            Dropbox.Sign.Client.RequestOptions localVarRequestOptions =
-                new Dropbox.Sign.Client.RequestOptions();
+            Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
 
             var localVarContentType = "";
             var openApiTypes = faxLineAddUserRequest.GetOpenApiTypes();
@@ -723,7 +560,9 @@ namespace Dropbox.Sign.Api
             }
 
             // to determine the Accept header
-            string[] _accepts = new string[] { "application/json" };
+            string[] _accepts = new string[] {
+                "application/json"
+            };
 
             if (localVarContentType != null)
             {
@@ -736,32 +575,19 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+
             localVarRequestOptions.Operation = "FaxLineApi.FaxLineAddUser";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (api_key) required
             // http basic authentication required
-            if (
-                !string.IsNullOrEmpty(this.Configuration.Username)
-                || !string.IsNullOrEmpty(this.Configuration.Password)
-                    && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization")
-            )
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add(
-                    "Authorization",
-                    "Basic "
-                        + Dropbox.Sign.Client.ClientUtils.Base64Encode(
-                            this.Configuration.Username + ":" + this.Configuration.Password
-                        )
-                );
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Dropbox.Sign.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Put<FaxLineResponse>(
-                "/fax_line/add_user",
-                localVarRequestOptions,
-                this.Configuration
-            );
+            var localVarResponse = this.Client.Put<FaxLineResponse>("/fax_line/add_user", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("FaxLineAddUser", localVarResponse);
@@ -782,20 +608,9 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FaxLineResponse</returns>
-        public async System.Threading.Tasks.Task<FaxLineResponse> FaxLineAddUserAsync(
-            FaxLineAddUserRequest faxLineAddUserRequest,
-            int operationIndex = 0,
-            System.Threading.CancellationToken cancellationToken =
-                default(System.Threading.CancellationToken)
-        )
+        public async System.Threading.Tasks.Task<FaxLineResponse> FaxLineAddUserAsync(FaxLineAddUserRequest faxLineAddUserRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Dropbox.Sign.Client.ApiResponse<FaxLineResponse> localVarResponse =
-                await FaxLineAddUserWithHttpInfoAsync(
-                        faxLineAddUserRequest,
-                        operationIndex,
-                        cancellationToken
-                    )
-                    .ConfigureAwait(false);
+            Dropbox.Sign.Client.ApiResponse<FaxLineResponse> localVarResponse = await FaxLineAddUserWithHttpInfoAsync(faxLineAddUserRequest, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -807,24 +622,16 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FaxLineResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<FaxLineResponse>> FaxLineAddUserWithHttpInfoAsync(
-            FaxLineAddUserRequest faxLineAddUserRequest,
-            int operationIndex = 0,
-            System.Threading.CancellationToken cancellationToken =
-                default(System.Threading.CancellationToken)
-        )
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<FaxLineResponse>> FaxLineAddUserWithHttpInfoAsync(FaxLineAddUserRequest faxLineAddUserRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'faxLineAddUserRequest' is set
             if (faxLineAddUserRequest == null)
             {
-                throw new Dropbox.Sign.Client.ApiException(
-                    400,
-                    "Missing required parameter 'faxLineAddUserRequest' when calling FaxLineApi->FaxLineAddUser"
-                );
+                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'faxLineAddUserRequest' when calling FaxLineApi->FaxLineAddUser");
             }
 
-            Dropbox.Sign.Client.RequestOptions localVarRequestOptions =
-                new Dropbox.Sign.Client.RequestOptions();
+
+            Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
 
             var localVarContentType = "";
             var openApiTypes = faxLineAddUserRequest.GetOpenApiTypes();
@@ -840,7 +647,9 @@ namespace Dropbox.Sign.Api
             }
 
             // to determine the Accept header
-            string[] _accepts = new string[] { "application/json" };
+            string[] _accepts = new string[] {
+                "application/json"
+            };
 
             if (localVarContentType != null)
             {
@@ -853,35 +662,19 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+
             localVarRequestOptions.Operation = "FaxLineApi.FaxLineAddUser";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (api_key) required
             // http basic authentication required
-            if (
-                !string.IsNullOrEmpty(this.Configuration.Username)
-                || !string.IsNullOrEmpty(this.Configuration.Password)
-                    && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization")
-            )
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add(
-                    "Authorization",
-                    "Basic "
-                        + Dropbox.Sign.Client.ClientUtils.Base64Encode(
-                            this.Configuration.Username + ":" + this.Configuration.Password
-                        )
-                );
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Dropbox.Sign.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
 
             // make the HTTP request
-            var localVarResponse = await this
-                .AsynchronousClient.PutAsync<FaxLineResponse>(
-                    "/fax_line/add_user",
-                    localVarRequestOptions,
-                    this.Configuration,
-                    cancellationToken
-                )
-                .ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PutAsync<FaxLineResponse>("/fax_line/add_user", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -905,16 +698,9 @@ namespace Dropbox.Sign.Api
         /// <param name="city">Filter area codes by city. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>FaxLineAreaCodeGetResponse</returns>
-        public FaxLineAreaCodeGetResponse FaxLineAreaCodeGet(
-            string country,
-            string? state = default(string?),
-            string? province = default(string?),
-            string? city = default(string?),
-            int operationIndex = 0
-        )
+        public FaxLineAreaCodeGetResponse FaxLineAreaCodeGet(string country, string? state = default(string?), string? province = default(string?), string? city = default(string?), int operationIndex = 0)
         {
-            Dropbox.Sign.Client.ApiResponse<FaxLineAreaCodeGetResponse> localVarResponse =
-                FaxLineAreaCodeGetWithHttpInfo(country, state, province, city);
+            Dropbox.Sign.Client.ApiResponse<FaxLineAreaCodeGetResponse> localVarResponse = FaxLineAreaCodeGetWithHttpInfo(country, state, province, city);
             return localVarResponse.Data;
         }
 
@@ -928,33 +714,24 @@ namespace Dropbox.Sign.Api
         /// <param name="city">Filter area codes by city. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of FaxLineAreaCodeGetResponse</returns>
-        public Dropbox.Sign.Client.ApiResponse<FaxLineAreaCodeGetResponse> FaxLineAreaCodeGetWithHttpInfo(
-            string country,
-            string? state = default(string?),
-            string? province = default(string?),
-            string? city = default(string?),
-            int operationIndex = 0
-        )
+        public Dropbox.Sign.Client.ApiResponse<FaxLineAreaCodeGetResponse> FaxLineAreaCodeGetWithHttpInfo(string country, string? state = default(string?), string? province = default(string?), string? city = default(string?), int operationIndex = 0)
         {
             // verify the required parameter 'country' is set
             if (country == null)
             {
-                throw new Dropbox.Sign.Client.ApiException(
-                    400,
-                    "Missing required parameter 'country' when calling FaxLineApi->FaxLineAreaCodeGet"
-                );
+                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'country' when calling FaxLineApi->FaxLineAreaCodeGet");
             }
 
-            Dropbox.Sign.Client.RequestOptions localVarRequestOptions =
-                new Dropbox.Sign.Client.RequestOptions();
+            Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
 
-            string[] _contentTypes = new string[] { };
-            var localVarContentType = Dropbox.Sign.Client.ClientUtils.SelectHeaderContentType(
-                _contentTypes
-            );
+            string[] _contentTypes = new string[] {
+            };
+            var localVarContentType = Dropbox.Sign.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
 
             // to determine the Accept header
-            string[] _accepts = new string[] { "application/json" };
+            string[] _accepts = new string[] {
+                "application/json"
+            };
 
             if (localVarContentType != null)
             {
@@ -967,26 +744,18 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.QueryParameters.Add(
-                Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "country", country)
-            );
+            localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "country", country));
             if (state != null)
             {
-                localVarRequestOptions.QueryParameters.Add(
-                    Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "state", state)
-                );
+                localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "state", state));
             }
             if (province != null)
             {
-                localVarRequestOptions.QueryParameters.Add(
-                    Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "province", province)
-                );
+                localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "province", province));
             }
             if (city != null)
             {
-                localVarRequestOptions.QueryParameters.Add(
-                    Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "city", city)
-                );
+                localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "city", city));
             }
 
             localVarRequestOptions.Operation = "FaxLineApi.FaxLineAreaCodeGet";
@@ -994,33 +763,16 @@ namespace Dropbox.Sign.Api
 
             // authentication (api_key) required
             // http basic authentication required
-            if (
-                !string.IsNullOrEmpty(this.Configuration.Username)
-                || !string.IsNullOrEmpty(this.Configuration.Password)
-                    && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization")
-            )
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add(
-                    "Authorization",
-                    "Basic "
-                        + Dropbox.Sign.Client.ClientUtils.Base64Encode(
-                            this.Configuration.Username + ":" + this.Configuration.Password
-                        )
-                );
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Dropbox.Sign.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<FaxLineAreaCodeGetResponse>(
-                "/fax_line/area_codes",
-                localVarRequestOptions,
-                this.Configuration
-            );
+            var localVarResponse = this.Client.Get<FaxLineAreaCodeGetResponse>("/fax_line/area_codes", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory(
-                    "FaxLineAreaCodeGet",
-                    localVarResponse
-                );
+                Exception _exception = this.ExceptionFactory("FaxLineAreaCodeGet", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -1041,26 +793,9 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FaxLineAreaCodeGetResponse</returns>
-        public async System.Threading.Tasks.Task<FaxLineAreaCodeGetResponse> FaxLineAreaCodeGetAsync(
-            string country,
-            string? state = default(string?),
-            string? province = default(string?),
-            string? city = default(string?),
-            int operationIndex = 0,
-            System.Threading.CancellationToken cancellationToken =
-                default(System.Threading.CancellationToken)
-        )
+        public async System.Threading.Tasks.Task<FaxLineAreaCodeGetResponse> FaxLineAreaCodeGetAsync(string country, string? state = default(string?), string? province = default(string?), string? city = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Dropbox.Sign.Client.ApiResponse<FaxLineAreaCodeGetResponse> localVarResponse =
-                await FaxLineAreaCodeGetWithHttpInfoAsync(
-                        country,
-                        state,
-                        province,
-                        city,
-                        operationIndex,
-                        cancellationToken
-                    )
-                    .ConfigureAwait(false);
+            Dropbox.Sign.Client.ApiResponse<FaxLineAreaCodeGetResponse> localVarResponse = await FaxLineAreaCodeGetWithHttpInfoAsync(country, state, province, city, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1075,35 +810,25 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FaxLineAreaCodeGetResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<FaxLineAreaCodeGetResponse>> FaxLineAreaCodeGetWithHttpInfoAsync(
-            string country,
-            string? state = default(string?),
-            string? province = default(string?),
-            string? city = default(string?),
-            int operationIndex = 0,
-            System.Threading.CancellationToken cancellationToken =
-                default(System.Threading.CancellationToken)
-        )
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<FaxLineAreaCodeGetResponse>> FaxLineAreaCodeGetWithHttpInfoAsync(string country, string? state = default(string?), string? province = default(string?), string? city = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'country' is set
             if (country == null)
             {
-                throw new Dropbox.Sign.Client.ApiException(
-                    400,
-                    "Missing required parameter 'country' when calling FaxLineApi->FaxLineAreaCodeGet"
-                );
+                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'country' when calling FaxLineApi->FaxLineAreaCodeGet");
             }
 
-            Dropbox.Sign.Client.RequestOptions localVarRequestOptions =
-                new Dropbox.Sign.Client.RequestOptions();
 
-            string[] _contentTypes = new string[] { };
-            var localVarContentType = Dropbox.Sign.Client.ClientUtils.SelectHeaderContentType(
-                _contentTypes
-            );
+            Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+            var localVarContentType = Dropbox.Sign.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
 
             // to determine the Accept header
-            string[] _accepts = new string[] { "application/json" };
+            string[] _accepts = new string[] {
+                "application/json"
+            };
 
             if (localVarContentType != null)
             {
@@ -1116,26 +841,18 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.QueryParameters.Add(
-                Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "country", country)
-            );
+            localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "country", country));
             if (state != null)
             {
-                localVarRequestOptions.QueryParameters.Add(
-                    Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "state", state)
-                );
+                localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "state", state));
             }
             if (province != null)
             {
-                localVarRequestOptions.QueryParameters.Add(
-                    Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "province", province)
-                );
+                localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "province", province));
             }
             if (city != null)
             {
-                localVarRequestOptions.QueryParameters.Add(
-                    Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "city", city)
-                );
+                localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "city", city));
             }
 
             localVarRequestOptions.Operation = "FaxLineApi.FaxLineAreaCodeGet";
@@ -1143,37 +860,17 @@ namespace Dropbox.Sign.Api
 
             // authentication (api_key) required
             // http basic authentication required
-            if (
-                !string.IsNullOrEmpty(this.Configuration.Username)
-                || !string.IsNullOrEmpty(this.Configuration.Password)
-                    && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization")
-            )
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add(
-                    "Authorization",
-                    "Basic "
-                        + Dropbox.Sign.Client.ClientUtils.Base64Encode(
-                            this.Configuration.Username + ":" + this.Configuration.Password
-                        )
-                );
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Dropbox.Sign.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
 
             // make the HTTP request
-            var localVarResponse = await this
-                .AsynchronousClient.GetAsync<FaxLineAreaCodeGetResponse>(
-                    "/fax_line/area_codes",
-                    localVarRequestOptions,
-                    this.Configuration,
-                    cancellationToken
-                )
-                .ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<FaxLineAreaCodeGetResponse>("/fax_line/area_codes", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory(
-                    "FaxLineAreaCodeGet",
-                    localVarResponse
-                );
+                Exception _exception = this.ExceptionFactory("FaxLineAreaCodeGet", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -1190,13 +887,9 @@ namespace Dropbox.Sign.Api
         /// <param name="faxLineCreateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>FaxLineResponse</returns>
-        public FaxLineResponse FaxLineCreate(
-            FaxLineCreateRequest faxLineCreateRequest,
-            int operationIndex = 0
-        )
+        public FaxLineResponse FaxLineCreate(FaxLineCreateRequest faxLineCreateRequest, int operationIndex = 0)
         {
-            Dropbox.Sign.Client.ApiResponse<FaxLineResponse> localVarResponse =
-                FaxLineCreateWithHttpInfo(faxLineCreateRequest);
+            Dropbox.Sign.Client.ApiResponse<FaxLineResponse> localVarResponse = FaxLineCreateWithHttpInfo(faxLineCreateRequest);
             return localVarResponse.Data;
         }
 
@@ -1207,22 +900,15 @@ namespace Dropbox.Sign.Api
         /// <param name="faxLineCreateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of FaxLineResponse</returns>
-        public Dropbox.Sign.Client.ApiResponse<FaxLineResponse> FaxLineCreateWithHttpInfo(
-            FaxLineCreateRequest faxLineCreateRequest,
-            int operationIndex = 0
-        )
+        public Dropbox.Sign.Client.ApiResponse<FaxLineResponse> FaxLineCreateWithHttpInfo(FaxLineCreateRequest faxLineCreateRequest, int operationIndex = 0)
         {
             // verify the required parameter 'faxLineCreateRequest' is set
             if (faxLineCreateRequest == null)
             {
-                throw new Dropbox.Sign.Client.ApiException(
-                    400,
-                    "Missing required parameter 'faxLineCreateRequest' when calling FaxLineApi->FaxLineCreate"
-                );
+                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'faxLineCreateRequest' when calling FaxLineApi->FaxLineCreate");
             }
 
-            Dropbox.Sign.Client.RequestOptions localVarRequestOptions =
-                new Dropbox.Sign.Client.RequestOptions();
+            Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
 
             var localVarContentType = "";
             var openApiTypes = faxLineCreateRequest.GetOpenApiTypes();
@@ -1238,7 +924,9 @@ namespace Dropbox.Sign.Api
             }
 
             // to determine the Accept header
-            string[] _accepts = new string[] { "application/json" };
+            string[] _accepts = new string[] {
+                "application/json"
+            };
 
             if (localVarContentType != null)
             {
@@ -1251,32 +939,19 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+
             localVarRequestOptions.Operation = "FaxLineApi.FaxLineCreate";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (api_key) required
             // http basic authentication required
-            if (
-                !string.IsNullOrEmpty(this.Configuration.Username)
-                || !string.IsNullOrEmpty(this.Configuration.Password)
-                    && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization")
-            )
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add(
-                    "Authorization",
-                    "Basic "
-                        + Dropbox.Sign.Client.ClientUtils.Base64Encode(
-                            this.Configuration.Username + ":" + this.Configuration.Password
-                        )
-                );
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Dropbox.Sign.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<FaxLineResponse>(
-                "/fax_line/create",
-                localVarRequestOptions,
-                this.Configuration
-            );
+            var localVarResponse = this.Client.Post<FaxLineResponse>("/fax_line/create", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("FaxLineCreate", localVarResponse);
@@ -1297,20 +972,9 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FaxLineResponse</returns>
-        public async System.Threading.Tasks.Task<FaxLineResponse> FaxLineCreateAsync(
-            FaxLineCreateRequest faxLineCreateRequest,
-            int operationIndex = 0,
-            System.Threading.CancellationToken cancellationToken =
-                default(System.Threading.CancellationToken)
-        )
+        public async System.Threading.Tasks.Task<FaxLineResponse> FaxLineCreateAsync(FaxLineCreateRequest faxLineCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Dropbox.Sign.Client.ApiResponse<FaxLineResponse> localVarResponse =
-                await FaxLineCreateWithHttpInfoAsync(
-                        faxLineCreateRequest,
-                        operationIndex,
-                        cancellationToken
-                    )
-                    .ConfigureAwait(false);
+            Dropbox.Sign.Client.ApiResponse<FaxLineResponse> localVarResponse = await FaxLineCreateWithHttpInfoAsync(faxLineCreateRequest, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1322,24 +986,16 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FaxLineResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<FaxLineResponse>> FaxLineCreateWithHttpInfoAsync(
-            FaxLineCreateRequest faxLineCreateRequest,
-            int operationIndex = 0,
-            System.Threading.CancellationToken cancellationToken =
-                default(System.Threading.CancellationToken)
-        )
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<FaxLineResponse>> FaxLineCreateWithHttpInfoAsync(FaxLineCreateRequest faxLineCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'faxLineCreateRequest' is set
             if (faxLineCreateRequest == null)
             {
-                throw new Dropbox.Sign.Client.ApiException(
-                    400,
-                    "Missing required parameter 'faxLineCreateRequest' when calling FaxLineApi->FaxLineCreate"
-                );
+                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'faxLineCreateRequest' when calling FaxLineApi->FaxLineCreate");
             }
 
-            Dropbox.Sign.Client.RequestOptions localVarRequestOptions =
-                new Dropbox.Sign.Client.RequestOptions();
+
+            Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
 
             var localVarContentType = "";
             var openApiTypes = faxLineCreateRequest.GetOpenApiTypes();
@@ -1355,7 +1011,9 @@ namespace Dropbox.Sign.Api
             }
 
             // to determine the Accept header
-            string[] _accepts = new string[] { "application/json" };
+            string[] _accepts = new string[] {
+                "application/json"
+            };
 
             if (localVarContentType != null)
             {
@@ -1368,35 +1026,19 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+
             localVarRequestOptions.Operation = "FaxLineApi.FaxLineCreate";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (api_key) required
             // http basic authentication required
-            if (
-                !string.IsNullOrEmpty(this.Configuration.Username)
-                || !string.IsNullOrEmpty(this.Configuration.Password)
-                    && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization")
-            )
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add(
-                    "Authorization",
-                    "Basic "
-                        + Dropbox.Sign.Client.ClientUtils.Base64Encode(
-                            this.Configuration.Username + ":" + this.Configuration.Password
-                        )
-                );
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Dropbox.Sign.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
 
             // make the HTTP request
-            var localVarResponse = await this
-                .AsynchronousClient.PostAsync<FaxLineResponse>(
-                    "/fax_line/create",
-                    localVarRequestOptions,
-                    this.Configuration,
-                    cancellationToken
-                )
-                .ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<FaxLineResponse>("/fax_line/create", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -1429,22 +1071,15 @@ namespace Dropbox.Sign.Api
         /// <param name="faxLineDeleteRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public Dropbox.Sign.Client.ApiResponse<Object> FaxLineDeleteWithHttpInfo(
-            FaxLineDeleteRequest faxLineDeleteRequest,
-            int operationIndex = 0
-        )
+        public Dropbox.Sign.Client.ApiResponse<Object> FaxLineDeleteWithHttpInfo(FaxLineDeleteRequest faxLineDeleteRequest, int operationIndex = 0)
         {
             // verify the required parameter 'faxLineDeleteRequest' is set
             if (faxLineDeleteRequest == null)
             {
-                throw new Dropbox.Sign.Client.ApiException(
-                    400,
-                    "Missing required parameter 'faxLineDeleteRequest' when calling FaxLineApi->FaxLineDelete"
-                );
+                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'faxLineDeleteRequest' when calling FaxLineApi->FaxLineDelete");
             }
 
-            Dropbox.Sign.Client.RequestOptions localVarRequestOptions =
-                new Dropbox.Sign.Client.RequestOptions();
+            Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
 
             var localVarContentType = "";
             var openApiTypes = faxLineDeleteRequest.GetOpenApiTypes();
@@ -1460,7 +1095,9 @@ namespace Dropbox.Sign.Api
             }
 
             // to determine the Accept header
-            string[] _accepts = new string[] { "application/json" };
+            string[] _accepts = new string[] {
+                "application/json"
+            };
 
             if (localVarContentType != null)
             {
@@ -1473,32 +1110,19 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+
             localVarRequestOptions.Operation = "FaxLineApi.FaxLineDelete";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (api_key) required
             // http basic authentication required
-            if (
-                !string.IsNullOrEmpty(this.Configuration.Username)
-                || !string.IsNullOrEmpty(this.Configuration.Password)
-                    && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization")
-            )
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add(
-                    "Authorization",
-                    "Basic "
-                        + Dropbox.Sign.Client.ClientUtils.Base64Encode(
-                            this.Configuration.Username + ":" + this.Configuration.Password
-                        )
-                );
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Dropbox.Sign.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Delete<Object>(
-                "/fax_line",
-                localVarRequestOptions,
-                this.Configuration
-            );
+            var localVarResponse = this.Client.Delete<Object>("/fax_line", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("FaxLineDelete", localVarResponse);
@@ -1519,19 +1143,9 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task FaxLineDeleteAsync(
-            FaxLineDeleteRequest faxLineDeleteRequest,
-            int operationIndex = 0,
-            System.Threading.CancellationToken cancellationToken =
-                default(System.Threading.CancellationToken)
-        )
+        public async System.Threading.Tasks.Task FaxLineDeleteAsync(FaxLineDeleteRequest faxLineDeleteRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            await FaxLineDeleteWithHttpInfoAsync(
-                    faxLineDeleteRequest,
-                    operationIndex,
-                    cancellationToken
-                )
-                .ConfigureAwait(false);
+            await FaxLineDeleteWithHttpInfoAsync(faxLineDeleteRequest, operationIndex, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -1542,24 +1156,16 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<Object>> FaxLineDeleteWithHttpInfoAsync(
-            FaxLineDeleteRequest faxLineDeleteRequest,
-            int operationIndex = 0,
-            System.Threading.CancellationToken cancellationToken =
-                default(System.Threading.CancellationToken)
-        )
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<Object>> FaxLineDeleteWithHttpInfoAsync(FaxLineDeleteRequest faxLineDeleteRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'faxLineDeleteRequest' is set
             if (faxLineDeleteRequest == null)
             {
-                throw new Dropbox.Sign.Client.ApiException(
-                    400,
-                    "Missing required parameter 'faxLineDeleteRequest' when calling FaxLineApi->FaxLineDelete"
-                );
+                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'faxLineDeleteRequest' when calling FaxLineApi->FaxLineDelete");
             }
 
-            Dropbox.Sign.Client.RequestOptions localVarRequestOptions =
-                new Dropbox.Sign.Client.RequestOptions();
+
+            Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
 
             var localVarContentType = "";
             var openApiTypes = faxLineDeleteRequest.GetOpenApiTypes();
@@ -1575,7 +1181,9 @@ namespace Dropbox.Sign.Api
             }
 
             // to determine the Accept header
-            string[] _accepts = new string[] { "application/json" };
+            string[] _accepts = new string[] {
+                "application/json"
+            };
 
             if (localVarContentType != null)
             {
@@ -1588,35 +1196,19 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+
             localVarRequestOptions.Operation = "FaxLineApi.FaxLineDelete";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (api_key) required
             // http basic authentication required
-            if (
-                !string.IsNullOrEmpty(this.Configuration.Username)
-                || !string.IsNullOrEmpty(this.Configuration.Password)
-                    && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization")
-            )
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add(
-                    "Authorization",
-                    "Basic "
-                        + Dropbox.Sign.Client.ClientUtils.Base64Encode(
-                            this.Configuration.Username + ":" + this.Configuration.Password
-                        )
-                );
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Dropbox.Sign.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
 
             // make the HTTP request
-            var localVarResponse = await this
-                .AsynchronousClient.DeleteAsync<Object>(
-                    "/fax_line",
-                    localVarRequestOptions,
-                    this.Configuration,
-                    cancellationToken
-                )
-                .ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.DeleteAsync<Object>("/fax_line", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -1639,8 +1231,7 @@ namespace Dropbox.Sign.Api
         /// <returns>FaxLineResponse</returns>
         public FaxLineResponse FaxLineGet(string number, int operationIndex = 0)
         {
-            Dropbox.Sign.Client.ApiResponse<FaxLineResponse> localVarResponse =
-                FaxLineGetWithHttpInfo(number);
+            Dropbox.Sign.Client.ApiResponse<FaxLineResponse> localVarResponse = FaxLineGetWithHttpInfo(number);
             return localVarResponse.Data;
         }
 
@@ -1651,30 +1242,24 @@ namespace Dropbox.Sign.Api
         /// <param name="number">The Fax Line number.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of FaxLineResponse</returns>
-        public Dropbox.Sign.Client.ApiResponse<FaxLineResponse> FaxLineGetWithHttpInfo(
-            string number,
-            int operationIndex = 0
-        )
+        public Dropbox.Sign.Client.ApiResponse<FaxLineResponse> FaxLineGetWithHttpInfo(string number, int operationIndex = 0)
         {
             // verify the required parameter 'number' is set
             if (number == null)
             {
-                throw new Dropbox.Sign.Client.ApiException(
-                    400,
-                    "Missing required parameter 'number' when calling FaxLineApi->FaxLineGet"
-                );
+                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'number' when calling FaxLineApi->FaxLineGet");
             }
 
-            Dropbox.Sign.Client.RequestOptions localVarRequestOptions =
-                new Dropbox.Sign.Client.RequestOptions();
+            Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
 
-            string[] _contentTypes = new string[] { };
-            var localVarContentType = Dropbox.Sign.Client.ClientUtils.SelectHeaderContentType(
-                _contentTypes
-            );
+            string[] _contentTypes = new string[] {
+            };
+            var localVarContentType = Dropbox.Sign.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
 
             // to determine the Accept header
-            string[] _accepts = new string[] { "application/json" };
+            string[] _accepts = new string[] {
+                "application/json"
+            };
 
             if (localVarContentType != null)
             {
@@ -1687,36 +1272,20 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.QueryParameters.Add(
-                Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "number", number)
-            );
+            localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "number", number));
 
             localVarRequestOptions.Operation = "FaxLineApi.FaxLineGet";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (api_key) required
             // http basic authentication required
-            if (
-                !string.IsNullOrEmpty(this.Configuration.Username)
-                || !string.IsNullOrEmpty(this.Configuration.Password)
-                    && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization")
-            )
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add(
-                    "Authorization",
-                    "Basic "
-                        + Dropbox.Sign.Client.ClientUtils.Base64Encode(
-                            this.Configuration.Username + ":" + this.Configuration.Password
-                        )
-                );
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Dropbox.Sign.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<FaxLineResponse>(
-                "/fax_line",
-                localVarRequestOptions,
-                this.Configuration
-            );
+            var localVarResponse = this.Client.Get<FaxLineResponse>("/fax_line", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("FaxLineGet", localVarResponse);
@@ -1737,16 +1306,9 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FaxLineResponse</returns>
-        public async System.Threading.Tasks.Task<FaxLineResponse> FaxLineGetAsync(
-            string number,
-            int operationIndex = 0,
-            System.Threading.CancellationToken cancellationToken =
-                default(System.Threading.CancellationToken)
-        )
+        public async System.Threading.Tasks.Task<FaxLineResponse> FaxLineGetAsync(string number, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Dropbox.Sign.Client.ApiResponse<FaxLineResponse> localVarResponse =
-                await FaxLineGetWithHttpInfoAsync(number, operationIndex, cancellationToken)
-                    .ConfigureAwait(false);
+            Dropbox.Sign.Client.ApiResponse<FaxLineResponse> localVarResponse = await FaxLineGetWithHttpInfoAsync(number, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1758,32 +1320,25 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FaxLineResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<FaxLineResponse>> FaxLineGetWithHttpInfoAsync(
-            string number,
-            int operationIndex = 0,
-            System.Threading.CancellationToken cancellationToken =
-                default(System.Threading.CancellationToken)
-        )
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<FaxLineResponse>> FaxLineGetWithHttpInfoAsync(string number, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'number' is set
             if (number == null)
             {
-                throw new Dropbox.Sign.Client.ApiException(
-                    400,
-                    "Missing required parameter 'number' when calling FaxLineApi->FaxLineGet"
-                );
+                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'number' when calling FaxLineApi->FaxLineGet");
             }
 
-            Dropbox.Sign.Client.RequestOptions localVarRequestOptions =
-                new Dropbox.Sign.Client.RequestOptions();
 
-            string[] _contentTypes = new string[] { };
-            var localVarContentType = Dropbox.Sign.Client.ClientUtils.SelectHeaderContentType(
-                _contentTypes
-            );
+            Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+            var localVarContentType = Dropbox.Sign.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
 
             // to determine the Accept header
-            string[] _accepts = new string[] { "application/json" };
+            string[] _accepts = new string[] {
+                "application/json"
+            };
 
             if (localVarContentType != null)
             {
@@ -1796,39 +1351,20 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.QueryParameters.Add(
-                Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "number", number)
-            );
+            localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "number", number));
 
             localVarRequestOptions.Operation = "FaxLineApi.FaxLineGet";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (api_key) required
             // http basic authentication required
-            if (
-                !string.IsNullOrEmpty(this.Configuration.Username)
-                || !string.IsNullOrEmpty(this.Configuration.Password)
-                    && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization")
-            )
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add(
-                    "Authorization",
-                    "Basic "
-                        + Dropbox.Sign.Client.ClientUtils.Base64Encode(
-                            this.Configuration.Username + ":" + this.Configuration.Password
-                        )
-                );
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Dropbox.Sign.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
 
             // make the HTTP request
-            var localVarResponse = await this
-                .AsynchronousClient.GetAsync<FaxLineResponse>(
-                    "/fax_line",
-                    localVarRequestOptions,
-                    this.Configuration,
-                    cancellationToken
-                )
-                .ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<FaxLineResponse>("/fax_line", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -1852,16 +1388,9 @@ namespace Dropbox.Sign.Api
         /// <param name="showTeamLines">Show team lines (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>FaxLineListResponse</returns>
-        public FaxLineListResponse FaxLineList(
-            string? accountId = default(string?),
-            int? page = default(int?),
-            int? pageSize = default(int?),
-            bool? showTeamLines = default(bool?),
-            int operationIndex = 0
-        )
+        public FaxLineListResponse FaxLineList(string? accountId = default(string?), int? page = default(int?), int? pageSize = default(int?), bool? showTeamLines = default(bool?), int operationIndex = 0)
         {
-            Dropbox.Sign.Client.ApiResponse<FaxLineListResponse> localVarResponse =
-                FaxLineListWithHttpInfo(accountId, page, pageSize, showTeamLines);
+            Dropbox.Sign.Client.ApiResponse<FaxLineListResponse> localVarResponse = FaxLineListWithHttpInfo(accountId, page, pageSize, showTeamLines);
             return localVarResponse.Data;
         }
 
@@ -1875,24 +1404,18 @@ namespace Dropbox.Sign.Api
         /// <param name="showTeamLines">Show team lines (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of FaxLineListResponse</returns>
-        public Dropbox.Sign.Client.ApiResponse<FaxLineListResponse> FaxLineListWithHttpInfo(
-            string? accountId = default(string?),
-            int? page = default(int?),
-            int? pageSize = default(int?),
-            bool? showTeamLines = default(bool?),
-            int operationIndex = 0
-        )
+        public Dropbox.Sign.Client.ApiResponse<FaxLineListResponse> FaxLineListWithHttpInfo(string? accountId = default(string?), int? page = default(int?), int? pageSize = default(int?), bool? showTeamLines = default(bool?), int operationIndex = 0)
         {
-            Dropbox.Sign.Client.RequestOptions localVarRequestOptions =
-                new Dropbox.Sign.Client.RequestOptions();
+            Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
 
-            string[] _contentTypes = new string[] { };
-            var localVarContentType = Dropbox.Sign.Client.ClientUtils.SelectHeaderContentType(
-                _contentTypes
-            );
+            string[] _contentTypes = new string[] {
+            };
+            var localVarContentType = Dropbox.Sign.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
 
             // to determine the Accept header
-            string[] _accepts = new string[] { "application/json" };
+            string[] _accepts = new string[] {
+                "application/json"
+            };
 
             if (localVarContentType != null)
             {
@@ -1907,31 +1430,19 @@ namespace Dropbox.Sign.Api
 
             if (accountId != null)
             {
-                localVarRequestOptions.QueryParameters.Add(
-                    Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "account_id", accountId)
-                );
+                localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "account_id", accountId));
             }
             if (page != null)
             {
-                localVarRequestOptions.QueryParameters.Add(
-                    Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "page", page)
-                );
+                localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "page", page));
             }
             if (pageSize != null)
             {
-                localVarRequestOptions.QueryParameters.Add(
-                    Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "page_size", pageSize)
-                );
+                localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "page_size", pageSize));
             }
             if (showTeamLines != null)
             {
-                localVarRequestOptions.QueryParameters.Add(
-                    Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap(
-                        "",
-                        "show_team_lines",
-                        showTeamLines
-                    )
-                );
+                localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "show_team_lines", showTeamLines));
             }
 
             localVarRequestOptions.Operation = "FaxLineApi.FaxLineList";
@@ -1939,27 +1450,13 @@ namespace Dropbox.Sign.Api
 
             // authentication (api_key) required
             // http basic authentication required
-            if (
-                !string.IsNullOrEmpty(this.Configuration.Username)
-                || !string.IsNullOrEmpty(this.Configuration.Password)
-                    && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization")
-            )
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add(
-                    "Authorization",
-                    "Basic "
-                        + Dropbox.Sign.Client.ClientUtils.Base64Encode(
-                            this.Configuration.Username + ":" + this.Configuration.Password
-                        )
-                );
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Dropbox.Sign.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<FaxLineListResponse>(
-                "/fax_line/list",
-                localVarRequestOptions,
-                this.Configuration
-            );
+            var localVarResponse = this.Client.Get<FaxLineListResponse>("/fax_line/list", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("FaxLineList", localVarResponse);
@@ -1983,26 +1480,9 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FaxLineListResponse</returns>
-        public async System.Threading.Tasks.Task<FaxLineListResponse> FaxLineListAsync(
-            string? accountId = default(string?),
-            int? page = default(int?),
-            int? pageSize = default(int?),
-            bool? showTeamLines = default(bool?),
-            int operationIndex = 0,
-            System.Threading.CancellationToken cancellationToken =
-                default(System.Threading.CancellationToken)
-        )
+        public async System.Threading.Tasks.Task<FaxLineListResponse> FaxLineListAsync(string? accountId = default(string?), int? page = default(int?), int? pageSize = default(int?), bool? showTeamLines = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Dropbox.Sign.Client.ApiResponse<FaxLineListResponse> localVarResponse =
-                await FaxLineListWithHttpInfoAsync(
-                        accountId,
-                        page,
-                        pageSize,
-                        showTeamLines,
-                        operationIndex,
-                        cancellationToken
-                    )
-                    .ConfigureAwait(false);
+            Dropbox.Sign.Client.ApiResponse<FaxLineListResponse> localVarResponse = await FaxLineListWithHttpInfoAsync(accountId, page, pageSize, showTeamLines, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2017,26 +1497,19 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FaxLineListResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<FaxLineListResponse>> FaxLineListWithHttpInfoAsync(
-            string? accountId = default(string?),
-            int? page = default(int?),
-            int? pageSize = default(int?),
-            bool? showTeamLines = default(bool?),
-            int operationIndex = 0,
-            System.Threading.CancellationToken cancellationToken =
-                default(System.Threading.CancellationToken)
-        )
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<FaxLineListResponse>> FaxLineListWithHttpInfoAsync(string? accountId = default(string?), int? page = default(int?), int? pageSize = default(int?), bool? showTeamLines = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Dropbox.Sign.Client.RequestOptions localVarRequestOptions =
-                new Dropbox.Sign.Client.RequestOptions();
 
-            string[] _contentTypes = new string[] { };
-            var localVarContentType = Dropbox.Sign.Client.ClientUtils.SelectHeaderContentType(
-                _contentTypes
-            );
+            Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+            var localVarContentType = Dropbox.Sign.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
 
             // to determine the Accept header
-            string[] _accepts = new string[] { "application/json" };
+            string[] _accepts = new string[] {
+                "application/json"
+            };
 
             if (localVarContentType != null)
             {
@@ -2051,31 +1524,19 @@ namespace Dropbox.Sign.Api
 
             if (accountId != null)
             {
-                localVarRequestOptions.QueryParameters.Add(
-                    Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "account_id", accountId)
-                );
+                localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "account_id", accountId));
             }
             if (page != null)
             {
-                localVarRequestOptions.QueryParameters.Add(
-                    Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "page", page)
-                );
+                localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "page", page));
             }
             if (pageSize != null)
             {
-                localVarRequestOptions.QueryParameters.Add(
-                    Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "page_size", pageSize)
-                );
+                localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "page_size", pageSize));
             }
             if (showTeamLines != null)
             {
-                localVarRequestOptions.QueryParameters.Add(
-                    Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap(
-                        "",
-                        "show_team_lines",
-                        showTeamLines
-                    )
-                );
+                localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "show_team_lines", showTeamLines));
             }
 
             localVarRequestOptions.Operation = "FaxLineApi.FaxLineList";
@@ -2083,30 +1544,13 @@ namespace Dropbox.Sign.Api
 
             // authentication (api_key) required
             // http basic authentication required
-            if (
-                !string.IsNullOrEmpty(this.Configuration.Username)
-                || !string.IsNullOrEmpty(this.Configuration.Password)
-                    && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization")
-            )
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add(
-                    "Authorization",
-                    "Basic "
-                        + Dropbox.Sign.Client.ClientUtils.Base64Encode(
-                            this.Configuration.Username + ":" + this.Configuration.Password
-                        )
-                );
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Dropbox.Sign.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
 
             // make the HTTP request
-            var localVarResponse = await this
-                .AsynchronousClient.GetAsync<FaxLineListResponse>(
-                    "/fax_line/list",
-                    localVarRequestOptions,
-                    this.Configuration,
-                    cancellationToken
-                )
-                .ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<FaxLineListResponse>("/fax_line/list", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -2127,13 +1571,9 @@ namespace Dropbox.Sign.Api
         /// <param name="faxLineRemoveUserRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>FaxLineResponse</returns>
-        public FaxLineResponse FaxLineRemoveUser(
-            FaxLineRemoveUserRequest faxLineRemoveUserRequest,
-            int operationIndex = 0
-        )
+        public FaxLineResponse FaxLineRemoveUser(FaxLineRemoveUserRequest faxLineRemoveUserRequest, int operationIndex = 0)
         {
-            Dropbox.Sign.Client.ApiResponse<FaxLineResponse> localVarResponse =
-                FaxLineRemoveUserWithHttpInfo(faxLineRemoveUserRequest);
+            Dropbox.Sign.Client.ApiResponse<FaxLineResponse> localVarResponse = FaxLineRemoveUserWithHttpInfo(faxLineRemoveUserRequest);
             return localVarResponse.Data;
         }
 
@@ -2144,22 +1584,15 @@ namespace Dropbox.Sign.Api
         /// <param name="faxLineRemoveUserRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of FaxLineResponse</returns>
-        public Dropbox.Sign.Client.ApiResponse<FaxLineResponse> FaxLineRemoveUserWithHttpInfo(
-            FaxLineRemoveUserRequest faxLineRemoveUserRequest,
-            int operationIndex = 0
-        )
+        public Dropbox.Sign.Client.ApiResponse<FaxLineResponse> FaxLineRemoveUserWithHttpInfo(FaxLineRemoveUserRequest faxLineRemoveUserRequest, int operationIndex = 0)
         {
             // verify the required parameter 'faxLineRemoveUserRequest' is set
             if (faxLineRemoveUserRequest == null)
             {
-                throw new Dropbox.Sign.Client.ApiException(
-                    400,
-                    "Missing required parameter 'faxLineRemoveUserRequest' when calling FaxLineApi->FaxLineRemoveUser"
-                );
+                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'faxLineRemoveUserRequest' when calling FaxLineApi->FaxLineRemoveUser");
             }
 
-            Dropbox.Sign.Client.RequestOptions localVarRequestOptions =
-                new Dropbox.Sign.Client.RequestOptions();
+            Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
 
             var localVarContentType = "";
             var openApiTypes = faxLineRemoveUserRequest.GetOpenApiTypes();
@@ -2175,7 +1608,9 @@ namespace Dropbox.Sign.Api
             }
 
             // to determine the Accept header
-            string[] _accepts = new string[] { "application/json" };
+            string[] _accepts = new string[] {
+                "application/json"
+            };
 
             if (localVarContentType != null)
             {
@@ -2188,32 +1623,19 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+
             localVarRequestOptions.Operation = "FaxLineApi.FaxLineRemoveUser";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (api_key) required
             // http basic authentication required
-            if (
-                !string.IsNullOrEmpty(this.Configuration.Username)
-                || !string.IsNullOrEmpty(this.Configuration.Password)
-                    && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization")
-            )
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add(
-                    "Authorization",
-                    "Basic "
-                        + Dropbox.Sign.Client.ClientUtils.Base64Encode(
-                            this.Configuration.Username + ":" + this.Configuration.Password
-                        )
-                );
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Dropbox.Sign.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Put<FaxLineResponse>(
-                "/fax_line/remove_user",
-                localVarRequestOptions,
-                this.Configuration
-            );
+            var localVarResponse = this.Client.Put<FaxLineResponse>("/fax_line/remove_user", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("FaxLineRemoveUser", localVarResponse);
@@ -2234,20 +1656,9 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FaxLineResponse</returns>
-        public async System.Threading.Tasks.Task<FaxLineResponse> FaxLineRemoveUserAsync(
-            FaxLineRemoveUserRequest faxLineRemoveUserRequest,
-            int operationIndex = 0,
-            System.Threading.CancellationToken cancellationToken =
-                default(System.Threading.CancellationToken)
-        )
+        public async System.Threading.Tasks.Task<FaxLineResponse> FaxLineRemoveUserAsync(FaxLineRemoveUserRequest faxLineRemoveUserRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Dropbox.Sign.Client.ApiResponse<FaxLineResponse> localVarResponse =
-                await FaxLineRemoveUserWithHttpInfoAsync(
-                        faxLineRemoveUserRequest,
-                        operationIndex,
-                        cancellationToken
-                    )
-                    .ConfigureAwait(false);
+            Dropbox.Sign.Client.ApiResponse<FaxLineResponse> localVarResponse = await FaxLineRemoveUserWithHttpInfoAsync(faxLineRemoveUserRequest, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2259,24 +1670,16 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FaxLineResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<FaxLineResponse>> FaxLineRemoveUserWithHttpInfoAsync(
-            FaxLineRemoveUserRequest faxLineRemoveUserRequest,
-            int operationIndex = 0,
-            System.Threading.CancellationToken cancellationToken =
-                default(System.Threading.CancellationToken)
-        )
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<FaxLineResponse>> FaxLineRemoveUserWithHttpInfoAsync(FaxLineRemoveUserRequest faxLineRemoveUserRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'faxLineRemoveUserRequest' is set
             if (faxLineRemoveUserRequest == null)
             {
-                throw new Dropbox.Sign.Client.ApiException(
-                    400,
-                    "Missing required parameter 'faxLineRemoveUserRequest' when calling FaxLineApi->FaxLineRemoveUser"
-                );
+                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'faxLineRemoveUserRequest' when calling FaxLineApi->FaxLineRemoveUser");
             }
 
-            Dropbox.Sign.Client.RequestOptions localVarRequestOptions =
-                new Dropbox.Sign.Client.RequestOptions();
+
+            Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
 
             var localVarContentType = "";
             var openApiTypes = faxLineRemoveUserRequest.GetOpenApiTypes();
@@ -2292,7 +1695,9 @@ namespace Dropbox.Sign.Api
             }
 
             // to determine the Accept header
-            string[] _accepts = new string[] { "application/json" };
+            string[] _accepts = new string[] {
+                "application/json"
+            };
 
             if (localVarContentType != null)
             {
@@ -2305,35 +1710,19 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+
             localVarRequestOptions.Operation = "FaxLineApi.FaxLineRemoveUser";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (api_key) required
             // http basic authentication required
-            if (
-                !string.IsNullOrEmpty(this.Configuration.Username)
-                || !string.IsNullOrEmpty(this.Configuration.Password)
-                    && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization")
-            )
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add(
-                    "Authorization",
-                    "Basic "
-                        + Dropbox.Sign.Client.ClientUtils.Base64Encode(
-                            this.Configuration.Username + ":" + this.Configuration.Password
-                        )
-                );
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Dropbox.Sign.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
 
             // make the HTTP request
-            var localVarResponse = await this
-                .AsynchronousClient.PutAsync<FaxLineResponse>(
-                    "/fax_line/remove_user",
-                    localVarRequestOptions,
-                    this.Configuration,
-                    cancellationToken
-                )
-                .ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PutAsync<FaxLineResponse>("/fax_line/remove_user", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -2346,5 +1735,6 @@ namespace Dropbox.Sign.Api
 
             return localVarResponse;
         }
+
     }
 }

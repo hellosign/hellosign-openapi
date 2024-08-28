@@ -13,15 +13,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel.DataAnnotations;
-using System.IO;
 using System.Linq;
+using System.IO;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 
 namespace Dropbox.Sign.Model
@@ -38,19 +38,14 @@ namespace Dropbox.Sign.Model
         /// </summary>
         [JsonConstructorAttribute]
         protected SubBulkSignerList() { }
-
         /// <summary>
         /// Initializes a new instance of the <see cref="SubBulkSignerList" /> class.
         /// </summary>
         /// <param name="customFields">An array of custom field values..</param>
         /// <param name="signers">Add Signers to your Templated-based Signature Request. Allows the requester to specify editor options when a preparing a document.  Currently only templates with a single role are supported. All signers must have the same &#x60;role&#x60; value..</param>
-        public SubBulkSignerList(
-            List<SubBulkSignerListCustomField> customFields =
-                default(List<SubBulkSignerListCustomField>),
-            List<SubSignatureRequestTemplateSigner> signers =
-                default(List<SubSignatureRequestTemplateSigner>)
-        )
+        public SubBulkSignerList(List<SubBulkSignerListCustomField> customFields = default(List<SubBulkSignerListCustomField>), List<SubSignatureRequestTemplateSigner> signers = default(List<SubSignatureRequestTemplateSigner>))
         {
+            
             this.CustomFields = customFields;
             this.Signers = signers;
         }
@@ -77,6 +72,7 @@ namespace Dropbox.Sign.Model
         /// <value>An array of custom field values.</value>
         [DataMember(Name = "custom_fields", EmitDefaultValue = true)]
         public List<SubBulkSignerListCustomField> CustomFields { get; set; }
+        
 
         /// <summary>
         /// Add Signers to your Templated-based Signature Request. Allows the requester to specify editor options when a preparing a document.  Currently only templates with a single role are supported. All signers must have the same &#x60;role&#x60; value.
@@ -84,6 +80,7 @@ namespace Dropbox.Sign.Model
         /// <value>Add Signers to your Templated-based Signature Request. Allows the requester to specify editor options when a preparing a document.  Currently only templates with a single role are supported. All signers must have the same &#x60;role&#x60; value.</value>
         [DataMember(Name = "signers", EmitDefaultValue = true)]
         public List<SubSignatureRequestTemplateSigner> Signers { get; set; }
+        
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -105,10 +102,7 @@ namespace Dropbox.Sign.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(
-                this,
-                Newtonsoft.Json.Formatting.Indented
-            );
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>
@@ -132,17 +126,18 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return (
-                    this.CustomFields == input.CustomFields
-                    || this.CustomFields != null
-                        && input.CustomFields != null
-                        && this.CustomFields.SequenceEqual(input.CustomFields)
-                )
-                && (
-                    this.Signers == input.Signers
-                    || this.Signers != null
-                        && input.Signers != null
-                        && this.Signers.SequenceEqual(input.Signers)
+            return 
+                (
+                    this.CustomFields == input.CustomFields ||
+                    this.CustomFields != null &&
+                    input.CustomFields != null &&
+                    this.CustomFields.SequenceEqual(input.CustomFields)
+                ) && 
+                (
+                    this.Signers == input.Signers ||
+                    this.Signers != null &&
+                    input.Signers != null &&
+                    this.Signers.SequenceEqual(input.Signers)
                 );
         }
 
@@ -172,9 +167,7 @@ namespace Dropbox.Sign.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<ValidationResult> IValidatableObject.Validate(
-            ValidationContext validationContext
-        )
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }
@@ -182,26 +175,21 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "custom_fields",
-                    Property = "CustomFields",
-                    Type = "List<SubBulkSignerListCustomField>",
-                    Value = CustomFields,
-                }
-            );
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "signers",
-                    Property = "Signers",
-                    Type = "List<SubSignatureRequestTemplateSigner>",
-                    Value = Signers,
-                }
-            );
+            types.Add(new OpenApiType(){
+                Name = "custom_fields",
+                Property = "CustomFields",
+                Type = "List<SubBulkSignerListCustomField>",
+                Value = CustomFields,
+            });
+            types.Add(new OpenApiType(){
+                Name = "signers",
+                Property = "Signers",
+                Type = "List<SubSignatureRequestTemplateSigner>",
+                Value = Signers,
+            });
 
             return types;
         }
     }
+
 }

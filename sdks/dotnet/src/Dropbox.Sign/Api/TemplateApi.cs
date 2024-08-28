@@ -20,6 +20,7 @@ using Dropbox.Sign.Model;
 
 namespace Dropbox.Sign.Api
 {
+
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
@@ -37,11 +38,7 @@ namespace Dropbox.Sign.Api
         /// <param name="templateAddUserRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>TemplateGetResponse</returns>
-        TemplateGetResponse TemplateAddUser(
-            string templateId,
-            TemplateAddUserRequest templateAddUserRequest,
-            int operationIndex = 0
-        );
+        TemplateGetResponse TemplateAddUser(string templateId, TemplateAddUserRequest templateAddUserRequest, int operationIndex = 0);
 
         /// <summary>
         /// Add User to Template
@@ -54,12 +51,7 @@ namespace Dropbox.Sign.Api
         /// <param name="templateAddUserRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of TemplateGetResponse</returns>
-        ApiResponse<TemplateGetResponse> TemplateAddUserWithHttpInfo(
-            string templateId,
-            TemplateAddUserRequest templateAddUserRequest,
-            int operationIndex = 0
-        );
-
+        ApiResponse<TemplateGetResponse> TemplateAddUserWithHttpInfo(string templateId, TemplateAddUserRequest templateAddUserRequest, int operationIndex = 0);
         /// <summary>
         /// Create  Template
         /// </summary>
@@ -70,10 +62,7 @@ namespace Dropbox.Sign.Api
         /// <param name="templateCreateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>TemplateCreateResponse</returns>
-        TemplateCreateResponse TemplateCreate(
-            TemplateCreateRequest templateCreateRequest,
-            int operationIndex = 0
-        );
+        TemplateCreateResponse TemplateCreate(TemplateCreateRequest templateCreateRequest, int operationIndex = 0);
 
         /// <summary>
         /// Create  Template
@@ -85,11 +74,7 @@ namespace Dropbox.Sign.Api
         /// <param name="templateCreateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of TemplateCreateResponse</returns>
-        ApiResponse<TemplateCreateResponse> TemplateCreateWithHttpInfo(
-            TemplateCreateRequest templateCreateRequest,
-            int operationIndex = 0
-        );
-
+        ApiResponse<TemplateCreateResponse> TemplateCreateWithHttpInfo(TemplateCreateRequest templateCreateRequest, int operationIndex = 0);
         /// <summary>
         /// Create Embedded Template Draft
         /// </summary>
@@ -100,10 +85,7 @@ namespace Dropbox.Sign.Api
         /// <param name="templateCreateEmbeddedDraftRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>TemplateCreateEmbeddedDraftResponse</returns>
-        TemplateCreateEmbeddedDraftResponse TemplateCreateEmbeddedDraft(
-            TemplateCreateEmbeddedDraftRequest templateCreateEmbeddedDraftRequest,
-            int operationIndex = 0
-        );
+        TemplateCreateEmbeddedDraftResponse TemplateCreateEmbeddedDraft(TemplateCreateEmbeddedDraftRequest templateCreateEmbeddedDraftRequest, int operationIndex = 0);
 
         /// <summary>
         /// Create Embedded Template Draft
@@ -115,11 +97,7 @@ namespace Dropbox.Sign.Api
         /// <param name="templateCreateEmbeddedDraftRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of TemplateCreateEmbeddedDraftResponse</returns>
-        ApiResponse<TemplateCreateEmbeddedDraftResponse> TemplateCreateEmbeddedDraftWithHttpInfo(
-            TemplateCreateEmbeddedDraftRequest templateCreateEmbeddedDraftRequest,
-            int operationIndex = 0
-        );
-
+        ApiResponse<TemplateCreateEmbeddedDraftResponse> TemplateCreateEmbeddedDraftWithHttpInfo(TemplateCreateEmbeddedDraftRequest templateCreateEmbeddedDraftRequest, int operationIndex = 0);
         /// <summary>
         /// Delete Template
         /// </summary>
@@ -143,7 +121,6 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> TemplateDeleteWithHttpInfo(string templateId, int operationIndex = 0);
-
         /// <summary>
         /// Get Template Files
         /// </summary>
@@ -155,11 +132,7 @@ namespace Dropbox.Sign.Api
         /// <param name="fileType">Set to &#x60;pdf&#x60; for a single merged document or &#x60;zip&#x60; for a collection of individual documents. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>System.IO.Stream</returns>
-        System.IO.Stream TemplateFiles(
-            string templateId,
-            string? fileType = default(string?),
-            int operationIndex = 0
-        );
+        System.IO.Stream TemplateFiles(string templateId, string? fileType = default(string?), int operationIndex = 0);
 
         /// <summary>
         /// Get Template Files
@@ -172,12 +145,7 @@ namespace Dropbox.Sign.Api
         /// <param name="fileType">Set to &#x60;pdf&#x60; for a single merged document or &#x60;zip&#x60; for a collection of individual documents. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of System.IO.Stream</returns>
-        ApiResponse<System.IO.Stream> TemplateFilesWithHttpInfo(
-            string templateId,
-            string? fileType = default(string?),
-            int operationIndex = 0
-        );
-
+        ApiResponse<System.IO.Stream> TemplateFilesWithHttpInfo(string templateId, string? fileType = default(string?), int operationIndex = 0);
         /// <summary>
         /// Get Template Files as Data Uri
         /// </summary>
@@ -200,11 +168,7 @@ namespace Dropbox.Sign.Api
         /// <param name="templateId">The id of the template files to retrieve.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of FileResponseDataUri</returns>
-        ApiResponse<FileResponseDataUri> TemplateFilesAsDataUriWithHttpInfo(
-            string templateId,
-            int operationIndex = 0
-        );
-
+        ApiResponse<FileResponseDataUri> TemplateFilesAsDataUriWithHttpInfo(string templateId, int operationIndex = 0);
         /// <summary>
         /// Get Template Files as File Url
         /// </summary>
@@ -216,11 +180,7 @@ namespace Dropbox.Sign.Api
         /// <param name="forceDownload">By default when opening the &#x60;file_url&#x60; a browser will download the PDF and save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser. (optional, default to 1)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>FileResponse</returns>
-        FileResponse TemplateFilesAsFileUrl(
-            string templateId,
-            int? forceDownload = default(int?),
-            int operationIndex = 0
-        );
+        FileResponse TemplateFilesAsFileUrl(string templateId, int? forceDownload = default(int?), int operationIndex = 0);
 
         /// <summary>
         /// Get Template Files as File Url
@@ -233,12 +193,7 @@ namespace Dropbox.Sign.Api
         /// <param name="forceDownload">By default when opening the &#x60;file_url&#x60; a browser will download the PDF and save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser. (optional, default to 1)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of FileResponse</returns>
-        ApiResponse<FileResponse> TemplateFilesAsFileUrlWithHttpInfo(
-            string templateId,
-            int? forceDownload = default(int?),
-            int operationIndex = 0
-        );
-
+        ApiResponse<FileResponse> TemplateFilesAsFileUrlWithHttpInfo(string templateId, int? forceDownload = default(int?), int operationIndex = 0);
         /// <summary>
         /// Get Template
         /// </summary>
@@ -261,11 +216,7 @@ namespace Dropbox.Sign.Api
         /// <param name="templateId">The id of the Template to retrieve.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of TemplateGetResponse</returns>
-        ApiResponse<TemplateGetResponse> TemplateGetWithHttpInfo(
-            string templateId,
-            int operationIndex = 0
-        );
-
+        ApiResponse<TemplateGetResponse> TemplateGetWithHttpInfo(string templateId, int operationIndex = 0);
         /// <summary>
         /// List Templates
         /// </summary>
@@ -279,13 +230,7 @@ namespace Dropbox.Sign.Api
         /// <param name="query">String that includes search terms and/or fields to be used to filter the Template objects. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>TemplateListResponse</returns>
-        TemplateListResponse TemplateList(
-            string? accountId = default(string?),
-            int? page = default(int?),
-            int? pageSize = default(int?),
-            string? query = default(string?),
-            int operationIndex = 0
-        );
+        TemplateListResponse TemplateList(string? accountId = default(string?), int? page = default(int?), int? pageSize = default(int?), string? query = default(string?), int operationIndex = 0);
 
         /// <summary>
         /// List Templates
@@ -300,14 +245,7 @@ namespace Dropbox.Sign.Api
         /// <param name="query">String that includes search terms and/or fields to be used to filter the Template objects. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of TemplateListResponse</returns>
-        ApiResponse<TemplateListResponse> TemplateListWithHttpInfo(
-            string? accountId = default(string?),
-            int? page = default(int?),
-            int? pageSize = default(int?),
-            string? query = default(string?),
-            int operationIndex = 0
-        );
-
+        ApiResponse<TemplateListResponse> TemplateListWithHttpInfo(string? accountId = default(string?), int? page = default(int?), int? pageSize = default(int?), string? query = default(string?), int operationIndex = 0);
         /// <summary>
         /// Remove User from Template
         /// </summary>
@@ -319,11 +257,7 @@ namespace Dropbox.Sign.Api
         /// <param name="templateRemoveUserRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>TemplateGetResponse</returns>
-        TemplateGetResponse TemplateRemoveUser(
-            string templateId,
-            TemplateRemoveUserRequest templateRemoveUserRequest,
-            int operationIndex = 0
-        );
+        TemplateGetResponse TemplateRemoveUser(string templateId, TemplateRemoveUserRequest templateRemoveUserRequest, int operationIndex = 0);
 
         /// <summary>
         /// Remove User from Template
@@ -336,12 +270,7 @@ namespace Dropbox.Sign.Api
         /// <param name="templateRemoveUserRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of TemplateGetResponse</returns>
-        ApiResponse<TemplateGetResponse> TemplateRemoveUserWithHttpInfo(
-            string templateId,
-            TemplateRemoveUserRequest templateRemoveUserRequest,
-            int operationIndex = 0
-        );
-
+        ApiResponse<TemplateGetResponse> TemplateRemoveUserWithHttpInfo(string templateId, TemplateRemoveUserRequest templateRemoveUserRequest, int operationIndex = 0);
         /// <summary>
         /// Update Template Files
         /// </summary>
@@ -353,11 +282,7 @@ namespace Dropbox.Sign.Api
         /// <param name="templateUpdateFilesRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>TemplateUpdateFilesResponse</returns>
-        TemplateUpdateFilesResponse TemplateUpdateFiles(
-            string templateId,
-            TemplateUpdateFilesRequest templateUpdateFilesRequest,
-            int operationIndex = 0
-        );
+        TemplateUpdateFilesResponse TemplateUpdateFiles(string templateId, TemplateUpdateFilesRequest templateUpdateFilesRequest, int operationIndex = 0);
 
         /// <summary>
         /// Update Template Files
@@ -370,11 +295,7 @@ namespace Dropbox.Sign.Api
         /// <param name="templateUpdateFilesRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of TemplateUpdateFilesResponse</returns>
-        ApiResponse<TemplateUpdateFilesResponse> TemplateUpdateFilesWithHttpInfo(
-            string templateId,
-            TemplateUpdateFilesRequest templateUpdateFilesRequest,
-            int operationIndex = 0
-        );
+        ApiResponse<TemplateUpdateFilesResponse> TemplateUpdateFilesWithHttpInfo(string templateId, TemplateUpdateFilesRequest templateUpdateFilesRequest, int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -396,13 +317,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TemplateGetResponse</returns>
-        System.Threading.Tasks.Task<TemplateGetResponse> TemplateAddUserAsync(
-            string templateId,
-            TemplateAddUserRequest templateAddUserRequest,
-            int operationIndex = 0,
-            System.Threading.CancellationToken cancellationToken =
-                default(System.Threading.CancellationToken)
-        );
+        System.Threading.Tasks.Task<TemplateGetResponse> TemplateAddUserAsync(string templateId, TemplateAddUserRequest templateAddUserRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Add User to Template
@@ -416,16 +331,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TemplateGetResponse)</returns>
-        System.Threading.Tasks.Task<
-            ApiResponse<TemplateGetResponse>
-        > TemplateAddUserWithHttpInfoAsync(
-            string templateId,
-            TemplateAddUserRequest templateAddUserRequest,
-            int operationIndex = 0,
-            System.Threading.CancellationToken cancellationToken =
-                default(System.Threading.CancellationToken)
-        );
-
+        System.Threading.Tasks.Task<ApiResponse<TemplateGetResponse>> TemplateAddUserWithHttpInfoAsync(string templateId, TemplateAddUserRequest templateAddUserRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Create  Template
         /// </summary>
@@ -437,12 +343,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TemplateCreateResponse</returns>
-        System.Threading.Tasks.Task<TemplateCreateResponse> TemplateCreateAsync(
-            TemplateCreateRequest templateCreateRequest,
-            int operationIndex = 0,
-            System.Threading.CancellationToken cancellationToken =
-                default(System.Threading.CancellationToken)
-        );
+        System.Threading.Tasks.Task<TemplateCreateResponse> TemplateCreateAsync(TemplateCreateRequest templateCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Create  Template
@@ -455,15 +356,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TemplateCreateResponse)</returns>
-        System.Threading.Tasks.Task<
-            ApiResponse<TemplateCreateResponse>
-        > TemplateCreateWithHttpInfoAsync(
-            TemplateCreateRequest templateCreateRequest,
-            int operationIndex = 0,
-            System.Threading.CancellationToken cancellationToken =
-                default(System.Threading.CancellationToken)
-        );
-
+        System.Threading.Tasks.Task<ApiResponse<TemplateCreateResponse>> TemplateCreateWithHttpInfoAsync(TemplateCreateRequest templateCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Create Embedded Template Draft
         /// </summary>
@@ -475,12 +368,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TemplateCreateEmbeddedDraftResponse</returns>
-        System.Threading.Tasks.Task<TemplateCreateEmbeddedDraftResponse> TemplateCreateEmbeddedDraftAsync(
-            TemplateCreateEmbeddedDraftRequest templateCreateEmbeddedDraftRequest,
-            int operationIndex = 0,
-            System.Threading.CancellationToken cancellationToken =
-                default(System.Threading.CancellationToken)
-        );
+        System.Threading.Tasks.Task<TemplateCreateEmbeddedDraftResponse> TemplateCreateEmbeddedDraftAsync(TemplateCreateEmbeddedDraftRequest templateCreateEmbeddedDraftRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Create Embedded Template Draft
@@ -493,15 +381,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TemplateCreateEmbeddedDraftResponse)</returns>
-        System.Threading.Tasks.Task<
-            ApiResponse<TemplateCreateEmbeddedDraftResponse>
-        > TemplateCreateEmbeddedDraftWithHttpInfoAsync(
-            TemplateCreateEmbeddedDraftRequest templateCreateEmbeddedDraftRequest,
-            int operationIndex = 0,
-            System.Threading.CancellationToken cancellationToken =
-                default(System.Threading.CancellationToken)
-        );
-
+        System.Threading.Tasks.Task<ApiResponse<TemplateCreateEmbeddedDraftResponse>> TemplateCreateEmbeddedDraftWithHttpInfoAsync(TemplateCreateEmbeddedDraftRequest templateCreateEmbeddedDraftRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Delete Template
         /// </summary>
@@ -513,12 +393,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task TemplateDeleteAsync(
-            string templateId,
-            int operationIndex = 0,
-            System.Threading.CancellationToken cancellationToken =
-                default(System.Threading.CancellationToken)
-        );
+        System.Threading.Tasks.Task TemplateDeleteAsync(string templateId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Delete Template
@@ -531,13 +406,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> TemplateDeleteWithHttpInfoAsync(
-            string templateId,
-            int operationIndex = 0,
-            System.Threading.CancellationToken cancellationToken =
-                default(System.Threading.CancellationToken)
-        );
-
+        System.Threading.Tasks.Task<ApiResponse<Object>> TemplateDeleteWithHttpInfoAsync(string templateId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get Template Files
         /// </summary>
@@ -550,13 +419,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of System.IO.Stream</returns>
-        System.Threading.Tasks.Task<System.IO.Stream> TemplateFilesAsync(
-            string templateId,
-            string? fileType = default(string?),
-            int operationIndex = 0,
-            System.Threading.CancellationToken cancellationToken =
-                default(System.Threading.CancellationToken)
-        );
+        System.Threading.Tasks.Task<System.IO.Stream> TemplateFilesAsync(string templateId, string? fileType = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get Template Files
@@ -570,14 +433,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
-        System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> TemplateFilesWithHttpInfoAsync(
-            string templateId,
-            string? fileType = default(string?),
-            int operationIndex = 0,
-            System.Threading.CancellationToken cancellationToken =
-                default(System.Threading.CancellationToken)
-        );
-
+        System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> TemplateFilesWithHttpInfoAsync(string templateId, string? fileType = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get Template Files as Data Uri
         /// </summary>
@@ -589,12 +445,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FileResponseDataUri</returns>
-        System.Threading.Tasks.Task<FileResponseDataUri> TemplateFilesAsDataUriAsync(
-            string templateId,
-            int operationIndex = 0,
-            System.Threading.CancellationToken cancellationToken =
-                default(System.Threading.CancellationToken)
-        );
+        System.Threading.Tasks.Task<FileResponseDataUri> TemplateFilesAsDataUriAsync(string templateId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get Template Files as Data Uri
@@ -607,15 +458,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FileResponseDataUri)</returns>
-        System.Threading.Tasks.Task<
-            ApiResponse<FileResponseDataUri>
-        > TemplateFilesAsDataUriWithHttpInfoAsync(
-            string templateId,
-            int operationIndex = 0,
-            System.Threading.CancellationToken cancellationToken =
-                default(System.Threading.CancellationToken)
-        );
-
+        System.Threading.Tasks.Task<ApiResponse<FileResponseDataUri>> TemplateFilesAsDataUriWithHttpInfoAsync(string templateId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get Template Files as File Url
         /// </summary>
@@ -628,13 +471,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FileResponse</returns>
-        System.Threading.Tasks.Task<FileResponse> TemplateFilesAsFileUrlAsync(
-            string templateId,
-            int? forceDownload = default(int?),
-            int operationIndex = 0,
-            System.Threading.CancellationToken cancellationToken =
-                default(System.Threading.CancellationToken)
-        );
+        System.Threading.Tasks.Task<FileResponse> TemplateFilesAsFileUrlAsync(string templateId, int? forceDownload = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get Template Files as File Url
@@ -648,16 +485,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FileResponse)</returns>
-        System.Threading.Tasks.Task<
-            ApiResponse<FileResponse>
-        > TemplateFilesAsFileUrlWithHttpInfoAsync(
-            string templateId,
-            int? forceDownload = default(int?),
-            int operationIndex = 0,
-            System.Threading.CancellationToken cancellationToken =
-                default(System.Threading.CancellationToken)
-        );
-
+        System.Threading.Tasks.Task<ApiResponse<FileResponse>> TemplateFilesAsFileUrlWithHttpInfoAsync(string templateId, int? forceDownload = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get Template
         /// </summary>
@@ -669,12 +497,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TemplateGetResponse</returns>
-        System.Threading.Tasks.Task<TemplateGetResponse> TemplateGetAsync(
-            string templateId,
-            int operationIndex = 0,
-            System.Threading.CancellationToken cancellationToken =
-                default(System.Threading.CancellationToken)
-        );
+        System.Threading.Tasks.Task<TemplateGetResponse> TemplateGetAsync(string templateId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get Template
@@ -687,13 +510,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TemplateGetResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TemplateGetResponse>> TemplateGetWithHttpInfoAsync(
-            string templateId,
-            int operationIndex = 0,
-            System.Threading.CancellationToken cancellationToken =
-                default(System.Threading.CancellationToken)
-        );
-
+        System.Threading.Tasks.Task<ApiResponse<TemplateGetResponse>> TemplateGetWithHttpInfoAsync(string templateId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List Templates
         /// </summary>
@@ -708,15 +525,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TemplateListResponse</returns>
-        System.Threading.Tasks.Task<TemplateListResponse> TemplateListAsync(
-            string? accountId = default(string?),
-            int? page = default(int?),
-            int? pageSize = default(int?),
-            string? query = default(string?),
-            int operationIndex = 0,
-            System.Threading.CancellationToken cancellationToken =
-                default(System.Threading.CancellationToken)
-        );
+        System.Threading.Tasks.Task<TemplateListResponse> TemplateListAsync(string? accountId = default(string?), int? page = default(int?), int? pageSize = default(int?), string? query = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// List Templates
@@ -732,18 +541,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TemplateListResponse)</returns>
-        System.Threading.Tasks.Task<
-            ApiResponse<TemplateListResponse>
-        > TemplateListWithHttpInfoAsync(
-            string? accountId = default(string?),
-            int? page = default(int?),
-            int? pageSize = default(int?),
-            string? query = default(string?),
-            int operationIndex = 0,
-            System.Threading.CancellationToken cancellationToken =
-                default(System.Threading.CancellationToken)
-        );
-
+        System.Threading.Tasks.Task<ApiResponse<TemplateListResponse>> TemplateListWithHttpInfoAsync(string? accountId = default(string?), int? page = default(int?), int? pageSize = default(int?), string? query = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Remove User from Template
         /// </summary>
@@ -756,13 +554,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TemplateGetResponse</returns>
-        System.Threading.Tasks.Task<TemplateGetResponse> TemplateRemoveUserAsync(
-            string templateId,
-            TemplateRemoveUserRequest templateRemoveUserRequest,
-            int operationIndex = 0,
-            System.Threading.CancellationToken cancellationToken =
-                default(System.Threading.CancellationToken)
-        );
+        System.Threading.Tasks.Task<TemplateGetResponse> TemplateRemoveUserAsync(string templateId, TemplateRemoveUserRequest templateRemoveUserRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Remove User from Template
@@ -776,16 +568,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TemplateGetResponse)</returns>
-        System.Threading.Tasks.Task<
-            ApiResponse<TemplateGetResponse>
-        > TemplateRemoveUserWithHttpInfoAsync(
-            string templateId,
-            TemplateRemoveUserRequest templateRemoveUserRequest,
-            int operationIndex = 0,
-            System.Threading.CancellationToken cancellationToken =
-                default(System.Threading.CancellationToken)
-        );
-
+        System.Threading.Tasks.Task<ApiResponse<TemplateGetResponse>> TemplateRemoveUserWithHttpInfoAsync(string templateId, TemplateRemoveUserRequest templateRemoveUserRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Update Template Files
         /// </summary>
@@ -798,13 +581,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TemplateUpdateFilesResponse</returns>
-        System.Threading.Tasks.Task<TemplateUpdateFilesResponse> TemplateUpdateFilesAsync(
-            string templateId,
-            TemplateUpdateFilesRequest templateUpdateFilesRequest,
-            int operationIndex = 0,
-            System.Threading.CancellationToken cancellationToken =
-                default(System.Threading.CancellationToken)
-        );
+        System.Threading.Tasks.Task<TemplateUpdateFilesResponse> TemplateUpdateFilesAsync(string templateId, TemplateUpdateFilesRequest templateUpdateFilesRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Update Template Files
@@ -818,22 +595,17 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TemplateUpdateFilesResponse)</returns>
-        System.Threading.Tasks.Task<
-            ApiResponse<TemplateUpdateFilesResponse>
-        > TemplateUpdateFilesWithHttpInfoAsync(
-            string templateId,
-            TemplateUpdateFilesRequest templateUpdateFilesRequest,
-            int operationIndex = 0,
-            System.Threading.CancellationToken cancellationToken =
-                default(System.Threading.CancellationToken)
-        );
+        System.Threading.Tasks.Task<ApiResponse<TemplateUpdateFilesResponse>> TemplateUpdateFilesWithHttpInfoAsync(string templateId, TemplateUpdateFilesRequest templateUpdateFilesRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface ITemplateApi : ITemplateApiSync, ITemplateApiAsync { }
+    public interface ITemplateApi : ITemplateApiSync, ITemplateApiAsync
+    {
+
+    }
 
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
@@ -846,8 +618,9 @@ namespace Dropbox.Sign.Api
         /// Initializes a new instance of the <see cref="TemplateApi"/> class.
         /// </summary>
         /// <returns></returns>
-        public TemplateApi()
-            : this((string)null) { }
+        public TemplateApi() : this((string)null)
+        {
+        }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="TemplateApi"/> class.
@@ -860,9 +633,7 @@ namespace Dropbox.Sign.Api
                 new Dropbox.Sign.Client.Configuration { BasePath = basePath }
             );
             this.Client = new Dropbox.Sign.Client.ApiClient(this.Configuration.BasePath);
-            this.AsynchronousClient = new Dropbox.Sign.Client.ApiClient(
-                this.Configuration.BasePath
-            );
+            this.AsynchronousClient = new Dropbox.Sign.Client.ApiClient(this.Configuration.BasePath);
             this.ExceptionFactory = Dropbox.Sign.Client.Configuration.DefaultExceptionFactory;
         }
 
@@ -874,17 +645,14 @@ namespace Dropbox.Sign.Api
         /// <returns></returns>
         public TemplateApi(Dropbox.Sign.Client.Configuration configuration)
         {
-            if (configuration == null)
-                throw new ArgumentNullException("configuration");
+            if (configuration == null) throw new ArgumentNullException("configuration");
 
             this.Configuration = Dropbox.Sign.Client.Configuration.MergeConfigurations(
                 Dropbox.Sign.Client.GlobalConfiguration.Instance,
                 configuration
             );
             this.Client = new Dropbox.Sign.Client.ApiClient(this.Configuration.BasePath);
-            this.AsynchronousClient = new Dropbox.Sign.Client.ApiClient(
-                this.Configuration.BasePath
-            );
+            this.AsynchronousClient = new Dropbox.Sign.Client.ApiClient(this.Configuration.BasePath);
             ExceptionFactory = Dropbox.Sign.Client.Configuration.DefaultExceptionFactory;
         }
 
@@ -895,18 +663,11 @@ namespace Dropbox.Sign.Api
         /// <param name="client">The client interface for synchronous API access.</param>
         /// <param name="asyncClient">The client interface for asynchronous API access.</param>
         /// <param name="configuration">The configuration object.</param>
-        public TemplateApi(
-            Dropbox.Sign.Client.ISynchronousClient client,
-            Dropbox.Sign.Client.IAsynchronousClient asyncClient,
-            Dropbox.Sign.Client.IReadableConfiguration configuration
-        )
+        public TemplateApi(Dropbox.Sign.Client.ISynchronousClient client, Dropbox.Sign.Client.IAsynchronousClient asyncClient, Dropbox.Sign.Client.IReadableConfiguration configuration)
         {
-            if (client == null)
-                throw new ArgumentNullException("client");
-            if (asyncClient == null)
-                throw new ArgumentNullException("asyncClient");
-            if (configuration == null)
-                throw new ArgumentNullException("configuration");
+            if (client == null) throw new ArgumentNullException("client");
+            if (asyncClient == null) throw new ArgumentNullException("asyncClient");
+            if (configuration == null) throw new ArgumentNullException("configuration");
 
             this.Client = client;
             this.AsynchronousClient = asyncClient;
@@ -948,9 +709,7 @@ namespace Dropbox.Sign.Api
             {
                 if (_exceptionFactory != null && _exceptionFactory.GetInvocationList().Length > 1)
                 {
-                    throw new InvalidOperationException(
-                        "Multicast delegate for ExceptionFactory is unsupported."
-                    );
+                    throw new InvalidOperationException("Multicast delegate for ExceptionFactory is unsupported.");
                 }
                 return _exceptionFactory;
             }
@@ -965,14 +724,9 @@ namespace Dropbox.Sign.Api
         /// <param name="templateAddUserRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>TemplateGetResponse</returns>
-        public TemplateGetResponse TemplateAddUser(
-            string templateId,
-            TemplateAddUserRequest templateAddUserRequest,
-            int operationIndex = 0
-        )
+        public TemplateGetResponse TemplateAddUser(string templateId, TemplateAddUserRequest templateAddUserRequest, int operationIndex = 0)
         {
-            Dropbox.Sign.Client.ApiResponse<TemplateGetResponse> localVarResponse =
-                TemplateAddUserWithHttpInfo(templateId, templateAddUserRequest);
+            Dropbox.Sign.Client.ApiResponse<TemplateGetResponse> localVarResponse = TemplateAddUserWithHttpInfo(templateId, templateAddUserRequest);
             return localVarResponse.Data;
         }
 
@@ -984,32 +738,21 @@ namespace Dropbox.Sign.Api
         /// <param name="templateAddUserRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of TemplateGetResponse</returns>
-        public Dropbox.Sign.Client.ApiResponse<TemplateGetResponse> TemplateAddUserWithHttpInfo(
-            string templateId,
-            TemplateAddUserRequest templateAddUserRequest,
-            int operationIndex = 0
-        )
+        public Dropbox.Sign.Client.ApiResponse<TemplateGetResponse> TemplateAddUserWithHttpInfo(string templateId, TemplateAddUserRequest templateAddUserRequest, int operationIndex = 0)
         {
             // verify the required parameter 'templateId' is set
             if (templateId == null)
             {
-                throw new Dropbox.Sign.Client.ApiException(
-                    400,
-                    "Missing required parameter 'templateId' when calling TemplateApi->TemplateAddUser"
-                );
+                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'templateId' when calling TemplateApi->TemplateAddUser");
             }
 
             // verify the required parameter 'templateAddUserRequest' is set
             if (templateAddUserRequest == null)
             {
-                throw new Dropbox.Sign.Client.ApiException(
-                    400,
-                    "Missing required parameter 'templateAddUserRequest' when calling TemplateApi->TemplateAddUser"
-                );
+                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'templateAddUserRequest' when calling TemplateApi->TemplateAddUser");
             }
 
-            Dropbox.Sign.Client.RequestOptions localVarRequestOptions =
-                new Dropbox.Sign.Client.RequestOptions();
+            Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
 
             var localVarContentType = "";
             var openApiTypes = templateAddUserRequest.GetOpenApiTypes();
@@ -1025,7 +768,9 @@ namespace Dropbox.Sign.Api
             }
 
             // to determine the Accept header
-            string[] _accepts = new string[] { "application/json" };
+            string[] _accepts = new string[] {
+                "application/json"
+            };
 
             if (localVarContentType != null)
             {
@@ -1038,49 +783,26 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add(
-                "template_id",
-                Dropbox.Sign.Client.ClientUtils.ParameterToString(templateId)
-            ); // path parameter
+            localVarRequestOptions.PathParameters.Add("template_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(templateId)); // path parameter
 
             localVarRequestOptions.Operation = "TemplateApi.TemplateAddUser";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (api_key) required
             // http basic authentication required
-            if (
-                !string.IsNullOrEmpty(this.Configuration.Username)
-                || !string.IsNullOrEmpty(this.Configuration.Password)
-                    && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization")
-            )
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add(
-                    "Authorization",
-                    "Basic "
-                        + Dropbox.Sign.Client.ClientUtils.Base64Encode(
-                            this.Configuration.Username + ":" + this.Configuration.Password
-                        )
-                );
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Dropbox.Sign.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (oauth2) required
             // bearer authentication required
-            if (
-                !string.IsNullOrEmpty(this.Configuration.AccessToken)
-                && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization")
-            )
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add(
-                    "Authorization",
-                    "Bearer " + this.Configuration.AccessToken
-                );
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<TemplateGetResponse>(
-                "/template/add_user/{template_id}",
-                localVarRequestOptions,
-                this.Configuration
-            );
+            var localVarResponse = this.Client.Post<TemplateGetResponse>("/template/add_user/{template_id}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("TemplateAddUser", localVarResponse);
@@ -1102,22 +824,9 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TemplateGetResponse</returns>
-        public async System.Threading.Tasks.Task<TemplateGetResponse> TemplateAddUserAsync(
-            string templateId,
-            TemplateAddUserRequest templateAddUserRequest,
-            int operationIndex = 0,
-            System.Threading.CancellationToken cancellationToken =
-                default(System.Threading.CancellationToken)
-        )
+        public async System.Threading.Tasks.Task<TemplateGetResponse> TemplateAddUserAsync(string templateId, TemplateAddUserRequest templateAddUserRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Dropbox.Sign.Client.ApiResponse<TemplateGetResponse> localVarResponse =
-                await TemplateAddUserWithHttpInfoAsync(
-                        templateId,
-                        templateAddUserRequest,
-                        operationIndex,
-                        cancellationToken
-                    )
-                    .ConfigureAwait(false);
+            Dropbox.Sign.Client.ApiResponse<TemplateGetResponse> localVarResponse = await TemplateAddUserWithHttpInfoAsync(templateId, templateAddUserRequest, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1130,34 +839,22 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TemplateGetResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<TemplateGetResponse>> TemplateAddUserWithHttpInfoAsync(
-            string templateId,
-            TemplateAddUserRequest templateAddUserRequest,
-            int operationIndex = 0,
-            System.Threading.CancellationToken cancellationToken =
-                default(System.Threading.CancellationToken)
-        )
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<TemplateGetResponse>> TemplateAddUserWithHttpInfoAsync(string templateId, TemplateAddUserRequest templateAddUserRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'templateId' is set
             if (templateId == null)
             {
-                throw new Dropbox.Sign.Client.ApiException(
-                    400,
-                    "Missing required parameter 'templateId' when calling TemplateApi->TemplateAddUser"
-                );
+                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'templateId' when calling TemplateApi->TemplateAddUser");
             }
 
             // verify the required parameter 'templateAddUserRequest' is set
             if (templateAddUserRequest == null)
             {
-                throw new Dropbox.Sign.Client.ApiException(
-                    400,
-                    "Missing required parameter 'templateAddUserRequest' when calling TemplateApi->TemplateAddUser"
-                );
+                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'templateAddUserRequest' when calling TemplateApi->TemplateAddUser");
             }
 
-            Dropbox.Sign.Client.RequestOptions localVarRequestOptions =
-                new Dropbox.Sign.Client.RequestOptions();
+
+            Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
 
             var localVarContentType = "";
             var openApiTypes = templateAddUserRequest.GetOpenApiTypes();
@@ -1173,7 +870,9 @@ namespace Dropbox.Sign.Api
             }
 
             // to determine the Accept header
-            string[] _accepts = new string[] { "application/json" };
+            string[] _accepts = new string[] {
+                "application/json"
+            };
 
             if (localVarContentType != null)
             {
@@ -1186,52 +885,26 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add(
-                "template_id",
-                Dropbox.Sign.Client.ClientUtils.ParameterToString(templateId)
-            ); // path parameter
+            localVarRequestOptions.PathParameters.Add("template_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(templateId)); // path parameter
 
             localVarRequestOptions.Operation = "TemplateApi.TemplateAddUser";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (api_key) required
             // http basic authentication required
-            if (
-                !string.IsNullOrEmpty(this.Configuration.Username)
-                || !string.IsNullOrEmpty(this.Configuration.Password)
-                    && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization")
-            )
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add(
-                    "Authorization",
-                    "Basic "
-                        + Dropbox.Sign.Client.ClientUtils.Base64Encode(
-                            this.Configuration.Username + ":" + this.Configuration.Password
-                        )
-                );
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Dropbox.Sign.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (oauth2) required
             // bearer authentication required
-            if (
-                !string.IsNullOrEmpty(this.Configuration.AccessToken)
-                && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization")
-            )
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add(
-                    "Authorization",
-                    "Bearer " + this.Configuration.AccessToken
-                );
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
 
             // make the HTTP request
-            var localVarResponse = await this
-                .AsynchronousClient.PostAsync<TemplateGetResponse>(
-                    "/template/add_user/{template_id}",
-                    localVarRequestOptions,
-                    this.Configuration,
-                    cancellationToken
-                )
-                .ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<TemplateGetResponse>("/template/add_user/{template_id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -1252,13 +925,9 @@ namespace Dropbox.Sign.Api
         /// <param name="templateCreateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>TemplateCreateResponse</returns>
-        public TemplateCreateResponse TemplateCreate(
-            TemplateCreateRequest templateCreateRequest,
-            int operationIndex = 0
-        )
+        public TemplateCreateResponse TemplateCreate(TemplateCreateRequest templateCreateRequest, int operationIndex = 0)
         {
-            Dropbox.Sign.Client.ApiResponse<TemplateCreateResponse> localVarResponse =
-                TemplateCreateWithHttpInfo(templateCreateRequest);
+            Dropbox.Sign.Client.ApiResponse<TemplateCreateResponse> localVarResponse = TemplateCreateWithHttpInfo(templateCreateRequest);
             return localVarResponse.Data;
         }
 
@@ -1269,22 +938,15 @@ namespace Dropbox.Sign.Api
         /// <param name="templateCreateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of TemplateCreateResponse</returns>
-        public Dropbox.Sign.Client.ApiResponse<TemplateCreateResponse> TemplateCreateWithHttpInfo(
-            TemplateCreateRequest templateCreateRequest,
-            int operationIndex = 0
-        )
+        public Dropbox.Sign.Client.ApiResponse<TemplateCreateResponse> TemplateCreateWithHttpInfo(TemplateCreateRequest templateCreateRequest, int operationIndex = 0)
         {
             // verify the required parameter 'templateCreateRequest' is set
             if (templateCreateRequest == null)
             {
-                throw new Dropbox.Sign.Client.ApiException(
-                    400,
-                    "Missing required parameter 'templateCreateRequest' when calling TemplateApi->TemplateCreate"
-                );
+                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'templateCreateRequest' when calling TemplateApi->TemplateCreate");
             }
 
-            Dropbox.Sign.Client.RequestOptions localVarRequestOptions =
-                new Dropbox.Sign.Client.RequestOptions();
+            Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
 
             var localVarContentType = "";
             var openApiTypes = templateCreateRequest.GetOpenApiTypes();
@@ -1300,7 +962,9 @@ namespace Dropbox.Sign.Api
             }
 
             // to determine the Accept header
-            string[] _accepts = new string[] { "application/json" };
+            string[] _accepts = new string[] {
+                "application/json"
+            };
 
             if (localVarContentType != null)
             {
@@ -1313,44 +977,25 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+
             localVarRequestOptions.Operation = "TemplateApi.TemplateCreate";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (api_key) required
             // http basic authentication required
-            if (
-                !string.IsNullOrEmpty(this.Configuration.Username)
-                || !string.IsNullOrEmpty(this.Configuration.Password)
-                    && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization")
-            )
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add(
-                    "Authorization",
-                    "Basic "
-                        + Dropbox.Sign.Client.ClientUtils.Base64Encode(
-                            this.Configuration.Username + ":" + this.Configuration.Password
-                        )
-                );
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Dropbox.Sign.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (oauth2) required
             // bearer authentication required
-            if (
-                !string.IsNullOrEmpty(this.Configuration.AccessToken)
-                && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization")
-            )
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add(
-                    "Authorization",
-                    "Bearer " + this.Configuration.AccessToken
-                );
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<TemplateCreateResponse>(
-                "/template/create",
-                localVarRequestOptions,
-                this.Configuration
-            );
+            var localVarResponse = this.Client.Post<TemplateCreateResponse>("/template/create", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("TemplateCreate", localVarResponse);
@@ -1371,20 +1016,9 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TemplateCreateResponse</returns>
-        public async System.Threading.Tasks.Task<TemplateCreateResponse> TemplateCreateAsync(
-            TemplateCreateRequest templateCreateRequest,
-            int operationIndex = 0,
-            System.Threading.CancellationToken cancellationToken =
-                default(System.Threading.CancellationToken)
-        )
+        public async System.Threading.Tasks.Task<TemplateCreateResponse> TemplateCreateAsync(TemplateCreateRequest templateCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Dropbox.Sign.Client.ApiResponse<TemplateCreateResponse> localVarResponse =
-                await TemplateCreateWithHttpInfoAsync(
-                        templateCreateRequest,
-                        operationIndex,
-                        cancellationToken
-                    )
-                    .ConfigureAwait(false);
+            Dropbox.Sign.Client.ApiResponse<TemplateCreateResponse> localVarResponse = await TemplateCreateWithHttpInfoAsync(templateCreateRequest, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1396,24 +1030,16 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TemplateCreateResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<TemplateCreateResponse>> TemplateCreateWithHttpInfoAsync(
-            TemplateCreateRequest templateCreateRequest,
-            int operationIndex = 0,
-            System.Threading.CancellationToken cancellationToken =
-                default(System.Threading.CancellationToken)
-        )
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<TemplateCreateResponse>> TemplateCreateWithHttpInfoAsync(TemplateCreateRequest templateCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'templateCreateRequest' is set
             if (templateCreateRequest == null)
             {
-                throw new Dropbox.Sign.Client.ApiException(
-                    400,
-                    "Missing required parameter 'templateCreateRequest' when calling TemplateApi->TemplateCreate"
-                );
+                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'templateCreateRequest' when calling TemplateApi->TemplateCreate");
             }
 
-            Dropbox.Sign.Client.RequestOptions localVarRequestOptions =
-                new Dropbox.Sign.Client.RequestOptions();
+
+            Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
 
             var localVarContentType = "";
             var openApiTypes = templateCreateRequest.GetOpenApiTypes();
@@ -1429,7 +1055,9 @@ namespace Dropbox.Sign.Api
             }
 
             // to determine the Accept header
-            string[] _accepts = new string[] { "application/json" };
+            string[] _accepts = new string[] {
+                "application/json"
+            };
 
             if (localVarContentType != null)
             {
@@ -1442,47 +1070,25 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+
             localVarRequestOptions.Operation = "TemplateApi.TemplateCreate";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (api_key) required
             // http basic authentication required
-            if (
-                !string.IsNullOrEmpty(this.Configuration.Username)
-                || !string.IsNullOrEmpty(this.Configuration.Password)
-                    && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization")
-            )
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add(
-                    "Authorization",
-                    "Basic "
-                        + Dropbox.Sign.Client.ClientUtils.Base64Encode(
-                            this.Configuration.Username + ":" + this.Configuration.Password
-                        )
-                );
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Dropbox.Sign.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (oauth2) required
             // bearer authentication required
-            if (
-                !string.IsNullOrEmpty(this.Configuration.AccessToken)
-                && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization")
-            )
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add(
-                    "Authorization",
-                    "Bearer " + this.Configuration.AccessToken
-                );
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
 
             // make the HTTP request
-            var localVarResponse = await this
-                .AsynchronousClient.PostAsync<TemplateCreateResponse>(
-                    "/template/create",
-                    localVarRequestOptions,
-                    this.Configuration,
-                    cancellationToken
-                )
-                .ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<TemplateCreateResponse>("/template/create", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -1503,13 +1109,9 @@ namespace Dropbox.Sign.Api
         /// <param name="templateCreateEmbeddedDraftRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>TemplateCreateEmbeddedDraftResponse</returns>
-        public TemplateCreateEmbeddedDraftResponse TemplateCreateEmbeddedDraft(
-            TemplateCreateEmbeddedDraftRequest templateCreateEmbeddedDraftRequest,
-            int operationIndex = 0
-        )
+        public TemplateCreateEmbeddedDraftResponse TemplateCreateEmbeddedDraft(TemplateCreateEmbeddedDraftRequest templateCreateEmbeddedDraftRequest, int operationIndex = 0)
         {
-            Dropbox.Sign.Client.ApiResponse<TemplateCreateEmbeddedDraftResponse> localVarResponse =
-                TemplateCreateEmbeddedDraftWithHttpInfo(templateCreateEmbeddedDraftRequest);
+            Dropbox.Sign.Client.ApiResponse<TemplateCreateEmbeddedDraftResponse> localVarResponse = TemplateCreateEmbeddedDraftWithHttpInfo(templateCreateEmbeddedDraftRequest);
             return localVarResponse.Data;
         }
 
@@ -1520,22 +1122,15 @@ namespace Dropbox.Sign.Api
         /// <param name="templateCreateEmbeddedDraftRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of TemplateCreateEmbeddedDraftResponse</returns>
-        public Dropbox.Sign.Client.ApiResponse<TemplateCreateEmbeddedDraftResponse> TemplateCreateEmbeddedDraftWithHttpInfo(
-            TemplateCreateEmbeddedDraftRequest templateCreateEmbeddedDraftRequest,
-            int operationIndex = 0
-        )
+        public Dropbox.Sign.Client.ApiResponse<TemplateCreateEmbeddedDraftResponse> TemplateCreateEmbeddedDraftWithHttpInfo(TemplateCreateEmbeddedDraftRequest templateCreateEmbeddedDraftRequest, int operationIndex = 0)
         {
             // verify the required parameter 'templateCreateEmbeddedDraftRequest' is set
             if (templateCreateEmbeddedDraftRequest == null)
             {
-                throw new Dropbox.Sign.Client.ApiException(
-                    400,
-                    "Missing required parameter 'templateCreateEmbeddedDraftRequest' when calling TemplateApi->TemplateCreateEmbeddedDraft"
-                );
+                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'templateCreateEmbeddedDraftRequest' when calling TemplateApi->TemplateCreateEmbeddedDraft");
             }
 
-            Dropbox.Sign.Client.RequestOptions localVarRequestOptions =
-                new Dropbox.Sign.Client.RequestOptions();
+            Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
 
             var localVarContentType = "";
             var openApiTypes = templateCreateEmbeddedDraftRequest.GetOpenApiTypes();
@@ -1551,7 +1146,9 @@ namespace Dropbox.Sign.Api
             }
 
             // to determine the Accept header
-            string[] _accepts = new string[] { "application/json" };
+            string[] _accepts = new string[] {
+                "application/json"
+            };
 
             if (localVarContentType != null)
             {
@@ -1564,50 +1161,28 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+
             localVarRequestOptions.Operation = "TemplateApi.TemplateCreateEmbeddedDraft";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (api_key) required
             // http basic authentication required
-            if (
-                !string.IsNullOrEmpty(this.Configuration.Username)
-                || !string.IsNullOrEmpty(this.Configuration.Password)
-                    && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization")
-            )
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add(
-                    "Authorization",
-                    "Basic "
-                        + Dropbox.Sign.Client.ClientUtils.Base64Encode(
-                            this.Configuration.Username + ":" + this.Configuration.Password
-                        )
-                );
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Dropbox.Sign.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (oauth2) required
             // bearer authentication required
-            if (
-                !string.IsNullOrEmpty(this.Configuration.AccessToken)
-                && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization")
-            )
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add(
-                    "Authorization",
-                    "Bearer " + this.Configuration.AccessToken
-                );
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<TemplateCreateEmbeddedDraftResponse>(
-                "/template/create_embedded_draft",
-                localVarRequestOptions,
-                this.Configuration
-            );
+            var localVarResponse = this.Client.Post<TemplateCreateEmbeddedDraftResponse>("/template/create_embedded_draft", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory(
-                    "TemplateCreateEmbeddedDraft",
-                    localVarResponse
-                );
+                Exception _exception = this.ExceptionFactory("TemplateCreateEmbeddedDraft", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -1625,20 +1200,9 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TemplateCreateEmbeddedDraftResponse</returns>
-        public async System.Threading.Tasks.Task<TemplateCreateEmbeddedDraftResponse> TemplateCreateEmbeddedDraftAsync(
-            TemplateCreateEmbeddedDraftRequest templateCreateEmbeddedDraftRequest,
-            int operationIndex = 0,
-            System.Threading.CancellationToken cancellationToken =
-                default(System.Threading.CancellationToken)
-        )
+        public async System.Threading.Tasks.Task<TemplateCreateEmbeddedDraftResponse> TemplateCreateEmbeddedDraftAsync(TemplateCreateEmbeddedDraftRequest templateCreateEmbeddedDraftRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Dropbox.Sign.Client.ApiResponse<TemplateCreateEmbeddedDraftResponse> localVarResponse =
-                await TemplateCreateEmbeddedDraftWithHttpInfoAsync(
-                        templateCreateEmbeddedDraftRequest,
-                        operationIndex,
-                        cancellationToken
-                    )
-                    .ConfigureAwait(false);
+            Dropbox.Sign.Client.ApiResponse<TemplateCreateEmbeddedDraftResponse> localVarResponse = await TemplateCreateEmbeddedDraftWithHttpInfoAsync(templateCreateEmbeddedDraftRequest, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1650,24 +1214,16 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TemplateCreateEmbeddedDraftResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<TemplateCreateEmbeddedDraftResponse>> TemplateCreateEmbeddedDraftWithHttpInfoAsync(
-            TemplateCreateEmbeddedDraftRequest templateCreateEmbeddedDraftRequest,
-            int operationIndex = 0,
-            System.Threading.CancellationToken cancellationToken =
-                default(System.Threading.CancellationToken)
-        )
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<TemplateCreateEmbeddedDraftResponse>> TemplateCreateEmbeddedDraftWithHttpInfoAsync(TemplateCreateEmbeddedDraftRequest templateCreateEmbeddedDraftRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'templateCreateEmbeddedDraftRequest' is set
             if (templateCreateEmbeddedDraftRequest == null)
             {
-                throw new Dropbox.Sign.Client.ApiException(
-                    400,
-                    "Missing required parameter 'templateCreateEmbeddedDraftRequest' when calling TemplateApi->TemplateCreateEmbeddedDraft"
-                );
+                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'templateCreateEmbeddedDraftRequest' when calling TemplateApi->TemplateCreateEmbeddedDraft");
             }
 
-            Dropbox.Sign.Client.RequestOptions localVarRequestOptions =
-                new Dropbox.Sign.Client.RequestOptions();
+
+            Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
 
             var localVarContentType = "";
             var openApiTypes = templateCreateEmbeddedDraftRequest.GetOpenApiTypes();
@@ -1683,7 +1239,9 @@ namespace Dropbox.Sign.Api
             }
 
             // to determine the Accept header
-            string[] _accepts = new string[] { "application/json" };
+            string[] _accepts = new string[] {
+                "application/json"
+            };
 
             if (localVarContentType != null)
             {
@@ -1696,54 +1254,29 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+
             localVarRequestOptions.Operation = "TemplateApi.TemplateCreateEmbeddedDraft";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (api_key) required
             // http basic authentication required
-            if (
-                !string.IsNullOrEmpty(this.Configuration.Username)
-                || !string.IsNullOrEmpty(this.Configuration.Password)
-                    && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization")
-            )
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add(
-                    "Authorization",
-                    "Basic "
-                        + Dropbox.Sign.Client.ClientUtils.Base64Encode(
-                            this.Configuration.Username + ":" + this.Configuration.Password
-                        )
-                );
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Dropbox.Sign.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (oauth2) required
             // bearer authentication required
-            if (
-                !string.IsNullOrEmpty(this.Configuration.AccessToken)
-                && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization")
-            )
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add(
-                    "Authorization",
-                    "Bearer " + this.Configuration.AccessToken
-                );
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
 
             // make the HTTP request
-            var localVarResponse = await this
-                .AsynchronousClient.PostAsync<TemplateCreateEmbeddedDraftResponse>(
-                    "/template/create_embedded_draft",
-                    localVarRequestOptions,
-                    this.Configuration,
-                    cancellationToken
-                )
-                .ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<TemplateCreateEmbeddedDraftResponse>("/template/create_embedded_draft", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory(
-                    "TemplateCreateEmbeddedDraft",
-                    localVarResponse
-                );
+                Exception _exception = this.ExceptionFactory("TemplateCreateEmbeddedDraft", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -1772,30 +1305,24 @@ namespace Dropbox.Sign.Api
         /// <param name="templateId">The id of the Template to delete.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public Dropbox.Sign.Client.ApiResponse<Object> TemplateDeleteWithHttpInfo(
-            string templateId,
-            int operationIndex = 0
-        )
+        public Dropbox.Sign.Client.ApiResponse<Object> TemplateDeleteWithHttpInfo(string templateId, int operationIndex = 0)
         {
             // verify the required parameter 'templateId' is set
             if (templateId == null)
             {
-                throw new Dropbox.Sign.Client.ApiException(
-                    400,
-                    "Missing required parameter 'templateId' when calling TemplateApi->TemplateDelete"
-                );
+                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'templateId' when calling TemplateApi->TemplateDelete");
             }
 
-            Dropbox.Sign.Client.RequestOptions localVarRequestOptions =
-                new Dropbox.Sign.Client.RequestOptions();
+            Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
 
-            string[] _contentTypes = new string[] { };
-            var localVarContentType = Dropbox.Sign.Client.ClientUtils.SelectHeaderContentType(
-                _contentTypes
-            );
+            string[] _contentTypes = new string[] {
+            };
+            var localVarContentType = Dropbox.Sign.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
 
             // to determine the Accept header
-            string[] _accepts = new string[] { "application/json" };
+            string[] _accepts = new string[] {
+                "application/json"
+            };
 
             if (localVarContentType != null)
             {
@@ -1808,49 +1335,26 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add(
-                "template_id",
-                Dropbox.Sign.Client.ClientUtils.ParameterToString(templateId)
-            ); // path parameter
+            localVarRequestOptions.PathParameters.Add("template_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(templateId)); // path parameter
 
             localVarRequestOptions.Operation = "TemplateApi.TemplateDelete";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (api_key) required
             // http basic authentication required
-            if (
-                !string.IsNullOrEmpty(this.Configuration.Username)
-                || !string.IsNullOrEmpty(this.Configuration.Password)
-                    && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization")
-            )
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add(
-                    "Authorization",
-                    "Basic "
-                        + Dropbox.Sign.Client.ClientUtils.Base64Encode(
-                            this.Configuration.Username + ":" + this.Configuration.Password
-                        )
-                );
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Dropbox.Sign.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (oauth2) required
             // bearer authentication required
-            if (
-                !string.IsNullOrEmpty(this.Configuration.AccessToken)
-                && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization")
-            )
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add(
-                    "Authorization",
-                    "Bearer " + this.Configuration.AccessToken
-                );
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<Object>(
-                "/template/delete/{template_id}",
-                localVarRequestOptions,
-                this.Configuration
-            );
+            var localVarResponse = this.Client.Post<Object>("/template/delete/{template_id}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("TemplateDelete", localVarResponse);
@@ -1871,15 +1375,9 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task TemplateDeleteAsync(
-            string templateId,
-            int operationIndex = 0,
-            System.Threading.CancellationToken cancellationToken =
-                default(System.Threading.CancellationToken)
-        )
+        public async System.Threading.Tasks.Task TemplateDeleteAsync(string templateId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            await TemplateDeleteWithHttpInfoAsync(templateId, operationIndex, cancellationToken)
-                .ConfigureAwait(false);
+            await TemplateDeleteWithHttpInfoAsync(templateId, operationIndex, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -1890,32 +1388,25 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<Object>> TemplateDeleteWithHttpInfoAsync(
-            string templateId,
-            int operationIndex = 0,
-            System.Threading.CancellationToken cancellationToken =
-                default(System.Threading.CancellationToken)
-        )
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<Object>> TemplateDeleteWithHttpInfoAsync(string templateId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'templateId' is set
             if (templateId == null)
             {
-                throw new Dropbox.Sign.Client.ApiException(
-                    400,
-                    "Missing required parameter 'templateId' when calling TemplateApi->TemplateDelete"
-                );
+                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'templateId' when calling TemplateApi->TemplateDelete");
             }
 
-            Dropbox.Sign.Client.RequestOptions localVarRequestOptions =
-                new Dropbox.Sign.Client.RequestOptions();
 
-            string[] _contentTypes = new string[] { };
-            var localVarContentType = Dropbox.Sign.Client.ClientUtils.SelectHeaderContentType(
-                _contentTypes
-            );
+            Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+            var localVarContentType = Dropbox.Sign.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
 
             // to determine the Accept header
-            string[] _accepts = new string[] { "application/json" };
+            string[] _accepts = new string[] {
+                "application/json"
+            };
 
             if (localVarContentType != null)
             {
@@ -1928,52 +1419,26 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add(
-                "template_id",
-                Dropbox.Sign.Client.ClientUtils.ParameterToString(templateId)
-            ); // path parameter
+            localVarRequestOptions.PathParameters.Add("template_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(templateId)); // path parameter
 
             localVarRequestOptions.Operation = "TemplateApi.TemplateDelete";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (api_key) required
             // http basic authentication required
-            if (
-                !string.IsNullOrEmpty(this.Configuration.Username)
-                || !string.IsNullOrEmpty(this.Configuration.Password)
-                    && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization")
-            )
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add(
-                    "Authorization",
-                    "Basic "
-                        + Dropbox.Sign.Client.ClientUtils.Base64Encode(
-                            this.Configuration.Username + ":" + this.Configuration.Password
-                        )
-                );
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Dropbox.Sign.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (oauth2) required
             // bearer authentication required
-            if (
-                !string.IsNullOrEmpty(this.Configuration.AccessToken)
-                && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization")
-            )
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add(
-                    "Authorization",
-                    "Bearer " + this.Configuration.AccessToken
-                );
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
 
             // make the HTTP request
-            var localVarResponse = await this
-                .AsynchronousClient.PostAsync<Object>(
-                    "/template/delete/{template_id}",
-                    localVarRequestOptions,
-                    this.Configuration,
-                    cancellationToken
-                )
-                .ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<Object>("/template/delete/{template_id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -1995,14 +1460,9 @@ namespace Dropbox.Sign.Api
         /// <param name="fileType">Set to &#x60;pdf&#x60; for a single merged document or &#x60;zip&#x60; for a collection of individual documents. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>System.IO.Stream</returns>
-        public System.IO.Stream TemplateFiles(
-            string templateId,
-            string? fileType = default(string?),
-            int operationIndex = 0
-        )
+        public System.IO.Stream TemplateFiles(string templateId, string? fileType = default(string?), int operationIndex = 0)
         {
-            Dropbox.Sign.Client.ApiResponse<System.IO.Stream> localVarResponse =
-                TemplateFilesWithHttpInfo(templateId, fileType);
+            Dropbox.Sign.Client.ApiResponse<System.IO.Stream> localVarResponse = TemplateFilesWithHttpInfo(templateId, fileType);
             return localVarResponse.Data;
         }
 
@@ -2014,35 +1474,25 @@ namespace Dropbox.Sign.Api
         /// <param name="fileType">Set to &#x60;pdf&#x60; for a single merged document or &#x60;zip&#x60; for a collection of individual documents. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of System.IO.Stream</returns>
-        public Dropbox.Sign.Client.ApiResponse<System.IO.Stream> TemplateFilesWithHttpInfo(
-            string templateId,
-            string? fileType = default(string?),
-            int operationIndex = 0
-        )
+        public Dropbox.Sign.Client.ApiResponse<System.IO.Stream> TemplateFilesWithHttpInfo(string templateId, string? fileType = default(string?), int operationIndex = 0)
         {
             // verify the required parameter 'templateId' is set
             if (templateId == null)
             {
-                throw new Dropbox.Sign.Client.ApiException(
-                    400,
-                    "Missing required parameter 'templateId' when calling TemplateApi->TemplateFiles"
-                );
+                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'templateId' when calling TemplateApi->TemplateFiles");
             }
 
-            Dropbox.Sign.Client.RequestOptions localVarRequestOptions =
-                new Dropbox.Sign.Client.RequestOptions();
+            Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
 
-            string[] _contentTypes = new string[] { };
-            var localVarContentType = Dropbox.Sign.Client.ClientUtils.SelectHeaderContentType(
-                _contentTypes
-            );
+            string[] _contentTypes = new string[] {
+            };
+            var localVarContentType = Dropbox.Sign.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
 
             // to determine the Accept header
-            string[] _accepts = new string[]
-            {
+            string[] _accepts = new string[] {
                 "application/pdf",
                 "application/zip",
-                "application/json",
+                "application/json"
             };
 
             if (localVarContentType != null)
@@ -2056,15 +1506,10 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add(
-                "template_id",
-                Dropbox.Sign.Client.ClientUtils.ParameterToString(templateId)
-            ); // path parameter
+            localVarRequestOptions.PathParameters.Add("template_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(templateId)); // path parameter
             if (fileType != null)
             {
-                localVarRequestOptions.QueryParameters.Add(
-                    Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "file_type", fileType)
-                );
+                localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "file_type", fileType));
             }
 
             localVarRequestOptions.Operation = "TemplateApi.TemplateFiles";
@@ -2072,39 +1517,19 @@ namespace Dropbox.Sign.Api
 
             // authentication (api_key) required
             // http basic authentication required
-            if (
-                !string.IsNullOrEmpty(this.Configuration.Username)
-                || !string.IsNullOrEmpty(this.Configuration.Password)
-                    && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization")
-            )
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add(
-                    "Authorization",
-                    "Basic "
-                        + Dropbox.Sign.Client.ClientUtils.Base64Encode(
-                            this.Configuration.Username + ":" + this.Configuration.Password
-                        )
-                );
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Dropbox.Sign.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (oauth2) required
             // bearer authentication required
-            if (
-                !string.IsNullOrEmpty(this.Configuration.AccessToken)
-                && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization")
-            )
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add(
-                    "Authorization",
-                    "Bearer " + this.Configuration.AccessToken
-                );
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<System.IO.Stream>(
-                "/template/files/{template_id}",
-                localVarRequestOptions,
-                this.Configuration
-            );
+            var localVarResponse = this.Client.Get<System.IO.Stream>("/template/files/{template_id}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("TemplateFiles", localVarResponse);
@@ -2126,22 +1551,9 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of System.IO.Stream</returns>
-        public async System.Threading.Tasks.Task<System.IO.Stream> TemplateFilesAsync(
-            string templateId,
-            string? fileType = default(string?),
-            int operationIndex = 0,
-            System.Threading.CancellationToken cancellationToken =
-                default(System.Threading.CancellationToken)
-        )
+        public async System.Threading.Tasks.Task<System.IO.Stream> TemplateFilesAsync(string templateId, string? fileType = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Dropbox.Sign.Client.ApiResponse<System.IO.Stream> localVarResponse =
-                await TemplateFilesWithHttpInfoAsync(
-                        templateId,
-                        fileType,
-                        operationIndex,
-                        cancellationToken
-                    )
-                    .ConfigureAwait(false);
+            Dropbox.Sign.Client.ApiResponse<System.IO.Stream> localVarResponse = await TemplateFilesWithHttpInfoAsync(templateId, fileType, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2154,37 +1566,26 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<System.IO.Stream>> TemplateFilesWithHttpInfoAsync(
-            string templateId,
-            string? fileType = default(string?),
-            int operationIndex = 0,
-            System.Threading.CancellationToken cancellationToken =
-                default(System.Threading.CancellationToken)
-        )
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<System.IO.Stream>> TemplateFilesWithHttpInfoAsync(string templateId, string? fileType = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'templateId' is set
             if (templateId == null)
             {
-                throw new Dropbox.Sign.Client.ApiException(
-                    400,
-                    "Missing required parameter 'templateId' when calling TemplateApi->TemplateFiles"
-                );
+                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'templateId' when calling TemplateApi->TemplateFiles");
             }
 
-            Dropbox.Sign.Client.RequestOptions localVarRequestOptions =
-                new Dropbox.Sign.Client.RequestOptions();
 
-            string[] _contentTypes = new string[] { };
-            var localVarContentType = Dropbox.Sign.Client.ClientUtils.SelectHeaderContentType(
-                _contentTypes
-            );
+            Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+            var localVarContentType = Dropbox.Sign.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
 
             // to determine the Accept header
-            string[] _accepts = new string[]
-            {
+            string[] _accepts = new string[] {
                 "application/pdf",
                 "application/zip",
-                "application/json",
+                "application/json"
             };
 
             if (localVarContentType != null)
@@ -2198,15 +1599,10 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add(
-                "template_id",
-                Dropbox.Sign.Client.ClientUtils.ParameterToString(templateId)
-            ); // path parameter
+            localVarRequestOptions.PathParameters.Add("template_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(templateId)); // path parameter
             if (fileType != null)
             {
-                localVarRequestOptions.QueryParameters.Add(
-                    Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "file_type", fileType)
-                );
+                localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "file_type", fileType));
             }
 
             localVarRequestOptions.Operation = "TemplateApi.TemplateFiles";
@@ -2214,42 +1610,19 @@ namespace Dropbox.Sign.Api
 
             // authentication (api_key) required
             // http basic authentication required
-            if (
-                !string.IsNullOrEmpty(this.Configuration.Username)
-                || !string.IsNullOrEmpty(this.Configuration.Password)
-                    && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization")
-            )
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add(
-                    "Authorization",
-                    "Basic "
-                        + Dropbox.Sign.Client.ClientUtils.Base64Encode(
-                            this.Configuration.Username + ":" + this.Configuration.Password
-                        )
-                );
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Dropbox.Sign.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (oauth2) required
             // bearer authentication required
-            if (
-                !string.IsNullOrEmpty(this.Configuration.AccessToken)
-                && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization")
-            )
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add(
-                    "Authorization",
-                    "Bearer " + this.Configuration.AccessToken
-                );
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
 
             // make the HTTP request
-            var localVarResponse = await this
-                .AsynchronousClient.GetAsync<System.IO.Stream>(
-                    "/template/files/{template_id}",
-                    localVarRequestOptions,
-                    this.Configuration,
-                    cancellationToken
-                )
-                .ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<System.IO.Stream>("/template/files/{template_id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -2272,8 +1645,7 @@ namespace Dropbox.Sign.Api
         /// <returns>FileResponseDataUri</returns>
         public FileResponseDataUri TemplateFilesAsDataUri(string templateId, int operationIndex = 0)
         {
-            Dropbox.Sign.Client.ApiResponse<FileResponseDataUri> localVarResponse =
-                TemplateFilesAsDataUriWithHttpInfo(templateId);
+            Dropbox.Sign.Client.ApiResponse<FileResponseDataUri> localVarResponse = TemplateFilesAsDataUriWithHttpInfo(templateId);
             return localVarResponse.Data;
         }
 
@@ -2284,30 +1656,24 @@ namespace Dropbox.Sign.Api
         /// <param name="templateId">The id of the template files to retrieve.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of FileResponseDataUri</returns>
-        public Dropbox.Sign.Client.ApiResponse<FileResponseDataUri> TemplateFilesAsDataUriWithHttpInfo(
-            string templateId,
-            int operationIndex = 0
-        )
+        public Dropbox.Sign.Client.ApiResponse<FileResponseDataUri> TemplateFilesAsDataUriWithHttpInfo(string templateId, int operationIndex = 0)
         {
             // verify the required parameter 'templateId' is set
             if (templateId == null)
             {
-                throw new Dropbox.Sign.Client.ApiException(
-                    400,
-                    "Missing required parameter 'templateId' when calling TemplateApi->TemplateFilesAsDataUri"
-                );
+                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'templateId' when calling TemplateApi->TemplateFilesAsDataUri");
             }
 
-            Dropbox.Sign.Client.RequestOptions localVarRequestOptions =
-                new Dropbox.Sign.Client.RequestOptions();
+            Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
 
-            string[] _contentTypes = new string[] { };
-            var localVarContentType = Dropbox.Sign.Client.ClientUtils.SelectHeaderContentType(
-                _contentTypes
-            );
+            string[] _contentTypes = new string[] {
+            };
+            var localVarContentType = Dropbox.Sign.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
 
             // to determine the Accept header
-            string[] _accepts = new string[] { "application/json" };
+            string[] _accepts = new string[] {
+                "application/json"
+            };
 
             if (localVarContentType != null)
             {
@@ -2320,55 +1686,29 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add(
-                "template_id",
-                Dropbox.Sign.Client.ClientUtils.ParameterToString(templateId)
-            ); // path parameter
+            localVarRequestOptions.PathParameters.Add("template_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(templateId)); // path parameter
 
             localVarRequestOptions.Operation = "TemplateApi.TemplateFilesAsDataUri";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (api_key) required
             // http basic authentication required
-            if (
-                !string.IsNullOrEmpty(this.Configuration.Username)
-                || !string.IsNullOrEmpty(this.Configuration.Password)
-                    && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization")
-            )
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add(
-                    "Authorization",
-                    "Basic "
-                        + Dropbox.Sign.Client.ClientUtils.Base64Encode(
-                            this.Configuration.Username + ":" + this.Configuration.Password
-                        )
-                );
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Dropbox.Sign.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (oauth2) required
             // bearer authentication required
-            if (
-                !string.IsNullOrEmpty(this.Configuration.AccessToken)
-                && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization")
-            )
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add(
-                    "Authorization",
-                    "Bearer " + this.Configuration.AccessToken
-                );
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<FileResponseDataUri>(
-                "/template/files_as_data_uri/{template_id}",
-                localVarRequestOptions,
-                this.Configuration
-            );
+            var localVarResponse = this.Client.Get<FileResponseDataUri>("/template/files_as_data_uri/{template_id}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory(
-                    "TemplateFilesAsDataUri",
-                    localVarResponse
-                );
+                Exception _exception = this.ExceptionFactory("TemplateFilesAsDataUri", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -2386,20 +1726,9 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FileResponseDataUri</returns>
-        public async System.Threading.Tasks.Task<FileResponseDataUri> TemplateFilesAsDataUriAsync(
-            string templateId,
-            int operationIndex = 0,
-            System.Threading.CancellationToken cancellationToken =
-                default(System.Threading.CancellationToken)
-        )
+        public async System.Threading.Tasks.Task<FileResponseDataUri> TemplateFilesAsDataUriAsync(string templateId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Dropbox.Sign.Client.ApiResponse<FileResponseDataUri> localVarResponse =
-                await TemplateFilesAsDataUriWithHttpInfoAsync(
-                        templateId,
-                        operationIndex,
-                        cancellationToken
-                    )
-                    .ConfigureAwait(false);
+            Dropbox.Sign.Client.ApiResponse<FileResponseDataUri> localVarResponse = await TemplateFilesAsDataUriWithHttpInfoAsync(templateId, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2411,32 +1740,25 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FileResponseDataUri)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<FileResponseDataUri>> TemplateFilesAsDataUriWithHttpInfoAsync(
-            string templateId,
-            int operationIndex = 0,
-            System.Threading.CancellationToken cancellationToken =
-                default(System.Threading.CancellationToken)
-        )
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<FileResponseDataUri>> TemplateFilesAsDataUriWithHttpInfoAsync(string templateId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'templateId' is set
             if (templateId == null)
             {
-                throw new Dropbox.Sign.Client.ApiException(
-                    400,
-                    "Missing required parameter 'templateId' when calling TemplateApi->TemplateFilesAsDataUri"
-                );
+                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'templateId' when calling TemplateApi->TemplateFilesAsDataUri");
             }
 
-            Dropbox.Sign.Client.RequestOptions localVarRequestOptions =
-                new Dropbox.Sign.Client.RequestOptions();
 
-            string[] _contentTypes = new string[] { };
-            var localVarContentType = Dropbox.Sign.Client.ClientUtils.SelectHeaderContentType(
-                _contentTypes
-            );
+            Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+            var localVarContentType = Dropbox.Sign.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
 
             // to determine the Accept header
-            string[] _accepts = new string[] { "application/json" };
+            string[] _accepts = new string[] {
+                "application/json"
+            };
 
             if (localVarContentType != null)
             {
@@ -2449,59 +1771,30 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add(
-                "template_id",
-                Dropbox.Sign.Client.ClientUtils.ParameterToString(templateId)
-            ); // path parameter
+            localVarRequestOptions.PathParameters.Add("template_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(templateId)); // path parameter
 
             localVarRequestOptions.Operation = "TemplateApi.TemplateFilesAsDataUri";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (api_key) required
             // http basic authentication required
-            if (
-                !string.IsNullOrEmpty(this.Configuration.Username)
-                || !string.IsNullOrEmpty(this.Configuration.Password)
-                    && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization")
-            )
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add(
-                    "Authorization",
-                    "Basic "
-                        + Dropbox.Sign.Client.ClientUtils.Base64Encode(
-                            this.Configuration.Username + ":" + this.Configuration.Password
-                        )
-                );
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Dropbox.Sign.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (oauth2) required
             // bearer authentication required
-            if (
-                !string.IsNullOrEmpty(this.Configuration.AccessToken)
-                && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization")
-            )
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add(
-                    "Authorization",
-                    "Bearer " + this.Configuration.AccessToken
-                );
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
 
             // make the HTTP request
-            var localVarResponse = await this
-                .AsynchronousClient.GetAsync<FileResponseDataUri>(
-                    "/template/files_as_data_uri/{template_id}",
-                    localVarRequestOptions,
-                    this.Configuration,
-                    cancellationToken
-                )
-                .ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<FileResponseDataUri>("/template/files_as_data_uri/{template_id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory(
-                    "TemplateFilesAsDataUri",
-                    localVarResponse
-                );
+                Exception _exception = this.ExceptionFactory("TemplateFilesAsDataUri", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -2519,14 +1812,9 @@ namespace Dropbox.Sign.Api
         /// <param name="forceDownload">By default when opening the &#x60;file_url&#x60; a browser will download the PDF and save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser. (optional, default to 1)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>FileResponse</returns>
-        public FileResponse TemplateFilesAsFileUrl(
-            string templateId,
-            int? forceDownload = default(int?),
-            int operationIndex = 0
-        )
+        public FileResponse TemplateFilesAsFileUrl(string templateId, int? forceDownload = default(int?), int operationIndex = 0)
         {
-            Dropbox.Sign.Client.ApiResponse<FileResponse> localVarResponse =
-                TemplateFilesAsFileUrlWithHttpInfo(templateId, forceDownload);
+            Dropbox.Sign.Client.ApiResponse<FileResponse> localVarResponse = TemplateFilesAsFileUrlWithHttpInfo(templateId, forceDownload);
             return localVarResponse.Data;
         }
 
@@ -2538,31 +1826,24 @@ namespace Dropbox.Sign.Api
         /// <param name="forceDownload">By default when opening the &#x60;file_url&#x60; a browser will download the PDF and save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser. (optional, default to 1)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of FileResponse</returns>
-        public Dropbox.Sign.Client.ApiResponse<FileResponse> TemplateFilesAsFileUrlWithHttpInfo(
-            string templateId,
-            int? forceDownload = default(int?),
-            int operationIndex = 0
-        )
+        public Dropbox.Sign.Client.ApiResponse<FileResponse> TemplateFilesAsFileUrlWithHttpInfo(string templateId, int? forceDownload = default(int?), int operationIndex = 0)
         {
             // verify the required parameter 'templateId' is set
             if (templateId == null)
             {
-                throw new Dropbox.Sign.Client.ApiException(
-                    400,
-                    "Missing required parameter 'templateId' when calling TemplateApi->TemplateFilesAsFileUrl"
-                );
+                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'templateId' when calling TemplateApi->TemplateFilesAsFileUrl");
             }
 
-            Dropbox.Sign.Client.RequestOptions localVarRequestOptions =
-                new Dropbox.Sign.Client.RequestOptions();
+            Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
 
-            string[] _contentTypes = new string[] { };
-            var localVarContentType = Dropbox.Sign.Client.ClientUtils.SelectHeaderContentType(
-                _contentTypes
-            );
+            string[] _contentTypes = new string[] {
+            };
+            var localVarContentType = Dropbox.Sign.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
 
             // to determine the Accept header
-            string[] _accepts = new string[] { "application/json" };
+            string[] _accepts = new string[] {
+                "application/json"
+            };
 
             if (localVarContentType != null)
             {
@@ -2575,19 +1856,10 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add(
-                "template_id",
-                Dropbox.Sign.Client.ClientUtils.ParameterToString(templateId)
-            ); // path parameter
+            localVarRequestOptions.PathParameters.Add("template_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(templateId)); // path parameter
             if (forceDownload != null)
             {
-                localVarRequestOptions.QueryParameters.Add(
-                    Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap(
-                        "",
-                        "force_download",
-                        forceDownload
-                    )
-                );
+                localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "force_download", forceDownload));
             }
 
             localVarRequestOptions.Operation = "TemplateApi.TemplateFilesAsFileUrl";
@@ -2595,45 +1867,22 @@ namespace Dropbox.Sign.Api
 
             // authentication (api_key) required
             // http basic authentication required
-            if (
-                !string.IsNullOrEmpty(this.Configuration.Username)
-                || !string.IsNullOrEmpty(this.Configuration.Password)
-                    && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization")
-            )
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add(
-                    "Authorization",
-                    "Basic "
-                        + Dropbox.Sign.Client.ClientUtils.Base64Encode(
-                            this.Configuration.Username + ":" + this.Configuration.Password
-                        )
-                );
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Dropbox.Sign.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (oauth2) required
             // bearer authentication required
-            if (
-                !string.IsNullOrEmpty(this.Configuration.AccessToken)
-                && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization")
-            )
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add(
-                    "Authorization",
-                    "Bearer " + this.Configuration.AccessToken
-                );
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<FileResponse>(
-                "/template/files_as_file_url/{template_id}",
-                localVarRequestOptions,
-                this.Configuration
-            );
+            var localVarResponse = this.Client.Get<FileResponse>("/template/files_as_file_url/{template_id}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory(
-                    "TemplateFilesAsFileUrl",
-                    localVarResponse
-                );
+                Exception _exception = this.ExceptionFactory("TemplateFilesAsFileUrl", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -2652,22 +1901,9 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FileResponse</returns>
-        public async System.Threading.Tasks.Task<FileResponse> TemplateFilesAsFileUrlAsync(
-            string templateId,
-            int? forceDownload = default(int?),
-            int operationIndex = 0,
-            System.Threading.CancellationToken cancellationToken =
-                default(System.Threading.CancellationToken)
-        )
+        public async System.Threading.Tasks.Task<FileResponse> TemplateFilesAsFileUrlAsync(string templateId, int? forceDownload = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Dropbox.Sign.Client.ApiResponse<FileResponse> localVarResponse =
-                await TemplateFilesAsFileUrlWithHttpInfoAsync(
-                        templateId,
-                        forceDownload,
-                        operationIndex,
-                        cancellationToken
-                    )
-                    .ConfigureAwait(false);
+            Dropbox.Sign.Client.ApiResponse<FileResponse> localVarResponse = await TemplateFilesAsFileUrlWithHttpInfoAsync(templateId, forceDownload, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2680,33 +1916,25 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FileResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<FileResponse>> TemplateFilesAsFileUrlWithHttpInfoAsync(
-            string templateId,
-            int? forceDownload = default(int?),
-            int operationIndex = 0,
-            System.Threading.CancellationToken cancellationToken =
-                default(System.Threading.CancellationToken)
-        )
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<FileResponse>> TemplateFilesAsFileUrlWithHttpInfoAsync(string templateId, int? forceDownload = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'templateId' is set
             if (templateId == null)
             {
-                throw new Dropbox.Sign.Client.ApiException(
-                    400,
-                    "Missing required parameter 'templateId' when calling TemplateApi->TemplateFilesAsFileUrl"
-                );
+                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'templateId' when calling TemplateApi->TemplateFilesAsFileUrl");
             }
 
-            Dropbox.Sign.Client.RequestOptions localVarRequestOptions =
-                new Dropbox.Sign.Client.RequestOptions();
 
-            string[] _contentTypes = new string[] { };
-            var localVarContentType = Dropbox.Sign.Client.ClientUtils.SelectHeaderContentType(
-                _contentTypes
-            );
+            Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+            var localVarContentType = Dropbox.Sign.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
 
             // to determine the Accept header
-            string[] _accepts = new string[] { "application/json" };
+            string[] _accepts = new string[] {
+                "application/json"
+            };
 
             if (localVarContentType != null)
             {
@@ -2719,19 +1947,10 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add(
-                "template_id",
-                Dropbox.Sign.Client.ClientUtils.ParameterToString(templateId)
-            ); // path parameter
+            localVarRequestOptions.PathParameters.Add("template_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(templateId)); // path parameter
             if (forceDownload != null)
             {
-                localVarRequestOptions.QueryParameters.Add(
-                    Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap(
-                        "",
-                        "force_download",
-                        forceDownload
-                    )
-                );
+                localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "force_download", forceDownload));
             }
 
             localVarRequestOptions.Operation = "TemplateApi.TemplateFilesAsFileUrl";
@@ -2739,49 +1958,23 @@ namespace Dropbox.Sign.Api
 
             // authentication (api_key) required
             // http basic authentication required
-            if (
-                !string.IsNullOrEmpty(this.Configuration.Username)
-                || !string.IsNullOrEmpty(this.Configuration.Password)
-                    && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization")
-            )
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add(
-                    "Authorization",
-                    "Basic "
-                        + Dropbox.Sign.Client.ClientUtils.Base64Encode(
-                            this.Configuration.Username + ":" + this.Configuration.Password
-                        )
-                );
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Dropbox.Sign.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (oauth2) required
             // bearer authentication required
-            if (
-                !string.IsNullOrEmpty(this.Configuration.AccessToken)
-                && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization")
-            )
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add(
-                    "Authorization",
-                    "Bearer " + this.Configuration.AccessToken
-                );
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
 
             // make the HTTP request
-            var localVarResponse = await this
-                .AsynchronousClient.GetAsync<FileResponse>(
-                    "/template/files_as_file_url/{template_id}",
-                    localVarRequestOptions,
-                    this.Configuration,
-                    cancellationToken
-                )
-                .ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<FileResponse>("/template/files_as_file_url/{template_id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory(
-                    "TemplateFilesAsFileUrl",
-                    localVarResponse
-                );
+                Exception _exception = this.ExceptionFactory("TemplateFilesAsFileUrl", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -2800,8 +1993,7 @@ namespace Dropbox.Sign.Api
         /// <returns>TemplateGetResponse</returns>
         public TemplateGetResponse TemplateGet(string templateId, int operationIndex = 0)
         {
-            Dropbox.Sign.Client.ApiResponse<TemplateGetResponse> localVarResponse =
-                TemplateGetWithHttpInfo(templateId);
+            Dropbox.Sign.Client.ApiResponse<TemplateGetResponse> localVarResponse = TemplateGetWithHttpInfo(templateId);
             return localVarResponse.Data;
         }
 
@@ -2812,30 +2004,24 @@ namespace Dropbox.Sign.Api
         /// <param name="templateId">The id of the Template to retrieve.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of TemplateGetResponse</returns>
-        public Dropbox.Sign.Client.ApiResponse<TemplateGetResponse> TemplateGetWithHttpInfo(
-            string templateId,
-            int operationIndex = 0
-        )
+        public Dropbox.Sign.Client.ApiResponse<TemplateGetResponse> TemplateGetWithHttpInfo(string templateId, int operationIndex = 0)
         {
             // verify the required parameter 'templateId' is set
             if (templateId == null)
             {
-                throw new Dropbox.Sign.Client.ApiException(
-                    400,
-                    "Missing required parameter 'templateId' when calling TemplateApi->TemplateGet"
-                );
+                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'templateId' when calling TemplateApi->TemplateGet");
             }
 
-            Dropbox.Sign.Client.RequestOptions localVarRequestOptions =
-                new Dropbox.Sign.Client.RequestOptions();
+            Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
 
-            string[] _contentTypes = new string[] { };
-            var localVarContentType = Dropbox.Sign.Client.ClientUtils.SelectHeaderContentType(
-                _contentTypes
-            );
+            string[] _contentTypes = new string[] {
+            };
+            var localVarContentType = Dropbox.Sign.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
 
             // to determine the Accept header
-            string[] _accepts = new string[] { "application/json" };
+            string[] _accepts = new string[] {
+                "application/json"
+            };
 
             if (localVarContentType != null)
             {
@@ -2848,49 +2034,26 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add(
-                "template_id",
-                Dropbox.Sign.Client.ClientUtils.ParameterToString(templateId)
-            ); // path parameter
+            localVarRequestOptions.PathParameters.Add("template_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(templateId)); // path parameter
 
             localVarRequestOptions.Operation = "TemplateApi.TemplateGet";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (api_key) required
             // http basic authentication required
-            if (
-                !string.IsNullOrEmpty(this.Configuration.Username)
-                || !string.IsNullOrEmpty(this.Configuration.Password)
-                    && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization")
-            )
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add(
-                    "Authorization",
-                    "Basic "
-                        + Dropbox.Sign.Client.ClientUtils.Base64Encode(
-                            this.Configuration.Username + ":" + this.Configuration.Password
-                        )
-                );
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Dropbox.Sign.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (oauth2) required
             // bearer authentication required
-            if (
-                !string.IsNullOrEmpty(this.Configuration.AccessToken)
-                && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization")
-            )
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add(
-                    "Authorization",
-                    "Bearer " + this.Configuration.AccessToken
-                );
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<TemplateGetResponse>(
-                "/template/{template_id}",
-                localVarRequestOptions,
-                this.Configuration
-            );
+            var localVarResponse = this.Client.Get<TemplateGetResponse>("/template/{template_id}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("TemplateGet", localVarResponse);
@@ -2911,16 +2074,9 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TemplateGetResponse</returns>
-        public async System.Threading.Tasks.Task<TemplateGetResponse> TemplateGetAsync(
-            string templateId,
-            int operationIndex = 0,
-            System.Threading.CancellationToken cancellationToken =
-                default(System.Threading.CancellationToken)
-        )
+        public async System.Threading.Tasks.Task<TemplateGetResponse> TemplateGetAsync(string templateId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Dropbox.Sign.Client.ApiResponse<TemplateGetResponse> localVarResponse =
-                await TemplateGetWithHttpInfoAsync(templateId, operationIndex, cancellationToken)
-                    .ConfigureAwait(false);
+            Dropbox.Sign.Client.ApiResponse<TemplateGetResponse> localVarResponse = await TemplateGetWithHttpInfoAsync(templateId, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2932,32 +2088,25 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TemplateGetResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<TemplateGetResponse>> TemplateGetWithHttpInfoAsync(
-            string templateId,
-            int operationIndex = 0,
-            System.Threading.CancellationToken cancellationToken =
-                default(System.Threading.CancellationToken)
-        )
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<TemplateGetResponse>> TemplateGetWithHttpInfoAsync(string templateId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'templateId' is set
             if (templateId == null)
             {
-                throw new Dropbox.Sign.Client.ApiException(
-                    400,
-                    "Missing required parameter 'templateId' when calling TemplateApi->TemplateGet"
-                );
+                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'templateId' when calling TemplateApi->TemplateGet");
             }
 
-            Dropbox.Sign.Client.RequestOptions localVarRequestOptions =
-                new Dropbox.Sign.Client.RequestOptions();
 
-            string[] _contentTypes = new string[] { };
-            var localVarContentType = Dropbox.Sign.Client.ClientUtils.SelectHeaderContentType(
-                _contentTypes
-            );
+            Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+            var localVarContentType = Dropbox.Sign.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
 
             // to determine the Accept header
-            string[] _accepts = new string[] { "application/json" };
+            string[] _accepts = new string[] {
+                "application/json"
+            };
 
             if (localVarContentType != null)
             {
@@ -2970,52 +2119,26 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add(
-                "template_id",
-                Dropbox.Sign.Client.ClientUtils.ParameterToString(templateId)
-            ); // path parameter
+            localVarRequestOptions.PathParameters.Add("template_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(templateId)); // path parameter
 
             localVarRequestOptions.Operation = "TemplateApi.TemplateGet";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (api_key) required
             // http basic authentication required
-            if (
-                !string.IsNullOrEmpty(this.Configuration.Username)
-                || !string.IsNullOrEmpty(this.Configuration.Password)
-                    && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization")
-            )
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add(
-                    "Authorization",
-                    "Basic "
-                        + Dropbox.Sign.Client.ClientUtils.Base64Encode(
-                            this.Configuration.Username + ":" + this.Configuration.Password
-                        )
-                );
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Dropbox.Sign.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (oauth2) required
             // bearer authentication required
-            if (
-                !string.IsNullOrEmpty(this.Configuration.AccessToken)
-                && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization")
-            )
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add(
-                    "Authorization",
-                    "Bearer " + this.Configuration.AccessToken
-                );
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
 
             // make the HTTP request
-            var localVarResponse = await this
-                .AsynchronousClient.GetAsync<TemplateGetResponse>(
-                    "/template/{template_id}",
-                    localVarRequestOptions,
-                    this.Configuration,
-                    cancellationToken
-                )
-                .ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<TemplateGetResponse>("/template/{template_id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -3039,16 +2162,9 @@ namespace Dropbox.Sign.Api
         /// <param name="query">String that includes search terms and/or fields to be used to filter the Template objects. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>TemplateListResponse</returns>
-        public TemplateListResponse TemplateList(
-            string? accountId = default(string?),
-            int? page = default(int?),
-            int? pageSize = default(int?),
-            string? query = default(string?),
-            int operationIndex = 0
-        )
+        public TemplateListResponse TemplateList(string? accountId = default(string?), int? page = default(int?), int? pageSize = default(int?), string? query = default(string?), int operationIndex = 0)
         {
-            Dropbox.Sign.Client.ApiResponse<TemplateListResponse> localVarResponse =
-                TemplateListWithHttpInfo(accountId, page, pageSize, query);
+            Dropbox.Sign.Client.ApiResponse<TemplateListResponse> localVarResponse = TemplateListWithHttpInfo(accountId, page, pageSize, query);
             return localVarResponse.Data;
         }
 
@@ -3062,24 +2178,18 @@ namespace Dropbox.Sign.Api
         /// <param name="query">String that includes search terms and/or fields to be used to filter the Template objects. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of TemplateListResponse</returns>
-        public Dropbox.Sign.Client.ApiResponse<TemplateListResponse> TemplateListWithHttpInfo(
-            string? accountId = default(string?),
-            int? page = default(int?),
-            int? pageSize = default(int?),
-            string? query = default(string?),
-            int operationIndex = 0
-        )
+        public Dropbox.Sign.Client.ApiResponse<TemplateListResponse> TemplateListWithHttpInfo(string? accountId = default(string?), int? page = default(int?), int? pageSize = default(int?), string? query = default(string?), int operationIndex = 0)
         {
-            Dropbox.Sign.Client.RequestOptions localVarRequestOptions =
-                new Dropbox.Sign.Client.RequestOptions();
+            Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
 
-            string[] _contentTypes = new string[] { };
-            var localVarContentType = Dropbox.Sign.Client.ClientUtils.SelectHeaderContentType(
-                _contentTypes
-            );
+            string[] _contentTypes = new string[] {
+            };
+            var localVarContentType = Dropbox.Sign.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
 
             // to determine the Accept header
-            string[] _accepts = new string[] { "application/json" };
+            string[] _accepts = new string[] {
+                "application/json"
+            };
 
             if (localVarContentType != null)
             {
@@ -3094,27 +2204,19 @@ namespace Dropbox.Sign.Api
 
             if (accountId != null)
             {
-                localVarRequestOptions.QueryParameters.Add(
-                    Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "account_id", accountId)
-                );
+                localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "account_id", accountId));
             }
             if (page != null)
             {
-                localVarRequestOptions.QueryParameters.Add(
-                    Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "page", page)
-                );
+                localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "page", page));
             }
             if (pageSize != null)
             {
-                localVarRequestOptions.QueryParameters.Add(
-                    Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "page_size", pageSize)
-                );
+                localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "page_size", pageSize));
             }
             if (query != null)
             {
-                localVarRequestOptions.QueryParameters.Add(
-                    Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "query", query)
-                );
+                localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "query", query));
             }
 
             localVarRequestOptions.Operation = "TemplateApi.TemplateList";
@@ -3122,39 +2224,19 @@ namespace Dropbox.Sign.Api
 
             // authentication (api_key) required
             // http basic authentication required
-            if (
-                !string.IsNullOrEmpty(this.Configuration.Username)
-                || !string.IsNullOrEmpty(this.Configuration.Password)
-                    && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization")
-            )
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add(
-                    "Authorization",
-                    "Basic "
-                        + Dropbox.Sign.Client.ClientUtils.Base64Encode(
-                            this.Configuration.Username + ":" + this.Configuration.Password
-                        )
-                );
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Dropbox.Sign.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (oauth2) required
             // bearer authentication required
-            if (
-                !string.IsNullOrEmpty(this.Configuration.AccessToken)
-                && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization")
-            )
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add(
-                    "Authorization",
-                    "Bearer " + this.Configuration.AccessToken
-                );
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<TemplateListResponse>(
-                "/template/list",
-                localVarRequestOptions,
-                this.Configuration
-            );
+            var localVarResponse = this.Client.Get<TemplateListResponse>("/template/list", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("TemplateList", localVarResponse);
@@ -3178,26 +2260,9 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TemplateListResponse</returns>
-        public async System.Threading.Tasks.Task<TemplateListResponse> TemplateListAsync(
-            string? accountId = default(string?),
-            int? page = default(int?),
-            int? pageSize = default(int?),
-            string? query = default(string?),
-            int operationIndex = 0,
-            System.Threading.CancellationToken cancellationToken =
-                default(System.Threading.CancellationToken)
-        )
+        public async System.Threading.Tasks.Task<TemplateListResponse> TemplateListAsync(string? accountId = default(string?), int? page = default(int?), int? pageSize = default(int?), string? query = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Dropbox.Sign.Client.ApiResponse<TemplateListResponse> localVarResponse =
-                await TemplateListWithHttpInfoAsync(
-                        accountId,
-                        page,
-                        pageSize,
-                        query,
-                        operationIndex,
-                        cancellationToken
-                    )
-                    .ConfigureAwait(false);
+            Dropbox.Sign.Client.ApiResponse<TemplateListResponse> localVarResponse = await TemplateListWithHttpInfoAsync(accountId, page, pageSize, query, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3212,26 +2277,19 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TemplateListResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<TemplateListResponse>> TemplateListWithHttpInfoAsync(
-            string? accountId = default(string?),
-            int? page = default(int?),
-            int? pageSize = default(int?),
-            string? query = default(string?),
-            int operationIndex = 0,
-            System.Threading.CancellationToken cancellationToken =
-                default(System.Threading.CancellationToken)
-        )
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<TemplateListResponse>> TemplateListWithHttpInfoAsync(string? accountId = default(string?), int? page = default(int?), int? pageSize = default(int?), string? query = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Dropbox.Sign.Client.RequestOptions localVarRequestOptions =
-                new Dropbox.Sign.Client.RequestOptions();
 
-            string[] _contentTypes = new string[] { };
-            var localVarContentType = Dropbox.Sign.Client.ClientUtils.SelectHeaderContentType(
-                _contentTypes
-            );
+            Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+            var localVarContentType = Dropbox.Sign.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
 
             // to determine the Accept header
-            string[] _accepts = new string[] { "application/json" };
+            string[] _accepts = new string[] {
+                "application/json"
+            };
 
             if (localVarContentType != null)
             {
@@ -3246,27 +2304,19 @@ namespace Dropbox.Sign.Api
 
             if (accountId != null)
             {
-                localVarRequestOptions.QueryParameters.Add(
-                    Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "account_id", accountId)
-                );
+                localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "account_id", accountId));
             }
             if (page != null)
             {
-                localVarRequestOptions.QueryParameters.Add(
-                    Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "page", page)
-                );
+                localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "page", page));
             }
             if (pageSize != null)
             {
-                localVarRequestOptions.QueryParameters.Add(
-                    Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "page_size", pageSize)
-                );
+                localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "page_size", pageSize));
             }
             if (query != null)
             {
-                localVarRequestOptions.QueryParameters.Add(
-                    Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "query", query)
-                );
+                localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "query", query));
             }
 
             localVarRequestOptions.Operation = "TemplateApi.TemplateList";
@@ -3274,42 +2324,19 @@ namespace Dropbox.Sign.Api
 
             // authentication (api_key) required
             // http basic authentication required
-            if (
-                !string.IsNullOrEmpty(this.Configuration.Username)
-                || !string.IsNullOrEmpty(this.Configuration.Password)
-                    && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization")
-            )
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add(
-                    "Authorization",
-                    "Basic "
-                        + Dropbox.Sign.Client.ClientUtils.Base64Encode(
-                            this.Configuration.Username + ":" + this.Configuration.Password
-                        )
-                );
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Dropbox.Sign.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (oauth2) required
             // bearer authentication required
-            if (
-                !string.IsNullOrEmpty(this.Configuration.AccessToken)
-                && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization")
-            )
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add(
-                    "Authorization",
-                    "Bearer " + this.Configuration.AccessToken
-                );
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
 
             // make the HTTP request
-            var localVarResponse = await this
-                .AsynchronousClient.GetAsync<TemplateListResponse>(
-                    "/template/list",
-                    localVarRequestOptions,
-                    this.Configuration,
-                    cancellationToken
-                )
-                .ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<TemplateListResponse>("/template/list", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -3331,14 +2358,9 @@ namespace Dropbox.Sign.Api
         /// <param name="templateRemoveUserRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>TemplateGetResponse</returns>
-        public TemplateGetResponse TemplateRemoveUser(
-            string templateId,
-            TemplateRemoveUserRequest templateRemoveUserRequest,
-            int operationIndex = 0
-        )
+        public TemplateGetResponse TemplateRemoveUser(string templateId, TemplateRemoveUserRequest templateRemoveUserRequest, int operationIndex = 0)
         {
-            Dropbox.Sign.Client.ApiResponse<TemplateGetResponse> localVarResponse =
-                TemplateRemoveUserWithHttpInfo(templateId, templateRemoveUserRequest);
+            Dropbox.Sign.Client.ApiResponse<TemplateGetResponse> localVarResponse = TemplateRemoveUserWithHttpInfo(templateId, templateRemoveUserRequest);
             return localVarResponse.Data;
         }
 
@@ -3350,32 +2372,21 @@ namespace Dropbox.Sign.Api
         /// <param name="templateRemoveUserRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of TemplateGetResponse</returns>
-        public Dropbox.Sign.Client.ApiResponse<TemplateGetResponse> TemplateRemoveUserWithHttpInfo(
-            string templateId,
-            TemplateRemoveUserRequest templateRemoveUserRequest,
-            int operationIndex = 0
-        )
+        public Dropbox.Sign.Client.ApiResponse<TemplateGetResponse> TemplateRemoveUserWithHttpInfo(string templateId, TemplateRemoveUserRequest templateRemoveUserRequest, int operationIndex = 0)
         {
             // verify the required parameter 'templateId' is set
             if (templateId == null)
             {
-                throw new Dropbox.Sign.Client.ApiException(
-                    400,
-                    "Missing required parameter 'templateId' when calling TemplateApi->TemplateRemoveUser"
-                );
+                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'templateId' when calling TemplateApi->TemplateRemoveUser");
             }
 
             // verify the required parameter 'templateRemoveUserRequest' is set
             if (templateRemoveUserRequest == null)
             {
-                throw new Dropbox.Sign.Client.ApiException(
-                    400,
-                    "Missing required parameter 'templateRemoveUserRequest' when calling TemplateApi->TemplateRemoveUser"
-                );
+                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'templateRemoveUserRequest' when calling TemplateApi->TemplateRemoveUser");
             }
 
-            Dropbox.Sign.Client.RequestOptions localVarRequestOptions =
-                new Dropbox.Sign.Client.RequestOptions();
+            Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
 
             var localVarContentType = "";
             var openApiTypes = templateRemoveUserRequest.GetOpenApiTypes();
@@ -3391,7 +2402,9 @@ namespace Dropbox.Sign.Api
             }
 
             // to determine the Accept header
-            string[] _accepts = new string[] { "application/json" };
+            string[] _accepts = new string[] {
+                "application/json"
+            };
 
             if (localVarContentType != null)
             {
@@ -3404,55 +2417,29 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add(
-                "template_id",
-                Dropbox.Sign.Client.ClientUtils.ParameterToString(templateId)
-            ); // path parameter
+            localVarRequestOptions.PathParameters.Add("template_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(templateId)); // path parameter
 
             localVarRequestOptions.Operation = "TemplateApi.TemplateRemoveUser";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (api_key) required
             // http basic authentication required
-            if (
-                !string.IsNullOrEmpty(this.Configuration.Username)
-                || !string.IsNullOrEmpty(this.Configuration.Password)
-                    && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization")
-            )
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add(
-                    "Authorization",
-                    "Basic "
-                        + Dropbox.Sign.Client.ClientUtils.Base64Encode(
-                            this.Configuration.Username + ":" + this.Configuration.Password
-                        )
-                );
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Dropbox.Sign.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (oauth2) required
             // bearer authentication required
-            if (
-                !string.IsNullOrEmpty(this.Configuration.AccessToken)
-                && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization")
-            )
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add(
-                    "Authorization",
-                    "Bearer " + this.Configuration.AccessToken
-                );
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<TemplateGetResponse>(
-                "/template/remove_user/{template_id}",
-                localVarRequestOptions,
-                this.Configuration
-            );
+            var localVarResponse = this.Client.Post<TemplateGetResponse>("/template/remove_user/{template_id}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory(
-                    "TemplateRemoveUser",
-                    localVarResponse
-                );
+                Exception _exception = this.ExceptionFactory("TemplateRemoveUser", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -3471,22 +2458,9 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TemplateGetResponse</returns>
-        public async System.Threading.Tasks.Task<TemplateGetResponse> TemplateRemoveUserAsync(
-            string templateId,
-            TemplateRemoveUserRequest templateRemoveUserRequest,
-            int operationIndex = 0,
-            System.Threading.CancellationToken cancellationToken =
-                default(System.Threading.CancellationToken)
-        )
+        public async System.Threading.Tasks.Task<TemplateGetResponse> TemplateRemoveUserAsync(string templateId, TemplateRemoveUserRequest templateRemoveUserRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Dropbox.Sign.Client.ApiResponse<TemplateGetResponse> localVarResponse =
-                await TemplateRemoveUserWithHttpInfoAsync(
-                        templateId,
-                        templateRemoveUserRequest,
-                        operationIndex,
-                        cancellationToken
-                    )
-                    .ConfigureAwait(false);
+            Dropbox.Sign.Client.ApiResponse<TemplateGetResponse> localVarResponse = await TemplateRemoveUserWithHttpInfoAsync(templateId, templateRemoveUserRequest, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3499,34 +2473,22 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TemplateGetResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<TemplateGetResponse>> TemplateRemoveUserWithHttpInfoAsync(
-            string templateId,
-            TemplateRemoveUserRequest templateRemoveUserRequest,
-            int operationIndex = 0,
-            System.Threading.CancellationToken cancellationToken =
-                default(System.Threading.CancellationToken)
-        )
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<TemplateGetResponse>> TemplateRemoveUserWithHttpInfoAsync(string templateId, TemplateRemoveUserRequest templateRemoveUserRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'templateId' is set
             if (templateId == null)
             {
-                throw new Dropbox.Sign.Client.ApiException(
-                    400,
-                    "Missing required parameter 'templateId' when calling TemplateApi->TemplateRemoveUser"
-                );
+                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'templateId' when calling TemplateApi->TemplateRemoveUser");
             }
 
             // verify the required parameter 'templateRemoveUserRequest' is set
             if (templateRemoveUserRequest == null)
             {
-                throw new Dropbox.Sign.Client.ApiException(
-                    400,
-                    "Missing required parameter 'templateRemoveUserRequest' when calling TemplateApi->TemplateRemoveUser"
-                );
+                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'templateRemoveUserRequest' when calling TemplateApi->TemplateRemoveUser");
             }
 
-            Dropbox.Sign.Client.RequestOptions localVarRequestOptions =
-                new Dropbox.Sign.Client.RequestOptions();
+
+            Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
 
             var localVarContentType = "";
             var openApiTypes = templateRemoveUserRequest.GetOpenApiTypes();
@@ -3542,7 +2504,9 @@ namespace Dropbox.Sign.Api
             }
 
             // to determine the Accept header
-            string[] _accepts = new string[] { "application/json" };
+            string[] _accepts = new string[] {
+                "application/json"
+            };
 
             if (localVarContentType != null)
             {
@@ -3555,59 +2519,30 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add(
-                "template_id",
-                Dropbox.Sign.Client.ClientUtils.ParameterToString(templateId)
-            ); // path parameter
+            localVarRequestOptions.PathParameters.Add("template_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(templateId)); // path parameter
 
             localVarRequestOptions.Operation = "TemplateApi.TemplateRemoveUser";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (api_key) required
             // http basic authentication required
-            if (
-                !string.IsNullOrEmpty(this.Configuration.Username)
-                || !string.IsNullOrEmpty(this.Configuration.Password)
-                    && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization")
-            )
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add(
-                    "Authorization",
-                    "Basic "
-                        + Dropbox.Sign.Client.ClientUtils.Base64Encode(
-                            this.Configuration.Username + ":" + this.Configuration.Password
-                        )
-                );
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Dropbox.Sign.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (oauth2) required
             // bearer authentication required
-            if (
-                !string.IsNullOrEmpty(this.Configuration.AccessToken)
-                && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization")
-            )
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add(
-                    "Authorization",
-                    "Bearer " + this.Configuration.AccessToken
-                );
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
 
             // make the HTTP request
-            var localVarResponse = await this
-                .AsynchronousClient.PostAsync<TemplateGetResponse>(
-                    "/template/remove_user/{template_id}",
-                    localVarRequestOptions,
-                    this.Configuration,
-                    cancellationToken
-                )
-                .ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<TemplateGetResponse>("/template/remove_user/{template_id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory(
-                    "TemplateRemoveUser",
-                    localVarResponse
-                );
+                Exception _exception = this.ExceptionFactory("TemplateRemoveUser", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -3625,14 +2560,9 @@ namespace Dropbox.Sign.Api
         /// <param name="templateUpdateFilesRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>TemplateUpdateFilesResponse</returns>
-        public TemplateUpdateFilesResponse TemplateUpdateFiles(
-            string templateId,
-            TemplateUpdateFilesRequest templateUpdateFilesRequest,
-            int operationIndex = 0
-        )
+        public TemplateUpdateFilesResponse TemplateUpdateFiles(string templateId, TemplateUpdateFilesRequest templateUpdateFilesRequest, int operationIndex = 0)
         {
-            Dropbox.Sign.Client.ApiResponse<TemplateUpdateFilesResponse> localVarResponse =
-                TemplateUpdateFilesWithHttpInfo(templateId, templateUpdateFilesRequest);
+            Dropbox.Sign.Client.ApiResponse<TemplateUpdateFilesResponse> localVarResponse = TemplateUpdateFilesWithHttpInfo(templateId, templateUpdateFilesRequest);
             return localVarResponse.Data;
         }
 
@@ -3644,32 +2574,21 @@ namespace Dropbox.Sign.Api
         /// <param name="templateUpdateFilesRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of TemplateUpdateFilesResponse</returns>
-        public Dropbox.Sign.Client.ApiResponse<TemplateUpdateFilesResponse> TemplateUpdateFilesWithHttpInfo(
-            string templateId,
-            TemplateUpdateFilesRequest templateUpdateFilesRequest,
-            int operationIndex = 0
-        )
+        public Dropbox.Sign.Client.ApiResponse<TemplateUpdateFilesResponse> TemplateUpdateFilesWithHttpInfo(string templateId, TemplateUpdateFilesRequest templateUpdateFilesRequest, int operationIndex = 0)
         {
             // verify the required parameter 'templateId' is set
             if (templateId == null)
             {
-                throw new Dropbox.Sign.Client.ApiException(
-                    400,
-                    "Missing required parameter 'templateId' when calling TemplateApi->TemplateUpdateFiles"
-                );
+                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'templateId' when calling TemplateApi->TemplateUpdateFiles");
             }
 
             // verify the required parameter 'templateUpdateFilesRequest' is set
             if (templateUpdateFilesRequest == null)
             {
-                throw new Dropbox.Sign.Client.ApiException(
-                    400,
-                    "Missing required parameter 'templateUpdateFilesRequest' when calling TemplateApi->TemplateUpdateFiles"
-                );
+                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'templateUpdateFilesRequest' when calling TemplateApi->TemplateUpdateFiles");
             }
 
-            Dropbox.Sign.Client.RequestOptions localVarRequestOptions =
-                new Dropbox.Sign.Client.RequestOptions();
+            Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
 
             var localVarContentType = "";
             var openApiTypes = templateUpdateFilesRequest.GetOpenApiTypes();
@@ -3685,7 +2604,9 @@ namespace Dropbox.Sign.Api
             }
 
             // to determine the Accept header
-            string[] _accepts = new string[] { "application/json" };
+            string[] _accepts = new string[] {
+                "application/json"
+            };
 
             if (localVarContentType != null)
             {
@@ -3698,55 +2619,29 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add(
-                "template_id",
-                Dropbox.Sign.Client.ClientUtils.ParameterToString(templateId)
-            ); // path parameter
+            localVarRequestOptions.PathParameters.Add("template_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(templateId)); // path parameter
 
             localVarRequestOptions.Operation = "TemplateApi.TemplateUpdateFiles";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (api_key) required
             // http basic authentication required
-            if (
-                !string.IsNullOrEmpty(this.Configuration.Username)
-                || !string.IsNullOrEmpty(this.Configuration.Password)
-                    && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization")
-            )
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add(
-                    "Authorization",
-                    "Basic "
-                        + Dropbox.Sign.Client.ClientUtils.Base64Encode(
-                            this.Configuration.Username + ":" + this.Configuration.Password
-                        )
-                );
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Dropbox.Sign.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (oauth2) required
             // bearer authentication required
-            if (
-                !string.IsNullOrEmpty(this.Configuration.AccessToken)
-                && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization")
-            )
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add(
-                    "Authorization",
-                    "Bearer " + this.Configuration.AccessToken
-                );
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<TemplateUpdateFilesResponse>(
-                "/template/update_files/{template_id}",
-                localVarRequestOptions,
-                this.Configuration
-            );
+            var localVarResponse = this.Client.Post<TemplateUpdateFilesResponse>("/template/update_files/{template_id}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory(
-                    "TemplateUpdateFiles",
-                    localVarResponse
-                );
+                Exception _exception = this.ExceptionFactory("TemplateUpdateFiles", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -3765,22 +2660,9 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TemplateUpdateFilesResponse</returns>
-        public async System.Threading.Tasks.Task<TemplateUpdateFilesResponse> TemplateUpdateFilesAsync(
-            string templateId,
-            TemplateUpdateFilesRequest templateUpdateFilesRequest,
-            int operationIndex = 0,
-            System.Threading.CancellationToken cancellationToken =
-                default(System.Threading.CancellationToken)
-        )
+        public async System.Threading.Tasks.Task<TemplateUpdateFilesResponse> TemplateUpdateFilesAsync(string templateId, TemplateUpdateFilesRequest templateUpdateFilesRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Dropbox.Sign.Client.ApiResponse<TemplateUpdateFilesResponse> localVarResponse =
-                await TemplateUpdateFilesWithHttpInfoAsync(
-                        templateId,
-                        templateUpdateFilesRequest,
-                        operationIndex,
-                        cancellationToken
-                    )
-                    .ConfigureAwait(false);
+            Dropbox.Sign.Client.ApiResponse<TemplateUpdateFilesResponse> localVarResponse = await TemplateUpdateFilesWithHttpInfoAsync(templateId, templateUpdateFilesRequest, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3793,34 +2675,22 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TemplateUpdateFilesResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<TemplateUpdateFilesResponse>> TemplateUpdateFilesWithHttpInfoAsync(
-            string templateId,
-            TemplateUpdateFilesRequest templateUpdateFilesRequest,
-            int operationIndex = 0,
-            System.Threading.CancellationToken cancellationToken =
-                default(System.Threading.CancellationToken)
-        )
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<TemplateUpdateFilesResponse>> TemplateUpdateFilesWithHttpInfoAsync(string templateId, TemplateUpdateFilesRequest templateUpdateFilesRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'templateId' is set
             if (templateId == null)
             {
-                throw new Dropbox.Sign.Client.ApiException(
-                    400,
-                    "Missing required parameter 'templateId' when calling TemplateApi->TemplateUpdateFiles"
-                );
+                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'templateId' when calling TemplateApi->TemplateUpdateFiles");
             }
 
             // verify the required parameter 'templateUpdateFilesRequest' is set
             if (templateUpdateFilesRequest == null)
             {
-                throw new Dropbox.Sign.Client.ApiException(
-                    400,
-                    "Missing required parameter 'templateUpdateFilesRequest' when calling TemplateApi->TemplateUpdateFiles"
-                );
+                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'templateUpdateFilesRequest' when calling TemplateApi->TemplateUpdateFiles");
             }
 
-            Dropbox.Sign.Client.RequestOptions localVarRequestOptions =
-                new Dropbox.Sign.Client.RequestOptions();
+
+            Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
 
             var localVarContentType = "";
             var openApiTypes = templateUpdateFilesRequest.GetOpenApiTypes();
@@ -3836,7 +2706,9 @@ namespace Dropbox.Sign.Api
             }
 
             // to determine the Accept header
-            string[] _accepts = new string[] { "application/json" };
+            string[] _accepts = new string[] {
+                "application/json"
+            };
 
             if (localVarContentType != null)
             {
@@ -3849,59 +2721,30 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add(
-                "template_id",
-                Dropbox.Sign.Client.ClientUtils.ParameterToString(templateId)
-            ); // path parameter
+            localVarRequestOptions.PathParameters.Add("template_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(templateId)); // path parameter
 
             localVarRequestOptions.Operation = "TemplateApi.TemplateUpdateFiles";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (api_key) required
             // http basic authentication required
-            if (
-                !string.IsNullOrEmpty(this.Configuration.Username)
-                || !string.IsNullOrEmpty(this.Configuration.Password)
-                    && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization")
-            )
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add(
-                    "Authorization",
-                    "Basic "
-                        + Dropbox.Sign.Client.ClientUtils.Base64Encode(
-                            this.Configuration.Username + ":" + this.Configuration.Password
-                        )
-                );
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Dropbox.Sign.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (oauth2) required
             // bearer authentication required
-            if (
-                !string.IsNullOrEmpty(this.Configuration.AccessToken)
-                && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization")
-            )
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
-                localVarRequestOptions.HeaderParameters.Add(
-                    "Authorization",
-                    "Bearer " + this.Configuration.AccessToken
-                );
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
 
             // make the HTTP request
-            var localVarResponse = await this
-                .AsynchronousClient.PostAsync<TemplateUpdateFilesResponse>(
-                    "/template/update_files/{template_id}",
-                    localVarRequestOptions,
-                    this.Configuration,
-                    cancellationToken
-                )
-                .ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<TemplateUpdateFilesResponse>("/template/update_files/{template_id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory(
-                    "TemplateUpdateFiles",
-                    localVarResponse
-                );
+                Exception _exception = this.ExceptionFactory("TemplateUpdateFiles", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -3910,5 +2753,6 @@ namespace Dropbox.Sign.Api
 
             return localVarResponse;
         }
+
     }
 }

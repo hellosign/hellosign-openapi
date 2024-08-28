@@ -13,15 +13,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel.DataAnnotations;
-using System.IO;
 using System.Linq;
+using System.IO;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 
 namespace Dropbox.Sign.Model
@@ -31,18 +31,13 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "TemplateResponseDocumentCustomFieldCheckbox")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class TemplateResponseDocumentCustomFieldCheckbox
-        : TemplateResponseDocumentCustomFieldBase,
-            IOpenApiTyped,
-            IEquatable<TemplateResponseDocumentCustomFieldCheckbox>,
-            IValidatableObject
+    public partial class TemplateResponseDocumentCustomFieldCheckbox : TemplateResponseDocumentCustomFieldBase, IOpenApiTyped, IEquatable<TemplateResponseDocumentCustomFieldCheckbox>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="TemplateResponseDocumentCustomFieldCheckbox" /> class.
         /// </summary>
         [JsonConstructorAttribute]
         protected TemplateResponseDocumentCustomFieldCheckbox() { }
-
         /// <summary>
         /// Initializes a new instance of the <see cref="TemplateResponseDocumentCustomFieldCheckbox" /> class.
         /// </summary>
@@ -56,18 +51,7 @@ namespace Dropbox.Sign.Model
         /// <param name="height">The height in pixels of this form field..</param>
         /// <param name="required">Boolean showing whether or not this field is required..</param>
         /// <param name="group">The name of the group this field is in. If this field is not a group, this defaults to &#x60;null&#x60;..</param>
-        public TemplateResponseDocumentCustomFieldCheckbox(
-            string type = @"checkbox",
-            string apiId = default(string),
-            string name = default(string),
-            string signer = default(string),
-            int x = default(int),
-            int y = default(int),
-            int width = default(int),
-            int height = default(int),
-            bool required = default(bool),
-            string group = default(string)
-        )
+        public TemplateResponseDocumentCustomFieldCheckbox(string type = @"checkbox", string apiId = default(string), string name = default(string), string signer = default(string), int x = default(int), int y = default(int), int width = default(int), int height = default(int), bool required = default(bool), string group = default(string))
         {
             this.ApiId = apiId;
             this.Name = name;
@@ -78,13 +62,11 @@ namespace Dropbox.Sign.Model
             this.Height = height;
             this.Required = required;
             this.Group = group;
-
+            
             // to ensure "type" is required (not null)
             if (type == null)
             {
-                throw new ArgumentNullException(
-                    "type is a required property for TemplateResponseDocumentCustomFieldCheckbox and cannot be null"
-                );
+                throw new ArgumentNullException("type is a required property for TemplateResponseDocumentCustomFieldCheckbox and cannot be null");
             }
             this.Type = type;
         }
@@ -95,15 +77,11 @@ namespace Dropbox.Sign.Model
         /// <param name="jsonData">String of JSON data representing target object</param>
         public static TemplateResponseDocumentCustomFieldCheckbox Init(string jsonData)
         {
-            var obj = JsonConvert.DeserializeObject<TemplateResponseDocumentCustomFieldCheckbox>(
-                jsonData
-            );
+            var obj = JsonConvert.DeserializeObject<TemplateResponseDocumentCustomFieldCheckbox>(jsonData);
 
             if (obj == null)
             {
-                throw new Exception(
-                    "Unable to deserialize JSON to instance of TemplateResponseDocumentCustomFieldCheckbox"
-                );
+                throw new Exception("Unable to deserialize JSON to instance of TemplateResponseDocumentCustomFieldCheckbox");
             }
 
             return obj;
@@ -115,6 +93,7 @@ namespace Dropbox.Sign.Model
         /// <value>The type of this Custom Field. Only &#x60;text&#x60; and &#x60;checkbox&#x60; are currently supported.  * Text uses &#x60;TemplateResponseDocumentCustomFieldText&#x60; * Checkbox uses &#x60;TemplateResponseDocumentCustomFieldCheckbox&#x60;</value>
         [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
         public string Type { get; set; }
+        
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -136,10 +115,7 @@ namespace Dropbox.Sign.Model
         /// <returns>JSON string presentation of the object</returns>
         public override string ToJson()
         {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(
-                this,
-                Newtonsoft.Json.Formatting.Indented
-            );
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>
@@ -163,8 +139,12 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return base.Equals(input)
-                && (this.Type == input.Type || (this.Type != null && this.Type.Equals(input.Type)));
+            return base.Equals(input) && 
+                (
+                    this.Type == input.Type ||
+                    (this.Type != null &&
+                    this.Type.Equals(input.Type))
+                );
         }
 
         /// <summary>
@@ -189,9 +169,7 @@ namespace Dropbox.Sign.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<ValidationResult> IValidatableObject.Validate(
-            ValidationContext validationContext
-        )
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             return this.BaseValidate(validationContext);
         }
@@ -213,17 +191,15 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "type",
-                    Property = "Type",
-                    Type = "string",
-                    Value = Type,
-                }
-            );
+            types.Add(new OpenApiType(){
+                Name = "type",
+                Property = "Type",
+                Type = "string",
+                Value = Type,
+            });
 
             return types;
         }
     }
+
 }

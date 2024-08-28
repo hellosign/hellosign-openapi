@@ -13,15 +13,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel.DataAnnotations;
-using System.IO;
 using System.Linq;
+using System.IO;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 
 namespace Dropbox.Sign.Model
@@ -31,16 +31,13 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "FaxLineResponseFaxLine")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class FaxLineResponseFaxLine
-        : IEquatable<FaxLineResponseFaxLine>,
-            IValidatableObject
+    public partial class FaxLineResponseFaxLine : IEquatable<FaxLineResponseFaxLine>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="FaxLineResponseFaxLine" /> class.
         /// </summary>
         [JsonConstructorAttribute]
         protected FaxLineResponseFaxLine() { }
-
         /// <summary>
         /// Initializes a new instance of the <see cref="FaxLineResponseFaxLine" /> class.
         /// </summary>
@@ -48,13 +45,9 @@ namespace Dropbox.Sign.Model
         /// <param name="createdAt">Created at.</param>
         /// <param name="updatedAt">Updated at.</param>
         /// <param name="accounts">accounts.</param>
-        public FaxLineResponseFaxLine(
-            string number = default(string),
-            int createdAt = default(int),
-            int updatedAt = default(int),
-            List<AccountResponse> accounts = default(List<AccountResponse>)
-        )
+        public FaxLineResponseFaxLine(string number = default(string), int createdAt = default(int), int updatedAt = default(int), List<AccountResponse> accounts = default(List<AccountResponse>))
         {
+            
             this.Number = number;
             this.CreatedAt = createdAt;
             this.UpdatedAt = updatedAt;
@@ -71,9 +64,7 @@ namespace Dropbox.Sign.Model
 
             if (obj == null)
             {
-                throw new Exception(
-                    "Unable to deserialize JSON to instance of FaxLineResponseFaxLine"
-                );
+                throw new Exception("Unable to deserialize JSON to instance of FaxLineResponseFaxLine");
             }
 
             return obj;
@@ -85,6 +76,7 @@ namespace Dropbox.Sign.Model
         /// <value>Number</value>
         [DataMember(Name = "number", EmitDefaultValue = true)]
         public string Number { get; set; }
+        
 
         /// <summary>
         /// Created at
@@ -92,6 +84,7 @@ namespace Dropbox.Sign.Model
         /// <value>Created at</value>
         [DataMember(Name = "created_at", EmitDefaultValue = true)]
         public int CreatedAt { get; set; }
+        
 
         /// <summary>
         /// Updated at
@@ -99,12 +92,14 @@ namespace Dropbox.Sign.Model
         /// <value>Updated at</value>
         [DataMember(Name = "updated_at", EmitDefaultValue = true)]
         public int UpdatedAt { get; set; }
+        
 
         /// <summary>
         /// Gets or Sets Accounts
         /// </summary>
         [DataMember(Name = "accounts", EmitDefaultValue = true)]
         public List<AccountResponse> Accounts { get; set; }
+        
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -128,10 +123,7 @@ namespace Dropbox.Sign.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(
-                this,
-                Newtonsoft.Json.Formatting.Indented
-            );
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>
@@ -155,17 +147,25 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return (
-                    this.Number == input.Number
-                    || (this.Number != null && this.Number.Equals(input.Number))
-                )
-                && (this.CreatedAt == input.CreatedAt || this.CreatedAt.Equals(input.CreatedAt))
-                && (this.UpdatedAt == input.UpdatedAt || this.UpdatedAt.Equals(input.UpdatedAt))
-                && (
-                    this.Accounts == input.Accounts
-                    || this.Accounts != null
-                        && input.Accounts != null
-                        && this.Accounts.SequenceEqual(input.Accounts)
+            return 
+                (
+                    this.Number == input.Number ||
+                    (this.Number != null &&
+                    this.Number.Equals(input.Number))
+                ) && 
+                (
+                    this.CreatedAt == input.CreatedAt ||
+                    this.CreatedAt.Equals(input.CreatedAt)
+                ) && 
+                (
+                    this.UpdatedAt == input.UpdatedAt ||
+                    this.UpdatedAt.Equals(input.UpdatedAt)
+                ) && 
+                (
+                    this.Accounts == input.Accounts ||
+                    this.Accounts != null &&
+                    input.Accounts != null &&
+                    this.Accounts.SequenceEqual(input.Accounts)
                 );
         }
 
@@ -197,9 +197,7 @@ namespace Dropbox.Sign.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<ValidationResult> IValidatableObject.Validate(
-            ValidationContext validationContext
-        )
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }
@@ -207,44 +205,33 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "number",
-                    Property = "Number",
-                    Type = "string",
-                    Value = Number,
-                }
-            );
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "created_at",
-                    Property = "CreatedAt",
-                    Type = "int",
-                    Value = CreatedAt,
-                }
-            );
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "updated_at",
-                    Property = "UpdatedAt",
-                    Type = "int",
-                    Value = UpdatedAt,
-                }
-            );
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "accounts",
-                    Property = "Accounts",
-                    Type = "List<AccountResponse>",
-                    Value = Accounts,
-                }
-            );
+            types.Add(new OpenApiType(){
+                Name = "number",
+                Property = "Number",
+                Type = "string",
+                Value = Number,
+            });
+            types.Add(new OpenApiType(){
+                Name = "created_at",
+                Property = "CreatedAt",
+                Type = "int",
+                Value = CreatedAt,
+            });
+            types.Add(new OpenApiType(){
+                Name = "updated_at",
+                Property = "UpdatedAt",
+                Type = "int",
+                Value = UpdatedAt,
+            });
+            types.Add(new OpenApiType(){
+                Name = "accounts",
+                Property = "Accounts",
+                Type = "List<AccountResponse>",
+                Value = Accounts,
+            });
 
             return types;
         }
     }
+
 }

@@ -13,15 +13,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel.DataAnnotations;
-using System.IO;
 using System.Linq;
+using System.IO;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 
 namespace Dropbox.Sign.Model
@@ -31,40 +31,31 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "OAuthTokenRefreshRequest")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class OAuthTokenRefreshRequest
-        : IEquatable<OAuthTokenRefreshRequest>,
-            IValidatableObject
+    public partial class OAuthTokenRefreshRequest : IEquatable<OAuthTokenRefreshRequest>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="OAuthTokenRefreshRequest" /> class.
         /// </summary>
         [JsonConstructorAttribute]
         protected OAuthTokenRefreshRequest() { }
-
         /// <summary>
         /// Initializes a new instance of the <see cref="OAuthTokenRefreshRequest" /> class.
         /// </summary>
         /// <param name="grantType">When refreshing an existing token use &#x60;refresh_token&#x60;. (required) (default to &quot;refresh_token&quot;).</param>
         /// <param name="refreshToken">The token provided when you got the expired access token. (required).</param>
-        public OAuthTokenRefreshRequest(
-            string grantType = @"refresh_token",
-            string refreshToken = default(string)
-        )
+        public OAuthTokenRefreshRequest(string grantType = @"refresh_token", string refreshToken = default(string))
         {
+            
             // to ensure "grantType" is required (not null)
             if (grantType == null)
             {
-                throw new ArgumentNullException(
-                    "grantType is a required property for OAuthTokenRefreshRequest and cannot be null"
-                );
+                throw new ArgumentNullException("grantType is a required property for OAuthTokenRefreshRequest and cannot be null");
             }
             this.GrantType = grantType;
             // to ensure "refreshToken" is required (not null)
             if (refreshToken == null)
             {
-                throw new ArgumentNullException(
-                    "refreshToken is a required property for OAuthTokenRefreshRequest and cannot be null"
-                );
+                throw new ArgumentNullException("refreshToken is a required property for OAuthTokenRefreshRequest and cannot be null");
             }
             this.RefreshToken = refreshToken;
         }
@@ -79,9 +70,7 @@ namespace Dropbox.Sign.Model
 
             if (obj == null)
             {
-                throw new Exception(
-                    "Unable to deserialize JSON to instance of OAuthTokenRefreshRequest"
-                );
+                throw new Exception("Unable to deserialize JSON to instance of OAuthTokenRefreshRequest");
             }
 
             return obj;
@@ -93,6 +82,7 @@ namespace Dropbox.Sign.Model
         /// <value>When refreshing an existing token use &#x60;refresh_token&#x60;.</value>
         [DataMember(Name = "grant_type", IsRequired = true, EmitDefaultValue = true)]
         public string GrantType { get; set; }
+        
 
         /// <summary>
         /// The token provided when you got the expired access token.
@@ -100,6 +90,7 @@ namespace Dropbox.Sign.Model
         /// <value>The token provided when you got the expired access token.</value>
         [DataMember(Name = "refresh_token", IsRequired = true, EmitDefaultValue = true)]
         public string RefreshToken { get; set; }
+        
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -121,10 +112,7 @@ namespace Dropbox.Sign.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(
-                this,
-                Newtonsoft.Json.Formatting.Indented
-            );
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>
@@ -148,13 +136,16 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return (
-                    this.GrantType == input.GrantType
-                    || (this.GrantType != null && this.GrantType.Equals(input.GrantType))
-                )
-                && (
-                    this.RefreshToken == input.RefreshToken
-                    || (this.RefreshToken != null && this.RefreshToken.Equals(input.RefreshToken))
+            return 
+                (
+                    this.GrantType == input.GrantType ||
+                    (this.GrantType != null &&
+                    this.GrantType.Equals(input.GrantType))
+                ) && 
+                (
+                    this.RefreshToken == input.RefreshToken ||
+                    (this.RefreshToken != null &&
+                    this.RefreshToken.Equals(input.RefreshToken))
                 );
         }
 
@@ -184,9 +175,7 @@ namespace Dropbox.Sign.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<ValidationResult> IValidatableObject.Validate(
-            ValidationContext validationContext
-        )
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }
@@ -194,26 +183,21 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "grant_type",
-                    Property = "GrantType",
-                    Type = "string",
-                    Value = GrantType,
-                }
-            );
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "refresh_token",
-                    Property = "RefreshToken",
-                    Type = "string",
-                    Value = RefreshToken,
-                }
-            );
+            types.Add(new OpenApiType(){
+                Name = "grant_type",
+                Property = "GrantType",
+                Type = "string",
+                Value = GrantType,
+            });
+            types.Add(new OpenApiType(){
+                Name = "refresh_token",
+                Property = "RefreshToken",
+                Type = "string",
+                Value = RefreshToken,
+            });
 
             return types;
         }
     }
+
 }

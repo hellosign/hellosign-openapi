@@ -13,15 +13,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel.DataAnnotations;
-using System.IO;
 using System.Linq;
+using System.IO;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 
 namespace Dropbox.Sign.Model
@@ -31,26 +31,21 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "EmbeddedSignUrlResponse")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class EmbeddedSignUrlResponse
-        : IEquatable<EmbeddedSignUrlResponse>,
-            IValidatableObject
+    public partial class EmbeddedSignUrlResponse : IEquatable<EmbeddedSignUrlResponse>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="EmbeddedSignUrlResponse" /> class.
         /// </summary>
         [JsonConstructorAttribute]
         protected EmbeddedSignUrlResponse() { }
-
         /// <summary>
         /// Initializes a new instance of the <see cref="EmbeddedSignUrlResponse" /> class.
         /// </summary>
         /// <param name="embedded">embedded.</param>
         /// <param name="warnings">A list of warnings..</param>
-        public EmbeddedSignUrlResponse(
-            EmbeddedSignUrlResponseEmbedded embedded = default(EmbeddedSignUrlResponseEmbedded),
-            List<WarningResponse> warnings = default(List<WarningResponse>)
-        )
+        public EmbeddedSignUrlResponse(EmbeddedSignUrlResponseEmbedded embedded = default(EmbeddedSignUrlResponseEmbedded), List<WarningResponse> warnings = default(List<WarningResponse>))
         {
+            
             this.Embedded = embedded;
             this.Warnings = warnings;
         }
@@ -65,9 +60,7 @@ namespace Dropbox.Sign.Model
 
             if (obj == null)
             {
-                throw new Exception(
-                    "Unable to deserialize JSON to instance of EmbeddedSignUrlResponse"
-                );
+                throw new Exception("Unable to deserialize JSON to instance of EmbeddedSignUrlResponse");
             }
 
             return obj;
@@ -78,6 +71,7 @@ namespace Dropbox.Sign.Model
         /// </summary>
         [DataMember(Name = "embedded", EmitDefaultValue = true)]
         public EmbeddedSignUrlResponseEmbedded Embedded { get; set; }
+        
 
         /// <summary>
         /// A list of warnings.
@@ -85,6 +79,7 @@ namespace Dropbox.Sign.Model
         /// <value>A list of warnings.</value>
         [DataMember(Name = "warnings", EmitDefaultValue = true)]
         public List<WarningResponse> Warnings { get; set; }
+        
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -106,10 +101,7 @@ namespace Dropbox.Sign.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(
-                this,
-                Newtonsoft.Json.Formatting.Indented
-            );
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>
@@ -133,15 +125,17 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return (
-                    this.Embedded == input.Embedded
-                    || (this.Embedded != null && this.Embedded.Equals(input.Embedded))
-                )
-                && (
-                    this.Warnings == input.Warnings
-                    || this.Warnings != null
-                        && input.Warnings != null
-                        && this.Warnings.SequenceEqual(input.Warnings)
+            return 
+                (
+                    this.Embedded == input.Embedded ||
+                    (this.Embedded != null &&
+                    this.Embedded.Equals(input.Embedded))
+                ) && 
+                (
+                    this.Warnings == input.Warnings ||
+                    this.Warnings != null &&
+                    input.Warnings != null &&
+                    this.Warnings.SequenceEqual(input.Warnings)
                 );
         }
 
@@ -171,9 +165,7 @@ namespace Dropbox.Sign.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<ValidationResult> IValidatableObject.Validate(
-            ValidationContext validationContext
-        )
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }
@@ -181,26 +173,21 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "embedded",
-                    Property = "Embedded",
-                    Type = "EmbeddedSignUrlResponseEmbedded",
-                    Value = Embedded,
-                }
-            );
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "warnings",
-                    Property = "Warnings",
-                    Type = "List<WarningResponse>",
-                    Value = Warnings,
-                }
-            );
+            types.Add(new OpenApiType(){
+                Name = "embedded",
+                Property = "Embedded",
+                Type = "EmbeddedSignUrlResponseEmbedded",
+                Value = Embedded,
+            });
+            types.Add(new OpenApiType(){
+                Name = "warnings",
+                Property = "Warnings",
+                Type = "List<WarningResponse>",
+                Value = Warnings,
+            });
 
             return types;
         }
     }
+
 }

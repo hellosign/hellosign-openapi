@@ -13,15 +13,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel.DataAnnotations;
-using System.IO;
 using System.Linq;
+using System.IO;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 
 namespace Dropbox.Sign.Model
@@ -38,41 +38,31 @@ namespace Dropbox.Sign.Model
         /// </summary>
         [JsonConstructorAttribute]
         protected SubFormFieldGroup() { }
-
         /// <summary>
         /// Initializes a new instance of the <see cref="SubFormFieldGroup" /> class.
         /// </summary>
         /// <param name="groupId">ID of group. Use this to reference a specific group from the &#x60;group&#x60; value in &#x60;form_fields_per_document&#x60;. (required).</param>
         /// <param name="groupLabel">Name of the group (required).</param>
         /// <param name="requirement">Examples: &#x60;require_0-1&#x60; &#x60;require_1&#x60; &#x60;require_1-ormore&#x60;  - Check out the list of [acceptable &#x60;requirement&#x60; checkbox type values](/api/reference/constants/#checkbox-field-grouping). - Check out the list of [acceptable &#x60;requirement&#x60; radio type fields](/api/reference/constants/#radio-field-grouping). - Radio groups require **at least** two fields per group. (required).</param>
-        public SubFormFieldGroup(
-            string groupId = default(string),
-            string groupLabel = default(string),
-            string requirement = default(string)
-        )
+        public SubFormFieldGroup(string groupId = default(string), string groupLabel = default(string), string requirement = default(string))
         {
+            
             // to ensure "groupId" is required (not null)
             if (groupId == null)
             {
-                throw new ArgumentNullException(
-                    "groupId is a required property for SubFormFieldGroup and cannot be null"
-                );
+                throw new ArgumentNullException("groupId is a required property for SubFormFieldGroup and cannot be null");
             }
             this.GroupId = groupId;
             // to ensure "groupLabel" is required (not null)
             if (groupLabel == null)
             {
-                throw new ArgumentNullException(
-                    "groupLabel is a required property for SubFormFieldGroup and cannot be null"
-                );
+                throw new ArgumentNullException("groupLabel is a required property for SubFormFieldGroup and cannot be null");
             }
             this.GroupLabel = groupLabel;
             // to ensure "requirement" is required (not null)
             if (requirement == null)
             {
-                throw new ArgumentNullException(
-                    "requirement is a required property for SubFormFieldGroup and cannot be null"
-                );
+                throw new ArgumentNullException("requirement is a required property for SubFormFieldGroup and cannot be null");
             }
             this.Requirement = requirement;
         }
@@ -99,6 +89,7 @@ namespace Dropbox.Sign.Model
         /// <value>ID of group. Use this to reference a specific group from the &#x60;group&#x60; value in &#x60;form_fields_per_document&#x60;.</value>
         [DataMember(Name = "group_id", IsRequired = true, EmitDefaultValue = true)]
         public string GroupId { get; set; }
+        
 
         /// <summary>
         /// Name of the group
@@ -106,6 +97,7 @@ namespace Dropbox.Sign.Model
         /// <value>Name of the group</value>
         [DataMember(Name = "group_label", IsRequired = true, EmitDefaultValue = true)]
         public string GroupLabel { get; set; }
+        
 
         /// <summary>
         /// Examples: &#x60;require_0-1&#x60; &#x60;require_1&#x60; &#x60;require_1-ormore&#x60;  - Check out the list of [acceptable &#x60;requirement&#x60; checkbox type values](/api/reference/constants/#checkbox-field-grouping). - Check out the list of [acceptable &#x60;requirement&#x60; radio type fields](/api/reference/constants/#radio-field-grouping). - Radio groups require **at least** two fields per group.
@@ -113,6 +105,7 @@ namespace Dropbox.Sign.Model
         /// <value>Examples: &#x60;require_0-1&#x60; &#x60;require_1&#x60; &#x60;require_1-ormore&#x60;  - Check out the list of [acceptable &#x60;requirement&#x60; checkbox type values](/api/reference/constants/#checkbox-field-grouping). - Check out the list of [acceptable &#x60;requirement&#x60; radio type fields](/api/reference/constants/#radio-field-grouping). - Radio groups require **at least** two fields per group.</value>
         [DataMember(Name = "requirement", IsRequired = true, EmitDefaultValue = true)]
         public string Requirement { get; set; }
+        
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -135,10 +128,7 @@ namespace Dropbox.Sign.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(
-                this,
-                Newtonsoft.Json.Formatting.Indented
-            );
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>
@@ -162,17 +152,21 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return (
-                    this.GroupId == input.GroupId
-                    || (this.GroupId != null && this.GroupId.Equals(input.GroupId))
-                )
-                && (
-                    this.GroupLabel == input.GroupLabel
-                    || (this.GroupLabel != null && this.GroupLabel.Equals(input.GroupLabel))
-                )
-                && (
-                    this.Requirement == input.Requirement
-                    || (this.Requirement != null && this.Requirement.Equals(input.Requirement))
+            return 
+                (
+                    this.GroupId == input.GroupId ||
+                    (this.GroupId != null &&
+                    this.GroupId.Equals(input.GroupId))
+                ) && 
+                (
+                    this.GroupLabel == input.GroupLabel ||
+                    (this.GroupLabel != null &&
+                    this.GroupLabel.Equals(input.GroupLabel))
+                ) && 
+                (
+                    this.Requirement == input.Requirement ||
+                    (this.Requirement != null &&
+                    this.Requirement.Equals(input.Requirement))
                 );
         }
 
@@ -206,9 +200,7 @@ namespace Dropbox.Sign.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<ValidationResult> IValidatableObject.Validate(
-            ValidationContext validationContext
-        )
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }
@@ -216,35 +208,27 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "group_id",
-                    Property = "GroupId",
-                    Type = "string",
-                    Value = GroupId,
-                }
-            );
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "group_label",
-                    Property = "GroupLabel",
-                    Type = "string",
-                    Value = GroupLabel,
-                }
-            );
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "requirement",
-                    Property = "Requirement",
-                    Type = "string",
-                    Value = Requirement,
-                }
-            );
+            types.Add(new OpenApiType(){
+                Name = "group_id",
+                Property = "GroupId",
+                Type = "string",
+                Value = GroupId,
+            });
+            types.Add(new OpenApiType(){
+                Name = "group_label",
+                Property = "GroupLabel",
+                Type = "string",
+                Value = GroupLabel,
+            });
+            types.Add(new OpenApiType(){
+                Name = "requirement",
+                Property = "Requirement",
+                Type = "string",
+                Value = Requirement,
+            });
 
             return types;
         }
     }
+
 }

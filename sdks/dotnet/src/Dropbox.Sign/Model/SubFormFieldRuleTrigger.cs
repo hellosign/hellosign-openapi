@@ -13,15 +13,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel.DataAnnotations;
-using System.IO;
 using System.Linq;
+using System.IO;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 
 namespace Dropbox.Sign.Model
@@ -31,9 +31,7 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "SubFormFieldRuleTrigger")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class SubFormFieldRuleTrigger
-        : IEquatable<SubFormFieldRuleTrigger>,
-            IValidatableObject
+    public partial class SubFormFieldRuleTrigger : IEquatable<SubFormFieldRuleTrigger>, IValidatableObject
     {
         /// <summary>
         /// Different field types allow different &#x60;operator&#x60; values: - Field type of **text**:   - **is**: exact match   - **not**: not exact match   - **match**: regular expression, without /. Example:     - OK &#x60;[a-zA-Z0-9]&#x60;     - Not OK &#x60;/[a-zA-Z0-9]/&#x60; - Field type of **dropdown**:   - **is**: exact match, single value   - **not**: not exact match, single value   - **any**: exact match, array of values.   - **none**: not exact match, array of values. - Field type of **checkbox**:   - **is**: exact match, single value   - **not**: not exact match, single value - Field type of **radio**:   - **is**: exact match, single value   - **not**: not exact match, single value
@@ -70,8 +68,9 @@ namespace Dropbox.Sign.Model
             /// Enum Not for value: not
             /// </summary>
             [EnumMember(Value = "not")]
-            Not = 5,
+            Not = 5
         }
+
 
         /// <summary>
         /// Different field types allow different &#x60;operator&#x60; values: - Field type of **text**:   - **is**: exact match   - **not**: not exact match   - **match**: regular expression, without /. Example:     - OK &#x60;[a-zA-Z0-9]&#x60;     - Not OK &#x60;/[a-zA-Z0-9]/&#x60; - Field type of **dropdown**:   - **is**: exact match, single value   - **not**: not exact match, single value   - **any**: exact match, array of values.   - **none**: not exact match, array of values. - Field type of **checkbox**:   - **is**: exact match, single value   - **not**: not exact match, single value - Field type of **radio**:   - **is**: exact match, single value   - **not**: not exact match, single value
@@ -79,13 +78,11 @@ namespace Dropbox.Sign.Model
         /// <value>Different field types allow different &#x60;operator&#x60; values: - Field type of **text**:   - **is**: exact match   - **not**: not exact match   - **match**: regular expression, without /. Example:     - OK &#x60;[a-zA-Z0-9]&#x60;     - Not OK &#x60;/[a-zA-Z0-9]/&#x60; - Field type of **dropdown**:   - **is**: exact match, single value   - **not**: not exact match, single value   - **any**: exact match, array of values.   - **none**: not exact match, array of values. - Field type of **checkbox**:   - **is**: exact match, single value   - **not**: not exact match, single value - Field type of **radio**:   - **is**: exact match, single value   - **not**: not exact match, single value</value>
         [DataMember(Name = "operator", IsRequired = true, EmitDefaultValue = true)]
         public OperatorEnum Operator { get; set; }
-
         /// <summary>
         /// Initializes a new instance of the <see cref="SubFormFieldRuleTrigger" /> class.
         /// </summary>
         [JsonConstructorAttribute]
         protected SubFormFieldRuleTrigger() { }
-
         /// <summary>
         /// Initializes a new instance of the <see cref="SubFormFieldRuleTrigger" /> class.
         /// </summary>
@@ -93,19 +90,13 @@ namespace Dropbox.Sign.Model
         /// <param name="varOperator">Different field types allow different &#x60;operator&#x60; values: - Field type of **text**:   - **is**: exact match   - **not**: not exact match   - **match**: regular expression, without /. Example:     - OK &#x60;[a-zA-Z0-9]&#x60;     - Not OK &#x60;/[a-zA-Z0-9]/&#x60; - Field type of **dropdown**:   - **is**: exact match, single value   - **not**: not exact match, single value   - **any**: exact match, array of values.   - **none**: not exact match, array of values. - Field type of **checkbox**:   - **is**: exact match, single value   - **not**: not exact match, single value - Field type of **radio**:   - **is**: exact match, single value   - **not**: not exact match, single value (required).</param>
         /// <param name="value">**value** or **values** is required, but not both.  The value to match against **operator**.  - When **operator** is one of the following, **value** must be &#x60;String&#x60;:   - &#x60;is&#x60;   - &#x60;not&#x60;   - &#x60;match&#x60;  Otherwise, - **checkbox**: When **type** of trigger is **checkbox**, **value** must be &#x60;0&#x60; or &#x60;1&#x60; - **radio**: When **type** of trigger is **radio**, **value** must be &#x60;1&#x60;.</param>
         /// <param name="values">**values** or **value** is required, but not both.  The values to match against **operator** when it is one of the following:  - &#x60;any&#x60; - &#x60;none&#x60;.</param>
-        public SubFormFieldRuleTrigger(
-            string id = default(string),
-            OperatorEnum varOperator = default(OperatorEnum),
-            string value = default(string),
-            List<string> values = default(List<string>)
-        )
+        public SubFormFieldRuleTrigger(string id = default(string), OperatorEnum varOperator = default(OperatorEnum), string value = default(string), List<string> values = default(List<string>))
         {
+            
             // to ensure "id" is required (not null)
             if (id == null)
             {
-                throw new ArgumentNullException(
-                    "id is a required property for SubFormFieldRuleTrigger and cannot be null"
-                );
+                throw new ArgumentNullException("id is a required property for SubFormFieldRuleTrigger and cannot be null");
             }
             this.Id = id;
             this.Operator = varOperator;
@@ -123,9 +114,7 @@ namespace Dropbox.Sign.Model
 
             if (obj == null)
             {
-                throw new Exception(
-                    "Unable to deserialize JSON to instance of SubFormFieldRuleTrigger"
-                );
+                throw new Exception("Unable to deserialize JSON to instance of SubFormFieldRuleTrigger");
             }
 
             return obj;
@@ -137,6 +126,7 @@ namespace Dropbox.Sign.Model
         /// <value>Must reference the &#x60;api_id&#x60; of an existing field defined within &#x60;form_fields_per_document&#x60;. Trigger and action fields and groups must belong to the same signer.</value>
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
+        
 
         /// <summary>
         /// **value** or **values** is required, but not both.  The value to match against **operator**.  - When **operator** is one of the following, **value** must be &#x60;String&#x60;:   - &#x60;is&#x60;   - &#x60;not&#x60;   - &#x60;match&#x60;  Otherwise, - **checkbox**: When **type** of trigger is **checkbox**, **value** must be &#x60;0&#x60; or &#x60;1&#x60; - **radio**: When **type** of trigger is **radio**, **value** must be &#x60;1&#x60;
@@ -144,6 +134,7 @@ namespace Dropbox.Sign.Model
         /// <value>**value** or **values** is required, but not both.  The value to match against **operator**.  - When **operator** is one of the following, **value** must be &#x60;String&#x60;:   - &#x60;is&#x60;   - &#x60;not&#x60;   - &#x60;match&#x60;  Otherwise, - **checkbox**: When **type** of trigger is **checkbox**, **value** must be &#x60;0&#x60; or &#x60;1&#x60; - **radio**: When **type** of trigger is **radio**, **value** must be &#x60;1&#x60;</value>
         [DataMember(Name = "value", EmitDefaultValue = true)]
         public string Value { get; set; }
+        
 
         /// <summary>
         /// **values** or **value** is required, but not both.  The values to match against **operator** when it is one of the following:  - &#x60;any&#x60; - &#x60;none&#x60;
@@ -151,6 +142,7 @@ namespace Dropbox.Sign.Model
         /// <value>**values** or **value** is required, but not both.  The values to match against **operator** when it is one of the following:  - &#x60;any&#x60; - &#x60;none&#x60;</value>
         [DataMember(Name = "values", EmitDefaultValue = true)]
         public List<string> Values { get; set; }
+        
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -174,10 +166,7 @@ namespace Dropbox.Sign.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(
-                this,
-                Newtonsoft.Json.Formatting.Indented
-            );
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>
@@ -201,17 +190,26 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return (this.Id == input.Id || (this.Id != null && this.Id.Equals(input.Id)))
-                && (this.Operator == input.Operator || this.Operator.Equals(input.Operator))
-                && (
-                    this.Value == input.Value
-                    || (this.Value != null && this.Value.Equals(input.Value))
-                )
-                && (
-                    this.Values == input.Values
-                    || this.Values != null
-                        && input.Values != null
-                        && this.Values.SequenceEqual(input.Values)
+            return 
+                (
+                    this.Id == input.Id ||
+                    (this.Id != null &&
+                    this.Id.Equals(input.Id))
+                ) && 
+                (
+                    this.Operator == input.Operator ||
+                    this.Operator.Equals(input.Operator)
+                ) && 
+                (
+                    this.Value == input.Value ||
+                    (this.Value != null &&
+                    this.Value.Equals(input.Value))
+                ) && 
+                (
+                    this.Values == input.Values ||
+                    this.Values != null &&
+                    input.Values != null &&
+                    this.Values.SequenceEqual(input.Values)
                 );
         }
 
@@ -246,9 +244,7 @@ namespace Dropbox.Sign.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<ValidationResult> IValidatableObject.Validate(
-            ValidationContext validationContext
-        )
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }
@@ -256,44 +252,33 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "id",
-                    Property = "Id",
-                    Type = "string",
-                    Value = Id,
-                }
-            );
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "operator",
-                    Property = "Operator",
-                    Type = "string",
-                    Value = Operator,
-                }
-            );
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "value",
-                    Property = "Value",
-                    Type = "string",
-                    Value = Value,
-                }
-            );
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "values",
-                    Property = "Values",
-                    Type = "List<string>",
-                    Value = Values,
-                }
-            );
+            types.Add(new OpenApiType(){
+                Name = "id",
+                Property = "Id",
+                Type = "string",
+                Value = Id,
+            });
+            types.Add(new OpenApiType(){
+                Name = "operator",
+                Property = "Operator",
+                Type = "string",
+                Value = Operator,
+            });
+            types.Add(new OpenApiType(){
+                Name = "value",
+                Property = "Value",
+                Type = "string",
+                Value = Value,
+            });
+            types.Add(new OpenApiType(){
+                Name = "values",
+                Property = "Values",
+                Type = "List<string>",
+                Value = Values,
+            });
 
             return types;
         }
     }
+
 }

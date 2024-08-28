@@ -1,8 +1,8 @@
 using System.Collections.Generic;
-using Dropbox.Sign.Model;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Xunit;
+using Dropbox.Sign.Model;
 
 namespace Dropbox.Sign.Test.Model
 {
@@ -89,12 +89,10 @@ namespace Dropbox.Sign.Test.Model
         {
             using (var r = TestHelper.ReadFileFromResource("SubFormFieldsPerDocument"))
             {
-                var payload = JsonConvert.DeserializeObject<Dictionary<string, object>>(
-                    r.ReadToEnd()
-                );
+                var payload = JsonConvert.DeserializeObject<Dictionary<string, object>>(r.ReadToEnd());
                 Assert.NotNull(payload);
 
-                return new List<object[]> { new object[] { payload } };
+                return new List<object[]> {new object[] {payload}};
             }
         }
     }

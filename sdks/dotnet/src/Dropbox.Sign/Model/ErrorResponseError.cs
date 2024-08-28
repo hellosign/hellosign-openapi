@@ -13,15 +13,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel.DataAnnotations;
-using System.IO;
 using System.Linq;
+using System.IO;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 
 namespace Dropbox.Sign.Model
@@ -38,33 +38,25 @@ namespace Dropbox.Sign.Model
         /// </summary>
         [JsonConstructorAttribute]
         protected ErrorResponseError() { }
-
         /// <summary>
         /// Initializes a new instance of the <see cref="ErrorResponseError" /> class.
         /// </summary>
         /// <param name="errorMsg">Message describing an error. (required).</param>
         /// <param name="errorPath">Path at which an error occurred..</param>
         /// <param name="errorName">Name of the error. (required).</param>
-        public ErrorResponseError(
-            string errorMsg = default(string),
-            string errorPath = default(string),
-            string errorName = default(string)
-        )
+        public ErrorResponseError(string errorMsg = default(string), string errorPath = default(string), string errorName = default(string))
         {
+            
             // to ensure "errorMsg" is required (not null)
             if (errorMsg == null)
             {
-                throw new ArgumentNullException(
-                    "errorMsg is a required property for ErrorResponseError and cannot be null"
-                );
+                throw new ArgumentNullException("errorMsg is a required property for ErrorResponseError and cannot be null");
             }
             this.ErrorMsg = errorMsg;
             // to ensure "errorName" is required (not null)
             if (errorName == null)
             {
-                throw new ArgumentNullException(
-                    "errorName is a required property for ErrorResponseError and cannot be null"
-                );
+                throw new ArgumentNullException("errorName is a required property for ErrorResponseError and cannot be null");
             }
             this.ErrorName = errorName;
             this.ErrorPath = errorPath;
@@ -92,6 +84,7 @@ namespace Dropbox.Sign.Model
         /// <value>Message describing an error.</value>
         [DataMember(Name = "error_msg", IsRequired = true, EmitDefaultValue = true)]
         public string ErrorMsg { get; set; }
+        
 
         /// <summary>
         /// Name of the error.
@@ -99,6 +92,7 @@ namespace Dropbox.Sign.Model
         /// <value>Name of the error.</value>
         [DataMember(Name = "error_name", IsRequired = true, EmitDefaultValue = true)]
         public string ErrorName { get; set; }
+        
 
         /// <summary>
         /// Path at which an error occurred.
@@ -106,6 +100,7 @@ namespace Dropbox.Sign.Model
         /// <value>Path at which an error occurred.</value>
         [DataMember(Name = "error_path", EmitDefaultValue = true)]
         public string ErrorPath { get; set; }
+        
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -128,10 +123,7 @@ namespace Dropbox.Sign.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(
-                this,
-                Newtonsoft.Json.Formatting.Indented
-            );
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>
@@ -155,17 +147,21 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return (
-                    this.ErrorMsg == input.ErrorMsg
-                    || (this.ErrorMsg != null && this.ErrorMsg.Equals(input.ErrorMsg))
-                )
-                && (
-                    this.ErrorName == input.ErrorName
-                    || (this.ErrorName != null && this.ErrorName.Equals(input.ErrorName))
-                )
-                && (
-                    this.ErrorPath == input.ErrorPath
-                    || (this.ErrorPath != null && this.ErrorPath.Equals(input.ErrorPath))
+            return 
+                (
+                    this.ErrorMsg == input.ErrorMsg ||
+                    (this.ErrorMsg != null &&
+                    this.ErrorMsg.Equals(input.ErrorMsg))
+                ) && 
+                (
+                    this.ErrorName == input.ErrorName ||
+                    (this.ErrorName != null &&
+                    this.ErrorName.Equals(input.ErrorName))
+                ) && 
+                (
+                    this.ErrorPath == input.ErrorPath ||
+                    (this.ErrorPath != null &&
+                    this.ErrorPath.Equals(input.ErrorPath))
                 );
         }
 
@@ -199,9 +195,7 @@ namespace Dropbox.Sign.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<ValidationResult> IValidatableObject.Validate(
-            ValidationContext validationContext
-        )
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }
@@ -209,35 +203,27 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "error_msg",
-                    Property = "ErrorMsg",
-                    Type = "string",
-                    Value = ErrorMsg,
-                }
-            );
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "error_name",
-                    Property = "ErrorName",
-                    Type = "string",
-                    Value = ErrorName,
-                }
-            );
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "error_path",
-                    Property = "ErrorPath",
-                    Type = "string",
-                    Value = ErrorPath,
-                }
-            );
+            types.Add(new OpenApiType(){
+                Name = "error_msg",
+                Property = "ErrorMsg",
+                Type = "string",
+                Value = ErrorMsg,
+            });
+            types.Add(new OpenApiType(){
+                Name = "error_name",
+                Property = "ErrorName",
+                Type = "string",
+                Value = ErrorName,
+            });
+            types.Add(new OpenApiType(){
+                Name = "error_path",
+                Property = "ErrorPath",
+                Type = "string",
+                Value = ErrorPath,
+            });
 
             return types;
         }
     }
+
 }

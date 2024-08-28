@@ -13,15 +13,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel.DataAnnotations;
-using System.IO;
 using System.Linq;
+using System.IO;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 
 namespace Dropbox.Sign.Model
@@ -31,18 +31,13 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "SubFormFieldsPerDocumentSignature")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class SubFormFieldsPerDocumentSignature
-        : SubFormFieldsPerDocumentBase,
-            IOpenApiTyped,
-            IEquatable<SubFormFieldsPerDocumentSignature>,
-            IValidatableObject
+    public partial class SubFormFieldsPerDocumentSignature : SubFormFieldsPerDocumentBase, IOpenApiTyped, IEquatable<SubFormFieldsPerDocumentSignature>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SubFormFieldsPerDocumentSignature" /> class.
         /// </summary>
         [JsonConstructorAttribute]
         protected SubFormFieldsPerDocumentSignature() { }
-
         /// <summary>
         /// Initializes a new instance of the <see cref="SubFormFieldsPerDocumentSignature" /> class.
         /// </summary>
@@ -57,19 +52,7 @@ namespace Dropbox.Sign.Model
         /// <param name="width">Size of the field in pixels. (required).</param>
         /// <param name="x">Location coordinates of the field in pixels. (required).</param>
         /// <param name="y">Location coordinates of the field in pixels. (required).</param>
-        public SubFormFieldsPerDocumentSignature(
-            string type = @"signature",
-            int documentIndex = default(int),
-            string apiId = default(string),
-            int height = default(int),
-            string name = default(string),
-            int? page = default(int?),
-            bool required = default(bool),
-            Object signer = null,
-            int width = default(int),
-            int x = default(int),
-            int y = default(int)
-        )
+        public SubFormFieldsPerDocumentSignature(string type = @"signature", int documentIndex = default(int), string apiId = default(string), int height = default(int), string name = default(string), int? page = default(int?), bool required = default(bool), Object signer = null, int width = default(int), int x = default(int), int y = default(int))
         {
             this.DocumentIndex = documentIndex;
             this.ApiId = apiId;
@@ -81,13 +64,11 @@ namespace Dropbox.Sign.Model
             this.Y = y;
             this.Name = name;
             this.Page = page;
-
+            
             // to ensure "type" is required (not null)
             if (type == null)
             {
-                throw new ArgumentNullException(
-                    "type is a required property for SubFormFieldsPerDocumentSignature and cannot be null"
-                );
+                throw new ArgumentNullException("type is a required property for SubFormFieldsPerDocumentSignature and cannot be null");
             }
             this.Type = type;
         }
@@ -102,9 +83,7 @@ namespace Dropbox.Sign.Model
 
             if (obj == null)
             {
-                throw new Exception(
-                    "Unable to deserialize JSON to instance of SubFormFieldsPerDocumentSignature"
-                );
+                throw new Exception("Unable to deserialize JSON to instance of SubFormFieldsPerDocumentSignature");
             }
 
             return obj;
@@ -116,6 +95,7 @@ namespace Dropbox.Sign.Model
         /// <value>A signature input field. Use the &#x60;SubFormFieldsPerDocumentSignature&#x60; class.</value>
         [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
         public string Type { get; set; }
+        
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -137,10 +117,7 @@ namespace Dropbox.Sign.Model
         /// <returns>JSON string presentation of the object</returns>
         public override string ToJson()
         {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(
-                this,
-                Newtonsoft.Json.Formatting.Indented
-            );
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>
@@ -164,8 +141,12 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return base.Equals(input)
-                && (this.Type == input.Type || (this.Type != null && this.Type.Equals(input.Type)));
+            return base.Equals(input) && 
+                (
+                    this.Type == input.Type ||
+                    (this.Type != null &&
+                    this.Type.Equals(input.Type))
+                );
         }
 
         /// <summary>
@@ -190,9 +171,7 @@ namespace Dropbox.Sign.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<ValidationResult> IValidatableObject.Validate(
-            ValidationContext validationContext
-        )
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             return this.BaseValidate(validationContext);
         }
@@ -214,17 +193,15 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "type",
-                    Property = "Type",
-                    Type = "string",
-                    Value = Type,
-                }
-            );
+            types.Add(new OpenApiType(){
+                Name = "type",
+                Property = "Type",
+                Type = "string",
+                Value = Type,
+            });
 
             return types;
         }
     }
+
 }

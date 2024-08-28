@@ -13,15 +13,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel.DataAnnotations;
-using System.IO;
 using System.Linq;
+using System.IO;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 
 namespace Dropbox.Sign.Model
@@ -62,8 +62,9 @@ namespace Dropbox.Sign.Model
             /// Enum Upload for value: upload
             /// </summary>
             [EnumMember(Value = "upload")]
-            Upload = 4,
+            Upload = 4
         }
+
 
         /// <summary>
         /// The default type shown (limited to the listed types)
@@ -71,13 +72,11 @@ namespace Dropbox.Sign.Model
         /// <value>The default type shown (limited to the listed types)</value>
         [DataMember(Name = "default_type", IsRequired = true, EmitDefaultValue = true)]
         public DefaultTypeEnum DefaultType { get; set; }
-
         /// <summary>
         /// Initializes a new instance of the <see cref="SubSigningOptions" /> class.
         /// </summary>
         [JsonConstructorAttribute]
         protected SubSigningOptions() { }
-
         /// <summary>
         /// Initializes a new instance of the <see cref="SubSigningOptions" /> class.
         /// </summary>
@@ -86,14 +85,9 @@ namespace Dropbox.Sign.Model
         /// <param name="phone">Allows using a smartphone to email the signature (default to false).</param>
         /// <param name="type">Allows typing the signature (default to false).</param>
         /// <param name="upload">Allows uploading the signature (default to false).</param>
-        public SubSigningOptions(
-            DefaultTypeEnum defaultType = default(DefaultTypeEnum),
-            bool draw = false,
-            bool phone = false,
-            bool type = false,
-            bool upload = false
-        )
+        public SubSigningOptions(DefaultTypeEnum defaultType = default(DefaultTypeEnum), bool draw = false, bool phone = false, bool type = false, bool upload = false)
         {
+            
             this.DefaultType = defaultType;
             this.Draw = draw;
             this.Phone = phone;
@@ -123,6 +117,7 @@ namespace Dropbox.Sign.Model
         /// <value>Allows drawing the signature</value>
         [DataMember(Name = "draw", EmitDefaultValue = true)]
         public bool Draw { get; set; }
+        
 
         /// <summary>
         /// Allows using a smartphone to email the signature
@@ -130,6 +125,7 @@ namespace Dropbox.Sign.Model
         /// <value>Allows using a smartphone to email the signature</value>
         [DataMember(Name = "phone", EmitDefaultValue = true)]
         public bool Phone { get; set; }
+        
 
         /// <summary>
         /// Allows typing the signature
@@ -137,6 +133,7 @@ namespace Dropbox.Sign.Model
         /// <value>Allows typing the signature</value>
         [DataMember(Name = "type", EmitDefaultValue = true)]
         public bool Type { get; set; }
+        
 
         /// <summary>
         /// Allows uploading the signature
@@ -144,6 +141,7 @@ namespace Dropbox.Sign.Model
         /// <value>Allows uploading the signature</value>
         [DataMember(Name = "upload", EmitDefaultValue = true)]
         public bool Upload { get; set; }
+        
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -168,10 +166,7 @@ namespace Dropbox.Sign.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(
-                this,
-                Newtonsoft.Json.Formatting.Indented
-            );
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>
@@ -195,14 +190,27 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return (
-                    this.DefaultType == input.DefaultType
-                    || this.DefaultType.Equals(input.DefaultType)
-                )
-                && (this.Draw == input.Draw || this.Draw.Equals(input.Draw))
-                && (this.Phone == input.Phone || this.Phone.Equals(input.Phone))
-                && (this.Type == input.Type || this.Type.Equals(input.Type))
-                && (this.Upload == input.Upload || this.Upload.Equals(input.Upload));
+            return 
+                (
+                    this.DefaultType == input.DefaultType ||
+                    this.DefaultType.Equals(input.DefaultType)
+                ) && 
+                (
+                    this.Draw == input.Draw ||
+                    this.Draw.Equals(input.Draw)
+                ) && 
+                (
+                    this.Phone == input.Phone ||
+                    this.Phone.Equals(input.Phone)
+                ) && 
+                (
+                    this.Type == input.Type ||
+                    this.Type.Equals(input.Type)
+                ) && 
+                (
+                    this.Upload == input.Upload ||
+                    this.Upload.Equals(input.Upload)
+                );
         }
 
         /// <summary>
@@ -228,9 +236,7 @@ namespace Dropbox.Sign.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<ValidationResult> IValidatableObject.Validate(
-            ValidationContext validationContext
-        )
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }
@@ -238,53 +244,39 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "default_type",
-                    Property = "DefaultType",
-                    Type = "string",
-                    Value = DefaultType,
-                }
-            );
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "draw",
-                    Property = "Draw",
-                    Type = "bool",
-                    Value = Draw,
-                }
-            );
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "phone",
-                    Property = "Phone",
-                    Type = "bool",
-                    Value = Phone,
-                }
-            );
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "type",
-                    Property = "Type",
-                    Type = "bool",
-                    Value = Type,
-                }
-            );
-            types.Add(
-                new OpenApiType()
-                {
-                    Name = "upload",
-                    Property = "Upload",
-                    Type = "bool",
-                    Value = Upload,
-                }
-            );
+            types.Add(new OpenApiType(){
+                Name = "default_type",
+                Property = "DefaultType",
+                Type = "string",
+                Value = DefaultType,
+            });
+            types.Add(new OpenApiType(){
+                Name = "draw",
+                Property = "Draw",
+                Type = "bool",
+                Value = Draw,
+            });
+            types.Add(new OpenApiType(){
+                Name = "phone",
+                Property = "Phone",
+                Type = "bool",
+                Value = Phone,
+            });
+            types.Add(new OpenApiType(){
+                Name = "type",
+                Property = "Type",
+                Type = "bool",
+                Value = Type,
+            });
+            types.Add(new OpenApiType(){
+                Name = "upload",
+                Property = "Upload",
+                Type = "bool",
+                Value = Upload,
+            });
 
             return types;
         }
     }
+
 }

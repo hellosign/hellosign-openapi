@@ -44,7 +44,9 @@ public class Example
 
         var teamApi = new TeamApi(config);
 
-        var data = new TeamAddMemberRequest(emailAddress: "george@example.com");
+        var data = new TeamAddMemberRequest(
+            emailAddress: "george@example.com"
+        );
 
         try
         {
@@ -140,7 +142,9 @@ public class Example
 
         var teamApi = new TeamApi(config);
 
-        var data = new TeamCreateRequest(name: "New Team Name");
+        var data = new TeamCreateRequest(
+            name: "New Team Name"
+        );
 
         try
         {
@@ -886,7 +890,9 @@ public class Example
 
         var teamApi = new TeamApi(config);
 
-        var data = new TeamUpdateRequest(name: "New Team Name");
+        var data = new TeamUpdateRequest(
+            name: "New Team Name"
+        );
 
         try
         {

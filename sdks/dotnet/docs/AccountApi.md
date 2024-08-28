@@ -20,6 +20,7 @@ Creates a new Dropbox Sign Account that is associated with the specified `email_
 ### Example
 ```csharp
 using System;
+
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
 using Dropbox.Sign.Model;
@@ -37,7 +38,9 @@ public class Example
 
         var accountApi = new AccountApi(config);
 
-        var data = new AccountCreateRequest(emailAddress: "newuser@dropboxsign.com");
+        var data = new AccountCreateRequest(
+            emailAddress: "newuser@dropboxsign.com"
+        );
 
         try
         {
@@ -114,6 +117,7 @@ Returns the properties and settings of your Account.
 ### Example
 ```csharp
 using System;
+
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
 using Dropbox.Sign.Model;
@@ -207,6 +211,7 @@ Updates the properties and settings of your Account. Currently only allows for u
 ### Example
 ```csharp
 using System;
+
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
 using Dropbox.Sign.Model;
@@ -224,7 +229,9 @@ public class Example
 
         var accountApi = new AccountApi(config);
 
-        var data = new AccountUpdateRequest(callbackUrl: "https://www.example.com/callback");
+        var data = new AccountUpdateRequest(
+            callbackUrl: "https://www.example.com/callback"
+        );
 
         try
         {
@@ -301,6 +308,7 @@ Verifies whether an Dropbox Sign Account exists for the given email address.
 ### Example
 ```csharp
 using System;
+
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
 using Dropbox.Sign.Model;
@@ -318,7 +326,9 @@ public class Example
 
         var accountApi = new AccountApi(config);
 
-        var data = new AccountVerifyRequest(emailAddress: "some_user@dropboxsign.com");
+        var data = new AccountVerifyRequest(
+            emailAddress: "some_user@dropboxsign.com"
+        );
 
         try
         {

@@ -64,8 +64,8 @@ public class Example
         );
 
         var signerList1 = new SubBulkSignerList(
-            signers: new List<SubSignatureRequestTemplateSigner>() { signerList1Signer },
-            customFields: new List<SubBulkSignerListCustomField>() { signerList1CustomFields }
+            signers: new List<SubSignatureRequestTemplateSigner>(){signerList1Signer},
+            customFields: new List<SubBulkSignerListCustomField>(){signerList1CustomFields}
         );
 
         var signerList2Signer = new SubSignatureRequestTemplateSigner(
@@ -81,19 +81,22 @@ public class Example
         );
 
         var signerList2 = new SubBulkSignerList(
-            signers: new List<SubSignatureRequestTemplateSigner>() { signerList2Signer },
-            customFields: new List<SubBulkSignerListCustomField>() { signerList2CustomFields }
+            signers: new List<SubSignatureRequestTemplateSigner>(){signerList2Signer},
+            customFields: new List<SubBulkSignerListCustomField>(){signerList2CustomFields}
         );
 
-        var cc1 = new SubCC(role: "Accounting", emailAddress: "accouting@email.com");
+        var cc1 = new SubCC(
+            role: "Accounting",
+            emailAddress: "accouting@email.com"
+        );
 
         var data = new SignatureRequestBulkCreateEmbeddedWithTemplateRequest(
             clientId: "1a659d9ad95bccd307ecad78d72192f8",
-            templateIds: new List<string>() { "c26b8a16784a872da37ea946b9ddec7c1e11dff6" },
+            templateIds: new List<string>(){"c26b8a16784a872da37ea946b9ddec7c1e11dff6"},
             subject: "Purchase Order",
             message: "Glad we could come to an agreement.",
-            signerList: new List<SubBulkSignerList>() { signerList1, signerList2 },
-            ccs: new List<SubCC>() { cc1 },
+            signerList: new List<SubBulkSignerList>(){signerList1, signerList2},
+            ccs: new List<SubCC>(){cc1},
             testMode: true
         );
 
@@ -204,8 +207,8 @@ public class Example
         );
 
         var signerList1 = new SubBulkSignerList(
-            signers: new List<SubSignatureRequestTemplateSigner>() { signerList1Signer },
-            customFields: new List<SubBulkSignerListCustomField>() { signerList1CustomFields }
+            signers: new List<SubSignatureRequestTemplateSigner>(){signerList1Signer},
+            customFields: new List<SubBulkSignerListCustomField>(){signerList1CustomFields}
         );
 
         var signerList2Signer = new SubSignatureRequestTemplateSigner(
@@ -221,18 +224,21 @@ public class Example
         );
 
         var signerList2 = new SubBulkSignerList(
-            signers: new List<SubSignatureRequestTemplateSigner>() { signerList2Signer },
-            customFields: new List<SubBulkSignerListCustomField>() { signerList2CustomFields }
+            signers: new List<SubSignatureRequestTemplateSigner>(){signerList2Signer},
+            customFields: new List<SubBulkSignerListCustomField>(){signerList2CustomFields}
         );
 
-        var cc1 = new SubCC(role: "Accounting", emailAddress: "accouting@email.com");
+        var cc1 = new SubCC(
+            role: "Accounting",
+            emailAddress: "accouting@email.com"
+        );
 
         var data = new SignatureRequestBulkSendWithTemplateRequest(
-            templateIds: new List<string>() { "c26b8a16784a872da37ea946b9ddec7c1e11dff6" },
+            templateIds: new List<string>(){"c26b8a16784a872da37ea946b9ddec7c1e11dff6"},
             subject: "Purchase Order",
             message: "Glad we could come to an agreement.",
-            signerList: new List<SubBulkSignerList>() { signerList1, signerList2 },
-            ccs: new List<SubCC>() { cc1 },
+            signerList: new List<SubBulkSignerList>(){signerList1, signerList2},
+            ccs: new List<SubCC>(){cc1},
             testMode: true
         );
 
@@ -442,14 +448,13 @@ public class Example
             defaultType: SubSigningOptions.DefaultTypeEnum.Draw
         );
 
-        var files = new List<Stream>
-        {
+        var files = new List<Stream> {
             new FileStream(
                 "./example_signature_request.pdf",
                 FileMode.Open,
                 FileAccess.Read,
                 FileShare.Read
-            ),
+            )
         };
 
         var data = new SignatureRequestCreateEmbeddedRequest(
@@ -457,12 +462,8 @@ public class Example
             title: "NDA with Acme Co.",
             subject: "The NDA we talked about",
             message: "Please sign this NDA and then we can discuss more. Let me know if you have any questions.",
-            signers: new List<SubSignatureRequestSigner>() { signer1, signer2 },
-            ccEmailAddresses: new List<string>()
-            {
-                "lawyer1@dropboxsign.com",
-                "lawyer2@dropboxsign.com",
-            },
+            signers: new List<SubSignatureRequestSigner>(){signer1, signer2},
+            ccEmailAddresses: new List<string>(){"lawyer1@dropboxsign.com", "lawyer2@dropboxsign.com"},
             files: files,
             signingOptions: signingOptions,
             testMode: true
@@ -561,7 +562,10 @@ public class Example
 
         var signatureRequestApi = new SignatureRequestApi(config);
 
-        var signer1 = new SubSignatureRequestTemplateSigner(role: "Client", name: "George");
+        var signer1 = new SubSignatureRequestTemplateSigner(
+            role: "Client",
+            name: "George"
+        );
 
         var subSigningOptions = new SubSigningOptions(
             draw: true,
@@ -573,10 +577,10 @@ public class Example
 
         var data = new SignatureRequestCreateEmbeddedWithTemplateRequest(
             clientId: "ec64a202072370a737edf4a0eb7f4437",
-            templateIds: new List<string>() { "c26b8a16784a872da37ea946b9ddec7c1e11dff6" },
+            templateIds: new List<string>(){"c26b8a16784a872da37ea946b9ddec7c1e11dff6"},
             subject: "Purchase Order",
             message: "Glad we could come to an agreement.",
-            signers: new List<SubSignatureRequestTemplateSigner>() { signer1 },
+            signers: new List<SubSignatureRequestTemplateSigner>(){signer1},
             signingOptions: subSigningOptions,
             testMode: true
         );
@@ -1253,7 +1257,9 @@ public class Example
 
         var signatureRequestApi = new SignatureRequestApi(config);
 
-        var data = new SignatureRequestRemindRequest(emailAddress: "john@example.com");
+        var data = new SignatureRequestRemindRequest(
+            emailAddress: "john@example.com"
+        );
 
         var signatureRequestId = "2f9781e1a8e2045224d808c153c2e1d3df6f8f2f";
 
@@ -1470,29 +1476,24 @@ public class Example
         var metadata = new Dictionary<string, object>()
         {
             ["custom_id"] = 1234,
-            ["custom_text"] = "NDA #9",
+            ["custom_text"] = "NDA #9"
         };
 
-        var files = new List<Stream>
-        {
+        var files = new List<Stream> {
             new FileStream(
                 "./example_signature_request.pdf",
                 FileMode.Open,
                 FileAccess.Read,
                 FileShare.Read
-            ),
+            )
         };
 
         var data = new SignatureRequestSendRequest(
             title: "NDA with Acme Co.",
             subject: "The NDA we talked about",
             message: "Please sign this NDA and then we can discuss more. Let me know if you have any questions.",
-            signers: new List<SubSignatureRequestSigner>() { signer1, signer2 },
-            ccEmailAddresses: new List<string>()
-            {
-                "lawyer1@dropboxsign.com",
-                "lawyer2@dropboxsign.com",
-            },
+            signers: new List<SubSignatureRequestSigner>(){signer1, signer2},
+            ccEmailAddresses: new List<string>(){"lawyer1@dropboxsign.com", "lawyer2@dropboxsign.com"},
             files: files,
             metadata: metadata,
             signingOptions: signingOptions,
@@ -1599,7 +1600,10 @@ public class Example
             name: "George"
         );
 
-        var cc1 = new SubCC(role: "Accounting", emailAddress: "accouting@emaple.com");
+        var cc1 = new SubCC(
+            role: "Accounting",
+            emailAddress: "accouting@emaple.com"
+        );
 
         var customField1 = new SubCustomField(
             name: "Cost",
@@ -1617,12 +1621,12 @@ public class Example
         );
 
         var data = new SignatureRequestSendWithTemplateRequest(
-            templateIds: new List<string>() { "c26b8a16784a872da37ea946b9ddec7c1e11dff6" },
+            templateIds: new List<string>(){"c26b8a16784a872da37ea946b9ddec7c1e11dff6"},
             subject: "Purchase Order",
             message: "Glad we could come to an agreement.",
-            signers: new List<SubSignatureRequestTemplateSigner>() { signer1 },
-            ccs: new List<SubCC>() { cc1 },
-            customFields: new List<SubCustomField>() { customField1 },
+            signers: new List<SubSignatureRequestTemplateSigner>(){signer1},
+            ccs: new List<SubCC>(){cc1},
+            customFields: new List<SubCustomField>(){customField1},
             signingOptions: signingOptions,
             testMode: true
         );
