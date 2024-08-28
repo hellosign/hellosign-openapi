@@ -66,24 +66,29 @@ public class Example
         var metadata = new Dictionary<string, object>()
         {
             ["custom_id"] = 1234,
-            ["custom_text"] = "NDA #9"
+            ["custom_text"] = "NDA #9",
         };
 
-        var files = new List<Stream> {
+        var files = new List<Stream>
+        {
             new FileStream(
                 "./example_signature_request.pdf",
                 FileMode.Open,
                 FileAccess.Read,
                 FileShare.Read
-            )
+            ),
         };
 
         var data = new UnclaimedDraftCreateRequest(
             subject: "The NDA we talked about",
             type: UnclaimedDraftCreateRequest.TypeEnum.RequestSignature,
             message: "Please sign this NDA and then we can discuss more. Let me know if you have any questions.",
-            signers: new List<SubUnclaimedDraftSigner>(){signer1, signer2},
-            ccEmailAddresses: new List<string>(){"lawyer1@dropboxsign.com", "lawyer2@dropboxsign.com"},
+            signers: new List<SubUnclaimedDraftSigner>() { signer1, signer2 },
+            ccEmailAddresses: new List<string>()
+            {
+                "lawyer1@dropboxsign.com",
+                "lawyer2@dropboxsign.com",
+            },
             files: files,
             metadata: metadata,
             signingOptions: subSigningOptions,
@@ -185,13 +190,14 @@ public class Example
 
         var unclaimedDraftApi = new UnclaimedDraftApi(config);
 
-        var files = new List<Stream> {
+        var files = new List<Stream>
+        {
             new FileStream(
                 "./example_signature_request.pdf",
                 FileMode.Open,
                 FileAccess.Read,
                 FileShare.Read
-            )
+            ),
         };
 
         var data = new UnclaimedDraftCreateEmbeddedRequest(
@@ -300,17 +306,14 @@ public class Example
             emailAddress: "george@example.com"
         );
 
-        var cc1 = new SubCC(
-            role: "Accounting",
-            emailAddress: "accouting@email.com"
-        );
+        var cc1 = new SubCC(role: "Accounting", emailAddress: "accouting@email.com");
 
         var data = new UnclaimedDraftCreateEmbeddedWithTemplateRequest(
             clientId: "1a659d9ad95bccd307ecad78d72192f8",
-            templateIds: new List<string>(){"c26b8a16784a872da37ea946b9ddec7c1e11dff6"},
+            templateIds: new List<string>() { "c26b8a16784a872da37ea946b9ddec7c1e11dff6" },
             requesterEmailAddress: "jack@dropboxsign.com",
-            signers: new List<SubUnclaimedDraftTemplateSigner>(){signer},
-            ccs: new List<SubCC>(){cc1},
+            signers: new List<SubUnclaimedDraftTemplateSigner>() { signer },
+            ccs: new List<SubCC>() { cc1 },
             testMode: true
         );
 

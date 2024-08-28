@@ -42,9 +42,10 @@ public class Example
 
         var oauth = new SubOAuth(
             callbackUrl: "https://example.com/oauth",
-            scopes: new List<SubOAuth.ScopesEnum>() {
+            scopes: new List<SubOAuth.ScopesEnum>()
+            {
                 SubOAuth.ScopesEnum.BasicAccountInfo,
-                SubOAuth.ScopesEnum.RequestSignature
+                SubOAuth.ScopesEnum.RequestSignature,
             }
         );
 
@@ -53,14 +54,11 @@ public class Example
             primaryButtonTextColor: "#ffffff"
         );
 
-        var customLogoFile = new FileStream(
-            "CustomLogoFile.png",
-            FileMode.Open
-        );
+        var customLogoFile = new FileStream("CustomLogoFile.png", FileMode.Open);
 
         var data = new ApiAppCreateRequest(
             name: "My Production App",
-            domains: new List<string>(){"example.com"},
+            domains: new List<string>() { "example.com" },
             oauth: oauth,
             whiteLabelingOptions: whiteLabelingOptions,
             customLogoFile: customLogoFile
@@ -233,7 +231,6 @@ Returns an object with information about an API App.
 ### Example
 ```csharp
 using System;
-
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
 using Dropbox.Sign.Model;
@@ -328,7 +325,6 @@ Returns a list of API Apps that are accessible by you. If you are on a team with
 ### Example
 ```csharp
 using System;
-
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
 using Dropbox.Sign.Model;
@@ -446,9 +442,10 @@ public class Example
 
         var oauth = new SubOAuth(
             callbackUrl: "https://example.com/oauth",
-            scopes: new List<SubOAuth.ScopesEnum>() {
+            scopes: new List<SubOAuth.ScopesEnum>()
+            {
                 SubOAuth.ScopesEnum.BasicAccountInfo,
-                SubOAuth.ScopesEnum.RequestSignature
+                SubOAuth.ScopesEnum.RequestSignature,
             }
         );
 
@@ -457,14 +454,11 @@ public class Example
             primaryButtonTextColor: "#ffffff"
         );
 
-        var customLogoFile = new FileStream(
-            "CustomLogoFile.png",
-            FileMode.Open
-        );
+        var customLogoFile = new FileStream("CustomLogoFile.png", FileMode.Open);
 
         var data = new ApiAppUpdateRequest(
             name: "My Production App",
-            domains: new List<string>(){"example.com"},
+            domains: new List<string>() { "example.com" },
             oauth: oauth,
             whiteLabelingOptions: whiteLabelingOptions,
             customLogoFile: customLogoFile
