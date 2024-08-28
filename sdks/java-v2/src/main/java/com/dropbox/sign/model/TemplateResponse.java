@@ -57,7 +57,7 @@ import com.dropbox.sign.ApiException;
   TemplateResponse.JSON_PROPERTY_NAMED_FORM_FIELDS,
   TemplateResponse.JSON_PROPERTY_ACCOUNTS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class TemplateResponse {
   public static final String JSON_PROPERTY_TEMPLATE_ID = "template_id";

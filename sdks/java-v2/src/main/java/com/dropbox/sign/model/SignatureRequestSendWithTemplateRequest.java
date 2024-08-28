@@ -60,7 +60,7 @@ import com.dropbox.sign.ApiException;
   SignatureRequestSendWithTemplateRequest.JSON_PROPERTY_TEST_MODE,
   SignatureRequestSendWithTemplateRequest.JSON_PROPERTY_TITLE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class SignatureRequestSendWithTemplateRequest {
   public static final String JSON_PROPERTY_TEMPLATE_IDS = "template_ids";

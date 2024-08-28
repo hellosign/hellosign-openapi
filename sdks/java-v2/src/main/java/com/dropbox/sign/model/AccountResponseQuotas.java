@@ -40,7 +40,7 @@ import com.dropbox.sign.ApiException;
   AccountResponseQuotas.JSON_PROPERTY_SMS_VERIFICATIONS_LEFT,
   AccountResponseQuotas.JSON_PROPERTY_NUM_FAX_PAGES_LEFT
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class AccountResponseQuotas {
   public static final String JSON_PROPERTY_API_SIGNATURE_REQUESTS_LEFT = "api_signature_requests_left";

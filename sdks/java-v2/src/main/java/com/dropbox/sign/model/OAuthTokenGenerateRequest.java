@@ -39,7 +39,7 @@ import com.dropbox.sign.ApiException;
   OAuthTokenGenerateRequest.JSON_PROPERTY_GRANT_TYPE,
   OAuthTokenGenerateRequest.JSON_PROPERTY_STATE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class OAuthTokenGenerateRequest {
   public static final String JSON_PROPERTY_CLIENT_ID = "client_id";

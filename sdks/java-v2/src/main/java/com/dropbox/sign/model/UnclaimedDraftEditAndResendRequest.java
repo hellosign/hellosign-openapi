@@ -43,7 +43,7 @@ import com.dropbox.sign.ApiException;
   UnclaimedDraftEditAndResendRequest.JSON_PROPERTY_SIGNING_REDIRECT_URL,
   UnclaimedDraftEditAndResendRequest.JSON_PROPERTY_TEST_MODE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class UnclaimedDraftEditAndResendRequest {
   public static final String JSON_PROPERTY_CLIENT_ID = "client_id";

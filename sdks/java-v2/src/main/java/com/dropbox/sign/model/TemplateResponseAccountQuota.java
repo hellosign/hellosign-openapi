@@ -38,7 +38,7 @@ import com.dropbox.sign.ApiException;
   TemplateResponseAccountQuota.JSON_PROPERTY_DOCUMENTS_LEFT,
   TemplateResponseAccountQuota.JSON_PROPERTY_SMS_VERIFICATIONS_LEFT
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class TemplateResponseAccountQuota {
   public static final String JSON_PROPERTY_TEMPLATES_LEFT = "templates_left";

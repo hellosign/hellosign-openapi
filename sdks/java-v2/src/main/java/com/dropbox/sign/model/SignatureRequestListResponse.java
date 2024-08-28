@@ -42,7 +42,7 @@ import com.dropbox.sign.ApiException;
   SignatureRequestListResponse.JSON_PROPERTY_LIST_INFO,
   SignatureRequestListResponse.JSON_PROPERTY_WARNINGS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class SignatureRequestListResponse {
   public static final String JSON_PROPERTY_SIGNATURE_REQUESTS = "signature_requests";

@@ -25,7 +25,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 public class TeamApi {
   private ApiClient apiClient;
 
@@ -486,7 +486,7 @@ public class TeamApi {
 
     // Path parameters
     String localVarPath = "/team/members/{team_id}"
-            .replaceAll("\\{team_id}", apiClient.escapeString(teamId));
+            .replaceAll("\\{team_id}", apiClient.escapeString(teamId.toString()));
 
     // Query parameters
     List<Pair> localVarQueryParams = new ArrayList<>(
@@ -643,7 +643,7 @@ public class TeamApi {
 
     // Path parameters
     String localVarPath = "/team/sub_teams/{team_id}"
-            .replaceAll("\\{team_id}", apiClient.escapeString(teamId));
+            .replaceAll("\\{team_id}", apiClient.escapeString(teamId.toString()));
 
     // Query parameters
     List<Pair> localVarQueryParams = new ArrayList<>(

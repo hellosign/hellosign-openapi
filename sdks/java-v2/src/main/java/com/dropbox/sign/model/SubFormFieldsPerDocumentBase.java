@@ -48,7 +48,7 @@ import com.dropbox.sign.ApiException;
   SubFormFieldsPerDocumentBase.JSON_PROPERTY_NAME,
   SubFormFieldsPerDocumentBase.JSON_PROPERTY_PAGE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(
   allowSetters = true, // allows the type to be set during deserialization
   ignoreUnknown = true

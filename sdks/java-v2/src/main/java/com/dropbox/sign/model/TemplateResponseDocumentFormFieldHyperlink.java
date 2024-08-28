@@ -44,7 +44,7 @@ import com.dropbox.sign.ApiException;
   TemplateResponseDocumentFormFieldHyperlink.JSON_PROPERTY_ORIGINAL_FONT_SIZE,
   TemplateResponseDocumentFormFieldHyperlink.JSON_PROPERTY_FONT_FAMILY
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(
   allowSetters = true, // allows the type to be set during deserialization
   ignoreUnknown = true

@@ -47,7 +47,7 @@ import com.dropbox.sign.ApiException;
   AccountResponse.JSON_PROPERTY_LOCALE,
   AccountResponse.JSON_PROPERTY_USAGE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class AccountResponse {
   public static final String JSON_PROPERTY_ACCOUNT_ID = "account_id";

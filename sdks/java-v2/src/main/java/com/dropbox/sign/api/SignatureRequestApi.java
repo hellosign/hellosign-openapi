@@ -30,7 +30,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 public class SignatureRequestApi {
   private ApiClient apiClient;
 
@@ -197,7 +197,7 @@ public class SignatureRequestApi {
 
     // Path parameters
     String localVarPath = "/signature_request/cancel/{signature_request_id}"
-            .replaceAll("\\{signature_request_id}", apiClient.escapeString(signatureRequestId));
+            .replaceAll("\\{signature_request_id}", apiClient.escapeString(signatureRequestId.toString()));
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     Map<String, Object> localVarFormParams = new LinkedHashMap<>();
@@ -371,7 +371,7 @@ public class SignatureRequestApi {
 
     // Path parameters
     String localVarPath = "/signature_request/files/{signature_request_id}"
-            .replaceAll("\\{signature_request_id}", apiClient.escapeString(signatureRequestId));
+            .replaceAll("\\{signature_request_id}", apiClient.escapeString(signatureRequestId.toString()));
 
     // Query parameters
     List<Pair> localVarQueryParams = new ArrayList<>(
@@ -429,7 +429,7 @@ public class SignatureRequestApi {
 
     // Path parameters
     String localVarPath = "/signature_request/files_as_data_uri/{signature_request_id}"
-            .replaceAll("\\{signature_request_id}", apiClient.escapeString(signatureRequestId));
+            .replaceAll("\\{signature_request_id}", apiClient.escapeString(signatureRequestId.toString()));
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     Map<String, Object> localVarFormParams = new LinkedHashMap<>();
@@ -506,7 +506,7 @@ public class SignatureRequestApi {
 
     // Path parameters
     String localVarPath = "/signature_request/files_as_file_url/{signature_request_id}"
-            .replaceAll("\\{signature_request_id}", apiClient.escapeString(signatureRequestId));
+            .replaceAll("\\{signature_request_id}", apiClient.escapeString(signatureRequestId.toString()));
 
     // Query parameters
     List<Pair> localVarQueryParams = new ArrayList<>(
@@ -564,7 +564,7 @@ public class SignatureRequestApi {
 
     // Path parameters
     String localVarPath = "/signature_request/{signature_request_id}"
-            .replaceAll("\\{signature_request_id}", apiClient.escapeString(signatureRequestId));
+            .replaceAll("\\{signature_request_id}", apiClient.escapeString(signatureRequestId.toString()));
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     Map<String, Object> localVarFormParams = new LinkedHashMap<>();
@@ -766,7 +766,7 @@ public class SignatureRequestApi {
 
     // Path parameters
     String localVarPath = "/signature_request/release_hold/{signature_request_id}"
-            .replaceAll("\\{signature_request_id}", apiClient.escapeString(signatureRequestId));
+            .replaceAll("\\{signature_request_id}", apiClient.escapeString(signatureRequestId.toString()));
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     Map<String, Object> localVarFormParams = new LinkedHashMap<>();
@@ -824,7 +824,7 @@ public class SignatureRequestApi {
 
     // Path parameters
     String localVarPath = "/signature_request/remind/{signature_request_id}"
-            .replaceAll("\\{signature_request_id}", apiClient.escapeString(signatureRequestId));
+            .replaceAll("\\{signature_request_id}", apiClient.escapeString(signatureRequestId.toString()));
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     Map<String, Object> localVarFormParams = new LinkedHashMap<>();
@@ -876,7 +876,7 @@ public class SignatureRequestApi {
 
     // Path parameters
     String localVarPath = "/signature_request/remove/{signature_request_id}"
-            .replaceAll("\\{signature_request_id}", apiClient.escapeString(signatureRequestId));
+            .replaceAll("\\{signature_request_id}", apiClient.escapeString(signatureRequestId.toString()));
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     Map<String, Object> localVarFormParams = new LinkedHashMap<>();
@@ -1031,7 +1031,7 @@ public class SignatureRequestApi {
 
     // Path parameters
     String localVarPath = "/signature_request/update/{signature_request_id}"
-            .replaceAll("\\{signature_request_id}", apiClient.escapeString(signatureRequestId));
+            .replaceAll("\\{signature_request_id}", apiClient.escapeString(signatureRequestId.toString()));
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     Map<String, Object> localVarFormParams = new LinkedHashMap<>();

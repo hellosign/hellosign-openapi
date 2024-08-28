@@ -40,7 +40,7 @@ import com.dropbox.sign.ApiException;
   UnclaimedDraftResponse.JSON_PROPERTY_EXPIRES_AT,
   UnclaimedDraftResponse.JSON_PROPERTY_TEST_MODE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class UnclaimedDraftResponse {
   public static final String JSON_PROPERTY_SIGNATURE_REQUEST_ID = "signature_request_id";

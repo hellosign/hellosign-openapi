@@ -19,7 +19,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 public class EmbeddedApi {
   private ApiClient apiClient;
 
@@ -94,7 +94,7 @@ public class EmbeddedApi {
 
     // Path parameters
     String localVarPath = "/embedded/edit_url/{template_id}"
-            .replaceAll("\\{template_id}", apiClient.escapeString(templateId));
+            .replaceAll("\\{template_id}", apiClient.escapeString(templateId.toString()));
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     Map<String, Object> localVarFormParams = new LinkedHashMap<>();
@@ -147,7 +147,7 @@ public class EmbeddedApi {
 
     // Path parameters
     String localVarPath = "/embedded/sign_url/{signature_id}"
-            .replaceAll("\\{signature_id}", apiClient.escapeString(signatureId));
+            .replaceAll("\\{signature_id}", apiClient.escapeString(signatureId.toString()));
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     Map<String, Object> localVarFormParams = new LinkedHashMap<>();

@@ -21,7 +21,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 public class UnclaimedDraftApi {
   private ApiClient apiClient;
 
@@ -243,7 +243,7 @@ public class UnclaimedDraftApi {
 
     // Path parameters
     String localVarPath = "/unclaimed_draft/edit_and_resend/{signature_request_id}"
-            .replaceAll("\\{signature_request_id}", apiClient.escapeString(signatureRequestId));
+            .replaceAll("\\{signature_request_id}", apiClient.escapeString(signatureRequestId.toString()));
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     Map<String, Object> localVarFormParams = new LinkedHashMap<>();

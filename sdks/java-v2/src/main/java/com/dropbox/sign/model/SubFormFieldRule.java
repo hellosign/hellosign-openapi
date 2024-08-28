@@ -42,7 +42,7 @@ import com.dropbox.sign.ApiException;
   SubFormFieldRule.JSON_PROPERTY_TRIGGERS,
   SubFormFieldRule.JSON_PROPERTY_ACTIONS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class SubFormFieldRule {
   public static final String JSON_PROPERTY_ID = "id";

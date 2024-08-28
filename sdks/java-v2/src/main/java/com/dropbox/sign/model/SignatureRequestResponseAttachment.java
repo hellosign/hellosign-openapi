@@ -40,7 +40,7 @@ import com.dropbox.sign.ApiException;
   SignatureRequestResponseAttachment.JSON_PROPERTY_INSTRUCTIONS,
   SignatureRequestResponseAttachment.JSON_PROPERTY_UPLOADED_AT
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class SignatureRequestResponseAttachment {
   public static final String JSON_PROPERTY_ID = "id";

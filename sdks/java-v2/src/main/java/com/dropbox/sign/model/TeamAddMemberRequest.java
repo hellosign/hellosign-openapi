@@ -37,7 +37,7 @@ import com.dropbox.sign.ApiException;
   TeamAddMemberRequest.JSON_PROPERTY_EMAIL_ADDRESS,
   TeamAddMemberRequest.JSON_PROPERTY_ROLE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class TeamAddMemberRequest {
   public static final String JSON_PROPERTY_ACCOUNT_ID = "account_id";

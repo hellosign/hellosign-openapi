@@ -20,7 +20,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 public class ApiAppApi {
   private ApiClient apiClient;
 
@@ -138,7 +138,7 @@ public class ApiAppApi {
 
     // Path parameters
     String localVarPath = "/api_app/{client_id}"
-            .replaceAll("\\{client_id}", apiClient.escapeString(clientId));
+            .replaceAll("\\{client_id}", apiClient.escapeString(clientId.toString()));
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     Map<String, Object> localVarFormParams = new LinkedHashMap<>();
@@ -190,7 +190,7 @@ public class ApiAppApi {
 
     // Path parameters
     String localVarPath = "/api_app/{client_id}"
-            .replaceAll("\\{client_id}", apiClient.escapeString(clientId));
+            .replaceAll("\\{client_id}", apiClient.escapeString(clientId.toString()));
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     Map<String, Object> localVarFormParams = new LinkedHashMap<>();
@@ -345,7 +345,7 @@ public class ApiAppApi {
 
     // Path parameters
     String localVarPath = "/api_app/{client_id}"
-            .replaceAll("\\{client_id}", apiClient.escapeString(clientId));
+            .replaceAll("\\{client_id}", apiClient.escapeString(clientId.toString()));
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     Map<String, Object> localVarFormParams = new LinkedHashMap<>();

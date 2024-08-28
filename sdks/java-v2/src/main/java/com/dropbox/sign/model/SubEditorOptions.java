@@ -36,7 +36,7 @@ import com.dropbox.sign.ApiException;
   SubEditorOptions.JSON_PROPERTY_ALLOW_EDIT_SIGNERS,
   SubEditorOptions.JSON_PROPERTY_ALLOW_EDIT_DOCUMENTS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class SubEditorOptions {
   public static final String JSON_PROPERTY_ALLOW_EDIT_SIGNERS = "allow_edit_signers";

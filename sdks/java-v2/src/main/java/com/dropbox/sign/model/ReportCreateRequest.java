@@ -39,7 +39,7 @@ import com.dropbox.sign.ApiException;
   ReportCreateRequest.JSON_PROPERTY_REPORT_TYPE,
   ReportCreateRequest.JSON_PROPERTY_START_DATE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class ReportCreateRequest {
   public static final String JSON_PROPERTY_END_DATE = "end_date";

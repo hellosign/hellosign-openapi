@@ -41,7 +41,7 @@ import com.dropbox.sign.ApiException;
   TemplateResponseAccount.JSON_PROPERTY_IS_PAID_HF,
   TemplateResponseAccount.JSON_PROPERTY_QUOTAS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class TemplateResponseAccount {
   public static final String JSON_PROPERTY_ACCOUNT_ID = "account_id";

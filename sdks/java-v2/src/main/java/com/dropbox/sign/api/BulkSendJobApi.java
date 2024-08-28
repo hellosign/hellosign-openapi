@@ -18,7 +18,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 public class BulkSendJobApi {
   private ApiClient apiClient;
 
@@ -137,7 +137,7 @@ public class BulkSendJobApi {
 
     // Path parameters
     String localVarPath = "/bulk_send_job/{bulk_send_job_id}"
-            .replaceAll("\\{bulk_send_job_id}", apiClient.escapeString(bulkSendJobId));
+            .replaceAll("\\{bulk_send_job_id}", apiClient.escapeString(bulkSendJobId.toString()));
 
     // Query parameters
     List<Pair> localVarQueryParams = new ArrayList<>(

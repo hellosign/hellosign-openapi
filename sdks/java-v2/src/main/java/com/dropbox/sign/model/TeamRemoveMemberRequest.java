@@ -39,7 +39,7 @@ import com.dropbox.sign.ApiException;
   TeamRemoveMemberRequest.JSON_PROPERTY_NEW_TEAM_ID,
   TeamRemoveMemberRequest.JSON_PROPERTY_NEW_ROLE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class TeamRemoveMemberRequest {
   public static final String JSON_PROPERTY_ACCOUNT_ID = "account_id";

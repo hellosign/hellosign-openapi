@@ -47,7 +47,7 @@ import com.dropbox.sign.ApiException;
   ApiAppUpdateRequest.JSON_PROPERTY_OPTIONS,
   ApiAppUpdateRequest.JSON_PROPERTY_WHITE_LABELING_OPTIONS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class ApiAppUpdateRequest {
   public static final String JSON_PROPERTY_CALLBACK_URL = "callback_url";

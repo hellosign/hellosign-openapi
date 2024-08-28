@@ -40,7 +40,7 @@ import com.dropbox.sign.ApiException;
   ReportResponse.JSON_PROPERTY_END_DATE,
   ReportResponse.JSON_PROPERTY_REPORT_TYPE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class ReportResponse {
   public static final String JSON_PROPERTY_SUCCESS = "success";

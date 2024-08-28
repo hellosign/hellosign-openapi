@@ -38,7 +38,7 @@ import com.dropbox.sign.ApiException;
   BulkSendJobResponse.JSON_PROPERTY_IS_CREATOR,
   BulkSendJobResponse.JSON_PROPERTY_CREATED_AT
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class BulkSendJobResponse {
   public static final String JSON_PROPERTY_BULK_SEND_JOB_ID = "bulk_send_job_id";
