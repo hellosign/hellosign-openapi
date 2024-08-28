@@ -74,8 +74,8 @@ export {{#vendorExtensions.x-base-class}}abstract {{/vendorExtensions.x-base-cla
         return {{classname}}.attributeTypeMap;
         {{/parent}}
     }
-
 {{#useCustomTemplateCode}}
+
 {{#discriminator}}
     static discriminatorClassName(value: any): string | null {
         if ((value === undefined) || (value === null)) {
