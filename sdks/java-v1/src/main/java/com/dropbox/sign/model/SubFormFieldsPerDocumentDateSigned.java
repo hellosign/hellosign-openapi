@@ -41,7 +41,7 @@ import com.dropbox.sign.ApiException;
   SubFormFieldsPerDocumentDateSigned.JSON_PROPERTY_FONT_FAMILY,
   SubFormFieldsPerDocumentDateSigned.JSON_PROPERTY_FONT_SIZE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(
   allowSetters = true, // allows the type to be set during deserialization
   ignoreUnknown = true

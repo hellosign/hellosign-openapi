@@ -38,7 +38,7 @@ import com.dropbox.sign.ApiException;
   SubOAuth.JSON_PROPERTY_CALLBACK_URL,
   SubOAuth.JSON_PROPERTY_SCOPES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class SubOAuth {
   public static final String JSON_PROPERTY_CALLBACK_URL = "callback_url";

@@ -42,7 +42,7 @@ import com.dropbox.sign.ApiException;
   TemplateListResponse.JSON_PROPERTY_LIST_INFO,
   TemplateListResponse.JSON_PROPERTY_WARNINGS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class TemplateListResponse {
   public static final String JSON_PROPERTY_TEMPLATES = "templates";

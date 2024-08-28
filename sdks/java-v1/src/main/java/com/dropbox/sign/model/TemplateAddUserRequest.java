@@ -37,7 +37,7 @@ import com.dropbox.sign.ApiException;
   TemplateAddUserRequest.JSON_PROPERTY_EMAIL_ADDRESS,
   TemplateAddUserRequest.JSON_PROPERTY_SKIP_NOTIFICATION
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class TemplateAddUserRequest {
   public static final String JSON_PROPERTY_ACCOUNT_ID = "account_id";

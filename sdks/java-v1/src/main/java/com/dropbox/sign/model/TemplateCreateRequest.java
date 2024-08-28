@@ -64,7 +64,7 @@ import com.dropbox.sign.ApiException;
   TemplateCreateRequest.JSON_PROPERTY_TITLE,
   TemplateCreateRequest.JSON_PROPERTY_USE_PREEXISTING_FIELDS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class TemplateCreateRequest {
   public static final String JSON_PROPERTY_FORM_FIELDS_PER_DOCUMENT = "form_fields_per_document";

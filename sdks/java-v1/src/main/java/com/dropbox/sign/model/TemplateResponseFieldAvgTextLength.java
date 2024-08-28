@@ -36,7 +36,7 @@ import com.dropbox.sign.ApiException;
   TemplateResponseFieldAvgTextLength.JSON_PROPERTY_NUM_LINES,
   TemplateResponseFieldAvgTextLength.JSON_PROPERTY_NUM_CHARS_PER_LINE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class TemplateResponseFieldAvgTextLength {
   public static final String JSON_PROPERTY_NUM_LINES = "num_lines";

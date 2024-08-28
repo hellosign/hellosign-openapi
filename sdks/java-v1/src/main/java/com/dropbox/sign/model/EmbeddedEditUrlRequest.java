@@ -48,7 +48,7 @@ import com.dropbox.sign.ApiException;
   EmbeddedEditUrlRequest.JSON_PROPERTY_SHOW_PROGRESS_STEPPER,
   EmbeddedEditUrlRequest.JSON_PROPERTY_TEST_MODE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class EmbeddedEditUrlRequest {
   public static final String JSON_PROPERTY_ALLOW_EDIT_CCS = "allow_edit_ccs";

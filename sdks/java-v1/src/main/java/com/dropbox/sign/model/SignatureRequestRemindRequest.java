@@ -36,7 +36,7 @@ import com.dropbox.sign.ApiException;
   SignatureRequestRemindRequest.JSON_PROPERTY_EMAIL_ADDRESS,
   SignatureRequestRemindRequest.JSON_PROPERTY_NAME
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class SignatureRequestRemindRequest {
   public static final String JSON_PROPERTY_EMAIL_ADDRESS = "email_address";

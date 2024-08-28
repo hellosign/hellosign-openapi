@@ -58,7 +58,7 @@ import com.dropbox.sign.ApiException;
   SignatureRequestCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_TITLE,
   SignatureRequestCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_POPULATE_AUTO_FILL_FIELDS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class SignatureRequestCreateEmbeddedWithTemplateRequest {
   public static final String JSON_PROPERTY_TEMPLATE_IDS = "template_ids";

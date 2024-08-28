@@ -36,7 +36,7 @@ import com.dropbox.sign.ApiException;
 @JsonPropertyOrder({
   ErrorResponse.JSON_PROPERTY_ERROR
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class ErrorResponse {
   public static final String JSON_PROPERTY_ERROR = "error";

@@ -41,7 +41,7 @@ import com.dropbox.sign.ApiException;
   FaxLineResponseFaxLine.JSON_PROPERTY_UPDATED_AT,
   FaxLineResponseFaxLine.JSON_PROPERTY_ACCOUNTS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class FaxLineResponseFaxLine {
   public static final String JSON_PROPERTY_NUMBER = "number";

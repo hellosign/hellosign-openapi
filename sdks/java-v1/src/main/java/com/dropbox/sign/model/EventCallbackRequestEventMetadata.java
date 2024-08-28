@@ -38,7 +38,7 @@ import com.dropbox.sign.ApiException;
   EventCallbackRequestEventMetadata.JSON_PROPERTY_REPORTED_FOR_APP_ID,
   EventCallbackRequestEventMetadata.JSON_PROPERTY_EVENT_MESSAGE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class EventCallbackRequestEventMetadata {
   public static final String JSON_PROPERTY_RELATED_SIGNATURE_ID = "related_signature_id";

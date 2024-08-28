@@ -38,7 +38,7 @@ import com.dropbox.sign.ApiException;
   AccountCreateRequest.JSON_PROPERTY_CLIENT_SECRET,
   AccountCreateRequest.JSON_PROPERTY_LOCALE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class AccountCreateRequest {
   public static final String JSON_PROPERTY_EMAIL_ADDRESS = "email_address";

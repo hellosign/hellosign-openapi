@@ -29,7 +29,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 public class TemplateApi {
   private ApiClient apiClient;
 
@@ -104,7 +104,7 @@ public class TemplateApi {
 
     // Path parameters
     String localVarPath = "/template/add_user/{template_id}"
-            .replaceAll("\\{template_id}", apiClient.escapeString(templateId));
+            .replaceAll("\\{template_id}", apiClient.escapeString(templateId.toString()));
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     Map<String, Object> localVarFormParams = new LinkedHashMap<>();
@@ -254,7 +254,7 @@ public class TemplateApi {
 
     // Path parameters
     String localVarPath = "/template/delete/{template_id}"
-            .replaceAll("\\{template_id}", apiClient.escapeString(templateId));
+            .replaceAll("\\{template_id}", apiClient.escapeString(templateId.toString()));
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     Map<String, Object> localVarFormParams = new LinkedHashMap<>();
@@ -327,7 +327,7 @@ public class TemplateApi {
 
     // Path parameters
     String localVarPath = "/template/files/{template_id}"
-            .replaceAll("\\{template_id}", apiClient.escapeString(templateId));
+            .replaceAll("\\{template_id}", apiClient.escapeString(templateId.toString()));
 
     // Query parameters
     List<Pair> localVarQueryParams = new ArrayList<>(
@@ -385,7 +385,7 @@ public class TemplateApi {
 
     // Path parameters
     String localVarPath = "/template/files_as_data_uri/{template_id}"
-            .replaceAll("\\{template_id}", apiClient.escapeString(templateId));
+            .replaceAll("\\{template_id}", apiClient.escapeString(templateId.toString()));
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     Map<String, Object> localVarFormParams = new LinkedHashMap<>();
@@ -462,7 +462,7 @@ public class TemplateApi {
 
     // Path parameters
     String localVarPath = "/template/files_as_file_url/{template_id}"
-            .replaceAll("\\{template_id}", apiClient.escapeString(templateId));
+            .replaceAll("\\{template_id}", apiClient.escapeString(templateId.toString()));
 
     // Query parameters
     List<Pair> localVarQueryParams = new ArrayList<>(
@@ -520,7 +520,7 @@ public class TemplateApi {
 
     // Path parameters
     String localVarPath = "/template/{template_id}"
-            .replaceAll("\\{template_id}", apiClient.escapeString(templateId));
+            .replaceAll("\\{template_id}", apiClient.escapeString(templateId.toString()));
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     Map<String, Object> localVarFormParams = new LinkedHashMap<>();
@@ -727,7 +727,7 @@ public class TemplateApi {
 
     // Path parameters
     String localVarPath = "/template/remove_user/{template_id}"
-            .replaceAll("\\{template_id}", apiClient.escapeString(templateId));
+            .replaceAll("\\{template_id}", apiClient.escapeString(templateId.toString()));
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     Map<String, Object> localVarFormParams = new LinkedHashMap<>();
@@ -785,7 +785,7 @@ public class TemplateApi {
 
     // Path parameters
     String localVarPath = "/template/update_files/{template_id}"
-            .replaceAll("\\{template_id}", apiClient.escapeString(templateId));
+            .replaceAll("\\{template_id}", apiClient.escapeString(templateId.toString()));
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     Map<String, Object> localVarFormParams = new LinkedHashMap<>();

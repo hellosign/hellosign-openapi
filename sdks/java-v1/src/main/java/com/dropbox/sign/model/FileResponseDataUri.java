@@ -35,7 +35,7 @@ import com.dropbox.sign.ApiException;
 @JsonPropertyOrder({
   FileResponseDataUri.JSON_PROPERTY_DATA_URI
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class FileResponseDataUri {
   public static final String JSON_PROPERTY_DATA_URI = "data_uri";

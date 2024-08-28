@@ -40,7 +40,7 @@ import com.dropbox.sign.ApiException;
   BulkSendJobSendResponse.JSON_PROPERTY_BULK_SEND_JOB,
   BulkSendJobSendResponse.JSON_PROPERTY_WARNINGS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class BulkSendJobSendResponse {
   public static final String JSON_PROPERTY_BULK_SEND_JOB = "bulk_send_job";

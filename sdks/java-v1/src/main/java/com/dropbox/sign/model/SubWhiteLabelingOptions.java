@@ -49,7 +49,7 @@ import com.dropbox.sign.ApiException;
   SubWhiteLabelingOptions.JSON_PROPERTY_TEXT_COLOR2,
   SubWhiteLabelingOptions.JSON_PROPERTY_RESET_TO_DEFAULT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class SubWhiteLabelingOptions {
   public static final String JSON_PROPERTY_HEADER_BACKGROUND_COLOR = "header_background_color";

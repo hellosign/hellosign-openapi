@@ -40,7 +40,7 @@ import com.dropbox.sign.ApiException;
   SubBulkSignerList.JSON_PROPERTY_CUSTOM_FIELDS,
   SubBulkSignerList.JSON_PROPERTY_SIGNERS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class SubBulkSignerList {
   public static final String JSON_PROPERTY_CUSTOM_FIELDS = "custom_fields";

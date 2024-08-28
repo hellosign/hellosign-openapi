@@ -71,7 +71,7 @@ import com.dropbox.sign.ApiException;
   UnclaimedDraftCreateRequest.JSON_PROPERTY_USE_TEXT_TAGS,
   UnclaimedDraftCreateRequest.JSON_PROPERTY_EXPIRES_AT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class UnclaimedDraftCreateRequest {
   /**

@@ -40,7 +40,7 @@ import com.dropbox.sign.ApiException;
   SignatureRequestResponseDataValueCheckbox.JSON_PROPERTY_TYPE,
   SignatureRequestResponseDataValueCheckbox.JSON_PROPERTY_VALUE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(
   allowSetters = true, // allows the type to be set during deserialization
   ignoreUnknown = true
