@@ -36,6 +36,7 @@ class {{classname}}(ModelComposed):
 {{/isReadOnly}}
 {{/optionalVars}}
     }
+{{#useCustomTemplateCode}}
     {{#requiredVars}}
 
     @property
@@ -58,6 +59,7 @@ class {{classname}}(ModelComposed):
     def {{name}}(self, value: {{{dataType}}}):
         setattr(self, "{{name}}", value)
     {{/optionalVars}}
+{{/useCustomTemplateCode}}
 
 {{> model_templates/method_from_openapi_data_composed }}
 
@@ -83,6 +85,13 @@ class {{classname}}(ModelComposed):
               {{{.}}},
 {{/anyOf}}
           ],
+{{^useCustomTemplateCode}}
+          'allOf': [
+{{#allOf}}
+              {{{.}}},
+{{/allOf}}
+          ],
+{{/useCustomTemplateCode}}
           'oneOf': [
 {{#oneOf}}
               {{{.}}},

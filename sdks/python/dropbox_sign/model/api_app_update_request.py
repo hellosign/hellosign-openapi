@@ -14,7 +14,6 @@ from typing import TYPE_CHECKING, Optional, List, Dict, Union
 import json  # noqa: F401
 import re  # noqa: F401
 import sys  # noqa: F401
-
 from dropbox_sign import ApiClient
 from dropbox_sign.model_utils import (  # noqa: F401
     ApiTypeError,
@@ -131,6 +130,7 @@ class ApiAppUpdateRequest(ModelNormal):
             response_type=[ApiAppUpdateRequest],
             _check_type=True,
         )
+
 
     attribute_map = {
         'callback_url': 'callback_url',  # noqa: E501

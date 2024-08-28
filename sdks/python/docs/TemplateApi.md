@@ -2,8 +2,8 @@
 
 All URIs are relative to *https://api.hellosign.com/v3*
 
-|Method | HTTP request | Description|
-|------------- | ------------- | -------------|
+Method | HTTP request | Description
+------------- | ------------- | -------------
 |[```template_add_user```](TemplateApi.md#template_add_user) | ```POST /template/add_user/{template_id}``` | Add User to Template|
 |[```template_create```](TemplateApi.md#template_create) | ```POST /template/create``` | Create  Template|
 |[```template_create_embedded_draft```](TemplateApi.md#template_create_embedded_draft) | ```POST /template/create_embedded_draft``` | Create Embedded Template Draft|
@@ -62,7 +62,6 @@ with ApiClient(configuration) as api_client:
 
 
 ### Parameters
-
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `template_id` | **str** | The id of the Template to give the Account access to. |  |
@@ -167,7 +166,6 @@ with ApiClient(configuration) as api_client:
 
 
 ### Parameters
-
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `template_create_request` | [**TemplateCreateRequest**](TemplateCreateRequest.md) |  |  |
@@ -271,7 +269,6 @@ with ApiClient(configuration) as api_client:
 
 
 ### Parameters
-
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `template_create_embedded_draft_request` | [**TemplateCreateEmbeddedDraftRequest**](TemplateCreateEmbeddedDraftRequest.md) |  |  |
@@ -337,7 +334,6 @@ with ApiClient(configuration) as api_client:
 
 
 ### Parameters
-
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `template_id` | **str** | The id of the Template to delete. |  |
@@ -406,7 +402,6 @@ with ApiClient(configuration) as api_client:
 
 
 ### Parameters
-
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `template_id` | **str** | The id of the template files to retrieve. |  |
@@ -476,7 +471,6 @@ with ApiClient(configuration) as api_client:
 
 
 ### Parameters
-
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `template_id` | **str** | The id of the template files to retrieve. |  |
@@ -545,7 +539,6 @@ with ApiClient(configuration) as api_client:
 
 
 ### Parameters
-
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `template_id` | **str** | The id of the template files to retrieve. |  |
@@ -615,7 +608,6 @@ with ApiClient(configuration) as api_client:
 
 
 ### Parameters
-
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `template_id` | **str** | The id of the Template to retrieve. |  |
@@ -686,7 +678,6 @@ with ApiClient(configuration) as api_client:
 
 
 ### Parameters
-
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `account_id` | **str** | Which account to return Templates for. Must be a team member. Use `all` to indicate all team members. Defaults to your account. | [optional] |
@@ -762,7 +753,6 @@ with ApiClient(configuration) as api_client:
 
 
 ### Parameters
-
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `template_id` | **str** | The id of the Template to remove the Account&#39;s access to. |  |
@@ -836,7 +826,6 @@ with ApiClient(configuration) as api_client:
 
 
 ### Parameters
-
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `template_id` | **str** | The ID of the template whose files to update. |  |
