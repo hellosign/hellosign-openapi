@@ -1,14 +1,14 @@
 # {{moduleName}}::{{classname}}
 
-{{! CUSTOM - BEGIN }}
+{{#useCustomTemplateCode}}
 {{unescapedDescription}}
 
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
 ## Properties
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-{{#vendorExtensions.x-ignore-block}}
+{{^useCustomTemplateCode}}
 {{#vars}}
 | **{{name}}** | {{#isPrimitiveType}}**{{dataType}}**{{/isPrimitiveType}}{{^isPrimitiveType}}[**{{dataType}}**]({{complexType}}.md){{/isPrimitiveType}} | {{description}} | {{^required}}[optional]{{/required}}{{#isReadOnly}}[readonly]{{/isReadOnly}}{{#defaultValue}}[default to {{.}}]{{/defaultValue}} |
 {{/vars}}
@@ -31,8 +31,8 @@ instance = {{moduleName}}::{{classname}}.new(
 {{/-last}}
 {{/vars}}
 ```
-{{/vendorExtensions.x-ignore-block}}
-{{! CUSTOM - BEGIN }}
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
 {{#vars}}| `{{name}}`{{#required}}<sup>*_required_</sup>{{/required}} | {{#isPrimitiveType}}```{{{dataType}}}```{{/isPrimitiveType}}{{^isPrimitiveType}}[```{{{dataType}}}```]({{complexType}}.md){{/isPrimitiveType}} | REPLACE_ME_WITH_DESCRIPTION_BEGIN {{unescapedDescription}} REPLACE_ME_WITH_DESCRIPTION_END | {{#isReadOnly}} [readonly]{{/isReadOnly}}{{#defaultValue}} [default to {{{.}}}]{{/defaultValue}} |
 {{/vars}}
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}

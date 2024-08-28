@@ -20,10 +20,10 @@ require 'httpx'
 require 'net/http/status'
 {{/isHttpx}}
 
-{{! CUSTOM - BEGIN }}
+{{#useCustomTemplateCode}}
 module Dropbox
 end
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
 
 module {{moduleName}}
   class ApiClient
@@ -135,9 +135,9 @@ module {{moduleName}}
           data.each { |k, v| hash[k] = convert_to_type(v, sub_type) }
         end
       else
-{{#vendorExtensions.x-ignore-block}}
+{{^useCustomTemplateCode}}
         # models (e.g. Pet) or oneOf
-{{/vendorExtensions.x-ignore-block}}
+{{/useCustomTemplateCode}}
         klass = {{moduleName}}.const_get(return_type)
         klass.respond_to?(:openapi_one_of) ? klass.build(data) : klass.build_from_hash(data)
       end
@@ -248,7 +248,7 @@ module {{moduleName}}
         fail "unknown collection format: #{collection_format.inspect}"
       end
     end
-{{! CUSTOM - BEGIN }}
+{{#useCustomTemplateCode}}
 
     def generate_form_data(obj, openapi_types)
       params = {}
@@ -273,6 +273,6 @@ module {{moduleName}}
         :params   => params,
       }
     end
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
   end
 end

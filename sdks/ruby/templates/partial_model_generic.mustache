@@ -6,9 +6,9 @@
     {{#description}}
     # {{{.}}}
     {{/description}}
-{{! CUSTOM - BEGIN }}
+{{#useCustomTemplateCode}}
     # @return [{{#vendorExtensions.x-int-or-string}}Integer, String{{/vendorExtensions.x-int-or-string}}{{^vendorExtensions.x-int-or-string}}{{{dataType}}}{{/vendorExtensions.x-int-or-string}}{{#isNullable}}, nil{{/isNullable}}]
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
     attr_accessor :{{{name}}}
 
   {{/vars}}
@@ -75,7 +75,7 @@
       ])
     end
 
-{{! CUSTOM - BEGIN }}
+{{#useCustomTemplateCode}}
     # Returns attribute map of this model + parent
     def self.merged_attributes
       {{#parent}}
@@ -105,7 +105,7 @@
       self.openapi_nullable
       {{/parent}}
     end
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
 
     {{#anyOf}}
     {{#-first}}
@@ -120,7 +120,7 @@
 
     {{/-last}}
     {{/anyOf}}
-{{#vendorExtensions.x-ignore-block}}
+{{^useCustomTemplateCode}}
     {{#allOf}}
     {{#-first}}
     # List of class defined in allOf (OpenAPI v3)
@@ -134,7 +134,7 @@
 
     {{/-last}}
     {{/allOf}}
-{{/vendorExtensions.x-ignore-block}}
+{{/useCustomTemplateCode}}
     {{#discriminator}}
     {{#propertyName}}
     # discriminator's property name in OpenAPI v3
@@ -142,7 +142,7 @@
       :'{{{.}}}'
     end
 
-{{! CUSTOM - BEGIN }}
+{{#useCustomTemplateCode}}
 {{#discriminator}}
     def self.discriminator_class_name(value)
       return nil unless value.is_a?(String)
@@ -157,10 +157,10 @@
     end
 {{/discriminator}}
 
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
     {{/propertyName}}
     {{/discriminator}}
-{{! CUSTOM - BEGIN }}
+{{#useCustomTemplateCode}}
 {{^discriminator}}
     # Attempt to instantiate and hydrate a new instance of this class
     # @param [Object] data Data to be converted
@@ -173,7 +173,7 @@
     end
 
 {{/discriminator}}
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
     # Initializes the object
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
@@ -183,12 +183,12 @@
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
-{{#vendorExtensions.x-ignore-block}}
+{{^useCustomTemplateCode}}
         if (!self.class.attribute_map.key?(k.to_sym))
-{{/vendorExtensions.x-ignore-block}}
-{{! CUSTOM - BEGIN }}
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
         if (!self.class.merged_attributes.key?(k.to_sym))
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
           fail ArgumentError, "`#{k}` is not a valid attribute in `{{{moduleName}}}::{{{classname}}}`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
@@ -218,14 +218,14 @@
       else
         self.{{{name}}} = {{{defaultValue}}}
       {{/defaultValue}}
-{{#vendorExtensions.x-ignore-block}}
+{{^useCustomTemplateCode}}
       {{^defaultValue}}
       {{#required}}
       else
         self.{{{name}}} = nil
       {{/required}}
       {{/defaultValue}}
-{{/vendorExtensions.x-ignore-block}}
+{{/useCustomTemplateCode}}
       end
       {{/vars}}
     end
@@ -233,9 +233,9 @@
     # Show invalid properties with the reasons. Usually used together with valid?
     # @return Array for valid properties with the reasons
     def list_invalid_properties
-{{#vendorExtensions.x-ignore-block}}
+{{^useCustomTemplateCode}}
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
-{{/vendorExtensions.x-ignore-block}}
+{{/useCustomTemplateCode}}
       invalid_properties = {{^parent}}Array.new{{/parent}}{{#parent}}super{{/parent}}
       {{#vars}}
       {{^isNullable}}
@@ -298,9 +298,9 @@
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-{{#vendorExtensions.x-ignore-block}}
+{{^useCustomTemplateCode}}
       warn '[DEPRECATED] the `valid?` method is obsolete'
-{{/vendorExtensions.x-ignore-block}}
+{{/useCustomTemplateCode}}
       {{#vars}}
       {{^isNullable}}
       {{#required}}
@@ -377,18 +377,18 @@
     # @param [Object] {{{name}}} Value to be assigned
     def {{{name}}}=({{{name}}})
       {{^isNullable}}
-{{#vendorExtensions.x-ignore-block}}
+{{^useCustomTemplateCode}}
       if {{{name}}}.nil?
         fail ArgumentError, '{{{name}}} cannot be nil'
       end
-{{/vendorExtensions.x-ignore-block}}
-{{! CUSTOM - BEGIN }}
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
       {{#required}}
       if {{{name}}}.nil?
         fail ArgumentError, '{{{name}}} cannot be nil'
       end
       {{/required}}
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
       {{/isNullable}}
       {{#maxLength}}
       if {{#isNullable}}!{{{name}}}.nil? && {{/isNullable}}{{{name}}}.to_s.length > {{{maxLength}}}

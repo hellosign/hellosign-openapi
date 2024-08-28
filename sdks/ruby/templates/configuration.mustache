@@ -2,10 +2,10 @@
 {{> api_info}}
 =end
 
-{{! CUSTOM - BEGIN }}
+{{#useCustomTemplateCode}}
 module Dropbox
 end
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
 
 module {{moduleName}}
   class Configuration
@@ -227,7 +227,7 @@ module {{moduleName}}
     end
 
     # Returns Auth Settings hash for api client.
-{{#vendorExtensions.x-ignore-block}}
+{{^useCustomTemplateCode}}
     def auth_settings
       {
 {{#authMethods}}
@@ -275,8 +275,8 @@ module {{moduleName}}
 {{/authMethods}}
       }
     end
-{{/vendorExtensions.x-ignore-block}}
-{{! CUSTOM - BEGIN }}
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
     def auth_settings()
       result = {}
 {{#authMethods}}
@@ -308,19 +308,19 @@ module {{moduleName}}
 {{/authMethods}}
       return result
     end
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
 
     # Returns an array of Server setting
     def server_settings
       [
       {{#servers}}
         {
-{{#vendorExtensions.x-ignore-block}}
+{{^useCustomTemplateCode}}
           url: "{{{url}}}",
-{{/vendorExtensions.x-ignore-block}}
-{{! CUSTOM - BEGIN }}
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
           url: "#{scheme}://#{[host, base_path].join('/').gsub(/\/+/, '/')}".sub(/\/+\z/, ''),
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
           description: "{{{description}}}{{^description}}No description provided{{/description}}",
           {{#variables}}
           {{#-first}}

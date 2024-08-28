@@ -4,10 +4,10 @@
 
 require 'cgi'
 
-{{! CUSTOM - BEGIN }}
+{{#useCustomTemplateCode}}
 module Dropbox
 end
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
 
 module {{moduleName}}
 {{#operations}}
@@ -213,7 +213,7 @@ module {{moduleName}}
       {{/required}}
       {{/headerParams}}
 
-{{#vendorExtensions.x-ignore-block}}
+{{^useCustomTemplateCode}}
       # form parameters
       form_params = opts[:form_params] || {}
       {{#formParams}}
@@ -229,8 +229,8 @@ module {{moduleName}}
 
       # http body (model)
       post_body = opts[:debug_body]{{#bodyParam}} || @api_client.object_to_http_body({{#required}}{{{paramName}}}{{/required}}{{^required}}opts[:'{{{paramName}}}']{{/required}}){{/bodyParam}}
-{{/vendorExtensions.x-ignore-block}}
-{{! CUSTOM - BEGIN }}
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
       post_body = {}
       form_params = opts[:form_params] || {}
       {{#bodyParam}}
@@ -253,7 +253,7 @@ module {{moduleName}}
       # http body (model)
       post_body = opts[:debug_body]{{#bodyParam}} || @api_client.object_to_http_body({{#required}}{{{paramName}}}{{/required}}{{^required}}opts[:'{{{paramName}}}']{{/required}}){{/bodyParam}}
       {{/bodyParam}}
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
 
       # return_type
       return_type = opts[:debug_return_type]{{#returnType}} || '{{{.}}}'{{/returnType}}
@@ -271,10 +271,10 @@ module {{moduleName}}
         :return_type => return_type
       )
 
-{{#vendorExtensions.x-ignore-block}}
+{{^useCustomTemplateCode}}
       data, status_code, headers = @api_client.call_api(:{{httpMethod}}, local_var_path, new_options)
-{{/vendorExtensions.x-ignore-block}}
-{{! CUSTOM - BEGIN }}
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
       begin
         data, status_code, headers = @api_client.call_api(:{{httpMethod}}, local_var_path, new_options)
       rescue Dropbox::Sign::ApiError => e
@@ -340,7 +340,7 @@ module {{moduleName}}
         {{/returnType}}
       end
 
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: {{classname}}#{{operationId}}\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
