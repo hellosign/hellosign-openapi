@@ -15,8 +15,11 @@
         "php",
         "sdk",
         "rest",
-        "api",
+{{^useCustomTemplateCode}}
+        "api"
+{{/useCustomTemplateCode}}
 {{#useCustomTemplateCode}}
+        "api",
         "hellosign",
         "dropboxsign"
 {{/useCustomTemplateCode}}
@@ -26,8 +29,11 @@
     "authors": [
         {
             "name": "{{{developerOrganization}}}",
-            "homepage": "{{{developerOrganizationUrl}}}",
+{{^useCustomTemplateCode}}
+            "homepage": "{{{developerOrganizationUrl}}}"
+{{/useCustomTemplateCode}}
 {{#useCustomTemplateCode}}
+            "homepage": "{{{developerOrganizationUrl}}}",
             "email": "{{{developerOrganizationEmail}}}"
 {{/useCustomTemplateCode}}
         }
@@ -42,8 +48,11 @@
     },
     "require-dev": {
         "phpunit/phpunit": "^8.0 || ^9.0",
-        "friendsofphp/php-cs-fixer": "^3.5",
+{{^useCustomTemplateCode}}
+        "friendsofphp/php-cs-fixer": "^3.5"
+{{/useCustomTemplateCode}}
 {{#useCustomTemplateCode}}
+        "friendsofphp/php-cs-fixer": "^3.5",
         "symfony/yaml": "^5.4"
 {{/useCustomTemplateCode}}
     },
