@@ -22,11 +22,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.dropbox.sign.JSON;
 
 
@@ -38,8 +34,7 @@ import com.dropbox.sign.ApiException;
   SubMergeField.JSON_PROPERTY_NAME,
   SubMergeField.JSON_PROPERTY_TYPE
 })
-@JsonIgnoreProperties(ignoreUnknown=true)
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class SubMergeField {
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
@@ -105,10 +100,10 @@ public class SubMergeField {
     return this;
   }
 
-   /**
+  /**
    * The name of the merge field. Must be unique.
    * @return name
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The name of the merge field. Must be unique.")
   @JsonProperty(JSON_PROPERTY_NAME)
@@ -131,10 +126,10 @@ public class SubMergeField {
     return this;
   }
 
-   /**
+  /**
    * The type of merge field.
    * @return type
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The type of merge field.")
   @JsonProperty(JSON_PROPERTY_TYPE)

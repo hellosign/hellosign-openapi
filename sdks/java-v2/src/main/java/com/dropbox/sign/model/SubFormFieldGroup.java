@@ -22,11 +22,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.dropbox.sign.JSON;
 
 
@@ -39,8 +35,7 @@ import com.dropbox.sign.ApiException;
   SubFormFieldGroup.JSON_PROPERTY_GROUP_LABEL,
   SubFormFieldGroup.JSON_PROPERTY_REQUIREMENT
 })
-@JsonIgnoreProperties(ignoreUnknown=true)
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class SubFormFieldGroup {
   public static final String JSON_PROPERTY_GROUP_ID = "group_id";
   private String groupId;
@@ -74,10 +69,10 @@ public class SubFormFieldGroup {
     return this;
   }
 
-   /**
+  /**
    * ID of group. Use this to reference a specific group from the &#x60;group&#x60; value in &#x60;form_fields_per_document&#x60;.
    * @return groupId
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "ID of group. Use this to reference a specific group from the `group` value in `form_fields_per_document`.")
   @JsonProperty(JSON_PROPERTY_GROUP_ID)
@@ -100,10 +95,10 @@ public class SubFormFieldGroup {
     return this;
   }
 
-   /**
+  /**
    * Name of the group
    * @return groupLabel
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Name of the group")
   @JsonProperty(JSON_PROPERTY_GROUP_LABEL)
@@ -126,10 +121,10 @@ public class SubFormFieldGroup {
     return this;
   }
 
-   /**
+  /**
    * Examples: &#x60;require_0-1&#x60; &#x60;require_1&#x60; &#x60;require_1-ormore&#x60;  - Check out the list of [acceptable &#x60;requirement&#x60; checkbox type values](/api/reference/constants/#checkbox-field-grouping). - Check out the list of [acceptable &#x60;requirement&#x60; radio type fields](/api/reference/constants/#radio-field-grouping). - Radio groups require **at least** two fields per group.
    * @return requirement
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Examples: `require_0-1` `require_1` `require_1-ormore`  - Check out the list of [acceptable `requirement` checkbox type values](/api/reference/constants/#checkbox-field-grouping). - Check out the list of [acceptable `requirement` radio type fields](/api/reference/constants/#radio-field-grouping). - Radio groups require **at least** two fields per group.")
   @JsonProperty(JSON_PROPERTY_REQUIREMENT)

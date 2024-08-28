@@ -28,11 +28,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.dropbox.sign.JSON;
 
 
@@ -53,8 +49,7 @@ import com.dropbox.sign.ApiException;
   ApiAppResponse.JSON_PROPERTY_OWNER_ACCOUNT,
   ApiAppResponse.JSON_PROPERTY_WHITE_LABELING_OPTIONS
 })
-@JsonIgnoreProperties(ignoreUnknown=true)
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class ApiAppResponse {
   public static final String JSON_PROPERTY_CALLBACK_URL = "callback_url";
   private String callbackUrl;
@@ -66,7 +61,7 @@ public class ApiAppResponse {
   private Integer createdAt;
 
   public static final String JSON_PROPERTY_DOMAINS = "domains";
-  private List<String> domains;
+  private List<String> domains = new ArrayList<>();
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
@@ -109,10 +104,10 @@ public class ApiAppResponse {
     return this;
   }
 
-   /**
+  /**
    * The app&#39;s callback URL (for events)
    * @return callbackUrl
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The app's callback URL (for events)")
   @JsonProperty(JSON_PROPERTY_CALLBACK_URL)
@@ -135,10 +130,10 @@ public class ApiAppResponse {
     return this;
   }
 
-   /**
+  /**
    * The app&#39;s client id
    * @return clientId
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The app's client id")
   @JsonProperty(JSON_PROPERTY_CLIENT_ID)
@@ -161,10 +156,10 @@ public class ApiAppResponse {
     return this;
   }
 
-   /**
+  /**
    * The time that the app was created
    * @return createdAt
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The time that the app was created")
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
@@ -195,10 +190,10 @@ public class ApiAppResponse {
     return this;
   }
 
-   /**
+  /**
    * The domain name(s) associated with the app
    * @return domains
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The domain name(s) associated with the app")
   @JsonProperty(JSON_PROPERTY_DOMAINS)
@@ -221,10 +216,10 @@ public class ApiAppResponse {
     return this;
   }
 
-   /**
+  /**
    * The name of the app
    * @return name
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The name of the app")
   @JsonProperty(JSON_PROPERTY_NAME)
@@ -247,10 +242,10 @@ public class ApiAppResponse {
     return this;
   }
 
-   /**
+  /**
    * Boolean to indicate if the app has been approved
    * @return isApproved
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Boolean to indicate if the app has been approved")
   @JsonProperty(JSON_PROPERTY_IS_APPROVED)
@@ -273,10 +268,10 @@ public class ApiAppResponse {
     return this;
   }
 
-   /**
+  /**
    * Get oauth
    * @return oauth
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_OAUTH)
@@ -299,10 +294,10 @@ public class ApiAppResponse {
     return this;
   }
 
-   /**
+  /**
    * Get options
    * @return options
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_OPTIONS)
@@ -325,10 +320,10 @@ public class ApiAppResponse {
     return this;
   }
 
-   /**
+  /**
    * Get ownerAccount
    * @return ownerAccount
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_OWNER_ACCOUNT)
@@ -351,10 +346,10 @@ public class ApiAppResponse {
     return this;
   }
 
-   /**
+  /**
    * Get whiteLabelingOptions
    * @return whiteLabelingOptions
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_WHITE_LABELING_OPTIONS)

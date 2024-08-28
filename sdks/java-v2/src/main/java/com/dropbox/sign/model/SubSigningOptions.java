@@ -22,11 +22,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.dropbox.sign.JSON;
 
 
@@ -42,8 +38,7 @@ import com.dropbox.sign.ApiException;
   SubSigningOptions.JSON_PROPERTY_TYPE,
   SubSigningOptions.JSON_PROPERTY_UPLOAD
 })
-@JsonIgnoreProperties(ignoreUnknown=true)
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class SubSigningOptions {
   /**
    * The default type shown (limited to the listed types)
@@ -122,10 +117,10 @@ public class SubSigningOptions {
     return this;
   }
 
-   /**
+  /**
    * The default type shown (limited to the listed types)
    * @return defaultType
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The default type shown (limited to the listed types)")
   @JsonProperty(JSON_PROPERTY_DEFAULT_TYPE)
@@ -148,10 +143,10 @@ public class SubSigningOptions {
     return this;
   }
 
-   /**
+  /**
    * Allows drawing the signature
    * @return draw
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Allows drawing the signature")
   @JsonProperty(JSON_PROPERTY_DRAW)
@@ -174,10 +169,10 @@ public class SubSigningOptions {
     return this;
   }
 
-   /**
+  /**
    * Allows using a smartphone to email the signature
    * @return phone
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Allows using a smartphone to email the signature")
   @JsonProperty(JSON_PROPERTY_PHONE)
@@ -200,10 +195,10 @@ public class SubSigningOptions {
     return this;
   }
 
-   /**
+  /**
    * Allows typing the signature
    * @return type
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Allows typing the signature")
   @JsonProperty(JSON_PROPERTY_TYPE)
@@ -226,10 +221,10 @@ public class SubSigningOptions {
     return this;
   }
 
-   /**
+  /**
    * Allows uploading the signature
    * @return upload
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Allows uploading the signature")
   @JsonProperty(JSON_PROPERTY_UPLOAD)

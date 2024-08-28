@@ -6,8 +6,8 @@ Signer attachments.
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
 | `id`<sup>*_required_</sup> | ```String``` |  The unique ID for this attachment.  |  |
 | `signer`<sup>*_required_</sup> | ```String``` |  The Signer this attachment is assigned to.  |  |
 | `name`<sup>*_required_</sup> | ```String``` |  The name of this attachment.  |  |

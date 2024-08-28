@@ -22,11 +22,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.dropbox.sign.JSON;
 
 
@@ -41,8 +37,7 @@ import com.dropbox.sign.ApiException;
   BulkSendJobResponse.JSON_PROPERTY_IS_CREATOR,
   BulkSendJobResponse.JSON_PROPERTY_CREATED_AT
 })
-@JsonIgnoreProperties(ignoreUnknown=true)
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class BulkSendJobResponse {
   public static final String JSON_PROPERTY_BULK_SEND_JOB_ID = "bulk_send_job_id";
   private String bulkSendJobId;
@@ -79,10 +74,10 @@ public class BulkSendJobResponse {
     return this;
   }
 
-   /**
+  /**
    * The id of the BulkSendJob.
    * @return bulkSendJobId
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The id of the BulkSendJob.")
   @JsonProperty(JSON_PROPERTY_BULK_SEND_JOB_ID)
@@ -105,10 +100,10 @@ public class BulkSendJobResponse {
     return this;
   }
 
-   /**
+  /**
    * The total amount of Signature Requests queued for sending.
    * @return total
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The total amount of Signature Requests queued for sending.")
   @JsonProperty(JSON_PROPERTY_TOTAL)
@@ -131,10 +126,10 @@ public class BulkSendJobResponse {
     return this;
   }
 
-   /**
+  /**
    * True if you are the owner of this BulkSendJob, false if it&#39;s been shared with you by a team member.
    * @return isCreator
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "True if you are the owner of this BulkSendJob, false if it's been shared with you by a team member.")
   @JsonProperty(JSON_PROPERTY_IS_CREATOR)
@@ -157,10 +152,10 @@ public class BulkSendJobResponse {
     return this;
   }
 
-   /**
+  /**
    * Time that the BulkSendJob was created.
    * @return createdAt
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Time that the BulkSendJob was created.")
   @JsonProperty(JSON_PROPERTY_CREATED_AT)

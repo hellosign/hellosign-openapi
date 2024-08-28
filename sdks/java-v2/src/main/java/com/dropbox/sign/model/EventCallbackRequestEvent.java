@@ -23,11 +23,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.dropbox.sign.JSON;
 
 
@@ -42,8 +38,7 @@ import com.dropbox.sign.ApiException;
   EventCallbackRequestEvent.JSON_PROPERTY_EVENT_HASH,
   EventCallbackRequestEvent.JSON_PROPERTY_EVENT_METADATA
 })
-@JsonIgnoreProperties(ignoreUnknown=true)
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class EventCallbackRequestEvent {
   public static final String JSON_PROPERTY_EVENT_TIME = "event_time";
   private String eventTime;
@@ -157,10 +152,10 @@ public class EventCallbackRequestEvent {
     return this;
   }
 
-   /**
+  /**
    * Time the event was created (using Unix time).
    * @return eventTime
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Time the event was created (using Unix time).")
   @JsonProperty(JSON_PROPERTY_EVENT_TIME)
@@ -183,10 +178,10 @@ public class EventCallbackRequestEvent {
     return this;
   }
 
-   /**
+  /**
    * Type of callback event that was triggered.
    * @return eventType
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Type of callback event that was triggered.")
   @JsonProperty(JSON_PROPERTY_EVENT_TYPE)
@@ -209,10 +204,10 @@ public class EventCallbackRequestEvent {
     return this;
   }
 
-   /**
+  /**
    * Generated hash used to verify source of event data.
    * @return eventHash
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Generated hash used to verify source of event data.")
   @JsonProperty(JSON_PROPERTY_EVENT_HASH)
@@ -235,10 +230,10 @@ public class EventCallbackRequestEvent {
     return this;
   }
 
-   /**
+  /**
    * Get eventMetadata
    * @return eventMetadata
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_EVENT_METADATA)

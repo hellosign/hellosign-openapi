@@ -24,11 +24,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.dropbox.sign.JSON;
 
 
@@ -40,8 +36,7 @@ import com.dropbox.sign.ApiException;
   FaxLineResponse.JSON_PROPERTY_FAX_LINE,
   FaxLineResponse.JSON_PROPERTY_WARNINGS
 })
-@JsonIgnoreProperties(ignoreUnknown=true)
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class FaxLineResponse {
   public static final String JSON_PROPERTY_FAX_LINE = "fax_line";
   private FaxLineResponseFaxLine faxLine;
@@ -72,10 +67,10 @@ public class FaxLineResponse {
     return this;
   }
 
-   /**
+  /**
    * Get faxLine
    * @return faxLine
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FAX_LINE)
@@ -98,10 +93,10 @@ public class FaxLineResponse {
     return this;
   }
 
-   /**
+  /**
    * Get warnings
    * @return warnings
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_WARNINGS)

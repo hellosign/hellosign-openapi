@@ -6,8 +6,8 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
 | `areaCode`<sup>*_required_</sup> | ```Integer``` |  Area code  |  |
 | `country`<sup>*_required_</sup> | [```CountryEnum```](#CountryEnum) |  Country  |  |
 | `city` | ```String``` |  City  |  |
@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 
 ## Enum: CountryEnum
 
-Name | Value
+| Name | Value |
 ---- | -----
 | CA | &quot;CA&quot; |
 | US | &quot;US&quot; |

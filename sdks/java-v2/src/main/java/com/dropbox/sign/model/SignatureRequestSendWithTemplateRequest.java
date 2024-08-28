@@ -31,11 +31,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.dropbox.sign.JSON;
 
 
@@ -63,8 +59,7 @@ import com.dropbox.sign.ApiException;
   SignatureRequestSendWithTemplateRequest.JSON_PROPERTY_TEST_MODE,
   SignatureRequestSendWithTemplateRequest.JSON_PROPERTY_TITLE
 })
-@JsonIgnoreProperties(ignoreUnknown=true)
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class SignatureRequestSendWithTemplateRequest {
   public static final String JSON_PROPERTY_TEMPLATE_IDS = "template_ids";
   private List<String> templateIds = new ArrayList<>();
@@ -76,21 +71,22 @@ public class SignatureRequestSendWithTemplateRequest {
   private Boolean allowDecline = false;
 
   public static final String JSON_PROPERTY_CCS = "ccs";
-  private List<SubCC> ccs;
+  private List<SubCC> ccs = new ArrayList<>();
 
   public static final String JSON_PROPERTY_CLIENT_ID = "client_id";
   private String clientId;
 
   public static final String JSON_PROPERTY_CUSTOM_FIELDS = "custom_fields";
-  private List<SubCustomField> customFields;
+  private List<SubCustomField> customFields = new ArrayList<>();
 
   public static final String JSON_PROPERTY_FILES = "files";
-  private List<File> files;
+  private List<File> files = new ArrayList<>();
 
   public static final String JSON_PROPERTY_FILE_URLS = "file_urls";
-  private List<String> fileUrls;
+  private List<String> fileUrls = new ArrayList<>();
 
   public static final String JSON_PROPERTY_IS_QUALIFIED_SIGNATURE = "is_qualified_signature";
+  @Deprecated
   private Boolean isQualifiedSignature = false;
 
   public static final String JSON_PROPERTY_IS_EID = "is_eid";
@@ -148,10 +144,10 @@ public class SignatureRequestSendWithTemplateRequest {
     return this;
   }
 
-   /**
+  /**
    * Use &#x60;template_ids&#x60; to create a SignatureRequest from one or more templates, in the order in which the template will be used.
    * @return templateIds
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Use `template_ids` to create a SignatureRequest from one or more templates, in the order in which the template will be used.")
   @JsonProperty(JSON_PROPERTY_TEMPLATE_IDS)
@@ -182,10 +178,10 @@ public class SignatureRequestSendWithTemplateRequest {
     return this;
   }
 
-   /**
+  /**
    * Add Signers to your Templated-based Signature Request.
    * @return signers
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Add Signers to your Templated-based Signature Request.")
   @JsonProperty(JSON_PROPERTY_SIGNERS)
@@ -208,10 +204,10 @@ public class SignatureRequestSendWithTemplateRequest {
     return this;
   }
 
-   /**
+  /**
    * Allows signers to decline to sign a document if &#x60;true&#x60;. Defaults to &#x60;false&#x60;.
    * @return allowDecline
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Allows signers to decline to sign a document if `true`. Defaults to `false`.")
   @JsonProperty(JSON_PROPERTY_ALLOW_DECLINE)
@@ -242,10 +238,10 @@ public class SignatureRequestSendWithTemplateRequest {
     return this;
   }
 
-   /**
+  /**
    * Add CC email recipients. Required when a CC role exists for the Template.
    * @return ccs
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Add CC email recipients. Required when a CC role exists for the Template.")
   @JsonProperty(JSON_PROPERTY_CCS)
@@ -268,10 +264,10 @@ public class SignatureRequestSendWithTemplateRequest {
     return this;
   }
 
-   /**
+  /**
    * Client id of the app to associate with the signature request. Used to apply the branding and callback url defined for the app.
    * @return clientId
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Client id of the app to associate with the signature request. Used to apply the branding and callback url defined for the app.")
   @JsonProperty(JSON_PROPERTY_CLIENT_ID)
@@ -302,10 +298,10 @@ public class SignatureRequestSendWithTemplateRequest {
     return this;
   }
 
-   /**
+  /**
    * An array defining values and options for custom fields. Required when a custom field exists in the Template.
    * @return customFields
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "An array defining values and options for custom fields. Required when a custom field exists in the Template.")
   @JsonProperty(JSON_PROPERTY_CUSTOM_FIELDS)
@@ -336,10 +332,10 @@ public class SignatureRequestSendWithTemplateRequest {
     return this;
   }
 
-   /**
+  /**
    * Use &#x60;files[]&#x60; to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.
    * @return files
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Use `files[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.")
   @JsonProperty(JSON_PROPERTY_FILES)
@@ -370,10 +366,10 @@ public class SignatureRequestSendWithTemplateRequest {
     return this;
   }
 
-   /**
+  /**
    * Use &#x60;file_urls[]&#x60; to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.
    * @return fileUrls
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Use `file_urls[]` to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.")
   @JsonProperty(JSON_PROPERTY_FILE_URLS)
@@ -391,16 +387,17 @@ public class SignatureRequestSendWithTemplateRequest {
   }
 
 
+  @Deprecated
   public SignatureRequestSendWithTemplateRequest isQualifiedSignature(Boolean isQualifiedSignature) {
     this.isQualifiedSignature = isQualifiedSignature;
     return this;
   }
 
-   /**
+  /**
    * Send with a value of &#x60;true&#x60; if you wish to enable [Qualified Electronic Signatures](https://www.hellosign.com/features/qualified-electronic-signatures) (QES), which requires a face-to-face call to verify the signer&#39;s identity.&lt;br&gt; **NOTE:** QES is only available on the Premium API plan as an add-on purchase. Cannot be used in &#x60;test_mode&#x60;. Only works on requests with one signer.
    * @return isQualifiedSignature
    * @deprecated
-  **/
+   */
   @Deprecated
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Send with a value of `true` if you wish to enable [Qualified Electronic Signatures](https://www.hellosign.com/features/qualified-electronic-signatures) (QES), which requires a face-to-face call to verify the signer's identity.<br> **NOTE:** QES is only available on the Premium API plan as an add-on purchase. Cannot be used in `test_mode`. Only works on requests with one signer.")
@@ -412,6 +409,7 @@ public class SignatureRequestSendWithTemplateRequest {
   }
 
 
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_IS_QUALIFIED_SIGNATURE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIsQualifiedSignature(Boolean isQualifiedSignature) {
@@ -424,10 +422,10 @@ public class SignatureRequestSendWithTemplateRequest {
     return this;
   }
 
-   /**
+  /**
    * Send with a value of &#x60;true&#x60; if you wish to enable [electronic identification (eID)](https://www.hellosign.com/features/electronic-id), which requires the signer to verify their identity with an eID provider to sign a document.&lt;br&gt; **NOTE:** eID is only available on the Premium API plan. Cannot be used in &#x60;test_mode&#x60;. Only works on requests with one signer.
    * @return isEid
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Send with a value of `true` if you wish to enable [electronic identification (eID)](https://www.hellosign.com/features/electronic-id), which requires the signer to verify their identity with an eID provider to sign a document.<br> **NOTE:** eID is only available on the Premium API plan. Cannot be used in `test_mode`. Only works on requests with one signer.")
   @JsonProperty(JSON_PROPERTY_IS_EID)
@@ -450,10 +448,10 @@ public class SignatureRequestSendWithTemplateRequest {
     return this;
   }
 
-   /**
+  /**
    * The custom message in the email that will be sent to the signers.
    * @return message
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The custom message in the email that will be sent to the signers.")
   @JsonProperty(JSON_PROPERTY_MESSAGE)
@@ -484,10 +482,10 @@ public class SignatureRequestSendWithTemplateRequest {
     return this;
   }
 
-   /**
+  /**
    * Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer&#39;s order number for look up when receiving events for the signature request.  Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.
    * @return metadata
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.  Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.")
   @JsonProperty(JSON_PROPERTY_METADATA)
@@ -510,10 +508,10 @@ public class SignatureRequestSendWithTemplateRequest {
     return this;
   }
 
-   /**
+  /**
    * Get signingOptions
    * @return signingOptions
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SIGNING_OPTIONS)
@@ -536,10 +534,10 @@ public class SignatureRequestSendWithTemplateRequest {
     return this;
   }
 
-   /**
+  /**
    * The URL you want signers redirected to after they successfully sign.
    * @return signingRedirectUrl
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The URL you want signers redirected to after they successfully sign.")
   @JsonProperty(JSON_PROPERTY_SIGNING_REDIRECT_URL)
@@ -562,10 +560,10 @@ public class SignatureRequestSendWithTemplateRequest {
     return this;
   }
 
-   /**
+  /**
    * The subject in the email that will be sent to the signers.
    * @return subject
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The subject in the email that will be sent to the signers.")
   @JsonProperty(JSON_PROPERTY_SUBJECT)
@@ -588,10 +586,10 @@ public class SignatureRequestSendWithTemplateRequest {
     return this;
   }
 
-   /**
+  /**
    * Whether this is a test, the signature request will not be legally binding if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.
    * @return testMode
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Whether this is a test, the signature request will not be legally binding if set to `true`. Defaults to `false`.")
   @JsonProperty(JSON_PROPERTY_TEST_MODE)
@@ -614,10 +612,10 @@ public class SignatureRequestSendWithTemplateRequest {
     return this;
   }
 
-   /**
+  /**
    * The title you want to assign to the SignatureRequest.
    * @return title
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The title you want to assign to the SignatureRequest.")
   @JsonProperty(JSON_PROPERTY_TITLE)

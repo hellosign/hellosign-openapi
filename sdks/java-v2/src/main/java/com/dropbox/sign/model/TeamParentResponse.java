@@ -22,11 +22,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.dropbox.sign.JSON;
 
 
@@ -39,8 +35,7 @@ import com.dropbox.sign.ApiException;
   TeamParentResponse.JSON_PROPERTY_TEAM_ID,
   TeamParentResponse.JSON_PROPERTY_NAME
 })
-@JsonIgnoreProperties(ignoreUnknown=true)
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class TeamParentResponse {
   public static final String JSON_PROPERTY_TEAM_ID = "team_id";
   private String teamId;
@@ -71,10 +66,10 @@ public class TeamParentResponse {
     return this;
   }
 
-   /**
+  /**
    * The id of a team
    * @return teamId
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The id of a team")
   @JsonProperty(JSON_PROPERTY_TEAM_ID)
@@ -97,10 +92,10 @@ public class TeamParentResponse {
     return this;
   }
 
-   /**
+  /**
    * The name of a team
    * @return name
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The name of a team")
   @JsonProperty(JSON_PROPERTY_NAME)

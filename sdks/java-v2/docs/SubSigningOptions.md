@@ -8,8 +8,8 @@ This allows the requester to specify the types allowed for creating a signature.
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
 | `defaultType`<sup>*_required_</sup> | [```DefaultTypeEnum```](#DefaultTypeEnum) |  The default type shown (limited to the listed types)  |  |
 | `draw` | ```Boolean``` |  Allows drawing the signature  |  |
 | `phone` | ```Boolean``` |  Allows using a smartphone to email the signature  |  |
@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 
 ## Enum: DefaultTypeEnum
 
-Name | Value
+| Name | Value |
 ---- | -----
 | DRAW | &quot;draw&quot; |
 | PHONE | &quot;phone&quot; |

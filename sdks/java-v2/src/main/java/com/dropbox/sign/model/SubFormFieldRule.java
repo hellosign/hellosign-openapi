@@ -26,11 +26,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.dropbox.sign.JSON;
 
 
@@ -44,8 +40,7 @@ import com.dropbox.sign.ApiException;
   SubFormFieldRule.JSON_PROPERTY_TRIGGERS,
   SubFormFieldRule.JSON_PROPERTY_ACTIONS
 })
-@JsonIgnoreProperties(ignoreUnknown=true)
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class SubFormFieldRule {
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
@@ -82,10 +77,10 @@ public class SubFormFieldRule {
     return this;
   }
 
-   /**
+  /**
    * Must be unique across all defined rules.
    * @return id
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Must be unique across all defined rules.")
   @JsonProperty(JSON_PROPERTY_ID)
@@ -108,10 +103,10 @@ public class SubFormFieldRule {
     return this;
   }
 
-   /**
+  /**
    * Currently only &#x60;AND&#x60; is supported. Support for &#x60;OR&#x60; is being worked on.
    * @return triggerOperator
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Currently only `AND` is supported. Support for `OR` is being worked on.")
   @JsonProperty(JSON_PROPERTY_TRIGGER_OPERATOR)
@@ -142,10 +137,10 @@ public class SubFormFieldRule {
     return this;
   }
 
-   /**
+  /**
    * An array of trigger definitions, the \&quot;if this\&quot; part of \&quot;**if this**, then that\&quot;. Currently only a single trigger per rule is allowed.
    * @return triggers
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "An array of trigger definitions, the \"if this\" part of \"**if this**, then that\". Currently only a single trigger per rule is allowed.")
   @JsonProperty(JSON_PROPERTY_TRIGGERS)
@@ -176,10 +171,10 @@ public class SubFormFieldRule {
     return this;
   }
 
-   /**
+  /**
    * An array of action definitions, the \&quot;then that\&quot; part of \&quot;if this, **then that**\&quot;. Any number of actions may be attached to a single rule.
    * @return actions
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "An array of action definitions, the \"then that\" part of \"if this, **then that**\". Any number of actions may be attached to a single rule.")
   @JsonProperty(JSON_PROPERTY_ACTIONS)

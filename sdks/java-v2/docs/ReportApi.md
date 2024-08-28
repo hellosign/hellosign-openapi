@@ -2,8 +2,8 @@
 
 All URIs are relative to *https://api.hellosign.com/v3*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
+| Method | HTTP request | Description |
+|------------- | ------------- | -------------|
 [**reportCreate**](ReportApi.md#reportCreate) | **POST** /report/create | Create Report
 
 
@@ -68,8 +68,8 @@ public class Example {
 ### Parameters
 
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
  **reportCreateRequest** | [**ReportCreateRequest**](ReportCreateRequest.md)|  |
 
 ### Return type

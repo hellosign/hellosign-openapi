@@ -22,11 +22,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.dropbox.sign.JSON;
 
 
@@ -41,8 +37,7 @@ import com.dropbox.sign.ApiException;
   EventCallbackRequestEventMetadata.JSON_PROPERTY_REPORTED_FOR_APP_ID,
   EventCallbackRequestEventMetadata.JSON_PROPERTY_EVENT_MESSAGE
 })
-@JsonIgnoreProperties(ignoreUnknown=true)
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class EventCallbackRequestEventMetadata {
   public static final String JSON_PROPERTY_RELATED_SIGNATURE_ID = "related_signature_id";
   private String relatedSignatureId;
@@ -79,10 +74,10 @@ public class EventCallbackRequestEventMetadata {
     return this;
   }
 
-   /**
+  /**
    * Signature ID for a specific signer. Applicable to &#x60;signature_request_signed&#x60; and &#x60;signature_request_viewed&#x60; events.
    * @return relatedSignatureId
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Signature ID for a specific signer. Applicable to `signature_request_signed` and `signature_request_viewed` events.")
   @JsonProperty(JSON_PROPERTY_RELATED_SIGNATURE_ID)
@@ -105,10 +100,10 @@ public class EventCallbackRequestEventMetadata {
     return this;
   }
 
-   /**
+  /**
    * Account ID the event was reported for.
    * @return reportedForAccountId
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Account ID the event was reported for.")
   @JsonProperty(JSON_PROPERTY_REPORTED_FOR_ACCOUNT_ID)
@@ -131,10 +126,10 @@ public class EventCallbackRequestEventMetadata {
     return this;
   }
 
-   /**
+  /**
    * App ID the event was reported for.
    * @return reportedForAppId
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "App ID the event was reported for.")
   @JsonProperty(JSON_PROPERTY_REPORTED_FOR_APP_ID)
@@ -157,10 +152,10 @@ public class EventCallbackRequestEventMetadata {
     return this;
   }
 
-   /**
+  /**
    * Message about a declined or failed (due to error) signature flow.
    * @return eventMessage
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Message about a declined or failed (due to error) signature flow.")
   @JsonProperty(JSON_PROPERTY_EVENT_MESSAGE)

@@ -30,11 +30,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.dropbox.sign.JSON;
 
 
@@ -57,8 +53,7 @@ import com.dropbox.sign.ApiException;
   SignatureRequestBulkCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_TEST_MODE,
   SignatureRequestBulkCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_TITLE
 })
-@JsonIgnoreProperties(ignoreUnknown=true)
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class SignatureRequestBulkCreateEmbeddedWithTemplateRequest {
   public static final String JSON_PROPERTY_TEMPLATE_IDS = "template_ids";
   private List<String> templateIds = new ArrayList<>();
@@ -70,16 +65,16 @@ public class SignatureRequestBulkCreateEmbeddedWithTemplateRequest {
   private File signerFile;
 
   public static final String JSON_PROPERTY_SIGNER_LIST = "signer_list";
-  private List<SubBulkSignerList> signerList;
+  private List<SubBulkSignerList> signerList = new ArrayList<>();
 
   public static final String JSON_PROPERTY_ALLOW_DECLINE = "allow_decline";
   private Boolean allowDecline = false;
 
   public static final String JSON_PROPERTY_CCS = "ccs";
-  private List<SubCC> ccs;
+  private List<SubCC> ccs = new ArrayList<>();
 
   public static final String JSON_PROPERTY_CUSTOM_FIELDS = "custom_fields";
-  private List<SubCustomField> customFields;
+  private List<SubCustomField> customFields = new ArrayList<>();
 
   public static final String JSON_PROPERTY_MESSAGE = "message";
   private String message;
@@ -130,10 +125,10 @@ public class SignatureRequestBulkCreateEmbeddedWithTemplateRequest {
     return this;
   }
 
-   /**
+  /**
    * Use &#x60;template_ids&#x60; to create a SignatureRequest from one or more templates, in the order in which the template will be used.
    * @return templateIds
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Use `template_ids` to create a SignatureRequest from one or more templates, in the order in which the template will be used.")
   @JsonProperty(JSON_PROPERTY_TEMPLATE_IDS)
@@ -156,10 +151,10 @@ public class SignatureRequestBulkCreateEmbeddedWithTemplateRequest {
     return this;
   }
 
-   /**
+  /**
    * Client id of the app you&#39;re using to create this embedded signature request. Used for security purposes.
    * @return clientId
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Client id of the app you're using to create this embedded signature request. Used for security purposes.")
   @JsonProperty(JSON_PROPERTY_CLIENT_ID)
@@ -182,10 +177,10 @@ public class SignatureRequestBulkCreateEmbeddedWithTemplateRequest {
     return this;
   }
 
-   /**
+  /**
    * &#x60;signer_file&#x60; is a CSV file defining values and options for signer fields. Required unless a &#x60;signer_list&#x60; is used, you may not use both. The CSV can have the following columns:  - &#x60;name&#x60;: the name of the signer filling the role of RoleName - &#x60;email_address&#x60;: email address of the signer filling the role of RoleName - &#x60;pin&#x60;: the 4- to 12-character access code that will secure this signer&#39;s signature page (optional) - &#x60;sms_phone_number&#x60;: An E.164 formatted phone number that will receive a code via SMS to access this signer&#39;s signature page. (optional)      By using the feature, you agree you are responsible for obtaining a signer&#39;s consent to receive text messages from Dropbox Sign related to this signature request and confirm you have obtained such consent from all signers prior to enabling SMS delivery for this signature request. [Learn more](https://faq.hellosign.com/hc/en-us/articles/15815316468877-Dropbox-Sign-SMS-tools-add-on).      **NOTE:** Not available in test mode and requires a Standard plan or higher. - &#x60;*_field&#x60;: any column with a _field\&quot; suffix will be treated as a custom field (optional)      You may only specify field values here, any other options should be set in the custom_fields request parameter.  Example CSV:  &#x60;&#x60;&#x60; name, email_address, pin, company_field George, george@example.com, d79a3td, ABC Corp Mary, mary@example.com, gd9as5b, 123 LLC &#x60;&#x60;&#x60;
    * @return signerFile
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "`signer_file` is a CSV file defining values and options for signer fields. Required unless a `signer_list` is used, you may not use both. The CSV can have the following columns:  - `name`: the name of the signer filling the role of RoleName - `email_address`: email address of the signer filling the role of RoleName - `pin`: the 4- to 12-character access code that will secure this signer's signature page (optional) - `sms_phone_number`: An E.164 formatted phone number that will receive a code via SMS to access this signer's signature page. (optional)      By using the feature, you agree you are responsible for obtaining a signer's consent to receive text messages from Dropbox Sign related to this signature request and confirm you have obtained such consent from all signers prior to enabling SMS delivery for this signature request. [Learn more](https://faq.hellosign.com/hc/en-us/articles/15815316468877-Dropbox-Sign-SMS-tools-add-on).      **NOTE:** Not available in test mode and requires a Standard plan or higher. - `*_field`: any column with a _field\" suffix will be treated as a custom field (optional)      You may only specify field values here, any other options should be set in the custom_fields request parameter.  Example CSV:  ``` name, email_address, pin, company_field George, george@example.com, d79a3td, ABC Corp Mary, mary@example.com, gd9as5b, 123 LLC ```")
   @JsonProperty(JSON_PROPERTY_SIGNER_FILE)
@@ -216,10 +211,10 @@ public class SignatureRequestBulkCreateEmbeddedWithTemplateRequest {
     return this;
   }
 
-   /**
+  /**
    * &#x60;signer_list&#x60; is an array defining values and options for signer fields. Required unless a &#x60;signer_file&#x60; is used, you may not use both.
    * @return signerList
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "`signer_list` is an array defining values and options for signer fields. Required unless a `signer_file` is used, you may not use both.")
   @JsonProperty(JSON_PROPERTY_SIGNER_LIST)
@@ -242,10 +237,10 @@ public class SignatureRequestBulkCreateEmbeddedWithTemplateRequest {
     return this;
   }
 
-   /**
+  /**
    * Allows signers to decline to sign a document if &#x60;true&#x60;. Defaults to &#x60;false&#x60;.
    * @return allowDecline
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Allows signers to decline to sign a document if `true`. Defaults to `false`.")
   @JsonProperty(JSON_PROPERTY_ALLOW_DECLINE)
@@ -276,10 +271,10 @@ public class SignatureRequestBulkCreateEmbeddedWithTemplateRequest {
     return this;
   }
 
-   /**
+  /**
    * Add CC email recipients. Required when a CC role exists for the Template.
    * @return ccs
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Add CC email recipients. Required when a CC role exists for the Template.")
   @JsonProperty(JSON_PROPERTY_CCS)
@@ -310,10 +305,10 @@ public class SignatureRequestBulkCreateEmbeddedWithTemplateRequest {
     return this;
   }
 
-   /**
+  /**
    * When used together with merge fields, &#x60;custom_fields&#x60; allows users to add pre-filled data to their signature requests.  Pre-filled data can be used with \&quot;send-once\&quot; signature requests by adding merge fields with &#x60;form_fields_per_document&#x60; or [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) while passing values back with &#x60;custom_fields&#x60; together in one API call.  For using pre-filled on repeatable signature requests, merge fields are added to templates in the Dropbox Sign UI or by calling [/template/create_embedded_draft](/api/reference/operation/templateCreateEmbeddedDraft) and then passing &#x60;custom_fields&#x60; on subsequent signature requests referencing that template.
    * @return customFields
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "When used together with merge fields, `custom_fields` allows users to add pre-filled data to their signature requests.  Pre-filled data can be used with \"send-once\" signature requests by adding merge fields with `form_fields_per_document` or [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) while passing values back with `custom_fields` together in one API call.  For using pre-filled on repeatable signature requests, merge fields are added to templates in the Dropbox Sign UI or by calling [/template/create_embedded_draft](/api/reference/operation/templateCreateEmbeddedDraft) and then passing `custom_fields` on subsequent signature requests referencing that template.")
   @JsonProperty(JSON_PROPERTY_CUSTOM_FIELDS)
@@ -336,10 +331,10 @@ public class SignatureRequestBulkCreateEmbeddedWithTemplateRequest {
     return this;
   }
 
-   /**
+  /**
    * The custom message in the email that will be sent to the signers.
    * @return message
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The custom message in the email that will be sent to the signers.")
   @JsonProperty(JSON_PROPERTY_MESSAGE)
@@ -370,10 +365,10 @@ public class SignatureRequestBulkCreateEmbeddedWithTemplateRequest {
     return this;
   }
 
-   /**
+  /**
    * Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer&#39;s order number for look up when receiving events for the signature request.  Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.
    * @return metadata
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.  Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.")
   @JsonProperty(JSON_PROPERTY_METADATA)
@@ -396,10 +391,10 @@ public class SignatureRequestBulkCreateEmbeddedWithTemplateRequest {
     return this;
   }
 
-   /**
+  /**
    * The URL you want signers redirected to after they successfully sign.
    * @return signingRedirectUrl
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The URL you want signers redirected to after they successfully sign.")
   @JsonProperty(JSON_PROPERTY_SIGNING_REDIRECT_URL)
@@ -422,10 +417,10 @@ public class SignatureRequestBulkCreateEmbeddedWithTemplateRequest {
     return this;
   }
 
-   /**
+  /**
    * The subject in the email that will be sent to the signers.
    * @return subject
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The subject in the email that will be sent to the signers.")
   @JsonProperty(JSON_PROPERTY_SUBJECT)
@@ -448,10 +443,10 @@ public class SignatureRequestBulkCreateEmbeddedWithTemplateRequest {
     return this;
   }
 
-   /**
+  /**
    * Whether this is a test, the signature request will not be legally binding if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.
    * @return testMode
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Whether this is a test, the signature request will not be legally binding if set to `true`. Defaults to `false`.")
   @JsonProperty(JSON_PROPERTY_TEST_MODE)
@@ -474,10 +469,10 @@ public class SignatureRequestBulkCreateEmbeddedWithTemplateRequest {
     return this;
   }
 
-   /**
+  /**
    * The title you want to assign to the SignatureRequest.
    * @return title
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The title you want to assign to the SignatureRequest.")
   @JsonProperty(JSON_PROPERTY_TITLE)

@@ -24,11 +24,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.dropbox.sign.JSON;
 
 
@@ -43,8 +39,7 @@ import com.dropbox.sign.ApiException;
   ApiAppResponseOAuth.JSON_PROPERTY_SCOPES,
   ApiAppResponseOAuth.JSON_PROPERTY_CHARGES_USERS
 })
-@JsonIgnoreProperties(ignoreUnknown=true)
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class ApiAppResponseOAuth {
   public static final String JSON_PROPERTY_CALLBACK_URL = "callback_url";
   private String callbackUrl;
@@ -53,7 +48,7 @@ public class ApiAppResponseOAuth {
   private String secret;
 
   public static final String JSON_PROPERTY_SCOPES = "scopes";
-  private List<String> scopes;
+  private List<String> scopes = new ArrayList<>();
 
   public static final String JSON_PROPERTY_CHARGES_USERS = "charges_users";
   private Boolean chargesUsers;
@@ -81,10 +76,10 @@ public class ApiAppResponseOAuth {
     return this;
   }
 
-   /**
+  /**
    * The app&#39;s OAuth callback URL.
    * @return callbackUrl
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The app's OAuth callback URL.")
   @JsonProperty(JSON_PROPERTY_CALLBACK_URL)
@@ -107,10 +102,10 @@ public class ApiAppResponseOAuth {
     return this;
   }
 
-   /**
+  /**
    * The app&#39;s OAuth secret, or null if the app does not belong to user.
    * @return secret
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The app's OAuth secret, or null if the app does not belong to user.")
   @JsonProperty(JSON_PROPERTY_SECRET)
@@ -141,10 +136,10 @@ public class ApiAppResponseOAuth {
     return this;
   }
 
-   /**
+  /**
    * Array of OAuth scopes used by the app.
    * @return scopes
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Array of OAuth scopes used by the app.")
   @JsonProperty(JSON_PROPERTY_SCOPES)
@@ -167,10 +162,10 @@ public class ApiAppResponseOAuth {
     return this;
   }
 
-   /**
+  /**
    * Boolean indicating whether the app owner or the account granting permission is billed for OAuth requests.
    * @return chargesUsers
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Boolean indicating whether the app owner or the account granting permission is billed for OAuth requests.")
   @JsonProperty(JSON_PROPERTY_CHARGES_USERS)

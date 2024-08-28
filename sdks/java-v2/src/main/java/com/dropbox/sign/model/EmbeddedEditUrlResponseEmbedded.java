@@ -22,11 +22,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.dropbox.sign.JSON;
 
 
@@ -39,8 +35,7 @@ import com.dropbox.sign.ApiException;
   EmbeddedEditUrlResponseEmbedded.JSON_PROPERTY_EDIT_URL,
   EmbeddedEditUrlResponseEmbedded.JSON_PROPERTY_EXPIRES_AT
 })
-@JsonIgnoreProperties(ignoreUnknown=true)
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class EmbeddedEditUrlResponseEmbedded {
   public static final String JSON_PROPERTY_EDIT_URL = "edit_url";
   private String editUrl;
@@ -71,10 +66,10 @@ public class EmbeddedEditUrlResponseEmbedded {
     return this;
   }
 
-   /**
+  /**
    * A template url that can be opened in an iFrame.
    * @return editUrl
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "A template url that can be opened in an iFrame.")
   @JsonProperty(JSON_PROPERTY_EDIT_URL)
@@ -97,10 +92,10 @@ public class EmbeddedEditUrlResponseEmbedded {
     return this;
   }
 
-   /**
+  /**
    * The specific time that the the &#x60;edit_url&#x60; link expires, in epoch.
    * @return expiresAt
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The specific time that the the `edit_url` link expires, in epoch.")
   @JsonProperty(JSON_PROPERTY_EXPIRES_AT)

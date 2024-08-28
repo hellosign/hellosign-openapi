@@ -22,11 +22,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.dropbox.sign.JSON;
 
 
@@ -37,8 +33,7 @@ import com.dropbox.sign.ApiException;
 @JsonPropertyOrder({
   FaxLineDeleteRequest.JSON_PROPERTY_NUMBER
 })
-@JsonIgnoreProperties(ignoreUnknown=true)
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class FaxLineDeleteRequest {
   public static final String JSON_PROPERTY_NUMBER = "number";
   private String number;
@@ -66,10 +61,10 @@ public class FaxLineDeleteRequest {
     return this;
   }
 
-   /**
+  /**
    * The Fax Line number.
    * @return number
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The Fax Line number.")
   @JsonProperty(JSON_PROPERTY_NUMBER)

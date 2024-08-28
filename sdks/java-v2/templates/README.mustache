@@ -9,6 +9,8 @@
 - Build date: {{generatedDate}}
 {{/hideGenerationTimestamp}}
 
+- Generator version: {{generatorVersion}}
+
 {{{appDescriptionWithNewLines}}}
 {{/useCustomTemplateCode}}
 {{#useCustomTemplateCode}}
@@ -28,7 +30,7 @@
 
 Building the API client library requires:
 
-1. Java {{#java8}}1.8{{/java8}}{{^java8}}1.7{{/java8}}+
+1. Java 1.8+
 {{#jersey2}}
 2. Maven (3.8.3+)/Gradle (7.2+)
 {{/jersey2}}
@@ -140,9 +142,25 @@ Then manually install the following JARs:
 - `target/{{{artifactId}}}-{{{artifactVersion}}}.jar`
 - `target/lib/*.jar`
 
-{{^useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
+## Getting Started
+
+Please follow the [installation](#installation) instruction and execute the following Java code:
+
+{{#apiInfo}}{{#apis}}{{#-first}}{{#operations}}{{#operation}}{{#-first}}
+```java
+REPLACE_ME_WITH_EXAMPLE_FOR__{{{operationId}}}_Java_CODE
+```
+{{/-first}}{{/operation}}{{/operations}}{{/-first}}{{/apis}}{{/apiInfo}}
+
+{{/useCustomTemplateCode}}
 {{#jersey2}}
+{{^useCustomTemplateCode}}
 ## Usage
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
+## Using a Proxy
+{{/useCustomTemplateCode}}
 
 To add a HTTP proxy for the API client, use `ClientConfig`:
 ```java
@@ -168,6 +186,7 @@ defaultClient.setClientConfig(clientConfig);
 ```
 
 {{/jersey2}}
+{{^useCustomTemplateCode}}
 ## Getting Started
 
 Please follow the [installation](#installation) instruction and execute the following Java code:
@@ -239,74 +258,6 @@ public class {{{classname}}}Example {
 {{/-first}}{{/operation}}{{/operations}}{{/-first}}{{/apis}}{{/apiInfo}}
 ```
 {{/useCustomTemplateCode}}
-{{#useCustomTemplateCode}}
-## Getting Started
-
-Please follow the [installation](#installation) instruction and execute the following Java code:
-
-{{#apiInfo}}{{#apis}}{{#-first}}{{#operations}}{{#operation}}{{#-first}}
-```java
-REPLACE_ME_WITH_EXAMPLE_FOR__{{{operationId}}}_Java_CODE
-```
-{{/-first}}{{/operation}}{{/operations}}{{/-first}}{{/apis}}{{/apiInfo}}
-
-{{#jersey2}}
-  ## Using a Proxy
-
-  To add a HTTP proxy for the API client, use `ClientConfig`:
-
-  ```java
-  {{#apiInfo}}{{#apis}}{{#-first}}{{#operations}}{{#operation}}{{#-first}}
-    import org.glassfish.jersey.apache.connector.ApacheConnectorProvider;
-    import org.glassfish.jersey.client.ClientConfig;
-    import org.glassfish.jersey.client.ClientProperties;
-    import {{{invokerPackage}}}.*;
-    import {{{package}}}.{{{classname}}};
-
-    ...
-
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    ClientConfig clientConfig = defaultClient.getClientConfig();
-    clientConfig.connectorProvider(new ApacheConnectorProvider());
-    clientConfig.property(ClientProperties.PROXY_URI, "http://proxy_url_here");
-    clientConfig.property(ClientProperties.PROXY_USERNAME, "proxy_username");
-    clientConfig.property(ClientProperties.PROXY_PASSWORD, "proxy_password");
-    defaultClient.setClientConfig(clientConfig);
-
-    {{{classname}}} apiInstance = new {{{classname}}}(defaultClient);
-  {{/-first}}{{/operation}}{{/operations}}{{/-first}}{{/apis}}{{/apiInfo}}
-  ```
-
-{{/jersey2}}
-{{#jersey3}}
-  ## Using a Proxy
-
-  To add a HTTP proxy for the API client, use `ClientConfig`:
-
-  ```java
-  {{#apiInfo}}{{#apis}}{{#-first}}{{#operations}}{{#operation}}{{#-first}}
-    import org.glassfish.jersey.apache.connector.ApacheConnectorProvider;
-    import org.glassfish.jersey.client.ClientConfig;
-    import org.glassfish.jersey.client.ClientProperties;
-    import {{{invokerPackage}}}.*;
-    import {{{package}}}.{{{classname}}};
-
-    ...
-
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    ClientConfig clientConfig = defaultClient.getClientConfig();
-    clientConfig.connectorProvider(new ApacheConnectorProvider());
-    clientConfig.property(ClientProperties.PROXY_URI, "http://proxy_url_here");
-    clientConfig.property(ClientProperties.PROXY_USERNAME, "proxy_username");
-    clientConfig.property(ClientProperties.PROXY_PASSWORD, "proxy_password");
-    defaultClient.setClientConfig(clientConfig);
-
-    {{{classname}}} apiInstance = new {{{classname}}}(defaultClient);
-  {{/-first}}{{/operation}}{{/operations}}{{/-first}}{{/apis}}{{/apiInfo}}
-  ```
-
-{{/jersey3}}
-{{/useCustomTemplateCode}}
 
 ## Documentation for API Endpoints
 
@@ -322,11 +273,14 @@ Class | Method | HTTP request | Description
 {{#models}}{{#model}} - [{{classname}}]({{modelDocPath}}{{classname}}.md)
 {{/model}}{{/models}}
 
+<a id="documentation-for-authorization"></a>
 ## Documentation for Authorization
 
-{{^authMethods}}All endpoints do not require authorization.
-{{/authMethods}}Authentication schemes defined for the API:
-{{#authMethods}}### {{name}}
+{{^authMethods}}Endpoints do not require authorization.{{/authMethods}}
+{{#hasAuthMethods}}Authentication schemes defined for the API:{{/hasAuthMethods}}
+{{#authMethods}}
+<a id="{{name}}"></a>
+### {{name}}
 
 {{#isApiKey}}
 
@@ -334,10 +288,18 @@ Class | Method | HTTP request | Description
 - **API key parameter name**: {{keyParamName}}
 - **Location**: {{#isKeyInQuery}}URL query string{{/isKeyInQuery}}{{#isKeyInHeader}}HTTP header{{/isKeyInHeader}}
 {{/isApiKey}}
-{{#isBasic}}
+{{#isBasicBasic}}
 
 - **Type**: HTTP basic authentication
-{{/isBasic}}
+{{/isBasicBasic}}
+{{#isBasicBearer}}
+
+- **Type**: HTTP Bearer Token authentication{{#bearerFormat}} ({{{.}}}){{/bearerFormat}}
+{{/isBasicBearer}}
+{{#isHttpSignature}}
+
+- **Type**: HTTP signature authentication
+{{/isHttpSignature}}
 {{#isOAuth}}
 
 - **Type**: OAuth
@@ -372,6 +334,7 @@ This Java package is automatically generated by the [OpenAPI Generator](https://
     - Build date: `{{generatedDate}}`
 {{/hideGenerationTimestamp}}
 - Build package: `{{generatorClass}}`
+
 
 # Working on this SDK
 

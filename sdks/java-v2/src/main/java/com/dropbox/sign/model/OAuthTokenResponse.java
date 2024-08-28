@@ -22,11 +22,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.dropbox.sign.JSON;
 
 
@@ -41,8 +37,7 @@ import com.dropbox.sign.ApiException;
   OAuthTokenResponse.JSON_PROPERTY_EXPIRES_IN,
   OAuthTokenResponse.JSON_PROPERTY_STATE
 })
-@JsonIgnoreProperties(ignoreUnknown=true)
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class OAuthTokenResponse {
   public static final String JSON_PROPERTY_ACCESS_TOKEN = "access_token";
   private String accessToken;
@@ -82,10 +77,10 @@ public class OAuthTokenResponse {
     return this;
   }
 
-   /**
+  /**
    * Get accessToken
    * @return accessToken
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ACCESS_TOKEN)
@@ -108,10 +103,10 @@ public class OAuthTokenResponse {
     return this;
   }
 
-   /**
+  /**
    * Get tokenType
    * @return tokenType
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TOKEN_TYPE)
@@ -134,10 +129,10 @@ public class OAuthTokenResponse {
     return this;
   }
 
-   /**
+  /**
    * Get refreshToken
    * @return refreshToken
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_REFRESH_TOKEN)
@@ -160,10 +155,10 @@ public class OAuthTokenResponse {
     return this;
   }
 
-   /**
+  /**
    * Number of seconds until the &#x60;access_token&#x60; expires. Uses epoch time.
    * @return expiresIn
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Number of seconds until the `access_token` expires. Uses epoch time.")
   @JsonProperty(JSON_PROPERTY_EXPIRES_IN)
@@ -186,10 +181,10 @@ public class OAuthTokenResponse {
     return this;
   }
 
-   /**
+  /**
    * Get state
    * @return state
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_STATE)

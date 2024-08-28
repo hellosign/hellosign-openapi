@@ -22,11 +22,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.dropbox.sign.JSON;
 
 
@@ -39,8 +35,7 @@ import com.dropbox.sign.ApiException;
   WarningResponse.JSON_PROPERTY_WARNING_MSG,
   WarningResponse.JSON_PROPERTY_WARNING_NAME
 })
-@JsonIgnoreProperties(ignoreUnknown=true)
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class WarningResponse {
   public static final String JSON_PROPERTY_WARNING_MSG = "warning_msg";
   private String warningMsg;
@@ -71,10 +66,10 @@ public class WarningResponse {
     return this;
   }
 
-   /**
+  /**
    * Warning message
    * @return warningMsg
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Warning message")
   @JsonProperty(JSON_PROPERTY_WARNING_MSG)
@@ -97,10 +92,10 @@ public class WarningResponse {
     return this;
   }
 
-   /**
+  /**
    * Warning name
    * @return warningName
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Warning name")
   @JsonProperty(JSON_PROPERTY_WARNING_NAME)

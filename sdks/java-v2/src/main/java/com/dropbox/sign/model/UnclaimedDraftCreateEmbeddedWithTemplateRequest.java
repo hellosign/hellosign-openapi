@@ -33,11 +33,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.dropbox.sign.JSON;
 
 
@@ -77,8 +73,7 @@ import com.dropbox.sign.ApiException;
   UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_POPULATE_AUTO_FILL_FIELDS,
   UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_ALLOW_CCS
 })
-@JsonIgnoreProperties(ignoreUnknown=true)
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class UnclaimedDraftCreateEmbeddedWithTemplateRequest {
   public static final String JSON_PROPERTY_CLIENT_ID = "client_id";
   private String clientId;
@@ -96,10 +91,10 @@ public class UnclaimedDraftCreateEmbeddedWithTemplateRequest {
   private Boolean allowReassign = false;
 
   public static final String JSON_PROPERTY_CCS = "ccs";
-  private List<SubCC> ccs;
+  private List<SubCC> ccs = new ArrayList<>();
 
   public static final String JSON_PROPERTY_CUSTOM_FIELDS = "custom_fields";
-  private List<SubCustomField> customFields;
+  private List<SubCustomField> customFields = new ArrayList<>();
 
   public static final String JSON_PROPERTY_EDITOR_OPTIONS = "editor_options";
   private SubEditorOptions editorOptions;
@@ -108,10 +103,10 @@ public class UnclaimedDraftCreateEmbeddedWithTemplateRequest {
   private SubFieldOptions fieldOptions;
 
   public static final String JSON_PROPERTY_FILES = "files";
-  private List<File> files;
+  private List<File> files = new ArrayList<>();
 
   public static final String JSON_PROPERTY_FILE_URLS = "file_urls";
-  private List<String> fileUrls;
+  private List<String> fileUrls = new ArrayList<>();
 
   public static final String JSON_PROPERTY_FORCE_SIGNER_ROLES = "force_signer_roles";
   private Boolean forceSignerRoles = false;
@@ -144,7 +139,7 @@ public class UnclaimedDraftCreateEmbeddedWithTemplateRequest {
   private Boolean showProgressStepper = true;
 
   public static final String JSON_PROPERTY_SIGNERS = "signers";
-  private List<SubUnclaimedDraftTemplateSigner> signers;
+  private List<SubUnclaimedDraftTemplateSigner> signers = new ArrayList<>();
 
   public static final String JSON_PROPERTY_SIGNING_OPTIONS = "signing_options";
   private SubSigningOptions signingOptions;
@@ -193,10 +188,10 @@ public class UnclaimedDraftCreateEmbeddedWithTemplateRequest {
     return this;
   }
 
-   /**
+  /**
    * Client id of the app used to create the draft. Used to apply the branding and callback url defined for the app.
    * @return clientId
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Client id of the app used to create the draft. Used to apply the branding and callback url defined for the app.")
   @JsonProperty(JSON_PROPERTY_CLIENT_ID)
@@ -219,10 +214,10 @@ public class UnclaimedDraftCreateEmbeddedWithTemplateRequest {
     return this;
   }
 
-   /**
+  /**
    * The email address of the user that should be designated as the requester of this draft.
    * @return requesterEmailAddress
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The email address of the user that should be designated as the requester of this draft.")
   @JsonProperty(JSON_PROPERTY_REQUESTER_EMAIL_ADDRESS)
@@ -253,10 +248,10 @@ public class UnclaimedDraftCreateEmbeddedWithTemplateRequest {
     return this;
   }
 
-   /**
+  /**
    * Use &#x60;template_ids&#x60; to create a SignatureRequest from one or more templates, in the order in which the templates will be used.
    * @return templateIds
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Use `template_ids` to create a SignatureRequest from one or more templates, in the order in which the templates will be used.")
   @JsonProperty(JSON_PROPERTY_TEMPLATE_IDS)
@@ -279,10 +274,10 @@ public class UnclaimedDraftCreateEmbeddedWithTemplateRequest {
     return this;
   }
 
-   /**
+  /**
    * Allows signers to decline to sign a document if &#x60;true&#x60;. Defaults to &#x60;false&#x60;.
    * @return allowDecline
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Allows signers to decline to sign a document if `true`. Defaults to `false`.")
   @JsonProperty(JSON_PROPERTY_ALLOW_DECLINE)
@@ -305,10 +300,10 @@ public class UnclaimedDraftCreateEmbeddedWithTemplateRequest {
     return this;
   }
 
-   /**
+  /**
    * Allows signers to reassign their signature requests to other signers if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.  **NOTE:** Only available for Premium plan and higher.
    * @return allowReassign
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.  **NOTE:** Only available for Premium plan and higher.")
   @JsonProperty(JSON_PROPERTY_ALLOW_REASSIGN)
@@ -339,10 +334,10 @@ public class UnclaimedDraftCreateEmbeddedWithTemplateRequest {
     return this;
   }
 
-   /**
+  /**
    * Add CC email recipients. Required when a CC role exists for the Template.
    * @return ccs
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Add CC email recipients. Required when a CC role exists for the Template.")
   @JsonProperty(JSON_PROPERTY_CCS)
@@ -373,10 +368,10 @@ public class UnclaimedDraftCreateEmbeddedWithTemplateRequest {
     return this;
   }
 
-   /**
+  /**
    * An array defining values and options for custom fields. Required when a custom field exists in the Template.
    * @return customFields
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "An array defining values and options for custom fields. Required when a custom field exists in the Template.")
   @JsonProperty(JSON_PROPERTY_CUSTOM_FIELDS)
@@ -399,10 +394,10 @@ public class UnclaimedDraftCreateEmbeddedWithTemplateRequest {
     return this;
   }
 
-   /**
+  /**
    * Get editorOptions
    * @return editorOptions
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_EDITOR_OPTIONS)
@@ -425,10 +420,10 @@ public class UnclaimedDraftCreateEmbeddedWithTemplateRequest {
     return this;
   }
 
-   /**
+  /**
    * Get fieldOptions
    * @return fieldOptions
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FIELD_OPTIONS)
@@ -459,10 +454,10 @@ public class UnclaimedDraftCreateEmbeddedWithTemplateRequest {
     return this;
   }
 
-   /**
+  /**
    * Use &#x60;files[]&#x60; to append additional files to the signature request being created from the template. Dropbox Sign will parse the files for [text tags](https://app.hellosign.com/api/textTagsWalkthrough) and append it to the signature request. Text tags for signers not on the template(s) will be ignored.  **files** or **file_urls[]** is required, but not both.
    * @return files
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Use `files[]` to append additional files to the signature request being created from the template. Dropbox Sign will parse the files for [text tags](https://app.hellosign.com/api/textTagsWalkthrough) and append it to the signature request. Text tags for signers not on the template(s) will be ignored.  **files** or **file_urls[]** is required, but not both.")
   @JsonProperty(JSON_PROPERTY_FILES)
@@ -493,10 +488,10 @@ public class UnclaimedDraftCreateEmbeddedWithTemplateRequest {
     return this;
   }
 
-   /**
+  /**
    * Use file_urls[] to append additional files to the signature request being created from the template. Dropbox Sign will download the file, then parse it for [text tags](https://app.hellosign.com/api/textTagsWalkthrough), and append to the signature request. Text tags for signers not on the template(s) will be ignored.  **files** or **file_urls[]** is required, but not both.
    * @return fileUrls
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Use file_urls[] to append additional files to the signature request being created from the template. Dropbox Sign will download the file, then parse it for [text tags](https://app.hellosign.com/api/textTagsWalkthrough), and append to the signature request. Text tags for signers not on the template(s) will be ignored.  **files** or **file_urls[]** is required, but not both.")
   @JsonProperty(JSON_PROPERTY_FILE_URLS)
@@ -519,10 +514,10 @@ public class UnclaimedDraftCreateEmbeddedWithTemplateRequest {
     return this;
   }
 
-   /**
+  /**
    * Provide users the ability to review/edit the template signer roles.
    * @return forceSignerRoles
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Provide users the ability to review/edit the template signer roles.")
   @JsonProperty(JSON_PROPERTY_FORCE_SIGNER_ROLES)
@@ -545,10 +540,10 @@ public class UnclaimedDraftCreateEmbeddedWithTemplateRequest {
     return this;
   }
 
-   /**
+  /**
    * Provide users the ability to review/edit the template subject and message.
    * @return forceSubjectMessage
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Provide users the ability to review/edit the template subject and message.")
   @JsonProperty(JSON_PROPERTY_FORCE_SUBJECT_MESSAGE)
@@ -571,10 +566,10 @@ public class UnclaimedDraftCreateEmbeddedWithTemplateRequest {
     return this;
   }
 
-   /**
+  /**
    * The request from this draft will not automatically send to signers post-claim if set to 1. Requester must [release](/api/reference/operation/signatureRequestReleaseHold/) the request from hold when ready to send. Defaults to &#x60;false&#x60;.
    * @return holdRequest
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The request from this draft will not automatically send to signers post-claim if set to 1. Requester must [release](/api/reference/operation/signatureRequestReleaseHold/) the request from hold when ready to send. Defaults to `false`.")
   @JsonProperty(JSON_PROPERTY_HOLD_REQUEST)
@@ -597,10 +592,10 @@ public class UnclaimedDraftCreateEmbeddedWithTemplateRequest {
     return this;
   }
 
-   /**
+  /**
    * The request created from this draft will also be signable in embedded mode if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.
    * @return isForEmbeddedSigning
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The request created from this draft will also be signable in embedded mode if set to `true`. Defaults to `false`.")
   @JsonProperty(JSON_PROPERTY_IS_FOR_EMBEDDED_SIGNING)
@@ -623,10 +618,10 @@ public class UnclaimedDraftCreateEmbeddedWithTemplateRequest {
     return this;
   }
 
-   /**
+  /**
    * The custom message in the email that will be sent to the signers.
    * @return message
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The custom message in the email that will be sent to the signers.")
   @JsonProperty(JSON_PROPERTY_MESSAGE)
@@ -657,10 +652,10 @@ public class UnclaimedDraftCreateEmbeddedWithTemplateRequest {
     return this;
   }
 
-   /**
+  /**
    * Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer&#39;s order number for look up when receiving events for the signature request.  Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.
    * @return metadata
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.  Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.")
   @JsonProperty(JSON_PROPERTY_METADATA)
@@ -683,10 +678,10 @@ public class UnclaimedDraftCreateEmbeddedWithTemplateRequest {
     return this;
   }
 
-   /**
+  /**
    * This allows the requester to enable the preview experience (i.e. does not allow the requester&#39;s end user to add any additional fields via the editor).  - &#x60;preview_only&#x3D;true&#x60;: Allows requesters to enable the preview only experience. - &#x60;preview_only&#x3D;false&#x60;: Allows requesters to disable the preview only experience.  **NOTE:** This parameter overwrites &#x60;show_preview&#x3D;1&#x60; (if set).
    * @return previewOnly
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "This allows the requester to enable the preview experience (i.e. does not allow the requester's end user to add any additional fields via the editor).  - `preview_only=true`: Allows requesters to enable the preview only experience. - `preview_only=false`: Allows requesters to disable the preview only experience.  **NOTE:** This parameter overwrites `show_preview=1` (if set).")
   @JsonProperty(JSON_PROPERTY_PREVIEW_ONLY)
@@ -709,10 +704,10 @@ public class UnclaimedDraftCreateEmbeddedWithTemplateRequest {
     return this;
   }
 
-   /**
+  /**
    * The URL you want signers redirected to after they successfully request a signature.
    * @return requestingRedirectUrl
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The URL you want signers redirected to after they successfully request a signature.")
   @JsonProperty(JSON_PROPERTY_REQUESTING_REDIRECT_URL)
@@ -735,10 +730,10 @@ public class UnclaimedDraftCreateEmbeddedWithTemplateRequest {
     return this;
   }
 
-   /**
+  /**
    * This allows the requester to enable the editor/preview experience.  - &#x60;show_preview&#x3D;true&#x60;: Allows requesters to enable the editor/preview experience. - &#x60;show_preview&#x3D;false&#x60;: Allows requesters to disable the editor/preview experience.
    * @return showPreview
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "This allows the requester to enable the editor/preview experience.  - `show_preview=true`: Allows requesters to enable the editor/preview experience. - `show_preview=false`: Allows requesters to disable the editor/preview experience.")
   @JsonProperty(JSON_PROPERTY_SHOW_PREVIEW)
@@ -761,10 +756,10 @@ public class UnclaimedDraftCreateEmbeddedWithTemplateRequest {
     return this;
   }
 
-   /**
+  /**
    * When only one step remains in the signature request process and this parameter is set to &#x60;false&#x60; then the progress stepper will be hidden.
    * @return showProgressStepper
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "When only one step remains in the signature request process and this parameter is set to `false` then the progress stepper will be hidden.")
   @JsonProperty(JSON_PROPERTY_SHOW_PROGRESS_STEPPER)
@@ -795,10 +790,10 @@ public class UnclaimedDraftCreateEmbeddedWithTemplateRequest {
     return this;
   }
 
-   /**
+  /**
    * Add Signers to your Templated-based Signature Request.
    * @return signers
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Add Signers to your Templated-based Signature Request.")
   @JsonProperty(JSON_PROPERTY_SIGNERS)
@@ -821,10 +816,10 @@ public class UnclaimedDraftCreateEmbeddedWithTemplateRequest {
     return this;
   }
 
-   /**
+  /**
    * Get signingOptions
    * @return signingOptions
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SIGNING_OPTIONS)
@@ -847,10 +842,10 @@ public class UnclaimedDraftCreateEmbeddedWithTemplateRequest {
     return this;
   }
 
-   /**
+  /**
    * The URL you want signers redirected to after they successfully sign.
    * @return signingRedirectUrl
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The URL you want signers redirected to after they successfully sign.")
   @JsonProperty(JSON_PROPERTY_SIGNING_REDIRECT_URL)
@@ -873,10 +868,10 @@ public class UnclaimedDraftCreateEmbeddedWithTemplateRequest {
     return this;
   }
 
-   /**
+  /**
    * Disables the \&quot;Me (Now)\&quot; option for the person preparing the document. Does not work with type &#x60;send_document&#x60;. Defaults to &#x60;false&#x60;.
    * @return skipMeNow
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Disables the \"Me (Now)\" option for the person preparing the document. Does not work with type `send_document`. Defaults to `false`.")
   @JsonProperty(JSON_PROPERTY_SKIP_ME_NOW)
@@ -899,10 +894,10 @@ public class UnclaimedDraftCreateEmbeddedWithTemplateRequest {
     return this;
   }
 
-   /**
+  /**
    * The subject in the email that will be sent to the signers.
    * @return subject
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The subject in the email that will be sent to the signers.")
   @JsonProperty(JSON_PROPERTY_SUBJECT)
@@ -925,10 +920,10 @@ public class UnclaimedDraftCreateEmbeddedWithTemplateRequest {
     return this;
   }
 
-   /**
+  /**
    * Whether this is a test, the signature request created from this draft will not be legally binding if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.
    * @return testMode
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Whether this is a test, the signature request created from this draft will not be legally binding if set to `true`. Defaults to `false`.")
   @JsonProperty(JSON_PROPERTY_TEST_MODE)
@@ -951,10 +946,10 @@ public class UnclaimedDraftCreateEmbeddedWithTemplateRequest {
     return this;
   }
 
-   /**
+  /**
    * The title you want to assign to the SignatureRequest.
    * @return title
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The title you want to assign to the SignatureRequest.")
   @JsonProperty(JSON_PROPERTY_TITLE)
@@ -977,10 +972,10 @@ public class UnclaimedDraftCreateEmbeddedWithTemplateRequest {
     return this;
   }
 
-   /**
+  /**
    * Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer&#39;s information during signing.  **NOTE:** Keep your signer&#39;s information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
    * @return populateAutoFillFields
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer's information during signing.  **NOTE:** Keep your signer's information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.")
   @JsonProperty(JSON_PROPERTY_POPULATE_AUTO_FILL_FIELDS)
@@ -1003,10 +998,10 @@ public class UnclaimedDraftCreateEmbeddedWithTemplateRequest {
     return this;
   }
 
-   /**
+  /**
    * This allows the requester to specify whether the user is allowed to provide email addresses to CC when claiming the draft.
    * @return allowCcs
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "This allows the requester to specify whether the user is allowed to provide email addresses to CC when claiming the draft.")
   @JsonProperty(JSON_PROPERTY_ALLOW_CCS)

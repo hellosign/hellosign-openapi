@@ -28,11 +28,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.dropbox.sign.JSON;
 
 
@@ -48,8 +44,7 @@ import com.dropbox.sign.ApiException;
   TemplateResponseDocument.JSON_PROPERTY_CUSTOM_FIELDS,
   TemplateResponseDocument.JSON_PROPERTY_STATIC_FIELDS
 })
-@JsonIgnoreProperties(ignoreUnknown=true)
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class TemplateResponseDocument {
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
@@ -58,13 +53,13 @@ public class TemplateResponseDocument {
   private Integer index;
 
   public static final String JSON_PROPERTY_FIELD_GROUPS = "field_groups";
-  private List<TemplateResponseDocumentFieldGroup> fieldGroups;
+  private List<TemplateResponseDocumentFieldGroup> fieldGroups = new ArrayList<>();
 
   public static final String JSON_PROPERTY_FORM_FIELDS = "form_fields";
-  private List<TemplateResponseDocumentFormFieldBase> formFields;
+  private List<TemplateResponseDocumentFormFieldBase> formFields = new ArrayList<>();
 
   public static final String JSON_PROPERTY_CUSTOM_FIELDS = "custom_fields";
-  private List<TemplateResponseDocumentCustomFieldBase> customFields;
+  private List<TemplateResponseDocumentCustomFieldBase> customFields = new ArrayList<>();
 
   public static final String JSON_PROPERTY_STATIC_FIELDS = "static_fields";
   private List<TemplateResponseDocumentStaticFieldBase> staticFields;
@@ -92,10 +87,10 @@ public class TemplateResponseDocument {
     return this;
   }
 
-   /**
+  /**
    * Name of the associated file.
    * @return name
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Name of the associated file.")
   @JsonProperty(JSON_PROPERTY_NAME)
@@ -118,10 +113,10 @@ public class TemplateResponseDocument {
     return this;
   }
 
-   /**
+  /**
    * Document ordering, the lowest index is displayed first and the highest last (0-based indexing).
    * @return index
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Document ordering, the lowest index is displayed first and the highest last (0-based indexing).")
   @JsonProperty(JSON_PROPERTY_INDEX)
@@ -152,10 +147,10 @@ public class TemplateResponseDocument {
     return this;
   }
 
-   /**
+  /**
    * An array of Form Field Group objects.
    * @return fieldGroups
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "An array of Form Field Group objects.")
   @JsonProperty(JSON_PROPERTY_FIELD_GROUPS)
@@ -186,10 +181,10 @@ public class TemplateResponseDocument {
     return this;
   }
 
-   /**
+  /**
    * An array of Form Field objects containing the name and type of each named field.
    * @return formFields
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "An array of Form Field objects containing the name and type of each named field.")
   @JsonProperty(JSON_PROPERTY_FORM_FIELDS)
@@ -220,10 +215,10 @@ public class TemplateResponseDocument {
     return this;
   }
 
-   /**
+  /**
    * An array of Form Field objects containing the name and type of each named field.
    * @return customFields
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "An array of Form Field objects containing the name and type of each named field.")
   @JsonProperty(JSON_PROPERTY_CUSTOM_FIELDS)
@@ -254,10 +249,10 @@ public class TemplateResponseDocument {
     return this;
   }
 
-   /**
+  /**
    * An array describing static overlay fields. **NOTE:** Only available for certain subscriptions.
    * @return staticFields
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "An array describing static overlay fields. **NOTE:** Only available for certain subscriptions.")
   @JsonProperty(JSON_PROPERTY_STATIC_FIELDS)

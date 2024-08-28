@@ -24,11 +24,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.dropbox.sign.JSON;
 
 
@@ -49,8 +45,7 @@ import com.dropbox.sign.ApiException;
   AccountResponse.JSON_PROPERTY_LOCALE,
   AccountResponse.JSON_PROPERTY_USAGE
 })
-@JsonIgnoreProperties(ignoreUnknown=true)
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class AccountResponse {
   public static final String JSON_PROPERTY_ACCOUNT_ID = "account_id";
   private String accountId;
@@ -108,10 +103,10 @@ public class AccountResponse {
     return this;
   }
 
-   /**
+  /**
    * The ID of the Account
    * @return accountId
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The ID of the Account")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
@@ -134,10 +129,10 @@ public class AccountResponse {
     return this;
   }
 
-   /**
+  /**
    * The email address associated with the Account.
    * @return emailAddress
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The email address associated with the Account.")
   @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
@@ -160,10 +155,10 @@ public class AccountResponse {
     return this;
   }
 
-   /**
+  /**
    * Returns &#x60;true&#x60; if the user has been locked out of their account by a team admin.
    * @return isLocked
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Returns `true` if the user has been locked out of their account by a team admin.")
   @JsonProperty(JSON_PROPERTY_IS_LOCKED)
@@ -186,10 +181,10 @@ public class AccountResponse {
     return this;
   }
 
-   /**
+  /**
    * Returns &#x60;true&#x60; if the user has a paid Dropbox Sign account.
    * @return isPaidHs
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Returns `true` if the user has a paid Dropbox Sign account.")
   @JsonProperty(JSON_PROPERTY_IS_PAID_HS)
@@ -212,10 +207,10 @@ public class AccountResponse {
     return this;
   }
 
-   /**
+  /**
    * Returns &#x60;true&#x60; if the user has a paid HelloFax account.
    * @return isPaidHf
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Returns `true` if the user has a paid HelloFax account.")
   @JsonProperty(JSON_PROPERTY_IS_PAID_HF)
@@ -238,10 +233,10 @@ public class AccountResponse {
     return this;
   }
 
-   /**
+  /**
    * Get quotas
    * @return quotas
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_QUOTAS)
@@ -264,10 +259,10 @@ public class AccountResponse {
     return this;
   }
 
-   /**
+  /**
    * The URL that Dropbox Sign events will &#x60;POST&#x60; to.
    * @return callbackUrl
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The URL that Dropbox Sign events will `POST` to.")
   @JsonProperty(JSON_PROPERTY_CALLBACK_URL)
@@ -290,10 +285,10 @@ public class AccountResponse {
     return this;
   }
 
-   /**
+  /**
    * The membership role for the team.
    * @return roleCode
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The membership role for the team.")
   @JsonProperty(JSON_PROPERTY_ROLE_CODE)
@@ -316,10 +311,10 @@ public class AccountResponse {
     return this;
   }
 
-   /**
+  /**
    * The id of the team account belongs to.
    * @return teamId
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The id of the team account belongs to.")
   @JsonProperty(JSON_PROPERTY_TEAM_ID)
@@ -342,10 +337,10 @@ public class AccountResponse {
     return this;
   }
 
-   /**
+  /**
    * The locale used in this Account. Check out the list of [supported locales](/api/reference/constants/#supported-locales) to learn more about the possible values.
    * @return locale
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The locale used in this Account. Check out the list of [supported locales](/api/reference/constants/#supported-locales) to learn more about the possible values.")
   @JsonProperty(JSON_PROPERTY_LOCALE)
@@ -368,10 +363,10 @@ public class AccountResponse {
     return this;
   }
 
-   /**
+  /**
    * Get usage
    * @return usage
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_USAGE)

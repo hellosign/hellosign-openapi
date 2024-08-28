@@ -6,8 +6,8 @@ An array of signature objects, 1 for each signer.
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
 | `signatureId` | ```String``` |  Signature identifier.  |  |
 | `signerGroupGuid` | ```String``` |  Signer Group GUID  |  |
 | `signerEmailAddress` | ```String``` |  The email address of the signer.  |  |

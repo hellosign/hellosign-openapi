@@ -25,11 +25,7 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.dropbox.sign.JSON;
 
 
@@ -45,8 +41,11 @@ import com.dropbox.sign.ApiException;
   SignatureRequestResponseDataBase.JSON_PROPERTY_REQUIRED,
   SignatureRequestResponseDataBase.JSON_PROPERTY_TYPE
 })
-@JsonIgnoreProperties(ignoreUnknown=true)
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
+@JsonIgnoreProperties(
+  allowSetters = true, // allows the type to be set during deserialization
+  ignoreUnknown = true
+)
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.EXISTING_PROPERTY, property = "type", visible = true)
 @JsonSubTypes({
   @JsonSubTypes.Type(value = SignatureRequestResponseDataValueCheckbox.class, name = "checkbox"),
@@ -99,10 +98,10 @@ public class SignatureRequestResponseDataBase {
     return this;
   }
 
-   /**
+  /**
    * The unique ID for this field.
    * @return apiId
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The unique ID for this field.")
   @JsonProperty(JSON_PROPERTY_API_ID)
@@ -125,10 +124,10 @@ public class SignatureRequestResponseDataBase {
     return this;
   }
 
-   /**
+  /**
    * The ID of the signature to which this response is linked.
    * @return signatureId
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The ID of the signature to which this response is linked.")
   @JsonProperty(JSON_PROPERTY_SIGNATURE_ID)
@@ -151,10 +150,10 @@ public class SignatureRequestResponseDataBase {
     return this;
   }
 
-   /**
+  /**
    * The name of the form field.
    * @return name
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The name of the form field.")
   @JsonProperty(JSON_PROPERTY_NAME)
@@ -177,10 +176,10 @@ public class SignatureRequestResponseDataBase {
     return this;
   }
 
-   /**
+  /**
    * A boolean value denoting if this field is required.
    * @return required
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "A boolean value denoting if this field is required.")
   @JsonProperty(JSON_PROPERTY_REQUIRED)
@@ -203,10 +202,10 @@ public class SignatureRequestResponseDataBase {
     return this;
   }
 
-   /**
+  /**
    * Get type
    * @return type
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)

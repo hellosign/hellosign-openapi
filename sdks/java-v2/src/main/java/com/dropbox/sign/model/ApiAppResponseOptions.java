@@ -22,11 +22,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.dropbox.sign.JSON;
 
 
@@ -38,8 +34,7 @@ import com.dropbox.sign.ApiException;
 @JsonPropertyOrder({
   ApiAppResponseOptions.JSON_PROPERTY_CAN_INSERT_EVERYWHERE
 })
-@JsonIgnoreProperties(ignoreUnknown=true)
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class ApiAppResponseOptions {
   public static final String JSON_PROPERTY_CAN_INSERT_EVERYWHERE = "can_insert_everywhere";
   private Boolean canInsertEverywhere;
@@ -67,10 +62,10 @@ public class ApiAppResponseOptions {
     return this;
   }
 
-   /**
+  /**
    * Boolean denoting if signers can \&quot;Insert Everywhere\&quot; in one click while signing a document
    * @return canInsertEverywhere
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Boolean denoting if signers can \"Insert Everywhere\" in one click while signing a document")
   @JsonProperty(JSON_PROPERTY_CAN_INSERT_EVERYWHERE)

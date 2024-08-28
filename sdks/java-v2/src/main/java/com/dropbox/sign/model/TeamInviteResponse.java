@@ -22,11 +22,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.dropbox.sign.JSON;
 
 
@@ -42,8 +38,7 @@ import com.dropbox.sign.ApiException;
   TeamInviteResponse.JSON_PROPERTY_REDEEMED_AT,
   TeamInviteResponse.JSON_PROPERTY_EXPIRES_AT
 })
-@JsonIgnoreProperties(ignoreUnknown=true)
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class TeamInviteResponse {
   public static final String JSON_PROPERTY_EMAIL_ADDRESS = "email_address";
   private String emailAddress;
@@ -86,10 +81,10 @@ public class TeamInviteResponse {
     return this;
   }
 
-   /**
+  /**
    * Email address of the user invited to this team.
    * @return emailAddress
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Email address of the user invited to this team.")
   @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
@@ -112,10 +107,10 @@ public class TeamInviteResponse {
     return this;
   }
 
-   /**
+  /**
    * Id of the team.
    * @return teamId
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Id of the team.")
   @JsonProperty(JSON_PROPERTY_TEAM_ID)
@@ -138,10 +133,10 @@ public class TeamInviteResponse {
     return this;
   }
 
-   /**
+  /**
    * Role of the user invited to this team.
    * @return role
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Role of the user invited to this team.")
   @JsonProperty(JSON_PROPERTY_ROLE)
@@ -164,10 +159,10 @@ public class TeamInviteResponse {
     return this;
   }
 
-   /**
+  /**
    * Timestamp when the invitation was sent.
    * @return sentAt
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Timestamp when the invitation was sent.")
   @JsonProperty(JSON_PROPERTY_SENT_AT)
@@ -190,10 +185,10 @@ public class TeamInviteResponse {
     return this;
   }
 
-   /**
+  /**
    * Timestamp when the invitation was redeemed.
    * @return redeemedAt
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Timestamp when the invitation was redeemed.")
   @JsonProperty(JSON_PROPERTY_REDEEMED_AT)
@@ -216,10 +211,10 @@ public class TeamInviteResponse {
     return this;
   }
 
-   /**
+  /**
    * Timestamp when the invitation is expiring.
    * @return expiresAt
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Timestamp when the invitation is expiring.")
   @JsonProperty(JSON_PROPERTY_EXPIRES_AT)

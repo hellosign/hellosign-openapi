@@ -26,11 +26,7 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.dropbox.sign.JSON;
 
 
@@ -44,8 +40,11 @@ import com.dropbox.sign.ApiException;
   SubFormFieldsPerDocumentDateSigned.JSON_PROPERTY_FONT_FAMILY,
   SubFormFieldsPerDocumentDateSigned.JSON_PROPERTY_FONT_SIZE
 })
-@JsonIgnoreProperties(ignoreUnknown=true)
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
+@JsonIgnoreProperties(
+  allowSetters = true, // allows the type to be set during deserialization
+  ignoreUnknown = true
+)
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.EXISTING_PROPERTY, property = "type", visible = true)
 
 public class SubFormFieldsPerDocumentDateSigned extends SubFormFieldsPerDocumentBase {
@@ -76,17 +75,17 @@ public class SubFormFieldsPerDocumentDateSigned extends SubFormFieldsPerDocument
     
     ROBOTO("roboto"),
     
-    ROBOTOMONO("robotoMono"),
+    ROBOTO_MONO("robotoMono"),
     
-    NOTOSANS("notoSans"),
+    NOTO_SANS("notoSans"),
     
-    NOTOSERIF("notoSerif"),
+    NOTO_SERIF("notoSerif"),
     
-    NOTOCJK_JP_REGULAR("notoCJK-JP-Regular"),
+    NOTO_CJK_JP_REGULAR("notoCJK-JP-Regular"),
     
-    NOTOHEBREW_REGULAR("notoHebrew-Regular"),
+    NOTO_HEBREW_REGULAR("notoHebrew-Regular"),
     
-    NOTOSANTHAIMERGED("notoSanThaiMerged");
+    NOTO_SAN_THAI_MERGED("notoSanThaiMerged");
 
     private String value;
 
@@ -144,10 +143,10 @@ public class SubFormFieldsPerDocumentDateSigned extends SubFormFieldsPerDocument
     return this;
   }
 
-   /**
+  /**
    * A date. Use the &#x60;SubFormFieldsPerDocumentDateSigned&#x60; class.
    * @return type
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "A date. Use the `SubFormFieldsPerDocumentDateSigned` class.")
   @JsonProperty(JSON_PROPERTY_TYPE)
@@ -170,10 +169,10 @@ public class SubFormFieldsPerDocumentDateSigned extends SubFormFieldsPerDocument
     return this;
   }
 
-   /**
+  /**
    * Font family for the field.
    * @return fontFamily
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Font family for the field.")
   @JsonProperty(JSON_PROPERTY_FONT_FAMILY)
@@ -196,10 +195,10 @@ public class SubFormFieldsPerDocumentDateSigned extends SubFormFieldsPerDocument
     return this;
   }
 
-   /**
+  /**
    * The initial px font size for the field contents. Can be any integer value between &#x60;7&#x60; and &#x60;49&#x60;.  **NOTE:** Font size may be reduced during processing in order to fit the contents within the dimensions of the field.
    * @return fontSize
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The initial px font size for the field contents. Can be any integer value between `7` and `49`.  **NOTE:** Font size may be reduced during processing in order to fit the contents within the dimensions of the field.")
   @JsonProperty(JSON_PROPERTY_FONT_SIZE)

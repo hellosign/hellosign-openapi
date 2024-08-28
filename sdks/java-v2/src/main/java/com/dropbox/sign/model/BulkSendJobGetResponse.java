@@ -28,11 +28,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.dropbox.sign.JSON;
 
 
@@ -46,8 +42,7 @@ import com.dropbox.sign.ApiException;
   BulkSendJobGetResponse.JSON_PROPERTY_SIGNATURE_REQUESTS,
   BulkSendJobGetResponse.JSON_PROPERTY_WARNINGS
 })
-@JsonIgnoreProperties(ignoreUnknown=true)
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class BulkSendJobGetResponse {
   public static final String JSON_PROPERTY_BULK_SEND_JOB = "bulk_send_job";
   private BulkSendJobResponse bulkSendJob;
@@ -56,10 +51,10 @@ public class BulkSendJobGetResponse {
   private ListInfoResponse listInfo;
 
   public static final String JSON_PROPERTY_SIGNATURE_REQUESTS = "signature_requests";
-  private List<BulkSendJobGetResponseSignatureRequests> signatureRequests;
+  private List<BulkSendJobGetResponseSignatureRequests> signatureRequests = new ArrayList<>();
 
   public static final String JSON_PROPERTY_WARNINGS = "warnings";
-  private List<WarningResponse> warnings;
+  private List<WarningResponse> warnings = new ArrayList<>();
 
   public BulkSendJobGetResponse() { 
   }
@@ -84,10 +79,10 @@ public class BulkSendJobGetResponse {
     return this;
   }
 
-   /**
+  /**
    * Get bulkSendJob
    * @return bulkSendJob
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_BULK_SEND_JOB)
@@ -110,10 +105,10 @@ public class BulkSendJobGetResponse {
     return this;
   }
 
-   /**
+  /**
    * Get listInfo
    * @return listInfo
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LIST_INFO)
@@ -144,10 +139,10 @@ public class BulkSendJobGetResponse {
     return this;
   }
 
-   /**
+  /**
    * Contains information about the Signature Requests sent in bulk.
    * @return signatureRequests
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Contains information about the Signature Requests sent in bulk.")
   @JsonProperty(JSON_PROPERTY_SIGNATURE_REQUESTS)
@@ -178,10 +173,10 @@ public class BulkSendJobGetResponse {
     return this;
   }
 
-   /**
+  /**
    * A list of warnings.
    * @return warnings
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "A list of warnings.")
   @JsonProperty(JSON_PROPERTY_WARNINGS)

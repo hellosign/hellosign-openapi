@@ -27,11 +27,7 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.dropbox.sign.JSON;
 
 
@@ -47,8 +43,11 @@ import com.dropbox.sign.ApiException;
   TemplateResponseDocumentCustomFieldText.JSON_PROPERTY_ORIGINAL_FONT_SIZE,
   TemplateResponseDocumentCustomFieldText.JSON_PROPERTY_FONT_FAMILY
 })
-@JsonIgnoreProperties(ignoreUnknown=true)
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
+@JsonIgnoreProperties(
+  allowSetters = true, // allows the type to be set during deserialization
+  ignoreUnknown = true
+)
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.EXISTING_PROPERTY, property = "type", visible = true)
 
 public class TemplateResponseDocumentCustomFieldText extends TemplateResponseDocumentCustomFieldBase {
@@ -90,10 +89,10 @@ public class TemplateResponseDocumentCustomFieldText extends TemplateResponseDoc
     return this;
   }
 
-   /**
+  /**
    * The type of this Custom Field. Only &#x60;text&#x60; and &#x60;checkbox&#x60; are currently supported.  * Text uses &#x60;TemplateResponseDocumentCustomFieldText&#x60; * Checkbox uses &#x60;TemplateResponseDocumentCustomFieldCheckbox&#x60;
    * @return type
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The type of this Custom Field. Only `text` and `checkbox` are currently supported.  * Text uses `TemplateResponseDocumentCustomFieldText` * Checkbox uses `TemplateResponseDocumentCustomFieldCheckbox`")
   @JsonProperty(JSON_PROPERTY_TYPE)
@@ -116,10 +115,10 @@ public class TemplateResponseDocumentCustomFieldText extends TemplateResponseDoc
     return this;
   }
 
-   /**
+  /**
    * Get avgTextLength
    * @return avgTextLength
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_AVG_TEXT_LENGTH)
@@ -142,10 +141,10 @@ public class TemplateResponseDocumentCustomFieldText extends TemplateResponseDoc
     return this;
   }
 
-   /**
+  /**
    * Whether this form field is multiline text.
    * @return isMultiline
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Whether this form field is multiline text.")
   @JsonProperty(JSON_PROPERTY_IS_MULTILINE)
@@ -168,10 +167,10 @@ public class TemplateResponseDocumentCustomFieldText extends TemplateResponseDoc
     return this;
   }
 
-   /**
+  /**
    * Original font size used in this form field&#39;s text.
    * @return originalFontSize
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Original font size used in this form field's text.")
   @JsonProperty(JSON_PROPERTY_ORIGINAL_FONT_SIZE)
@@ -194,10 +193,10 @@ public class TemplateResponseDocumentCustomFieldText extends TemplateResponseDoc
     return this;
   }
 
-   /**
+  /**
    * Font family used in this form field&#39;s text.
    * @return fontFamily
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Font family used in this form field's text.")
   @JsonProperty(JSON_PROPERTY_FONT_FAMILY)

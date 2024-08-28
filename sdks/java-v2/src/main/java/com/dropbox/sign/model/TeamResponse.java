@@ -25,11 +25,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.dropbox.sign.JSON;
 
 
@@ -44,20 +40,19 @@ import com.dropbox.sign.ApiException;
   TeamResponse.JSON_PROPERTY_INVITED_ACCOUNTS,
   TeamResponse.JSON_PROPERTY_INVITED_EMAILS
 })
-@JsonIgnoreProperties(ignoreUnknown=true)
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class TeamResponse {
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
   public static final String JSON_PROPERTY_ACCOUNTS = "accounts";
-  private List<AccountResponse> accounts;
+  private List<AccountResponse> accounts = new ArrayList<>();
 
   public static final String JSON_PROPERTY_INVITED_ACCOUNTS = "invited_accounts";
-  private List<AccountResponse> invitedAccounts;
+  private List<AccountResponse> invitedAccounts = new ArrayList<>();
 
   public static final String JSON_PROPERTY_INVITED_EMAILS = "invited_emails";
-  private List<String> invitedEmails;
+  private List<String> invitedEmails = new ArrayList<>();
 
   public TeamResponse() { 
   }
@@ -82,10 +77,10 @@ public class TeamResponse {
     return this;
   }
 
-   /**
+  /**
    * The name of your Team
    * @return name
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The name of your Team")
   @JsonProperty(JSON_PROPERTY_NAME)
@@ -116,10 +111,10 @@ public class TeamResponse {
     return this;
   }
 
-   /**
+  /**
    * Get accounts
    * @return accounts
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ACCOUNTS)
@@ -150,10 +145,10 @@ public class TeamResponse {
     return this;
   }
 
-   /**
+  /**
    * A list of all Accounts that have an outstanding invitation to join your Team. Note that this response is a subset of the response parameters found in &#x60;GET /account&#x60;.
    * @return invitedAccounts
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "A list of all Accounts that have an outstanding invitation to join your Team. Note that this response is a subset of the response parameters found in `GET /account`.")
   @JsonProperty(JSON_PROPERTY_INVITED_ACCOUNTS)
@@ -184,10 +179,10 @@ public class TeamResponse {
     return this;
   }
 
-   /**
+  /**
    * A list of email addresses that have an outstanding invitation to join your Team and do not yet have a Dropbox Sign account.
    * @return invitedEmails
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "A list of email addresses that have an outstanding invitation to join your Team and do not yet have a Dropbox Sign account.")
   @JsonProperty(JSON_PROPERTY_INVITED_EMAILS)

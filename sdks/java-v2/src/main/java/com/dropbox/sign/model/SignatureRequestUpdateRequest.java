@@ -22,11 +22,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.dropbox.sign.JSON;
 
 
@@ -40,8 +36,7 @@ import com.dropbox.sign.ApiException;
   SignatureRequestUpdateRequest.JSON_PROPERTY_NAME,
   SignatureRequestUpdateRequest.JSON_PROPERTY_EXPIRES_AT
 })
-@JsonIgnoreProperties(ignoreUnknown=true)
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class SignatureRequestUpdateRequest {
   public static final String JSON_PROPERTY_SIGNATURE_ID = "signature_id";
   private String signatureId;
@@ -78,10 +73,10 @@ public class SignatureRequestUpdateRequest {
     return this;
   }
 
-   /**
+  /**
    * The signature ID for the recipient.
    * @return signatureId
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The signature ID for the recipient.")
   @JsonProperty(JSON_PROPERTY_SIGNATURE_ID)
@@ -104,10 +99,10 @@ public class SignatureRequestUpdateRequest {
     return this;
   }
 
-   /**
+  /**
    * The new email address for the recipient.  This will generate a new &#x60;signature_id&#x60; value.  **NOTE:** Optional if &#x60;name&#x60; is provided.
    * @return emailAddress
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The new email address for the recipient.  This will generate a new `signature_id` value.  **NOTE:** Optional if `name` is provided.")
   @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
@@ -130,10 +125,10 @@ public class SignatureRequestUpdateRequest {
     return this;
   }
 
-   /**
+  /**
    * The new name for the recipient.  **NOTE:** Optional if &#x60;email_address&#x60; is provided.
    * @return name
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The new name for the recipient.  **NOTE:** Optional if `email_address` is provided.")
   @JsonProperty(JSON_PROPERTY_NAME)
@@ -156,10 +151,10 @@ public class SignatureRequestUpdateRequest {
     return this;
   }
 
-   /**
+  /**
    * The new time when the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.
    * @return expiresAt
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The new time when the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.")
   @JsonProperty(JSON_PROPERTY_EXPIRES_AT)

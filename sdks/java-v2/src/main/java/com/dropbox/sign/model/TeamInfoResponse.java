@@ -23,11 +23,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.dropbox.sign.JSON;
 
 
@@ -42,8 +38,7 @@ import com.dropbox.sign.ApiException;
   TeamInfoResponse.JSON_PROPERTY_NUM_MEMBERS,
   TeamInfoResponse.JSON_PROPERTY_NUM_SUB_TEAMS
 })
-@JsonIgnoreProperties(ignoreUnknown=true)
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class TeamInfoResponse {
   public static final String JSON_PROPERTY_TEAM_ID = "team_id";
   private String teamId;
@@ -83,10 +78,10 @@ public class TeamInfoResponse {
     return this;
   }
 
-   /**
+  /**
    * The id of a team
    * @return teamId
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The id of a team")
   @JsonProperty(JSON_PROPERTY_TEAM_ID)
@@ -109,10 +104,10 @@ public class TeamInfoResponse {
     return this;
   }
 
-   /**
+  /**
    * Get teamParent
    * @return teamParent
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TEAM_PARENT)
@@ -135,10 +130,10 @@ public class TeamInfoResponse {
     return this;
   }
 
-   /**
+  /**
    * The name of a team
    * @return name
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The name of a team")
   @JsonProperty(JSON_PROPERTY_NAME)
@@ -161,10 +156,10 @@ public class TeamInfoResponse {
     return this;
   }
 
-   /**
+  /**
    * Number of members within a team
    * @return numMembers
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Number of members within a team")
   @JsonProperty(JSON_PROPERTY_NUM_MEMBERS)
@@ -187,10 +182,10 @@ public class TeamInfoResponse {
     return this;
   }
 
-   /**
+  /**
    * Number of sub teams within a team
    * @return numSubTeams
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Number of sub teams within a team")
   @JsonProperty(JSON_PROPERTY_NUM_SUB_TEAMS)

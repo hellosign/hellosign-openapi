@@ -22,11 +22,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.dropbox.sign.JSON;
 
 
@@ -39,8 +35,7 @@ import com.dropbox.sign.ApiException;
   ApiAppResponseOwnerAccount.JSON_PROPERTY_ACCOUNT_ID,
   ApiAppResponseOwnerAccount.JSON_PROPERTY_EMAIL_ADDRESS
 })
-@JsonIgnoreProperties(ignoreUnknown=true)
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class ApiAppResponseOwnerAccount {
   public static final String JSON_PROPERTY_ACCOUNT_ID = "account_id";
   private String accountId;
@@ -71,10 +66,10 @@ public class ApiAppResponseOwnerAccount {
     return this;
   }
 
-   /**
+  /**
    * The owner account&#39;s ID
    * @return accountId
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The owner account's ID")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
@@ -97,10 +92,10 @@ public class ApiAppResponseOwnerAccount {
     return this;
   }
 
-   /**
+  /**
    * The owner account&#39;s email address
    * @return emailAddress
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The owner account's email address")
   @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)

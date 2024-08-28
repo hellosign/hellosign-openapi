@@ -2,8 +2,8 @@
 
 All URIs are relative to *https://api.hellosign.com/v3*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
+| Method | HTTP request | Description |
+|------------- | ------------- | -------------|
 [**bulkSendJobGet**](BulkSendJobApi.md#bulkSendJobGet) | **GET** /bulk_send_job/{bulk_send_job_id} | Get Bulk Send Job
 [**bulkSendJobList**](BulkSendJobApi.md#bulkSendJobList) | **GET** /bulk_send_job/list | List Bulk Send Jobs
 
@@ -59,8 +59,8 @@ public class Example {
 ### Parameters
 
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
  **bulkSendJobId** | **String**| The id of the BulkSendJob to retrieve. |
  **page** | **Integer**| Which page number of the BulkSendJob list to return. Defaults to `1`. | [optional] [default to 1]
  **pageSize** | **Integer**| Number of objects to be returned per page. Must be between `1` and `100`. Default is 20. | [optional] [default to 20]
@@ -136,8 +136,8 @@ public class Example {
 ### Parameters
 
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
  **page** | **Integer**| Which page number of the BulkSendJob List to return. Defaults to `1`. | [optional] [default to 1]
  **pageSize** | **Integer**| Number of objects to be returned per page. Must be between `1` and `100`. Default is 20. | [optional] [default to 20]
 

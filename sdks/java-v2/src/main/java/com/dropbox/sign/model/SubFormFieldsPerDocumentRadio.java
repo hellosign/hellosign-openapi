@@ -26,11 +26,7 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.dropbox.sign.JSON;
 
 
@@ -44,8 +40,11 @@ import com.dropbox.sign.ApiException;
   SubFormFieldsPerDocumentRadio.JSON_PROPERTY_GROUP,
   SubFormFieldsPerDocumentRadio.JSON_PROPERTY_IS_CHECKED
 })
-@JsonIgnoreProperties(ignoreUnknown=true)
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
+@JsonIgnoreProperties(
+  allowSetters = true, // allows the type to be set during deserialization
+  ignoreUnknown = true
+)
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.EXISTING_PROPERTY, property = "type", visible = true)
 
 public class SubFormFieldsPerDocumentRadio extends SubFormFieldsPerDocumentBase {
@@ -81,10 +80,10 @@ public class SubFormFieldsPerDocumentRadio extends SubFormFieldsPerDocumentBase 
     return this;
   }
 
-   /**
+  /**
    * An input field for radios. Use the &#x60;SubFormFieldsPerDocumentRadio&#x60; class.
    * @return type
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "An input field for radios. Use the `SubFormFieldsPerDocumentRadio` class.")
   @JsonProperty(JSON_PROPERTY_TYPE)
@@ -107,10 +106,10 @@ public class SubFormFieldsPerDocumentRadio extends SubFormFieldsPerDocumentBase 
     return this;
   }
 
-   /**
+  /**
    * String referencing group defined in &#x60;form_field_groups&#x60; parameter.
    * @return group
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "String referencing group defined in `form_field_groups` parameter.")
   @JsonProperty(JSON_PROPERTY_GROUP)
@@ -133,10 +132,10 @@ public class SubFormFieldsPerDocumentRadio extends SubFormFieldsPerDocumentBase 
     return this;
   }
 
-   /**
+  /**
    * &#x60;true&#x60; for checking the radio field by default, otherwise &#x60;false&#x60;. Only one radio field per group can be &#x60;true&#x60;.
    * @return isChecked
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "`true` for checking the radio field by default, otherwise `false`. Only one radio field per group can be `true`.")
   @JsonProperty(JSON_PROPERTY_IS_CHECKED)

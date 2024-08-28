@@ -24,11 +24,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.dropbox.sign.JSON;
 
 
@@ -41,8 +37,7 @@ import com.dropbox.sign.ApiException;
   SubOAuth.JSON_PROPERTY_CALLBACK_URL,
   SubOAuth.JSON_PROPERTY_SCOPES
 })
-@JsonIgnoreProperties(ignoreUnknown=true)
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class SubOAuth {
   public static final String JSON_PROPERTY_CALLBACK_URL = "callback_url";
   private String callbackUrl;
@@ -95,7 +90,7 @@ public class SubOAuth {
   }
 
   public static final String JSON_PROPERTY_SCOPES = "scopes";
-  private List<ScopesEnum> scopes;
+  private List<ScopesEnum> scopes = new ArrayList<>();
 
   public SubOAuth() { 
   }
@@ -120,10 +115,10 @@ public class SubOAuth {
     return this;
   }
 
-   /**
+  /**
    * The callback URL to be used for OAuth flows. (Required if &#x60;oauth[scopes]&#x60; is provided)
    * @return callbackUrl
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The callback URL to be used for OAuth flows. (Required if `oauth[scopes]` is provided)")
   @JsonProperty(JSON_PROPERTY_CALLBACK_URL)
@@ -154,10 +149,10 @@ public class SubOAuth {
     return this;
   }
 
-   /**
+  /**
    * A list of [OAuth scopes](/api/reference/tag/OAuth) to be granted to the app. (Required if &#x60;oauth[callback_url]&#x60; is provided).
    * @return scopes
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "A list of [OAuth scopes](/api/reference/tag/OAuth) to be granted to the app. (Required if `oauth[callback_url]` is provided).")
   @JsonProperty(JSON_PROPERTY_SCOPES)

@@ -26,11 +26,7 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.dropbox.sign.JSON;
 
 
@@ -52,8 +48,11 @@ import com.dropbox.sign.ApiException;
   SubFormFieldsPerDocumentText.JSON_PROPERTY_FONT_FAMILY,
   SubFormFieldsPerDocumentText.JSON_PROPERTY_FONT_SIZE
 })
-@JsonIgnoreProperties(ignoreUnknown=true)
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
+@JsonIgnoreProperties(
+  allowSetters = true, // allows the type to be set during deserialization
+  ignoreUnknown = true
+)
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.EXISTING_PROPERTY, property = "type", visible = true)
 
 public class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase {
@@ -159,17 +158,17 @@ public class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase {
     
     ROBOTO("roboto"),
     
-    ROBOTOMONO("robotoMono"),
+    ROBOTO_MONO("robotoMono"),
     
-    NOTOSANS("notoSans"),
+    NOTO_SANS("notoSans"),
     
-    NOTOSERIF("notoSerif"),
+    NOTO_SERIF("notoSerif"),
     
-    NOTOCJK_JP_REGULAR("notoCJK-JP-Regular"),
+    NOTO_CJK_JP_REGULAR("notoCJK-JP-Regular"),
     
-    NOTOHEBREW_REGULAR("notoHebrew-Regular"),
+    NOTO_HEBREW_REGULAR("notoHebrew-Regular"),
     
-    NOTOSANTHAIMERGED("notoSanThaiMerged");
+    NOTO_SAN_THAI_MERGED("notoSanThaiMerged");
 
     private String value;
 
@@ -227,10 +226,10 @@ public class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase {
     return this;
   }
 
-   /**
+  /**
    * A text input field. Use the &#x60;SubFormFieldsPerDocumentText&#x60; class.
    * @return type
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "A text input field. Use the `SubFormFieldsPerDocumentText` class.")
   @JsonProperty(JSON_PROPERTY_TYPE)
@@ -253,10 +252,10 @@ public class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase {
     return this;
   }
 
-   /**
+  /**
    * Placeholder value for text field.
    * @return placeholder
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Placeholder value for text field.")
   @JsonProperty(JSON_PROPERTY_PLACEHOLDER)
@@ -279,10 +278,10 @@ public class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase {
     return this;
   }
 
-   /**
+  /**
    * Auto fill type for populating fields automatically. Check out the list of [auto fill types](/api/reference/constants/#auto-fill-types) to learn more about the possible values.
    * @return autoFillType
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Auto fill type for populating fields automatically. Check out the list of [auto fill types](/api/reference/constants/#auto-fill-types) to learn more about the possible values.")
   @JsonProperty(JSON_PROPERTY_AUTO_FILL_TYPE)
@@ -305,10 +304,10 @@ public class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase {
     return this;
   }
 
-   /**
+  /**
    * Link two or more text fields. Enter data into one linked text field, which automatically fill all other linked text fields.
    * @return linkId
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Link two or more text fields. Enter data into one linked text field, which automatically fill all other linked text fields.")
   @JsonProperty(JSON_PROPERTY_LINK_ID)
@@ -331,10 +330,10 @@ public class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase {
     return this;
   }
 
-   /**
+  /**
    * Masks entered data. For more information see [Masking sensitive information](https://faq.hellosign.com/hc/en-us/articles/360040742811-Masking-sensitive-information). &#x60;true&#x60; for masking the data in a text field, otherwise &#x60;false&#x60;.
    * @return masked
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Masks entered data. For more information see [Masking sensitive information](https://faq.hellosign.com/hc/en-us/articles/360040742811-Masking-sensitive-information). `true` for masking the data in a text field, otherwise `false`.")
   @JsonProperty(JSON_PROPERTY_MASKED)
@@ -357,10 +356,10 @@ public class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase {
     return this;
   }
 
-   /**
+  /**
    * Each text field may contain a &#x60;validation_type&#x60; parameter. Check out the list of [validation types](https://faq.hellosign.com/hc/en-us/articles/217115577) to learn more about the possible values.  **NOTE:** When using &#x60;custom_regex&#x60; you are required to pass a second parameter &#x60;validation_custom_regex&#x60; and you can optionally provide &#x60;validation_custom_regex_format_label&#x60; for the error message the user will see in case of an invalid value.
    * @return validationType
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Each text field may contain a `validation_type` parameter. Check out the list of [validation types](https://faq.hellosign.com/hc/en-us/articles/217115577) to learn more about the possible values.  **NOTE:** When using `custom_regex` you are required to pass a second parameter `validation_custom_regex` and you can optionally provide `validation_custom_regex_format_label` for the error message the user will see in case of an invalid value.")
   @JsonProperty(JSON_PROPERTY_VALIDATION_TYPE)
@@ -383,10 +382,10 @@ public class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase {
     return this;
   }
 
-   /**
+  /**
    * Get validationCustomRegex
    * @return validationCustomRegex
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_VALIDATION_CUSTOM_REGEX)
@@ -409,10 +408,10 @@ public class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase {
     return this;
   }
 
-   /**
+  /**
    * Get validationCustomRegexFormatLabel
    * @return validationCustomRegexFormatLabel
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_VALIDATION_CUSTOM_REGEX_FORMAT_LABEL)
@@ -435,10 +434,10 @@ public class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase {
     return this;
   }
 
-   /**
+  /**
    * Content of a &#x60;me_now&#x60; text field
    * @return content
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Content of a `me_now` text field")
   @JsonProperty(JSON_PROPERTY_CONTENT)
@@ -461,10 +460,10 @@ public class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase {
     return this;
   }
 
-   /**
+  /**
    * Font family for the field.
    * @return fontFamily
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Font family for the field.")
   @JsonProperty(JSON_PROPERTY_FONT_FAMILY)
@@ -487,10 +486,10 @@ public class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase {
     return this;
   }
 
-   /**
+  /**
    * The initial px font size for the field contents. Can be any integer value between &#x60;7&#x60; and &#x60;49&#x60;.  **NOTE:** Font size may be reduced during processing in order to fit the contents within the dimensions of the field.
    * @return fontSize
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The initial px font size for the field contents. Can be any integer value between `7` and `49`.  **NOTE:** Font size may be reduced during processing in order to fit the contents within the dimensions of the field.")
   @JsonProperty(JSON_PROPERTY_FONT_SIZE)

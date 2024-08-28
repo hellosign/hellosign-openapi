@@ -22,11 +22,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.dropbox.sign.JSON;
 
 
@@ -56,8 +52,7 @@ import com.dropbox.sign.ApiException;
   SignatureRequestResponseSignatures.JSON_PROPERTY_REASSIGNED_FROM,
   SignatureRequestResponseSignatures.JSON_PROPERTY_ERROR
 })
-@JsonIgnoreProperties(ignoreUnknown=true)
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class SignatureRequestResponseSignatures {
   public static final String JSON_PROPERTY_SIGNATURE_ID = "signature_id";
   private String signatureId;
@@ -139,10 +134,10 @@ public class SignatureRequestResponseSignatures {
     return this;
   }
 
-   /**
+  /**
    * Signature identifier.
    * @return signatureId
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Signature identifier.")
   @JsonProperty(JSON_PROPERTY_SIGNATURE_ID)
@@ -165,10 +160,10 @@ public class SignatureRequestResponseSignatures {
     return this;
   }
 
-   /**
+  /**
    * Signer Group GUID
    * @return signerGroupGuid
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Signer Group GUID")
   @JsonProperty(JSON_PROPERTY_SIGNER_GROUP_GUID)
@@ -191,10 +186,10 @@ public class SignatureRequestResponseSignatures {
     return this;
   }
 
-   /**
+  /**
    * The email address of the signer.
    * @return signerEmailAddress
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The email address of the signer.")
   @JsonProperty(JSON_PROPERTY_SIGNER_EMAIL_ADDRESS)
@@ -217,10 +212,10 @@ public class SignatureRequestResponseSignatures {
     return this;
   }
 
-   /**
+  /**
    * The name of the signer.
    * @return signerName
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The name of the signer.")
   @JsonProperty(JSON_PROPERTY_SIGNER_NAME)
@@ -243,10 +238,10 @@ public class SignatureRequestResponseSignatures {
     return this;
   }
 
-   /**
+  /**
    * The role of the signer.
    * @return signerRole
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The role of the signer.")
   @JsonProperty(JSON_PROPERTY_SIGNER_ROLE)
@@ -269,10 +264,10 @@ public class SignatureRequestResponseSignatures {
     return this;
   }
 
-   /**
+  /**
    * If signer order is assigned this is the 0-based index for this signer.
    * @return order
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "If signer order is assigned this is the 0-based index for this signer.")
   @JsonProperty(JSON_PROPERTY_ORDER)
@@ -295,10 +290,10 @@ public class SignatureRequestResponseSignatures {
     return this;
   }
 
-   /**
+  /**
    * The current status of the signature. eg: awaiting_signature, signed, declined.
    * @return statusCode
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The current status of the signature. eg: awaiting_signature, signed, declined.")
   @JsonProperty(JSON_PROPERTY_STATUS_CODE)
@@ -321,10 +316,10 @@ public class SignatureRequestResponseSignatures {
     return this;
   }
 
-   /**
+  /**
    * The reason provided by the signer for declining the request.
    * @return declineReason
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The reason provided by the signer for declining the request.")
   @JsonProperty(JSON_PROPERTY_DECLINE_REASON)
@@ -347,10 +342,10 @@ public class SignatureRequestResponseSignatures {
     return this;
   }
 
-   /**
+  /**
    * Time that the document was signed or null.
    * @return signedAt
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Time that the document was signed or null.")
   @JsonProperty(JSON_PROPERTY_SIGNED_AT)
@@ -373,10 +368,10 @@ public class SignatureRequestResponseSignatures {
     return this;
   }
 
-   /**
+  /**
    * The time that the document was last viewed by this signer or null.
    * @return lastViewedAt
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The time that the document was last viewed by this signer or null.")
   @JsonProperty(JSON_PROPERTY_LAST_VIEWED_AT)
@@ -399,10 +394,10 @@ public class SignatureRequestResponseSignatures {
     return this;
   }
 
-   /**
+  /**
    * The time the last reminder email was sent to the signer or null.
    * @return lastRemindedAt
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The time the last reminder email was sent to the signer or null.")
   @JsonProperty(JSON_PROPERTY_LAST_REMINDED_AT)
@@ -425,10 +420,10 @@ public class SignatureRequestResponseSignatures {
     return this;
   }
 
-   /**
+  /**
    * Boolean to indicate whether this signature requires a PIN to access.
    * @return hasPin
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Boolean to indicate whether this signature requires a PIN to access.")
   @JsonProperty(JSON_PROPERTY_HAS_PIN)
@@ -451,10 +446,10 @@ public class SignatureRequestResponseSignatures {
     return this;
   }
 
-   /**
+  /**
    * Boolean to indicate whether this signature has SMS authentication enabled.
    * @return hasSmsAuth
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Boolean to indicate whether this signature has SMS authentication enabled.")
   @JsonProperty(JSON_PROPERTY_HAS_SMS_AUTH)
@@ -477,10 +472,10 @@ public class SignatureRequestResponseSignatures {
     return this;
   }
 
-   /**
+  /**
    * Boolean to indicate whether this signature has SMS delivery enabled.
    * @return hasSmsDelivery
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Boolean to indicate whether this signature has SMS delivery enabled.")
   @JsonProperty(JSON_PROPERTY_HAS_SMS_DELIVERY)
@@ -503,10 +498,10 @@ public class SignatureRequestResponseSignatures {
     return this;
   }
 
-   /**
+  /**
    * The SMS phone number used for authentication or signature request delivery.
    * @return smsPhoneNumber
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The SMS phone number used for authentication or signature request delivery.")
   @JsonProperty(JSON_PROPERTY_SMS_PHONE_NUMBER)
@@ -529,10 +524,10 @@ public class SignatureRequestResponseSignatures {
     return this;
   }
 
-   /**
+  /**
    * Email address of original signer who reassigned to this signer.
    * @return reassignedBy
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Email address of original signer who reassigned to this signer.")
   @JsonProperty(JSON_PROPERTY_REASSIGNED_BY)
@@ -555,10 +550,10 @@ public class SignatureRequestResponseSignatures {
     return this;
   }
 
-   /**
+  /**
    * Reason provided by original signer who reassigned to this signer.
    * @return reassignmentReason
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Reason provided by original signer who reassigned to this signer.")
   @JsonProperty(JSON_PROPERTY_REASSIGNMENT_REASON)
@@ -581,10 +576,10 @@ public class SignatureRequestResponseSignatures {
     return this;
   }
 
-   /**
+  /**
    * Previous signature identifier.
    * @return reassignedFrom
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Previous signature identifier.")
   @JsonProperty(JSON_PROPERTY_REASSIGNED_FROM)
@@ -607,10 +602,10 @@ public class SignatureRequestResponseSignatures {
     return this;
   }
 
-   /**
+  /**
    * Error message pertaining to this signer, or null.
    * @return error
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Error message pertaining to this signer, or null.")
   @JsonProperty(JSON_PROPERTY_ERROR)

@@ -22,11 +22,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.dropbox.sign.JSON;
 
 
@@ -40,8 +36,7 @@ import com.dropbox.sign.ApiException;
   AccountCreateRequest.JSON_PROPERTY_CLIENT_SECRET,
   AccountCreateRequest.JSON_PROPERTY_LOCALE
 })
-@JsonIgnoreProperties(ignoreUnknown=true)
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class AccountCreateRequest {
   public static final String JSON_PROPERTY_EMAIL_ADDRESS = "email_address";
   private String emailAddress;
@@ -78,10 +73,10 @@ public class AccountCreateRequest {
     return this;
   }
 
-   /**
+  /**
    * The email address which will be associated with the new Account.
    * @return emailAddress
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The email address which will be associated with the new Account.")
   @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
@@ -104,10 +99,10 @@ public class AccountCreateRequest {
     return this;
   }
 
-   /**
+  /**
    * Used when creating a new account with OAuth authorization.  See [OAuth 2.0 Authorization](https://app.hellosign.com/api/oauthWalkthrough#OAuthAuthorization)
    * @return clientId
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Used when creating a new account with OAuth authorization.  See [OAuth 2.0 Authorization](https://app.hellosign.com/api/oauthWalkthrough#OAuthAuthorization)")
   @JsonProperty(JSON_PROPERTY_CLIENT_ID)
@@ -130,10 +125,10 @@ public class AccountCreateRequest {
     return this;
   }
 
-   /**
+  /**
    * Used when creating a new account with OAuth authorization.  See [OAuth 2.0 Authorization](https://app.hellosign.com/api/oauthWalkthrough#OAuthAuthorization)
    * @return clientSecret
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Used when creating a new account with OAuth authorization.  See [OAuth 2.0 Authorization](https://app.hellosign.com/api/oauthWalkthrough#OAuthAuthorization)")
   @JsonProperty(JSON_PROPERTY_CLIENT_SECRET)
@@ -156,10 +151,10 @@ public class AccountCreateRequest {
     return this;
   }
 
-   /**
+  /**
    * The locale used in this Account. Check out the list of [supported locales](/api/reference/constants/#supported-locales) to learn more about the possible values.
    * @return locale
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The locale used in this Account. Check out the list of [supported locales](/api/reference/constants/#supported-locales) to learn more about the possible values.")
   @JsonProperty(JSON_PROPERTY_LOCALE)

@@ -1,11 +1,9 @@
 package com.dropbox.sign;
 
-import org.threeten.bp.*;
 import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.databind.*;
 import com.fasterxml.jackson.databind.json.JsonMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import com.fasterxml.jackson.datatype.threetenbp.ThreeTenModule;
 import com.dropbox.sign.model.*;
 
 import java.text.DateFormat;
@@ -16,15 +14,11 @@ import java.util.Set;
 import jakarta.ws.rs.core.GenericType;
 import jakarta.ws.rs.ext.ContextResolver;
 
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class JSON implements ContextResolver<ObjectMapper> {
   private ObjectMapper mapper;
 
   public JSON() {
-    ThreeTenModule threeTenModule = new ThreeTenModule();
-    threeTenModule.addDeserializer(Instant.class, CustomInstantDeserializer.INSTANT);
-    threeTenModule.addDeserializer(OffsetDateTime.class, CustomInstantDeserializer.OFFSET_DATE_TIME);
-    threeTenModule.addDeserializer(ZonedDateTime.class, CustomInstantDeserializer.ZONED_DATE_TIME);
     mapper = JsonMapper.builder()
             .serializationInclusion(JsonInclude.Include.NON_NULL)
             .configure(MapperFeature.ALLOW_COERCION_OF_SCALARS, false)
@@ -35,7 +29,6 @@ public class JSON implements ContextResolver<ObjectMapper> {
             .enable(DeserializationFeature.READ_ENUMS_USING_TO_STRING)
             .defaultDateFormat(new RFC3339DateFormat())
             .addModule(new JavaTimeModule())
-            .addModule(threeTenModule)
             .build();
   }
 
@@ -184,9 +177,9 @@ public class JSON implements ContextResolver<ObjectMapper> {
     visitedClasses.add(modelClass);
 
     // Traverse the oneOf/anyOf composed schemas.
-    Map<String, GenericType> descendants = modelDescendants.get(modelClass);
+    Map<String, GenericType<?>> descendants = modelDescendants.get(modelClass);
     if (descendants != null) {
-      for (GenericType childType : descendants.values()) {
+      for (GenericType<?> childType : descendants.values()) {
         if (isInstanceOf(childType.getRawType(), inst, visitedClasses)) {
           return true;
         }
@@ -203,7 +196,7 @@ public class JSON implements ContextResolver<ObjectMapper> {
   /**
    * A map of oneOf/anyOf descendants for each model class.
    */
-  private static Map<Class<?>, Map<String, GenericType>> modelDescendants = new HashMap<>();
+  private static Map<Class<?>, Map<String, GenericType<?>>> modelDescendants = new HashMap<>();
 
   /**
     * Register a model class discriminator.
@@ -223,7 +216,7 @@ public class JSON implements ContextResolver<ObjectMapper> {
     * @param modelClass the model class
     * @param descendants a map of oneOf/anyOf descendants.
     */
-  public static void registerDescendants(Class<?> modelClass, Map<String, GenericType> descendants) {
+  public static void registerDescendants(Class<?> modelClass, Map<String, GenericType<?>> descendants) {
     modelDescendants.put(modelClass, descendants);
   }
 

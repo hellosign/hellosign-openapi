@@ -25,11 +25,7 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.dropbox.sign.JSON;
 
 
@@ -50,8 +46,11 @@ import com.dropbox.sign.ApiException;
   TemplateResponseDocumentCustomFieldBase.JSON_PROPERTY_REQUIRED,
   TemplateResponseDocumentCustomFieldBase.JSON_PROPERTY_GROUP
 })
-@JsonIgnoreProperties(ignoreUnknown=true)
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
+@JsonIgnoreProperties(
+  allowSetters = true, // allows the type to be set during deserialization
+  ignoreUnknown = true
+)
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.EXISTING_PROPERTY, property = "type", visible = true)
 @JsonSubTypes({
   @JsonSubTypes.Type(value = TemplateResponseDocumentCustomFieldCheckbox.class, name = "checkbox"),
@@ -112,10 +111,10 @@ public class TemplateResponseDocumentCustomFieldBase {
     return this;
   }
 
-   /**
+  /**
    * Get type
    * @return type
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
@@ -138,10 +137,10 @@ public class TemplateResponseDocumentCustomFieldBase {
     return this;
   }
 
-   /**
+  /**
    * The unique ID for this field.
    * @return apiId
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The unique ID for this field.")
   @JsonProperty(JSON_PROPERTY_API_ID)
@@ -164,10 +163,10 @@ public class TemplateResponseDocumentCustomFieldBase {
     return this;
   }
 
-   /**
+  /**
    * The name of the Custom Field.
    * @return name
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The name of the Custom Field.")
   @JsonProperty(JSON_PROPERTY_NAME)
@@ -190,10 +189,10 @@ public class TemplateResponseDocumentCustomFieldBase {
     return this;
   }
 
-   /**
+  /**
    * The signer of the Custom Field. Can be &#x60;null&#x60; if field is a merge field (assigned to Sender).
    * @return signer
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The signer of the Custom Field. Can be `null` if field is a merge field (assigned to Sender).")
   @JsonProperty(JSON_PROPERTY_SIGNER)
@@ -216,10 +215,10 @@ public class TemplateResponseDocumentCustomFieldBase {
     return this;
   }
 
-   /**
+  /**
    * The horizontal offset in pixels for this form field.
    * @return x
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The horizontal offset in pixels for this form field.")
   @JsonProperty(JSON_PROPERTY_X)
@@ -242,10 +241,10 @@ public class TemplateResponseDocumentCustomFieldBase {
     return this;
   }
 
-   /**
+  /**
    * The vertical offset in pixels for this form field.
    * @return y
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The vertical offset in pixels for this form field.")
   @JsonProperty(JSON_PROPERTY_Y)
@@ -268,10 +267,10 @@ public class TemplateResponseDocumentCustomFieldBase {
     return this;
   }
 
-   /**
+  /**
    * The width in pixels of this form field.
    * @return width
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The width in pixels of this form field.")
   @JsonProperty(JSON_PROPERTY_WIDTH)
@@ -294,10 +293,10 @@ public class TemplateResponseDocumentCustomFieldBase {
     return this;
   }
 
-   /**
+  /**
    * The height in pixels of this form field.
    * @return height
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The height in pixels of this form field.")
   @JsonProperty(JSON_PROPERTY_HEIGHT)
@@ -320,10 +319,10 @@ public class TemplateResponseDocumentCustomFieldBase {
     return this;
   }
 
-   /**
+  /**
    * Boolean showing whether or not this field is required.
    * @return required
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Boolean showing whether or not this field is required.")
   @JsonProperty(JSON_PROPERTY_REQUIRED)
@@ -346,10 +345,10 @@ public class TemplateResponseDocumentCustomFieldBase {
     return this;
   }
 
-   /**
+  /**
    * The name of the group this field is in. If this field is not a group, this defaults to &#x60;null&#x60;.
    * @return group
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The name of the group this field is in. If this field is not a group, this defaults to `null`.")
   @JsonProperty(JSON_PROPERTY_GROUP)

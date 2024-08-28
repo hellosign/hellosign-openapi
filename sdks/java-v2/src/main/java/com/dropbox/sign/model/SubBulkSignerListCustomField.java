@@ -22,11 +22,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.dropbox.sign.JSON;
 
 
@@ -38,8 +34,7 @@ import com.dropbox.sign.ApiException;
   SubBulkSignerListCustomField.JSON_PROPERTY_NAME,
   SubBulkSignerListCustomField.JSON_PROPERTY_VALUE
 })
-@JsonIgnoreProperties(ignoreUnknown=true)
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class SubBulkSignerListCustomField {
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
@@ -70,10 +65,10 @@ public class SubBulkSignerListCustomField {
     return this;
   }
 
-   /**
+  /**
    * The name of the custom field. Must be the field&#39;s &#x60;name&#x60; or &#x60;api_id&#x60;.
    * @return name
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The name of the custom field. Must be the field's `name` or `api_id`.")
   @JsonProperty(JSON_PROPERTY_NAME)
@@ -96,10 +91,10 @@ public class SubBulkSignerListCustomField {
     return this;
   }
 
-   /**
+  /**
    * The value of the custom field.
    * @return value
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The value of the custom field.")
   @JsonProperty(JSON_PROPERTY_VALUE)

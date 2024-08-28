@@ -25,11 +25,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.dropbox.sign.JSON;
 
 
@@ -42,14 +38,14 @@ import com.dropbox.sign.ApiException;
   TemplateUpdateFilesResponseTemplate.JSON_PROPERTY_TEMPLATE_ID,
   TemplateUpdateFilesResponseTemplate.JSON_PROPERTY_WARNINGS
 })
-@JsonIgnoreProperties(ignoreUnknown=true)
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class TemplateUpdateFilesResponseTemplate {
   public static final String JSON_PROPERTY_TEMPLATE_ID = "template_id";
   private String templateId;
 
   public static final String JSON_PROPERTY_WARNINGS = "warnings";
-  private List<WarningResponse> warnings;
+  @Deprecated
+  private List<WarningResponse> warnings = new ArrayList<>();
 
   public TemplateUpdateFilesResponseTemplate() { 
   }
@@ -74,10 +70,10 @@ public class TemplateUpdateFilesResponseTemplate {
     return this;
   }
 
-   /**
+  /**
    * The id of the Template.
    * @return templateId
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The id of the Template.")
   @JsonProperty(JSON_PROPERTY_TEMPLATE_ID)
@@ -95,6 +91,7 @@ public class TemplateUpdateFilesResponseTemplate {
   }
 
 
+  @Deprecated
   public TemplateUpdateFilesResponseTemplate warnings(List<WarningResponse> warnings) {
     this.warnings = warnings;
     return this;
@@ -108,11 +105,11 @@ public class TemplateUpdateFilesResponseTemplate {
     return this;
   }
 
-   /**
+  /**
    * A list of warnings.
    * @return warnings
    * @deprecated
-  **/
+   */
   @Deprecated
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "A list of warnings.")
@@ -124,6 +121,7 @@ public class TemplateUpdateFilesResponseTemplate {
   }
 
 
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_WARNINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWarnings(List<WarningResponse> warnings) {

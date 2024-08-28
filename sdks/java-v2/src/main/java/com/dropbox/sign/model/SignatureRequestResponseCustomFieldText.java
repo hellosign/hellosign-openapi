@@ -26,11 +26,7 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.dropbox.sign.JSON;
 
 
@@ -43,8 +39,11 @@ import com.dropbox.sign.ApiException;
   SignatureRequestResponseCustomFieldText.JSON_PROPERTY_TYPE,
   SignatureRequestResponseCustomFieldText.JSON_PROPERTY_VALUE
 })
-@JsonIgnoreProperties(ignoreUnknown=true)
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
+@JsonIgnoreProperties(
+  allowSetters = true, // allows the type to be set during deserialization
+  ignoreUnknown = true
+)
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.EXISTING_PROPERTY, property = "type", visible = true)
 
 public class SignatureRequestResponseCustomFieldText extends SignatureRequestResponseCustomFieldBase {
@@ -77,10 +76,10 @@ public class SignatureRequestResponseCustomFieldText extends SignatureRequestRes
     return this;
   }
 
-   /**
+  /**
    * The type of this Custom Field. Only &#39;text&#39; and &#39;checkbox&#39; are currently supported.
    * @return type
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The type of this Custom Field. Only 'text' and 'checkbox' are currently supported.")
   @JsonProperty(JSON_PROPERTY_TYPE)
@@ -103,10 +102,10 @@ public class SignatureRequestResponseCustomFieldText extends SignatureRequestRes
     return this;
   }
 
-   /**
+  /**
    * A text string for text fields
    * @return value
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "A text string for text fields")
   @JsonProperty(JSON_PROPERTY_VALUE)

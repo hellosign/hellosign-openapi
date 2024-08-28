@@ -8,21 +8,17 @@ import java.util.List;
 import java.util.Map.Entry;
 import java.util.TreeMap;
 {{/caseInsensitiveResponseHeaders}}
-{{#useCustomTemplateCode}}
-import com.dropbox.sign.model.ErrorResponse;
-{{/useCustomTemplateCode}}
 
 /**
  * API Exception
  */
 {{>generatedAnnotation}}
 public class ApiException extends{{#useRuntimeException}} RuntimeException {{/useRuntimeException}}{{^useRuntimeException}} Exception {{/useRuntimeException}}{
+    private static final long serialVersionUID = 1L;
+
     private int code = 0;
     private Map<String, List<String>> responseHeaders = null;
     private String responseBody = null;
-{{#useCustomTemplateCode}}
-    private ErrorResponse errorResponse;
-{{/useCustomTemplateCode}}
 
     public ApiException() {}
 
@@ -76,13 +72,6 @@ public class ApiException extends{{#useRuntimeException}} RuntimeException {{/us
         this.responseBody = responseBody;
     }
 
-{{#useCustomTemplateCode}}
-    public ApiException(int code, String message, Map<String, List<String>> responseHeaders, String responseBody, ErrorResponse errorResponse) {
-        this(code, message, responseHeaders, responseBody);
-        this.errorResponse = errorResponse;
-    }
-
-{{/useCustomTemplateCode}}
     /**
      * Get the HTTP status code.
      *
@@ -109,10 +98,4 @@ public class ApiException extends{{#useRuntimeException}} RuntimeException {{/us
     public String getResponseBody() {
         return responseBody;
     }
-{{#useCustomTemplateCode}}
-
-    public ErrorResponse getErrorResponse() {
-        return errorResponse;
-    }
-{{/useCustomTemplateCode}}
 }

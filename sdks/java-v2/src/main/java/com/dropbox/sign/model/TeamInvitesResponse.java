@@ -26,11 +26,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.dropbox.sign.JSON;
 
 
@@ -42,14 +38,13 @@ import com.dropbox.sign.ApiException;
   TeamInvitesResponse.JSON_PROPERTY_TEAM_INVITES,
   TeamInvitesResponse.JSON_PROPERTY_WARNINGS
 })
-@JsonIgnoreProperties(ignoreUnknown=true)
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class TeamInvitesResponse {
   public static final String JSON_PROPERTY_TEAM_INVITES = "team_invites";
-  private List<TeamInviteResponse> teamInvites;
+  private List<TeamInviteResponse> teamInvites = new ArrayList<>();
 
   public static final String JSON_PROPERTY_WARNINGS = "warnings";
-  private List<WarningResponse> warnings;
+  private List<WarningResponse> warnings = new ArrayList<>();
 
   public TeamInvitesResponse() { 
   }
@@ -82,10 +77,10 @@ public class TeamInvitesResponse {
     return this;
   }
 
-   /**
+  /**
    * Contains a list of team invites and their roles.
    * @return teamInvites
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Contains a list of team invites and their roles.")
   @JsonProperty(JSON_PROPERTY_TEAM_INVITES)
@@ -116,10 +111,10 @@ public class TeamInvitesResponse {
     return this;
   }
 
-   /**
+  /**
    * Get warnings
    * @return warnings
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_WARNINGS)

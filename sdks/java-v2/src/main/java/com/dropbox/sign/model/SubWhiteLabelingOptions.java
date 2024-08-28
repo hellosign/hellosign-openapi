@@ -22,11 +22,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.dropbox.sign.JSON;
 
 
@@ -52,8 +48,7 @@ import com.dropbox.sign.ApiException;
   SubWhiteLabelingOptions.JSON_PROPERTY_TEXT_COLOR2,
   SubWhiteLabelingOptions.JSON_PROPERTY_RESET_TO_DEFAULT
 })
-@JsonIgnoreProperties(ignoreUnknown=true)
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class SubWhiteLabelingOptions {
   public static final String JSON_PROPERTY_HEADER_BACKGROUND_COLOR = "header_background_color";
   private String headerBackgroundColor = "#1A1A1A";
@@ -158,10 +153,10 @@ public class SubWhiteLabelingOptions {
     return this;
   }
 
-   /**
+  /**
    * Get headerBackgroundColor
    * @return headerBackgroundColor
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_HEADER_BACKGROUND_COLOR)
@@ -184,10 +179,10 @@ public class SubWhiteLabelingOptions {
     return this;
   }
 
-   /**
+  /**
    * Get legalVersion
    * @return legalVersion
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LEGAL_VERSION)
@@ -210,10 +205,10 @@ public class SubWhiteLabelingOptions {
     return this;
   }
 
-   /**
+  /**
    * Get linkColor
    * @return linkColor
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LINK_COLOR)
@@ -236,10 +231,10 @@ public class SubWhiteLabelingOptions {
     return this;
   }
 
-   /**
+  /**
    * Get pageBackgroundColor
    * @return pageBackgroundColor
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PAGE_BACKGROUND_COLOR)
@@ -262,10 +257,10 @@ public class SubWhiteLabelingOptions {
     return this;
   }
 
-   /**
+  /**
    * Get primaryButtonColor
    * @return primaryButtonColor
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PRIMARY_BUTTON_COLOR)
@@ -288,10 +283,10 @@ public class SubWhiteLabelingOptions {
     return this;
   }
 
-   /**
+  /**
    * Get primaryButtonColorHover
    * @return primaryButtonColorHover
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PRIMARY_BUTTON_COLOR_HOVER)
@@ -314,10 +309,10 @@ public class SubWhiteLabelingOptions {
     return this;
   }
 
-   /**
+  /**
    * Get primaryButtonTextColor
    * @return primaryButtonTextColor
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PRIMARY_BUTTON_TEXT_COLOR)
@@ -340,10 +335,10 @@ public class SubWhiteLabelingOptions {
     return this;
   }
 
-   /**
+  /**
    * Get primaryButtonTextColorHover
    * @return primaryButtonTextColorHover
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PRIMARY_BUTTON_TEXT_COLOR_HOVER)
@@ -366,10 +361,10 @@ public class SubWhiteLabelingOptions {
     return this;
   }
 
-   /**
+  /**
    * Get secondaryButtonColor
    * @return secondaryButtonColor
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SECONDARY_BUTTON_COLOR)
@@ -392,10 +387,10 @@ public class SubWhiteLabelingOptions {
     return this;
   }
 
-   /**
+  /**
    * Get secondaryButtonColorHover
    * @return secondaryButtonColorHover
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SECONDARY_BUTTON_COLOR_HOVER)
@@ -418,10 +413,10 @@ public class SubWhiteLabelingOptions {
     return this;
   }
 
-   /**
+  /**
    * Get secondaryButtonTextColor
    * @return secondaryButtonTextColor
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SECONDARY_BUTTON_TEXT_COLOR)
@@ -444,10 +439,10 @@ public class SubWhiteLabelingOptions {
     return this;
   }
 
-   /**
+  /**
    * Get secondaryButtonTextColorHover
    * @return secondaryButtonTextColorHover
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SECONDARY_BUTTON_TEXT_COLOR_HOVER)
@@ -470,10 +465,10 @@ public class SubWhiteLabelingOptions {
     return this;
   }
 
-   /**
+  /**
    * Get textColor1
    * @return textColor1
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TEXT_COLOR1)
@@ -496,10 +491,10 @@ public class SubWhiteLabelingOptions {
     return this;
   }
 
-   /**
+  /**
    * Get textColor2
    * @return textColor2
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TEXT_COLOR2)
@@ -522,10 +517,10 @@ public class SubWhiteLabelingOptions {
     return this;
   }
 
-   /**
+  /**
    * Resets white labeling options to defaults. Only useful when updating an API App.
    * @return resetToDefault
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Resets white labeling options to defaults. Only useful when updating an API App.")
   @JsonProperty(JSON_PROPERTY_RESET_TO_DEFAULT)

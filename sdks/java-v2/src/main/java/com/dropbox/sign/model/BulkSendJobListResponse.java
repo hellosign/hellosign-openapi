@@ -27,11 +27,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.dropbox.sign.JSON;
 
 
@@ -44,17 +40,16 @@ import com.dropbox.sign.ApiException;
   BulkSendJobListResponse.JSON_PROPERTY_LIST_INFO,
   BulkSendJobListResponse.JSON_PROPERTY_WARNINGS
 })
-@JsonIgnoreProperties(ignoreUnknown=true)
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class BulkSendJobListResponse {
   public static final String JSON_PROPERTY_BULK_SEND_JOBS = "bulk_send_jobs";
-  private List<BulkSendJobResponse> bulkSendJobs;
+  private List<BulkSendJobResponse> bulkSendJobs = new ArrayList<>();
 
   public static final String JSON_PROPERTY_LIST_INFO = "list_info";
   private ListInfoResponse listInfo;
 
   public static final String JSON_PROPERTY_WARNINGS = "warnings";
-  private List<WarningResponse> warnings;
+  private List<WarningResponse> warnings = new ArrayList<>();
 
   public BulkSendJobListResponse() { 
   }
@@ -87,10 +82,10 @@ public class BulkSendJobListResponse {
     return this;
   }
 
-   /**
+  /**
    * Contains a list of BulkSendJobs that the API caller has access to.
    * @return bulkSendJobs
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Contains a list of BulkSendJobs that the API caller has access to.")
   @JsonProperty(JSON_PROPERTY_BULK_SEND_JOBS)
@@ -113,10 +108,10 @@ public class BulkSendJobListResponse {
     return this;
   }
 
-   /**
+  /**
    * Get listInfo
    * @return listInfo
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LIST_INFO)
@@ -147,10 +142,10 @@ public class BulkSendJobListResponse {
     return this;
   }
 
-   /**
+  /**
    * A list of warnings.
    * @return warnings
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "A list of warnings.")
   @JsonProperty(JSON_PROPERTY_WARNINGS)

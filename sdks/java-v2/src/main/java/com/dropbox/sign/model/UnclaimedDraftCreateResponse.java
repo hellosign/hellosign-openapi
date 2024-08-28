@@ -26,11 +26,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.dropbox.sign.JSON;
 
 
@@ -42,14 +38,13 @@ import com.dropbox.sign.ApiException;
   UnclaimedDraftCreateResponse.JSON_PROPERTY_UNCLAIMED_DRAFT,
   UnclaimedDraftCreateResponse.JSON_PROPERTY_WARNINGS
 })
-@JsonIgnoreProperties(ignoreUnknown=true)
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class UnclaimedDraftCreateResponse {
   public static final String JSON_PROPERTY_UNCLAIMED_DRAFT = "unclaimed_draft";
   private UnclaimedDraftResponse unclaimedDraft;
 
   public static final String JSON_PROPERTY_WARNINGS = "warnings";
-  private List<WarningResponse> warnings;
+  private List<WarningResponse> warnings = new ArrayList<>();
 
   public UnclaimedDraftCreateResponse() { 
   }
@@ -74,10 +69,10 @@ public class UnclaimedDraftCreateResponse {
     return this;
   }
 
-   /**
+  /**
    * Get unclaimedDraft
    * @return unclaimedDraft
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_UNCLAIMED_DRAFT)
@@ -108,10 +103,10 @@ public class UnclaimedDraftCreateResponse {
     return this;
   }
 
-   /**
+  /**
    * A list of warnings.
    * @return warnings
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "A list of warnings.")
   @JsonProperty(JSON_PROPERTY_WARNINGS)

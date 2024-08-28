@@ -51,7 +51,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
-import org.threeten.bp.OffsetDateTime;
+import java.time.OffsetDateTime;
 
 import java.net.URLEncoder;
 
@@ -72,7 +72,7 @@ import com.dropbox.sign.model.ErrorResponse;
 /**
  * <p>ApiClient class.</p>
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class ApiClient extends JavaTimeFormatter {
   private static final Pattern JSON_MIME_PATTERN = Pattern.compile("(?i)^(application/json|[^;/ \t]+/[^;/ \t]+[+]json)[ \t]*(;.*)?$");
 
@@ -94,7 +94,7 @@ public class ApiClient extends JavaTimeFormatter {
   protected Map<String, List<ServerConfiguration>> operationServers;
 
   {
-    Map<String, List<ServerConfiguration>> operationServers = new LinkedHashMap<>();
+    Map<String, List<ServerConfiguration>> operationServers = new HashMap<>();
     operationServers.put("OAuthApi.oauthTokenGenerate", new ArrayList<>(Arrays.asList(
             new ServerConfiguration(
                     "https://app.hellosign.com",
@@ -364,6 +364,44 @@ public class ApiClient extends JavaTimeFormatter {
   }
 
   /**
+   * Helper method to configure authentications which respects aliases of API keys.
+   *
+   * @param secrets Hash map from authentication name to its secret.
+   * @return a {@link org.openapitools.client.ApiClient} object.
+   */
+  public ApiClient configureApiKeys(Map<String, String> secrets) {
+    for (Map.Entry<String, Authentication> authEntry : authentications.entrySet()) {
+      Authentication auth = authEntry.getValue();
+      if (auth instanceof ApiKeyAuth) {
+        String name = authEntry.getKey();
+        // respect x-auth-id-alias property
+        name = authenticationLookup.getOrDefault(name, name);
+        String secret = secrets.get(name);
+        if (secret != null) {
+          ((ApiKeyAuth) auth).setApiKey(secret);
+        }
+      }
+    }
+    return this;
+  }
+
+  /**
+   * Helper method to set API key prefix for the first API key authentication.
+   *
+   * @param apiKeyPrefix API key prefix
+   * @return a {@link org.openapitools.client.ApiClient} object.
+   */
+  public ApiClient setApiKeyPrefix(String apiKeyPrefix) {
+    for (Authentication auth : authentications.values()) {
+      if (auth instanceof ApiKeyAuth) {
+        ((ApiKeyAuth) auth).setApiKeyPrefix(apiKeyPrefix);
+        return this;
+      }
+    }
+    throw new RuntimeException("No API key authentication configured!");
+  }
+
+  /**
    * Helper method to set bearer token for the first Bearer authentication.
    *
    * @param bearerToken Bearer token
@@ -595,9 +633,9 @@ public class ApiClient extends JavaTimeFormatter {
       return formatDate((Date) param);
     } else if (param instanceof OffsetDateTime) {
       return formatOffsetDateTime((OffsetDateTime) param);
-    } else if (param instanceof Collection) {
+    } else if (param instanceof Collection<?>) {
       StringBuilder b = new StringBuilder();
-      for(Object o : (Collection)param) {
+      for(Object o : (Collection<?>)param) {
         if(b.length() > 0) {
           b.append(',');
         }
@@ -623,9 +661,9 @@ public class ApiClient extends JavaTimeFormatter {
     // preconditions
     if (name == null || name.isEmpty() || value == null) return params;
 
-    Collection valueCollection;
-    if (value instanceof Collection) {
-      valueCollection = (Collection) value;
+    Collection<?> valueCollection;
+    if (value instanceof Collection<?>) {
+      valueCollection = (Collection<?>) value;
     } else {
       params.add(new Pair(name, parameterToString(value)));
       return params;

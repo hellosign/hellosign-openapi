@@ -26,11 +26,7 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.dropbox.sign.JSON;
 
 
@@ -42,8 +38,11 @@ import com.dropbox.sign.ApiException;
   SignatureRequestResponseDataValueCheckboxMerge.JSON_PROPERTY_TYPE,
   SignatureRequestResponseDataValueCheckboxMerge.JSON_PROPERTY_VALUE
 })
-@JsonIgnoreProperties(ignoreUnknown=true)
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
+@JsonIgnoreProperties(
+  allowSetters = true, // allows the type to be set during deserialization
+  ignoreUnknown = true
+)
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.EXISTING_PROPERTY, property = "type", visible = true)
 
 public class SignatureRequestResponseDataValueCheckboxMerge extends SignatureRequestResponseDataBase {
@@ -76,10 +75,10 @@ public class SignatureRequestResponseDataValueCheckboxMerge extends SignatureReq
     return this;
   }
 
-   /**
+  /**
    * A checkbox field that has default value set by the api
    * @return type
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "A checkbox field that has default value set by the api")
   @JsonProperty(JSON_PROPERTY_TYPE)
@@ -102,10 +101,10 @@ public class SignatureRequestResponseDataValueCheckboxMerge extends SignatureReq
     return this;
   }
 
-   /**
+  /**
    * The value of the form field.
    * @return value
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The value of the form field.")
   @JsonProperty(JSON_PROPERTY_VALUE)

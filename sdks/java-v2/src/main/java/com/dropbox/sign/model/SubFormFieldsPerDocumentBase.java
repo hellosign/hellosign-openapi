@@ -25,11 +25,7 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.dropbox.sign.JSON;
 
 
@@ -51,8 +47,11 @@ import com.dropbox.sign.ApiException;
   SubFormFieldsPerDocumentBase.JSON_PROPERTY_NAME,
   SubFormFieldsPerDocumentBase.JSON_PROPERTY_PAGE
 })
-@JsonIgnoreProperties(ignoreUnknown=true)
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
+@JsonIgnoreProperties(
+  allowSetters = true, // allows the type to be set during deserialization
+  ignoreUnknown = true
+)
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.EXISTING_PROPERTY, property = "type", visible = true)
 @JsonSubTypes({
   @JsonSubTypes.Type(value = SubFormFieldsPerDocumentCheckbox.class, name = "checkbox"),
@@ -124,10 +123,10 @@ public class SubFormFieldsPerDocumentBase {
     return this;
   }
 
-   /**
+  /**
    * Represents the integer index of the &#x60;file&#x60; or &#x60;file_url&#x60; document the field should be attached to.
    * @return documentIndex
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Represents the integer index of the `file` or `file_url` document the field should be attached to.")
   @JsonProperty(JSON_PROPERTY_DOCUMENT_INDEX)
@@ -150,10 +149,10 @@ public class SubFormFieldsPerDocumentBase {
     return this;
   }
 
-   /**
+  /**
    * An identifier for the field that is unique across all documents in the request.
    * @return apiId
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "An identifier for the field that is unique across all documents in the request.")
   @JsonProperty(JSON_PROPERTY_API_ID)
@@ -176,10 +175,10 @@ public class SubFormFieldsPerDocumentBase {
     return this;
   }
 
-   /**
+  /**
    * Size of the field in pixels.
    * @return height
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Size of the field in pixels.")
   @JsonProperty(JSON_PROPERTY_HEIGHT)
@@ -202,10 +201,10 @@ public class SubFormFieldsPerDocumentBase {
     return this;
   }
 
-   /**
+  /**
    * Whether this field is required.
    * @return required
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Whether this field is required.")
   @JsonProperty(JSON_PROPERTY_REQUIRED)
@@ -232,10 +231,10 @@ public class SubFormFieldsPerDocumentBase {
     return this;
   }
 
-   /**
+  /**
    * Signer index identified by the offset in the signers parameter (0-based indexing), indicating which signer should fill out the field.  **NOTE:** To set the value of the field as the preparer you must set this to &#x60;me_now&#x60;  **NOTE:** If type is &#x60;text-merge&#x60; or &#x60;checkbox-merge&#x60;, you must set this to sender in order to use pre-filled data.
    * @return signer
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Signer index identified by the offset in the signers parameter (0-based indexing), indicating which signer should fill out the field.  **NOTE:** To set the value of the field as the preparer you must set this to `me_now`  **NOTE:** If type is `text-merge` or `checkbox-merge`, you must set this to sender in order to use pre-filled data.")
   @JsonProperty(JSON_PROPERTY_SIGNER)
@@ -262,10 +261,10 @@ public class SubFormFieldsPerDocumentBase {
     return this;
   }
 
-   /**
+  /**
    * Get type
    * @return type
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
@@ -288,10 +287,10 @@ public class SubFormFieldsPerDocumentBase {
     return this;
   }
 
-   /**
+  /**
    * Size of the field in pixels.
    * @return width
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Size of the field in pixels.")
   @JsonProperty(JSON_PROPERTY_WIDTH)
@@ -314,10 +313,10 @@ public class SubFormFieldsPerDocumentBase {
     return this;
   }
 
-   /**
+  /**
    * Location coordinates of the field in pixels.
    * @return x
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Location coordinates of the field in pixels.")
   @JsonProperty(JSON_PROPERTY_X)
@@ -340,10 +339,10 @@ public class SubFormFieldsPerDocumentBase {
     return this;
   }
 
-   /**
+  /**
    * Location coordinates of the field in pixels.
    * @return y
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Location coordinates of the field in pixels.")
   @JsonProperty(JSON_PROPERTY_Y)
@@ -366,10 +365,10 @@ public class SubFormFieldsPerDocumentBase {
     return this;
   }
 
-   /**
+  /**
    * Display name for the field.
    * @return name
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Display name for the field.")
   @JsonProperty(JSON_PROPERTY_NAME)
@@ -392,10 +391,10 @@ public class SubFormFieldsPerDocumentBase {
     return this;
   }
 
-   /**
+  /**
    * Page in the document where the field should be placed (requires documents be PDF files).  - When the page number parameter is supplied, the API will use the new coordinate system. - Check out the differences between both [coordinate systems](https://faq.hellosign.com/hc/en-us/articles/217115577) and how to use them.
    * @return page
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Page in the document where the field should be placed (requires documents be PDF files).  - When the page number parameter is supplied, the API will use the new coordinate system. - Check out the differences between both [coordinate systems](https://faq.hellosign.com/hc/en-us/articles/217115577) and how to use them.")
   @JsonProperty(JSON_PROPERTY_PAGE)

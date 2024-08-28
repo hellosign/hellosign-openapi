@@ -6,8 +6,8 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
 | `name`<sup>*_required_</sup> | ```String``` |  The name of the signer.  |  |
 | `emailAddress`<sup>*_required_</sup> | ```String``` |  The email address of the signer.  |  |
 | `order` | ```Integer``` |  The order the signer is required to sign in.  |  |
@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 
 ## Enum: SmsPhoneNumberTypeEnum
 
-Name | Value
+| Name | Value |
 ---- | -----
 | AUTHENTICATION | &quot;authentication&quot; |
 | DELIVERY | &quot;delivery&quot; |

@@ -6,8 +6,8 @@ Contains information about an API App.
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
 | `callbackUrl` | ```String``` |  The app&#39;s callback URL (for events)  |  |
 | `clientId` | ```String``` |  The app&#39;s client id  |  |
 | `createdAt` | ```Integer``` |  The time that the app was created  |  |

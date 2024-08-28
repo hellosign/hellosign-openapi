@@ -22,11 +22,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.dropbox.sign.JSON;
 
 
@@ -43,8 +39,7 @@ import com.dropbox.sign.ApiException;
   SignatureRequestResponseAttachment.JSON_PROPERTY_INSTRUCTIONS,
   SignatureRequestResponseAttachment.JSON_PROPERTY_UPLOADED_AT
 })
-@JsonIgnoreProperties(ignoreUnknown=true)
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class SignatureRequestResponseAttachment {
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
@@ -87,10 +82,10 @@ public class SignatureRequestResponseAttachment {
     return this;
   }
 
-   /**
+  /**
    * The unique ID for this attachment.
    * @return id
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The unique ID for this attachment.")
   @JsonProperty(JSON_PROPERTY_ID)
@@ -113,10 +108,10 @@ public class SignatureRequestResponseAttachment {
     return this;
   }
 
-   /**
+  /**
    * The Signer this attachment is assigned to.
    * @return signer
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The Signer this attachment is assigned to.")
   @JsonProperty(JSON_PROPERTY_SIGNER)
@@ -139,10 +134,10 @@ public class SignatureRequestResponseAttachment {
     return this;
   }
 
-   /**
+  /**
    * The name of this attachment.
    * @return name
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The name of this attachment.")
   @JsonProperty(JSON_PROPERTY_NAME)
@@ -165,10 +160,10 @@ public class SignatureRequestResponseAttachment {
     return this;
   }
 
-   /**
+  /**
    * A boolean value denoting if this attachment is required.
    * @return required
-  **/
+   */
   @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "A boolean value denoting if this attachment is required.")
   @JsonProperty(JSON_PROPERTY_REQUIRED)
@@ -191,10 +186,10 @@ public class SignatureRequestResponseAttachment {
     return this;
   }
 
-   /**
+  /**
    * Instructions for Signer.
    * @return instructions
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Instructions for Signer.")
   @JsonProperty(JSON_PROPERTY_INSTRUCTIONS)
@@ -217,10 +212,10 @@ public class SignatureRequestResponseAttachment {
     return this;
   }
 
-   /**
+  /**
    * Timestamp when attachment was uploaded by Signer.
    * @return uploadedAt
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Timestamp when attachment was uploaded by Signer.")
   @JsonProperty(JSON_PROPERTY_UPLOADED_AT)

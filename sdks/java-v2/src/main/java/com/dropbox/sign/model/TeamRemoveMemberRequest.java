@@ -22,11 +22,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.dropbox.sign.JSON;
 
 
@@ -41,8 +37,7 @@ import com.dropbox.sign.ApiException;
   TeamRemoveMemberRequest.JSON_PROPERTY_NEW_TEAM_ID,
   TeamRemoveMemberRequest.JSON_PROPERTY_NEW_ROLE
 })
-@JsonIgnoreProperties(ignoreUnknown=true)
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class TeamRemoveMemberRequest {
   public static final String JSON_PROPERTY_ACCOUNT_ID = "account_id";
   private String accountId;
@@ -121,10 +116,10 @@ public class TeamRemoveMemberRequest {
     return this;
   }
 
-   /**
+  /**
    * **account_id** or **email_address** is required. If both are provided, the account id prevails.  Account id to remove from your Team.
    * @return accountId
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "**account_id** or **email_address** is required. If both are provided, the account id prevails.  Account id to remove from your Team.")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
@@ -147,10 +142,10 @@ public class TeamRemoveMemberRequest {
     return this;
   }
 
-   /**
+  /**
    * **account_id** or **email_address** is required. If both are provided, the account id prevails.  Email address of the Account to remove from your Team.
    * @return emailAddress
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "**account_id** or **email_address** is required. If both are provided, the account id prevails.  Email address of the Account to remove from your Team.")
   @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
@@ -173,10 +168,10 @@ public class TeamRemoveMemberRequest {
     return this;
   }
 
-   /**
+  /**
    * The email address of an Account on this Team to receive all documents, templates, and API apps (if applicable) from the removed Account. If not provided, and on an Enterprise plan, this data will remain with the removed Account.  **NOTE:** Only available for Enterprise plans.
    * @return newOwnerEmailAddress
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The email address of an Account on this Team to receive all documents, templates, and API apps (if applicable) from the removed Account. If not provided, and on an Enterprise plan, this data will remain with the removed Account.  **NOTE:** Only available for Enterprise plans.")
   @JsonProperty(JSON_PROPERTY_NEW_OWNER_EMAIL_ADDRESS)
@@ -199,10 +194,10 @@ public class TeamRemoveMemberRequest {
     return this;
   }
 
-   /**
+  /**
    * Id of the new Team.
    * @return newTeamId
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Id of the new Team.")
   @JsonProperty(JSON_PROPERTY_NEW_TEAM_ID)
@@ -225,10 +220,10 @@ public class TeamRemoveMemberRequest {
     return this;
   }
 
-   /**
+  /**
    * A new role member will take in a new Team.  **NOTE:** This parameter is used only if &#x60;new_team_id&#x60; is provided.
    * @return newRole
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "A new role member will take in a new Team.  **NOTE:** This parameter is used only if `new_team_id` is provided.")
   @JsonProperty(JSON_PROPERTY_NEW_ROLE)

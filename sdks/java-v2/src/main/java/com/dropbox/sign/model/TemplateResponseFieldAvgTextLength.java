@@ -22,11 +22,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.dropbox.sign.JSON;
 
 
@@ -39,8 +35,7 @@ import com.dropbox.sign.ApiException;
   TemplateResponseFieldAvgTextLength.JSON_PROPERTY_NUM_LINES,
   TemplateResponseFieldAvgTextLength.JSON_PROPERTY_NUM_CHARS_PER_LINE
 })
-@JsonIgnoreProperties(ignoreUnknown=true)
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class TemplateResponseFieldAvgTextLength {
   public static final String JSON_PROPERTY_NUM_LINES = "num_lines";
   private Integer numLines;
@@ -71,10 +66,10 @@ public class TemplateResponseFieldAvgTextLength {
     return this;
   }
 
-   /**
+  /**
    * Number of lines.
    * @return numLines
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Number of lines.")
   @JsonProperty(JSON_PROPERTY_NUM_LINES)
@@ -97,10 +92,10 @@ public class TemplateResponseFieldAvgTextLength {
     return this;
   }
 
-   /**
+  /**
    * Number of characters per line.
    * @return numCharsPerLine
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Number of characters per line.")
   @JsonProperty(JSON_PROPERTY_NUM_CHARS_PER_LINE)

@@ -26,11 +26,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.dropbox.sign.JSON;
 
 
@@ -42,14 +38,13 @@ import com.dropbox.sign.ApiException;
   TemplateCreateEmbeddedDraftResponse.JSON_PROPERTY_TEMPLATE,
   TemplateCreateEmbeddedDraftResponse.JSON_PROPERTY_WARNINGS
 })
-@JsonIgnoreProperties(ignoreUnknown=true)
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class TemplateCreateEmbeddedDraftResponse {
   public static final String JSON_PROPERTY_TEMPLATE = "template";
   private TemplateCreateEmbeddedDraftResponseTemplate template;
 
   public static final String JSON_PROPERTY_WARNINGS = "warnings";
-  private List<WarningResponse> warnings;
+  private List<WarningResponse> warnings = new ArrayList<>();
 
   public TemplateCreateEmbeddedDraftResponse() { 
   }
@@ -74,10 +69,10 @@ public class TemplateCreateEmbeddedDraftResponse {
     return this;
   }
 
-   /**
+  /**
    * Get template
    * @return template
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TEMPLATE)
@@ -108,10 +103,10 @@ public class TemplateCreateEmbeddedDraftResponse {
     return this;
   }
 
-   /**
+  /**
    * A list of warnings.
    * @return warnings
-  **/
+   */
   @jakarta.annotation.Nullable
   @ApiModelProperty(value = "A list of warnings.")
   @JsonProperty(JSON_PROPERTY_WARNINGS)
