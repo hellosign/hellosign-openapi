@@ -13,9 +13,9 @@
 
 package com.dropbox.sign;
 
-import com.dropbox.sign.model.ErrorResponse;
 import java.util.Map;
 import java.util.List;
+import com.dropbox.sign.model.ErrorResponse;
 
 /**
  * API Exception

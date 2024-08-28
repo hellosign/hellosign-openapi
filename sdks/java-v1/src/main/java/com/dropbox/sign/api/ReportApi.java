@@ -108,7 +108,6 @@ public class ReportApi {
     final String[] localVarContentTypes = {
       "application/json"
     };
-
     localVarFormParams = reportCreateRequest.createFormData();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
 

@@ -113,7 +113,6 @@ public class FaxLineApi {
     final String[] localVarContentTypes = {
       "application/json"
     };
-
     localVarFormParams = faxLineAddUserRequest.createFormData();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
 
@@ -259,7 +258,6 @@ public class FaxLineApi {
     final String[] localVarContentTypes = {
       
     };
-
     localVarFormParams = new HashMap<String, Object>();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
 
@@ -334,7 +332,6 @@ public class FaxLineApi {
     final String[] localVarContentTypes = {
       "application/json"
     };
-
     localVarFormParams = faxLineCreateRequest.createFormData();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
 
@@ -408,7 +405,6 @@ public class FaxLineApi {
     final String[] localVarContentTypes = {
       "application/json"
     };
-
     localVarFormParams = faxLineDeleteRequest.createFormData();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
 
@@ -482,7 +478,6 @@ public class FaxLineApi {
     final String[] localVarContentTypes = {
       
     };
-
     localVarFormParams = new HashMap<String, Object>();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
 
@@ -653,7 +648,6 @@ public class FaxLineApi {
     final String[] localVarContentTypes = {
       
     };
-
     localVarFormParams = new HashMap<String, Object>();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
 
@@ -728,7 +722,6 @@ public class FaxLineApi {
     final String[] localVarContentTypes = {
       "application/json"
     };
-
     localVarFormParams = faxLineRemoveUserRequest.createFormData();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
 

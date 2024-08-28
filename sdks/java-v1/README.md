@@ -132,7 +132,7 @@ public class Example {
 ```
 
 
-  ## Using a Proxy
+## Using a Proxy
 
   To add a HTTP proxy for the API client, use `ClientConfig`:
 

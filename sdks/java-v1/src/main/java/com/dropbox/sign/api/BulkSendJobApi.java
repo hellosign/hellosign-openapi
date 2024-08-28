@@ -160,7 +160,6 @@ public class BulkSendJobApi {
     final String[] localVarContentTypes = {
       
     };
-
     localVarFormParams = new HashMap<String, Object>();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
 
@@ -279,7 +278,6 @@ public class BulkSendJobApi {
     final String[] localVarContentTypes = {
       
     };
-
     localVarFormParams = new HashMap<String, Object>();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
 

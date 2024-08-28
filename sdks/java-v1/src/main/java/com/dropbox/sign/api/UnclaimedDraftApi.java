@@ -111,7 +111,6 @@ public class UnclaimedDraftApi {
     final String[] localVarContentTypes = {
       "application/json", "multipart/form-data"
     };
-
     localVarFormParams = unclaimedDraftCreateRequest.createFormData();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
 
@@ -186,7 +185,6 @@ public class UnclaimedDraftApi {
     final String[] localVarContentTypes = {
       "application/json", "multipart/form-data"
     };
-
     localVarFormParams = unclaimedDraftCreateEmbeddedRequest.createFormData();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
 
@@ -261,7 +259,6 @@ public class UnclaimedDraftApi {
     final String[] localVarContentTypes = {
       "application/json", "multipart/form-data"
     };
-
     localVarFormParams = unclaimedDraftCreateEmbeddedWithTemplateRequest.createFormData();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
 
@@ -344,7 +341,6 @@ public class UnclaimedDraftApi {
     final String[] localVarContentTypes = {
       "application/json"
     };
-
     localVarFormParams = unclaimedDraftEditAndResendRequest.createFormData();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
 

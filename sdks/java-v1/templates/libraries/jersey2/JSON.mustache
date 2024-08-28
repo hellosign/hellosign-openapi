@@ -38,7 +38,12 @@ public class JSON implements ContextResolver<ObjectMapper> {
     mapper = new ObjectMapper();
     mapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
     JsonMapper.builder().configure(MapperFeature.ALLOW_COERCION_OF_SCALARS, false);
+{{#vendorExtensions.x-ignore-block}}
+    mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, true);
+{{/vendorExtensions.x-ignore-block}}
+{{! CUSTOM - BEGIN }}
     mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+{{! CUSTOM - END }}
     mapper.configure(DeserializationFeature.FAIL_ON_INVALID_SUBTYPE, true);
     mapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
     mapper.enable(SerializationFeature.WRITE_ENUMS_USING_TO_STRING);
@@ -197,6 +202,9 @@ public class JSON implements ContextResolver<ObjectMapper> {
    */
   public static boolean isInstanceOf(Class<?> modelClass, Object inst, Set<Class<?>> visitedClasses) {
     if (modelClass.isInstance(inst)) {
+{{#vendorExtensions.x-ignore-block}}
+      // This handles the 'allOf' use case with single parent inheritance.
+{{/vendorExtensions.x-ignore-block}}
       return true;
     }
     if (visitedClasses.contains(modelClass)) {

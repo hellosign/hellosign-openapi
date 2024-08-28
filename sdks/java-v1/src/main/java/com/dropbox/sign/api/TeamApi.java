@@ -137,7 +137,6 @@ public class TeamApi {
     final String[] localVarContentTypes = {
       "application/json"
     };
-
     localVarFormParams = teamAddMemberRequest.createFormData();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
 
@@ -212,7 +211,6 @@ public class TeamApi {
     final String[] localVarContentTypes = {
       "application/json"
     };
-
     localVarFormParams = teamCreateRequest.createFormData();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
 
@@ -279,7 +277,6 @@ public class TeamApi {
     final String[] localVarContentTypes = {
       
     };
-
     localVarFormParams = new HashMap<String, Object>();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
 
@@ -345,7 +342,6 @@ public class TeamApi {
     final String[] localVarContentTypes = {
       
     };
-
     localVarFormParams = new HashMap<String, Object>();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
 
@@ -435,7 +431,6 @@ public class TeamApi {
     final String[] localVarContentTypes = {
       
     };
-
     localVarFormParams = new HashMap<String, Object>();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
 
@@ -525,7 +520,6 @@ public class TeamApi {
     final String[] localVarContentTypes = {
       
     };
-
     localVarFormParams = new HashMap<String, Object>();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
 
@@ -652,7 +646,6 @@ public class TeamApi {
     final String[] localVarContentTypes = {
       
     };
-
     localVarFormParams = new HashMap<String, Object>();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
 
@@ -727,7 +720,6 @@ public class TeamApi {
     final String[] localVarContentTypes = {
       "application/json"
     };
-
     localVarFormParams = teamRemoveMemberRequest.createFormData();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
 
@@ -854,7 +846,6 @@ public class TeamApi {
     final String[] localVarContentTypes = {
       
     };
-
     localVarFormParams = new HashMap<String, Object>();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
 
@@ -929,7 +920,6 @@ public class TeamApi {
     final String[] localVarContentTypes = {
       "application/json"
     };
-
     localVarFormParams = teamUpdateRequest.createFormData();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
 

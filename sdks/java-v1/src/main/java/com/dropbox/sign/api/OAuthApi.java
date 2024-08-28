@@ -106,7 +106,6 @@ public class OAuthApi {
     final String[] localVarContentTypes = {
       "application/json"
     };
-
     localVarFormParams = oauthTokenGenerateRequest.createFormData();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
 
@@ -179,7 +178,6 @@ public class OAuthApi {
     final String[] localVarContentTypes = {
       "application/json"
     };
-
     localVarFormParams = oauthTokenRefreshRequest.createFormData();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
 

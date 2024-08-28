@@ -120,7 +120,6 @@ public class SignatureRequestApi {
     final String[] localVarContentTypes = {
       "application/json", "multipart/form-data"
     };
-
     localVarFormParams = signatureRequestBulkCreateEmbeddedWithTemplateRequest.createFormData();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
 
@@ -195,7 +194,6 @@ public class SignatureRequestApi {
     final String[] localVarContentTypes = {
       "application/json", "multipart/form-data"
     };
-
     localVarFormParams = signatureRequestBulkSendWithTemplateRequest.createFormData();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
 
@@ -270,7 +268,6 @@ public class SignatureRequestApi {
     final String[] localVarContentTypes = {
       
     };
-
     localVarFormParams = new HashMap<String, Object>();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
 
@@ -343,7 +340,6 @@ public class SignatureRequestApi {
     final String[] localVarContentTypes = {
       "application/json", "multipart/form-data"
     };
-
     localVarFormParams = signatureRequestCreateEmbeddedRequest.createFormData();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
 
@@ -418,7 +414,6 @@ public class SignatureRequestApi {
     final String[] localVarContentTypes = {
       "application/json", "multipart/form-data"
     };
-
     localVarFormParams = signatureRequestCreateEmbeddedWithTemplateRequest.createFormData();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
 
@@ -519,7 +514,6 @@ public class SignatureRequestApi {
     final String[] localVarContentTypes = {
       
     };
-
     localVarFormParams = new HashMap<String, Object>();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
 
@@ -595,7 +589,6 @@ public class SignatureRequestApi {
     final String[] localVarContentTypes = {
       
     };
-
     localVarFormParams = new HashMap<String, Object>();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
 
@@ -696,7 +689,6 @@ public class SignatureRequestApi {
     final String[] localVarContentTypes = {
       
     };
-
     localVarFormParams = new HashMap<String, Object>();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
 
@@ -772,7 +764,6 @@ public class SignatureRequestApi {
     final String[] localVarContentTypes = {
       
     };
-
     localVarFormParams = new HashMap<String, Object>();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
 
@@ -943,7 +934,6 @@ public class SignatureRequestApi {
     final String[] localVarContentTypes = {
       
     };
-
     localVarFormParams = new HashMap<String, Object>();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
 
@@ -1019,7 +1009,6 @@ public class SignatureRequestApi {
     final String[] localVarContentTypes = {
       
     };
-
     localVarFormParams = new HashMap<String, Object>();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
 
@@ -1102,7 +1091,6 @@ public class SignatureRequestApi {
     final String[] localVarContentTypes = {
       "application/json"
     };
-
     localVarFormParams = signatureRequestRemindRequest.createFormData();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
 
@@ -1177,7 +1165,6 @@ public class SignatureRequestApi {
     final String[] localVarContentTypes = {
       
     };
-
     localVarFormParams = new HashMap<String, Object>();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
 
@@ -1250,7 +1237,6 @@ public class SignatureRequestApi {
     final String[] localVarContentTypes = {
       "application/json", "multipart/form-data"
     };
-
     localVarFormParams = signatureRequestSendRequest.createFormData();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
 
@@ -1325,7 +1311,6 @@ public class SignatureRequestApi {
     final String[] localVarContentTypes = {
       "application/json", "multipart/form-data"
     };
-
     localVarFormParams = signatureRequestSendWithTemplateRequest.createFormData();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
 
@@ -1408,7 +1393,6 @@ public class SignatureRequestApi {
     final String[] localVarContentTypes = {
       "application/json"
     };
-
     localVarFormParams = signatureRequestUpdateRequest.createFormData();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
 

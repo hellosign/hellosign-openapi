@@ -127,7 +127,6 @@ public class TemplateApi {
     final String[] localVarContentTypes = {
       "application/json"
     };
-
     localVarFormParams = templateAddUserRequest.createFormData();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
 
@@ -202,7 +201,6 @@ public class TemplateApi {
     final String[] localVarContentTypes = {
       "application/json", "multipart/form-data"
     };
-
     localVarFormParams = templateCreateRequest.createFormData();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
 
@@ -277,7 +275,6 @@ public class TemplateApi {
     final String[] localVarContentTypes = {
       "application/json", "multipart/form-data"
     };
-
     localVarFormParams = templateCreateEmbeddedDraftRequest.createFormData();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
 
@@ -352,7 +349,6 @@ public class TemplateApi {
     final String[] localVarContentTypes = {
       
     };
-
     localVarFormParams = new HashMap<String, Object>();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
 
@@ -448,7 +444,6 @@ public class TemplateApi {
     final String[] localVarContentTypes = {
       
     };
-
     localVarFormParams = new HashMap<String, Object>();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
 
@@ -524,7 +519,6 @@ public class TemplateApi {
     final String[] localVarContentTypes = {
       
     };
-
     localVarFormParams = new HashMap<String, Object>();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
 
@@ -625,7 +619,6 @@ public class TemplateApi {
     final String[] localVarContentTypes = {
       
     };
-
     localVarFormParams = new HashMap<String, Object>();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
 
@@ -701,7 +694,6 @@ public class TemplateApi {
     final String[] localVarContentTypes = {
       
     };
-
     localVarFormParams = new HashMap<String, Object>();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
 
@@ -872,7 +864,6 @@ public class TemplateApi {
     final String[] localVarContentTypes = {
       
     };
-
     localVarFormParams = new HashMap<String, Object>();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
 
@@ -955,7 +946,6 @@ public class TemplateApi {
     final String[] localVarContentTypes = {
       "application/json"
     };
-
     localVarFormParams = templateRemoveUserRequest.createFormData();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
 
@@ -1038,7 +1028,6 @@ public class TemplateApi {
     final String[] localVarContentTypes = {
       "application/json", "multipart/form-data"
     };
-
     localVarFormParams = templateUpdateFilesRequest.createFormData();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
 

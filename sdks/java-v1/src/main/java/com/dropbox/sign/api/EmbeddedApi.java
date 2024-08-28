@@ -117,7 +117,6 @@ public class EmbeddedApi {
     final String[] localVarContentTypes = {
       "application/json"
     };
-
     localVarFormParams = embeddedEditUrlRequest.createFormData();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
 
@@ -193,7 +192,6 @@ public class EmbeddedApi {
     final String[] localVarContentTypes = {
       
     };
-
     localVarFormParams = new HashMap<String, Object>();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
 

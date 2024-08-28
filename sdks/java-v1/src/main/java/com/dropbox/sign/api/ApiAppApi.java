@@ -110,7 +110,6 @@ public class ApiAppApi {
     final String[] localVarContentTypes = {
       "application/json", "multipart/form-data"
     };
-
     localVarFormParams = apiAppCreateRequest.createFormData();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
 
@@ -185,7 +184,6 @@ public class ApiAppApi {
     final String[] localVarContentTypes = {
       
     };
-
     localVarFormParams = new HashMap<String, Object>();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
 
@@ -259,7 +257,6 @@ public class ApiAppApi {
     final String[] localVarContentTypes = {
       
     };
-
     localVarFormParams = new HashMap<String, Object>();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
 
@@ -378,7 +375,6 @@ public class ApiAppApi {
     final String[] localVarContentTypes = {
       
     };
-
     localVarFormParams = new HashMap<String, Object>();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
 
@@ -461,7 +457,6 @@ public class ApiAppApi {
     final String[] localVarContentTypes = {
       "application/json", "multipart/form-data"
     };
-
     localVarFormParams = apiAppUpdateRequest.createFormData();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
 

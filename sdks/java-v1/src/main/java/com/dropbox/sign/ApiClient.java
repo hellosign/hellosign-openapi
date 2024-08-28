@@ -352,6 +352,7 @@ public class ApiClient extends JavaTimeFormatter {
     throw new RuntimeException("No API key authentication configured!");
   }
 
+
   /**
    * Helper method to set bearer token for the first Bearer authentication.
    *

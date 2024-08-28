@@ -91,6 +91,7 @@
                     </execution>
                 </executions>
             </plugin>
+{{! CUSTOM - BEGIN }}
             <plugin>
                 <artifactId>maven-assembly-plugin</artifactId>
                 <executions>
@@ -107,6 +108,7 @@
                     </descriptorRefs>
                 </configuration>
             </plugin>
+{{! CUSTOM - END }}
             <!-- attach test jar -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -279,12 +281,13 @@
             <artifactId>swagger-annotations</artifactId>
             <version>${swagger-annotations-version}</version>
         </dependency>
-
+{{! CUSTOM - BEGIN }}
         <dependency>
             <groupId>commons-codec</groupId>
             <artifactId>commons-codec</artifactId>
             <version>1.15</version>
         </dependency>
+{{! CUSTOM - END }}
 
         <!-- @Nullable annotation -->
         <dependency>
@@ -406,19 +409,27 @@
             <version>${junit-version}</version>
             <scope>test</scope>
         </dependency>
+{{! CUSTOM - BEGIN }}
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
             <version>${mockito.version}</version>
             <scope>test</scope>
         </dependency>
+{{! CUSTOM - END }}
     </dependencies>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <swagger-annotations-version>1.6.3</swagger-annotations-version>
         <jersey-version>2.35</jersey-version>
+{{#vendorExtensions.x-ignore-block}}
+        <jackson-version>2.13.0</jackson-version>
+        <jackson-databind-version>2.13.0</jackson-databind-version>
+{{/vendorExtensions.x-ignore-block}}
+{{! CUSTOM - BEGIN }}
         <jackson-version>2.13.5</jackson-version>
         <jackson-databind-version>2.13.5</jackson-databind-version>
+{{! CUSTOM - END }}
         <jackson-databind-nullable-version>0.2.2</jackson-databind-nullable-version>
         {{#threetenbp}}
         <threetenbp-version>2.9.10</threetenbp-version>
@@ -435,6 +446,8 @@
         <scribejava-apis-version>8.3.1</scribejava-apis-version>
         {{/hasOAuthMethods}}
         <spotless.version>2.17.3</spotless.version>
+{{! CUSTOM - BEGIN }}
         <mockito.version>3.12.4</mockito.version>
+{{! CUSTOM - END }}
     </properties>
 </project>

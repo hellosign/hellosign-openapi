@@ -112,7 +112,6 @@ public class AccountApi {
     final String[] localVarContentTypes = {
       "application/json"
     };
-
     localVarFormParams = accountCreateRequest.createFormData();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
 
@@ -225,7 +224,6 @@ public class AccountApi {
     final String[] localVarContentTypes = {
       
     };
-
     localVarFormParams = new HashMap<String, Object>();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
 
@@ -300,7 +298,6 @@ public class AccountApi {
     final String[] localVarContentTypes = {
       "application/json"
     };
-
     localVarFormParams = accountUpdateRequest.createFormData();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
 
@@ -375,7 +372,6 @@ public class AccountApi {
     final String[] localVarContentTypes = {
       "application/json"
     };
-
     localVarFormParams = accountVerifyRequest.createFormData();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
 
