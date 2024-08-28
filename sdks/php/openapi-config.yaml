@@ -15,6 +15,7 @@ additionalProperties:
   developerOrganization: "Dropbox Sign"
   developerOrganizationUrl: "https://hellosign.com"
   developerOrganizationEmail: "apisupport@hellosign.com"
+  useCustomTemplateCode: true
 files:
   EventCallbackHelper.mustache:
     templateType: SupportingFiles

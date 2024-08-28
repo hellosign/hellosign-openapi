@@ -47,12 +47,12 @@ class ApiException extends Exception
     /**
      * The deserialized response object
      *
-{{#vendorExtensions.x-ignore-block}}
+{{^useCustomTemplateCode}}
      * @var \stdClass|string|null
-{{/vendorExtensions.x-ignore-block}}
-{{! CUSTOM - BEGIN }}
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
      * @var Model\ErrorResponse|string|null
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
      */
     protected $responseObject;
 
@@ -94,12 +94,12 @@ class ApiException extends Exception
     /**
      * Sets the deserialized response object (during deserialization)
      *
-{{#vendorExtensions.x-ignore-block}}
+{{^useCustomTemplateCode}}
      * @param mixed $obj Deserialized response object
-{{/vendorExtensions.x-ignore-block}}
-{{! CUSTOM - BEGIN }}
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
      * @param string|int|object|array|mixed $obj Deserialized response object
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
      *
      * @return void
      */
@@ -111,12 +111,12 @@ class ApiException extends Exception
     /**
      * Gets the deserialized response object (during deserialization)
      *
-{{#vendorExtensions.x-ignore-block}}
+{{^useCustomTemplateCode}}
      * @return mixed the deserialized response object
-{{/vendorExtensions.x-ignore-block}}
-{{! CUSTOM - BEGIN }}
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
      * @return Model\ErrorResponse the deserialized response object
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
      */
     public function getResponseObject()
     {

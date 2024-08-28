@@ -2,12 +2,12 @@
 
 {{.}}{{/description}}
 
-{{#vendorExtensions.x-ignore-block}}
+{{^useCustomTemplateCode}}
 All URIs are relative to {{basePath}}, except if the operation defines another base path.
-{{/vendorExtensions.x-ignore-block}}
-{{! CUSTOM - BEGIN }}
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
 All URIs are relative to {{basePath}}.
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
@@ -19,7 +19,7 @@ All URIs are relative to {{basePath}}.
 ```php
 {{{operationId}}}({{#allParams}}${{paramName}}{{^-last}}, {{/-last}}{{/allParams}}){{#returnType}}: {{{.}}}{{/returnType}}
 ```
-{{#vendorExtensions.x-ignore-block}}
+{{^useCustomTemplateCode}}
 {{#servers}}
 {{#-first}}
 ### URI(s):
@@ -35,7 +35,7 @@ All URIs are relative to {{basePath}}.
           - {{{.}}}{{/enumValues}}{{#defaultValue}}
         - Default value: {{{.}}}
 {{/defaultValue}}{{/variables}}{{/servers}}
-{{/vendorExtensions.x-ignore-block}}
+{{/useCustomTemplateCode}}
 {{{summary}}}{{#notes}}
 
 {{{.}}}{{/notes}}
@@ -43,7 +43,7 @@ All URIs are relative to {{basePath}}.
 ### Example
 
 ```php
-{{#vendorExtensions.x-ignore-block}}
+{{^useCustomTemplateCode}}
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
@@ -79,37 +79,37 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling {{classname}}->{{operationId}}: ', $e->getMessage(), PHP_EOL;
 }
-{{/vendorExtensions.x-ignore-block}}
-{{! CUSTOM - BEGIN }}
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
 REPLACE_ME_WITH_EXAMPLE_FOR__{{{operationId}}}_PHP_CODE
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
 ```
 
 ### Parameters
 
 {{#vendorExtensions.x-group-parameters}}
-{{#vendorExtensions.x-ignore-block}}
+{{^useCustomTemplateCode}}
 Note: the input parameter is an associative array with the keys listed as the parameter names below.
-{{/vendorExtensions.x-ignore-block}}
-{{! CUSTOM - BEGIN }}
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
 Note: the input parameter is an associative array with the keys listed as the parameter name below.
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
 
 {{/vendorExtensions.x-group-parameters}}
-{{#vendorExtensions.x-ignore-block}}
+{{^useCustomTemplateCode}}
 {{^allParams}}This endpoint does not need any parameter.{{/allParams}}{{#allParams}}{{#-last}}| Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |{{/-last}}{{/allParams}}
 {{#allParams}}| **{{paramName}}** | {{#isFile}}**{{{dataType}}}**{{/isFile}}{{#isPrimitiveType}}**{{{dataType}}}**{{/isPrimitiveType}}{{^isPrimitiveType}}{{^isFile}}[**{{{dataType}}}**](../Model/{{baseType}}.md){{/isFile}}{{/isPrimitiveType}}| {{description}} |{{^required}} [optional]{{/required}}{{#defaultValue}} [default to {{.}}]{{/defaultValue}} |
 {{/allParams}}{{#servers}}{{#-first}}| hostIndex | null|int | Host index. Defaults to null. If null, then the library will use $this->hostIndex instead | [optional] |
 | variables | array | Associative array of variables to pass to the host. Defaults to empty array. | [optional] |{{/-first}}
 {{/servers}}
-{{/vendorExtensions.x-ignore-block}}
-{{! CUSTOM - BEGIN }}
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
 |{{^allParams}}This endpoint does not need any parameter.{{/allParams}}{{#allParams}}{{#-last}}Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | -------------{{/-last}}{{/allParams}} |
 {{#allParams}}| **{{paramName}}** | {{#isFile}}**{{{dataType}}}**{{/isFile}}{{#isPrimitiveType}}**{{{dataType}}}**{{/isPrimitiveType}}{{^isPrimitiveType}}{{^isFile}}[**{{{dataType}}}**](../Model/{{baseType}}.md){{/isFile}}{{/isPrimitiveType}}| {{description}} |{{^required}} [optional]{{/required}}{{#defaultValue}} [default to {{.}}]{{/defaultValue}} |
 {{/allParams}}
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
 
 ### Return type
 

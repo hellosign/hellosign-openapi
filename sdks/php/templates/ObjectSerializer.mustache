@@ -21,9 +21,9 @@ namespace {{invokerPackage}};
 
 use GuzzleHttp\Psr7\Utils;
 use {{modelPackage}}\ModelInterface;
-{{! CUSTOM - BEGIN }}
+{{#useCustomTemplateCode}}
 use GuzzleHttp;
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
 
 /**
  * ObjectSerializer Class Doc Comment
@@ -51,12 +51,12 @@ class ObjectSerializer
     /**
      * Serialize data
      *
-{{#vendorExtensions.x-ignore-block}}
+{{^useCustomTemplateCode}}
      * @param mixed  $data   the data to serialize
-{{/vendorExtensions.x-ignore-block}}
-{{! CUSTOM - BEGIN }}
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
      * @param string|int|object|array|mixed  $data   the data to serialize
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
      * @param string $type   the OpenAPIToolsType of the data
      * @param string $format the format of the OpenAPITools type of the data
      *
@@ -97,19 +97,19 @@ class ObjectSerializer
                             }
                         }
                     }
-{{#vendorExtensions.x-ignore-block}}
+{{^useCustomTemplateCode}}
                     if (($data::isNullable($property) && $data->isNullableSetToNull($property)) || $value !== null) {
-{{/vendorExtensions.x-ignore-block}}
-{{! CUSTOM - BEGIN }}
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
                     if ($value !== null) {
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
                         $values[$data::attributeMap()[$property]] = self::sanitizeForSerialization($value, $openAPIType, $formats[$property]);
                     }
                 }
-{{! CUSTOM - BEGIN }}
+{{#useCustomTemplateCode}}
             } else if ($data instanceof \SplFileObject) {
                 return (string) $data;
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
             } else {
                 foreach($data as $property => $value) {
                     $values[$property] = self::sanitizeForSerialization($value);
@@ -168,12 +168,12 @@ class ObjectSerializer
     /**
      * Checks if a value is empty, based on its OpenAPI type.
      *
-{{#vendorExtensions.x-ignore-block}}
+{{^useCustomTemplateCode}}
      * @param mixed  $value
-{{/vendorExtensions.x-ignore-block}}
-{{! CUSTOM - BEGIN }}
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
      * @param string|int|object|array|mixed  $value
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
      * @param string $openApiType
      *
      * @return bool true if $value is empty
@@ -217,12 +217,12 @@ class ObjectSerializer
      * Take query parameter properties and turn it into an array suitable for
      * native http_build_query or GuzzleHttp\Psr7\Query::build.
      *
-{{#vendorExtensions.x-ignore-block}}
+{{^useCustomTemplateCode}}
      * @param mixed  $value       Parameter value
-{{/vendorExtensions.x-ignore-block}}
-{{! CUSTOM - BEGIN }}
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
      * @param string|int|object|array|mixed  $value       Parameter value
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
      * @param string $paramName   Parameter name
      * @param string $openApiType OpenAPIType eg. array or object
      * @param string $style       Parameter serialization style
@@ -356,12 +356,12 @@ class ObjectSerializer
      * If it's a datetime object, format it in ISO8601
      * If it's a boolean, convert it to "true" or "false".
      *
-{{#vendorExtensions.x-ignore-block}}
+{{^useCustomTemplateCode}}
      * @param float|int|bool|\DateTime $value the value of the parameter
-{{/vendorExtensions.x-ignore-block}}
-{{! CUSTOM - BEGIN }}
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
      * @param string|int|object|array|mixed $value the value of the parameter
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
      *
      * @return string the header string
      */
@@ -416,12 +416,12 @@ class ObjectSerializer
     /**
      * Deserialize a JSON string into an object
      *
-{{#vendorExtensions.x-ignore-block}}
+{{^useCustomTemplateCode}}
      * @param mixed    $data          object or primitive to be deserialized
-{{/vendorExtensions.x-ignore-block}}
-{{! CUSTOM - BEGIN }}
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
      * @param string|int|object|array|mixed    $data          object or primitive to be deserialized
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
      * @param string   $class         class name is passed as a string
      * @param string[] $httpHeaders   HTTP headers
      *
@@ -540,7 +540,7 @@ class ObjectSerializer
             // If a discriminator is defined and points to a valid subclass, use it.
             $discriminator = $class::DISCRIMINATOR;
 
-{{! CUSTOM - BEGIN }}
+{{#useCustomTemplateCode}}
             $discriminatorValue = null;
             if (is_object($data)) {
                 $discriminatorValue = $data->{$discriminator} ?? null;
@@ -549,18 +549,18 @@ class ObjectSerializer
             }
 
             $discrimnatorSubclassFound = false;
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
             if (!empty($discriminator) && isset($data->{$discriminator}) && is_string($data->{$discriminator})) {
                 $subclass = '\{{invokerPackage}}\Model\\' . $data->{$discriminator};
                 if (is_subclass_of($subclass, $class)) {
                     $class = $subclass;
-{{! CUSTOM - BEGIN }}
+{{#useCustomTemplateCode}}
                     $discrimnatorSubclassFound = true;
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
                 }
             }
 
-{{! CUSTOM - BEGIN }}
+{{#useCustomTemplateCode}}
             if (
                 !$discrimnatorSubclassFound
                 && !empty($discriminator)
@@ -578,7 +578,7 @@ class ObjectSerializer
                 $class = $subclass;
                 $discrimnatorSubclassFound = true;
             }
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
 
             /** @var ModelInterface $instance */
             $instance = new $class();
@@ -668,7 +668,7 @@ class ObjectSerializer
         return $qs ? (string) substr($qs, 0, -1) : '';
     }
 
-{{! CUSTOM - BEGIN }}
+{{#useCustomTemplateCode}}
     /**
      * Allows a multipart/form-data request to grab data from the typed
      * class created by OpenAPI.
@@ -739,5 +739,5 @@ class ObjectSerializer
 
         return $hasFile ? $formParams : [];
     }
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
 }

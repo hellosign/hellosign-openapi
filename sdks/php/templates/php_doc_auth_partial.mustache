@@ -3,13 +3,13 @@
 {{#isBasicBasic}}
 // Configure HTTP basic authorization: {{{name}}}
 $config = {{{invokerPackage}}}\Configuration::getDefaultConfiguration()
-{{#vendorExtensions.x-ignore-block}}
+{{^useCustomTemplateCode}}
               ->setUsername('YOUR_USERNAME')
               ->setPassword('YOUR_PASSWORD');
-{{/vendorExtensions.x-ignore-block}}
-{{! CUSTOM - BEGIN }}
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
               ->setApiKey('YOUR_API_KEY');
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
 {{/isBasicBasic}}
 {{#isBasicBearer}}
 // Configure Bearer{{#bearerFormat}} ({{{.}}}){{/bearerFormat}} authorization: {{{name}}}
@@ -19,10 +19,10 @@ $config = {{{invokerPackage}}}\Configuration::getDefaultConfiguration()->setAcce
 {{#isApiKey}}
 // Configure API key authorization: {{{name}}}
 $config = {{{invokerPackage}}}\Configuration::getDefaultConfiguration()->setApiKey('{{{keyParamName}}}', 'YOUR_API_KEY');
-{{#vendorExtensions.x-ignore-block}}
+{{^useCustomTemplateCode}}
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = {{{invokerPackage}}}\Configuration::getDefaultConfiguration()->setApiKeyPrefix('{{{keyParamName}}}', 'Bearer');
-{{/vendorExtensions.x-ignore-block}}
+{{/useCustomTemplateCode}}
 {{/isApiKey}}
 {{#isOAuth}}
 // Configure OAuth2 access token for authorization: {{{name}}}

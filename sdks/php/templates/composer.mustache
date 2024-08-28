@@ -2,11 +2,11 @@
     {{#composerPackageName}}
     "name": "{{{.}}}",
     {{/composerPackageName}}
-{{#vendorExtensions.x-ignore-block}}
+{{^useCustomTemplateCode}}
     {{#artifactVersion}}
     "version": "{{{.}}}",
     {{/artifactVersion}}
-{{/vendorExtensions.x-ignore-block}}
+{{/useCustomTemplateCode}}
     "description": "{{{appDescription}}}",
     "keywords": [
         "openapitools",
@@ -16,10 +16,10 @@
         "sdk",
         "rest",
         "api",
-{{! CUSTOM - BEGIN }}
+{{#useCustomTemplateCode}}
         "hellosign",
         "dropboxsign"
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
     ],
     "homepage": "{{{artifactUrl}}}",
     "license": "{{{licenseName}}}",
@@ -27,9 +27,9 @@
         {
             "name": "{{{developerOrganization}}}",
             "homepage": "{{{developerOrganizationUrl}}}",
-{{! CUSTOM - BEGIN }}
+{{#useCustomTemplateCode}}
             "email": "{{{developerOrganizationEmail}}}"
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
         }
     ],
     "require": {
@@ -43,9 +43,9 @@
     "require-dev": {
         "phpunit/phpunit": "^8.0 || ^9.0",
         "friendsofphp/php-cs-fixer": "^3.5",
-{{! CUSTOM - BEGIN }}
+{{#useCustomTemplateCode}}
         "symfony/yaml": "^5.4"
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
     },
     "autoload": {
         "psr-4": { "{{{escapedInvokerPackage}}}\\" : "{{{srcBasePath}}}/" }

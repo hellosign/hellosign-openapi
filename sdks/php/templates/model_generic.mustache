@@ -250,7 +250,7 @@ class {{classname}} {{#parentSchema}}extends {{{parent}}}{{/parentSchema}}{{^par
         {{/discriminator}}
     }
 
-{{! CUSTOM - BEGIN }}
+{{#useCustomTemplateCode}}
 {{^discriminator}}
     /** @deprecated use ::init() */
     public static function fromArray(array $data): {{classname}}
@@ -287,7 +287,7 @@ class {{classname}} {{#parentSchema}}extends {{{parent}}}{{/parentSchema}}{{^par
         return null;
     }
 {{/discriminator}}
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
 
     /**
     * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
@@ -296,12 +296,12 @@ class {{classname}} {{#parentSchema}}extends {{{parent}}}{{/parentSchema}}{{^par
     *
     * @param string $variableName
     * @param array  $fields
-{{#vendorExtensions.x-ignore-block}}
+{{^useCustomTemplateCode}}
     * @param mixed  $defaultValue
-{{/vendorExtensions.x-ignore-block}}
-{{! CUSTOM - BEGIN }}
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
 * @param string|int|object|array|mixed  $defaultValue
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
     */
     private function setIfExists(string $variableName, array $fields, $defaultValue): void
     {
@@ -519,9 +519,9 @@ class {{classname}} {{#parentSchema}}extends {{{parent}}}{{/parentSchema}}{{^par
      *
      * @return boolean
      */
-{{! CUSTOM - BEGIN }}
+{{#useCustomTemplateCode}}
     #[\ReturnTypeWillChange]
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
     public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
@@ -548,9 +548,9 @@ class {{classname}} {{#parentSchema}}extends {{{parent}}}{{/parentSchema}}{{^par
      *
      * @return void
      */
-{{! CUSTOM - BEGIN }}
+{{#useCustomTemplateCode}}
     #[\ReturnTypeWillChange]
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
     public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
@@ -567,9 +567,9 @@ class {{classname}} {{#parentSchema}}extends {{{parent}}}{{/parentSchema}}{{^par
      *
      * @return void
      */
-{{! CUSTOM - BEGIN }}
+{{#useCustomTemplateCode}}
     #[\ReturnTypeWillChange]
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
     public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
@@ -597,12 +597,12 @@ class {{classname}} {{#parentSchema}}extends {{{parent}}}{{/parentSchema}}{{^par
     {
         return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
-{{#vendorExtensions.x-ignore-block}}
+{{^useCustomTemplateCode}}
             JSON_PRETTY_PRINT
-{{/vendorExtensions.x-ignore-block}}
-{{! CUSTOM - BEGIN }}
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
             JSON_UNESCAPED_SLASHES
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
         );
     }
 

@@ -8,7 +8,7 @@
 For more information, please visit [{{{infoUrl}}}]({{{infoUrl}}}).
 {{/infoUrl}}
 
-{{! CUSTOM - BEGIN }}
+{{#useCustomTemplateCode}}
 ## Migrating from legacy SDK
 
 This SDK is generated from our officially maintained [OpenAPI spec](https://github.com/hellosign/hellosign-openapi/blob/main/openapi.yaml).
@@ -46,25 +46,25 @@ Run the following and everything is done for you:
 to the OAS file and/or the mustache template files _will be lost_ when you run
 this command.
 
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
 ## Installation & Usage
 
 ### Requirements
 
-{{#vendorExtensions.x-ignore-block}}
+{{^useCustomTemplateCode}}
 PHP 7.4 and later.
 Should also work with PHP 8.0.
-{{/vendorExtensions.x-ignore-block}}
-{{! CUSTOM - BEGIN }}
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
 PHP {{phpVersion}} and later.
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
 
 ### Composer
 
 To install the bindings via [Composer](https://getcomposer.org/), add the following to `composer.json`:
 
 ```json
-{{#vendorExtensions.x-ignore-block}}
+{{^useCustomTemplateCode}}
 {
   "repositories": [
     {
@@ -76,20 +76,20 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
     "{{gitUserId}}/{{gitRepoId}}": "*@dev"
   }
 }
-{{/vendorExtensions.x-ignore-block}}
-{{! CUSTOM - BEGIN }}
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
 {
     "require": {
         "{{packageName}}": "{{packageVersion}}"
     },
     "minimum-stability": "dev"
 }
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
 ```
 
 Then run `composer install`
 
-{{#vendorExtensions.x-ignore-block}}
+{{^useCustomTemplateCode}}
 ### Manual Installation
 
 Download the files and include `autoload.php`:
@@ -98,20 +98,20 @@ Download the files and include `autoload.php`:
 <?php
 require_once('/path/to/{{packageName}}/vendor/autoload.php');
 ```
-{{/vendorExtensions.x-ignore-block}}
-{{! CUSTOM - BEGIN }}
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
 Alternatively, install directly with
 
 ```
 composer require {{packageName}}:{{packageVersion}}
 ```
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
 
 ## Getting Started
 
 Please follow the [installation procedure](#installation--usage) and then run the following:
 
-{{#vendorExtensions.x-ignore-block}}
+{{^useCustomTemplateCode}}
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
@@ -135,8 +135,8 @@ try {
 }
 {{/-first}}{{/operation}}{{/operations}}{{/-first}}{{/apis}}{{/apiInfo}}
 ```
-{{/vendorExtensions.x-ignore-block}}
-{{! CUSTOM - BEGIN }}
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
 {{#apiInfo}}{{#apis}}{{#-first}}{{#operations}}{{#operation}}{{#-first}}
 ```php
 REPLACE_ME_WITH_EXAMPLE_FOR__{{{operationId}}}_PHP_CODE
@@ -181,42 +181,42 @@ try {
         . $e->getMessage() . PHP_EOL;
 }
 ```
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
 
 ## API Endpoints
 
 All URIs are relative to *{{basePath}}*
 
-{{#vendorExtensions.x-ignore-block}}
+{{^useCustomTemplateCode}}
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 {{#apiInfo}}{{#apis}}{{#operations}}{{#operation}}*{{classname}}* | [**{{operationId}}**]({{apiDocPath}}/{{classname}}.md#{{operationIdLowerCase}}) | **{{httpMethod}}** {{path}} | {{summary}}
 {{/operation}}{{/operations}}{{/apis}}{{/apiInfo}}
-{{/vendorExtensions.x-ignore-block}}
-{{! CUSTOM - BEGIN }}
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
 | Class      | Method        | HTTP request  | Description   |
 | ---------- | ------------- | ------------- | ------------- |
 {{#apiInfo}}{{#apis}}{{#operations}}{{#operation}}| *{{classname}}* | [**{{operationId}}**]({{apiDocPath}}/{{classname}}.md#{{operationIdLowerCase}}) | **{{httpMethod}}** {{path}} | {{summary}} |
 {{/operation}}{{/operations}}{{/apis}}{{/apiInfo}}
 
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
 ## Models
 
 {{#models}}{{#model}}- [{{{classname}}}]({{modelDocPath}}/{{{classname}}}.md){{/model}}
 {{/models}}
 
 ## Authorization
-{{#vendorExtensions.x-ignore-block}}
+{{^useCustomTemplateCode}}
 {{^authMethods}}Endpoints do not require authorization.{{/authMethods}}
 {{#hasAuthMethods}}Authentication schemes defined for the API:{{/hasAuthMethods}}
-{{/vendorExtensions.x-ignore-block}}
-{{! CUSTOM - BEGIN }}
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
 {{^authMethods}}All endpoints do not require authorization.{{/authMethods}}
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
 {{#authMethods}}
-{{! CUSTOM - BEGIN }}
+{{#useCustomTemplateCode}}
 {{#last}} Authentication schemes defined for the API:{{/last}}
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
 ### {{{name}}}
 {{#isApiKey}}
 
@@ -234,12 +234,12 @@ Class | Method | HTTP request | Description
 
 - **Type**: Bearer authentication{{#bearerFormat}} ({{{.}}}){{/bearerFormat}}
 {{/isBasicBearer}}
-{{#vendorExtensions.x-ignore-block}}
+{{^useCustomTemplateCode}}
 {{#isHttpSignature}}
 
 - **Type**: HTTP signature authentication
 {{/isHttpSignature}}
-{{/vendorExtensions.x-ignore-block}}
+{{/useCustomTemplateCode}}
 {{/isBasic}}
 {{#isOAuth}}
 

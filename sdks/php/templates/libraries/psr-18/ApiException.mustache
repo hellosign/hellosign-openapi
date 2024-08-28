@@ -92,12 +92,12 @@ class ApiException extends RequestException
     /**
      * Sets the deseralized response object (during deserialization)
      *
-{{#vendorExtensions.x-ignore-block}}
+{{^useCustomTemplateCode}}
      * @param mixed $obj Deserialized response object
-{{/vendorExtensions.x-ignore-block}}
-{{! CUSTOM - BEGIN }}
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
      * @param string|int|object|array|mixed $obj Deserialized response object
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
 
      *
      * @return void
