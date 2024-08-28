@@ -6,8 +6,8 @@ An array of Form Field objects containing the name and type of each named field.
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
 | `type`<sup>*_required_</sup> | ```String``` |    |  |
 | `apiId` | ```String``` |  A unique id for the form field.  |  |
 | `name` | ```String``` |  The name of the form field.  |  |

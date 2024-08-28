@@ -6,8 +6,8 @@ An object describing the app&#39;s OAuth properties, or null if OAuth is not con
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
 | `callbackUrl` | ```String``` |  The app&#39;s OAuth callback URL.  |  |
 | `secret` | ```String``` |  The app&#39;s OAuth secret, or null if the app does not belong to user.  |  |
 | `scopes` | ```List<String>``` |  Array of OAuth scopes used by the app.  |  |

@@ -14,7 +14,6 @@
 package com.dropbox.sign.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.dropbox.sign.model.TeamResponse;
@@ -24,9 +23,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.dropbox.sign.JSON;
@@ -39,17 +37,17 @@ import com.dropbox.sign.ApiException;
  * TeamGetResponse
  */
 @JsonPropertyOrder({
-    TeamGetResponse.JSON_PROPERTY_TEAM,
-    TeamGetResponse.JSON_PROPERTY_WARNINGS
+  TeamGetResponse.JSON_PROPERTY_TEAM,
+  TeamGetResponse.JSON_PROPERTY_WARNINGS
 })
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TeamGetResponse {
   public static final String JSON_PROPERTY_TEAM = "team";
   private TeamResponse team;
 
   public static final String JSON_PROPERTY_WARNINGS = "warnings";
-  private List<WarningResponse> warnings = null;
+  private List<WarningResponse> warnings = new ArrayList<>();
 
   public TeamGetResponse() { 
   }
@@ -74,12 +72,11 @@ public class TeamGetResponse {
     return this;
   }
 
-   /**
+  /**
    * Get team
    * @return team
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TEAM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -108,12 +105,11 @@ public class TeamGetResponse {
     return this;
   }
 
-   /**
+  /**
    * A list of warnings.
    * @return warnings
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A list of warnings.")
   @JsonProperty(JSON_PROPERTY_WARNINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

@@ -14,7 +14,6 @@
 package com.dropbox.sign.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -22,8 +21,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.dropbox.sign.JSON;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -35,11 +33,11 @@ import com.dropbox.sign.ApiException;
  * FileResponse
  */
 @JsonPropertyOrder({
-    FileResponse.JSON_PROPERTY_FILE_URL,
-    FileResponse.JSON_PROPERTY_EXPIRES_AT
+  FileResponse.JSON_PROPERTY_FILE_URL,
+  FileResponse.JSON_PROPERTY_EXPIRES_AT
 })
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class FileResponse {
   public static final String JSON_PROPERTY_FILE_URL = "file_url";
   private String fileUrl;
@@ -70,12 +68,11 @@ public class FileResponse {
     return this;
   }
 
-   /**
+  /**
    * URL to the file.
    * @return fileUrl
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "URL to the file.")
   @JsonProperty(JSON_PROPERTY_FILE_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -96,12 +93,11 @@ public class FileResponse {
     return this;
   }
 
-   /**
+  /**
    * When the link expires.
    * @return expiresAt
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "When the link expires.")
   @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

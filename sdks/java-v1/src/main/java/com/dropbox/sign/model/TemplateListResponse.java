@@ -14,7 +14,6 @@
 package com.dropbox.sign.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.dropbox.sign.model.ListInfoResponse;
@@ -25,9 +24,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.dropbox.sign.JSON;
@@ -40,21 +38,21 @@ import com.dropbox.sign.ApiException;
  * TemplateListResponse
  */
 @JsonPropertyOrder({
-    TemplateListResponse.JSON_PROPERTY_TEMPLATES,
-    TemplateListResponse.JSON_PROPERTY_LIST_INFO,
-    TemplateListResponse.JSON_PROPERTY_WARNINGS
+  TemplateListResponse.JSON_PROPERTY_TEMPLATES,
+  TemplateListResponse.JSON_PROPERTY_LIST_INFO,
+  TemplateListResponse.JSON_PROPERTY_WARNINGS
 })
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TemplateListResponse {
   public static final String JSON_PROPERTY_TEMPLATES = "templates";
-  private List<TemplateResponse> templates = null;
+  private List<TemplateResponse> templates = new ArrayList<>();
 
   public static final String JSON_PROPERTY_LIST_INFO = "list_info";
   private ListInfoResponse listInfo;
 
   public static final String JSON_PROPERTY_WARNINGS = "warnings";
-  private List<WarningResponse> warnings = null;
+  private List<WarningResponse> warnings = new ArrayList<>();
 
   public TemplateListResponse() { 
   }
@@ -87,12 +85,11 @@ public class TemplateListResponse {
     return this;
   }
 
-   /**
+  /**
    * List of templates that the API caller has access to.
    * @return templates
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of templates that the API caller has access to.")
   @JsonProperty(JSON_PROPERTY_TEMPLATES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -113,12 +110,11 @@ public class TemplateListResponse {
     return this;
   }
 
-   /**
+  /**
    * Get listInfo
    * @return listInfo
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LIST_INFO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -147,12 +143,11 @@ public class TemplateListResponse {
     return this;
   }
 
-   /**
+  /**
    * A list of warnings.
    * @return warnings
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A list of warnings.")
   @JsonProperty(JSON_PROPERTY_WARNINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

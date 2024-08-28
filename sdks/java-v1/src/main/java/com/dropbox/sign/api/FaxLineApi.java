@@ -19,10 +19,11 @@ import com.dropbox.sign.model.FaxLineResponse;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class FaxLineApi {
   private ApiClient apiClient;
 
@@ -85,45 +86,20 @@ public class FaxLineApi {
    */
   public ApiResponse<FaxLineResponse> faxLineAddUserWithHttpInfo(FaxLineAddUserRequest faxLineAddUserRequest) throws ApiException {
     
-    Object localVarPostBody = faxLineAddUserRequest;
-    
-    // verify the required parameter 'faxLineAddUserRequest' is set
+    // Check required parameters
     if (faxLineAddUserRequest == null) {
       throw new ApiException(400, "Missing the required parameter 'faxLineAddUserRequest' when calling faxLineAddUser");
     }
-    
-    // create path and map variables
-    String localVarPath = "/fax_line/add_user";
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
+    String localVarAccept = apiClient.selectHeaderAccept("application/json");
+    Map<String, Object> localVarFormParams = new LinkedHashMap<>();
     localVarFormParams = faxLineAddUserRequest.createFormData();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
-
-    final String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "api_key" };
-
+    String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType("application/json");
+    String[] localVarAuthNames = new String[] {"api_key"};
     GenericType<FaxLineResponse> localVarReturnType = new GenericType<FaxLineResponse>() {};
-
-    return apiClient.invokeAPI("FaxLineApi.faxLineAddUser", localVarPath, "PUT", localVarQueryParams, localVarPostBody,
-                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+    return apiClient.invokeAPI("FaxLineApi.faxLineAddUser", "/fax_line/add_user", "PUT", new ArrayList<>(), faxLineAddUserRequest,
+                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
   /**
@@ -226,49 +202,28 @@ public class FaxLineApi {
    */
   public ApiResponse<FaxLineAreaCodeGetResponse> faxLineAreaCodeGetWithHttpInfo(String country, String state, String province, String city) throws ApiException {
     
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'country' is set
+    // Check required parameters
     if (country == null) {
       throw new ApiException(400, "Missing the required parameter 'country' when calling faxLineAreaCodeGet");
     }
-    
-    // create path and map variables
-    String localVarPath = "/fax_line/area_codes";
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "country", country));
+    // Query parameters
+    List<Pair> localVarQueryParams = new ArrayList<>(
+            apiClient.parameterToPairs("", "country", country)
+    );
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "state", state));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "province", province));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "city", city));
 
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
+    String localVarAccept = apiClient.selectHeaderAccept("application/json");
+    Map<String, Object> localVarFormParams = new LinkedHashMap<>();
     localVarFormParams = new HashMap<String, Object>();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
-
-    final String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "api_key" };
-
+    String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType();
+    String[] localVarAuthNames = new String[] {"api_key"};
     GenericType<FaxLineAreaCodeGetResponse> localVarReturnType = new GenericType<FaxLineAreaCodeGetResponse>() {};
-
-    return apiClient.invokeAPI("FaxLineApi.faxLineAreaCodeGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
-                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+    return apiClient.invokeAPI("FaxLineApi.faxLineAreaCodeGet", "/fax_line/area_codes", "GET", localVarQueryParams, null,
+                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
   /**
@@ -304,45 +259,20 @@ public class FaxLineApi {
    */
   public ApiResponse<FaxLineResponse> faxLineCreateWithHttpInfo(FaxLineCreateRequest faxLineCreateRequest) throws ApiException {
     
-    Object localVarPostBody = faxLineCreateRequest;
-    
-    // verify the required parameter 'faxLineCreateRequest' is set
+    // Check required parameters
     if (faxLineCreateRequest == null) {
       throw new ApiException(400, "Missing the required parameter 'faxLineCreateRequest' when calling faxLineCreate");
     }
-    
-    // create path and map variables
-    String localVarPath = "/fax_line/create";
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
+    String localVarAccept = apiClient.selectHeaderAccept("application/json");
+    Map<String, Object> localVarFormParams = new LinkedHashMap<>();
     localVarFormParams = faxLineCreateRequest.createFormData();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
-
-    final String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "api_key" };
-
+    String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType("application/json");
+    String[] localVarAuthNames = new String[] {"api_key"};
     GenericType<FaxLineResponse> localVarReturnType = new GenericType<FaxLineResponse>() {};
-
-    return apiClient.invokeAPI("FaxLineApi.faxLineCreate", localVarPath, "POST", localVarQueryParams, localVarPostBody,
-                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+    return apiClient.invokeAPI("FaxLineApi.faxLineCreate", "/fax_line/create", "POST", new ArrayList<>(), faxLineCreateRequest,
+                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
   /**
@@ -377,43 +307,19 @@ public class FaxLineApi {
    */
   public ApiResponse<Void> faxLineDeleteWithHttpInfo(FaxLineDeleteRequest faxLineDeleteRequest) throws ApiException {
     
-    Object localVarPostBody = faxLineDeleteRequest;
-    
-    // verify the required parameter 'faxLineDeleteRequest' is set
+    // Check required parameters
     if (faxLineDeleteRequest == null) {
       throw new ApiException(400, "Missing the required parameter 'faxLineDeleteRequest' when calling faxLineDelete");
     }
-    
-    // create path and map variables
-    String localVarPath = "/fax_line";
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
+    String localVarAccept = apiClient.selectHeaderAccept("application/json");
+    Map<String, Object> localVarFormParams = new LinkedHashMap<>();
     localVarFormParams = faxLineDeleteRequest.createFormData();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
-
-    final String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "api_key" };
-
-    return apiClient.invokeAPI("FaxLineApi.faxLineDelete", localVarPath, "DELETE", localVarQueryParams, localVarPostBody,
-                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+    String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType("application/json");
+    String[] localVarAuthNames = new String[] {"api_key"};
+    return apiClient.invokeAPI("FaxLineApi.faxLineDelete", "/fax_line", "DELETE", new ArrayList<>(), faxLineDeleteRequest,
+                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
   /**
@@ -449,46 +355,25 @@ public class FaxLineApi {
    */
   public ApiResponse<FaxLineResponse> faxLineGetWithHttpInfo(String number) throws ApiException {
     
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'number' is set
+    // Check required parameters
     if (number == null) {
       throw new ApiException(400, "Missing the required parameter 'number' when calling faxLineGet");
     }
-    
-    // create path and map variables
-    String localVarPath = "/fax_line";
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+    // Query parameters
+    List<Pair> localVarQueryParams = new ArrayList<>(
+            apiClient.parameterToPairs("", "number", number)
+    );
 
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "number", number));
-
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
+    String localVarAccept = apiClient.selectHeaderAccept("application/json");
+    Map<String, Object> localVarFormParams = new LinkedHashMap<>();
     localVarFormParams = new HashMap<String, Object>();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
-
-    final String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "api_key" };
-
+    String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType();
+    String[] localVarAuthNames = new String[] {"api_key"};
     GenericType<FaxLineResponse> localVarReturnType = new GenericType<FaxLineResponse>() {};
-
-    return apiClient.invokeAPI("FaxLineApi.faxLineGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
-                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+    return apiClient.invokeAPI("FaxLineApi.faxLineGet", "/fax_line", "GET", localVarQueryParams, null,
+                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
   /**
@@ -621,44 +506,23 @@ public class FaxLineApi {
     if (pageSize == null) {
         pageSize = 20;
     }
-    Object localVarPostBody = null;
-    
-    // create path and map variables
-    String localVarPath = "/fax_line/list";
-
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "account_id", accountId));
+    // Query parameters
+    List<Pair> localVarQueryParams = new ArrayList<>(
+            apiClient.parameterToPairs("", "account_id", accountId)
+    );
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page", page));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page_size", pageSize));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "show_team_lines", showTeamLines));
 
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
+    String localVarAccept = apiClient.selectHeaderAccept("application/json");
+    Map<String, Object> localVarFormParams = new LinkedHashMap<>();
     localVarFormParams = new HashMap<String, Object>();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
-
-    final String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "api_key" };
-
+    String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType();
+    String[] localVarAuthNames = new String[] {"api_key"};
     GenericType<FaxLineListResponse> localVarReturnType = new GenericType<FaxLineListResponse>() {};
-
-    return apiClient.invokeAPI("FaxLineApi.faxLineList", localVarPath, "GET", localVarQueryParams, localVarPostBody,
-                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+    return apiClient.invokeAPI("FaxLineApi.faxLineList", "/fax_line/list", "GET", localVarQueryParams, null,
+                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
   /**
@@ -694,45 +558,20 @@ public class FaxLineApi {
    */
   public ApiResponse<FaxLineResponse> faxLineRemoveUserWithHttpInfo(FaxLineRemoveUserRequest faxLineRemoveUserRequest) throws ApiException {
     
-    Object localVarPostBody = faxLineRemoveUserRequest;
-    
-    // verify the required parameter 'faxLineRemoveUserRequest' is set
+    // Check required parameters
     if (faxLineRemoveUserRequest == null) {
       throw new ApiException(400, "Missing the required parameter 'faxLineRemoveUserRequest' when calling faxLineRemoveUser");
     }
-    
-    // create path and map variables
-    String localVarPath = "/fax_line/remove_user";
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
+    String localVarAccept = apiClient.selectHeaderAccept("application/json");
+    Map<String, Object> localVarFormParams = new LinkedHashMap<>();
     localVarFormParams = faxLineRemoveUserRequest.createFormData();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
-
-    final String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "api_key" };
-
+    String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType("application/json");
+    String[] localVarAuthNames = new String[] {"api_key"};
     GenericType<FaxLineResponse> localVarReturnType = new GenericType<FaxLineResponse>() {};
-
-    return apiClient.invokeAPI("FaxLineApi.faxLineRemoveUser", localVarPath, "PUT", localVarQueryParams, localVarPostBody,
-                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+    return apiClient.invokeAPI("FaxLineApi.faxLineRemoveUser", "/fax_line/remove_user", "PUT", new ArrayList<>(), faxLineRemoveUserRequest,
+                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
 }

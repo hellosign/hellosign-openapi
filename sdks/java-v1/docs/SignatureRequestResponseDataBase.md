@@ -6,8 +6,8 @@ An array of form field objects containing the name, value, and type of each text
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
 | `apiId` | ```String``` |  The unique ID for this field.  |  |
 | `signatureId` | ```String``` |  The ID of the signature to which this response is linked.  |  |
 | `name` | ```String``` |  The name of the form field.  |  |

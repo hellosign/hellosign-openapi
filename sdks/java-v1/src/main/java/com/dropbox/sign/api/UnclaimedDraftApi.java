@@ -17,10 +17,11 @@ import com.dropbox.sign.model.UnclaimedDraftEditAndResendRequest;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 public class UnclaimedDraftApi {
   private ApiClient apiClient;
 
@@ -83,45 +84,20 @@ public class UnclaimedDraftApi {
    */
   public ApiResponse<UnclaimedDraftCreateResponse> unclaimedDraftCreateWithHttpInfo(UnclaimedDraftCreateRequest unclaimedDraftCreateRequest) throws ApiException {
     
-    Object localVarPostBody = unclaimedDraftCreateRequest;
-    
-    // verify the required parameter 'unclaimedDraftCreateRequest' is set
+    // Check required parameters
     if (unclaimedDraftCreateRequest == null) {
       throw new ApiException(400, "Missing the required parameter 'unclaimedDraftCreateRequest' when calling unclaimedDraftCreate");
     }
-    
-    // create path and map variables
-    String localVarPath = "/unclaimed_draft/create";
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json", "multipart/form-data"
-    };
+    String localVarAccept = apiClient.selectHeaderAccept("application/json");
+    Map<String, Object> localVarFormParams = new LinkedHashMap<>();
     localVarFormParams = unclaimedDraftCreateRequest.createFormData();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
-
-    final String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "api_key", "oauth2" };
-
+    String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType("application/json", "multipart/form-data");
+    String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
     GenericType<UnclaimedDraftCreateResponse> localVarReturnType = new GenericType<UnclaimedDraftCreateResponse>() {};
-
-    return apiClient.invokeAPI("UnclaimedDraftApi.unclaimedDraftCreate", localVarPath, "POST", localVarQueryParams, localVarPostBody,
-                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+    return apiClient.invokeAPI("UnclaimedDraftApi.unclaimedDraftCreate", "/unclaimed_draft/create", "POST", new ArrayList<>(), unclaimedDraftCreateRequest,
+                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
   /**
@@ -157,45 +133,20 @@ public class UnclaimedDraftApi {
    */
   public ApiResponse<UnclaimedDraftCreateResponse> unclaimedDraftCreateEmbeddedWithHttpInfo(UnclaimedDraftCreateEmbeddedRequest unclaimedDraftCreateEmbeddedRequest) throws ApiException {
     
-    Object localVarPostBody = unclaimedDraftCreateEmbeddedRequest;
-    
-    // verify the required parameter 'unclaimedDraftCreateEmbeddedRequest' is set
+    // Check required parameters
     if (unclaimedDraftCreateEmbeddedRequest == null) {
       throw new ApiException(400, "Missing the required parameter 'unclaimedDraftCreateEmbeddedRequest' when calling unclaimedDraftCreateEmbedded");
     }
-    
-    // create path and map variables
-    String localVarPath = "/unclaimed_draft/create_embedded";
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json", "multipart/form-data"
-    };
+    String localVarAccept = apiClient.selectHeaderAccept("application/json");
+    Map<String, Object> localVarFormParams = new LinkedHashMap<>();
     localVarFormParams = unclaimedDraftCreateEmbeddedRequest.createFormData();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
-
-    final String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "api_key", "oauth2" };
-
+    String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType("application/json", "multipart/form-data");
+    String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
     GenericType<UnclaimedDraftCreateResponse> localVarReturnType = new GenericType<UnclaimedDraftCreateResponse>() {};
-
-    return apiClient.invokeAPI("UnclaimedDraftApi.unclaimedDraftCreateEmbedded", localVarPath, "POST", localVarQueryParams, localVarPostBody,
-                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+    return apiClient.invokeAPI("UnclaimedDraftApi.unclaimedDraftCreateEmbedded", "/unclaimed_draft/create_embedded", "POST", new ArrayList<>(), unclaimedDraftCreateEmbeddedRequest,
+                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
   /**
@@ -231,45 +182,20 @@ public class UnclaimedDraftApi {
    */
   public ApiResponse<UnclaimedDraftCreateResponse> unclaimedDraftCreateEmbeddedWithTemplateWithHttpInfo(UnclaimedDraftCreateEmbeddedWithTemplateRequest unclaimedDraftCreateEmbeddedWithTemplateRequest) throws ApiException {
     
-    Object localVarPostBody = unclaimedDraftCreateEmbeddedWithTemplateRequest;
-    
-    // verify the required parameter 'unclaimedDraftCreateEmbeddedWithTemplateRequest' is set
+    // Check required parameters
     if (unclaimedDraftCreateEmbeddedWithTemplateRequest == null) {
       throw new ApiException(400, "Missing the required parameter 'unclaimedDraftCreateEmbeddedWithTemplateRequest' when calling unclaimedDraftCreateEmbeddedWithTemplate");
     }
-    
-    // create path and map variables
-    String localVarPath = "/unclaimed_draft/create_embedded_with_template";
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json", "multipart/form-data"
-    };
+    String localVarAccept = apiClient.selectHeaderAccept("application/json");
+    Map<String, Object> localVarFormParams = new LinkedHashMap<>();
     localVarFormParams = unclaimedDraftCreateEmbeddedWithTemplateRequest.createFormData();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
-
-    final String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "api_key", "oauth2" };
-
+    String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType("application/json", "multipart/form-data");
+    String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
     GenericType<UnclaimedDraftCreateResponse> localVarReturnType = new GenericType<UnclaimedDraftCreateResponse>() {};
-
-    return apiClient.invokeAPI("UnclaimedDraftApi.unclaimedDraftCreateEmbeddedWithTemplate", localVarPath, "POST", localVarQueryParams, localVarPostBody,
-                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+    return apiClient.invokeAPI("UnclaimedDraftApi.unclaimedDraftCreateEmbeddedWithTemplate", "/unclaimed_draft/create_embedded_with_template", "POST", new ArrayList<>(), unclaimedDraftCreateEmbeddedWithTemplateRequest,
+                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
   /**
@@ -307,51 +233,27 @@ public class UnclaimedDraftApi {
    */
   public ApiResponse<UnclaimedDraftCreateResponse> unclaimedDraftEditAndResendWithHttpInfo(String signatureRequestId, UnclaimedDraftEditAndResendRequest unclaimedDraftEditAndResendRequest) throws ApiException {
     
-    Object localVarPostBody = unclaimedDraftEditAndResendRequest;
-    
-    // verify the required parameter 'signatureRequestId' is set
+    // Check required parameters
     if (signatureRequestId == null) {
       throw new ApiException(400, "Missing the required parameter 'signatureRequestId' when calling unclaimedDraftEditAndResend");
     }
-    
-    // verify the required parameter 'unclaimedDraftEditAndResendRequest' is set
     if (unclaimedDraftEditAndResendRequest == null) {
       throw new ApiException(400, "Missing the required parameter 'unclaimedDraftEditAndResendRequest' when calling unclaimedDraftEditAndResend");
     }
-    
-    // create path and map variables
+
+    // Path parameters
     String localVarPath = "/unclaimed_draft/edit_and_resend/{signature_request_id}"
-      .replaceAll("\\{" + "signature_request_id" + "\\}", apiClient.escapeString(signatureRequestId.toString()));
+            .replaceAll("\\{signature_request_id}", apiClient.escapeString(signatureRequestId));
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
+    String localVarAccept = apiClient.selectHeaderAccept("application/json");
+    Map<String, Object> localVarFormParams = new LinkedHashMap<>();
     localVarFormParams = unclaimedDraftEditAndResendRequest.createFormData();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
-
-    final String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "api_key", "oauth2" };
-
+    String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType("application/json");
+    String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
     GenericType<UnclaimedDraftCreateResponse> localVarReturnType = new GenericType<UnclaimedDraftCreateResponse>() {};
-
-    return apiClient.invokeAPI("UnclaimedDraftApi.unclaimedDraftEditAndResend", localVarPath, "POST", localVarQueryParams, localVarPostBody,
-                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+    return apiClient.invokeAPI("UnclaimedDraftApi.unclaimedDraftEditAndResend", localVarPath, "POST", new ArrayList<>(), unclaimedDraftEditAndResendRequest,
+                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
 }

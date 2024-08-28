@@ -14,7 +14,6 @@
 package com.dropbox.sign.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -22,8 +21,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.dropbox.sign.JSON;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -35,12 +33,12 @@ import com.dropbox.sign.ApiException;
  * FaxLineAddUserRequest
  */
 @JsonPropertyOrder({
-    FaxLineAddUserRequest.JSON_PROPERTY_NUMBER,
-    FaxLineAddUserRequest.JSON_PROPERTY_ACCOUNT_ID,
-    FaxLineAddUserRequest.JSON_PROPERTY_EMAIL_ADDRESS
+  FaxLineAddUserRequest.JSON_PROPERTY_NUMBER,
+  FaxLineAddUserRequest.JSON_PROPERTY_ACCOUNT_ID,
+  FaxLineAddUserRequest.JSON_PROPERTY_EMAIL_ADDRESS
 })
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class FaxLineAddUserRequest {
   public static final String JSON_PROPERTY_NUMBER = "number";
   private String number;
@@ -74,12 +72,11 @@ public class FaxLineAddUserRequest {
     return this;
   }
 
-   /**
+  /**
    * The Fax Line number.
    * @return number
-  **/
+   */
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The Fax Line number.")
   @JsonProperty(JSON_PROPERTY_NUMBER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -100,12 +97,11 @@ public class FaxLineAddUserRequest {
     return this;
   }
 
-   /**
+  /**
    * Account ID
    * @return accountId
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "ab55cd14a97219e36b5ff5fe23f2f9329b0c1e97", value = "Account ID")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -126,12 +122,11 @@ public class FaxLineAddUserRequest {
     return this;
   }
 
-   /**
+  /**
    * Email address
    * @return emailAddress
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Email address")
   @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

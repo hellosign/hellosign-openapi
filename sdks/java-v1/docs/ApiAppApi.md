@@ -2,8 +2,8 @@
 
 All URIs are relative to *https://api.hellosign.com/v3*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
+| Method | HTTP request | Description |
+|------------- | ------------- | -------------|
 [**apiAppCreate**](ApiAppApi.md#apiAppCreate) | **POST** /api_app | Create API App
 [**apiAppDelete**](ApiAppApi.md#apiAppDelete) | **DELETE** /api_app/{client_id} | Delete API App
 [**apiAppGet**](ApiAppApi.md#apiAppGet) | **GET** /api_app/{client_id} | Get API App
@@ -80,8 +80,8 @@ public class Example {
 ### Parameters
 
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
  **apiAppCreateRequest** | [**ApiAppCreateRequest**](ApiAppCreateRequest.md)|  |
 
 ### Return type
@@ -152,8 +152,8 @@ public class Example {
 ### Parameters
 
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
  **clientId** | **String**| The client id of the API App to delete. |
 
 ### Return type
@@ -226,8 +226,8 @@ public class Example {
 ### Parameters
 
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
  **clientId** | **String**| The client id of the API App to retrieve. |
 
 ### Return type
@@ -301,8 +301,8 @@ public class Example {
 ### Parameters
 
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
  **page** | **Integer**| Which page number of the API App List to return. Defaults to `1`. | [optional] [default to 1]
  **pageSize** | **Integer**| Number of objects to be returned per page. Must be between `1` and `100`. Default is `20`. | [optional] [default to 20]
 
@@ -396,8 +396,8 @@ public class Example {
 ### Parameters
 
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
  **clientId** | **String**| The client id of the API App to update. |
  **apiAppUpdateRequest** | [**ApiAppUpdateRequest**](ApiAppUpdateRequest.md)|  |
 

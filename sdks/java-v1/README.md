@@ -134,29 +134,28 @@ public class Example {
 
 ## Using a Proxy
 
-  To add a HTTP proxy for the API client, use `ClientConfig`:
+To add a HTTP proxy for the API client, use `ClientConfig`:
+```java
 
-  ```java
-  
-    import org.glassfish.jersey.apache.connector.ApacheConnectorProvider;
-    import org.glassfish.jersey.client.ClientConfig;
-    import org.glassfish.jersey.client.ClientProperties;
-    import com.dropbox.sign.*;
-    import com.dropbox.sign.api.AccountApi;
+import org.glassfish.jersey.apache.connector.ApacheConnectorProvider;
+import org.glassfish.jersey.client.ClientConfig;
+import org.glassfish.jersey.client.ClientProperties;
+import com.dropbox.sign.*;
+import com.dropbox.sign.api.AccountApi;
 
-    ...
+...
 
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    ClientConfig clientConfig = defaultClient.getClientConfig();
-    clientConfig.connectorProvider(new ApacheConnectorProvider());
-    clientConfig.property(ClientProperties.PROXY_URI, "http://proxy_url_here");
-    clientConfig.property(ClientProperties.PROXY_USERNAME, "proxy_username");
-    clientConfig.property(ClientProperties.PROXY_PASSWORD, "proxy_password");
-    defaultClient.setClientConfig(clientConfig);
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+ClientConfig clientConfig = defaultClient.getClientConfig();
+clientConfig.connectorProvider(new ApacheConnectorProvider());
+clientConfig.property(ClientProperties.PROXY_URI, "http://proxy_url_here");
+clientConfig.property(ClientProperties.PROXY_USERNAME, "proxy_username");
+clientConfig.property(ClientProperties.PROXY_PASSWORD, "proxy_password");
+defaultClient.setClientConfig(clientConfig);
 
-    AccountApi apiInstance = new AccountApi(defaultClient);
-  
-  ```
+AccountApi apiInstance = new AccountApi(defaultClient);
+
+```
 
 
 ## Documentation for API Endpoints
@@ -418,18 +417,22 @@ Class | Method | HTTP request | Description
  - [WarningResponse](docs/WarningResponse.md)
 
 
+<a id="documentation-for-authorization"></a>
 ## Documentation for Authorization
 
+
 Authentication schemes defined for the API:
+<a id="api_key"></a>
 ### api_key
 
 
 - **Type**: HTTP basic authentication
 
+<a id="oauth2"></a>
 ### oauth2
 
 
-- **Type**: HTTP basic authentication
+- **Type**: HTTP Bearer Token authentication (JWT)
 
 
 ## Recommendation

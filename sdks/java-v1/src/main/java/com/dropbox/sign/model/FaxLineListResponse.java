@@ -14,7 +14,6 @@
 package com.dropbox.sign.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.dropbox.sign.model.FaxLineResponseFaxLine;
@@ -25,9 +24,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.dropbox.sign.JSON;
@@ -40,18 +38,18 @@ import com.dropbox.sign.ApiException;
  * FaxLineListResponse
  */
 @JsonPropertyOrder({
-    FaxLineListResponse.JSON_PROPERTY_LIST_INFO,
-    FaxLineListResponse.JSON_PROPERTY_FAX_LINES,
-    FaxLineListResponse.JSON_PROPERTY_WARNINGS
+  FaxLineListResponse.JSON_PROPERTY_LIST_INFO,
+  FaxLineListResponse.JSON_PROPERTY_FAX_LINES,
+  FaxLineListResponse.JSON_PROPERTY_WARNINGS
 })
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class FaxLineListResponse {
   public static final String JSON_PROPERTY_LIST_INFO = "list_info";
   private ListInfoResponse listInfo;
 
   public static final String JSON_PROPERTY_FAX_LINES = "fax_lines";
-  private List<FaxLineResponseFaxLine> faxLines = null;
+  private List<FaxLineResponseFaxLine> faxLines = new ArrayList<>();
 
   public static final String JSON_PROPERTY_WARNINGS = "warnings";
   private WarningResponse warnings;
@@ -79,12 +77,11 @@ public class FaxLineListResponse {
     return this;
   }
 
-   /**
+  /**
    * Get listInfo
    * @return listInfo
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LIST_INFO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -113,12 +110,11 @@ public class FaxLineListResponse {
     return this;
   }
 
-   /**
+  /**
    * Get faxLines
    * @return faxLines
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FAX_LINES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -139,12 +135,11 @@ public class FaxLineListResponse {
     return this;
   }
 
-   /**
+  /**
    * Get warnings
    * @return warnings
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_WARNINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

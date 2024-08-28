@@ -14,7 +14,6 @@
 package com.dropbox.sign.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.dropbox.sign.model.AccountResponse;
@@ -23,9 +22,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.dropbox.sign.JSON;
@@ -38,13 +36,13 @@ import com.dropbox.sign.ApiException;
  * FaxLineResponseFaxLine
  */
 @JsonPropertyOrder({
-    FaxLineResponseFaxLine.JSON_PROPERTY_NUMBER,
-    FaxLineResponseFaxLine.JSON_PROPERTY_CREATED_AT,
-    FaxLineResponseFaxLine.JSON_PROPERTY_UPDATED_AT,
-    FaxLineResponseFaxLine.JSON_PROPERTY_ACCOUNTS
+  FaxLineResponseFaxLine.JSON_PROPERTY_NUMBER,
+  FaxLineResponseFaxLine.JSON_PROPERTY_CREATED_AT,
+  FaxLineResponseFaxLine.JSON_PROPERTY_UPDATED_AT,
+  FaxLineResponseFaxLine.JSON_PROPERTY_ACCOUNTS
 })
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class FaxLineResponseFaxLine {
   public static final String JSON_PROPERTY_NUMBER = "number";
   private String number;
@@ -56,7 +54,7 @@ public class FaxLineResponseFaxLine {
   private Integer updatedAt;
 
   public static final String JSON_PROPERTY_ACCOUNTS = "accounts";
-  private List<AccountResponse> accounts = null;
+  private List<AccountResponse> accounts = new ArrayList<>();
 
   public FaxLineResponseFaxLine() { 
   }
@@ -81,12 +79,11 @@ public class FaxLineResponseFaxLine {
     return this;
   }
 
-   /**
+  /**
    * Number
    * @return number
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Number")
   @JsonProperty(JSON_PROPERTY_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -107,12 +104,11 @@ public class FaxLineResponseFaxLine {
     return this;
   }
 
-   /**
+  /**
    * Created at
    * @return createdAt
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Created at")
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -133,12 +129,11 @@ public class FaxLineResponseFaxLine {
     return this;
   }
 
-   /**
+  /**
    * Updated at
    * @return updatedAt
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Updated at")
   @JsonProperty(JSON_PROPERTY_UPDATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -167,12 +162,11 @@ public class FaxLineResponseFaxLine {
     return this;
   }
 
-   /**
+  /**
    * Get accounts
    * @return accounts
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ACCOUNTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

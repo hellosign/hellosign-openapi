@@ -4,8 +4,9 @@ import com.dropbox.sign.ApiClient;
 import com.dropbox.sign.TestHelper;
 import com.dropbox.sign.model.*;
 import com.fasterxml.jackson.databind.JsonNode;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.io.File;
 
@@ -25,7 +26,7 @@ public class TemplateApiTest {
         TemplateApi api = new TemplateApi(apiClient);
         TemplateGetResponse response = api.templateAddUser(templateId, request);
 
-        Assert.assertEquals(expectedResponse, response);
+        assertEquals(expectedResponse, response);
     }
 
     @Test
@@ -42,7 +43,7 @@ public class TemplateApiTest {
         TemplateApi api = new TemplateApi(apiClient);
         TemplateCreateEmbeddedDraftResponse response = api.templateCreateEmbeddedDraft(request);
 
-        Assert.assertEquals(expectedResponse, response);
+        assertEquals(expectedResponse, response);
     }
 
     @Test
@@ -68,7 +69,7 @@ public class TemplateApiTest {
         TemplateApi api = new TemplateApi(apiClient);
         TemplateGetResponse response = api.templateGet(templateId);
 
-        Assert.assertEquals(expectedResponse, response);
+        assertEquals(expectedResponse, response);
     }
 
     @Test
@@ -82,7 +83,7 @@ public class TemplateApiTest {
         TemplateApi api = new TemplateApi(apiClient);
         TemplateListResponse response = api.templateList(accountId, 1, 20, null);
 
-        Assert.assertEquals(expectedResponse, response);
+        assertEquals(expectedResponse, response);
     }
 
     @Test
@@ -100,7 +101,7 @@ public class TemplateApiTest {
         TemplateApi api = new TemplateApi(apiClient);
         TemplateGetResponse response = api.templateRemoveUser(templateId, request);
 
-        Assert.assertEquals(expectedResponse, response);
+        assertEquals(expectedResponse, response);
     }
 
     @Test
@@ -119,6 +120,6 @@ public class TemplateApiTest {
         TemplateApi api = new TemplateApi(apiClient);
         TemplateUpdateFilesResponse response = api.templateUpdateFiles(templateId, request);
 
-        Assert.assertEquals(expectedResponse, response);
+        assertEquals(expectedResponse, response);
     }
 }

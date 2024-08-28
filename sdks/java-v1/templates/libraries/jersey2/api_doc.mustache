@@ -4,10 +4,16 @@
 
 All URIs are relative to *{{basePath}}*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
+| Method | HTTP request | Description |
+|------------- | ------------- | -------------|
+{{#vendorExtensions.x-ignore-block}}
+{{#operations}}{{#operation}}| [**{{operationId}}**]({{classname}}.md#{{operationId}}) | **{{httpMethod}}** {{path}} | {{summary}} |
+{{/operation}}{{/operations}}
+{{/vendorExtensions.x-ignore-block}}
+{{! CUSTOM - BEGIN }}
 {{#operations}}{{#operation}}[**{{operationId}}**]({{classname}}.md#{{operationId}}) | **{{httpMethod}}** {{path}} | {{summary}}
 {{/operation}}{{/operations}}
+{{! CUSTOM - END }}
 
 {{#operations}}
 {{#operation}}
@@ -98,10 +104,16 @@ REPLACE_ME_WITH_EXAMPLE_FOR__{{{operationId}}}_Java_CODE
 ### Parameters
 
 {{^allParams}}This endpoint does not need any parameter.{{/allParams}}{{#allParams}}{{#-last}}
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------{{/-last}}{{/allParams}}
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|{{/-last}}{{/allParams}}
+{{#vendorExtensions.x-ignore-block}}
+{{#allParams}}| **{{paramName}}** | {{#isContainer}}{{#isArray}}{{#items}}{{#isModel}}{{^isFile}}[{{/isFile}}{{/isModel}}**List&lt;{{dataType}}&gt;**{{#isModel}}{{^isFile}}]({{^baseType}}{{dataType}}{{/baseType}}{{baseType}}.md){{/isFile}}{{/isModel}}{{/items}}{{/isArray}}{{#isMap}}{{#items}}{{#isModel}}{{^isFile}}[{{/isFile}}{{/isModel}}**Map&lt;String,{{dataType}}&gt;**{{#isModel}}{{^isFile}}]({{^baseType}}{{dataType}}{{/baseType}}{{baseType}}.md){{/isFile}}{{/isModel}}{{/items}}{{/isMap}}{{/isContainer}}{{^isContainer}}{{#isModel}}{{^isFile}}[{{/isFile}}{{/isModel}}**{{dataType}}**{{#isModel}}{{^isFile}}]({{^baseType}}{{dataType}}{{/baseType}}{{baseType}}.md){{/isFile}}{{/isModel}}{{/isContainer}}| {{description}} |{{^required}} [optional]{{/required}}{{^isContainer}}{{#defaultValue}} [default to {{.}}]{{/defaultValue}}{{/isContainer}}{{#allowableValues}} [enum: {{#values}}{{{.}}}{{^-last}}, {{/-last}}{{/values}}]{{/allowableValues}} |
+{{/allParams}}
+{{/vendorExtensions.x-ignore-block}}
+{{! CUSTOM - BEGIN }}
 {{#allParams}} **{{paramName}}** | {{#isContainer}}{{#isArray}}{{#items}}{{#isModel}}{{^isFile}}[{{/isFile}}{{/isModel}}**List&lt;{{dataType}}&gt;**{{#isModel}}{{^isFile}}]({{^baseType}}{{dataType}}{{/baseType}}{{baseType}}.md){{/isFile}}{{/isModel}}{{/items}}{{/isArray}}{{#isMap}}{{#items}}{{#isModel}}{{^isFile}}[{{/isFile}}{{/isModel}}**Map&lt;String,{{dataType}}&gt;**{{#isModel}}{{^isFile}}]({{^baseType}}{{dataType}}{{/baseType}}{{baseType}}.md){{/isFile}}{{/isModel}}{{/items}}{{/isMap}}{{/isContainer}}{{^isContainer}}{{#isModel}}{{^isFile}}[{{/isFile}}{{/isModel}}**{{dataType}}**{{#isModel}}{{^isFile}}]({{^baseType}}{{dataType}}{{/baseType}}{{baseType}}.md){{/isFile}}{{/isModel}}{{/isContainer}}| {{description}} |{{^required}} [optional]{{/required}}{{^isContainer}}{{#defaultValue}} [default to {{.}}]{{/defaultValue}}{{/isContainer}}{{#allowableValues}} [enum: {{#values}}{{{.}}}{{^-last}}, {{/-last}}{{/values}}]{{/allowableValues}}
 {{/allParams}}
+{{! CUSTOM - END }}
 
 ### Return type
 
