@@ -105,8 +105,8 @@
       self.openapi_nullable
       {{/parent}}
     end
-{{/useCustomTemplateCode}}
 
+{{/useCustomTemplateCode}}
     {{#anyOf}}
     {{#-first}}
     # List of class defined in anyOf (OpenAPI v3)
@@ -381,6 +381,7 @@
       if {{{name}}}.nil?
         fail ArgumentError, '{{{name}}} cannot be nil'
       end
+
 {{/useCustomTemplateCode}}
 {{#useCustomTemplateCode}}
       {{#required}}

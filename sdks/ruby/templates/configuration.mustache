@@ -5,8 +5,8 @@
 {{#useCustomTemplateCode}}
 module Dropbox
 end
-{{/useCustomTemplateCode}}
 
+{{/useCustomTemplateCode}}
 module {{moduleName}}
   class Configuration
     # Defines url scheme
@@ -274,7 +274,6 @@ module {{moduleName}}
 {{/isOAuth}}
 {{/authMethods}}
       }
-    end
 {{/useCustomTemplateCode}}
 {{#useCustomTemplateCode}}
     def auth_settings()
@@ -307,8 +306,8 @@ module {{moduleName}}
 {{/isBasic}}
 {{/authMethods}}
       return result
-    end
 {{/useCustomTemplateCode}}
+    end
 
     # Returns an array of Server setting
     def server_settings
