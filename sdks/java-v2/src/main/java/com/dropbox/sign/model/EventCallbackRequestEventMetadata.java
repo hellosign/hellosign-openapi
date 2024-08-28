@@ -24,6 +24,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.dropbox.sign.JSON;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 
 import com.dropbox.sign.ApiException;
@@ -38,6 +40,7 @@ import com.dropbox.sign.ApiException;
   EventCallbackRequestEventMetadata.JSON_PROPERTY_EVENT_MESSAGE
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
+@JsonIgnoreProperties(ignoreUnknown=true)
 public class EventCallbackRequestEventMetadata {
   public static final String JSON_PROPERTY_RELATED_SIGNATURE_ID = "related_signature_id";
   private String relatedSignatureId;

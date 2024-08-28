@@ -9,6 +9,7 @@ lazy val root = (project in file(".")).
     Compile / packageDoc / publishArtifact := false,
     resolvers += Resolver.mavenLocal,
     libraryDependencies ++= Seq(
+      libraryDependencies += "commons-codec" % "commons-codec" % "1.15"
       "com.google.code.findbugs" % "jsr305" % "3.0.0",
       "io.swagger" % "swagger-annotations" % "1.6.5",
       "org.glassfish.jersey.core" % "jersey-client" % "3.0.4",

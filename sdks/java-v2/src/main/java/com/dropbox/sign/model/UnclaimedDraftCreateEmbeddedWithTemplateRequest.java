@@ -35,6 +35,8 @@ import java.util.List;
 import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.dropbox.sign.JSON;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 
 import com.dropbox.sign.ApiException;
@@ -74,6 +76,7 @@ import com.dropbox.sign.ApiException;
   UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_ALLOW_CCS
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
+@JsonIgnoreProperties(ignoreUnknown=true)
 public class UnclaimedDraftCreateEmbeddedWithTemplateRequest {
   public static final String JSON_PROPERTY_CLIENT_ID = "client_id";
   private String clientId;
@@ -91,10 +94,10 @@ public class UnclaimedDraftCreateEmbeddedWithTemplateRequest {
   private Boolean allowReassign = false;
 
   public static final String JSON_PROPERTY_CCS = "ccs";
-  private List<SubCC> ccs = new ArrayList<>();
+  private List<SubCC> ccs = null;
 
   public static final String JSON_PROPERTY_CUSTOM_FIELDS = "custom_fields";
-  private List<SubCustomField> customFields = new ArrayList<>();
+  private List<SubCustomField> customFields = null;
 
   public static final String JSON_PROPERTY_EDITOR_OPTIONS = "editor_options";
   private SubEditorOptions editorOptions;
@@ -103,10 +106,10 @@ public class UnclaimedDraftCreateEmbeddedWithTemplateRequest {
   private SubFieldOptions fieldOptions;
 
   public static final String JSON_PROPERTY_FILES = "files";
-  private List<File> files = new ArrayList<>();
+  private List<File> files = null;
 
   public static final String JSON_PROPERTY_FILE_URLS = "file_urls";
-  private List<String> fileUrls = new ArrayList<>();
+  private List<String> fileUrls = null;
 
   public static final String JSON_PROPERTY_FORCE_SIGNER_ROLES = "force_signer_roles";
   private Boolean forceSignerRoles = false;
@@ -124,7 +127,7 @@ public class UnclaimedDraftCreateEmbeddedWithTemplateRequest {
   private String message;
 
   public static final String JSON_PROPERTY_METADATA = "metadata";
-  private Map<String, Object> metadata = new HashMap<>();
+  private Map<String, Object> metadata = null;
 
   public static final String JSON_PROPERTY_PREVIEW_ONLY = "preview_only";
   private Boolean previewOnly = false;
@@ -139,7 +142,7 @@ public class UnclaimedDraftCreateEmbeddedWithTemplateRequest {
   private Boolean showProgressStepper = true;
 
   public static final String JSON_PROPERTY_SIGNERS = "signers";
-  private List<SubUnclaimedDraftTemplateSigner> signers = new ArrayList<>();
+  private List<SubUnclaimedDraftTemplateSigner> signers = null;
 
   public static final String JSON_PROPERTY_SIGNING_OPTIONS = "signing_options";
   private SubSigningOptions signingOptions;

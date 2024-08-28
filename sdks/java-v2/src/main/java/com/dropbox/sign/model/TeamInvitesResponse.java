@@ -28,6 +28,8 @@ import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.dropbox.sign.JSON;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 
 import com.dropbox.sign.ApiException;
@@ -39,12 +41,13 @@ import com.dropbox.sign.ApiException;
   TeamInvitesResponse.JSON_PROPERTY_WARNINGS
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
+@JsonIgnoreProperties(ignoreUnknown=true)
 public class TeamInvitesResponse {
   public static final String JSON_PROPERTY_TEAM_INVITES = "team_invites";
-  private List<TeamInviteResponse> teamInvites = new ArrayList<>();
+  private List<TeamInviteResponse> teamInvites = null;
 
   public static final String JSON_PROPERTY_WARNINGS = "warnings";
-  private List<WarningResponse> warnings = new ArrayList<>();
+  private List<WarningResponse> warnings = null;
 
   public TeamInvitesResponse() { 
   }

@@ -66,7 +66,6 @@ import com.dropbox.sign.auth.Authentication;
 import com.dropbox.sign.auth.HttpBasicAuth;
 import com.dropbox.sign.auth.HttpBearerAuth;
 import com.dropbox.sign.auth.ApiKeyAuth;
-
 import com.dropbox.sign.model.ErrorResponse;
 
 /**

@@ -28,6 +28,8 @@ import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.dropbox.sign.JSON;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 
 import com.dropbox.sign.ApiException;
@@ -39,12 +41,13 @@ import com.dropbox.sign.ApiException;
   TemplateGetResponse.JSON_PROPERTY_WARNINGS
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
+@JsonIgnoreProperties(ignoreUnknown=true)
 public class TemplateGetResponse {
   public static final String JSON_PROPERTY_TEMPLATE = "template";
   private TemplateResponse template;
 
   public static final String JSON_PROPERTY_WARNINGS = "warnings";
-  private List<WarningResponse> warnings = new ArrayList<>();
+  private List<WarningResponse> warnings = null;
 
   public TemplateGetResponse() { 
   }

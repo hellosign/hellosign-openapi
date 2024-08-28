@@ -28,6 +28,8 @@ import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.dropbox.sign.JSON;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 
 import com.dropbox.sign.ApiException;
@@ -47,12 +49,13 @@ import com.dropbox.sign.ApiException;
   EmbeddedEditUrlRequest.JSON_PROPERTY_TEST_MODE
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
+@JsonIgnoreProperties(ignoreUnknown=true)
 public class EmbeddedEditUrlRequest {
   public static final String JSON_PROPERTY_ALLOW_EDIT_CCS = "allow_edit_ccs";
   private Boolean allowEditCcs = false;
 
   public static final String JSON_PROPERTY_CC_ROLES = "cc_roles";
-  private List<String> ccRoles = new ArrayList<>();
+  private List<String> ccRoles = null;
 
   public static final String JSON_PROPERTY_EDITOR_OPTIONS = "editor_options";
   private SubEditorOptions editorOptions;
@@ -64,7 +67,7 @@ public class EmbeddedEditUrlRequest {
   private Boolean forceSubjectMessage = false;
 
   public static final String JSON_PROPERTY_MERGE_FIELDS = "merge_fields";
-  private List<SubMergeField> mergeFields = new ArrayList<>();
+  private List<SubMergeField> mergeFields = null;
 
   public static final String JSON_PROPERTY_PREVIEW_ONLY = "preview_only";
   private Boolean previewOnly = false;

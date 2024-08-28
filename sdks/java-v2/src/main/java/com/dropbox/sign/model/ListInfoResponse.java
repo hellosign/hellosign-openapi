@@ -24,6 +24,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.dropbox.sign.JSON;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 
 import com.dropbox.sign.ApiException;
@@ -38,6 +40,7 @@ import com.dropbox.sign.ApiException;
   ListInfoResponse.JSON_PROPERTY_PAGE_SIZE
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
+@JsonIgnoreProperties(ignoreUnknown=true)
 public class ListInfoResponse {
   public static final String JSON_PROPERTY_NUM_PAGES = "num_pages";
   private Integer numPages;

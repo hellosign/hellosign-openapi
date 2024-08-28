@@ -37,6 +37,8 @@ import java.util.List;
 import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.dropbox.sign.JSON;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 
 import com.dropbox.sign.ApiException;
@@ -71,15 +73,16 @@ import com.dropbox.sign.ApiException;
   TemplateCreateEmbeddedDraftRequest.JSON_PROPERTY_USE_PREEXISTING_FIELDS
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
+@JsonIgnoreProperties(ignoreUnknown=true)
 public class TemplateCreateEmbeddedDraftRequest {
   public static final String JSON_PROPERTY_CLIENT_ID = "client_id";
   private String clientId;
 
   public static final String JSON_PROPERTY_FILES = "files";
-  private List<File> files = new ArrayList<>();
+  private List<File> files = null;
 
   public static final String JSON_PROPERTY_FILE_URLS = "file_urls";
-  private List<String> fileUrls = new ArrayList<>();
+  private List<String> fileUrls = null;
 
   public static final String JSON_PROPERTY_ALLOW_CCS = "allow_ccs";
   private Boolean allowCcs = true;
@@ -88,10 +91,10 @@ public class TemplateCreateEmbeddedDraftRequest {
   private Boolean allowReassign = false;
 
   public static final String JSON_PROPERTY_ATTACHMENTS = "attachments";
-  private List<SubAttachment> attachments = new ArrayList<>();
+  private List<SubAttachment> attachments = null;
 
   public static final String JSON_PROPERTY_CC_ROLES = "cc_roles";
-  private List<String> ccRoles = new ArrayList<>();
+  private List<String> ccRoles = null;
 
   public static final String JSON_PROPERTY_EDITOR_OPTIONS = "editor_options";
   private SubEditorOptions editorOptions;
@@ -106,22 +109,22 @@ public class TemplateCreateEmbeddedDraftRequest {
   private Boolean forceSubjectMessage = false;
 
   public static final String JSON_PROPERTY_FORM_FIELD_GROUPS = "form_field_groups";
-  private List<SubFormFieldGroup> formFieldGroups = new ArrayList<>();
+  private List<SubFormFieldGroup> formFieldGroups = null;
 
   public static final String JSON_PROPERTY_FORM_FIELD_RULES = "form_field_rules";
-  private List<SubFormFieldRule> formFieldRules = new ArrayList<>();
+  private List<SubFormFieldRule> formFieldRules = null;
 
   public static final String JSON_PROPERTY_FORM_FIELDS_PER_DOCUMENT = "form_fields_per_document";
-  private List<SubFormFieldsPerDocumentBase> formFieldsPerDocument = new ArrayList<>();
+  private List<SubFormFieldsPerDocumentBase> formFieldsPerDocument = null;
 
   public static final String JSON_PROPERTY_MERGE_FIELDS = "merge_fields";
-  private List<SubMergeField> mergeFields = new ArrayList<>();
+  private List<SubMergeField> mergeFields = null;
 
   public static final String JSON_PROPERTY_MESSAGE = "message";
   private String message;
 
   public static final String JSON_PROPERTY_METADATA = "metadata";
-  private Map<String, Object> metadata = new HashMap<>();
+  private Map<String, Object> metadata = null;
 
   public static final String JSON_PROPERTY_SHOW_PREVIEW = "show_preview";
   private Boolean showPreview = false;
@@ -130,7 +133,7 @@ public class TemplateCreateEmbeddedDraftRequest {
   private Boolean showProgressStepper = true;
 
   public static final String JSON_PROPERTY_SIGNER_ROLES = "signer_roles";
-  private List<SubTemplateRole> signerRoles = new ArrayList<>();
+  private List<SubTemplateRole> signerRoles = null;
 
   public static final String JSON_PROPERTY_SKIP_ME_NOW = "skip_me_now";
   private Boolean skipMeNow = false;

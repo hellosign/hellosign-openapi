@@ -30,6 +30,8 @@ import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.dropbox.sign.JSON;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 
 import com.dropbox.sign.ApiException;
@@ -45,6 +47,7 @@ import com.dropbox.sign.ApiException;
   TemplateResponseDocument.JSON_PROPERTY_STATIC_FIELDS
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
+@JsonIgnoreProperties(ignoreUnknown=true)
 public class TemplateResponseDocument {
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
@@ -53,16 +56,16 @@ public class TemplateResponseDocument {
   private Integer index;
 
   public static final String JSON_PROPERTY_FIELD_GROUPS = "field_groups";
-  private List<TemplateResponseDocumentFieldGroup> fieldGroups = new ArrayList<>();
+  private List<TemplateResponseDocumentFieldGroup> fieldGroups = null;
 
   public static final String JSON_PROPERTY_FORM_FIELDS = "form_fields";
-  private List<TemplateResponseDocumentFormFieldBase> formFields = new ArrayList<>();
+  private List<TemplateResponseDocumentFormFieldBase> formFields = null;
 
   public static final String JSON_PROPERTY_CUSTOM_FIELDS = "custom_fields";
-  private List<TemplateResponseDocumentCustomFieldBase> customFields = new ArrayList<>();
+  private List<TemplateResponseDocumentCustomFieldBase> customFields = null;
 
   public static final String JSON_PROPERTY_STATIC_FIELDS = "static_fields";
-  private List<TemplateResponseDocumentStaticFieldBase> staticFields;
+  private List<TemplateResponseDocumentStaticFieldBase> staticFields = null;
 
   public TemplateResponseDocument() { 
   }

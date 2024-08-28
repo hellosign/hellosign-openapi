@@ -27,6 +27,8 @@ import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.dropbox.sign.JSON;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 
 import com.dropbox.sign.ApiException;
@@ -40,6 +42,7 @@ import com.dropbox.sign.ApiException;
   FaxLineResponseFaxLine.JSON_PROPERTY_ACCOUNTS
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
+@JsonIgnoreProperties(ignoreUnknown=true)
 public class FaxLineResponseFaxLine {
   public static final String JSON_PROPERTY_NUMBER = "number";
   private String number;
@@ -51,7 +54,7 @@ public class FaxLineResponseFaxLine {
   private Integer updatedAt;
 
   public static final String JSON_PROPERTY_ACCOUNTS = "accounts";
-  private List<AccountResponse> accounts = new ArrayList<>();
+  private List<AccountResponse> accounts = null;
 
   public FaxLineResponseFaxLine() { 
   }

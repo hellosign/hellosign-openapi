@@ -30,6 +30,8 @@ import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.dropbox.sign.JSON;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 
 import com.dropbox.sign.ApiException;
@@ -46,6 +48,7 @@ import com.dropbox.sign.ApiException;
   ApiAppUpdateRequest.JSON_PROPERTY_WHITE_LABELING_OPTIONS
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
+@JsonIgnoreProperties(ignoreUnknown=true)
 public class ApiAppUpdateRequest {
   public static final String JSON_PROPERTY_CALLBACK_URL = "callback_url";
   private String callbackUrl;
@@ -54,7 +57,7 @@ public class ApiAppUpdateRequest {
   private File customLogoFile;
 
   public static final String JSON_PROPERTY_DOMAINS = "domains";
-  private List<String> domains = new ArrayList<>();
+  private List<String> domains = null;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;

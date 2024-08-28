@@ -26,6 +26,8 @@ import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.dropbox.sign.JSON;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 
 import com.dropbox.sign.ApiException;
@@ -39,6 +41,7 @@ import com.dropbox.sign.ApiException;
   SubFormFieldRuleTrigger.JSON_PROPERTY_VALUES
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
+@JsonIgnoreProperties(ignoreUnknown=true)
 public class SubFormFieldRuleTrigger {
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
@@ -91,7 +94,7 @@ public class SubFormFieldRuleTrigger {
   private String value;
 
   public static final String JSON_PROPERTY_VALUES = "values";
-  private List<String> values = new ArrayList<>();
+  private List<String> values = null;
 
   public SubFormFieldRuleTrigger() { 
   }

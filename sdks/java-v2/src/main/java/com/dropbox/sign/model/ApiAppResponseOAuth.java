@@ -26,6 +26,8 @@ import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.dropbox.sign.JSON;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 
 import com.dropbox.sign.ApiException;
@@ -40,6 +42,7 @@ import com.dropbox.sign.ApiException;
   ApiAppResponseOAuth.JSON_PROPERTY_CHARGES_USERS
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
+@JsonIgnoreProperties(ignoreUnknown=true)
 public class ApiAppResponseOAuth {
   public static final String JSON_PROPERTY_CALLBACK_URL = "callback_url";
   private String callbackUrl;
@@ -48,7 +51,7 @@ public class ApiAppResponseOAuth {
   private String secret;
 
   public static final String JSON_PROPERTY_SCOPES = "scopes";
-  private List<String> scopes = new ArrayList<>();
+  private List<String> scopes = null;
 
   public static final String JSON_PROPERTY_CHARGES_USERS = "charges_users";
   private Boolean chargesUsers;

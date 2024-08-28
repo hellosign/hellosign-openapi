@@ -32,6 +32,8 @@ import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.dropbox.sign.JSON;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 
 import com.dropbox.sign.ApiException;
@@ -57,6 +59,7 @@ import com.dropbox.sign.ApiException;
   TemplateResponse.JSON_PROPERTY_ACCOUNTS
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
+@JsonIgnoreProperties(ignoreUnknown=true)
 public class TemplateResponse {
   public static final String JSON_PROPERTY_TEMPLATE_ID = "template_id";
   private String templateId;
@@ -86,24 +89,24 @@ public class TemplateResponse {
   private Object metadata;
 
   public static final String JSON_PROPERTY_SIGNER_ROLES = "signer_roles";
-  private List<TemplateResponseSignerRole> signerRoles = new ArrayList<>();
+  private List<TemplateResponseSignerRole> signerRoles = null;
 
   public static final String JSON_PROPERTY_CC_ROLES = "cc_roles";
-  private List<TemplateResponseCCRole> ccRoles = new ArrayList<>();
+  private List<TemplateResponseCCRole> ccRoles = null;
 
   public static final String JSON_PROPERTY_DOCUMENTS = "documents";
-  private List<TemplateResponseDocument> documents = new ArrayList<>();
+  private List<TemplateResponseDocument> documents = null;
 
   public static final String JSON_PROPERTY_CUSTOM_FIELDS = "custom_fields";
   @Deprecated
-  private List<TemplateResponseDocumentCustomFieldBase> customFields;
+  private List<TemplateResponseDocumentCustomFieldBase> customFields = null;
 
   public static final String JSON_PROPERTY_NAMED_FORM_FIELDS = "named_form_fields";
   @Deprecated
-  private List<TemplateResponseDocumentFormFieldBase> namedFormFields;
+  private List<TemplateResponseDocumentFormFieldBase> namedFormFields = null;
 
   public static final String JSON_PROPERTY_ACCOUNTS = "accounts";
-  private List<TemplateResponseAccount> accounts;
+  private List<TemplateResponseAccount> accounts = null;
 
   public TemplateResponse() { 
   }

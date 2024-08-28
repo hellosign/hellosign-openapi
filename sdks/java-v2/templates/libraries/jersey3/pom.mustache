@@ -290,6 +290,13 @@
             <version>${swagger-annotations-version}</version>
         </dependency>
         {{/swagger2AnnotationLibrary}}
+{{#useCustomTemplateCode}}
+        <dependency>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
+            <version>1.15</version>
+        </dependency>
+{{/useCustomTemplateCode}}
 
         <!-- @Nullable annotation -->
         <dependency>
@@ -409,6 +416,7 @@
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
             <version>${mockito.version}</version>
+            <scope>test</scope>
         </dependency>
 {{/useCustomTemplateCode}}
     </dependencies>

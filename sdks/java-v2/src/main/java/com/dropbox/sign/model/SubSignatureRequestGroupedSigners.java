@@ -27,6 +27,8 @@ import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.dropbox.sign.JSON;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 
 import com.dropbox.sign.ApiException;
@@ -39,6 +41,7 @@ import com.dropbox.sign.ApiException;
   SubSignatureRequestGroupedSigners.JSON_PROPERTY_ORDER
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
+@JsonIgnoreProperties(ignoreUnknown=true)
 public class SubSignatureRequestGroupedSigners {
   public static final String JSON_PROPERTY_GROUP = "group";
   private String group;

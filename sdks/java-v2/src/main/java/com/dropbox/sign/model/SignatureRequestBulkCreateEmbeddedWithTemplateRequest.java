@@ -32,6 +32,8 @@ import java.util.List;
 import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.dropbox.sign.JSON;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 
 import com.dropbox.sign.ApiException;
@@ -54,6 +56,7 @@ import com.dropbox.sign.ApiException;
   SignatureRequestBulkCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_TITLE
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
+@JsonIgnoreProperties(ignoreUnknown=true)
 public class SignatureRequestBulkCreateEmbeddedWithTemplateRequest {
   public static final String JSON_PROPERTY_TEMPLATE_IDS = "template_ids";
   private List<String> templateIds = new ArrayList<>();
@@ -65,22 +68,22 @@ public class SignatureRequestBulkCreateEmbeddedWithTemplateRequest {
   private File signerFile;
 
   public static final String JSON_PROPERTY_SIGNER_LIST = "signer_list";
-  private List<SubBulkSignerList> signerList = new ArrayList<>();
+  private List<SubBulkSignerList> signerList = null;
 
   public static final String JSON_PROPERTY_ALLOW_DECLINE = "allow_decline";
   private Boolean allowDecline = false;
 
   public static final String JSON_PROPERTY_CCS = "ccs";
-  private List<SubCC> ccs = new ArrayList<>();
+  private List<SubCC> ccs = null;
 
   public static final String JSON_PROPERTY_CUSTOM_FIELDS = "custom_fields";
-  private List<SubCustomField> customFields = new ArrayList<>();
+  private List<SubCustomField> customFields = null;
 
   public static final String JSON_PROPERTY_MESSAGE = "message";
   private String message;
 
   public static final String JSON_PROPERTY_METADATA = "metadata";
-  private Map<String, Object> metadata = new HashMap<>();
+  private Map<String, Object> metadata = null;
 
   public static final String JSON_PROPERTY_SIGNING_REDIRECT_URL = "signing_redirect_url";
   private String signingRedirectUrl;

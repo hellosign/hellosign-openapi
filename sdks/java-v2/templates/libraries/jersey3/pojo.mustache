@@ -30,6 +30,13 @@ import com.dropbox.sign.ApiException;
 {{#vendorExtensions.x-class-extra-annotation}}
 {{{vendorExtensions.x-class-extra-annotation}}}
 {{/vendorExtensions.x-class-extra-annotation}}
+{{#useCustomTemplateCode}}
+{{^parent}}
+{{^discriminator}}
+@JsonIgnoreProperties(ignoreUnknown=true)
+{{/discriminator}}
+{{/parent}}
+{{/useCustomTemplateCode}}
 public class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{{#vendorExtensions.x-implements}}{{#-first}}implements {{{.}}}{{/-first}}{{^-first}}, {{{.}}}{{/-first}}{{#-last}} {{/-last}}{{/vendorExtensions.x-implements}}{
 {{#serializableModel}}
   private static final long serialVersionUID = 1L;
@@ -84,7 +91,17 @@ public class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{{#vendorExtens
   {{#deprecated}}
   @Deprecated
   {{/deprecated}}
+{{^useCustomTemplateCode}}
   private {{{datatypeWithEnum}}} {{name}}{{#defaultValue}} = {{{.}}}{{/defaultValue}};
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
+  {{#isContainer}}
+  private {{{datatypeWithEnum}}} {{name}}{{#required}}{{#defaultValue}} = {{{.}}}{{/defaultValue}}{{/required}}{{^required}} = null{{/required}};
+  {{/isContainer}}
+  {{^isContainer}}
+  private {{{datatypeWithEnum}}} {{name}}{{#defaultValue}} = {{{.}}}{{/defaultValue}};
+  {{/isContainer}}
+{{/useCustomTemplateCode}}
   {{/vendorExtensions.x-is-jackson-optional-nullable}}
 
   {{/vars}}
