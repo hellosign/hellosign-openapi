@@ -8,8 +8,8 @@ require 'time'
 {{! CUSTOM - BEGIN }}
 module Dropbox
 end
-{{! CUSTOM - END }}
 
+{{! CUSTOM - END }}
 module {{moduleName}}
 {{#models}}
 {{#model}}
@@ -35,7 +35,9 @@ module {{moduleName}}
 {{>partial_model_generic}}
 {{/anyOf}}
 {{/vendorExtensions.x-ignore-block}}
+{{! CUSTOM - BEGIN }}
 {{>partial_model_generic}}
+{{! CUSTOM - END }}
 {{/oneOf}}
 {{/isEnum}}
 {{/model}}

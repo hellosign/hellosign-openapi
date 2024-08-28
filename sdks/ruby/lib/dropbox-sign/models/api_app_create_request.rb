@@ -190,7 +190,6 @@ module Dropbox::Sign
       if domains.nil?
         fail ArgumentError, 'domains cannot be nil'
       end
-
       if domains.length > 2
         fail ArgumentError, 'invalid value for "domains", number of items must be less than or equal to 2.'
       end
@@ -294,7 +293,6 @@ module Dropbox::Sign
           end
         end
       else # model
-        # models (e.g. Pet)
         klass = Dropbox::Sign.const_get(type)
         klass.respond_to?(:openapi_any_of) || klass.respond_to?(:openapi_one_of) ? klass.build(value) : klass.build_from_hash(value)
       end

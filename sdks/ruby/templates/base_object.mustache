@@ -69,8 +69,12 @@
     # @param string type Data type
     # @param string value Value to be deserialized
     # @return [Object] Deserialized data
-{{! CUSTOM - self._deserialize -> _deserialize }}
+{{#vendorExtensions.x-ignore-block}}
+    def self._deserialize(type, value)
+{{/vendorExtensions.x-ignore-block}}
+{{! CUSTOM - BEGIN }}
     def _deserialize(type, value)
+{{! CUSTOM - END }}
       case type.to_sym
       when :Time
         Time.parse(value)
@@ -103,8 +107,9 @@
           end
         end
       else # model
-{{! CUSTOM - Remove "or oneOf }}
-        # models (e.g. Pet)
+{{#vendorExtensions.x-ignore-block}}
+        # models (e.g. Pet) or oneOf
+{{/vendorExtensions.x-ignore-block}}
         klass = {{moduleName}}.const_get(type)
         klass.respond_to?(:openapi_any_of) || klass.respond_to?(:openapi_one_of) ? klass.build(value) : klass.build_from_hash(value)
       end
@@ -124,22 +129,37 @@
 
     # Returns the object in the form of hash
     # @return [Hash] Returns the object in the form of hash
-{{! CUSTOM - to_hash -> to_hash(include_nil = true) }}
+{{#vendorExtensions.x-ignore-block}}
+    def to_hash
+{{/vendorExtensions.x-ignore-block}}
+{{! CUSTOM - BEGIN }}
     def to_hash(include_nil = true)
+{{! CUSTOM - END }}
       hash = {{^parent}}{}{{/parent}}{{#parent}}super{{/parent}}
-{{! CUSTOM - attribute_map -> merged_attributes }}
+{{#vendorExtensions.x-ignore-block}}
+      self.class.attribute_map.each_pair do |attr, param|
+{{/vendorExtensions.x-ignore-block}}
+{{! CUSTOM - BEGIN }}
       self.class.merged_attributes.each_pair do |attr, param|
+{{! CUSTOM - END }}
         value = self.send(attr)
         if value.nil?
-{{! CUSTOM - add "next unless include_nil" }}
+{{#vendorExtensions.x-ignore-block}}
+          is_nullable = self.class.openapi_nullable.include?(attr)
+{{/vendorExtensions.x-ignore-block}}
+{{! CUSTOM - BEGIN }}
           next unless include_nil
-{{! CUSTOM - openapi_nullable -> merged_nullable }}
           is_nullable = self.class.merged_nullable.include?(attr)
+{{! CUSTOM - END }}
           next if !is_nullable || (is_nullable && !instance_variable_defined?(:"@#{attr}"))
         end
 
-{{! CUSTOM - _to_hash(value) -> _to_hash(value, include_nil) }}
+{{#vendorExtensions.x-ignore-block}}
+        hash[param] = _to_hash(value)
+{{/vendorExtensions.x-ignore-block}}
+{{! CUSTOM - BEGIN }}
         hash[param] = _to_hash(value, include_nil)
+{{! CUSTOM - END }}
       end
       hash
     end
@@ -148,19 +168,35 @@
     # For object, use to_hash. Otherwise, just return the value
     # @param [Object] value Any valid value
     # @return [Hash] Returns the value in the form of hash
-{{! CUSTOM - _to_hash(value) -> _to_hash(value, include_nil = true) }}
+{{#vendorExtensions.x-ignore-block}}
+    def _to_hash(value)
+{{/vendorExtensions.x-ignore-block}}
+{{! CUSTOM - BEGIN }}
     def _to_hash(value, include_nil = true)
+{{! CUSTOM - END }}
       if value.is_a?(Array)
-{{! CUSTOM - _to_hash(v) -> _to_hash(v, include_nil) }}
+{{#vendorExtensions.x-ignore-block}}
+        value.compact.map { |v| _to_hash(v) }
+{{/vendorExtensions.x-ignore-block}}
+{{! CUSTOM - BEGIN }}
         value.compact.map { |v| _to_hash(v, include_nil) }
+{{! CUSTOM - END }}
       elsif value.is_a?(Hash)
         {}.tap do |hash|
-{{! CUSTOM - _to_hash(v) -> _to_hash(v, include_nil) }}
+{{#vendorExtensions.x-ignore-block}}
+          value.each { |k, v| hash[k] = _to_hash(v) }
+{{/vendorExtensions.x-ignore-block}}
+{{! CUSTOM - BEGIN }}
           value.each { |k, v| hash[k] = _to_hash(v, include_nil) }
+{{! CUSTOM - END }}
         end
       elsif value.respond_to? :to_hash
-{{! CUSTOM - value.to_hash -> value.to_hash(include_nil) }}
+{{#vendorExtensions.x-ignore-block}}
+        value.to_hash
+{{/vendorExtensions.x-ignore-block}}
+{{! CUSTOM - BEGIN }}
         value.to_hash(include_nil)
+{{! CUSTOM - END }}
       else
         value
       end

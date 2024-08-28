@@ -200,7 +200,6 @@ module Dropbox::Sign
       if options.nil?
         fail ArgumentError, 'options cannot be nil'
       end
-
       if options.length < 1
         fail ArgumentError, 'invalid value for "options", number of items must be greater than or equal to 1.'
       end
@@ -309,7 +308,6 @@ module Dropbox::Sign
           end
         end
       else # model
-        # models (e.g. Pet)
         klass = Dropbox::Sign.const_get(type)
         klass.respond_to?(:openapi_any_of) || klass.respond_to?(:openapi_one_of) ? klass.build(value) : klass.build_from_hash(value)
       end

@@ -315,8 +315,12 @@ module {{moduleName}}
       [
       {{#servers}}
         {
-{{! CUSTOM - Change URL to use gsub/sub }}
+{{#vendorExtensions.x-ignore-block}}
+          url: "{{{url}}}",
+{{/vendorExtensions.x-ignore-block}}
+{{! CUSTOM - BEGIN }}
           url: "#{scheme}://#{[host, base_path].join('/').gsub(/\/+/, '/')}".sub(/\/+\z/, ''),
+{{! CUSTOM - END }}
           description: "{{{description}}}{{^description}}No description provided{{/description}}",
           {{#variables}}
           {{#-first}}

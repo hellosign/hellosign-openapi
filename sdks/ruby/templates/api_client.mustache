@@ -135,8 +135,9 @@ module {{moduleName}}
           data.each { |k, v| hash[k] = convert_to_type(v, sub_type) }
         end
       else
-{{! CUSTOM - Remove "or oneOf }}
-        # models (e.g. Pet)
+{{#vendorExtensions.x-ignore-block}}
+        # models (e.g. Pet) or oneOf
+{{/vendorExtensions.x-ignore-block}}
         klass = {{moduleName}}.const_get(return_type)
         klass.respond_to?(:openapi_one_of) ? klass.build(data) : klass.build_from_hash(data)
       end
@@ -247,8 +248,8 @@ module {{moduleName}}
         fail "unknown collection format: #{collection_format.inspect}"
       end
     end
-
 {{! CUSTOM - BEGIN }}
+
     def generate_form_data(obj, openapi_types)
       params = {}
       has_file = false

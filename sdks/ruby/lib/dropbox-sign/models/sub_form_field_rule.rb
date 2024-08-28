@@ -182,7 +182,6 @@ module Dropbox::Sign
       if triggers.nil?
         fail ArgumentError, 'triggers cannot be nil'
       end
-
       if triggers.length > 1
         fail ArgumentError, 'invalid value for "triggers", number of items must be less than or equal to 1.'
       end
@@ -200,7 +199,6 @@ module Dropbox::Sign
       if actions.nil?
         fail ArgumentError, 'actions cannot be nil'
       end
-
       if actions.length < 1
         fail ArgumentError, 'invalid value for "actions", number of items must be greater than or equal to 1.'
       end
@@ -297,7 +295,6 @@ module Dropbox::Sign
           end
         end
       else # model
-        # models (e.g. Pet)
         klass = Dropbox::Sign.const_get(type)
         klass.respond_to?(:openapi_any_of) || klass.respond_to?(:openapi_one_of) ? klass.build(value) : klass.build_from_hash(value)
       end

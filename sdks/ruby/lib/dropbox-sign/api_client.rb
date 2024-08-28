@@ -281,7 +281,6 @@ module Dropbox::Sign
           data.each { |k, v| hash[k] = convert_to_type(v, sub_type) }
         end
       else
-        # models (e.g. Pet)
         klass = Dropbox::Sign.const_get(return_type)
         klass.respond_to?(:openapi_one_of) ? klass.build(data) : klass.build_from_hash(data)
       end

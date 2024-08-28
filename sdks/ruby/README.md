@@ -52,6 +52,7 @@ gem install ./dropbox-sign-1.5-dev.gem
 
 (for development, run `gem install --dev ./dropbox-sign-1.5-dev.gem` to install the development dependencies)
 
+
 Finally add this to the Gemfile:
 
     gem 'dropbox-sign', '~> 1.5-dev'
