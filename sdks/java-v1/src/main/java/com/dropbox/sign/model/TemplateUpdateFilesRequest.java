@@ -50,10 +50,10 @@ public class TemplateUpdateFilesRequest {
   private String clientId;
 
   public static final String JSON_PROPERTY_FILES = "files";
-  private List<File> files = new ArrayList<>();
+  private List<File> files = null;
 
   public static final String JSON_PROPERTY_FILE_URLS = "file_urls";
-  private List<String> fileUrls = new ArrayList<>();
+  private List<String> fileUrls = null;
 
   public static final String JSON_PROPERTY_MESSAGE = "message";
   private String message;

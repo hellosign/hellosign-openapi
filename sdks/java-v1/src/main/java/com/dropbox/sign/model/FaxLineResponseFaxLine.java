@@ -54,7 +54,7 @@ public class FaxLineResponseFaxLine {
   private Integer updatedAt;
 
   public static final String JSON_PROPERTY_ACCOUNTS = "accounts";
-  private List<AccountResponse> accounts = new ArrayList<>();
+  private List<AccountResponse> accounts = null;
 
   public FaxLineResponseFaxLine() { 
   }

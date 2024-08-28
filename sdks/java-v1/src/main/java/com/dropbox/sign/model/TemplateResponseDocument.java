@@ -56,16 +56,16 @@ public class TemplateResponseDocument {
   private Integer index;
 
   public static final String JSON_PROPERTY_FIELD_GROUPS = "field_groups";
-  private List<TemplateResponseDocumentFieldGroup> fieldGroups = new ArrayList<>();
+  private List<TemplateResponseDocumentFieldGroup> fieldGroups = null;
 
   public static final String JSON_PROPERTY_FORM_FIELDS = "form_fields";
-  private List<TemplateResponseDocumentFormFieldBase> formFields = new ArrayList<>();
+  private List<TemplateResponseDocumentFormFieldBase> formFields = null;
 
   public static final String JSON_PROPERTY_CUSTOM_FIELDS = "custom_fields";
-  private List<TemplateResponseDocumentCustomFieldBase> customFields = new ArrayList<>();
+  private List<TemplateResponseDocumentCustomFieldBase> customFields = null;
 
   public static final String JSON_PROPERTY_STATIC_FIELDS = "static_fields";
-  private List<TemplateResponseDocumentStaticFieldBase> staticFields;
+  private List<TemplateResponseDocumentStaticFieldBase> staticFields = null;
 
   public TemplateResponseDocument() { 
   }

@@ -49,7 +49,7 @@ public class FaxLineListResponse {
   private ListInfoResponse listInfo;
 
   public static final String JSON_PROPERTY_FAX_LINES = "fax_lines";
-  private List<FaxLineResponseFaxLine> faxLines = new ArrayList<>();
+  private List<FaxLineResponseFaxLine> faxLines = null;
 
   public static final String JSON_PROPERTY_WARNINGS = "warnings";
   private WarningResponse warnings;

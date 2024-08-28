@@ -50,7 +50,7 @@ public class ApiAppResponseOAuth {
   private String secret;
 
   public static final String JSON_PROPERTY_SCOPES = "scopes";
-  private List<String> scopes = new ArrayList<>();
+  private List<String> scopes = null;
 
   public static final String JSON_PROPERTY_CHARGES_USERS = "charges_users";
   private Boolean chargesUsers;

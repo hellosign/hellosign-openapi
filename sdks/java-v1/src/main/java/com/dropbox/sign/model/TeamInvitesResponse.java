@@ -44,10 +44,10 @@ import com.dropbox.sign.ApiException;
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class TeamInvitesResponse {
   public static final String JSON_PROPERTY_TEAM_INVITES = "team_invites";
-  private List<TeamInviteResponse> teamInvites = new ArrayList<>();
+  private List<TeamInviteResponse> teamInvites = null;
 
   public static final String JSON_PROPERTY_WARNINGS = "warnings";
-  private List<WarningResponse> warnings = new ArrayList<>();
+  private List<WarningResponse> warnings = null;
 
   public TeamInvitesResponse() { 
   }

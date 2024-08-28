@@ -94,10 +94,10 @@ public class UnclaimedDraftCreateEmbeddedRequest {
   private String requesterEmailAddress;
 
   public static final String JSON_PROPERTY_FILES = "files";
-  private List<File> files = new ArrayList<>();
+  private List<File> files = null;
 
   public static final String JSON_PROPERTY_FILE_URLS = "file_urls";
-  private List<String> fileUrls = new ArrayList<>();
+  private List<String> fileUrls = null;
 
   public static final String JSON_PROPERTY_ALLOW_CCS = "allow_ccs";
   private Boolean allowCcs = true;
@@ -109,13 +109,13 @@ public class UnclaimedDraftCreateEmbeddedRequest {
   private Boolean allowReassign = false;
 
   public static final String JSON_PROPERTY_ATTACHMENTS = "attachments";
-  private List<SubAttachment> attachments = new ArrayList<>();
+  private List<SubAttachment> attachments = null;
 
   public static final String JSON_PROPERTY_CC_EMAIL_ADDRESSES = "cc_email_addresses";
-  private List<String> ccEmailAddresses = new ArrayList<>();
+  private List<String> ccEmailAddresses = null;
 
   public static final String JSON_PROPERTY_CUSTOM_FIELDS = "custom_fields";
-  private List<SubCustomField> customFields = new ArrayList<>();
+  private List<SubCustomField> customFields = null;
 
   public static final String JSON_PROPERTY_EDITOR_OPTIONS = "editor_options";
   private SubEditorOptions editorOptions;
@@ -130,13 +130,13 @@ public class UnclaimedDraftCreateEmbeddedRequest {
   private Boolean forceSubjectMessage = false;
 
   public static final String JSON_PROPERTY_FORM_FIELD_GROUPS = "form_field_groups";
-  private List<SubFormFieldGroup> formFieldGroups = new ArrayList<>();
+  private List<SubFormFieldGroup> formFieldGroups = null;
 
   public static final String JSON_PROPERTY_FORM_FIELD_RULES = "form_field_rules";
-  private List<SubFormFieldRule> formFieldRules = new ArrayList<>();
+  private List<SubFormFieldRule> formFieldRules = null;
 
   public static final String JSON_PROPERTY_FORM_FIELDS_PER_DOCUMENT = "form_fields_per_document";
-  private List<SubFormFieldsPerDocumentBase> formFieldsPerDocument = new ArrayList<>();
+  private List<SubFormFieldsPerDocumentBase> formFieldsPerDocument = null;
 
   public static final String JSON_PROPERTY_HIDE_TEXT_TAGS = "hide_text_tags";
   private Boolean hideTextTags = false;
@@ -151,7 +151,7 @@ public class UnclaimedDraftCreateEmbeddedRequest {
   private String message;
 
   public static final String JSON_PROPERTY_METADATA = "metadata";
-  private Map<String, Object> metadata = new HashMap<>();
+  private Map<String, Object> metadata = null;
 
   public static final String JSON_PROPERTY_REQUESTING_REDIRECT_URL = "requesting_redirect_url";
   private String requestingRedirectUrl;
@@ -163,7 +163,7 @@ public class UnclaimedDraftCreateEmbeddedRequest {
   private Boolean showProgressStepper = true;
 
   public static final String JSON_PROPERTY_SIGNERS = "signers";
-  private List<SubUnclaimedDraftSigner> signers = new ArrayList<>();
+  private List<SubUnclaimedDraftSigner> signers = null;
 
   public static final String JSON_PROPERTY_SIGNING_OPTIONS = "signing_options";
   private SubSigningOptions signingOptions;

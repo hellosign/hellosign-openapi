@@ -92,7 +92,7 @@ public class SubOAuth {
   }
 
   public static final String JSON_PROPERTY_SCOPES = "scopes";
-  private List<ScopesEnum> scopes = new ArrayList<>();
+  private List<ScopesEnum> scopes = null;
 
   public SubOAuth() { 
   }

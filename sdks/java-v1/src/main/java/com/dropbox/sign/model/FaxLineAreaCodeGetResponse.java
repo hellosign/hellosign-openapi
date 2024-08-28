@@ -41,7 +41,7 @@ import com.dropbox.sign.ApiException;
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class FaxLineAreaCodeGetResponse {
   public static final String JSON_PROPERTY_AREA_CODES = "area_codes";
-  private List<Integer> areaCodes = new ArrayList<>();
+  private List<Integer> areaCodes = null;
 
   public FaxLineAreaCodeGetResponse() { 
   }

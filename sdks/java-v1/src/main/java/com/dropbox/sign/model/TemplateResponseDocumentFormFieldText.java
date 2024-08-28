@@ -18,9 +18,12 @@ import java.util.Map;
 import java.util.HashMap;
 import com.dropbox.sign.model.TemplateResponseDocumentFormFieldBase;
 import com.dropbox.sign.model.TemplateResponseFieldAvgTextLength;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
@@ -43,6 +46,12 @@ import com.dropbox.sign.ApiException;
   TemplateResponseDocumentFormFieldText.JSON_PROPERTY_VALIDATION_TYPE
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
+@JsonIgnoreProperties(
+  allowSetters = true, // allows the type to be set during deserialization
+  ignoreUnknown = true
+)
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.EXISTING_PROPERTY, property = "type", visible = true)
+
 public class TemplateResponseDocumentFormFieldText extends TemplateResponseDocumentFormFieldBase {
   public static final String JSON_PROPERTY_TYPE = "type";
   private String type = "text";
@@ -479,5 +488,11 @@ public class TemplateResponseDocumentFormFieldText extends TemplateResponseDocum
     return o.toString().replace("\n", "\n    ");
   }
 
+  static {
+    // Initialize and register the discriminator mappings.
+    Map<String, Class<?>> mappings = new HashMap<>();
+    mappings.put("TemplateResponseDocumentFormFieldText", TemplateResponseDocumentFormFieldText.class);
+    JSON.registerDiscriminator(TemplateResponseDocumentFormFieldText.class, "type", mappings);
+  }
 }
 

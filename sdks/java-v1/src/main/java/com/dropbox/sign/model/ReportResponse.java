@@ -88,7 +88,7 @@ public class ReportResponse {
   }
 
   public static final String JSON_PROPERTY_REPORT_TYPE = "report_type";
-  private List<ReportTypeEnum> reportType = new ArrayList<>();
+  private List<ReportTypeEnum> reportType = null;
 
   public ReportResponse() { 
   }

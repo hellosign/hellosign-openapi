@@ -117,7 +117,7 @@ public class SignatureRequestResponse {
   private String detailsUrl;
 
   public static final String JSON_PROPERTY_CC_EMAIL_ADDRESSES = "cc_email_addresses";
-  private List<String> ccEmailAddresses = new ArrayList<>();
+  private List<String> ccEmailAddresses = null;
 
   public static final String JSON_PROPERTY_SIGNING_REDIRECT_URL = "signing_redirect_url";
   private String signingRedirectUrl;
@@ -126,19 +126,19 @@ public class SignatureRequestResponse {
   private String finalCopyUri;
 
   public static final String JSON_PROPERTY_TEMPLATE_IDS = "template_ids";
-  private List<String> templateIds;
+  private List<String> templateIds = null;
 
   public static final String JSON_PROPERTY_CUSTOM_FIELDS = "custom_fields";
-  private List<SignatureRequestResponseCustomFieldBase> customFields;
+  private List<SignatureRequestResponseCustomFieldBase> customFields = null;
 
   public static final String JSON_PROPERTY_ATTACHMENTS = "attachments";
-  private List<SignatureRequestResponseAttachment> attachments;
+  private List<SignatureRequestResponseAttachment> attachments = null;
 
   public static final String JSON_PROPERTY_RESPONSE_DATA = "response_data";
-  private List<SignatureRequestResponseDataBase> responseData;
+  private List<SignatureRequestResponseDataBase> responseData = null;
 
   public static final String JSON_PROPERTY_SIGNATURES = "signatures";
-  private List<SignatureRequestResponseSignatures> signatures = new ArrayList<>();
+  private List<SignatureRequestResponseSignatures> signatures = null;
 
   public static final String JSON_PROPERTY_BULK_SEND_JOB_ID = "bulk_send_job_id";
   private String bulkSendJobId;

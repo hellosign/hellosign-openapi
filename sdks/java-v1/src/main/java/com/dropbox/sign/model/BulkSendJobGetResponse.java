@@ -54,10 +54,10 @@ public class BulkSendJobGetResponse {
   private ListInfoResponse listInfo;
 
   public static final String JSON_PROPERTY_SIGNATURE_REQUESTS = "signature_requests";
-  private List<BulkSendJobGetResponseSignatureRequests> signatureRequests = new ArrayList<>();
+  private List<BulkSendJobGetResponseSignatureRequests> signatureRequests = null;
 
   public static final String JSON_PROPERTY_WARNINGS = "warnings";
-  private List<WarningResponse> warnings = new ArrayList<>();
+  private List<WarningResponse> warnings = null;
 
   public BulkSendJobGetResponse() { 
   }

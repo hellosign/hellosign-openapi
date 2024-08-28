@@ -47,7 +47,7 @@ public class SignatureRequestGetResponse {
   private SignatureRequestResponse signatureRequest;
 
   public static final String JSON_PROPERTY_WARNINGS = "warnings";
-  private List<WarningResponse> warnings = new ArrayList<>();
+  private List<WarningResponse> warnings = null;
 
   public SignatureRequestGetResponse() { 
   }

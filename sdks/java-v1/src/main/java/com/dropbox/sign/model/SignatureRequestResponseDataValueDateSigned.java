@@ -17,9 +17,12 @@ import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
 import com.dropbox.sign.model.SignatureRequestResponseDataBase;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
@@ -38,6 +41,12 @@ import com.dropbox.sign.ApiException;
   SignatureRequestResponseDataValueDateSigned.JSON_PROPERTY_VALUE
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.7.0")
+@JsonIgnoreProperties(
+  allowSetters = true, // allows the type to be set during deserialization
+  ignoreUnknown = true
+)
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.EXISTING_PROPERTY, property = "type", visible = true)
+
 public class SignatureRequestResponseDataValueDateSigned extends SignatureRequestResponseDataBase {
   public static final String JSON_PROPERTY_TYPE = "type";
   private String type = "date_signed";
@@ -227,5 +236,11 @@ public class SignatureRequestResponseDataValueDateSigned extends SignatureReques
     return o.toString().replace("\n", "\n    ");
   }
 
+  static {
+    // Initialize and register the discriminator mappings.
+    Map<String, Class<?>> mappings = new HashMap<>();
+    mappings.put("SignatureRequestResponseDataValueDateSigned", SignatureRequestResponseDataValueDateSigned.class);
+    JSON.registerDiscriminator(SignatureRequestResponseDataValueDateSigned.class, "type", mappings);
+  }
 }
 

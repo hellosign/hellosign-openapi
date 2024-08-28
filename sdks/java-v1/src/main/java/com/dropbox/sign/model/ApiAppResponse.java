@@ -63,7 +63,7 @@ public class ApiAppResponse {
   private Integer createdAt;
 
   public static final String JSON_PROPERTY_DOMAINS = "domains";
-  private List<String> domains = new ArrayList<>();
+  private List<String> domains = null;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;

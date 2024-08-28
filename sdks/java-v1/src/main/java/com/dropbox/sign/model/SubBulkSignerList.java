@@ -44,10 +44,10 @@ import com.dropbox.sign.ApiException;
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class SubBulkSignerList {
   public static final String JSON_PROPERTY_CUSTOM_FIELDS = "custom_fields";
-  private List<SubBulkSignerListCustomField> customFields = new ArrayList<>();
+  private List<SubBulkSignerListCustomField> customFields = null;
 
   public static final String JSON_PROPERTY_SIGNERS = "signers";
-  private List<SubSignatureRequestTemplateSigner> signers = new ArrayList<>();
+  private List<SubSignatureRequestTemplateSigner> signers = null;
 
   public SubBulkSignerList() { 
   }

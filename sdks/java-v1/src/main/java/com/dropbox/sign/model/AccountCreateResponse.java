@@ -52,7 +52,7 @@ public class AccountCreateResponse {
   private OAuthTokenResponse oauthData;
 
   public static final String JSON_PROPERTY_WARNINGS = "warnings";
-  private List<WarningResponse> warnings = new ArrayList<>();
+  private List<WarningResponse> warnings = null;
 
   public AccountCreateResponse() { 
   }

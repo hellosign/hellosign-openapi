@@ -46,13 +46,13 @@ import com.dropbox.sign.ApiException;
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class ApiAppListResponse {
   public static final String JSON_PROPERTY_API_APPS = "api_apps";
-  private List<ApiAppResponse> apiApps = new ArrayList<>();
+  private List<ApiAppResponse> apiApps = null;
 
   public static final String JSON_PROPERTY_LIST_INFO = "list_info";
   private ListInfoResponse listInfo;
 
   public static final String JSON_PROPERTY_WARNINGS = "warnings";
-  private List<WarningResponse> warnings = new ArrayList<>();
+  private List<WarningResponse> warnings = null;
 
   public ApiAppListResponse() { 
   }

@@ -48,13 +48,13 @@ public class TeamResponse {
   private String name;
 
   public static final String JSON_PROPERTY_ACCOUNTS = "accounts";
-  private List<AccountResponse> accounts = new ArrayList<>();
+  private List<AccountResponse> accounts = null;
 
   public static final String JSON_PROPERTY_INVITED_ACCOUNTS = "invited_accounts";
-  private List<AccountResponse> invitedAccounts = new ArrayList<>();
+  private List<AccountResponse> invitedAccounts = null;
 
   public static final String JSON_PROPERTY_INVITED_EMAILS = "invited_emails";
-  private List<String> invitedEmails = new ArrayList<>();
+  private List<String> invitedEmails = null;
 
   public TeamResponse() { 
   }

@@ -94,7 +94,7 @@ public class SubFormFieldRuleTrigger {
   private String value;
 
   public static final String JSON_PROPERTY_VALUES = "values";
-  private List<String> values = new ArrayList<>();
+  private List<String> values = null;
 
   public SubFormFieldRuleTrigger() { 
   }

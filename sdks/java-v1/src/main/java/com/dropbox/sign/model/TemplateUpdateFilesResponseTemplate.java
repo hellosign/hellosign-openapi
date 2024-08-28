@@ -47,7 +47,7 @@ public class TemplateUpdateFilesResponseTemplate {
 
   public static final String JSON_PROPERTY_WARNINGS = "warnings";
   @Deprecated
-  private List<WarningResponse> warnings = new ArrayList<>();
+  private List<WarningResponse> warnings = null;
 
   public TemplateUpdateFilesResponseTemplate() { 
   }

@@ -78,16 +78,16 @@ import com.dropbox.sign.ApiException;
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class SignatureRequestSendRequest {
   public static final String JSON_PROPERTY_FILES = "files";
-  private List<File> files = new ArrayList<>();
+  private List<File> files = null;
 
   public static final String JSON_PROPERTY_FILE_URLS = "file_urls";
-  private List<String> fileUrls = new ArrayList<>();
+  private List<String> fileUrls = null;
 
   public static final String JSON_PROPERTY_SIGNERS = "signers";
-  private List<SubSignatureRequestSigner> signers = new ArrayList<>();
+  private List<SubSignatureRequestSigner> signers = null;
 
   public static final String JSON_PROPERTY_GROUPED_SIGNERS = "grouped_signers";
-  private List<SubSignatureRequestGroupedSigners> groupedSigners = new ArrayList<>();
+  private List<SubSignatureRequestGroupedSigners> groupedSigners = null;
 
   public static final String JSON_PROPERTY_ALLOW_DECLINE = "allow_decline";
   private Boolean allowDecline = false;
@@ -96,28 +96,28 @@ public class SignatureRequestSendRequest {
   private Boolean allowReassign = false;
 
   public static final String JSON_PROPERTY_ATTACHMENTS = "attachments";
-  private List<SubAttachment> attachments = new ArrayList<>();
+  private List<SubAttachment> attachments = null;
 
   public static final String JSON_PROPERTY_CC_EMAIL_ADDRESSES = "cc_email_addresses";
-  private List<String> ccEmailAddresses = new ArrayList<>();
+  private List<String> ccEmailAddresses = null;
 
   public static final String JSON_PROPERTY_CLIENT_ID = "client_id";
   private String clientId;
 
   public static final String JSON_PROPERTY_CUSTOM_FIELDS = "custom_fields";
-  private List<SubCustomField> customFields = new ArrayList<>();
+  private List<SubCustomField> customFields = null;
 
   public static final String JSON_PROPERTY_FIELD_OPTIONS = "field_options";
   private SubFieldOptions fieldOptions;
 
   public static final String JSON_PROPERTY_FORM_FIELD_GROUPS = "form_field_groups";
-  private List<SubFormFieldGroup> formFieldGroups = new ArrayList<>();
+  private List<SubFormFieldGroup> formFieldGroups = null;
 
   public static final String JSON_PROPERTY_FORM_FIELD_RULES = "form_field_rules";
-  private List<SubFormFieldRule> formFieldRules = new ArrayList<>();
+  private List<SubFormFieldRule> formFieldRules = null;
 
   public static final String JSON_PROPERTY_FORM_FIELDS_PER_DOCUMENT = "form_fields_per_document";
-  private List<SubFormFieldsPerDocumentBase> formFieldsPerDocument = new ArrayList<>();
+  private List<SubFormFieldsPerDocumentBase> formFieldsPerDocument = null;
 
   public static final String JSON_PROPERTY_HIDE_TEXT_TAGS = "hide_text_tags";
   private Boolean hideTextTags = false;
@@ -133,7 +133,7 @@ public class SignatureRequestSendRequest {
   private String message;
 
   public static final String JSON_PROPERTY_METADATA = "metadata";
-  private Map<String, Object> metadata = new HashMap<>();
+  private Map<String, Object> metadata = null;
 
   public static final String JSON_PROPERTY_SIGNING_OPTIONS = "signing_options";
   private SubSigningOptions signingOptions;

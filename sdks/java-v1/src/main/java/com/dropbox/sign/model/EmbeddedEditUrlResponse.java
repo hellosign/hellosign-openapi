@@ -47,7 +47,7 @@ public class EmbeddedEditUrlResponse {
   private EmbeddedEditUrlResponseEmbedded embedded;
 
   public static final String JSON_PROPERTY_WARNINGS = "warnings";
-  private List<WarningResponse> warnings = new ArrayList<>();
+  private List<WarningResponse> warnings = null;
 
   public EmbeddedEditUrlResponse() { 
   }
