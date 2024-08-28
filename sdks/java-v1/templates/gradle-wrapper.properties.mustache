@@ -1,11 +1,11 @@
 distributionBase=GRADLE_USER_HOME
 distributionPath=wrapper/dists
-{{#vendorExtensions.x-ignore-block}}
+{{^useCustomTemplateCode}}
 distributionUrl=https\://services.gradle.org/distributions/gradle-8.7-bin.zip
-{{/vendorExtensions.x-ignore-block}}
-{{! CUSTOM - BEGIN }}
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
 distributionUrl=https\://services.gradle.org/distributions/gradle-7.6.1-bin.zip
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
 networkTimeout=10000
 validateDistributionUrl=true
 zipStoreBase=GRADLE_USER_HOME

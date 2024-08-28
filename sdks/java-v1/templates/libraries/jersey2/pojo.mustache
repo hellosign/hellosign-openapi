@@ -1,6 +1,6 @@
-{{! CUSTOM - BEGIN }}
+{{#useCustomTemplateCode}}
 import com.dropbox.sign.ApiException;
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
 /**
  * {{description}}{{^description}}{{classname}}{{/description}}{{#isDeprecated}}
  * @deprecated{{/isDeprecated}}
@@ -30,13 +30,13 @@ import com.dropbox.sign.ApiException;
 {{#vendorExtensions.x-class-extra-annotation}}
 {{{vendorExtensions.x-class-extra-annotation}}}
 {{/vendorExtensions.x-class-extra-annotation}}
-{{! CUSTOM - BEGIN }}
+{{#useCustomTemplateCode}}
 {{^parent}}
 {{^discriminator}}
 @JsonIgnoreProperties(ignoreUnknown=true)
 {{/discriminator}}
 {{/parent}}
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
 public class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{{#vendorExtensions.x-implements}}{{#-first}}implements {{{.}}}{{/-first}}{{^-first}}, {{{.}}}{{/-first}}{{#-last}} {{/-last}}{{/vendorExtensions.x-implements}}{
 {{#serializableModel}}
   private static final long serialVersionUID = 1L;
@@ -91,17 +91,17 @@ public class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{{#vendorExtens
   {{#deprecated}}
   @Deprecated
   {{/deprecated}}
-{{#vendorExtensions.x-ignore-block}}
+{{^useCustomTemplateCode}}
   private {{{datatypeWithEnum}}} {{name}}{{#defaultValue}} = {{{.}}}{{/defaultValue}};
-{{/vendorExtensions.x-ignore-block}}
-{{! CUSTOM - BEGIN }}
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
   {{#isContainer}}
   private {{{datatypeWithEnum}}} {{name}}{{#required}}{{#defaultValue}} = {{{.}}}{{/defaultValue}}{{/required}}{{^required}} = null{{/required}};
   {{/isContainer}}
   {{^isContainer}}
   private {{{datatypeWithEnum}}} {{name}}{{#defaultValue}} = {{{.}}}{{/defaultValue}};
   {{/isContainer}}
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
   {{/vendorExtensions.x-is-jackson-optional-nullable}}
 
   {{/vars}}
@@ -121,7 +121,7 @@ public class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{{#vendorExtens
     this.{{name}} = {{#vendorExtensions.x-is-jackson-optional-nullable}}{{name}} == null ? JsonNullable.<{{{datatypeWithEnum}}}>undefined() : JsonNullable.of({{name}}){{/vendorExtensions.x-is-jackson-optional-nullable}}{{^vendorExtensions.x-is-jackson-optional-nullable}}{{name}}{{/vendorExtensions.x-is-jackson-optional-nullable}};
   {{/readOnlyVars}}
   }{{/jackson}}{{/withXml}}{{/vendorExtensions.x-has-readonly-properties}}
-{{! CUSTOM - BEGIN }}
+{{#useCustomTemplateCode}}
 
   /**
    * Attempt to instantiate and hydrate a new instance of this class
@@ -137,7 +137,7 @@ public class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{{#vendorExtens
       {{classname}}.class
     );
   }
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
   {{#vars}}
 
   {{^isReadOnly}}
@@ -165,14 +165,14 @@ public class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{{#vendorExtens
     {{/vendorExtensions.x-is-jackson-optional-nullable}}
     return this;
   }
-{{! CUSTOM - BEGIN }}
+{{#useCustomTemplateCode}}
   {{#vendorExtensions.x-int-or-string}}
   public {{classname}} {{name}}(Integer {{name}}) {
     this.{{name}} = String.valueOf({{name}});
     return this;
   }
   {{/vendorExtensions.x-int-or-string}}
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
   {{#isArray}}
 
   public {{classname}} add{{nameInPascalCase}}Item({{{items.datatypeWithEnum}}} {{name}}Item) {
@@ -316,14 +316,14 @@ public class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{{#vendorExtens
     this.{{name}} = {{name}};
     {{/vendorExtensions.x-is-jackson-optional-nullable}}
   }
-{{! CUSTOM - BEGIN }}
+{{#useCustomTemplateCode}}
   {{#vendorExtensions.x-int-or-string}}
 
   public void {{setter}}(Integer {{name}}) {
     this.{{name}} = String.valueOf({{name}});
   }
   {{/vendorExtensions.x-int-or-string}}
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
   {{/isReadOnly}}
 
   {{/vars}}
@@ -390,7 +390,7 @@ public class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{{#vendorExtens
     return sb.toString();
   }
 
-{{! CUSTOM - BEGIN }}
+{{#useCustomTemplateCode}}
   public Map<String, Object> createFormData() throws ApiException {
     Map<String, Object> map = new HashMap<>();
     boolean fileTypeFound = false;
@@ -446,7 +446,7 @@ public class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{{#vendorExtens
     return (int) Class.forName(java.util.List.class.getName()).getMethod("size").invoke(obj);
   }
 
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
   /**
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).

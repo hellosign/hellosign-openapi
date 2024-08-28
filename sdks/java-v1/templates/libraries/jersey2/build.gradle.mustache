@@ -1,11 +1,11 @@
-{{#vendorExtensions.x-ignore-block}}
+{{^useCustomTemplateCode}}
 apply plugin: 'idea'
 apply plugin: 'eclipse'
 apply plugin: 'com.diffplug.spotless'
 
 group = '{{groupId}}'
 version = '{{artifactVersion}}'
-{{/vendorExtensions.x-ignore-block}}
+{{/useCustomTemplateCode}}
 
 buildscript {
     repositories {
@@ -18,7 +18,7 @@ buildscript {
     }
 }
 
-{{! CUSTOM - BEGIN }}
+{{#useCustomTemplateCode}}
 plugins {
     id 'com.vanniktech.maven.publish' version '0.24.0'
 }
@@ -34,12 +34,12 @@ version = '{{artifactVersion}}'
 sourceCompatibility = JavaVersion.VERSION_1_8
 targetCompatibility = JavaVersion.VERSION_1_8
 
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
 repositories {
     mavenCentral()
 }
 
-{{#vendorExtensions.x-ignore-block}}
+{{^useCustomTemplateCode}}
 if(hasProperty('target') && target == 'android') {
 
     apply plugin: 'com.android.library'
@@ -116,8 +116,8 @@ if(hasProperty('target') && target == 'android') {
        classpath = sourceSets.main.runtimeClasspath
     }
 }
-{{/vendorExtensions.x-ignore-block}}
-{{! CUSTOM - BEGIN }}
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
 }
@@ -203,7 +203,7 @@ publishing {
         }
     }
 }
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
 
 ext {
     swagger_annotations_version = "1.6.5"
@@ -224,16 +224,16 @@ ext {
     {{#hasHttpSignatureMethods}}
     tomitribe_http_signatures_version = "1.7"
     {{/hasHttpSignatureMethods}}
-{{! CUSTOM - BEGIN }}
+{{#useCustomTemplateCode}}
     mockito_version = "3.12.4"
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
 }
 
 dependencies {
     implementation "io.swagger:swagger-annotations:$swagger_annotations_version"
-{{! CUSTOM - BEGIN }}
+{{#useCustomTemplateCode}}
     implementation 'commons-codec:commons-codec:1.15'
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
     implementation "com.google.code.findbugs:jsr305:3.0.2"
     implementation "org.glassfish.jersey.core:jersey-client:$jersey_version"
     implementation "org.glassfish.jersey.inject:jersey-hk2:$jersey_version"
@@ -262,9 +262,9 @@ dependencies {
     {{/useBeanValidation}}
     testImplementation "org.junit.jupiter:junit-jupiter-api:$junit_version"
     testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$junit_version"
-{{! CUSTOM - BEGIN }}
+{{#useCustomTemplateCode}}
     testImplementation "org.mockito:mockito-core:$mockito_version"
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
 }
 
 test {

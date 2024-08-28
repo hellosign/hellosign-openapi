@@ -90,10 +90,10 @@ public class {{classname}} {
   }
   {{/vendorExtensions.x-group-parameters}}
 
-  {{! CUSTOM - BEGIN }}
+  {{#useCustomTemplateCode}}
   __OVERLOAD_DELIMITER { "class": "{{classname}}", "method": "{{operationId}}", "returnType": "{{#returnType}}{{.}}{{/returnType}}", "parameters": [ {{#allParams}}{ "type": "{{{dataType}}}", "name": "{{paramName}}", "required": {{#required}}true{{/required}}{{^required}}false{{/required}}, "value": {{^defaultValue}}null{{/defaultValue}}{{#defaultValue}}{{#isString}}"{{/isString}}{{{.}}}{{#isString}}"{{/isString}}{{/defaultValue}} }{{^-last}},{{/-last}}{{/allParams}} ]}
 
-  {{! CUSTOM - END }}
+  {{/useCustomTemplateCode}}
   {{^vendorExtensions.x-group-parameters}}
   /**
    * {{summary}}
@@ -124,12 +124,12 @@ public class {{classname}} {
   @Deprecated
   {{/isDeprecated}}
   public{{/vendorExtensions.x-group-parameters}}{{#vendorExtensions.x-group-parameters}}private{{/vendorExtensions.x-group-parameters}} ApiResponse<{{{returnType}}}{{^returnType}}Void{{/returnType}}> {{operationId}}WithHttpInfo({{#allParams}}{{{dataType}}} {{paramName}}{{^-last}}, {{/-last}}{{/allParams}}) throws ApiException {
-{{! CUSTOM - BEGIN }}
+{{#useCustomTemplateCode}}
     {{#allParams}}{{^required}}{{#defaultValue}}
     if ({{paramName}} == null) {
         {{paramName}} = {{#isString}}"{{/isString}}{{{defaultValue}}}{{#isString}}"{{/isString}};
     }{{/defaultValue}}{{/required}}{{/allParams}}
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
     {{#hasRequiredParams}}
     // Check required parameters
     {{#allParams}}
@@ -185,7 +185,7 @@ public class {{classname}} {
 
     {{/-last}}
     {{/cookieParams}}
-{{#vendorExtensions.x-ignore-block}}
+{{^useCustomTemplateCode}}
     {{#formParams}}
     {{#-first}}
     // Form parameters
@@ -198,17 +198,17 @@ public class {{classname}} {
 
     {{/-last}}
     {{/formParams}}
-{{/vendorExtensions.x-ignore-block}}
+{{/useCustomTemplateCode}}
     String localVarAccept = apiClient.selectHeaderAccept({{#produces}}"{{{mediaType}}}"{{^-last}}, {{/-last}}{{/produces}});
-{{#vendorExtensions.x-ignore-block}}
+{{^useCustomTemplateCode}}
     String localVarContentType = apiClient.selectHeaderContentType({{#consumes}}"{{{mediaType}}}"{{^-last}}, {{/-last}}{{/consumes}});
-{{/vendorExtensions.x-ignore-block}}
-{{! CUSTOM - BEGIN }}
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
     Map<String, Object> localVarFormParams = new LinkedHashMap<>();
     localVarFormParams = {{#bodyParam}}{{paramName}}.createFormData(){{/bodyParam}}{{^bodyParam}}new {{javaUtilPrefix}}HashMap<String, Object>(){{/bodyParam}};
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
     String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType({{#consumes}}"{{{mediaType}}}"{{^-last}}, {{/-last}}{{/consumes}});
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
     {{#hasAuthMethods}}
     String[] localVarAuthNames = {{=% %=}}new String[] {%#authMethods%"%name%"%^-last%, %/-last%%/authMethods%};%={{ }}=%
     {{/hasAuthMethods}}

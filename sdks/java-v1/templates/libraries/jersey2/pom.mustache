@@ -91,7 +91,7 @@
                     </execution>
                 </executions>
             </plugin>
-{{! CUSTOM - BEGIN }}
+{{#useCustomTemplateCode}}
             <plugin>
                 <artifactId>maven-assembly-plugin</artifactId>
                 <executions>
@@ -108,7 +108,7 @@
                     </descriptorRefs>
                 </configuration>
             </plugin>
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
             <!-- attach test jar -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -290,13 +290,13 @@
             <version>${swagger-annotations-version}</version>
         </dependency>
         {{/swagger2AnnotationLibrary}}
-{{! CUSTOM - BEGIN }}
+{{#useCustomTemplateCode}}
         <dependency>
             <groupId>commons-codec</groupId>
             <artifactId>commons-codec</artifactId>
             <version>1.15</version>
         </dependency>
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
 
         <!-- @Nullable annotation -->
         <dependency>
@@ -411,14 +411,14 @@
             <version>${junit-version}</version>
             <scope>test</scope>
         </dependency>
-{{! CUSTOM - BEGIN }}
+{{#useCustomTemplateCode}}
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
             <version>${mockito.version}</version>
             <scope>test</scope>
         </dependency>
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
     </dependencies>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -449,8 +449,8 @@
         <scribejava-apis-version>8.3.3</scribejava-apis-version>
         {{/hasOAuthMethods}}
         <spotless.version>2.21.0</spotless.version>
-{{! CUSTOM - BEGIN }}
+{{#useCustomTemplateCode}}
         <mockito.version>3.12.4</mockito.version>
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
     </properties>
 </project>

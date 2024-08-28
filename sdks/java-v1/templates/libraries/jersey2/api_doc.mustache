@@ -6,14 +6,14 @@ All URIs are relative to *{{basePath}}*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-{{#vendorExtensions.x-ignore-block}}
+{{^useCustomTemplateCode}}
 {{#operations}}{{#operation}}| [**{{operationId}}**]({{classname}}.md#{{operationId}}) | **{{httpMethod}}** {{path}} | {{summary}} |
 {{/operation}}{{/operations}}
-{{/vendorExtensions.x-ignore-block}}
-{{! CUSTOM - BEGIN }}
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
 {{#operations}}{{#operation}}[**{{operationId}}**]({{classname}}.md#{{operationId}}) | **{{httpMethod}}** {{path}} | {{summary}}
 {{/operation}}{{/operations}}
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
 
 {{#operations}}
 {{#operation}}
@@ -34,7 +34,7 @@ All URIs are relative to *{{basePath}}*
 ### Example
 
 ```java
-{{#vendorExtensions.x-ignore-block}}
+{{^useCustomTemplateCode}}
 {{#vendorExtensions.x-java-import}}
 import {{.}};
 {{/vendorExtensions.x-java-import}}
@@ -95,10 +95,10 @@ public class Example {
         }
     }
 }
-{{/vendorExtensions.x-ignore-block}}
-{{! CUSTOM - BEGIN }}
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
 REPLACE_ME_WITH_EXAMPLE_FOR__{{{operationId}}}_Java_CODE
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
 ```
 
 ### Parameters
@@ -106,14 +106,14 @@ REPLACE_ME_WITH_EXAMPLE_FOR__{{{operationId}}}_Java_CODE
 {{^allParams}}This endpoint does not need any parameter.{{/allParams}}{{#allParams}}{{#-last}}
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|{{/-last}}{{/allParams}}
-{{#vendorExtensions.x-ignore-block}}
+{{^useCustomTemplateCode}}
 {{#allParams}}| **{{paramName}}** | {{#isContainer}}{{#isArray}}{{#items}}{{#isModel}}{{^isFile}}[{{/isFile}}{{/isModel}}**List&lt;{{dataType}}&gt;**{{#isModel}}{{^isFile}}]({{^baseType}}{{dataType}}{{/baseType}}{{baseType}}.md){{/isFile}}{{/isModel}}{{/items}}{{/isArray}}{{#isMap}}{{#items}}{{#isModel}}{{^isFile}}[{{/isFile}}{{/isModel}}**Map&lt;String,{{dataType}}&gt;**{{#isModel}}{{^isFile}}]({{^baseType}}{{dataType}}{{/baseType}}{{baseType}}.md){{/isFile}}{{/isModel}}{{/items}}{{/isMap}}{{/isContainer}}{{^isContainer}}{{#isModel}}{{^isFile}}[{{/isFile}}{{/isModel}}**{{dataType}}**{{#isModel}}{{^isFile}}]({{^baseType}}{{dataType}}{{/baseType}}{{baseType}}.md){{/isFile}}{{/isModel}}{{/isContainer}}| {{description}} |{{^required}} [optional]{{/required}}{{^isContainer}}{{#defaultValue}} [default to {{.}}]{{/defaultValue}}{{/isContainer}}{{#allowableValues}} [enum: {{#values}}{{{.}}}{{^-last}}, {{/-last}}{{/values}}]{{/allowableValues}} |
 {{/allParams}}
-{{/vendorExtensions.x-ignore-block}}
-{{! CUSTOM - BEGIN }}
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
 {{#allParams}} **{{paramName}}** | {{#isContainer}}{{#isArray}}{{#items}}{{#isModel}}{{^isFile}}[{{/isFile}}{{/isModel}}**List&lt;{{dataType}}&gt;**{{#isModel}}{{^isFile}}]({{^baseType}}{{dataType}}{{/baseType}}{{baseType}}.md){{/isFile}}{{/isModel}}{{/items}}{{/isArray}}{{#isMap}}{{#items}}{{#isModel}}{{^isFile}}[{{/isFile}}{{/isModel}}**Map&lt;String,{{dataType}}&gt;**{{#isModel}}{{^isFile}}]({{^baseType}}{{dataType}}{{/baseType}}{{baseType}}.md){{/isFile}}{{/isModel}}{{/items}}{{/isMap}}{{/isContainer}}{{^isContainer}}{{#isModel}}{{^isFile}}[{{/isFile}}{{/isModel}}**{{dataType}}**{{#isModel}}{{^isFile}}]({{^baseType}}{{dataType}}{{/baseType}}{{baseType}}.md){{/isFile}}{{/isModel}}{{/isContainer}}| {{description}} |{{^required}} [optional]{{/required}}{{^isContainer}}{{#defaultValue}} [default to {{.}}]{{/defaultValue}}{{/isContainer}}{{#allowableValues}} [enum: {{#values}}{{{.}}}{{^-last}}, {{/-last}}{{/values}}]{{/allowableValues}}
 {{/allParams}}
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
 
 ### Return type
 

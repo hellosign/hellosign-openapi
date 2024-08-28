@@ -8,9 +8,9 @@ import java.util.List;
 import java.util.Map.Entry;
 import java.util.TreeMap;
 {{/caseInsensitiveResponseHeaders}}
-{{! CUSTOM - BEGIN }}
+{{#useCustomTemplateCode}}
 import com.dropbox.sign.model.ErrorResponse;
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
 
 /**
  * API Exception
@@ -22,9 +22,9 @@ public class ApiException extends{{#useRuntimeException}} RuntimeException {{/us
     private int code = 0;
     private Map<String, List<String>> responseHeaders = null;
     private String responseBody = null;
-{{! CUSTOM - BEGIN }}
+{{#useCustomTemplateCode}}
     private ErrorResponse errorResponse;
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
 
     public ApiException() {}
 
@@ -78,13 +78,13 @@ public class ApiException extends{{#useRuntimeException}} RuntimeException {{/us
         this.responseBody = responseBody;
     }
 
-{{! CUSTOM - BEGIN }}
+{{#useCustomTemplateCode}}
     public ApiException(int code, String message, Map<String, List<String>> responseHeaders, String responseBody, ErrorResponse errorResponse) {
         this(code, message, responseHeaders, responseBody);
         this.errorResponse = errorResponse;
     }
 
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
     /**
      * Get the HTTP status code.
      *
@@ -111,10 +111,10 @@ public class ApiException extends{{#useRuntimeException}} RuntimeException {{/us
     public String getResponseBody() {
         return responseBody;
     }
-{{! CUSTOM - BEGIN }}
+{{#useCustomTemplateCode}}
 
     public ErrorResponse getErrorResponse() {
         return errorResponse;
     }
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
 }
