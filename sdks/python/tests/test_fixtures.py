@@ -50,17 +50,16 @@ class TestFixtures(unittest.TestCase):
                 yanked_files = {}
                 data = {}
 
-                openapi_types = class_type.openapi_types
-                for param, param_value in openapi_types.items():
+                for param, param_value in class_type.openapi_types().items():
                     if param not in fixt_data.keys():
                         continue
 
                     data[param] = fixt_data[param]
 
                 obj = api_client.deserialize(
-                    response=type('obj_dict', (object,), {'data': json.dumps(data)}),
-                    response_type=[class_type],
-                    _check_type=True,
+                    response_text=json.dumps(data),
+                    response_type=class_type,
+                    content_type="application/json",
                 )
 
                 for yanked_key, yanked_file in yanked_files.items():
