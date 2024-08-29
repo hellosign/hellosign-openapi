@@ -5,10 +5,9 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-| `account` | [```AccountResponse```](AccountResponse.md) |    |  |
-| `oauth_data` | [```OAuthTokenResponse```](OAuthTokenResponse.md) |    |  |
-| `warnings` | [```[WarningResponse]```](WarningResponse.md) |  A list of warnings.  |  |
+| `account` | [```AccountResponse```](AccountResponse.md) | REPLACE_ME_WITH_DESCRIPTION_BEGIN  REPLACE_ME_WITH_DESCRIPTION_END |  |
+| `oauth_data` | [```OAuthTokenResponse```](OAuthTokenResponse.md) | REPLACE_ME_WITH_DESCRIPTION_BEGIN  REPLACE_ME_WITH_DESCRIPTION_END |  |
+| `warnings` | [```List[WarningResponse]```](WarningResponse.md) | REPLACE_ME_WITH_DESCRIPTION_BEGIN A list of warnings. REPLACE_ME_WITH_DESCRIPTION_END |  |
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
 

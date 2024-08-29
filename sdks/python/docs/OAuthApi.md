@@ -19,31 +19,9 @@ Once you have retrieved the code from the user callback, you will need to exchan
 
 
 ```python
-from pprint import pprint
-
-from dropbox_sign import \
-    ApiClient, ApiException, Configuration, apis, models
-
-configuration = Configuration()
-
-with ApiClient(configuration) as api_client:
-    api = apis.OAuthApi(api_client)
-
-    data = models.OAuthTokenGenerateRequest(
-        state="900e06e2",
-        code="1b0d28d90c86c141",
-        client_id="cc91c61d00f8bb2ece1428035716b",
-        client_secret="1d14434088507ffa390e6f5528465",
-    )
-
-    try:
-        response = oauth_api.oauth_token_generate(data)
-        pprint(response)
-    except ApiException as e:
-        print("Exception when calling Dropbox Sign API: %s\n" % e)
-
+REPLACE_ME_WITH_EXAMPLE_FOR__oauth_token_generate_Python_CODE
 ```
-
+```
 
 ### Parameters
 | Name | Type | Description | Notes |
@@ -62,7 +40,6 @@ No authorization required
 
  - **Content-Type**: application/json
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -83,28 +60,9 @@ Access tokens are only valid for a given period of time (typically one hour) for
 
 
 ```python
-from pprint import pprint
-
-from dropbox_sign import \
-    ApiClient, ApiException, Configuration, apis, models
-
-configuration = Configuration()
-
-with ApiClient(configuration) as api_client:
-    api = apis.OAuthApi(api_client)
-
-    data = models.OAuthTokenRefreshRequest(
-        refresh_token="hNTI2MTFmM2VmZDQxZTZjOWRmZmFjZmVmMGMyNGFjMzI2MGI5YzgzNmE3",
-    )
-
-    try:
-        response = oauth_api.oauth_token_refresh(data)
-        pprint(response)
-    except ApiException as e:
-        print("Exception when calling Dropbox Sign API: %s\n" % e)
-
+REPLACE_ME_WITH_EXAMPLE_FOR__oauth_token_refresh_Python_CODE
 ```
-
+```
 
 ### Parameters
 | Name | Type | Description | Notes |
@@ -123,7 +81,6 @@ No authorization required
 
  - **Content-Type**: application/json
  - **Accept**: application/json
-
 
 ### HTTP response details
 

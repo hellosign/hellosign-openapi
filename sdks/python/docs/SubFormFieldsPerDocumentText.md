@@ -1,22 +1,25 @@
 # SubFormFieldsPerDocumentText
 
-This class extends `SubFormFieldsPerDocumentBase`.
+This class extends &#x60;SubFormFieldsPerDocumentBase&#x60;.
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-| `type`<sup>*_required_</sup> | ```str``` |  A text input field. Use the `SubFormFieldsPerDocumentText` class.  |  [default to "text"] |
-| `placeholder` | ```str``` |  Placeholder value for text field.  |  |
-| `auto_fill_type` | ```str``` |  Auto fill type for populating fields automatically. Check out the list of [auto fill types](/api/reference/constants/#auto-fill-types) to learn more about the possible values.  |  |
-| `link_id` | ```str``` |  Link two or more text fields. Enter data into one linked text field, which automatically fill all other linked text fields.  |  |
-| `masked` | ```bool``` |  Masks entered data. For more information see [Masking sensitive information](https://faq.hellosign.com/hc/en-us/articles/360040742811-Masking-sensitive-information). `true` for masking the data in a text field, otherwise `false`.  |  |
-| `validation_type` | ```str``` |  Each text field may contain a `validation_type` parameter. Check out the list of [validation types](https://faq.hellosign.com/hc/en-us/articles/217115577) to learn more about the possible values.<br><br>**NOTE:** When using `custom_regex` you are required to pass a second parameter `validation_custom_regex` and you can optionally provide `validation_custom_regex_format_label` for the error message the user will see in case of an invalid value.  |  |
-| `validation_custom_regex` | ```str``` |    |  |
-| `validation_custom_regex_format_label` | ```str``` |    |  |
-| `content` | ```str``` |  Content of a `me_now` text field  |  |
-| `font_family` | ```str``` |  Font family for the field.  |  |
-| `font_size` | ```int``` |  The initial px font size for the field contents. Can be any integer value between `7` and `49`.<br><br>**NOTE:** Font size may be reduced during processing in order to fit the contents within the dimensions of the field.  |  [default to 12] |
+| `type`<sup>*_required_</sup> | ```str``` | REPLACE_ME_WITH_DESCRIPTION_BEGIN A text input field. Use the &#x60;SubFormFieldsPerDocumentText&#x60; class. REPLACE_ME_WITH_DESCRIPTION_END |  [default to 'text'] |
+| `placeholder` | ```str``` | REPLACE_ME_WITH_DESCRIPTION_BEGIN Placeholder value for text field. REPLACE_ME_WITH_DESCRIPTION_END |  |
+| `auto_fill_type` | ```str``` | REPLACE_ME_WITH_DESCRIPTION_BEGIN Auto fill type for populating fields automatically. Check out the list of [auto fill types](/api/reference/constants/#auto-fill-types) to learn more about the possible values. REPLACE_ME_WITH_DESCRIPTION_END |  |
+| `link_id` | ```str``` | REPLACE_ME_WITH_DESCRIPTION_BEGIN Link two or more text fields. Enter data into one linked text field, which automatically fill all other linked text fields. REPLACE_ME_WITH_DESCRIPTION_END |  |
+| `masked` | ```bool``` | REPLACE_ME_WITH_DESCRIPTION_BEGIN Masks entered data. For more information see [Masking sensitive information](https://faq.hellosign.com/hc/en-us/articles/360040742811-Masking-sensitive-information). &#x60;true&#x60; for masking the data in a text field, otherwise &#x60;false&#x60;. REPLACE_ME_WITH_DESCRIPTION_END |  |
+| `validation_type` | ```str``` | REPLACE_ME_WITH_DESCRIPTION_BEGIN Each text field may contain a &#x60;validation_type&#x60; parameter. Check out the list of [validation types](https://faq.hellosign.com/hc/en-us/articles/217115577) to learn more about the possible values.
+
+**NOTE:** When using &#x60;custom_regex&#x60; you are required to pass a second parameter &#x60;validation_custom_regex&#x60; and you can optionally provide &#x60;validation_custom_regex_format_label&#x60; for the error message the user will see in case of an invalid value. REPLACE_ME_WITH_DESCRIPTION_END |  |
+| `validation_custom_regex` | ```str``` | REPLACE_ME_WITH_DESCRIPTION_BEGIN  REPLACE_ME_WITH_DESCRIPTION_END |  |
+| `validation_custom_regex_format_label` | ```str``` | REPLACE_ME_WITH_DESCRIPTION_BEGIN  REPLACE_ME_WITH_DESCRIPTION_END |  |
+| `content` | ```str``` | REPLACE_ME_WITH_DESCRIPTION_BEGIN Content of a &#x60;me_now&#x60; text field REPLACE_ME_WITH_DESCRIPTION_END |  |
+| `font_family` | ```str``` | REPLACE_ME_WITH_DESCRIPTION_BEGIN Font family for the field. REPLACE_ME_WITH_DESCRIPTION_END |  |
+| `font_size` | ```int``` | REPLACE_ME_WITH_DESCRIPTION_BEGIN The initial px font size for the field contents. Can be any integer value between &#x60;7&#x60; and &#x60;49&#x60;.
+
+**NOTE:** Font size may be reduced during processing in order to fit the contents within the dimensions of the field. REPLACE_ME_WITH_DESCRIPTION_END |  [default to 12] |
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
 

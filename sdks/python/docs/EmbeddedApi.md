@@ -21,37 +21,9 @@ Retrieves an embedded object containing a template url that can be opened in an 
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
-from pprint import pprint
-
-from dropbox_sign import \
-    ApiClient, ApiException, Configuration, apis, models
-
-configuration = Configuration(
-    # Configure HTTP basic authorization: api_key
-    username="YOUR_API_KEY",
-
-    # or, configure Bearer (JWT) authorization: oauth2
-    # access_token="YOUR_ACCESS_TOKEN",
-)
-
-with ApiClient(configuration) as api_client:
-    embedded_api = apis.EmbeddedApi(api_client)
-
-    data = models.EmbeddedEditUrlRequest(
-        cc_roles=[""],
-        merge_fields=[],
-    )
-
-    template_id = "5de8179668f2033afac48da1868d0093bf133266"
-
-    try:
-        response = embedded_api.embedded_edit_url(template_id, data)
-        pprint(response)
-    except ApiException as e:
-        print("Exception when calling Dropbox Sign API: %s\n" % e)
-
+REPLACE_ME_WITH_EXAMPLE_FOR__embedded_edit_url_Python_CODE
 ```
-
+```
 
 ### Parameters
 | Name | Type | Description | Notes |
@@ -71,7 +43,6 @@ with ApiClient(configuration) as api_client:
 
  - **Content-Type**: application/json
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -95,32 +66,9 @@ Retrieves an embedded object containing a signature url that can be opened in an
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
-from pprint import pprint
-
-from dropbox_sign import \
-    ApiClient, ApiException, Configuration, apis
-
-configuration = Configuration(
-    # Configure HTTP basic authorization: api_key
-    username="YOUR_API_KEY",
-
-    # or, configure Bearer (JWT) authorization: oauth2
-    # access_token="YOUR_ACCESS_TOKEN",
-)
-
-with ApiClient(configuration) as api_client:
-    embedded_api = apis.EmbeddedApi(api_client)
-
-    signature_id = "50e3542f738adfa7ddd4cbd4c00d2a8ab6e4194b"
-
-    try:
-        response = embedded_api.embedded_sign_url(signature_id)
-        pprint(response)
-    except ApiException as e:
-        print("Exception when calling Dropbox Sign API: %s\n" % e)
-
+REPLACE_ME_WITH_EXAMPLE_FOR__embedded_sign_url_Python_CODE
 ```
-
+```
 
 ### Parameters
 | Name | Type | Description | Notes |
@@ -139,7 +87,6 @@ with ApiClient(configuration) as api_client:
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
 
 ### HTTP response details
 

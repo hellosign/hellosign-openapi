@@ -5,10 +5,11 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-| `account_id` | ```str``` |  The id of the Account to give access to the Template.<br>**NOTE:** The account id prevails if email address is also provided.  |  |
-| `email_address` | ```str``` |  The email address of the Account to give access to the Template.<br>**NOTE:** The account id prevails if it is also provided.  |  |
-| `skip_notification` | ```bool``` |  If set to `true`, the user does not receive an email notification when a template has been shared with them. Defaults to `false`.  |  [default to False] |
+| `account_id` | ```str``` | REPLACE_ME_WITH_DESCRIPTION_BEGIN The id of the Account to give access to the Template.
+**NOTE:** The account id prevails if email address is also provided. REPLACE_ME_WITH_DESCRIPTION_END |  |
+| `email_address` | ```str``` | REPLACE_ME_WITH_DESCRIPTION_BEGIN The email address of the Account to give access to the Template.
+**NOTE:** The account id prevails if it is also provided. REPLACE_ME_WITH_DESCRIPTION_END |  |
+| `skip_notification` | ```bool``` | REPLACE_ME_WITH_DESCRIPTION_BEGIN If set to &#x60;true&#x60;, the user does not receive an email notification when a template has been shared with them. Defaults to &#x60;false&#x60;. REPLACE_ME_WITH_DESCRIPTION_END |  [default to False] |
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
 

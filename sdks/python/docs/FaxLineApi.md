@@ -25,32 +25,9 @@ Grants a user access to the specified Fax Line.
 * Basic Authentication (api_key):
 
 ```python
-from pprint import pprint
-
-from dropbox_sign import \
-    ApiClient, ApiException, Configuration, apis, models
-
-configuration = Configuration(
-    # Configure HTTP basic authorization: api_key
-    username="YOUR_API_KEY",
-)
-
-with ApiClient(configuration) as api_client:
-    fax_line_api = apis.FaxLineApi(api_client)
-
-    data = models.FaxLineAddUserRequest(
-        number="[FAX_NUMBER]",
-        email_address="member@dropboxsign.com",
-    )
-
-    try:
-        response = fax_line_api.fax_line_add_user(data)
-        pprint(response)
-    except ApiException as e:
-        print("Exception when calling Dropbox Sign API: %s\n" % e)
-
+REPLACE_ME_WITH_EXAMPLE_FOR__fax_line_add_user_Python_CODE
 ```
-
+```
 
 ### Parameters
 | Name | Type | Description | Notes |
@@ -69,7 +46,6 @@ with ApiClient(configuration) as api_client:
 
  - **Content-Type**: application/json
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -92,27 +68,9 @@ Returns a response with the area codes available for a given state/provice and c
 * Basic Authentication (api_key):
 
 ```python
-from pprint import pprint
-
-from dropbox_sign import \
-    ApiClient, ApiException, Configuration, apis
-
-configuration = Configuration(
-    # Configure HTTP basic authorization: api_key
-    username="YOUR_API_KEY",
-)
-
-with ApiClient(configuration) as api_client:
-    fax_line_api = apis.FaxLineApi(api_client)
-
-    try:
-        response = fax_line_api.fax_line_area_code_get("US", "CA")
-        pprint(response)
-    except ApiException as e:
-        print("Exception when calling Dropbox Sign API: %s\n" % e)
-
+REPLACE_ME_WITH_EXAMPLE_FOR__fax_line_area_code_get_Python_CODE
 ```
-
+```
 
 ### Parameters
 | Name | Type | Description | Notes |
@@ -135,7 +93,6 @@ with ApiClient(configuration) as api_client:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
 
 | Status code | Description | Response headers |
@@ -157,32 +114,9 @@ Purchases a new Fax Line.
 * Basic Authentication (api_key):
 
 ```python
-from pprint import pprint
-
-from dropbox_sign import \
-    ApiClient, ApiException, Configuration, apis, models
-
-configuration = Configuration(
-    # Configure HTTP basic authorization: api_key
-    username="YOUR_API_KEY",
-)
-
-with ApiClient(configuration) as api_client:
-    fax_line_api = apis.FaxLineApi(api_client)
-
-    data = models.FaxLineCreateRequest(
-        area_code=209,
-        country="US",
-    )
-
-    try:
-        response = fax_line_api.fax_line_create(data)
-        pprint(response)
-    except ApiException as e:
-        print("Exception when calling Dropbox Sign API: %s\n" % e)
-
+REPLACE_ME_WITH_EXAMPLE_FOR__fax_line_create_Python_CODE
 ```
-
+```
 
 ### Parameters
 | Name | Type | Description | Notes |
@@ -201,7 +135,6 @@ with ApiClient(configuration) as api_client:
 
  - **Content-Type**: application/json
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -224,30 +157,9 @@ Deletes the specified Fax Line from the subscription.
 * Basic Authentication (api_key):
 
 ```python
-from pprint import pprint
-
-from dropbox_sign import \
-    ApiClient, ApiException, Configuration, apis, models
-
-configuration = Configuration(
-    # Configure HTTP basic authorization: api_key
-    username="YOUR_API_KEY",
-)
-
-with ApiClient(configuration) as api_client:
-    fax_line_api = apis.FaxLineApi(api_client)
-
-    data = models.FaxLineDeleteRequest(
-        number="[FAX_NUMBER]",
-    )
-
-    try:
-        fax_line_api.fax_line_delete(data)
-    except ApiException as e:
-        print("Exception when calling Dropbox Sign API: %s\n" % e)
-
+REPLACE_ME_WITH_EXAMPLE_FOR__fax_line_delete_Python_CODE
 ```
-
+```
 
 ### Parameters
 | Name | Type | Description | Notes |
@@ -266,7 +178,6 @@ void (empty response body)
 
  - **Content-Type**: application/json
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -289,27 +200,9 @@ Returns the properties and settings of a Fax Line.
 * Basic Authentication (api_key):
 
 ```python
-from pprint import pprint
-
-from dropbox_sign import \
-    ApiClient, ApiException, Configuration, apis, models
-
-configuration = Configuration(
-    # Configure HTTP basic authorization: api_key
-    username="YOUR_API_KEY",
-)
-
-with ApiClient(configuration) as api_client:
-    fax_line_api = apis.FaxLineApi(api_client)
-
-    try:
-        response = fax_line_api.fax_line_get("[FAX_NUMBER]")
-        pprint(response)
-    except ApiException as e:
-        print("Exception when calling Dropbox Sign API: %s\n" % e)
-
+REPLACE_ME_WITH_EXAMPLE_FOR__fax_line_get_Python_CODE
 ```
-
+```
 
 ### Parameters
 | Name | Type | Description | Notes |
@@ -328,7 +221,6 @@ with ApiClient(configuration) as api_client:
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -351,27 +243,9 @@ Returns the properties and settings of multiple Fax Lines.
 * Basic Authentication (api_key):
 
 ```python
-from pprint import pprint
-
-from dropbox_sign import \
-    ApiClient, ApiException, Configuration, apis, models
-
-configuration = Configuration(
-    # Configure HTTP basic authorization: api_key
-    username="YOUR_API_KEY",
-)
-
-with ApiClient(configuration) as api_client:
-    fax_line_api = apis.FaxLineApi(api_client)
-
-    try:
-        response = fax_line_api.fax_line_list()
-        pprint(response)
-    except ApiException as e:
-        print("Exception when calling Dropbox Sign API: %s\n" % e)
-
+REPLACE_ME_WITH_EXAMPLE_FOR__fax_line_list_Python_CODE
 ```
-
+```
 
 ### Parameters
 | Name | Type | Description | Notes |
@@ -394,7 +268,6 @@ with ApiClient(configuration) as api_client:
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
 
 | Status code | Description | Response headers |
@@ -416,32 +289,9 @@ Removes a user's access to the specified Fax Line.
 * Basic Authentication (api_key):
 
 ```python
-from pprint import pprint
-
-from dropbox_sign import \
-    ApiClient, ApiException, Configuration, apis, models
-
-configuration = Configuration(
-    # Configure HTTP basic authorization: api_key
-    username="YOUR_API_KEY",
-)
-
-with ApiClient(configuration) as api_client:
-    fax_line_api = apis.FaxLineApi(api_client)
-
-    data = models.FaxLineRemoveUserRequest(
-        number="[FAX_NUMBER]",
-        email_address="member@dropboxsign.com",
-    )
-
-    try:
-        response = fax_line_api.fax_line_remove_user(data)
-        pprint(response)
-    except ApiException as e:
-        print("Exception when calling Dropbox Sign API: %s\n" % e)
-
+REPLACE_ME_WITH_EXAMPLE_FOR__fax_line_remove_user_Python_CODE
 ```
-
+```
 
 ### Parameters
 | Name | Type | Description | Notes |
@@ -460,7 +310,6 @@ with ApiClient(configuration) as api_client:
 
  - **Content-Type**: application/json
  - **Accept**: application/json
-
 
 ### HTTP response details
 

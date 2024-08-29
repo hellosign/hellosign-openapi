@@ -21,39 +21,16 @@ Returns the status of the BulkSendJob and its SignatureRequests specified by the
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
-from pprint import pprint
-
-from dropbox_sign import \
-    ApiClient, ApiException, Configuration, apis
-
-configuration = Configuration(
-    # Configure HTTP basic authorization: api_key
-    username="YOUR_API_KEY",
-
-    # or, configure Bearer (JWT) authorization: oauth2
-    # access_token="YOUR_ACCESS_TOKEN",
-)
-
-with ApiClient(configuration) as api_client:
-    bulk_send_job_api = apis.BulkSendJobApi(api_client)
-
-    bulk_send_job_id = "6e683bc0369ba3d5b6f43c2c22a8031dbf6bd174"
-
-    try:
-        response = bulk_send_job_api.bulk_send_job_get(bulk_send_job_id)
-        pprint(response)
-    except ApiException as e:
-        print("Exception when calling Dropbox Sign API: %s\n" % e)
-
+REPLACE_ME_WITH_EXAMPLE_FOR__bulk_send_job_get_Python_CODE
 ```
-
+```
 
 ### Parameters
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `bulk_send_job_id` | **str** | The id of the BulkSendJob to retrieve. |  |
-| `page` | **int** | Which page number of the BulkSendJob list to return. Defaults to `1`. | [optional][default to 1] |
-| `page_size` | **int** | Number of objects to be returned per page. Must be between `1` and `100`. Default is 20. | [optional][default to 20] |
+| `page` | **int** | Which page number of the BulkSendJob list to return. Defaults to &#x60;1&#x60;. | [optional][default to 1] |
+| `page_size` | **int** | Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is 20. | [optional][default to 20] |
 
 ### Return type
 
@@ -67,7 +44,6 @@ with ApiClient(configuration) as api_client:
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -91,42 +67,15 @@ Returns a list of BulkSendJob that you can access.
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
-from pprint import pprint
-
-from dropbox_sign import \
-    ApiClient, ApiException, Configuration, apis
-
-configuration = Configuration(
-    # Configure HTTP basic authorization: api_key
-    username="YOUR_API_KEY",
-
-    # or, configure Bearer (JWT) authorization: oauth2
-    # access_token="YOUR_ACCESS_TOKEN",
-)
-
-with ApiClient(configuration) as api_client:
-    bulk_send_job_api = apis.BulkSendJobApi(api_client)
-
-    page = 1
-    page_size = 20
-
-    try:
-        response = bulk_send_job_api.bulk_send_job_list(
-            page=page,
-            page_size=page_size,
-        )
-        pprint(response)
-    except ApiException as e:
-        print("Exception when calling Dropbox Sign API: %s\n" % e)
-
+REPLACE_ME_WITH_EXAMPLE_FOR__bulk_send_job_list_Python_CODE
 ```
-
+```
 
 ### Parameters
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| `page` | **int** | Which page number of the BulkSendJob List to return. Defaults to `1`. | [optional][default to 1] |
-| `page_size` | **int** | Number of objects to be returned per page. Must be between `1` and `100`. Default is 20. | [optional][default to 20] |
+| `page` | **int** | Which page number of the BulkSendJob List to return. Defaults to &#x60;1&#x60;. | [optional][default to 1] |
+| `page_size` | **int** | Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is 20. | [optional][default to 20] |
 
 ### Return type
 
@@ -140,7 +89,6 @@ with ApiClient(configuration) as api_client:
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
 
 ### HTTP response details
 

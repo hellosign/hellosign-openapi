@@ -5,17 +5,16 @@ An array of Form Field objects containing the name and type of each named field.
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-| `type`<sup>*_required_</sup> | ```str``` |    |  |
-| `api_id` | ```str``` |  A unique id for the form field.  |  |
-| `name` | ```str``` |  The name of the form field.  |  |
-| `signer` | ```str``` |  The signer of the Form Field.  |  |
-| `x` | ```int``` |  The horizontal offset in pixels for this form field.  |  |
-| `y` | ```int``` |  The vertical offset in pixels for this form field.  |  |
-| `width` | ```int``` |  The width in pixels of this form field.  |  |
-| `height` | ```int``` |  The height in pixels of this form field.  |  |
-| `required` | ```bool``` |  Boolean showing whether or not this field is required.  |  |
-| `group` | ```str, none_type``` |  The name of the group this field is in. If this field is not a group, this defaults to `null` except for Radio fields.  |  |
+| `type`<sup>*_required_</sup> | ```str``` | REPLACE_ME_WITH_DESCRIPTION_BEGIN  REPLACE_ME_WITH_DESCRIPTION_END |  |
+| `api_id` | ```str``` | REPLACE_ME_WITH_DESCRIPTION_BEGIN A unique id for the form field. REPLACE_ME_WITH_DESCRIPTION_END |  |
+| `name` | ```str``` | REPLACE_ME_WITH_DESCRIPTION_BEGIN The name of the form field. REPLACE_ME_WITH_DESCRIPTION_END |  |
+| `signer` | ```str``` | REPLACE_ME_WITH_DESCRIPTION_BEGIN The signer of the Form Field. REPLACE_ME_WITH_DESCRIPTION_END |  |
+| `x` | ```int``` | REPLACE_ME_WITH_DESCRIPTION_BEGIN The horizontal offset in pixels for this form field. REPLACE_ME_WITH_DESCRIPTION_END |  |
+| `y` | ```int``` | REPLACE_ME_WITH_DESCRIPTION_BEGIN The vertical offset in pixels for this form field. REPLACE_ME_WITH_DESCRIPTION_END |  |
+| `width` | ```int``` | REPLACE_ME_WITH_DESCRIPTION_BEGIN The width in pixels of this form field. REPLACE_ME_WITH_DESCRIPTION_END |  |
+| `height` | ```int``` | REPLACE_ME_WITH_DESCRIPTION_BEGIN The height in pixels of this form field. REPLACE_ME_WITH_DESCRIPTION_END |  |
+| `required` | ```bool``` | REPLACE_ME_WITH_DESCRIPTION_BEGIN Boolean showing whether or not this field is required. REPLACE_ME_WITH_DESCRIPTION_END |  |
+| `group` | ```str``` | REPLACE_ME_WITH_DESCRIPTION_BEGIN The name of the group this field is in. If this field is not a group, this defaults to &#x60;null&#x60; except for Radio fields. REPLACE_ME_WITH_DESCRIPTION_END |  |
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
 
