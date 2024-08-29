@@ -3,9 +3,8 @@
 
 
 ## Properties
-
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
 | `client_id`<sup>*_required_</sup> | ```str``` |  Client id of the app used to create the draft. Used to apply the branding and callback url defined for the app.  |  |
 | `requester_email_address`<sup>*_required_</sup> | ```str``` |  The email address of the user that should be designated as the requester of this draft.  |  |
 | `template_ids`<sup>*_required_</sup> | ```[str]``` |  Use `template_ids` to create a SignatureRequest from one or more templates, in the order in which the templates will be used.  |  |
@@ -36,7 +35,6 @@
 | `title` | ```str``` |  The title you want to assign to the SignatureRequest.  |  |
 | `populate_auto_fill_fields` | ```bool``` |  Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer&#39;s information during signing.<br><br>**NOTE:** Keep your signer&#39;s information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.  |  [default to False] |
 | `allow_ccs` | ```bool``` |  This allows the requester to specify whether the user is allowed to provide email addresses to CC when claiming the draft.  |  [default to False] |
-
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

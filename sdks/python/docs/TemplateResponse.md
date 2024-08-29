@@ -3,9 +3,8 @@
 Contains information about the templates you and your team have created.
 
 ## Properties
-
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
 | `template_id` | ```str``` |  The id of the Template.  |  |
 | `title` | ```str``` |  The title of the Template. This will also be the default subject of the message sent to signers when using this Template to send a SignatureRequest. This can be overridden when sending the SignatureRequest.  |  |
 | `message` | ```str``` |  The default message that will be sent to signers when using this Template to send a SignatureRequest. This can be overridden when sending the SignatureRequest.  |  |
@@ -21,7 +20,6 @@ Contains information about the templates you and your team have created.
 | `custom_fields` | [```[TemplateResponseDocumentCustomFieldBase], none_type```](TemplateResponseDocumentCustomFieldBase.md) |  Deprecated. Use `custom_fields` inside the [documents](https://developers.hellosign.com/api/reference/operation/templateGet/#!c&#x3D;200&amp;path&#x3D;template/documents&amp;t&#x3D;response) array instead.  |  |
 | `named_form_fields` | [```[TemplateResponseDocumentFormFieldBase], none_type```](TemplateResponseDocumentFormFieldBase.md) |  Deprecated. Use `form_fields` inside the [documents](https://developers.hellosign.com/api/reference/operation/templateGet/#!c&#x3D;200&amp;path&#x3D;template/documents&amp;t&#x3D;response) array instead.  |  |
 | `accounts` | [```[TemplateResponseAccount], none_type```](TemplateResponseAccount.md) |  An array of the Accounts that can use this Template.  |  |
-
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

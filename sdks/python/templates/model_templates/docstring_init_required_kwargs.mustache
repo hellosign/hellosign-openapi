@@ -22,7 +22,12 @@
                                 is traveled through is added to this set.
                                 For example if Animal has a discriminator
                                 petType and we pass in "Dog", and the class Dog
+{{^useCustomTemplateCode}}
+                                allOf includes Animal, we move through Animal
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
                                 includes Animal, we move through Animal
+{{/useCustomTemplateCode}}
                                 once using the discriminator, and pick Dog.
                                 Then in Dog, we will make an instance of the
                                 Animal class but this time we won't travel

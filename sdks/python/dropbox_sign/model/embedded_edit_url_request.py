@@ -14,7 +14,6 @@ from typing import TYPE_CHECKING, Optional, List, Dict, Union
 import json  # noqa: F401
 import re  # noqa: F401
 import sys  # noqa: F401
-
 from dropbox_sign import ApiClient
 from dropbox_sign.model_utils import (  # noqa: F401
     ApiTypeError,
@@ -128,6 +127,7 @@ class EmbeddedEditUrlRequest(ModelNormal):
             response_type=[EmbeddedEditUrlRequest],
             _check_type=True,
         )
+
 
     attribute_map = {
         'allow_edit_ccs': 'allow_edit_ccs',  # noqa: E501
