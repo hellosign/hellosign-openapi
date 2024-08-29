@@ -27,6 +27,7 @@ from dropbox_sign.models.signature_request_response_signatures import SignatureR
 from typing import Optional, Set, Tuple
 from typing_extensions import Self
 import io
+from pydantic import StrictBool
 
 class SignatureRequestResponse(BaseModel):
     """
@@ -63,6 +64,7 @@ class SignatureRequestResponse(BaseModel):
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
     )
 
 
@@ -131,61 +133,6 @@ class SignatureRequestResponse(BaseModel):
                 if _item_signatures:
                     _items.append(_item_signatures.to_dict())
             _dict['signatures'] = _items
-        # set to None if test_mode (nullable) is None
-        # and model_fields_set contains the field
-        if self.test_mode is None and "test_mode" in self.model_fields_set:
-            _dict['test_mode'] = None
-
-        # set to None if subject (nullable) is None
-        # and model_fields_set contains the field
-        if self.subject is None and "subject" in self.model_fields_set:
-            _dict['subject'] = None
-
-        # set to None if message (nullable) is None
-        # and model_fields_set contains the field
-        if self.message is None and "message" in self.model_fields_set:
-            _dict['message'] = None
-
-        # set to None if signing_url (nullable) is None
-        # and model_fields_set contains the field
-        if self.signing_url is None and "signing_url" in self.model_fields_set:
-            _dict['signing_url'] = None
-
-        # set to None if signing_redirect_url (nullable) is None
-        # and model_fields_set contains the field
-        if self.signing_redirect_url is None and "signing_redirect_url" in self.model_fields_set:
-            _dict['signing_redirect_url'] = None
-
-        # set to None if final_copy_uri (nullable) is None
-        # and model_fields_set contains the field
-        if self.final_copy_uri is None and "final_copy_uri" in self.model_fields_set:
-            _dict['final_copy_uri'] = None
-
-        # set to None if template_ids (nullable) is None
-        # and model_fields_set contains the field
-        if self.template_ids is None and "template_ids" in self.model_fields_set:
-            _dict['template_ids'] = None
-
-        # set to None if custom_fields (nullable) is None
-        # and model_fields_set contains the field
-        if self.custom_fields is None and "custom_fields" in self.model_fields_set:
-            _dict['custom_fields'] = None
-
-        # set to None if attachments (nullable) is None
-        # and model_fields_set contains the field
-        if self.attachments is None and "attachments" in self.model_fields_set:
-            _dict['attachments'] = None
-
-        # set to None if response_data (nullable) is None
-        # and model_fields_set contains the field
-        if self.response_data is None and "response_data" in self.model_fields_set:
-            _dict['response_data'] = None
-
-        # set to None if bulk_send_job_id (nullable) is None
-        # and model_fields_set contains the field
-        if self.bulk_send_job_id is None and "bulk_send_job_id" in self.model_fields_set:
-            _dict['bulk_send_job_id'] = None
-
         return _dict
 
     @classmethod
@@ -273,8 +220,4 @@ class SignatureRequestResponse(BaseModel):
             "response_data",
             "signatures",
         ]
-
-    model_config = {
-        "arbitrary_types_allowed": True
-    }
 

@@ -24,6 +24,7 @@ from typing_extensions import Annotated
 from typing import Optional, Set, Tuple
 from typing_extensions import Self
 import io
+from pydantic import StrictBool
 
 class TemplateUpdateFilesRequest(BaseModel):
     """
@@ -41,6 +42,7 @@ class TemplateUpdateFilesRequest(BaseModel):
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
     )
 
 
@@ -126,8 +128,4 @@ class TemplateUpdateFilesRequest(BaseModel):
             "files",
             "file_urls",
         ]
-
-    model_config = {
-        "arbitrary_types_allowed": True
-    }
 

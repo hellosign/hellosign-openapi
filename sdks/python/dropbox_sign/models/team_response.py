@@ -24,6 +24,7 @@ from dropbox_sign.models.account_response import AccountResponse
 from typing import Optional, Set, Tuple
 from typing_extensions import Self
 import io
+from pydantic import StrictBool
 
 class TeamResponse(BaseModel):
     """
@@ -39,6 +40,7 @@ class TeamResponse(BaseModel):
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
     )
 
 
@@ -135,8 +137,4 @@ class TeamResponse(BaseModel):
             "invited_accounts",
             "invited_emails",
         ]
-
-    model_config = {
-        "arbitrary_types_allowed": True
-    }
 

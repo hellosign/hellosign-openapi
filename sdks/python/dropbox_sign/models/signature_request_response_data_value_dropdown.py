@@ -24,6 +24,7 @@ from dropbox_sign.models.signature_request_response_data_base import SignatureRe
 from typing import Optional, Set, Tuple
 from typing_extensions import Self
 import io
+from pydantic import StrictBool
 
 class SignatureRequestResponseDataValueDropdown(SignatureRequestResponseDataBase):
     """
@@ -37,6 +38,7 @@ class SignatureRequestResponseDataValueDropdown(SignatureRequestResponseDataBase
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
     )
 
 
@@ -120,8 +122,4 @@ class SignatureRequestResponseDataValueDropdown(SignatureRequestResponseDataBase
     def openapi_type_is_array(cls, property_name: StrictStr) -> StrictBool:
         return property_name in [
         ]
-
-    model_config = {
-        "arbitrary_types_allowed": True
-    }
 

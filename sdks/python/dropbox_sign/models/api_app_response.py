@@ -27,6 +27,7 @@ from dropbox_sign.models.api_app_response_white_labeling_options import ApiAppRe
 from typing import Optional, Set, Tuple
 from typing_extensions import Self
 import io
+from pydantic import StrictBool
 
 class ApiAppResponse(BaseModel):
     """
@@ -48,6 +49,7 @@ class ApiAppResponse(BaseModel):
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
     )
 
 
@@ -100,26 +102,6 @@ class ApiAppResponse(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of white_labeling_options
         if self.white_labeling_options:
             _dict['white_labeling_options'] = self.white_labeling_options.to_dict()
-        # set to None if callback_url (nullable) is None
-        # and model_fields_set contains the field
-        if self.callback_url is None and "callback_url" in self.model_fields_set:
-            _dict['callback_url'] = None
-
-        # set to None if oauth (nullable) is None
-        # and model_fields_set contains the field
-        if self.oauth is None and "oauth" in self.model_fields_set:
-            _dict['oauth'] = None
-
-        # set to None if options (nullable) is None
-        # and model_fields_set contains the field
-        if self.options is None and "options" in self.model_fields_set:
-            _dict['options'] = None
-
-        # set to None if white_labeling_options (nullable) is None
-        # and model_fields_set contains the field
-        if self.white_labeling_options is None and "white_labeling_options" in self.model_fields_set:
-            _dict['white_labeling_options'] = None
-
         return _dict
 
     @classmethod
@@ -172,8 +154,4 @@ class ApiAppResponse(BaseModel):
         return property_name in [
             "domains",
         ]
-
-    model_config = {
-        "arbitrary_types_allowed": True
-    }
 

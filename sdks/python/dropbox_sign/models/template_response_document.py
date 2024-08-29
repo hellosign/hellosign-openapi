@@ -27,6 +27,7 @@ from dropbox_sign.models.template_response_document_static_field_base import Tem
 from typing import Optional, Set, Tuple
 from typing_extensions import Self
 import io
+from pydantic import StrictBool
 
 class TemplateResponseDocument(BaseModel):
     """
@@ -44,6 +45,7 @@ class TemplateResponseDocument(BaseModel):
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
     )
 
 
@@ -112,11 +114,6 @@ class TemplateResponseDocument(BaseModel):
                 if _item_static_fields:
                     _items.append(_item_static_fields.to_dict())
             _dict['static_fields'] = _items
-        # set to None if static_fields (nullable) is None
-        # and model_fields_set contains the field
-        if self.static_fields is None and "static_fields" in self.model_fields_set:
-            _dict['static_fields'] = None
-
         return _dict
 
     @classmethod
@@ -164,8 +161,4 @@ class TemplateResponseDocument(BaseModel):
             "custom_fields",
             "static_fields",
         ]
-
-    model_config = {
-        "arbitrary_types_allowed": True
-    }
 

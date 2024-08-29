@@ -23,6 +23,7 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set, Tuple
 from typing_extensions import Self
 import io
+from pydantic import StrictBool
 
 class OAuthTokenResponse(BaseModel):
     """
@@ -39,6 +40,7 @@ class OAuthTokenResponse(BaseModel):
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
     )
 
 
@@ -79,11 +81,6 @@ class OAuthTokenResponse(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # set to None if state (nullable) is None
-        # and model_fields_set contains the field
-        if self.state is None and "state" in self.model_fields_set:
-            _dict['state'] = None
-
         return _dict
 
     @classmethod
@@ -125,8 +122,4 @@ class OAuthTokenResponse(BaseModel):
     def openapi_type_is_array(cls, property_name: StrictStr) -> StrictBool:
         return property_name in [
         ]
-
-    model_config = {
-        "arbitrary_types_allowed": True
-    }
 

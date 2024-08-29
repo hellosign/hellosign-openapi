@@ -26,6 +26,7 @@ from dropbox_sign.models.sub_form_field_rule_trigger import SubFormFieldRuleTrig
 from typing import Optional, Set, Tuple
 from typing_extensions import Self
 import io
+from pydantic import StrictBool
 
 class SubFormFieldRule(BaseModel):
     """
@@ -41,6 +42,7 @@ class SubFormFieldRule(BaseModel):
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
     )
 
 
@@ -136,8 +138,4 @@ class SubFormFieldRule(BaseModel):
             "triggers",
             "actions",
         ]
-
-    model_config = {
-        "arbitrary_types_allowed": True
-    }
 

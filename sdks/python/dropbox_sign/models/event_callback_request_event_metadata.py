@@ -23,6 +23,7 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set, Tuple
 from typing_extensions import Self
 import io
+from pydantic import StrictBool
 
 class EventCallbackRequestEventMetadata(BaseModel):
     """
@@ -38,6 +39,7 @@ class EventCallbackRequestEventMetadata(BaseModel):
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
     )
 
 
@@ -78,26 +80,6 @@ class EventCallbackRequestEventMetadata(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # set to None if related_signature_id (nullable) is None
-        # and model_fields_set contains the field
-        if self.related_signature_id is None and "related_signature_id" in self.model_fields_set:
-            _dict['related_signature_id'] = None
-
-        # set to None if reported_for_account_id (nullable) is None
-        # and model_fields_set contains the field
-        if self.reported_for_account_id is None and "reported_for_account_id" in self.model_fields_set:
-            _dict['reported_for_account_id'] = None
-
-        # set to None if reported_for_app_id (nullable) is None
-        # and model_fields_set contains the field
-        if self.reported_for_app_id is None and "reported_for_app_id" in self.model_fields_set:
-            _dict['reported_for_app_id'] = None
-
-        # set to None if event_message (nullable) is None
-        # and model_fields_set contains the field
-        if self.event_message is None and "event_message" in self.model_fields_set:
-            _dict['event_message'] = None
-
         return _dict
 
     @classmethod
@@ -137,8 +119,4 @@ class EventCallbackRequestEventMetadata(BaseModel):
     def openapi_type_is_array(cls, property_name: StrictStr) -> StrictBool:
         return property_name in [
         ]
-
-    model_config = {
-        "arbitrary_types_allowed": True
-    }
 

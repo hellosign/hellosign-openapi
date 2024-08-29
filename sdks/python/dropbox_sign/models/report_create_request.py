@@ -24,6 +24,7 @@ from typing_extensions import Annotated
 from typing import Optional, Set, Tuple
 from typing_extensions import Self
 import io
+from pydantic import StrictBool
 
 class ReportCreateRequest(BaseModel):
     """
@@ -46,6 +47,7 @@ class ReportCreateRequest(BaseModel):
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
     )
 
 
@@ -124,8 +126,4 @@ class ReportCreateRequest(BaseModel):
         return property_name in [
             "report_type",
         ]
-
-    model_config = {
-        "arbitrary_types_allowed": True
-    }
 

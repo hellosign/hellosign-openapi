@@ -30,6 +30,7 @@ from dropbox_sign.models.sub_unclaimed_draft_template_signer import SubUnclaimed
 from typing import Optional, Set, Tuple
 from typing_extensions import Self
 import io
+from pydantic import StrictBool
 
 class UnclaimedDraftCreateEmbeddedWithTemplateRequest(BaseModel):
     """
@@ -71,6 +72,7 @@ class UnclaimedDraftCreateEmbeddedWithTemplateRequest(BaseModel):
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
     )
 
 
@@ -238,8 +240,4 @@ class UnclaimedDraftCreateEmbeddedWithTemplateRequest(BaseModel):
             "file_urls",
             "signers",
         ]
-
-    model_config = {
-        "arbitrary_types_allowed": True
-    }
 

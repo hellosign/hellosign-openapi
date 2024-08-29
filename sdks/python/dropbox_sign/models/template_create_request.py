@@ -31,6 +31,7 @@ from dropbox_sign.models.sub_template_role import SubTemplateRole
 from typing import Optional, Set, Tuple
 from typing_extensions import Self
 import io
+from pydantic import StrictBool
 
 class TemplateCreateRequest(BaseModel):
     """
@@ -60,6 +61,7 @@ class TemplateCreateRequest(BaseModel):
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
     )
 
 
@@ -221,8 +223,4 @@ class TemplateCreateRequest(BaseModel):
             "form_field_rules",
             "merge_fields",
         ]
-
-    model_config = {
-        "arbitrary_types_allowed": True
-    }
 

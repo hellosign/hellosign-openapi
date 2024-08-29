@@ -23,6 +23,7 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set, Tuple
 from typing_extensions import Self
 import io
+from pydantic import StrictBool
 
 class ApiAppResponseOAuth(BaseModel):
     """
@@ -38,6 +39,7 @@ class ApiAppResponseOAuth(BaseModel):
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
     )
 
 
@@ -118,8 +120,4 @@ class ApiAppResponseOAuth(BaseModel):
         return property_name in [
             "scopes",
         ]
-
-    model_config = {
-        "arbitrary_types_allowed": True
-    }
 

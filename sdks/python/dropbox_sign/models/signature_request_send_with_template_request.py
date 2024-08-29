@@ -28,6 +28,7 @@ from dropbox_sign.models.sub_signing_options import SubSigningOptions
 from typing import Optional, Set, Tuple
 from typing_extensions import Self
 import io
+from pydantic import StrictBool
 
 class SignatureRequestSendWithTemplateRequest(BaseModel):
     """
@@ -56,6 +57,7 @@ class SignatureRequestSendWithTemplateRequest(BaseModel):
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
     )
 
 
@@ -191,8 +193,4 @@ class SignatureRequestSendWithTemplateRequest(BaseModel):
             "files",
             "file_urls",
         ]
-
-    model_config = {
-        "arbitrary_types_allowed": True
-    }
 

@@ -26,6 +26,7 @@ from dropbox_sign.models.warning_response import WarningResponse
 from typing import Optional, Set, Tuple
 from typing_extensions import Self
 import io
+from pydantic import StrictBool
 
 class TeamMembersResponse(BaseModel):
     """
@@ -40,6 +41,7 @@ class TeamMembersResponse(BaseModel):
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
     )
 
 
@@ -136,8 +138,4 @@ class TeamMembersResponse(BaseModel):
             "team_members",
             "warnings",
         ]
-
-    model_config = {
-        "arbitrary_types_allowed": True
-    }
 

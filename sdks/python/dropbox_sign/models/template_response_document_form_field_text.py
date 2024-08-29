@@ -25,6 +25,7 @@ from dropbox_sign.models.template_response_field_avg_text_length import Template
 from typing import Optional, Set, Tuple
 from typing_extensions import Self
 import io
+from pydantic import StrictBool
 
 class TemplateResponseDocumentFormFieldText(TemplateResponseDocumentFormFieldBase):
     """
@@ -52,6 +53,7 @@ class TemplateResponseDocumentFormFieldText(TemplateResponseDocumentFormFieldBas
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
     )
 
 
@@ -95,16 +97,6 @@ class TemplateResponseDocumentFormFieldText(TemplateResponseDocumentFormFieldBas
         # override the default output from pydantic by calling `to_dict()` of avg_text_length
         if self.avg_text_length:
             _dict['avg_text_length'] = self.avg_text_length.to_dict()
-        # set to None if group (nullable) is None
-        # and model_fields_set contains the field
-        if self.group is None and "group" in self.model_fields_set:
-            _dict['group'] = None
-
-        # set to None if validation_type (nullable) is None
-        # and model_fields_set contains the field
-        if self.validation_type is None and "validation_type" in self.model_fields_set:
-            _dict['validation_type'] = None
-
         return _dict
 
     @classmethod
@@ -166,8 +158,4 @@ class TemplateResponseDocumentFormFieldText(TemplateResponseDocumentFormFieldBas
     def openapi_type_is_array(cls, property_name: StrictStr) -> StrictBool:
         return property_name in [
         ]
-
-    model_config = {
-        "arbitrary_types_allowed": True
-    }
 

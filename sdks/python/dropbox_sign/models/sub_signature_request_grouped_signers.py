@@ -24,6 +24,7 @@ from dropbox_sign.models.sub_signature_request_signer import SubSignatureRequest
 from typing import Optional, Set, Tuple
 from typing_extensions import Self
 import io
+from pydantic import StrictBool
 
 class SubSignatureRequestGroupedSigners(BaseModel):
     """
@@ -38,6 +39,7 @@ class SubSignatureRequestGroupedSigners(BaseModel):
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
     )
 
 
@@ -85,11 +87,6 @@ class SubSignatureRequestGroupedSigners(BaseModel):
                 if _item_signers:
                     _items.append(_item_signers.to_dict())
             _dict['signers'] = _items
-        # set to None if order (nullable) is None
-        # and model_fields_set contains the field
-        if self.order is None and "order" in self.model_fields_set:
-            _dict['order'] = None
-
         return _dict
 
     @classmethod
@@ -128,8 +125,4 @@ class SubSignatureRequestGroupedSigners(BaseModel):
         return property_name in [
             "signers",
         ]
-
-    model_config = {
-        "arbitrary_types_allowed": True
-    }
 

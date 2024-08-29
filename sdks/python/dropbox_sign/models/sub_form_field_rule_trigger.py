@@ -23,6 +23,7 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set, Tuple
 from typing_extensions import Self
 import io
+from pydantic import StrictBool
 
 class SubFormFieldRuleTrigger(BaseModel):
     """
@@ -45,6 +46,7 @@ class SubFormFieldRuleTrigger(BaseModel):
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
     )
 
 
@@ -125,8 +127,4 @@ class SubFormFieldRuleTrigger(BaseModel):
         return property_name in [
             "values",
         ]
-
-    model_config = {
-        "arbitrary_types_allowed": True
-    }
 

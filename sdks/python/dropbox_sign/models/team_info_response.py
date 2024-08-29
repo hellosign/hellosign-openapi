@@ -24,6 +24,7 @@ from dropbox_sign.models.team_parent_response import TeamParentResponse
 from typing import Optional, Set, Tuple
 from typing_extensions import Self
 import io
+from pydantic import StrictBool
 
 class TeamInfoResponse(BaseModel):
     """
@@ -40,6 +41,7 @@ class TeamInfoResponse(BaseModel):
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
     )
 
 
@@ -83,11 +85,6 @@ class TeamInfoResponse(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of team_parent
         if self.team_parent:
             _dict['team_parent'] = self.team_parent.to_dict()
-        # set to None if team_parent (nullable) is None
-        # and model_fields_set contains the field
-        if self.team_parent is None and "team_parent" in self.model_fields_set:
-            _dict['team_parent'] = None
-
         return _dict
 
     @classmethod
@@ -129,8 +126,4 @@ class TeamInfoResponse(BaseModel):
     def openapi_type_is_array(cls, property_name: StrictStr) -> StrictBool:
         return property_name in [
         ]
-
-    model_config = {
-        "arbitrary_types_allowed": True
-    }
 

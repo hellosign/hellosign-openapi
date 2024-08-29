@@ -23,6 +23,7 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set, Tuple
 from typing_extensions import Self
 import io
+from pydantic import StrictBool
 
 class SignatureRequestResponseSignatures(BaseModel):
     """
@@ -53,6 +54,7 @@ class SignatureRequestResponseSignatures(BaseModel):
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
     )
 
 
@@ -93,81 +95,6 @@ class SignatureRequestResponseSignatures(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # set to None if signer_group_guid (nullable) is None
-        # and model_fields_set contains the field
-        if self.signer_group_guid is None and "signer_group_guid" in self.model_fields_set:
-            _dict['signer_group_guid'] = None
-
-        # set to None if signer_name (nullable) is None
-        # and model_fields_set contains the field
-        if self.signer_name is None and "signer_name" in self.model_fields_set:
-            _dict['signer_name'] = None
-
-        # set to None if signer_role (nullable) is None
-        # and model_fields_set contains the field
-        if self.signer_role is None and "signer_role" in self.model_fields_set:
-            _dict['signer_role'] = None
-
-        # set to None if order (nullable) is None
-        # and model_fields_set contains the field
-        if self.order is None and "order" in self.model_fields_set:
-            _dict['order'] = None
-
-        # set to None if decline_reason (nullable) is None
-        # and model_fields_set contains the field
-        if self.decline_reason is None and "decline_reason" in self.model_fields_set:
-            _dict['decline_reason'] = None
-
-        # set to None if signed_at (nullable) is None
-        # and model_fields_set contains the field
-        if self.signed_at is None and "signed_at" in self.model_fields_set:
-            _dict['signed_at'] = None
-
-        # set to None if last_viewed_at (nullable) is None
-        # and model_fields_set contains the field
-        if self.last_viewed_at is None and "last_viewed_at" in self.model_fields_set:
-            _dict['last_viewed_at'] = None
-
-        # set to None if last_reminded_at (nullable) is None
-        # and model_fields_set contains the field
-        if self.last_reminded_at is None and "last_reminded_at" in self.model_fields_set:
-            _dict['last_reminded_at'] = None
-
-        # set to None if has_sms_auth (nullable) is None
-        # and model_fields_set contains the field
-        if self.has_sms_auth is None and "has_sms_auth" in self.model_fields_set:
-            _dict['has_sms_auth'] = None
-
-        # set to None if has_sms_delivery (nullable) is None
-        # and model_fields_set contains the field
-        if self.has_sms_delivery is None and "has_sms_delivery" in self.model_fields_set:
-            _dict['has_sms_delivery'] = None
-
-        # set to None if sms_phone_number (nullable) is None
-        # and model_fields_set contains the field
-        if self.sms_phone_number is None and "sms_phone_number" in self.model_fields_set:
-            _dict['sms_phone_number'] = None
-
-        # set to None if reassigned_by (nullable) is None
-        # and model_fields_set contains the field
-        if self.reassigned_by is None and "reassigned_by" in self.model_fields_set:
-            _dict['reassigned_by'] = None
-
-        # set to None if reassignment_reason (nullable) is None
-        # and model_fields_set contains the field
-        if self.reassignment_reason is None and "reassignment_reason" in self.model_fields_set:
-            _dict['reassignment_reason'] = None
-
-        # set to None if reassigned_from (nullable) is None
-        # and model_fields_set contains the field
-        if self.reassigned_from is None and "reassigned_from" in self.model_fields_set:
-            _dict['reassigned_from'] = None
-
-        # set to None if error (nullable) is None
-        # and model_fields_set contains the field
-        if self.error is None and "error" in self.model_fields_set:
-            _dict['error'] = None
-
         return _dict
 
     @classmethod
@@ -237,8 +164,4 @@ class SignatureRequestResponseSignatures(BaseModel):
     def openapi_type_is_array(cls, property_name: StrictStr) -> StrictBool:
         return property_name in [
         ]
-
-    model_config = {
-        "arbitrary_types_allowed": True
-    }
 

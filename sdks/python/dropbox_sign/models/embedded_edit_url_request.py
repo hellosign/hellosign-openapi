@@ -25,6 +25,7 @@ from dropbox_sign.models.sub_merge_field import SubMergeField
 from typing import Optional, Set, Tuple
 from typing_extensions import Self
 import io
+from pydantic import StrictBool
 
 class EmbeddedEditUrlRequest(BaseModel):
     """
@@ -46,6 +47,7 @@ class EmbeddedEditUrlRequest(BaseModel):
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
     )
 
 
@@ -149,8 +151,4 @@ class EmbeddedEditUrlRequest(BaseModel):
             "cc_roles",
             "merge_fields",
         ]
-
-    model_config = {
-        "arbitrary_types_allowed": True
-    }
 

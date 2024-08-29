@@ -29,6 +29,7 @@ from dropbox_sign.models.template_response_signer_role import TemplateResponseSi
 from typing import Optional, Set, Tuple
 from typing_extensions import Self
 import io
+from pydantic import StrictBool
 
 class TemplateResponse(BaseModel):
     """
@@ -55,6 +56,7 @@ class TemplateResponse(BaseModel):
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
     )
 
 
@@ -137,41 +139,6 @@ class TemplateResponse(BaseModel):
                 if _item_accounts:
                     _items.append(_item_accounts.to_dict())
             _dict['accounts'] = _items
-        # set to None if is_embedded (nullable) is None
-        # and model_fields_set contains the field
-        if self.is_embedded is None and "is_embedded" in self.model_fields_set:
-            _dict['is_embedded'] = None
-
-        # set to None if is_creator (nullable) is None
-        # and model_fields_set contains the field
-        if self.is_creator is None and "is_creator" in self.model_fields_set:
-            _dict['is_creator'] = None
-
-        # set to None if can_edit (nullable) is None
-        # and model_fields_set contains the field
-        if self.can_edit is None and "can_edit" in self.model_fields_set:
-            _dict['can_edit'] = None
-
-        # set to None if is_locked (nullable) is None
-        # and model_fields_set contains the field
-        if self.is_locked is None and "is_locked" in self.model_fields_set:
-            _dict['is_locked'] = None
-
-        # set to None if custom_fields (nullable) is None
-        # and model_fields_set contains the field
-        if self.custom_fields is None and "custom_fields" in self.model_fields_set:
-            _dict['custom_fields'] = None
-
-        # set to None if named_form_fields (nullable) is None
-        # and model_fields_set contains the field
-        if self.named_form_fields is None and "named_form_fields" in self.model_fields_set:
-            _dict['named_form_fields'] = None
-
-        # set to None if accounts (nullable) is None
-        # and model_fields_set contains the field
-        if self.accounts is None and "accounts" in self.model_fields_set:
-            _dict['accounts'] = None
-
         return _dict
 
     @classmethod
@@ -239,8 +206,4 @@ class TemplateResponse(BaseModel):
             "named_form_fields",
             "accounts",
         ]
-
-    model_config = {
-        "arbitrary_types_allowed": True
-    }
 

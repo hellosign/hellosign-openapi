@@ -25,6 +25,7 @@ from dropbox_sign.models.warning_response import WarningResponse
 from typing import Optional, Set, Tuple
 from typing_extensions import Self
 import io
+from pydantic import StrictBool
 
 class FaxLineResponse(BaseModel):
     """
@@ -38,6 +39,7 @@ class FaxLineResponse(BaseModel):
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
     )
 
 
@@ -119,8 +121,4 @@ class FaxLineResponse(BaseModel):
     def openapi_type_is_array(cls, property_name: StrictStr) -> StrictBool:
         return property_name in [
         ]
-
-    model_config = {
-        "arbitrary_types_allowed": True
-    }
 

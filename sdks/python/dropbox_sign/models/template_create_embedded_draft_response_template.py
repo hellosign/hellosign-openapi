@@ -24,6 +24,7 @@ from dropbox_sign.models.warning_response import WarningResponse
 from typing import Optional, Set, Tuple
 from typing_extensions import Self
 import io
+from pydantic import StrictBool
 
 class TemplateCreateEmbeddedDraftResponseTemplate(BaseModel):
     """
@@ -39,6 +40,7 @@ class TemplateCreateEmbeddedDraftResponseTemplate(BaseModel):
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
     )
 
 
@@ -126,8 +128,4 @@ class TemplateCreateEmbeddedDraftResponseTemplate(BaseModel):
         return property_name in [
             "warnings",
         ]
-
-    model_config = {
-        "arbitrary_types_allowed": True
-    }
 

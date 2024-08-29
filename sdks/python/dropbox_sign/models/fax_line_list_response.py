@@ -26,6 +26,7 @@ from dropbox_sign.models.warning_response import WarningResponse
 from typing import Optional, Set, Tuple
 from typing_extensions import Self
 import io
+from pydantic import StrictBool
 
 class FaxLineListResponse(BaseModel):
     """
@@ -40,6 +41,7 @@ class FaxLineListResponse(BaseModel):
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
     )
 
 
@@ -131,8 +133,4 @@ class FaxLineListResponse(BaseModel):
         return property_name in [
             "fax_lines",
         ]
-
-    model_config = {
-        "arbitrary_types_allowed": True
-    }
 

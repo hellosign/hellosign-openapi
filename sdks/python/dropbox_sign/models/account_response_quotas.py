@@ -23,6 +23,7 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set, Tuple
 from typing_extensions import Self
 import io
+from pydantic import StrictBool
 
 class AccountResponseQuotas(BaseModel):
     """
@@ -40,6 +41,7 @@ class AccountResponseQuotas(BaseModel):
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
     )
 
 
@@ -80,36 +82,6 @@ class AccountResponseQuotas(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # set to None if api_signature_requests_left (nullable) is None
-        # and model_fields_set contains the field
-        if self.api_signature_requests_left is None and "api_signature_requests_left" in self.model_fields_set:
-            _dict['api_signature_requests_left'] = None
-
-        # set to None if documents_left (nullable) is None
-        # and model_fields_set contains the field
-        if self.documents_left is None and "documents_left" in self.model_fields_set:
-            _dict['documents_left'] = None
-
-        # set to None if templates_total (nullable) is None
-        # and model_fields_set contains the field
-        if self.templates_total is None and "templates_total" in self.model_fields_set:
-            _dict['templates_total'] = None
-
-        # set to None if templates_left (nullable) is None
-        # and model_fields_set contains the field
-        if self.templates_left is None and "templates_left" in self.model_fields_set:
-            _dict['templates_left'] = None
-
-        # set to None if sms_verifications_left (nullable) is None
-        # and model_fields_set contains the field
-        if self.sms_verifications_left is None and "sms_verifications_left" in self.model_fields_set:
-            _dict['sms_verifications_left'] = None
-
-        # set to None if num_fax_pages_left (nullable) is None
-        # and model_fields_set contains the field
-        if self.num_fax_pages_left is None and "num_fax_pages_left" in self.model_fields_set:
-            _dict['num_fax_pages_left'] = None
-
         return _dict
 
     @classmethod
@@ -153,8 +125,4 @@ class AccountResponseQuotas(BaseModel):
     def openapi_type_is_array(cls, property_name: StrictStr) -> StrictBool:
         return property_name in [
         ]
-
-    model_config = {
-        "arbitrary_types_allowed": True
-    }
 

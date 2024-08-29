@@ -32,6 +32,7 @@ from dropbox_sign.models.sub_unclaimed_draft_signer import SubUnclaimedDraftSign
 from typing import Optional, Set, Tuple
 from typing_extensions import Self
 import io
+from pydantic import StrictBool
 
 class UnclaimedDraftCreateRequest(BaseModel):
     """
@@ -74,6 +75,7 @@ class UnclaimedDraftCreateRequest(BaseModel):
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
     )
 
 
@@ -162,11 +164,6 @@ class UnclaimedDraftCreateRequest(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of signing_options
         if self.signing_options:
             _dict['signing_options'] = self.signing_options.to_dict()
-        # set to None if expires_at (nullable) is None
-        # and model_fields_set contains the field
-        if self.expires_at is None and "expires_at" in self.model_fields_set:
-            _dict['expires_at'] = None
-
         return _dict
 
     @classmethod
@@ -255,8 +252,4 @@ class UnclaimedDraftCreateRequest(BaseModel):
             "form_fields_per_document",
             "signers",
         ]
-
-    model_config = {
-        "arbitrary_types_allowed": True
-    }
 

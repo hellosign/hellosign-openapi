@@ -25,6 +25,7 @@ from dropbox_sign.models.sub_signature_request_template_signer import SubSignatu
 from typing import Optional, Set, Tuple
 from typing_extensions import Self
 import io
+from pydantic import StrictBool
 
 class SubBulkSignerList(BaseModel):
     """
@@ -38,6 +39,7 @@ class SubBulkSignerList(BaseModel):
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
     )
 
 
@@ -129,8 +131,4 @@ class SubBulkSignerList(BaseModel):
             "custom_fields",
             "signers",
         ]
-
-    model_config = {
-        "arbitrary_types_allowed": True
-    }
 

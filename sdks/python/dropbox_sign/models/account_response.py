@@ -25,6 +25,7 @@ from dropbox_sign.models.account_response_usage import AccountResponseUsage
 from typing import Optional, Set, Tuple
 from typing_extensions import Self
 import io
+from pydantic import StrictBool
 
 class AccountResponse(BaseModel):
     """
@@ -47,6 +48,7 @@ class AccountResponse(BaseModel):
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
     )
 
 
@@ -93,26 +95,6 @@ class AccountResponse(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of usage
         if self.usage:
             _dict['usage'] = self.usage.to_dict()
-        # set to None if callback_url (nullable) is None
-        # and model_fields_set contains the field
-        if self.callback_url is None and "callback_url" in self.model_fields_set:
-            _dict['callback_url'] = None
-
-        # set to None if role_code (nullable) is None
-        # and model_fields_set contains the field
-        if self.role_code is None and "role_code" in self.model_fields_set:
-            _dict['role_code'] = None
-
-        # set to None if team_id (nullable) is None
-        # and model_fields_set contains the field
-        if self.team_id is None and "team_id" in self.model_fields_set:
-            _dict['team_id'] = None
-
-        # set to None if locale (nullable) is None
-        # and model_fields_set contains the field
-        if self.locale is None and "locale" in self.model_fields_set:
-            _dict['locale'] = None
-
         return _dict
 
     @classmethod
@@ -166,8 +148,4 @@ class AccountResponse(BaseModel):
     def openapi_type_is_array(cls, property_name: StrictStr) -> StrictBool:
         return property_name in [
         ]
-
-    model_config = {
-        "arbitrary_types_allowed": True
-    }
 

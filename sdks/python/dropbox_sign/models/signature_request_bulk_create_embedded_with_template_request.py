@@ -27,6 +27,7 @@ from dropbox_sign.models.sub_custom_field import SubCustomField
 from typing import Optional, Set, Tuple
 from typing_extensions import Self
 import io
+from pydantic import StrictBool
 
 class SignatureRequestBulkCreateEmbeddedWithTemplateRequest(BaseModel):
     """
@@ -51,6 +52,7 @@ class SignatureRequestBulkCreateEmbeddedWithTemplateRequest(BaseModel):
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
     )
 
 
@@ -173,8 +175,4 @@ class SignatureRequestBulkCreateEmbeddedWithTemplateRequest(BaseModel):
             "ccs",
             "custom_fields",
         ]
-
-    model_config = {
-        "arbitrary_types_allowed": True
-    }
 

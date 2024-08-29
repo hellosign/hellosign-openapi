@@ -24,6 +24,7 @@ from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing import Optional, Set, Tuple
 from typing_extensions import Self
 import io
+from pydantic import StrictBool
 
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
@@ -50,6 +51,7 @@ class TemplateResponseDocumentCustomFieldBase(BaseModel):
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
     )
 
 
@@ -107,16 +109,6 @@ class TemplateResponseDocumentCustomFieldBase(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # set to None if signer (nullable) is None
-        # and model_fields_set contains the field
-        if self.signer is None and "signer" in self.model_fields_set:
-            _dict['signer'] = None
-
-        # set to None if group (nullable) is None
-        # and model_fields_set contains the field
-        if self.group is None and "group" in self.model_fields_set:
-            _dict['group'] = None
-
         return _dict
 
     @classmethod
@@ -153,8 +145,4 @@ class TemplateResponseDocumentCustomFieldBase(BaseModel):
     def openapi_type_is_array(cls, property_name: StrictStr) -> StrictBool:
         return property_name in [
         ]
-
-    model_config = {
-        "arbitrary_types_allowed": True
-    }
 

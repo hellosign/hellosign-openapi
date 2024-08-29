@@ -25,6 +25,7 @@ from dropbox_sign.models.sub_form_fields_per_document_base import SubFormFieldsP
 from typing import Optional, Set, Tuple
 from typing_extensions import Self
 import io
+from pydantic import StrictBool
 
 class SubFormFieldsPerDocumentDropdown(SubFormFieldsPerDocumentBase):
     """
@@ -51,6 +52,7 @@ class SubFormFieldsPerDocumentDropdown(SubFormFieldsPerDocumentBase):
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
     )
 
 
@@ -91,11 +93,6 @@ class SubFormFieldsPerDocumentDropdown(SubFormFieldsPerDocumentBase):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # set to None if page (nullable) is None
-        # and model_fields_set contains the field
-        if self.page is None and "page" in self.model_fields_set:
-            _dict['page'] = None
-
         return _dict
 
     @classmethod
@@ -158,8 +155,4 @@ class SubFormFieldsPerDocumentDropdown(SubFormFieldsPerDocumentBase):
         return property_name in [
             "options",
         ]
-
-    model_config = {
-        "arbitrary_types_allowed": True
-    }
 

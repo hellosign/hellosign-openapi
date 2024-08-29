@@ -27,6 +27,7 @@ from dropbox_sign.models.sub_white_labeling_options import SubWhiteLabelingOptio
 from typing import Optional, Set, Tuple
 from typing_extensions import Self
 import io
+from pydantic import StrictBool
 
 class ApiAppCreateRequest(BaseModel):
     """
@@ -45,6 +46,7 @@ class ApiAppCreateRequest(BaseModel):
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
     )
 
 
@@ -140,8 +142,4 @@ class ApiAppCreateRequest(BaseModel):
         return property_name in [
             "domains",
         ]
-
-    model_config = {
-        "arbitrary_types_allowed": True
-    }
 
