@@ -30,7 +30,7 @@ from dropbox_sign.models.sub_form_fields_per_document_base import SubFormFieldsP
 from dropbox_sign.models.sub_signature_request_grouped_signers import SubSignatureRequestGroupedSigners
 from dropbox_sign.models.sub_signature_request_signer import SubSignatureRequestSigner
 from dropbox_sign.models.sub_signing_options import SubSigningOptions
-from typing import Optional, Set
+from typing import Optional, Set, Tuple
 from typing_extensions import Self
 import io
 
@@ -77,17 +77,24 @@ class SignatureRequestSendRequest(BaseModel):
         """Returns the string representation of the model using alias"""
         return pprint.pformat(self.model_dump(by_alias=True))
 
-    def to_json(self) -> str:
+    def to_json(self, excluded_fields: Set[str] = None) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(self.to_dict(excluded_fields))
+
+    def to_json_form_params(self, excluded_fields: Set[str] = None) -> List[Tuple[str, str]]:
+        data: List[Tuple[str, str]] = []
+
+        for key, value in self.to_dict(excluded_fields).items():
+            data.append((key, json.dumps(value)))
+
+        return data
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of SignatureRequestSendRequest from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self, excluded_fields: Set[str] = None) -> Dict[str, Any]:
         """Return the dictionary representation of the model using alias.
 
         This has the following differences from calling pydantic's
@@ -97,8 +104,6 @@ class SignatureRequestSendRequest(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
-        excluded_fields: Set[str] = set([
-        ])
 
         _dict = self.model_dump(
             by_alias=True,
@@ -212,6 +217,52 @@ class SignatureRequestSendRequest(BaseModel):
         Attempt to instantiate and hydrate a new instance of this class
         """
         return cls.from_dict(data)
+
+    @classmethod
+    def openapi_types(cls) -> Dict[StrictStr, StrictStr]:
+        return {
+            "files": "(List[io.IOBase],)",
+            "file_urls": "(List[str],)",
+            "signers": "(List[SubSignatureRequestSigner],)",
+            "grouped_signers": "(List[SubSignatureRequestGroupedSigners],)",
+            "allow_decline": "(bool,)",
+            "allow_reassign": "(bool,)",
+            "attachments": "(List[SubAttachment],)",
+            "cc_email_addresses": "(List[str],)",
+            "client_id": "(str,)",
+            "custom_fields": "(List[SubCustomField],)",
+            "field_options": "(SubFieldOptions,)",
+            "form_field_groups": "(List[SubFormFieldGroup],)",
+            "form_field_rules": "(List[SubFormFieldRule],)",
+            "form_fields_per_document": "(List[SubFormFieldsPerDocumentBase],)",
+            "hide_text_tags": "(bool,)",
+            "is_qualified_signature": "(bool,)",
+            "is_eid": "(bool,)",
+            "message": "(str,)",
+            "metadata": "(Dict[str, object],)",
+            "signing_options": "(SubSigningOptions,)",
+            "signing_redirect_url": "(str,)",
+            "subject": "(str,)",
+            "test_mode": "(bool,)",
+            "title": "(str,)",
+            "use_text_tags": "(bool,)",
+            "expires_at": "(int,)",
+        }
+
+    @classmethod
+    def openapi_type_is_array(cls, property_name: StrictStr) -> StrictBool:
+        return property_name in [
+            "files",
+            "file_urls",
+            "signers",
+            "grouped_signers",
+            "attachments",
+            "cc_email_addresses",
+            "custom_fields",
+            "form_field_groups",
+            "form_field_rules",
+            "form_fields_per_document",
+        ]
 
     model_config = {
         "arbitrary_types_allowed": True

@@ -17,8 +17,8 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import Field, StrictBool, StrictBytes, StrictInt, StrictStr, field_validator
-from typing import Any, Dict, List, Optional, Union
+from pydantic import Field, StrictBytes, StrictInt, StrictStr, field_validator
+from typing import Optional, Union
 from typing_extensions import Annotated
 from dropbox_sign.models.bulk_send_job_send_response import BulkSendJobSendResponse
 from dropbox_sign.models.file_response import FileResponse
@@ -30,17 +30,9 @@ from dropbox_sign.models.signature_request_create_embedded_with_template_request
 from dropbox_sign.models.signature_request_get_response import SignatureRequestGetResponse
 from dropbox_sign.models.signature_request_list_response import SignatureRequestListResponse
 from dropbox_sign.models.signature_request_remind_request import SignatureRequestRemindRequest
+from dropbox_sign.models.signature_request_send_request import SignatureRequestSendRequest
 from dropbox_sign.models.signature_request_send_with_template_request import SignatureRequestSendWithTemplateRequest
 from dropbox_sign.models.signature_request_update_request import SignatureRequestUpdateRequest
-from dropbox_sign.models.sub_attachment import SubAttachment
-from dropbox_sign.models.sub_custom_field import SubCustomField
-from dropbox_sign.models.sub_field_options import SubFieldOptions
-from dropbox_sign.models.sub_form_field_group import SubFormFieldGroup
-from dropbox_sign.models.sub_form_field_rule import SubFormFieldRule
-from dropbox_sign.models.sub_form_fields_per_document_base import SubFormFieldsPerDocumentBase
-from dropbox_sign.models.sub_signature_request_grouped_signers import SubSignatureRequestGroupedSigners
-from dropbox_sign.models.sub_signature_request_signer import SubSignatureRequestSigner
-from dropbox_sign.models.sub_signing_options import SubSigningOptions
 
 from dropbox_sign.api_client import ApiClient, RequestSerialized
 from dropbox_sign.api_response import ApiResponse
@@ -3759,32 +3751,7 @@ class SignatureRequestApi:
     @validate_call
     def signature_request_send(
         self,
-        files: Annotated[Optional[List[Union[StrictBytes, StrictStr]]], Field(description="Use `files[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.")] = None,
-        file_urls: Annotated[Optional[List[StrictStr]], Field(description="Use `file_urls[]` to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.")] = None,
-        signers: Annotated[Optional[List[SubSignatureRequestSigner]], Field(description="Add Signers to your Signature Request.  This endpoint requires either **signers** or **grouped_signers**, but not both.")] = None,
-        grouped_signers: Annotated[Optional[List[SubSignatureRequestGroupedSigners]], Field(description="Add Grouped Signers to your Signature Request.  This endpoint requires either **signers** or **grouped_signers**, but not both.")] = None,
-        allow_decline: Annotated[Optional[StrictBool], Field(description="Allows signers to decline to sign a document if `true`. Defaults to `false`.")] = None,
-        allow_reassign: Annotated[Optional[StrictBool], Field(description="Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.  **NOTE:** Only available for Premium plan and higher.")] = None,
-        attachments: Annotated[Optional[List[SubAttachment]], Field(description="A list describing the attachments")] = None,
-        cc_email_addresses: Annotated[Optional[List[StrictStr]], Field(description="The email addresses that should be CCed.")] = None,
-        client_id: Annotated[Optional[StrictStr], Field(description="The client id of the API App you want to associate with this request. Used to apply the branding and callback url defined for the app.")] = None,
-        custom_fields: Annotated[Optional[List[SubCustomField]], Field(description="When used together with merge fields, `custom_fields` allows users to add pre-filled data to their signature requests.  Pre-filled data can be used with \\\"send-once\\\" signature requests by adding merge fields with `form_fields_per_document` or [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) while passing values back with `custom_fields` together in one API call.  For using pre-filled on repeatable signature requests, merge fields are added to templates in the Dropbox Sign UI or by calling [/template/create_embedded_draft](/api/reference/operation/templateCreateEmbeddedDraft) and then passing `custom_fields` on subsequent signature requests referencing that template.")] = None,
-        field_options: Optional[SubFieldOptions] = None,
-        form_field_groups: Annotated[Optional[List[SubFormFieldGroup]], Field(description="Group information for fields defined in `form_fields_per_document`. String-indexed JSON array with `group_label` and `requirement` keys. `form_fields_per_document` must contain fields referencing a group defined in `form_field_groups`.")] = None,
-        form_field_rules: Annotated[Optional[List[SubFormFieldRule]], Field(description="Conditional Logic rules for fields defined in `form_fields_per_document`.")] = None,
-        form_fields_per_document: Annotated[Optional[List[SubFormFieldsPerDocumentBase]], Field(description="The fields that should appear on the document, expressed as an array of objects. (For more details you can read about it here: [Using Form Fields per Document](/docs/openapi/form-fields-per-document).)  **NOTE:** Fields like **text**, **dropdown**, **checkbox**, **radio**, and **hyperlink** have additional required and optional parameters. Check out the list of [additional parameters](/api/reference/constants/#form-fields-per-document) for these field types.  * Text Field use `SubFormFieldsPerDocumentText` * Dropdown Field use `SubFormFieldsPerDocumentDropdown` * Hyperlink Field use `SubFormFieldsPerDocumentHyperlink` * Checkbox Field use `SubFormFieldsPerDocumentCheckbox` * Radio Field use `SubFormFieldsPerDocumentRadio` * Signature Field use `SubFormFieldsPerDocumentSignature` * Date Signed Field use `SubFormFieldsPerDocumentDateSigned` * Initials Field use `SubFormFieldsPerDocumentInitials` * Text Merge Field use `SubFormFieldsPerDocumentTextMerge` * Checkbox Merge Field use `SubFormFieldsPerDocumentCheckboxMerge`")] = None,
-        hide_text_tags: Annotated[Optional[StrictBool], Field(description="Enables automatic Text Tag removal when set to true.  **NOTE:** Removing text tags this way can cause unwanted clipping. We recommend leaving this setting on `false` and instead hiding your text tags using white text or a similar approach. See the [Text Tags Walkthrough](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) for more information.")] = None,
-        is_qualified_signature: Annotated[Optional[StrictBool], Field(description="Send with a value of `true` if you wish to enable [Qualified Electronic Signatures](https://www.hellosign.com/features/qualified-electronic-signatures) (QES), which requires a face-to-face call to verify the signer's identity.<br> **NOTE:** QES is only available on the Premium API plan as an add-on purchase. Cannot be used in `test_mode`. Only works on requests with one signer.")] = None,
-        is_eid: Annotated[Optional[StrictBool], Field(description="Send with a value of `true` if you wish to enable [electronic identification (eID)](https://www.hellosign.com/features/electronic-id), which requires the signer to verify their identity with an eID provider to sign a document.<br> **NOTE:** eID is only available on the Premium API plan. Cannot be used in `test_mode`. Only works on requests with one signer.")] = None,
-        message: Annotated[Optional[Annotated[str, Field(strict=True, max_length=5000)]], Field(description="The custom message in the email that will be sent to the signers.")] = None,
-        metadata: Annotated[Optional[Dict[str, Any]], Field(description="Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.  Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.")] = None,
-        signing_options: Optional[SubSigningOptions] = None,
-        signing_redirect_url: Annotated[Optional[StrictStr], Field(description="The URL you want signers redirected to after they successfully sign.")] = None,
-        subject: Annotated[Optional[Annotated[str, Field(strict=True, max_length=255)]], Field(description="The subject in the email that will be sent to the signers.")] = None,
-        test_mode: Annotated[Optional[StrictBool], Field(description="Whether this is a test, the signature request will not be legally binding if set to `true`. Defaults to `false`.")] = None,
-        title: Annotated[Optional[Annotated[str, Field(strict=True, max_length=255)]], Field(description="The title you want to assign to the SignatureRequest.")] = None,
-        use_text_tags: Annotated[Optional[StrictBool], Field(description="Send with a value of `true` if you wish to enable [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) parsing in your document. Defaults to disabled, or `false`.")] = None,
-        expires_at: Annotated[Optional[StrictInt], Field(description="When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.")] = None,
+        signature_request_send_request: SignatureRequestSendRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3802,58 +3769,8 @@ class SignatureRequestApi:
 
         Creates and sends a new SignatureRequest with the submitted documents. If `form_fields_per_document` is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents.
 
-        :param files: Use `files[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.
-        :type files: List[io.IOBase]
-        :param file_urls: Use `file_urls[]` to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.
-        :type file_urls: List[str]
-        :param signers: Add Signers to your Signature Request.  This endpoint requires either **signers** or **grouped_signers**, but not both.
-        :type signers: List[SubSignatureRequestSigner]
-        :param grouped_signers: Add Grouped Signers to your Signature Request.  This endpoint requires either **signers** or **grouped_signers**, but not both.
-        :type grouped_signers: List[SubSignatureRequestGroupedSigners]
-        :param allow_decline: Allows signers to decline to sign a document if `true`. Defaults to `false`.
-        :type allow_decline: bool
-        :param allow_reassign: Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.  **NOTE:** Only available for Premium plan and higher.
-        :type allow_reassign: bool
-        :param attachments: A list describing the attachments
-        :type attachments: List[SubAttachment]
-        :param cc_email_addresses: The email addresses that should be CCed.
-        :type cc_email_addresses: List[str]
-        :param client_id: The client id of the API App you want to associate with this request. Used to apply the branding and callback url defined for the app.
-        :type client_id: str
-        :param custom_fields: When used together with merge fields, `custom_fields` allows users to add pre-filled data to their signature requests.  Pre-filled data can be used with \\\"send-once\\\" signature requests by adding merge fields with `form_fields_per_document` or [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) while passing values back with `custom_fields` together in one API call.  For using pre-filled on repeatable signature requests, merge fields are added to templates in the Dropbox Sign UI or by calling [/template/create_embedded_draft](/api/reference/operation/templateCreateEmbeddedDraft) and then passing `custom_fields` on subsequent signature requests referencing that template.
-        :type custom_fields: List[SubCustomField]
-        :param field_options:
-        :type field_options: SubFieldOptions
-        :param form_field_groups: Group information for fields defined in `form_fields_per_document`. String-indexed JSON array with `group_label` and `requirement` keys. `form_fields_per_document` must contain fields referencing a group defined in `form_field_groups`.
-        :type form_field_groups: List[SubFormFieldGroup]
-        :param form_field_rules: Conditional Logic rules for fields defined in `form_fields_per_document`.
-        :type form_field_rules: List[SubFormFieldRule]
-        :param form_fields_per_document: The fields that should appear on the document, expressed as an array of objects. (For more details you can read about it here: [Using Form Fields per Document](/docs/openapi/form-fields-per-document).)  **NOTE:** Fields like **text**, **dropdown**, **checkbox**, **radio**, and **hyperlink** have additional required and optional parameters. Check out the list of [additional parameters](/api/reference/constants/#form-fields-per-document) for these field types.  * Text Field use `SubFormFieldsPerDocumentText` * Dropdown Field use `SubFormFieldsPerDocumentDropdown` * Hyperlink Field use `SubFormFieldsPerDocumentHyperlink` * Checkbox Field use `SubFormFieldsPerDocumentCheckbox` * Radio Field use `SubFormFieldsPerDocumentRadio` * Signature Field use `SubFormFieldsPerDocumentSignature` * Date Signed Field use `SubFormFieldsPerDocumentDateSigned` * Initials Field use `SubFormFieldsPerDocumentInitials` * Text Merge Field use `SubFormFieldsPerDocumentTextMerge` * Checkbox Merge Field use `SubFormFieldsPerDocumentCheckboxMerge`
-        :type form_fields_per_document: List[SubFormFieldsPerDocumentBase]
-        :param hide_text_tags: Enables automatic Text Tag removal when set to true.  **NOTE:** Removing text tags this way can cause unwanted clipping. We recommend leaving this setting on `false` and instead hiding your text tags using white text or a similar approach. See the [Text Tags Walkthrough](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) for more information.
-        :type hide_text_tags: bool
-        :param is_qualified_signature: Send with a value of `true` if you wish to enable [Qualified Electronic Signatures](https://www.hellosign.com/features/qualified-electronic-signatures) (QES), which requires a face-to-face call to verify the signer's identity.<br> **NOTE:** QES is only available on the Premium API plan as an add-on purchase. Cannot be used in `test_mode`. Only works on requests with one signer.
-        :type is_qualified_signature: bool
-        :param is_eid: Send with a value of `true` if you wish to enable [electronic identification (eID)](https://www.hellosign.com/features/electronic-id), which requires the signer to verify their identity with an eID provider to sign a document.<br> **NOTE:** eID is only available on the Premium API plan. Cannot be used in `test_mode`. Only works on requests with one signer.
-        :type is_eid: bool
-        :param message: The custom message in the email that will be sent to the signers.
-        :type message: str
-        :param metadata: Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.  Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.
-        :type metadata: Dict[str, object]
-        :param signing_options:
-        :type signing_options: SubSigningOptions
-        :param signing_redirect_url: The URL you want signers redirected to after they successfully sign.
-        :type signing_redirect_url: str
-        :param subject: The subject in the email that will be sent to the signers.
-        :type subject: str
-        :param test_mode: Whether this is a test, the signature request will not be legally binding if set to `true`. Defaults to `false`.
-        :type test_mode: bool
-        :param title: The title you want to assign to the SignatureRequest.
-        :type title: str
-        :param use_text_tags: Send with a value of `true` if you wish to enable [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) parsing in your document. Defaults to disabled, or `false`.
-        :type use_text_tags: bool
-        :param expires_at: When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.
-        :type expires_at: int
+        :param signature_request_send_request: (required)
+        :type signature_request_send_request: SignatureRequestSendRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3877,32 +3794,7 @@ class SignatureRequestApi:
         """ # noqa: E501
 
         _param = self._signature_request_send_serialize(
-            files=files,
-            file_urls=file_urls,
-            signers=signers,
-            grouped_signers=grouped_signers,
-            allow_decline=allow_decline,
-            allow_reassign=allow_reassign,
-            attachments=attachments,
-            cc_email_addresses=cc_email_addresses,
-            client_id=client_id,
-            custom_fields=custom_fields,
-            field_options=field_options,
-            form_field_groups=form_field_groups,
-            form_field_rules=form_field_rules,
-            form_fields_per_document=form_fields_per_document,
-            hide_text_tags=hide_text_tags,
-            is_qualified_signature=is_qualified_signature,
-            is_eid=is_eid,
-            message=message,
-            metadata=metadata,
-            signing_options=signing_options,
-            signing_redirect_url=signing_redirect_url,
-            subject=subject,
-            test_mode=test_mode,
-            title=title,
-            use_text_tags=use_text_tags,
-            expires_at=expires_at,
+            signature_request_send_request=signature_request_send_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3927,32 +3819,7 @@ class SignatureRequestApi:
     @validate_call
     def signature_request_send_with_http_info(
         self,
-        files: Annotated[Optional[List[Union[StrictBytes, StrictStr]]], Field(description="Use `files[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.")] = None,
-        file_urls: Annotated[Optional[List[StrictStr]], Field(description="Use `file_urls[]` to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.")] = None,
-        signers: Annotated[Optional[List[SubSignatureRequestSigner]], Field(description="Add Signers to your Signature Request.  This endpoint requires either **signers** or **grouped_signers**, but not both.")] = None,
-        grouped_signers: Annotated[Optional[List[SubSignatureRequestGroupedSigners]], Field(description="Add Grouped Signers to your Signature Request.  This endpoint requires either **signers** or **grouped_signers**, but not both.")] = None,
-        allow_decline: Annotated[Optional[StrictBool], Field(description="Allows signers to decline to sign a document if `true`. Defaults to `false`.")] = None,
-        allow_reassign: Annotated[Optional[StrictBool], Field(description="Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.  **NOTE:** Only available for Premium plan and higher.")] = None,
-        attachments: Annotated[Optional[List[SubAttachment]], Field(description="A list describing the attachments")] = None,
-        cc_email_addresses: Annotated[Optional[List[StrictStr]], Field(description="The email addresses that should be CCed.")] = None,
-        client_id: Annotated[Optional[StrictStr], Field(description="The client id of the API App you want to associate with this request. Used to apply the branding and callback url defined for the app.")] = None,
-        custom_fields: Annotated[Optional[List[SubCustomField]], Field(description="When used together with merge fields, `custom_fields` allows users to add pre-filled data to their signature requests.  Pre-filled data can be used with \\\"send-once\\\" signature requests by adding merge fields with `form_fields_per_document` or [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) while passing values back with `custom_fields` together in one API call.  For using pre-filled on repeatable signature requests, merge fields are added to templates in the Dropbox Sign UI or by calling [/template/create_embedded_draft](/api/reference/operation/templateCreateEmbeddedDraft) and then passing `custom_fields` on subsequent signature requests referencing that template.")] = None,
-        field_options: Optional[SubFieldOptions] = None,
-        form_field_groups: Annotated[Optional[List[SubFormFieldGroup]], Field(description="Group information for fields defined in `form_fields_per_document`. String-indexed JSON array with `group_label` and `requirement` keys. `form_fields_per_document` must contain fields referencing a group defined in `form_field_groups`.")] = None,
-        form_field_rules: Annotated[Optional[List[SubFormFieldRule]], Field(description="Conditional Logic rules for fields defined in `form_fields_per_document`.")] = None,
-        form_fields_per_document: Annotated[Optional[List[SubFormFieldsPerDocumentBase]], Field(description="The fields that should appear on the document, expressed as an array of objects. (For more details you can read about it here: [Using Form Fields per Document](/docs/openapi/form-fields-per-document).)  **NOTE:** Fields like **text**, **dropdown**, **checkbox**, **radio**, and **hyperlink** have additional required and optional parameters. Check out the list of [additional parameters](/api/reference/constants/#form-fields-per-document) for these field types.  * Text Field use `SubFormFieldsPerDocumentText` * Dropdown Field use `SubFormFieldsPerDocumentDropdown` * Hyperlink Field use `SubFormFieldsPerDocumentHyperlink` * Checkbox Field use `SubFormFieldsPerDocumentCheckbox` * Radio Field use `SubFormFieldsPerDocumentRadio` * Signature Field use `SubFormFieldsPerDocumentSignature` * Date Signed Field use `SubFormFieldsPerDocumentDateSigned` * Initials Field use `SubFormFieldsPerDocumentInitials` * Text Merge Field use `SubFormFieldsPerDocumentTextMerge` * Checkbox Merge Field use `SubFormFieldsPerDocumentCheckboxMerge`")] = None,
-        hide_text_tags: Annotated[Optional[StrictBool], Field(description="Enables automatic Text Tag removal when set to true.  **NOTE:** Removing text tags this way can cause unwanted clipping. We recommend leaving this setting on `false` and instead hiding your text tags using white text or a similar approach. See the [Text Tags Walkthrough](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) for more information.")] = None,
-        is_qualified_signature: Annotated[Optional[StrictBool], Field(description="Send with a value of `true` if you wish to enable [Qualified Electronic Signatures](https://www.hellosign.com/features/qualified-electronic-signatures) (QES), which requires a face-to-face call to verify the signer's identity.<br> **NOTE:** QES is only available on the Premium API plan as an add-on purchase. Cannot be used in `test_mode`. Only works on requests with one signer.")] = None,
-        is_eid: Annotated[Optional[StrictBool], Field(description="Send with a value of `true` if you wish to enable [electronic identification (eID)](https://www.hellosign.com/features/electronic-id), which requires the signer to verify their identity with an eID provider to sign a document.<br> **NOTE:** eID is only available on the Premium API plan. Cannot be used in `test_mode`. Only works on requests with one signer.")] = None,
-        message: Annotated[Optional[Annotated[str, Field(strict=True, max_length=5000)]], Field(description="The custom message in the email that will be sent to the signers.")] = None,
-        metadata: Annotated[Optional[Dict[str, Any]], Field(description="Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.  Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.")] = None,
-        signing_options: Optional[SubSigningOptions] = None,
-        signing_redirect_url: Annotated[Optional[StrictStr], Field(description="The URL you want signers redirected to after they successfully sign.")] = None,
-        subject: Annotated[Optional[Annotated[str, Field(strict=True, max_length=255)]], Field(description="The subject in the email that will be sent to the signers.")] = None,
-        test_mode: Annotated[Optional[StrictBool], Field(description="Whether this is a test, the signature request will not be legally binding if set to `true`. Defaults to `false`.")] = None,
-        title: Annotated[Optional[Annotated[str, Field(strict=True, max_length=255)]], Field(description="The title you want to assign to the SignatureRequest.")] = None,
-        use_text_tags: Annotated[Optional[StrictBool], Field(description="Send with a value of `true` if you wish to enable [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) parsing in your document. Defaults to disabled, or `false`.")] = None,
-        expires_at: Annotated[Optional[StrictInt], Field(description="When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.")] = None,
+        signature_request_send_request: SignatureRequestSendRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3970,58 +3837,8 @@ class SignatureRequestApi:
 
         Creates and sends a new SignatureRequest with the submitted documents. If `form_fields_per_document` is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents.
 
-        :param files: Use `files[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.
-        :type files: List[io.IOBase]
-        :param file_urls: Use `file_urls[]` to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.
-        :type file_urls: List[str]
-        :param signers: Add Signers to your Signature Request.  This endpoint requires either **signers** or **grouped_signers**, but not both.
-        :type signers: List[SubSignatureRequestSigner]
-        :param grouped_signers: Add Grouped Signers to your Signature Request.  This endpoint requires either **signers** or **grouped_signers**, but not both.
-        :type grouped_signers: List[SubSignatureRequestGroupedSigners]
-        :param allow_decline: Allows signers to decline to sign a document if `true`. Defaults to `false`.
-        :type allow_decline: bool
-        :param allow_reassign: Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.  **NOTE:** Only available for Premium plan and higher.
-        :type allow_reassign: bool
-        :param attachments: A list describing the attachments
-        :type attachments: List[SubAttachment]
-        :param cc_email_addresses: The email addresses that should be CCed.
-        :type cc_email_addresses: List[str]
-        :param client_id: The client id of the API App you want to associate with this request. Used to apply the branding and callback url defined for the app.
-        :type client_id: str
-        :param custom_fields: When used together with merge fields, `custom_fields` allows users to add pre-filled data to their signature requests.  Pre-filled data can be used with \\\"send-once\\\" signature requests by adding merge fields with `form_fields_per_document` or [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) while passing values back with `custom_fields` together in one API call.  For using pre-filled on repeatable signature requests, merge fields are added to templates in the Dropbox Sign UI or by calling [/template/create_embedded_draft](/api/reference/operation/templateCreateEmbeddedDraft) and then passing `custom_fields` on subsequent signature requests referencing that template.
-        :type custom_fields: List[SubCustomField]
-        :param field_options:
-        :type field_options: SubFieldOptions
-        :param form_field_groups: Group information for fields defined in `form_fields_per_document`. String-indexed JSON array with `group_label` and `requirement` keys. `form_fields_per_document` must contain fields referencing a group defined in `form_field_groups`.
-        :type form_field_groups: List[SubFormFieldGroup]
-        :param form_field_rules: Conditional Logic rules for fields defined in `form_fields_per_document`.
-        :type form_field_rules: List[SubFormFieldRule]
-        :param form_fields_per_document: The fields that should appear on the document, expressed as an array of objects. (For more details you can read about it here: [Using Form Fields per Document](/docs/openapi/form-fields-per-document).)  **NOTE:** Fields like **text**, **dropdown**, **checkbox**, **radio**, and **hyperlink** have additional required and optional parameters. Check out the list of [additional parameters](/api/reference/constants/#form-fields-per-document) for these field types.  * Text Field use `SubFormFieldsPerDocumentText` * Dropdown Field use `SubFormFieldsPerDocumentDropdown` * Hyperlink Field use `SubFormFieldsPerDocumentHyperlink` * Checkbox Field use `SubFormFieldsPerDocumentCheckbox` * Radio Field use `SubFormFieldsPerDocumentRadio` * Signature Field use `SubFormFieldsPerDocumentSignature` * Date Signed Field use `SubFormFieldsPerDocumentDateSigned` * Initials Field use `SubFormFieldsPerDocumentInitials` * Text Merge Field use `SubFormFieldsPerDocumentTextMerge` * Checkbox Merge Field use `SubFormFieldsPerDocumentCheckboxMerge`
-        :type form_fields_per_document: List[SubFormFieldsPerDocumentBase]
-        :param hide_text_tags: Enables automatic Text Tag removal when set to true.  **NOTE:** Removing text tags this way can cause unwanted clipping. We recommend leaving this setting on `false` and instead hiding your text tags using white text or a similar approach. See the [Text Tags Walkthrough](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) for more information.
-        :type hide_text_tags: bool
-        :param is_qualified_signature: Send with a value of `true` if you wish to enable [Qualified Electronic Signatures](https://www.hellosign.com/features/qualified-electronic-signatures) (QES), which requires a face-to-face call to verify the signer's identity.<br> **NOTE:** QES is only available on the Premium API plan as an add-on purchase. Cannot be used in `test_mode`. Only works on requests with one signer.
-        :type is_qualified_signature: bool
-        :param is_eid: Send with a value of `true` if you wish to enable [electronic identification (eID)](https://www.hellosign.com/features/electronic-id), which requires the signer to verify their identity with an eID provider to sign a document.<br> **NOTE:** eID is only available on the Premium API plan. Cannot be used in `test_mode`. Only works on requests with one signer.
-        :type is_eid: bool
-        :param message: The custom message in the email that will be sent to the signers.
-        :type message: str
-        :param metadata: Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.  Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.
-        :type metadata: Dict[str, object]
-        :param signing_options:
-        :type signing_options: SubSigningOptions
-        :param signing_redirect_url: The URL you want signers redirected to after they successfully sign.
-        :type signing_redirect_url: str
-        :param subject: The subject in the email that will be sent to the signers.
-        :type subject: str
-        :param test_mode: Whether this is a test, the signature request will not be legally binding if set to `true`. Defaults to `false`.
-        :type test_mode: bool
-        :param title: The title you want to assign to the SignatureRequest.
-        :type title: str
-        :param use_text_tags: Send with a value of `true` if you wish to enable [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) parsing in your document. Defaults to disabled, or `false`.
-        :type use_text_tags: bool
-        :param expires_at: When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.
-        :type expires_at: int
+        :param signature_request_send_request: (required)
+        :type signature_request_send_request: SignatureRequestSendRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4045,32 +3862,7 @@ class SignatureRequestApi:
         """ # noqa: E501
 
         _param = self._signature_request_send_serialize(
-            files=files,
-            file_urls=file_urls,
-            signers=signers,
-            grouped_signers=grouped_signers,
-            allow_decline=allow_decline,
-            allow_reassign=allow_reassign,
-            attachments=attachments,
-            cc_email_addresses=cc_email_addresses,
-            client_id=client_id,
-            custom_fields=custom_fields,
-            field_options=field_options,
-            form_field_groups=form_field_groups,
-            form_field_rules=form_field_rules,
-            form_fields_per_document=form_fields_per_document,
-            hide_text_tags=hide_text_tags,
-            is_qualified_signature=is_qualified_signature,
-            is_eid=is_eid,
-            message=message,
-            metadata=metadata,
-            signing_options=signing_options,
-            signing_redirect_url=signing_redirect_url,
-            subject=subject,
-            test_mode=test_mode,
-            title=title,
-            use_text_tags=use_text_tags,
-            expires_at=expires_at,
+            signature_request_send_request=signature_request_send_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -4095,32 +3887,7 @@ class SignatureRequestApi:
     @validate_call
     def signature_request_send_without_preload_content(
         self,
-        files: Annotated[Optional[List[Union[StrictBytes, StrictStr]]], Field(description="Use `files[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.")] = None,
-        file_urls: Annotated[Optional[List[StrictStr]], Field(description="Use `file_urls[]` to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.")] = None,
-        signers: Annotated[Optional[List[SubSignatureRequestSigner]], Field(description="Add Signers to your Signature Request.  This endpoint requires either **signers** or **grouped_signers**, but not both.")] = None,
-        grouped_signers: Annotated[Optional[List[SubSignatureRequestGroupedSigners]], Field(description="Add Grouped Signers to your Signature Request.  This endpoint requires either **signers** or **grouped_signers**, but not both.")] = None,
-        allow_decline: Annotated[Optional[StrictBool], Field(description="Allows signers to decline to sign a document if `true`. Defaults to `false`.")] = None,
-        allow_reassign: Annotated[Optional[StrictBool], Field(description="Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.  **NOTE:** Only available for Premium plan and higher.")] = None,
-        attachments: Annotated[Optional[List[SubAttachment]], Field(description="A list describing the attachments")] = None,
-        cc_email_addresses: Annotated[Optional[List[StrictStr]], Field(description="The email addresses that should be CCed.")] = None,
-        client_id: Annotated[Optional[StrictStr], Field(description="The client id of the API App you want to associate with this request. Used to apply the branding and callback url defined for the app.")] = None,
-        custom_fields: Annotated[Optional[List[SubCustomField]], Field(description="When used together with merge fields, `custom_fields` allows users to add pre-filled data to their signature requests.  Pre-filled data can be used with \\\"send-once\\\" signature requests by adding merge fields with `form_fields_per_document` or [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) while passing values back with `custom_fields` together in one API call.  For using pre-filled on repeatable signature requests, merge fields are added to templates in the Dropbox Sign UI or by calling [/template/create_embedded_draft](/api/reference/operation/templateCreateEmbeddedDraft) and then passing `custom_fields` on subsequent signature requests referencing that template.")] = None,
-        field_options: Optional[SubFieldOptions] = None,
-        form_field_groups: Annotated[Optional[List[SubFormFieldGroup]], Field(description="Group information for fields defined in `form_fields_per_document`. String-indexed JSON array with `group_label` and `requirement` keys. `form_fields_per_document` must contain fields referencing a group defined in `form_field_groups`.")] = None,
-        form_field_rules: Annotated[Optional[List[SubFormFieldRule]], Field(description="Conditional Logic rules for fields defined in `form_fields_per_document`.")] = None,
-        form_fields_per_document: Annotated[Optional[List[SubFormFieldsPerDocumentBase]], Field(description="The fields that should appear on the document, expressed as an array of objects. (For more details you can read about it here: [Using Form Fields per Document](/docs/openapi/form-fields-per-document).)  **NOTE:** Fields like **text**, **dropdown**, **checkbox**, **radio**, and **hyperlink** have additional required and optional parameters. Check out the list of [additional parameters](/api/reference/constants/#form-fields-per-document) for these field types.  * Text Field use `SubFormFieldsPerDocumentText` * Dropdown Field use `SubFormFieldsPerDocumentDropdown` * Hyperlink Field use `SubFormFieldsPerDocumentHyperlink` * Checkbox Field use `SubFormFieldsPerDocumentCheckbox` * Radio Field use `SubFormFieldsPerDocumentRadio` * Signature Field use `SubFormFieldsPerDocumentSignature` * Date Signed Field use `SubFormFieldsPerDocumentDateSigned` * Initials Field use `SubFormFieldsPerDocumentInitials` * Text Merge Field use `SubFormFieldsPerDocumentTextMerge` * Checkbox Merge Field use `SubFormFieldsPerDocumentCheckboxMerge`")] = None,
-        hide_text_tags: Annotated[Optional[StrictBool], Field(description="Enables automatic Text Tag removal when set to true.  **NOTE:** Removing text tags this way can cause unwanted clipping. We recommend leaving this setting on `false` and instead hiding your text tags using white text or a similar approach. See the [Text Tags Walkthrough](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) for more information.")] = None,
-        is_qualified_signature: Annotated[Optional[StrictBool], Field(description="Send with a value of `true` if you wish to enable [Qualified Electronic Signatures](https://www.hellosign.com/features/qualified-electronic-signatures) (QES), which requires a face-to-face call to verify the signer's identity.<br> **NOTE:** QES is only available on the Premium API plan as an add-on purchase. Cannot be used in `test_mode`. Only works on requests with one signer.")] = None,
-        is_eid: Annotated[Optional[StrictBool], Field(description="Send with a value of `true` if you wish to enable [electronic identification (eID)](https://www.hellosign.com/features/electronic-id), which requires the signer to verify their identity with an eID provider to sign a document.<br> **NOTE:** eID is only available on the Premium API plan. Cannot be used in `test_mode`. Only works on requests with one signer.")] = None,
-        message: Annotated[Optional[Annotated[str, Field(strict=True, max_length=5000)]], Field(description="The custom message in the email that will be sent to the signers.")] = None,
-        metadata: Annotated[Optional[Dict[str, Any]], Field(description="Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.  Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.")] = None,
-        signing_options: Optional[SubSigningOptions] = None,
-        signing_redirect_url: Annotated[Optional[StrictStr], Field(description="The URL you want signers redirected to after they successfully sign.")] = None,
-        subject: Annotated[Optional[Annotated[str, Field(strict=True, max_length=255)]], Field(description="The subject in the email that will be sent to the signers.")] = None,
-        test_mode: Annotated[Optional[StrictBool], Field(description="Whether this is a test, the signature request will not be legally binding if set to `true`. Defaults to `false`.")] = None,
-        title: Annotated[Optional[Annotated[str, Field(strict=True, max_length=255)]], Field(description="The title you want to assign to the SignatureRequest.")] = None,
-        use_text_tags: Annotated[Optional[StrictBool], Field(description="Send with a value of `true` if you wish to enable [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) parsing in your document. Defaults to disabled, or `false`.")] = None,
-        expires_at: Annotated[Optional[StrictInt], Field(description="When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.")] = None,
+        signature_request_send_request: SignatureRequestSendRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4138,58 +3905,8 @@ class SignatureRequestApi:
 
         Creates and sends a new SignatureRequest with the submitted documents. If `form_fields_per_document` is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents.
 
-        :param files: Use `files[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.
-        :type files: List[io.IOBase]
-        :param file_urls: Use `file_urls[]` to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.
-        :type file_urls: List[str]
-        :param signers: Add Signers to your Signature Request.  This endpoint requires either **signers** or **grouped_signers**, but not both.
-        :type signers: List[SubSignatureRequestSigner]
-        :param grouped_signers: Add Grouped Signers to your Signature Request.  This endpoint requires either **signers** or **grouped_signers**, but not both.
-        :type grouped_signers: List[SubSignatureRequestGroupedSigners]
-        :param allow_decline: Allows signers to decline to sign a document if `true`. Defaults to `false`.
-        :type allow_decline: bool
-        :param allow_reassign: Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.  **NOTE:** Only available for Premium plan and higher.
-        :type allow_reassign: bool
-        :param attachments: A list describing the attachments
-        :type attachments: List[SubAttachment]
-        :param cc_email_addresses: The email addresses that should be CCed.
-        :type cc_email_addresses: List[str]
-        :param client_id: The client id of the API App you want to associate with this request. Used to apply the branding and callback url defined for the app.
-        :type client_id: str
-        :param custom_fields: When used together with merge fields, `custom_fields` allows users to add pre-filled data to their signature requests.  Pre-filled data can be used with \\\"send-once\\\" signature requests by adding merge fields with `form_fields_per_document` or [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) while passing values back with `custom_fields` together in one API call.  For using pre-filled on repeatable signature requests, merge fields are added to templates in the Dropbox Sign UI or by calling [/template/create_embedded_draft](/api/reference/operation/templateCreateEmbeddedDraft) and then passing `custom_fields` on subsequent signature requests referencing that template.
-        :type custom_fields: List[SubCustomField]
-        :param field_options:
-        :type field_options: SubFieldOptions
-        :param form_field_groups: Group information for fields defined in `form_fields_per_document`. String-indexed JSON array with `group_label` and `requirement` keys. `form_fields_per_document` must contain fields referencing a group defined in `form_field_groups`.
-        :type form_field_groups: List[SubFormFieldGroup]
-        :param form_field_rules: Conditional Logic rules for fields defined in `form_fields_per_document`.
-        :type form_field_rules: List[SubFormFieldRule]
-        :param form_fields_per_document: The fields that should appear on the document, expressed as an array of objects. (For more details you can read about it here: [Using Form Fields per Document](/docs/openapi/form-fields-per-document).)  **NOTE:** Fields like **text**, **dropdown**, **checkbox**, **radio**, and **hyperlink** have additional required and optional parameters. Check out the list of [additional parameters](/api/reference/constants/#form-fields-per-document) for these field types.  * Text Field use `SubFormFieldsPerDocumentText` * Dropdown Field use `SubFormFieldsPerDocumentDropdown` * Hyperlink Field use `SubFormFieldsPerDocumentHyperlink` * Checkbox Field use `SubFormFieldsPerDocumentCheckbox` * Radio Field use `SubFormFieldsPerDocumentRadio` * Signature Field use `SubFormFieldsPerDocumentSignature` * Date Signed Field use `SubFormFieldsPerDocumentDateSigned` * Initials Field use `SubFormFieldsPerDocumentInitials` * Text Merge Field use `SubFormFieldsPerDocumentTextMerge` * Checkbox Merge Field use `SubFormFieldsPerDocumentCheckboxMerge`
-        :type form_fields_per_document: List[SubFormFieldsPerDocumentBase]
-        :param hide_text_tags: Enables automatic Text Tag removal when set to true.  **NOTE:** Removing text tags this way can cause unwanted clipping. We recommend leaving this setting on `false` and instead hiding your text tags using white text or a similar approach. See the [Text Tags Walkthrough](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) for more information.
-        :type hide_text_tags: bool
-        :param is_qualified_signature: Send with a value of `true` if you wish to enable [Qualified Electronic Signatures](https://www.hellosign.com/features/qualified-electronic-signatures) (QES), which requires a face-to-face call to verify the signer's identity.<br> **NOTE:** QES is only available on the Premium API plan as an add-on purchase. Cannot be used in `test_mode`. Only works on requests with one signer.
-        :type is_qualified_signature: bool
-        :param is_eid: Send with a value of `true` if you wish to enable [electronic identification (eID)](https://www.hellosign.com/features/electronic-id), which requires the signer to verify their identity with an eID provider to sign a document.<br> **NOTE:** eID is only available on the Premium API plan. Cannot be used in `test_mode`. Only works on requests with one signer.
-        :type is_eid: bool
-        :param message: The custom message in the email that will be sent to the signers.
-        :type message: str
-        :param metadata: Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.  Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.
-        :type metadata: Dict[str, object]
-        :param signing_options:
-        :type signing_options: SubSigningOptions
-        :param signing_redirect_url: The URL you want signers redirected to after they successfully sign.
-        :type signing_redirect_url: str
-        :param subject: The subject in the email that will be sent to the signers.
-        :type subject: str
-        :param test_mode: Whether this is a test, the signature request will not be legally binding if set to `true`. Defaults to `false`.
-        :type test_mode: bool
-        :param title: The title you want to assign to the SignatureRequest.
-        :type title: str
-        :param use_text_tags: Send with a value of `true` if you wish to enable [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) parsing in your document. Defaults to disabled, or `false`.
-        :type use_text_tags: bool
-        :param expires_at: When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.
-        :type expires_at: int
+        :param signature_request_send_request: (required)
+        :type signature_request_send_request: SignatureRequestSendRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4213,32 +3930,7 @@ class SignatureRequestApi:
         """ # noqa: E501
 
         _param = self._signature_request_send_serialize(
-            files=files,
-            file_urls=file_urls,
-            signers=signers,
-            grouped_signers=grouped_signers,
-            allow_decline=allow_decline,
-            allow_reassign=allow_reassign,
-            attachments=attachments,
-            cc_email_addresses=cc_email_addresses,
-            client_id=client_id,
-            custom_fields=custom_fields,
-            field_options=field_options,
-            form_field_groups=form_field_groups,
-            form_field_rules=form_field_rules,
-            form_fields_per_document=form_fields_per_document,
-            hide_text_tags=hide_text_tags,
-            is_qualified_signature=is_qualified_signature,
-            is_eid=is_eid,
-            message=message,
-            metadata=metadata,
-            signing_options=signing_options,
-            signing_redirect_url=signing_redirect_url,
-            subject=subject,
-            test_mode=test_mode,
-            title=title,
-            use_text_tags=use_text_tags,
-            expires_at=expires_at,
+            signature_request_send_request=signature_request_send_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -4258,32 +3950,7 @@ class SignatureRequestApi:
 
     def _signature_request_send_serialize(
         self,
-        files,
-        file_urls,
-        signers,
-        grouped_signers,
-        allow_decline,
-        allow_reassign,
-        attachments,
-        cc_email_addresses,
-        client_id,
-        custom_fields,
-        field_options,
-        form_field_groups,
-        form_field_rules,
-        form_fields_per_document,
-        hide_text_tags,
-        is_qualified_signature,
-        is_eid,
-        message,
-        metadata,
-        signing_options,
-        signing_redirect_url,
-        subject,
-        test_mode,
-        title,
-        use_text_tags,
-        expires_at,
+        signature_request_send_request,
         _request_auth,
         _content_type,
         _headers,
@@ -4293,16 +3960,6 @@ class SignatureRequestApi:
         _host = None
 
         _collection_formats: Dict[str, str] = {
-            'files': 'csv',
-            'file_urls': 'csv',
-            'signers': 'csv',
-            'grouped_signers': 'csv',
-            'attachments': 'csv',
-            'cc_email_addresses': 'csv',
-            'custom_fields': 'csv',
-            'form_field_groups': 'csv',
-            'form_field_rules': 'csv',
-            'form_fields_per_document': 'csv',
         }
 
         _path_params: Dict[str, str] = {}
@@ -4312,63 +3969,34 @@ class SignatureRequestApi:
         _files: Dict[str, Union[str, bytes]] = {}
         _body_params: Optional[bytes] = None
 
+        has_files = False
+        body_param = signature_request_send_request
+        excluded_json_fields = set([])
+        for param_name, param_type in body_param.openapi_types().items():
+            param_value = getattr(body_param, param_name)
+            if param_value is None:
+                continue
+
+            if "io.IOBase" in param_type:
+                has_files = True
+                _content_type = "multipart/form-data"
+                excluded_json_fields.add(param_name)
+
+                if isinstance(param_value, list):
+                    for index, item in enumerate(param_value):
+                        _files[f'{param_name}[{index}]'] = item
+                else:
+                    _files[param_name] = param_value
+
+        _form_params = body_param.to_json_form_params(excluded_json_fields)
+
         # process the path parameters
         # process the query parameters
         # process the header parameters
         # process the form parameters
-        if files is not None:
-            _files['files'] = files
-        if file_urls is not None:
-            _form_params.append(('file_urls', file_urls))
-        if signers is not None:
-            _form_params.append(('signers', signers))
-        if grouped_signers is not None:
-            _form_params.append(('grouped_signers', grouped_signers))
-        if allow_decline is not None:
-            _form_params.append(('allow_decline', allow_decline))
-        if allow_reassign is not None:
-            _form_params.append(('allow_reassign', allow_reassign))
-        if attachments is not None:
-            _form_params.append(('attachments', attachments))
-        if cc_email_addresses is not None:
-            _form_params.append(('cc_email_addresses', cc_email_addresses))
-        if client_id is not None:
-            _form_params.append(('client_id', client_id))
-        if custom_fields is not None:
-            _form_params.append(('custom_fields', custom_fields))
-        if field_options is not None:
-            _form_params.append(('field_options', field_options))
-        if form_field_groups is not None:
-            _form_params.append(('form_field_groups', form_field_groups))
-        if form_field_rules is not None:
-            _form_params.append(('form_field_rules', form_field_rules))
-        if form_fields_per_document is not None:
-            _form_params.append(('form_fields_per_document', form_fields_per_document))
-        if hide_text_tags is not None:
-            _form_params.append(('hide_text_tags', hide_text_tags))
-        if is_qualified_signature is not None:
-            _form_params.append(('is_qualified_signature', is_qualified_signature))
-        if is_eid is not None:
-            _form_params.append(('is_eid', is_eid))
-        if message is not None:
-            _form_params.append(('message', message))
-        if metadata is not None:
-            _form_params.append(('metadata', metadata))
-        if signing_options is not None:
-            _form_params.append(('signing_options', signing_options))
-        if signing_redirect_url is not None:
-            _form_params.append(('signing_redirect_url', signing_redirect_url))
-        if subject is not None:
-            _form_params.append(('subject', subject))
-        if test_mode is not None:
-            _form_params.append(('test_mode', test_mode))
-        if title is not None:
-            _form_params.append(('title', title))
-        if use_text_tags is not None:
-            _form_params.append(('use_text_tags', use_text_tags))
-        if expires_at is not None:
-            _form_params.append(('expires_at', expires_at))
         # process the body parameter
+        if signature_request_send_request is not None and has_files is False:
+            _body_params = signature_request_send_request
 
 
         # set the HTTP header `Accept`
@@ -4386,6 +4014,7 @@ class SignatureRequestApi:
             _default_content_type = (
                 self.api_client.select_header_content_type(
                     [
+                        'application/json', 
                         'multipart/form-data'
                     ]
                 )

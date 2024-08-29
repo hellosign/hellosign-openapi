@@ -247,6 +247,7 @@ Class | Method | HTTP request | Description
  - [SignatureRequestResponseDataValueText](docs/SignatureRequestResponseDataValueText.md)
  - [SignatureRequestResponseDataValueTextMerge](docs/SignatureRequestResponseDataValueTextMerge.md)
  - [SignatureRequestResponseSignatures](docs/SignatureRequestResponseSignatures.md)
+ - [SignatureRequestSendRequest](docs/SignatureRequestSendRequest.md)
  - [SignatureRequestSendWithTemplateRequest](docs/SignatureRequestSendWithTemplateRequest.md)
  - [SignatureRequestUpdateRequest](docs/SignatureRequestUpdateRequest.md)
  - [SubAttachment](docs/SubAttachment.md)
