@@ -5,8 +5,8 @@ Contains template id
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-| `template_id` | ```str``` | REPLACE_ME_WITH_DESCRIPTION_BEGIN The id of the Template. REPLACE_ME_WITH_DESCRIPTION_END |  |
-| `warnings` | [```List[WarningResponse]```](WarningResponse.md) | REPLACE_ME_WITH_DESCRIPTION_BEGIN A list of warnings. REPLACE_ME_WITH_DESCRIPTION_END |  |
+| `template_id` | ```str``` |  The id of the Template.  |  |
+| `warnings` | [```List[WarningResponse]```](WarningResponse.md) |  A list of warnings.  |  |
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

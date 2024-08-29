@@ -34,7 +34,77 @@ Creates BulkSendJob which sends up to 250 SignatureRequests in bulk based off of
 * Basic Authentication (api_key):
 
 ```python
-REPLACE_ME_WITH_EXAMPLE_FOR__signature_request_bulk_create_embedded_with_template_Python_CODE
+from pprint import pprint
+
+from dropbox_sign import \
+    ApiClient, ApiException, Configuration, apis, models
+
+configuration = Configuration(
+    # Configure HTTP basic authorization: api_key
+    username="YOUR_API_KEY",
+
+    # or, configure Bearer (JWT) authorization: oauth2
+    # access_token="YOUR_ACCESS_TOKEN",
+)
+
+with ApiClient(configuration) as api_client:
+    signature_request_api = apis.SignatureRequestApi(api_client)
+
+    signer_list_1_signer = models.SubSignatureRequestTemplateSigner(
+        role="Client",
+        name="George",
+        email_address="george@example.com",
+        pin="d79a3td",
+    )
+
+    signer_list_1_custom_fields = models.SubBulkSignerListCustomField(
+        name="company",
+        value="ABC Corp",
+    )
+
+    signer_list_1 = models.SubBulkSignerList(
+        signers=[signer_list_1_signer],
+        custom_fields=[signer_list_1_custom_fields],
+    )
+
+    signer_list_2_signer = models.SubSignatureRequestTemplateSigner(
+        role="Client",
+        name="Mary",
+        email_address="mary@example.com",
+        pin="gd9as5b",
+    )
+
+    signer_list_2_custom_fields = models.SubBulkSignerListCustomField(
+        name="company",
+        value="123 LLC",
+    )
+
+    signer_list_2 = models.SubBulkSignerList(
+        signers=[signer_list_2_signer],
+        custom_fields=[signer_list_2_custom_fields],
+    )
+
+    cc_1 = models.SubCC(
+        role="Accounting",
+        email_address="accounting@example.com",
+    )
+
+    data = models.SignatureRequestBulkCreateEmbeddedWithTemplateRequest(
+        client_id="1a659d9ad95bccd307ecad78d72192f8",
+        template_ids=["c26b8a16784a872da37ea946b9ddec7c1e11dff6"],
+        subject="Purchase Order",
+        message="Glad we could come to an agreement.",
+        signer_list=[signer_list_1, signer_list_2],
+        ccs=[cc_1],
+        test_mode=True,
+    )
+
+    try:
+        response = signature_request_api.signature_request_bulk_create_embedded_with_template(data)
+        pprint(response)
+    except ApiException as e:
+        print("Exception when calling Dropbox Sign API: %s\n" % e)
+
 ```
 ```
 
@@ -78,7 +148,76 @@ Creates BulkSendJob which sends up to 250 SignatureRequests in bulk based off of
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
-REPLACE_ME_WITH_EXAMPLE_FOR__signature_request_bulk_send_with_template_Python_CODE
+from pprint import pprint
+
+from dropbox_sign import \
+    ApiClient, ApiException, Configuration, apis, models
+
+configuration = Configuration(
+    # Configure HTTP basic authorization: api_key
+    username="YOUR_API_KEY",
+
+    # or, configure Bearer (JWT) authorization: oauth2
+    # access_token="YOUR_ACCESS_TOKEN",
+)
+
+with ApiClient(configuration) as api_client:
+    signature_request_api = apis.SignatureRequestApi(api_client)
+
+    signer_list_1_signer = models.SubSignatureRequestTemplateSigner(
+        role="Client",
+        name="George",
+        email_address="george@example.com",
+        pin="d79a3td",
+    )
+
+    signer_list_1_custom_fields = models.SubBulkSignerListCustomField(
+        name="company",
+        value="ABC Corp",
+    )
+
+    signer_list_1 = models.SubBulkSignerList(
+        signers=[signer_list_1_signer],
+        custom_fields=[signer_list_1_custom_fields],
+    )
+
+    signer_list_2_signer = models.SubSignatureRequestTemplateSigner(
+        role="Client",
+        name="Mary",
+        email_address="mary@example.com",
+        pin="gd9as5b",
+    )
+
+    signer_list_2_custom_fields = models.SubBulkSignerListCustomField(
+        name="company",
+        value="123 LLC",
+    )
+
+    signer_list_2 = models.SubBulkSignerList(
+        signers=[signer_list_2_signer],
+        custom_fields=[signer_list_2_custom_fields],
+    )
+
+    cc_1 = models.SubCC(
+        role="Accounting",
+        email_address="accounting@example.com",
+    )
+
+    data = models.SignatureRequestBulkSendWithTemplateRequest(
+        template_ids=["c26b8a16784a872da37ea946b9ddec7c1e11dff6"],
+        subject="Purchase Order",
+        message="Glad we could come to an agreement.",
+        signer_list=[signer_list_1, signer_list_2],
+        ccs=[cc_1],
+        test_mode=True,
+    )
+
+    try:
+        response = signature_request_api.signature_request_bulk_send_with_template(data)
+        pprint(response)
+    except ApiException as e:
+        print("Exception when calling Dropbox Sign API: %s\n" % e)
+
 ```
 ```
 
@@ -122,7 +261,27 @@ Cancels an incomplete signature request. This action is **not reversible**.  The
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
-REPLACE_ME_WITH_EXAMPLE_FOR__signature_request_cancel_Python_CODE
+from dropbox_sign import \
+    ApiClient, ApiException, Configuration, apis
+
+configuration = Configuration(
+    # Configure HTTP basic authorization: api_key
+    username="YOUR_API_KEY",
+
+    # or, configure Bearer (JWT) authorization: oauth2
+    # access_token="YOUR_ACCESS_TOKEN",
+)
+
+with ApiClient(configuration) as api_client:
+    signature_request_api = apis.SignatureRequestApi(api_client)
+
+    signature_request_id = "2f9781e1a8e2045224d808c153c2e1d3df6f8f2f"
+
+    try:
+        signature_request_api.signature_request_cancel(signature_request_id)
+    except ApiException as e:
+        print("Exception when calling Dropbox Sign API: %s\n" % e)
+
 ```
 ```
 
@@ -166,7 +325,60 @@ Creates a new SignatureRequest with the submitted documents to be signed in an e
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
-REPLACE_ME_WITH_EXAMPLE_FOR__signature_request_create_embedded_Python_CODE
+from pprint import pprint
+
+from dropbox_sign import \
+    ApiClient, ApiException, Configuration, apis, models
+
+configuration = Configuration(
+    # Configure HTTP basic authorization: api_key
+    username="YOUR_API_KEY",
+
+    # or, configure Bearer (JWT) authorization: oauth2
+    # access_token="YOUR_ACCESS_TOKEN",
+)
+
+with ApiClient(configuration) as api_client:
+    signature_request_api = apis.SignatureRequestApi(api_client)
+
+    signer_1 = models.SubSignatureRequestSigner(
+        email_address="jack@example.com",
+        name="Jack",
+        order=0,
+    )
+
+    signer_2 = models.SubSignatureRequestSigner(
+        email_address="jill@example.com",
+        name="Jill",
+        order=1,
+    )
+
+    signing_options = models.SubSigningOptions(
+        draw=True,
+        type=True,
+        upload=True,
+        phone=True,
+        default_type="draw",
+    )
+
+    data = models.SignatureRequestCreateEmbeddedRequest(
+        client_id="ec64a202072370a737edf4a0eb7f4437",
+        title="NDA with Acme Co.",
+        subject="The NDA we talked about",
+        message="Please sign this NDA and then we can discuss more. Let me know if you have any questions.",
+        signers=[signer_1, signer_2],
+        cc_email_addresses=["lawyer1@dropboxsign.com", "lawyer2@dropboxsign.com"],
+        files=[open("example_signature_request.pdf", "rb")],
+        signing_options=signing_options,
+        test_mode=True,
+    )
+
+    try:
+        response = signature_request_api.signature_request_create_embedded(data)
+        pprint(response)
+    except ApiException as e:
+        print("Exception when calling Dropbox Sign API: %s\n" % e)
+
 ```
 ```
 
@@ -210,7 +422,52 @@ Creates a new SignatureRequest based on the given Template(s) to be signed in an
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
-REPLACE_ME_WITH_EXAMPLE_FOR__signature_request_create_embedded_with_template_Python_CODE
+from pprint import pprint
+
+from dropbox_sign import \
+    ApiClient, ApiException, Configuration, apis, models
+
+configuration = Configuration(
+    # Configure HTTP basic authorization: api_key
+    username="YOUR_API_KEY",
+
+    # or, configure Bearer (JWT) authorization: oauth2
+    # access_token="YOUR_ACCESS_TOKEN",
+)
+
+with ApiClient(configuration) as api_client:
+    signature_request_api = apis.SignatureRequestApi(api_client)
+
+    signer_1 = models.SubSignatureRequestTemplateSigner(
+        role="Client",
+        email_address="jack@example.com",
+        name="Jack",
+    )
+
+    signing_options = models.SubSigningOptions(
+        draw=True,
+        type=True,
+        upload=True,
+        phone=True,
+        default_type="draw",
+    )
+
+    data = models.SignatureRequestCreateEmbeddedWithTemplateRequest(
+        client_id="ec64a202072370a737edf4a0eb7f4437",
+        template_ids=["c26b8a16784a872da37ea946b9ddec7c1e11dff6"],
+        subject="Purchase Order",
+        message="Glad we could come to an agreement.",
+        signers=[signer_1],
+        signing_options=signing_options,
+        test_mode=True,
+    )
+
+    try:
+        response = signature_request_api.signature_request_create_embedded_with_template(data)
+        pprint(response)
+    except ApiException as e:
+        print("Exception when calling Dropbox Sign API: %s\n" % e)
+
 ```
 ```
 
@@ -254,7 +511,30 @@ Obtain a copy of the current documents specified by the `signature_request_id` p
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
-REPLACE_ME_WITH_EXAMPLE_FOR__signature_request_files_Python_CODE
+from pprint import pprint
+
+from dropbox_sign import \
+    ApiClient, ApiException, Configuration, apis
+
+configuration = Configuration(
+    # Configure HTTP basic authorization: api_key
+    username="YOUR_API_KEY",
+
+    # or, configure Bearer (JWT) authorization: oauth2
+    # access_token="YOUR_ACCESS_TOKEN",
+)
+
+with ApiClient(configuration) as api_client:
+    signature_request_api = apis.SignatureRequestApi(api_client)
+
+    signature_request_id = "fa5c8a0b0f492d768749333ad6fcc214c111e967"
+
+    try:
+        response = signature_request_api.signature_request_files(signature_request_id, file_type="pdf")
+        open('file_response.pdf', 'wb').write(response.read())
+    except ApiException as e:
+        print("Exception when calling Dropbox Sign API: %s\n" % e)
+
 ```
 ```
 
@@ -262,7 +542,7 @@ REPLACE_ME_WITH_EXAMPLE_FOR__signature_request_files_Python_CODE
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `signature_request_id` | **str** | The id of the SignatureRequest to retrieve. |  |
-| `file_type` | **str** | Set to &#x60;pdf&#x60; for a single merged document or &#x60;zip&#x60; for a collection of individual documents. | [optional][default to pdf] |
+| `file_type` | **str** | Set to `pdf` for a single merged document or `zip` for a collection of individual documents. | [optional][default to pdf] |
 
 ### Return type
 
@@ -299,7 +579,30 @@ Obtain a copy of the current documents specified by the `signature_request_id` p
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
-REPLACE_ME_WITH_EXAMPLE_FOR__signature_request_files_as_data_uri_Python_CODE
+from pprint import pprint
+
+from dropbox_sign import \
+    ApiClient, ApiException, Configuration, apis
+
+configuration = Configuration(
+    # Configure HTTP basic authorization: api_key
+    username="YOUR_API_KEY",
+
+    # or, configure Bearer (JWT) authorization: oauth2
+    # access_token="YOUR_ACCESS_TOKEN",
+)
+
+with ApiClient(configuration) as api_client:
+    signature_request_api = apis.SignatureRequestApi(api_client)
+
+    signature_request_id = "fa5c8a0b0f492d768749333ad6fcc214c111e967"
+
+    try:
+        response = signature_request_api.signature_request_files_as_data_uri(signature_request_id)
+        pprint(response)
+    except ApiException as e:
+        print("Exception when calling Dropbox Sign API: %s\n" % e)
+
 ```
 ```
 
@@ -343,7 +646,30 @@ Obtain a copy of the current documents specified by the `signature_request_id` p
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
-REPLACE_ME_WITH_EXAMPLE_FOR__signature_request_files_as_file_url_Python_CODE
+from pprint import pprint
+
+from dropbox_sign import \
+    ApiClient, ApiException, Configuration, apis
+
+configuration = Configuration(
+    # Configure HTTP basic authorization: api_key
+    username="YOUR_API_KEY",
+
+    # or, configure Bearer (JWT) authorization: oauth2
+    # access_token="YOUR_ACCESS_TOKEN",
+)
+
+with ApiClient(configuration) as api_client:
+    signature_request_api = apis.SignatureRequestApi(api_client)
+
+    signature_request_id = "fa5c8a0b0f492d768749333ad6fcc214c111e967"
+
+    try:
+        response = signature_request_api.signature_request_files_as_file_url(signature_request_id)
+        pprint(response)
+    except ApiException as e:
+        print("Exception when calling Dropbox Sign API: %s\n" % e)
+
 ```
 ```
 
@@ -351,7 +677,7 @@ REPLACE_ME_WITH_EXAMPLE_FOR__signature_request_files_as_file_url_Python_CODE
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `signature_request_id` | **str** | The id of the SignatureRequest to retrieve. |  |
-| `force_download` | **int** | By default when opening the &#x60;file_url&#x60; a browser will download the PDF and save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser. | [optional][default to 1] |
+| `force_download` | **int** | By default when opening the `file_url` a browser will download the PDF and save it locally. When set to `0` the PDF file will be displayed in the browser. | [optional][default to 1] |
 
 ### Return type
 
@@ -388,7 +714,30 @@ Returns the status of the SignatureRequest specified by the `signature_request_i
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
-REPLACE_ME_WITH_EXAMPLE_FOR__signature_request_get_Python_CODE
+from pprint import pprint
+
+from dropbox_sign import \
+    ApiClient, ApiException, Configuration, apis
+
+configuration = Configuration(
+    # Configure HTTP basic authorization: api_key
+    username="YOUR_API_KEY",
+
+    # or, configure Bearer (JWT) authorization: oauth2
+    # access_token="YOUR_ACCESS_TOKEN",
+)
+
+with ApiClient(configuration) as api_client:
+    signature_request_api = apis.SignatureRequestApi(api_client)
+
+    signature_request_id = "fa5c8a0b0f492d768749333ad6fcc214c111e967"
+
+    try:
+        response = signature_request_api.signature_request_get(signature_request_id)
+        pprint(response)
+    except ApiException as e:
+        print("Exception when calling Dropbox Sign API: %s\n" % e)
+
 ```
 ```
 
@@ -432,16 +781,43 @@ Returns a list of SignatureRequests that you can access. This includes Signature
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
-REPLACE_ME_WITH_EXAMPLE_FOR__signature_request_list_Python_CODE
+from pprint import pprint
+
+from dropbox_sign import \
+    ApiClient, ApiException, Configuration, apis
+
+configuration = Configuration(
+    # Configure HTTP basic authorization: api_key
+    username="YOUR_API_KEY",
+
+    # or, configure Bearer (JWT) authorization: oauth2
+    # access_token="YOUR_ACCESS_TOKEN",
+)
+
+with ApiClient(configuration) as api_client:
+    signature_request_api = apis.SignatureRequestApi(api_client)
+
+    account_id = None
+    page = 1
+
+    try:
+        response = signature_request_api.signature_request_list(
+            account_id=account_id,
+            page=page,
+        )
+        pprint(response)
+    except ApiException as e:
+        print("Exception when calling Dropbox Sign API: %s\n" % e)
+
 ```
 ```
 
 ### Parameters
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| `account_id` | **str** | Which account to return SignatureRequests for. Must be a team member. Use &#x60;all&#x60; to indicate all team members. Defaults to your account. | [optional] |
-| `page` | **int** | Which page number of the SignatureRequest List to return. Defaults to &#x60;1&#x60;. | [optional][default to 1] |
-| `page_size` | **int** | Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. | [optional][default to 20] |
+| `account_id` | **str** | Which account to return SignatureRequests for. Must be a team member. Use `all` to indicate all team members. Defaults to your account. | [optional] |
+| `page` | **int** | Which page number of the SignatureRequest List to return. Defaults to `1`. | [optional][default to 1] |
+| `page_size` | **int** | Number of objects to be returned per page. Must be between `1` and `100`. Default is `20`. | [optional][default to 20] |
 | `query` | **str** | String that includes search terms and/or fields to be used to filter the SignatureRequest objects. | [optional] |
 
 ### Return type
@@ -479,7 +855,30 @@ Releases a held SignatureRequest that was claimed and prepared from an [Unclaime
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
-REPLACE_ME_WITH_EXAMPLE_FOR__signature_request_release_hold_Python_CODE
+from pprint import pprint
+
+from dropbox_sign import \
+    ApiClient, ApiException, Configuration, apis
+
+configuration = Configuration(
+    # Configure HTTP basic authorization: api_key
+    username="YOUR_API_KEY",
+
+    # or, configure Bearer (JWT) authorization: oauth2
+    # access_token="YOUR_ACCESS_TOKEN",
+)
+
+with ApiClient(configuration) as api_client:
+    signature_request_api = apis.SignatureRequestApi(api_client)
+
+    signature_request_id = "2f9781e1a8e2045224d808c153c2e1d3df6f8f2f"
+
+    try:
+        response = signature_request_api.signature_request_release_hold(signature_request_id)
+        pprint(response)
+    except ApiException as e:
+        print("Exception when calling Dropbox Sign API: %s\n" % e)
+
 ```
 ```
 
@@ -523,7 +922,34 @@ Sends an email to the signer reminding them to sign the signature request. You c
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
-REPLACE_ME_WITH_EXAMPLE_FOR__signature_request_remind_Python_CODE
+from pprint import pprint
+
+from dropbox_sign import \
+    ApiClient, ApiException, Configuration, apis, models
+
+configuration = Configuration(
+    # Configure HTTP basic authorization: api_key
+    username="YOUR_API_KEY",
+
+    # or, configure Bearer (JWT) authorization: oauth2
+    # access_token="YOUR_ACCESS_TOKEN",
+)
+
+with ApiClient(configuration) as api_client:
+    signature_request_api = apis.SignatureRequestApi(api_client)
+
+    data = models.SignatureRequestRemindRequest(
+        email_address="john@example.com",
+    )
+
+    signature_request_id = "2f9781e1a8e2045224d808c153c2e1d3df6f8f2f"
+
+    try:
+        response = signature_request_api.signature_request_remind(signature_request_id, data)
+        pprint(response)
+    except ApiException as e:
+        print("Exception when calling Dropbox Sign API: %s\n" % e)
+
 ```
 ```
 
@@ -567,7 +993,27 @@ Removes your access to a completed signature request. This action is **not rever
 * Basic Authentication (api_key):
 
 ```python
-REPLACE_ME_WITH_EXAMPLE_FOR__signature_request_remove_Python_CODE
+from dropbox_sign import \
+    ApiClient, ApiException, Configuration, apis
+
+configuration = Configuration(
+    # Configure HTTP basic authorization: api_key
+    username="YOUR_API_KEY",
+
+    # or, configure Bearer (JWT) authorization: oauth2
+    # access_token="YOUR_ACCESS_TOKEN",
+)
+
+with ApiClient(configuration) as api_client:
+    signature_request_api = apis.SignatureRequestApi(api_client)
+
+    signature_request_id = "2f9781e1a8e2045224d808c153c2e1d3df6f8f2f"
+
+    try:
+        signature_request_api.signature_request_remove(signature_request_id)
+    except ApiException as e:
+        print("Exception when calling Dropbox Sign API: %s\n" % e)
+
 ```
 ```
 
@@ -611,7 +1057,71 @@ Creates and sends a new SignatureRequest with the submitted documents. If `form_
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
-REPLACE_ME_WITH_EXAMPLE_FOR__signature_request_send_Python_CODE
+from pprint import pprint
+
+from dropbox_sign import \
+    ApiClient, ApiException, Configuration, apis, models
+
+configuration = Configuration(
+    # Configure HTTP basic authorization: api_key
+    username="YOUR_API_KEY",
+
+    # or, configure Bearer (JWT) authorization: oauth2
+    # access_token="YOUR_ACCESS_TOKEN",
+)
+
+with ApiClient(configuration) as api_client:
+    signature_request_api = apis.SignatureRequestApi(api_client)
+
+    signer_1 = models.SubSignatureRequestSigner(
+        email_address="jack@example.com",
+        name="Jack",
+        order=0,
+    )
+
+    signer_2 = models.SubSignatureRequestSigner(
+        email_address="jill@example.com",
+        name="Jill",
+        order=1,
+    )
+
+    signing_options = models.SubSigningOptions(
+        draw=True,
+        type=True,
+        upload=True,
+        phone=True,
+        default_type="draw",
+    )
+
+    field_options = models.SubFieldOptions(
+        date_format="DD - MM - YYYY",
+    )
+
+    data = models.SignatureRequestSendRequest(
+        title="NDA with Acme Co.",
+        subject="The NDA we talked about",
+        message="Please sign this NDA and then we can discuss more. Let me know if you have any questions.",
+        signers=[signer_1, signer_2],
+        cc_email_addresses=[
+            "lawyer1@dropboxsign.com",
+            "lawyer2@dropboxsign.com",
+        ],
+        files=[open("example_signature_request.pdf", "rb")],
+        metadata={
+            "custom_id": 1234,
+            "custom_text": "NDA #9",
+        },
+        signing_options=signing_options,
+        field_options=field_options,
+        test_mode=True,
+    )
+
+    try:
+        response = signature_request_api.signature_request_send(data)
+        pprint(response)
+    except ApiException as e:
+        print("Exception when calling Dropbox Sign API: %s\n" % e)
+
 ```
 ```
 
@@ -655,7 +1165,65 @@ Creates and sends a new SignatureRequest based off of the Template(s) specified 
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
-REPLACE_ME_WITH_EXAMPLE_FOR__signature_request_send_with_template_Python_CODE
+from pprint import pprint
+
+from dropbox_sign import \
+    ApiClient, ApiException, Configuration, apis, models
+
+configuration = Configuration(
+    # Configure HTTP basic authorization: api_key
+    username="YOUR_API_KEY",
+
+    # or, configure Bearer (JWT) authorization: oauth2
+    # access_token="YOUR_ACCESS_TOKEN",
+)
+
+with ApiClient(configuration) as api_client:
+    signature_request_api = apis.SignatureRequestApi(api_client)
+
+    signer_1 = models.SubSignatureRequestTemplateSigner(
+        role="Client",
+        email_address="george@example.com",
+        name="George",
+    )
+
+    cc_1 = models.SubCC(
+        role="Accounting",
+        email_address="accounting@example.com",
+    )
+
+    custom_field_1 = models.SubCustomField(
+        name="Cost",
+        value="$20,000",
+        editor="Client",
+        required=True,
+    )
+
+    signing_options = models.SubSigningOptions(
+        draw=True,
+        type=True,
+        upload=True,
+        phone=False,
+        default_type="draw",
+    )
+
+    data = models.SignatureRequestSendWithTemplateRequest(
+        template_ids=["c26b8a16784a872da37ea946b9ddec7c1e11dff6"],
+        subject="Purchase Order",
+        message="Glad we could come to an agreement.",
+        signers=[signer_1],
+        ccs=[cc_1],
+        custom_fields=[custom_field_1],
+        signing_options=signing_options,
+        test_mode=True,
+    )
+
+    try:
+        response = signature_request_api.signature_request_send_with_template(data)
+        pprint(response)
+    except ApiException as e:
+        print("Exception when calling Dropbox Sign API: %s\n" % e)
+
 ```
 ```
 
@@ -699,7 +1267,35 @@ Updates the email address and/or the name for a given signer on a signature requ
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
-REPLACE_ME_WITH_EXAMPLE_FOR__signature_request_update_Python_CODE
+from pprint import pprint
+
+from dropbox_sign import \
+    ApiClient, ApiException, Configuration, apis, models
+
+configuration = Configuration(
+    # Configure HTTP basic authorization: api_key
+    username="YOUR_API_KEY",
+
+    # or, configure Bearer (JWT) authorization: oauth2
+    # access_token="YOUR_ACCESS_TOKEN",
+)
+
+with ApiClient(configuration) as api_client:
+    signature_request_api = apis.SignatureRequestApi(api_client)
+
+    data = models.SignatureRequestUpdateRequest(
+        email_address = "john@example.com",
+        signature_id = "78caf2a1d01cd39cea2bc1cbb340dac3",
+    )
+
+    signature_request_id = "2f9781e1a8e2045224d808c153c2e1d3df6f8f2f"
+
+    try:
+        response = signature_request_api.signature_request_update(signature_request_id, data)
+        pprint(response)
+    except ApiException as e:
+        print("Exception when calling Dropbox Sign API: %s\n" % e)
+
 ```
 ```
 

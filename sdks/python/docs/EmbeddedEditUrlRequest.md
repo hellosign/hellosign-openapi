@@ -5,20 +5,16 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-| `allow_edit_ccs` | ```bool``` | REPLACE_ME_WITH_DESCRIPTION_BEGIN This allows the requester to enable/disable to add or change CC roles when editing the template. REPLACE_ME_WITH_DESCRIPTION_END |  [default to False] |
-| `cc_roles` | ```List[str]``` | REPLACE_ME_WITH_DESCRIPTION_BEGIN The CC roles that must be assigned when using the template to send a signature request. To remove all CC roles, pass in a single role with no name. For use in a POST request. REPLACE_ME_WITH_DESCRIPTION_END |  |
-| `editor_options` | [```SubEditorOptions```](SubEditorOptions.md) | REPLACE_ME_WITH_DESCRIPTION_BEGIN  REPLACE_ME_WITH_DESCRIPTION_END |  |
-| `force_signer_roles` | ```bool``` | REPLACE_ME_WITH_DESCRIPTION_BEGIN Provide users the ability to review/edit the template signer roles. REPLACE_ME_WITH_DESCRIPTION_END |  [default to False] |
-| `force_subject_message` | ```bool``` | REPLACE_ME_WITH_DESCRIPTION_BEGIN Provide users the ability to review/edit the template subject and message. REPLACE_ME_WITH_DESCRIPTION_END |  [default to False] |
-| `merge_fields` | [```List[SubMergeField]```](SubMergeField.md) | REPLACE_ME_WITH_DESCRIPTION_BEGIN Add additional merge fields to the template, which can be used used to pre-fill data by passing values into signature requests made with that template.
-
-Remove all merge fields on the template by passing an empty array &#x60;[]&#x60;. REPLACE_ME_WITH_DESCRIPTION_END |  |
-| `preview_only` | ```bool``` | REPLACE_ME_WITH_DESCRIPTION_BEGIN This allows the requester to enable the preview experience (i.e. does not allow the requester&#39;s end user to add any additional fields via the editor).
-
-**NOTE:** This parameter overwrites &#x60;show_preview&#x3D;true&#x60; (if set). REPLACE_ME_WITH_DESCRIPTION_END |  [default to False] |
-| `show_preview` | ```bool``` | REPLACE_ME_WITH_DESCRIPTION_BEGIN This allows the requester to enable the editor/preview experience. REPLACE_ME_WITH_DESCRIPTION_END |  [default to False] |
-| `show_progress_stepper` | ```bool``` | REPLACE_ME_WITH_DESCRIPTION_BEGIN When only one step remains in the signature request process and this parameter is set to &#x60;false&#x60; then the progress stepper will be hidden. REPLACE_ME_WITH_DESCRIPTION_END |  [default to True] |
-| `test_mode` | ```bool``` | REPLACE_ME_WITH_DESCRIPTION_BEGIN Whether this is a test, locked templates will only be available for editing if this is set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;. REPLACE_ME_WITH_DESCRIPTION_END |  [default to False] |
+| `allow_edit_ccs` | ```bool``` |  This allows the requester to enable/disable to add or change CC roles when editing the template.  |  [default to False] |
+| `cc_roles` | ```List[str]``` |  The CC roles that must be assigned when using the template to send a signature request. To remove all CC roles, pass in a single role with no name. For use in a POST request.  |  |
+| `editor_options` | [```SubEditorOptions```](SubEditorOptions.md) |    |  |
+| `force_signer_roles` | ```bool``` |  Provide users the ability to review/edit the template signer roles.  |  [default to False] |
+| `force_subject_message` | ```bool``` |  Provide users the ability to review/edit the template subject and message.  |  [default to False] |
+| `merge_fields` | [```List[SubMergeField]```](SubMergeField.md) |  Add additional merge fields to the template, which can be used used to pre-fill data by passing values into signature requests made with that template.<br><br>Remove all merge fields on the template by passing an empty array `[]`.  |  |
+| `preview_only` | ```bool``` |  This allows the requester to enable the preview experience (i.e. does not allow the requester&#39;s end user to add any additional fields via the editor).<br><br>**NOTE:** This parameter overwrites `show_preview&#x3D;true` (if set).  |  [default to False] |
+| `show_preview` | ```bool``` |  This allows the requester to enable the editor/preview experience.  |  [default to False] |
+| `show_progress_stepper` | ```bool``` |  When only one step remains in the signature request process and this parameter is set to `false` then the progress stepper will be hidden.  |  [default to True] |
+| `test_mode` | ```bool``` |  Whether this is a test, locked templates will only be available for editing if this is set to `true`. Defaults to `false`.  |  [default to False] |
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

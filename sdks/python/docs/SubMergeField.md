@@ -5,8 +5,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-| `name`<sup>*_required_</sup> | ```str``` | REPLACE_ME_WITH_DESCRIPTION_BEGIN The name of the merge field. Must be unique. REPLACE_ME_WITH_DESCRIPTION_END |  |
-| `type`<sup>*_required_</sup> | ```str``` | REPLACE_ME_WITH_DESCRIPTION_BEGIN The type of merge field. REPLACE_ME_WITH_DESCRIPTION_END |  |
+| `name`<sup>*_required_</sup> | ```str``` |  The name of the merge field. Must be unique.  |  |
+| `type`<sup>*_required_</sup> | ```str``` |  The type of merge field.  |  |
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

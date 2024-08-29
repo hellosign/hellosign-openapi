@@ -9,6 +9,7 @@ rep () {
   SEARCH_STRING=$1
   REPLACE_STRING=$2
   SCAN_DIRS=( \
+    "docs" \
     "dropbox_sign/models" \
   )
 

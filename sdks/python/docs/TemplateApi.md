@@ -30,7 +30,34 @@ Gives the specified Account access to the specified Template. The specified Acco
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
-REPLACE_ME_WITH_EXAMPLE_FOR__template_add_user_Python_CODE
+from pprint import pprint
+
+from dropbox_sign import \
+    ApiClient, ApiException, Configuration, apis, models
+
+configuration = Configuration(
+    # Configure HTTP basic authorization: api_key
+    username="YOUR_API_KEY",
+
+    # or, configure Bearer (JWT) authorization: oauth2
+    # access_token="YOUR_ACCESS_TOKEN",
+)
+
+with ApiClient(configuration) as api_client:
+    template_api = apis.TemplateApi(api_client)
+
+    data = models.TemplateAddUserRequest(
+        email_address="george@dropboxsign.com",
+    )
+
+    template_id = "f57db65d3f933b5316d398057a36176831451a35"
+
+    try:
+        response = template_api.template_add_user(template_id, data)
+        pprint(response)
+    except ApiException as e:
+        print("Exception when calling Dropbox Sign API: %s\n" % e)
+
 ```
 ```
 
@@ -75,7 +102,65 @@ Creates a template that can then be used.
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
-REPLACE_ME_WITH_EXAMPLE_FOR__template_create_Python_CODE
+from pprint import pprint
+
+from dropbox_sign import \
+    ApiClient, ApiException, Configuration, apis, models
+
+configuration = Configuration(
+    # Configure HTTP basic authorization: api_key
+    username="YOUR_API_KEY",
+
+    # or, configure Bearer (JWT) authorization: oauth2
+    # access_token="YOUR_ACCESS_TOKEN",
+)
+
+with ApiClient(configuration) as api_client:
+    template_api = apis.TemplateApi(api_client)
+
+    role_1 = models.SubTemplateRole(
+        name="Client",
+        order=0,
+    )
+
+    role_2 = models.SubTemplateRole(
+        name="Witness",
+        order=1,
+    )
+
+    merge_field_1 = models.SubMergeField(
+        name="Full Name",
+        type="text",
+    )
+
+    merge_field_2 = models.SubMergeField(
+        name="Is Registered?",
+        type="checkbox",
+    )
+
+    field_options = models.SubFieldOptions(
+        date_format="DD - MM - YYYY",
+    )
+
+    data = models.TemplateCreateRequest(
+        client_id="37dee8d8440c66d54cfa05d92c160882",
+        files=[open("example_signature_request.pdf", "rb")],
+        title="Test Template",
+        subject="Please sign this document",
+        message="For your approval",
+        signer_roles=[role_1, role_2],
+        cc_roles=["Manager"],
+        merge_fields=[merge_field_1, merge_field_2],
+        field_options=field_options,
+        test_mode=True,
+    )
+
+    try:
+        response = template_api.template_create(data)
+        pprint(response)
+    except ApiException as e:
+        print("Exception when calling Dropbox Sign API: %s\n" % e)
+
 ```
 ```
 
@@ -119,7 +204,65 @@ The first step in an embedded template workflow. Creates a draft template that c
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
-REPLACE_ME_WITH_EXAMPLE_FOR__template_create_embedded_draft_Python_CODE
+from pprint import pprint
+
+from dropbox_sign import \
+    ApiClient, ApiException, Configuration, apis, models
+
+configuration = Configuration(
+    # Configure HTTP basic authorization: api_key
+    username="YOUR_API_KEY",
+
+    # or, configure Bearer (JWT) authorization: oauth2
+    # access_token="YOUR_ACCESS_TOKEN",
+)
+
+with ApiClient(configuration) as api_client:
+    template_api = apis.TemplateApi(api_client)
+
+    role_1 = models.SubTemplateRole(
+        name="Client",
+        order=0,
+    )
+
+    role_2 = models.SubTemplateRole(
+        name="Witness",
+        order=1,
+    )
+
+    merge_field_1 = models.SubMergeField(
+        name="Full Name",
+        type="text",
+    )
+
+    merge_field_2 = models.SubMergeField(
+        name="Is Registered?",
+        type="checkbox",
+    )
+
+    field_options = models.SubFieldOptions(
+        date_format="DD - MM - YYYY",
+    )
+
+    data = models.TemplateCreateEmbeddedDraftRequest(
+        client_id="37dee8d8440c66d54cfa05d92c160882",
+        files=[open("example_signature_request.pdf", "rb")],
+        title="Test Template",
+        subject="Please sign this document",
+        message="For your approval",
+        signer_roles=[role_1, role_2],
+        cc_roles=["Manager"],
+        merge_fields=[merge_field_1, merge_field_2],
+        field_options=field_options,
+        test_mode=True,
+    )
+
+    try:
+        response = template_api.template_create_embedded_draft(data)
+        pprint(response)
+    except ApiException as e:
+        print("Exception when calling Dropbox Sign API: %s\n" % e)
+
 ```
 ```
 
@@ -163,7 +306,27 @@ Completely deletes the template specified from the account.
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
-REPLACE_ME_WITH_EXAMPLE_FOR__template_delete_Python_CODE
+from dropbox_sign import \
+    ApiClient, ApiException, Configuration, apis
+
+configuration = Configuration(
+    # Configure HTTP basic authorization: api_key
+    username="YOUR_API_KEY",
+
+    # or, configure Bearer (JWT) authorization: oauth2
+    # access_token="YOUR_ACCESS_TOKEN",
+)
+
+with ApiClient(configuration) as api_client:
+    template_api = apis.TemplateApi(api_client)
+
+    template_id = "5de8179668f2033afac48da1868d0093bf133266"
+
+    try:
+        template_api.template_delete(template_id)
+    except ApiException as e:
+        print("Exception when calling Dropbox Sign API: %s\n" % e)
+
 ```
 ```
 
@@ -207,7 +370,30 @@ Obtain a copy of the current documents specified by the `template_id` parameter.
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
-REPLACE_ME_WITH_EXAMPLE_FOR__template_files_Python_CODE
+from pprint import pprint
+
+from dropbox_sign import \
+    ApiClient, ApiException, Configuration, apis
+
+configuration = Configuration(
+    # Configure HTTP basic authorization: api_key
+    username="YOUR_API_KEY",
+
+    # or, configure Bearer (JWT) authorization: oauth2
+    # access_token="YOUR_ACCESS_TOKEN",
+)
+
+with ApiClient(configuration) as api_client:
+    template_api = apis.TemplateApi(api_client)
+
+    template_id = "5de8179668f2033afac48da1868d0093bf133266"
+
+    try:
+        response = template_api.template_files(template_id, file_type="pdf")
+        open('file_response.pdf', 'wb').write(response.read())
+    except ApiException as e:
+        print("Exception when calling Dropbox Sign API: %s\n" % e)
+
 ```
 ```
 
@@ -215,7 +401,7 @@ REPLACE_ME_WITH_EXAMPLE_FOR__template_files_Python_CODE
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `template_id` | **str** | The id of the template files to retrieve. |  |
-| `file_type` | **str** | Set to &#x60;pdf&#x60; for a single merged document or &#x60;zip&#x60; for a collection of individual documents. | [optional] |
+| `file_type` | **str** | Set to `pdf` for a single merged document or `zip` for a collection of individual documents. | [optional] |
 
 ### Return type
 
@@ -252,7 +438,30 @@ Obtain a copy of the current documents specified by the `template_id` parameter.
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
-REPLACE_ME_WITH_EXAMPLE_FOR__template_files_as_data_uri_Python_CODE
+from pprint import pprint
+
+from dropbox_sign import \
+    ApiClient, ApiException, Configuration, apis
+
+configuration = Configuration(
+    # Configure HTTP basic authorization: api_key
+    username="YOUR_API_KEY",
+
+    # or, configure Bearer (JWT) authorization: oauth2
+    # access_token="YOUR_ACCESS_TOKEN",
+)
+
+with ApiClient(configuration) as api_client:
+    template_api = apis.TemplateApi(api_client)
+
+    template_id = "5de8179668f2033afac48da1868d0093bf133266"
+
+    try:
+        response = template_api.template_files_as_data_uri(template_id)
+        pprint(response)
+    except ApiException as e:
+        print("Exception when calling Dropbox Sign API: %s\n" % e)
+
 ```
 ```
 
@@ -296,7 +505,30 @@ Obtain a copy of the current documents specified by the `template_id` parameter.
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
-REPLACE_ME_WITH_EXAMPLE_FOR__template_files_as_file_url_Python_CODE
+from pprint import pprint
+
+from dropbox_sign import \
+    ApiClient, ApiException, Configuration, apis
+
+configuration = Configuration(
+    # Configure HTTP basic authorization: api_key
+    username="YOUR_API_KEY",
+
+    # or, configure Bearer (JWT) authorization: oauth2
+    # access_token="YOUR_ACCESS_TOKEN",
+)
+
+with ApiClient(configuration) as api_client:
+    template_api = apis.TemplateApi(api_client)
+
+    template_id = "5de8179668f2033afac48da1868d0093bf133266"
+
+    try:
+        response = template_api.template_files_as_file_url(template_id)
+        pprint(response)
+    except ApiException as e:
+        print("Exception when calling Dropbox Sign API: %s\n" % e)
+
 ```
 ```
 
@@ -304,7 +536,7 @@ REPLACE_ME_WITH_EXAMPLE_FOR__template_files_as_file_url_Python_CODE
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `template_id` | **str** | The id of the template files to retrieve. |  |
-| `force_download` | **int** | By default when opening the &#x60;file_url&#x60; a browser will download the PDF and save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser. | [optional][default to 1] |
+| `force_download` | **int** | By default when opening the `file_url` a browser will download the PDF and save it locally. When set to `0` the PDF file will be displayed in the browser. | [optional][default to 1] |
 
 ### Return type
 
@@ -341,7 +573,30 @@ Returns the Template specified by the `template_id` parameter.
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
-REPLACE_ME_WITH_EXAMPLE_FOR__template_get_Python_CODE
+from pprint import pprint
+
+from dropbox_sign import \
+    ApiClient, ApiException, Configuration, apis
+
+configuration = Configuration(
+    # Configure HTTP basic authorization: api_key
+    username="YOUR_API_KEY",
+
+    # or, configure Bearer (JWT) authorization: oauth2
+    # access_token="YOUR_ACCESS_TOKEN",
+)
+
+with ApiClient(configuration) as api_client:
+    template_api = apis.TemplateApi(api_client)
+
+    template_id = "f57db65d3f933b5316d398057a36176831451a35"
+
+    try:
+        response = template_api.template_get(template_id)
+        pprint(response)
+    except ApiException as e:
+        print("Exception when calling Dropbox Sign API: %s\n" % e)
+
 ```
 ```
 
@@ -385,16 +640,41 @@ Returns a list of the Templates that are accessible by you.  Take a look at our 
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
-REPLACE_ME_WITH_EXAMPLE_FOR__template_list_Python_CODE
+from pprint import pprint
+
+from dropbox_sign import \
+    ApiClient, ApiException, Configuration, apis
+
+configuration = Configuration(
+    # Configure HTTP basic authorization: api_key
+    username="YOUR_API_KEY",
+
+    # or, configure Bearer (JWT) authorization: oauth2
+    # access_token="YOUR_ACCESS_TOKEN",
+)
+
+with ApiClient(configuration) as api_client:
+    template_api = apis.TemplateApi(api_client)
+
+    account_id = "f57db65d3f933b5316d398057a36176831451a35"
+
+    try:
+        response = template_api.template_list(
+            account_id=account_id,
+        )
+        pprint(response)
+    except ApiException as e:
+        print("Exception when calling Dropbox Sign API: %s\n" % e)
+
 ```
 ```
 
 ### Parameters
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| `account_id` | **str** | Which account to return Templates for. Must be a team member. Use &#x60;all&#x60; to indicate all team members. Defaults to your account. | [optional] |
-| `page` | **int** | Which page number of the Template List to return. Defaults to &#x60;1&#x60;. | [optional][default to 1] |
-| `page_size` | **int** | Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. | [optional][default to 20] |
+| `account_id` | **str** | Which account to return Templates for. Must be a team member. Use `all` to indicate all team members. Defaults to your account. | [optional] |
+| `page` | **int** | Which page number of the Template List to return. Defaults to `1`. | [optional][default to 1] |
+| `page_size` | **int** | Number of objects to be returned per page. Must be between `1` and `100`. Default is `20`. | [optional][default to 20] |
 | `query` | **str** | String that includes search terms and/or fields to be used to filter the Template objects. | [optional] |
 
 ### Return type
@@ -432,7 +712,34 @@ Removes the specified Account's access to the specified Template.
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
-REPLACE_ME_WITH_EXAMPLE_FOR__template_remove_user_Python_CODE
+from pprint import pprint
+
+from dropbox_sign import \
+    ApiClient, ApiException, Configuration, apis, models
+
+configuration = Configuration(
+    # Configure HTTP basic authorization: api_key
+    username="YOUR_API_KEY",
+
+    # or, configure Bearer (JWT) authorization: oauth2
+    # access_token="YOUR_ACCESS_TOKEN",
+)
+
+with ApiClient(configuration) as api_client:
+    template_api = apis.TemplateApi(api_client)
+
+    data = models.TemplateRemoveUserRequest(
+        email_address="george@dropboxsign.com",
+    )
+
+    template_id = "21f920ec2b7f4b6bb64d3ed79f26303843046536"
+
+    try:
+        response = template_api.template_remove_user(template_id, data)
+        pprint(response)
+    except ApiException as e:
+        print("Exception when calling Dropbox Sign API: %s\n" % e)
+
 ```
 ```
 
@@ -477,7 +784,34 @@ Overlays a new file with the overlay of an existing template. The new file(s) mu
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
-REPLACE_ME_WITH_EXAMPLE_FOR__template_update_files_Python_CODE
+from pprint import pprint
+
+from dropbox_sign import \
+    ApiClient, ApiException, Configuration, apis, models
+
+configuration = Configuration(
+    # Configure HTTP basic authorization: api_key
+    username="YOUR_API_KEY",
+
+    # or, configure Bearer (JWT) authorization: oauth2
+    # access_token="YOUR_ACCESS_TOKEN",
+)
+
+with ApiClient(configuration) as api_client:
+    template_api = apis.TemplateApi(api_client)
+
+    data = models.TemplateUpdateFilesRequest(
+        files=[open("example_signature_request.pdf", "rb")],
+    )
+
+    template_id = "5de8179668f2033afac48da1868d0093bf133266"
+
+    try:
+        response = template_api.template_update_files(template_id, data)
+        pprint(response)
+    except ApiException as e:
+        print("Exception when calling Dropbox Sign API: %s\n" % e)
+
 ```
 ```
 
