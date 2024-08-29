@@ -122,7 +122,7 @@ class SignatureRequestResponseCustomFieldBase(BaseModel):
 
 
     @classmethod
-    def openapi_types(cls) -> Dict[StrictStr, StrictStr]:
+    def openapi_types(cls) -> Dict[str, str]:
         return {
             "type": "(str,)",
             "name": "(str,)",
@@ -132,7 +132,7 @@ class SignatureRequestResponseCustomFieldBase(BaseModel):
         }
 
     @classmethod
-    def openapi_type_is_array(cls, property_name: StrictStr) -> StrictBool:
+    def openapi_type_is_array(cls, property_name: str) -> bool:
         return property_name in [
         ]
 

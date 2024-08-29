@@ -98,14 +98,17 @@ class FaxLineAddUserRequest(BaseModel):
         return _obj
 
     @classmethod
-    def init(cls, data: Optional[Dict[str, Any]]) -> Self:
+    def init(cls, data: Any) -> Self:
         """
         Attempt to instantiate and hydrate a new instance of this class
         """
+        if isinstance(data, str):
+            data = json.loads(data)
+
         return cls.from_dict(data)
 
     @classmethod
-    def openapi_types(cls) -> Dict[StrictStr, StrictStr]:
+    def openapi_types(cls) -> Dict[str, str]:
         return {
             "number": "(str,)",
             "account_id": "(str,)",
@@ -113,7 +116,7 @@ class FaxLineAddUserRequest(BaseModel):
         }
 
     @classmethod
-    def openapi_type_is_array(cls, property_name: StrictStr) -> StrictBool:
+    def openapi_type_is_array(cls, property_name: str) -> bool:
         return property_name in [
         ]
 

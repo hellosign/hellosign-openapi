@@ -279,7 +279,8 @@ class ReportApi:
                 else:
                     _files[param_name] = param_value
 
-        _form_params = body_param.to_json_form_params(excluded_json_fields)
+        if has_files is True:
+            _form_params = body_param.to_json_form_params(excluded_json_fields)
 
         # process the path parameters
         # process the query parameters

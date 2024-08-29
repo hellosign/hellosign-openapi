@@ -15,7 +15,7 @@
 """  # noqa: E501
 
 
-__version__ = "2.0-dev"
+__version__ = "1.5-dev"
 
 # import apis into sdk package
 from dropbox_sign.apis import *

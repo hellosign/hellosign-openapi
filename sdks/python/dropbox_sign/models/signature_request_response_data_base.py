@@ -143,7 +143,7 @@ class SignatureRequestResponseDataBase(BaseModel):
 
 
     @classmethod
-    def openapi_types(cls) -> Dict[StrictStr, StrictStr]:
+    def openapi_types(cls) -> Dict[str, str]:
         return {
             "api_id": "(str,)",
             "signature_id": "(str,)",
@@ -153,7 +153,7 @@ class SignatureRequestResponseDataBase(BaseModel):
         }
 
     @classmethod
-    def openapi_type_is_array(cls, property_name: StrictStr) -> StrictBool:
+    def openapi_type_is_array(cls, property_name: str) -> bool:
         return property_name in [
         ]
 
