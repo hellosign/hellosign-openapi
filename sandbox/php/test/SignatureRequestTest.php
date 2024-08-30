@@ -16,7 +16,7 @@ use SplFileObject;
  */
 class SignatureRequestTest extends TestCase
 {
-    public const FIXTURES_DIR = __DIR__ . '/../fixtures';
+    public const FIXTURES_DIR = __DIR__ . '/../test_fixtures';
 
     private Sign\Configuration $config;
 
