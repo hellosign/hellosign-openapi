@@ -171,4 +171,24 @@ class ObjectSerializerTest extends SignTestCase
             $obj->getFormFieldsPerDocument()[$expected_ffpd_key]->getType(),
         );
     }
+
+    public function testSplFileObjectUntouched(): void
+    {
+        $requestClass = Model\SignatureRequestSendRequest::class;
+        $requestData = TestUtils::getFixtureData($requestClass)['default'];
+        unset($requestData['file_urls']);
+
+        $filename = 'pdf-sample.pdf';
+        $filepath = self::ROOT_FILE_PATH . "/{$filename}";
+
+        $requestData['files'] = [new SplFileObject($filepath)];
+
+        $obj = Model\SignatureRequestSendRequest::init($requestData);
+
+        $file = $obj->getFiles()[0];
+
+        $this->assertInstanceOf(SplFileObject::class, $file);
+        $this->assertEquals($filename, $file->getFilename());
+        $this->assertEquals($filepath, $file->getPathname());
+    }
 }

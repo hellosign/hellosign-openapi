@@ -503,6 +503,12 @@ class ObjectSerializer
         }
 
         if ($class === '\SplFileObject') {
+{{#useCustomTemplateCode}}
+            if (is_a($data, \SplFileObject::class)) {
+                return $data;
+            }
+
+{{/useCustomTemplateCode}}
             $data = Utils::streamFor($data);
 
             /** @var \Psr\Http\Message\StreamInterface $data */

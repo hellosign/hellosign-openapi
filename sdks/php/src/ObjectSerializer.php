@@ -471,6 +471,10 @@ class ObjectSerializer
         }
 
         if ($class === '\SplFileObject') {
+            if (is_a($data, SplFileObject::class)) {
+                return $data;
+            }
+
             $data = Utils::streamFor($data);
 
             /** @var \Psr\Http\Message\StreamInterface $data */
