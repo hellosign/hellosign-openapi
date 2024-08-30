@@ -10032,6 +10032,8 @@ components:
           default: false
       type: object
     AccountCreateResponse:
+      required:
+        - account
       properties:
         account:
           $ref: '#/components/schemas/AccountResponse'
@@ -10045,6 +10047,8 @@ components:
       type: object
       x-internal-class: true
     AccountGetResponse:
+      required:
+        - account
       properties:
         account:
           $ref: '#/components/schemas/AccountResponse'
@@ -10067,6 +10071,8 @@ components:
       type: object
       x-internal-class: true
     ApiAppGetResponse:
+      required:
+        - api_app
       properties:
         api_app:
           $ref: '#/components/schemas/ApiAppResponse'
@@ -10078,6 +10084,9 @@ components:
       type: object
       x-internal-class: true
     ApiAppListResponse:
+      required:
+        - api_apps
+        - list_info
       properties:
         api_apps:
           description: 'Contains information about API Apps.'
@@ -10094,6 +10103,10 @@ components:
       type: object
       x-internal-class: true
     BulkSendJobGetResponse:
+      required:
+        - bulk_send_job
+        - list_info
+        - signature_requests
       properties:
         bulk_send_job:
           $ref: '#/components/schemas/BulkSendJobResponse'
@@ -10112,6 +10125,9 @@ components:
       type: object
       x-internal-class: true
     BulkSendJobListResponse:
+      required:
+        - bulk_send_jobs
+        - list_info
       properties:
         bulk_send_jobs:
           description: 'Contains a list of BulkSendJobs that the API caller has access to.'
@@ -10128,6 +10144,8 @@ components:
       type: object
       x-internal-class: true
     BulkSendJobSendResponse:
+      required:
+        - bulk_send_job
       properties:
         bulk_send_job:
           $ref: '#/components/schemas/BulkSendJobResponse'
@@ -10139,6 +10157,8 @@ components:
       type: object
       x-internal-class: true
     EmbeddedEditUrlResponse:
+      required:
+        - embedded
       properties:
         embedded:
           $ref: '#/components/schemas/EmbeddedEditUrlResponseEmbedded'
@@ -10150,6 +10170,8 @@ components:
       type: object
       x-internal-class: true
     EmbeddedSignUrlResponse:
+      required:
+        - embedded
       properties:
         embedded:
           $ref: '#/components/schemas/EmbeddedSignUrlResponseEmbedded'
@@ -10168,6 +10190,8 @@ components:
           $ref: '#/components/schemas/ErrorResponseError'
       type: object
     FaxLineResponse:
+      required:
+        - fax_line
       properties:
         fax_line:
           $ref: '#/components/schemas/FaxLineResponseFaxLine'
@@ -10176,6 +10200,8 @@ components:
       type: object
       x-internal-class: true
     FaxLineAreaCodeGetResponse:
+      required:
+        - area_codes
       properties:
         area_codes:
           type: array
@@ -10184,6 +10210,9 @@ components:
       type: object
       x-internal-class: true
     FaxLineListResponse:
+      required:
+        - fax_lines
+        - list_info
       properties:
         list_info:
           $ref: '#/components/schemas/ListInfoResponse'
@@ -10196,6 +10225,9 @@ components:
       type: object
       x-internal-class: true
     FileResponse:
+      required:
+        - file_url
+        - expires_at
       properties:
         file_url:
           description: 'URL to the file.'
@@ -10206,6 +10238,8 @@ components:
       type: object
       x-internal-class: true
     FileResponseDataUri:
+      required:
+        - data_uri
       properties:
         data_uri:
           description: 'File as base64 encoded string.'
@@ -10213,6 +10247,8 @@ components:
       type: object
       x-internal-class: true
     ReportCreateResponse:
+      required:
+        - report
       properties:
         report:
           $ref: '#/components/schemas/ReportResponse'
@@ -10224,6 +10260,8 @@ components:
       type: object
       x-internal-class: true
     SignatureRequestGetResponse:
+      required:
+        - signature_request
       properties:
         signature_request:
           $ref: '#/components/schemas/SignatureRequestResponse'
@@ -10235,6 +10273,9 @@ components:
       type: object
       x-internal-class: true
     SignatureRequestListResponse:
+      required:
+        - signature_requests
+        - list_info
       properties:
         signature_requests:
           description: 'Contains information about signature requests.'
@@ -12059,6 +12100,8 @@ components:
           type: string
       type: object
     TeamGetResponse:
+      required:
+        - team
       properties:
         team:
           $ref: '#/components/schemas/TeamResponse'
@@ -12070,6 +12113,8 @@ components:
       type: object
       x-internal-class: true
     TeamGetInfoResponse:
+      required:
+        - team
       properties:
         team:
           $ref: '#/components/schemas/TeamInfoResponse'
@@ -12081,6 +12126,8 @@ components:
       type: object
       x-internal-class: true
     TeamInvitesResponse:
+      required:
+        - team_invites
       properties:
         team_invites:
           description: 'Contains a list of team invites and their roles.'
@@ -12094,6 +12141,9 @@ components:
       type: object
       x-internal-class: true
     TeamMembersResponse:
+      required:
+        - team_members
+        - list_info
       properties:
         team_members:
           description: 'Contains a list of team members and their roles for a specific team.'
@@ -12109,6 +12159,9 @@ components:
       type: object
       x-internal-class: true
     TeamSubTeamsResponse:
+      required:
+        - sub_teams
+        - list_info
       properties:
         sub_teams:
           description: 'Contains a list with sub teams.'
@@ -12124,6 +12177,8 @@ components:
       type: object
       x-internal-class: true
     TemplateCreateResponse:
+      required:
+        - template
       properties:
         template:
           $ref: '#/components/schemas/TemplateCreateResponseTemplate'
@@ -12135,6 +12190,8 @@ components:
       type: object
       x-internal-class: true
     TemplateCreateEmbeddedDraftResponse:
+      required:
+        - template
       properties:
         template:
           $ref: '#/components/schemas/TemplateCreateEmbeddedDraftResponseTemplate'
@@ -12146,12 +12203,16 @@ components:
       type: object
       x-internal-class: true
     TemplateEditResponse:
+      required:
+        - template_id
       properties:
         template_id:
           description: 'The id of the Template.'
           type: string
       type: object
     TemplateGetResponse:
+      required:
+        - template
       properties:
         template:
           $ref: '#/components/schemas/TemplateResponse'
@@ -12163,6 +12224,9 @@ components:
       type: object
       x-internal-class: true
     TemplateListResponse:
+      required:
+        - templates
+        - list_info
       properties:
         templates:
           description: 'List of templates that the API caller has access to.'
@@ -12179,12 +12243,16 @@ components:
       type: object
       x-internal-class: true
     TemplateUpdateFilesResponse:
+      required:
+        - template
       properties:
         template:
           $ref: '#/components/schemas/TemplateUpdateFilesResponseTemplate'
       type: object
       x-internal-class: true
     UnclaimedDraftCreateResponse:
+      required:
+        - unclaimed_draft
       properties:
         unclaimed_draft:
           $ref: '#/components/schemas/UnclaimedDraftResponse'

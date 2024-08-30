@@ -19,6 +19,8 @@ java-v2/src/main/java/com/dropbox/sign_sandbox/*
 node/*
 !node/Example.ts
 !node/package.json
+!node/tests
+!node/test_fixtures
 
 php/*
 !php/Example.php

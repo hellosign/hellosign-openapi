@@ -2,7 +2,7 @@ import { AttributeTypeMap } from "./";
 import { SignatureRequestResponse } from "./signatureRequestResponse";
 import { WarningResponse } from "./warningResponse";
 export declare class SignatureRequestGetResponse {
-    "signatureRequest"?: SignatureRequestResponse;
+    "signatureRequest": SignatureRequestResponse;
     "warnings"?: Array<WarningResponse>;
     static discriminator: string | undefined;
     static attributeTypeMap: AttributeTypeMap;
