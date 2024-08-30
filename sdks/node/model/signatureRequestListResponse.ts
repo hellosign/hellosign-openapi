@@ -31,8 +31,8 @@ export class SignatureRequestListResponse {
   /**
    * Contains information about signature requests.
    */
-  "signatureRequests": Array<SignatureRequestResponse>;
-  "listInfo": ListInfoResponse;
+  "signatureRequests"?: Array<SignatureRequestResponse>;
+  "listInfo"?: ListInfoResponse;
   /**
    * A list of warnings.
    */

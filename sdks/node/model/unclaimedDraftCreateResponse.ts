@@ -27,7 +27,7 @@ import { UnclaimedDraftResponse } from "./unclaimedDraftResponse";
 import { WarningResponse } from "./warningResponse";
 
 export class UnclaimedDraftCreateResponse {
-  "unclaimedDraft": UnclaimedDraftResponse;
+  "unclaimedDraft"?: UnclaimedDraftResponse;
   /**
    * A list of warnings.
    */

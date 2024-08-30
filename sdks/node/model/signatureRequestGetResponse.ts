@@ -27,7 +27,7 @@ import { SignatureRequestResponse } from "./signatureRequestResponse";
 import { WarningResponse } from "./warningResponse";
 
 export class SignatureRequestGetResponse {
-  "signatureRequest": SignatureRequestResponse;
+  "signatureRequest"?: SignatureRequestResponse;
   /**
    * A list of warnings.
    */

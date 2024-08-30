@@ -31,8 +31,8 @@ export class TemplateListResponse {
   /**
    * List of templates that the API caller has access to.
    */
-  "templates": Array<TemplateResponse>;
-  "listInfo": ListInfoResponse;
+  "templates"?: Array<TemplateResponse>;
+  "listInfo"?: ListInfoResponse;
   /**
    * A list of warnings.
    */

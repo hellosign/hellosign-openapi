@@ -27,7 +27,7 @@ import { EmbeddedSignUrlResponseEmbedded } from "./embeddedSignUrlResponseEmbedd
 import { WarningResponse } from "./warningResponse";
 
 export class EmbeddedSignUrlResponse {
-  "embedded": EmbeddedSignUrlResponseEmbedded;
+  "embedded"?: EmbeddedSignUrlResponseEmbedded;
   /**
    * A list of warnings.
    */

@@ -27,7 +27,7 @@ import { TemplateCreateEmbeddedDraftResponseTemplate } from "./templateCreateEmb
 import { WarningResponse } from "./warningResponse";
 
 export class TemplateCreateEmbeddedDraftResponse {
-  "template": TemplateCreateEmbeddedDraftResponseTemplate;
+  "template"?: TemplateCreateEmbeddedDraftResponseTemplate;
   /**
    * A list of warnings.
    */

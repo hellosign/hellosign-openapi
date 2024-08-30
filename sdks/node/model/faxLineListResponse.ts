@@ -28,8 +28,8 @@ import { ListInfoResponse } from "./listInfoResponse";
 import { WarningResponse } from "./warningResponse";
 
 export class FaxLineListResponse {
-  "listInfo": ListInfoResponse;
-  "faxLines": Array<FaxLineResponseFaxLine>;
+  "listInfo"?: ListInfoResponse;
+  "faxLines"?: Array<FaxLineResponseFaxLine>;
   "warnings"?: WarningResponse;
 
   static discriminator: string | undefined = undefined;

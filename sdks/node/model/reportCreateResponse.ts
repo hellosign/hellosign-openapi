@@ -27,7 +27,7 @@ import { ReportResponse } from "./reportResponse";
 import { WarningResponse } from "./warningResponse";
 
 export class ReportCreateResponse {
-  "report": ReportResponse;
+  "report"?: ReportResponse;
   /**
    * A list of warnings.
    */

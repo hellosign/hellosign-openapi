@@ -27,7 +27,7 @@ import { BulkSendJobResponse } from "./bulkSendJobResponse";
 import { WarningResponse } from "./warningResponse";
 
 export class BulkSendJobSendResponse {
-  "bulkSendJob": BulkSendJobResponse;
+  "bulkSendJob"?: BulkSendJobResponse;
   /**
    * A list of warnings.
    */

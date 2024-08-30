@@ -27,7 +27,7 @@ import { TeamResponse } from "./teamResponse";
 import { WarningResponse } from "./warningResponse";
 
 export class TeamGetResponse {
-  "team": TeamResponse;
+  "team"?: TeamResponse;
   /**
    * A list of warnings.
    */

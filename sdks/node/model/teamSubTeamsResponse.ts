@@ -31,8 +31,8 @@ export class TeamSubTeamsResponse {
   /**
    * Contains a list with sub teams.
    */
-  "subTeams": Array<SubTeamResponse>;
-  "listInfo": ListInfoResponse;
+  "subTeams"?: Array<SubTeamResponse>;
+  "listInfo"?: ListInfoResponse;
   "warnings"?: Array<WarningResponse>;
 
   static discriminator: string | undefined = undefined;

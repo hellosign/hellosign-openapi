@@ -28,7 +28,7 @@ import { OAuthTokenResponse } from "./oAuthTokenResponse";
 import { WarningResponse } from "./warningResponse";
 
 export class AccountCreateResponse {
-  "account": AccountResponse;
+  "account"?: AccountResponse;
   "oauthData"?: OAuthTokenResponse;
   /**
    * A list of warnings.

@@ -27,7 +27,7 @@ import { ApiAppResponse } from "./apiAppResponse";
 import { WarningResponse } from "./warningResponse";
 
 export class ApiAppGetResponse {
-  "apiApp": ApiAppResponse;
+  "apiApp"?: ApiAppResponse;
   /**
    * A list of warnings.
    */
