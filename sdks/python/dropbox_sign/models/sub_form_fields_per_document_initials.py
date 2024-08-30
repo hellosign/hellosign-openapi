@@ -45,15 +45,19 @@ class SubFormFieldsPerDocumentInitials(SubFormFieldsPerDocumentBase):
         """Returns the string representation of the model using alias"""
         return pprint.pformat(self.model_dump(by_alias=True))
 
-    def to_json(self, excluded_fields: Set[str] = None) -> str:
+    def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        return json.dumps(self.to_dict(excluded_fields))
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
+        return json.dumps(self.to_dict())
 
     def to_json_form_params(self, excluded_fields: Set[str] = None) -> List[Tuple[str, str]]:
         data: List[Tuple[str, str]] = []
 
         for key, value in self.to_dict(excluded_fields).items():
-            data.append((key, json.dumps(value)))
+            if isinstance(value, (int, str, bool)):
+                data.append((key, value))
+            else:
+                data.append((key, json.dumps(value, ensure_ascii=False)))
 
         return data
 

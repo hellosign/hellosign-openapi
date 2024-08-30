@@ -1,6 +1,8 @@
 import os
 import json
 import urllib3
+from urllib.parse import urlparse
+from urllib.parse import parse_qs
 
 
 def get_base_path():
@@ -23,6 +25,7 @@ class MockPoolManager(object):
         self._expected_request = {}
         self._expected_response = {}
         self._request_fields = []
+        self._query_params = {}
 
     def expect_request(self, content_type, data=None, response=None, status=200):
         self._expected_request = {
@@ -44,6 +47,8 @@ class MockPoolManager(object):
         if 'fields' in kwargs:
             self._request_fields = kwargs['fields']
 
+        self._query_params = parse_qs(urlparse(args[1]).query)
+
         return urllib3.HTTPResponse(
             status=self._expected_response['status'],
             preload_content=True,
@@ -52,3 +57,6 @@ class MockPoolManager(object):
 
     def get_fields(self):
         return self._request_fields
+
+    def get_query_params(self):
+        return self._query_params
