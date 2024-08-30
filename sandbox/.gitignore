@@ -21,8 +21,10 @@ node/*
 !node/package.json
 
 php/*
-!php/Example.php
 !php/composer.json
+!php/Example.php
+!php/fixtures
+!php/test
 
 python/*
 !python/Example.py

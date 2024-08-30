@@ -969,7 +969,12 @@ use Psr\Http\Message\ResponseInterface;
      */
     protected function createHttpClientOption()
     {
+{{^useCustomTemplateCode}}
         $options = [];
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
+        $options = $this->config->getOptions();
+{{/useCustomTemplateCode}}
         if ($this->config->getDebug()) {
             $options[RequestOptions::DEBUG] = fopen($this->config->getDebugFile(), 'a');
             if (!$options[RequestOptions::DEBUG]) {
