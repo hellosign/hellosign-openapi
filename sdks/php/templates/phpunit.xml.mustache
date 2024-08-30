@@ -8,8 +8,13 @@
   </coverage>
   <testsuites>
     <testsuite name="tests">
+{{^useCustomTemplateCode}}
       <directory>{{apiTestPath}}</directory>
       <directory>{{modelTestPath}}</directory>
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
+      <directory>./test</directory>
+{{/useCustomTemplateCode}}
     </testsuite>
   </testsuites>
   <php>
