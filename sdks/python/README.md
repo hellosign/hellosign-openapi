@@ -1,5 +1,4 @@
 # dropbox-sign
-
 Dropbox Sign v3 API
 
 ## Migrating from legacy SDK
@@ -103,8 +102,8 @@ with ApiClient(configuration) as api_client:
 
 All URIs are relative to *https://api.hellosign.com/v3*
 
-|Class | Method | HTTP request | Description|
-|------------ | ------------- | ------------- | -------------|
+Class | Method | HTTP request | Description
+------------ | ------------- | ------------- | -------------
 |```AccountApi``` | [```account_create```](docs/AccountApi.md#account_create) | ```POST /account/create``` | Create Account|
 ```AccountApi``` | [```account_get```](docs/AccountApi.md#account_get) | ```GET /account``` | Get Account|
 ```AccountApi``` | [```account_update```](docs/AccountApi.md#account_update) | ```PUT /account``` | Update Account|

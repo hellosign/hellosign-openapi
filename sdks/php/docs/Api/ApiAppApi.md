@@ -16,7 +16,6 @@ All URIs are relative to https://api.hellosign.com/v3.
 ```php
 apiAppCreate($api_app_create_request): \Dropbox\Sign\Model\ApiAppGetResponse
 ```
-
 Create API App
 
 Creates a new API App.
@@ -97,7 +96,6 @@ try {
 ```php
 apiAppDelete($client_id)
 ```
-
 Delete API App
 
 Deletes an API App. Can only be invoked for apps you own.
@@ -159,7 +157,6 @@ void (empty response body)
 ```php
 apiAppGet($client_id): \Dropbox\Sign\Model\ApiAppGetResponse
 ```
-
 Get API App
 
 Returns an object with information about an API App.
@@ -222,7 +219,6 @@ try {
 ```php
 apiAppList($page, $page_size): \Dropbox\Sign\Model\ApiAppListResponse
 ```
-
 List API Apps
 
 Returns a list of API Apps that are accessible by you. If you are on a team with an Admin or Developer role, this list will include apps owned by teammates.
@@ -287,7 +283,6 @@ try {
 ```php
 apiAppUpdate($client_id, $api_app_update_request): \Dropbox\Sign\Model\ApiAppGetResponse
 ```
-
 Update API App
 
 Updates an existing API App. Can only be invoked for apps you own. Only the fields you provide will be updated. If you wish to clear an existing optional field, provide an empty string.

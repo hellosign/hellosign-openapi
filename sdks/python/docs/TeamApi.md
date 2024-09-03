@@ -2,8 +2,8 @@
 
 All URIs are relative to *https://api.hellosign.com/v3*
 
-|Method | HTTP request | Description|
-|------------- | ------------- | -------------|
+Method | HTTP request | Description
+------------- | ------------- | -------------
 |[```team_add_member```](TeamApi.md#team_add_member) | ```PUT /team/add_member``` | Add User to Team|
 |[```team_create```](TeamApi.md#team_create) | ```POST /team/create``` | Create Team|
 |[```team_delete```](TeamApi.md#team_delete) | ```DELETE /team/destroy``` | Delete Team|
@@ -59,7 +59,6 @@ with ApiClient(configuration) as api_client:
 
 
 ### Parameters
-
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `team_add_member_request` | [**TeamAddMemberRequest**](TeamAddMemberRequest.md) |  |  |
@@ -131,7 +130,6 @@ with ApiClient(configuration) as api_client:
 
 
 ### Parameters
-
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `team_create_request` | [**TeamCreateRequest**](TeamCreateRequest.md) |  |  |
@@ -195,7 +193,6 @@ with ApiClient(configuration) as api_client:
 
 
 ### Parameters
-
 This endpoint does not need any parameter.
 
 ### Return type
@@ -260,7 +257,6 @@ with ApiClient(configuration) as api_client:
 
 
 ### Parameters
-
 This endpoint does not need any parameter.
 
 ### Return type
@@ -325,7 +321,6 @@ with ApiClient(configuration) as api_client:
 
 
 ### Parameters
-
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `team_id` | **str** | The id of the team. | [optional] |
@@ -394,7 +389,6 @@ with ApiClient(configuration) as api_client:
 
 
 ### Parameters
-
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `email_address` | **str** | The email address for which to display the team invites. | [optional] |
@@ -463,7 +457,6 @@ with ApiClient(configuration) as api_client:
 
 
 ### Parameters
-
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `team_id` | **str** | The id of the team that a member list is being requested from. |  |
@@ -537,7 +530,6 @@ with ApiClient(configuration) as api_client:
 
 
 ### Parameters
-
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `team_remove_member_request` | [**TeamRemoveMemberRequest**](TeamRemoveMemberRequest.md) |  |  |
@@ -606,7 +598,6 @@ with ApiClient(configuration) as api_client:
 
 
 ### Parameters
-
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `team_id` | **str** | The id of the parent Team. |  |
@@ -679,7 +670,6 @@ with ApiClient(configuration) as api_client:
 
 
 ### Parameters
-
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `team_update_request` | [**TeamUpdateRequest**](TeamUpdateRequest.md) |  |  |

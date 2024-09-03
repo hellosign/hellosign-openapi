@@ -10,6 +10,7 @@ additionalProperties:
   packageAuthor: Dropbox Sign API Team
   packageUrl: https://github.com/hellosign/dropbox-sign-python
   infoName: Official Python SDK for the Dropbox Sign API
+  useCustomTemplateCode: true
 files:
   event_callback_helper.mustache:
     templateType: SupportingFiles

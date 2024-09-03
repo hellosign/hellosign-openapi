@@ -4,7 +4,7 @@
 /**
  * {{classname}}Test
  *
- * PHP version {{phpVersion}}
+ * PHP version 7.4
  *
  * @category Class
  * @package  {{invokerPackage}}
@@ -69,17 +69,17 @@ class {{classname}}Test extends TestCase
     public function test{{classname}}()
     {
         // TODO: implement
-        $this->markTestIncomplete('Not implemented');
+        self::markTestIncomplete('Not implemented');
     }
 {{#vars}}
 
     /**
      * Test attribute "{{name}}"
      */
-    public function testProperty{{nameInCamelCase}}()
+    public function testProperty{{nameInPascalCase}}()
     {
         // TODO: implement
-        $this->markTestIncomplete('Not implemented');
+        self::markTestIncomplete('Not implemented');
     }
 {{/vars}}
 }
