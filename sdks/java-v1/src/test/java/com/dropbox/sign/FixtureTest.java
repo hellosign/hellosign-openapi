@@ -2,8 +2,8 @@ package com.dropbox.sign;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -58,7 +58,7 @@ public class FixtureTest {
                 JsonNode actual = mapper.readTree(serialized);
 
                 // String comparison doesn't work due to json fields may be out of order
-                Assert.assertEquals(expected, actual);
+                assertEquals(expected, actual);
             }
         }
     }

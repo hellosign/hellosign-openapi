@@ -2,8 +2,8 @@
 
 All URIs are relative to *https://api.hellosign.com/v3*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
+| Method | HTTP request | Description |
+|------------- | ------------- | -------------|
 [**accountCreate**](AccountApi.md#accountCreate) | **POST** /account/create | Create Account
 [**accountGet**](AccountApi.md#accountGet) | **GET** /account | Get Account
 [**accountUpdate**](AccountApi.md#accountUpdate) | **PUT** /account | Update Account
@@ -62,8 +62,8 @@ public class Example {
 ### Parameters
 
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
  **accountCreateRequest** | [**AccountCreateRequest**](AccountCreateRequest.md)|  |
 
 ### Return type
@@ -134,8 +134,8 @@ public class Example {
 ### Parameters
 
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
  **accountId** | **String**| `account_id` or `email_address` is required. If both are provided, the account id prevails.  The ID of the Account. | [optional]
  **emailAddress** | **String**| `account_id` or `email_address` is required, If both are provided, the account id prevails.  The email address of the Account. | [optional]
 
@@ -210,8 +210,8 @@ public class Example {
 ### Parameters
 
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
  **accountUpdateRequest** | [**AccountUpdateRequest**](AccountUpdateRequest.md)|  |
 
 ### Return type
@@ -285,8 +285,8 @@ public class Example {
 ### Parameters
 
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
  **accountVerifyRequest** | [**AccountVerifyRequest**](AccountVerifyRequest.md)|  |
 
 ### Return type

@@ -14,7 +14,6 @@
 package com.dropbox.sign.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -22,24 +21,22 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.dropbox.sign.JSON;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.dropbox.sign.JSON;
 
 
 import com.dropbox.sign.ApiException;
 /**
  * Details concerning monthly usage
  */
-@ApiModel(description = "Details concerning monthly usage")
 @JsonPropertyOrder({
-    AccountResponseUsage.JSON_PROPERTY_FAX_PAGES_SENT
+  AccountResponseUsage.JSON_PROPERTY_FAX_PAGES_SENT
 })
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class AccountResponseUsage {
   public static final String JSON_PROPERTY_FAX_PAGES_SENT = "fax_pages_sent";
   private Integer faxPagesSent;
@@ -67,12 +64,11 @@ public class AccountResponseUsage {
     return this;
   }
 
-   /**
+  /**
    * Number of fax pages sent
    * @return faxPagesSent
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Number of fax pages sent")
   @JsonProperty(JSON_PROPERTY_FAX_PAGES_SENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

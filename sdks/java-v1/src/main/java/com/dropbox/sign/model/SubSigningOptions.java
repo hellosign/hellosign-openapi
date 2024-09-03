@@ -14,7 +14,6 @@
 package com.dropbox.sign.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -22,28 +21,26 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.dropbox.sign.JSON;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.dropbox.sign.JSON;
 
 
 import com.dropbox.sign.ApiException;
 /**
  * This allows the requester to specify the types allowed for creating a signature.  **NOTE:** If &#x60;signing_options&#x60; are not defined in the request, the allowed types will default to those specified in the account settings.
  */
-@ApiModel(description = "This allows the requester to specify the types allowed for creating a signature.  **NOTE:** If `signing_options` are not defined in the request, the allowed types will default to those specified in the account settings.")
 @JsonPropertyOrder({
-    SubSigningOptions.JSON_PROPERTY_DEFAULT_TYPE,
-    SubSigningOptions.JSON_PROPERTY_DRAW,
-    SubSigningOptions.JSON_PROPERTY_PHONE,
-    SubSigningOptions.JSON_PROPERTY_TYPE,
-    SubSigningOptions.JSON_PROPERTY_UPLOAD
+  SubSigningOptions.JSON_PROPERTY_DEFAULT_TYPE,
+  SubSigningOptions.JSON_PROPERTY_DRAW,
+  SubSigningOptions.JSON_PROPERTY_PHONE,
+  SubSigningOptions.JSON_PROPERTY_TYPE,
+  SubSigningOptions.JSON_PROPERTY_UPLOAD
 })
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SubSigningOptions {
   /**
    * The default type shown (limited to the listed types)
@@ -122,12 +119,11 @@ public class SubSigningOptions {
     return this;
   }
 
-   /**
+  /**
    * The default type shown (limited to the listed types)
    * @return defaultType
-  **/
+   */
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The default type shown (limited to the listed types)")
   @JsonProperty(JSON_PROPERTY_DEFAULT_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -148,12 +144,11 @@ public class SubSigningOptions {
     return this;
   }
 
-   /**
+  /**
    * Allows drawing the signature
    * @return draw
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Allows drawing the signature")
   @JsonProperty(JSON_PROPERTY_DRAW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -174,12 +169,11 @@ public class SubSigningOptions {
     return this;
   }
 
-   /**
+  /**
    * Allows using a smartphone to email the signature
    * @return phone
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Allows using a smartphone to email the signature")
   @JsonProperty(JSON_PROPERTY_PHONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -200,12 +194,11 @@ public class SubSigningOptions {
     return this;
   }
 
-   /**
+  /**
    * Allows typing the signature
    * @return type
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Allows typing the signature")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -226,12 +219,11 @@ public class SubSigningOptions {
     return this;
   }
 
-   /**
+  /**
    * Allows uploading the signature
    * @return upload
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Allows uploading the signature")
   @JsonProperty(JSON_PROPERTY_UPLOAD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

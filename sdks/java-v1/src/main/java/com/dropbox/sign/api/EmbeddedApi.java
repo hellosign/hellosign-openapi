@@ -15,10 +15,11 @@ import com.dropbox.sign.model.ErrorResponse;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 public class EmbeddedApi {
   private ApiClient apiClient;
 
@@ -83,53 +84,41 @@ public class EmbeddedApi {
    */
   public ApiResponse<EmbeddedEditUrlResponse> embeddedEditUrlWithHttpInfo(String templateId, EmbeddedEditUrlRequest embeddedEditUrlRequest) throws ApiException {
     
-    Object localVarPostBody = embeddedEditUrlRequest;
-    
-    // verify the required parameter 'templateId' is set
+    // Check required parameters
     if (templateId == null) {
       throw new ApiException(400, "Missing the required parameter 'templateId' when calling embeddedEditUrl");
     }
-    
-    // verify the required parameter 'embeddedEditUrlRequest' is set
     if (embeddedEditUrlRequest == null) {
       throw new ApiException(400, "Missing the required parameter 'embeddedEditUrlRequest' when calling embeddedEditUrl");
     }
-    
-    // create path and map variables
+
+    // Path parameters
     String localVarPath = "/embedded/edit_url/{template_id}"
-      .replaceAll("\\{" + "template_id" + "\\}", apiClient.escapeString(templateId.toString()));
+            .replaceAll("\\{template_id}", apiClient.escapeString(templateId.toString()));
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-
+    String localVarAccept = apiClient.selectHeaderAccept("application/json");
+    Map<String, Object> localVarFormParams = new LinkedHashMap<>();
     localVarFormParams = embeddedEditUrlRequest.createFormData();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
-
-    final String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "api_key", "oauth2" };
-
+    String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType("application/json");
+    String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
     GenericType<EmbeddedEditUrlResponse> localVarReturnType = new GenericType<EmbeddedEditUrlResponse>() {};
+    return apiClient.invokeAPI(
+        "EmbeddedApi.embeddedEditUrl",
+        localVarPath,
+        "POST",
+        new ArrayList<>(),
+        isFileTypeFound ? null : embeddedEditUrlRequest,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false
+    );
 
-    return apiClient.invokeAPI("EmbeddedApi.embeddedEditUrl", localVarPath, "POST", localVarQueryParams, localVarPostBody,
-                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
   }
   /**
    * Get Embedded Sign URL
@@ -164,47 +153,37 @@ public class EmbeddedApi {
    */
   public ApiResponse<EmbeddedSignUrlResponse> embeddedSignUrlWithHttpInfo(String signatureId) throws ApiException {
     
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'signatureId' is set
+    // Check required parameters
     if (signatureId == null) {
       throw new ApiException(400, "Missing the required parameter 'signatureId' when calling embeddedSignUrl");
     }
-    
-    // create path and map variables
+
+    // Path parameters
     String localVarPath = "/embedded/sign_url/{signature_id}"
-      .replaceAll("\\{" + "signature_id" + "\\}", apiClient.escapeString(signatureId.toString()));
+            .replaceAll("\\{signature_id}", apiClient.escapeString(signatureId.toString()));
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-
+    String localVarAccept = apiClient.selectHeaderAccept("application/json");
+    Map<String, Object> localVarFormParams = new LinkedHashMap<>();
     localVarFormParams = new HashMap<String, Object>();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
-
-    final String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "api_key", "oauth2" };
-
+    String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType();
+    String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
     GenericType<EmbeddedSignUrlResponse> localVarReturnType = new GenericType<EmbeddedSignUrlResponse>() {};
+    return apiClient.invokeAPI(
+        "EmbeddedApi.embeddedSignUrl",
+        localVarPath,
+        "GET",
+        new ArrayList<>(),
+        null,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false
+    );
 
-    return apiClient.invokeAPI("EmbeddedApi.embeddedSignUrl", localVarPath, "GET", localVarQueryParams, localVarPostBody,
-                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
   }
 }

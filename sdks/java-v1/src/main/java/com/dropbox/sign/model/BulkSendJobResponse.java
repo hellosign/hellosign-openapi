@@ -14,7 +14,6 @@
 package com.dropbox.sign.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -22,27 +21,25 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.dropbox.sign.JSON;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.dropbox.sign.JSON;
 
 
 import com.dropbox.sign.ApiException;
 /**
  * Contains information about the BulkSendJob such as when it was created and how many signature requests are queued.
  */
-@ApiModel(description = "Contains information about the BulkSendJob such as when it was created and how many signature requests are queued.")
 @JsonPropertyOrder({
-    BulkSendJobResponse.JSON_PROPERTY_BULK_SEND_JOB_ID,
-    BulkSendJobResponse.JSON_PROPERTY_TOTAL,
-    BulkSendJobResponse.JSON_PROPERTY_IS_CREATOR,
-    BulkSendJobResponse.JSON_PROPERTY_CREATED_AT
+  BulkSendJobResponse.JSON_PROPERTY_BULK_SEND_JOB_ID,
+  BulkSendJobResponse.JSON_PROPERTY_TOTAL,
+  BulkSendJobResponse.JSON_PROPERTY_IS_CREATOR,
+  BulkSendJobResponse.JSON_PROPERTY_CREATED_AT
 })
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class BulkSendJobResponse {
   public static final String JSON_PROPERTY_BULK_SEND_JOB_ID = "bulk_send_job_id";
   private String bulkSendJobId;
@@ -79,12 +76,11 @@ public class BulkSendJobResponse {
     return this;
   }
 
-   /**
+  /**
    * The id of the BulkSendJob.
    * @return bulkSendJobId
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The id of the BulkSendJob.")
   @JsonProperty(JSON_PROPERTY_BULK_SEND_JOB_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -105,12 +101,11 @@ public class BulkSendJobResponse {
     return this;
   }
 
-   /**
+  /**
    * The total amount of Signature Requests queued for sending.
    * @return total
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The total amount of Signature Requests queued for sending.")
   @JsonProperty(JSON_PROPERTY_TOTAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -131,12 +126,11 @@ public class BulkSendJobResponse {
     return this;
   }
 
-   /**
+  /**
    * True if you are the owner of this BulkSendJob, false if it&#39;s been shared with you by a team member.
    * @return isCreator
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "True if you are the owner of this BulkSendJob, false if it's been shared with you by a team member.")
   @JsonProperty(JSON_PROPERTY_IS_CREATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -157,12 +151,11 @@ public class BulkSendJobResponse {
     return this;
   }
 
-   /**
+  /**
    * Time that the BulkSendJob was created.
    * @return createdAt
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Time that the BulkSendJob was created.")
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

@@ -6,8 +6,8 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
 | `role`<sup>*_required_</sup> | ```String``` |  Must match an existing role in chosen Template(s). It&#39;s case-sensitive.  |  |
 | `name`<sup>*_required_</sup> | ```String``` |  The name of the signer.  |  |
 | `emailAddress`<sup>*_required_</sup> | ```String``` |  The email address of the signer.  |  |
@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 
 ## Enum: SmsPhoneNumberTypeEnum
 
-Name | Value
+| Name | Value |
 ---- | -----
 | AUTHENTICATION | &quot;authentication&quot; |
 | DELIVERY | &quot;delivery&quot; |

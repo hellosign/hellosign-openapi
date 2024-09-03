@@ -6,8 +6,8 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
 | `emailAddress` | ```String``` |  Email address of the user invited to this team.  |  |
 | `teamId` | ```String``` |  Id of the team.  |  |
 | `role` | ```String``` |  Role of the user invited to this team.  |  |

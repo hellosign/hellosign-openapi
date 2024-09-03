@@ -14,7 +14,6 @@
 package com.dropbox.sign.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -22,12 +21,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.dropbox.sign.JSON;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.dropbox.sign.JSON;
 
 
 import com.dropbox.sign.ApiException;
@@ -35,12 +33,12 @@ import com.dropbox.sign.ApiException;
  * TemplateAddUserRequest
  */
 @JsonPropertyOrder({
-    TemplateAddUserRequest.JSON_PROPERTY_ACCOUNT_ID,
-    TemplateAddUserRequest.JSON_PROPERTY_EMAIL_ADDRESS,
-    TemplateAddUserRequest.JSON_PROPERTY_SKIP_NOTIFICATION
+  TemplateAddUserRequest.JSON_PROPERTY_ACCOUNT_ID,
+  TemplateAddUserRequest.JSON_PROPERTY_EMAIL_ADDRESS,
+  TemplateAddUserRequest.JSON_PROPERTY_SKIP_NOTIFICATION
 })
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TemplateAddUserRequest {
   public static final String JSON_PROPERTY_ACCOUNT_ID = "account_id";
   private String accountId;
@@ -74,12 +72,11 @@ public class TemplateAddUserRequest {
     return this;
   }
 
-   /**
+  /**
    * The id of the Account to give access to the Template. **NOTE:** The account id prevails if email address is also provided.
    * @return accountId
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The id of the Account to give access to the Template. **NOTE:** The account id prevails if email address is also provided.")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -100,12 +97,11 @@ public class TemplateAddUserRequest {
     return this;
   }
 
-   /**
+  /**
    * The email address of the Account to give access to the Template. **NOTE:** The account id prevails if it is also provided.
    * @return emailAddress
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The email address of the Account to give access to the Template. **NOTE:** The account id prevails if it is also provided.")
   @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -126,12 +122,11 @@ public class TemplateAddUserRequest {
     return this;
   }
 
-   /**
+  /**
    * If set to &#x60;true&#x60;, the user does not receive an email notification when a template has been shared with them. Defaults to &#x60;false&#x60;.
    * @return skipNotification
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "If set to `true`, the user does not receive an email notification when a template has been shared with them. Defaults to `false`.")
   @JsonProperty(JSON_PROPERTY_SKIP_NOTIFICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

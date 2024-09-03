@@ -6,8 +6,8 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
 | `clientId`<sup>*_required_</sup> | ```String``` |  Client id of the app used to create the draft. Used to apply the branding and callback url defined for the app.  |  |
 | `requesterEmailAddress`<sup>*_required_</sup> | ```String``` |  The email address of the user that should be designated as the requester of this draft, if the draft type is `request_signature`.  |  |
 | `files` | ```List<File>``` |  Use `files[]` to indicate the uploaded file(s) to send for signature.<br><br>This endpoint requires either **files** or **file_urls[]**, but not both.  |  |
@@ -49,7 +49,7 @@ Name | Type | Description | Notes
 
 ## Enum: TypeEnum
 
-Name | Value
+| Name | Value |
 ---- | -----
 | SEND_DOCUMENT | &quot;send_document&quot; |
 | REQUEST_SIGNATURE | &quot;request_signature&quot; |

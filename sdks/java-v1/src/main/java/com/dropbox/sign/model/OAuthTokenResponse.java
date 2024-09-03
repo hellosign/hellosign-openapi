@@ -14,7 +14,6 @@
 package com.dropbox.sign.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -22,12 +21,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.dropbox.sign.JSON;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.dropbox.sign.JSON;
 
 
 import com.dropbox.sign.ApiException;
@@ -35,14 +33,14 @@ import com.dropbox.sign.ApiException;
  * OAuthTokenResponse
  */
 @JsonPropertyOrder({
-    OAuthTokenResponse.JSON_PROPERTY_ACCESS_TOKEN,
-    OAuthTokenResponse.JSON_PROPERTY_TOKEN_TYPE,
-    OAuthTokenResponse.JSON_PROPERTY_REFRESH_TOKEN,
-    OAuthTokenResponse.JSON_PROPERTY_EXPIRES_IN,
-    OAuthTokenResponse.JSON_PROPERTY_STATE
+  OAuthTokenResponse.JSON_PROPERTY_ACCESS_TOKEN,
+  OAuthTokenResponse.JSON_PROPERTY_TOKEN_TYPE,
+  OAuthTokenResponse.JSON_PROPERTY_REFRESH_TOKEN,
+  OAuthTokenResponse.JSON_PROPERTY_EXPIRES_IN,
+  OAuthTokenResponse.JSON_PROPERTY_STATE
 })
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class OAuthTokenResponse {
   public static final String JSON_PROPERTY_ACCESS_TOKEN = "access_token";
   private String accessToken;
@@ -82,12 +80,11 @@ public class OAuthTokenResponse {
     return this;
   }
 
-   /**
+  /**
    * Get accessToken
    * @return accessToken
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ACCESS_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -108,12 +105,11 @@ public class OAuthTokenResponse {
     return this;
   }
 
-   /**
+  /**
    * Get tokenType
    * @return tokenType
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TOKEN_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -134,12 +130,11 @@ public class OAuthTokenResponse {
     return this;
   }
 
-   /**
+  /**
    * Get refreshToken
    * @return refreshToken
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_REFRESH_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -160,12 +155,11 @@ public class OAuthTokenResponse {
     return this;
   }
 
-   /**
+  /**
    * Number of seconds until the &#x60;access_token&#x60; expires. Uses epoch time.
    * @return expiresIn
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Number of seconds until the `access_token` expires. Uses epoch time.")
   @JsonProperty(JSON_PROPERTY_EXPIRES_IN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -186,12 +180,11 @@ public class OAuthTokenResponse {
     return this;
   }
 
-   /**
+  /**
    * Get state
    * @return state
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

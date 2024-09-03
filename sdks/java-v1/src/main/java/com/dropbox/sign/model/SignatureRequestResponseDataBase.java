@@ -14,18 +14,9 @@
 package com.dropbox.sign.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.dropbox.sign.model.SignatureRequestResponseDataValueCheckbox;
-import com.dropbox.sign.model.SignatureRequestResponseDataValueCheckboxMerge;
-import com.dropbox.sign.model.SignatureRequestResponseDataValueDateSigned;
-import com.dropbox.sign.model.SignatureRequestResponseDataValueDropdown;
-import com.dropbox.sign.model.SignatureRequestResponseDataValueInitials;
-import com.dropbox.sign.model.SignatureRequestResponseDataValueRadio;
-import com.dropbox.sign.model.SignatureRequestResponseDataValueSignature;
-import com.dropbox.sign.model.SignatureRequestResponseDataValueText;
-import com.dropbox.sign.model.SignatureRequestResponseDataValueTextMerge;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -33,39 +24,31 @@ import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.dropbox.sign.JSON;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.dropbox.sign.JSON;
 
 
 import com.dropbox.sign.ApiException;
 /**
  * An array of form field objects containing the name, value, and type of each textbox or checkmark field filled in by the signers.
  */
-@ApiModel(description = "An array of form field objects containing the name, value, and type of each textbox or checkmark field filled in by the signers.")
 @JsonPropertyOrder({
-    SignatureRequestResponseDataBase.JSON_PROPERTY_API_ID,
-    SignatureRequestResponseDataBase.JSON_PROPERTY_SIGNATURE_ID,
-    SignatureRequestResponseDataBase.JSON_PROPERTY_NAME,
-    SignatureRequestResponseDataBase.JSON_PROPERTY_REQUIRED,
-    SignatureRequestResponseDataBase.JSON_PROPERTY_TYPE
+  SignatureRequestResponseDataBase.JSON_PROPERTY_API_ID,
+  SignatureRequestResponseDataBase.JSON_PROPERTY_SIGNATURE_ID,
+  SignatureRequestResponseDataBase.JSON_PROPERTY_NAME,
+  SignatureRequestResponseDataBase.JSON_PROPERTY_REQUIRED,
+  SignatureRequestResponseDataBase.JSON_PROPERTY_TYPE
 })
-@JsonIgnoreProperties(ignoreUnknown=true)
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
+@JsonIgnoreProperties(
+  allowSetters = true, // allows the type to be set during deserialization
+  ignoreUnknown = true
+)
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.EXISTING_PROPERTY, property = "type", visible = true)
 @JsonSubTypes({
-  @JsonSubTypes.Type(value = SignatureRequestResponseDataValueCheckbox.class, name = "SignatureRequestResponseDataValueCheckbox"),
-  @JsonSubTypes.Type(value = SignatureRequestResponseDataValueCheckboxMerge.class, name = "SignatureRequestResponseDataValueCheckboxMerge"),
-  @JsonSubTypes.Type(value = SignatureRequestResponseDataValueDateSigned.class, name = "SignatureRequestResponseDataValueDateSigned"),
-  @JsonSubTypes.Type(value = SignatureRequestResponseDataValueDropdown.class, name = "SignatureRequestResponseDataValueDropdown"),
-  @JsonSubTypes.Type(value = SignatureRequestResponseDataValueInitials.class, name = "SignatureRequestResponseDataValueInitials"),
-  @JsonSubTypes.Type(value = SignatureRequestResponseDataValueRadio.class, name = "SignatureRequestResponseDataValueRadio"),
-  @JsonSubTypes.Type(value = SignatureRequestResponseDataValueSignature.class, name = "SignatureRequestResponseDataValueSignature"),
-  @JsonSubTypes.Type(value = SignatureRequestResponseDataValueText.class, name = "SignatureRequestResponseDataValueText"),
-  @JsonSubTypes.Type(value = SignatureRequestResponseDataValueTextMerge.class, name = "SignatureRequestResponseDataValueTextMerge"),
   @JsonSubTypes.Type(value = SignatureRequestResponseDataValueCheckbox.class, name = "checkbox"),
   @JsonSubTypes.Type(value = SignatureRequestResponseDataValueCheckboxMerge.class, name = "checkbox-merge"),
   @JsonSubTypes.Type(value = SignatureRequestResponseDataValueDateSigned.class, name = "date_signed"),
@@ -116,12 +99,11 @@ public class SignatureRequestResponseDataBase {
     return this;
   }
 
-   /**
+  /**
    * The unique ID for this field.
    * @return apiId
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The unique ID for this field.")
   @JsonProperty(JSON_PROPERTY_API_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -142,12 +124,11 @@ public class SignatureRequestResponseDataBase {
     return this;
   }
 
-   /**
+  /**
    * The ID of the signature to which this response is linked.
    * @return signatureId
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The ID of the signature to which this response is linked.")
   @JsonProperty(JSON_PROPERTY_SIGNATURE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -168,12 +149,11 @@ public class SignatureRequestResponseDataBase {
     return this;
   }
 
-   /**
+  /**
    * The name of the form field.
    * @return name
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The name of the form field.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -194,12 +174,11 @@ public class SignatureRequestResponseDataBase {
     return this;
   }
 
-   /**
+  /**
    * A boolean value denoting if this field is required.
    * @return required
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A boolean value denoting if this field is required.")
   @JsonProperty(JSON_PROPERTY_REQUIRED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -220,12 +199,11 @@ public class SignatureRequestResponseDataBase {
     return this;
   }
 
-   /**
+  /**
    * Get type
    * @return type
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -415,29 +393,20 @@ public class SignatureRequestResponseDataBase {
     return o.toString().replace("\n", "\n    ");
   }
 
-static {
-  // Initialize and register the discriminator mappings.
-  Map<String, Class<?>> mappings = new HashMap<String, Class<?>>();
-  mappings.put("SignatureRequestResponseDataValueCheckbox", SignatureRequestResponseDataValueCheckbox.class);
-  mappings.put("SignatureRequestResponseDataValueCheckboxMerge", SignatureRequestResponseDataValueCheckboxMerge.class);
-  mappings.put("SignatureRequestResponseDataValueDateSigned", SignatureRequestResponseDataValueDateSigned.class);
-  mappings.put("SignatureRequestResponseDataValueDropdown", SignatureRequestResponseDataValueDropdown.class);
-  mappings.put("SignatureRequestResponseDataValueInitials", SignatureRequestResponseDataValueInitials.class);
-  mappings.put("SignatureRequestResponseDataValueRadio", SignatureRequestResponseDataValueRadio.class);
-  mappings.put("SignatureRequestResponseDataValueSignature", SignatureRequestResponseDataValueSignature.class);
-  mappings.put("SignatureRequestResponseDataValueText", SignatureRequestResponseDataValueText.class);
-  mappings.put("SignatureRequestResponseDataValueTextMerge", SignatureRequestResponseDataValueTextMerge.class);
-  mappings.put("checkbox", SignatureRequestResponseDataValueCheckbox.class);
-  mappings.put("checkbox-merge", SignatureRequestResponseDataValueCheckboxMerge.class);
-  mappings.put("date_signed", SignatureRequestResponseDataValueDateSigned.class);
-  mappings.put("dropdown", SignatureRequestResponseDataValueDropdown.class);
-  mappings.put("initials", SignatureRequestResponseDataValueInitials.class);
-  mappings.put("radio", SignatureRequestResponseDataValueRadio.class);
-  mappings.put("signature", SignatureRequestResponseDataValueSignature.class);
-  mappings.put("text", SignatureRequestResponseDataValueText.class);
-  mappings.put("text-merge", SignatureRequestResponseDataValueTextMerge.class);
-  mappings.put("SignatureRequestResponseDataBase", SignatureRequestResponseDataBase.class);
-  JSON.registerDiscriminator(SignatureRequestResponseDataBase.class, "type", mappings);
-}
+  static {
+    // Initialize and register the discriminator mappings.
+    Map<String, Class<?>> mappings = new HashMap<>();
+    mappings.put("checkbox", SignatureRequestResponseDataValueCheckbox.class);
+    mappings.put("checkbox-merge", SignatureRequestResponseDataValueCheckboxMerge.class);
+    mappings.put("date_signed", SignatureRequestResponseDataValueDateSigned.class);
+    mappings.put("dropdown", SignatureRequestResponseDataValueDropdown.class);
+    mappings.put("initials", SignatureRequestResponseDataValueInitials.class);
+    mappings.put("radio", SignatureRequestResponseDataValueRadio.class);
+    mappings.put("signature", SignatureRequestResponseDataValueSignature.class);
+    mappings.put("text", SignatureRequestResponseDataValueText.class);
+    mappings.put("text-merge", SignatureRequestResponseDataValueTextMerge.class);
+    mappings.put("SignatureRequestResponseDataBase", SignatureRequestResponseDataBase.class);
+    JSON.registerDiscriminator(SignatureRequestResponseDataBase.class, "type", mappings);
+  }
 }
 

@@ -14,7 +14,6 @@
 package com.dropbox.sign.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.dropbox.sign.model.SubEditorOptions;
@@ -24,14 +23,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.dropbox.sign.JSON;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.dropbox.sign.JSON;
 
 
 import com.dropbox.sign.ApiException;
@@ -39,19 +37,19 @@ import com.dropbox.sign.ApiException;
  * EmbeddedEditUrlRequest
  */
 @JsonPropertyOrder({
-    EmbeddedEditUrlRequest.JSON_PROPERTY_ALLOW_EDIT_CCS,
-    EmbeddedEditUrlRequest.JSON_PROPERTY_CC_ROLES,
-    EmbeddedEditUrlRequest.JSON_PROPERTY_EDITOR_OPTIONS,
-    EmbeddedEditUrlRequest.JSON_PROPERTY_FORCE_SIGNER_ROLES,
-    EmbeddedEditUrlRequest.JSON_PROPERTY_FORCE_SUBJECT_MESSAGE,
-    EmbeddedEditUrlRequest.JSON_PROPERTY_MERGE_FIELDS,
-    EmbeddedEditUrlRequest.JSON_PROPERTY_PREVIEW_ONLY,
-    EmbeddedEditUrlRequest.JSON_PROPERTY_SHOW_PREVIEW,
-    EmbeddedEditUrlRequest.JSON_PROPERTY_SHOW_PROGRESS_STEPPER,
-    EmbeddedEditUrlRequest.JSON_PROPERTY_TEST_MODE
+  EmbeddedEditUrlRequest.JSON_PROPERTY_ALLOW_EDIT_CCS,
+  EmbeddedEditUrlRequest.JSON_PROPERTY_CC_ROLES,
+  EmbeddedEditUrlRequest.JSON_PROPERTY_EDITOR_OPTIONS,
+  EmbeddedEditUrlRequest.JSON_PROPERTY_FORCE_SIGNER_ROLES,
+  EmbeddedEditUrlRequest.JSON_PROPERTY_FORCE_SUBJECT_MESSAGE,
+  EmbeddedEditUrlRequest.JSON_PROPERTY_MERGE_FIELDS,
+  EmbeddedEditUrlRequest.JSON_PROPERTY_PREVIEW_ONLY,
+  EmbeddedEditUrlRequest.JSON_PROPERTY_SHOW_PREVIEW,
+  EmbeddedEditUrlRequest.JSON_PROPERTY_SHOW_PROGRESS_STEPPER,
+  EmbeddedEditUrlRequest.JSON_PROPERTY_TEST_MODE
 })
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class EmbeddedEditUrlRequest {
   public static final String JSON_PROPERTY_ALLOW_EDIT_CCS = "allow_edit_ccs";
   private Boolean allowEditCcs = false;
@@ -106,12 +104,11 @@ public class EmbeddedEditUrlRequest {
     return this;
   }
 
-   /**
+  /**
    * This allows the requester to enable/disable to add or change CC roles when editing the template.
    * @return allowEditCcs
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "This allows the requester to enable/disable to add or change CC roles when editing the template.")
   @JsonProperty(JSON_PROPERTY_ALLOW_EDIT_CCS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -140,12 +137,11 @@ public class EmbeddedEditUrlRequest {
     return this;
   }
 
-   /**
+  /**
    * The CC roles that must be assigned when using the template to send a signature request. To remove all CC roles, pass in a single role with no name. For use in a POST request.
    * @return ccRoles
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The CC roles that must be assigned when using the template to send a signature request. To remove all CC roles, pass in a single role with no name. For use in a POST request.")
   @JsonProperty(JSON_PROPERTY_CC_ROLES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -166,12 +162,11 @@ public class EmbeddedEditUrlRequest {
     return this;
   }
 
-   /**
+  /**
    * Get editorOptions
    * @return editorOptions
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_EDITOR_OPTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -192,12 +187,11 @@ public class EmbeddedEditUrlRequest {
     return this;
   }
 
-   /**
+  /**
    * Provide users the ability to review/edit the template signer roles.
    * @return forceSignerRoles
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Provide users the ability to review/edit the template signer roles.")
   @JsonProperty(JSON_PROPERTY_FORCE_SIGNER_ROLES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -218,12 +212,11 @@ public class EmbeddedEditUrlRequest {
     return this;
   }
 
-   /**
+  /**
    * Provide users the ability to review/edit the template subject and message.
    * @return forceSubjectMessage
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Provide users the ability to review/edit the template subject and message.")
   @JsonProperty(JSON_PROPERTY_FORCE_SUBJECT_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -252,12 +245,11 @@ public class EmbeddedEditUrlRequest {
     return this;
   }
 
-   /**
+  /**
    * Add additional merge fields to the template, which can be used used to pre-fill data by passing values into signature requests made with that template.  Remove all merge fields on the template by passing an empty array &#x60;[]&#x60;.
    * @return mergeFields
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Add additional merge fields to the template, which can be used used to pre-fill data by passing values into signature requests made with that template.  Remove all merge fields on the template by passing an empty array `[]`.")
   @JsonProperty(JSON_PROPERTY_MERGE_FIELDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -278,12 +270,11 @@ public class EmbeddedEditUrlRequest {
     return this;
   }
 
-   /**
+  /**
    * This allows the requester to enable the preview experience (i.e. does not allow the requester&#39;s end user to add any additional fields via the editor).  **NOTE:** This parameter overwrites &#x60;show_preview&#x3D;true&#x60; (if set).
    * @return previewOnly
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "This allows the requester to enable the preview experience (i.e. does not allow the requester's end user to add any additional fields via the editor).  **NOTE:** This parameter overwrites `show_preview=true` (if set).")
   @JsonProperty(JSON_PROPERTY_PREVIEW_ONLY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -304,12 +295,11 @@ public class EmbeddedEditUrlRequest {
     return this;
   }
 
-   /**
+  /**
    * This allows the requester to enable the editor/preview experience.
    * @return showPreview
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "This allows the requester to enable the editor/preview experience.")
   @JsonProperty(JSON_PROPERTY_SHOW_PREVIEW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -330,12 +320,11 @@ public class EmbeddedEditUrlRequest {
     return this;
   }
 
-   /**
+  /**
    * When only one step remains in the signature request process and this parameter is set to &#x60;false&#x60; then the progress stepper will be hidden.
    * @return showProgressStepper
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "When only one step remains in the signature request process and this parameter is set to `false` then the progress stepper will be hidden.")
   @JsonProperty(JSON_PROPERTY_SHOW_PROGRESS_STEPPER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -356,12 +345,11 @@ public class EmbeddedEditUrlRequest {
     return this;
   }
 
-   /**
+  /**
    * Whether this is a test, locked templates will only be available for editing if this is set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.
    * @return testMode
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether this is a test, locked templates will only be available for editing if this is set to `true`. Defaults to `false`.")
   @JsonProperty(JSON_PROPERTY_TEST_MODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

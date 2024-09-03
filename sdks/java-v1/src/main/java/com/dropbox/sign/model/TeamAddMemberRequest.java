@@ -14,7 +14,6 @@
 package com.dropbox.sign.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -22,12 +21,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.dropbox.sign.JSON;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.dropbox.sign.JSON;
 
 
 import com.dropbox.sign.ApiException;
@@ -35,12 +33,12 @@ import com.dropbox.sign.ApiException;
  * TeamAddMemberRequest
  */
 @JsonPropertyOrder({
-    TeamAddMemberRequest.JSON_PROPERTY_ACCOUNT_ID,
-    TeamAddMemberRequest.JSON_PROPERTY_EMAIL_ADDRESS,
-    TeamAddMemberRequest.JSON_PROPERTY_ROLE
+  TeamAddMemberRequest.JSON_PROPERTY_ACCOUNT_ID,
+  TeamAddMemberRequest.JSON_PROPERTY_EMAIL_ADDRESS,
+  TeamAddMemberRequest.JSON_PROPERTY_ROLE
 })
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TeamAddMemberRequest {
   public static final String JSON_PROPERTY_ACCOUNT_ID = "account_id";
   private String accountId;
@@ -113,12 +111,11 @@ public class TeamAddMemberRequest {
     return this;
   }
 
-   /**
+  /**
    * &#x60;account_id&#x60; or &#x60;email_address&#x60; is required. If both are provided, the account id prevails.  Account id of the user to invite to your Team.
    * @return accountId
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "`account_id` or `email_address` is required. If both are provided, the account id prevails.  Account id of the user to invite to your Team.")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -139,12 +136,11 @@ public class TeamAddMemberRequest {
     return this;
   }
 
-   /**
+  /**
    * &#x60;account_id&#x60; or &#x60;email_address&#x60; is required, If both are provided, the account id prevails.  Email address of the user to invite to your Team.
    * @return emailAddress
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "`account_id` or `email_address` is required, If both are provided, the account id prevails.  Email address of the user to invite to your Team.")
   @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -165,12 +161,11 @@ public class TeamAddMemberRequest {
     return this;
   }
 
-   /**
+  /**
    * A role member will take in a new Team.  **NOTE:** This parameter is used only if &#x60;team_id&#x60; is provided.
    * @return role
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A role member will take in a new Team.  **NOTE:** This parameter is used only if `team_id` is provided.")
   @JsonProperty(JSON_PROPERTY_ROLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

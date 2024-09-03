@@ -19,8 +19,8 @@ The fields that should appear on the document, expressed as an array of objects.
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
 | `documentIndex`<sup>*_required_</sup> | ```Integer``` |  Represents the integer index of the `file` or `file_url` document the field should be attached to.  |  |
 | `apiId`<sup>*_required_</sup> | ```String``` |  An identifier for the field that is unique across all documents in the request.  |  |
 | `height`<sup>*_required_</sup> | ```Integer``` |  Size of the field in pixels.  |  |

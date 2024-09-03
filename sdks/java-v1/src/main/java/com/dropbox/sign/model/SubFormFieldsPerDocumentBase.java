@@ -14,19 +14,9 @@
 package com.dropbox.sign.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.dropbox.sign.model.SubFormFieldsPerDocumentCheckbox;
-import com.dropbox.sign.model.SubFormFieldsPerDocumentCheckboxMerge;
-import com.dropbox.sign.model.SubFormFieldsPerDocumentDateSigned;
-import com.dropbox.sign.model.SubFormFieldsPerDocumentDropdown;
-import com.dropbox.sign.model.SubFormFieldsPerDocumentHyperlink;
-import com.dropbox.sign.model.SubFormFieldsPerDocumentInitials;
-import com.dropbox.sign.model.SubFormFieldsPerDocumentRadio;
-import com.dropbox.sign.model.SubFormFieldsPerDocumentSignature;
-import com.dropbox.sign.model.SubFormFieldsPerDocumentText;
-import com.dropbox.sign.model.SubFormFieldsPerDocumentTextMerge;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -34,46 +24,37 @@ import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.dropbox.sign.JSON;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.dropbox.sign.JSON;
 
 
 import com.dropbox.sign.ApiException;
 /**
  * The fields that should appear on the document, expressed as an array of objects. (For more details you can read about it here: [Using Form Fields per Document](/docs/openapi/form-fields-per-document).)  **NOTE:** Fields like **text**, **dropdown**, **checkbox**, **radio**, and **hyperlink** have additional required and optional parameters. Check out the list of [additional parameters](/api/reference/constants/#form-fields-per-document) for these field types.  * Text Field use &#x60;SubFormFieldsPerDocumentText&#x60; * Dropdown Field use &#x60;SubFormFieldsPerDocumentDropdown&#x60; * Hyperlink Field use &#x60;SubFormFieldsPerDocumentHyperlink&#x60; * Checkbox Field use &#x60;SubFormFieldsPerDocumentCheckbox&#x60; * Radio Field use &#x60;SubFormFieldsPerDocumentRadio&#x60; * Signature Field use &#x60;SubFormFieldsPerDocumentSignature&#x60; * Date Signed Field use &#x60;SubFormFieldsPerDocumentDateSigned&#x60; * Initials Field use &#x60;SubFormFieldsPerDocumentInitials&#x60; * Text Merge Field use &#x60;SubFormFieldsPerDocumentTextMerge&#x60; * Checkbox Merge Field use &#x60;SubFormFieldsPerDocumentCheckboxMerge&#x60;
  */
-@ApiModel(description = "The fields that should appear on the document, expressed as an array of objects. (For more details you can read about it here: [Using Form Fields per Document](/docs/openapi/form-fields-per-document).)  **NOTE:** Fields like **text**, **dropdown**, **checkbox**, **radio**, and **hyperlink** have additional required and optional parameters. Check out the list of [additional parameters](/api/reference/constants/#form-fields-per-document) for these field types.  * Text Field use `SubFormFieldsPerDocumentText` * Dropdown Field use `SubFormFieldsPerDocumentDropdown` * Hyperlink Field use `SubFormFieldsPerDocumentHyperlink` * Checkbox Field use `SubFormFieldsPerDocumentCheckbox` * Radio Field use `SubFormFieldsPerDocumentRadio` * Signature Field use `SubFormFieldsPerDocumentSignature` * Date Signed Field use `SubFormFieldsPerDocumentDateSigned` * Initials Field use `SubFormFieldsPerDocumentInitials` * Text Merge Field use `SubFormFieldsPerDocumentTextMerge` * Checkbox Merge Field use `SubFormFieldsPerDocumentCheckboxMerge`")
 @JsonPropertyOrder({
-    SubFormFieldsPerDocumentBase.JSON_PROPERTY_DOCUMENT_INDEX,
-    SubFormFieldsPerDocumentBase.JSON_PROPERTY_API_ID,
-    SubFormFieldsPerDocumentBase.JSON_PROPERTY_HEIGHT,
-    SubFormFieldsPerDocumentBase.JSON_PROPERTY_REQUIRED,
-    SubFormFieldsPerDocumentBase.JSON_PROPERTY_SIGNER,
-    SubFormFieldsPerDocumentBase.JSON_PROPERTY_TYPE,
-    SubFormFieldsPerDocumentBase.JSON_PROPERTY_WIDTH,
-    SubFormFieldsPerDocumentBase.JSON_PROPERTY_X,
-    SubFormFieldsPerDocumentBase.JSON_PROPERTY_Y,
-    SubFormFieldsPerDocumentBase.JSON_PROPERTY_NAME,
-    SubFormFieldsPerDocumentBase.JSON_PROPERTY_PAGE
+  SubFormFieldsPerDocumentBase.JSON_PROPERTY_DOCUMENT_INDEX,
+  SubFormFieldsPerDocumentBase.JSON_PROPERTY_API_ID,
+  SubFormFieldsPerDocumentBase.JSON_PROPERTY_HEIGHT,
+  SubFormFieldsPerDocumentBase.JSON_PROPERTY_REQUIRED,
+  SubFormFieldsPerDocumentBase.JSON_PROPERTY_SIGNER,
+  SubFormFieldsPerDocumentBase.JSON_PROPERTY_TYPE,
+  SubFormFieldsPerDocumentBase.JSON_PROPERTY_WIDTH,
+  SubFormFieldsPerDocumentBase.JSON_PROPERTY_X,
+  SubFormFieldsPerDocumentBase.JSON_PROPERTY_Y,
+  SubFormFieldsPerDocumentBase.JSON_PROPERTY_NAME,
+  SubFormFieldsPerDocumentBase.JSON_PROPERTY_PAGE
 })
-@JsonIgnoreProperties(ignoreUnknown=true)
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
+@JsonIgnoreProperties(
+  allowSetters = true, // allows the type to be set during deserialization
+  ignoreUnknown = true
+)
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.EXISTING_PROPERTY, property = "type", visible = true)
 @JsonSubTypes({
-  @JsonSubTypes.Type(value = SubFormFieldsPerDocumentCheckbox.class, name = "SubFormFieldsPerDocumentCheckbox"),
-  @JsonSubTypes.Type(value = SubFormFieldsPerDocumentCheckboxMerge.class, name = "SubFormFieldsPerDocumentCheckboxMerge"),
-  @JsonSubTypes.Type(value = SubFormFieldsPerDocumentDateSigned.class, name = "SubFormFieldsPerDocumentDateSigned"),
-  @JsonSubTypes.Type(value = SubFormFieldsPerDocumentDropdown.class, name = "SubFormFieldsPerDocumentDropdown"),
-  @JsonSubTypes.Type(value = SubFormFieldsPerDocumentHyperlink.class, name = "SubFormFieldsPerDocumentHyperlink"),
-  @JsonSubTypes.Type(value = SubFormFieldsPerDocumentInitials.class, name = "SubFormFieldsPerDocumentInitials"),
-  @JsonSubTypes.Type(value = SubFormFieldsPerDocumentRadio.class, name = "SubFormFieldsPerDocumentRadio"),
-  @JsonSubTypes.Type(value = SubFormFieldsPerDocumentSignature.class, name = "SubFormFieldsPerDocumentSignature"),
-  @JsonSubTypes.Type(value = SubFormFieldsPerDocumentText.class, name = "SubFormFieldsPerDocumentText"),
-  @JsonSubTypes.Type(value = SubFormFieldsPerDocumentTextMerge.class, name = "SubFormFieldsPerDocumentTextMerge"),
   @JsonSubTypes.Type(value = SubFormFieldsPerDocumentCheckbox.class, name = "checkbox"),
   @JsonSubTypes.Type(value = SubFormFieldsPerDocumentCheckboxMerge.class, name = "checkbox-merge"),
   @JsonSubTypes.Type(value = SubFormFieldsPerDocumentDateSigned.class, name = "date_signed"),
@@ -143,12 +124,11 @@ public class SubFormFieldsPerDocumentBase {
     return this;
   }
 
-   /**
+  /**
    * Represents the integer index of the &#x60;file&#x60; or &#x60;file_url&#x60; document the field should be attached to.
    * @return documentIndex
-  **/
+   */
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Represents the integer index of the `file` or `file_url` document the field should be attached to.")
   @JsonProperty(JSON_PROPERTY_DOCUMENT_INDEX)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -169,12 +149,11 @@ public class SubFormFieldsPerDocumentBase {
     return this;
   }
 
-   /**
+  /**
    * An identifier for the field that is unique across all documents in the request.
    * @return apiId
-  **/
+   */
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "An identifier for the field that is unique across all documents in the request.")
   @JsonProperty(JSON_PROPERTY_API_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -195,12 +174,11 @@ public class SubFormFieldsPerDocumentBase {
     return this;
   }
 
-   /**
+  /**
    * Size of the field in pixels.
    * @return height
-  **/
+   */
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Size of the field in pixels.")
   @JsonProperty(JSON_PROPERTY_HEIGHT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -221,12 +199,11 @@ public class SubFormFieldsPerDocumentBase {
     return this;
   }
 
-   /**
+  /**
    * Whether this field is required.
    * @return required
-  **/
+   */
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Whether this field is required.")
   @JsonProperty(JSON_PROPERTY_REQUIRED)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -251,12 +228,11 @@ public class SubFormFieldsPerDocumentBase {
     return this;
   }
 
-   /**
+  /**
    * Signer index identified by the offset in the signers parameter (0-based indexing), indicating which signer should fill out the field.  **NOTE:** To set the value of the field as the preparer you must set this to &#x60;me_now&#x60;  **NOTE:** If type is &#x60;text-merge&#x60; or &#x60;checkbox-merge&#x60;, you must set this to sender in order to use pre-filled data.
    * @return signer
-  **/
+   */
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Signer index identified by the offset in the signers parameter (0-based indexing), indicating which signer should fill out the field.  **NOTE:** To set the value of the field as the preparer you must set this to `me_now`  **NOTE:** If type is `text-merge` or `checkbox-merge`, you must set this to sender in order to use pre-filled data.")
   @JsonProperty(JSON_PROPERTY_SIGNER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -281,12 +257,11 @@ public class SubFormFieldsPerDocumentBase {
     return this;
   }
 
-   /**
+  /**
    * Get type
    * @return type
-  **/
+   */
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -307,12 +282,11 @@ public class SubFormFieldsPerDocumentBase {
     return this;
   }
 
-   /**
+  /**
    * Size of the field in pixels.
    * @return width
-  **/
+   */
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Size of the field in pixels.")
   @JsonProperty(JSON_PROPERTY_WIDTH)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -333,12 +307,11 @@ public class SubFormFieldsPerDocumentBase {
     return this;
   }
 
-   /**
+  /**
    * Location coordinates of the field in pixels.
    * @return x
-  **/
+   */
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Location coordinates of the field in pixels.")
   @JsonProperty(JSON_PROPERTY_X)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -359,12 +332,11 @@ public class SubFormFieldsPerDocumentBase {
     return this;
   }
 
-   /**
+  /**
    * Location coordinates of the field in pixels.
    * @return y
-  **/
+   */
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Location coordinates of the field in pixels.")
   @JsonProperty(JSON_PROPERTY_Y)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -385,12 +357,11 @@ public class SubFormFieldsPerDocumentBase {
     return this;
   }
 
-   /**
+  /**
    * Display name for the field.
    * @return name
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Display name for the field.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -411,12 +382,11 @@ public class SubFormFieldsPerDocumentBase {
     return this;
   }
 
-   /**
+  /**
    * Page in the document where the field should be placed (requires documents be PDF files).  - When the page number parameter is supplied, the API will use the new coordinate system. - Check out the differences between both [coordinate systems](https://faq.hellosign.com/hc/en-us/articles/217115577) and how to use them.
    * @return page
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Page in the document where the field should be placed (requires documents be PDF files).  - When the page number parameter is supplied, the API will use the new coordinate system. - Check out the differences between both [coordinate systems](https://faq.hellosign.com/hc/en-us/articles/217115577) and how to use them.")
   @JsonProperty(JSON_PROPERTY_PAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -732,31 +702,21 @@ public class SubFormFieldsPerDocumentBase {
     return o.toString().replace("\n", "\n    ");
   }
 
-static {
-  // Initialize and register the discriminator mappings.
-  Map<String, Class<?>> mappings = new HashMap<String, Class<?>>();
-  mappings.put("SubFormFieldsPerDocumentCheckbox", SubFormFieldsPerDocumentCheckbox.class);
-  mappings.put("SubFormFieldsPerDocumentCheckboxMerge", SubFormFieldsPerDocumentCheckboxMerge.class);
-  mappings.put("SubFormFieldsPerDocumentDateSigned", SubFormFieldsPerDocumentDateSigned.class);
-  mappings.put("SubFormFieldsPerDocumentDropdown", SubFormFieldsPerDocumentDropdown.class);
-  mappings.put("SubFormFieldsPerDocumentHyperlink", SubFormFieldsPerDocumentHyperlink.class);
-  mappings.put("SubFormFieldsPerDocumentInitials", SubFormFieldsPerDocumentInitials.class);
-  mappings.put("SubFormFieldsPerDocumentRadio", SubFormFieldsPerDocumentRadio.class);
-  mappings.put("SubFormFieldsPerDocumentSignature", SubFormFieldsPerDocumentSignature.class);
-  mappings.put("SubFormFieldsPerDocumentText", SubFormFieldsPerDocumentText.class);
-  mappings.put("SubFormFieldsPerDocumentTextMerge", SubFormFieldsPerDocumentTextMerge.class);
-  mappings.put("checkbox", SubFormFieldsPerDocumentCheckbox.class);
-  mappings.put("checkbox-merge", SubFormFieldsPerDocumentCheckboxMerge.class);
-  mappings.put("date_signed", SubFormFieldsPerDocumentDateSigned.class);
-  mappings.put("dropdown", SubFormFieldsPerDocumentDropdown.class);
-  mappings.put("hyperlink", SubFormFieldsPerDocumentHyperlink.class);
-  mappings.put("initials", SubFormFieldsPerDocumentInitials.class);
-  mappings.put("radio", SubFormFieldsPerDocumentRadio.class);
-  mappings.put("signature", SubFormFieldsPerDocumentSignature.class);
-  mappings.put("text", SubFormFieldsPerDocumentText.class);
-  mappings.put("text-merge", SubFormFieldsPerDocumentTextMerge.class);
-  mappings.put("SubFormFieldsPerDocumentBase", SubFormFieldsPerDocumentBase.class);
-  JSON.registerDiscriminator(SubFormFieldsPerDocumentBase.class, "type", mappings);
-}
+  static {
+    // Initialize and register the discriminator mappings.
+    Map<String, Class<?>> mappings = new HashMap<>();
+    mappings.put("checkbox", SubFormFieldsPerDocumentCheckbox.class);
+    mappings.put("checkbox-merge", SubFormFieldsPerDocumentCheckboxMerge.class);
+    mappings.put("date_signed", SubFormFieldsPerDocumentDateSigned.class);
+    mappings.put("dropdown", SubFormFieldsPerDocumentDropdown.class);
+    mappings.put("hyperlink", SubFormFieldsPerDocumentHyperlink.class);
+    mappings.put("initials", SubFormFieldsPerDocumentInitials.class);
+    mappings.put("radio", SubFormFieldsPerDocumentRadio.class);
+    mappings.put("signature", SubFormFieldsPerDocumentSignature.class);
+    mappings.put("text", SubFormFieldsPerDocumentText.class);
+    mappings.put("text-merge", SubFormFieldsPerDocumentTextMerge.class);
+    mappings.put("SubFormFieldsPerDocumentBase", SubFormFieldsPerDocumentBase.class);
+    JSON.registerDiscriminator(SubFormFieldsPerDocumentBase.class, "type", mappings);
+  }
 }
 

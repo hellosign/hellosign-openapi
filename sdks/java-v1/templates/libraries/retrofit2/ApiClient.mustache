@@ -1,8 +1,12 @@
+{{>licenseInfo}}
+
 package {{invokerPackage}};
 
+{{#gson}}
 import com.google.gson.Gson;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonElement;
+{{/gson}}
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.RequestBody;
@@ -14,18 +18,20 @@ import org.apache.oltu.oauth2.client.request.OAuthClientRequest.TokenRequestBuil
 {{#joda}}
 import org.joda.time.format.DateTimeFormatter;
 {{/joda}}
-{{#threetenbp}}
-import org.threeten.bp.format.DateTimeFormatter;
-{{/threetenbp}}
 import retrofit2.Converter;
 import retrofit2.Retrofit;
 {{#useRxJava2}}
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 {{/useRxJava2}}
 {{#useRxJava3}}
-import hu.akarnokd.rxjava3.retrofit.RxJava3CallAdapterFactory;
+import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory;
 {{/useRxJava3}}
+{{#gson}}
 import retrofit2.converter.gson.GsonConverterFactory;
+{{/gson}}
+{{#jackson}}
+import retrofit2.converter.jackson.JacksonConverterFactory;
+{{/jackson}}
 import retrofit2.converter.scalars.ScalarsConverterFactory;
 import {{invokerPackage}}.auth.HttpBasicAuth;
 import {{invokerPackage}}.auth.HttpBearerAuth;
@@ -40,9 +46,7 @@ import java.io.IOException;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Type;
 import java.text.DateFormat;
-{{#java8}}
 import java.time.format.DateTimeFormatter;
-{{/java8}}
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.HashMap;
@@ -71,24 +75,25 @@ public class ApiClient {
     this();
     for(String authName : authNames) {
       {{#hasAuthMethods}}
-      Interceptor auth;
+      Interceptor auth = null;
       {{#authMethods}}if ("{{name}}".equals(authName)) {
-        {{#isBasic}}{{#isBasicBasic}}
+        {{#isBasicBasic}}
         auth = new HttpBasicAuth();
-        {{/isBasicBasic}}{{^isBasicBasic}}
+        {{/isBasicBasic}}{{#isBasicBearer}}
         auth = new HttpBearerAuth("{{scheme}}");
-        {{/isBasicBasic}}{{/isBasic}}
+        {{/isBasicBearer}}
         {{#isApiKey}}
         auth = new ApiKeyAuth({{#isKeyInHeader}}"header"{{/isKeyInHeader}}{{#isKeyInQuery}}"query"{{/isKeyInQuery}}{{#isKeyInCookie}}"cookie"{{/isKeyInCookie}}, "{{keyParamName}}");
         {{/isApiKey}}
         {{#isOAuth}}
-        auth = new OAuth(OAuthFlow.{{flow}}, "{{authorizationUrl}}", "{{tokenUrl}}", "{{#scopes}}{{scope}}{{^-last}}, {{/-last}}{{/scopes}}");
+        auth = new OAuth(OAuthFlow.{{#lambda.uppercase}}{{#lambda.snakecase}}{{flow}}{{/lambda.snakecase}}{{/lambda.uppercase}}, "{{{authorizationUrl}}}", "{{{tokenUrl}}}", "{{#scopes}}{{scope}}{{^-last}}, {{/-last}}{{/scopes}}");
         {{/isOAuth}}
       } else {{/authMethods}}{
         throw new RuntimeException("auth name \"" + authName + "\" not found in available auth names");
       }
-
-      addAuthorization(authName, auth);
+      if (auth != null) {
+        addAuthorization(authName, auth);
+      }
       {{/hasAuthMethods}}
       {{^hasAuthMethods}}
       throw new RuntimeException("auth name \"" + authName + "\" not found in available auth names");
@@ -161,7 +166,12 @@ public class ApiClient {
       .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
       {{/useRxJava3}}
       .addConverterFactory(ScalarsConverterFactory.create())
+      {{#jackson}}
+      .addConverterFactory(JacksonConverterFactory.create(json.getMapper()));
+      {{/jackson}}
+      {{#gson}}
       .addConverterFactory(GsonCustomConverterFactory.create(json.getGson()));
+      {{/gson}}
   }
 
   public <S> S createService(Class<S> serviceClass) {
@@ -177,6 +187,7 @@ public class ApiClient {
     return this;
   }
 
+  {{#gson}}
   public ApiClient setSqlDateFormat(DateFormat dateFormat) {
     this.json.setSqlDateFormat(dateFormat);
     return this;
@@ -204,8 +215,9 @@ public class ApiClient {
     this.json.setLocalDateFormat(dateFormat);
     return this;
   }
-
   {{/jsr310}}
+  {{/gson}}
+
 
   /**
    * Helper method to configure the first api key found
@@ -405,6 +417,7 @@ public class ApiClient {
   }
 }
 
+{{#gson}}
 /**
  * This wrapper is to take care of this case:
  * when the deserialization fails due to JsonParseException and the
@@ -459,3 +472,4 @@ class GsonCustomConverterFactory extends Converter.Factory
     return gsonConverterFactory.requestBodyConverter(type, parameterAnnotations, methodAnnotations, retrofit);
   }
 }
+{{/gson}}

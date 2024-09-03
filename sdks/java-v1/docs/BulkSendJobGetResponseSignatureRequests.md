@@ -6,8 +6,8 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
 | `testMode` | ```Boolean``` |  Whether this is a test signature request. Test requests have no legal value. Defaults to `false`.  |  |
 | `signatureRequestId` | ```String``` |  The id of the SignatureRequest.  |  |
 | `requesterEmailAddress` | ```String``` |  The email address of the initiator of the SignatureRequest.  |  |

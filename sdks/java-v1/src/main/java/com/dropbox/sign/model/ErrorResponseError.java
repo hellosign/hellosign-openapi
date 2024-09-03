@@ -14,7 +14,6 @@
 package com.dropbox.sign.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -22,26 +21,24 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.dropbox.sign.JSON;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.dropbox.sign.JSON;
 
 
 import com.dropbox.sign.ApiException;
 /**
  * Contains information about an error that occurred.
  */
-@ApiModel(description = "Contains information about an error that occurred.")
 @JsonPropertyOrder({
-    ErrorResponseError.JSON_PROPERTY_ERROR_MSG,
-    ErrorResponseError.JSON_PROPERTY_ERROR_NAME,
-    ErrorResponseError.JSON_PROPERTY_ERROR_PATH
+  ErrorResponseError.JSON_PROPERTY_ERROR_MSG,
+  ErrorResponseError.JSON_PROPERTY_ERROR_NAME,
+  ErrorResponseError.JSON_PROPERTY_ERROR_PATH
 })
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ErrorResponseError {
   public static final String JSON_PROPERTY_ERROR_MSG = "error_msg";
   private String errorMsg;
@@ -75,12 +72,11 @@ public class ErrorResponseError {
     return this;
   }
 
-   /**
+  /**
    * Message describing an error.
    * @return errorMsg
-  **/
+   */
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Message describing an error.")
   @JsonProperty(JSON_PROPERTY_ERROR_MSG)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -101,12 +97,11 @@ public class ErrorResponseError {
     return this;
   }
 
-   /**
+  /**
    * Name of the error.
    * @return errorName
-  **/
+   */
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Name of the error.")
   @JsonProperty(JSON_PROPERTY_ERROR_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -127,12 +122,11 @@ public class ErrorResponseError {
     return this;
   }
 
-   /**
+  /**
    * Path at which an error occurred.
    * @return errorPath
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Path at which an error occurred.")
   @JsonProperty(JSON_PROPERTY_ERROR_PATH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

@@ -6,8 +6,8 @@ This class extends `SubFormFieldsPerDocumentBase`.
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
 | `type`<sup>*_required_</sup> | ```String``` |  A text input field. Use the `SubFormFieldsPerDocumentText` class.  |  |
 | `placeholder` | ```String``` |  Placeholder value for text field.  |  |
 | `autoFillType` | ```String``` |  Auto fill type for populating fields automatically. Check out the list of [auto fill types](/api/reference/constants/#auto-fill-types) to learn more about the possible values.  |  |
@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 ## Enum: ValidationTypeEnum
 
-Name | Value
+| Name | Value |
 ---- | -----
 | NUMBERS_ONLY | &quot;numbers_only&quot; |
 | LETTERS_ONLY | &quot;letters_only&quot; |
@@ -41,7 +41,7 @@ Name | Value
 
 ## Enum: FontFamilyEnum
 
-Name | Value
+| Name | Value |
 ---- | -----
 | HELVETICA | &quot;helvetica&quot; |
 | ARIAL | &quot;arial&quot; |
@@ -53,12 +53,12 @@ Name | Value
 | TREBUCHET | &quot;trebuchet&quot; |
 | VERDANA | &quot;verdana&quot; |
 | ROBOTO | &quot;roboto&quot; |
-| ROBOTOMONO | &quot;robotoMono&quot; |
-| NOTOSANS | &quot;notoSans&quot; |
-| NOTOSERIF | &quot;notoSerif&quot; |
-| NOTOCJK_JP_REGULAR | &quot;notoCJK-JP-Regular&quot; |
-| NOTOHEBREW_REGULAR | &quot;notoHebrew-Regular&quot; |
-| NOTOSANTHAIMERGED | &quot;notoSanThaiMerged&quot; |
+| ROBOTO_MONO | &quot;robotoMono&quot; |
+| NOTO_SANS | &quot;notoSans&quot; |
+| NOTO_SERIF | &quot;notoSerif&quot; |
+| NOTO_CJK_JP_REGULAR | &quot;notoCJK-JP-Regular&quot; |
+| NOTO_HEBREW_REGULAR | &quot;notoHebrew-Regular&quot; |
+| NOTO_SAN_THAI_MERGED | &quot;notoSanThaiMerged&quot; |
 
 
 

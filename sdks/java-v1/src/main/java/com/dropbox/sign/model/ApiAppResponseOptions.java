@@ -14,7 +14,6 @@
 package com.dropbox.sign.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -22,24 +21,22 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.dropbox.sign.JSON;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.dropbox.sign.JSON;
 
 
 import com.dropbox.sign.ApiException;
 /**
  * An object with options that override account settings.
  */
-@ApiModel(description = "An object with options that override account settings.")
 @JsonPropertyOrder({
-    ApiAppResponseOptions.JSON_PROPERTY_CAN_INSERT_EVERYWHERE
+  ApiAppResponseOptions.JSON_PROPERTY_CAN_INSERT_EVERYWHERE
 })
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ApiAppResponseOptions {
   public static final String JSON_PROPERTY_CAN_INSERT_EVERYWHERE = "can_insert_everywhere";
   private Boolean canInsertEverywhere;
@@ -67,12 +64,11 @@ public class ApiAppResponseOptions {
     return this;
   }
 
-   /**
+  /**
    * Boolean denoting if signers can \&quot;Insert Everywhere\&quot; in one click while signing a document
    * @return canInsertEverywhere
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Boolean denoting if signers can \"Insert Everywhere\" in one click while signing a document")
   @JsonProperty(JSON_PROPERTY_CAN_INSERT_EVERYWHERE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

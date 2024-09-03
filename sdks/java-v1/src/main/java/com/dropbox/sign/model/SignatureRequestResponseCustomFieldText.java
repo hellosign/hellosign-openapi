@@ -14,12 +14,10 @@
 package com.dropbox.sign.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.dropbox.sign.model.SignatureRequestResponseCustomFieldBase;
-import com.dropbox.sign.model.SignatureRequestResponseCustomFieldCheckbox;
-import com.dropbox.sign.model.SignatureRequestResponseCustomFieldText;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -27,30 +25,27 @@ import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.dropbox.sign.JSON;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.dropbox.sign.JSON;
 
 
 import com.dropbox.sign.ApiException;
 /**
  * This class extends &#x60;SignatureRequestResponseCustomFieldBase&#x60;.
  */
-@ApiModel(description = "This class extends `SignatureRequestResponseCustomFieldBase`.")
 @JsonPropertyOrder({
-    SignatureRequestResponseCustomFieldText.JSON_PROPERTY_TYPE,
-    SignatureRequestResponseCustomFieldText.JSON_PROPERTY_VALUE
+  SignatureRequestResponseCustomFieldText.JSON_PROPERTY_TYPE,
+  SignatureRequestResponseCustomFieldText.JSON_PROPERTY_VALUE
 })
-@JsonIgnoreProperties(ignoreUnknown=true)
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
+@JsonIgnoreProperties(
+  allowSetters = true, // allows the type to be set during deserialization
+  ignoreUnknown = true
+)
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.EXISTING_PROPERTY, property = "type", visible = true)
-@JsonSubTypes({
-  @JsonSubTypes.Type(value = SignatureRequestResponseCustomFieldCheckbox.class, name = "checkbox"),
-  @JsonSubTypes.Type(value = SignatureRequestResponseCustomFieldText.class, name = "text"),
-})
 
 public class SignatureRequestResponseCustomFieldText extends SignatureRequestResponseCustomFieldBase {
   public static final String JSON_PROPERTY_TYPE = "type";
@@ -82,12 +77,11 @@ public class SignatureRequestResponseCustomFieldText extends SignatureRequestRes
     return this;
   }
 
-   /**
+  /**
    * The type of this Custom Field. Only &#39;text&#39; and &#39;checkbox&#39; are currently supported.
    * @return type
-  **/
+   */
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The type of this Custom Field. Only 'text' and 'checkbox' are currently supported.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -108,12 +102,11 @@ public class SignatureRequestResponseCustomFieldText extends SignatureRequestRes
     return this;
   }
 
-   /**
+  /**
    * A text string for text fields
    * @return value
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A text string for text fields")
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -243,13 +236,11 @@ public class SignatureRequestResponseCustomFieldText extends SignatureRequestRes
     return o.toString().replace("\n", "\n    ");
   }
 
-static {
-  // Initialize and register the discriminator mappings.
-  Map<String, Class<?>> mappings = new HashMap<String, Class<?>>();
-  mappings.put("checkbox", SignatureRequestResponseCustomFieldCheckbox.class);
-  mappings.put("text", SignatureRequestResponseCustomFieldText.class);
-  mappings.put("SignatureRequestResponseCustomFieldText", SignatureRequestResponseCustomFieldText.class);
-  JSON.registerDiscriminator(SignatureRequestResponseCustomFieldText.class, "type", mappings);
-}
+  static {
+    // Initialize and register the discriminator mappings.
+    Map<String, Class<?>> mappings = new HashMap<>();
+    mappings.put("SignatureRequestResponseCustomFieldText", SignatureRequestResponseCustomFieldText.class);
+    JSON.registerDiscriminator(SignatureRequestResponseCustomFieldText.class, "type", mappings);
+  }
 }
 

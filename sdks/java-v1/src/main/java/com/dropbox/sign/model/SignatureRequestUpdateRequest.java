@@ -14,7 +14,6 @@
 package com.dropbox.sign.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -22,12 +21,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.dropbox.sign.JSON;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.dropbox.sign.JSON;
 
 
 import com.dropbox.sign.ApiException;
@@ -35,13 +33,13 @@ import com.dropbox.sign.ApiException;
  * SignatureRequestUpdateRequest
  */
 @JsonPropertyOrder({
-    SignatureRequestUpdateRequest.JSON_PROPERTY_SIGNATURE_ID,
-    SignatureRequestUpdateRequest.JSON_PROPERTY_EMAIL_ADDRESS,
-    SignatureRequestUpdateRequest.JSON_PROPERTY_NAME,
-    SignatureRequestUpdateRequest.JSON_PROPERTY_EXPIRES_AT
+  SignatureRequestUpdateRequest.JSON_PROPERTY_SIGNATURE_ID,
+  SignatureRequestUpdateRequest.JSON_PROPERTY_EMAIL_ADDRESS,
+  SignatureRequestUpdateRequest.JSON_PROPERTY_NAME,
+  SignatureRequestUpdateRequest.JSON_PROPERTY_EXPIRES_AT
 })
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SignatureRequestUpdateRequest {
   public static final String JSON_PROPERTY_SIGNATURE_ID = "signature_id";
   private String signatureId;
@@ -78,12 +76,11 @@ public class SignatureRequestUpdateRequest {
     return this;
   }
 
-   /**
+  /**
    * The signature ID for the recipient.
    * @return signatureId
-  **/
+   */
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The signature ID for the recipient.")
   @JsonProperty(JSON_PROPERTY_SIGNATURE_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -104,12 +101,11 @@ public class SignatureRequestUpdateRequest {
     return this;
   }
 
-   /**
+  /**
    * The new email address for the recipient.  This will generate a new &#x60;signature_id&#x60; value.  **NOTE:** Optional if &#x60;name&#x60; is provided.
    * @return emailAddress
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The new email address for the recipient.  This will generate a new `signature_id` value.  **NOTE:** Optional if `name` is provided.")
   @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -130,12 +126,11 @@ public class SignatureRequestUpdateRequest {
     return this;
   }
 
-   /**
+  /**
    * The new name for the recipient.  **NOTE:** Optional if &#x60;email_address&#x60; is provided.
    * @return name
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The new name for the recipient.  **NOTE:** Optional if `email_address` is provided.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -156,12 +151,11 @@ public class SignatureRequestUpdateRequest {
     return this;
   }
 
-   /**
+  /**
    * The new time when the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.
    * @return expiresAt
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The new time when the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.")
   @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

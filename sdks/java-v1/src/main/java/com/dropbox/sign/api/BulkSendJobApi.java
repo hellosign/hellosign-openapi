@@ -14,10 +14,11 @@ import com.dropbox.sign.model.ErrorResponse;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 public class BulkSendJobApi {
   private ApiClient apiClient;
 
@@ -129,50 +130,44 @@ public class BulkSendJobApi {
     if (pageSize == null) {
         pageSize = 20;
     }
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'bulkSendJobId' is set
+    // Check required parameters
     if (bulkSendJobId == null) {
       throw new ApiException(400, "Missing the required parameter 'bulkSendJobId' when calling bulkSendJobGet");
     }
-    
-    // create path and map variables
+
+    // Path parameters
     String localVarPath = "/bulk_send_job/{bulk_send_job_id}"
-      .replaceAll("\\{" + "bulk_send_job_id" + "\\}", apiClient.escapeString(bulkSendJobId.toString()));
+            .replaceAll("\\{bulk_send_job_id}", apiClient.escapeString(bulkSendJobId.toString()));
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page", page));
+    // Query parameters
+    List<Pair> localVarQueryParams = new ArrayList<>(
+            apiClient.parameterToPairs("", "page", page)
+    );
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page_size", pageSize));
 
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-
+    String localVarAccept = apiClient.selectHeaderAccept("application/json");
+    Map<String, Object> localVarFormParams = new LinkedHashMap<>();
     localVarFormParams = new HashMap<String, Object>();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
-
-    final String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "api_key", "oauth2" };
-
+    String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType();
+    String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
     GenericType<BulkSendJobGetResponse> localVarReturnType = new GenericType<BulkSendJobGetResponse>() {};
+    return apiClient.invokeAPI(
+        "BulkSendJobApi.bulkSendJobGet",
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        null,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false
+    );
 
-    return apiClient.invokeAPI("BulkSendJobApi.bulkSendJobGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
-                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
   }
   /**
    * List Bulk Send Jobs
@@ -254,43 +249,34 @@ public class BulkSendJobApi {
     if (pageSize == null) {
         pageSize = 20;
     }
-    Object localVarPostBody = null;
-    
-    // create path and map variables
-    String localVarPath = "/bulk_send_job/list";
-
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page", page));
+    // Query parameters
+    List<Pair> localVarQueryParams = new ArrayList<>(
+            apiClient.parameterToPairs("", "page", page)
+    );
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page_size", pageSize));
 
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-
+    String localVarAccept = apiClient.selectHeaderAccept("application/json");
+    Map<String, Object> localVarFormParams = new LinkedHashMap<>();
     localVarFormParams = new HashMap<String, Object>();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
-
-    final String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "api_key", "oauth2" };
-
+    String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType();
+    String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
     GenericType<BulkSendJobListResponse> localVarReturnType = new GenericType<BulkSendJobListResponse>() {};
+    return apiClient.invokeAPI(
+        "BulkSendJobApi.bulkSendJobList",
+        "/bulk_send_job/list",
+        "GET",
+        localVarQueryParams,
+        null,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false
+    );
 
-    return apiClient.invokeAPI("BulkSendJobApi.bulkSendJobList", localVarPath, "GET", localVarQueryParams, localVarPostBody,
-                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
   }
 }

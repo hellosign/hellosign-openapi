@@ -6,8 +6,8 @@ Contains information about the report request.
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
 | `success` | ```String``` |  A message indicating the requested operation&#39;s success  |  |
 | `startDate` | ```String``` |  The (inclusive) start date for the report data in MM/DD/YYYY format.  |  |
 | `endDate` | ```String``` |  The (inclusive) end date for the report data in MM/DD/YYYY format.  |  |
@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 
 ## Enum: List&lt;ReportTypeEnum&gt;
 
-Name | Value
+| Name | Value |
 ---- | -----
 | USER_ACTIVITY | &quot;user_activity&quot; |
 | DOCUMENT_STATUS | &quot;document_status&quot; |

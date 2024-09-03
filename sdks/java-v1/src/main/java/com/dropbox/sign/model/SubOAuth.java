@@ -14,7 +14,6 @@
 package com.dropbox.sign.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -22,27 +21,25 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.dropbox.sign.JSON;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.dropbox.sign.JSON;
 
 
 import com.dropbox.sign.ApiException;
 /**
  * OAuth related parameters.
  */
-@ApiModel(description = "OAuth related parameters.")
 @JsonPropertyOrder({
-    SubOAuth.JSON_PROPERTY_CALLBACK_URL,
-    SubOAuth.JSON_PROPERTY_SCOPES
+  SubOAuth.JSON_PROPERTY_CALLBACK_URL,
+  SubOAuth.JSON_PROPERTY_SCOPES
 })
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SubOAuth {
   public static final String JSON_PROPERTY_CALLBACK_URL = "callback_url";
   private String callbackUrl;
@@ -120,12 +117,11 @@ public class SubOAuth {
     return this;
   }
 
-   /**
+  /**
    * The callback URL to be used for OAuth flows. (Required if &#x60;oauth[scopes]&#x60; is provided)
    * @return callbackUrl
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The callback URL to be used for OAuth flows. (Required if `oauth[scopes]` is provided)")
   @JsonProperty(JSON_PROPERTY_CALLBACK_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -154,12 +150,11 @@ public class SubOAuth {
     return this;
   }
 
-   /**
+  /**
    * A list of [OAuth scopes](/api/reference/tag/OAuth) to be granted to the app. (Required if &#x60;oauth[callback_url]&#x60; is provided).
    * @return scopes
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A list of [OAuth scopes](/api/reference/tag/OAuth) to be granted to the app. (Required if `oauth[callback_url]` is provided).")
   @JsonProperty(JSON_PROPERTY_SCOPES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

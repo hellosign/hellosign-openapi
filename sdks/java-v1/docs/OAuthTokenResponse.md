@@ -6,8 +6,8 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
 | `accessToken` | ```String``` |    |  |
 | `tokenType` | ```String``` |    |  |
 | `refreshToken` | ```String``` |    |  |
