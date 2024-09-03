@@ -14,7 +14,6 @@ from typing import TYPE_CHECKING, Optional, List, Dict, Union
 import json  # noqa: F401
 import re  # noqa: F401
 import sys  # noqa: F401
-
 from dropbox_sign import ApiClient
 from dropbox_sign.model_utils import (  # noqa: F401
     ApiTypeError,
@@ -121,6 +120,7 @@ class ApiAppResponseWhiteLabelingOptions(ModelNormal):
             response_type=[ApiAppResponseWhiteLabelingOptions],
             _check_type=True,
         )
+
 
     attribute_map = {
         'header_background_color': 'header_background_color',  # noqa: E501

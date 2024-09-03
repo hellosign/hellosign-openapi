@@ -15,7 +15,6 @@ All URIs are relative to https://api.hellosign.com/v3.
 ```php
 unclaimedDraftCreate($unclaimed_draft_create_request): \Dropbox\Sign\Model\UnclaimedDraftCreateResponse
 ```
-
 Create Unclaimed Draft
 
 Creates a new Draft that can be claimed using the claim URL. The first authenticated user to access the URL will claim the Draft and will be shown either the \"Sign and send\" or the \"Request signature\" page with the Draft loaded. Subsequent access to the claim URL will result in a 404.
@@ -114,7 +113,6 @@ try {
 ```php
 unclaimedDraftCreateEmbedded($unclaimed_draft_create_embedded_request): \Dropbox\Sign\Model\UnclaimedDraftCreateResponse
 ```
-
 Create Embedded Unclaimed Draft
 
 Creates a new Draft that can be claimed and used in an embedded iFrame. The first authenticated user to access the URL will claim the Draft and will be shown the \"Request signature\" page with the Draft loaded. Subsequent access to the claim URL will result in a `404`. For this embedded endpoint the `requester_email_address` parameter is required.  **NOTE:** Embedded unclaimed drafts can only be accessed in embedded iFrames whereas normal drafts can be used and accessed on Dropbox Sign.
@@ -181,7 +179,6 @@ try {
 ```php
 unclaimedDraftCreateEmbeddedWithTemplate($unclaimed_draft_create_embedded_with_template_request): \Dropbox\Sign\Model\UnclaimedDraftCreateResponse
 ```
-
 Create Embedded Unclaimed Draft with Template
 
 Creates a new Draft with a previously saved template(s) that can be claimed and used in an embedded iFrame. The first authenticated user to access the URL will claim the Draft and will be shown the \"Request signature\" page with the Draft loaded. Subsequent access to the claim URL will result in a `404`. For this embedded endpoint the `requester_email_address` parameter is required.  **NOTE:** Embedded unclaimed drafts can only be accessed in embedded iFrames whereas normal drafts can be used and accessed on Dropbox Sign.
@@ -259,7 +256,6 @@ try {
 ```php
 unclaimedDraftEditAndResend($signature_request_id, $unclaimed_draft_edit_and_resend_request): \Dropbox\Sign\Model\UnclaimedDraftCreateResponse
 ```
-
 Edit and Resend Unclaimed Draft
 
 Creates a new signature request from an embedded request that can be edited prior to being sent to the recipients. Parameter `test_mode` can be edited prior to request. Signers can be edited in embedded editor. Requester's email address will remain unchanged if `requester_email_address` parameter is not set.  **NOTE:** Embedded unclaimed drafts can only be accessed in embedded iFrames whereas normal drafts can be used and accessed on Dropbox Sign.

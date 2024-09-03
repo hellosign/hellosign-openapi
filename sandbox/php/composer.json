@@ -2,11 +2,15 @@
     "name": "dropbox/sign-sandbox",
     "autoload": {
         "psr-4": {
-            "Dropbox\\Sign\\Sandbox\\": "src/"
+            "Dropbox\\SignSandbox\\Tests\\": "test"
         }
     },
     "require": {
-        "dropbox/sign": "*"
+        "dropbox/sign": "*",
+        "ext-json": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^8.0 || ^9.0"
     },
     "repositories": [
       {

@@ -14,7 +14,6 @@ from typing import TYPE_CHECKING, Optional, List, Dict, Union
 import json  # noqa: F401
 import re  # noqa: F401
 import sys  # noqa: F401
-
 from dropbox_sign import ApiClient
 from dropbox_sign.model_utils import (  # noqa: F401
     ApiTypeError,
@@ -111,6 +110,7 @@ class BulkSendJobResponse(ModelNormal):
             response_type=[BulkSendJobResponse],
             _check_type=True,
         )
+
 
     attribute_map = {
         'bulk_send_job_id': 'bulk_send_job_id',  # noqa: E501

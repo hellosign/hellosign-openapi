@@ -3,7 +3,13 @@
 {{#isBasicBasic}}
 // Configure HTTP basic authorization: {{{name}}}
 $config = {{{invokerPackage}}}\Configuration::getDefaultConfiguration()
+{{^useCustomTemplateCode}}
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
               ->setApiKey('YOUR_API_KEY');
+{{/useCustomTemplateCode}}
 {{/isBasicBasic}}
 {{#isBasicBearer}}
 // Configure Bearer{{#bearerFormat}} ({{{.}}}){{/bearerFormat}} authorization: {{{name}}}
@@ -13,6 +19,10 @@ $config = {{{invokerPackage}}}\Configuration::getDefaultConfiguration()->setAcce
 {{#isApiKey}}
 // Configure API key authorization: {{{name}}}
 $config = {{{invokerPackage}}}\Configuration::getDefaultConfiguration()->setApiKey('{{{keyParamName}}}', 'YOUR_API_KEY');
+{{^useCustomTemplateCode}}
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = {{{invokerPackage}}}\Configuration::getDefaultConfiguration()->setApiKeyPrefix('{{{keyParamName}}}', 'Bearer');
+{{/useCustomTemplateCode}}
 {{/isApiKey}}
 {{#isOAuth}}
 // Configure OAuth2 access token for authorization: {{{name}}}

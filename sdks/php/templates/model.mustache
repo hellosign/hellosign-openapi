@@ -4,7 +4,7 @@
 /**
  * {{classname}}
  *
- * PHP version {{phpVersion}}
+ * PHP version 7.4
  *
  * @category Class
  * @package  {{invokerPackage}}
@@ -27,7 +27,6 @@ use \ArrayAccess;
 {{/parentSchema}}
 {{/isEnum}}
 use \{{invokerPackage}}\ObjectSerializer;
-use ReturnTypeWillChange;
 
 /**
  * {{classname}} Class Doc Comment
@@ -40,11 +39,8 @@ use ReturnTypeWillChange;
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
 {{^isEnum}}
- * @implements \ArrayAccess<TKey, TValue>
- * @template TKey int|null
- * @template TValue mixed|null
+ * @implements \ArrayAccess<string, mixed>
 {{/isEnum}}
- * {{#vendorExtensions.x-internal-class}}@internal This class should not be instantiated directly{{/vendorExtensions.x-internal-class}}
  */
 {{#isEnum}}{{>model_enum}}{{/isEnum}}{{^isEnum}}{{>model_generic}}{{/isEnum}}
 {{/model}}{{/models}}
