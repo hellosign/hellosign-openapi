@@ -57,49 +57,35 @@ class SignatureRequestTest extends TestCase
         $file = new SplFileObject(self::FIXTURES_DIR . '/pdf-sample.pdf');
         $data['files'] = [$file];
 
-        $request = Sign\Model\SignatureRequestSendRequest::init($data);
+        $send_request = Sign\Model\SignatureRequestSendRequest::init($data);
 
-        try {
-            $response = $signature_request_api->signatureRequestSend($request);
-        } catch (Sign\ApiException $e) {
-            $this->fail(
-                'Should not have thrown: ' . print_r($e->getResponseBody(), true),
-            );
-        }
-
-        $signature_request = $response->getSignatureRequest();
+        $send_response = $signature_request_api->signatureRequestSend($send_request);
 
         $this->assertEquals(
-            $request->getFormFieldsPerDocument()[0]->getApiId(),
-            $signature_request->getCustomFields()[0]->getApiId(),
+            $send_request->getFormFieldsPerDocument()[0]->getApiId(),
+            $send_response->getSignatureRequest()->getCustomFields()[0]->getApiId(),
         );
 
         $this->assertEquals(
-            $request->getSigners()[0]->getEmailAddress(),
-            $signature_request->getSignatures()[0]->getSignerEmailAddress(),
+            $send_request->getSigners()[0]->getEmailAddress(),
+            $send_response->getSignatureRequest()->getSignatures()[0]->getSignerEmailAddress(),
         );
         $this->assertEquals(
-            $request->getSigners()[1]->getEmailAddress(),
-            $signature_request->getSignatures()[1]->getSignerEmailAddress(),
+            $send_request->getSigners()[1]->getEmailAddress(),
+            $send_response->getSignatureRequest()->getSignatures()[1]->getSignerEmailAddress(),
         );
         $this->assertEquals(
-            $request->getSigners()[2]->getEmailAddress(),
-            $signature_request->getSignatures()[2]->getSignerEmailAddress(),
+            $send_request->getSigners()[2]->getEmailAddress(),
+            $send_response->getSignatureRequest()->getSignatures()[2]->getSignerEmailAddress(),
         );
 
-        try {
-            $response = $signature_request_api->signatureRequestGet(
-                $signature_request->getSignatureRequestId(),
-            );
-        } catch (Sign\ApiException $e) {
-            $this->fail(
-                'Should not have thrown: ' . print_r($e->getResponseBody(), true),
-            );
-        }
+        $get_response = $signature_request_api->signatureRequestGet(
+            $send_response->getSignatureRequest()->getSignatureRequestId(),
+        );
 
         $this->assertSame(
-            $signature_request->getSignatureRequestId(),
-            $response->getSignatureRequest()->getSignatureRequestId(),
+            $send_response->getSignatureRequest()->getSignatureRequestId(),
+            $get_response->getSignatureRequest()->getSignatureRequestId(),
         );
     }
 
@@ -115,44 +101,30 @@ class SignatureRequestTest extends TestCase
         $data['files'] = [$file];
         $data['client_id'] = $this->client_id;
 
-        $request = Sign\Model\SignatureRequestCreateEmbeddedRequest::init($data);
+        $send_request = Sign\Model\SignatureRequestCreateEmbeddedRequest::init($data);
 
-        try {
-            $response = $signature_request_api->signatureRequestCreateEmbedded($request);
-        } catch (Sign\ApiException $e) {
-            $this->fail(
-                'Should not have thrown: ' . print_r($e->getResponseBody(), true),
-            );
-        }
-
-        $signature_request = $response->getSignatureRequest();
+        $send_response = $signature_request_api->signatureRequestCreateEmbedded($send_request);
 
         $this->assertEquals(
-            $request->getSigners()[0]->getEmailAddress(),
-            $signature_request->getSignatures()[0]->getSignerEmailAddress(),
+            $send_request->getSigners()[0]->getEmailAddress(),
+            $send_response->getSignatureRequest()->getSignatures()[0]->getSignerEmailAddress(),
         );
         $this->assertEquals(
-            $request->getSigners()[1]->getEmailAddress(),
-            $signature_request->getSignatures()[1]->getSignerEmailAddress(),
+            $send_request->getSigners()[1]->getEmailAddress(),
+            $send_response->getSignatureRequest()->getSignatures()[1]->getSignerEmailAddress(),
         );
         $this->assertEquals(
-            $request->getSigners()[2]->getEmailAddress(),
-            $signature_request->getSignatures()[2]->getSignerEmailAddress(),
+            $send_request->getSigners()[2]->getEmailAddress(),
+            $send_response->getSignatureRequest()->getSignatures()[2]->getSignerEmailAddress(),
         );
 
         $embedded_api = new Sign\Api\EmbeddedApi($this->config);
 
-        try {
-            $response = $embedded_api->embeddedSignUrl(
-                $signature_request->getSignatures()[0]->getSignatureId(),
-            );
+        $get_response = $embedded_api->embeddedSignUrl(
+            $send_response->getSignatureRequest()->getSignatures()[0]->getSignatureId(),
+        );
 
-            $this->assertNotEmpty($response->getEmbedded()->getSignUrl());
-        } catch (Sign\ApiException $e) {
-            $this->fail(
-                'Should not have thrown: ' . print_r($e->getResponseBody(), true),
-            );
-        }
+        $this->assertNotEmpty($get_response->getEmbedded()->getSignUrl());
     }
 
     public function testSendWithoutFileError(): void
