@@ -15,7 +15,6 @@ All URIs are relative to https://api.hellosign.com/v3.
 ```php
 accountCreate($account_create_request): \Dropbox\Sign\Model\AccountCreateResponse
 ```
-
 Create Account
 
 Creates a new Dropbox Sign Account that is associated with the specified `email_address`.
@@ -79,7 +78,6 @@ try {
 ```php
 accountGet($account_id, $email_address): \Dropbox\Sign\Model\AccountGetResponse
 ```
-
 Get Account
 
 Returns the properties and settings of your Account.
@@ -141,7 +139,6 @@ try {
 ```php
 accountUpdate($account_update_request): \Dropbox\Sign\Model\AccountGetResponse
 ```
-
 Update Account
 
 Updates the properties and settings of your Account. Currently only allows for updates to the [Callback URL](/api/reference/tag/Callbacks-and-Events) and locale.
@@ -205,7 +202,6 @@ try {
 ```php
 accountVerify($account_verify_request): \Dropbox\Sign\Model\AccountVerifyResponse
 ```
-
 Verify Account
 
 Verifies whether an Dropbox Sign Account exists for the given email address.
