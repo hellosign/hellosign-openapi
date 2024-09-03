@@ -1,10 +1,38 @@
 # {{moduleName}}::{{classname}}
 
+{{#useCustomTemplateCode}}
 {{unescapedDescription}}
 
+{{/useCustomTemplateCode}}
 ## Properties
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+{{^useCustomTemplateCode}}
+{{#vars}}
+| **{{name}}** | {{#isPrimitiveType}}**{{dataType}}**{{/isPrimitiveType}}{{^isPrimitiveType}}[**{{dataType}}**]({{complexType}}.md){{/isPrimitiveType}} | {{description}} | {{^required}}[optional]{{/required}}{{#isReadOnly}}[readonly]{{/isReadOnly}}{{#defaultValue}}[default to {{.}}]{{/defaultValue}} |
+{{/vars}}
+
+## Example
+
+```ruby
+require '{{{gemName}}}'
+
+{{^vars}}
+instance = {{moduleName}}::{{classname}}.new()
+{{/vars}}
+{{#vars}}
+{{#-first}}
+instance = {{moduleName}}::{{classname}}.new(
+{{/-first}}
+  {{name}}: {{example}}{{^-last}},{{/-last}}
+{{#-last}}
+)
+{{/-last}}
+{{/vars}}
+```
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
 {{#vars}}| `{{name}}`{{#required}}<sup>*_required_</sup>{{/required}} | {{#isPrimitiveType}}```{{{dataType}}}```{{/isPrimitiveType}}{{^isPrimitiveType}}[```{{{dataType}}}```]({{complexType}}.md){{/isPrimitiveType}} | REPLACE_ME_WITH_DESCRIPTION_BEGIN {{unescapedDescription}} REPLACE_ME_WITH_DESCRIPTION_END | {{#isReadOnly}} [readonly]{{/isReadOnly}}{{#defaultValue}} [default to {{{.}}}]{{/defaultValue}} |
 {{/vars}}
+{{/useCustomTemplateCode}}

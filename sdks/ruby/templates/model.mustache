@@ -5,9 +5,11 @@
 require 'date'
 require 'time'
 
+{{#useCustomTemplateCode}}
 module Dropbox
 end
 
+{{/useCustomTemplateCode}}
 module {{moduleName}}
 {{#models}}
 {{#model}}
@@ -20,8 +22,22 @@ module {{moduleName}}
 {{>partial_oneof_module}}
 {{/-first}}
 {{/oneOf}}
+{{^useCustomTemplateCode}}
+{{#anyOf}}
+{{#-first}}
+{{>partial_anyof_module}}
+{{/-first}}
+{{/anyOf}}
+{{/useCustomTemplateCode}}
 {{^oneOf}}
+{{^useCustomTemplateCode}}
+{{^anyOf}}
 {{>partial_model_generic}}
+{{/anyOf}}
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
+{{>partial_model_generic}}
+{{/useCustomTemplateCode}}
 {{/oneOf}}
 {{/isEnum}}
 {{/model}}

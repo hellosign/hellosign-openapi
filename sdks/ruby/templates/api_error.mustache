@@ -2,12 +2,22 @@
 {{> api_info}}
 =end
 
+{{#useCustomTemplateCode}}
 module Dropbox
 end
 
+{{/useCustomTemplateCode}}
 module {{moduleName}}
   class ApiError < StandardError
+{{^useCustomTemplateCode}}
     attr_reader :code, :response_headers, :response_body
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
+    attr_reader :code, :response_headers
+
+    # @return [ErrorResponse]
+    attr_accessor :response_body
+{{/useCustomTemplateCode}}
 
     # Usage examples:
     #   ApiError.new
