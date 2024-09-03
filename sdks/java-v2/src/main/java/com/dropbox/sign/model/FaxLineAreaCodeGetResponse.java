@@ -24,12 +24,10 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.dropbox.sign.JSON;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.dropbox.sign.JSON;
 
 
 import com.dropbox.sign.ApiException;
@@ -39,11 +37,11 @@ import com.dropbox.sign.ApiException;
 @JsonPropertyOrder({
   FaxLineAreaCodeGetResponse.JSON_PROPERTY_AREA_CODES
 })
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class FaxLineAreaCodeGetResponse {
   public static final String JSON_PROPERTY_AREA_CODES = "area_codes";
-  private List<Integer> areaCodes;
+  private List<Integer> areaCodes = null;
 
   public FaxLineAreaCodeGetResponse() { 
   }
@@ -76,12 +74,11 @@ public class FaxLineAreaCodeGetResponse {
     return this;
   }
 
-   /**
+  /**
    * Get areaCodes
    * @return areaCodes
-  **/
+   */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_AREA_CODES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

@@ -30,7 +30,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 public class SignatureRequestApi {
   private ApiClient apiClient;
 
@@ -93,47 +93,33 @@ public class SignatureRequestApi {
    */
   public ApiResponse<BulkSendJobSendResponse> signatureRequestBulkCreateEmbeddedWithTemplateWithHttpInfo(SignatureRequestBulkCreateEmbeddedWithTemplateRequest signatureRequestBulkCreateEmbeddedWithTemplateRequest) throws ApiException {
     
-    Object localVarPostBody = signatureRequestBulkCreateEmbeddedWithTemplateRequest;
-    
-    // verify the required parameter 'signatureRequestBulkCreateEmbeddedWithTemplateRequest' is set
+    // Check required parameters
     if (signatureRequestBulkCreateEmbeddedWithTemplateRequest == null) {
       throw new ApiException(400, "Missing the required parameter 'signatureRequestBulkCreateEmbeddedWithTemplateRequest' when calling signatureRequestBulkCreateEmbeddedWithTemplate");
     }
-    
-    // create path and map variables
-    String localVarPath = "/signature_request/bulk_create_embedded_with_template";
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json", "multipart/form-data"
-    };
-
+    String localVarAccept = apiClient.selectHeaderAccept("application/json");
+    Map<String, Object> localVarFormParams = new LinkedHashMap<>();
     localVarFormParams = signatureRequestBulkCreateEmbeddedWithTemplateRequest.createFormData();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
-
-    final String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "api_key" };
-
+    String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType("application/json", "multipart/form-data");
+    String[] localVarAuthNames = new String[] {"api_key"};
     GenericType<BulkSendJobSendResponse> localVarReturnType = new GenericType<BulkSendJobSendResponse>() {};
-
-    return apiClient.invokeAPI("SignatureRequestApi.signatureRequestBulkCreateEmbeddedWithTemplate", localVarPath, "POST", localVarQueryParams, localVarPostBody,
-                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+    return apiClient.invokeAPI(
+        "SignatureRequestApi.signatureRequestBulkCreateEmbeddedWithTemplate",
+        "/signature_request/bulk_create_embedded_with_template",
+        "POST",
+        new ArrayList<>(),
+        isFileTypeFound ? null : signatureRequestBulkCreateEmbeddedWithTemplateRequest,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false
+    );
   }
   /**
    * Bulk Send with Template
@@ -168,47 +154,33 @@ public class SignatureRequestApi {
    */
   public ApiResponse<BulkSendJobSendResponse> signatureRequestBulkSendWithTemplateWithHttpInfo(SignatureRequestBulkSendWithTemplateRequest signatureRequestBulkSendWithTemplateRequest) throws ApiException {
     
-    Object localVarPostBody = signatureRequestBulkSendWithTemplateRequest;
-    
-    // verify the required parameter 'signatureRequestBulkSendWithTemplateRequest' is set
+    // Check required parameters
     if (signatureRequestBulkSendWithTemplateRequest == null) {
       throw new ApiException(400, "Missing the required parameter 'signatureRequestBulkSendWithTemplateRequest' when calling signatureRequestBulkSendWithTemplate");
     }
-    
-    // create path and map variables
-    String localVarPath = "/signature_request/bulk_send_with_template";
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json", "multipart/form-data"
-    };
-
+    String localVarAccept = apiClient.selectHeaderAccept("application/json");
+    Map<String, Object> localVarFormParams = new LinkedHashMap<>();
     localVarFormParams = signatureRequestBulkSendWithTemplateRequest.createFormData();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
-
-    final String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "api_key", "oauth2" };
-
+    String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType("application/json", "multipart/form-data");
+    String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
     GenericType<BulkSendJobSendResponse> localVarReturnType = new GenericType<BulkSendJobSendResponse>() {};
-
-    return apiClient.invokeAPI("SignatureRequestApi.signatureRequestBulkSendWithTemplate", localVarPath, "POST", localVarQueryParams, localVarPostBody,
-                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+    return apiClient.invokeAPI(
+        "SignatureRequestApi.signatureRequestBulkSendWithTemplate",
+        "/signature_request/bulk_send_with_template",
+        "POST",
+        new ArrayList<>(),
+        isFileTypeFound ? null : signatureRequestBulkSendWithTemplateRequest,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false
+    );
   }
   /**
    * Cancel Incomplete Signature Request
@@ -242,46 +214,36 @@ public class SignatureRequestApi {
    */
   public ApiResponse<Void> signatureRequestCancelWithHttpInfo(String signatureRequestId) throws ApiException {
     
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'signatureRequestId' is set
+    // Check required parameters
     if (signatureRequestId == null) {
       throw new ApiException(400, "Missing the required parameter 'signatureRequestId' when calling signatureRequestCancel");
     }
-    
-    // create path and map variables
+
+    // Path parameters
     String localVarPath = "/signature_request/cancel/{signature_request_id}"
-      .replaceAll("\\{" + "signature_request_id" + "\\}", apiClient.escapeString(signatureRequestId.toString()));
+            .replaceAll("\\{signature_request_id}", apiClient.escapeString(signatureRequestId.toString()));
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-
+    String localVarAccept = apiClient.selectHeaderAccept("application/json");
+    Map<String, Object> localVarFormParams = new LinkedHashMap<>();
     localVarFormParams = new HashMap<String, Object>();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
-
-    final String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "api_key", "oauth2" };
-
-    return apiClient.invokeAPI("SignatureRequestApi.signatureRequestCancel", localVarPath, "POST", localVarQueryParams, localVarPostBody,
-                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, null, false);
+    String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType();
+    String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
+    return apiClient.invokeAPI(
+        "SignatureRequestApi.signatureRequestCancel",
+        localVarPath,
+        "POST",
+        new ArrayList<>(),
+        null,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        null,
+        false
+    );
   }
   /**
    * Create Embedded Signature Request
@@ -316,47 +278,33 @@ public class SignatureRequestApi {
    */
   public ApiResponse<SignatureRequestGetResponse> signatureRequestCreateEmbeddedWithHttpInfo(SignatureRequestCreateEmbeddedRequest signatureRequestCreateEmbeddedRequest) throws ApiException {
     
-    Object localVarPostBody = signatureRequestCreateEmbeddedRequest;
-    
-    // verify the required parameter 'signatureRequestCreateEmbeddedRequest' is set
+    // Check required parameters
     if (signatureRequestCreateEmbeddedRequest == null) {
       throw new ApiException(400, "Missing the required parameter 'signatureRequestCreateEmbeddedRequest' when calling signatureRequestCreateEmbedded");
     }
-    
-    // create path and map variables
-    String localVarPath = "/signature_request/create_embedded";
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json", "multipart/form-data"
-    };
-
+    String localVarAccept = apiClient.selectHeaderAccept("application/json");
+    Map<String, Object> localVarFormParams = new LinkedHashMap<>();
     localVarFormParams = signatureRequestCreateEmbeddedRequest.createFormData();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
-
-    final String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "api_key", "oauth2" };
-
+    String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType("application/json", "multipart/form-data");
+    String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
     GenericType<SignatureRequestGetResponse> localVarReturnType = new GenericType<SignatureRequestGetResponse>() {};
-
-    return apiClient.invokeAPI("SignatureRequestApi.signatureRequestCreateEmbedded", localVarPath, "POST", localVarQueryParams, localVarPostBody,
-                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+    return apiClient.invokeAPI(
+        "SignatureRequestApi.signatureRequestCreateEmbedded",
+        "/signature_request/create_embedded",
+        "POST",
+        new ArrayList<>(),
+        isFileTypeFound ? null : signatureRequestCreateEmbeddedRequest,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false
+    );
   }
   /**
    * Create Embedded Signature Request with Template
@@ -391,47 +339,33 @@ public class SignatureRequestApi {
    */
   public ApiResponse<SignatureRequestGetResponse> signatureRequestCreateEmbeddedWithTemplateWithHttpInfo(SignatureRequestCreateEmbeddedWithTemplateRequest signatureRequestCreateEmbeddedWithTemplateRequest) throws ApiException {
     
-    Object localVarPostBody = signatureRequestCreateEmbeddedWithTemplateRequest;
-    
-    // verify the required parameter 'signatureRequestCreateEmbeddedWithTemplateRequest' is set
+    // Check required parameters
     if (signatureRequestCreateEmbeddedWithTemplateRequest == null) {
       throw new ApiException(400, "Missing the required parameter 'signatureRequestCreateEmbeddedWithTemplateRequest' when calling signatureRequestCreateEmbeddedWithTemplate");
     }
-    
-    // create path and map variables
-    String localVarPath = "/signature_request/create_embedded_with_template";
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json", "multipart/form-data"
-    };
-
+    String localVarAccept = apiClient.selectHeaderAccept("application/json");
+    Map<String, Object> localVarFormParams = new LinkedHashMap<>();
     localVarFormParams = signatureRequestCreateEmbeddedWithTemplateRequest.createFormData();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
-
-    final String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "api_key", "oauth2" };
-
+    String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType("application/json", "multipart/form-data");
+    String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
     GenericType<SignatureRequestGetResponse> localVarReturnType = new GenericType<SignatureRequestGetResponse>() {};
-
-    return apiClient.invokeAPI("SignatureRequestApi.signatureRequestCreateEmbeddedWithTemplate", localVarPath, "POST", localVarQueryParams, localVarPostBody,
-                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+    return apiClient.invokeAPI(
+        "SignatureRequestApi.signatureRequestCreateEmbeddedWithTemplate",
+        "/signature_request/create_embedded_with_template",
+        "POST",
+        new ArrayList<>(),
+        isFileTypeFound ? null : signatureRequestCreateEmbeddedWithTemplateRequest,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false
+    );
   }
   /**
    * Download Files
@@ -490,49 +424,42 @@ public class SignatureRequestApi {
     if (fileType == null) {
         fileType = "pdf";
     }
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'signatureRequestId' is set
+    // Check required parameters
     if (signatureRequestId == null) {
       throw new ApiException(400, "Missing the required parameter 'signatureRequestId' when calling signatureRequestFiles");
     }
-    
-    // create path and map variables
+
+    // Path parameters
     String localVarPath = "/signature_request/files/{signature_request_id}"
-      .replaceAll("\\{" + "signature_request_id" + "\\}", apiClient.escapeString(signatureRequestId.toString()));
+            .replaceAll("\\{signature_request_id}", apiClient.escapeString(signatureRequestId.toString()));
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+    // Query parameters
+    List<Pair> localVarQueryParams = new ArrayList<>(
+            apiClient.parameterToPairs("", "file_type", fileType)
+    );
 
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "file_type", fileType));
-
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/pdf", "application/zip", "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-
+    String localVarAccept = apiClient.selectHeaderAccept("application/pdf", "application/zip", "application/json");
+    Map<String, Object> localVarFormParams = new LinkedHashMap<>();
     localVarFormParams = new HashMap<String, Object>();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
-
-    final String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "api_key", "oauth2" };
-
+    String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType();
+    String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
     GenericType<File> localVarReturnType = new GenericType<File>() {};
-
-    return apiClient.invokeAPI("SignatureRequestApi.signatureRequestFiles", localVarPath, "GET", localVarQueryParams, localVarPostBody,
-                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+    return apiClient.invokeAPI(
+        "SignatureRequestApi.signatureRequestFiles",
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        null,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false
+    );
   }
   /**
    * Download Files as Data Uri
@@ -567,48 +494,37 @@ public class SignatureRequestApi {
    */
   public ApiResponse<FileResponseDataUri> signatureRequestFilesAsDataUriWithHttpInfo(String signatureRequestId) throws ApiException {
     
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'signatureRequestId' is set
+    // Check required parameters
     if (signatureRequestId == null) {
       throw new ApiException(400, "Missing the required parameter 'signatureRequestId' when calling signatureRequestFilesAsDataUri");
     }
-    
-    // create path and map variables
+
+    // Path parameters
     String localVarPath = "/signature_request/files_as_data_uri/{signature_request_id}"
-      .replaceAll("\\{" + "signature_request_id" + "\\}", apiClient.escapeString(signatureRequestId.toString()));
+            .replaceAll("\\{signature_request_id}", apiClient.escapeString(signatureRequestId.toString()));
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-
+    String localVarAccept = apiClient.selectHeaderAccept("application/json");
+    Map<String, Object> localVarFormParams = new LinkedHashMap<>();
     localVarFormParams = new HashMap<String, Object>();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
-
-    final String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "api_key", "oauth2" };
-
+    String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType();
+    String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
     GenericType<FileResponseDataUri> localVarReturnType = new GenericType<FileResponseDataUri>() {};
-
-    return apiClient.invokeAPI("SignatureRequestApi.signatureRequestFilesAsDataUri", localVarPath, "GET", localVarQueryParams, localVarPostBody,
-                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+    return apiClient.invokeAPI(
+        "SignatureRequestApi.signatureRequestFilesAsDataUri",
+        localVarPath,
+        "GET",
+        new ArrayList<>(),
+        null,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false
+    );
   }
   /**
    * Download Files as File Url
@@ -667,49 +583,42 @@ public class SignatureRequestApi {
     if (forceDownload == null) {
         forceDownload = 1;
     }
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'signatureRequestId' is set
+    // Check required parameters
     if (signatureRequestId == null) {
       throw new ApiException(400, "Missing the required parameter 'signatureRequestId' when calling signatureRequestFilesAsFileUrl");
     }
-    
-    // create path and map variables
+
+    // Path parameters
     String localVarPath = "/signature_request/files_as_file_url/{signature_request_id}"
-      .replaceAll("\\{" + "signature_request_id" + "\\}", apiClient.escapeString(signatureRequestId.toString()));
+            .replaceAll("\\{signature_request_id}", apiClient.escapeString(signatureRequestId.toString()));
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+    // Query parameters
+    List<Pair> localVarQueryParams = new ArrayList<>(
+            apiClient.parameterToPairs("", "force_download", forceDownload)
+    );
 
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "force_download", forceDownload));
-
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-
+    String localVarAccept = apiClient.selectHeaderAccept("application/json");
+    Map<String, Object> localVarFormParams = new LinkedHashMap<>();
     localVarFormParams = new HashMap<String, Object>();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
-
-    final String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "api_key", "oauth2" };
-
+    String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType();
+    String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
     GenericType<FileResponse> localVarReturnType = new GenericType<FileResponse>() {};
-
-    return apiClient.invokeAPI("SignatureRequestApi.signatureRequestFilesAsFileUrl", localVarPath, "GET", localVarQueryParams, localVarPostBody,
-                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+    return apiClient.invokeAPI(
+        "SignatureRequestApi.signatureRequestFilesAsFileUrl",
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        null,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false
+    );
   }
   /**
    * Get Signature Request
@@ -744,48 +653,37 @@ public class SignatureRequestApi {
    */
   public ApiResponse<SignatureRequestGetResponse> signatureRequestGetWithHttpInfo(String signatureRequestId) throws ApiException {
     
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'signatureRequestId' is set
+    // Check required parameters
     if (signatureRequestId == null) {
       throw new ApiException(400, "Missing the required parameter 'signatureRequestId' when calling signatureRequestGet");
     }
-    
-    // create path and map variables
+
+    // Path parameters
     String localVarPath = "/signature_request/{signature_request_id}"
-      .replaceAll("\\{" + "signature_request_id" + "\\}", apiClient.escapeString(signatureRequestId.toString()));
+            .replaceAll("\\{signature_request_id}", apiClient.escapeString(signatureRequestId.toString()));
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-
+    String localVarAccept = apiClient.selectHeaderAccept("application/json");
+    Map<String, Object> localVarFormParams = new LinkedHashMap<>();
     localVarFormParams = new HashMap<String, Object>();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
-
-    final String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "api_key", "oauth2" };
-
+    String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType();
+    String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
     GenericType<SignatureRequestGetResponse> localVarReturnType = new GenericType<SignatureRequestGetResponse>() {};
-
-    return apiClient.invokeAPI("SignatureRequestApi.signatureRequestGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
-                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+    return apiClient.invokeAPI(
+        "SignatureRequestApi.signatureRequestGet",
+        localVarPath,
+        "GET",
+        new ArrayList<>(),
+        null,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false
+    );
   }
   /**
    * List Signature Requests
@@ -917,46 +815,36 @@ public class SignatureRequestApi {
     if (pageSize == null) {
         pageSize = 20;
     }
-    Object localVarPostBody = null;
-    
-    // create path and map variables
-    String localVarPath = "/signature_request/list";
-
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "account_id", accountId));
+    // Query parameters
+    List<Pair> localVarQueryParams = new ArrayList<>(
+            apiClient.parameterToPairs("", "account_id", accountId)
+    );
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page", page));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page_size", pageSize));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "query", query));
 
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-
+    String localVarAccept = apiClient.selectHeaderAccept("application/json");
+    Map<String, Object> localVarFormParams = new LinkedHashMap<>();
     localVarFormParams = new HashMap<String, Object>();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
-
-    final String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "api_key", "oauth2" };
-
+    String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType();
+    String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
     GenericType<SignatureRequestListResponse> localVarReturnType = new GenericType<SignatureRequestListResponse>() {};
-
-    return apiClient.invokeAPI("SignatureRequestApi.signatureRequestList", localVarPath, "GET", localVarQueryParams, localVarPostBody,
-                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+    return apiClient.invokeAPI(
+        "SignatureRequestApi.signatureRequestList",
+        "/signature_request/list",
+        "GET",
+        localVarQueryParams,
+        null,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false
+    );
   }
   /**
    * Release On-Hold Signature Request
@@ -991,48 +879,37 @@ public class SignatureRequestApi {
    */
   public ApiResponse<SignatureRequestGetResponse> signatureRequestReleaseHoldWithHttpInfo(String signatureRequestId) throws ApiException {
     
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'signatureRequestId' is set
+    // Check required parameters
     if (signatureRequestId == null) {
       throw new ApiException(400, "Missing the required parameter 'signatureRequestId' when calling signatureRequestReleaseHold");
     }
-    
-    // create path and map variables
+
+    // Path parameters
     String localVarPath = "/signature_request/release_hold/{signature_request_id}"
-      .replaceAll("\\{" + "signature_request_id" + "\\}", apiClient.escapeString(signatureRequestId.toString()));
+            .replaceAll("\\{signature_request_id}", apiClient.escapeString(signatureRequestId.toString()));
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-
+    String localVarAccept = apiClient.selectHeaderAccept("application/json");
+    Map<String, Object> localVarFormParams = new LinkedHashMap<>();
     localVarFormParams = new HashMap<String, Object>();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
-
-    final String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "api_key", "oauth2" };
-
+    String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType();
+    String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
     GenericType<SignatureRequestGetResponse> localVarReturnType = new GenericType<SignatureRequestGetResponse>() {};
-
-    return apiClient.invokeAPI("SignatureRequestApi.signatureRequestReleaseHold", localVarPath, "POST", localVarQueryParams, localVarPostBody,
-                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+    return apiClient.invokeAPI(
+        "SignatureRequestApi.signatureRequestReleaseHold",
+        localVarPath,
+        "POST",
+        new ArrayList<>(),
+        null,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false
+    );
   }
   /**
    * Send Request Reminder
@@ -1069,53 +946,40 @@ public class SignatureRequestApi {
    */
   public ApiResponse<SignatureRequestGetResponse> signatureRequestRemindWithHttpInfo(String signatureRequestId, SignatureRequestRemindRequest signatureRequestRemindRequest) throws ApiException {
     
-    Object localVarPostBody = signatureRequestRemindRequest;
-    
-    // verify the required parameter 'signatureRequestId' is set
+    // Check required parameters
     if (signatureRequestId == null) {
       throw new ApiException(400, "Missing the required parameter 'signatureRequestId' when calling signatureRequestRemind");
     }
-    
-    // verify the required parameter 'signatureRequestRemindRequest' is set
     if (signatureRequestRemindRequest == null) {
       throw new ApiException(400, "Missing the required parameter 'signatureRequestRemindRequest' when calling signatureRequestRemind");
     }
-    
-    // create path and map variables
+
+    // Path parameters
     String localVarPath = "/signature_request/remind/{signature_request_id}"
-      .replaceAll("\\{" + "signature_request_id" + "\\}", apiClient.escapeString(signatureRequestId.toString()));
+            .replaceAll("\\{signature_request_id}", apiClient.escapeString(signatureRequestId.toString()));
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-
+    String localVarAccept = apiClient.selectHeaderAccept("application/json");
+    Map<String, Object> localVarFormParams = new LinkedHashMap<>();
     localVarFormParams = signatureRequestRemindRequest.createFormData();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
-
-    final String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "api_key", "oauth2" };
-
+    String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType("application/json");
+    String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
     GenericType<SignatureRequestGetResponse> localVarReturnType = new GenericType<SignatureRequestGetResponse>() {};
-
-    return apiClient.invokeAPI("SignatureRequestApi.signatureRequestRemind", localVarPath, "POST", localVarQueryParams, localVarPostBody,
-                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+    return apiClient.invokeAPI(
+        "SignatureRequestApi.signatureRequestRemind",
+        localVarPath,
+        "POST",
+        new ArrayList<>(),
+        isFileTypeFound ? null : signatureRequestRemindRequest,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false
+    );
   }
   /**
    * Remove Signature Request Access
@@ -1149,46 +1013,36 @@ public class SignatureRequestApi {
    */
   public ApiResponse<Void> signatureRequestRemoveWithHttpInfo(String signatureRequestId) throws ApiException {
     
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'signatureRequestId' is set
+    // Check required parameters
     if (signatureRequestId == null) {
       throw new ApiException(400, "Missing the required parameter 'signatureRequestId' when calling signatureRequestRemove");
     }
-    
-    // create path and map variables
+
+    // Path parameters
     String localVarPath = "/signature_request/remove/{signature_request_id}"
-      .replaceAll("\\{" + "signature_request_id" + "\\}", apiClient.escapeString(signatureRequestId.toString()));
+            .replaceAll("\\{signature_request_id}", apiClient.escapeString(signatureRequestId.toString()));
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-
+    String localVarAccept = apiClient.selectHeaderAccept("application/json");
+    Map<String, Object> localVarFormParams = new LinkedHashMap<>();
     localVarFormParams = new HashMap<String, Object>();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
-
-    final String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "api_key" };
-
-    return apiClient.invokeAPI("SignatureRequestApi.signatureRequestRemove", localVarPath, "POST", localVarQueryParams, localVarPostBody,
-                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, null, false);
+    String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType();
+    String[] localVarAuthNames = new String[] {"api_key"};
+    return apiClient.invokeAPI(
+        "SignatureRequestApi.signatureRequestRemove",
+        localVarPath,
+        "POST",
+        new ArrayList<>(),
+        null,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        null,
+        false
+    );
   }
   /**
    * Send Signature Request
@@ -1223,47 +1077,33 @@ public class SignatureRequestApi {
    */
   public ApiResponse<SignatureRequestGetResponse> signatureRequestSendWithHttpInfo(SignatureRequestSendRequest signatureRequestSendRequest) throws ApiException {
     
-    Object localVarPostBody = signatureRequestSendRequest;
-    
-    // verify the required parameter 'signatureRequestSendRequest' is set
+    // Check required parameters
     if (signatureRequestSendRequest == null) {
       throw new ApiException(400, "Missing the required parameter 'signatureRequestSendRequest' when calling signatureRequestSend");
     }
-    
-    // create path and map variables
-    String localVarPath = "/signature_request/send";
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json", "multipart/form-data"
-    };
-
+    String localVarAccept = apiClient.selectHeaderAccept("application/json");
+    Map<String, Object> localVarFormParams = new LinkedHashMap<>();
     localVarFormParams = signatureRequestSendRequest.createFormData();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
-
-    final String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "api_key", "oauth2" };
-
+    String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType("application/json", "multipart/form-data");
+    String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
     GenericType<SignatureRequestGetResponse> localVarReturnType = new GenericType<SignatureRequestGetResponse>() {};
-
-    return apiClient.invokeAPI("SignatureRequestApi.signatureRequestSend", localVarPath, "POST", localVarQueryParams, localVarPostBody,
-                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+    return apiClient.invokeAPI(
+        "SignatureRequestApi.signatureRequestSend",
+        "/signature_request/send",
+        "POST",
+        new ArrayList<>(),
+        isFileTypeFound ? null : signatureRequestSendRequest,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false
+    );
   }
   /**
    * Send with Template
@@ -1298,47 +1138,33 @@ public class SignatureRequestApi {
    */
   public ApiResponse<SignatureRequestGetResponse> signatureRequestSendWithTemplateWithHttpInfo(SignatureRequestSendWithTemplateRequest signatureRequestSendWithTemplateRequest) throws ApiException {
     
-    Object localVarPostBody = signatureRequestSendWithTemplateRequest;
-    
-    // verify the required parameter 'signatureRequestSendWithTemplateRequest' is set
+    // Check required parameters
     if (signatureRequestSendWithTemplateRequest == null) {
       throw new ApiException(400, "Missing the required parameter 'signatureRequestSendWithTemplateRequest' when calling signatureRequestSendWithTemplate");
     }
-    
-    // create path and map variables
-    String localVarPath = "/signature_request/send_with_template";
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json", "multipart/form-data"
-    };
-
+    String localVarAccept = apiClient.selectHeaderAccept("application/json");
+    Map<String, Object> localVarFormParams = new LinkedHashMap<>();
     localVarFormParams = signatureRequestSendWithTemplateRequest.createFormData();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
-
-    final String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "api_key", "oauth2" };
-
+    String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType("application/json", "multipart/form-data");
+    String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
     GenericType<SignatureRequestGetResponse> localVarReturnType = new GenericType<SignatureRequestGetResponse>() {};
-
-    return apiClient.invokeAPI("SignatureRequestApi.signatureRequestSendWithTemplate", localVarPath, "POST", localVarQueryParams, localVarPostBody,
-                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+    return apiClient.invokeAPI(
+        "SignatureRequestApi.signatureRequestSendWithTemplate",
+        "/signature_request/send_with_template",
+        "POST",
+        new ArrayList<>(),
+        isFileTypeFound ? null : signatureRequestSendWithTemplateRequest,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false
+    );
   }
   /**
    * Update Signature Request
@@ -1375,52 +1201,39 @@ public class SignatureRequestApi {
    */
   public ApiResponse<SignatureRequestGetResponse> signatureRequestUpdateWithHttpInfo(String signatureRequestId, SignatureRequestUpdateRequest signatureRequestUpdateRequest) throws ApiException {
     
-    Object localVarPostBody = signatureRequestUpdateRequest;
-    
-    // verify the required parameter 'signatureRequestId' is set
+    // Check required parameters
     if (signatureRequestId == null) {
       throw new ApiException(400, "Missing the required parameter 'signatureRequestId' when calling signatureRequestUpdate");
     }
-    
-    // verify the required parameter 'signatureRequestUpdateRequest' is set
     if (signatureRequestUpdateRequest == null) {
       throw new ApiException(400, "Missing the required parameter 'signatureRequestUpdateRequest' when calling signatureRequestUpdate");
     }
-    
-    // create path and map variables
+
+    // Path parameters
     String localVarPath = "/signature_request/update/{signature_request_id}"
-      .replaceAll("\\{" + "signature_request_id" + "\\}", apiClient.escapeString(signatureRequestId.toString()));
+            .replaceAll("\\{signature_request_id}", apiClient.escapeString(signatureRequestId.toString()));
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-
+    String localVarAccept = apiClient.selectHeaderAccept("application/json");
+    Map<String, Object> localVarFormParams = new LinkedHashMap<>();
     localVarFormParams = signatureRequestUpdateRequest.createFormData();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
-
-    final String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "api_key", "oauth2" };
-
+    String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType("application/json");
+    String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
     GenericType<SignatureRequestGetResponse> localVarReturnType = new GenericType<SignatureRequestGetResponse>() {};
-
-    return apiClient.invokeAPI("SignatureRequestApi.signatureRequestUpdate", localVarPath, "POST", localVarQueryParams, localVarPostBody,
-                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+    return apiClient.invokeAPI(
+        "SignatureRequestApi.signatureRequestUpdate",
+        localVarPath,
+        "POST",
+        new ArrayList<>(),
+        isFileTypeFound ? null : signatureRequestUpdateRequest,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false
+    );
   }
 }

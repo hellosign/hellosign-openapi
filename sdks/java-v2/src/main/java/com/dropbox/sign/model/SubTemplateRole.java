@@ -22,12 +22,10 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.dropbox.sign.JSON;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.dropbox.sign.JSON;
 
 
 import com.dropbox.sign.ApiException;
@@ -38,8 +36,8 @@ import com.dropbox.sign.ApiException;
   SubTemplateRole.JSON_PROPERTY_NAME,
   SubTemplateRole.JSON_PROPERTY_ORDER
 })
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SubTemplateRole {
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
@@ -70,12 +68,11 @@ public class SubTemplateRole {
     return this;
   }
 
-   /**
+  /**
    * The role name of the signer that will be displayed when the template is used to create a signature request.
    * @return name
-  **/
+   */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The role name of the signer that will be displayed when the template is used to create a signature request.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -96,12 +93,11 @@ public class SubTemplateRole {
     return this;
   }
 
-   /**
+  /**
    * The order in which this signer role is required to sign.
    * @return order
-  **/
+   */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The order in which this signer role is required to sign.")
   @JsonProperty(JSON_PROPERTY_ORDER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

@@ -22,25 +22,22 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.dropbox.sign.JSON;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.dropbox.sign.JSON;
 
 
 import com.dropbox.sign.ApiException;
 /**
  * Information about the parent team if a team has one, set to &#x60;null&#x60; otherwise.
  */
-@ApiModel(description = "Information about the parent team if a team has one, set to `null` otherwise.")
 @JsonPropertyOrder({
   TeamParentResponse.JSON_PROPERTY_TEAM_ID,
   TeamParentResponse.JSON_PROPERTY_NAME
 })
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TeamParentResponse {
   public static final String JSON_PROPERTY_TEAM_ID = "team_id";
   private String teamId;
@@ -71,12 +68,11 @@ public class TeamParentResponse {
     return this;
   }
 
-   /**
+  /**
    * The id of a team
    * @return teamId
-  **/
+   */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The id of a team")
   @JsonProperty(JSON_PROPERTY_TEAM_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -97,12 +93,11 @@ public class TeamParentResponse {
     return this;
   }
 
-   /**
+  /**
    * The name of a team
    * @return name
-  **/
+   */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The name of a team")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

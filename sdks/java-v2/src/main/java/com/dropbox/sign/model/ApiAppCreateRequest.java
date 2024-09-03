@@ -28,12 +28,10 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.dropbox.sign.JSON;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.dropbox.sign.JSON;
 
 
 import com.dropbox.sign.ApiException;
@@ -49,8 +47,8 @@ import com.dropbox.sign.ApiException;
   ApiAppCreateRequest.JSON_PROPERTY_OPTIONS,
   ApiAppCreateRequest.JSON_PROPERTY_WHITE_LABELING_OPTIONS
 })
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ApiAppCreateRequest {
   public static final String JSON_PROPERTY_DOMAINS = "domains";
   private List<String> domains = new ArrayList<>();
@@ -104,12 +102,11 @@ public class ApiAppCreateRequest {
     return this;
   }
 
-   /**
+  /**
    * The domain names the ApiApp will be associated with.
    * @return domains
-  **/
+   */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The domain names the ApiApp will be associated with.")
   @JsonProperty(JSON_PROPERTY_DOMAINS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -130,12 +127,11 @@ public class ApiAppCreateRequest {
     return this;
   }
 
-   /**
+  /**
    * The name you want to assign to the ApiApp.
    * @return name
-  **/
+   */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The name you want to assign to the ApiApp.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -156,12 +152,11 @@ public class ApiAppCreateRequest {
     return this;
   }
 
-   /**
+  /**
    * The URL at which the ApiApp should receive event callbacks.
    * @return callbackUrl
-  **/
+   */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The URL at which the ApiApp should receive event callbacks.")
   @JsonProperty(JSON_PROPERTY_CALLBACK_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -182,12 +177,11 @@ public class ApiAppCreateRequest {
     return this;
   }
 
-   /**
+  /**
    * An image file to use as a custom logo in embedded contexts. (Only applies to some API plans)
    * @return customLogoFile
-  **/
+   */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "An image file to use as a custom logo in embedded contexts. (Only applies to some API plans)")
   @JsonProperty(JSON_PROPERTY_CUSTOM_LOGO_FILE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -208,12 +202,11 @@ public class ApiAppCreateRequest {
     return this;
   }
 
-   /**
+  /**
    * Get oauth
    * @return oauth
-  **/
+   */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_OAUTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -234,12 +227,11 @@ public class ApiAppCreateRequest {
     return this;
   }
 
-   /**
+  /**
    * Get options
    * @return options
-  **/
+   */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_OPTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -260,12 +252,11 @@ public class ApiAppCreateRequest {
     return this;
   }
 
-   /**
+  /**
    * Get whiteLabelingOptions
    * @return whiteLabelingOptions
-  **/
+   */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_WHITE_LABELING_OPTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

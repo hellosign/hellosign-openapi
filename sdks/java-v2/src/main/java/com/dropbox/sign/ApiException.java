@@ -13,15 +13,17 @@
 
 package com.dropbox.sign;
 
-import com.dropbox.sign.model.ErrorResponse;
 import java.util.Map;
 import java.util.List;
+import com.dropbox.sign.model.ErrorResponse;
 
 /**
  * API Exception
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 public class ApiException extends Exception {
+    private static final long serialVersionUID = 1L;
+
     private int code = 0;
     private Map<String, List<String>> responseHeaders = null;
     private String responseBody = null;

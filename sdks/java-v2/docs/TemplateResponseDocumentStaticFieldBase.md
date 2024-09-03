@@ -6,8 +6,8 @@ An array describing static overlay fields. **NOTE:** Only available for certain 
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
 | `type`<sup>*_required_</sup> | ```String``` |    |  |
 | `apiId` | ```String``` |  A unique id for the static field.  |  |
 | `name` | ```String``` |  The name of the static field.  |  |

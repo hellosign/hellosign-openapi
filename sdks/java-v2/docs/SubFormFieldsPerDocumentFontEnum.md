@@ -25,17 +25,17 @@
 
 * `ROBOTO` (value: `"roboto"`)
 
-* `ROBOTOMONO` (value: `"robotoMono"`)
+* `ROBOTO_MONO` (value: `"robotoMono"`)
 
-* `NOTOSANS` (value: `"notoSans"`)
+* `NOTO_SANS` (value: `"notoSans"`)
 
-* `NOTOSERIF` (value: `"notoSerif"`)
+* `NOTO_SERIF` (value: `"notoSerif"`)
 
-* `NOTOCJK_JP_REGULAR` (value: `"notoCJK-JP-Regular"`)
+* `NOTO_CJK_JP_REGULAR` (value: `"notoCJK-JP-Regular"`)
 
-* `NOTOHEBREW_REGULAR` (value: `"notoHebrew-Regular"`)
+* `NOTO_HEBREW_REGULAR` (value: `"notoHebrew-Regular"`)
 
-* `NOTOSANTHAIMERGED` (value: `"notoSanThaiMerged"`)
+* `NOTO_SAN_THAI_MERGED` (value: `"notoSanThaiMerged"`)
 
 
 

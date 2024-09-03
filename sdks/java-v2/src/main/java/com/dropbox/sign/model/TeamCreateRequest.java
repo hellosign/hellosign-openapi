@@ -22,12 +22,10 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.dropbox.sign.JSON;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.dropbox.sign.JSON;
 
 
 import com.dropbox.sign.ApiException;
@@ -37,8 +35,8 @@ import com.dropbox.sign.ApiException;
 @JsonPropertyOrder({
   TeamCreateRequest.JSON_PROPERTY_NAME
 })
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TeamCreateRequest {
   public static final String JSON_PROPERTY_NAME = "name";
   private String name = "Untitled Team";
@@ -66,12 +64,11 @@ public class TeamCreateRequest {
     return this;
   }
 
-   /**
+  /**
    * The name of your Team.
    * @return name
-  **/
+   */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The name of your Team.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

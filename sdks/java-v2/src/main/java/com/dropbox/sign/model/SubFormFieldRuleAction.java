@@ -22,12 +22,10 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.dropbox.sign.JSON;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.dropbox.sign.JSON;
 
 
 import com.dropbox.sign.ApiException;
@@ -40,8 +38,8 @@ import com.dropbox.sign.ApiException;
   SubFormFieldRuleAction.JSON_PROPERTY_FIELD_ID,
   SubFormFieldRuleAction.JSON_PROPERTY_GROUP_ID
 })
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SubFormFieldRuleAction {
   public static final String JSON_PROPERTY_HIDDEN = "hidden";
   private Boolean hidden;
@@ -113,12 +111,11 @@ public class SubFormFieldRuleAction {
     return this;
   }
 
-   /**
+  /**
    * &#x60;true&#x60; to hide the target field when rule is satisfied, otherwise &#x60;false&#x60;.
    * @return hidden
-  **/
+   */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "`true` to hide the target field when rule is satisfied, otherwise `false`.")
   @JsonProperty(JSON_PROPERTY_HIDDEN)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -139,12 +136,11 @@ public class SubFormFieldRuleAction {
     return this;
   }
 
-   /**
+  /**
    * Get type
    * @return type
-  **/
+   */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -165,12 +161,11 @@ public class SubFormFieldRuleAction {
     return this;
   }
 
-   /**
+  /**
    * **field_id** or **group_id** is required, but not both.  Must reference the &#x60;api_id&#x60; of an existing field defined within &#x60;form_fields_per_document&#x60;.  Cannot use with &#x60;group_id&#x60;. Trigger and action fields must belong to the same signer.
    * @return fieldId
-  **/
+   */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "**field_id** or **group_id** is required, but not both.  Must reference the `api_id` of an existing field defined within `form_fields_per_document`.  Cannot use with `group_id`. Trigger and action fields must belong to the same signer.")
   @JsonProperty(JSON_PROPERTY_FIELD_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -191,12 +186,11 @@ public class SubFormFieldRuleAction {
     return this;
   }
 
-   /**
+  /**
    * **group_id** or **field_id** is required, but not both.  Must reference the ID of an existing group defined within &#x60;form_field_groups&#x60;.  Cannot use with &#x60;field_id&#x60;. Trigger and action fields and groups must belong to the same signer.
    * @return groupId
-  **/
+   */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "**group_id** or **field_id** is required, but not both.  Must reference the ID of an existing group defined within `form_field_groups`.  Cannot use with `field_id`. Trigger and action fields and groups must belong to the same signer.")
   @JsonProperty(JSON_PROPERTY_GROUP_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

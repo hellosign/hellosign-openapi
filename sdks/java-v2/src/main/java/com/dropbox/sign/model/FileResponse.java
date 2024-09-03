@@ -22,12 +22,10 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.dropbox.sign.JSON;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.dropbox.sign.JSON;
 
 
 import com.dropbox.sign.ApiException;
@@ -38,8 +36,8 @@ import com.dropbox.sign.ApiException;
   FileResponse.JSON_PROPERTY_FILE_URL,
   FileResponse.JSON_PROPERTY_EXPIRES_AT
 })
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class FileResponse {
   public static final String JSON_PROPERTY_FILE_URL = "file_url";
   private String fileUrl;
@@ -70,12 +68,11 @@ public class FileResponse {
     return this;
   }
 
-   /**
+  /**
    * URL to the file.
    * @return fileUrl
-  **/
+   */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "URL to the file.")
   @JsonProperty(JSON_PROPERTY_FILE_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -96,12 +93,11 @@ public class FileResponse {
     return this;
   }
 
-   /**
+  /**
    * When the link expires.
    * @return expiresAt
-  **/
+   */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "When the link expires.")
   @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

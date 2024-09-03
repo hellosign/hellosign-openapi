@@ -25,19 +25,16 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.dropbox.sign.JSON;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.dropbox.sign.JSON;
 
 
 import com.dropbox.sign.ApiException;
 /**
  * An array of Custom Field objects containing the name and type of each custom field.  * Text Field uses &#x60;SignatureRequestResponseCustomFieldText&#x60; * Checkbox Field uses &#x60;SignatureRequestResponseCustomFieldCheckbox&#x60;
  */
-@ApiModel(description = "An array of Custom Field objects containing the name and type of each custom field.  * Text Field uses `SignatureRequestResponseCustomFieldText` * Checkbox Field uses `SignatureRequestResponseCustomFieldCheckbox`")
 @JsonPropertyOrder({
   SignatureRequestResponseCustomFieldBase.JSON_PROPERTY_TYPE,
   SignatureRequestResponseCustomFieldBase.JSON_PROPERTY_NAME,
@@ -45,8 +42,11 @@ import com.dropbox.sign.ApiException;
   SignatureRequestResponseCustomFieldBase.JSON_PROPERTY_API_ID,
   SignatureRequestResponseCustomFieldBase.JSON_PROPERTY_EDITOR
 })
-@JsonIgnoreProperties(ignoreUnknown=true)
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
+@JsonIgnoreProperties(
+  allowSetters = true, // allows the type to be set during deserialization
+  ignoreUnknown = true
+)
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.EXISTING_PROPERTY, property = "type", visible = true)
 @JsonSubTypes({
   @JsonSubTypes.Type(value = SignatureRequestResponseCustomFieldCheckbox.class, name = "checkbox"),
@@ -92,12 +92,11 @@ public class SignatureRequestResponseCustomFieldBase {
     return this;
   }
 
-   /**
+  /**
    * The type of this Custom Field. Only &#39;text&#39; and &#39;checkbox&#39; are currently supported.
    * @return type
-  **/
+   */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The type of this Custom Field. Only 'text' and 'checkbox' are currently supported.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -118,12 +117,11 @@ public class SignatureRequestResponseCustomFieldBase {
     return this;
   }
 
-   /**
+  /**
    * The name of the Custom Field.
    * @return name
-  **/
+   */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The name of the Custom Field.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -144,12 +142,11 @@ public class SignatureRequestResponseCustomFieldBase {
     return this;
   }
 
-   /**
+  /**
    * A boolean value denoting if this field is required.
    * @return required
-  **/
+   */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "A boolean value denoting if this field is required.")
   @JsonProperty(JSON_PROPERTY_REQUIRED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -170,12 +167,11 @@ public class SignatureRequestResponseCustomFieldBase {
     return this;
   }
 
-   /**
+  /**
    * The unique ID for this field.
    * @return apiId
-  **/
+   */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The unique ID for this field.")
   @JsonProperty(JSON_PROPERTY_API_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -196,12 +192,11 @@ public class SignatureRequestResponseCustomFieldBase {
     return this;
   }
 
-   /**
+  /**
    * The name of the Role that is able to edit this field.
    * @return editor
-  **/
+   */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The name of the Role that is able to edit this field.")
   @JsonProperty(JSON_PROPERTY_EDITOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

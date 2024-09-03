@@ -22,12 +22,10 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.dropbox.sign.JSON;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.dropbox.sign.JSON;
 
 
 import com.dropbox.sign.ApiException;
@@ -40,8 +38,8 @@ import com.dropbox.sign.ApiException;
   FaxLineCreateRequest.JSON_PROPERTY_CITY,
   FaxLineCreateRequest.JSON_PROPERTY_ACCOUNT_ID
 })
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class FaxLineCreateRequest {
   public static final String JSON_PROPERTY_AREA_CODE = "area_code";
   private Integer areaCode;
@@ -115,12 +113,11 @@ public class FaxLineCreateRequest {
     return this;
   }
 
-   /**
+  /**
    * Area code
    * @return areaCode
-  **/
+   */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Area code")
   @JsonProperty(JSON_PROPERTY_AREA_CODE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -141,12 +138,11 @@ public class FaxLineCreateRequest {
     return this;
   }
 
-   /**
+  /**
    * Country
    * @return country
-  **/
+   */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Country")
   @JsonProperty(JSON_PROPERTY_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -167,12 +163,11 @@ public class FaxLineCreateRequest {
     return this;
   }
 
-   /**
+  /**
    * City
    * @return city
-  **/
+   */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "City")
   @JsonProperty(JSON_PROPERTY_CITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -193,12 +188,11 @@ public class FaxLineCreateRequest {
     return this;
   }
 
-   /**
+  /**
    * Account ID
    * @return accountId
-  **/
+   */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "ab55cd14a97219e36b5ff5fe23f2f9329b0c1e97", value = "Account ID")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

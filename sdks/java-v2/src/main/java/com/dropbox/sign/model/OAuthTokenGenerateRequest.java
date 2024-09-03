@@ -22,12 +22,10 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.dropbox.sign.JSON;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.dropbox.sign.JSON;
 
 
 import com.dropbox.sign.ApiException;
@@ -41,8 +39,8 @@ import com.dropbox.sign.ApiException;
   OAuthTokenGenerateRequest.JSON_PROPERTY_GRANT_TYPE,
   OAuthTokenGenerateRequest.JSON_PROPERTY_STATE
 })
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class OAuthTokenGenerateRequest {
   public static final String JSON_PROPERTY_CLIENT_ID = "client_id";
   private String clientId;
@@ -82,12 +80,11 @@ public class OAuthTokenGenerateRequest {
     return this;
   }
 
-   /**
+  /**
    * The client id of the app requesting authorization.
    * @return clientId
-  **/
+   */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The client id of the app requesting authorization.")
   @JsonProperty(JSON_PROPERTY_CLIENT_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -108,12 +105,11 @@ public class OAuthTokenGenerateRequest {
     return this;
   }
 
-   /**
+  /**
    * The secret token of your app.
    * @return clientSecret
-  **/
+   */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The secret token of your app.")
   @JsonProperty(JSON_PROPERTY_CLIENT_SECRET)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -134,12 +130,11 @@ public class OAuthTokenGenerateRequest {
     return this;
   }
 
-   /**
+  /**
    * The code passed to your callback when the user granted access.
    * @return code
-  **/
+   */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The code passed to your callback when the user granted access.")
   @JsonProperty(JSON_PROPERTY_CODE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -160,12 +155,11 @@ public class OAuthTokenGenerateRequest {
     return this;
   }
 
-   /**
+  /**
    * When generating a new token use &#x60;authorization_code&#x60;.
    * @return grantType
-  **/
+   */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "When generating a new token use `authorization_code`.")
   @JsonProperty(JSON_PROPERTY_GRANT_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -186,12 +180,11 @@ public class OAuthTokenGenerateRequest {
     return this;
   }
 
-   /**
+  /**
    * Same as the state you specified earlier.
    * @return state
-  **/
+   */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Same as the state you specified earlier.")
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
