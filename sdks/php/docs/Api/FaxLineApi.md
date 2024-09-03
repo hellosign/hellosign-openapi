@@ -18,7 +18,6 @@ All URIs are relative to https://api.hellosign.com/v3.
 ```php
 faxLineAddUser($fax_line_add_user_request): \Dropbox\Sign\Model\FaxLineResponse
 ```
-
 Add Fax Line User
 
 Grants a user access to the specified Fax Line.
@@ -80,7 +79,6 @@ try {
 ```php
 faxLineAreaCodeGet($country, $state, $province, $city): \Dropbox\Sign\Model\FaxLineAreaCodeGetResponse
 ```
-
 Get Available Fax Line Area Codes
 
 Returns a response with the area codes available for a given state/provice and city.
@@ -141,7 +139,6 @@ try {
 ```php
 faxLineCreate($fax_line_create_request): \Dropbox\Sign\Model\FaxLineResponse
 ```
-
 Purchase Fax Line
 
 Purchases a new Fax Line.
@@ -203,7 +200,6 @@ try {
 ```php
 faxLineDelete($fax_line_delete_request)
 ```
-
 Delete Fax Line
 
 Deletes the specified Fax Line from the subscription.
@@ -263,7 +259,6 @@ void (empty response body)
 ```php
 faxLineGet($number): \Dropbox\Sign\Model\FaxLineResponse
 ```
-
 Get Fax Line
 
 Returns the properties and settings of a Fax Line.
@@ -321,7 +316,6 @@ try {
 ```php
 faxLineList($account_id, $page, $page_size, $show_team_lines): \Dropbox\Sign\Model\FaxLineListResponse
 ```
-
 List Fax Lines
 
 Returns the properties and settings of multiple Fax Lines.
@@ -382,7 +376,6 @@ try {
 ```php
 faxLineRemoveUser($fax_line_remove_user_request): \Dropbox\Sign\Model\FaxLineResponse
 ```
-
 Remove Fax Line Access
 
 Removes a user's access to the specified Fax Line.

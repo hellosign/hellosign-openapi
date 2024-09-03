@@ -25,4 +25,6 @@ from {{packageName}}.exceptions import ApiException
 __import__('sys').setrecursionlimit({{{.}}})
 {{/recursionLimit}}
 
+{{#useCustomTemplateCode}}
 from dropbox_sign.event_callback_helper import EventCallbackHelper
+{{/useCustomTemplateCode}}

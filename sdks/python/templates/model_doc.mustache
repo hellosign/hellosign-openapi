@@ -1,14 +1,47 @@
 {{#models}}{{#model}}# {{classname}}
 
+{{^useCustomTemplateCode}}
+{{#description}}{{&description}}
+{{/description}}
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
 {{unescapedDescription}}
+{{/useCustomTemplateCode}}
 
 ## Properties
-
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+{{^useCustomTemplateCode}}
+{{#isEnum}}
+**value** | {{^arrayModelType}}**{{dataType}}**{{/arrayModelType}} | {{description}} | {{#defaultValue}}{{#hasRequired}} if omitted the server will use the default value of {{/hasRequired}}{{^hasRequired}}defaults to {{/hasRequired}}{{{.}}}{{/defaultValue}}{{#allowableValues}}{{#defaultValue}}, {{/defaultValue}} must be one of [{{#enumVars}}{{{value}}}, {{/enumVars}}]{{/allowableValues}}
+{{/isEnum}}
+{{#isAlias}}
+**value** | {{^arrayModelType}}**{{dataType}}**{{/arrayModelType}} | {{description}} | {{#defaultValue}}{{#hasRequired}} if omitted the server will use the default value of {{/hasRequired}}{{^hasRequired}}defaults to {{/hasRequired}}{{{.}}}{{/defaultValue}}
+{{/isAlias}}
+{{#isArray}}
+**value** | {{^arrayModelType}}**{{dataType}}**{{/arrayModelType}}{{#arrayModelType}}[**{{dataType}}**]({{arrayModelType}}.md){{/arrayModelType}} | {{description}} | {{#defaultValue}}{{#hasRequired}} if omitted the server will use the default value of {{/hasRequired}}{{^hasRequired}}defaults to {{/hasRequired}}{{{.}}}{{/defaultValue}}
+{{/isArray}}
+{{#requiredVars}}
+{{^defaultValue}}
+**{{name}}** | {{^complexType}}**{{dataType}}**{{/complexType}}{{#complexType}}[**{{dataType}}**]({{complexType}}.md){{/complexType}} | {{description}} | {{#isReadOnly}}[readonly] {{/isReadOnly}}
+{{/defaultValue}}
+{{/requiredVars}}
+{{#requiredVars}}
+{{#defaultValue}}
+**{{name}}** | {{^complexType}}**{{dataType}}**{{/complexType}}{{#complexType}}[**{{dataType}}**]({{complexType}}.md){{/complexType}} | {{description}} | {{^required}}[optional] {{/required}}{{#isReadOnly}}[readonly] {{/isReadOnly}}{{#defaultValue}}defaults to {{{.}}}{{/defaultValue}}
+{{/defaultValue}}
+{{/requiredVars}}
+{{#optionalVars}}
+**{{name}}** | {{^complexType}}**{{dataType}}**{{/complexType}}{{#complexType}}[**{{dataType}}**]({{complexType}}.md){{/complexType}} | {{description}} | [optional] {{#isReadOnly}}[readonly] {{/isReadOnly}}{{#defaultValue}} if omitted the server will use the default value of {{{.}}}{{/defaultValue}}
+{{/optionalVars}}
+{{#additionalProperties}}
+**any string name** | {{^complexType}}**{{dataType}}**{{/complexType}}{{#complexType}}[**{{dataType}}**]({{complexType}}.md){{/complexType}} | any string name can be used but the value must be the correct type | [optional]
+{{/additionalProperties}}
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
 {{#vars}}| `{{name}}`{{#required}}<sup>*_required_</sup>{{/required}} | {{#isPrimitiveType}}```{{{dataType}}}```{{/isPrimitiveType}}{{^isPrimitiveType}}[```{{{dataType}}}```]({{complexType}}.md){{/isPrimitiveType}} | REPLACE_ME_WITH_DESCRIPTION_BEGIN {{unescapedDescription}} REPLACE_ME_WITH_DESCRIPTION_END | {{#isReadOnly}} [readonly]{{/isReadOnly}}{{#defaultValue}} [default to {{{.}}}]{{/defaultValue}} |
 {{/vars}}
-
+{{/useCustomTemplateCode}}
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

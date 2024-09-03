@@ -329,8 +329,10 @@ class ApiClient(object):
         # fetch data from response object
         try:
             received_data = json.loads(response.data)
+{{#useCustomTemplateCode}}
         except TypeError:
             received_data = response.data
+{{/useCustomTemplateCode}}
         except ValueError:
             received_data = response.data
 
@@ -771,6 +773,10 @@ class Endpoint(object):
                 continue
             if param_location:
                 if param_location == 'body':
+{{^useCustomTemplateCode}}
+                    params['body'] = param_value
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
                     """We want to support a single typed object parameter for all endpoints,
                     including of multipart/form-data content-types.
                     """
@@ -809,6 +815,7 @@ class Endpoint(object):
                             params['form'].append(param_value_full)
                     else:
                         params['body'] = param_value
+{{/useCustomTemplateCode}}
                     continue
                 base_name = self.attribute_map[param_name]
                 if (param_location == 'form' and
@@ -891,6 +898,7 @@ class Endpoint(object):
 
         params = self.__gather_params(kwargs)
 
+{{#useCustomTemplateCode}}
         # Remove None values from query parameters
         query_to_keep = []
         for key, value in params['query']:
@@ -899,6 +907,7 @@ class Endpoint(object):
 
         params['query'] = query_to_keep
 
+{{/useCustomTemplateCode}}
         accept_headers_list = self.headers_map['accept']
         if accept_headers_list:
             params['header']['Accept'] = self.api_client.select_header_accept(
@@ -909,9 +918,14 @@ class Endpoint(object):
         else:
             content_type_headers_list = self.headers_map['content_type']
             if content_type_headers_list:
+{{^useCustomTemplateCode}}
+                if params['body'] != "":
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
                 if len(params['form']) > 0 or ('file' in params.keys() and len(params['file']) > 0):
                     params['header']['Content-Type'] = 'multipart/form-data'
                 elif params['body'] != "":
+{{/useCustomTemplateCode}}
                     header_list = self.api_client.select_header_content_type(
                         content_type_headers_list, self.settings['http_method'],
                         params['body'])

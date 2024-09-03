@@ -3,9 +3,8 @@
 
 
 ## Properties
-
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
 | `template_ids`<sup>*_required_</sup> | ```[str]``` |  Use `template_ids` to create a SignatureRequest from one or more templates, in the order in which the template will be used.  |  |
 | `client_id`<sup>*_required_</sup> | ```str``` |  Client id of the app you&#39;re using to create this embedded signature request. Used for security purposes.  |  |
 | `signers`<sup>*_required_</sup> | [```[SubSignatureRequestTemplateSigner]```](SubSignatureRequestTemplateSigner.md) |  Add Signers to your Templated-based Signature Request.  |  |
@@ -21,7 +20,6 @@
 | `test_mode` | ```bool``` |  Whether this is a test, the signature request will not be legally binding if set to `true`. Defaults to `false`.  |  [default to False] |
 | `title` | ```str``` |  The title you want to assign to the SignatureRequest.  |  |
 | `populate_auto_fill_fields` | ```bool``` |  Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer&#39;s information during signing.<br><br>**NOTE:** Keep your signer&#39;s information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.  |  [default to False] |
-
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

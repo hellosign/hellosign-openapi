@@ -3,30 +3,40 @@ dotnet/*
 !dotnet/hellosign_sandbox.csproj
 !dotnet/NuGet.Config
 !dotnet/Program.cs
+!dotnet/src/Dropbox.SignSandbox.Test
+!dotnet/test_fixtures
 
 java-v1/*
 !java-v1/pom.xml
 !java-v1/src
 java-v1/src/main/java/com/dropbox/sign_sandbox/*
 !java-v1/src/main/java/com/dropbox/sign_sandbox/Main.java
+!java-v1/test_fixtures
 
 java-v2/*
 !java-v2/pom.xml
 !java-v2/src
 java-v2/src/main/java/com/dropbox/sign_sandbox/*
 !java-v2/src/main/java/com/dropbox/sign_sandbox/Main.java
+!java-v2/test_fixtures
 
 node/*
 !node/Example.ts
 !node/package.json
+!node/tests
+!node/test_fixtures
 
 php/*
-!php/Example.php
 !php/composer.json
+!php/Example.php
+!php/test
+!php/test_fixtures
 
 python/*
 !python/Example.py
 !python/requirements.txt
+!python/tests
+!python/test_fixtures
 
 ruby/*
 !ruby/Example.rb

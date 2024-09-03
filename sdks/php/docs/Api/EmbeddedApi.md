@@ -13,7 +13,6 @@ All URIs are relative to https://api.hellosign.com/v3.
 ```php
 embeddedEditUrl($template_id, $embedded_edit_url_request): \Dropbox\Sign\Model\EmbeddedEditUrlResponse
 ```
-
 Get Embedded Template Edit URL
 
 Retrieves an embedded object containing a template url that can be opened in an iFrame. Note that only templates created via the embedded template process are available to be edited with this endpoint.
@@ -81,7 +80,6 @@ try {
 ```php
 embeddedSignUrl($signature_id): \Dropbox\Sign\Model\EmbeddedSignUrlResponse
 ```
-
 Get Embedded Sign URL
 
 Retrieves an embedded object containing a signature url that can be opened in an iFrame. Note that templates created via the embedded template process will only be accessible through the API.
