@@ -31,5 +31,5 @@ python/*
 ruby/*
 !ruby/Example.rb
 !ruby/Gemfile
-
-!**/pdf-sample.pdf
+!ruby/spec
+!ruby/test_fixtures

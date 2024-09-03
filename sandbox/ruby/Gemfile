@@ -2,3 +2,7 @@ source 'https://rubygems.org'
 
 gem 'dropbox-sign',
   path: "../../sdks/ruby"
+
+group :development, :test do
+  gem 'json_spec', '~> 1.1.5'
+end

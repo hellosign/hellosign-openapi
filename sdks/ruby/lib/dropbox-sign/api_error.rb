@@ -15,7 +15,10 @@ end
 
 module Dropbox::Sign
   class ApiError < StandardError
-    attr_reader :code, :response_headers, :response_body
+    attr_reader :code, :response_headers
+
+    # @return [ErrorResponse]
+    attr_accessor :response_body
 
     # Usage examples:
     #   ApiError.new
