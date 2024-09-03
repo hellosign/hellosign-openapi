@@ -489,7 +489,12 @@ conf = {{{packageName}}}.Configuration(
 {{/isApiKey}}
 {{#isBasic}}
   {{#isBasicBasic}}
+{{^useCustomTemplateCode}}
+        if self.username is not None and self.password is not None:
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
         if self.username is not None or self.password is not None:
+{{/useCustomTemplateCode}}
             auth['{{name}}'] = {
                 'type': 'basic',
                 'in': 'header',

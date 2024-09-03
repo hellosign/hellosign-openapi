@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# see https://github.com/OpenAPITools/openapi-generator/tree/ef882a4e6c6066007952de3bd7013f9940dc0de7/modules/openapi-generator/src/main/resources/php
+# see https://github.com/OpenAPITools/openapi-generator/tree/v7.8.0/modules/openapi-generator/src/main/resources/php
 
 set -e
 
@@ -10,7 +10,7 @@ WORKING_DIR="/app/php"
 docker run --rm \
   -v "${DIR}/:/local" \
   -v "${DIR}/openapi-sdk.yaml:/local/openapi-sdk.yaml" \
-  openapitools/openapi-generator-cli:v5.3.0 generate \
+  openapitools/openapi-generator-cli:v7.8.0 generate \
     -i "/local/openapi-sdk.yaml" \
     -c "/local/openapi-config.yaml" \
     -t "/local/templates" \
@@ -22,10 +22,10 @@ bash "${DIR}/bin/php" composer install
 printf "\n"
 
 printf "Adding examples to Docs ...\n"
-bash "${DIR}/bin/php" ./bin/generate-examples.php
+bash "${DIR}/bin/php-8" ./bin/generate-examples.php
 
 printf "Running php-cs-fixer ...\n"
-bash "${DIR}/bin/php" ./vendor/bin/php-cs-fixer fix --verbose
+bash "${DIR}/bin/php-8" ./vendor/bin/php-cs-fixer fix --verbose
 
 printf "Replacing strings ...\n"
 docker run --rm \

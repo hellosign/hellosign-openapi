@@ -2,8 +2,8 @@
 
 All URIs are relative to *https://api.hellosign.com/v3*
 
-|Method | HTTP request | Description|
-|------------- | ------------- | -------------|
+Method | HTTP request | Description
+------------- | ------------- | -------------
 |[```bulk_send_job_get```](BulkSendJobApi.md#bulk_send_job_get) | ```GET /bulk_send_job/{bulk_send_job_id}``` | Get Bulk Send Job|
 |[```bulk_send_job_list```](BulkSendJobApi.md#bulk_send_job_list) | ```GET /bulk_send_job/list``` | List Bulk Send Jobs|
 
@@ -49,7 +49,6 @@ with ApiClient(configuration) as api_client:
 
 
 ### Parameters
-
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `bulk_send_job_id` | **str** | The id of the BulkSendJob to retrieve. |  |
@@ -124,7 +123,6 @@ with ApiClient(configuration) as api_client:
 
 
 ### Parameters
-
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `page` | **int** | Which page number of the BulkSendJob List to return. Defaults to `1`. | [optional][default to 1] |

@@ -3,9 +3,8 @@
 Contains information about an API App.
 
 ## Properties
-
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
 | `callback_url` | ```str, none_type``` |  The app&#39;s callback URL (for events)  |  |
 | `client_id` | ```str``` |  The app&#39;s client id  |  |
 | `created_at` | ```int``` |  The time that the app was created  |  |
@@ -16,7 +15,6 @@ Contains information about an API App.
 | `options` | [```ApiAppResponseOptions```](ApiAppResponseOptions.md) |    |  |
 | `owner_account` | [```ApiAppResponseOwnerAccount```](ApiAppResponseOwnerAccount.md) |    |  |
 | `white_labeling_options` | [```ApiAppResponseWhiteLabelingOptions```](ApiAppResponseWhiteLabelingOptions.md) |    |  |
-
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
