@@ -26,20 +26,20 @@ class SignatureRequestTest extends TestCase
     {
         parent::setUp();
 
-        $env = parse_ini_file(__DIR__ . '/.env');
-        $env_dist = parse_ini_file(__DIR__ . '/.env.dist');
-        $env_merged = array_merge($env_dist, $env);
+        $config_custom = json_decode(file_get_contents(__DIR__ . '/.config.json'), true);
+        $config_dist = json_decode(file_get_contents(__DIR__ . '/.config.dist.json'), true);
+        $config = array_merge($config_dist, $config_custom);
 
-        $this->client_id = $env_merged['CLIENT_ID'];
+        $this->client_id = $config['CLIENT_ID'];
 
         $this->config = new Sign\Configuration();
-        $this->config->setUsername($env_merged['API_KEY']);
-        $this->config->setHost($env_merged['BASE_URL']);
+        $this->config->setUsername($config['API_KEY']);
+        $this->config->setHost($config['BASE_URL']);
 
-        if ($env_merged['USE_XDEBUG']) {
+        if ($config['USE_XDEBUG']) {
             $cookies = CookieJar::fromArray(
                 ['XDEBUG_SESSION' => 'xdebug'],
-                parse_url($env_merged['BASE_URL'], PHP_URL_HOST),
+                parse_url($config['BASE_URL'], PHP_URL_HOST),
             );
 
             $this->config->setOptions(['cookies' => $cookies]);
