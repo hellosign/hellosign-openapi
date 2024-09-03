@@ -103,9 +103,22 @@ public class EmbeddedApi {
     String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType("application/json");
     String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
     GenericType<EmbeddedEditUrlResponse> localVarReturnType = new GenericType<EmbeddedEditUrlResponse>() {};
-    return apiClient.invokeAPI("EmbeddedApi.embeddedEditUrl", localVarPath, "POST", new ArrayList<>(), embeddedEditUrlRequest,
-                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+    return apiClient.invokeAPI(
+        "EmbeddedApi.embeddedEditUrl",
+        localVarPath,
+        "POST",
+        new ArrayList<>(),
+        isFileTypeFound ? null : embeddedEditUrlRequest,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false
+    );
+
   }
   /**
    * Get Embedded Sign URL
@@ -156,8 +169,21 @@ public class EmbeddedApi {
     String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
     GenericType<EmbeddedSignUrlResponse> localVarReturnType = new GenericType<EmbeddedSignUrlResponse>() {};
-    return apiClient.invokeAPI("EmbeddedApi.embeddedSignUrl", localVarPath, "GET", new ArrayList<>(), null,
-                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+    return apiClient.invokeAPI(
+        "EmbeddedApi.embeddedSignUrl",
+        localVarPath,
+        "GET",
+        new ArrayList<>(),
+        null,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false
+    );
+
   }
 }

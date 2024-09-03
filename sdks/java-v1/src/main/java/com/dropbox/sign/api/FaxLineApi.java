@@ -98,9 +98,22 @@ public class FaxLineApi {
     String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType("application/json");
     String[] localVarAuthNames = new String[] {"api_key"};
     GenericType<FaxLineResponse> localVarReturnType = new GenericType<FaxLineResponse>() {};
-    return apiClient.invokeAPI("FaxLineApi.faxLineAddUser", "/fax_line/add_user", "PUT", new ArrayList<>(), faxLineAddUserRequest,
-                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+    return apiClient.invokeAPI(
+        "FaxLineApi.faxLineAddUser",
+        "/fax_line/add_user",
+        "PUT",
+        new ArrayList<>(),
+        isFileTypeFound ? null : faxLineAddUserRequest,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false
+    );
+
   }
   /**
    * Get Available Fax Line Area Codes
@@ -222,9 +235,22 @@ public class FaxLineApi {
     String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key"};
     GenericType<FaxLineAreaCodeGetResponse> localVarReturnType = new GenericType<FaxLineAreaCodeGetResponse>() {};
-    return apiClient.invokeAPI("FaxLineApi.faxLineAreaCodeGet", "/fax_line/area_codes", "GET", localVarQueryParams, null,
-                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+    return apiClient.invokeAPI(
+        "FaxLineApi.faxLineAreaCodeGet",
+        "/fax_line/area_codes",
+        "GET",
+        localVarQueryParams,
+        null,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false
+    );
+
   }
   /**
    * Purchase Fax Line
@@ -271,9 +297,22 @@ public class FaxLineApi {
     String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType("application/json");
     String[] localVarAuthNames = new String[] {"api_key"};
     GenericType<FaxLineResponse> localVarReturnType = new GenericType<FaxLineResponse>() {};
-    return apiClient.invokeAPI("FaxLineApi.faxLineCreate", "/fax_line/create", "POST", new ArrayList<>(), faxLineCreateRequest,
-                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+    return apiClient.invokeAPI(
+        "FaxLineApi.faxLineCreate",
+        "/fax_line/create",
+        "POST",
+        new ArrayList<>(),
+        isFileTypeFound ? null : faxLineCreateRequest,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false
+    );
+
   }
   /**
    * Delete Fax Line
@@ -318,9 +357,22 @@ public class FaxLineApi {
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
     String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType("application/json");
     String[] localVarAuthNames = new String[] {"api_key"};
-    return apiClient.invokeAPI("FaxLineApi.faxLineDelete", "/fax_line", "DELETE", new ArrayList<>(), faxLineDeleteRequest,
-                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, null, false);
+    return apiClient.invokeAPI(
+        "FaxLineApi.faxLineDelete",
+        "/fax_line",
+        "DELETE",
+        new ArrayList<>(),
+        isFileTypeFound ? null : faxLineDeleteRequest,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        null,
+        false
+    );
+
   }
   /**
    * Get Fax Line
@@ -372,9 +424,22 @@ public class FaxLineApi {
     String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key"};
     GenericType<FaxLineResponse> localVarReturnType = new GenericType<FaxLineResponse>() {};
-    return apiClient.invokeAPI("FaxLineApi.faxLineGet", "/fax_line", "GET", localVarQueryParams, null,
-                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+    return apiClient.invokeAPI(
+        "FaxLineApi.faxLineGet",
+        "/fax_line",
+        "GET",
+        localVarQueryParams,
+        null,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false
+    );
+
   }
   /**
    * List Fax Lines
@@ -521,9 +586,22 @@ public class FaxLineApi {
     String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key"};
     GenericType<FaxLineListResponse> localVarReturnType = new GenericType<FaxLineListResponse>() {};
-    return apiClient.invokeAPI("FaxLineApi.faxLineList", "/fax_line/list", "GET", localVarQueryParams, null,
-                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+    return apiClient.invokeAPI(
+        "FaxLineApi.faxLineList",
+        "/fax_line/list",
+        "GET",
+        localVarQueryParams,
+        null,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false
+    );
+
   }
   /**
    * Remove Fax Line Access
@@ -570,8 +648,21 @@ public class FaxLineApi {
     String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType("application/json");
     String[] localVarAuthNames = new String[] {"api_key"};
     GenericType<FaxLineResponse> localVarReturnType = new GenericType<FaxLineResponse>() {};
-    return apiClient.invokeAPI("FaxLineApi.faxLineRemoveUser", "/fax_line/remove_user", "PUT", new ArrayList<>(), faxLineRemoveUserRequest,
-                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+    return apiClient.invokeAPI(
+        "FaxLineApi.faxLineRemoveUser",
+        "/fax_line/remove_user",
+        "PUT",
+        new ArrayList<>(),
+        isFileTypeFound ? null : faxLineRemoveUserRequest,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false
+    );
+
   }
 }

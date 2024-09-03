@@ -126,9 +126,22 @@ public class TeamApi {
     String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType("application/json");
     String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
     GenericType<TeamGetResponse> localVarReturnType = new GenericType<TeamGetResponse>() {};
-    return apiClient.invokeAPI("TeamApi.teamAddMember", "/team/add_member", "PUT", localVarQueryParams, teamAddMemberRequest,
-                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+    return apiClient.invokeAPI(
+        "TeamApi.teamAddMember",
+        "/team/add_member",
+        "PUT",
+        localVarQueryParams,
+        isFileTypeFound ? null : teamAddMemberRequest,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false
+    );
+
   }
   /**
    * Create Team
@@ -175,9 +188,22 @@ public class TeamApi {
     String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType("application/json");
     String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
     GenericType<TeamGetResponse> localVarReturnType = new GenericType<TeamGetResponse>() {};
-    return apiClient.invokeAPI("TeamApi.teamCreate", "/team/create", "POST", new ArrayList<>(), teamCreateRequest,
-                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+    return apiClient.invokeAPI(
+        "TeamApi.teamCreate",
+        "/team/create",
+        "POST",
+        new ArrayList<>(),
+        isFileTypeFound ? null : teamCreateRequest,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false
+    );
+
   }
   /**
    * Delete Team
@@ -215,9 +241,22 @@ public class TeamApi {
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
     String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
-    return apiClient.invokeAPI("TeamApi.teamDelete", "/team/destroy", "DELETE", new ArrayList<>(), null,
-                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, null, false);
+    return apiClient.invokeAPI(
+        "TeamApi.teamDelete",
+        "/team/destroy",
+        "DELETE",
+        new ArrayList<>(),
+        null,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        null,
+        false
+    );
+
   }
   /**
    * Get Team
@@ -257,9 +296,22 @@ public class TeamApi {
     String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
     GenericType<TeamGetResponse> localVarReturnType = new GenericType<TeamGetResponse>() {};
-    return apiClient.invokeAPI("TeamApi.teamGet", "/team", "GET", new ArrayList<>(), null,
-                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+    return apiClient.invokeAPI(
+        "TeamApi.teamGet",
+        "/team",
+        "GET",
+        new ArrayList<>(),
+        null,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false
+    );
+
   }
   /**
    * Get Team Info
@@ -325,9 +377,22 @@ public class TeamApi {
     String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
     GenericType<TeamGetInfoResponse> localVarReturnType = new GenericType<TeamGetInfoResponse>() {};
-    return apiClient.invokeAPI("TeamApi.teamInfo", "/team/info", "GET", localVarQueryParams, null,
-                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+    return apiClient.invokeAPI(
+        "TeamApi.teamInfo",
+        "/team/info",
+        "GET",
+        localVarQueryParams,
+        null,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false
+    );
+
   }
   /**
    * List Team Invites
@@ -393,9 +458,22 @@ public class TeamApi {
     String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
     GenericType<TeamInvitesResponse> localVarReturnType = new GenericType<TeamInvitesResponse>() {};
-    return apiClient.invokeAPI("TeamApi.teamInvites", "/team/invites", "GET", localVarQueryParams, null,
-                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+    return apiClient.invokeAPI(
+        "TeamApi.teamInvites",
+        "/team/invites",
+        "GET",
+        localVarQueryParams,
+        null,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false
+    );
+
   }
   /**
    * List Team Members
@@ -501,9 +579,22 @@ public class TeamApi {
     String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
     GenericType<TeamMembersResponse> localVarReturnType = new GenericType<TeamMembersResponse>() {};
-    return apiClient.invokeAPI("TeamApi.teamMembers", localVarPath, "GET", localVarQueryParams, null,
-                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+    return apiClient.invokeAPI(
+        "TeamApi.teamMembers",
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        null,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false
+    );
+
   }
   /**
    * Remove User from Team
@@ -550,9 +641,22 @@ public class TeamApi {
     String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType("application/json");
     String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
     GenericType<TeamGetResponse> localVarReturnType = new GenericType<TeamGetResponse>() {};
-    return apiClient.invokeAPI("TeamApi.teamRemoveMember", "/team/remove_member", "POST", new ArrayList<>(), teamRemoveMemberRequest,
-                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+    return apiClient.invokeAPI(
+        "TeamApi.teamRemoveMember",
+        "/team/remove_member",
+        "POST",
+        new ArrayList<>(),
+        isFileTypeFound ? null : teamRemoveMemberRequest,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false
+    );
+
   }
   /**
    * List Sub Teams
@@ -658,9 +762,22 @@ public class TeamApi {
     String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
     GenericType<TeamSubTeamsResponse> localVarReturnType = new GenericType<TeamSubTeamsResponse>() {};
-    return apiClient.invokeAPI("TeamApi.teamSubTeams", localVarPath, "GET", localVarQueryParams, null,
-                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+    return apiClient.invokeAPI(
+        "TeamApi.teamSubTeams",
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        null,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false
+    );
+
   }
   /**
    * Update Team
@@ -707,8 +824,21 @@ public class TeamApi {
     String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType("application/json");
     String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
     GenericType<TeamGetResponse> localVarReturnType = new GenericType<TeamGetResponse>() {};
-    return apiClient.invokeAPI("TeamApi.teamUpdate", "/team", "PUT", new ArrayList<>(), teamUpdateRequest,
-                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+    return apiClient.invokeAPI(
+        "TeamApi.teamUpdate",
+        "/team",
+        "PUT",
+        new ArrayList<>(),
+        isFileTypeFound ? null : teamUpdateRequest,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false
+    );
+
   }
 }
