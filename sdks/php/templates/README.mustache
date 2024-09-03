@@ -8,6 +8,7 @@
 For more information, please visit [{{{infoUrl}}}]({{{infoUrl}}}).
 {{/infoUrl}}
 
+{{#useCustomTemplateCode}}
 ## Migrating from legacy SDK
 
 This SDK is generated from our officially maintained [OpenAPI spec](https://github.com/hellosign/hellosign-openapi/blob/main/openapi.yaml).
@@ -45,37 +46,97 @@ Run the following and everything is done for you:
 to the OAS file and/or the mustache template files _will be lost_ when you run
 this command.
 
+{{/useCustomTemplateCode}}
 ## Installation & Usage
 
 ### Requirements
 
+{{^useCustomTemplateCode}}
+PHP 7.4 and later.
+Should also work with PHP 8.0.
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
 PHP {{phpVersion}} and later.
+{{/useCustomTemplateCode}}
 
 ### Composer
 
 To install the bindings via [Composer](https://getcomposer.org/), add the following to `composer.json`:
 
 ```json
+{{^useCustomTemplateCode}}
+{
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://{{gitHost}}/{{gitUserId}}/{{gitRepoId}}.git"
+    }
+  ],
+  "require": {
+    "{{gitUserId}}/{{gitRepoId}}": "*@dev"
+  }
+}
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
 {
     "require": {
         "{{packageName}}": "{{packageVersion}}"
     },
     "minimum-stability": "dev"
 }
+{{/useCustomTemplateCode}}
 ```
 
-Then run `composer install`.
+Then run `composer install`
 
+{{^useCustomTemplateCode}}
+### Manual Installation
+
+Download the files and include `autoload.php`:
+
+```php
+<?php
+require_once('/path/to/{{packageName}}/vendor/autoload.php');
+```
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
 Alternatively, install directly with
 
 ```
 composer require {{packageName}}:{{packageVersion}}
 ```
+{{/useCustomTemplateCode}}
 
 ## Getting Started
 
 Please follow the [installation procedure](#installation--usage) and then run the following:
 
+{{^useCustomTemplateCode}}
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+{{#apiInfo}}{{#apis}}{{#-first}}{{#operations}}{{#operation}}{{#-first}}
+{{> php_doc_auth_partial}}
+$apiInstance = new {{invokerPackage}}\Api\{{classname}}(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(){{#hasAuthMethods}},
+    $config{{/hasAuthMethods}}
+);
+{{#allParams}}${{paramName}} = {{{example}}}; // {{{dataType}}}{{#description}} | {{{.}}}{{/description}}
+{{/allParams}}
+
+try {
+    {{#returnType}}$result = {{/returnType}}$apiInstance->{{{operationId}}}({{#allParams}}${{paramName}}{{^-last}}, {{/-last}}{{/allParams}});{{#returnType}}
+    print_r($result);{{/returnType}}
+} catch (Exception $e) {
+    echo 'Exception when calling {{classname}}->{{operationId}}: ', $e->getMessage(), PHP_EOL;
+}
+{{/-first}}{{/operation}}{{/operations}}{{/-first}}{{/apis}}{{/apiInfo}}
+```
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
 {{#apiInfo}}{{#apis}}{{#-first}}{{#operations}}{{#operation}}{{#-first}}
 ```php
 REPLACE_ME_WITH_EXAMPLE_FOR__{{{operationId}}}_PHP_CODE
@@ -120,26 +181,42 @@ try {
         . $e->getMessage() . PHP_EOL;
 }
 ```
+{{/useCustomTemplateCode}}
 
 ## API Endpoints
 
 All URIs are relative to *{{basePath}}*
 
+{{^useCustomTemplateCode}}
+Class | Method | HTTP request | Description
+------------ | ------------- | ------------- | -------------
+{{#apiInfo}}{{#apis}}{{#operations}}{{#operation}}*{{classname}}* | [**{{operationId}}**]({{apiDocPath}}/{{classname}}.md#{{operationIdLowerCase}}) | **{{httpMethod}}** {{path}} | {{summary}}
+{{/operation}}{{/operations}}{{/apis}}{{/apiInfo}}
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
 | Class      | Method        | HTTP request  | Description   |
 | ---------- | ------------- | ------------- | ------------- |
 {{#apiInfo}}{{#apis}}{{#operations}}{{#operation}}| *{{classname}}* | [**{{operationId}}**]({{apiDocPath}}/{{classname}}.md#{{operationIdLowerCase}}) | **{{httpMethod}}** {{path}} | {{summary}} |
 {{/operation}}{{/operations}}{{/apis}}{{/apiInfo}}
+
+{{/useCustomTemplateCode}}
 ## Models
 
 {{#models}}{{#model}}- [{{{classname}}}]({{modelDocPath}}/{{{classname}}}.md){{/model}}
 {{/models}}
 
 ## Authorization
-{{^authMethods}}
-All endpoints do not require authorization.
-{{/authMethods}}
+{{^useCustomTemplateCode}}
+{{^authMethods}}Endpoints do not require authorization.{{/authMethods}}
+{{#hasAuthMethods}}Authentication schemes defined for the API:{{/hasAuthMethods}}
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
+{{^authMethods}}All endpoints do not require authorization.{{/authMethods}}
+{{/useCustomTemplateCode}}
 {{#authMethods}}
+{{#useCustomTemplateCode}}
 {{#last}} Authentication schemes defined for the API:{{/last}}
+{{/useCustomTemplateCode}}
 ### {{{name}}}
 {{#isApiKey}}
 
@@ -157,6 +234,12 @@ All endpoints do not require authorization.
 
 - **Type**: Bearer authentication{{#bearerFormat}} ({{{.}}}){{/bearerFormat}}
 {{/isBasicBearer}}
+{{^useCustomTemplateCode}}
+{{#isHttpSignature}}
+
+- **Type**: HTTP signature authentication
+{{/isHttpSignature}}
+{{/useCustomTemplateCode}}
 {{/isBasic}}
 {{#isOAuth}}
 
@@ -194,4 +277,5 @@ This PHP package is automatically generated by the [OpenAPI Generator](https://o
 {{^hideGenerationTimestamp}}
     - Build date: `{{generatedDate}}`
 {{/hideGenerationTimestamp}}
+    - Generator version: `{{generatorVersion}}`
 - Build package: `{{generatorClass}}`

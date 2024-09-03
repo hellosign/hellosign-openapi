@@ -8,7 +8,12 @@
         Args:
 {{/-first}}
 {{^defaultValue}}
+{{^useCustomTemplateCode}}
+            {{name}} ({{{dataType}}}):{{#description}} {{{.}}}{{/description}}
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
             {{name}} ({{#vendorExtensions.x-int-or-string}}str|int{{/vendorExtensions.x-int-or-string}}{{^vendorExtensions.x-int-or-string}}{{{dataType}}}{{/vendorExtensions.x-int-or-string}}):{{#description}} {{{.}}}{{/description}}
+{{/useCustomTemplateCode}}
 {{/defaultValue}}
 {{#-last}}
 

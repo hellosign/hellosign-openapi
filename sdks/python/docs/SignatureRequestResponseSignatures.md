@@ -3,9 +3,8 @@
 An array of signature objects, 1 for each signer.
 
 ## Properties
-
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
 | `signature_id` | ```str``` |  Signature identifier.  |  |
 | `signer_group_guid` | ```str, none_type``` |  Signer Group GUID  |  |
 | `signer_email_address` | ```str``` |  The email address of the signer.  |  |
@@ -25,7 +24,6 @@ An array of signature objects, 1 for each signer.
 | `reassignment_reason` | ```str, none_type``` |  Reason provided by original signer who reassigned to this signer.  |  |
 | `reassigned_from` | ```str, none_type``` |  Previous signature identifier.  |  |
 | `error` | ```str, none_type``` |  Error message pertaining to this signer, or null.  |  |
-
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

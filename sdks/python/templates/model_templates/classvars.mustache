@@ -67,11 +67,13 @@
         This must be a method because a model may have properties that are
         of type self, this must run after the class is loaded
         """
+{{#useCustomTemplateCode}}
 {{#discriminator}}
 {{^imports}}
         lazy_import()
 {{/imports}}
 {{/discriminator}}
+{{/useCustomTemplateCode}}
 {{#imports}}
 {{#-first}}
         lazy_import()
@@ -95,11 +97,13 @@
             openapi_types (dict): The key is attribute name
                 and the value is attribute type.
         """
+{{#useCustomTemplateCode}}
 {{#discriminator}}
 {{^imports}}
         lazy_import()
 {{/imports}}
 {{/discriminator}}
+{{/useCustomTemplateCode}}
 {{#imports}}
 {{#-first}}
         lazy_import()
@@ -107,19 +111,44 @@
 {{/imports}}
         return {
 {{#isAlias}}
+{{^useCustomTemplateCode}}
+            'value': ({{{dataType}}},),
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
             'value': ({{#vendorExtensions.x-int-or-string}}int, str{{/vendorExtensions.x-int-or-string}}{{^vendorExtensions.x-int-or-string}}{{{dataType}}}{{/vendorExtensions.x-int-or-string}},),
+{{/useCustomTemplateCode}}
 {{/isAlias}}
 {{#isEnum}}
+{{^useCustomTemplateCode}}
+            'value': ({{{dataType}}},),
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
             'value': ({{#vendorExtensions.x-int-or-string}}int, str{{/vendorExtensions.x-int-or-string}}{{^vendorExtensions.x-int-or-string}}{{{dataType}}}{{/vendorExtensions.x-int-or-string}},),
+{{/useCustomTemplateCode}}
 {{/isEnum}}
 {{#isArray}}
+{{^useCustomTemplateCode}}
+            'value': ({{{dataType}}},),
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
             'value': ({{#vendorExtensions.x-int-or-string}}int, str{{/vendorExtensions.x-int-or-string}}{{^vendorExtensions.x-int-or-string}}{{{dataType}}}{{/vendorExtensions.x-int-or-string}},),
+{{/useCustomTemplateCode}}
 {{/isArray}}
 {{#requiredVars}}
+{{^useCustomTemplateCode}}
+            '{{name}}': ({{{dataType}}},),  # noqa: E501
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
             '{{name}}': ({{#vendorExtensions.x-int-or-string}}int, str{{/vendorExtensions.x-int-or-string}}{{^vendorExtensions.x-int-or-string}}{{{dataType}}}{{/vendorExtensions.x-int-or-string}},),  # noqa: E501
+{{/useCustomTemplateCode}}
 {{/requiredVars}}
 {{#optionalVars}}
+{{^useCustomTemplateCode}}
+            '{{name}}': ({{{dataType}}},),  # noqa: E501
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
             '{{name}}': ({{#vendorExtensions.x-int-or-string}}int, str{{/vendorExtensions.x-int-or-string}}{{^vendorExtensions.x-int-or-string}}{{{dataType}}}{{/vendorExtensions.x-int-or-string}},),  # noqa: E501
+{{/useCustomTemplateCode}}
 {{/optionalVars}}
         }
 
@@ -129,7 +158,20 @@
         return None
 {{/discriminator}}
 {{#discriminator}}
+{{^useCustomTemplateCode}}
+{{#mappedModels}}
+{{#-first}}
+{{#imports}}
+{{#-first}}
         lazy_import()
+{{/-first}}
+{{/imports}}
+{{/-first}}
+{{/mappedModels}}
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
+        lazy_import()
+{{/useCustomTemplateCode}}
         val = {
 {{#mappedModels}}
             '{{mappingName}}': {{{modelName}}},
@@ -138,6 +180,7 @@
         if not val:
             return None
         return {'{{{discriminatorName}}}': val}{{/discriminator}}
+{{#useCustomTemplateCode}}
 {{^discriminator}}
     @staticmethod
     def init(data: any) -> {{classname}}:
@@ -155,3 +198,4 @@
             _check_type=True,
         )
 {{/discriminator}}
+{{/useCustomTemplateCode}}

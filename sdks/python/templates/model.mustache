@@ -1,12 +1,15 @@
 {{> partial_header }}
 
+{{#useCustomTemplateCode}}
 from __future__ import annotations
 from typing import TYPE_CHECKING, Optional, List, Dict, Union
 import json  # noqa: F401
+{{/useCustomTemplateCode}}
 import re  # noqa: F401
 import sys  # noqa: F401
-
+{{#useCustomTemplateCode}}
 from {{packageName}} import ApiClient
+{{/useCustomTemplateCode}}
 from {{packageName}}.model_utils import (  # noqa: F401
     ApiTypeError,
     ModelComposed,
@@ -23,15 +26,18 @@ from {{packageName}}.model_utils import (  # noqa: F401
     OpenApiModel
 )
 from {{packageName}}.exceptions import ApiAttributeError
+{{#useCustomTemplateCode}}
 {{#imports}}
 {{#-first}}
 if TYPE_CHECKING:
 {{/-first}}
     {{{import}}}
 {{/imports}}
+{{/useCustomTemplateCode}}
 
 {{#models}}
 {{#model}}
+{{#useCustomTemplateCode}}
 {{#discriminator}}
 {{#-first}}
 if TYPE_CHECKING:
@@ -51,6 +57,7 @@ def lazy_import():
     globals()['{{modelName}}'] = {{modelName}}
 {{/discriminator.mappedModels}}
 {{/discriminator}}
+{{/useCustomTemplateCode}}
 {{#imports}}
 {{#-first}}
 

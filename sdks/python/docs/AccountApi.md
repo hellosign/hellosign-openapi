@@ -2,8 +2,8 @@
 
 All URIs are relative to *https://api.hellosign.com/v3*
 
-|Method | HTTP request | Description|
-|------------- | ------------- | -------------|
+Method | HTTP request | Description
+------------- | ------------- | -------------
 |[```account_create```](AccountApi.md#account_create) | ```POST /account/create``` | Create Account|
 |[```account_get```](AccountApi.md#account_get) | ```GET /account``` | Get Account|
 |[```account_update```](AccountApi.md#account_update) | ```PUT /account``` | Update Account|
@@ -53,7 +53,6 @@ with ApiClient(configuration) as api_client:
 
 
 ### Parameters
-
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `account_create_request` | [**AccountCreateRequest**](AccountCreateRequest.md) |  |  |
@@ -120,7 +119,6 @@ with ApiClient(configuration) as api_client:
 
 
 ### Parameters
-
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `account_id` | **str** | `account_id` or `email_address` is required. If both are provided, the account id prevails.  The ID of the Account. | [optional] |
@@ -192,7 +190,6 @@ with ApiClient(configuration) as api_client:
 
 
 ### Parameters
-
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `account_update_request` | [**AccountUpdateRequest**](AccountUpdateRequest.md) |  |  |
@@ -263,7 +260,6 @@ with ApiClient(configuration) as api_client:
 
 
 ### Parameters
-
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `account_verify_request` | [**AccountVerifyRequest**](AccountVerifyRequest.md) |  |  |

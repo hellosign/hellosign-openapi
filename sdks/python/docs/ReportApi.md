@@ -2,8 +2,8 @@
 
 All URIs are relative to *https://api.hellosign.com/v3*
 
-|Method | HTTP request | Description|
-|------------- | ------------- | -------------|
+Method | HTTP request | Description
+------------- | ------------- | -------------
 |[```report_create```](ReportApi.md#report_create) | ```POST /report/create``` | Create Report|
 
 
@@ -51,7 +51,6 @@ with ApiClient(configuration) as api_client:
 
 
 ### Parameters
-
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `report_create_request` | [**ReportCreateRequest**](ReportCreateRequest.md) |  |  |

@@ -1,10 +1,17 @@
 {{>partial_header}}
 
+{{#useCustomTemplateCode}}
 from __future__ import annotations
+{{/useCustomTemplateCode}}
 import re  # noqa: F401
 import sys  # noqa: F401
 
+{{^useCustomTemplateCode}}
+from {{packageName}}.api_client import ApiClient, Endpoint as _Endpoint
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
 from {{packageName}}.api_client import ApiClient, ApiException, Endpoint as _Endpoint
+{{/useCustomTemplateCode}}
 from {{packageName}}.model_utils import (  # noqa: F401
     check_allowed_values,
     check_validations,
@@ -226,7 +233,12 @@ class {{classname}}(object):
 {{/defaultValue}}
 {{/requiredParams}}
         **kwargs
+{{^useCustomTemplateCode}}
+    ):
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
     ) -> {{#returnType}}{{.}}{{/returnType}}{{^returnType}}None{{/returnType}}:
+{{/useCustomTemplateCode}}
         """{{{summary}}}{{^summary}}{{operationId}}{{/summary}}  # noqa: E501
 
 {{#notes}}
@@ -316,6 +328,10 @@ class {{classname}}(object):
         kwargs['{{paramName}}'] = \
             {{paramName}}
 {{/requiredParams}}
+{{^useCustomTemplateCode}}
+        return self.{{operationId}}_endpoint.call_with_http_info(**kwargs)
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
         {{^returnType}}
         return self.{{operationId}}_endpoint.call_with_http_info(**kwargs)
         {{/returnType}}
@@ -371,6 +387,7 @@ class {{classname}}(object):
             {{/dataType}}
             {{/responses}}
         {{/returnType}}
+{{/useCustomTemplateCode}}
 
 {{/operation}}
 {{/operations}}

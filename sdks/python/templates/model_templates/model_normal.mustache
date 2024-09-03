@@ -14,6 +14,7 @@ class {{classname}}(ModelNormal):
     """
 
 {{> model_templates/classvars }}
+
     attribute_map = {
 {{#requiredVars}}
         '{{name}}': '{{baseName}}',  # noqa: E501
@@ -37,6 +38,7 @@ class {{classname}}(ModelNormal):
     }
 
     _composed_schemas = {}
+{{#useCustomTemplateCode}}
     {{#requiredVars}}
 
     @property
@@ -59,6 +61,7 @@ class {{classname}}(ModelNormal):
     def {{name}}(self, value: {{{dataType}}}):
         setattr(self, "{{name}}", value)
     {{/optionalVars}}
+{{/useCustomTemplateCode}}
 
 {{> model_templates/method_from_openapi_data_normal}}
 

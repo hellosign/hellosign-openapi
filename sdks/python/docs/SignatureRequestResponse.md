@@ -3,9 +3,8 @@
 Contains information about a signature request.
 
 ## Properties
-
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
 | `test_mode` | ```bool, none_type``` |  Whether this is a test signature request. Test requests have no legal value. Defaults to `false`.  |  [default to False] |
 | `signature_request_id` | ```str``` |  The id of the SignatureRequest.  |  |
 | `requester_email_address` | ```str``` |  The email address of the initiator of the SignatureRequest.  |  |
@@ -31,7 +30,6 @@ Contains information about a signature request.
 | `response_data` | [```[SignatureRequestResponseDataBase], none_type```](SignatureRequestResponseDataBase.md) |  An array of form field objects containing the name, value, and type of each textbox or checkmark field filled in by the signers.  |  |
 | `signatures` | [```[SignatureRequestResponseSignatures]```](SignatureRequestResponseSignatures.md) |  An array of signature objects, 1 for each signer.  |  |
 | `bulk_send_job_id` | ```str, none_type``` |  The ID of the Bulk Send job which sent the signature request, if applicable.  |  |
-
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

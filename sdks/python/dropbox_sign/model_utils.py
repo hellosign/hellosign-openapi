@@ -1107,7 +1107,6 @@ def remove_uncoercible(required_types_classes, current_item, spec_property_namin
         # leave ints as-is
         if type(current_item) is int and required_type_class_simplified == current_type_simple:
             results_classes.append(int)
-
         if required_type_class_simplified == current_type_simple:
             # don't consider converting to one's own class
             continue
@@ -1117,7 +1116,6 @@ def remove_uncoercible(required_types_classes, current_item, spec_property_namin
             results_classes.append(required_type_class)
         elif class_pair in UPCONVERSION_TYPE_PAIRS:
             results_classes.append(required_type_class)
-
         # allow casting int to string
         if type(current_item) is int:
             results_classes.append(str)
@@ -1451,7 +1449,6 @@ def attempt_convert_item(input_value, valid_classes, path_to_item,
     if not valid_classes_coercible or key_type:
         if input_value is None:
             return input_value
-
         # we do not handle keytype errors, json will take care
         # of this for us
         if configuration is None or not configuration.discard_unknown_keys:
@@ -1699,7 +1696,6 @@ def model_to_dict(model_instance, serialize=True):
                 del result[python_key]
 
     return result
-
 
 def model_to_dict_recursive(value, serialize, extract_item):
     if isinstance(value, list):
