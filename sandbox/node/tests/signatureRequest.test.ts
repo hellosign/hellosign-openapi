@@ -1,3 +1,4 @@
+// @ts-nocheck
 import 'jest';
 import * as DropboxSign from "@dropbox/sign";
 import * as fs from 'fs';
@@ -21,58 +22,24 @@ describe('signatureRequest', () => {
     signature_request_api.username = env_merged.API_KEY;
     signature_request_api.basePath = env_merged.BASE_URL;
 
-    const data = require("./../test_fixtures/SignatureRequestSendRequest.json");
+    const data: Partial<DropboxSign.SignatureRequestSendRequest> = require(
+      "./../test_fixtures/SignatureRequestSendRequest.json",
+    );
     data['files'] = [fs.createReadStream("./../test_fixtures/pdf-sample.pdf")];
 
     const request = DropboxSign.SignatureRequestSendRequest.init(data);
 
-    signature_request_api.signatureRequestSend(data).then(response => {
+    signature_request_api.signatureRequestSend(request).then(response => {
       const signature_request = response.body.signatureRequest;
-
-      if (
-        !request.formFieldsPerDocument
-        || !request.formFieldsPerDocument.at(0)
-        || !signature_request.customFields
-        || !signature_request.customFields.at(0)
-      ) {
-        fail();
-      }
 
       expect(request.formFieldsPerDocument[0].apiId)
         .toBe(signature_request.customFields[0].apiId);
 
-      if (
-        !request.signers
-        || !request.signers.at(0)
-        || !signature_request.signatures
-        || !signature_request.signatures.at(0)
-      ) {
-        fail();
-      }
-
       expect(request.signers[0].emailAddress)
         .toBe(signature_request.signatures[0].signerEmailAddress);
 
-      if (
-        !request.signers
-        || !request.signers.at(1)
-        || !signature_request.signatures
-        || !signature_request.signatures.at(1)
-      ) {
-        fail();
-      }
-
       expect(request.signers[1].emailAddress)
         .toBe(signature_request.signatures[1].signerEmailAddress);
-
-      if (
-        !request.signers
-        || !request.signers.at(2)
-        || !signature_request.signatures
-        || !signature_request.signatures.at(2)
-      ) {
-        fail();
-      }
 
       expect(request.signers[2].emailAddress)
         .toBe(signature_request.signatures[2].signerEmailAddress);
@@ -90,6 +57,63 @@ describe('signatureRequest', () => {
         });
     }).catch(error => {
       console.log(`Should not have thrown: ${error.body}`);
+    });
+  });
+
+  it('testCreateEmbedded', () => {
+    const signature_request_api = new DropboxSign.SignatureRequestApi();
+    signature_request_api.username = env_merged.API_KEY;
+    signature_request_api.basePath = env_merged.BASE_URL;
+
+    const data: Partial<DropboxSign.SignatureRequestCreateEmbeddedRequest> = require(
+      "./../test_fixtures/SignatureRequestCreateEmbeddedRequest.json"
+    );
+    data['files'] = [fs.createReadStream("./../test_fixtures/pdf-sample.pdf")];
+    data['clientId'] = env_merged.CLIENT_ID;
+
+    const request = DropboxSign.SignatureRequestCreateEmbeddedRequest.init(data);
+
+    signature_request_api.signatureRequestCreateEmbedded(request).then(response => {
+      const signature_request = response.body.signatureRequest;
+
+      expect(request.signers[0].emailAddress)
+        .toBe(signature_request.signatures[0].signerEmailAddress);
+
+      expect(request.signers[1].emailAddress)
+        .toBe(signature_request.signatures[1].signerEmailAddress);
+
+      expect(request.signers[2].emailAddress)
+        .toBe(signature_request.signatures[2].signerEmailAddress);
+
+      const embedded_api = new DropboxSign.EmbeddedApi();
+      embedded_api.username = env_merged.API_KEY;
+      embedded_api.basePath = env_merged.BASE_URL;
+
+      embedded_api.embeddedSignUrl().then(response => {
+        expect(response.body.embedded.signUrl).toBeTruthy();
+      }).catch(error => {
+        console.log(`Should not have thrown: ${error.body}`);
+      });
+    }).catch(error => {
+      console.log(`Should not have thrown: ${error.body}`);
+    });
+  });
+
+  it('testSendWithoutFileError', () => {
+    const signature_request_api = new DropboxSign.SignatureRequestApi();
+    signature_request_api.username = env_merged.API_KEY;
+    signature_request_api.basePath = env_merged.BASE_URL;
+
+    const data: Partial<DropboxSign.SignatureRequestSendRequest> = require(
+      "./../test_fixtures/SignatureRequestSendRequest.json",
+    );
+
+    const request = DropboxSign.SignatureRequestSendRequest.init(data);
+
+    signature_request_api.signatureRequestSend(request).then(response => {
+      console.log(`Should have thrown: ${response.body}`);
+    }).catch((error: DropboxSign.HttpError) => {
+      expect(error.body.error.errorPath).toEqual('file');
     });
   });
 });

@@ -1,8 +1,9 @@
+import { ErrorResponse } from "../model";
 export declare class HttpError extends Error {
     response: AxiosResponse;
-    body: any;
+    body: ErrorResponse;
     statusCode?: number | undefined;
-    constructor(response: AxiosResponse, body: any, statusCode?: number | undefined);
+    constructor(response: AxiosResponse, body: ErrorResponse, statusCode?: number | undefined);
 }
 export { RequestFile } from "../model";
 import { AxiosResponse } from "axios";

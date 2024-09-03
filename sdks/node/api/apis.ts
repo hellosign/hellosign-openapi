@@ -1,7 +1,9 @@
+import { ErrorResponse } from "../model";
+
 export class HttpError extends Error {
   constructor(
     public response: AxiosResponse,
-    public body: any,
+    public body: ErrorResponse,
     public statusCode?: number
   ) {
     super("HTTP request failed");
