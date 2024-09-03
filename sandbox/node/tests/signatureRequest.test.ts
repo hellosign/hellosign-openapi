@@ -4,7 +4,7 @@ import * as DropboxSign from "@dropbox/sign";
 import * as fs from 'fs';
 
 describe('signatureRequest', () => {
-  let env_merged: {
+  let config: {
     BASE_URL: string,
     API_KEY: string,
     CLIENT_ID: string,
@@ -12,15 +12,15 @@ describe('signatureRequest', () => {
   };
 
   beforeEach(() => {
-    const env = require("./.env.json");
-    const env_dist = require("./.env.dist.json");
-    env_merged = { ...env_dist, ...env };
+    const config_custom = require("./.config.json");
+    const config_dist = require("./.config.dist.json");
+    config = { ...config_dist, ...config_custom };
   });
 
   it('testSend', () => {
     const signature_request_api = new DropboxSign.SignatureRequestApi();
-    signature_request_api.username = env_merged.API_KEY;
-    signature_request_api.basePath = env_merged.BASE_URL;
+    signature_request_api.username = config.API_KEY;
+    signature_request_api.basePath = config.BASE_URL;
 
     const data: Partial<DropboxSign.SignatureRequestSendRequest> = require(
       "./../test_fixtures/SignatureRequestSendRequest.json",
@@ -62,14 +62,14 @@ describe('signatureRequest', () => {
 
   it('testCreateEmbedded', () => {
     const signature_request_api = new DropboxSign.SignatureRequestApi();
-    signature_request_api.username = env_merged.API_KEY;
-    signature_request_api.basePath = env_merged.BASE_URL;
+    signature_request_api.username = config.API_KEY;
+    signature_request_api.basePath = config.BASE_URL;
 
     const data: Partial<DropboxSign.SignatureRequestCreateEmbeddedRequest> = require(
       "./../test_fixtures/SignatureRequestCreateEmbeddedRequest.json"
     );
     data['files'] = [fs.createReadStream("./../test_fixtures/pdf-sample.pdf")];
-    data['clientId'] = env_merged.CLIENT_ID;
+    data['clientId'] = config.CLIENT_ID;
 
     const request = DropboxSign.SignatureRequestCreateEmbeddedRequest.init(data);
 
@@ -86,8 +86,8 @@ describe('signatureRequest', () => {
         .toBe(signature_request.signatures[2].signerEmailAddress);
 
       const embedded_api = new DropboxSign.EmbeddedApi();
-      embedded_api.username = env_merged.API_KEY;
-      embedded_api.basePath = env_merged.BASE_URL;
+      embedded_api.username = config.API_KEY;
+      embedded_api.basePath = config.BASE_URL;
 
       embedded_api.embeddedSignUrl().then(response => {
         expect(response.body.embedded.signUrl).toBeTruthy();
@@ -101,8 +101,8 @@ describe('signatureRequest', () => {
 
   it('testSendWithoutFileError', () => {
     const signature_request_api = new DropboxSign.SignatureRequestApi();
-    signature_request_api.username = env_merged.API_KEY;
-    signature_request_api.basePath = env_merged.BASE_URL;
+    signature_request_api.username = config.API_KEY;
+    signature_request_api.basePath = config.BASE_URL;
 
     const data: Partial<DropboxSign.SignatureRequestSendRequest> = require(
       "./../test_fixtures/SignatureRequestSendRequest.json",
