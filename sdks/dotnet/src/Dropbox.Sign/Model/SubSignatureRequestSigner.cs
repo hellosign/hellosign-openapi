@@ -31,7 +31,7 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "SubSignatureRequestSigner")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class SubSignatureRequestSigner : IOpenApiTyped, IEquatable<SubSignatureRequestSigner>, IValidatableObject
+    public partial class SubSignatureRequestSigner : IEquatable<SubSignatureRequestSigner>, IValidatableObject
     {
         /// <summary>
         /// Specifies the feature used with the &#x60;sms_phone_number&#x60;. Default &#x60;authentication&#x60;.  If &#x60;authentication&#x60;, signer is sent a verification code via SMS that is required to access the document.  If &#x60;delivery&#x60;, a link to complete the signature request is delivered via SMS (_and_ email).
@@ -51,7 +51,6 @@ namespace Dropbox.Sign.Model
             /// </summary>
             [EnumMember(Value = "delivery")]
             Delivery = 2
-
         }
 
 
@@ -118,35 +117,35 @@ namespace Dropbox.Sign.Model
         /// <value>The name of the signer.</value>
         [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
         public string Name { get; set; }
-
+        
         /// <summary>
         /// The email address of the signer.
         /// </summary>
         /// <value>The email address of the signer.</value>
         [DataMember(Name = "email_address", IsRequired = true, EmitDefaultValue = true)]
         public string EmailAddress { get; set; }
-
+        
         /// <summary>
         /// The order the signer is required to sign in.
         /// </summary>
         /// <value>The order the signer is required to sign in.</value>
         [DataMember(Name = "order", EmitDefaultValue = true)]
         public int? Order { get; set; }
-
+        
         /// <summary>
         /// The 4- to 12-character access code that will secure this signer&#39;s signature page.
         /// </summary>
         /// <value>The 4- to 12-character access code that will secure this signer&#39;s signature page.</value>
         [DataMember(Name = "pin", EmitDefaultValue = true)]
         public string Pin { get; set; }
-
+        
         /// <summary>
         /// An E.164 formatted phone number.  By using the feature, you agree you are responsible for obtaining a signer&#39;s consent to receive text messages from Dropbox Sign related to this signature request and confirm you have obtained such consent from all signers prior to enabling SMS delivery for this signature request. [Learn more](https://faq.hellosign.com/hc/en-us/articles/15815316468877-Dropbox-Sign-SMS-tools-add-on).  **NOTE:** Not available in test mode and requires a Standard plan or higher.
         /// </summary>
         /// <value>An E.164 formatted phone number.  By using the feature, you agree you are responsible for obtaining a signer&#39;s consent to receive text messages from Dropbox Sign related to this signature request and confirm you have obtained such consent from all signers prior to enabling SMS delivery for this signature request. [Learn more](https://faq.hellosign.com/hc/en-us/articles/15815316468877-Dropbox-Sign-SMS-tools-add-on).  **NOTE:** Not available in test mode and requires a Standard plan or higher.</value>
         [DataMember(Name = "sms_phone_number", EmitDefaultValue = true)]
         public string SmsPhoneNumber { get; set; }
-
+        
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -261,6 +260,27 @@ namespace Dropbox.Sign.Model
             }
         }
 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
+            // Pin (string) maxLength
+            if (this.Pin != null && this.Pin.Length > 12)
+            {
+                yield return new ValidationResult("Invalid value for Pin, length must be less than 12.", new [] { "Pin" });
+            }
+
+            // Pin (string) minLength
+            if (this.Pin != null && this.Pin.Length < 4)
+            {
+                yield return new ValidationResult("Invalid value for Pin, length must be greater than 4.", new [] { "Pin" });
+            }
+
+            yield break;
+        }
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
@@ -302,28 +322,6 @@ namespace Dropbox.Sign.Model
             });
 
             return types;
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
-        {
-            // Pin (string) maxLength
-            if (this.Pin != null && this.Pin.Length > 12)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Pin, length must be less than 12.", new [] { "Pin" });
-            }
-
-            // Pin (string) minLength
-            if (this.Pin != null && this.Pin.Length < 4)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Pin, length must be greater than 4.", new [] { "Pin" });
-            }
-
-            yield break;
         }
     }
 

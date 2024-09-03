@@ -10,9 +10,9 @@
 
 
 using System;
-using System.Collections.Generic;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
+using System.Collections.Generic;
 
 namespace Dropbox.Sign.Model
 {

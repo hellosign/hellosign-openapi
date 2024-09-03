@@ -31,7 +31,7 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "UnclaimedDraftCreateEmbeddedWithTemplateRequest")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class UnclaimedDraftCreateEmbeddedWithTemplateRequest : IOpenApiTyped, IEquatable<UnclaimedDraftCreateEmbeddedWithTemplateRequest>, IValidatableObject
+    public partial class UnclaimedDraftCreateEmbeddedWithTemplateRequest : IEquatable<UnclaimedDraftCreateEmbeddedWithTemplateRequest>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="UnclaimedDraftCreateEmbeddedWithTemplateRequest" /> class.
@@ -143,207 +143,207 @@ namespace Dropbox.Sign.Model
         /// <value>Client id of the app used to create the draft. Used to apply the branding and callback url defined for the app.</value>
         [DataMember(Name = "client_id", IsRequired = true, EmitDefaultValue = true)]
         public string ClientId { get; set; }
-
+        
         /// <summary>
         /// The email address of the user that should be designated as the requester of this draft.
         /// </summary>
         /// <value>The email address of the user that should be designated as the requester of this draft.</value>
         [DataMember(Name = "requester_email_address", IsRequired = true, EmitDefaultValue = true)]
         public string RequesterEmailAddress { get; set; }
-
+        
         /// <summary>
         /// Use &#x60;template_ids&#x60; to create a SignatureRequest from one or more templates, in the order in which the templates will be used.
         /// </summary>
         /// <value>Use &#x60;template_ids&#x60; to create a SignatureRequest from one or more templates, in the order in which the templates will be used.</value>
         [DataMember(Name = "template_ids", IsRequired = true, EmitDefaultValue = true)]
         public List<string> TemplateIds { get; set; }
-
+        
         /// <summary>
         /// Allows signers to decline to sign a document if &#x60;true&#x60;. Defaults to &#x60;false&#x60;.
         /// </summary>
         /// <value>Allows signers to decline to sign a document if &#x60;true&#x60;. Defaults to &#x60;false&#x60;.</value>
         [DataMember(Name = "allow_decline", EmitDefaultValue = true)]
         public bool AllowDecline { get; set; }
-
+        
         /// <summary>
         /// Allows signers to reassign their signature requests to other signers if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.  **NOTE:** Only available for Premium plan and higher.
         /// </summary>
         /// <value>Allows signers to reassign their signature requests to other signers if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.  **NOTE:** Only available for Premium plan and higher.</value>
         [DataMember(Name = "allow_reassign", EmitDefaultValue = true)]
         public bool AllowReassign { get; set; }
-
+        
         /// <summary>
         /// Add CC email recipients. Required when a CC role exists for the Template.
         /// </summary>
         /// <value>Add CC email recipients. Required when a CC role exists for the Template.</value>
         [DataMember(Name = "ccs", EmitDefaultValue = true)]
         public List<SubCC> Ccs { get; set; }
-
+        
         /// <summary>
         /// An array defining values and options for custom fields. Required when a custom field exists in the Template.
         /// </summary>
         /// <value>An array defining values and options for custom fields. Required when a custom field exists in the Template.</value>
         [DataMember(Name = "custom_fields", EmitDefaultValue = true)]
         public List<SubCustomField> CustomFields { get; set; }
-
+        
         /// <summary>
         /// Gets or Sets EditorOptions
         /// </summary>
         [DataMember(Name = "editor_options", EmitDefaultValue = true)]
         public SubEditorOptions EditorOptions { get; set; }
-
+        
         /// <summary>
         /// Gets or Sets FieldOptions
         /// </summary>
         [DataMember(Name = "field_options", EmitDefaultValue = true)]
         public SubFieldOptions FieldOptions { get; set; }
-
+        
         /// <summary>
         /// Use &#x60;files[]&#x60; to append additional files to the signature request being created from the template. Dropbox Sign will parse the files for [text tags](https://app.hellosign.com/api/textTagsWalkthrough) and append it to the signature request. Text tags for signers not on the template(s) will be ignored.  **files** or **file_urls[]** is required, but not both.
         /// </summary>
         /// <value>Use &#x60;files[]&#x60; to append additional files to the signature request being created from the template. Dropbox Sign will parse the files for [text tags](https://app.hellosign.com/api/textTagsWalkthrough) and append it to the signature request. Text tags for signers not on the template(s) will be ignored.  **files** or **file_urls[]** is required, but not both.</value>
         [DataMember(Name = "files", EmitDefaultValue = true)]
         public List<System.IO.Stream> Files { get; set; }
-
+        
         /// <summary>
         /// Use file_urls[] to append additional files to the signature request being created from the template. Dropbox Sign will download the file, then parse it for [text tags](https://app.hellosign.com/api/textTagsWalkthrough), and append to the signature request. Text tags for signers not on the template(s) will be ignored.  **files** or **file_urls[]** is required, but not both.
         /// </summary>
         /// <value>Use file_urls[] to append additional files to the signature request being created from the template. Dropbox Sign will download the file, then parse it for [text tags](https://app.hellosign.com/api/textTagsWalkthrough), and append to the signature request. Text tags for signers not on the template(s) will be ignored.  **files** or **file_urls[]** is required, but not both.</value>
         [DataMember(Name = "file_urls", EmitDefaultValue = true)]
         public List<string> FileUrls { get; set; }
-
+        
         /// <summary>
         /// Provide users the ability to review/edit the template signer roles.
         /// </summary>
         /// <value>Provide users the ability to review/edit the template signer roles.</value>
         [DataMember(Name = "force_signer_roles", EmitDefaultValue = true)]
         public bool ForceSignerRoles { get; set; }
-
+        
         /// <summary>
         /// Provide users the ability to review/edit the template subject and message.
         /// </summary>
         /// <value>Provide users the ability to review/edit the template subject and message.</value>
         [DataMember(Name = "force_subject_message", EmitDefaultValue = true)]
         public bool ForceSubjectMessage { get; set; }
-
+        
         /// <summary>
         /// The request from this draft will not automatically send to signers post-claim if set to 1. Requester must [release](/api/reference/operation/signatureRequestReleaseHold/) the request from hold when ready to send. Defaults to &#x60;false&#x60;.
         /// </summary>
         /// <value>The request from this draft will not automatically send to signers post-claim if set to 1. Requester must [release](/api/reference/operation/signatureRequestReleaseHold/) the request from hold when ready to send. Defaults to &#x60;false&#x60;.</value>
         [DataMember(Name = "hold_request", EmitDefaultValue = true)]
         public bool HoldRequest { get; set; }
-
+        
         /// <summary>
         /// The request created from this draft will also be signable in embedded mode if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.
         /// </summary>
         /// <value>The request created from this draft will also be signable in embedded mode if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.</value>
         [DataMember(Name = "is_for_embedded_signing", EmitDefaultValue = true)]
         public bool IsForEmbeddedSigning { get; set; }
-
+        
         /// <summary>
         /// The custom message in the email that will be sent to the signers.
         /// </summary>
         /// <value>The custom message in the email that will be sent to the signers.</value>
         [DataMember(Name = "message", EmitDefaultValue = true)]
         public string Message { get; set; }
-
+        
         /// <summary>
         /// Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer&#39;s order number for look up when receiving events for the signature request.  Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.
         /// </summary>
         /// <value>Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer&#39;s order number for look up when receiving events for the signature request.  Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.</value>
         [DataMember(Name = "metadata", EmitDefaultValue = true)]
         public Dictionary<string, Object> Metadata { get; set; }
-
+        
         /// <summary>
         /// This allows the requester to enable the preview experience (i.e. does not allow the requester&#39;s end user to add any additional fields via the editor).  - &#x60;preview_only&#x3D;true&#x60;: Allows requesters to enable the preview only experience. - &#x60;preview_only&#x3D;false&#x60;: Allows requesters to disable the preview only experience.  **NOTE:** This parameter overwrites &#x60;show_preview&#x3D;1&#x60; (if set).
         /// </summary>
         /// <value>This allows the requester to enable the preview experience (i.e. does not allow the requester&#39;s end user to add any additional fields via the editor).  - &#x60;preview_only&#x3D;true&#x60;: Allows requesters to enable the preview only experience. - &#x60;preview_only&#x3D;false&#x60;: Allows requesters to disable the preview only experience.  **NOTE:** This parameter overwrites &#x60;show_preview&#x3D;1&#x60; (if set).</value>
         [DataMember(Name = "preview_only", EmitDefaultValue = true)]
         public bool PreviewOnly { get; set; }
-
+        
         /// <summary>
         /// The URL you want signers redirected to after they successfully request a signature.
         /// </summary>
         /// <value>The URL you want signers redirected to after they successfully request a signature.</value>
         [DataMember(Name = "requesting_redirect_url", EmitDefaultValue = true)]
         public string RequestingRedirectUrl { get; set; }
-
+        
         /// <summary>
         /// This allows the requester to enable the editor/preview experience.  - &#x60;show_preview&#x3D;true&#x60;: Allows requesters to enable the editor/preview experience. - &#x60;show_preview&#x3D;false&#x60;: Allows requesters to disable the editor/preview experience.
         /// </summary>
         /// <value>This allows the requester to enable the editor/preview experience.  - &#x60;show_preview&#x3D;true&#x60;: Allows requesters to enable the editor/preview experience. - &#x60;show_preview&#x3D;false&#x60;: Allows requesters to disable the editor/preview experience.</value>
         [DataMember(Name = "show_preview", EmitDefaultValue = true)]
         public bool ShowPreview { get; set; }
-
+        
         /// <summary>
         /// When only one step remains in the signature request process and this parameter is set to &#x60;false&#x60; then the progress stepper will be hidden.
         /// </summary>
         /// <value>When only one step remains in the signature request process and this parameter is set to &#x60;false&#x60; then the progress stepper will be hidden.</value>
         [DataMember(Name = "show_progress_stepper", EmitDefaultValue = true)]
         public bool ShowProgressStepper { get; set; }
-
+        
         /// <summary>
         /// Add Signers to your Templated-based Signature Request.
         /// </summary>
         /// <value>Add Signers to your Templated-based Signature Request.</value>
         [DataMember(Name = "signers", EmitDefaultValue = true)]
         public List<SubUnclaimedDraftTemplateSigner> Signers { get; set; }
-
+        
         /// <summary>
         /// Gets or Sets SigningOptions
         /// </summary>
         [DataMember(Name = "signing_options", EmitDefaultValue = true)]
         public SubSigningOptions SigningOptions { get; set; }
-
+        
         /// <summary>
         /// The URL you want signers redirected to after they successfully sign.
         /// </summary>
         /// <value>The URL you want signers redirected to after they successfully sign.</value>
         [DataMember(Name = "signing_redirect_url", EmitDefaultValue = true)]
         public string SigningRedirectUrl { get; set; }
-
+        
         /// <summary>
         /// Disables the \&quot;Me (Now)\&quot; option for the person preparing the document. Does not work with type &#x60;send_document&#x60;. Defaults to &#x60;false&#x60;.
         /// </summary>
         /// <value>Disables the \&quot;Me (Now)\&quot; option for the person preparing the document. Does not work with type &#x60;send_document&#x60;. Defaults to &#x60;false&#x60;.</value>
         [DataMember(Name = "skip_me_now", EmitDefaultValue = true)]
         public bool SkipMeNow { get; set; }
-
+        
         /// <summary>
         /// The subject in the email that will be sent to the signers.
         /// </summary>
         /// <value>The subject in the email that will be sent to the signers.</value>
         [DataMember(Name = "subject", EmitDefaultValue = true)]
         public string Subject { get; set; }
-
+        
         /// <summary>
         /// Whether this is a test, the signature request created from this draft will not be legally binding if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.
         /// </summary>
         /// <value>Whether this is a test, the signature request created from this draft will not be legally binding if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.</value>
         [DataMember(Name = "test_mode", EmitDefaultValue = true)]
         public bool TestMode { get; set; }
-
+        
         /// <summary>
         /// The title you want to assign to the SignatureRequest.
         /// </summary>
         /// <value>The title you want to assign to the SignatureRequest.</value>
         [DataMember(Name = "title", EmitDefaultValue = true)]
         public string Title { get; set; }
-
+        
         /// <summary>
         /// Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer&#39;s information during signing.  **NOTE:** Keep your signer&#39;s information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
         /// </summary>
         /// <value>Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer&#39;s information during signing.  **NOTE:** Keep your signer&#39;s information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.</value>
         [DataMember(Name = "populate_auto_fill_fields", EmitDefaultValue = true)]
         public bool PopulateAutoFillFields { get; set; }
-
+        
         /// <summary>
         /// This allows the requester to specify whether the user is allowed to provide email addresses to CC when claiming the draft.
         /// </summary>
         /// <value>This allows the requester to specify whether the user is allowed to provide email addresses to CC when claiming the draft.</value>
         [DataMember(Name = "allow_ccs", EmitDefaultValue = true)]
         public bool AllowCcs { get; set; }
-
+        
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -657,6 +657,33 @@ namespace Dropbox.Sign.Model
             }
         }
 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
+            // Message (string) maxLength
+            if (this.Message != null && this.Message.Length > 5000)
+            {
+                yield return new ValidationResult("Invalid value for Message, length must be less than 5000.", new [] { "Message" });
+            }
+
+            // Subject (string) maxLength
+            if (this.Subject != null && this.Subject.Length > 255)
+            {
+                yield return new ValidationResult("Invalid value for Subject, length must be less than 255.", new [] { "Subject" });
+            }
+
+            // Title (string) maxLength
+            if (this.Title != null && this.Title.Length > 255)
+            {
+                yield return new ValidationResult("Invalid value for Title, length must be less than 255.", new [] { "Title" });
+            }
+
+            yield break;
+        }
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
@@ -842,34 +869,6 @@ namespace Dropbox.Sign.Model
             });
 
             return types;
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
-        {
-            // Message (string) maxLength
-            if (this.Message != null && this.Message.Length > 5000)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Message, length must be less than 5000.", new [] { "Message" });
-            }
-
-            // Subject (string) maxLength
-            if (this.Subject != null && this.Subject.Length > 255)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Subject, length must be less than 255.", new [] { "Subject" });
-            }
-
-            // Title (string) maxLength
-            if (this.Title != null && this.Title.Length > 255)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Title, length must be less than 255.", new [] { "Title" });
-            }
-
-            yield break;
         }
     }
 

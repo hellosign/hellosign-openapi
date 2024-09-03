@@ -31,7 +31,7 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "EventCallbackRequest")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class EventCallbackRequest : IOpenApiTyped, IEquatable<EventCallbackRequest>, IValidatableObject
+    public partial class EventCallbackRequest : IEquatable<EventCallbackRequest>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="EventCallbackRequest" /> class.
@@ -41,19 +41,19 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="EventCallbackRequest" /> class.
         /// </summary>
-        /// <param name="_event">_event (required).</param>
+        /// <param name="varEvent">varEvent (required).</param>
         /// <param name="account">account.</param>
         /// <param name="signatureRequest">signatureRequest.</param>
         /// <param name="template">template.</param>
-        public EventCallbackRequest(EventCallbackRequestEvent _event = default(EventCallbackRequestEvent), AccountResponse account = default(AccountResponse), SignatureRequestResponse signatureRequest = default(SignatureRequestResponse), TemplateResponse template = default(TemplateResponse))
+        public EventCallbackRequest(EventCallbackRequestEvent varEvent = default(EventCallbackRequestEvent), AccountResponse account = default(AccountResponse), SignatureRequestResponse signatureRequest = default(SignatureRequestResponse), TemplateResponse template = default(TemplateResponse))
         {
             
-            // to ensure "_event" is required (not null)
-            if (_event == null)
+            // to ensure "varEvent" is required (not null)
+            if (varEvent == null)
             {
-                throw new ArgumentNullException("_event is a required property for EventCallbackRequest and cannot be null");
+                throw new ArgumentNullException("varEvent is a required property for EventCallbackRequest and cannot be null");
             }
-            this.Event = _event;
+            this.Event = varEvent;
             this.Account = account;
             this.SignatureRequest = signatureRequest;
             this.Template = template;
@@ -80,25 +80,25 @@ namespace Dropbox.Sign.Model
         /// </summary>
         [DataMember(Name = "event", IsRequired = true, EmitDefaultValue = true)]
         public EventCallbackRequestEvent Event { get; set; }
-
+        
         /// <summary>
         /// Gets or Sets Account
         /// </summary>
         [DataMember(Name = "account", EmitDefaultValue = true)]
         public AccountResponse Account { get; set; }
-
+        
         /// <summary>
         /// Gets or Sets SignatureRequest
         /// </summary>
         [DataMember(Name = "signature_request", EmitDefaultValue = true)]
         public SignatureRequestResponse SignatureRequest { get; set; }
-
+        
         /// <summary>
         /// Gets or Sets Template
         /// </summary>
         [DataMember(Name = "template", EmitDefaultValue = true)]
         public TemplateResponse Template { get; set; }
-
+        
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -197,6 +197,15 @@ namespace Dropbox.Sign.Model
             }
         }
 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
+            yield break;
+        }
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
@@ -226,16 +235,6 @@ namespace Dropbox.Sign.Model
             });
 
             return types;
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

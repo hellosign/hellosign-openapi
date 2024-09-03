@@ -13,7 +13,7 @@ All URIs are relative to *{{{basePath}}}*
 
 {{#operations}}
 {{#operation}}
-<a name="{{{operationIdLowerCase}}}"></a>
+<a id="{{{operationIdLowerCase}}}"></a>
 # **{{{operationId}}}**
 > {{returnType}}{{^returnType}}void{{/returnType}} {{operationId}} ({{#allParams}}{{{dataType}}} {{paramName}}{{^required}}{{#optionalMethodArgument}} = null{{/optionalMethodArgument}}{{/required}}{{^-last}}, {{/-last}}{{/allParams}})
 
@@ -22,9 +22,91 @@ All URIs are relative to *{{{basePath}}}*
 {{{.}}}{{/notes}}
 
 ### Example
+{{^useCustomTemplateCode}}
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+{{#useHttpClient}}
+using System.Net.Http;
+{{/useHttpClient}}
+using {{packageName}}.{{apiPackage}};
+using {{packageName}}.Client;
+using {{packageName}}.{{modelPackage}};
+
+namespace Example
+{
+    public class {{operationId}}Example
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "{{{basePath}}}";
+            {{#hasAuthMethods}}
+            {{#authMethods}}
+            {{#isBasicBasic}}
+            // Configure HTTP basic authorization: {{{name}}}
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            {{/isBasicBasic}}
+            {{#isBasicBearer}}
+            // Configure Bearer token for authorization: {{{name}}}
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+            {{/isBasicBearer}}
+            {{#isApiKey}}
+            // Configure API key authorization: {{{name}}}
+            config.AddApiKey("{{{keyParamName}}}", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("{{{keyParamName}}}", "Bearer");
+            {{/isApiKey}}
+            {{#isOAuth}}
+            // Configure OAuth2 access token for authorization: {{{name}}}
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            {{/isOAuth}}
+            {{/authMethods}}
+
+            {{/hasAuthMethods}}
+            {{#useHttpClient}}
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new {{classname}}(httpClient, config, httpClientHandler);
+            {{/useHttpClient}}
+            {{^useHttpClient}}
+            var apiInstance = new {{classname}}(config);
+            {{/useHttpClient}}
+            {{#allParams}}
+            {{#isPrimitiveType}}
+            var {{paramName}} = {{{example}}};  // {{{dataType}}} | {{{description}}}{{^required}} (optional) {{/required}}{{#defaultValue}} (default to {{{.}}}){{/defaultValue}}
+            {{/isPrimitiveType}}
+            {{^isPrimitiveType}}
+            var {{paramName}} = new {{{dataType}}}(); // {{{dataType}}} | {{{description}}}{{^required}} (optional) {{/required}}{{#defaultValue}} (default to {{{.}}}){{/defaultValue}}
+            {{/isPrimitiveType}}
+            {{/allParams}}
+
+            try
+            {
+                {{#summary}}
+                // {{{.}}}
+                {{/summary}}
+                {{#returnType}}{{{.}}} result = {{/returnType}}apiInstance.{{{operationId}}}({{#allParams}}{{paramName}}{{^-last}}, {{/-last}}{{/allParams}});{{#returnType}}
+                Debug.WriteLine(result);{{/returnType}}
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling {{classname}}.{{operationId}}: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
 ```csharp
 REPLACE_ME_WITH_EXAMPLE_FOR__{{{operationId}}}_C#_CODE
 ```
+{{/useCustomTemplateCode}}
 
 #### Using the {{operationId}}WithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.

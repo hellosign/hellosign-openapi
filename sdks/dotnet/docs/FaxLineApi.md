@@ -12,7 +12,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 | [**FaxLineList**](FaxLineApi.md#faxlinelist) | **GET** /fax_line/list | List Fax Lines |
 | [**FaxLineRemoveUser**](FaxLineApi.md#faxlineremoveuser) | **PUT** /fax_line/remove_user | Remove Fax Line Access |
 
-<a name="faxlineadduser"></a>
+<a id="faxlineadduser"></a>
 # **FaxLineAddUser**
 > FaxLineResponse FaxLineAddUser (FaxLineAddUserRequest faxLineAddUserRequest)
 
@@ -107,7 +107,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="faxlineareacodeget"></a>
+<a id="faxlineareacodeget"></a>
 # **FaxLineAreaCodeGet**
 > FaxLineAreaCodeGetResponse FaxLineAreaCodeGet (string country, string? state = null, string? province = null, string? city = null)
 
@@ -200,7 +200,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="faxlinecreate"></a>
+<a id="faxlinecreate"></a>
 # **FaxLineCreate**
 > FaxLineResponse FaxLineCreate (FaxLineCreateRequest faxLineCreateRequest)
 
@@ -295,7 +295,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="faxlinedelete"></a>
+<a id="faxlinedelete"></a>
 # **FaxLineDelete**
 > void FaxLineDelete (FaxLineDeleteRequest faxLineDeleteRequest)
 
@@ -385,7 +385,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="faxlineget"></a>
+<a id="faxlineget"></a>
 # **FaxLineGet**
 > FaxLineResponse FaxLineGet (string number)
 
@@ -475,7 +475,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="faxlinelist"></a>
+<a id="faxlinelist"></a>
 # **FaxLineList**
 > FaxLineListResponse FaxLineList (string? accountId = null, int? page = null, int? pageSize = null, bool? showTeamLines = null)
 
@@ -568,7 +568,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="faxlineremoveuser"></a>
+<a id="faxlineremoveuser"></a>
 # **FaxLineRemoveUser**
 > FaxLineResponse FaxLineRemoveUser (FaxLineRemoveUserRequest faxLineRemoveUserRequest)
 

@@ -7,7 +7,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 | [**BulkSendJobGet**](BulkSendJobApi.md#bulksendjobget) | **GET** /bulk_send_job/{bulk_send_job_id} | Get Bulk Send Job |
 | [**BulkSendJobList**](BulkSendJobApi.md#bulksendjoblist) | **GET** /bulk_send_job/list | List Bulk Send Jobs |
 
-<a name="bulksendjobget"></a>
+<a id="bulksendjobget"></a>
 # **BulkSendJobGet**
 > BulkSendJobGetResponse BulkSendJobGet (string bulkSendJobId, int? page = null, int? pageSize = null)
 
@@ -105,7 +105,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="bulksendjoblist"></a>
+<a id="bulksendjoblist"></a>
 # **BulkSendJobList**
 > BulkSendJobListResponse BulkSendJobList (int? page = null, int? pageSize = null)
 

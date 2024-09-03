@@ -32,15 +32,6 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "SignatureRequestResponseDataBase")]
     [JsonConverter(typeof(JsonSubtypes), "Type")]
-    [JsonSubtypes.KnownSubType(typeof(SignatureRequestResponseDataValueCheckbox), "SignatureRequestResponseDataValueCheckbox")]
-    [JsonSubtypes.KnownSubType(typeof(SignatureRequestResponseDataValueCheckboxMerge), "SignatureRequestResponseDataValueCheckboxMerge")]
-    [JsonSubtypes.KnownSubType(typeof(SignatureRequestResponseDataValueDateSigned), "SignatureRequestResponseDataValueDateSigned")]
-    [JsonSubtypes.KnownSubType(typeof(SignatureRequestResponseDataValueDropdown), "SignatureRequestResponseDataValueDropdown")]
-    [JsonSubtypes.KnownSubType(typeof(SignatureRequestResponseDataValueInitials), "SignatureRequestResponseDataValueInitials")]
-    [JsonSubtypes.KnownSubType(typeof(SignatureRequestResponseDataValueRadio), "SignatureRequestResponseDataValueRadio")]
-    [JsonSubtypes.KnownSubType(typeof(SignatureRequestResponseDataValueSignature), "SignatureRequestResponseDataValueSignature")]
-    [JsonSubtypes.KnownSubType(typeof(SignatureRequestResponseDataValueText), "SignatureRequestResponseDataValueText")]
-    [JsonSubtypes.KnownSubType(typeof(SignatureRequestResponseDataValueTextMerge), "SignatureRequestResponseDataValueTextMerge")]
     [JsonSubtypes.KnownSubType(typeof(SignatureRequestResponseDataValueCheckbox), "checkbox")]
     [JsonSubtypes.KnownSubType(typeof(SignatureRequestResponseDataValueCheckboxMerge), "checkbox-merge")]
     [JsonSubtypes.KnownSubType(typeof(SignatureRequestResponseDataValueDateSigned), "date_signed")]
@@ -51,7 +42,7 @@ namespace Dropbox.Sign.Model
     [JsonSubtypes.KnownSubType(typeof(SignatureRequestResponseDataValueText), "text")]
     [JsonSubtypes.KnownSubType(typeof(SignatureRequestResponseDataValueTextMerge), "text-merge")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class SignatureRequestResponseDataBase : IOpenApiTyped, IEquatable<SignatureRequestResponseDataBase>, IValidatableObject
+    public partial class SignatureRequestResponseDataBase : IEquatable<SignatureRequestResponseDataBase>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SignatureRequestResponseDataBase" /> class.
@@ -98,34 +89,34 @@ namespace Dropbox.Sign.Model
         /// <value>The unique ID for this field.</value>
         [DataMember(Name = "api_id", EmitDefaultValue = true)]
         public string ApiId { get; set; }
-
+        
         /// <summary>
         /// The ID of the signature to which this response is linked.
         /// </summary>
         /// <value>The ID of the signature to which this response is linked.</value>
         [DataMember(Name = "signature_id", EmitDefaultValue = true)]
         public string SignatureId { get; set; }
-
+        
         /// <summary>
         /// The name of the form field.
         /// </summary>
         /// <value>The name of the form field.</value>
         [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
-
+        
         /// <summary>
         /// A boolean value denoting if this field is required.
         /// </summary>
         /// <value>A boolean value denoting if this field is required.</value>
         [DataMember(Name = "required", EmitDefaultValue = true)]
         public bool Required { get; set; }
-
+        
         /// <summary>
         /// Gets or Sets Type
         /// </summary>
         [DataMember(Name = "type", EmitDefaultValue = true)]
         public string Type { get; set; }
-
+        
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -230,6 +221,25 @@ namespace Dropbox.Sign.Model
             }
         }
 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
+            return this.BaseValidate(validationContext);
+        }
+
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        protected IEnumerable<ValidationResult> BaseValidate(ValidationContext validationContext)
+        {
+            yield break;
+        }
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
@@ -265,26 +275,6 @@ namespace Dropbox.Sign.Model
             });
 
             return types;
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
-        {
-            return this.BaseValidate(validationContext);
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        protected IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> BaseValidate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

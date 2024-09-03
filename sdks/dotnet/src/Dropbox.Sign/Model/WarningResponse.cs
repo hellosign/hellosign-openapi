@@ -31,7 +31,7 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "WarningResponse")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class WarningResponse : IOpenApiTyped, IEquatable<WarningResponse>, IValidatableObject
+    public partial class WarningResponse : IEquatable<WarningResponse>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="WarningResponse" /> class.
@@ -82,14 +82,14 @@ namespace Dropbox.Sign.Model
         /// <value>Warning message</value>
         [DataMember(Name = "warning_msg", IsRequired = true, EmitDefaultValue = true)]
         public string WarningMsg { get; set; }
-
+        
         /// <summary>
         /// Warning name
         /// </summary>
         /// <value>Warning name</value>
         [DataMember(Name = "warning_name", IsRequired = true, EmitDefaultValue = true)]
         public string WarningName { get; set; }
-
+        
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -168,6 +168,15 @@ namespace Dropbox.Sign.Model
             }
         }
 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
+            yield break;
+        }
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
@@ -185,16 +194,6 @@ namespace Dropbox.Sign.Model
             });
 
             return types;
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

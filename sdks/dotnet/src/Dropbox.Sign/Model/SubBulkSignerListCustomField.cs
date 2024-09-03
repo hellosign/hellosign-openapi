@@ -31,7 +31,7 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "SubBulkSignerListCustomField")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class SubBulkSignerListCustomField : IOpenApiTyped, IEquatable<SubBulkSignerListCustomField>, IValidatableObject
+    public partial class SubBulkSignerListCustomField : IEquatable<SubBulkSignerListCustomField>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SubBulkSignerListCustomField" /> class.
@@ -82,14 +82,14 @@ namespace Dropbox.Sign.Model
         /// <value>The name of the custom field. Must be the field&#39;s &#x60;name&#x60; or &#x60;api_id&#x60;.</value>
         [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
         public string Name { get; set; }
-
+        
         /// <summary>
         /// The value of the custom field.
         /// </summary>
         /// <value>The value of the custom field.</value>
         [DataMember(Name = "value", IsRequired = true, EmitDefaultValue = true)]
         public string Value { get; set; }
-
+        
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -168,6 +168,15 @@ namespace Dropbox.Sign.Model
             }
         }
 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
+            yield break;
+        }
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
@@ -185,16 +194,6 @@ namespace Dropbox.Sign.Model
             });
 
             return types;
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

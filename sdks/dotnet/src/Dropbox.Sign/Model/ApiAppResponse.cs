@@ -31,7 +31,7 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "ApiAppResponse")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class ApiAppResponse : IOpenApiTyped, IEquatable<ApiAppResponse>, IValidatableObject
+    public partial class ApiAppResponse : IEquatable<ApiAppResponse>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiAppResponse" /> class.
@@ -88,66 +88,66 @@ namespace Dropbox.Sign.Model
         /// <value>The app&#39;s callback URL (for events)</value>
         [DataMember(Name = "callback_url", EmitDefaultValue = true)]
         public string CallbackUrl { get; set; }
-
+        
         /// <summary>
         /// The app&#39;s client id
         /// </summary>
         /// <value>The app&#39;s client id</value>
         [DataMember(Name = "client_id", EmitDefaultValue = true)]
         public string ClientId { get; set; }
-
+        
         /// <summary>
         /// The time that the app was created
         /// </summary>
         /// <value>The time that the app was created</value>
         [DataMember(Name = "created_at", EmitDefaultValue = true)]
         public int CreatedAt { get; set; }
-
+        
         /// <summary>
         /// The domain name(s) associated with the app
         /// </summary>
         /// <value>The domain name(s) associated with the app</value>
         [DataMember(Name = "domains", EmitDefaultValue = true)]
         public List<string> Domains { get; set; }
-
+        
         /// <summary>
         /// The name of the app
         /// </summary>
         /// <value>The name of the app</value>
         [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
-
+        
         /// <summary>
         /// Boolean to indicate if the app has been approved
         /// </summary>
         /// <value>Boolean to indicate if the app has been approved</value>
         [DataMember(Name = "is_approved", EmitDefaultValue = true)]
         public bool IsApproved { get; set; }
-
+        
         /// <summary>
         /// Gets or Sets Oauth
         /// </summary>
         [DataMember(Name = "oauth", EmitDefaultValue = true)]
         public ApiAppResponseOAuth Oauth { get; set; }
-
+        
         /// <summary>
         /// Gets or Sets Options
         /// </summary>
         [DataMember(Name = "options", EmitDefaultValue = true)]
         public ApiAppResponseOptions Options { get; set; }
-
+        
         /// <summary>
         /// Gets or Sets OwnerAccount
         /// </summary>
         [DataMember(Name = "owner_account", EmitDefaultValue = true)]
         public ApiAppResponseOwnerAccount OwnerAccount { get; set; }
-
+        
         /// <summary>
         /// Gets or Sets WhiteLabelingOptions
         /// </summary>
         [DataMember(Name = "white_labeling_options", EmitDefaultValue = true)]
         public ApiAppResponseWhiteLabelingOptions WhiteLabelingOptions { get; set; }
-
+        
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -299,6 +299,15 @@ namespace Dropbox.Sign.Model
             }
         }
 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
+            yield break;
+        }
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
@@ -364,16 +373,6 @@ namespace Dropbox.Sign.Model
             });
 
             return types;
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

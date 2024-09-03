@@ -31,7 +31,7 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "SubOAuth")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class SubOAuth : IOpenApiTyped, IEquatable<SubOAuth>, IValidatableObject
+    public partial class SubOAuth : IEquatable<SubOAuth>, IValidatableObject
     {
         /// <summary>
         /// Defines Scopes
@@ -86,17 +86,8 @@ namespace Dropbox.Sign.Model
             /// </summary>
             [EnumMember(Value = "")]
             Empty = 8
-
         }
 
-
-
-        /// <summary>
-        /// A list of [OAuth scopes](/api/reference/tag/OAuth) to be granted to the app. (Required if &#x60;oauth[callback_url]&#x60; is provided).
-        /// </summary>
-        /// <value>A list of [OAuth scopes](/api/reference/tag/OAuth) to be granted to the app. (Required if &#x60;oauth[callback_url]&#x60; is provided).</value>
-        [DataMember(Name = "scopes", EmitDefaultValue = true)]
-        public List<ScopesEnum> Scopes { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="SubOAuth" /> class.
         /// </summary>
@@ -136,7 +127,14 @@ namespace Dropbox.Sign.Model
         /// <value>The callback URL to be used for OAuth flows. (Required if &#x60;oauth[scopes]&#x60; is provided)</value>
         [DataMember(Name = "callback_url", EmitDefaultValue = true)]
         public string CallbackUrl { get; set; }
-
+        
+        /// <summary>
+        /// A list of [OAuth scopes](/api/reference/tag/OAuth) to be granted to the app. (Required if &#x60;oauth[callback_url]&#x60; is provided).
+        /// </summary>
+        /// <value>A list of [OAuth scopes](/api/reference/tag/OAuth) to be granted to the app. (Required if &#x60;oauth[callback_url]&#x60; is provided).</value>
+        [DataMember(Name = "scopes", EmitDefaultValue = true)]
+        public List<SubOAuth.ScopesEnum> Scopes { get; set; }
+        
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -189,6 +187,8 @@ namespace Dropbox.Sign.Model
                 ) && 
                 (
                     this.Scopes == input.Scopes ||
+                    this.Scopes != null &&
+                    input.Scopes != null &&
                     this.Scopes.SequenceEqual(input.Scopes)
                 );
         }
@@ -206,11 +206,23 @@ namespace Dropbox.Sign.Model
                 {
                     hashCode = (hashCode * 59) + this.CallbackUrl.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.Scopes.GetHashCode();
+                if (this.Scopes != null)
+                {
+                    hashCode = (hashCode * 59) + this.Scopes.GetHashCode();
+                }
                 return hashCode;
             }
         }
 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
+            yield break;
+        }
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
@@ -223,21 +235,11 @@ namespace Dropbox.Sign.Model
             types.Add(new OpenApiType(){
                 Name = "scopes",
                 Property = "Scopes",
-                Type = "List<string>",
+                Type = "List<SubOAuth.ScopesEnum>",
                 Value = Scopes,
             });
 
             return types;
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

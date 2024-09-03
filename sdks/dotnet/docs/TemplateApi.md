@@ -16,7 +16,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 | [**TemplateRemoveUser**](TemplateApi.md#templateremoveuser) | **POST** /template/remove_user/{template_id} | Remove User from Template |
 | [**TemplateUpdateFiles**](TemplateApi.md#templateupdatefiles) | **POST** /template/update_files/{template_id} | Update Template Files |
 
-<a name="templateadduser"></a>
+<a id="templateadduser"></a>
 # **TemplateAddUser**
 > TemplateGetResponse TemplateAddUser (string templateId, TemplateAddUserRequest templateAddUserRequest)
 
@@ -116,7 +116,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="templatecreate"></a>
+<a id="templatecreate"></a>
 # **TemplateCreate**
 > TemplateCreateResponse TemplateCreate (TemplateCreateRequest templateCreateRequest)
 
@@ -256,7 +256,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="templatecreateembeddeddraft"></a>
+<a id="templatecreateembeddeddraft"></a>
 # **TemplateCreateEmbeddedDraft**
 > TemplateCreateEmbeddedDraftResponse TemplateCreateEmbeddedDraft (TemplateCreateEmbeddedDraftRequest templateCreateEmbeddedDraftRequest)
 
@@ -396,7 +396,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="templatedelete"></a>
+<a id="templatedelete"></a>
 # **TemplateDelete**
 > void TemplateDelete (string templateId)
 
@@ -487,7 +487,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="templatefiles"></a>
+<a id="templatefiles"></a>
 # **TemplateFiles**
 > System.IO.Stream TemplateFiles (string templateId, string? fileType = null)
 
@@ -587,7 +587,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="templatefilesasdatauri"></a>
+<a id="templatefilesasdatauri"></a>
 # **TemplateFilesAsDataUri**
 > FileResponseDataUri TemplateFilesAsDataUri (string templateId)
 
@@ -682,7 +682,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="templatefilesasfileurl"></a>
+<a id="templatefilesasfileurl"></a>
 # **TemplateFilesAsFileUrl**
 > FileResponse TemplateFilesAsFileUrl (string templateId, int? forceDownload = null)
 
@@ -778,7 +778,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="templateget"></a>
+<a id="templateget"></a>
 # **TemplateGet**
 > TemplateGetResponse TemplateGet (string templateId)
 
@@ -873,7 +873,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="templatelist"></a>
+<a id="templatelist"></a>
 # **TemplateList**
 > TemplateListResponse TemplateList (string? accountId = null, int? page = null, int? pageSize = null, string? query = null)
 
@@ -971,7 +971,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="templateremoveuser"></a>
+<a id="templateremoveuser"></a>
 # **TemplateRemoveUser**
 > TemplateGetResponse TemplateRemoveUser (string templateId, TemplateRemoveUserRequest templateRemoveUserRequest)
 
@@ -1071,7 +1071,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="templateupdatefiles"></a>
+<a id="templateupdatefiles"></a>
 # **TemplateUpdateFiles**
 > TemplateUpdateFilesResponse TemplateUpdateFiles (string templateId, TemplateUpdateFilesRequest templateUpdateFilesRequest)
 

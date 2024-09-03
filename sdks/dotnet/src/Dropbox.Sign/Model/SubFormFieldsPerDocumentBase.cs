@@ -32,16 +32,6 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "SubFormFieldsPerDocumentBase")]
     [JsonConverter(typeof(JsonSubtypes), "Type")]
-    [JsonSubtypes.KnownSubType(typeof(SubFormFieldsPerDocumentCheckbox), "SubFormFieldsPerDocumentCheckbox")]
-    [JsonSubtypes.KnownSubType(typeof(SubFormFieldsPerDocumentCheckboxMerge), "SubFormFieldsPerDocumentCheckboxMerge")]
-    [JsonSubtypes.KnownSubType(typeof(SubFormFieldsPerDocumentDateSigned), "SubFormFieldsPerDocumentDateSigned")]
-    [JsonSubtypes.KnownSubType(typeof(SubFormFieldsPerDocumentDropdown), "SubFormFieldsPerDocumentDropdown")]
-    [JsonSubtypes.KnownSubType(typeof(SubFormFieldsPerDocumentHyperlink), "SubFormFieldsPerDocumentHyperlink")]
-    [JsonSubtypes.KnownSubType(typeof(SubFormFieldsPerDocumentInitials), "SubFormFieldsPerDocumentInitials")]
-    [JsonSubtypes.KnownSubType(typeof(SubFormFieldsPerDocumentRadio), "SubFormFieldsPerDocumentRadio")]
-    [JsonSubtypes.KnownSubType(typeof(SubFormFieldsPerDocumentSignature), "SubFormFieldsPerDocumentSignature")]
-    [JsonSubtypes.KnownSubType(typeof(SubFormFieldsPerDocumentText), "SubFormFieldsPerDocumentText")]
-    [JsonSubtypes.KnownSubType(typeof(SubFormFieldsPerDocumentTextMerge), "SubFormFieldsPerDocumentTextMerge")]
     [JsonSubtypes.KnownSubType(typeof(SubFormFieldsPerDocumentCheckbox), "checkbox")]
     [JsonSubtypes.KnownSubType(typeof(SubFormFieldsPerDocumentCheckboxMerge), "checkbox-merge")]
     [JsonSubtypes.KnownSubType(typeof(SubFormFieldsPerDocumentDateSigned), "date_signed")]
@@ -53,7 +43,7 @@ namespace Dropbox.Sign.Model
     [JsonSubtypes.KnownSubType(typeof(SubFormFieldsPerDocumentText), "text")]
     [JsonSubtypes.KnownSubType(typeof(SubFormFieldsPerDocumentTextMerge), "text-merge")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class SubFormFieldsPerDocumentBase : IOpenApiTyped, IEquatable<SubFormFieldsPerDocumentBase>, IValidatableObject
+    public partial class SubFormFieldsPerDocumentBase : IEquatable<SubFormFieldsPerDocumentBase>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SubFormFieldsPerDocumentBase" /> class.
@@ -127,28 +117,28 @@ namespace Dropbox.Sign.Model
         /// <value>Represents the integer index of the &#x60;file&#x60; or &#x60;file_url&#x60; document the field should be attached to.</value>
         [DataMember(Name = "document_index", IsRequired = true, EmitDefaultValue = true)]
         public int DocumentIndex { get; set; }
-
+        
         /// <summary>
         /// An identifier for the field that is unique across all documents in the request.
         /// </summary>
         /// <value>An identifier for the field that is unique across all documents in the request.</value>
         [DataMember(Name = "api_id", IsRequired = true, EmitDefaultValue = true)]
         public string ApiId { get; set; }
-
+        
         /// <summary>
         /// Size of the field in pixels.
         /// </summary>
         /// <value>Size of the field in pixels.</value>
         [DataMember(Name = "height", IsRequired = true, EmitDefaultValue = true)]
         public int Height { get; set; }
-
+        
         /// <summary>
         /// Whether this field is required.
         /// </summary>
         /// <value>Whether this field is required.</value>
         [DataMember(Name = "required", IsRequired = true, EmitDefaultValue = true)]
         public bool Required { get; set; }
-
+        
         /// <summary>
         /// Signer index identified by the offset in the signers parameter (0-based indexing), indicating which signer should fill out the field.  **NOTE:** To set the value of the field as the preparer you must set this to &#x60;me_now&#x60;  **NOTE:** If type is &#x60;text-merge&#x60; or &#x60;checkbox-merge&#x60;, you must set this to sender in order to use pre-filled data.
         /// </summary>
@@ -160,48 +150,47 @@ namespace Dropbox.Sign.Model
         }
 
         private string _signer;
-
         /// <summary>
         /// Gets or Sets Type
         /// </summary>
         [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
         public string Type { get; set; }
-
+        
         /// <summary>
         /// Size of the field in pixels.
         /// </summary>
         /// <value>Size of the field in pixels.</value>
         [DataMember(Name = "width", IsRequired = true, EmitDefaultValue = true)]
         public int Width { get; set; }
-
+        
         /// <summary>
         /// Location coordinates of the field in pixels.
         /// </summary>
         /// <value>Location coordinates of the field in pixels.</value>
         [DataMember(Name = "x", IsRequired = true, EmitDefaultValue = true)]
         public int X { get; set; }
-
+        
         /// <summary>
         /// Location coordinates of the field in pixels.
         /// </summary>
         /// <value>Location coordinates of the field in pixels.</value>
         [DataMember(Name = "y", IsRequired = true, EmitDefaultValue = true)]
         public int Y { get; set; }
-
+        
         /// <summary>
         /// Display name for the field.
         /// </summary>
         /// <value>Display name for the field.</value>
         [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
-
+        
         /// <summary>
         /// Page in the document where the field should be placed (requires documents be PDF files).  - When the page number parameter is supplied, the API will use the new coordinate system. - Check out the differences between both [coordinate systems](https://faq.hellosign.com/hc/en-us/articles/217115577) and how to use them.
         /// </summary>
         /// <value>Page in the document where the field should be placed (requires documents be PDF files).  - When the page number parameter is supplied, the API will use the new coordinate system. - Check out the differences between both [coordinate systems](https://faq.hellosign.com/hc/en-us/articles/217115577) and how to use them.</value>
         [DataMember(Name = "page", EmitDefaultValue = true)]
         public int? Page { get; set; }
-
+        
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -346,6 +335,25 @@ namespace Dropbox.Sign.Model
             }
         }
 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
+            return this.BaseValidate(validationContext);
+        }
+
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        protected IEnumerable<ValidationResult> BaseValidate(ValidationContext validationContext)
+        {
+            yield break;
+        }
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
@@ -417,26 +425,6 @@ namespace Dropbox.Sign.Model
             });
 
             return types;
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
-        {
-            return this.BaseValidate(validationContext);
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        protected IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> BaseValidate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

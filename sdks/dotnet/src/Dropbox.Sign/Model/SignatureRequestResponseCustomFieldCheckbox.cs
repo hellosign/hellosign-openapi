@@ -21,7 +21,6 @@ using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
-using JsonSubTypes;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 
@@ -31,9 +30,6 @@ namespace Dropbox.Sign.Model
     /// This class extends &#x60;SignatureRequestResponseCustomFieldBase&#x60;.
     /// </summary>
     [DataContract(Name = "SignatureRequestResponseCustomFieldCheckbox")]
-    [JsonConverter(typeof(JsonSubtypes), "Type")]
-    [JsonSubtypes.KnownSubType(typeof(SignatureRequestResponseCustomFieldCheckbox), "checkbox")]
-    [JsonSubtypes.KnownSubType(typeof(SignatureRequestResponseCustomFieldText), "text")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
     public partial class SignatureRequestResponseCustomFieldCheckbox : SignatureRequestResponseCustomFieldBase, IOpenApiTyped, IEquatable<SignatureRequestResponseCustomFieldCheckbox>, IValidatableObject
     {
@@ -51,7 +47,7 @@ namespace Dropbox.Sign.Model
         /// <param name="required">A boolean value denoting if this field is required..</param>
         /// <param name="apiId">The unique ID for this field..</param>
         /// <param name="editor">The name of the Role that is able to edit this field..</param>
-        public SignatureRequestResponseCustomFieldCheckbox(string type = "checkbox", bool value = default(bool), string name = default(string), bool required = default(bool), string apiId = default(string), string editor = default(string))
+        public SignatureRequestResponseCustomFieldCheckbox(string type = @"checkbox", bool value = default(bool), string name = default(string), bool required = default(bool), string apiId = default(string), string editor = default(string))
         {
             this.Name = name;
             this.Required = required;
@@ -89,14 +85,14 @@ namespace Dropbox.Sign.Model
         /// <value>The type of this Custom Field. Only &#39;text&#39; and &#39;checkbox&#39; are currently supported.</value>
         [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
         public string Type { get; set; }
-
+        
         /// <summary>
         /// A true/false for checkbox fields
         /// </summary>
         /// <value>A true/false for checkbox fields</value>
         [DataMember(Name = "value", EmitDefaultValue = true)]
         public bool Value { get; set; }
-
+        
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -172,6 +168,29 @@ namespace Dropbox.Sign.Model
             }
         }
 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
+            return this.BaseValidate(validationContext);
+        }
+
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        protected IEnumerable<ValidationResult> BaseValidate(ValidationContext validationContext)
+        {
+            foreach (var x in BaseValidate(validationContext))
+            {
+                yield return x;
+            }
+            yield break;
+        }
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
@@ -189,30 +208,6 @@ namespace Dropbox.Sign.Model
             });
 
             return types;
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
-        {
-            return this.BaseValidate(validationContext);
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        protected IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> BaseValidate(ValidationContext validationContext)
-        {
-            foreach (var x in BaseValidate(validationContext))
-            {
-                yield return x;
-            }
-            yield break;
         }
     }
 

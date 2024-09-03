@@ -31,7 +31,7 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "FaxLineAddUserRequest")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class FaxLineAddUserRequest : IOpenApiTyped, IEquatable<FaxLineAddUserRequest>, IValidatableObject
+    public partial class FaxLineAddUserRequest : IEquatable<FaxLineAddUserRequest>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="FaxLineAddUserRequest" /> class.
@@ -79,21 +79,22 @@ namespace Dropbox.Sign.Model
         /// <value>The Fax Line number.</value>
         [DataMember(Name = "number", IsRequired = true, EmitDefaultValue = true)]
         public string Number { get; set; }
-
+        
         /// <summary>
         /// Account ID
         /// </summary>
         /// <value>Account ID</value>
+        /// <example>ab55cd14a97219e36b5ff5fe23f2f9329b0c1e97</example>
         [DataMember(Name = "account_id", EmitDefaultValue = true)]
         public string AccountId { get; set; }
-
+        
         /// <summary>
         /// Email address
         /// </summary>
         /// <value>Email address</value>
         [DataMember(Name = "email_address", EmitDefaultValue = true)]
         public string EmailAddress { get; set; }
-
+        
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -182,6 +183,15 @@ namespace Dropbox.Sign.Model
             }
         }
 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
+            yield break;
+        }
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
@@ -205,16 +215,6 @@ namespace Dropbox.Sign.Model
             });
 
             return types;
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

@@ -91,7 +91,6 @@ namespace Dropbox.Sign.Model
         /// </summary>
         [EnumMember(Value = "text-merge")]
         TextMerge = 10
-
     }
 
 }

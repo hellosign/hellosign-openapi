@@ -9,7 +9,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 | [**UnclaimedDraftCreateEmbeddedWithTemplate**](UnclaimedDraftApi.md#unclaimeddraftcreateembeddedwithtemplate) | **POST** /unclaimed_draft/create_embedded_with_template | Create Embedded Unclaimed Draft with Template |
 | [**UnclaimedDraftEditAndResend**](UnclaimedDraftApi.md#unclaimeddrafteditandresend) | **POST** /unclaimed_draft/edit_and_resend/{signature_request_id} | Edit and Resend Unclaimed Draft |
 
-<a name="unclaimeddraftcreate"></a>
+<a id="unclaimeddraftcreate"></a>
 # **UnclaimedDraftCreate**
 > UnclaimedDraftCreateResponse UnclaimedDraftCreate (UnclaimedDraftCreateRequest unclaimedDraftCreateRequest)
 
@@ -155,7 +155,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="unclaimeddraftcreateembedded"></a>
+<a id="unclaimeddraftcreateembedded"></a>
 # **UnclaimedDraftCreateEmbedded**
 > UnclaimedDraftCreateResponse UnclaimedDraftCreateEmbedded (UnclaimedDraftCreateEmbeddedRequest unclaimedDraftCreateEmbeddedRequest)
 
@@ -265,7 +265,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="unclaimeddraftcreateembeddedwithtemplate"></a>
+<a id="unclaimeddraftcreateembeddedwithtemplate"></a>
 # **UnclaimedDraftCreateEmbeddedWithTemplate**
 > UnclaimedDraftCreateResponse UnclaimedDraftCreateEmbeddedWithTemplate (UnclaimedDraftCreateEmbeddedWithTemplateRequest unclaimedDraftCreateEmbeddedWithTemplateRequest)
 
@@ -378,7 +378,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="unclaimeddrafteditandresend"></a>
+<a id="unclaimeddrafteditandresend"></a>
 # **UnclaimedDraftEditAndResend**
 > UnclaimedDraftCreateResponse UnclaimedDraftEditAndResend (string signatureRequestId, UnclaimedDraftEditAndResendRequest unclaimedDraftEditAndResendRequest)
 

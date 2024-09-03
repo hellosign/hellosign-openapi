@@ -31,7 +31,7 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "BulkSendJobGetResponse")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class BulkSendJobGetResponse : IOpenApiTyped, IEquatable<BulkSendJobGetResponse>, IValidatableObject
+    public partial class BulkSendJobGetResponse : IEquatable<BulkSendJobGetResponse>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="BulkSendJobGetResponse" /> class.
@@ -75,27 +75,27 @@ namespace Dropbox.Sign.Model
         /// </summary>
         [DataMember(Name = "bulk_send_job", EmitDefaultValue = true)]
         public BulkSendJobResponse BulkSendJob { get; set; }
-
+        
         /// <summary>
         /// Gets or Sets ListInfo
         /// </summary>
         [DataMember(Name = "list_info", EmitDefaultValue = true)]
         public ListInfoResponse ListInfo { get; set; }
-
+        
         /// <summary>
         /// Contains information about the Signature Requests sent in bulk.
         /// </summary>
         /// <value>Contains information about the Signature Requests sent in bulk.</value>
         [DataMember(Name = "signature_requests", EmitDefaultValue = true)]
         public List<BulkSendJobGetResponseSignatureRequests> SignatureRequests { get; set; }
-
+        
         /// <summary>
         /// A list of warnings.
         /// </summary>
         /// <value>A list of warnings.</value>
         [DataMember(Name = "warnings", EmitDefaultValue = true)]
         public List<WarningResponse> Warnings { get; set; }
-
+        
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -196,6 +196,15 @@ namespace Dropbox.Sign.Model
             }
         }
 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
+            yield break;
+        }
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
@@ -225,16 +234,6 @@ namespace Dropbox.Sign.Model
             });
 
             return types;
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

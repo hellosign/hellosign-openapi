@@ -31,7 +31,7 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "TemplateUpdateFilesRequest")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class TemplateUpdateFilesRequest : IOpenApiTyped, IEquatable<TemplateUpdateFilesRequest>, IValidatableObject
+    public partial class TemplateUpdateFilesRequest : IEquatable<TemplateUpdateFilesRequest>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="TemplateUpdateFilesRequest" /> class.
@@ -80,42 +80,42 @@ namespace Dropbox.Sign.Model
         /// <value>Client id of the app you&#39;re using to update this template.</value>
         [DataMember(Name = "client_id", EmitDefaultValue = true)]
         public string ClientId { get; set; }
-
+        
         /// <summary>
         /// Use &#x60;files[]&#x60; to indicate the uploaded file(s) to use for the template.  This endpoint requires either **files** or **file_urls[]**, but not both.
         /// </summary>
         /// <value>Use &#x60;files[]&#x60; to indicate the uploaded file(s) to use for the template.  This endpoint requires either **files** or **file_urls[]**, but not both.</value>
         [DataMember(Name = "files", EmitDefaultValue = true)]
         public List<System.IO.Stream> Files { get; set; }
-
+        
         /// <summary>
         /// Use &#x60;file_urls[]&#x60; to have Dropbox Sign download the file(s) to use for the template.  This endpoint requires either **files** or **file_urls[]**, but not both.
         /// </summary>
         /// <value>Use &#x60;file_urls[]&#x60; to have Dropbox Sign download the file(s) to use for the template.  This endpoint requires either **files** or **file_urls[]**, but not both.</value>
         [DataMember(Name = "file_urls", EmitDefaultValue = true)]
         public List<string> FileUrls { get; set; }
-
+        
         /// <summary>
         /// The new default template email message.
         /// </summary>
         /// <value>The new default template email message.</value>
         [DataMember(Name = "message", EmitDefaultValue = true)]
         public string Message { get; set; }
-
+        
         /// <summary>
         /// The new default template email subject.
         /// </summary>
         /// <value>The new default template email subject.</value>
         [DataMember(Name = "subject", EmitDefaultValue = true)]
         public string Subject { get; set; }
-
+        
         /// <summary>
         /// Whether this is a test, the signature request created from this draft will not be legally binding if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.
         /// </summary>
         /// <value>Whether this is a test, the signature request created from this draft will not be legally binding if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.</value>
         [DataMember(Name = "test_mode", EmitDefaultValue = true)]
         public bool TestMode { get; set; }
-
+        
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -232,6 +232,27 @@ namespace Dropbox.Sign.Model
             }
         }
 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
+            // Message (string) maxLength
+            if (this.Message != null && this.Message.Length > 5000)
+            {
+                yield return new ValidationResult("Invalid value for Message, length must be less than 5000.", new [] { "Message" });
+            }
+
+            // Subject (string) maxLength
+            if (this.Subject != null && this.Subject.Length > 100)
+            {
+                yield return new ValidationResult("Invalid value for Subject, length must be less than 100.", new [] { "Subject" });
+            }
+
+            yield break;
+        }
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
@@ -273,28 +294,6 @@ namespace Dropbox.Sign.Model
             });
 
             return types;
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
-        {
-            // Message (string) maxLength
-            if (this.Message != null && this.Message.Length > 5000)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Message, length must be less than 5000.", new [] { "Message" });
-            }
-
-            // Subject (string) maxLength
-            if (this.Subject != null && this.Subject.Length > 100)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Subject, length must be less than 100.", new [] { "Subject" });
-            }
-
-            yield break;
         }
     }
 

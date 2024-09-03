@@ -49,7 +49,6 @@ namespace Dropbox.Sign.Model
         /// </summary>
         [EnumMember(Value = "UK")]
         UK = 3
-
     }
 
 }

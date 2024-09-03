@@ -337,7 +337,6 @@ namespace Dropbox.Sign.Model
         /// </summary>
         [EnumMember(Value = "WY")]
         WY = 51
-
     }
 
 }

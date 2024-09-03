@@ -31,7 +31,7 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "SubFormFieldRule")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class SubFormFieldRule : IOpenApiTyped, IEquatable<SubFormFieldRule>, IValidatableObject
+    public partial class SubFormFieldRule : IEquatable<SubFormFieldRule>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SubFormFieldRule" /> class.
@@ -45,7 +45,7 @@ namespace Dropbox.Sign.Model
         /// <param name="triggerOperator">Currently only &#x60;AND&#x60; is supported. Support for &#x60;OR&#x60; is being worked on. (required) (default to &quot;AND&quot;).</param>
         /// <param name="triggers">An array of trigger definitions, the \&quot;if this\&quot; part of \&quot;**if this**, then that\&quot;. Currently only a single trigger per rule is allowed. (required).</param>
         /// <param name="actions">An array of action definitions, the \&quot;then that\&quot; part of \&quot;if this, **then that**\&quot;. Any number of actions may be attached to a single rule. (required).</param>
-        public SubFormFieldRule(string id = default(string), string triggerOperator = "AND", List<SubFormFieldRuleTrigger> triggers = default(List<SubFormFieldRuleTrigger>), List<SubFormFieldRuleAction> actions = default(List<SubFormFieldRuleAction>))
+        public SubFormFieldRule(string id = default(string), string triggerOperator = @"AND", List<SubFormFieldRuleTrigger> triggers = default(List<SubFormFieldRuleTrigger>), List<SubFormFieldRuleAction> actions = default(List<SubFormFieldRuleAction>))
         {
             
             // to ensure "id" is required (not null)
@@ -96,28 +96,28 @@ namespace Dropbox.Sign.Model
         /// <value>Must be unique across all defined rules.</value>
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
-
+        
         /// <summary>
         /// Currently only &#x60;AND&#x60; is supported. Support for &#x60;OR&#x60; is being worked on.
         /// </summary>
         /// <value>Currently only &#x60;AND&#x60; is supported. Support for &#x60;OR&#x60; is being worked on.</value>
         [DataMember(Name = "trigger_operator", IsRequired = true, EmitDefaultValue = true)]
         public string TriggerOperator { get; set; }
-
+        
         /// <summary>
         /// An array of trigger definitions, the \&quot;if this\&quot; part of \&quot;**if this**, then that\&quot;. Currently only a single trigger per rule is allowed.
         /// </summary>
         /// <value>An array of trigger definitions, the \&quot;if this\&quot; part of \&quot;**if this**, then that\&quot;. Currently only a single trigger per rule is allowed.</value>
         [DataMember(Name = "triggers", IsRequired = true, EmitDefaultValue = true)]
         public List<SubFormFieldRuleTrigger> Triggers { get; set; }
-
+        
         /// <summary>
         /// An array of action definitions, the \&quot;then that\&quot; part of \&quot;if this, **then that**\&quot;. Any number of actions may be attached to a single rule.
         /// </summary>
         /// <value>An array of action definitions, the \&quot;then that\&quot; part of \&quot;if this, **then that**\&quot;. Any number of actions may be attached to a single rule.</value>
         [DataMember(Name = "actions", IsRequired = true, EmitDefaultValue = true)]
         public List<SubFormFieldRuleAction> Actions { get; set; }
-
+        
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -218,6 +218,15 @@ namespace Dropbox.Sign.Model
             }
         }
 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
+            yield break;
+        }
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
@@ -247,16 +256,6 @@ namespace Dropbox.Sign.Model
             });
 
             return types;
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

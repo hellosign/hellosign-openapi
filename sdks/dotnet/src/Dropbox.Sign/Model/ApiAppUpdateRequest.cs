@@ -31,7 +31,7 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "ApiAppUpdateRequest")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class ApiAppUpdateRequest : IOpenApiTyped, IEquatable<ApiAppUpdateRequest>, IValidatableObject
+    public partial class ApiAppUpdateRequest : IEquatable<ApiAppUpdateRequest>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiAppUpdateRequest" /> class.
@@ -82,46 +82,46 @@ namespace Dropbox.Sign.Model
         /// <value>The URL at which the API App should receive event callbacks.</value>
         [DataMember(Name = "callback_url", EmitDefaultValue = true)]
         public string CallbackUrl { get; set; }
-
+        
         /// <summary>
         /// An image file to use as a custom logo in embedded contexts. (Only applies to some API plans)
         /// </summary>
         /// <value>An image file to use as a custom logo in embedded contexts. (Only applies to some API plans)</value>
         [DataMember(Name = "custom_logo_file", EmitDefaultValue = true)]
         public System.IO.Stream CustomLogoFile { get; set; }
-
+        
         /// <summary>
         /// The domain names the ApiApp will be associated with.
         /// </summary>
         /// <value>The domain names the ApiApp will be associated with.</value>
         [DataMember(Name = "domains", EmitDefaultValue = true)]
         public List<string> Domains { get; set; }
-
+        
         /// <summary>
         /// The name you want to assign to the ApiApp.
         /// </summary>
         /// <value>The name you want to assign to the ApiApp.</value>
         [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
-
+        
         /// <summary>
         /// Gets or Sets Oauth
         /// </summary>
         [DataMember(Name = "oauth", EmitDefaultValue = true)]
         public SubOAuth Oauth { get; set; }
-
+        
         /// <summary>
         /// Gets or Sets Options
         /// </summary>
         [DataMember(Name = "options", EmitDefaultValue = true)]
         public SubOptions Options { get; set; }
-
+        
         /// <summary>
         /// Gets or Sets WhiteLabelingOptions
         /// </summary>
         [DataMember(Name = "white_labeling_options", EmitDefaultValue = true)]
         public SubWhiteLabelingOptions WhiteLabelingOptions { get; set; }
-
+        
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -251,6 +251,15 @@ namespace Dropbox.Sign.Model
             }
         }
 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
+            yield break;
+        }
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
@@ -298,16 +307,6 @@ namespace Dropbox.Sign.Model
             });
 
             return types;
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

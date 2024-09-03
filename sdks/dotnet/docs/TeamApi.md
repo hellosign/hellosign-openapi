@@ -15,7 +15,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 | [**TeamSubTeams**](TeamApi.md#teamsubteams) | **GET** /team/sub_teams/{team_id} | List Sub Teams |
 | [**TeamUpdate**](TeamApi.md#teamupdate) | **PUT** /team | Update Team |
 
-<a name="teamaddmember"></a>
+<a id="teamaddmember"></a>
 # **TeamAddMember**
 > TeamGetResponse TeamAddMember (TeamAddMemberRequest teamAddMemberRequest, string? teamId = null)
 
@@ -113,7 +113,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="teamcreate"></a>
+<a id="teamcreate"></a>
 # **TeamCreate**
 > TeamGetResponse TeamCreate (TeamCreateRequest teamCreateRequest)
 
@@ -210,7 +210,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="teamdelete"></a>
+<a id="teamdelete"></a>
 # **TeamDelete**
 > void TeamDelete ()
 
@@ -295,7 +295,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="teamget"></a>
+<a id="teamget"></a>
 # **TeamGet**
 > TeamGetResponse TeamGet ()
 
@@ -384,7 +384,7 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="teaminfo"></a>
+<a id="teaminfo"></a>
 # **TeamInfo**
 > TeamGetInfoResponse TeamInfo (string? teamId = null)
 
@@ -477,7 +477,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="teaminvites"></a>
+<a id="teaminvites"></a>
 # **TeamInvites**
 > TeamInvitesResponse TeamInvites (string? emailAddress = null)
 
@@ -571,7 +571,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="teammembers"></a>
+<a id="teammembers"></a>
 # **TeamMembers**
 > TeamMembersResponse TeamMembers (string teamId, int? page = null, int? pageSize = null)
 
@@ -667,7 +667,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="teamremovemember"></a>
+<a id="teamremovemember"></a>
 # **TeamRemoveMember**
 > TeamGetResponse TeamRemoveMember (TeamRemoveMemberRequest teamRemoveMemberRequest)
 
@@ -765,7 +765,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="teamsubteams"></a>
+<a id="teamsubteams"></a>
 # **TeamSubTeams**
 > TeamSubTeamsResponse TeamSubTeams (string teamId, int? page = null, int? pageSize = null)
 
@@ -861,7 +861,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="teamupdate"></a>
+<a id="teamupdate"></a>
 # **TeamUpdate**
 > TeamGetResponse TeamUpdate (TeamUpdateRequest teamUpdateRequest)
 

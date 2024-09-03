@@ -31,7 +31,7 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "SubFormFieldRuleTrigger")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class SubFormFieldRuleTrigger : IOpenApiTyped, IEquatable<SubFormFieldRuleTrigger>, IValidatableObject
+    public partial class SubFormFieldRuleTrigger : IEquatable<SubFormFieldRuleTrigger>, IValidatableObject
     {
         /// <summary>
         /// Different field types allow different &#x60;operator&#x60; values: - Field type of **text**:   - **is**: exact match   - **not**: not exact match   - **match**: regular expression, without /. Example:     - OK &#x60;[a-zA-Z0-9]&#x60;     - Not OK &#x60;/[a-zA-Z0-9]/&#x60; - Field type of **dropdown**:   - **is**: exact match, single value   - **not**: not exact match, single value   - **any**: exact match, array of values.   - **none**: not exact match, array of values. - Field type of **checkbox**:   - **is**: exact match, single value   - **not**: not exact match, single value - Field type of **radio**:   - **is**: exact match, single value   - **not**: not exact match, single value
@@ -69,7 +69,6 @@ namespace Dropbox.Sign.Model
             /// </summary>
             [EnumMember(Value = "not")]
             Not = 5
-
         }
 
 
@@ -88,10 +87,10 @@ namespace Dropbox.Sign.Model
         /// Initializes a new instance of the <see cref="SubFormFieldRuleTrigger" /> class.
         /// </summary>
         /// <param name="id">Must reference the &#x60;api_id&#x60; of an existing field defined within &#x60;form_fields_per_document&#x60;. Trigger and action fields and groups must belong to the same signer. (required).</param>
-        /// <param name="_operator">Different field types allow different &#x60;operator&#x60; values: - Field type of **text**:   - **is**: exact match   - **not**: not exact match   - **match**: regular expression, without /. Example:     - OK &#x60;[a-zA-Z0-9]&#x60;     - Not OK &#x60;/[a-zA-Z0-9]/&#x60; - Field type of **dropdown**:   - **is**: exact match, single value   - **not**: not exact match, single value   - **any**: exact match, array of values.   - **none**: not exact match, array of values. - Field type of **checkbox**:   - **is**: exact match, single value   - **not**: not exact match, single value - Field type of **radio**:   - **is**: exact match, single value   - **not**: not exact match, single value (required).</param>
+        /// <param name="varOperator">Different field types allow different &#x60;operator&#x60; values: - Field type of **text**:   - **is**: exact match   - **not**: not exact match   - **match**: regular expression, without /. Example:     - OK &#x60;[a-zA-Z0-9]&#x60;     - Not OK &#x60;/[a-zA-Z0-9]/&#x60; - Field type of **dropdown**:   - **is**: exact match, single value   - **not**: not exact match, single value   - **any**: exact match, array of values.   - **none**: not exact match, array of values. - Field type of **checkbox**:   - **is**: exact match, single value   - **not**: not exact match, single value - Field type of **radio**:   - **is**: exact match, single value   - **not**: not exact match, single value (required).</param>
         /// <param name="value">**value** or **values** is required, but not both.  The value to match against **operator**.  - When **operator** is one of the following, **value** must be &#x60;String&#x60;:   - &#x60;is&#x60;   - &#x60;not&#x60;   - &#x60;match&#x60;  Otherwise, - **checkbox**: When **type** of trigger is **checkbox**, **value** must be &#x60;0&#x60; or &#x60;1&#x60; - **radio**: When **type** of trigger is **radio**, **value** must be &#x60;1&#x60;.</param>
         /// <param name="values">**values** or **value** is required, but not both.  The values to match against **operator** when it is one of the following:  - &#x60;any&#x60; - &#x60;none&#x60;.</param>
-        public SubFormFieldRuleTrigger(string id = default(string), OperatorEnum _operator = default(OperatorEnum), string value = default(string), List<string> values = default(List<string>))
+        public SubFormFieldRuleTrigger(string id = default(string), OperatorEnum varOperator = default(OperatorEnum), string value = default(string), List<string> values = default(List<string>))
         {
             
             // to ensure "id" is required (not null)
@@ -100,7 +99,7 @@ namespace Dropbox.Sign.Model
                 throw new ArgumentNullException("id is a required property for SubFormFieldRuleTrigger and cannot be null");
             }
             this.Id = id;
-            this.Operator = _operator;
+            this.Operator = varOperator;
             this.Value = value;
             this.Values = values;
         }
@@ -127,21 +126,21 @@ namespace Dropbox.Sign.Model
         /// <value>Must reference the &#x60;api_id&#x60; of an existing field defined within &#x60;form_fields_per_document&#x60;. Trigger and action fields and groups must belong to the same signer.</value>
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
-
+        
         /// <summary>
         /// **value** or **values** is required, but not both.  The value to match against **operator**.  - When **operator** is one of the following, **value** must be &#x60;String&#x60;:   - &#x60;is&#x60;   - &#x60;not&#x60;   - &#x60;match&#x60;  Otherwise, - **checkbox**: When **type** of trigger is **checkbox**, **value** must be &#x60;0&#x60; or &#x60;1&#x60; - **radio**: When **type** of trigger is **radio**, **value** must be &#x60;1&#x60;
         /// </summary>
         /// <value>**value** or **values** is required, but not both.  The value to match against **operator**.  - When **operator** is one of the following, **value** must be &#x60;String&#x60;:   - &#x60;is&#x60;   - &#x60;not&#x60;   - &#x60;match&#x60;  Otherwise, - **checkbox**: When **type** of trigger is **checkbox**, **value** must be &#x60;0&#x60; or &#x60;1&#x60; - **radio**: When **type** of trigger is **radio**, **value** must be &#x60;1&#x60;</value>
         [DataMember(Name = "value", EmitDefaultValue = true)]
         public string Value { get; set; }
-
+        
         /// <summary>
         /// **values** or **value** is required, but not both.  The values to match against **operator** when it is one of the following:  - &#x60;any&#x60; - &#x60;none&#x60;
         /// </summary>
         /// <value>**values** or **value** is required, but not both.  The values to match against **operator** when it is one of the following:  - &#x60;any&#x60; - &#x60;none&#x60;</value>
         [DataMember(Name = "values", EmitDefaultValue = true)]
         public List<string> Values { get; set; }
-
+        
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -237,6 +236,15 @@ namespace Dropbox.Sign.Model
             }
         }
 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
+            yield break;
+        }
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
@@ -266,16 +274,6 @@ namespace Dropbox.Sign.Model
             });
 
             return types;
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

@@ -21,7 +21,6 @@ using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
-using JsonSubTypes;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 
@@ -31,15 +30,6 @@ namespace Dropbox.Sign.Model
     /// This class extends &#x60;TemplateResponseDocumentStaticFieldBase&#x60;
     /// </summary>
     [DataContract(Name = "TemplateResponseDocumentStaticFieldText")]
-    [JsonConverter(typeof(JsonSubtypes), "Type")]
-    [JsonSubtypes.KnownSubType(typeof(TemplateResponseDocumentStaticFieldCheckbox), "checkbox")]
-    [JsonSubtypes.KnownSubType(typeof(TemplateResponseDocumentStaticFieldDateSigned), "date_signed")]
-    [JsonSubtypes.KnownSubType(typeof(TemplateResponseDocumentStaticFieldDropdown), "dropdown")]
-    [JsonSubtypes.KnownSubType(typeof(TemplateResponseDocumentStaticFieldHyperlink), "hyperlink")]
-    [JsonSubtypes.KnownSubType(typeof(TemplateResponseDocumentStaticFieldInitials), "initials")]
-    [JsonSubtypes.KnownSubType(typeof(TemplateResponseDocumentStaticFieldRadio), "radio")]
-    [JsonSubtypes.KnownSubType(typeof(TemplateResponseDocumentStaticFieldSignature), "signature")]
-    [JsonSubtypes.KnownSubType(typeof(TemplateResponseDocumentStaticFieldText), "text")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
     public partial class TemplateResponseDocumentStaticFieldText : TemplateResponseDocumentStaticFieldBase, IOpenApiTyped, IEquatable<TemplateResponseDocumentStaticFieldText>, IValidatableObject
     {
@@ -61,7 +51,7 @@ namespace Dropbox.Sign.Model
         /// <param name="height">The height in pixels of this static field..</param>
         /// <param name="required">Boolean showing whether or not this field is required..</param>
         /// <param name="group">The name of the group this field is in. If this field is not a group, this defaults to &#x60;null&#x60;..</param>
-        public TemplateResponseDocumentStaticFieldText(string type = "text", string apiId = default(string), string name = default(string), string signer = "me_now", int x = default(int), int y = default(int), int width = default(int), int height = default(int), bool required = default(bool), string group = default(string))
+        public TemplateResponseDocumentStaticFieldText(string type = @"text", string apiId = default(string), string name = default(string), string signer = @"me_now", int x = default(int), int y = default(int), int width = default(int), int height = default(int), bool required = default(bool), string group = default(string))
         {
             this.ApiId = apiId;
             this.Name = name;
@@ -103,7 +93,7 @@ namespace Dropbox.Sign.Model
         /// <value>The type of this static field. See [field types](/api/reference/constants/#field-types).  * Text Field uses &#x60;TemplateResponseDocumentStaticFieldText&#x60; * Dropdown Field uses &#x60;TemplateResponseDocumentStaticFieldDropdown&#x60; * Hyperlink Field uses &#x60;TemplateResponseDocumentStaticFieldHyperlink&#x60; * Checkbox Field uses &#x60;TemplateResponseDocumentStaticFieldCheckbox&#x60; * Radio Field uses &#x60;TemplateResponseDocumentStaticFieldRadio&#x60; * Signature Field uses &#x60;TemplateResponseDocumentStaticFieldSignature&#x60; * Date Signed Field uses &#x60;TemplateResponseDocumentStaticFieldDateSigned&#x60; * Initials Field uses &#x60;TemplateResponseDocumentStaticFieldInitials&#x60;</value>
         [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
         public string Type { get; set; }
-
+        
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -173,6 +163,29 @@ namespace Dropbox.Sign.Model
             }
         }
 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
+            return this.BaseValidate(validationContext);
+        }
+
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        protected IEnumerable<ValidationResult> BaseValidate(ValidationContext validationContext)
+        {
+            foreach (var x in BaseValidate(validationContext))
+            {
+                yield return x;
+            }
+            yield break;
+        }
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
@@ -184,30 +197,6 @@ namespace Dropbox.Sign.Model
             });
 
             return types;
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
-        {
-            return this.BaseValidate(validationContext);
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        protected IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> BaseValidate(ValidationContext validationContext)
-        {
-            foreach (var x in BaseValidate(validationContext))
-            {
-                yield return x;
-            }
-            yield break;
         }
     }
 

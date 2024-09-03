@@ -6,14 +6,16 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Runtime.Serialization;
-using Newtonsoft.Json;
-using {{packageName}}.Model;
 {{#useCompareNetObjects}}
 using KellermanSoftware.CompareNetObjects;
 {{/useCompareNetObjects}}
+{{#useCustomTemplateCode}}
+using Newtonsoft.Json;
+using {{packageName}}.Model;
+{{/useCustomTemplateCode}}
 
 namespace {{packageName}}.Client
 {
@@ -33,7 +35,11 @@ namespace {{packageName}}.Client
         /// </summary>
         static ClientUtils()
         {
-            compareLogic = new CompareLogic();
+            {{#equatable}}
+            ComparisonConfig comparisonConfig = new{{^net70OrLater}} ComparisonConfig{{/net70OrLater}}();
+            comparisonConfig.UseHashCodeIdentifier = true;
+            {{/equatable}}
+            compareLogic = new{{^net70OrLater}} CompareLogic{{/net70OrLater}}({{#equatable}}comparisonConfig{{/equatable}});
         }
 
         {{/useCompareNetObjects}}
@@ -114,8 +120,12 @@ namespace {{packageName}}.Client
                 return dateTimeOffset.ToString((configuration ?? GlobalConfiguration.Instance).DateTimeFormat);
             if (obj is bool boolean)
                 return boolean ? "true" : "false";
-            if (obj is ICollection collection)
-                return string.Join(",", collection.Cast<object>());
+            if (obj is ICollection collection) {
+                List<string> entries = new List<string>();
+                foreach (var entry in collection)
+                    entries.Add(ParameterToString(entry, configuration));
+                return string.Join(",", entries);
+            }
             if (obj is Enum && HasEnumMemberAttrValue(obj))
                 return GetEnumMemberAttrValue(obj);
 
@@ -139,7 +149,7 @@ namespace {{packageName}}.Client
         /// <returns>Encoded string.</returns>
         public static string Base64Encode(string text)
         {
-            return Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(text));
+            return Convert.ToBase64String(global::System.Text.Encoding.UTF8.GetBytes(text));
         }
 
         /// <summary>
@@ -238,7 +248,12 @@ namespace {{packageName}}.Client
         /// </summary>
         /// <param name="enumVal"></param>
         /// <returns>EnumMember value as string otherwise null</returns>
+{{^useCustomTemplateCode}}
+        private static string GetEnumMemberAttrValue(object enumVal)
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
         public static string GetEnumMemberAttrValue(object enumVal)
+{{/useCustomTemplateCode}}
         {
             if (enumVal == null)
                 throw new ArgumentNullException(nameof(enumVal));
@@ -251,6 +266,7 @@ namespace {{packageName}}.Client
             }
             return null;
         }
+{{#useCustomTemplateCode}}
 
         /// <summary>
         /// Tests if value is a System.IO.Stream or list of System.IO.Stream
@@ -302,7 +318,7 @@ namespace {{packageName}}.Client
                         item.Value.ToString()
                     );
 
-                    continue; 
+                    continue;
                 }
 
                 if (item.Value is Enum)
@@ -333,5 +349,6 @@ namespace {{packageName}}.Client
                 );
             }
         }
+{{/useCustomTemplateCode}}
     }
 }

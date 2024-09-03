@@ -31,7 +31,7 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "ReportResponse")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class ReportResponse : IOpenApiTyped, IEquatable<ReportResponse>, IValidatableObject
+    public partial class ReportResponse : IEquatable<ReportResponse>, IValidatableObject
     {
         /// <summary>
         /// Defines ReportType
@@ -50,17 +50,8 @@ namespace Dropbox.Sign.Model
             /// </summary>
             [EnumMember(Value = "document_status")]
             DocumentStatus = 2
-
         }
 
-
-
-        /// <summary>
-        /// The type(s) of the report you are requesting. Allowed values are \&quot;user_activity\&quot; and \&quot;document_status\&quot;. User activity reports contain list of all users and their activity during the specified date range. Document status report contain a list of signature requests created in the specified time range (and their status).
-        /// </summary>
-        /// <value>The type(s) of the report you are requesting. Allowed values are \&quot;user_activity\&quot; and \&quot;document_status\&quot;. User activity reports contain list of all users and their activity during the specified date range. Document status report contain a list of signature requests created in the specified time range (and their status).</value>
-        [DataMember(Name = "report_type", EmitDefaultValue = true)]
-        public List<ReportTypeEnum> ReportType { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="ReportResponse" /> class.
         /// </summary>
@@ -104,21 +95,28 @@ namespace Dropbox.Sign.Model
         /// <value>A message indicating the requested operation&#39;s success</value>
         [DataMember(Name = "success", EmitDefaultValue = true)]
         public string Success { get; set; }
-
+        
         /// <summary>
         /// The (inclusive) start date for the report data in MM/DD/YYYY format.
         /// </summary>
         /// <value>The (inclusive) start date for the report data in MM/DD/YYYY format.</value>
         [DataMember(Name = "start_date", EmitDefaultValue = true)]
         public string StartDate { get; set; }
-
+        
         /// <summary>
         /// The (inclusive) end date for the report data in MM/DD/YYYY format.
         /// </summary>
         /// <value>The (inclusive) end date for the report data in MM/DD/YYYY format.</value>
         [DataMember(Name = "end_date", EmitDefaultValue = true)]
         public string EndDate { get; set; }
-
+        
+        /// <summary>
+        /// The type(s) of the report you are requesting. Allowed values are \&quot;user_activity\&quot; and \&quot;document_status\&quot;. User activity reports contain list of all users and their activity during the specified date range. Document status report contain a list of signature requests created in the specified time range (and their status).
+        /// </summary>
+        /// <value>The type(s) of the report you are requesting. Allowed values are \&quot;user_activity\&quot; and \&quot;document_status\&quot;. User activity reports contain list of all users and their activity during the specified date range. Document status report contain a list of signature requests created in the specified time range (and their status).</value>
+        [DataMember(Name = "report_type", EmitDefaultValue = true)]
+        public List<ReportResponse.ReportTypeEnum> ReportType { get; set; }
+        
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -183,6 +181,8 @@ namespace Dropbox.Sign.Model
                 ) && 
                 (
                     this.ReportType == input.ReportType ||
+                    this.ReportType != null &&
+                    input.ReportType != null &&
                     this.ReportType.SequenceEqual(input.ReportType)
                 );
         }
@@ -208,11 +208,23 @@ namespace Dropbox.Sign.Model
                 {
                     hashCode = (hashCode * 59) + this.EndDate.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.ReportType.GetHashCode();
+                if (this.ReportType != null)
+                {
+                    hashCode = (hashCode * 59) + this.ReportType.GetHashCode();
+                }
                 return hashCode;
             }
         }
 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
+            yield break;
+        }
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
@@ -237,21 +249,11 @@ namespace Dropbox.Sign.Model
             types.Add(new OpenApiType(){
                 Name = "report_type",
                 Property = "ReportType",
-                Type = "List<string>",
+                Type = "List<ReportResponse.ReportTypeEnum>",
                 Value = ReportType,
             });
 
             return types;
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

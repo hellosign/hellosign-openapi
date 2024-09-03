@@ -31,7 +31,7 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "ErrorResponseError")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class ErrorResponseError : IOpenApiTyped, IEquatable<ErrorResponseError>, IValidatableObject
+    public partial class ErrorResponseError : IEquatable<ErrorResponseError>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ErrorResponseError" /> class.
@@ -84,21 +84,21 @@ namespace Dropbox.Sign.Model
         /// <value>Message describing an error.</value>
         [DataMember(Name = "error_msg", IsRequired = true, EmitDefaultValue = true)]
         public string ErrorMsg { get; set; }
-
+        
         /// <summary>
         /// Name of the error.
         /// </summary>
         /// <value>Name of the error.</value>
         [DataMember(Name = "error_name", IsRequired = true, EmitDefaultValue = true)]
         public string ErrorName { get; set; }
-
+        
         /// <summary>
         /// Path at which an error occurred.
         /// </summary>
         /// <value>Path at which an error occurred.</value>
         [DataMember(Name = "error_path", EmitDefaultValue = true)]
         public string ErrorPath { get; set; }
-
+        
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -187,6 +187,15 @@ namespace Dropbox.Sign.Model
             }
         }
 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
+            yield break;
+        }
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
@@ -210,16 +219,6 @@ namespace Dropbox.Sign.Model
             });
 
             return types;
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

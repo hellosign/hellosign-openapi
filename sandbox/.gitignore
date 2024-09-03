@@ -3,7 +3,7 @@ dotnet/*
 !dotnet/hellosign_sandbox.csproj
 !dotnet/NuGet.Config
 !dotnet/Program.cs
-!dotnet/src/Dropbox.SignSandbox.Test
+!dotnet/src
 !dotnet/test_fixtures
 
 java-v1/*

@@ -109,7 +109,6 @@ namespace Dropbox.Sign.Model
         /// </summary>
         [EnumMember(Value = "YT")]
         YT = 13
-
     }
 
 }
