@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-import { RequestFile, AttributeTypeMap, ObjectSerializer } from "./";
+import { AttributeTypeMap, ObjectSerializer } from "./";
 import { SignatureRequestResponseAttachment } from "./signatureRequestResponseAttachment";
 import { SignatureRequestResponseCustomFieldBase } from "./signatureRequestResponseCustomFieldBase";
 import { SignatureRequestResponseDataBase } from "./signatureRequestResponseDataBase";

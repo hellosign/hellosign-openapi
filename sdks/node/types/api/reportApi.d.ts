@@ -1,4 +1,4 @@
-import { Authentication, Interceptor, HttpBasicAuth, HttpBearerAuth, ReportCreateRequest, ReportCreateResponse } from "../model";
+import { Authentication, HttpBasicAuth, HttpBearerAuth, Interceptor, ReportCreateRequest, ReportCreateResponse } from "../model";
 import { optionsI, returnTypeT } from "./";
 export declare enum ReportApiApiKeys {
 }

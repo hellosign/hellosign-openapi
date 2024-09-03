@@ -22,21 +22,16 @@
  * SOFTWARE.
  */
 
-import axios, { AxiosError, AxiosRequestConfig } from "axios";
+import axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from "axios";
 
-/* tslint:disable:no-unused-locals */
 import {
-  ObjectSerializer,
   Authentication,
-  VoidAuth,
-  Interceptor,
-  HttpBasicAuth,
-  HttpBearerAuth,
-  ApiKeyAuth,
-  OAuth,
-  ErrorResponse,
   FileResponse,
   FileResponseDataUri,
+  HttpBasicAuth,
+  HttpBearerAuth,
+  Interceptor,
+  ObjectSerializer,
   TemplateAddUserRequest,
   TemplateCreateEmbeddedDraftRequest,
   TemplateCreateEmbeddedDraftResponse,
@@ -47,16 +42,17 @@ import {
   TemplateRemoveUserRequest,
   TemplateUpdateFilesRequest,
   TemplateUpdateFilesResponse,
+  VoidAuth,
 } from "../model";
 
 import {
+  generateFormData,
   HttpError,
   optionsI,
-  returnTypeT,
-  returnTypeI,
-  generateFormData,
-  toFormData,
   queryParamsSerializer,
+  returnTypeI,
+  returnTypeT,
+  toFormData,
   USER_AGENT,
 } from "./";
 
@@ -70,9 +66,7 @@ export enum TemplateApiApiKeys {}
 
 export class TemplateApi {
   protected _basePath = defaultBasePath;
-  protected _defaultHeaders: any = {
-    "User-Agent": USER_AGENT,
-  };
+  protected _defaultHeaders: any = { "User-Agent": USER_AGENT };
   protected _useQuerystring: boolean = false;
 
   protected authentications = {
@@ -98,7 +92,7 @@ export class TemplateApi {
   }
 
   set defaultHeaders(defaultHeaders: any) {
-    this._defaultHeaders = defaultHeaders;
+    this._defaultHeaders = { ...defaultHeaders, "User-Agent": USER_AGENT };
   }
 
   get defaultHeaders() {
@@ -145,17 +139,10 @@ export class TemplateApi {
     templateAddUserRequest: TemplateAddUserRequest,
     options: optionsI = { headers: {} }
   ): Promise<returnTypeT<TemplateGetResponse>> {
-    if (
-      templateAddUserRequest !== null &&
-      templateAddUserRequest !== undefined &&
-      templateAddUserRequest.constructor.name !== "TemplateAddUserRequest"
-    ) {
-      templateAddUserRequest = ObjectSerializer.deserialize(
-        templateAddUserRequest,
-        "TemplateAddUserRequest"
-      );
-    }
-
+    templateAddUserRequest = deserializeIfNeeded(
+      templateAddUserRequest,
+      "TemplateAddUserRequest"
+    );
     const localVarPath =
       this.basePath +
       "/template/add_user/{template_id}".replace(
@@ -260,21 +247,12 @@ export class TemplateApi {
         (resolve, reject) => {
           axios.request(localVarRequestOptions).then(
             (response) => {
-              let body = response.data;
-
-              if (
-                response.status &&
-                response.status >= 200 &&
-                response.status <= 299
-              ) {
-                body = ObjectSerializer.deserialize(
-                  body,
-                  "TemplateGetResponse"
-                );
-                resolve({ response: response, body: body });
-              } else {
-                reject(new HttpError(response, body, response.status));
-              }
+              handleSuccessfulResponse<TemplateGetResponse>(
+                resolve,
+                reject,
+                response,
+                "TemplateGetResponse"
+              );
             },
             (error: AxiosError) => {
               if (error.response == null) {
@@ -282,32 +260,25 @@ export class TemplateApi {
                 return;
               }
 
-              const response = error.response;
-
-              let body;
-
-              if (response.status === 200) {
-                body = ObjectSerializer.deserialize(
-                  response.data,
+              if (
+                handleErrorCodeResponse(
+                  reject,
+                  error.response,
+                  200,
                   "TemplateGetResponse"
-                );
-
-                reject(new HttpError(response, body, response.status));
+                )
+              ) {
                 return;
               }
 
-              let rangeCodeLeft = Number("4XX"[0] + "00");
-              let rangeCodeRight = Number("4XX"[0] + "99");
               if (
-                response.status >= rangeCodeLeft &&
-                response.status <= rangeCodeRight
-              ) {
-                body = ObjectSerializer.deserialize(
-                  response.data,
+                handleErrorRangeResponse(
+                  reject,
+                  error.response,
+                  "4XX",
                   "ErrorResponse"
-                );
-
-                reject(new HttpError(response, body, response.status));
+                )
+              ) {
                 return;
               }
 
@@ -328,17 +299,10 @@ export class TemplateApi {
     templateCreateRequest: TemplateCreateRequest,
     options: optionsI = { headers: {} }
   ): Promise<returnTypeT<TemplateCreateResponse>> {
-    if (
-      templateCreateRequest !== null &&
-      templateCreateRequest !== undefined &&
-      templateCreateRequest.constructor.name !== "TemplateCreateRequest"
-    ) {
-      templateCreateRequest = ObjectSerializer.deserialize(
-        templateCreateRequest,
-        "TemplateCreateRequest"
-      );
-    }
-
+    templateCreateRequest = deserializeIfNeeded(
+      templateCreateRequest,
+      "TemplateCreateRequest"
+    );
     const localVarPath = this.basePath + "/template/create";
     let localVarQueryParameters: any = {};
     let localVarHeaderParams: any = (<any>Object).assign(
@@ -428,21 +392,12 @@ export class TemplateApi {
         (resolve, reject) => {
           axios.request(localVarRequestOptions).then(
             (response) => {
-              let body = response.data;
-
-              if (
-                response.status &&
-                response.status >= 200 &&
-                response.status <= 299
-              ) {
-                body = ObjectSerializer.deserialize(
-                  body,
-                  "TemplateCreateResponse"
-                );
-                resolve({ response: response, body: body });
-              } else {
-                reject(new HttpError(response, body, response.status));
-              }
+              handleSuccessfulResponse<TemplateCreateResponse>(
+                resolve,
+                reject,
+                response,
+                "TemplateCreateResponse"
+              );
             },
             (error: AxiosError) => {
               if (error.response == null) {
@@ -450,32 +405,25 @@ export class TemplateApi {
                 return;
               }
 
-              const response = error.response;
-
-              let body;
-
-              if (response.status === 200) {
-                body = ObjectSerializer.deserialize(
-                  response.data,
+              if (
+                handleErrorCodeResponse(
+                  reject,
+                  error.response,
+                  200,
                   "TemplateCreateResponse"
-                );
-
-                reject(new HttpError(response, body, response.status));
+                )
+              ) {
                 return;
               }
 
-              let rangeCodeLeft = Number("4XX"[0] + "00");
-              let rangeCodeRight = Number("4XX"[0] + "99");
               if (
-                response.status >= rangeCodeLeft &&
-                response.status <= rangeCodeRight
-              ) {
-                body = ObjectSerializer.deserialize(
-                  response.data,
+                handleErrorRangeResponse(
+                  reject,
+                  error.response,
+                  "4XX",
                   "ErrorResponse"
-                );
-
-                reject(new HttpError(response, body, response.status));
+                )
+              ) {
                 return;
               }
 
@@ -496,18 +444,10 @@ export class TemplateApi {
     templateCreateEmbeddedDraftRequest: TemplateCreateEmbeddedDraftRequest,
     options: optionsI = { headers: {} }
   ): Promise<returnTypeT<TemplateCreateEmbeddedDraftResponse>> {
-    if (
-      templateCreateEmbeddedDraftRequest !== null &&
-      templateCreateEmbeddedDraftRequest !== undefined &&
-      templateCreateEmbeddedDraftRequest.constructor.name !==
-        "TemplateCreateEmbeddedDraftRequest"
-    ) {
-      templateCreateEmbeddedDraftRequest = ObjectSerializer.deserialize(
-        templateCreateEmbeddedDraftRequest,
-        "TemplateCreateEmbeddedDraftRequest"
-      );
-    }
-
+    templateCreateEmbeddedDraftRequest = deserializeIfNeeded(
+      templateCreateEmbeddedDraftRequest,
+      "TemplateCreateEmbeddedDraftRequest"
+    );
     const localVarPath = this.basePath + "/template/create_embedded_draft";
     let localVarQueryParameters: any = {};
     let localVarHeaderParams: any = (<any>Object).assign(
@@ -600,21 +540,12 @@ export class TemplateApi {
         (resolve, reject) => {
           axios.request(localVarRequestOptions).then(
             (response) => {
-              let body = response.data;
-
-              if (
-                response.status &&
-                response.status >= 200 &&
-                response.status <= 299
-              ) {
-                body = ObjectSerializer.deserialize(
-                  body,
-                  "TemplateCreateEmbeddedDraftResponse"
-                );
-                resolve({ response: response, body: body });
-              } else {
-                reject(new HttpError(response, body, response.status));
-              }
+              handleSuccessfulResponse<TemplateCreateEmbeddedDraftResponse>(
+                resolve,
+                reject,
+                response,
+                "TemplateCreateEmbeddedDraftResponse"
+              );
             },
             (error: AxiosError) => {
               if (error.response == null) {
@@ -622,32 +553,25 @@ export class TemplateApi {
                 return;
               }
 
-              const response = error.response;
-
-              let body;
-
-              if (response.status === 200) {
-                body = ObjectSerializer.deserialize(
-                  response.data,
+              if (
+                handleErrorCodeResponse(
+                  reject,
+                  error.response,
+                  200,
                   "TemplateCreateEmbeddedDraftResponse"
-                );
-
-                reject(new HttpError(response, body, response.status));
+                )
+              ) {
                 return;
               }
 
-              let rangeCodeLeft = Number("4XX"[0] + "00");
-              let rangeCodeRight = Number("4XX"[0] + "99");
               if (
-                response.status >= rangeCodeLeft &&
-                response.status <= rangeCodeRight
-              ) {
-                body = ObjectSerializer.deserialize(
-                  response.data,
+                handleErrorRangeResponse(
+                  reject,
+                  error.response,
+                  "4XX",
                   "ErrorResponse"
-                );
-
-                reject(new HttpError(response, body, response.status));
+                )
+              ) {
                 return;
               }
 
@@ -739,17 +663,7 @@ export class TemplateApi {
       return new Promise<returnTypeI>((resolve, reject) => {
         axios.request(localVarRequestOptions).then(
           (response) => {
-            let body = response.data;
-
-            if (
-              response.status &&
-              response.status >= 200 &&
-              response.status <= 299
-            ) {
-              resolve({ response: response, body: body });
-            } else {
-              reject(new HttpError(response, body, response.status));
-            }
+            handleSuccessfulResponse(resolve, reject, response);
           },
           (error: AxiosError) => {
             if (error.response == null) {
@@ -757,22 +671,14 @@ export class TemplateApi {
               return;
             }
 
-            const response = error.response;
-
-            let body;
-
-            let rangeCodeLeft = Number("4XX"[0] + "00");
-            let rangeCodeRight = Number("4XX"[0] + "99");
             if (
-              response.status >= rangeCodeLeft &&
-              response.status <= rangeCodeRight
-            ) {
-              body = ObjectSerializer.deserialize(
-                response.data,
+              handleErrorRangeResponse(
+                reject,
+                error.response,
+                "4XX",
                 "ErrorResponse"
-              );
-
-              reject(new HttpError(response, body, response.status));
+              )
+            ) {
               return;
             }
 
@@ -872,18 +778,12 @@ export class TemplateApi {
       return new Promise<returnTypeT<Buffer>>((resolve, reject) => {
         axios.request(localVarRequestOptions).then(
           (response) => {
-            let body = response.data;
-
-            if (
-              response.status &&
-              response.status >= 200 &&
-              response.status <= 299
-            ) {
-              body = ObjectSerializer.deserialize(body, "Buffer");
-              resolve({ response: response, body: body });
-            } else {
-              reject(new HttpError(response, body, response.status));
-            }
+            handleSuccessfulResponse<Buffer>(
+              resolve,
+              reject,
+              response,
+              "Buffer"
+            );
           },
           (error: AxiosError) => {
             if (error.response == null) {
@@ -891,29 +791,25 @@ export class TemplateApi {
               return;
             }
 
-            const response = error.response;
-
-            let body;
-
-            if (response.status === 200) {
-              body = ObjectSerializer.deserialize(response.data, "RequestFile");
-
-              reject(new HttpError(response, body, response.status));
+            if (
+              handleErrorCodeResponse(
+                reject,
+                error.response,
+                200,
+                "RequestFile"
+              )
+            ) {
               return;
             }
 
-            let rangeCodeLeft = Number("4XX"[0] + "00");
-            let rangeCodeRight = Number("4XX"[0] + "99");
             if (
-              response.status >= rangeCodeLeft &&
-              response.status <= rangeCodeRight
-            ) {
-              body = ObjectSerializer.deserialize(
-                response.data,
+              handleErrorRangeResponse(
+                reject,
+                error.response,
+                "4XX",
                 "ErrorResponse"
-              );
-
-              reject(new HttpError(response, body, response.status));
+              )
+            ) {
               return;
             }
 
@@ -1005,21 +901,12 @@ export class TemplateApi {
         (resolve, reject) => {
           axios.request(localVarRequestOptions).then(
             (response) => {
-              let body = response.data;
-
-              if (
-                response.status &&
-                response.status >= 200 &&
-                response.status <= 299
-              ) {
-                body = ObjectSerializer.deserialize(
-                  body,
-                  "FileResponseDataUri"
-                );
-                resolve({ response: response, body: body });
-              } else {
-                reject(new HttpError(response, body, response.status));
-              }
+              handleSuccessfulResponse<FileResponseDataUri>(
+                resolve,
+                reject,
+                response,
+                "FileResponseDataUri"
+              );
             },
             (error: AxiosError) => {
               if (error.response == null) {
@@ -1027,32 +914,25 @@ export class TemplateApi {
                 return;
               }
 
-              const response = error.response;
-
-              let body;
-
-              if (response.status === 200) {
-                body = ObjectSerializer.deserialize(
-                  response.data,
+              if (
+                handleErrorCodeResponse(
+                  reject,
+                  error.response,
+                  200,
                   "FileResponseDataUri"
-                );
-
-                reject(new HttpError(response, body, response.status));
+                )
+              ) {
                 return;
               }
 
-              let rangeCodeLeft = Number("4XX"[0] + "00");
-              let rangeCodeRight = Number("4XX"[0] + "99");
               if (
-                response.status >= rangeCodeLeft &&
-                response.status <= rangeCodeRight
-              ) {
-                body = ObjectSerializer.deserialize(
-                  response.data,
+                handleErrorRangeResponse(
+                  reject,
+                  error.response,
+                  "4XX",
                   "ErrorResponse"
-                );
-
-                reject(new HttpError(response, body, response.status));
+                )
+              ) {
                 return;
               }
 
@@ -1153,18 +1033,12 @@ export class TemplateApi {
       return new Promise<returnTypeT<FileResponse>>((resolve, reject) => {
         axios.request(localVarRequestOptions).then(
           (response) => {
-            let body = response.data;
-
-            if (
-              response.status &&
-              response.status >= 200 &&
-              response.status <= 299
-            ) {
-              body = ObjectSerializer.deserialize(body, "FileResponse");
-              resolve({ response: response, body: body });
-            } else {
-              reject(new HttpError(response, body, response.status));
-            }
+            handleSuccessfulResponse<FileResponse>(
+              resolve,
+              reject,
+              response,
+              "FileResponse"
+            );
           },
           (error: AxiosError) => {
             if (error.response == null) {
@@ -1172,32 +1046,25 @@ export class TemplateApi {
               return;
             }
 
-            const response = error.response;
-
-            let body;
-
-            if (response.status === 200) {
-              body = ObjectSerializer.deserialize(
-                response.data,
+            if (
+              handleErrorCodeResponse(
+                reject,
+                error.response,
+                200,
                 "FileResponse"
-              );
-
-              reject(new HttpError(response, body, response.status));
+              )
+            ) {
               return;
             }
 
-            let rangeCodeLeft = Number("4XX"[0] + "00");
-            let rangeCodeRight = Number("4XX"[0] + "99");
             if (
-              response.status >= rangeCodeLeft &&
-              response.status <= rangeCodeRight
-            ) {
-              body = ObjectSerializer.deserialize(
-                response.data,
+              handleErrorRangeResponse(
+                reject,
+                error.response,
+                "4XX",
                 "ErrorResponse"
-              );
-
-              reject(new HttpError(response, body, response.status));
+              )
+            ) {
               return;
             }
 
@@ -1289,21 +1156,12 @@ export class TemplateApi {
         (resolve, reject) => {
           axios.request(localVarRequestOptions).then(
             (response) => {
-              let body = response.data;
-
-              if (
-                response.status &&
-                response.status >= 200 &&
-                response.status <= 299
-              ) {
-                body = ObjectSerializer.deserialize(
-                  body,
-                  "TemplateGetResponse"
-                );
-                resolve({ response: response, body: body });
-              } else {
-                reject(new HttpError(response, body, response.status));
-              }
+              handleSuccessfulResponse<TemplateGetResponse>(
+                resolve,
+                reject,
+                response,
+                "TemplateGetResponse"
+              );
             },
             (error: AxiosError) => {
               if (error.response == null) {
@@ -1311,32 +1169,25 @@ export class TemplateApi {
                 return;
               }
 
-              const response = error.response;
-
-              let body;
-
-              if (response.status === 200) {
-                body = ObjectSerializer.deserialize(
-                  response.data,
+              if (
+                handleErrorCodeResponse(
+                  reject,
+                  error.response,
+                  200,
                   "TemplateGetResponse"
-                );
-
-                reject(new HttpError(response, body, response.status));
+                )
+              ) {
                 return;
               }
 
-              let rangeCodeLeft = Number("4XX"[0] + "00");
-              let rangeCodeRight = Number("4XX"[0] + "99");
               if (
-                response.status >= rangeCodeLeft &&
-                response.status <= rangeCodeRight
-              ) {
-                body = ObjectSerializer.deserialize(
-                  response.data,
+                handleErrorRangeResponse(
+                  reject,
+                  error.response,
+                  "4XX",
                   "ErrorResponse"
-                );
-
-                reject(new HttpError(response, body, response.status));
+                )
+              ) {
                 return;
               }
 
@@ -1451,21 +1302,12 @@ export class TemplateApi {
         (resolve, reject) => {
           axios.request(localVarRequestOptions).then(
             (response) => {
-              let body = response.data;
-
-              if (
-                response.status &&
-                response.status >= 200 &&
-                response.status <= 299
-              ) {
-                body = ObjectSerializer.deserialize(
-                  body,
-                  "TemplateListResponse"
-                );
-                resolve({ response: response, body: body });
-              } else {
-                reject(new HttpError(response, body, response.status));
-              }
+              handleSuccessfulResponse<TemplateListResponse>(
+                resolve,
+                reject,
+                response,
+                "TemplateListResponse"
+              );
             },
             (error: AxiosError) => {
               if (error.response == null) {
@@ -1473,32 +1315,25 @@ export class TemplateApi {
                 return;
               }
 
-              const response = error.response;
-
-              let body;
-
-              if (response.status === 200) {
-                body = ObjectSerializer.deserialize(
-                  response.data,
+              if (
+                handleErrorCodeResponse(
+                  reject,
+                  error.response,
+                  200,
                   "TemplateListResponse"
-                );
-
-                reject(new HttpError(response, body, response.status));
+                )
+              ) {
                 return;
               }
 
-              let rangeCodeLeft = Number("4XX"[0] + "00");
-              let rangeCodeRight = Number("4XX"[0] + "99");
               if (
-                response.status >= rangeCodeLeft &&
-                response.status <= rangeCodeRight
-              ) {
-                body = ObjectSerializer.deserialize(
-                  response.data,
+                handleErrorRangeResponse(
+                  reject,
+                  error.response,
+                  "4XX",
                   "ErrorResponse"
-                );
-
-                reject(new HttpError(response, body, response.status));
+                )
+              ) {
                 return;
               }
 
@@ -1521,17 +1356,10 @@ export class TemplateApi {
     templateRemoveUserRequest: TemplateRemoveUserRequest,
     options: optionsI = { headers: {} }
   ): Promise<returnTypeT<TemplateGetResponse>> {
-    if (
-      templateRemoveUserRequest !== null &&
-      templateRemoveUserRequest !== undefined &&
-      templateRemoveUserRequest.constructor.name !== "TemplateRemoveUserRequest"
-    ) {
-      templateRemoveUserRequest = ObjectSerializer.deserialize(
-        templateRemoveUserRequest,
-        "TemplateRemoveUserRequest"
-      );
-    }
-
+    templateRemoveUserRequest = deserializeIfNeeded(
+      templateRemoveUserRequest,
+      "TemplateRemoveUserRequest"
+    );
     const localVarPath =
       this.basePath +
       "/template/remove_user/{template_id}".replace(
@@ -1636,21 +1464,12 @@ export class TemplateApi {
         (resolve, reject) => {
           axios.request(localVarRequestOptions).then(
             (response) => {
-              let body = response.data;
-
-              if (
-                response.status &&
-                response.status >= 200 &&
-                response.status <= 299
-              ) {
-                body = ObjectSerializer.deserialize(
-                  body,
-                  "TemplateGetResponse"
-                );
-                resolve({ response: response, body: body });
-              } else {
-                reject(new HttpError(response, body, response.status));
-              }
+              handleSuccessfulResponse<TemplateGetResponse>(
+                resolve,
+                reject,
+                response,
+                "TemplateGetResponse"
+              );
             },
             (error: AxiosError) => {
               if (error.response == null) {
@@ -1658,32 +1477,25 @@ export class TemplateApi {
                 return;
               }
 
-              const response = error.response;
-
-              let body;
-
-              if (response.status === 200) {
-                body = ObjectSerializer.deserialize(
-                  response.data,
+              if (
+                handleErrorCodeResponse(
+                  reject,
+                  error.response,
+                  200,
                   "TemplateGetResponse"
-                );
-
-                reject(new HttpError(response, body, response.status));
+                )
+              ) {
                 return;
               }
 
-              let rangeCodeLeft = Number("4XX"[0] + "00");
-              let rangeCodeRight = Number("4XX"[0] + "99");
               if (
-                response.status >= rangeCodeLeft &&
-                response.status <= rangeCodeRight
-              ) {
-                body = ObjectSerializer.deserialize(
-                  response.data,
+                handleErrorRangeResponse(
+                  reject,
+                  error.response,
+                  "4XX",
                   "ErrorResponse"
-                );
-
-                reject(new HttpError(response, body, response.status));
+                )
+              ) {
                 return;
               }
 
@@ -1706,18 +1518,10 @@ export class TemplateApi {
     templateUpdateFilesRequest: TemplateUpdateFilesRequest,
     options: optionsI = { headers: {} }
   ): Promise<returnTypeT<TemplateUpdateFilesResponse>> {
-    if (
-      templateUpdateFilesRequest !== null &&
-      templateUpdateFilesRequest !== undefined &&
-      templateUpdateFilesRequest.constructor.name !==
-        "TemplateUpdateFilesRequest"
-    ) {
-      templateUpdateFilesRequest = ObjectSerializer.deserialize(
-        templateUpdateFilesRequest,
-        "TemplateUpdateFilesRequest"
-      );
-    }
-
+    templateUpdateFilesRequest = deserializeIfNeeded(
+      templateUpdateFilesRequest,
+      "TemplateUpdateFilesRequest"
+    );
     const localVarPath =
       this.basePath +
       "/template/update_files/{template_id}".replace(
@@ -1822,21 +1626,12 @@ export class TemplateApi {
         (resolve, reject) => {
           axios.request(localVarRequestOptions).then(
             (response) => {
-              let body = response.data;
-
-              if (
-                response.status &&
-                response.status >= 200 &&
-                response.status <= 299
-              ) {
-                body = ObjectSerializer.deserialize(
-                  body,
-                  "TemplateUpdateFilesResponse"
-                );
-                resolve({ response: response, body: body });
-              } else {
-                reject(new HttpError(response, body, response.status));
-              }
+              handleSuccessfulResponse<TemplateUpdateFilesResponse>(
+                resolve,
+                reject,
+                response,
+                "TemplateUpdateFilesResponse"
+              );
             },
             (error: AxiosError) => {
               if (error.response == null) {
@@ -1844,32 +1639,25 @@ export class TemplateApi {
                 return;
               }
 
-              const response = error.response;
-
-              let body;
-
-              if (response.status === 200) {
-                body = ObjectSerializer.deserialize(
-                  response.data,
+              if (
+                handleErrorCodeResponse(
+                  reject,
+                  error.response,
+                  200,
                   "TemplateUpdateFilesResponse"
-                );
-
-                reject(new HttpError(response, body, response.status));
+                )
+              ) {
                 return;
               }
 
-              let rangeCodeLeft = Number("4XX"[0] + "00");
-              let rangeCodeRight = Number("4XX"[0] + "99");
               if (
-                response.status >= rangeCodeLeft &&
-                response.status <= rangeCodeRight
-              ) {
-                body = ObjectSerializer.deserialize(
-                  response.data,
+                handleErrorRangeResponse(
+                  reject,
+                  error.response,
+                  "4XX",
                   "ErrorResponse"
-                );
-
-                reject(new HttpError(response, body, response.status));
+                )
+              ) {
                 return;
               }
 
@@ -1880,4 +1668,74 @@ export class TemplateApi {
       );
     });
   }
+}
+
+function deserializeIfNeeded<T>(obj: T, classname: string): T {
+  if (obj !== null && obj !== undefined && obj.constructor.name !== classname) {
+    return ObjectSerializer.deserialize(obj, classname);
+  }
+
+  return obj;
+}
+
+type AxiosResolve<T> = (
+  value: returnTypeT<T> | PromiseLike<returnTypeT<T>>
+) => void;
+
+type AxiosReject = (reason?: any) => void;
+
+function handleSuccessfulResponse<T>(
+  resolve: AxiosResolve<T>,
+  reject: AxiosReject,
+  response: AxiosResponse,
+  returnType?: string
+) {
+  let body = response.data;
+
+  if (response.status && response.status >= 200 && response.status <= 299) {
+    if (returnType) {
+      body = ObjectSerializer.deserialize(body, returnType);
+    }
+
+    resolve({ response: response, body: body });
+  } else {
+    reject(new HttpError(response, body, response.status));
+  }
+}
+
+function handleErrorCodeResponse(
+  reject: AxiosReject,
+  response: AxiosResponse,
+  code: number,
+  returnType: string
+): boolean {
+  if (response.status !== code) {
+    return false;
+  }
+
+  const body = ObjectSerializer.deserialize(response.data, returnType);
+
+  reject(new HttpError(response, body, response.status));
+
+  return true;
+}
+
+function handleErrorRangeResponse(
+  reject: AxiosReject,
+  response: AxiosResponse,
+  code: string,
+  returnType: string
+): boolean {
+  let rangeCodeLeft = Number(code[0] + "00");
+  let rangeCodeRight = Number(code[0] + "99");
+
+  if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
+    const body = ObjectSerializer.deserialize(response.data, returnType);
+
+    reject(new HttpError(response, body, response.status));
+
+    return true;
+  }
+
+  return false;
 }

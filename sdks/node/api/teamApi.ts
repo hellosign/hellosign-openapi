@@ -22,19 +22,14 @@
  * SOFTWARE.
  */
 
-import axios, { AxiosError, AxiosRequestConfig } from "axios";
+import axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from "axios";
 
-/* tslint:disable:no-unused-locals */
 import {
-  ObjectSerializer,
   Authentication,
-  VoidAuth,
-  Interceptor,
   HttpBasicAuth,
   HttpBearerAuth,
-  ApiKeyAuth,
-  OAuth,
-  ErrorResponse,
+  Interceptor,
+  ObjectSerializer,
   TeamAddMemberRequest,
   TeamCreateRequest,
   TeamGetInfoResponse,
@@ -44,16 +39,17 @@ import {
   TeamRemoveMemberRequest,
   TeamSubTeamsResponse,
   TeamUpdateRequest,
+  VoidAuth,
 } from "../model";
 
 import {
+  generateFormData,
   HttpError,
   optionsI,
-  returnTypeT,
-  returnTypeI,
-  generateFormData,
-  toFormData,
   queryParamsSerializer,
+  returnTypeI,
+  returnTypeT,
+  toFormData,
   USER_AGENT,
 } from "./";
 
@@ -67,9 +63,7 @@ export enum TeamApiApiKeys {}
 
 export class TeamApi {
   protected _basePath = defaultBasePath;
-  protected _defaultHeaders: any = {
-    "User-Agent": USER_AGENT,
-  };
+  protected _defaultHeaders: any = { "User-Agent": USER_AGENT };
   protected _useQuerystring: boolean = false;
 
   protected authentications = {
@@ -95,7 +89,7 @@ export class TeamApi {
   }
 
   set defaultHeaders(defaultHeaders: any) {
-    this._defaultHeaders = defaultHeaders;
+    this._defaultHeaders = { ...defaultHeaders, "User-Agent": USER_AGENT };
   }
 
   get defaultHeaders() {
@@ -142,17 +136,10 @@ export class TeamApi {
     teamId?: string,
     options: optionsI = { headers: {} }
   ): Promise<returnTypeT<TeamGetResponse>> {
-    if (
-      teamAddMemberRequest !== null &&
-      teamAddMemberRequest !== undefined &&
-      teamAddMemberRequest.constructor.name !== "TeamAddMemberRequest"
-    ) {
-      teamAddMemberRequest = ObjectSerializer.deserialize(
-        teamAddMemberRequest,
-        "TeamAddMemberRequest"
-      );
-    }
-
+    teamAddMemberRequest = deserializeIfNeeded(
+      teamAddMemberRequest,
+      "TeamAddMemberRequest"
+    );
     const localVarPath = this.basePath + "/team/add_member";
     let localVarQueryParameters: any = {};
     let localVarHeaderParams: any = (<any>Object).assign(
@@ -248,18 +235,12 @@ export class TeamApi {
       return new Promise<returnTypeT<TeamGetResponse>>((resolve, reject) => {
         axios.request(localVarRequestOptions).then(
           (response) => {
-            let body = response.data;
-
-            if (
-              response.status &&
-              response.status >= 200 &&
-              response.status <= 299
-            ) {
-              body = ObjectSerializer.deserialize(body, "TeamGetResponse");
-              resolve({ response: response, body: body });
-            } else {
-              reject(new HttpError(response, body, response.status));
-            }
+            handleSuccessfulResponse<TeamGetResponse>(
+              resolve,
+              reject,
+              response,
+              "TeamGetResponse"
+            );
           },
           (error: AxiosError) => {
             if (error.response == null) {
@@ -267,32 +248,25 @@ export class TeamApi {
               return;
             }
 
-            const response = error.response;
-
-            let body;
-
-            if (response.status === 200) {
-              body = ObjectSerializer.deserialize(
-                response.data,
+            if (
+              handleErrorCodeResponse(
+                reject,
+                error.response,
+                200,
                 "TeamGetResponse"
-              );
-
-              reject(new HttpError(response, body, response.status));
+              )
+            ) {
               return;
             }
 
-            let rangeCodeLeft = Number("4XX"[0] + "00");
-            let rangeCodeRight = Number("4XX"[0] + "99");
             if (
-              response.status >= rangeCodeLeft &&
-              response.status <= rangeCodeRight
-            ) {
-              body = ObjectSerializer.deserialize(
-                response.data,
+              handleErrorRangeResponse(
+                reject,
+                error.response,
+                "4XX",
                 "ErrorResponse"
-              );
-
-              reject(new HttpError(response, body, response.status));
+              )
+            ) {
               return;
             }
 
@@ -312,17 +286,10 @@ export class TeamApi {
     teamCreateRequest: TeamCreateRequest,
     options: optionsI = { headers: {} }
   ): Promise<returnTypeT<TeamGetResponse>> {
-    if (
-      teamCreateRequest !== null &&
-      teamCreateRequest !== undefined &&
-      teamCreateRequest.constructor.name !== "TeamCreateRequest"
-    ) {
-      teamCreateRequest = ObjectSerializer.deserialize(
-        teamCreateRequest,
-        "TeamCreateRequest"
-      );
-    }
-
+    teamCreateRequest = deserializeIfNeeded(
+      teamCreateRequest,
+      "TeamCreateRequest"
+    );
     const localVarPath = this.basePath + "/team/create";
     let localVarQueryParameters: any = {};
     let localVarHeaderParams: any = (<any>Object).assign(
@@ -408,18 +375,12 @@ export class TeamApi {
       return new Promise<returnTypeT<TeamGetResponse>>((resolve, reject) => {
         axios.request(localVarRequestOptions).then(
           (response) => {
-            let body = response.data;
-
-            if (
-              response.status &&
-              response.status >= 200 &&
-              response.status <= 299
-            ) {
-              body = ObjectSerializer.deserialize(body, "TeamGetResponse");
-              resolve({ response: response, body: body });
-            } else {
-              reject(new HttpError(response, body, response.status));
-            }
+            handleSuccessfulResponse<TeamGetResponse>(
+              resolve,
+              reject,
+              response,
+              "TeamGetResponse"
+            );
           },
           (error: AxiosError) => {
             if (error.response == null) {
@@ -427,32 +388,25 @@ export class TeamApi {
               return;
             }
 
-            const response = error.response;
-
-            let body;
-
-            if (response.status === 200) {
-              body = ObjectSerializer.deserialize(
-                response.data,
+            if (
+              handleErrorCodeResponse(
+                reject,
+                error.response,
+                200,
                 "TeamGetResponse"
-              );
-
-              reject(new HttpError(response, body, response.status));
+              )
+            ) {
               return;
             }
 
-            let rangeCodeLeft = Number("4XX"[0] + "00");
-            let rangeCodeRight = Number("4XX"[0] + "99");
             if (
-              response.status >= rangeCodeLeft &&
-              response.status <= rangeCodeRight
-            ) {
-              body = ObjectSerializer.deserialize(
-                response.data,
+              handleErrorRangeResponse(
+                reject,
+                error.response,
+                "4XX",
                 "ErrorResponse"
-              );
-
-              reject(new HttpError(response, body, response.status));
+              )
+            ) {
               return;
             }
 
@@ -529,17 +483,7 @@ export class TeamApi {
       return new Promise<returnTypeI>((resolve, reject) => {
         axios.request(localVarRequestOptions).then(
           (response) => {
-            let body = response.data;
-
-            if (
-              response.status &&
-              response.status >= 200 &&
-              response.status <= 299
-            ) {
-              resolve({ response: response, body: body });
-            } else {
-              reject(new HttpError(response, body, response.status));
-            }
+            handleSuccessfulResponse(resolve, reject, response);
           },
           (error: AxiosError) => {
             if (error.response == null) {
@@ -547,22 +491,14 @@ export class TeamApi {
               return;
             }
 
-            const response = error.response;
-
-            let body;
-
-            let rangeCodeLeft = Number("4XX"[0] + "00");
-            let rangeCodeRight = Number("4XX"[0] + "99");
             if (
-              response.status >= rangeCodeLeft &&
-              response.status <= rangeCodeRight
-            ) {
-              body = ObjectSerializer.deserialize(
-                response.data,
+              handleErrorRangeResponse(
+                reject,
+                error.response,
+                "4XX",
                 "ErrorResponse"
-              );
-
-              reject(new HttpError(response, body, response.status));
+              )
+            ) {
               return;
             }
 
@@ -639,18 +575,12 @@ export class TeamApi {
       return new Promise<returnTypeT<TeamGetResponse>>((resolve, reject) => {
         axios.request(localVarRequestOptions).then(
           (response) => {
-            let body = response.data;
-
-            if (
-              response.status &&
-              response.status >= 200 &&
-              response.status <= 299
-            ) {
-              body = ObjectSerializer.deserialize(body, "TeamGetResponse");
-              resolve({ response: response, body: body });
-            } else {
-              reject(new HttpError(response, body, response.status));
-            }
+            handleSuccessfulResponse<TeamGetResponse>(
+              resolve,
+              reject,
+              response,
+              "TeamGetResponse"
+            );
           },
           (error: AxiosError) => {
             if (error.response == null) {
@@ -658,32 +588,25 @@ export class TeamApi {
               return;
             }
 
-            const response = error.response;
-
-            let body;
-
-            if (response.status === 200) {
-              body = ObjectSerializer.deserialize(
-                response.data,
+            if (
+              handleErrorCodeResponse(
+                reject,
+                error.response,
+                200,
                 "TeamGetResponse"
-              );
-
-              reject(new HttpError(response, body, response.status));
+              )
+            ) {
               return;
             }
 
-            let rangeCodeLeft = Number("4XX"[0] + "00");
-            let rangeCodeRight = Number("4XX"[0] + "99");
             if (
-              response.status >= rangeCodeLeft &&
-              response.status <= rangeCodeRight
-            ) {
-              body = ObjectSerializer.deserialize(
-                response.data,
+              handleErrorRangeResponse(
+                reject,
+                error.response,
+                "4XX",
                 "ErrorResponse"
-              );
-
-              reject(new HttpError(response, body, response.status));
+              )
+            ) {
               return;
             }
 
@@ -770,21 +693,12 @@ export class TeamApi {
         (resolve, reject) => {
           axios.request(localVarRequestOptions).then(
             (response) => {
-              let body = response.data;
-
-              if (
-                response.status &&
-                response.status >= 200 &&
-                response.status <= 299
-              ) {
-                body = ObjectSerializer.deserialize(
-                  body,
-                  "TeamGetInfoResponse"
-                );
-                resolve({ response: response, body: body });
-              } else {
-                reject(new HttpError(response, body, response.status));
-              }
+              handleSuccessfulResponse<TeamGetInfoResponse>(
+                resolve,
+                reject,
+                response,
+                "TeamGetInfoResponse"
+              );
             },
             (error: AxiosError) => {
               if (error.response == null) {
@@ -792,32 +706,25 @@ export class TeamApi {
                 return;
               }
 
-              const response = error.response;
-
-              let body;
-
-              if (response.status === 200) {
-                body = ObjectSerializer.deserialize(
-                  response.data,
+              if (
+                handleErrorCodeResponse(
+                  reject,
+                  error.response,
+                  200,
                   "TeamGetInfoResponse"
-                );
-
-                reject(new HttpError(response, body, response.status));
+                )
+              ) {
                 return;
               }
 
-              let rangeCodeLeft = Number("4XX"[0] + "00");
-              let rangeCodeRight = Number("4XX"[0] + "99");
               if (
-                response.status >= rangeCodeLeft &&
-                response.status <= rangeCodeRight
-              ) {
-                body = ObjectSerializer.deserialize(
-                  response.data,
+                handleErrorRangeResponse(
+                  reject,
+                  error.response,
+                  "4XX",
                   "ErrorResponse"
-                );
-
-                reject(new HttpError(response, body, response.status));
+                )
+              ) {
                 return;
               }
 
@@ -905,21 +812,12 @@ export class TeamApi {
         (resolve, reject) => {
           axios.request(localVarRequestOptions).then(
             (response) => {
-              let body = response.data;
-
-              if (
-                response.status &&
-                response.status >= 200 &&
-                response.status <= 299
-              ) {
-                body = ObjectSerializer.deserialize(
-                  body,
-                  "TeamInvitesResponse"
-                );
-                resolve({ response: response, body: body });
-              } else {
-                reject(new HttpError(response, body, response.status));
-              }
+              handleSuccessfulResponse<TeamInvitesResponse>(
+                resolve,
+                reject,
+                response,
+                "TeamInvitesResponse"
+              );
             },
             (error: AxiosError) => {
               if (error.response == null) {
@@ -927,32 +825,25 @@ export class TeamApi {
                 return;
               }
 
-              const response = error.response;
-
-              let body;
-
-              if (response.status === 200) {
-                body = ObjectSerializer.deserialize(
-                  response.data,
+              if (
+                handleErrorCodeResponse(
+                  reject,
+                  error.response,
+                  200,
                   "TeamInvitesResponse"
-                );
-
-                reject(new HttpError(response, body, response.status));
+                )
+              ) {
                 return;
               }
 
-              let rangeCodeLeft = Number("4XX"[0] + "00");
-              let rangeCodeRight = Number("4XX"[0] + "99");
               if (
-                response.status >= rangeCodeLeft &&
-                response.status <= rangeCodeRight
-              ) {
-                body = ObjectSerializer.deserialize(
-                  response.data,
+                handleErrorRangeResponse(
+                  reject,
+                  error.response,
+                  "4XX",
                   "ErrorResponse"
-                );
-
-                reject(new HttpError(response, body, response.status));
+                )
+              ) {
                 return;
               }
 
@@ -1063,21 +954,12 @@ export class TeamApi {
         (resolve, reject) => {
           axios.request(localVarRequestOptions).then(
             (response) => {
-              let body = response.data;
-
-              if (
-                response.status &&
-                response.status >= 200 &&
-                response.status <= 299
-              ) {
-                body = ObjectSerializer.deserialize(
-                  body,
-                  "TeamMembersResponse"
-                );
-                resolve({ response: response, body: body });
-              } else {
-                reject(new HttpError(response, body, response.status));
-              }
+              handleSuccessfulResponse<TeamMembersResponse>(
+                resolve,
+                reject,
+                response,
+                "TeamMembersResponse"
+              );
             },
             (error: AxiosError) => {
               if (error.response == null) {
@@ -1085,32 +967,25 @@ export class TeamApi {
                 return;
               }
 
-              const response = error.response;
-
-              let body;
-
-              if (response.status === 200) {
-                body = ObjectSerializer.deserialize(
-                  response.data,
+              if (
+                handleErrorCodeResponse(
+                  reject,
+                  error.response,
+                  200,
                   "TeamMembersResponse"
-                );
-
-                reject(new HttpError(response, body, response.status));
+                )
+              ) {
                 return;
               }
 
-              let rangeCodeLeft = Number("4XX"[0] + "00");
-              let rangeCodeRight = Number("4XX"[0] + "99");
               if (
-                response.status >= rangeCodeLeft &&
-                response.status <= rangeCodeRight
-              ) {
-                body = ObjectSerializer.deserialize(
-                  response.data,
+                handleErrorRangeResponse(
+                  reject,
+                  error.response,
+                  "4XX",
                   "ErrorResponse"
-                );
-
-                reject(new HttpError(response, body, response.status));
+                )
+              ) {
                 return;
               }
 
@@ -1131,17 +1006,10 @@ export class TeamApi {
     teamRemoveMemberRequest: TeamRemoveMemberRequest,
     options: optionsI = { headers: {} }
   ): Promise<returnTypeT<TeamGetResponse>> {
-    if (
-      teamRemoveMemberRequest !== null &&
-      teamRemoveMemberRequest !== undefined &&
-      teamRemoveMemberRequest.constructor.name !== "TeamRemoveMemberRequest"
-    ) {
-      teamRemoveMemberRequest = ObjectSerializer.deserialize(
-        teamRemoveMemberRequest,
-        "TeamRemoveMemberRequest"
-      );
-    }
-
+    teamRemoveMemberRequest = deserializeIfNeeded(
+      teamRemoveMemberRequest,
+      "TeamRemoveMemberRequest"
+    );
     const localVarPath = this.basePath + "/team/remove_member";
     let localVarQueryParameters: any = {};
     let localVarHeaderParams: any = (<any>Object).assign(
@@ -1233,18 +1101,12 @@ export class TeamApi {
       return new Promise<returnTypeT<TeamGetResponse>>((resolve, reject) => {
         axios.request(localVarRequestOptions).then(
           (response) => {
-            let body = response.data;
-
-            if (
-              response.status &&
-              response.status >= 200 &&
-              response.status <= 299
-            ) {
-              body = ObjectSerializer.deserialize(body, "TeamGetResponse");
-              resolve({ response: response, body: body });
-            } else {
-              reject(new HttpError(response, body, response.status));
-            }
+            handleSuccessfulResponse<TeamGetResponse>(
+              resolve,
+              reject,
+              response,
+              "TeamGetResponse"
+            );
           },
           (error: AxiosError) => {
             if (error.response == null) {
@@ -1252,32 +1114,25 @@ export class TeamApi {
               return;
             }
 
-            const response = error.response;
-
-            let body;
-
-            if (response.status === 201) {
-              body = ObjectSerializer.deserialize(
-                response.data,
+            if (
+              handleErrorCodeResponse(
+                reject,
+                error.response,
+                201,
                 "TeamGetResponse"
-              );
-
-              reject(new HttpError(response, body, response.status));
+              )
+            ) {
               return;
             }
 
-            let rangeCodeLeft = Number("4XX"[0] + "00");
-            let rangeCodeRight = Number("4XX"[0] + "99");
             if (
-              response.status >= rangeCodeLeft &&
-              response.status <= rangeCodeRight
-            ) {
-              body = ObjectSerializer.deserialize(
-                response.data,
+              handleErrorRangeResponse(
+                reject,
+                error.response,
+                "4XX",
                 "ErrorResponse"
-              );
-
-              reject(new HttpError(response, body, response.status));
+              )
+            ) {
               return;
             }
 
@@ -1387,21 +1242,12 @@ export class TeamApi {
         (resolve, reject) => {
           axios.request(localVarRequestOptions).then(
             (response) => {
-              let body = response.data;
-
-              if (
-                response.status &&
-                response.status >= 200 &&
-                response.status <= 299
-              ) {
-                body = ObjectSerializer.deserialize(
-                  body,
-                  "TeamSubTeamsResponse"
-                );
-                resolve({ response: response, body: body });
-              } else {
-                reject(new HttpError(response, body, response.status));
-              }
+              handleSuccessfulResponse<TeamSubTeamsResponse>(
+                resolve,
+                reject,
+                response,
+                "TeamSubTeamsResponse"
+              );
             },
             (error: AxiosError) => {
               if (error.response == null) {
@@ -1409,32 +1255,25 @@ export class TeamApi {
                 return;
               }
 
-              const response = error.response;
-
-              let body;
-
-              if (response.status === 200) {
-                body = ObjectSerializer.deserialize(
-                  response.data,
+              if (
+                handleErrorCodeResponse(
+                  reject,
+                  error.response,
+                  200,
                   "TeamSubTeamsResponse"
-                );
-
-                reject(new HttpError(response, body, response.status));
+                )
+              ) {
                 return;
               }
 
-              let rangeCodeLeft = Number("4XX"[0] + "00");
-              let rangeCodeRight = Number("4XX"[0] + "99");
               if (
-                response.status >= rangeCodeLeft &&
-                response.status <= rangeCodeRight
-              ) {
-                body = ObjectSerializer.deserialize(
-                  response.data,
+                handleErrorRangeResponse(
+                  reject,
+                  error.response,
+                  "4XX",
                   "ErrorResponse"
-                );
-
-                reject(new HttpError(response, body, response.status));
+                )
+              ) {
                 return;
               }
 
@@ -1455,17 +1294,10 @@ export class TeamApi {
     teamUpdateRequest: TeamUpdateRequest,
     options: optionsI = { headers: {} }
   ): Promise<returnTypeT<TeamGetResponse>> {
-    if (
-      teamUpdateRequest !== null &&
-      teamUpdateRequest !== undefined &&
-      teamUpdateRequest.constructor.name !== "TeamUpdateRequest"
-    ) {
-      teamUpdateRequest = ObjectSerializer.deserialize(
-        teamUpdateRequest,
-        "TeamUpdateRequest"
-      );
-    }
-
+    teamUpdateRequest = deserializeIfNeeded(
+      teamUpdateRequest,
+      "TeamUpdateRequest"
+    );
     const localVarPath = this.basePath + "/team";
     let localVarQueryParameters: any = {};
     let localVarHeaderParams: any = (<any>Object).assign(
@@ -1551,18 +1383,12 @@ export class TeamApi {
       return new Promise<returnTypeT<TeamGetResponse>>((resolve, reject) => {
         axios.request(localVarRequestOptions).then(
           (response) => {
-            let body = response.data;
-
-            if (
-              response.status &&
-              response.status >= 200 &&
-              response.status <= 299
-            ) {
-              body = ObjectSerializer.deserialize(body, "TeamGetResponse");
-              resolve({ response: response, body: body });
-            } else {
-              reject(new HttpError(response, body, response.status));
-            }
+            handleSuccessfulResponse<TeamGetResponse>(
+              resolve,
+              reject,
+              response,
+              "TeamGetResponse"
+            );
           },
           (error: AxiosError) => {
             if (error.response == null) {
@@ -1570,32 +1396,25 @@ export class TeamApi {
               return;
             }
 
-            const response = error.response;
-
-            let body;
-
-            if (response.status === 200) {
-              body = ObjectSerializer.deserialize(
-                response.data,
+            if (
+              handleErrorCodeResponse(
+                reject,
+                error.response,
+                200,
                 "TeamGetResponse"
-              );
-
-              reject(new HttpError(response, body, response.status));
+              )
+            ) {
               return;
             }
 
-            let rangeCodeLeft = Number("4XX"[0] + "00");
-            let rangeCodeRight = Number("4XX"[0] + "99");
             if (
-              response.status >= rangeCodeLeft &&
-              response.status <= rangeCodeRight
-            ) {
-              body = ObjectSerializer.deserialize(
-                response.data,
+              handleErrorRangeResponse(
+                reject,
+                error.response,
+                "4XX",
                 "ErrorResponse"
-              );
-
-              reject(new HttpError(response, body, response.status));
+              )
+            ) {
               return;
             }
 
@@ -1605,4 +1424,74 @@ export class TeamApi {
       });
     });
   }
+}
+
+function deserializeIfNeeded<T>(obj: T, classname: string): T {
+  if (obj !== null && obj !== undefined && obj.constructor.name !== classname) {
+    return ObjectSerializer.deserialize(obj, classname);
+  }
+
+  return obj;
+}
+
+type AxiosResolve<T> = (
+  value: returnTypeT<T> | PromiseLike<returnTypeT<T>>
+) => void;
+
+type AxiosReject = (reason?: any) => void;
+
+function handleSuccessfulResponse<T>(
+  resolve: AxiosResolve<T>,
+  reject: AxiosReject,
+  response: AxiosResponse,
+  returnType?: string
+) {
+  let body = response.data;
+
+  if (response.status && response.status >= 200 && response.status <= 299) {
+    if (returnType) {
+      body = ObjectSerializer.deserialize(body, returnType);
+    }
+
+    resolve({ response: response, body: body });
+  } else {
+    reject(new HttpError(response, body, response.status));
+  }
+}
+
+function handleErrorCodeResponse(
+  reject: AxiosReject,
+  response: AxiosResponse,
+  code: number,
+  returnType: string
+): boolean {
+  if (response.status !== code) {
+    return false;
+  }
+
+  const body = ObjectSerializer.deserialize(response.data, returnType);
+
+  reject(new HttpError(response, body, response.status));
+
+  return true;
+}
+
+function handleErrorRangeResponse(
+  reject: AxiosReject,
+  response: AxiosResponse,
+  code: string,
+  returnType: string
+): boolean {
+  let rangeCodeLeft = Number(code[0] + "00");
+  let rangeCodeRight = Number(code[0] + "99");
+
+  if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
+    const body = ObjectSerializer.deserialize(response.data, returnType);
+
+    reject(new HttpError(response, body, response.status));
+
+    return true;
+  }
+
+  return false;
 }

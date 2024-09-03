@@ -1,4 +1,4 @@
-import { Authentication, Interceptor, HttpBasicAuth, HttpBearerAuth, OAuthTokenGenerateRequest, OAuthTokenRefreshRequest, OAuthTokenResponse } from "../model";
+import { Authentication, HttpBasicAuth, HttpBearerAuth, Interceptor, OAuthTokenGenerateRequest, OAuthTokenRefreshRequest, OAuthTokenResponse } from "../model";
 import { optionsI, returnTypeT } from "./";
 export declare enum OAuthApiApiKeys {
 }

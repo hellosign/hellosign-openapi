@@ -22,35 +22,30 @@
  * SOFTWARE.
  */
 
-import axios, { AxiosError, AxiosRequestConfig } from "axios";
+import axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from "axios";
 
-/* tslint:disable:no-unused-locals */
 import {
-  ObjectSerializer,
-  Authentication,
-  VoidAuth,
-  Interceptor,
-  HttpBasicAuth,
-  HttpBearerAuth,
-  ApiKeyAuth,
-  OAuth,
   AccountCreateRequest,
   AccountCreateResponse,
   AccountGetResponse,
   AccountUpdateRequest,
   AccountVerifyRequest,
   AccountVerifyResponse,
-  ErrorResponse,
+  Authentication,
+  HttpBasicAuth,
+  HttpBearerAuth,
+  Interceptor,
+  ObjectSerializer,
+  VoidAuth,
 } from "../model";
 
 import {
+  generateFormData,
   HttpError,
   optionsI,
-  returnTypeT,
-  returnTypeI,
-  generateFormData,
-  toFormData,
   queryParamsSerializer,
+  returnTypeT,
+  toFormData,
   USER_AGENT,
 } from "./";
 
@@ -64,9 +59,7 @@ export enum AccountApiApiKeys {}
 
 export class AccountApi {
   protected _basePath = defaultBasePath;
-  protected _defaultHeaders: any = {
-    "User-Agent": USER_AGENT,
-  };
+  protected _defaultHeaders: any = { "User-Agent": USER_AGENT };
   protected _useQuerystring: boolean = false;
 
   protected authentications = {
@@ -92,7 +85,7 @@ export class AccountApi {
   }
 
   set defaultHeaders(defaultHeaders: any) {
-    this._defaultHeaders = defaultHeaders;
+    this._defaultHeaders = { ...defaultHeaders, "User-Agent": USER_AGENT };
   }
 
   get defaultHeaders() {
@@ -137,17 +130,10 @@ export class AccountApi {
     accountCreateRequest: AccountCreateRequest,
     options: optionsI = { headers: {} }
   ): Promise<returnTypeT<AccountCreateResponse>> {
-    if (
-      accountCreateRequest !== null &&
-      accountCreateRequest !== undefined &&
-      accountCreateRequest.constructor.name !== "AccountCreateRequest"
-    ) {
-      accountCreateRequest = ObjectSerializer.deserialize(
-        accountCreateRequest,
-        "AccountCreateRequest"
-      );
-    }
-
+    accountCreateRequest = deserializeIfNeeded(
+      accountCreateRequest,
+      "AccountCreateRequest"
+    );
     const localVarPath = this.basePath + "/account/create";
     let localVarQueryParameters: any = {};
     let localVarHeaderParams: any = (<any>Object).assign(
@@ -237,21 +223,12 @@ export class AccountApi {
         (resolve, reject) => {
           axios.request(localVarRequestOptions).then(
             (response) => {
-              let body = response.data;
-
-              if (
-                response.status &&
-                response.status >= 200 &&
-                response.status <= 299
-              ) {
-                body = ObjectSerializer.deserialize(
-                  body,
-                  "AccountCreateResponse"
-                );
-                resolve({ response: response, body: body });
-              } else {
-                reject(new HttpError(response, body, response.status));
-              }
+              handleSuccessfulResponse<AccountCreateResponse>(
+                resolve,
+                reject,
+                response,
+                "AccountCreateResponse"
+              );
             },
             (error: AxiosError) => {
               if (error.response == null) {
@@ -259,32 +236,25 @@ export class AccountApi {
                 return;
               }
 
-              const response = error.response;
-
-              let body;
-
-              if (response.status === 200) {
-                body = ObjectSerializer.deserialize(
-                  response.data,
+              if (
+                handleErrorCodeResponse(
+                  reject,
+                  error.response,
+                  200,
                   "AccountCreateResponse"
-                );
-
-                reject(new HttpError(response, body, response.status));
+                )
+              ) {
                 return;
               }
 
-              let rangeCodeLeft = Number("4XX"[0] + "00");
-              let rangeCodeRight = Number("4XX"[0] + "99");
               if (
-                response.status >= rangeCodeLeft &&
-                response.status <= rangeCodeRight
-              ) {
-                body = ObjectSerializer.deserialize(
-                  response.data,
+                handleErrorRangeResponse(
+                  reject,
+                  error.response,
+                  "4XX",
                   "ErrorResponse"
-                );
-
-                reject(new HttpError(response, body, response.status));
+                )
+              ) {
                 return;
               }
 
@@ -380,18 +350,12 @@ export class AccountApi {
       return new Promise<returnTypeT<AccountGetResponse>>((resolve, reject) => {
         axios.request(localVarRequestOptions).then(
           (response) => {
-            let body = response.data;
-
-            if (
-              response.status &&
-              response.status >= 200 &&
-              response.status <= 299
-            ) {
-              body = ObjectSerializer.deserialize(body, "AccountGetResponse");
-              resolve({ response: response, body: body });
-            } else {
-              reject(new HttpError(response, body, response.status));
-            }
+            handleSuccessfulResponse<AccountGetResponse>(
+              resolve,
+              reject,
+              response,
+              "AccountGetResponse"
+            );
           },
           (error: AxiosError) => {
             if (error.response == null) {
@@ -399,32 +363,25 @@ export class AccountApi {
               return;
             }
 
-            const response = error.response;
-
-            let body;
-
-            if (response.status === 200) {
-              body = ObjectSerializer.deserialize(
-                response.data,
+            if (
+              handleErrorCodeResponse(
+                reject,
+                error.response,
+                200,
                 "AccountGetResponse"
-              );
-
-              reject(new HttpError(response, body, response.status));
+              )
+            ) {
               return;
             }
 
-            let rangeCodeLeft = Number("4XX"[0] + "00");
-            let rangeCodeRight = Number("4XX"[0] + "99");
             if (
-              response.status >= rangeCodeLeft &&
-              response.status <= rangeCodeRight
-            ) {
-              body = ObjectSerializer.deserialize(
-                response.data,
+              handleErrorRangeResponse(
+                reject,
+                error.response,
+                "4XX",
                 "ErrorResponse"
-              );
-
-              reject(new HttpError(response, body, response.status));
+              )
+            ) {
               return;
             }
 
@@ -444,17 +401,10 @@ export class AccountApi {
     accountUpdateRequest: AccountUpdateRequest,
     options: optionsI = { headers: {} }
   ): Promise<returnTypeT<AccountGetResponse>> {
-    if (
-      accountUpdateRequest !== null &&
-      accountUpdateRequest !== undefined &&
-      accountUpdateRequest.constructor.name !== "AccountUpdateRequest"
-    ) {
-      accountUpdateRequest = ObjectSerializer.deserialize(
-        accountUpdateRequest,
-        "AccountUpdateRequest"
-      );
-    }
-
+    accountUpdateRequest = deserializeIfNeeded(
+      accountUpdateRequest,
+      "AccountUpdateRequest"
+    );
     const localVarPath = this.basePath + "/account";
     let localVarQueryParameters: any = {};
     let localVarHeaderParams: any = (<any>Object).assign(
@@ -543,18 +493,12 @@ export class AccountApi {
       return new Promise<returnTypeT<AccountGetResponse>>((resolve, reject) => {
         axios.request(localVarRequestOptions).then(
           (response) => {
-            let body = response.data;
-
-            if (
-              response.status &&
-              response.status >= 200 &&
-              response.status <= 299
-            ) {
-              body = ObjectSerializer.deserialize(body, "AccountGetResponse");
-              resolve({ response: response, body: body });
-            } else {
-              reject(new HttpError(response, body, response.status));
-            }
+            handleSuccessfulResponse<AccountGetResponse>(
+              resolve,
+              reject,
+              response,
+              "AccountGetResponse"
+            );
           },
           (error: AxiosError) => {
             if (error.response == null) {
@@ -562,32 +506,25 @@ export class AccountApi {
               return;
             }
 
-            const response = error.response;
-
-            let body;
-
-            if (response.status === 200) {
-              body = ObjectSerializer.deserialize(
-                response.data,
+            if (
+              handleErrorCodeResponse(
+                reject,
+                error.response,
+                200,
                 "AccountGetResponse"
-              );
-
-              reject(new HttpError(response, body, response.status));
+              )
+            ) {
               return;
             }
 
-            let rangeCodeLeft = Number("4XX"[0] + "00");
-            let rangeCodeRight = Number("4XX"[0] + "99");
             if (
-              response.status >= rangeCodeLeft &&
-              response.status <= rangeCodeRight
-            ) {
-              body = ObjectSerializer.deserialize(
-                response.data,
+              handleErrorRangeResponse(
+                reject,
+                error.response,
+                "4XX",
                 "ErrorResponse"
-              );
-
-              reject(new HttpError(response, body, response.status));
+              )
+            ) {
               return;
             }
 
@@ -607,17 +544,10 @@ export class AccountApi {
     accountVerifyRequest: AccountVerifyRequest,
     options: optionsI = { headers: {} }
   ): Promise<returnTypeT<AccountVerifyResponse>> {
-    if (
-      accountVerifyRequest !== null &&
-      accountVerifyRequest !== undefined &&
-      accountVerifyRequest.constructor.name !== "AccountVerifyRequest"
-    ) {
-      accountVerifyRequest = ObjectSerializer.deserialize(
-        accountVerifyRequest,
-        "AccountVerifyRequest"
-      );
-    }
-
+    accountVerifyRequest = deserializeIfNeeded(
+      accountVerifyRequest,
+      "AccountVerifyRequest"
+    );
     const localVarPath = this.basePath + "/account/verify";
     let localVarQueryParameters: any = {};
     let localVarHeaderParams: any = (<any>Object).assign(
@@ -707,21 +637,12 @@ export class AccountApi {
         (resolve, reject) => {
           axios.request(localVarRequestOptions).then(
             (response) => {
-              let body = response.data;
-
-              if (
-                response.status &&
-                response.status >= 200 &&
-                response.status <= 299
-              ) {
-                body = ObjectSerializer.deserialize(
-                  body,
-                  "AccountVerifyResponse"
-                );
-                resolve({ response: response, body: body });
-              } else {
-                reject(new HttpError(response, body, response.status));
-              }
+              handleSuccessfulResponse<AccountVerifyResponse>(
+                resolve,
+                reject,
+                response,
+                "AccountVerifyResponse"
+              );
             },
             (error: AxiosError) => {
               if (error.response == null) {
@@ -729,32 +650,25 @@ export class AccountApi {
                 return;
               }
 
-              const response = error.response;
-
-              let body;
-
-              if (response.status === 200) {
-                body = ObjectSerializer.deserialize(
-                  response.data,
+              if (
+                handleErrorCodeResponse(
+                  reject,
+                  error.response,
+                  200,
                   "AccountVerifyResponse"
-                );
-
-                reject(new HttpError(response, body, response.status));
+                )
+              ) {
                 return;
               }
 
-              let rangeCodeLeft = Number("4XX"[0] + "00");
-              let rangeCodeRight = Number("4XX"[0] + "99");
               if (
-                response.status >= rangeCodeLeft &&
-                response.status <= rangeCodeRight
-              ) {
-                body = ObjectSerializer.deserialize(
-                  response.data,
+                handleErrorRangeResponse(
+                  reject,
+                  error.response,
+                  "4XX",
                   "ErrorResponse"
-                );
-
-                reject(new HttpError(response, body, response.status));
+                )
+              ) {
                 return;
               }
 
@@ -765,4 +679,74 @@ export class AccountApi {
       );
     });
   }
+}
+
+function deserializeIfNeeded<T>(obj: T, classname: string): T {
+  if (obj !== null && obj !== undefined && obj.constructor.name !== classname) {
+    return ObjectSerializer.deserialize(obj, classname);
+  }
+
+  return obj;
+}
+
+type AxiosResolve<T> = (
+  value: returnTypeT<T> | PromiseLike<returnTypeT<T>>
+) => void;
+
+type AxiosReject = (reason?: any) => void;
+
+function handleSuccessfulResponse<T>(
+  resolve: AxiosResolve<T>,
+  reject: AxiosReject,
+  response: AxiosResponse,
+  returnType?: string
+) {
+  let body = response.data;
+
+  if (response.status && response.status >= 200 && response.status <= 299) {
+    if (returnType) {
+      body = ObjectSerializer.deserialize(body, returnType);
+    }
+
+    resolve({ response: response, body: body });
+  } else {
+    reject(new HttpError(response, body, response.status));
+  }
+}
+
+function handleErrorCodeResponse(
+  reject: AxiosReject,
+  response: AxiosResponse,
+  code: number,
+  returnType: string
+): boolean {
+  if (response.status !== code) {
+    return false;
+  }
+
+  const body = ObjectSerializer.deserialize(response.data, returnType);
+
+  reject(new HttpError(response, body, response.status));
+
+  return true;
+}
+
+function handleErrorRangeResponse(
+  reject: AxiosReject,
+  response: AxiosResponse,
+  code: string,
+  returnType: string
+): boolean {
+  let rangeCodeLeft = Number(code[0] + "00");
+  let rangeCodeRight = Number(code[0] + "99");
+
+  if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
+    const body = ObjectSerializer.deserialize(response.data, returnType);
+
+    reject(new HttpError(response, body, response.status));
+
+    return true;
+  }
+
+  return false;
 }

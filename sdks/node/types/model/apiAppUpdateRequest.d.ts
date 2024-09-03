@@ -1,4 +1,4 @@
-import { RequestFile, AttributeTypeMap } from "./";
+import { AttributeTypeMap, RequestFile } from "./";
 import { SubOAuth } from "./subOAuth";
 import { SubOptions } from "./subOptions";
 import { SubWhiteLabelingOptions } from "./subWhiteLabelingOptions";

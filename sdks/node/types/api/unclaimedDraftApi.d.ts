@@ -1,4 +1,4 @@
-import { Authentication, Interceptor, HttpBasicAuth, HttpBearerAuth, UnclaimedDraftCreateEmbeddedRequest, UnclaimedDraftCreateEmbeddedWithTemplateRequest, UnclaimedDraftCreateRequest, UnclaimedDraftCreateResponse, UnclaimedDraftEditAndResendRequest } from "../model";
+import { Authentication, HttpBasicAuth, HttpBearerAuth, Interceptor, UnclaimedDraftCreateEmbeddedRequest, UnclaimedDraftCreateEmbeddedWithTemplateRequest, UnclaimedDraftCreateRequest, UnclaimedDraftCreateResponse, UnclaimedDraftEditAndResendRequest } from "../model";
 import { optionsI, returnTypeT } from "./";
 export declare enum UnclaimedDraftApiApiKeys {
 }

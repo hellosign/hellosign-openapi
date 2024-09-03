@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-import { RequestFile, AttributeTypeMap, ObjectSerializer } from "./";
+import { AttributeTypeMap } from "./";
 
 /**
  * An array describing static overlay fields. **NOTE:** Only available for certain subscriptions.

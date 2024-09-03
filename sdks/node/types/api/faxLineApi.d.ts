@@ -1,5 +1,5 @@
-import { Authentication, Interceptor, HttpBasicAuth, HttpBearerAuth, FaxLineAddUserRequest, FaxLineAreaCodeGetResponse, FaxLineCreateRequest, FaxLineDeleteRequest, FaxLineListResponse, FaxLineRemoveUserRequest, FaxLineResponse } from "../model";
-import { optionsI, returnTypeT, returnTypeI } from "./";
+import { Authentication, FaxLineAddUserRequest, FaxLineAreaCodeGetResponse, FaxLineCreateRequest, FaxLineDeleteRequest, FaxLineListResponse, FaxLineRemoveUserRequest, FaxLineResponse, HttpBasicAuth, HttpBearerAuth, Interceptor } from "../model";
+import { optionsI, returnTypeI, returnTypeT } from "./";
 export declare enum FaxLineApiApiKeys {
 }
 export declare class FaxLineApi {

@@ -1,19 +1,41 @@
 {{>licenseInfo}}
-
-import axios, { AxiosError, AxiosRequestConfig } from 'axios';
+{{^useCustomTemplateCode}}
+import localVarRequest from 'request';
+import http from 'http';
 
 /* tslint:disable:no-unused-locals */
+{{#imports}}
+import { {{classname}} } from '{{filename}}';
+{{/imports}}
+
+import { ObjectSerializer, Authentication, VoidAuth, Interceptor } from '../model/models';
+{{#hasAuthMethods}}
+import { HttpBasicAuth, HttpBearerAuth, ApiKeyAuth, OAuth } from '../model/models';
+{{/hasAuthMethods}}
+
+import { HttpError, RequestFile } from './apis';
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
+import axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios';
+import http from 'http';
+
 import {
     ObjectSerializer, Authentication, VoidAuth, Interceptor,
-{{#hasAuthMethods}}
     HttpBasicAuth, HttpBearerAuth, ApiKeyAuth, OAuth,
-{{/hasAuthMethods}}
-{{#imports}}
-    {{classname}},
-{{/imports}}
+    {{#imports}}{{classname}},{{/imports}}
 } from '../model';
 
-import { HttpError, optionsI, returnTypeT, returnTypeI, generateFormData, toFormData, queryParamsSerializer, USER_AGENT } from './';
+import {
+    HttpError,
+    optionsI,
+    returnTypeT,
+    returnTypeI,
+    generateFormData,
+    toFormData,
+    queryParamsSerializer,
+    USER_AGENT,
+} from './';
+{{/useCustomTemplateCode}}
 
 let defaultBasePath = '{{{basePath}}}';
 
@@ -37,9 +59,12 @@ export enum {{classname}}ApiKeys {
 
 export class {{classname}} {
     protected _basePath = defaultBasePath;
-    protected _defaultHeaders: any = {
-        'User-Agent': USER_AGENT,
-    };
+{{^useCustomTemplateCode}}
+    protected _defaultHeaders : any = {};
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
+    protected _defaultHeaders : any = { 'User-Agent': USER_AGENT };
+{{/useCustomTemplateCode}}
     protected _useQuerystring : boolean = false;
 
     protected authentications = {
@@ -64,11 +89,38 @@ export class {{classname}} {
 
     protected interceptors: Interceptor[] = [];
 
+{{^useCustomTemplateCode}}
+    constructor(basePath?: string);
+{{#authMethods}}
+{{#isBasicBasic}}
+    constructor(username: string, password: string, basePath?: string);
+{{/isBasicBasic}}
+{{/authMethods}}
+    constructor(basePathOrUsername: string, password?: string, basePath?: string) {
+        if (password) {
+{{#authMethods}}
+{{#isBasicBasic}}
+            this.username = basePathOrUsername;
+            this.password = password
+{{/isBasicBasic}}
+{{/authMethods}}
+            if (basePath) {
+                this.basePath = basePath;
+            }
+        } else {
+            if (basePathOrUsername) {
+                this.basePath = basePathOrUsername
+            }
+        }
+    }
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
     constructor(basePath?: string) {
         if (basePath) {
             this.basePath = basePath;
         }
     }
+{{/useCustomTemplateCode}}
 
     set useQuerystring(value: boolean) {
         this._useQuerystring = value;
@@ -79,7 +131,12 @@ export class {{classname}} {
     }
 
     set defaultHeaders(defaultHeaders: any) {
+{{^useCustomTemplateCode}}
         this._defaultHeaders = defaultHeaders;
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
+        this._defaultHeaders = { ...defaultHeaders, "User-Agent": USER_AGENT };
+{{/useCustomTemplateCode}}
     }
 
     get defaultHeaders() {
@@ -94,9 +151,16 @@ export class {{classname}} {
         this.authentications.default = auth;
     }
 
+{{^useCustomTemplateCode}}
+    public setApiKey(key: {{classname}}ApiKeys, value: string) {
+        (this.authentications as any)[{{classname}}ApiKeys[key]].apiKey = value;
+    }
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
     public setApiKey(key: string) {
         this.authentications.api_key.username = key;
     }
+{{/useCustomTemplateCode}}
 {{#hasAuthMethods}}
 {{#authMethods}}
 {{#isBasicBasic}}
@@ -137,15 +201,19 @@ export class {{classname}} {
      {{#allParams}}
      * @param {{paramName}} {{description}}
      {{/allParams}}
+{{#useCustomTemplateCode}}
      * @param options
+{{/useCustomTemplateCode}}
      */
+{{^useCustomTemplateCode}}
+    public async {{nickname}} ({{#allParams}}{{paramName}}{{^required}}?{{/required}}: {{{dataType}}}, {{/allParams}}options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; {{#returnType}}body: {{{.}}}; {{/returnType}}{{^returnType}}body?: any; {{/returnType}} }> {
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
     public async {{nickname}} ({{#allParams}}{{paramName}}{{^required}}?{{/required}}: {{{dataType}}}, {{/allParams}}options: optionsI = {headers: {}}) : Promise<{{#returnType}}returnTypeT<{{{.}}}>{{/returnType}}{{^returnType}}returnTypeI{{/returnType}}> {
-        {{#bodyParam}}
-        if (({{paramName}} !== null && {{paramName}} !== undefined) && {{{paramName}}}.constructor.name !== "{{{dataType}}}") {
-            {{{paramName}}} = ObjectSerializer.deserialize({{{paramName}}}, "{{{dataType}}}");
-        }
-        {{/bodyParam}}
-
+{{#bodyParam}}
+        {{{paramName}}} = deserializeIfNeeded({{paramName}}, "{{{dataType}}}");
+{{/bodyParam}}
+{{/useCustomTemplateCode}}
         const localVarPath = this.basePath + '{{{path}}}'{{#pathParams}}
             .replace('{' + '{{baseName}}' + '}', encodeURIComponent(String({{paramName}}))){{/pathParams}};
         let localVarQueryParameters: any = {};
@@ -153,14 +221,25 @@ export class {{classname}} {
 {{#hasProduces}}
         const produces = [{{#produces}}'{{{mediaType}}}'{{^-last}}, {{/-last}}{{/produces}}];
         // give precedence to 'application/json'
+{{^useCustomTemplateCode}}
+        if (produces.indexOf('application/json') >= 0) {
+            localVarHeaderParams.Accept = 'application/json';
+        } else {
+            localVarHeaderParams.Accept = produces.join(',');
+        }
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
         if (produces.indexOf('application/json') >= 0) {
             localVarHeaderParams['content-type'] = 'application/json';
         } else {
-            localVarHeaderParams['content-type'] = produces.join(",");
+            localVarHeaderParams['content-type'] = produces.join(',');
         }
+{{/useCustomTemplateCode}}
 {{/hasProduces}}
         let localVarFormParams: any = {};
+{{#useCustomTemplateCode}}
         let localVarBodyParams: any = undefined;
+{{/useCustomTemplateCode}}
 
 {{#allParams}}
 {{#required}}
@@ -198,7 +277,24 @@ export class {{classname}} {
 {{/isFile}}
 
 {{/formParams}}
-
+{{^useCustomTemplateCode}}
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: '{{httpMethod}}',
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+{{^isResponseFile}}
+            json: true,
+{{/isResponseFile}}
+{{#isResponseFile}}
+            encoding: null,
+{{/isResponseFile}}
+{{#bodyParam}}
+            body: ObjectSerializer.serialize({{paramName}}, "{{{dataType}}}")
+{{/bodyParam}}
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
         {{#bodyParam}}
         const result = generateFormData({{{paramName}}}, {{{dataType}}}.attributeTypeMap);
         localVarUseFormData = result.localVarUseFormData;
@@ -236,6 +332,7 @@ export class {{classname}} {
 {{#bodyParam}}
             data,
 {{/bodyParam}}
+{{/useCustomTemplateCode}}
         };
 
         let authenticationPromise = Promise.resolve();
@@ -246,7 +343,12 @@ export class {{classname}} {
         }
     {{/isApiKey}}
     {{#isBasicBasic}}
+{{^useCustomTemplateCode}}
+        if (this.authentications.{{name}}.username && this.authentications.{{name}}.password) {
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
         if (this.authentications.{{name}}.username) {
+{{/useCustomTemplateCode}}
             authenticationPromise = authenticationPromise.then(() => this.authentications.{{name}}.applyToRequest(localVarRequestOptions));
         }
     {{/isBasicBasic}}
@@ -269,41 +371,58 @@ export class {{classname}} {
         }
 
         return interceptorPromise.then(() => {
-            return new Promise<{{#returnType}}returnTypeT<{{{.}}}>{{/returnType}}{{^returnType}}returnTypeI{{/returnType}}>((resolve, reject) => {
-                axios.request(localVarRequestOptions)
-                    .then((response) => {
-                        let body = response.data;
-
-                        if (response.status && response.status >= 200 && response.status <= 299) {
+{{^useCustomTemplateCode}}
+            if (Object.keys(localVarFormParams).length) {
+                if (localVarUseFormData) {
+                    (<any>localVarRequestOptions).formData = localVarFormParams;
+                } else {
+                    localVarRequestOptions.form = localVarFormParams;
+                }
+            }
+            return new Promise<{ response: http.IncomingMessage; {{#returnType}}body: {{{.}}}; {{/returnType}}{{^returnType}}body?: any; {{/returnType}} }>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    if (error) {
+                        reject(error);
+                    } else {
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             {{#returnType}}
                             body = ObjectSerializer.deserialize(body, "{{{.}}}");
                             {{/returnType}}
                             resolve({ response: response, body: body });
                         } else {
-                            reject(new HttpError(response, body, response.status));
+                            reject(new HttpError(response, body, response.statusCode));
                         }
+                    }
+                });
+            });
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
+            return new Promise<{{#returnType}}returnTypeT<{{{.}}}>{{/returnType}}{{^returnType}}returnTypeI{{/returnType}}>((resolve, reject) => {
+                axios.request(localVarRequestOptions)
+                    .then((response) => {
+                        handleSuccessfulResponse{{#returnType}}<{{{.}}}>{{/returnType}}(
+                          resolve,
+                          reject,
+                          response,
+                          {{#returnType}}"{{{.}}}",{{/returnType}}
+                        );
                     }, (error: AxiosError) => {
                         if (error.response == null) {
                             reject(error);
                             return;
                         }
 
-                        const response = error.response;
-
-                        let body;
-
                         {{#responses}}
                         {{#dataType}}
                         {{^isWildcard}}
                         {{^isRange}}
-                        if (response.status === {{code}}) {
-                            body = ObjectSerializer.deserialize(
-                                response.data,
-                                "{{{dataType}}}"
-                            );
-
-                            reject(new HttpError(response, body, response.status));
-                            return;
+                        if (handleErrorCodeResponse(
+                            reject,
+                            error.response,
+                            {{code}},
+                            "{{{dataType}}}",
+                        )) {
+                          return;
                         }
                         {{/isRange}}
                         {{/isWildcard}}
@@ -313,40 +432,106 @@ export class {{classname}} {
                         {{#responses}}
                         {{#dataType}}
                         {{#isRange}}
-                        let rangeCodeLeft = Number("{{code}}"[0] + "00");
-                        let rangeCodeRight = Number("{{code}}"[0] + "99");
-                        if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
-                            body = ObjectSerializer.deserialize(
-                                response.data,
-                                "{{{dataType}}}"
-                            );
-
-                            reject(new HttpError(response, body, response.status));
-                            return;
+                        if (handleErrorRangeResponse(
+                            reject,
+                            error.response,
+                            "{{code}}",
+                            "{{{dataType}}}",
+                        )) {
+                          return;
                         }
                         {{/isRange}}
-                        {{/dataType}}
-                        {{/responses}}
-
-                        {{#responses}}
-                        {{#dataType}}
-                        {{#isWildcard}}
-                        body = ObjectSerializer.deserialize(
-                            response.data.error,
-                            "{{{dataType}}}"
-                        );
-
-                        reject(new HttpError(response, response.data, response.status));
-                        return;
-                        {{/isWildcard}}
                         {{/dataType}}
                         {{/responses}}
 
                         reject(error);
                     });
             });
+{{/useCustomTemplateCode}}
         });
     }
 {{/operation}}
 }
+{{#useCustomTemplateCode}}
+
+function deserializeIfNeeded<T> (obj: T, classname: string): T {
+  if (obj !== null && obj !== undefined && obj.constructor.name !== classname) {
+    return ObjectSerializer.deserialize(obj, classname);
+  }
+
+  return obj;
+}
+
+type AxiosResolve<T> = (
+  value: (returnTypeT<T> | PromiseLike<returnTypeT<T>>),
+) => void
+
+type AxiosReject = (reason?: any) => void;
+
+function handleSuccessfulResponse<T>(
+  resolve: AxiosResolve<T>,
+  reject: AxiosReject,
+  response: AxiosResponse,
+  returnType?: string,
+) {
+    let body = response.data;
+
+    if (
+        response.status &&
+        response.status >= 200 &&
+        response.status <= 299
+    ) {
+        if (returnType) {
+            body = ObjectSerializer.deserialize(body, returnType);
+        }
+
+        resolve({ response: response, body: body });
+    } else {
+        reject(new HttpError(response, body, response.status));
+    }
+}
+
+function handleErrorCodeResponse(
+  reject: AxiosReject,
+  response: AxiosResponse,
+  code: number,
+  returnType: string
+): boolean {
+    if (response.status !== code) {
+        return false;
+    }
+
+    const body = ObjectSerializer.deserialize(
+        response.data,
+        returnType,
+    );
+
+    reject(new HttpError(response, body, response.status));
+
+    return true;
+}
+
+function handleErrorRangeResponse(
+  reject: AxiosReject,
+  response: AxiosResponse,
+  code: string,
+  returnType: string
+): boolean {
+    let rangeCodeLeft = Number(code[0] + "00");
+    let rangeCodeRight = Number(code[0] + "99");
+
+    if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
+        const body = ObjectSerializer.deserialize(
+            response.data,
+            returnType,
+        );
+
+      reject(new HttpError(response, body, response.status));
+
+      return true;
+    }
+
+    return false;
+}
+{{/useCustomTemplateCode}}
 {{/operations}}

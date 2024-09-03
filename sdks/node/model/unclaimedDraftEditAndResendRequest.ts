@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-import { RequestFile, AttributeTypeMap, ObjectSerializer } from "./";
+import { AttributeTypeMap, ObjectSerializer } from "./";
 import { SubEditorOptions } from "./subEditorOptions";
 
 export class UnclaimedDraftEditAndResendRequest {

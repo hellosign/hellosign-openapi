@@ -1,6 +1,6 @@
 {
     "name": "@dropbox/sign",
-    "version": "1.5-dev",
+    "version": "1.6-dev",
     "description": "Official Node client for Dropbox Sign",
     "repository": {
         "type": "git",
@@ -19,21 +19,24 @@
     "author": "Dropbox Sign",
     "dependencies": {
         "axios": "^1.7.0",
-        "bluebird": "^3.5.0",
+        "bluebird": "^3.7.2",
         "form-data": "^4.0.0",
         "qs": "^6.10.3"
     },
     "devDependencies": {
-        "@types/bluebird": "3.5.33",
+        "@types/bluebird": "^3.5.33",
         "@types/jest": "^29.5.7",
+        "@types/json-diff": "^1.0.3",
         "@types/node": "^20.8.10",
+        "@types/qs": "^6.9.15",
         "axios-mock-adapter": "^1.20.0",
         "esbuild": "^0.14.54",
         "jest": "^29.7.0",
         "json-diff": "^0.7.1",
         "prettier": "2.5.1",
+        "prettier-plugin-organize-imports": "^4.0.0",
         "ts-jest": "^29.1.1",
         "ts-node": "^10.9.1",
-        "typescript": "^4.3.0"
+        "typescript": "^4.0 || ^5.0"
     }
 }

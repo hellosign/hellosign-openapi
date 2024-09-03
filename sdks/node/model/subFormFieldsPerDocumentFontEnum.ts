@@ -22,8 +22,6 @@
  * SOFTWARE.
  */
 
-import { RequestFile, AttributeTypeMap, ObjectSerializer } from "./";
-
 export enum SubFormFieldsPerDocumentFontEnum {
   Helvetica = "helvetica",
   Arial = "arial",

@@ -1,6 +1,5 @@
-/// <reference types="node" />
-import { Authentication, Interceptor, HttpBasicAuth, HttpBearerAuth, FileResponse, FileResponseDataUri, TemplateAddUserRequest, TemplateCreateEmbeddedDraftRequest, TemplateCreateEmbeddedDraftResponse, TemplateCreateRequest, TemplateCreateResponse, TemplateGetResponse, TemplateListResponse, TemplateRemoveUserRequest, TemplateUpdateFilesRequest, TemplateUpdateFilesResponse } from "../model";
-import { optionsI, returnTypeT, returnTypeI } from "./";
+import { Authentication, FileResponse, FileResponseDataUri, HttpBasicAuth, HttpBearerAuth, Interceptor, TemplateAddUserRequest, TemplateCreateEmbeddedDraftRequest, TemplateCreateEmbeddedDraftResponse, TemplateCreateRequest, TemplateCreateResponse, TemplateGetResponse, TemplateListResponse, TemplateRemoveUserRequest, TemplateUpdateFilesRequest, TemplateUpdateFilesResponse } from "../model";
+import { optionsI, returnTypeI, returnTypeT } from "./";
 export declare enum TemplateApiApiKeys {
 }
 export declare class TemplateApi {

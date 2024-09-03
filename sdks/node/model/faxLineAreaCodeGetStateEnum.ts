@@ -22,8 +22,6 @@
  * SOFTWARE.
  */
 
-import { RequestFile, AttributeTypeMap, ObjectSerializer } from "./";
-
 export enum FaxLineAreaCodeGetStateEnum {
   Ak = "AK",
   Al = "AL",

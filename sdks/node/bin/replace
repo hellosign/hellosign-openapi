@@ -28,9 +28,9 @@ rm -rf "${ROOT_DIR}/docs/model/"*AllOf*
 printf "\n"
 
 printf "Fixing broken enum references ...\n"
-rep 'LegalVersionEnum_Terms1' \
+rep 'LegalVersionEnum.Terms1' \
   'SubWhiteLabelingOptions.LegalVersionEnum.Terms1'
-rep 'TypeEnum_RequestSignature' \
+rep 'TypeEnum.RequestSignature' \
   'UnclaimedDraftCreateEmbeddedRequest.TypeEnum.RequestSignature'
 printf "\n\n"
 
