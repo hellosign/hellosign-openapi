@@ -1,7 +1,9 @@
 "use strict";
 var __create = Object.create;
 var __defProp = Object.defineProperty;
+var __defProps = Object.defineProperties;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
+var __getOwnPropDescs = Object.getOwnPropertyDescriptors;
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __getOwnPropSymbols = Object.getOwnPropertySymbols;
 var __getProtoOf = Object.getPrototypeOf;
@@ -19,6 +21,7 @@ var __spreadValues = (a, b) => {
     }
   return a;
 };
+var __spreadProps = (a, b) => __defProps(a, __getOwnPropDescs(b));
 var __commonJS = (cb, mod) => function __require() {
   return mod || (0, cb[__getOwnPropNames(cb)[0]])((mod = { exports: {} }).exports, mod), mod.exports;
 };
@@ -24639,7 +24642,7 @@ var AccountApi = class {
     this._basePath = basePath;
   }
   set defaultHeaders(defaultHeaders) {
-    this._defaultHeaders = defaultHeaders;
+    this._defaultHeaders = __spreadProps(__spreadValues({}, defaultHeaders), { "User-Agent": USER_AGENT });
   }
   get defaultHeaders() {
     return this._defaultHeaders;
@@ -25168,7 +25171,7 @@ var ApiAppApi = class {
     this._basePath = basePath;
   }
   set defaultHeaders(defaultHeaders) {
-    this._defaultHeaders = defaultHeaders;
+    this._defaultHeaders = __spreadProps(__spreadValues({}, defaultHeaders), { "User-Agent": USER_AGENT });
   }
   get defaultHeaders() {
     return this._defaultHeaders;
@@ -25765,7 +25768,7 @@ var BulkSendJobApi = class {
     this._basePath = basePath;
   }
   set defaultHeaders(defaultHeaders) {
-    this._defaultHeaders = defaultHeaders;
+    this._defaultHeaders = __spreadProps(__spreadValues({}, defaultHeaders), { "User-Agent": USER_AGENT });
   }
   get defaultHeaders() {
     return this._defaultHeaders;
@@ -26056,7 +26059,7 @@ var EmbeddedApi = class {
     this._basePath = basePath;
   }
   set defaultHeaders(defaultHeaders) {
-    this._defaultHeaders = defaultHeaders;
+    this._defaultHeaders = __spreadProps(__spreadValues({}, defaultHeaders), { "User-Agent": USER_AGENT });
   }
   get defaultHeaders() {
     return this._defaultHeaders;
@@ -26363,7 +26366,7 @@ var FaxLineApi = class {
     this._basePath = basePath;
   }
   set defaultHeaders(defaultHeaders) {
-    this._defaultHeaders = defaultHeaders;
+    this._defaultHeaders = __spreadProps(__spreadValues({}, defaultHeaders), { "User-Agent": USER_AGENT });
   }
   get defaultHeaders() {
     return this._defaultHeaders;
@@ -27183,7 +27186,7 @@ var OAuthApi = class {
     this._basePath = basePath;
   }
   set defaultHeaders(defaultHeaders) {
-    this._defaultHeaders = defaultHeaders;
+    this._defaultHeaders = __spreadProps(__spreadValues({}, defaultHeaders), { "User-Agent": USER_AGENT });
   }
   get defaultHeaders() {
     return this._defaultHeaders;
@@ -27450,7 +27453,7 @@ var ReportApi = class {
     this._basePath = basePath;
   }
   set defaultHeaders(defaultHeaders) {
-    this._defaultHeaders = defaultHeaders;
+    this._defaultHeaders = __spreadProps(__spreadValues({}, defaultHeaders), { "User-Agent": USER_AGENT });
   }
   get defaultHeaders() {
     return this._defaultHeaders;
@@ -27647,7 +27650,7 @@ var SignatureRequestApi = class {
     this._basePath = basePath;
   }
   set defaultHeaders(defaultHeaders) {
-    this._defaultHeaders = defaultHeaders;
+    this._defaultHeaders = __spreadProps(__spreadValues({}, defaultHeaders), { "User-Agent": USER_AGENT });
   }
   get defaultHeaders() {
     return this._defaultHeaders;
@@ -29430,7 +29433,7 @@ var TeamApi = class {
     this._basePath = basePath;
   }
   set defaultHeaders(defaultHeaders) {
-    this._defaultHeaders = defaultHeaders;
+    this._defaultHeaders = __spreadProps(__spreadValues({}, defaultHeaders), { "User-Agent": USER_AGENT });
   }
   get defaultHeaders() {
     return this._defaultHeaders;
@@ -30538,7 +30541,7 @@ var TemplateApi = class {
     this._basePath = basePath;
   }
   set defaultHeaders(defaultHeaders) {
-    this._defaultHeaders = defaultHeaders;
+    this._defaultHeaders = __spreadProps(__spreadValues({}, defaultHeaders), { "User-Agent": USER_AGENT });
   }
   get defaultHeaders() {
     return this._defaultHeaders;
@@ -31815,7 +31818,7 @@ var UnclaimedDraftApi = class {
     this._basePath = basePath;
   }
   set defaultHeaders(defaultHeaders) {
-    this._defaultHeaders = defaultHeaders;
+    this._defaultHeaders = __spreadProps(__spreadValues({}, defaultHeaders), { "User-Agent": USER_AGENT });
   }
   get defaultHeaders() {
     return this._defaultHeaders;

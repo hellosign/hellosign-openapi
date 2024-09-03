@@ -131,7 +131,12 @@ export class {{classname}} {
     }
 
     set defaultHeaders(defaultHeaders: any) {
+{{^useCustomTemplateCode}}
         this._defaultHeaders = defaultHeaders;
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
+        this._defaultHeaders = { ...defaultHeaders, "User-Agent": USER_AGENT };
+{{/useCustomTemplateCode}}
     }
 
     get defaultHeaders() {

@@ -81,7 +81,7 @@ export class ReportApi {
   }
 
   set defaultHeaders(defaultHeaders: any) {
-    this._defaultHeaders = defaultHeaders;
+    this._defaultHeaders = { ...defaultHeaders, "User-Agent": USER_AGENT };
   }
 
   get defaultHeaders() {
