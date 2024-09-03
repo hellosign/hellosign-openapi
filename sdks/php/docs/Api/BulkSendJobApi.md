@@ -13,7 +13,6 @@ All URIs are relative to https://api.hellosign.com/v3.
 ```php
 bulkSendJobGet($bulk_send_job_id, $page, $page_size): \Dropbox\Sign\Model\BulkSendJobGetResponse
 ```
-
 Get Bulk Send Job
 
 Returns the status of the BulkSendJob and its SignatureRequests specified by the `bulk_send_job_id` parameter.
@@ -78,7 +77,6 @@ try {
 ```php
 bulkSendJobList($page, $page_size): \Dropbox\Sign\Model\BulkSendJobListResponse
 ```
-
 List Bulk Send Jobs
 
 Returns a list of BulkSendJob that you can access.
