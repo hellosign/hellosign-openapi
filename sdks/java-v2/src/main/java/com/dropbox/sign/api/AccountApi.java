@@ -97,9 +97,21 @@ public class AccountApi {
     String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType("application/json");
     String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
     GenericType<AccountCreateResponse> localVarReturnType = new GenericType<AccountCreateResponse>() {};
-    return apiClient.invokeAPI("AccountApi.accountCreate", "/account/create", "POST", new ArrayList<>(), accountCreateRequest,
-                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+    return apiClient.invokeAPI(
+        "AccountApi.accountCreate",
+        "/account/create",
+        "POST",
+        new ArrayList<>(),
+        isFileTypeFound ? null : accountCreateRequest,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false
+    );
   }
   /**
    * Get Account
@@ -188,9 +200,21 @@ public class AccountApi {
     String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
     GenericType<AccountGetResponse> localVarReturnType = new GenericType<AccountGetResponse>() {};
-    return apiClient.invokeAPI("AccountApi.accountGet", "/account", "GET", localVarQueryParams, null,
-                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+    return apiClient.invokeAPI(
+        "AccountApi.accountGet",
+        "/account",
+        "GET",
+        localVarQueryParams,
+        null,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false
+    );
   }
   /**
    * Update Account
@@ -237,9 +261,21 @@ public class AccountApi {
     String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType("application/json");
     String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
     GenericType<AccountGetResponse> localVarReturnType = new GenericType<AccountGetResponse>() {};
-    return apiClient.invokeAPI("AccountApi.accountUpdate", "/account", "PUT", new ArrayList<>(), accountUpdateRequest,
-                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+    return apiClient.invokeAPI(
+        "AccountApi.accountUpdate",
+        "/account",
+        "PUT",
+        new ArrayList<>(),
+        isFileTypeFound ? null : accountUpdateRequest,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false
+    );
   }
   /**
    * Verify Account
@@ -286,8 +322,20 @@ public class AccountApi {
     String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType("application/json");
     String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
     GenericType<AccountVerifyResponse> localVarReturnType = new GenericType<AccountVerifyResponse>() {};
-    return apiClient.invokeAPI("AccountApi.accountVerify", "/account/verify", "POST", new ArrayList<>(), accountVerifyRequest,
-                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+    return apiClient.invokeAPI(
+        "AccountApi.accountVerify",
+        "/account/verify",
+        "POST",
+        new ArrayList<>(),
+        isFileTypeFound ? null : accountVerifyRequest,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false
+    );
   }
 }

@@ -113,9 +113,21 @@ public class TemplateApi {
     String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType("application/json");
     String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
     GenericType<TemplateGetResponse> localVarReturnType = new GenericType<TemplateGetResponse>() {};
-    return apiClient.invokeAPI("TemplateApi.templateAddUser", localVarPath, "POST", new ArrayList<>(), templateAddUserRequest,
-                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+    return apiClient.invokeAPI(
+        "TemplateApi.templateAddUser",
+        localVarPath,
+        "POST",
+        new ArrayList<>(),
+        isFileTypeFound ? null : templateAddUserRequest,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false
+    );
   }
   /**
    * Create  Template
@@ -162,9 +174,21 @@ public class TemplateApi {
     String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType("application/json", "multipart/form-data");
     String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
     GenericType<TemplateCreateResponse> localVarReturnType = new GenericType<TemplateCreateResponse>() {};
-    return apiClient.invokeAPI("TemplateApi.templateCreate", "/template/create", "POST", new ArrayList<>(), templateCreateRequest,
-                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+    return apiClient.invokeAPI(
+        "TemplateApi.templateCreate",
+        "/template/create",
+        "POST",
+        new ArrayList<>(),
+        isFileTypeFound ? null : templateCreateRequest,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false
+    );
   }
   /**
    * Create Embedded Template Draft
@@ -211,9 +235,21 @@ public class TemplateApi {
     String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType("application/json", "multipart/form-data");
     String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
     GenericType<TemplateCreateEmbeddedDraftResponse> localVarReturnType = new GenericType<TemplateCreateEmbeddedDraftResponse>() {};
-    return apiClient.invokeAPI("TemplateApi.templateCreateEmbeddedDraft", "/template/create_embedded_draft", "POST", new ArrayList<>(), templateCreateEmbeddedDraftRequest,
-                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+    return apiClient.invokeAPI(
+        "TemplateApi.templateCreateEmbeddedDraft",
+        "/template/create_embedded_draft",
+        "POST",
+        new ArrayList<>(),
+        isFileTypeFound ? null : templateCreateEmbeddedDraftRequest,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false
+    );
   }
   /**
    * Delete Template
@@ -262,9 +298,21 @@ public class TemplateApi {
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
     String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
-    return apiClient.invokeAPI("TemplateApi.templateDelete", localVarPath, "POST", new ArrayList<>(), null,
-                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, null, false);
+    return apiClient.invokeAPI(
+        "TemplateApi.templateDelete",
+        localVarPath,
+        "POST",
+        new ArrayList<>(),
+        null,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        null,
+        false
+    );
   }
   /**
    * Get Template Files
@@ -341,9 +389,21 @@ public class TemplateApi {
     String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
     GenericType<File> localVarReturnType = new GenericType<File>() {};
-    return apiClient.invokeAPI("TemplateApi.templateFiles", localVarPath, "GET", localVarQueryParams, null,
-                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+    return apiClient.invokeAPI(
+        "TemplateApi.templateFiles",
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        null,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false
+    );
   }
   /**
    * Get Template Files as Data Uri
@@ -394,9 +454,21 @@ public class TemplateApi {
     String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
     GenericType<FileResponseDataUri> localVarReturnType = new GenericType<FileResponseDataUri>() {};
-    return apiClient.invokeAPI("TemplateApi.templateFilesAsDataUri", localVarPath, "GET", new ArrayList<>(), null,
-                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+    return apiClient.invokeAPI(
+        "TemplateApi.templateFilesAsDataUri",
+        localVarPath,
+        "GET",
+        new ArrayList<>(),
+        null,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false
+    );
   }
   /**
    * Get Template Files as File Url
@@ -476,9 +548,21 @@ public class TemplateApi {
     String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
     GenericType<FileResponse> localVarReturnType = new GenericType<FileResponse>() {};
-    return apiClient.invokeAPI("TemplateApi.templateFilesAsFileUrl", localVarPath, "GET", localVarQueryParams, null,
-                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+    return apiClient.invokeAPI(
+        "TemplateApi.templateFilesAsFileUrl",
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        null,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false
+    );
   }
   /**
    * Get Template
@@ -529,9 +613,21 @@ public class TemplateApi {
     String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
     GenericType<TemplateGetResponse> localVarReturnType = new GenericType<TemplateGetResponse>() {};
-    return apiClient.invokeAPI("TemplateApi.templateGet", localVarPath, "GET", new ArrayList<>(), null,
-                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+    return apiClient.invokeAPI(
+        "TemplateApi.templateGet",
+        localVarPath,
+        "GET",
+        new ArrayList<>(),
+        null,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false
+    );
   }
   /**
    * List Templates
@@ -678,9 +774,21 @@ public class TemplateApi {
     String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
     GenericType<TemplateListResponse> localVarReturnType = new GenericType<TemplateListResponse>() {};
-    return apiClient.invokeAPI("TemplateApi.templateList", "/template/list", "GET", localVarQueryParams, null,
-                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+    return apiClient.invokeAPI(
+        "TemplateApi.templateList",
+        "/template/list",
+        "GET",
+        localVarQueryParams,
+        null,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false
+    );
   }
   /**
    * Remove User from Template
@@ -736,9 +844,21 @@ public class TemplateApi {
     String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType("application/json");
     String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
     GenericType<TemplateGetResponse> localVarReturnType = new GenericType<TemplateGetResponse>() {};
-    return apiClient.invokeAPI("TemplateApi.templateRemoveUser", localVarPath, "POST", new ArrayList<>(), templateRemoveUserRequest,
-                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+    return apiClient.invokeAPI(
+        "TemplateApi.templateRemoveUser",
+        localVarPath,
+        "POST",
+        new ArrayList<>(),
+        isFileTypeFound ? null : templateRemoveUserRequest,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false
+    );
   }
   /**
    * Update Template Files
@@ -794,8 +914,20 @@ public class TemplateApi {
     String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType("application/json", "multipart/form-data");
     String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
     GenericType<TemplateUpdateFilesResponse> localVarReturnType = new GenericType<TemplateUpdateFilesResponse>() {};
-    return apiClient.invokeAPI("TemplateApi.templateUpdateFiles", localVarPath, "POST", new ArrayList<>(), templateUpdateFilesRequest,
-                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+    return apiClient.invokeAPI(
+        "TemplateApi.templateUpdateFiles",
+        localVarPath,
+        "POST",
+        new ArrayList<>(),
+        isFileTypeFound ? null : templateUpdateFilesRequest,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false
+    );
   }
 }

@@ -152,9 +152,21 @@ public class BulkSendJobApi {
     String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
     GenericType<BulkSendJobGetResponse> localVarReturnType = new GenericType<BulkSendJobGetResponse>() {};
-    return apiClient.invokeAPI("BulkSendJobApi.bulkSendJobGet", localVarPath, "GET", localVarQueryParams, null,
-                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+    return apiClient.invokeAPI(
+        "BulkSendJobApi.bulkSendJobGet",
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        null,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false
+    );
   }
   /**
    * List Bulk Send Jobs
@@ -249,8 +261,20 @@ public class BulkSendJobApi {
     String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
     GenericType<BulkSendJobListResponse> localVarReturnType = new GenericType<BulkSendJobListResponse>() {};
-    return apiClient.invokeAPI("BulkSendJobApi.bulkSendJobList", "/bulk_send_job/list", "GET", localVarQueryParams, null,
-                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+    return apiClient.invokeAPI(
+        "BulkSendJobApi.bulkSendJobList",
+        "/bulk_send_job/list",
+        "GET",
+        localVarQueryParams,
+        null,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false
+    );
   }
 }

@@ -105,9 +105,21 @@ public class SignatureRequestApi {
     String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType("application/json", "multipart/form-data");
     String[] localVarAuthNames = new String[] {"api_key"};
     GenericType<BulkSendJobSendResponse> localVarReturnType = new GenericType<BulkSendJobSendResponse>() {};
-    return apiClient.invokeAPI("SignatureRequestApi.signatureRequestBulkCreateEmbeddedWithTemplate", "/signature_request/bulk_create_embedded_with_template", "POST", new ArrayList<>(), signatureRequestBulkCreateEmbeddedWithTemplateRequest,
-                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+    return apiClient.invokeAPI(
+        "SignatureRequestApi.signatureRequestBulkCreateEmbeddedWithTemplate",
+        "/signature_request/bulk_create_embedded_with_template",
+        "POST",
+        new ArrayList<>(),
+        isFileTypeFound ? null : signatureRequestBulkCreateEmbeddedWithTemplateRequest,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false
+    );
   }
   /**
    * Bulk Send with Template
@@ -154,9 +166,21 @@ public class SignatureRequestApi {
     String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType("application/json", "multipart/form-data");
     String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
     GenericType<BulkSendJobSendResponse> localVarReturnType = new GenericType<BulkSendJobSendResponse>() {};
-    return apiClient.invokeAPI("SignatureRequestApi.signatureRequestBulkSendWithTemplate", "/signature_request/bulk_send_with_template", "POST", new ArrayList<>(), signatureRequestBulkSendWithTemplateRequest,
-                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+    return apiClient.invokeAPI(
+        "SignatureRequestApi.signatureRequestBulkSendWithTemplate",
+        "/signature_request/bulk_send_with_template",
+        "POST",
+        new ArrayList<>(),
+        isFileTypeFound ? null : signatureRequestBulkSendWithTemplateRequest,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false
+    );
   }
   /**
    * Cancel Incomplete Signature Request
@@ -205,9 +229,21 @@ public class SignatureRequestApi {
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
     String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
-    return apiClient.invokeAPI("SignatureRequestApi.signatureRequestCancel", localVarPath, "POST", new ArrayList<>(), null,
-                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, null, false);
+    return apiClient.invokeAPI(
+        "SignatureRequestApi.signatureRequestCancel",
+        localVarPath,
+        "POST",
+        new ArrayList<>(),
+        null,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        null,
+        false
+    );
   }
   /**
    * Create Embedded Signature Request
@@ -254,9 +290,21 @@ public class SignatureRequestApi {
     String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType("application/json", "multipart/form-data");
     String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
     GenericType<SignatureRequestGetResponse> localVarReturnType = new GenericType<SignatureRequestGetResponse>() {};
-    return apiClient.invokeAPI("SignatureRequestApi.signatureRequestCreateEmbedded", "/signature_request/create_embedded", "POST", new ArrayList<>(), signatureRequestCreateEmbeddedRequest,
-                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+    return apiClient.invokeAPI(
+        "SignatureRequestApi.signatureRequestCreateEmbedded",
+        "/signature_request/create_embedded",
+        "POST",
+        new ArrayList<>(),
+        isFileTypeFound ? null : signatureRequestCreateEmbeddedRequest,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false
+    );
   }
   /**
    * Create Embedded Signature Request with Template
@@ -303,9 +351,21 @@ public class SignatureRequestApi {
     String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType("application/json", "multipart/form-data");
     String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
     GenericType<SignatureRequestGetResponse> localVarReturnType = new GenericType<SignatureRequestGetResponse>() {};
-    return apiClient.invokeAPI("SignatureRequestApi.signatureRequestCreateEmbeddedWithTemplate", "/signature_request/create_embedded_with_template", "POST", new ArrayList<>(), signatureRequestCreateEmbeddedWithTemplateRequest,
-                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+    return apiClient.invokeAPI(
+        "SignatureRequestApi.signatureRequestCreateEmbeddedWithTemplate",
+        "/signature_request/create_embedded_with_template",
+        "POST",
+        new ArrayList<>(),
+        isFileTypeFound ? null : signatureRequestCreateEmbeddedWithTemplateRequest,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false
+    );
   }
   /**
    * Download Files
@@ -385,9 +445,21 @@ public class SignatureRequestApi {
     String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
     GenericType<File> localVarReturnType = new GenericType<File>() {};
-    return apiClient.invokeAPI("SignatureRequestApi.signatureRequestFiles", localVarPath, "GET", localVarQueryParams, null,
-                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+    return apiClient.invokeAPI(
+        "SignatureRequestApi.signatureRequestFiles",
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        null,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false
+    );
   }
   /**
    * Download Files as Data Uri
@@ -438,9 +510,21 @@ public class SignatureRequestApi {
     String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
     GenericType<FileResponseDataUri> localVarReturnType = new GenericType<FileResponseDataUri>() {};
-    return apiClient.invokeAPI("SignatureRequestApi.signatureRequestFilesAsDataUri", localVarPath, "GET", new ArrayList<>(), null,
-                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+    return apiClient.invokeAPI(
+        "SignatureRequestApi.signatureRequestFilesAsDataUri",
+        localVarPath,
+        "GET",
+        new ArrayList<>(),
+        null,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false
+    );
   }
   /**
    * Download Files as File Url
@@ -520,9 +604,21 @@ public class SignatureRequestApi {
     String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
     GenericType<FileResponse> localVarReturnType = new GenericType<FileResponse>() {};
-    return apiClient.invokeAPI("SignatureRequestApi.signatureRequestFilesAsFileUrl", localVarPath, "GET", localVarQueryParams, null,
-                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+    return apiClient.invokeAPI(
+        "SignatureRequestApi.signatureRequestFilesAsFileUrl",
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        null,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false
+    );
   }
   /**
    * Get Signature Request
@@ -573,9 +669,21 @@ public class SignatureRequestApi {
     String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
     GenericType<SignatureRequestGetResponse> localVarReturnType = new GenericType<SignatureRequestGetResponse>() {};
-    return apiClient.invokeAPI("SignatureRequestApi.signatureRequestGet", localVarPath, "GET", new ArrayList<>(), null,
-                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+    return apiClient.invokeAPI(
+        "SignatureRequestApi.signatureRequestGet",
+        localVarPath,
+        "GET",
+        new ArrayList<>(),
+        null,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false
+    );
   }
   /**
    * List Signature Requests
@@ -722,9 +830,21 @@ public class SignatureRequestApi {
     String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
     GenericType<SignatureRequestListResponse> localVarReturnType = new GenericType<SignatureRequestListResponse>() {};
-    return apiClient.invokeAPI("SignatureRequestApi.signatureRequestList", "/signature_request/list", "GET", localVarQueryParams, null,
-                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+    return apiClient.invokeAPI(
+        "SignatureRequestApi.signatureRequestList",
+        "/signature_request/list",
+        "GET",
+        localVarQueryParams,
+        null,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false
+    );
   }
   /**
    * Release On-Hold Signature Request
@@ -775,9 +895,21 @@ public class SignatureRequestApi {
     String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
     GenericType<SignatureRequestGetResponse> localVarReturnType = new GenericType<SignatureRequestGetResponse>() {};
-    return apiClient.invokeAPI("SignatureRequestApi.signatureRequestReleaseHold", localVarPath, "POST", new ArrayList<>(), null,
-                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+    return apiClient.invokeAPI(
+        "SignatureRequestApi.signatureRequestReleaseHold",
+        localVarPath,
+        "POST",
+        new ArrayList<>(),
+        null,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false
+    );
   }
   /**
    * Send Request Reminder
@@ -833,9 +965,21 @@ public class SignatureRequestApi {
     String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType("application/json");
     String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
     GenericType<SignatureRequestGetResponse> localVarReturnType = new GenericType<SignatureRequestGetResponse>() {};
-    return apiClient.invokeAPI("SignatureRequestApi.signatureRequestRemind", localVarPath, "POST", new ArrayList<>(), signatureRequestRemindRequest,
-                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+    return apiClient.invokeAPI(
+        "SignatureRequestApi.signatureRequestRemind",
+        localVarPath,
+        "POST",
+        new ArrayList<>(),
+        isFileTypeFound ? null : signatureRequestRemindRequest,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false
+    );
   }
   /**
    * Remove Signature Request Access
@@ -884,9 +1028,21 @@ public class SignatureRequestApi {
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
     String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key"};
-    return apiClient.invokeAPI("SignatureRequestApi.signatureRequestRemove", localVarPath, "POST", new ArrayList<>(), null,
-                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, null, false);
+    return apiClient.invokeAPI(
+        "SignatureRequestApi.signatureRequestRemove",
+        localVarPath,
+        "POST",
+        new ArrayList<>(),
+        null,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        null,
+        false
+    );
   }
   /**
    * Send Signature Request
@@ -933,9 +1089,21 @@ public class SignatureRequestApi {
     String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType("application/json", "multipart/form-data");
     String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
     GenericType<SignatureRequestGetResponse> localVarReturnType = new GenericType<SignatureRequestGetResponse>() {};
-    return apiClient.invokeAPI("SignatureRequestApi.signatureRequestSend", "/signature_request/send", "POST", new ArrayList<>(), signatureRequestSendRequest,
-                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+    return apiClient.invokeAPI(
+        "SignatureRequestApi.signatureRequestSend",
+        "/signature_request/send",
+        "POST",
+        new ArrayList<>(),
+        isFileTypeFound ? null : signatureRequestSendRequest,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false
+    );
   }
   /**
    * Send with Template
@@ -982,9 +1150,21 @@ public class SignatureRequestApi {
     String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType("application/json", "multipart/form-data");
     String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
     GenericType<SignatureRequestGetResponse> localVarReturnType = new GenericType<SignatureRequestGetResponse>() {};
-    return apiClient.invokeAPI("SignatureRequestApi.signatureRequestSendWithTemplate", "/signature_request/send_with_template", "POST", new ArrayList<>(), signatureRequestSendWithTemplateRequest,
-                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+    return apiClient.invokeAPI(
+        "SignatureRequestApi.signatureRequestSendWithTemplate",
+        "/signature_request/send_with_template",
+        "POST",
+        new ArrayList<>(),
+        isFileTypeFound ? null : signatureRequestSendWithTemplateRequest,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false
+    );
   }
   /**
    * Update Signature Request
@@ -1040,8 +1220,20 @@ public class SignatureRequestApi {
     String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType("application/json");
     String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
     GenericType<SignatureRequestGetResponse> localVarReturnType = new GenericType<SignatureRequestGetResponse>() {};
-    return apiClient.invokeAPI("SignatureRequestApi.signatureRequestUpdate", localVarPath, "POST", new ArrayList<>(), signatureRequestUpdateRequest,
-                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+    return apiClient.invokeAPI(
+        "SignatureRequestApi.signatureRequestUpdate",
+        localVarPath,
+        "POST",
+        new ArrayList<>(),
+        isFileTypeFound ? null : signatureRequestUpdateRequest,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false
+    );
   }
 }

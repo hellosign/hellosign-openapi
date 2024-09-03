@@ -90,9 +90,21 @@ public class OAuthApi {
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
     String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType("application/json");
     GenericType<OAuthTokenResponse> localVarReturnType = new GenericType<OAuthTokenResponse>() {};
-    return apiClient.invokeAPI("OAuthApi.oauthTokenGenerate", "/oauth/token", "POST", new ArrayList<>(), oauthTokenGenerateRequest,
-                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               null, localVarReturnType, false);
+    return apiClient.invokeAPI(
+        "OAuthApi.oauthTokenGenerate",
+        "/oauth/token",
+        "POST",
+        new ArrayList<>(),
+        isFileTypeFound ? null : oauthTokenGenerateRequest,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        null,
+        localVarReturnType,
+        false
+    );
   }
   /**
    * OAuth Token Refresh
@@ -136,8 +148,20 @@ public class OAuthApi {
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
     String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType("application/json");
     GenericType<OAuthTokenResponse> localVarReturnType = new GenericType<OAuthTokenResponse>() {};
-    return apiClient.invokeAPI("OAuthApi.oauthTokenRefresh", "/oauth/token?refresh", "POST", new ArrayList<>(), oauthTokenRefreshRequest,
-                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               null, localVarReturnType, false);
+    return apiClient.invokeAPI(
+        "OAuthApi.oauthTokenRefresh",
+        "/oauth/token?refresh",
+        "POST",
+        new ArrayList<>(),
+        isFileTypeFound ? null : oauthTokenRefreshRequest,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        null,
+        localVarReturnType,
+        false
+    );
   }
 }

@@ -95,9 +95,21 @@ public class ApiAppApi {
     String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType("application/json", "multipart/form-data");
     String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
     GenericType<ApiAppGetResponse> localVarReturnType = new GenericType<ApiAppGetResponse>() {};
-    return apiClient.invokeAPI("ApiAppApi.apiAppCreate", "/api_app", "POST", new ArrayList<>(), apiAppCreateRequest,
-                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+    return apiClient.invokeAPI(
+        "ApiAppApi.apiAppCreate",
+        "/api_app",
+        "POST",
+        new ArrayList<>(),
+        isFileTypeFound ? null : apiAppCreateRequest,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false
+    );
   }
   /**
    * Delete API App
@@ -146,9 +158,21 @@ public class ApiAppApi {
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
     String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
-    return apiClient.invokeAPI("ApiAppApi.apiAppDelete", localVarPath, "DELETE", new ArrayList<>(), null,
-                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, null, false);
+    return apiClient.invokeAPI(
+        "ApiAppApi.apiAppDelete",
+        localVarPath,
+        "DELETE",
+        new ArrayList<>(),
+        null,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        null,
+        false
+    );
   }
   /**
    * Get API App
@@ -199,9 +223,21 @@ public class ApiAppApi {
     String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
     GenericType<ApiAppGetResponse> localVarReturnType = new GenericType<ApiAppGetResponse>() {};
-    return apiClient.invokeAPI("ApiAppApi.apiAppGet", localVarPath, "GET", new ArrayList<>(), null,
-                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+    return apiClient.invokeAPI(
+        "ApiAppApi.apiAppGet",
+        localVarPath,
+        "GET",
+        new ArrayList<>(),
+        null,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false
+    );
   }
   /**
    * List API Apps
@@ -296,9 +332,21 @@ public class ApiAppApi {
     String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
     GenericType<ApiAppListResponse> localVarReturnType = new GenericType<ApiAppListResponse>() {};
-    return apiClient.invokeAPI("ApiAppApi.apiAppList", "/api_app/list", "GET", localVarQueryParams, null,
-                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+    return apiClient.invokeAPI(
+        "ApiAppApi.apiAppList",
+        "/api_app/list",
+        "GET",
+        localVarQueryParams,
+        null,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false
+    );
   }
   /**
    * Update API App
@@ -354,8 +402,20 @@ public class ApiAppApi {
     String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType("application/json", "multipart/form-data");
     String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
     GenericType<ApiAppGetResponse> localVarReturnType = new GenericType<ApiAppGetResponse>() {};
-    return apiClient.invokeAPI("ApiAppApi.apiAppUpdate", localVarPath, "PUT", new ArrayList<>(), apiAppUpdateRequest,
-                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+    return apiClient.invokeAPI(
+        "ApiAppApi.apiAppUpdate",
+        localVarPath,
+        "PUT",
+        new ArrayList<>(),
+        isFileTypeFound ? null : apiAppUpdateRequest,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false
+    );
   }
 }

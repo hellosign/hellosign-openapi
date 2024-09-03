@@ -93,8 +93,20 @@ public class ReportApi {
     String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType("application/json");
     String[] localVarAuthNames = new String[] {"api_key"};
     GenericType<ReportCreateResponse> localVarReturnType = new GenericType<ReportCreateResponse>() {};
-    return apiClient.invokeAPI("ReportApi.reportCreate", "/report/create", "POST", new ArrayList<>(), reportCreateRequest,
-                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+    return apiClient.invokeAPI(
+        "ReportApi.reportCreate",
+        "/report/create",
+        "POST",
+        new ArrayList<>(),
+        isFileTypeFound ? null : reportCreateRequest,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false
+    );
   }
 }

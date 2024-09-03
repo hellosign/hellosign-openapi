@@ -96,9 +96,21 @@ public class UnclaimedDraftApi {
     String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType("application/json", "multipart/form-data");
     String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
     GenericType<UnclaimedDraftCreateResponse> localVarReturnType = new GenericType<UnclaimedDraftCreateResponse>() {};
-    return apiClient.invokeAPI("UnclaimedDraftApi.unclaimedDraftCreate", "/unclaimed_draft/create", "POST", new ArrayList<>(), unclaimedDraftCreateRequest,
-                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+    return apiClient.invokeAPI(
+        "UnclaimedDraftApi.unclaimedDraftCreate",
+        "/unclaimed_draft/create",
+        "POST",
+        new ArrayList<>(),
+        isFileTypeFound ? null : unclaimedDraftCreateRequest,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false
+    );
   }
   /**
    * Create Embedded Unclaimed Draft
@@ -145,9 +157,21 @@ public class UnclaimedDraftApi {
     String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType("application/json", "multipart/form-data");
     String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
     GenericType<UnclaimedDraftCreateResponse> localVarReturnType = new GenericType<UnclaimedDraftCreateResponse>() {};
-    return apiClient.invokeAPI("UnclaimedDraftApi.unclaimedDraftCreateEmbedded", "/unclaimed_draft/create_embedded", "POST", new ArrayList<>(), unclaimedDraftCreateEmbeddedRequest,
-                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+    return apiClient.invokeAPI(
+        "UnclaimedDraftApi.unclaimedDraftCreateEmbedded",
+        "/unclaimed_draft/create_embedded",
+        "POST",
+        new ArrayList<>(),
+        isFileTypeFound ? null : unclaimedDraftCreateEmbeddedRequest,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false
+    );
   }
   /**
    * Create Embedded Unclaimed Draft with Template
@@ -194,9 +218,21 @@ public class UnclaimedDraftApi {
     String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType("application/json", "multipart/form-data");
     String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
     GenericType<UnclaimedDraftCreateResponse> localVarReturnType = new GenericType<UnclaimedDraftCreateResponse>() {};
-    return apiClient.invokeAPI("UnclaimedDraftApi.unclaimedDraftCreateEmbeddedWithTemplate", "/unclaimed_draft/create_embedded_with_template", "POST", new ArrayList<>(), unclaimedDraftCreateEmbeddedWithTemplateRequest,
-                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+    return apiClient.invokeAPI(
+        "UnclaimedDraftApi.unclaimedDraftCreateEmbeddedWithTemplate",
+        "/unclaimed_draft/create_embedded_with_template",
+        "POST",
+        new ArrayList<>(),
+        isFileTypeFound ? null : unclaimedDraftCreateEmbeddedWithTemplateRequest,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false
+    );
   }
   /**
    * Edit and Resend Unclaimed Draft
@@ -252,8 +288,20 @@ public class UnclaimedDraftApi {
     String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType("application/json");
     String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
     GenericType<UnclaimedDraftCreateResponse> localVarReturnType = new GenericType<UnclaimedDraftCreateResponse>() {};
-    return apiClient.invokeAPI("UnclaimedDraftApi.unclaimedDraftEditAndResend", localVarPath, "POST", new ArrayList<>(), unclaimedDraftEditAndResendRequest,
-                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+    return apiClient.invokeAPI(
+        "UnclaimedDraftApi.unclaimedDraftEditAndResend",
+        localVarPath,
+        "POST",
+        new ArrayList<>(),
+        isFileTypeFound ? null : unclaimedDraftEditAndResendRequest,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false
+    );
   }
 }
