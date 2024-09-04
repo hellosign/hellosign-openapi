@@ -33,8 +33,8 @@ class TeamMembersResponse(BaseModel):
     """
     TeamMembersResponse
     """ # noqa: E501
-    team_members: Optional[List[TeamMemberResponse]] = Field(default=None, description="Contains a list of team members and their roles for a specific team.")
-    list_info: Optional[ListInfoResponse] = None
+    team_members: List[TeamMemberResponse] = Field(description="Contains a list of team members and their roles for a specific team.")
+    list_info: ListInfoResponse
     warnings: Optional[List[WarningResponse]] = None
     __properties: ClassVar[List[str]] = ["team_members", "list_info", "warnings"]
 

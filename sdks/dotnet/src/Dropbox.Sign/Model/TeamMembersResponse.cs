@@ -41,13 +41,23 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TeamMembersResponse" /> class.
         /// </summary>
-        /// <param name="teamMembers">Contains a list of team members and their roles for a specific team..</param>
-        /// <param name="listInfo">listInfo.</param>
+        /// <param name="teamMembers">Contains a list of team members and their roles for a specific team. (required).</param>
+        /// <param name="listInfo">listInfo (required).</param>
         /// <param name="warnings">warnings.</param>
         public TeamMembersResponse(List<TeamMemberResponse> teamMembers = default(List<TeamMemberResponse>), ListInfoResponse listInfo = default(ListInfoResponse), List<WarningResponse> warnings = default(List<WarningResponse>))
         {
             
+            // to ensure "teamMembers" is required (not null)
+            if (teamMembers == null)
+            {
+                throw new ArgumentNullException("teamMembers is a required property for TeamMembersResponse and cannot be null");
+            }
             this.TeamMembers = teamMembers;
+            // to ensure "listInfo" is required (not null)
+            if (listInfo == null)
+            {
+                throw new ArgumentNullException("listInfo is a required property for TeamMembersResponse and cannot be null");
+            }
             this.ListInfo = listInfo;
             this.Warnings = warnings;
         }
@@ -72,13 +82,13 @@ namespace Dropbox.Sign.Model
         /// Contains a list of team members and their roles for a specific team.
         /// </summary>
         /// <value>Contains a list of team members and their roles for a specific team.</value>
-        [DataMember(Name = "team_members", EmitDefaultValue = true)]
+        [DataMember(Name = "team_members", IsRequired = true, EmitDefaultValue = true)]
         public List<TeamMemberResponse> TeamMembers { get; set; }
         
         /// <summary>
         /// Gets or Sets ListInfo
         /// </summary>
-        [DataMember(Name = "list_info", EmitDefaultValue = true)]
+        [DataMember(Name = "list_info", IsRequired = true, EmitDefaultValue = true)]
         public ListInfoResponse ListInfo { get; set; }
         
         /// <summary>

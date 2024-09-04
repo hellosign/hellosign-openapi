@@ -8,7 +8,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-| `areaCodes` | ```List<Integer>``` |    |  |
+| `areaCodes`<sup>*_required_</sup> | ```List<Integer>``` |    |  |
 
 
 

@@ -41,10 +41,15 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FaxLineAreaCodeGetResponse" /> class.
         /// </summary>
-        /// <param name="areaCodes">areaCodes.</param>
+        /// <param name="areaCodes">areaCodes (required).</param>
         public FaxLineAreaCodeGetResponse(List<int> areaCodes = default(List<int>))
         {
             
+            // to ensure "areaCodes" is required (not null)
+            if (areaCodes == null)
+            {
+                throw new ArgumentNullException("areaCodes is a required property for FaxLineAreaCodeGetResponse and cannot be null");
+            }
             this.AreaCodes = areaCodes;
         }
 
@@ -67,7 +72,7 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Gets or Sets AreaCodes
         /// </summary>
-        [DataMember(Name = "area_codes", EmitDefaultValue = true)]
+        [DataMember(Name = "area_codes", IsRequired = true, EmitDefaultValue = true)]
         public List<int> AreaCodes { get; set; }
         
         /// <summary>

@@ -33,8 +33,8 @@ class TeamSubTeamsResponse(BaseModel):
     """
     TeamSubTeamsResponse
     """ # noqa: E501
-    sub_teams: Optional[List[SubTeamResponse]] = Field(default=None, description="Contains a list with sub teams.")
-    list_info: Optional[ListInfoResponse] = None
+    sub_teams: List[SubTeamResponse] = Field(description="Contains a list with sub teams.")
+    list_info: ListInfoResponse
     warnings: Optional[List[WarningResponse]] = None
     __properties: ClassVar[List[str]] = ["sub_teams", "list_info", "warnings"]
 

@@ -31,8 +31,8 @@ export class TeamMembersResponse {
   /**
    * Contains a list of team members and their roles for a specific team.
    */
-  "teamMembers"?: Array<TeamMemberResponse>;
-  "listInfo"?: ListInfoResponse;
+  "teamMembers": Array<TeamMemberResponse>;
+  "listInfo": ListInfoResponse;
   "warnings"?: Array<WarningResponse>;
 
   static discriminator: string | undefined = undefined;

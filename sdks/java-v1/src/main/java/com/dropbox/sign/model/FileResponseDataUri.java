@@ -68,9 +68,9 @@ public class FileResponseDataUri {
    * File as base64 encoded string.
    * @return dataUri
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_DATA_URI)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getDataUri() {
     return dataUri;
@@ -78,7 +78,7 @@ public class FileResponseDataUri {
 
 
   @JsonProperty(JSON_PROPERTY_DATA_URI)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setDataUri(String dataUri) {
     this.dataUri = dataUri;
   }

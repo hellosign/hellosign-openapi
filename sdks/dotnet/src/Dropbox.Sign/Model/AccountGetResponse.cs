@@ -41,11 +41,16 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AccountGetResponse" /> class.
         /// </summary>
-        /// <param name="account">account.</param>
+        /// <param name="account">account (required).</param>
         /// <param name="warnings">A list of warnings..</param>
         public AccountGetResponse(AccountResponse account = default(AccountResponse), List<WarningResponse> warnings = default(List<WarningResponse>))
         {
             
+            // to ensure "account" is required (not null)
+            if (account == null)
+            {
+                throw new ArgumentNullException("account is a required property for AccountGetResponse and cannot be null");
+            }
             this.Account = account;
             this.Warnings = warnings;
         }
@@ -69,7 +74,7 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Gets or Sets Account
         /// </summary>
-        [DataMember(Name = "account", EmitDefaultValue = true)]
+        [DataMember(Name = "account", IsRequired = true, EmitDefaultValue = true)]
         public AccountResponse Account { get; set; }
         
         /// <summary>

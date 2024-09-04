@@ -295,7 +295,15 @@ class BulkSendJobListResponse implements ModelInterface, ArrayAccess, JsonSerial
      */
     public function listInvalidProperties()
     {
-        return [];
+        $invalidProperties = [];
+
+        if ($this->container['bulk_send_jobs'] === null) {
+            $invalidProperties[] = "'bulk_send_jobs' can't be null";
+        }
+        if ($this->container['list_info'] === null) {
+            $invalidProperties[] = "'list_info' can't be null";
+        }
+        return $invalidProperties;
     }
 
     /**
@@ -312,7 +320,7 @@ class BulkSendJobListResponse implements ModelInterface, ArrayAccess, JsonSerial
     /**
      * Gets bulk_send_jobs
      *
-     * @return BulkSendJobResponse[]|null
+     * @return BulkSendJobResponse[]
      */
     public function getBulkSendJobs()
     {
@@ -322,11 +330,11 @@ class BulkSendJobListResponse implements ModelInterface, ArrayAccess, JsonSerial
     /**
      * Sets bulk_send_jobs
      *
-     * @param BulkSendJobResponse[]|null $bulk_send_jobs contains a list of BulkSendJobs that the API caller has access to
+     * @param BulkSendJobResponse[] $bulk_send_jobs contains a list of BulkSendJobs that the API caller has access to
      *
      * @return self
      */
-    public function setBulkSendJobs(?array $bulk_send_jobs)
+    public function setBulkSendJobs(array $bulk_send_jobs)
     {
         if (is_null($bulk_send_jobs)) {
             throw new InvalidArgumentException('non-nullable bulk_send_jobs cannot be null');
@@ -339,7 +347,7 @@ class BulkSendJobListResponse implements ModelInterface, ArrayAccess, JsonSerial
     /**
      * Gets list_info
      *
-     * @return ListInfoResponse|null
+     * @return ListInfoResponse
      */
     public function getListInfo()
     {
@@ -349,11 +357,11 @@ class BulkSendJobListResponse implements ModelInterface, ArrayAccess, JsonSerial
     /**
      * Sets list_info
      *
-     * @param ListInfoResponse|null $list_info list_info
+     * @param ListInfoResponse $list_info list_info
      *
      * @return self
      */
-    public function setListInfo(?ListInfoResponse $list_info)
+    public function setListInfo(ListInfoResponse $list_info)
     {
         if (is_null($list_info)) {
             throw new InvalidArgumentException('non-nullable list_info cannot be null');

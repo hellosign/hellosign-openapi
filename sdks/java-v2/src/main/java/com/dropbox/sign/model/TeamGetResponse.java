@@ -76,9 +76,9 @@ public class TeamGetResponse {
    * Get team
    * @return team
    */
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_TEAM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public TeamResponse getTeam() {
     return team;
@@ -86,7 +86,7 @@ public class TeamGetResponse {
 
 
   @JsonProperty(JSON_PROPERTY_TEAM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setTeam(TeamResponse team) {
     this.team = team;
   }

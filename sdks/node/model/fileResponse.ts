@@ -28,11 +28,11 @@ export class FileResponse {
   /**
    * URL to the file.
    */
-  "fileUrl"?: string;
+  "fileUrl": string;
   /**
    * When the link expires.
    */
-  "expiresAt"?: number;
+  "expiresAt": number;
 
   static discriminator: string | undefined = undefined;
 

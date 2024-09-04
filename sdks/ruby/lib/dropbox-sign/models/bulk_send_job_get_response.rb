@@ -128,12 +128,27 @@ module Dropbox::Sign
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @bulk_send_job.nil?
+        invalid_properties.push('invalid value for "bulk_send_job", bulk_send_job cannot be nil.')
+      end
+
+      if @list_info.nil?
+        invalid_properties.push('invalid value for "list_info", list_info cannot be nil.')
+      end
+
+      if @signature_requests.nil?
+        invalid_properties.push('invalid value for "signature_requests", signature_requests cannot be nil.')
+      end
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @bulk_send_job.nil?
+      return false if @list_info.nil?
+      return false if @signature_requests.nil?
       true
     end
 

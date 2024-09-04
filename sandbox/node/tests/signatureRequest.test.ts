@@ -1,4 +1,3 @@
-// @ts-nocheck
 import "jest";
 import * as DropboxSign from "@dropbox/sign";
 import * as fs from "fs";
@@ -43,18 +42,18 @@ describe("signatureRequest", () => {
     ).then(send_response => {
       const signature_request = send_response.body.signatureRequest;
 
-      expect(send_request.formFieldsPerDocument[0].apiId)
-        .toBe(signature_request.customFields[0].apiId);
+      expect(send_request.formFieldsPerDocument![0].apiId)
+        .toBe(signature_request.customFields![0].apiId);
 
-      expect(send_request.signers[0].emailAddress)
-        .toBe(signature_request.signatures[0].signerEmailAddress);
-      expect(send_request.signers[1].emailAddress)
-        .toBe(signature_request.signatures[1].signerEmailAddress);
-      expect(send_request.signers[2].emailAddress)
-        .toBe(signature_request.signatures[2].signerEmailAddress);
+      expect(send_request.signers![0].emailAddress)
+        .toBe(signature_request.signatures![0].signerEmailAddress);
+      expect(send_request.signers![1].emailAddress)
+        .toBe(signature_request.signatures![1].signerEmailAddress);
+      expect(send_request.signers![2].emailAddress)
+        .toBe(signature_request.signatures![2].signerEmailAddress);
 
       return signature_request_api.signatureRequestGet(
-        signature_request.signatureRequestId,
+        signature_request.signatureRequestId!,
       ).then(get_response => {
           expect(signature_request.signatureRequestId)
             .toBe(get_response.body.signatureRequest.signatureRequestId);
@@ -85,12 +84,12 @@ describe("signatureRequest", () => {
     ).then(send_response => {
       const signature_request = send_response.body.signatureRequest;
 
-      expect(send_request.signers[0].emailAddress)
-        .toBe(signature_request.signatures[0].signerEmailAddress);
-      expect(send_request.signers[1].emailAddress)
-        .toBe(signature_request.signatures[1].signerEmailAddress);
-      expect(send_request.signers[2].emailAddress)
-        .toBe(signature_request.signatures[2].signerEmailAddress);
+      expect(send_request.signers![0].emailAddress)
+        .toBe(signature_request.signatures![0].signerEmailAddress);
+      expect(send_request.signers![1].emailAddress)
+        .toBe(signature_request.signatures![1].signerEmailAddress);
+      expect(send_request.signers![2].emailAddress)
+        .toBe(signature_request.signatures![2].signerEmailAddress);
 
       const embedded_api = new DropboxSign.EmbeddedApi();
       embedded_api.username = config.API_KEY;
@@ -98,7 +97,7 @@ describe("signatureRequest", () => {
       embedded_api.defaultHeaders = headers;
 
       return embedded_api.embeddedSignUrl(
-        signature_request.signatures[0].signatureId,
+        signature_request.signatures![0].signatureId!,
       ).then(get_response => {
         expect(get_response.body.embedded.signUrl).toBeTruthy();
       }).catch(error => {

@@ -54,7 +54,7 @@ public class BulkSendJobGetResponse {
   private ListInfoResponse listInfo;
 
   public static final String JSON_PROPERTY_SIGNATURE_REQUESTS = "signature_requests";
-  private List<BulkSendJobGetResponseSignatureRequests> signatureRequests = null;
+  private List<BulkSendJobGetResponseSignatureRequests> signatureRequests = new ArrayList<>();
 
   public static final String JSON_PROPERTY_WARNINGS = "warnings";
   private List<WarningResponse> warnings = null;
@@ -86,9 +86,9 @@ public class BulkSendJobGetResponse {
    * Get bulkSendJob
    * @return bulkSendJob
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_BULK_SEND_JOB)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public BulkSendJobResponse getBulkSendJob() {
     return bulkSendJob;
@@ -96,7 +96,7 @@ public class BulkSendJobGetResponse {
 
 
   @JsonProperty(JSON_PROPERTY_BULK_SEND_JOB)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setBulkSendJob(BulkSendJobResponse bulkSendJob) {
     this.bulkSendJob = bulkSendJob;
   }
@@ -111,9 +111,9 @@ public class BulkSendJobGetResponse {
    * Get listInfo
    * @return listInfo
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_LIST_INFO)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public ListInfoResponse getListInfo() {
     return listInfo;
@@ -121,7 +121,7 @@ public class BulkSendJobGetResponse {
 
 
   @JsonProperty(JSON_PROPERTY_LIST_INFO)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setListInfo(ListInfoResponse listInfo) {
     this.listInfo = listInfo;
   }
@@ -144,9 +144,9 @@ public class BulkSendJobGetResponse {
    * Contains information about the Signature Requests sent in bulk.
    * @return signatureRequests
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_SIGNATURE_REQUESTS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public List<BulkSendJobGetResponseSignatureRequests> getSignatureRequests() {
     return signatureRequests;
@@ -154,7 +154,7 @@ public class BulkSendJobGetResponse {
 
 
   @JsonProperty(JSON_PROPERTY_SIGNATURE_REQUESTS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setSignatureRequests(List<BulkSendJobGetResponseSignatureRequests> signatureRequests) {
     this.signatureRequests = signatureRequests;
   }

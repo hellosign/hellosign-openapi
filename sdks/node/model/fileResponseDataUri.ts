@@ -28,7 +28,7 @@ export class FileResponseDataUri {
   /**
    * File as base64 encoded string.
    */
-  "dataUri"?: string;
+  "dataUri": string;
 
   static discriminator: string | undefined = undefined;
 

@@ -46,7 +46,7 @@ import com.dropbox.sign.ApiException;
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class SignatureRequestListResponse {
   public static final String JSON_PROPERTY_SIGNATURE_REQUESTS = "signature_requests";
-  private List<SignatureRequestResponse> signatureRequests = null;
+  private List<SignatureRequestResponse> signatureRequests = new ArrayList<>();
 
   public static final String JSON_PROPERTY_LIST_INFO = "list_info";
   private ListInfoResponse listInfo;
@@ -89,9 +89,9 @@ public class SignatureRequestListResponse {
    * Contains information about signature requests.
    * @return signatureRequests
    */
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_SIGNATURE_REQUESTS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public List<SignatureRequestResponse> getSignatureRequests() {
     return signatureRequests;
@@ -99,7 +99,7 @@ public class SignatureRequestListResponse {
 
 
   @JsonProperty(JSON_PROPERTY_SIGNATURE_REQUESTS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setSignatureRequests(List<SignatureRequestResponse> signatureRequests) {
     this.signatureRequests = signatureRequests;
   }
@@ -114,9 +114,9 @@ public class SignatureRequestListResponse {
    * Get listInfo
    * @return listInfo
    */
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_LIST_INFO)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public ListInfoResponse getListInfo() {
     return listInfo;
@@ -124,7 +124,7 @@ public class SignatureRequestListResponse {
 
 
   @JsonProperty(JSON_PROPERTY_LIST_INFO)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setListInfo(ListInfoResponse listInfo) {
     this.listInfo = listInfo;
   }

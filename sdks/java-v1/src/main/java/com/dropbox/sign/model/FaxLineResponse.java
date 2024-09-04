@@ -74,9 +74,9 @@ public class FaxLineResponse {
    * Get faxLine
    * @return faxLine
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_FAX_LINE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public FaxLineResponseFaxLine getFaxLine() {
     return faxLine;
@@ -84,7 +84,7 @@ public class FaxLineResponse {
 
 
   @JsonProperty(JSON_PROPERTY_FAX_LINE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setFaxLine(FaxLineResponseFaxLine faxLine) {
     this.faxLine = faxLine;
   }

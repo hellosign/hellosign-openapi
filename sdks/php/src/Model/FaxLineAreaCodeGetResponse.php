@@ -281,7 +281,12 @@ class FaxLineAreaCodeGetResponse implements ModelInterface, ArrayAccess, JsonSer
      */
     public function listInvalidProperties()
     {
-        return [];
+        $invalidProperties = [];
+
+        if ($this->container['area_codes'] === null) {
+            $invalidProperties[] = "'area_codes' can't be null";
+        }
+        return $invalidProperties;
     }
 
     /**
@@ -298,7 +303,7 @@ class FaxLineAreaCodeGetResponse implements ModelInterface, ArrayAccess, JsonSer
     /**
      * Gets area_codes
      *
-     * @return int[]|null
+     * @return int[]
      */
     public function getAreaCodes()
     {
@@ -308,11 +313,11 @@ class FaxLineAreaCodeGetResponse implements ModelInterface, ArrayAccess, JsonSer
     /**
      * Sets area_codes
      *
-     * @param int[]|null $area_codes area_codes
+     * @param int[] $area_codes area_codes
      *
      * @return self
      */
-    public function setAreaCodes(?array $area_codes)
+    public function setAreaCodes(array $area_codes)
     {
         if (is_null($area_codes)) {
             throw new InvalidArgumentException('non-nullable area_codes cannot be null');

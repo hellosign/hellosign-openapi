@@ -49,7 +49,7 @@ public class FaxLineListResponse {
   private ListInfoResponse listInfo;
 
   public static final String JSON_PROPERTY_FAX_LINES = "fax_lines";
-  private List<FaxLineResponseFaxLine> faxLines = null;
+  private List<FaxLineResponseFaxLine> faxLines = new ArrayList<>();
 
   public static final String JSON_PROPERTY_WARNINGS = "warnings";
   private WarningResponse warnings;
@@ -81,9 +81,9 @@ public class FaxLineListResponse {
    * Get listInfo
    * @return listInfo
    */
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_LIST_INFO)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public ListInfoResponse getListInfo() {
     return listInfo;
@@ -91,7 +91,7 @@ public class FaxLineListResponse {
 
 
   @JsonProperty(JSON_PROPERTY_LIST_INFO)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setListInfo(ListInfoResponse listInfo) {
     this.listInfo = listInfo;
   }
@@ -114,9 +114,9 @@ public class FaxLineListResponse {
    * Get faxLines
    * @return faxLines
    */
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_FAX_LINES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public List<FaxLineResponseFaxLine> getFaxLines() {
     return faxLines;
@@ -124,7 +124,7 @@ public class FaxLineListResponse {
 
 
   @JsonProperty(JSON_PROPERTY_FAX_LINES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setFaxLines(List<FaxLineResponseFaxLine> faxLines) {
     this.faxLines = faxLines;
   }

@@ -76,9 +76,9 @@ public class UnclaimedDraftCreateResponse {
    * Get unclaimedDraft
    * @return unclaimedDraft
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_UNCLAIMED_DRAFT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public UnclaimedDraftResponse getUnclaimedDraft() {
     return unclaimedDraft;
@@ -86,7 +86,7 @@ public class UnclaimedDraftCreateResponse {
 
 
   @JsonProperty(JSON_PROPERTY_UNCLAIMED_DRAFT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setUnclaimedDraft(UnclaimedDraftResponse unclaimedDraft) {
     this.unclaimedDraft = unclaimedDraft;
   }

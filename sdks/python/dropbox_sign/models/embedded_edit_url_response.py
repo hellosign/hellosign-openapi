@@ -32,7 +32,7 @@ class EmbeddedEditUrlResponse(BaseModel):
     """
     EmbeddedEditUrlResponse
     """ # noqa: E501
-    embedded: Optional[EmbeddedEditUrlResponseEmbedded] = None
+    embedded: EmbeddedEditUrlResponseEmbedded
     warnings: Optional[List[WarningResponse]] = Field(default=None, description="A list of warnings.")
     __properties: ClassVar[List[str]] = ["embedded", "warnings"]
 

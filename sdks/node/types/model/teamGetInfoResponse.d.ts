@@ -2,7 +2,7 @@ import { AttributeTypeMap } from "./";
 import { TeamInfoResponse } from "./teamInfoResponse";
 import { WarningResponse } from "./warningResponse";
 export declare class TeamGetInfoResponse {
-    "team"?: TeamInfoResponse;
+    "team": TeamInfoResponse;
     "warnings"?: Array<WarningResponse>;
     static discriminator: string | undefined;
     static attributeTypeMap: AttributeTypeMap;

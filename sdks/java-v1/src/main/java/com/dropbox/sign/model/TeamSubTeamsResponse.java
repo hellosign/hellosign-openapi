@@ -46,7 +46,7 @@ import com.dropbox.sign.ApiException;
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class TeamSubTeamsResponse {
   public static final String JSON_PROPERTY_SUB_TEAMS = "sub_teams";
-  private List<SubTeamResponse> subTeams = null;
+  private List<SubTeamResponse> subTeams = new ArrayList<>();
 
   public static final String JSON_PROPERTY_LIST_INFO = "list_info";
   private ListInfoResponse listInfo;
@@ -89,9 +89,9 @@ public class TeamSubTeamsResponse {
    * Contains a list with sub teams.
    * @return subTeams
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_SUB_TEAMS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public List<SubTeamResponse> getSubTeams() {
     return subTeams;
@@ -99,7 +99,7 @@ public class TeamSubTeamsResponse {
 
 
   @JsonProperty(JSON_PROPERTY_SUB_TEAMS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setSubTeams(List<SubTeamResponse> subTeams) {
     this.subTeams = subTeams;
   }
@@ -114,9 +114,9 @@ public class TeamSubTeamsResponse {
    * Get listInfo
    * @return listInfo
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_LIST_INFO)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public ListInfoResponse getListInfo() {
     return listInfo;
@@ -124,7 +124,7 @@ public class TeamSubTeamsResponse {
 
 
   @JsonProperty(JSON_PROPERTY_LIST_INFO)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setListInfo(ListInfoResponse listInfo) {
     this.listInfo = listInfo;
   }

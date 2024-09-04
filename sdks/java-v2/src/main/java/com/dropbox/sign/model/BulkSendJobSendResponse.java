@@ -76,9 +76,9 @@ public class BulkSendJobSendResponse {
    * Get bulkSendJob
    * @return bulkSendJob
    */
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_BULK_SEND_JOB)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public BulkSendJobResponse getBulkSendJob() {
     return bulkSendJob;
@@ -86,7 +86,7 @@ public class BulkSendJobSendResponse {
 
 
   @JsonProperty(JSON_PROPERTY_BULK_SEND_JOB)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setBulkSendJob(BulkSendJobResponse bulkSendJob) {
     this.bulkSendJob = bulkSendJob;
   }

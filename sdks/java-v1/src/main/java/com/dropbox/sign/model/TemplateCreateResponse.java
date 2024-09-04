@@ -76,9 +76,9 @@ public class TemplateCreateResponse {
    * Get template
    * @return template
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_TEMPLATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public TemplateCreateResponseTemplate getTemplate() {
     return template;
@@ -86,7 +86,7 @@ public class TemplateCreateResponse {
 
 
   @JsonProperty(JSON_PROPERTY_TEMPLATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setTemplate(TemplateCreateResponseTemplate template) {
     this.template = template;
   }

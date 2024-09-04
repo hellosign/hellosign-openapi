@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+set -e
+
+DIR=$(cd `dirname $0` && pwd)
+
+bash "${DIR}/sandbox-dotnet"
+bash "${DIR}/sandbox-java-v1"
+bash "${DIR}/sandbox-java-v2"
+bash "${DIR}/sandbox-node"
+bash "${DIR}/sandbox-php"

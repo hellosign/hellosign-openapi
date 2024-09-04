@@ -41,7 +41,7 @@ import com.dropbox.sign.ApiException;
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class FaxLineAreaCodeGetResponse {
   public static final String JSON_PROPERTY_AREA_CODES = "area_codes";
-  private List<Integer> areaCodes = null;
+  private List<Integer> areaCodes = new ArrayList<>();
 
   public FaxLineAreaCodeGetResponse() { 
   }
@@ -78,9 +78,9 @@ public class FaxLineAreaCodeGetResponse {
    * Get areaCodes
    * @return areaCodes
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_AREA_CODES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public List<Integer> getAreaCodes() {
     return areaCodes;
@@ -88,7 +88,7 @@ public class FaxLineAreaCodeGetResponse {
 
 
   @JsonProperty(JSON_PROPERTY_AREA_CODES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setAreaCodes(List<Integer> areaCodes) {
     this.areaCodes = areaCodes;
   }

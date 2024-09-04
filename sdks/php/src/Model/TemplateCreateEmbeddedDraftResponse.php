@@ -288,7 +288,12 @@ class TemplateCreateEmbeddedDraftResponse implements ModelInterface, ArrayAccess
      */
     public function listInvalidProperties()
     {
-        return [];
+        $invalidProperties = [];
+
+        if ($this->container['template'] === null) {
+            $invalidProperties[] = "'template' can't be null";
+        }
+        return $invalidProperties;
     }
 
     /**
@@ -305,7 +310,7 @@ class TemplateCreateEmbeddedDraftResponse implements ModelInterface, ArrayAccess
     /**
      * Gets template
      *
-     * @return TemplateCreateEmbeddedDraftResponseTemplate|null
+     * @return TemplateCreateEmbeddedDraftResponseTemplate
      */
     public function getTemplate()
     {
@@ -315,11 +320,11 @@ class TemplateCreateEmbeddedDraftResponse implements ModelInterface, ArrayAccess
     /**
      * Sets template
      *
-     * @param TemplateCreateEmbeddedDraftResponseTemplate|null $template template
+     * @param TemplateCreateEmbeddedDraftResponseTemplate $template template
      *
      * @return self
      */
-    public function setTemplate(?TemplateCreateEmbeddedDraftResponseTemplate $template)
+    public function setTemplate(TemplateCreateEmbeddedDraftResponseTemplate $template)
     {
         if (is_null($template)) {
             throw new InvalidArgumentException('non-nullable template cannot be null');

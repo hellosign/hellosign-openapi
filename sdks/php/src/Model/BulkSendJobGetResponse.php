@@ -302,7 +302,18 @@ class BulkSendJobGetResponse implements ModelInterface, ArrayAccess, JsonSeriali
      */
     public function listInvalidProperties()
     {
-        return [];
+        $invalidProperties = [];
+
+        if ($this->container['bulk_send_job'] === null) {
+            $invalidProperties[] = "'bulk_send_job' can't be null";
+        }
+        if ($this->container['list_info'] === null) {
+            $invalidProperties[] = "'list_info' can't be null";
+        }
+        if ($this->container['signature_requests'] === null) {
+            $invalidProperties[] = "'signature_requests' can't be null";
+        }
+        return $invalidProperties;
     }
 
     /**
@@ -319,7 +330,7 @@ class BulkSendJobGetResponse implements ModelInterface, ArrayAccess, JsonSeriali
     /**
      * Gets bulk_send_job
      *
-     * @return BulkSendJobResponse|null
+     * @return BulkSendJobResponse
      */
     public function getBulkSendJob()
     {
@@ -329,11 +340,11 @@ class BulkSendJobGetResponse implements ModelInterface, ArrayAccess, JsonSeriali
     /**
      * Sets bulk_send_job
      *
-     * @param BulkSendJobResponse|null $bulk_send_job bulk_send_job
+     * @param BulkSendJobResponse $bulk_send_job bulk_send_job
      *
      * @return self
      */
-    public function setBulkSendJob(?BulkSendJobResponse $bulk_send_job)
+    public function setBulkSendJob(BulkSendJobResponse $bulk_send_job)
     {
         if (is_null($bulk_send_job)) {
             throw new InvalidArgumentException('non-nullable bulk_send_job cannot be null');
@@ -346,7 +357,7 @@ class BulkSendJobGetResponse implements ModelInterface, ArrayAccess, JsonSeriali
     /**
      * Gets list_info
      *
-     * @return ListInfoResponse|null
+     * @return ListInfoResponse
      */
     public function getListInfo()
     {
@@ -356,11 +367,11 @@ class BulkSendJobGetResponse implements ModelInterface, ArrayAccess, JsonSeriali
     /**
      * Sets list_info
      *
-     * @param ListInfoResponse|null $list_info list_info
+     * @param ListInfoResponse $list_info list_info
      *
      * @return self
      */
-    public function setListInfo(?ListInfoResponse $list_info)
+    public function setListInfo(ListInfoResponse $list_info)
     {
         if (is_null($list_info)) {
             throw new InvalidArgumentException('non-nullable list_info cannot be null');
@@ -373,7 +384,7 @@ class BulkSendJobGetResponse implements ModelInterface, ArrayAccess, JsonSeriali
     /**
      * Gets signature_requests
      *
-     * @return BulkSendJobGetResponseSignatureRequests[]|null
+     * @return BulkSendJobGetResponseSignatureRequests[]
      */
     public function getSignatureRequests()
     {
@@ -383,11 +394,11 @@ class BulkSendJobGetResponse implements ModelInterface, ArrayAccess, JsonSeriali
     /**
      * Sets signature_requests
      *
-     * @param BulkSendJobGetResponseSignatureRequests[]|null $signature_requests contains information about the Signature Requests sent in bulk
+     * @param BulkSendJobGetResponseSignatureRequests[] $signature_requests contains information about the Signature Requests sent in bulk
      *
      * @return self
      */
-    public function setSignatureRequests(?array $signature_requests)
+    public function setSignatureRequests(array $signature_requests)
     {
         if (is_null($signature_requests)) {
             throw new InvalidArgumentException('non-nullable signature_requests cannot be null');

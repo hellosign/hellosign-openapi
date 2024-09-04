@@ -8,8 +8,8 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-| `listInfo` | [```ListInfoResponse```](ListInfoResponse.md) |    |  |
-| `faxLines` | [```List<FaxLineResponseFaxLine>```](FaxLineResponseFaxLine.md) |    |  |
+| `listInfo`<sup>*_required_</sup> | [```ListInfoResponse```](ListInfoResponse.md) |    |  |
+| `faxLines`<sup>*_required_</sup> | [```List<FaxLineResponseFaxLine>```](FaxLineResponseFaxLine.md) |    |  |
 | `warnings` | [```WarningResponse```](WarningResponse.md) |    |  |
 
 

@@ -27,7 +27,7 @@ import { FaxLineResponseFaxLine } from "./faxLineResponseFaxLine";
 import { WarningResponse } from "./warningResponse";
 
 export class FaxLineResponse {
-  "faxLine"?: FaxLineResponseFaxLine;
+  "faxLine": FaxLineResponseFaxLine;
   "warnings"?: WarningResponse;
 
   static discriminator: string | undefined = undefined;

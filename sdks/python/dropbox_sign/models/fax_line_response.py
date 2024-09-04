@@ -32,7 +32,7 @@ class FaxLineResponse(BaseModel):
     """
     FaxLineResponse
     """ # noqa: E501
-    fax_line: Optional[FaxLineResponseFaxLine] = None
+    fax_line: FaxLineResponseFaxLine
     warnings: Optional[WarningResponse] = None
     __properties: ClassVar[List[str]] = ["fax_line", "warnings"]
 

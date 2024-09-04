@@ -41,11 +41,16 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TemplateCreateResponse" /> class.
         /// </summary>
-        /// <param name="template">template.</param>
+        /// <param name="template">template (required).</param>
         /// <param name="warnings">A list of warnings..</param>
         public TemplateCreateResponse(TemplateCreateResponseTemplate template = default(TemplateCreateResponseTemplate), List<WarningResponse> warnings = default(List<WarningResponse>))
         {
             
+            // to ensure "template" is required (not null)
+            if (template == null)
+            {
+                throw new ArgumentNullException("template is a required property for TemplateCreateResponse and cannot be null");
+            }
             this.Template = template;
             this.Warnings = warnings;
         }
@@ -69,7 +74,7 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Gets or Sets Template
         /// </summary>
-        [DataMember(Name = "template", EmitDefaultValue = true)]
+        [DataMember(Name = "template", IsRequired = true, EmitDefaultValue = true)]
         public TemplateCreateResponseTemplate Template { get; set; }
         
         /// <summary>

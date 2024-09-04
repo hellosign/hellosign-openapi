@@ -41,11 +41,16 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="EmbeddedEditUrlResponse" /> class.
         /// </summary>
-        /// <param name="embedded">embedded.</param>
+        /// <param name="embedded">embedded (required).</param>
         /// <param name="warnings">A list of warnings..</param>
         public EmbeddedEditUrlResponse(EmbeddedEditUrlResponseEmbedded embedded = default(EmbeddedEditUrlResponseEmbedded), List<WarningResponse> warnings = default(List<WarningResponse>))
         {
             
+            // to ensure "embedded" is required (not null)
+            if (embedded == null)
+            {
+                throw new ArgumentNullException("embedded is a required property for EmbeddedEditUrlResponse and cannot be null");
+            }
             this.Embedded = embedded;
             this.Warnings = warnings;
         }
@@ -69,7 +74,7 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Gets or Sets Embedded
         /// </summary>
-        [DataMember(Name = "embedded", EmitDefaultValue = true)]
+        [DataMember(Name = "embedded", IsRequired = true, EmitDefaultValue = true)]
         public EmbeddedEditUrlResponseEmbedded Embedded { get; set; }
         
         /// <summary>

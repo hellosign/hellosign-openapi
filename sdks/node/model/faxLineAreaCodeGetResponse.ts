@@ -25,7 +25,7 @@
 import { AttributeTypeMap, ObjectSerializer } from "./";
 
 export class FaxLineAreaCodeGetResponse {
-  "areaCodes"?: Array<number>;
+  "areaCodes": Array<number>;
 
   static discriminator: string | undefined = undefined;
 

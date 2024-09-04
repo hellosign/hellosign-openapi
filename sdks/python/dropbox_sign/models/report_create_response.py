@@ -32,7 +32,7 @@ class ReportCreateResponse(BaseModel):
     """
     ReportCreateResponse
     """ # noqa: E501
-    report: Optional[ReportResponse] = None
+    report: ReportResponse
     warnings: Optional[List[WarningResponse]] = Field(default=None, description="A list of warnings.")
     __properties: ClassVar[List[str]] = ["report", "warnings"]
 

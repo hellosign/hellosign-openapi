@@ -46,7 +46,7 @@ import com.dropbox.sign.ApiException;
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class BulkSendJobListResponse {
   public static final String JSON_PROPERTY_BULK_SEND_JOBS = "bulk_send_jobs";
-  private List<BulkSendJobResponse> bulkSendJobs = null;
+  private List<BulkSendJobResponse> bulkSendJobs = new ArrayList<>();
 
   public static final String JSON_PROPERTY_LIST_INFO = "list_info";
   private ListInfoResponse listInfo;
@@ -89,9 +89,9 @@ public class BulkSendJobListResponse {
    * Contains a list of BulkSendJobs that the API caller has access to.
    * @return bulkSendJobs
    */
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_BULK_SEND_JOBS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public List<BulkSendJobResponse> getBulkSendJobs() {
     return bulkSendJobs;
@@ -99,7 +99,7 @@ public class BulkSendJobListResponse {
 
 
   @JsonProperty(JSON_PROPERTY_BULK_SEND_JOBS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setBulkSendJobs(List<BulkSendJobResponse> bulkSendJobs) {
     this.bulkSendJobs = bulkSendJobs;
   }
@@ -114,9 +114,9 @@ public class BulkSendJobListResponse {
    * Get listInfo
    * @return listInfo
    */
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_LIST_INFO)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public ListInfoResponse getListInfo() {
     return listInfo;
@@ -124,7 +124,7 @@ public class BulkSendJobListResponse {
 
 
   @JsonProperty(JSON_PROPERTY_LIST_INFO)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setListInfo(ListInfoResponse listInfo) {
     this.listInfo = listInfo;
   }

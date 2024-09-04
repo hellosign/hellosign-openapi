@@ -8,7 +8,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-| `team` | [```TeamResponse```](TeamResponse.md) |    |  |
+| `team`<sup>*_required_</sup> | [```TeamResponse```](TeamResponse.md) |    |  |
 | `warnings` | [```List<WarningResponse>```](WarningResponse.md) |  A list of warnings.  |  |
 
 

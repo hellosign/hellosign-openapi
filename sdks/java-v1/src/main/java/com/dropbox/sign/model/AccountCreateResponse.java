@@ -81,9 +81,9 @@ public class AccountCreateResponse {
    * Get account
    * @return account
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_ACCOUNT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public AccountResponse getAccount() {
     return account;
@@ -91,7 +91,7 @@ public class AccountCreateResponse {
 
 
   @JsonProperty(JSON_PROPERTY_ACCOUNT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setAccount(AccountResponse account) {
     this.account = account;
   }

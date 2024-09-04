@@ -281,7 +281,12 @@ class FileResponseDataUri implements ModelInterface, ArrayAccess, JsonSerializab
      */
     public function listInvalidProperties()
     {
-        return [];
+        $invalidProperties = [];
+
+        if ($this->container['data_uri'] === null) {
+            $invalidProperties[] = "'data_uri' can't be null";
+        }
+        return $invalidProperties;
     }
 
     /**
@@ -298,7 +303,7 @@ class FileResponseDataUri implements ModelInterface, ArrayAccess, JsonSerializab
     /**
      * Gets data_uri
      *
-     * @return string|null
+     * @return string
      */
     public function getDataUri()
     {
@@ -308,11 +313,11 @@ class FileResponseDataUri implements ModelInterface, ArrayAccess, JsonSerializab
     /**
      * Sets data_uri
      *
-     * @param string|null $data_uri file as base64 encoded string
+     * @param string $data_uri file as base64 encoded string
      *
      * @return self
      */
-    public function setDataUri(?string $data_uri)
+    public function setDataUri(string $data_uri)
     {
         if (is_null($data_uri)) {
             throw new InvalidArgumentException('non-nullable data_uri cannot be null');

@@ -295,7 +295,15 @@ class FaxLineListResponse implements ModelInterface, ArrayAccess, JsonSerializab
      */
     public function listInvalidProperties()
     {
-        return [];
+        $invalidProperties = [];
+
+        if ($this->container['list_info'] === null) {
+            $invalidProperties[] = "'list_info' can't be null";
+        }
+        if ($this->container['fax_lines'] === null) {
+            $invalidProperties[] = "'fax_lines' can't be null";
+        }
+        return $invalidProperties;
     }
 
     /**
@@ -312,7 +320,7 @@ class FaxLineListResponse implements ModelInterface, ArrayAccess, JsonSerializab
     /**
      * Gets list_info
      *
-     * @return ListInfoResponse|null
+     * @return ListInfoResponse
      */
     public function getListInfo()
     {
@@ -322,11 +330,11 @@ class FaxLineListResponse implements ModelInterface, ArrayAccess, JsonSerializab
     /**
      * Sets list_info
      *
-     * @param ListInfoResponse|null $list_info list_info
+     * @param ListInfoResponse $list_info list_info
      *
      * @return self
      */
-    public function setListInfo(?ListInfoResponse $list_info)
+    public function setListInfo(ListInfoResponse $list_info)
     {
         if (is_null($list_info)) {
             throw new InvalidArgumentException('non-nullable list_info cannot be null');
@@ -339,7 +347,7 @@ class FaxLineListResponse implements ModelInterface, ArrayAccess, JsonSerializab
     /**
      * Gets fax_lines
      *
-     * @return FaxLineResponseFaxLine[]|null
+     * @return FaxLineResponseFaxLine[]
      */
     public function getFaxLines()
     {
@@ -349,11 +357,11 @@ class FaxLineListResponse implements ModelInterface, ArrayAccess, JsonSerializab
     /**
      * Sets fax_lines
      *
-     * @param FaxLineResponseFaxLine[]|null $fax_lines fax_lines
+     * @param FaxLineResponseFaxLine[] $fax_lines fax_lines
      *
      * @return self
      */
-    public function setFaxLines(?array $fax_lines)
+    public function setFaxLines(array $fax_lines)
     {
         if (is_null($fax_lines)) {
             throw new InvalidArgumentException('non-nullable fax_lines cannot be null');

@@ -41,11 +41,16 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TeamInvitesResponse" /> class.
         /// </summary>
-        /// <param name="teamInvites">Contains a list of team invites and their roles..</param>
+        /// <param name="teamInvites">Contains a list of team invites and their roles. (required).</param>
         /// <param name="warnings">warnings.</param>
         public TeamInvitesResponse(List<TeamInviteResponse> teamInvites = default(List<TeamInviteResponse>), List<WarningResponse> warnings = default(List<WarningResponse>))
         {
             
+            // to ensure "teamInvites" is required (not null)
+            if (teamInvites == null)
+            {
+                throw new ArgumentNullException("teamInvites is a required property for TeamInvitesResponse and cannot be null");
+            }
             this.TeamInvites = teamInvites;
             this.Warnings = warnings;
         }
@@ -70,7 +75,7 @@ namespace Dropbox.Sign.Model
         /// Contains a list of team invites and their roles.
         /// </summary>
         /// <value>Contains a list of team invites and their roles.</value>
-        [DataMember(Name = "team_invites", EmitDefaultValue = true)]
+        [DataMember(Name = "team_invites", IsRequired = true, EmitDefaultValue = true)]
         public List<TeamInviteResponse> TeamInvites { get; set; }
         
         /// <summary>

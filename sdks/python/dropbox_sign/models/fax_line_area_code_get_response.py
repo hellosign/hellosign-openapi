@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, StrictInt
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set, Tuple
 from typing_extensions import Self
 import io
@@ -30,7 +30,7 @@ class FaxLineAreaCodeGetResponse(BaseModel):
     """
     FaxLineAreaCodeGetResponse
     """ # noqa: E501
-    area_codes: Optional[List[StrictInt]] = None
+    area_codes: List[StrictInt]
     __properties: ClassVar[List[str]] = ["area_codes"]
 
     model_config = ConfigDict(

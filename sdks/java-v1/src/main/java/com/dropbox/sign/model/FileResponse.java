@@ -72,9 +72,9 @@ public class FileResponse {
    * URL to the file.
    * @return fileUrl
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_FILE_URL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getFileUrl() {
     return fileUrl;
@@ -82,7 +82,7 @@ public class FileResponse {
 
 
   @JsonProperty(JSON_PROPERTY_FILE_URL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setFileUrl(String fileUrl) {
     this.fileUrl = fileUrl;
   }
@@ -97,9 +97,9 @@ public class FileResponse {
    * When the link expires.
    * @return expiresAt
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Integer getExpiresAt() {
     return expiresAt;
@@ -107,7 +107,7 @@ public class FileResponse {
 
 
   @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setExpiresAt(Integer expiresAt) {
     this.expiresAt = expiresAt;
   }

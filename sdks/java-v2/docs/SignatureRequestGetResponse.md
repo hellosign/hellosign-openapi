@@ -8,7 +8,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-| `signatureRequest` | [```SignatureRequestResponse```](SignatureRequestResponse.md) |    |  |
+| `signatureRequest`<sup>*_required_</sup> | [```SignatureRequestResponse```](SignatureRequestResponse.md) |    |  |
 | `warnings` | [```List<WarningResponse>```](WarningResponse.md) |  A list of warnings.  |  |
 
 

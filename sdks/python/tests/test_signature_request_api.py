@@ -91,12 +91,15 @@ class TestSignatureRequestApi(unittest.TestCase):
             "files": [open(get_base_path() + "/../test_fixtures/pdf-sample.pdf", "rb")]
         }
 
+        response_class = 'SignatureRequestGetResponse'
+        response_data = get_fixture_data(response_class)['default']
+
         obj = m.SignatureRequestSendRequest.init(request_data)
 
         self.mock_pool.expect_request(
             content_type='multipart/form-data',
             data=request_data,
-            response={}
+            response=response_data,
         )
 
         self.api.signature_request_send(obj)

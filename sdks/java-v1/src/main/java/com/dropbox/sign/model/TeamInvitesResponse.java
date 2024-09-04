@@ -44,7 +44,7 @@ import com.dropbox.sign.ApiException;
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class TeamInvitesResponse {
   public static final String JSON_PROPERTY_TEAM_INVITES = "team_invites";
-  private List<TeamInviteResponse> teamInvites = null;
+  private List<TeamInviteResponse> teamInvites = new ArrayList<>();
 
   public static final String JSON_PROPERTY_WARNINGS = "warnings";
   private List<WarningResponse> warnings = null;
@@ -84,9 +84,9 @@ public class TeamInvitesResponse {
    * Contains a list of team invites and their roles.
    * @return teamInvites
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_TEAM_INVITES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public List<TeamInviteResponse> getTeamInvites() {
     return teamInvites;
@@ -94,7 +94,7 @@ public class TeamInvitesResponse {
 
 
   @JsonProperty(JSON_PROPERTY_TEAM_INVITES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setTeamInvites(List<TeamInviteResponse> teamInvites) {
     this.teamInvites = teamInvites;
   }

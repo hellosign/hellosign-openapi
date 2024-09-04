@@ -46,7 +46,7 @@ import com.dropbox.sign.ApiException;
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class ApiAppListResponse {
   public static final String JSON_PROPERTY_API_APPS = "api_apps";
-  private List<ApiAppResponse> apiApps = null;
+  private List<ApiAppResponse> apiApps = new ArrayList<>();
 
   public static final String JSON_PROPERTY_LIST_INFO = "list_info";
   private ListInfoResponse listInfo;
@@ -89,9 +89,9 @@ public class ApiAppListResponse {
    * Contains information about API Apps.
    * @return apiApps
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_API_APPS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public List<ApiAppResponse> getApiApps() {
     return apiApps;
@@ -99,7 +99,7 @@ public class ApiAppListResponse {
 
 
   @JsonProperty(JSON_PROPERTY_API_APPS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setApiApps(List<ApiAppResponse> apiApps) {
     this.apiApps = apiApps;
   }
@@ -114,9 +114,9 @@ public class ApiAppListResponse {
    * Get listInfo
    * @return listInfo
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_LIST_INFO)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public ListInfoResponse getListInfo() {
     return listInfo;
@@ -124,7 +124,7 @@ public class ApiAppListResponse {
 
 
   @JsonProperty(JSON_PROPERTY_LIST_INFO)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setListInfo(ListInfoResponse listInfo) {
     this.listInfo = listInfo;
   }

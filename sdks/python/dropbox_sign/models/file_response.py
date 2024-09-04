@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set, Tuple
 from typing_extensions import Self
 import io
@@ -30,8 +30,8 @@ class FileResponse(BaseModel):
     """
     FileResponse
     """ # noqa: E501
-    file_url: Optional[StrictStr] = Field(default=None, description="URL to the file.")
-    expires_at: Optional[StrictInt] = Field(default=None, description="When the link expires.")
+    file_url: StrictStr = Field(description="URL to the file.")
+    expires_at: StrictInt = Field(description="When the link expires.")
     __properties: ClassVar[List[str]] = ["file_url", "expires_at"]
 
     model_config = ConfigDict(

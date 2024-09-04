@@ -288,7 +288,15 @@ class FileResponse implements ModelInterface, ArrayAccess, JsonSerializable
      */
     public function listInvalidProperties()
     {
-        return [];
+        $invalidProperties = [];
+
+        if ($this->container['file_url'] === null) {
+            $invalidProperties[] = "'file_url' can't be null";
+        }
+        if ($this->container['expires_at'] === null) {
+            $invalidProperties[] = "'expires_at' can't be null";
+        }
+        return $invalidProperties;
     }
 
     /**
@@ -305,7 +313,7 @@ class FileResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets file_url
      *
-     * @return string|null
+     * @return string
      */
     public function getFileUrl()
     {
@@ -315,11 +323,11 @@ class FileResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets file_url
      *
-     * @param string|null $file_url URL to the file
+     * @param string $file_url URL to the file
      *
      * @return self
      */
-    public function setFileUrl(?string $file_url)
+    public function setFileUrl(string $file_url)
     {
         if (is_null($file_url)) {
             throw new InvalidArgumentException('non-nullable file_url cannot be null');
@@ -332,7 +340,7 @@ class FileResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets expires_at
      *
-     * @return int|null
+     * @return int
      */
     public function getExpiresAt()
     {
@@ -342,11 +350,11 @@ class FileResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets expires_at
      *
-     * @param int|null $expires_at when the link expires
+     * @param int $expires_at when the link expires
      *
      * @return self
      */
-    public function setExpiresAt(?int $expires_at)
+    public function setExpiresAt(int $expires_at)
     {
         if (is_null($expires_at)) {
             throw new InvalidArgumentException('non-nullable expires_at cannot be null');

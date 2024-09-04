@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set, Tuple
 from typing_extensions import Self
 import io
@@ -30,7 +30,7 @@ class FileResponseDataUri(BaseModel):
     """
     FileResponseDataUri
     """ # noqa: E501
-    data_uri: Optional[StrictStr] = Field(default=None, description="File as base64 encoded string.")
+    data_uri: StrictStr = Field(description="File as base64 encoded string.")
     __properties: ClassVar[List[str]] = ["data_uri"]
 
     model_config = ConfigDict(

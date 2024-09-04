@@ -32,7 +32,7 @@ class TemplateCreateEmbeddedDraftResponse(BaseModel):
     """
     TemplateCreateEmbeddedDraftResponse
     """ # noqa: E501
-    template: Optional[TemplateCreateEmbeddedDraftResponseTemplate] = None
+    template: TemplateCreateEmbeddedDraftResponseTemplate
     warnings: Optional[List[WarningResponse]] = Field(default=None, description="A list of warnings.")
     __properties: ClassVar[List[str]] = ["template", "warnings"]
 

@@ -32,7 +32,7 @@ class UnclaimedDraftCreateResponse(BaseModel):
     """
     UnclaimedDraftCreateResponse
     """ # noqa: E501
-    unclaimed_draft: Optional[UnclaimedDraftResponse] = None
+    unclaimed_draft: UnclaimedDraftResponse
     warnings: Optional[List[WarningResponse]] = Field(default=None, description="A list of warnings.")
     __properties: ClassVar[List[str]] = ["unclaimed_draft", "warnings"]
 

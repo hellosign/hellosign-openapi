@@ -76,9 +76,9 @@ public class ApiAppGetResponse {
    * Get apiApp
    * @return apiApp
    */
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_API_APP)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public ApiAppResponse getApiApp() {
     return apiApp;
@@ -86,7 +86,7 @@ public class ApiAppGetResponse {
 
 
   @JsonProperty(JSON_PROPERTY_API_APP)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setApiApp(ApiAppResponse apiApp) {
     this.apiApp = apiApp;
   }
