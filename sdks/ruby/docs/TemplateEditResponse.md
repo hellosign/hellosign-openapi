@@ -6,5 +6,5 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| `template_id` | ```String``` |  The id of the Template.  |  |
+| `template_id`<sup>*_required_</sup> | ```String``` |  The id of the Template.  |  |
 

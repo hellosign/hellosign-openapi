@@ -6,7 +6,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| `api_apps` | [```Array<ApiAppResponse>```](ApiAppResponse.md) |  Contains information about API Apps.  |  |
-| `list_info` | [```ListInfoResponse```](ListInfoResponse.md) |    |  |
+| `api_apps`<sup>*_required_</sup> | [```Array<ApiAppResponse>```](ApiAppResponse.md) |  Contains information about API Apps.  |  |
+| `list_info`<sup>*_required_</sup> | [```ListInfoResponse```](ListInfoResponse.md) |    |  |
 | `warnings` | [```Array<WarningResponse>```](WarningResponse.md) |  A list of warnings.  |  |
 

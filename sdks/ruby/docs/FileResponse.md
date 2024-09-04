@@ -6,6 +6,6 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| `file_url` | ```String``` |  URL to the file.  |  |
-| `expires_at` | ```Integer``` |  When the link expires.  |  |
+| `file_url`<sup>*_required_</sup> | ```String``` |  URL to the file.  |  |
+| `expires_at`<sup>*_required_</sup> | ```Integer``` |  When the link expires.  |  |
 
