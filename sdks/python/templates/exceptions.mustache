@@ -3,6 +3,9 @@
 {{>partial_header}}
 from typing import Any, Optional
 from typing_extensions import Self
+{{#useCustomTemplateCode}}
+from dropbox_sign.models.error_response import ErrorResponse
+{{/useCustomTemplateCode}}
 
 class OpenApiException(Exception):
     """The base exception class for all OpenAPIExceptions"""
@@ -105,7 +108,12 @@ class ApiException(OpenApiException):
         self.status = status
         self.reason = reason
         self.body = body
+{{^useCustomTemplateCode}}
         self.data = data
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
+        self.data: ErrorResponse = data
+{{/useCustomTemplateCode}}
         self.headers = None
 
         if http_resp:

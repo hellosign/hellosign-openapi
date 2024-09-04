@@ -14,6 +14,7 @@
 
 from typing import Any, Optional
 from typing_extensions import Self
+from dropbox_sign.models.error_response import ErrorResponse
 
 class OpenApiException(Exception):
     """The base exception class for all OpenAPIExceptions"""
@@ -116,7 +117,7 @@ class ApiException(OpenApiException):
         self.status = status
         self.reason = reason
         self.body = body
-        self.data = data
+        self.data: ErrorResponse = data
         self.headers = None
 
         if http_resp:
