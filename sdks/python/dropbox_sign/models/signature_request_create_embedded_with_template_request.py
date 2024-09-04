@@ -29,6 +29,7 @@ from typing import Optional, Set, Tuple
 from typing_extensions import Self
 import io
 from pydantic import StrictBool
+from typing import Union
 
 class SignatureRequestCreateEmbeddedWithTemplateRequest(BaseModel):
     """

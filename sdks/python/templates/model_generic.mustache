@@ -19,6 +19,7 @@ from typing_extensions import Self
 {{#useCustomTemplateCode}}
 import io
 from pydantic import StrictBool
+from typing import Union
 {{/useCustomTemplateCode}}
 
 {{#hasChildren}}
@@ -41,7 +42,7 @@ class {{classname}}({{#parent}}{{{.}}}{{/parent}}{{^parent}}BaseModel{{/parent}}
     {{name}}: {{{vendorExtensions.x-py-typing}}}
 {{/useCustomTemplateCode}}
 {{#useCustomTemplateCode}}
-    {{name}}: {{#vendorExtensions.x-int-or-string}}Union[StrictStr, StrictInt]{{#description}} = Field(description="{{{description}}}"){{/description}}{{/vendorExtensions.x-int-or-string}}{{^vendorExtensions.x-int-or-string}}{{{vendorExtensions.x-py-typing}}}{{/vendorExtensions.x-int-or-string}}
+    {{name}}: {{#vendorExtensions.x-int-or-string}}Union[StrictStr, StrictInt{{#isNullable}}, None{{/isNullable}}]{{#description}} = Field(description="{{{description}}}"){{/description}}{{/vendorExtensions.x-int-or-string}}{{^vendorExtensions.x-int-or-string}}{{{vendorExtensions.x-py-typing}}}{{/vendorExtensions.x-int-or-string}}
 {{/useCustomTemplateCode}}
 {{/vars}}
 {{#isAdditionalPropertiesTrue}}

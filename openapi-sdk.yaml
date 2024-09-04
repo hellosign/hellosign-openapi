@@ -10726,6 +10726,7 @@ components:
         signer:
           description: 'The Signer this attachment is assigned to.'
           type: string
+          x-int-or-string: true
         name:
           description: 'The name of this attachment.'
           type: string
@@ -11355,6 +11356,7 @@ components:
           description: 'The signer of the Custom Field. Can be `null` if field is a merge field (assigned to Sender).'
           type: string
           nullable: true
+          x-int-or-string: true
         x:
           description: 'The horizontal offset in pixels for this form field.'
           type: integer
@@ -11470,6 +11472,7 @@ components:
         signer:
           description: 'The signer of the Form Field.'
           type: string
+          x-int-or-string: true
         x:
           description: 'The horizontal offset in pixels for this form field.'
           type: integer

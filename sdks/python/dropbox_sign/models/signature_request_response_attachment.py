@@ -24,13 +24,14 @@ from typing import Optional, Set, Tuple
 from typing_extensions import Self
 import io
 from pydantic import StrictBool
+from typing import Union
 
 class SignatureRequestResponseAttachment(BaseModel):
     """
     Signer attachments.
     """ # noqa: E501
     id: StrictStr = Field(description="The unique ID for this attachment.")
-    signer: StrictStr = Field(description="The Signer this attachment is assigned to.")
+    signer: Union[StrictStr, StrictInt] = Field(description="The Signer this attachment is assigned to.")
     name: StrictStr = Field(description="The name of this attachment.")
     required: StrictBool = Field(description="A boolean value denoting if this attachment is required.")
     instructions: Optional[StrictStr] = Field(default=None, description="Instructions for Signer.")
@@ -121,7 +122,7 @@ class SignatureRequestResponseAttachment(BaseModel):
     def openapi_types(cls) -> Dict[str, str]:
         return {
             "id": "(str,)",
-            "signer": "(str,)",
+            "signer": "(int, str,)",
             "name": "(str,)",
             "required": "(bool,)",
             "instructions": "(str,)",

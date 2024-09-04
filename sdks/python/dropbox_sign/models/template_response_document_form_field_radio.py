@@ -25,6 +25,7 @@ from typing import Optional, Set, Tuple
 from typing_extensions import Self
 import io
 from pydantic import StrictBool
+from typing import Union
 
 class TemplateResponseDocumentFormFieldRadio(TemplateResponseDocumentFormFieldBase):
     """
@@ -124,7 +125,7 @@ class TemplateResponseDocumentFormFieldRadio(TemplateResponseDocumentFormFieldBa
             "group": "(str,)",
             "api_id": "(str,)",
             "name": "(str,)",
-            "signer": "(str,)",
+            "signer": "(int, str,)",
             "x": "(int,)",
             "y": "(int,)",
             "width": "(int,)",

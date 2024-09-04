@@ -25,6 +25,7 @@ from typing import Optional, Set, Tuple
 from typing_extensions import Self
 import io
 from pydantic import StrictBool
+from typing import Union
 
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
@@ -38,7 +39,7 @@ class TemplateResponseDocumentCustomFieldBase(BaseModel):
     type: StrictStr
     api_id: Optional[StrictStr] = Field(default=None, description="The unique ID for this field.")
     name: Optional[StrictStr] = Field(default=None, description="The name of the Custom Field.")
-    signer: Optional[StrictStr] = Field(default=None, description="The signer of the Custom Field. Can be `null` if field is a merge field (assigned to Sender).")
+    signer: Union[StrictStr, StrictInt, None] = Field(description="The signer of the Custom Field. Can be `null` if field is a merge field (assigned to Sender).")
     x: Optional[StrictInt] = Field(default=None, description="The horizontal offset in pixels for this form field.")
     y: Optional[StrictInt] = Field(default=None, description="The vertical offset in pixels for this form field.")
     width: Optional[StrictInt] = Field(default=None, description="The width in pixels of this form field.")
@@ -136,7 +137,7 @@ class TemplateResponseDocumentCustomFieldBase(BaseModel):
             "type": "(str,)",
             "api_id": "(str,)",
             "name": "(str,)",
-            "signer": "(str,)",
+            "signer": "(int, str,)",
             "x": "(int,)",
             "y": "(int,)",
             "width": "(int,)",
