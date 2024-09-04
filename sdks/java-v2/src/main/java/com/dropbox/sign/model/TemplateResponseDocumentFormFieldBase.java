@@ -192,6 +192,10 @@ public class TemplateResponseDocumentFormFieldBase {
     this.signer = signer;
     return this;
   }
+  public TemplateResponseDocumentFormFieldBase signer(Integer signer) {
+    this.signer = String.valueOf(signer);
+    return this;
+  }
 
   /**
    * The signer of the Form Field.
@@ -210,6 +214,10 @@ public class TemplateResponseDocumentFormFieldBase {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSigner(String signer) {
     this.signer = signer;
+  }
+
+  public void setSigner(Integer signer) {
+    this.signer = String.valueOf(signer);
   }
 
 

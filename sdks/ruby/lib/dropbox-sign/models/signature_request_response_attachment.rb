@@ -24,7 +24,7 @@ module Dropbox::Sign
     attr_accessor :id
 
     # The Signer this attachment is assigned to.
-    # @return [String]
+    # @return [Integer, String]
     attr_accessor :signer
 
     # The name of this attachment.

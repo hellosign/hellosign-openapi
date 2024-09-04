@@ -186,6 +186,10 @@ public class TemplateResponseDocumentCustomFieldBase {
     this.signer = signer;
     return this;
   }
+  public TemplateResponseDocumentCustomFieldBase signer(Integer signer) {
+    this.signer = String.valueOf(signer);
+    return this;
+  }
 
   /**
    * The signer of the Custom Field. Can be &#x60;null&#x60; if field is a merge field (assigned to Sender).
@@ -204,6 +208,10 @@ public class TemplateResponseDocumentCustomFieldBase {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSigner(String signer) {
     this.signer = signer;
+  }
+
+  public void setSigner(Integer signer) {
+    this.signer = String.valueOf(signer);
   }
 
 

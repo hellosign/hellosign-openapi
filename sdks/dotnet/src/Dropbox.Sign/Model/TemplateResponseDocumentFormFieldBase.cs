@@ -61,7 +61,7 @@ namespace Dropbox.Sign.Model
         /// <param name="height">The height in pixels of this form field..</param>
         /// <param name="required">Boolean showing whether or not this field is required..</param>
         /// <param name="group">The name of the group this field is in. If this field is not a group, this defaults to &#x60;null&#x60; except for Radio fields..</param>
-        public TemplateResponseDocumentFormFieldBase(string apiId = default(string), string name = default(string), string type = default(string), string signer = default(string), int x = default(int), int y = default(int), int width = default(int), int height = default(int), bool required = default(bool), string group = default(string))
+        public TemplateResponseDocumentFormFieldBase(string apiId = default(string), string name = default(string), string type = default(string), Object signer = null, int x = default(int), int y = default(int), int width = default(int), int height = default(int), bool required = default(bool), string group = default(string))
         {
             
             // to ensure "type" is required (not null)
@@ -72,7 +72,7 @@ namespace Dropbox.Sign.Model
             this.Type = type;
             this.ApiId = apiId;
             this.Name = name;
-            this.Signer = signer;
+            this.Signer = Convert.ToString(signer);
             this.X = x;
             this.Y = y;
             this.Width = width;
@@ -122,8 +122,12 @@ namespace Dropbox.Sign.Model
         /// </summary>
         /// <value>The signer of the Form Field.</value>
         [DataMember(Name = "signer", EmitDefaultValue = true)]
-        public string Signer { get; set; }
-        
+        public object Signer {
+            get => this._signer;
+            set => this._signer = Convert.ToString(value);
+        }
+
+        private string _signer;
         /// <summary>
         /// The horizontal offset in pixels for this form field.
         /// </summary>

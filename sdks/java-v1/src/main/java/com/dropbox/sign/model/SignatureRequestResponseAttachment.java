@@ -108,6 +108,10 @@ public class SignatureRequestResponseAttachment {
     this.signer = signer;
     return this;
   }
+  public SignatureRequestResponseAttachment signer(Integer signer) {
+    this.signer = String.valueOf(signer);
+    return this;
+  }
 
   /**
    * The Signer this attachment is assigned to.
@@ -126,6 +130,10 @@ public class SignatureRequestResponseAttachment {
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setSigner(String signer) {
     this.signer = signer;
+  }
+
+  public void setSigner(Integer signer) {
+    this.signer = String.valueOf(signer);
   }
 
 
