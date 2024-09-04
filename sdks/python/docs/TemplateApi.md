@@ -59,7 +59,7 @@ with ApiClient(configuration) as api_client:
         print("Exception when calling Dropbox Sign API: %s\n" % e)
 
 ```
-
+```
 
 ### Parameters
 | Name | Type | Description | Notes |
@@ -79,7 +79,6 @@ with ApiClient(configuration) as api_client:
 
  - **Content-Type**: application/json
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -163,7 +162,7 @@ with ApiClient(configuration) as api_client:
         print("Exception when calling Dropbox Sign API: %s\n" % e)
 
 ```
-
+```
 
 ### Parameters
 | Name | Type | Description | Notes |
@@ -182,7 +181,6 @@ with ApiClient(configuration) as api_client:
 
  - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -266,7 +264,7 @@ with ApiClient(configuration) as api_client:
         print("Exception when calling Dropbox Sign API: %s\n" % e)
 
 ```
-
+```
 
 ### Parameters
 | Name | Type | Description | Notes |
@@ -285,7 +283,6 @@ with ApiClient(configuration) as api_client:
 
  - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -331,7 +328,7 @@ with ApiClient(configuration) as api_client:
         print("Exception when calling Dropbox Sign API: %s\n" % e)
 
 ```
-
+```
 
 ### Parameters
 | Name | Type | Description | Notes |
@@ -351,7 +348,6 @@ void (empty response body)
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
 
 | Status code | Description | Response headers |
@@ -362,7 +358,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # ```template_files```
-> ```file_type template_files(template_id)```
+> ```io.IOBase template_files(template_id)```
 
 Get Template Files
 
@@ -399,7 +395,7 @@ with ApiClient(configuration) as api_client:
         print("Exception when calling Dropbox Sign API: %s\n" % e)
 
 ```
-
+```
 
 ### Parameters
 | Name | Type | Description | Notes |
@@ -409,7 +405,7 @@ with ApiClient(configuration) as api_client:
 
 ### Return type
 
-**file_type**
+**io.IOBase**
 
 ### Authorization
 
@@ -419,7 +415,6 @@ with ApiClient(configuration) as api_client:
 
  - **Content-Type**: Not defined
  - **Accept**: application/pdf, application/zip, application/json
-
 
 ### HTTP response details
 
@@ -468,7 +463,7 @@ with ApiClient(configuration) as api_client:
         print("Exception when calling Dropbox Sign API: %s\n" % e)
 
 ```
-
+```
 
 ### Parameters
 | Name | Type | Description | Notes |
@@ -487,7 +482,6 @@ with ApiClient(configuration) as api_client:
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -536,7 +530,7 @@ with ApiClient(configuration) as api_client:
         print("Exception when calling Dropbox Sign API: %s\n" % e)
 
 ```
-
+```
 
 ### Parameters
 | Name | Type | Description | Notes |
@@ -556,7 +550,6 @@ with ApiClient(configuration) as api_client:
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -605,7 +598,7 @@ with ApiClient(configuration) as api_client:
         print("Exception when calling Dropbox Sign API: %s\n" % e)
 
 ```
-
+```
 
 ### Parameters
 | Name | Type | Description | Notes |
@@ -624,7 +617,6 @@ with ApiClient(configuration) as api_client:
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -675,7 +667,7 @@ with ApiClient(configuration) as api_client:
         print("Exception when calling Dropbox Sign API: %s\n" % e)
 
 ```
-
+```
 
 ### Parameters
 | Name | Type | Description | Notes |
@@ -697,7 +689,6 @@ with ApiClient(configuration) as api_client:
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -750,7 +741,7 @@ with ApiClient(configuration) as api_client:
         print("Exception when calling Dropbox Sign API: %s\n" % e)
 
 ```
-
+```
 
 ### Parameters
 | Name | Type | Description | Notes |
@@ -770,7 +761,6 @@ with ApiClient(configuration) as api_client:
 
  - **Content-Type**: application/json
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -823,7 +813,7 @@ with ApiClient(configuration) as api_client:
         print("Exception when calling Dropbox Sign API: %s\n" % e)
 
 ```
-
+```
 
 ### Parameters
 | Name | Type | Description | Notes |
@@ -843,7 +833,6 @@ with ApiClient(configuration) as api_client:
 
  - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
-
 
 ### HTTP response details
 

@@ -9,8 +9,7 @@ Name | Type | Description | Notes
 | `token_type` | ```str``` |    |  |
 | `refresh_token` | ```str``` |    |  |
 | `expires_in` | ```int``` |  Number of seconds until the `access_token` expires. Uses epoch time.  |  |
-| `state` | ```str, none_type``` |    |  |
+| `state` | ```str``` |    |  |
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
 

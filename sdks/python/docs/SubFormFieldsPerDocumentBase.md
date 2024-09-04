@@ -28,8 +28,7 @@ Name | Type | Description | Notes
 | `x`<sup>*_required_</sup> | ```int``` |  Location coordinates of the field in pixels.  |  |
 | `y`<sup>*_required_</sup> | ```int``` |  Location coordinates of the field in pixels.  |  |
 | `name` | ```str``` |  Display name for the field.  |  |
-| `page` | ```int, none_type``` |  Page in the document where the field should be placed (requires documents be PDF files).<br><br>- When the page number parameter is supplied, the API will use the new coordinate system. - Check out the differences between both [coordinate systems](https://faq.hellosign.com/hc/en-us/articles/217115577) and how to use them.  |  |
+| `page` | ```int``` |  Page in the document where the field should be placed (requires documents be PDF files).<br><br>- When the page number parameter is supplied, the API will use the new coordinate system. - Check out the differences between both [coordinate systems](https://faq.hellosign.com/hc/en-us/articles/217115577) and how to use them.  |  |
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
 

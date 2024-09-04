@@ -101,7 +101,8 @@ class TestTeamApi(unittest.TestCase):
         self.mock_pool.expect_request(
             content_type='application/json',
             data=request_data,
-            response=response_data
+            response=response_data,
+            status=201,
         )
         expected = m.TeamGetResponse.init(response_data)
         obj = m.TeamRemoveMemberRequest.init(request_data)

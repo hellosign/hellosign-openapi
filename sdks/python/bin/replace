@@ -10,7 +10,6 @@ rep () {
   REPLACE_STRING=$2
   SCAN_DIRS=( \
     "docs" \
-    "dropbox_sign/model" \
     "dropbox_sign/models" \
   )
 
@@ -24,42 +23,6 @@ rep () {
   done
 }
 
-perl -pi -e 's/(.*)AllOf.md\)\n//g' "${ROOT_DIR}/README.md"
-
-rep '([^\\r\n]+?)from (.*)_all_of import (.*)\n' ''
-rep 'from (.*)_all_of import (.*)\n' ''
-rep "\s+globals\(\)\['[a-zA-Z]+AllOf(.*)\n" ''
-
-# def bulk_send_job_id(self) -> str, none_type:
-# def bulk_send_job_id(self) -> Optional[str]:
-rep 'def ([a-zA-Z_]+)\(self\) -> (.*), none_type:' 'def $1(self) -> Optional[$2]:'
-
-# def bulk_send_job_id(self, value: str, none_type):
-# def bulk_send_job_id(self, value: Optional[str]):
-rep 'def ([a-zA-Z_]+)\(self, value: (.*), none_type\):' 'def $1(self, value: Optional[$2]):'
-
-# def bulk_send_jobs(self) -> [BulkSendJobResponse]:
-# def bulk_send_jobs(self) -> List[BulkSendJobResponse]:
-rep 'def ([a-zA-Z_]+)\(self\) -> \[(.*)\]:' 'def $1(self) -> List[$2]:'
-
-# def bulk_send_jobs(self, value: [BulkSendJobResponse]):
-# def bulk_send_jobs(self, value: List[BulkSendJobResponse]):
-rep 'def ([a-zA-Z_]+)\(self, value: \[(.*)\]\):' 'def $1(self, value: List[$2]):'
-
-# def template_ids(self) -> Optional[[str]]:
-# def template_ids(self) -> Optional[List[str]]:
-rep 'def ([a-zA-Z_]+)\(self\) -> ([a-zA-Z]+)\[\[(.*)\]\]:' 'def $1(self) -> $2\[List[$3]]:'
-
-# def template_ids(self, value: Optional[[str]]):
-# def template_ids(self, value: Optional[List[str]]):
-rep 'def ([a-zA-Z_]+)\(self, value: ([a-zA-Z]+)\[\[(.*)\]\]\):' 'def $1(self, value: $2\[List[$3]]):'
-
-# def metadata(self) -> {str: (bool, date, datetime, dict, float, int, list, str, none_type)}:
-# def metadata(self) -> Dict[str, Union[bool, date, datetime, dict, float, int, list, str, none_type]]:
-rep 'def ([a-zA-Z_]+)\(self\) -> \{([a-zA-Z]+): \((.*)\)\}:' 'def $1(self) -> Dict[$2, Union[$3]]:'
-
-# def metadata(self, value: {str: (bool, date, datetime, dict, float, int, list, str, none_type)}):
-# def metadata(self, value: Dict[str, Union[bool, date, datetime, dict, float, int, list, str, none_type]]):
-rep 'def ([a-zA-Z_]+)\(self\, value: \{([a-zA-Z]+): \((.*)\)\}\):' 'def $1(self, value: Dict[$2, Union[$3]]):'
+rep 'Union\[StrictBytes, StrictStr\]' 'Union[StrictBytes, StrictStr, io.IOBase]'
 
 printf "\n"

@@ -10114,6 +10114,7 @@ components:
         signer:
           description: '_t__SignatureRequestResponseAttachment::SIGNER'
           type: string
+          x-int-or-string: true
         name:
           description: '_t__SignatureRequestResponseAttachment::NAME'
           type: string
@@ -10736,6 +10737,7 @@ components:
           description: '_t__TemplateResponseDocumentCustomField::SIGNER'
           type: string
           nullable: true
+          x-int-or-string: true
         x:
           description: '_t__TemplateResponseDocumentCustomField::X'
           type: integer
@@ -10838,6 +10840,7 @@ components:
         signer:
           description: '_t__TemplateResponseDocumentFormField::SIGNER'
           type: string
+          x-int-or-string: true
         x:
           description: '_t__TemplateResponseDocumentFormField::X'
           type: integer

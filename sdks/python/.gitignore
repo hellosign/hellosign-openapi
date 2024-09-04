@@ -65,4 +65,5 @@ target/
 #Ipython Notebook
 .ipynb_checkpoints
 
+.openapi-generator
 /vendor

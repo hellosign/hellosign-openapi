@@ -35,8 +35,8 @@ class TestAccountApi(unittest.TestCase):
         try:
             self.api.account_create(obj)
         except ApiException as e:
-            self.assertEqual(e.body.__class__.__name__, response_class)
-            self.assertEqual(e.body, expected)
+            self.assertEqual(e.data.__class__.__name__, response_class)
+            self.assertEqual(e.data, expected)
 
     def test_account_create(self):
         request_class = 'AccountCreateRequest'
