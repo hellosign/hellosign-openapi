@@ -47,7 +47,7 @@ namespace Dropbox.Sign.Model
         /// <param name="required">A boolean value denoting if this attachment is required. (required).</param>
         /// <param name="instructions">Instructions for Signer..</param>
         /// <param name="uploadedAt">Timestamp when attachment was uploaded by Signer..</param>
-        public SignatureRequestResponseAttachment(string id = default(string), string signer = default(string), string name = default(string), bool required = default(bool), string instructions = default(string), int? uploadedAt = default(int?))
+        public SignatureRequestResponseAttachment(string id = default(string), Object signer = null, string name = default(string), bool required = default(bool), string instructions = default(string), int? uploadedAt = default(int?))
         {
             
             // to ensure "id" is required (not null)
@@ -61,7 +61,7 @@ namespace Dropbox.Sign.Model
             {
                 throw new ArgumentNullException("signer is a required property for SignatureRequestResponseAttachment and cannot be null");
             }
-            this.Signer = signer;
+            this.Signer = Convert.ToString(signer);
             // to ensure "name" is required (not null)
             if (name == null)
             {
@@ -101,8 +101,12 @@ namespace Dropbox.Sign.Model
         /// </summary>
         /// <value>The Signer this attachment is assigned to.</value>
         [DataMember(Name = "signer", IsRequired = true, EmitDefaultValue = true)]
-        public string Signer { get; set; }
-        
+        public object Signer {
+            get => this._signer;
+            set => this._signer = Convert.ToString(value);
+        }
+
+        private string _signer;
         /// <summary>
         /// The name of this attachment.
         /// </summary>

@@ -31,7 +31,7 @@ module Dropbox::Sign
     attr_accessor :name
 
     # The signer of the Form Field.
-    # @return [String]
+    # @return [Integer, String]
     attr_accessor :signer
 
     # The horizontal offset in pixels for this form field.

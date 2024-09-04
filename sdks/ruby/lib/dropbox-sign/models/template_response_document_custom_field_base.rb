@@ -31,7 +31,7 @@ module Dropbox::Sign
     attr_accessor :name
 
     # The signer of the Custom Field. Can be `null` if field is a merge field (assigned to Sender).
-    # @return [String, nil]
+    # @return [Integer, String, nil]
     attr_accessor :signer
 
     # The horizontal offset in pixels for this form field.

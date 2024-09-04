@@ -40,7 +40,7 @@ export abstract class TemplateResponseDocumentFormFieldBase {
   /**
    * The signer of the Form Field.
    */
-  "signer"?: string;
+  "signer"?: number | string;
   /**
    * The horizontal offset in pixels for this form field.
    */
