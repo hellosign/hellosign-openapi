@@ -281,7 +281,12 @@ class TemplateUpdateFilesResponse implements ModelInterface, ArrayAccess, JsonSe
      */
     public function listInvalidProperties()
     {
-        return [];
+        $invalidProperties = [];
+
+        if ($this->container['template'] === null) {
+            $invalidProperties[] = "'template' can't be null";
+        }
+        return $invalidProperties;
     }
 
     /**
@@ -298,7 +303,7 @@ class TemplateUpdateFilesResponse implements ModelInterface, ArrayAccess, JsonSe
     /**
      * Gets template
      *
-     * @return TemplateUpdateFilesResponseTemplate|null
+     * @return TemplateUpdateFilesResponseTemplate
      */
     public function getTemplate()
     {
@@ -308,11 +313,11 @@ class TemplateUpdateFilesResponse implements ModelInterface, ArrayAccess, JsonSe
     /**
      * Sets template
      *
-     * @param TemplateUpdateFilesResponseTemplate|null $template template
+     * @param TemplateUpdateFilesResponseTemplate $template template
      *
      * @return self
      */
-    public function setTemplate(?TemplateUpdateFilesResponseTemplate $template)
+    public function setTemplate(TemplateUpdateFilesResponseTemplate $template)
     {
         if (is_null($template)) {
             throw new InvalidArgumentException('non-nullable template cannot be null');

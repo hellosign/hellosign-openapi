@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List
 from dropbox_sign.models.template_update_files_response_template import TemplateUpdateFilesResponseTemplate
 from typing import Optional, Set, Tuple
 from typing_extensions import Self
@@ -31,7 +31,7 @@ class TemplateUpdateFilesResponse(BaseModel):
     """
     TemplateUpdateFilesResponse
     """ # noqa: E501
-    template: Optional[TemplateUpdateFilesResponseTemplate] = None
+    template: TemplateUpdateFilesResponseTemplate
     __properties: ClassVar[List[str]] = ["template"]
 
     model_config = ConfigDict(

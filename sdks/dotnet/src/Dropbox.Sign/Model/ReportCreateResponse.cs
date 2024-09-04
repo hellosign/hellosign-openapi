@@ -41,11 +41,16 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ReportCreateResponse" /> class.
         /// </summary>
-        /// <param name="report">report.</param>
+        /// <param name="report">report (required).</param>
         /// <param name="warnings">A list of warnings..</param>
         public ReportCreateResponse(ReportResponse report = default(ReportResponse), List<WarningResponse> warnings = default(List<WarningResponse>))
         {
             
+            // to ensure "report" is required (not null)
+            if (report == null)
+            {
+                throw new ArgumentNullException("report is a required property for ReportCreateResponse and cannot be null");
+            }
             this.Report = report;
             this.Warnings = warnings;
         }
@@ -69,7 +74,7 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Gets or Sets Report
         /// </summary>
-        [DataMember(Name = "report", EmitDefaultValue = true)]
+        [DataMember(Name = "report", IsRequired = true, EmitDefaultValue = true)]
         public ReportResponse Report { get; set; }
         
         /// <summary>

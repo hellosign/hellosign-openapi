@@ -41,13 +41,23 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FaxLineListResponse" /> class.
         /// </summary>
-        /// <param name="listInfo">listInfo.</param>
-        /// <param name="faxLines">faxLines.</param>
+        /// <param name="listInfo">listInfo (required).</param>
+        /// <param name="faxLines">faxLines (required).</param>
         /// <param name="warnings">warnings.</param>
         public FaxLineListResponse(ListInfoResponse listInfo = default(ListInfoResponse), List<FaxLineResponseFaxLine> faxLines = default(List<FaxLineResponseFaxLine>), WarningResponse warnings = default(WarningResponse))
         {
             
+            // to ensure "listInfo" is required (not null)
+            if (listInfo == null)
+            {
+                throw new ArgumentNullException("listInfo is a required property for FaxLineListResponse and cannot be null");
+            }
             this.ListInfo = listInfo;
+            // to ensure "faxLines" is required (not null)
+            if (faxLines == null)
+            {
+                throw new ArgumentNullException("faxLines is a required property for FaxLineListResponse and cannot be null");
+            }
             this.FaxLines = faxLines;
             this.Warnings = warnings;
         }
@@ -71,13 +81,13 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Gets or Sets ListInfo
         /// </summary>
-        [DataMember(Name = "list_info", EmitDefaultValue = true)]
+        [DataMember(Name = "list_info", IsRequired = true, EmitDefaultValue = true)]
         public ListInfoResponse ListInfo { get; set; }
         
         /// <summary>
         /// Gets or Sets FaxLines
         /// </summary>
-        [DataMember(Name = "fax_lines", EmitDefaultValue = true)]
+        [DataMember(Name = "fax_lines", IsRequired = true, EmitDefaultValue = true)]
         public List<FaxLineResponseFaxLine> FaxLines { get; set; }
         
         /// <summary>

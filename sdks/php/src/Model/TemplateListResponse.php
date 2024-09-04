@@ -295,7 +295,15 @@ class TemplateListResponse implements ModelInterface, ArrayAccess, JsonSerializa
      */
     public function listInvalidProperties()
     {
-        return [];
+        $invalidProperties = [];
+
+        if ($this->container['templates'] === null) {
+            $invalidProperties[] = "'templates' can't be null";
+        }
+        if ($this->container['list_info'] === null) {
+            $invalidProperties[] = "'list_info' can't be null";
+        }
+        return $invalidProperties;
     }
 
     /**
@@ -312,7 +320,7 @@ class TemplateListResponse implements ModelInterface, ArrayAccess, JsonSerializa
     /**
      * Gets templates
      *
-     * @return TemplateResponse[]|null
+     * @return TemplateResponse[]
      */
     public function getTemplates()
     {
@@ -322,11 +330,11 @@ class TemplateListResponse implements ModelInterface, ArrayAccess, JsonSerializa
     /**
      * Sets templates
      *
-     * @param TemplateResponse[]|null $templates list of templates that the API caller has access to
+     * @param TemplateResponse[] $templates list of templates that the API caller has access to
      *
      * @return self
      */
-    public function setTemplates(?array $templates)
+    public function setTemplates(array $templates)
     {
         if (is_null($templates)) {
             throw new InvalidArgumentException('non-nullable templates cannot be null');
@@ -339,7 +347,7 @@ class TemplateListResponse implements ModelInterface, ArrayAccess, JsonSerializa
     /**
      * Gets list_info
      *
-     * @return ListInfoResponse|null
+     * @return ListInfoResponse
      */
     public function getListInfo()
     {
@@ -349,11 +357,11 @@ class TemplateListResponse implements ModelInterface, ArrayAccess, JsonSerializa
     /**
      * Sets list_info
      *
-     * @param ListInfoResponse|null $list_info list_info
+     * @param ListInfoResponse $list_info list_info
      *
      * @return self
      */
-    public function setListInfo(?ListInfoResponse $list_info)
+    public function setListInfo(ListInfoResponse $list_info)
     {
         if (is_null($list_info)) {
             throw new InvalidArgumentException('non-nullable list_info cannot be null');

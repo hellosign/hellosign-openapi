@@ -69,9 +69,9 @@ public class TemplateUpdateFilesResponse {
    * Get template
    * @return template
    */
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_TEMPLATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public TemplateUpdateFilesResponseTemplate getTemplate() {
     return template;
@@ -79,7 +79,7 @@ public class TemplateUpdateFilesResponse {
 
 
   @JsonProperty(JSON_PROPERTY_TEMPLATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setTemplate(TemplateUpdateFilesResponseTemplate template) {
     this.template = template;
   }

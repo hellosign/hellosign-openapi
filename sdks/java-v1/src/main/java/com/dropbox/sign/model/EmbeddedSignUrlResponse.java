@@ -76,9 +76,9 @@ public class EmbeddedSignUrlResponse {
    * Get embedded
    * @return embedded
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_EMBEDDED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public EmbeddedSignUrlResponseEmbedded getEmbedded() {
     return embedded;
@@ -86,7 +86,7 @@ public class EmbeddedSignUrlResponse {
 
 
   @JsonProperty(JSON_PROPERTY_EMBEDDED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setEmbedded(EmbeddedSignUrlResponseEmbedded embedded) {
     this.embedded = embedded;
   }

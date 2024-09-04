@@ -27,7 +27,7 @@ import { AccountResponse } from "./accountResponse";
 import { WarningResponse } from "./warningResponse";
 
 export class AccountGetResponse {
-  "account"?: AccountResponse;
+  "account": AccountResponse;
   /**
    * A list of warnings.
    */

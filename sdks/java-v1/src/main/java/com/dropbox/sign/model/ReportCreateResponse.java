@@ -76,9 +76,9 @@ public class ReportCreateResponse {
    * Get report
    * @return report
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_REPORT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public ReportResponse getReport() {
     return report;
@@ -86,7 +86,7 @@ public class ReportCreateResponse {
 
 
   @JsonProperty(JSON_PROPERTY_REPORT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setReport(ReportResponse report) {
     this.report = report;
   }

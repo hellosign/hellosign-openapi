@@ -288,7 +288,12 @@ class FaxLineResponse implements ModelInterface, ArrayAccess, JsonSerializable
      */
     public function listInvalidProperties()
     {
-        return [];
+        $invalidProperties = [];
+
+        if ($this->container['fax_line'] === null) {
+            $invalidProperties[] = "'fax_line' can't be null";
+        }
+        return $invalidProperties;
     }
 
     /**
@@ -305,7 +310,7 @@ class FaxLineResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets fax_line
      *
-     * @return FaxLineResponseFaxLine|null
+     * @return FaxLineResponseFaxLine
      */
     public function getFaxLine()
     {
@@ -315,11 +320,11 @@ class FaxLineResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets fax_line
      *
-     * @param FaxLineResponseFaxLine|null $fax_line fax_line
+     * @param FaxLineResponseFaxLine $fax_line fax_line
      *
      * @return self
      */
-    public function setFaxLine(?FaxLineResponseFaxLine $fax_line)
+    public function setFaxLine(FaxLineResponseFaxLine $fax_line)
     {
         if (is_null($fax_line)) {
             throw new InvalidArgumentException('non-nullable fax_line cannot be null');

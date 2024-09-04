@@ -32,7 +32,7 @@ class SignatureRequestGetResponse(BaseModel):
     """
     SignatureRequestGetResponse
     """ # noqa: E501
-    signature_request: Optional[SignatureRequestResponse] = None
+    signature_request: SignatureRequestResponse
     warnings: Optional[List[WarningResponse]] = Field(default=None, description="A list of warnings.")
     __properties: ClassVar[List[str]] = ["signature_request", "warnings"]
 

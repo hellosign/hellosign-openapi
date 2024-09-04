@@ -6,7 +6,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-| `report` | [```\Dropbox\Sign\Model\ReportResponse```](ReportResponse.md) |    |  |
+| `report`<sup>*_required_</sup> | [```\Dropbox\Sign\Model\ReportResponse```](ReportResponse.md) |    |  |
 | `warnings` | [```\Dropbox\Sign\Model\WarningResponse[]```](WarningResponse.md) |  A list of warnings.  |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

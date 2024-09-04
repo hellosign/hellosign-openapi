@@ -6,7 +6,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-| `account` | [```\Dropbox\Sign\Model\AccountResponse```](AccountResponse.md) |    |  |
+| `account`<sup>*_required_</sup> | [```\Dropbox\Sign\Model\AccountResponse```](AccountResponse.md) |    |  |
 | `oauth_data` | [```\Dropbox\Sign\Model\OAuthTokenResponse```](OAuthTokenResponse.md) |    |  |
 | `warnings` | [```\Dropbox\Sign\Model\WarningResponse[]```](WarningResponse.md) |  A list of warnings.  |  |
 

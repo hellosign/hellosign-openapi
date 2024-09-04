@@ -295,7 +295,12 @@ class AccountCreateResponse implements ModelInterface, ArrayAccess, JsonSerializ
      */
     public function listInvalidProperties()
     {
-        return [];
+        $invalidProperties = [];
+
+        if ($this->container['account'] === null) {
+            $invalidProperties[] = "'account' can't be null";
+        }
+        return $invalidProperties;
     }
 
     /**
@@ -312,7 +317,7 @@ class AccountCreateResponse implements ModelInterface, ArrayAccess, JsonSerializ
     /**
      * Gets account
      *
-     * @return AccountResponse|null
+     * @return AccountResponse
      */
     public function getAccount()
     {
@@ -322,11 +327,11 @@ class AccountCreateResponse implements ModelInterface, ArrayAccess, JsonSerializ
     /**
      * Sets account
      *
-     * @param AccountResponse|null $account account
+     * @param AccountResponse $account account
      *
      * @return self
      */
-    public function setAccount(?AccountResponse $account)
+    public function setAccount(AccountResponse $account)
     {
         if (is_null($account)) {
             throw new InvalidArgumentException('non-nullable account cannot be null');

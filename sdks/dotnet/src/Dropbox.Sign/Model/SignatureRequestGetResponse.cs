@@ -41,11 +41,16 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SignatureRequestGetResponse" /> class.
         /// </summary>
-        /// <param name="signatureRequest">signatureRequest.</param>
+        /// <param name="signatureRequest">signatureRequest (required).</param>
         /// <param name="warnings">A list of warnings..</param>
         public SignatureRequestGetResponse(SignatureRequestResponse signatureRequest = default(SignatureRequestResponse), List<WarningResponse> warnings = default(List<WarningResponse>))
         {
             
+            // to ensure "signatureRequest" is required (not null)
+            if (signatureRequest == null)
+            {
+                throw new ArgumentNullException("signatureRequest is a required property for SignatureRequestGetResponse and cannot be null");
+            }
             this.SignatureRequest = signatureRequest;
             this.Warnings = warnings;
         }
@@ -69,7 +74,7 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Gets or Sets SignatureRequest
         /// </summary>
-        [DataMember(Name = "signature_request", EmitDefaultValue = true)]
+        [DataMember(Name = "signature_request", IsRequired = true, EmitDefaultValue = true)]
         public SignatureRequestResponse SignatureRequest { get; set; }
         
         /// <summary>

@@ -288,7 +288,12 @@ class TeamInvitesResponse implements ModelInterface, ArrayAccess, JsonSerializab
      */
     public function listInvalidProperties()
     {
-        return [];
+        $invalidProperties = [];
+
+        if ($this->container['team_invites'] === null) {
+            $invalidProperties[] = "'team_invites' can't be null";
+        }
+        return $invalidProperties;
     }
 
     /**
@@ -305,7 +310,7 @@ class TeamInvitesResponse implements ModelInterface, ArrayAccess, JsonSerializab
     /**
      * Gets team_invites
      *
-     * @return TeamInviteResponse[]|null
+     * @return TeamInviteResponse[]
      */
     public function getTeamInvites()
     {
@@ -315,11 +320,11 @@ class TeamInvitesResponse implements ModelInterface, ArrayAccess, JsonSerializab
     /**
      * Sets team_invites
      *
-     * @param TeamInviteResponse[]|null $team_invites contains a list of team invites and their roles
+     * @param TeamInviteResponse[] $team_invites contains a list of team invites and their roles
      *
      * @return self
      */
-    public function setTeamInvites(?array $team_invites)
+    public function setTeamInvites(array $team_invites)
     {
         if (is_null($team_invites)) {
             throw new InvalidArgumentException('non-nullable team_invites cannot be null');

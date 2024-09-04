@@ -26,7 +26,7 @@ import { AttributeTypeMap, ObjectSerializer } from "./";
 import { TemplateUpdateFilesResponseTemplate } from "./templateUpdateFilesResponseTemplate";
 
 export class TemplateUpdateFilesResponse {
-  "template"?: TemplateUpdateFilesResponseTemplate;
+  "template": TemplateUpdateFilesResponseTemplate;
 
   static discriminator: string | undefined = undefined;
 

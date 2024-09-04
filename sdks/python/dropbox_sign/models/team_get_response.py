@@ -32,7 +32,7 @@ class TeamGetResponse(BaseModel):
     """
     TeamGetResponse
     """ # noqa: E501
-    team: Optional[TeamResponse] = None
+    team: TeamResponse
     warnings: Optional[List[WarningResponse]] = Field(default=None, description="A list of warnings.")
     __properties: ClassVar[List[str]] = ["team", "warnings"]
 

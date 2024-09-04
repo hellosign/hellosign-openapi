@@ -41,11 +41,16 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TeamGetInfoResponse" /> class.
         /// </summary>
-        /// <param name="team">team.</param>
+        /// <param name="team">team (required).</param>
         /// <param name="warnings">A list of warnings..</param>
         public TeamGetInfoResponse(TeamInfoResponse team = default(TeamInfoResponse), List<WarningResponse> warnings = default(List<WarningResponse>))
         {
             
+            // to ensure "team" is required (not null)
+            if (team == null)
+            {
+                throw new ArgumentNullException("team is a required property for TeamGetInfoResponse and cannot be null");
+            }
             this.Team = team;
             this.Warnings = warnings;
         }
@@ -69,7 +74,7 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Gets or Sets Team
         /// </summary>
-        [DataMember(Name = "team", EmitDefaultValue = true)]
+        [DataMember(Name = "team", IsRequired = true, EmitDefaultValue = true)]
         public TeamInfoResponse Team { get; set; }
         
         /// <summary>

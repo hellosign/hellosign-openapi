@@ -32,7 +32,7 @@ class AccountGetResponse(BaseModel):
     """
     AccountGetResponse
     """ # noqa: E501
-    account: Optional[AccountResponse] = None
+    account: AccountResponse
     warnings: Optional[List[WarningResponse]] = Field(default=None, description="A list of warnings.")
     __properties: ClassVar[List[str]] = ["account", "warnings"]
 

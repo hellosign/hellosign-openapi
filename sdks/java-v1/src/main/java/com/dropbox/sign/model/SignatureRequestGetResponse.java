@@ -76,9 +76,9 @@ public class SignatureRequestGetResponse {
    * Get signatureRequest
    * @return signatureRequest
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_SIGNATURE_REQUEST)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public SignatureRequestResponse getSignatureRequest() {
     return signatureRequest;
@@ -86,7 +86,7 @@ public class SignatureRequestGetResponse {
 
 
   @JsonProperty(JSON_PROPERTY_SIGNATURE_REQUEST)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setSignatureRequest(SignatureRequestResponse signatureRequest) {
     this.signatureRequest = signatureRequest;
   }

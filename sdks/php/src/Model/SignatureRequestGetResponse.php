@@ -288,7 +288,12 @@ class SignatureRequestGetResponse implements ModelInterface, ArrayAccess, JsonSe
      */
     public function listInvalidProperties()
     {
-        return [];
+        $invalidProperties = [];
+
+        if ($this->container['signature_request'] === null) {
+            $invalidProperties[] = "'signature_request' can't be null";
+        }
+        return $invalidProperties;
     }
 
     /**
@@ -305,7 +310,7 @@ class SignatureRequestGetResponse implements ModelInterface, ArrayAccess, JsonSe
     /**
      * Gets signature_request
      *
-     * @return SignatureRequestResponse|null
+     * @return SignatureRequestResponse
      */
     public function getSignatureRequest()
     {
@@ -315,11 +320,11 @@ class SignatureRequestGetResponse implements ModelInterface, ArrayAccess, JsonSe
     /**
      * Sets signature_request
      *
-     * @param SignatureRequestResponse|null $signature_request signature_request
+     * @param SignatureRequestResponse $signature_request signature_request
      *
      * @return self
      */
-    public function setSignatureRequest(?SignatureRequestResponse $signature_request)
+    public function setSignatureRequest(SignatureRequestResponse $signature_request)
     {
         if (is_null($signature_request)) {
             throw new InvalidArgumentException('non-nullable signature_request cannot be null');

@@ -295,7 +295,15 @@ class ApiAppListResponse implements ModelInterface, ArrayAccess, JsonSerializabl
      */
     public function listInvalidProperties()
     {
-        return [];
+        $invalidProperties = [];
+
+        if ($this->container['api_apps'] === null) {
+            $invalidProperties[] = "'api_apps' can't be null";
+        }
+        if ($this->container['list_info'] === null) {
+            $invalidProperties[] = "'list_info' can't be null";
+        }
+        return $invalidProperties;
     }
 
     /**
@@ -312,7 +320,7 @@ class ApiAppListResponse implements ModelInterface, ArrayAccess, JsonSerializabl
     /**
      * Gets api_apps
      *
-     * @return ApiAppResponse[]|null
+     * @return ApiAppResponse[]
      */
     public function getApiApps()
     {
@@ -322,11 +330,11 @@ class ApiAppListResponse implements ModelInterface, ArrayAccess, JsonSerializabl
     /**
      * Sets api_apps
      *
-     * @param ApiAppResponse[]|null $api_apps contains information about API Apps
+     * @param ApiAppResponse[] $api_apps contains information about API Apps
      *
      * @return self
      */
-    public function setApiApps(?array $api_apps)
+    public function setApiApps(array $api_apps)
     {
         if (is_null($api_apps)) {
             throw new InvalidArgumentException('non-nullable api_apps cannot be null');
@@ -339,7 +347,7 @@ class ApiAppListResponse implements ModelInterface, ArrayAccess, JsonSerializabl
     /**
      * Gets list_info
      *
-     * @return ListInfoResponse|null
+     * @return ListInfoResponse
      */
     public function getListInfo()
     {
@@ -349,11 +357,11 @@ class ApiAppListResponse implements ModelInterface, ArrayAccess, JsonSerializabl
     /**
      * Sets list_info
      *
-     * @param ListInfoResponse|null $list_info list_info
+     * @param ListInfoResponse $list_info list_info
      *
      * @return self
      */
-    public function setListInfo(?ListInfoResponse $list_info)
+    public function setListInfo(ListInfoResponse $list_info)
     {
         if (is_null($list_info)) {
             throw new InvalidArgumentException('non-nullable list_info cannot be null');

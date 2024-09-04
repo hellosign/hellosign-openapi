@@ -41,11 +41,16 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FaxLineResponse" /> class.
         /// </summary>
-        /// <param name="faxLine">faxLine.</param>
+        /// <param name="faxLine">faxLine (required).</param>
         /// <param name="warnings">warnings.</param>
         public FaxLineResponse(FaxLineResponseFaxLine faxLine = default(FaxLineResponseFaxLine), WarningResponse warnings = default(WarningResponse))
         {
             
+            // to ensure "faxLine" is required (not null)
+            if (faxLine == null)
+            {
+                throw new ArgumentNullException("faxLine is a required property for FaxLineResponse and cannot be null");
+            }
             this.FaxLine = faxLine;
             this.Warnings = warnings;
         }
@@ -69,7 +74,7 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Gets or Sets FaxLine
         /// </summary>
-        [DataMember(Name = "fax_line", EmitDefaultValue = true)]
+        [DataMember(Name = "fax_line", IsRequired = true, EmitDefaultValue = true)]
         public FaxLineResponseFaxLine FaxLine { get; set; }
         
         /// <summary>

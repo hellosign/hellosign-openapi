@@ -288,7 +288,12 @@ class BulkSendJobSendResponse implements ModelInterface, ArrayAccess, JsonSerial
      */
     public function listInvalidProperties()
     {
-        return [];
+        $invalidProperties = [];
+
+        if ($this->container['bulk_send_job'] === null) {
+            $invalidProperties[] = "'bulk_send_job' can't be null";
+        }
+        return $invalidProperties;
     }
 
     /**
@@ -305,7 +310,7 @@ class BulkSendJobSendResponse implements ModelInterface, ArrayAccess, JsonSerial
     /**
      * Gets bulk_send_job
      *
-     * @return BulkSendJobResponse|null
+     * @return BulkSendJobResponse
      */
     public function getBulkSendJob()
     {
@@ -315,11 +320,11 @@ class BulkSendJobSendResponse implements ModelInterface, ArrayAccess, JsonSerial
     /**
      * Sets bulk_send_job
      *
-     * @param BulkSendJobResponse|null $bulk_send_job bulk_send_job
+     * @param BulkSendJobResponse $bulk_send_job bulk_send_job
      *
      * @return self
      */
-    public function setBulkSendJob(?BulkSendJobResponse $bulk_send_job)
+    public function setBulkSendJob(BulkSendJobResponse $bulk_send_job)
     {
         if (is_null($bulk_send_job)) {
             throw new InvalidArgumentException('non-nullable bulk_send_job cannot be null');

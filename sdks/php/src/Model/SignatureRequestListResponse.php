@@ -295,7 +295,15 @@ class SignatureRequestListResponse implements ModelInterface, ArrayAccess, JsonS
      */
     public function listInvalidProperties()
     {
-        return [];
+        $invalidProperties = [];
+
+        if ($this->container['signature_requests'] === null) {
+            $invalidProperties[] = "'signature_requests' can't be null";
+        }
+        if ($this->container['list_info'] === null) {
+            $invalidProperties[] = "'list_info' can't be null";
+        }
+        return $invalidProperties;
     }
 
     /**
@@ -312,7 +320,7 @@ class SignatureRequestListResponse implements ModelInterface, ArrayAccess, JsonS
     /**
      * Gets signature_requests
      *
-     * @return SignatureRequestResponse[]|null
+     * @return SignatureRequestResponse[]
      */
     public function getSignatureRequests()
     {
@@ -322,11 +330,11 @@ class SignatureRequestListResponse implements ModelInterface, ArrayAccess, JsonS
     /**
      * Sets signature_requests
      *
-     * @param SignatureRequestResponse[]|null $signature_requests contains information about signature requests
+     * @param SignatureRequestResponse[] $signature_requests contains information about signature requests
      *
      * @return self
      */
-    public function setSignatureRequests(?array $signature_requests)
+    public function setSignatureRequests(array $signature_requests)
     {
         if (is_null($signature_requests)) {
             throw new InvalidArgumentException('non-nullable signature_requests cannot be null');
@@ -339,7 +347,7 @@ class SignatureRequestListResponse implements ModelInterface, ArrayAccess, JsonS
     /**
      * Gets list_info
      *
-     * @return ListInfoResponse|null
+     * @return ListInfoResponse
      */
     public function getListInfo()
     {
@@ -349,11 +357,11 @@ class SignatureRequestListResponse implements ModelInterface, ArrayAccess, JsonS
     /**
      * Sets list_info
      *
-     * @param ListInfoResponse|null $list_info list_info
+     * @param ListInfoResponse $list_info list_info
      *
      * @return self
      */
-    public function setListInfo(?ListInfoResponse $list_info)
+    public function setListInfo(ListInfoResponse $list_info)
     {
         if (is_null($list_info)) {
             throw new InvalidArgumentException('non-nullable list_info cannot be null');

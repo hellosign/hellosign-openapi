@@ -76,9 +76,9 @@ public class EmbeddedEditUrlResponse {
    * Get embedded
    * @return embedded
    */
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_EMBEDDED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public EmbeddedEditUrlResponseEmbedded getEmbedded() {
     return embedded;
@@ -86,7 +86,7 @@ public class EmbeddedEditUrlResponse {
 
 
   @JsonProperty(JSON_PROPERTY_EMBEDDED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setEmbedded(EmbeddedEditUrlResponseEmbedded embedded) {
     this.embedded = embedded;
   }

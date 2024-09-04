@@ -288,7 +288,12 @@ class ReportCreateResponse implements ModelInterface, ArrayAccess, JsonSerializa
      */
     public function listInvalidProperties()
     {
-        return [];
+        $invalidProperties = [];
+
+        if ($this->container['report'] === null) {
+            $invalidProperties[] = "'report' can't be null";
+        }
+        return $invalidProperties;
     }
 
     /**
@@ -305,7 +310,7 @@ class ReportCreateResponse implements ModelInterface, ArrayAccess, JsonSerializa
     /**
      * Gets report
      *
-     * @return ReportResponse|null
+     * @return ReportResponse
      */
     public function getReport()
     {
@@ -315,11 +320,11 @@ class ReportCreateResponse implements ModelInterface, ArrayAccess, JsonSerializa
     /**
      * Sets report
      *
-     * @param ReportResponse|null $report report
+     * @param ReportResponse $report report
      *
      * @return self
      */
-    public function setReport(?ReportResponse $report)
+    public function setReport(ReportResponse $report)
     {
         if (is_null($report)) {
             throw new InvalidArgumentException('non-nullable report cannot be null');

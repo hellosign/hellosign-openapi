@@ -33,7 +33,7 @@ class AccountCreateResponse(BaseModel):
     """
     AccountCreateResponse
     """ # noqa: E501
-    account: Optional[AccountResponse] = None
+    account: AccountResponse
     oauth_data: Optional[OAuthTokenResponse] = None
     warnings: Optional[List[WarningResponse]] = Field(default=None, description="A list of warnings.")
     __properties: ClassVar[List[str]] = ["account", "oauth_data", "warnings"]

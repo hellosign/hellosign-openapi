@@ -288,7 +288,12 @@ class TemplateCreateResponse implements ModelInterface, ArrayAccess, JsonSeriali
      */
     public function listInvalidProperties()
     {
-        return [];
+        $invalidProperties = [];
+
+        if ($this->container['template'] === null) {
+            $invalidProperties[] = "'template' can't be null";
+        }
+        return $invalidProperties;
     }
 
     /**
@@ -305,7 +310,7 @@ class TemplateCreateResponse implements ModelInterface, ArrayAccess, JsonSeriali
     /**
      * Gets template
      *
-     * @return TemplateCreateResponseTemplate|null
+     * @return TemplateCreateResponseTemplate
      */
     public function getTemplate()
     {
@@ -315,11 +320,11 @@ class TemplateCreateResponse implements ModelInterface, ArrayAccess, JsonSeriali
     /**
      * Sets template
      *
-     * @param TemplateCreateResponseTemplate|null $template template
+     * @param TemplateCreateResponseTemplate $template template
      *
      * @return self
      */
-    public function setTemplate(?TemplateCreateResponseTemplate $template)
+    public function setTemplate(TemplateCreateResponseTemplate $template)
     {
         if (is_null($template)) {
             throw new InvalidArgumentException('non-nullable template cannot be null');

@@ -295,7 +295,15 @@ class TeamSubTeamsResponse implements ModelInterface, ArrayAccess, JsonSerializa
      */
     public function listInvalidProperties()
     {
-        return [];
+        $invalidProperties = [];
+
+        if ($this->container['sub_teams'] === null) {
+            $invalidProperties[] = "'sub_teams' can't be null";
+        }
+        if ($this->container['list_info'] === null) {
+            $invalidProperties[] = "'list_info' can't be null";
+        }
+        return $invalidProperties;
     }
 
     /**
@@ -312,7 +320,7 @@ class TeamSubTeamsResponse implements ModelInterface, ArrayAccess, JsonSerializa
     /**
      * Gets sub_teams
      *
-     * @return SubTeamResponse[]|null
+     * @return SubTeamResponse[]
      */
     public function getSubTeams()
     {
@@ -322,11 +330,11 @@ class TeamSubTeamsResponse implements ModelInterface, ArrayAccess, JsonSerializa
     /**
      * Sets sub_teams
      *
-     * @param SubTeamResponse[]|null $sub_teams contains a list with sub teams
+     * @param SubTeamResponse[] $sub_teams contains a list with sub teams
      *
      * @return self
      */
-    public function setSubTeams(?array $sub_teams)
+    public function setSubTeams(array $sub_teams)
     {
         if (is_null($sub_teams)) {
             throw new InvalidArgumentException('non-nullable sub_teams cannot be null');
@@ -339,7 +347,7 @@ class TeamSubTeamsResponse implements ModelInterface, ArrayAccess, JsonSerializa
     /**
      * Gets list_info
      *
-     * @return ListInfoResponse|null
+     * @return ListInfoResponse
      */
     public function getListInfo()
     {
@@ -349,11 +357,11 @@ class TeamSubTeamsResponse implements ModelInterface, ArrayAccess, JsonSerializa
     /**
      * Sets list_info
      *
-     * @param ListInfoResponse|null $list_info list_info
+     * @param ListInfoResponse $list_info list_info
      *
      * @return self
      */
-    public function setListInfo(?ListInfoResponse $list_info)
+    public function setListInfo(ListInfoResponse $list_info)
     {
         if (is_null($list_info)) {
             throw new InvalidArgumentException('non-nullable list_info cannot be null');

@@ -288,7 +288,12 @@ class EmbeddedEditUrlResponse implements ModelInterface, ArrayAccess, JsonSerial
      */
     public function listInvalidProperties()
     {
-        return [];
+        $invalidProperties = [];
+
+        if ($this->container['embedded'] === null) {
+            $invalidProperties[] = "'embedded' can't be null";
+        }
+        return $invalidProperties;
     }
 
     /**
@@ -305,7 +310,7 @@ class EmbeddedEditUrlResponse implements ModelInterface, ArrayAccess, JsonSerial
     /**
      * Gets embedded
      *
-     * @return EmbeddedEditUrlResponseEmbedded|null
+     * @return EmbeddedEditUrlResponseEmbedded
      */
     public function getEmbedded()
     {
@@ -315,11 +320,11 @@ class EmbeddedEditUrlResponse implements ModelInterface, ArrayAccess, JsonSerial
     /**
      * Sets embedded
      *
-     * @param EmbeddedEditUrlResponseEmbedded|null $embedded embedded
+     * @param EmbeddedEditUrlResponseEmbedded $embedded embedded
      *
      * @return self
      */
-    public function setEmbedded(?EmbeddedEditUrlResponseEmbedded $embedded)
+    public function setEmbedded(EmbeddedEditUrlResponseEmbedded $embedded)
     {
         if (is_null($embedded)) {
             throw new InvalidArgumentException('non-nullable embedded cannot be null');

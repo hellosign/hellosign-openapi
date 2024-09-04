@@ -288,7 +288,12 @@ class UnclaimedDraftCreateResponse implements ModelInterface, ArrayAccess, JsonS
      */
     public function listInvalidProperties()
     {
-        return [];
+        $invalidProperties = [];
+
+        if ($this->container['unclaimed_draft'] === null) {
+            $invalidProperties[] = "'unclaimed_draft' can't be null";
+        }
+        return $invalidProperties;
     }
 
     /**
@@ -305,7 +310,7 @@ class UnclaimedDraftCreateResponse implements ModelInterface, ArrayAccess, JsonS
     /**
      * Gets unclaimed_draft
      *
-     * @return UnclaimedDraftResponse|null
+     * @return UnclaimedDraftResponse
      */
     public function getUnclaimedDraft()
     {
@@ -315,11 +320,11 @@ class UnclaimedDraftCreateResponse implements ModelInterface, ArrayAccess, JsonS
     /**
      * Sets unclaimed_draft
      *
-     * @param UnclaimedDraftResponse|null $unclaimed_draft unclaimed_draft
+     * @param UnclaimedDraftResponse $unclaimed_draft unclaimed_draft
      *
      * @return self
      */
-    public function setUnclaimedDraft(?UnclaimedDraftResponse $unclaimed_draft)
+    public function setUnclaimedDraft(UnclaimedDraftResponse $unclaimed_draft)
     {
         if (is_null($unclaimed_draft)) {
             throw new InvalidArgumentException('non-nullable unclaimed_draft cannot be null');

@@ -288,7 +288,12 @@ class ApiAppGetResponse implements ModelInterface, ArrayAccess, JsonSerializable
      */
     public function listInvalidProperties()
     {
-        return [];
+        $invalidProperties = [];
+
+        if ($this->container['api_app'] === null) {
+            $invalidProperties[] = "'api_app' can't be null";
+        }
+        return $invalidProperties;
     }
 
     /**
@@ -305,7 +310,7 @@ class ApiAppGetResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets api_app
      *
-     * @return ApiAppResponse|null
+     * @return ApiAppResponse
      */
     public function getApiApp()
     {
@@ -315,11 +320,11 @@ class ApiAppGetResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets api_app
      *
-     * @param ApiAppResponse|null $api_app api_app
+     * @param ApiAppResponse $api_app api_app
      *
      * @return self
      */
-    public function setApiApp(?ApiAppResponse $api_app)
+    public function setApiApp(ApiAppResponse $api_app)
     {
         if (is_null($api_app)) {
             throw new InvalidArgumentException('non-nullable api_app cannot be null');

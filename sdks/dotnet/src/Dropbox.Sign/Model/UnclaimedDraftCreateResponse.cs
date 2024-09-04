@@ -41,11 +41,16 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UnclaimedDraftCreateResponse" /> class.
         /// </summary>
-        /// <param name="unclaimedDraft">unclaimedDraft.</param>
+        /// <param name="unclaimedDraft">unclaimedDraft (required).</param>
         /// <param name="warnings">A list of warnings..</param>
         public UnclaimedDraftCreateResponse(UnclaimedDraftResponse unclaimedDraft = default(UnclaimedDraftResponse), List<WarningResponse> warnings = default(List<WarningResponse>))
         {
             
+            // to ensure "unclaimedDraft" is required (not null)
+            if (unclaimedDraft == null)
+            {
+                throw new ArgumentNullException("unclaimedDraft is a required property for UnclaimedDraftCreateResponse and cannot be null");
+            }
             this.UnclaimedDraft = unclaimedDraft;
             this.Warnings = warnings;
         }
@@ -69,7 +74,7 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Gets or Sets UnclaimedDraft
         /// </summary>
-        [DataMember(Name = "unclaimed_draft", EmitDefaultValue = true)]
+        [DataMember(Name = "unclaimed_draft", IsRequired = true, EmitDefaultValue = true)]
         public UnclaimedDraftResponse UnclaimedDraft { get; set; }
         
         /// <summary>

@@ -32,7 +32,7 @@ class BulkSendJobSendResponse(BaseModel):
     """
     BulkSendJobSendResponse
     """ # noqa: E501
-    bulk_send_job: Optional[BulkSendJobResponse] = None
+    bulk_send_job: BulkSendJobResponse
     warnings: Optional[List[WarningResponse]] = Field(default=None, description="A list of warnings.")
     __properties: ClassVar[List[str]] = ["bulk_send_job", "warnings"]
 

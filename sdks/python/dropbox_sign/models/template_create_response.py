@@ -32,7 +32,7 @@ class TemplateCreateResponse(BaseModel):
     """
     TemplateCreateResponse
     """ # noqa: E501
-    template: Optional[TemplateCreateResponseTemplate] = None
+    template: TemplateCreateResponseTemplate
     warnings: Optional[List[WarningResponse]] = Field(default=None, description="A list of warnings.")
     __properties: ClassVar[List[str]] = ["template", "warnings"]
 

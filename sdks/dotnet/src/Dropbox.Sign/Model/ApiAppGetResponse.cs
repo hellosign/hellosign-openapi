@@ -41,11 +41,16 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiAppGetResponse" /> class.
         /// </summary>
-        /// <param name="apiApp">apiApp.</param>
+        /// <param name="apiApp">apiApp (required).</param>
         /// <param name="warnings">A list of warnings..</param>
         public ApiAppGetResponse(ApiAppResponse apiApp = default(ApiAppResponse), List<WarningResponse> warnings = default(List<WarningResponse>))
         {
             
+            // to ensure "apiApp" is required (not null)
+            if (apiApp == null)
+            {
+                throw new ArgumentNullException("apiApp is a required property for ApiAppGetResponse and cannot be null");
+            }
             this.ApiApp = apiApp;
             this.Warnings = warnings;
         }
@@ -69,7 +74,7 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Gets or Sets ApiApp
         /// </summary>
-        [DataMember(Name = "api_app", EmitDefaultValue = true)]
+        [DataMember(Name = "api_app", IsRequired = true, EmitDefaultValue = true)]
         public ApiAppResponse ApiApp { get; set; }
         
         /// <summary>

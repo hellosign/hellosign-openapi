@@ -41,13 +41,23 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TemplateListResponse" /> class.
         /// </summary>
-        /// <param name="templates">List of templates that the API caller has access to..</param>
-        /// <param name="listInfo">listInfo.</param>
+        /// <param name="templates">List of templates that the API caller has access to. (required).</param>
+        /// <param name="listInfo">listInfo (required).</param>
         /// <param name="warnings">A list of warnings..</param>
         public TemplateListResponse(List<TemplateResponse> templates = default(List<TemplateResponse>), ListInfoResponse listInfo = default(ListInfoResponse), List<WarningResponse> warnings = default(List<WarningResponse>))
         {
             
+            // to ensure "templates" is required (not null)
+            if (templates == null)
+            {
+                throw new ArgumentNullException("templates is a required property for TemplateListResponse and cannot be null");
+            }
             this.Templates = templates;
+            // to ensure "listInfo" is required (not null)
+            if (listInfo == null)
+            {
+                throw new ArgumentNullException("listInfo is a required property for TemplateListResponse and cannot be null");
+            }
             this.ListInfo = listInfo;
             this.Warnings = warnings;
         }
@@ -72,13 +82,13 @@ namespace Dropbox.Sign.Model
         /// List of templates that the API caller has access to.
         /// </summary>
         /// <value>List of templates that the API caller has access to.</value>
-        [DataMember(Name = "templates", EmitDefaultValue = true)]
+        [DataMember(Name = "templates", IsRequired = true, EmitDefaultValue = true)]
         public List<TemplateResponse> Templates { get; set; }
         
         /// <summary>
         /// Gets or Sets ListInfo
         /// </summary>
-        [DataMember(Name = "list_info", EmitDefaultValue = true)]
+        [DataMember(Name = "list_info", IsRequired = true, EmitDefaultValue = true)]
         public ListInfoResponse ListInfo { get; set; }
         
         /// <summary>

@@ -8,8 +8,8 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-| `fileUrl` | ```String``` |  URL to the file.  |  |
-| `expiresAt` | ```Integer``` |  When the link expires.  |  |
+| `fileUrl`<sup>*_required_</sup> | ```String``` |  URL to the file.  |  |
+| `expiresAt`<sup>*_required_</sup> | ```Integer``` |  When the link expires.  |  |
 
 
 

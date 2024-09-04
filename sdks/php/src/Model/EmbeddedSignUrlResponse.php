@@ -288,7 +288,12 @@ class EmbeddedSignUrlResponse implements ModelInterface, ArrayAccess, JsonSerial
      */
     public function listInvalidProperties()
     {
-        return [];
+        $invalidProperties = [];
+
+        if ($this->container['embedded'] === null) {
+            $invalidProperties[] = "'embedded' can't be null";
+        }
+        return $invalidProperties;
     }
 
     /**
@@ -305,7 +310,7 @@ class EmbeddedSignUrlResponse implements ModelInterface, ArrayAccess, JsonSerial
     /**
      * Gets embedded
      *
-     * @return EmbeddedSignUrlResponseEmbedded|null
+     * @return EmbeddedSignUrlResponseEmbedded
      */
     public function getEmbedded()
     {
@@ -315,11 +320,11 @@ class EmbeddedSignUrlResponse implements ModelInterface, ArrayAccess, JsonSerial
     /**
      * Sets embedded
      *
-     * @param EmbeddedSignUrlResponseEmbedded|null $embedded embedded
+     * @param EmbeddedSignUrlResponseEmbedded $embedded embedded
      *
      * @return self
      */
-    public function setEmbedded(?EmbeddedSignUrlResponseEmbedded $embedded)
+    public function setEmbedded(EmbeddedSignUrlResponseEmbedded $embedded)
     {
         if (is_null($embedded)) {
             throw new InvalidArgumentException('non-nullable embedded cannot be null');

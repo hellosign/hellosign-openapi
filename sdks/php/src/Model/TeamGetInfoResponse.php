@@ -288,7 +288,12 @@ class TeamGetInfoResponse implements ModelInterface, ArrayAccess, JsonSerializab
      */
     public function listInvalidProperties()
     {
-        return [];
+        $invalidProperties = [];
+
+        if ($this->container['team'] === null) {
+            $invalidProperties[] = "'team' can't be null";
+        }
+        return $invalidProperties;
     }
 
     /**
@@ -305,7 +310,7 @@ class TeamGetInfoResponse implements ModelInterface, ArrayAccess, JsonSerializab
     /**
      * Gets team
      *
-     * @return TeamInfoResponse|null
+     * @return TeamInfoResponse
      */
     public function getTeam()
     {
@@ -315,11 +320,11 @@ class TeamGetInfoResponse implements ModelInterface, ArrayAccess, JsonSerializab
     /**
      * Sets team
      *
-     * @param TeamInfoResponse|null $team team
+     * @param TeamInfoResponse $team team
      *
      * @return self
      */
-    public function setTeam(?TeamInfoResponse $team)
+    public function setTeam(TeamInfoResponse $team)
     {
         if (is_null($team)) {
             throw new InvalidArgumentException('non-nullable team cannot be null');

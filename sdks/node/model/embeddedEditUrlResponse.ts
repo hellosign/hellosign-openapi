@@ -27,7 +27,7 @@ import { EmbeddedEditUrlResponseEmbedded } from "./embeddedEditUrlResponseEmbedd
 import { WarningResponse } from "./warningResponse";
 
 export class EmbeddedEditUrlResponse {
-  "embedded"?: EmbeddedEditUrlResponseEmbedded;
+  "embedded": EmbeddedEditUrlResponseEmbedded;
   /**
    * A list of warnings.
    */

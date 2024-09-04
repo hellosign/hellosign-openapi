@@ -32,7 +32,7 @@ class EmbeddedSignUrlResponse(BaseModel):
     """
     EmbeddedSignUrlResponse
     """ # noqa: E501
-    embedded: Optional[EmbeddedSignUrlResponseEmbedded] = None
+    embedded: EmbeddedSignUrlResponseEmbedded
     warnings: Optional[List[WarningResponse]] = Field(default=None, description="A list of warnings.")
     __properties: ClassVar[List[str]] = ["embedded", "warnings"]
 

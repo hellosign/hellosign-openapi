@@ -34,9 +34,9 @@ class BulkSendJobGetResponse(BaseModel):
     """
     BulkSendJobGetResponse
     """ # noqa: E501
-    bulk_send_job: Optional[BulkSendJobResponse] = None
-    list_info: Optional[ListInfoResponse] = None
-    signature_requests: Optional[List[BulkSendJobGetResponseSignatureRequests]] = Field(default=None, description="Contains information about the Signature Requests sent in bulk.")
+    bulk_send_job: BulkSendJobResponse
+    list_info: ListInfoResponse
+    signature_requests: List[BulkSendJobGetResponseSignatureRequests] = Field(description="Contains information about the Signature Requests sent in bulk.")
     warnings: Optional[List[WarningResponse]] = Field(default=None, description="A list of warnings.")
     __properties: ClassVar[List[str]] = ["bulk_send_job", "list_info", "signature_requests", "warnings"]
 
