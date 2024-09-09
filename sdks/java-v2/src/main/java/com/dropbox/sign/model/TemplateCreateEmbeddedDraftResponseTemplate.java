@@ -25,27 +25,24 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.dropbox.sign.JSON;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.dropbox.sign.JSON;
 
 
 import com.dropbox.sign.ApiException;
 /**
  * Template object with parameters: &#x60;template_id&#x60;, &#x60;edit_url&#x60;, &#x60;expires_at&#x60;.
  */
-@ApiModel(description = "Template object with parameters: `template_id`, `edit_url`, `expires_at`.")
 @JsonPropertyOrder({
   TemplateCreateEmbeddedDraftResponseTemplate.JSON_PROPERTY_TEMPLATE_ID,
   TemplateCreateEmbeddedDraftResponseTemplate.JSON_PROPERTY_EDIT_URL,
   TemplateCreateEmbeddedDraftResponseTemplate.JSON_PROPERTY_EXPIRES_AT,
   TemplateCreateEmbeddedDraftResponseTemplate.JSON_PROPERTY_WARNINGS
 })
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TemplateCreateEmbeddedDraftResponseTemplate {
   public static final String JSON_PROPERTY_TEMPLATE_ID = "template_id";
   private String templateId;
@@ -57,7 +54,8 @@ public class TemplateCreateEmbeddedDraftResponseTemplate {
   private Integer expiresAt;
 
   public static final String JSON_PROPERTY_WARNINGS = "warnings";
-  private List<WarningResponse> warnings;
+  @Deprecated
+  private List<WarningResponse> warnings = null;
 
   public TemplateCreateEmbeddedDraftResponseTemplate() { 
   }
@@ -82,12 +80,11 @@ public class TemplateCreateEmbeddedDraftResponseTemplate {
     return this;
   }
 
-   /**
+  /**
    * The id of the Template.
    * @return templateId
-  **/
+   */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The id of the Template.")
   @JsonProperty(JSON_PROPERTY_TEMPLATE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -108,12 +105,11 @@ public class TemplateCreateEmbeddedDraftResponseTemplate {
     return this;
   }
 
-   /**
+  /**
    * Link to edit the template.
    * @return editUrl
-  **/
+   */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Link to edit the template.")
   @JsonProperty(JSON_PROPERTY_EDIT_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -134,12 +130,11 @@ public class TemplateCreateEmbeddedDraftResponseTemplate {
     return this;
   }
 
-   /**
+  /**
    * When the link expires.
    * @return expiresAt
-  **/
+   */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "When the link expires.")
   @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -155,6 +150,7 @@ public class TemplateCreateEmbeddedDraftResponseTemplate {
   }
 
 
+  @Deprecated
   public TemplateCreateEmbeddedDraftResponseTemplate warnings(List<WarningResponse> warnings) {
     this.warnings = warnings;
     return this;
@@ -168,14 +164,13 @@ public class TemplateCreateEmbeddedDraftResponseTemplate {
     return this;
   }
 
-   /**
+  /**
    * A list of warnings.
    * @return warnings
    * @deprecated
-  **/
+   */
   @Deprecated
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "A list of warnings.")
   @JsonProperty(JSON_PROPERTY_WARNINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -184,6 +179,7 @@ public class TemplateCreateEmbeddedDraftResponseTemplate {
   }
 
 
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_WARNINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWarnings(List<WarningResponse> warnings) {

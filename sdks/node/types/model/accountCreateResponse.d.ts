@@ -3,7 +3,7 @@ import { AccountResponse } from "./accountResponse";
 import { OAuthTokenResponse } from "./oAuthTokenResponse";
 import { WarningResponse } from "./warningResponse";
 export declare class AccountCreateResponse {
-    "account"?: AccountResponse;
+    "account": AccountResponse;
     "oauthData"?: OAuthTokenResponse;
     "warnings"?: Array<WarningResponse>;
     static discriminator: string | undefined;

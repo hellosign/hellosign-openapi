@@ -31,7 +31,7 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "TemplateResponseDocument")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class TemplateResponseDocument : IOpenApiTyped, IEquatable<TemplateResponseDocument>, IValidatableObject
+    public partial class TemplateResponseDocument : IEquatable<TemplateResponseDocument>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="TemplateResponseDocument" /> class.
@@ -80,42 +80,42 @@ namespace Dropbox.Sign.Model
         /// <value>Name of the associated file.</value>
         [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
-
+        
         /// <summary>
         /// Document ordering, the lowest index is displayed first and the highest last (0-based indexing).
         /// </summary>
         /// <value>Document ordering, the lowest index is displayed first and the highest last (0-based indexing).</value>
         [DataMember(Name = "index", EmitDefaultValue = true)]
         public int Index { get; set; }
-
+        
         /// <summary>
         /// An array of Form Field Group objects.
         /// </summary>
         /// <value>An array of Form Field Group objects.</value>
         [DataMember(Name = "field_groups", EmitDefaultValue = true)]
         public List<TemplateResponseDocumentFieldGroup> FieldGroups { get; set; }
-
+        
         /// <summary>
         /// An array of Form Field objects containing the name and type of each named field.
         /// </summary>
         /// <value>An array of Form Field objects containing the name and type of each named field.</value>
         [DataMember(Name = "form_fields", EmitDefaultValue = true)]
         public List<TemplateResponseDocumentFormFieldBase> FormFields { get; set; }
-
+        
         /// <summary>
         /// An array of Form Field objects containing the name and type of each named field.
         /// </summary>
         /// <value>An array of Form Field objects containing the name and type of each named field.</value>
         [DataMember(Name = "custom_fields", EmitDefaultValue = true)]
         public List<TemplateResponseDocumentCustomFieldBase> CustomFields { get; set; }
-
+        
         /// <summary>
         /// An array describing static overlay fields. **NOTE:** Only available for certain subscriptions.
         /// </summary>
         /// <value>An array describing static overlay fields. **NOTE:** Only available for certain subscriptions.</value>
         [DataMember(Name = "static_fields", EmitDefaultValue = true)]
         public List<TemplateResponseDocumentStaticFieldBase> StaticFields { get; set; }
-
+        
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -234,6 +234,15 @@ namespace Dropbox.Sign.Model
             }
         }
 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
+            yield break;
+        }
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
@@ -275,16 +284,6 @@ namespace Dropbox.Sign.Model
             });
 
             return types;
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

@@ -21,7 +21,6 @@ All URIs are relative to https://api.hellosign.com/v3.
 ```php
 teamAddMember($team_add_member_request, $team_id): \Dropbox\Sign\Model\TeamGetResponse
 ```
-
 Add User to Team
 
 Invites a user (specified using the `email_address` parameter) to your Team. If the user does not currently have a Dropbox Sign Account, a new one will be created for them. If a user is already a part of another Team, a `team_invite_failed` error will be returned.
@@ -86,7 +85,6 @@ try {
 ```php
 teamCreate($team_create_request): \Dropbox\Sign\Model\TeamGetResponse
 ```
-
 Create Team
 
 Creates a new Team and makes you a member. You must not currently belong to a Team to invoke.
@@ -150,7 +148,6 @@ try {
 ```php
 teamDelete()
 ```
-
 Delete Team
 
 Deletes your Team. Can only be invoked when you have a Team with only one member (yourself).
@@ -208,7 +205,6 @@ void (empty response body)
 ```php
 teamGet(): \Dropbox\Sign\Model\TeamGetResponse
 ```
-
 Get Team
 
 Returns information about your Team as well as a list of its members. If you do not belong to a Team, a 404 error with an error_name of \"not_found\" will be returned.
@@ -267,7 +263,6 @@ try {
 ```php
 teamInfo($team_id): \Dropbox\Sign\Model\TeamGetInfoResponse
 ```
-
 Get Team Info
 
 Provides information about a team.
@@ -328,7 +323,6 @@ try {
 ```php
 teamInvites($email_address): \Dropbox\Sign\Model\TeamInvitesResponse
 ```
-
 List Team Invites
 
 Provides a list of team invites (and their roles).
@@ -391,7 +385,6 @@ try {
 ```php
 teamMembers($team_id, $page, $page_size): \Dropbox\Sign\Model\TeamMembersResponse
 ```
-
 List Team Members
 
 Provides a paginated list of members (and their roles) that belong to a given team.
@@ -456,7 +449,6 @@ try {
 ```php
 teamRemoveMember($team_remove_member_request): \Dropbox\Sign\Model\TeamGetResponse
 ```
-
 Remove User from Team
 
 Removes the provided user Account from your Team. If the Account had an outstanding invitation to your Team, the invitation will be expired. If you choose to transfer documents from the removed Account to an Account provided in the `new_owner_email_address` parameter (available only for Enterprise plans), the response status code will be 201, which indicates that your request has been queued but not fully executed.
@@ -521,7 +513,6 @@ try {
 ```php
 teamSubTeams($team_id, $page, $page_size): \Dropbox\Sign\Model\TeamSubTeamsResponse
 ```
-
 List Sub Teams
 
 Provides a paginated list of sub teams that belong to a given team.
@@ -586,7 +577,6 @@ try {
 ```php
 teamUpdate($team_update_request): \Dropbox\Sign\Model\TeamGetResponse
 ```
-
 Update Team
 
 Updates the name of your Team.

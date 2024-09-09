@@ -9,12 +9,12 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace {{packageName}}.Client
+namespace {{packageName}}.{{clientPackage}}
 {
     /// <summary>
     /// A token constructed with OAuth.
     /// </summary>
-    public class OAuthToken : TokenBase
+    {{>visibility}} class OAuthToken : TokenBase
     {
         private string _raw;
 
@@ -33,7 +33,7 @@ namespace {{packageName}}.Client
         /// </summary>
         /// <param name="request"></param>
         /// <param name="headerName"></param>
-        public virtual void UseInHeader(System.Net.Http.HttpRequestMessage request, string headerName)
+        public virtual void UseInHeader(global::System.Net.Http.HttpRequestMessage request, string headerName)
         {
             request.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", _raw);
         }

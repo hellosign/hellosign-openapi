@@ -3,7 +3,7 @@ export declare abstract class TemplateResponseDocumentCustomFieldBase {
     "type": string;
     "apiId"?: string;
     "name"?: string;
-    "signer"?: string | null;
+    "signer"?: number | string | null;
     "x"?: number;
     "y"?: number;
     "width"?: number;

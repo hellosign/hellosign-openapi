@@ -31,7 +31,7 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "EmbeddedEditUrlResponseEmbedded")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class EmbeddedEditUrlResponseEmbedded : IOpenApiTyped, IEquatable<EmbeddedEditUrlResponseEmbedded>, IValidatableObject
+    public partial class EmbeddedEditUrlResponseEmbedded : IEquatable<EmbeddedEditUrlResponseEmbedded>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="EmbeddedEditUrlResponseEmbedded" /> class.
@@ -72,14 +72,14 @@ namespace Dropbox.Sign.Model
         /// <value>A template url that can be opened in an iFrame.</value>
         [DataMember(Name = "edit_url", EmitDefaultValue = true)]
         public string EditUrl { get; set; }
-
+        
         /// <summary>
         /// The specific time that the the &#x60;edit_url&#x60; link expires, in epoch.
         /// </summary>
         /// <value>The specific time that the the &#x60;edit_url&#x60; link expires, in epoch.</value>
         [DataMember(Name = "expires_at", EmitDefaultValue = true)]
         public int ExpiresAt { get; set; }
-
+        
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -154,6 +154,15 @@ namespace Dropbox.Sign.Model
             }
         }
 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
+            yield break;
+        }
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
@@ -171,16 +180,6 @@ namespace Dropbox.Sign.Model
             });
 
             return types;
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

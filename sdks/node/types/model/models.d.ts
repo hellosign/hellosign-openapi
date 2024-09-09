@@ -1,8 +1,6 @@
-/// <reference types="node" />
-/// <reference types="node" />
 import { AxiosRequestConfig } from "axios";
-import * as fs from "fs";
 import { Headers } from "form-data";
+import * as fs from "fs";
 export interface RequestDetailedFile {
     value: Buffer;
     options: {
@@ -13,7 +11,6 @@ export interface RequestDetailedFile {
         filepath?: string;
     };
 }
-export type RequestFile = fs.ReadStream | RequestDetailedFile;
 interface AttributeType {
     name: string;
     baseName: string;
@@ -21,6 +18,7 @@ interface AttributeType {
 }
 export interface AttributeTypeMap extends Array<AttributeType> {
 }
+export type RequestFile = fs.ReadStream | RequestDetailedFile;
 export declare class ObjectSerializer {
     static findCorrectType(data: any, expectedType: string): any;
     static serialize(data: any, type: string): any;

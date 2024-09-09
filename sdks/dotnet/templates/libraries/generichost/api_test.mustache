@@ -8,10 +8,10 @@ using {{packageName}}.{{apiPackage}};{{#hasImport}}
 using {{packageName}}.{{modelPackage}};{{/hasImport}}
 
 
-{{{testInstructions}}}
+{{>testInstructions}}
 
 
-namespace {{packageName}}.Test.Api
+namespace {{packageName}}.Test.{{apiPackage}}
 {
     /// <summary>
     ///  Class for testing {{classname}}
@@ -24,7 +24,6 @@ namespace {{packageName}}.Test.Api
         {
             _instance = _host.Services.GetRequiredService<{{interfacePrefix}}{{classname}}>();
         }
-
         {{#operations}}
         {{#operation}}
 
@@ -35,10 +34,16 @@ namespace {{packageName}}.Test.Api
         public async Task {{operationId}}AsyncTest()
         {
             {{#allParams}}
-            {{{dataType}}} {{paramName}} = default;
+            {{^required}}Client.Option<{{/required}}{{{dataType}}}{{>NullConditionalParameter}}{{^required}}>{{/required}} {{paramName}} = default{{nrt!}};
             {{/allParams}}
-            {{#returnType}}var response = {{/returnType}}await _instance.{{operationId}}Async({{#allParams}}{{paramName}}{{^-last}}, {{/-last}}{{/allParams}});{{#returnType}}
-            Assert.IsType<{{{.}}}>(response);{{/returnType}}
+            {{#returnType}}
+            var response = await _instance.{{operationId}}Async({{#allParams}}{{paramName}}{{^-last}}, {{/-last}}{{/allParams}});
+            var model = response.{{#lambda.first}}{{#responses}}{{vendorExtensions.x-http-status}}  {{/responses}}{{/lambda.first}}();
+            Assert.IsType<{{{.}}}>(model);
+            {{/returnType}}
+            {{^returnType}}
+            await _instance.{{operationId}}Async({{#allParams}}{{paramName}}{{^-last}}, {{/-last}}{{/allParams}});
+            {{/returnType}}
         }
         {{/operation}}
         {{/operations}}

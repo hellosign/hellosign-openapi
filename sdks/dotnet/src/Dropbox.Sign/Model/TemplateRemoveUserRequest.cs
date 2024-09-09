@@ -31,7 +31,7 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "TemplateRemoveUserRequest")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class TemplateRemoveUserRequest : IOpenApiTyped, IEquatable<TemplateRemoveUserRequest>, IValidatableObject
+    public partial class TemplateRemoveUserRequest : IEquatable<TemplateRemoveUserRequest>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="TemplateRemoveUserRequest" /> class.
@@ -72,14 +72,14 @@ namespace Dropbox.Sign.Model
         /// <value>The id or email address of the Account to remove access to the Template. The account id prevails if both are provided.</value>
         [DataMember(Name = "account_id", EmitDefaultValue = true)]
         public string AccountId { get; set; }
-
+        
         /// <summary>
         /// The id or email address of the Account to remove access to the Template. The account id prevails if both are provided.
         /// </summary>
         /// <value>The id or email address of the Account to remove access to the Template. The account id prevails if both are provided.</value>
         [DataMember(Name = "email_address", EmitDefaultValue = true)]
         public string EmailAddress { get; set; }
-
+        
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -158,6 +158,15 @@ namespace Dropbox.Sign.Model
             }
         }
 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
+            yield break;
+        }
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
@@ -175,16 +184,6 @@ namespace Dropbox.Sign.Model
             });
 
             return types;
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

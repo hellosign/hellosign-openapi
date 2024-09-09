@@ -9,12 +9,12 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace {{packageName}}.Client
+namespace {{packageName}}.{{clientPackage}}
 {
     /// <summary>
     /// A token constructed from a username and password.
     /// </summary>
-    public class BasicToken : TokenBase
+    {{>visibility}} class BasicToken : TokenBase
     {
         private string _username;
 
@@ -38,7 +38,7 @@ namespace {{packageName}}.Client
         /// </summary>
         /// <param name="request"></param>
         /// <param name="headerName"></param>
-        public virtual void UseInHeader(System.Net.Http.HttpRequestMessage request, string headerName)
+        public virtual void UseInHeader(global::System.Net.Http.HttpRequestMessage request, string headerName)
         {
             request.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Basic", {{packageName}}.Client.ClientUtils.Base64Encode(_username + ":" + _password));
         }

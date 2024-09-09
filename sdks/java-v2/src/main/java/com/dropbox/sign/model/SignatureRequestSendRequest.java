@@ -36,12 +36,10 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.dropbox.sign.JSON;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.dropbox.sign.JSON;
 
 
 import com.dropbox.sign.ApiException;
@@ -76,20 +74,20 @@ import com.dropbox.sign.ApiException;
   SignatureRequestSendRequest.JSON_PROPERTY_USE_TEXT_TAGS,
   SignatureRequestSendRequest.JSON_PROPERTY_EXPIRES_AT
 })
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SignatureRequestSendRequest {
   public static final String JSON_PROPERTY_FILES = "files";
-  private List<File> files;
+  private List<File> files = null;
 
   public static final String JSON_PROPERTY_FILE_URLS = "file_urls";
-  private List<String> fileUrls;
+  private List<String> fileUrls = null;
 
   public static final String JSON_PROPERTY_SIGNERS = "signers";
-  private List<SubSignatureRequestSigner> signers;
+  private List<SubSignatureRequestSigner> signers = null;
 
   public static final String JSON_PROPERTY_GROUPED_SIGNERS = "grouped_signers";
-  private List<SubSignatureRequestGroupedSigners> groupedSigners;
+  private List<SubSignatureRequestGroupedSigners> groupedSigners = null;
 
   public static final String JSON_PROPERTY_ALLOW_DECLINE = "allow_decline";
   private Boolean allowDecline = false;
@@ -98,33 +96,34 @@ public class SignatureRequestSendRequest {
   private Boolean allowReassign = false;
 
   public static final String JSON_PROPERTY_ATTACHMENTS = "attachments";
-  private List<SubAttachment> attachments;
+  private List<SubAttachment> attachments = null;
 
   public static final String JSON_PROPERTY_CC_EMAIL_ADDRESSES = "cc_email_addresses";
-  private List<String> ccEmailAddresses;
+  private List<String> ccEmailAddresses = null;
 
   public static final String JSON_PROPERTY_CLIENT_ID = "client_id";
   private String clientId;
 
   public static final String JSON_PROPERTY_CUSTOM_FIELDS = "custom_fields";
-  private List<SubCustomField> customFields;
+  private List<SubCustomField> customFields = null;
 
   public static final String JSON_PROPERTY_FIELD_OPTIONS = "field_options";
   private SubFieldOptions fieldOptions;
 
   public static final String JSON_PROPERTY_FORM_FIELD_GROUPS = "form_field_groups";
-  private List<SubFormFieldGroup> formFieldGroups;
+  private List<SubFormFieldGroup> formFieldGroups = null;
 
   public static final String JSON_PROPERTY_FORM_FIELD_RULES = "form_field_rules";
-  private List<SubFormFieldRule> formFieldRules;
+  private List<SubFormFieldRule> formFieldRules = null;
 
   public static final String JSON_PROPERTY_FORM_FIELDS_PER_DOCUMENT = "form_fields_per_document";
-  private List<SubFormFieldsPerDocumentBase> formFieldsPerDocument;
+  private List<SubFormFieldsPerDocumentBase> formFieldsPerDocument = null;
 
   public static final String JSON_PROPERTY_HIDE_TEXT_TAGS = "hide_text_tags";
   private Boolean hideTextTags = false;
 
   public static final String JSON_PROPERTY_IS_QUALIFIED_SIGNATURE = "is_qualified_signature";
+  @Deprecated
   private Boolean isQualifiedSignature = false;
 
   public static final String JSON_PROPERTY_IS_EID = "is_eid";
@@ -134,7 +133,7 @@ public class SignatureRequestSendRequest {
   private String message;
 
   public static final String JSON_PROPERTY_METADATA = "metadata";
-  private Map<String, Object> metadata = new HashMap<>();
+  private Map<String, Object> metadata = null;
 
   public static final String JSON_PROPERTY_SIGNING_OPTIONS = "signing_options";
   private SubSigningOptions signingOptions;
@@ -188,12 +187,11 @@ public class SignatureRequestSendRequest {
     return this;
   }
 
-   /**
+  /**
    * Use &#x60;files[]&#x60; to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.
    * @return files
-  **/
+   */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Use `files[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.")
   @JsonProperty(JSON_PROPERTY_FILES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -222,12 +220,11 @@ public class SignatureRequestSendRequest {
     return this;
   }
 
-   /**
+  /**
    * Use &#x60;file_urls[]&#x60; to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.
    * @return fileUrls
-  **/
+   */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Use `file_urls[]` to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.")
   @JsonProperty(JSON_PROPERTY_FILE_URLS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -256,12 +253,11 @@ public class SignatureRequestSendRequest {
     return this;
   }
 
-   /**
+  /**
    * Add Signers to your Signature Request.  This endpoint requires either **signers** or **grouped_signers**, but not both.
    * @return signers
-  **/
+   */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Add Signers to your Signature Request.  This endpoint requires either **signers** or **grouped_signers**, but not both.")
   @JsonProperty(JSON_PROPERTY_SIGNERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -290,12 +286,11 @@ public class SignatureRequestSendRequest {
     return this;
   }
 
-   /**
+  /**
    * Add Grouped Signers to your Signature Request.  This endpoint requires either **signers** or **grouped_signers**, but not both.
    * @return groupedSigners
-  **/
+   */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Add Grouped Signers to your Signature Request.  This endpoint requires either **signers** or **grouped_signers**, but not both.")
   @JsonProperty(JSON_PROPERTY_GROUPED_SIGNERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -316,12 +311,11 @@ public class SignatureRequestSendRequest {
     return this;
   }
 
-   /**
+  /**
    * Allows signers to decline to sign a document if &#x60;true&#x60;. Defaults to &#x60;false&#x60;.
    * @return allowDecline
-  **/
+   */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Allows signers to decline to sign a document if `true`. Defaults to `false`.")
   @JsonProperty(JSON_PROPERTY_ALLOW_DECLINE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -342,12 +336,11 @@ public class SignatureRequestSendRequest {
     return this;
   }
 
-   /**
+  /**
    * Allows signers to reassign their signature requests to other signers if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.  **NOTE:** Only available for Premium plan and higher.
    * @return allowReassign
-  **/
+   */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.  **NOTE:** Only available for Premium plan and higher.")
   @JsonProperty(JSON_PROPERTY_ALLOW_REASSIGN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -376,12 +369,11 @@ public class SignatureRequestSendRequest {
     return this;
   }
 
-   /**
+  /**
    * A list describing the attachments
    * @return attachments
-  **/
+   */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "A list describing the attachments")
   @JsonProperty(JSON_PROPERTY_ATTACHMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -410,12 +402,11 @@ public class SignatureRequestSendRequest {
     return this;
   }
 
-   /**
+  /**
    * The email addresses that should be CCed.
    * @return ccEmailAddresses
-  **/
+   */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The email addresses that should be CCed.")
   @JsonProperty(JSON_PROPERTY_CC_EMAIL_ADDRESSES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -436,12 +427,11 @@ public class SignatureRequestSendRequest {
     return this;
   }
 
-   /**
+  /**
    * The client id of the API App you want to associate with this request. Used to apply the branding and callback url defined for the app.
    * @return clientId
-  **/
+   */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The client id of the API App you want to associate with this request. Used to apply the branding and callback url defined for the app.")
   @JsonProperty(JSON_PROPERTY_CLIENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -470,12 +460,11 @@ public class SignatureRequestSendRequest {
     return this;
   }
 
-   /**
+  /**
    * When used together with merge fields, &#x60;custom_fields&#x60; allows users to add pre-filled data to their signature requests.  Pre-filled data can be used with \&quot;send-once\&quot; signature requests by adding merge fields with &#x60;form_fields_per_document&#x60; or [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) while passing values back with &#x60;custom_fields&#x60; together in one API call.  For using pre-filled on repeatable signature requests, merge fields are added to templates in the Dropbox Sign UI or by calling [/template/create_embedded_draft](/api/reference/operation/templateCreateEmbeddedDraft) and then passing &#x60;custom_fields&#x60; on subsequent signature requests referencing that template.
    * @return customFields
-  **/
+   */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "When used together with merge fields, `custom_fields` allows users to add pre-filled data to their signature requests.  Pre-filled data can be used with \"send-once\" signature requests by adding merge fields with `form_fields_per_document` or [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) while passing values back with `custom_fields` together in one API call.  For using pre-filled on repeatable signature requests, merge fields are added to templates in the Dropbox Sign UI or by calling [/template/create_embedded_draft](/api/reference/operation/templateCreateEmbeddedDraft) and then passing `custom_fields` on subsequent signature requests referencing that template.")
   @JsonProperty(JSON_PROPERTY_CUSTOM_FIELDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -496,12 +485,11 @@ public class SignatureRequestSendRequest {
     return this;
   }
 
-   /**
+  /**
    * Get fieldOptions
    * @return fieldOptions
-  **/
+   */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FIELD_OPTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -530,12 +518,11 @@ public class SignatureRequestSendRequest {
     return this;
   }
 
-   /**
+  /**
    * Group information for fields defined in &#x60;form_fields_per_document&#x60;. String-indexed JSON array with &#x60;group_label&#x60; and &#x60;requirement&#x60; keys. &#x60;form_fields_per_document&#x60; must contain fields referencing a group defined in &#x60;form_field_groups&#x60;.
    * @return formFieldGroups
-  **/
+   */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Group information for fields defined in `form_fields_per_document`. String-indexed JSON array with `group_label` and `requirement` keys. `form_fields_per_document` must contain fields referencing a group defined in `form_field_groups`.")
   @JsonProperty(JSON_PROPERTY_FORM_FIELD_GROUPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -564,12 +551,11 @@ public class SignatureRequestSendRequest {
     return this;
   }
 
-   /**
+  /**
    * Conditional Logic rules for fields defined in &#x60;form_fields_per_document&#x60;.
    * @return formFieldRules
-  **/
+   */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Conditional Logic rules for fields defined in `form_fields_per_document`.")
   @JsonProperty(JSON_PROPERTY_FORM_FIELD_RULES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -598,12 +584,11 @@ public class SignatureRequestSendRequest {
     return this;
   }
 
-   /**
+  /**
    * The fields that should appear on the document, expressed as an array of objects. (For more details you can read about it here: [Using Form Fields per Document](/docs/openapi/form-fields-per-document).)  **NOTE:** Fields like **text**, **dropdown**, **checkbox**, **radio**, and **hyperlink** have additional required and optional parameters. Check out the list of [additional parameters](/api/reference/constants/#form-fields-per-document) for these field types.  * Text Field use &#x60;SubFormFieldsPerDocumentText&#x60; * Dropdown Field use &#x60;SubFormFieldsPerDocumentDropdown&#x60; * Hyperlink Field use &#x60;SubFormFieldsPerDocumentHyperlink&#x60; * Checkbox Field use &#x60;SubFormFieldsPerDocumentCheckbox&#x60; * Radio Field use &#x60;SubFormFieldsPerDocumentRadio&#x60; * Signature Field use &#x60;SubFormFieldsPerDocumentSignature&#x60; * Date Signed Field use &#x60;SubFormFieldsPerDocumentDateSigned&#x60; * Initials Field use &#x60;SubFormFieldsPerDocumentInitials&#x60; * Text Merge Field use &#x60;SubFormFieldsPerDocumentTextMerge&#x60; * Checkbox Merge Field use &#x60;SubFormFieldsPerDocumentCheckboxMerge&#x60;
    * @return formFieldsPerDocument
-  **/
+   */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The fields that should appear on the document, expressed as an array of objects. (For more details you can read about it here: [Using Form Fields per Document](/docs/openapi/form-fields-per-document).)  **NOTE:** Fields like **text**, **dropdown**, **checkbox**, **radio**, and **hyperlink** have additional required and optional parameters. Check out the list of [additional parameters](/api/reference/constants/#form-fields-per-document) for these field types.  * Text Field use `SubFormFieldsPerDocumentText` * Dropdown Field use `SubFormFieldsPerDocumentDropdown` * Hyperlink Field use `SubFormFieldsPerDocumentHyperlink` * Checkbox Field use `SubFormFieldsPerDocumentCheckbox` * Radio Field use `SubFormFieldsPerDocumentRadio` * Signature Field use `SubFormFieldsPerDocumentSignature` * Date Signed Field use `SubFormFieldsPerDocumentDateSigned` * Initials Field use `SubFormFieldsPerDocumentInitials` * Text Merge Field use `SubFormFieldsPerDocumentTextMerge` * Checkbox Merge Field use `SubFormFieldsPerDocumentCheckboxMerge`")
   @JsonProperty(JSON_PROPERTY_FORM_FIELDS_PER_DOCUMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -624,12 +609,11 @@ public class SignatureRequestSendRequest {
     return this;
   }
 
-   /**
+  /**
    * Enables automatic Text Tag removal when set to true.  **NOTE:** Removing text tags this way can cause unwanted clipping. We recommend leaving this setting on &#x60;false&#x60; and instead hiding your text tags using white text or a similar approach. See the [Text Tags Walkthrough](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) for more information.
    * @return hideTextTags
-  **/
+   */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Enables automatic Text Tag removal when set to true.  **NOTE:** Removing text tags this way can cause unwanted clipping. We recommend leaving this setting on `false` and instead hiding your text tags using white text or a similar approach. See the [Text Tags Walkthrough](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) for more information.")
   @JsonProperty(JSON_PROPERTY_HIDE_TEXT_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -645,19 +629,19 @@ public class SignatureRequestSendRequest {
   }
 
 
+  @Deprecated
   public SignatureRequestSendRequest isQualifiedSignature(Boolean isQualifiedSignature) {
     this.isQualifiedSignature = isQualifiedSignature;
     return this;
   }
 
-   /**
+  /**
    * Send with a value of &#x60;true&#x60; if you wish to enable [Qualified Electronic Signatures](https://www.hellosign.com/features/qualified-electronic-signatures) (QES), which requires a face-to-face call to verify the signer&#39;s identity.&lt;br&gt; **NOTE:** QES is only available on the Premium API plan as an add-on purchase. Cannot be used in &#x60;test_mode&#x60;. Only works on requests with one signer.
    * @return isQualifiedSignature
    * @deprecated
-  **/
+   */
   @Deprecated
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Send with a value of `true` if you wish to enable [Qualified Electronic Signatures](https://www.hellosign.com/features/qualified-electronic-signatures) (QES), which requires a face-to-face call to verify the signer's identity.<br> **NOTE:** QES is only available on the Premium API plan as an add-on purchase. Cannot be used in `test_mode`. Only works on requests with one signer.")
   @JsonProperty(JSON_PROPERTY_IS_QUALIFIED_SIGNATURE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -666,6 +650,7 @@ public class SignatureRequestSendRequest {
   }
 
 
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_IS_QUALIFIED_SIGNATURE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIsQualifiedSignature(Boolean isQualifiedSignature) {
@@ -678,12 +663,11 @@ public class SignatureRequestSendRequest {
     return this;
   }
 
-   /**
+  /**
    * Send with a value of &#x60;true&#x60; if you wish to enable [electronic identification (eID)](https://www.hellosign.com/features/electronic-id), which requires the signer to verify their identity with an eID provider to sign a document.&lt;br&gt; **NOTE:** eID is only available on the Premium API plan. Cannot be used in &#x60;test_mode&#x60;. Only works on requests with one signer.
    * @return isEid
-  **/
+   */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Send with a value of `true` if you wish to enable [electronic identification (eID)](https://www.hellosign.com/features/electronic-id), which requires the signer to verify their identity with an eID provider to sign a document.<br> **NOTE:** eID is only available on the Premium API plan. Cannot be used in `test_mode`. Only works on requests with one signer.")
   @JsonProperty(JSON_PROPERTY_IS_EID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -704,12 +688,11 @@ public class SignatureRequestSendRequest {
     return this;
   }
 
-   /**
+  /**
    * The custom message in the email that will be sent to the signers.
    * @return message
-  **/
+   */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The custom message in the email that will be sent to the signers.")
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -738,12 +721,11 @@ public class SignatureRequestSendRequest {
     return this;
   }
 
-   /**
+  /**
    * Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer&#39;s order number for look up when receiving events for the signature request.  Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.
    * @return metadata
-  **/
+   */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.  Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.")
   @JsonProperty(JSON_PROPERTY_METADATA)
   @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -764,12 +746,11 @@ public class SignatureRequestSendRequest {
     return this;
   }
 
-   /**
+  /**
    * Get signingOptions
    * @return signingOptions
-  **/
+   */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SIGNING_OPTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -790,12 +771,11 @@ public class SignatureRequestSendRequest {
     return this;
   }
 
-   /**
+  /**
    * The URL you want signers redirected to after they successfully sign.
    * @return signingRedirectUrl
-  **/
+   */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The URL you want signers redirected to after they successfully sign.")
   @JsonProperty(JSON_PROPERTY_SIGNING_REDIRECT_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -816,12 +796,11 @@ public class SignatureRequestSendRequest {
     return this;
   }
 
-   /**
+  /**
    * The subject in the email that will be sent to the signers.
    * @return subject
-  **/
+   */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The subject in the email that will be sent to the signers.")
   @JsonProperty(JSON_PROPERTY_SUBJECT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -842,12 +821,11 @@ public class SignatureRequestSendRequest {
     return this;
   }
 
-   /**
+  /**
    * Whether this is a test, the signature request will not be legally binding if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.
    * @return testMode
-  **/
+   */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Whether this is a test, the signature request will not be legally binding if set to `true`. Defaults to `false`.")
   @JsonProperty(JSON_PROPERTY_TEST_MODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -868,12 +846,11 @@ public class SignatureRequestSendRequest {
     return this;
   }
 
-   /**
+  /**
    * The title you want to assign to the SignatureRequest.
    * @return title
-  **/
+   */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The title you want to assign to the SignatureRequest.")
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -894,12 +871,11 @@ public class SignatureRequestSendRequest {
     return this;
   }
 
-   /**
+  /**
    * Send with a value of &#x60;true&#x60; if you wish to enable [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) parsing in your document. Defaults to disabled, or &#x60;false&#x60;.
    * @return useTextTags
-  **/
+   */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Send with a value of `true` if you wish to enable [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) parsing in your document. Defaults to disabled, or `false`.")
   @JsonProperty(JSON_PROPERTY_USE_TEXT_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -920,12 +896,11 @@ public class SignatureRequestSendRequest {
     return this;
   }
 
-   /**
+  /**
    * When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.
    * @return expiresAt
-  **/
+   */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.")
   @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

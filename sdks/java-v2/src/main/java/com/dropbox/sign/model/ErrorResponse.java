@@ -23,12 +23,10 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.dropbox.sign.JSON;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.dropbox.sign.JSON;
 
 
 import com.dropbox.sign.ApiException;
@@ -38,8 +36,8 @@ import com.dropbox.sign.ApiException;
 @JsonPropertyOrder({
   ErrorResponse.JSON_PROPERTY_ERROR
 })
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ErrorResponse {
   public static final String JSON_PROPERTY_ERROR = "error";
   private ErrorResponseError error;
@@ -67,12 +65,11 @@ public class ErrorResponse {
     return this;
   }
 
-   /**
+  /**
    * Get error
    * @return error
-  **/
+   */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_ERROR)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

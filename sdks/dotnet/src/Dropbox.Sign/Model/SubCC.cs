@@ -31,7 +31,7 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "SubCC")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class SubCC : IOpenApiTyped, IEquatable<SubCC>, IValidatableObject
+    public partial class SubCC : IEquatable<SubCC>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SubCC" /> class.
@@ -82,14 +82,14 @@ namespace Dropbox.Sign.Model
         /// <value>Must match an existing CC role in chosen Template(s). Multiple CC recipients cannot share the same CC role.</value>
         [DataMember(Name = "role", IsRequired = true, EmitDefaultValue = true)]
         public string Role { get; set; }
-
+        
         /// <summary>
         /// The email address of the CC recipient.
         /// </summary>
         /// <value>The email address of the CC recipient.</value>
         [DataMember(Name = "email_address", IsRequired = true, EmitDefaultValue = true)]
         public string EmailAddress { get; set; }
-
+        
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -168,6 +168,15 @@ namespace Dropbox.Sign.Model
             }
         }
 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
+            yield break;
+        }
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
@@ -185,16 +194,6 @@ namespace Dropbox.Sign.Model
             });
 
             return types;
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

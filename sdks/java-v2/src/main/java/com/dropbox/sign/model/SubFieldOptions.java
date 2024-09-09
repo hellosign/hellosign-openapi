@@ -22,24 +22,21 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.dropbox.sign.JSON;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.dropbox.sign.JSON;
 
 
 import com.dropbox.sign.ApiException;
 /**
  * This allows the requester to specify field options for a signature request.
  */
-@ApiModel(description = "This allows the requester to specify field options for a signature request.")
 @JsonPropertyOrder({
   SubFieldOptions.JSON_PROPERTY_DATE_FORMAT
 })
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SubFieldOptions {
   /**
    * Allows requester to specify the date format (see list of allowed [formats](/api/reference/constants/#date-formats))  **NOTE:** Only available for Premium and higher.
@@ -110,12 +107,11 @@ public class SubFieldOptions {
     return this;
   }
 
-   /**
+  /**
    * Allows requester to specify the date format (see list of allowed [formats](/api/reference/constants/#date-formats))  **NOTE:** Only available for Premium and higher.
    * @return dateFormat
-  **/
+   */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Allows requester to specify the date format (see list of allowed [formats](/api/reference/constants/#date-formats))  **NOTE:** Only available for Premium and higher.")
   @JsonProperty(JSON_PROPERTY_DATE_FORMAT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

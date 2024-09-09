@@ -26,12 +26,10 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.dropbox.sign.JSON;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.dropbox.sign.JSON;
 
 
 import com.dropbox.sign.ApiException;
@@ -42,14 +40,14 @@ import com.dropbox.sign.ApiException;
   TemplateGetResponse.JSON_PROPERTY_TEMPLATE,
   TemplateGetResponse.JSON_PROPERTY_WARNINGS
 })
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TemplateGetResponse {
   public static final String JSON_PROPERTY_TEMPLATE = "template";
   private TemplateResponse template;
 
   public static final String JSON_PROPERTY_WARNINGS = "warnings";
-  private List<WarningResponse> warnings;
+  private List<WarningResponse> warnings = null;
 
   public TemplateGetResponse() { 
   }
@@ -74,14 +72,13 @@ public class TemplateGetResponse {
     return this;
   }
 
-   /**
+  /**
    * Get template
    * @return template
-  **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_TEMPLATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public TemplateResponse getTemplate() {
     return template;
@@ -89,7 +86,7 @@ public class TemplateGetResponse {
 
 
   @JsonProperty(JSON_PROPERTY_TEMPLATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setTemplate(TemplateResponse template) {
     this.template = template;
   }
@@ -108,12 +105,11 @@ public class TemplateGetResponse {
     return this;
   }
 
-   /**
+  /**
    * A list of warnings.
    * @return warnings
-  **/
+   */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "A list of warnings.")
   @JsonProperty(JSON_PROPERTY_WARNINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

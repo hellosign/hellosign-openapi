@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-import { RequestFile, AttributeTypeMap, ObjectSerializer } from "./";
+import { AttributeTypeMap, ObjectSerializer, RequestFile } from "./";
 
 export class TemplateUpdateFilesRequest {
   /**

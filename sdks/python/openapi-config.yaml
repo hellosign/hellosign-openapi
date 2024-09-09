@@ -1,16 +1,21 @@
 generatorName: python
-typeMappings: {}
+typeMappings:
+  "bytearray": "io.IOBase"
 additionalProperties:
   generatorLanguageVersion: ">=3.7"
   packageName: dropbox_sign
   projectName: dropbox-sign
-  packageVersion: 1.5-dev
+  packageVersion: 1.6-dev
   sortModelPropertiesByRequiredFlag: true
   legacyDiscriminatorBehavior: true
   packageAuthor: Dropbox Sign API Team
   packageUrl: https://github.com/hellosign/dropbox-sign-python
   infoName: Official Python SDK for the Dropbox Sign API
+  useCustomTemplateCode: true
 files:
+  __init__apis.mustache:
+    templateType: SupportingFiles
+    destinationFilename: dropbox_sign/apis/__init__.py
   event_callback_helper.mustache:
     templateType: SupportingFiles
     destinationFilename: dropbox_sign/event_callback_helper.py

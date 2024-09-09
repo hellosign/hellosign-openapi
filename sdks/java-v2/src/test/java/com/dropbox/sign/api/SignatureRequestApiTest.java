@@ -4,8 +4,9 @@ import com.dropbox.sign.ApiClient;
 import com.dropbox.sign.TestHelper;
 import com.dropbox.sign.model.*;
 import com.fasterxml.jackson.databind.JsonNode;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.mockito.Mockito;
 
 import static org.mockito.ArgumentMatchers.any;
@@ -50,7 +51,7 @@ public class SignatureRequestApiTest {
         );
 
         assert data.getFormFieldsPerDocument() != null;
-        Assert.assertEquals(
+        assertEquals(
             "signature",
             data.getFormFieldsPerDocument().get(0).getType()
         );
@@ -70,7 +71,7 @@ public class SignatureRequestApiTest {
         SignatureRequestApi api = new SignatureRequestApi(apiClient);
         BulkSendJobSendResponse response = api.signatureRequestBulkCreateEmbeddedWithTemplate(request);
 
-        Assert.assertEquals(expectedResponse, response);
+        assertEquals(expectedResponse, response);
     }
 
     @Test
@@ -87,7 +88,7 @@ public class SignatureRequestApiTest {
         SignatureRequestApi api = new SignatureRequestApi(apiClient);
         BulkSendJobSendResponse response = api.signatureRequestBulkSendWithTemplate(request);
 
-        Assert.assertEquals(expectedResponse, response);
+        assertEquals(expectedResponse, response);
     }
 
     @Test
@@ -111,7 +112,7 @@ public class SignatureRequestApiTest {
         SignatureRequestApi api = new SignatureRequestApi(apiClient);
         SignatureRequestGetResponse response = api.signatureRequestCreateEmbedded(request);
 
-        Assert.assertEquals(expectedResponse, response);
+        assertEquals(expectedResponse, response);
     }
 
     @Test
@@ -128,7 +129,7 @@ public class SignatureRequestApiTest {
         SignatureRequestApi api = new SignatureRequestApi(apiClient);
         SignatureRequestGetResponse response = api.signatureRequestCreateEmbeddedWithTemplate(request);
 
-        Assert.assertEquals(expectedResponse, response);
+        assertEquals(expectedResponse, response);
     }
 
     @Test
@@ -147,7 +148,7 @@ public class SignatureRequestApiTest {
         SignatureRequestApi api = new SignatureRequestApi(apiClient);
         SignatureRequestGetResponse response = api.signatureRequestGet(signatureRequestId);
 
-        Assert.assertEquals(expectedResponse, response);
+        assertEquals(expectedResponse, response);
     }
 
     @Test
@@ -166,7 +167,7 @@ public class SignatureRequestApiTest {
             null
         );
 
-        Assert.assertEquals(expectedResponse, response);
+        assertEquals(expectedResponse, response);
     }
 
     @Test
@@ -180,7 +181,7 @@ public class SignatureRequestApiTest {
         SignatureRequestApi api = new SignatureRequestApi(apiClient);
         SignatureRequestGetResponse response = api.signatureRequestReleaseHold(signatureRequestId);
 
-        Assert.assertEquals(expectedResponse, response);
+        assertEquals(expectedResponse, response);
     }
 
     @Test
@@ -198,7 +199,7 @@ public class SignatureRequestApiTest {
         SignatureRequestApi api = new SignatureRequestApi(apiClient);
         SignatureRequestGetResponse response = api.signatureRequestRemind(signatureRequestId, request);
 
-        Assert.assertEquals(expectedResponse, response);
+        assertEquals(expectedResponse, response);
     }
 
     @Test
@@ -222,7 +223,7 @@ public class SignatureRequestApiTest {
         SignatureRequestApi api = new SignatureRequestApi(apiClient);
         SignatureRequestGetResponse response = api.signatureRequestSend(request);
 
-        Assert.assertEquals(expectedResponse, response);
+        assertEquals(expectedResponse, response);
     }
 
     @Test
@@ -299,7 +300,7 @@ public class SignatureRequestApiTest {
         SignatureRequestApi api = new SignatureRequestApi(apiClient);
         SignatureRequestGetResponse response = api.signatureRequestSendWithTemplate(request);
 
-        Assert.assertEquals(expectedResponse, response);
+        assertEquals(expectedResponse, response);
     }
 
     @Test
@@ -317,6 +318,6 @@ public class SignatureRequestApiTest {
         SignatureRequestApi api = new SignatureRequestApi(apiClient);
         SignatureRequestGetResponse response = api.signatureRequestUpdate(signatureRequestId, request);
 
-        Assert.assertEquals(expectedResponse, response);
+        assertEquals(expectedResponse, response);
     }
 }

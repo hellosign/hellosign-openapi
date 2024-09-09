@@ -2,8 +2,8 @@
 
 All URIs are relative to *https://api.hellosign.com/v3*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
+| Method | HTTP request | Description |
+|------------- | ------------- | -------------|
 [**oauthTokenGenerate**](OAuthApi.md#oauthTokenGenerate) | **POST** /oauth/token | OAuth Token Generate
 [**oauthTokenRefresh**](OAuthApi.md#oauthTokenRefresh) | **POST** /oauth/token?refresh | OAuth Token Refresh
 
@@ -56,8 +56,8 @@ public class Example {
 ### Parameters
 
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
  **oauthTokenGenerateRequest** | [**OAuthTokenGenerateRequest**](OAuthTokenGenerateRequest.md)|  |
 
 ### Return type
@@ -123,8 +123,8 @@ public class Example {
 ### Parameters
 
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
  **oauthTokenRefreshRequest** | [**OAuthTokenRefreshRequest**](OAuthTokenRefreshRequest.md)|  |
 
 ### Return type

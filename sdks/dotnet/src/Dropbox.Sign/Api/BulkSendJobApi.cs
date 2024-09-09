@@ -101,7 +101,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of BulkSendJobGetResponse</returns>
-        System.Threading.Tasks.Task<BulkSendJobGetResponse> BulkSendJobGetAsync(string bulkSendJobId, int? page = default(int?), int? pageSize = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<BulkSendJobGetResponse> BulkSendJobGetAsync(string bulkSendJobId, int? page = default(int?), int? pageSize = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Get Bulk Send Job
@@ -116,7 +116,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (BulkSendJobGetResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<BulkSendJobGetResponse>> BulkSendJobGetWithHttpInfoAsync(string bulkSendJobId, int? page = default(int?), int? pageSize = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<BulkSendJobGetResponse>> BulkSendJobGetWithHttpInfoAsync(string bulkSendJobId, int? page = default(int?), int? pageSize = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// List Bulk Send Jobs
         /// </summary>
@@ -129,7 +129,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of BulkSendJobListResponse</returns>
-        System.Threading.Tasks.Task<BulkSendJobListResponse> BulkSendJobListAsync(int? page = default(int?), int? pageSize = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<BulkSendJobListResponse> BulkSendJobListAsync(int? page = default(int?), int? pageSize = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// List Bulk Send Jobs
@@ -143,7 +143,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (BulkSendJobListResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<BulkSendJobListResponse>> BulkSendJobListWithHttpInfoAsync(int? page = default(int?), int? pageSize = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<BulkSendJobListResponse>> BulkSendJobListWithHttpInfoAsync(int? page = default(int?), int? pageSize = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -327,6 +327,7 @@ namespace Dropbox.Sign.Api
             {
                 localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "page_size", pageSize));
             }
+
             localVarRequestOptions.Operation = "BulkSendJobApi.BulkSendJobGet";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -367,7 +368,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of BulkSendJobGetResponse</returns>
-        public async System.Threading.Tasks.Task<BulkSendJobGetResponse> BulkSendJobGetAsync(string bulkSendJobId, int? page = default(int?), int? pageSize = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<BulkSendJobGetResponse> BulkSendJobGetAsync(string bulkSendJobId, int? page = default(int?), int? pageSize = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Dropbox.Sign.Client.ApiResponse<BulkSendJobGetResponse> localVarResponse = await BulkSendJobGetWithHttpInfoAsync(bulkSendJobId, page, pageSize, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -383,7 +384,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (BulkSendJobGetResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<BulkSendJobGetResponse>> BulkSendJobGetWithHttpInfoAsync(string bulkSendJobId, int? page = default(int?), int? pageSize = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<BulkSendJobGetResponse>> BulkSendJobGetWithHttpInfoAsync(string bulkSendJobId, int? page = default(int?), int? pageSize = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'bulkSendJobId' is set
             if (bulkSendJobId == null)
@@ -396,7 +397,6 @@ namespace Dropbox.Sign.Api
 
             string[] _contentTypes = new string[] {
             };
-
             var localVarContentType = Dropbox.Sign.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
 
             // to determine the Accept header
@@ -424,6 +424,7 @@ namespace Dropbox.Sign.Api
             {
                 localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "page_size", pageSize));
             }
+
             localVarRequestOptions.Operation = "BulkSendJobApi.BulkSendJobGet";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -509,6 +510,7 @@ namespace Dropbox.Sign.Api
             {
                 localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "page_size", pageSize));
             }
+
             localVarRequestOptions.Operation = "BulkSendJobApi.BulkSendJobList";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -548,7 +550,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of BulkSendJobListResponse</returns>
-        public async System.Threading.Tasks.Task<BulkSendJobListResponse> BulkSendJobListAsync(int? page = default(int?), int? pageSize = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<BulkSendJobListResponse> BulkSendJobListAsync(int? page = default(int?), int? pageSize = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Dropbox.Sign.Client.ApiResponse<BulkSendJobListResponse> localVarResponse = await BulkSendJobListWithHttpInfoAsync(page, pageSize, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -563,14 +565,13 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (BulkSendJobListResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<BulkSendJobListResponse>> BulkSendJobListWithHttpInfoAsync(int? page = default(int?), int? pageSize = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<BulkSendJobListResponse>> BulkSendJobListWithHttpInfoAsync(int? page = default(int?), int? pageSize = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
             };
-
             var localVarContentType = Dropbox.Sign.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
 
             // to determine the Accept header
@@ -597,6 +598,7 @@ namespace Dropbox.Sign.Api
             {
                 localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "page_size", pageSize));
             }
+
             localVarRequestOptions.Operation = "BulkSendJobApi.BulkSendJobList";
             localVarRequestOptions.OperationIndex = operationIndex;
 

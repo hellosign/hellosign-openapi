@@ -4,8 +4,9 @@ import com.dropbox.sign.ApiClient;
 import com.dropbox.sign.TestHelper;
 import com.dropbox.sign.model.*;
 import com.fasterxml.jackson.databind.JsonNode;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * API tests for TeamApi
@@ -24,7 +25,7 @@ public class TeamApiTest {
         TeamApi api = new TeamApi(apiClient);
         TeamGetResponse response = api.teamAddMember(request, null);
 
-        Assert.assertEquals(expectedResponse, response);
+        assertEquals(expectedResponse, response);
     }
 
     @Test
@@ -40,7 +41,7 @@ public class TeamApiTest {
         TeamApi api = new TeamApi(apiClient);
         TeamGetResponse response = api.teamCreate(request);
 
-        Assert.assertEquals(expectedResponse, response);
+        assertEquals(expectedResponse, response);
     }
 
     @Test
@@ -58,7 +59,7 @@ public class TeamApiTest {
         TeamApi api = new TeamApi(apiClient);
         TeamGetResponse response = api.teamGet();
 
-        Assert.assertEquals(expectedResponse, response);
+        assertEquals(expectedResponse, response);
     }
 
     @Test
@@ -74,7 +75,7 @@ public class TeamApiTest {
         TeamApi api = new TeamApi(apiClient);
         TeamGetResponse response = api.teamRemoveMember(request);
 
-        Assert.assertEquals(expectedResponse, response);
+        assertEquals(expectedResponse, response);
     }
 
     @Test
@@ -90,6 +91,6 @@ public class TeamApiTest {
         TeamApi api = new TeamApi(apiClient);
         TeamGetResponse response = api.teamUpdate(request);
 
-        Assert.assertEquals(expectedResponse, response);
+        assertEquals(expectedResponse, response);
     }
 }

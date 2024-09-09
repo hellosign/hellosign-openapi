@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-import { RequestFile, AttributeTypeMap, ObjectSerializer } from "./";
+import { AttributeTypeMap, ObjectSerializer, RequestFile } from "./";
 import { SubAttachment } from "./subAttachment";
 import { SubFieldOptions } from "./subFieldOptions";
 import { SubFormFieldGroup } from "./subFormFieldGroup";

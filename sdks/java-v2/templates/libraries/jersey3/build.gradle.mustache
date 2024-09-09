@@ -1,3 +1,12 @@
+{{^useCustomTemplateCode}}
+apply plugin: 'idea'
+apply plugin: 'eclipse'
+apply plugin: 'com.diffplug.spotless'
+
+group = '{{groupId}}'
+version = '{{artifactVersion}}'
+{{/useCustomTemplateCode}}
+
 buildscript {
     repositories {
         mavenCentral()
@@ -9,6 +18,7 @@ buildscript {
     }
 }
 
+{{#useCustomTemplateCode}}
 plugins {
     id 'com.vanniktech.maven.publish' version '0.24.0'
 }
@@ -24,10 +34,90 @@ version = '{{artifactVersion}}'
 sourceCompatibility = JavaVersion.VERSION_1_8
 targetCompatibility = JavaVersion.VERSION_1_8
 
+{{/useCustomTemplateCode}}
 repositories {
     mavenCentral()
 }
 
+{{^useCustomTemplateCode}}
+if(hasProperty('target') && target == 'android') {
+
+    apply plugin: 'com.android.library'
+    apply plugin: 'com.github.dcendents.android-maven'
+
+    android {
+        compileSdkVersion 25
+        buildToolsVersion '25.0.2'
+        defaultConfig {
+            minSdkVersion 14
+            targetSdkVersion 25
+        }
+        compileOptions {
+            sourceCompatibility JavaVersion.VERSION_1_8
+            targetCompatibility JavaVersion.VERSION_1_8
+        }
+
+        // Rename the aar correctly
+        libraryVariants.all { variant ->
+            variant.outputs.each { output ->
+                def outputFile = output.outputFile
+                if (outputFile != null && outputFile.name.endsWith('.aar')) {
+                    def fileName = "${project.name}-${variant.baseName}-${version}.aar"
+                    output.outputFile = new File(outputFile.parent, fileName)
+                }
+            }
+        }
+
+        dependencies {
+            provided "jakarta.annotation:jakarta.annotation-api:$jakarta_annotation_version"
+        }
+    }
+
+    afterEvaluate {
+        android.libraryVariants.all { variant ->
+            def task = project.tasks.create "jar${variant.name.capitalize()}", Jar
+            task.description = "Create jar artifact for ${variant.name}"
+            task.dependsOn variant.javaCompile
+            task.from variant.javaCompile.destinationDirectory
+            task.destinationDirectory = project.file("${project.buildDir}/outputs/jar")
+            task.archiveFileName = "${project.name}-${variant.baseName}-${version}.jar"
+            artifacts.add('archives', task);
+        }
+    }
+
+    task sourcesJar(type: Jar) {
+        from android.sourceSets.main.java.srcDirs
+        classifier = 'sources'
+    }
+
+    artifacts {
+        archives sourcesJar
+    }
+
+} else {
+
+    apply plugin: 'java'
+    apply plugin: 'maven-publish'
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+
+    publishing {
+        publications {
+            maven(MavenPublication) {
+               artifactId = '{{artifactId}}'
+
+               from components.java
+            }
+        }
+    }
+
+    task execute(type:JavaExec) {
+       main = System.getProperty('mainClass')
+       classpath = sourceSets.main.runtimeClasspath
+    }
+}
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
 }
@@ -113,29 +203,30 @@ publishing {
         }
     }
 }
+{{/useCustomTemplateCode}}
 
 ext {
     swagger_annotations_version = "1.6.5"
-    jackson_version = "2.13.4"
-    jackson_databind_version = "2.13.4.2"
+    jackson_version = "2.17.1"
+    jackson_databind_version = "2.17.1"
     {{#openApiNullable}}
     jackson_databind_nullable_version = "0.2.6"
     {{/openApiNullable}}
     jakarta_annotation_version = "2.1.0"
-    {{#threetenbp}}
-    jackson_threetenbp_version = "2.9.10"
-    {{/threetenbp}}
+    {{#useBeanValidation}}
+    bean_validation_version = "3.0.2"
+    {{/useBeanValidation}}
     jersey_version = "3.0.4"
-    {{! TODO use latest version of junit }}
-    {{!junit_version = "5.8.2"}}
-    junit_version = "4.13.1"
+    junit_version = "5.8.2"
     {{#hasOAuthMethods}}
     scribejava_apis_version = "8.3.1"
     {{/hasOAuthMethods}}
     {{#hasHttpSignatureMethods}}
     tomitribe_http_signatures_version = "1.7"
     {{/hasHttpSignatureMethods}}
+{{#useCustomTemplateCode}}
     mockito_version = "3.12.4"
+{{/useCustomTemplateCode}}
 }
 
 dependencies {
@@ -155,32 +246,28 @@ dependencies {
     {{#joda}}
     implementation "com.fasterxml.jackson.datatype:jackson-datatype-joda:$jackson_version"
     {{/joda}}
-    {{#java8}}
     implementation "com.fasterxml.jackson.datatype:jackson-datatype-jsr310:$jackson_version"
-    {{/java8}}
     {{#hasOAuthMethods}}
     implementation "com.github.scribejava:scribejava-apis:$scribejava_apis_version"
     {{/hasOAuthMethods}}
     {{#hasHttpSignatureMethods}}
     implementation "org.tomitribe:tomitribe-http-signatures:$tomitribe_http_signatures_version"
     {{/hasHttpSignatureMethods}}
-    {{#threetenbp}}
-    implementation "com.github.joschi.jackson:jackson-datatype-threetenbp:$jackson_threetenbp_version"
-    {{/threetenbp}}
     implementation "jakarta.annotation:jakarta.annotation-api:$jakarta_annotation_version"
-    {{! TODO use latest version of junit }}
-    {{!testImplementation "org.junit.jupiter:junit-jupiter-api:$junit_version"
-    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$junit_version"}}
-    testImplementation "junit:junit:$junit_version"
+    {{#useBeanValidation}}
+    implementation "jakarta.validation:jakarta.validation-api:$bean_validation_version"
+    {{/useBeanValidation}}
+
+    testImplementation "org.junit.jupiter:junit-jupiter-api:$junit_version"
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$junit_version"
+{{#useCustomTemplateCode}}
     testImplementation "org.mockito:mockito-core:$mockito_version"
+{{/useCustomTemplateCode}}
 }
 
-{{! TODO use latest version of junit (uncomment the below) }}
-{{!
 test {
     useJUnitPlatform()
 }
-}}
 
 javadoc {
     options.tags = [ "http.response.details:a:Http Response Details" ]

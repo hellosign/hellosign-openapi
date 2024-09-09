@@ -14,7 +14,6 @@
 package com.dropbox.sign.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.dropbox.sign.model.WarningResponse;
@@ -23,32 +22,31 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.dropbox.sign.JSON;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.dropbox.sign.JSON;
 
 
 import com.dropbox.sign.ApiException;
 /**
  * Contains template id
  */
-@ApiModel(description = "Contains template id")
 @JsonPropertyOrder({
-    TemplateUpdateFilesResponseTemplate.JSON_PROPERTY_TEMPLATE_ID,
-    TemplateUpdateFilesResponseTemplate.JSON_PROPERTY_WARNINGS
+  TemplateUpdateFilesResponseTemplate.JSON_PROPERTY_TEMPLATE_ID,
+  TemplateUpdateFilesResponseTemplate.JSON_PROPERTY_WARNINGS
 })
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TemplateUpdateFilesResponseTemplate {
   public static final String JSON_PROPERTY_TEMPLATE_ID = "template_id";
   private String templateId;
 
   public static final String JSON_PROPERTY_WARNINGS = "warnings";
+  @Deprecated
   private List<WarningResponse> warnings = null;
 
   public TemplateUpdateFilesResponseTemplate() { 
@@ -74,12 +72,11 @@ public class TemplateUpdateFilesResponseTemplate {
     return this;
   }
 
-   /**
+  /**
    * The id of the Template.
    * @return templateId
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The id of the Template.")
   @JsonProperty(JSON_PROPERTY_TEMPLATE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -95,6 +92,7 @@ public class TemplateUpdateFilesResponseTemplate {
   }
 
 
+  @Deprecated
   public TemplateUpdateFilesResponseTemplate warnings(List<WarningResponse> warnings) {
     this.warnings = warnings;
     return this;
@@ -108,14 +106,13 @@ public class TemplateUpdateFilesResponseTemplate {
     return this;
   }
 
-   /**
+  /**
    * A list of warnings.
    * @return warnings
    * @deprecated
-  **/
+   */
   @Deprecated
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A list of warnings.")
   @JsonProperty(JSON_PROPERTY_WARNINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -124,6 +121,7 @@ public class TemplateUpdateFilesResponseTemplate {
   }
 
 
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_WARNINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWarnings(List<WarningResponse> warnings) {

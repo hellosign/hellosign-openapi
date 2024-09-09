@@ -4,10 +4,18 @@
 
 All URIs are relative to *{{basePath}}*
 
+{{^useCustomTemplateCode}}
+| Method | HTTP request | Description |
+|------------- | ------------- | -------------|
+{{#operations}}{{#operation}}| [**{{operationId}}**]({{classname}}.md#{{operationId}}) | **{{httpMethod}}** {{commonPath}}{{path}} | {{summary}} |
+{{/operation}}{{/operations}}
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 {{#operations}}{{#operation}}[**{{operationId}}**]({{classname}}.md#{{operationId}}) | **{{httpMethod}}** {{commonPath}}{{path}} | {{summary}}
 {{/operation}}{{/operations}}
+{{/useCustomTemplateCode}}
 
 {{#operations}}
 {{#operation}}
@@ -75,11 +83,20 @@ public class Example {
 
 ### Parameters
 
+{{^useCustomTemplateCode}}
+{{^allParams}}This endpoint does not need any parameter.{{/allParams}}{{#allParams}}{{#-last}}
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|{{/-last}}{{/allParams}}
+{{#allParams}}| **{{paramName}}** | {{#isPrimitiveType}}**{{dataType}}**{{/isPrimitiveType}}{{^isPrimitiveType}}{{#isFile}}**{{dataType}}**{{/isFile}}{{^isFile}}[**{{dataType}}**]({{baseType}}.md){{/isFile}}{{/isPrimitiveType}}| {{description}} |{{^required}} [optional]{{/required}}{{^isContainer}}{{#defaultValue}} [default to {{.}}]{{/defaultValue}}{{/isContainer}}{{#allowableValues}} [enum: {{#values}}{{{.}}}{{^-last}}, {{/-last}}{{/values}}]{{/allowableValues}} |
+{{/allParams}}
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
 {{^allParams}}This endpoint does not need any parameter.{{/allParams}}{{#allParams}}{{#-last}}
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------{{/-last}}{{/allParams}}
 {{#allParams}} **{{paramName}}** | {{#isPrimitiveType}}**{{dataType}}**{{/isPrimitiveType}}{{^isPrimitiveType}}{{#isFile}}**{{dataType}}**{{/isFile}}{{^isFile}}[**{{dataType}}**]({{baseType}}.md){{/isFile}}{{/isPrimitiveType}}| {{description}} |{{^required}} [optional]{{/required}}{{^isContainer}}{{#defaultValue}} [default to {{.}}]{{/defaultValue}}{{/isContainer}}{{#allowableValues}} [enum: {{#values}}{{{.}}}{{^-last}}, {{/-last}}{{/values}}]{{/allowableValues}}
 {{/allParams}}
+{{/useCustomTemplateCode}}
 
 ### Return type
 

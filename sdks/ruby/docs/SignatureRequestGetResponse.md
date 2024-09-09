@@ -6,6 +6,6 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| `signature_request` | [```SignatureRequestResponse```](SignatureRequestResponse.md) |    |  |
+| `signature_request`<sup>*_required_</sup> | [```SignatureRequestResponse```](SignatureRequestResponse.md) |    |  |
 | `warnings` | [```Array<WarningResponse>```](WarningResponse.md) |  A list of warnings.  |  |
 

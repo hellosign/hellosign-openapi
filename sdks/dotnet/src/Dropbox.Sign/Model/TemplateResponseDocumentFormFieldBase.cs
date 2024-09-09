@@ -32,14 +32,6 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "TemplateResponseDocumentFormFieldBase")]
     [JsonConverter(typeof(JsonSubtypes), "Type")]
-    [JsonSubtypes.KnownSubType(typeof(TemplateResponseDocumentFormFieldCheckbox), "TemplateResponseDocumentFormFieldCheckbox")]
-    [JsonSubtypes.KnownSubType(typeof(TemplateResponseDocumentFormFieldDateSigned), "TemplateResponseDocumentFormFieldDateSigned")]
-    [JsonSubtypes.KnownSubType(typeof(TemplateResponseDocumentFormFieldDropdown), "TemplateResponseDocumentFormFieldDropdown")]
-    [JsonSubtypes.KnownSubType(typeof(TemplateResponseDocumentFormFieldHyperlink), "TemplateResponseDocumentFormFieldHyperlink")]
-    [JsonSubtypes.KnownSubType(typeof(TemplateResponseDocumentFormFieldInitials), "TemplateResponseDocumentFormFieldInitials")]
-    [JsonSubtypes.KnownSubType(typeof(TemplateResponseDocumentFormFieldRadio), "TemplateResponseDocumentFormFieldRadio")]
-    [JsonSubtypes.KnownSubType(typeof(TemplateResponseDocumentFormFieldSignature), "TemplateResponseDocumentFormFieldSignature")]
-    [JsonSubtypes.KnownSubType(typeof(TemplateResponseDocumentFormFieldText), "TemplateResponseDocumentFormFieldText")]
     [JsonSubtypes.KnownSubType(typeof(TemplateResponseDocumentFormFieldCheckbox), "checkbox")]
     [JsonSubtypes.KnownSubType(typeof(TemplateResponseDocumentFormFieldDateSigned), "date_signed")]
     [JsonSubtypes.KnownSubType(typeof(TemplateResponseDocumentFormFieldDropdown), "dropdown")]
@@ -49,7 +41,7 @@ namespace Dropbox.Sign.Model
     [JsonSubtypes.KnownSubType(typeof(TemplateResponseDocumentFormFieldSignature), "signature")]
     [JsonSubtypes.KnownSubType(typeof(TemplateResponseDocumentFormFieldText), "text")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class TemplateResponseDocumentFormFieldBase : IOpenApiTyped, IEquatable<TemplateResponseDocumentFormFieldBase>, IValidatableObject
+    public partial class TemplateResponseDocumentFormFieldBase : IEquatable<TemplateResponseDocumentFormFieldBase>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="TemplateResponseDocumentFormFieldBase" /> class.
@@ -69,7 +61,7 @@ namespace Dropbox.Sign.Model
         /// <param name="height">The height in pixels of this form field..</param>
         /// <param name="required">Boolean showing whether or not this field is required..</param>
         /// <param name="group">The name of the group this field is in. If this field is not a group, this defaults to &#x60;null&#x60; except for Radio fields..</param>
-        public TemplateResponseDocumentFormFieldBase(string apiId = default(string), string name = default(string), string type = default(string), string signer = default(string), int x = default(int), int y = default(int), int width = default(int), int height = default(int), bool required = default(bool), string group = default(string))
+        public TemplateResponseDocumentFormFieldBase(string apiId = default(string), string name = default(string), string type = default(string), Object signer = null, int x = default(int), int y = default(int), int width = default(int), int height = default(int), bool required = default(bool), string group = default(string))
         {
             
             // to ensure "type" is required (not null)
@@ -80,7 +72,7 @@ namespace Dropbox.Sign.Model
             this.Type = type;
             this.ApiId = apiId;
             this.Name = name;
-            this.Signer = signer;
+            this.Signer = Convert.ToString(signer);
             this.X = x;
             this.Y = y;
             this.Width = width;
@@ -110,70 +102,74 @@ namespace Dropbox.Sign.Model
         /// </summary>
         [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
         public string Type { get; set; }
-
+        
         /// <summary>
         /// A unique id for the form field.
         /// </summary>
         /// <value>A unique id for the form field.</value>
         [DataMember(Name = "api_id", EmitDefaultValue = true)]
         public string ApiId { get; set; }
-
+        
         /// <summary>
         /// The name of the form field.
         /// </summary>
         /// <value>The name of the form field.</value>
         [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
-
+        
         /// <summary>
         /// The signer of the Form Field.
         /// </summary>
         /// <value>The signer of the Form Field.</value>
         [DataMember(Name = "signer", EmitDefaultValue = true)]
-        public string Signer { get; set; }
+        public object Signer {
+            get => this._signer;
+            set => this._signer = Convert.ToString(value);
+        }
 
+        private string _signer;
         /// <summary>
         /// The horizontal offset in pixels for this form field.
         /// </summary>
         /// <value>The horizontal offset in pixels for this form field.</value>
         [DataMember(Name = "x", EmitDefaultValue = true)]
         public int X { get; set; }
-
+        
         /// <summary>
         /// The vertical offset in pixels for this form field.
         /// </summary>
         /// <value>The vertical offset in pixels for this form field.</value>
         [DataMember(Name = "y", EmitDefaultValue = true)]
         public int Y { get; set; }
-
+        
         /// <summary>
         /// The width in pixels of this form field.
         /// </summary>
         /// <value>The width in pixels of this form field.</value>
         [DataMember(Name = "width", EmitDefaultValue = true)]
         public int Width { get; set; }
-
+        
         /// <summary>
         /// The height in pixels of this form field.
         /// </summary>
         /// <value>The height in pixels of this form field.</value>
         [DataMember(Name = "height", EmitDefaultValue = true)]
         public int Height { get; set; }
-
+        
         /// <summary>
         /// Boolean showing whether or not this field is required.
         /// </summary>
         /// <value>Boolean showing whether or not this field is required.</value>
         [DataMember(Name = "required", EmitDefaultValue = true)]
         public bool Required { get; set; }
-
+        
         /// <summary>
         /// The name of the group this field is in. If this field is not a group, this defaults to &#x60;null&#x60; except for Radio fields.
         /// </summary>
         /// <value>The name of the group this field is in. If this field is not a group, this defaults to &#x60;null&#x60; except for Radio fields.</value>
         [DataMember(Name = "group", EmitDefaultValue = true)]
         public string Group { get; set; }
-
+        
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -312,6 +308,25 @@ namespace Dropbox.Sign.Model
             }
         }
 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
+            return this.BaseValidate(validationContext);
+        }
+
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        protected IEnumerable<ValidationResult> BaseValidate(ValidationContext validationContext)
+        {
+            yield break;
+        }
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
@@ -377,26 +392,6 @@ namespace Dropbox.Sign.Model
             });
 
             return types;
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
-        {
-            return this.BaseValidate(validationContext);
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        protected IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> BaseValidate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

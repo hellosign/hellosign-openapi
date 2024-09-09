@@ -22,12 +22,12 @@
  * SOFTWARE.
  */
 
-import { RequestFile, AttributeTypeMap, ObjectSerializer } from "./";
+import { AttributeTypeMap, ObjectSerializer } from "./";
 import { EmbeddedEditUrlResponseEmbedded } from "./embeddedEditUrlResponseEmbedded";
 import { WarningResponse } from "./warningResponse";
 
 export class EmbeddedEditUrlResponse {
-  "embedded"?: EmbeddedEditUrlResponseEmbedded;
+  "embedded": EmbeddedEditUrlResponseEmbedded;
   /**
    * A list of warnings.
    */

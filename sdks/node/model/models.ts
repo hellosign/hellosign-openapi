@@ -1,8 +1,7 @@
 import { AxiosRequestConfig } from "axios";
-import * as fs from "fs";
-
-import { enumsMap, typeMap } from "./";
 import { Headers } from "form-data";
+import * as fs from "fs";
+import { enumsMap, typeMap } from "./";
 
 export interface RequestDetailedFile {
   value: Buffer;
@@ -15,8 +14,6 @@ export interface RequestDetailedFile {
   };
 }
 
-export type RequestFile = fs.ReadStream | RequestDetailedFile;
-
 interface AttributeType {
   name: string;
   baseName: string;
@@ -24,6 +21,8 @@ interface AttributeType {
 }
 
 export interface AttributeTypeMap extends Array<AttributeType> {}
+
+export type RequestFile = fs.ReadStream | RequestDetailedFile;
 
 /* tslint:disable:no-unused-variable */
 let primitives = [
@@ -165,7 +164,6 @@ export class ObjectSerializer {
       let attributeTypes = typeMap[type].getAttributeTypeMap();
       for (let index = 0; index < attributeTypes.length; index++) {
         let attributeType = attributeTypes[index];
-
         const propertyKey =
           data[attributeType.baseName] !== undefined
             ? attributeType.baseName

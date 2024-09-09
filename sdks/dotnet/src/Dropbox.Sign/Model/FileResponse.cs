@@ -31,7 +31,7 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "FileResponse")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class FileResponse : IOpenApiTyped, IEquatable<FileResponse>, IValidatableObject
+    public partial class FileResponse : IEquatable<FileResponse>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="FileResponse" /> class.
@@ -41,11 +41,16 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FileResponse" /> class.
         /// </summary>
-        /// <param name="fileUrl">URL to the file..</param>
-        /// <param name="expiresAt">When the link expires..</param>
+        /// <param name="fileUrl">URL to the file. (required).</param>
+        /// <param name="expiresAt">When the link expires. (required).</param>
         public FileResponse(string fileUrl = default(string), int expiresAt = default(int))
         {
             
+            // to ensure "fileUrl" is required (not null)
+            if (fileUrl == null)
+            {
+                throw new ArgumentNullException("fileUrl is a required property for FileResponse and cannot be null");
+            }
             this.FileUrl = fileUrl;
             this.ExpiresAt = expiresAt;
         }
@@ -70,16 +75,16 @@ namespace Dropbox.Sign.Model
         /// URL to the file.
         /// </summary>
         /// <value>URL to the file.</value>
-        [DataMember(Name = "file_url", EmitDefaultValue = true)]
+        [DataMember(Name = "file_url", IsRequired = true, EmitDefaultValue = true)]
         public string FileUrl { get; set; }
-
+        
         /// <summary>
         /// When the link expires.
         /// </summary>
         /// <value>When the link expires.</value>
-        [DataMember(Name = "expires_at", EmitDefaultValue = true)]
+        [DataMember(Name = "expires_at", IsRequired = true, EmitDefaultValue = true)]
         public int ExpiresAt { get; set; }
-
+        
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -154,6 +159,15 @@ namespace Dropbox.Sign.Model
             }
         }
 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
+            yield break;
+        }
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
@@ -171,16 +185,6 @@ namespace Dropbox.Sign.Model
             });
 
             return types;
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

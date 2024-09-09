@@ -22,12 +22,10 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.dropbox.sign.JSON;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.dropbox.sign.JSON;
 
 
 import com.dropbox.sign.ApiException;
@@ -39,8 +37,8 @@ import com.dropbox.sign.ApiException;
   SubUnclaimedDraftSigner.JSON_PROPERTY_NAME,
   SubUnclaimedDraftSigner.JSON_PROPERTY_ORDER
 })
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SubUnclaimedDraftSigner {
   public static final String JSON_PROPERTY_EMAIL_ADDRESS = "email_address";
   private String emailAddress;
@@ -74,12 +72,11 @@ public class SubUnclaimedDraftSigner {
     return this;
   }
 
-   /**
+  /**
    * The email address of the signer.
    * @return emailAddress
-  **/
+   */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The email address of the signer.")
   @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -100,12 +97,11 @@ public class SubUnclaimedDraftSigner {
     return this;
   }
 
-   /**
+  /**
    * The name of the signer.
    * @return name
-  **/
+   */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The name of the signer.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -126,12 +122,11 @@ public class SubUnclaimedDraftSigner {
     return this;
   }
 
-   /**
+  /**
    * The order the signer is required to sign in.
    * @return order
-  **/
+   */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The order the signer is required to sign in.")
   @JsonProperty(JSON_PROPERTY_ORDER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

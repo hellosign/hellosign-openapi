@@ -2,8 +2,8 @@
 
 All URIs are relative to *https://api.hellosign.com/v3*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
+| Method | HTTP request | Description |
+|------------- | ------------- | -------------|
 [**templateAddUser**](TemplateApi.md#templateAddUser) | **POST** /template/add_user/{template_id} | Add User to Template
 [**templateCreate**](TemplateApi.md#templateCreate) | **POST** /template/create | Create  Template
 [**templateCreateEmbeddedDraft**](TemplateApi.md#templateCreateEmbeddedDraft) | **POST** /template/create_embedded_draft | Create Embedded Template Draft
@@ -71,8 +71,8 @@ public class Example {
 ### Parameters
 
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
  **templateId** | **String**| The id of the Template to give the Account access to. |
  **templateAddUserRequest** | [**TemplateAddUserRequest**](TemplateAddUserRequest.md)|  |
 
@@ -178,8 +178,8 @@ public class Example {
 ### Parameters
 
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
  **templateCreateRequest** | [**TemplateCreateRequest**](TemplateCreateRequest.md)|  |
 
 ### Return type
@@ -284,8 +284,8 @@ public class Example {
 ### Parameters
 
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
  **templateCreateEmbeddedDraftRequest** | [**TemplateCreateEmbeddedDraftRequest**](TemplateCreateEmbeddedDraftRequest.md)|  |
 
 ### Return type
@@ -356,8 +356,8 @@ public class Example {
 ### Parameters
 
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
  **templateId** | **String**| The id of the Template to delete. |
 
 ### Return type
@@ -433,8 +433,8 @@ public class Example {
 ### Parameters
 
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
  **templateId** | **String**| The id of the template files to retrieve. |
  **fileType** | **String**| Set to `pdf` for a single merged document or `zip` for a collection of individual documents. | [optional] [enum: pdf, zip]
 
@@ -510,8 +510,8 @@ public class Example {
 ### Parameters
 
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
  **templateId** | **String**| The id of the template files to retrieve. |
 
 ### Return type
@@ -586,8 +586,8 @@ public class Example {
 ### Parameters
 
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
  **templateId** | **String**| The id of the template files to retrieve. |
  **forceDownload** | **Integer**| By default when opening the `file_url` a browser will download the PDF and save it locally. When set to `0` the PDF file will be displayed in the browser. | [optional] [default to 1]
 
@@ -661,8 +661,8 @@ public class Example {
 ### Parameters
 
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
  **templateId** | **String**| The id of the Template to retrieve. |
 
 ### Return type
@@ -740,8 +740,8 @@ public class Example {
 ### Parameters
 
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
  **accountId** | **String**| Which account to return Templates for. Must be a team member. Use `all` to indicate all team members. Defaults to your account. | [optional]
  **page** | **Integer**| Which page number of the Template List to return. Defaults to `1`. | [optional] [default to 1]
  **pageSize** | **Integer**| Number of objects to be returned per page. Must be between `1` and `100`. Default is `20`. | [optional] [default to 20]
@@ -820,8 +820,8 @@ public class Example {
 ### Parameters
 
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
  **templateId** | **String**| The id of the Template to remove the Account&#39;s access to. |
  **templateRemoveUserRequest** | [**TemplateRemoveUserRequest**](TemplateRemoveUserRequest.md)|  |
 
@@ -911,8 +911,8 @@ public class Example {
 ### Parameters
 
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
  **templateId** | **String**| The ID of the template whose files to update. |
  **templateUpdateFilesRequest** | [**TemplateUpdateFilesRequest**](TemplateUpdateFilesRequest.md)|  |
 

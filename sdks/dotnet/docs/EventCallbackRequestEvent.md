@@ -5,10 +5,7 @@ Basic information about the event that occurred.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**EventTime** | **string** |  Time the event was created (using Unix time).  | 
-**EventType** | **string** |  Type of callback event that was triggered.  | 
-**EventHash** | **string** |  Generated hash used to verify source of event data.  | 
-**EventMetadata** | [**EventCallbackRequestEventMetadata**](EventCallbackRequestEventMetadata.md) |    | [optional] 
+**EventTime** | **string** |  Time the event was created (using Unix time).  | **EventType** | **string** |  Type of callback event that was triggered.  | **EventHash** | **string** |  Generated hash used to verify source of event data.  | **EventMetadata** | [**EventCallbackRequestEventMetadata**](EventCallbackRequestEventMetadata.md) |    | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

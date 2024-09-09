@@ -21,7 +21,6 @@ using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
-using JsonSubTypes;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 
@@ -31,17 +30,6 @@ namespace Dropbox.Sign.Model
     /// This class extends &#x60;SubFormFieldsPerDocumentBase&#x60;.
     /// </summary>
     [DataContract(Name = "SubFormFieldsPerDocumentCheckbox")]
-    [JsonConverter(typeof(JsonSubtypes), "Type")]
-    [JsonSubtypes.KnownSubType(typeof(SubFormFieldsPerDocumentCheckbox), "checkbox")]
-    [JsonSubtypes.KnownSubType(typeof(SubFormFieldsPerDocumentCheckboxMerge), "checkbox-merge")]
-    [JsonSubtypes.KnownSubType(typeof(SubFormFieldsPerDocumentDateSigned), "date_signed")]
-    [JsonSubtypes.KnownSubType(typeof(SubFormFieldsPerDocumentDropdown), "dropdown")]
-    [JsonSubtypes.KnownSubType(typeof(SubFormFieldsPerDocumentHyperlink), "hyperlink")]
-    [JsonSubtypes.KnownSubType(typeof(SubFormFieldsPerDocumentInitials), "initials")]
-    [JsonSubtypes.KnownSubType(typeof(SubFormFieldsPerDocumentRadio), "radio")]
-    [JsonSubtypes.KnownSubType(typeof(SubFormFieldsPerDocumentSignature), "signature")]
-    [JsonSubtypes.KnownSubType(typeof(SubFormFieldsPerDocumentText), "text")]
-    [JsonSubtypes.KnownSubType(typeof(SubFormFieldsPerDocumentTextMerge), "text-merge")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
     public partial class SubFormFieldsPerDocumentCheckbox : SubFormFieldsPerDocumentBase, IOpenApiTyped, IEquatable<SubFormFieldsPerDocumentCheckbox>, IValidatableObject
     {
@@ -66,7 +54,7 @@ namespace Dropbox.Sign.Model
         /// <param name="width">Size of the field in pixels. (required).</param>
         /// <param name="x">Location coordinates of the field in pixels. (required).</param>
         /// <param name="y">Location coordinates of the field in pixels. (required).</param>
-        public SubFormFieldsPerDocumentCheckbox(string type = "checkbox", string group = default(string), bool isChecked = default(bool), int documentIndex = default(int), string apiId = default(string), int height = default(int), string name = default(string), int? page = default(int?), bool required = default(bool), Object signer = null, int width = default(int), int x = default(int), int y = default(int))
+        public SubFormFieldsPerDocumentCheckbox(string type = @"checkbox", string group = default(string), bool isChecked = default(bool), int documentIndex = default(int), string apiId = default(string), int height = default(int), string name = default(string), int? page = default(int?), bool required = default(bool), Object signer = null, int width = default(int), int x = default(int), int y = default(int))
         {
             this.DocumentIndex = documentIndex;
             this.ApiId = apiId;
@@ -111,21 +99,21 @@ namespace Dropbox.Sign.Model
         /// <value>A yes/no checkbox. Use the &#x60;SubFormFieldsPerDocumentCheckbox&#x60; class.</value>
         [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
         public string Type { get; set; }
-
+        
         /// <summary>
         /// &#x60;true&#x60; for checking the checkbox field by default, otherwise &#x60;false&#x60;.
         /// </summary>
         /// <value>&#x60;true&#x60; for checking the checkbox field by default, otherwise &#x60;false&#x60;.</value>
         [DataMember(Name = "is_checked", IsRequired = true, EmitDefaultValue = true)]
         public bool IsChecked { get; set; }
-
+        
         /// <summary>
         /// String referencing group defined in &#x60;form_field_groups&#x60; parameter.
         /// </summary>
         /// <value>String referencing group defined in &#x60;form_field_groups&#x60; parameter.</value>
         [DataMember(Name = "group", EmitDefaultValue = true)]
         public string Group { get; set; }
-
+        
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -211,6 +199,29 @@ namespace Dropbox.Sign.Model
             }
         }
 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
+            return this.BaseValidate(validationContext);
+        }
+
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        protected IEnumerable<ValidationResult> BaseValidate(ValidationContext validationContext)
+        {
+            foreach (var x in BaseValidate(validationContext))
+            {
+                yield return x;
+            }
+            yield break;
+        }
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
@@ -234,30 +245,6 @@ namespace Dropbox.Sign.Model
             });
 
             return types;
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
-        {
-            return this.BaseValidate(validationContext);
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        protected IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> BaseValidate(ValidationContext validationContext)
-        {
-            foreach (var x in BaseValidate(validationContext))
-            {
-                yield return x;
-            }
-            yield break;
         }
     }
 

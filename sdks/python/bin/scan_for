@@ -9,7 +9,6 @@ scan_for () {
   SEARCH_STRING=$1
   SCAN_TARGETS=( \
     "docs" \
-    "dropbox_sign/model" \
     "dropbox_sign/models" \
     "README.md"
   )

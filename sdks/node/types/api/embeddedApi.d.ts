@@ -1,4 +1,4 @@
-import { Authentication, Interceptor, HttpBasicAuth, HttpBearerAuth, EmbeddedEditUrlRequest, EmbeddedEditUrlResponse, EmbeddedSignUrlResponse } from "../model";
+import { Authentication, EmbeddedEditUrlRequest, EmbeddedEditUrlResponse, EmbeddedSignUrlResponse, HttpBasicAuth, HttpBearerAuth, Interceptor } from "../model";
 import { optionsI, returnTypeT } from "./";
 export declare enum EmbeddedApiApiKeys {
 }

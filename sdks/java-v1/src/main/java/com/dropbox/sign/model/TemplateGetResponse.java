@@ -14,7 +14,6 @@
 package com.dropbox.sign.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.dropbox.sign.model.TemplateResponse;
@@ -24,14 +23,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.dropbox.sign.JSON;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.dropbox.sign.JSON;
 
 
 import com.dropbox.sign.ApiException;
@@ -39,11 +37,11 @@ import com.dropbox.sign.ApiException;
  * TemplateGetResponse
  */
 @JsonPropertyOrder({
-    TemplateGetResponse.JSON_PROPERTY_TEMPLATE,
-    TemplateGetResponse.JSON_PROPERTY_WARNINGS
+  TemplateGetResponse.JSON_PROPERTY_TEMPLATE,
+  TemplateGetResponse.JSON_PROPERTY_WARNINGS
 })
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TemplateGetResponse {
   public static final String JSON_PROPERTY_TEMPLATE = "template";
   private TemplateResponse template;
@@ -74,14 +72,13 @@ public class TemplateGetResponse {
     return this;
   }
 
-   /**
+  /**
    * Get template
    * @return template
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_TEMPLATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public TemplateResponse getTemplate() {
     return template;
@@ -89,7 +86,7 @@ public class TemplateGetResponse {
 
 
   @JsonProperty(JSON_PROPERTY_TEMPLATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setTemplate(TemplateResponse template) {
     this.template = template;
   }
@@ -108,12 +105,11 @@ public class TemplateGetResponse {
     return this;
   }
 
-   /**
+  /**
    * A list of warnings.
    * @return warnings
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A list of warnings.")
   @JsonProperty(JSON_PROPERTY_WARNINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

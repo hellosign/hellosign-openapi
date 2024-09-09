@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-import { RequestFile, AttributeTypeMap, ObjectSerializer } from "./";
+import { AttributeTypeMap, ObjectSerializer } from "./";
 import { ApiAppResponse } from "./apiAppResponse";
 import { ListInfoResponse } from "./listInfoResponse";
 import { WarningResponse } from "./warningResponse";
@@ -31,8 +31,8 @@ export class ApiAppListResponse {
   /**
    * Contains information about API Apps.
    */
-  "apiApps"?: Array<ApiAppResponse>;
-  "listInfo"?: ListInfoResponse;
+  "apiApps": Array<ApiAppResponse>;
+  "listInfo": ListInfoResponse;
   /**
    * A list of warnings.
    */

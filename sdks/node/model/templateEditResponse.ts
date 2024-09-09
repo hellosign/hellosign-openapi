@@ -22,13 +22,13 @@
  * SOFTWARE.
  */
 
-import { RequestFile, AttributeTypeMap, ObjectSerializer } from "./";
+import { AttributeTypeMap, ObjectSerializer } from "./";
 
 export class TemplateEditResponse {
   /**
    * The id of the Template.
    */
-  "templateId"?: string;
+  "templateId": string;
 
   static discriminator: string | undefined = undefined;
 

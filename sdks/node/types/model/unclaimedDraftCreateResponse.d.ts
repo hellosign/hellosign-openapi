@@ -2,7 +2,7 @@ import { AttributeTypeMap } from "./";
 import { UnclaimedDraftResponse } from "./unclaimedDraftResponse";
 import { WarningResponse } from "./warningResponse";
 export declare class UnclaimedDraftCreateResponse {
-    "unclaimedDraft"?: UnclaimedDraftResponse;
+    "unclaimedDraft": UnclaimedDraftResponse;
     "warnings"?: Array<WarningResponse>;
     static discriminator: string | undefined;
     static attributeTypeMap: AttributeTypeMap;

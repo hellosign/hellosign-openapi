@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# see https://github.com/OpenAPITools/openapi-generator/tree/08296c2b1dc732829e3aaa2c2cad7c2c8c44eb8d/modules/openapi-generator/src/main/resources/ruby-client
+# see https://github.com/OpenAPITools/openapi-generator/tree/v7.8.0/modules/openapi-generator/src/main/resources/ruby-client
 
 set -e
 
@@ -9,7 +9,7 @@ WORKING_DIR="/app/ruby"
 
 docker run --rm \
   -v "${DIR}/:/local" \
-  openapitools/openapi-generator-cli:v7.7.0 generate \
+  openapitools/openapi-generator-cli:v7.8.0 generate \
     -i "/local/openapi-sdk.yaml" \
     -c "/local/openapi-config.yaml" \
     -t "/local/templates" \

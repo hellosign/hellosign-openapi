@@ -22,12 +22,12 @@
  * SOFTWARE.
  */
 
-import { RequestFile, AttributeTypeMap, ObjectSerializer } from "./";
+import { AttributeTypeMap, ObjectSerializer } from "./";
 import { TeamInfoResponse } from "./teamInfoResponse";
 import { WarningResponse } from "./warningResponse";
 
 export class TeamGetInfoResponse {
-  "team"?: TeamInfoResponse;
+  "team": TeamInfoResponse;
   /**
    * A list of warnings.
    */

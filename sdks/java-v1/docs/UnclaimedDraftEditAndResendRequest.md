@@ -6,8 +6,8 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
 | `clientId`<sup>*_required_</sup> | ```String``` |  Client id of the app used to create the draft. Used to apply the branding and callback url defined for the app.  |  |
 | `editorOptions` | [```SubEditorOptions```](SubEditorOptions.md) |    |  |
 | `isForEmbeddedSigning` | ```Boolean``` |  The request created from this draft will also be signable in embedded mode if set to `true`.  |  |

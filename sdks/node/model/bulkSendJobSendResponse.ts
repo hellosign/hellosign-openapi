@@ -22,12 +22,12 @@
  * SOFTWARE.
  */
 
-import { RequestFile, AttributeTypeMap, ObjectSerializer } from "./";
+import { AttributeTypeMap, ObjectSerializer } from "./";
 import { BulkSendJobResponse } from "./bulkSendJobResponse";
 import { WarningResponse } from "./warningResponse";
 
 export class BulkSendJobSendResponse {
-  "bulkSendJob"?: BulkSendJobResponse;
+  "bulkSendJob": BulkSendJobResponse;
   /**
    * A list of warnings.
    */

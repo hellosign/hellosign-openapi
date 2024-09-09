@@ -15,9 +15,7 @@ Name | Type | Description | Notes
 **Y** | **int** |  Location coordinates of the field in pixels.  | 
 **Name** | **string** |  Display name for the field.  | [optional] 
 **Page** | **int?** |  Page in the document where the field should be placed (requires documents be PDF files).<br><br>- When the page number parameter is supplied, the API will use the new coordinate system. - Check out the differences between both [coordinate systems](https://faq.hellosign.com/hc/en-us/articles/217115577) and how to use them.  | [optional] 
-**Type** | **string** |  An input field for radios. Use the `SubFormFieldsPerDocumentRadio` class.  | [default to "radio"]
-**Group** | **string** |  String referencing group defined in `form_field_groups` parameter.  | 
-**IsChecked** | **bool** |  `true` for checking the radio field by default, otherwise `false`. Only one radio field per group can be `true`.  | 
+**Type** | **string** |  An input field for radios. Use the `SubFormFieldsPerDocumentRadio` class.  | [default to "radio"]**Group** | **string** |  String referencing group defined in `form_field_groups` parameter.  | **IsChecked** | **bool** |  `true` for checking the radio field by default, otherwise `false`. Only one radio field per group can be `true`.  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

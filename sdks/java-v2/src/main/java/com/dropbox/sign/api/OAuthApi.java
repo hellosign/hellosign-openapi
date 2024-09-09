@@ -18,7 +18,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 public class OAuthApi {
   private ApiClient apiClient;
 
@@ -79,47 +79,32 @@ public class OAuthApi {
    */
   public ApiResponse<OAuthTokenResponse> oauthTokenGenerateWithHttpInfo(OAuthTokenGenerateRequest oauthTokenGenerateRequest) throws ApiException {
     
-    Object localVarPostBody = oauthTokenGenerateRequest;
-    
-    // verify the required parameter 'oauthTokenGenerateRequest' is set
+    // Check required parameters
     if (oauthTokenGenerateRequest == null) {
       throw new ApiException(400, "Missing the required parameter 'oauthTokenGenerateRequest' when calling oauthTokenGenerate");
     }
-    
-    // create path and map variables
-    String localVarPath = "/oauth/token";
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-
+    String localVarAccept = apiClient.selectHeaderAccept("application/json");
+    Map<String, Object> localVarFormParams = new LinkedHashMap<>();
     localVarFormParams = oauthTokenGenerateRequest.createFormData();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
-
-    final String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
+    String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType("application/json");
     GenericType<OAuthTokenResponse> localVarReturnType = new GenericType<OAuthTokenResponse>() {};
-
-    return apiClient.invokeAPI("OAuthApi.oauthTokenGenerate", localVarPath, "POST", localVarQueryParams, localVarPostBody,
-                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+    return apiClient.invokeAPI(
+        "OAuthApi.oauthTokenGenerate",
+        "/oauth/token",
+        "POST",
+        new ArrayList<>(),
+        isFileTypeFound ? null : oauthTokenGenerateRequest,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        null,
+        localVarReturnType,
+        false
+    );
   }
   /**
    * OAuth Token Refresh
@@ -152,46 +137,31 @@ public class OAuthApi {
    */
   public ApiResponse<OAuthTokenResponse> oauthTokenRefreshWithHttpInfo(OAuthTokenRefreshRequest oauthTokenRefreshRequest) throws ApiException {
     
-    Object localVarPostBody = oauthTokenRefreshRequest;
-    
-    // verify the required parameter 'oauthTokenRefreshRequest' is set
+    // Check required parameters
     if (oauthTokenRefreshRequest == null) {
       throw new ApiException(400, "Missing the required parameter 'oauthTokenRefreshRequest' when calling oauthTokenRefresh");
     }
-    
-    // create path and map variables
-    String localVarPath = "/oauth/token?refresh";
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-
+    String localVarAccept = apiClient.selectHeaderAccept("application/json");
+    Map<String, Object> localVarFormParams = new LinkedHashMap<>();
     localVarFormParams = oauthTokenRefreshRequest.createFormData();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
-
-    final String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
+    String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType("application/json");
     GenericType<OAuthTokenResponse> localVarReturnType = new GenericType<OAuthTokenResponse>() {};
-
-    return apiClient.invokeAPI("OAuthApi.oauthTokenRefresh", localVarPath, "POST", localVarQueryParams, localVarPostBody,
-                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+    return apiClient.invokeAPI(
+        "OAuthApi.oauthTokenRefresh",
+        "/oauth/token?refresh",
+        "POST",
+        new ArrayList<>(),
+        isFileTypeFound ? null : oauthTokenRefreshRequest,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        null,
+        localVarReturnType,
+        false
+    );
   }
 }

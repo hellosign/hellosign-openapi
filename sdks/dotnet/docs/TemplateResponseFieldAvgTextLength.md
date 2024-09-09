@@ -5,8 +5,7 @@ Average text length in this field.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**NumLines** | **int** |  Number of lines.  | [optional] 
-**NumCharsPerLine** | **int** |  Number of characters per line.  | [optional] 
+**NumLines** | **int** |  Number of lines.  | [optional] **NumCharsPerLine** | **int** |  Number of characters per line.  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -7,7 +7,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 | [**OauthTokenGenerate**](OAuthApi.md#oauthtokengenerate) | **POST** /oauth/token | OAuth Token Generate |
 | [**OauthTokenRefresh**](OAuthApi.md#oauthtokenrefresh) | **POST** /oauth/token?refresh | OAuth Token Refresh |
 
-<a name="oauthtokengenerate"></a>
+<a id="oauthtokengenerate"></a>
 # **OauthTokenGenerate**
 > OAuthTokenResponse OauthTokenGenerate (OAuthTokenGenerateRequest oAuthTokenGenerateRequest)
 
@@ -102,7 +102,7 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="oauthtokenrefresh"></a>
+<a id="oauthtokenrefresh"></a>
 # **OauthTokenRefresh**
 > OAuthTokenResponse OauthTokenRefresh (OAuthTokenRefreshRequest oAuthTokenRefreshRequest)
 

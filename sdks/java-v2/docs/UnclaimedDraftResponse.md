@@ -6,8 +6,8 @@ A group of documents that a user can take ownership of via the claim URL.
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
 | `signatureRequestId` | ```String``` |  The ID of the signature request that is represented by this UnclaimedDraft.  |  |
 | `claimUrl` | ```String``` |  The URL to be used to claim this UnclaimedDraft.  |  |
 | `signingRedirectUrl` | ```String``` |  The URL you want signers redirected to after they successfully sign.  |  |

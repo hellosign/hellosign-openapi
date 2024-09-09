@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-import { RequestFile, AttributeTypeMap, ObjectSerializer } from "./";
+import { AttributeTypeMap, ObjectSerializer } from "./";
 import { TeamInviteResponse } from "./teamInviteResponse";
 import { WarningResponse } from "./warningResponse";
 
@@ -30,7 +30,7 @@ export class TeamInvitesResponse {
   /**
    * Contains a list of team invites and their roles.
    */
-  "teamInvites"?: Array<TeamInviteResponse>;
+  "teamInvites": Array<TeamInviteResponse>;
   "warnings"?: Array<WarningResponse>;
 
   static discriminator: string | undefined = undefined;

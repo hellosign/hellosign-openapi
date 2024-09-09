@@ -284,7 +284,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TeamGetResponse</returns>
-        System.Threading.Tasks.Task<TeamGetResponse> TeamAddMemberAsync(TeamAddMemberRequest teamAddMemberRequest, string? teamId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<TeamGetResponse> TeamAddMemberAsync(TeamAddMemberRequest teamAddMemberRequest, string? teamId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Add User to Team
@@ -298,7 +298,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TeamGetResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TeamGetResponse>> TeamAddMemberWithHttpInfoAsync(TeamAddMemberRequest teamAddMemberRequest, string? teamId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<TeamGetResponse>> TeamAddMemberWithHttpInfoAsync(TeamAddMemberRequest teamAddMemberRequest, string? teamId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Create Team
         /// </summary>
@@ -310,7 +310,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TeamGetResponse</returns>
-        System.Threading.Tasks.Task<TeamGetResponse> TeamCreateAsync(TeamCreateRequest teamCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<TeamGetResponse> TeamCreateAsync(TeamCreateRequest teamCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Create Team
@@ -323,7 +323,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TeamGetResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TeamGetResponse>> TeamCreateWithHttpInfoAsync(TeamCreateRequest teamCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<TeamGetResponse>> TeamCreateWithHttpInfoAsync(TeamCreateRequest teamCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Delete Team
         /// </summary>
@@ -334,7 +334,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task TeamDeleteAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task TeamDeleteAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Delete Team
@@ -346,7 +346,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> TeamDeleteWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> TeamDeleteWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Get Team
         /// </summary>
@@ -357,7 +357,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TeamGetResponse</returns>
-        System.Threading.Tasks.Task<TeamGetResponse> TeamGetAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<TeamGetResponse> TeamGetAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Get Team
@@ -369,7 +369,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TeamGetResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TeamGetResponse>> TeamGetWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<TeamGetResponse>> TeamGetWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Get Team Info
         /// </summary>
@@ -381,7 +381,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TeamGetInfoResponse</returns>
-        System.Threading.Tasks.Task<TeamGetInfoResponse> TeamInfoAsync(string? teamId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<TeamGetInfoResponse> TeamInfoAsync(string? teamId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Get Team Info
@@ -394,7 +394,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TeamGetInfoResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TeamGetInfoResponse>> TeamInfoWithHttpInfoAsync(string? teamId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<TeamGetInfoResponse>> TeamInfoWithHttpInfoAsync(string? teamId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// List Team Invites
         /// </summary>
@@ -406,7 +406,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TeamInvitesResponse</returns>
-        System.Threading.Tasks.Task<TeamInvitesResponse> TeamInvitesAsync(string? emailAddress = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<TeamInvitesResponse> TeamInvitesAsync(string? emailAddress = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// List Team Invites
@@ -419,7 +419,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TeamInvitesResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TeamInvitesResponse>> TeamInvitesWithHttpInfoAsync(string? emailAddress = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<TeamInvitesResponse>> TeamInvitesWithHttpInfoAsync(string? emailAddress = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// List Team Members
         /// </summary>
@@ -433,7 +433,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TeamMembersResponse</returns>
-        System.Threading.Tasks.Task<TeamMembersResponse> TeamMembersAsync(string teamId, int? page = default(int?), int? pageSize = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<TeamMembersResponse> TeamMembersAsync(string teamId, int? page = default(int?), int? pageSize = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// List Team Members
@@ -448,7 +448,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TeamMembersResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TeamMembersResponse>> TeamMembersWithHttpInfoAsync(string teamId, int? page = default(int?), int? pageSize = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<TeamMembersResponse>> TeamMembersWithHttpInfoAsync(string teamId, int? page = default(int?), int? pageSize = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Remove User from Team
         /// </summary>
@@ -460,7 +460,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TeamGetResponse</returns>
-        System.Threading.Tasks.Task<TeamGetResponse> TeamRemoveMemberAsync(TeamRemoveMemberRequest teamRemoveMemberRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<TeamGetResponse> TeamRemoveMemberAsync(TeamRemoveMemberRequest teamRemoveMemberRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Remove User from Team
@@ -473,7 +473,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TeamGetResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TeamGetResponse>> TeamRemoveMemberWithHttpInfoAsync(TeamRemoveMemberRequest teamRemoveMemberRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<TeamGetResponse>> TeamRemoveMemberWithHttpInfoAsync(TeamRemoveMemberRequest teamRemoveMemberRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// List Sub Teams
         /// </summary>
@@ -487,7 +487,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TeamSubTeamsResponse</returns>
-        System.Threading.Tasks.Task<TeamSubTeamsResponse> TeamSubTeamsAsync(string teamId, int? page = default(int?), int? pageSize = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<TeamSubTeamsResponse> TeamSubTeamsAsync(string teamId, int? page = default(int?), int? pageSize = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// List Sub Teams
@@ -502,7 +502,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TeamSubTeamsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TeamSubTeamsResponse>> TeamSubTeamsWithHttpInfoAsync(string teamId, int? page = default(int?), int? pageSize = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<TeamSubTeamsResponse>> TeamSubTeamsWithHttpInfoAsync(string teamId, int? page = default(int?), int? pageSize = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Update Team
         /// </summary>
@@ -514,7 +514,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TeamGetResponse</returns>
-        System.Threading.Tasks.Task<TeamGetResponse> TeamUpdateAsync(TeamUpdateRequest teamUpdateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<TeamGetResponse> TeamUpdateAsync(TeamUpdateRequest teamUpdateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Update Team
@@ -527,7 +527,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TeamGetResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TeamGetResponse>> TeamUpdateWithHttpInfoAsync(TeamUpdateRequest teamUpdateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<TeamGetResponse>> TeamUpdateWithHttpInfoAsync(TeamUpdateRequest teamUpdateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -713,6 +713,7 @@ namespace Dropbox.Sign.Api
             {
                 localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "team_id", teamId));
             }
+
             localVarRequestOptions.Operation = "TeamApi.TeamAddMember";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -752,7 +753,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TeamGetResponse</returns>
-        public async System.Threading.Tasks.Task<TeamGetResponse> TeamAddMemberAsync(TeamAddMemberRequest teamAddMemberRequest, string? teamId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<TeamGetResponse> TeamAddMemberAsync(TeamAddMemberRequest teamAddMemberRequest, string? teamId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Dropbox.Sign.Client.ApiResponse<TeamGetResponse> localVarResponse = await TeamAddMemberWithHttpInfoAsync(teamAddMemberRequest, teamId, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -767,7 +768,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TeamGetResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<TeamGetResponse>> TeamAddMemberWithHttpInfoAsync(TeamAddMemberRequest teamAddMemberRequest, string? teamId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<TeamGetResponse>> TeamAddMemberWithHttpInfoAsync(TeamAddMemberRequest teamAddMemberRequest, string? teamId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'teamAddMemberRequest' is set
             if (teamAddMemberRequest == null)
@@ -811,6 +812,7 @@ namespace Dropbox.Sign.Api
             {
                 localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "team_id", teamId));
             }
+
             localVarRequestOptions.Operation = "TeamApi.TeamAddMember";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -901,6 +903,7 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+
             localVarRequestOptions.Operation = "TeamApi.TeamCreate";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -939,7 +942,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TeamGetResponse</returns>
-        public async System.Threading.Tasks.Task<TeamGetResponse> TeamCreateAsync(TeamCreateRequest teamCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<TeamGetResponse> TeamCreateAsync(TeamCreateRequest teamCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Dropbox.Sign.Client.ApiResponse<TeamGetResponse> localVarResponse = await TeamCreateWithHttpInfoAsync(teamCreateRequest, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -953,7 +956,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TeamGetResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<TeamGetResponse>> TeamCreateWithHttpInfoAsync(TeamCreateRequest teamCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<TeamGetResponse>> TeamCreateWithHttpInfoAsync(TeamCreateRequest teamCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'teamCreateRequest' is set
             if (teamCreateRequest == null)
@@ -992,6 +995,7 @@ namespace Dropbox.Sign.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
+
 
             localVarRequestOptions.Operation = "TeamApi.TeamCreate";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -1065,6 +1069,7 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+
             localVarRequestOptions.Operation = "TeamApi.TeamDelete";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -1102,7 +1107,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task TeamDeleteAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task TeamDeleteAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             await TeamDeleteWithHttpInfoAsync(operationIndex, cancellationToken).ConfigureAwait(false);
         }
@@ -1114,14 +1119,13 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<Object>> TeamDeleteWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<Object>> TeamDeleteWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
             };
-
             var localVarContentType = Dropbox.Sign.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
 
             // to determine the Accept header
@@ -1139,6 +1143,7 @@ namespace Dropbox.Sign.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
+
 
             localVarRequestOptions.Operation = "TeamApi.TeamDelete";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -1213,6 +1218,7 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+
             localVarRequestOptions.Operation = "TeamApi.TeamGet";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -1250,7 +1256,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TeamGetResponse</returns>
-        public async System.Threading.Tasks.Task<TeamGetResponse> TeamGetAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<TeamGetResponse> TeamGetAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Dropbox.Sign.Client.ApiResponse<TeamGetResponse> localVarResponse = await TeamGetWithHttpInfoAsync(operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1263,14 +1269,13 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TeamGetResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<TeamGetResponse>> TeamGetWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<TeamGetResponse>> TeamGetWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
             };
-
             var localVarContentType = Dropbox.Sign.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
 
             // to determine the Accept header
@@ -1288,6 +1293,7 @@ namespace Dropbox.Sign.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
+
 
             localVarRequestOptions.Operation = "TeamApi.TeamGet";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -1368,6 +1374,7 @@ namespace Dropbox.Sign.Api
             {
                 localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "team_id", teamId));
             }
+
             localVarRequestOptions.Operation = "TeamApi.TeamInfo";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -1406,7 +1413,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TeamGetInfoResponse</returns>
-        public async System.Threading.Tasks.Task<TeamGetInfoResponse> TeamInfoAsync(string? teamId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<TeamGetInfoResponse> TeamInfoAsync(string? teamId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Dropbox.Sign.Client.ApiResponse<TeamGetInfoResponse> localVarResponse = await TeamInfoWithHttpInfoAsync(teamId, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1420,14 +1427,13 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TeamGetInfoResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<TeamGetInfoResponse>> TeamInfoWithHttpInfoAsync(string? teamId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<TeamGetInfoResponse>> TeamInfoWithHttpInfoAsync(string? teamId = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
             };
-
             var localVarContentType = Dropbox.Sign.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
 
             // to determine the Accept header
@@ -1450,6 +1456,7 @@ namespace Dropbox.Sign.Api
             {
                 localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "team_id", teamId));
             }
+
             localVarRequestOptions.Operation = "TeamApi.TeamInfo";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -1529,6 +1536,7 @@ namespace Dropbox.Sign.Api
             {
                 localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "email_address", emailAddress));
             }
+
             localVarRequestOptions.Operation = "TeamApi.TeamInvites";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -1567,7 +1575,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TeamInvitesResponse</returns>
-        public async System.Threading.Tasks.Task<TeamInvitesResponse> TeamInvitesAsync(string? emailAddress = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<TeamInvitesResponse> TeamInvitesAsync(string? emailAddress = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Dropbox.Sign.Client.ApiResponse<TeamInvitesResponse> localVarResponse = await TeamInvitesWithHttpInfoAsync(emailAddress, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1581,14 +1589,13 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TeamInvitesResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<TeamInvitesResponse>> TeamInvitesWithHttpInfoAsync(string? emailAddress = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<TeamInvitesResponse>> TeamInvitesWithHttpInfoAsync(string? emailAddress = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
             };
-
             var localVarContentType = Dropbox.Sign.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
 
             // to determine the Accept header
@@ -1611,6 +1618,7 @@ namespace Dropbox.Sign.Api
             {
                 localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "email_address", emailAddress));
             }
+
             localVarRequestOptions.Operation = "TeamApi.TeamInvites";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -1705,6 +1713,7 @@ namespace Dropbox.Sign.Api
             {
                 localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "page_size", pageSize));
             }
+
             localVarRequestOptions.Operation = "TeamApi.TeamMembers";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -1745,7 +1754,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TeamMembersResponse</returns>
-        public async System.Threading.Tasks.Task<TeamMembersResponse> TeamMembersAsync(string teamId, int? page = default(int?), int? pageSize = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<TeamMembersResponse> TeamMembersAsync(string teamId, int? page = default(int?), int? pageSize = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Dropbox.Sign.Client.ApiResponse<TeamMembersResponse> localVarResponse = await TeamMembersWithHttpInfoAsync(teamId, page, pageSize, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1761,7 +1770,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TeamMembersResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<TeamMembersResponse>> TeamMembersWithHttpInfoAsync(string teamId, int? page = default(int?), int? pageSize = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<TeamMembersResponse>> TeamMembersWithHttpInfoAsync(string teamId, int? page = default(int?), int? pageSize = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'teamId' is set
             if (teamId == null)
@@ -1774,7 +1783,6 @@ namespace Dropbox.Sign.Api
 
             string[] _contentTypes = new string[] {
             };
-
             var localVarContentType = Dropbox.Sign.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
 
             // to determine the Accept header
@@ -1802,6 +1810,7 @@ namespace Dropbox.Sign.Api
             {
                 localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "page_size", pageSize));
             }
+
             localVarRequestOptions.Operation = "TeamApi.TeamMembers";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -1892,6 +1901,7 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+
             localVarRequestOptions.Operation = "TeamApi.TeamRemoveMember";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -1930,7 +1940,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TeamGetResponse</returns>
-        public async System.Threading.Tasks.Task<TeamGetResponse> TeamRemoveMemberAsync(TeamRemoveMemberRequest teamRemoveMemberRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<TeamGetResponse> TeamRemoveMemberAsync(TeamRemoveMemberRequest teamRemoveMemberRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Dropbox.Sign.Client.ApiResponse<TeamGetResponse> localVarResponse = await TeamRemoveMemberWithHttpInfoAsync(teamRemoveMemberRequest, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1944,7 +1954,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TeamGetResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<TeamGetResponse>> TeamRemoveMemberWithHttpInfoAsync(TeamRemoveMemberRequest teamRemoveMemberRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<TeamGetResponse>> TeamRemoveMemberWithHttpInfoAsync(TeamRemoveMemberRequest teamRemoveMemberRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'teamRemoveMemberRequest' is set
             if (teamRemoveMemberRequest == null)
@@ -1983,6 +1993,7 @@ namespace Dropbox.Sign.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
+
 
             localVarRequestOptions.Operation = "TeamApi.TeamRemoveMember";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -2078,6 +2089,7 @@ namespace Dropbox.Sign.Api
             {
                 localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "page_size", pageSize));
             }
+
             localVarRequestOptions.Operation = "TeamApi.TeamSubTeams";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -2118,7 +2130,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TeamSubTeamsResponse</returns>
-        public async System.Threading.Tasks.Task<TeamSubTeamsResponse> TeamSubTeamsAsync(string teamId, int? page = default(int?), int? pageSize = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<TeamSubTeamsResponse> TeamSubTeamsAsync(string teamId, int? page = default(int?), int? pageSize = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Dropbox.Sign.Client.ApiResponse<TeamSubTeamsResponse> localVarResponse = await TeamSubTeamsWithHttpInfoAsync(teamId, page, pageSize, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -2134,7 +2146,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TeamSubTeamsResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<TeamSubTeamsResponse>> TeamSubTeamsWithHttpInfoAsync(string teamId, int? page = default(int?), int? pageSize = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<TeamSubTeamsResponse>> TeamSubTeamsWithHttpInfoAsync(string teamId, int? page = default(int?), int? pageSize = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'teamId' is set
             if (teamId == null)
@@ -2147,7 +2159,6 @@ namespace Dropbox.Sign.Api
 
             string[] _contentTypes = new string[] {
             };
-
             var localVarContentType = Dropbox.Sign.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
 
             // to determine the Accept header
@@ -2175,6 +2186,7 @@ namespace Dropbox.Sign.Api
             {
                 localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "page_size", pageSize));
             }
+
             localVarRequestOptions.Operation = "TeamApi.TeamSubTeams";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -2265,6 +2277,7 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+
             localVarRequestOptions.Operation = "TeamApi.TeamUpdate";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -2303,7 +2316,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TeamGetResponse</returns>
-        public async System.Threading.Tasks.Task<TeamGetResponse> TeamUpdateAsync(TeamUpdateRequest teamUpdateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<TeamGetResponse> TeamUpdateAsync(TeamUpdateRequest teamUpdateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Dropbox.Sign.Client.ApiResponse<TeamGetResponse> localVarResponse = await TeamUpdateWithHttpInfoAsync(teamUpdateRequest, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -2317,7 +2330,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TeamGetResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<TeamGetResponse>> TeamUpdateWithHttpInfoAsync(TeamUpdateRequest teamUpdateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<TeamGetResponse>> TeamUpdateWithHttpInfoAsync(TeamUpdateRequest teamUpdateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'teamUpdateRequest' is set
             if (teamUpdateRequest == null)
@@ -2356,6 +2369,7 @@ namespace Dropbox.Sign.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
+
 
             localVarRequestOptions.Operation = "TeamApi.TeamUpdate";
             localVarRequestOptions.OperationIndex = operationIndex;

@@ -21,7 +21,6 @@ using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
-using JsonSubTypes;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 
@@ -31,17 +30,6 @@ namespace Dropbox.Sign.Model
     /// This class extends &#x60;SubFormFieldsPerDocumentBase&#x60;.
     /// </summary>
     [DataContract(Name = "SubFormFieldsPerDocumentHyperlink")]
-    [JsonConverter(typeof(JsonSubtypes), "Type")]
-    [JsonSubtypes.KnownSubType(typeof(SubFormFieldsPerDocumentCheckbox), "checkbox")]
-    [JsonSubtypes.KnownSubType(typeof(SubFormFieldsPerDocumentCheckboxMerge), "checkbox-merge")]
-    [JsonSubtypes.KnownSubType(typeof(SubFormFieldsPerDocumentDateSigned), "date_signed")]
-    [JsonSubtypes.KnownSubType(typeof(SubFormFieldsPerDocumentDropdown), "dropdown")]
-    [JsonSubtypes.KnownSubType(typeof(SubFormFieldsPerDocumentHyperlink), "hyperlink")]
-    [JsonSubtypes.KnownSubType(typeof(SubFormFieldsPerDocumentInitials), "initials")]
-    [JsonSubtypes.KnownSubType(typeof(SubFormFieldsPerDocumentRadio), "radio")]
-    [JsonSubtypes.KnownSubType(typeof(SubFormFieldsPerDocumentSignature), "signature")]
-    [JsonSubtypes.KnownSubType(typeof(SubFormFieldsPerDocumentText), "text")]
-    [JsonSubtypes.KnownSubType(typeof(SubFormFieldsPerDocumentTextMerge), "text-merge")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
     public partial class SubFormFieldsPerDocumentHyperlink : SubFormFieldsPerDocumentBase, IOpenApiTyped, IEquatable<SubFormFieldsPerDocumentHyperlink>, IValidatableObject
     {
@@ -147,7 +135,6 @@ namespace Dropbox.Sign.Model
             /// </summary>
             [EnumMember(Value = "notoSanThaiMerged")]
             NotoSanThaiMerged = 16
-
         }
 
 
@@ -180,7 +167,7 @@ namespace Dropbox.Sign.Model
         /// <param name="width">Size of the field in pixels. (required).</param>
         /// <param name="x">Location coordinates of the field in pixels. (required).</param>
         /// <param name="y">Location coordinates of the field in pixels. (required).</param>
-        public SubFormFieldsPerDocumentHyperlink(string type = "hyperlink", string content = default(string), string contentUrl = default(string), FontFamilyEnum? fontFamily = default(FontFamilyEnum?), int fontSize = 12, int documentIndex = default(int), string apiId = default(string), int height = default(int), string name = default(string), int? page = default(int?), bool required = default(bool), Object signer = null, int width = default(int), int x = default(int), int y = default(int))
+        public SubFormFieldsPerDocumentHyperlink(string type = @"hyperlink", string content = default(string), string contentUrl = default(string), FontFamilyEnum? fontFamily = default(FontFamilyEnum?), int fontSize = 12, int documentIndex = default(int), string apiId = default(string), int height = default(int), string name = default(string), int? page = default(int?), bool required = default(bool), Object signer = null, int width = default(int), int x = default(int), int y = default(int))
         {
             this.DocumentIndex = documentIndex;
             this.ApiId = apiId;
@@ -237,28 +224,28 @@ namespace Dropbox.Sign.Model
         /// <value>A hyperlink field. Use the &#x60;SubFormFieldsPerDocumentHyperlink&#x60; class.</value>
         [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
         public string Type { get; set; }
-
+        
         /// <summary>
         /// Link Text.
         /// </summary>
         /// <value>Link Text.</value>
         [DataMember(Name = "content", IsRequired = true, EmitDefaultValue = true)]
         public string Content { get; set; }
-
+        
         /// <summary>
         /// Link URL.
         /// </summary>
         /// <value>Link URL.</value>
         [DataMember(Name = "content_url", IsRequired = true, EmitDefaultValue = true)]
         public string ContentUrl { get; set; }
-
+        
         /// <summary>
         /// The initial px font size for the field contents. Can be any integer value between &#x60;7&#x60; and &#x60;49&#x60;.  **NOTE:** Font size may be reduced during processing in order to fit the contents within the dimensions of the field.
         /// </summary>
         /// <value>The initial px font size for the field contents. Can be any integer value between &#x60;7&#x60; and &#x60;49&#x60;.  **NOTE:** Font size may be reduced during processing in order to fit the contents within the dimensions of the field.</value>
         [DataMember(Name = "font_size", EmitDefaultValue = true)]
         public int FontSize { get; set; }
-
+        
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -360,6 +347,29 @@ namespace Dropbox.Sign.Model
             }
         }
 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
+            return this.BaseValidate(validationContext);
+        }
+
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        protected IEnumerable<ValidationResult> BaseValidate(ValidationContext validationContext)
+        {
+            foreach (var x in BaseValidate(validationContext))
+            {
+                yield return x;
+            }
+            yield break;
+        }
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
@@ -395,30 +405,6 @@ namespace Dropbox.Sign.Model
             });
 
             return types;
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
-        {
-            return this.BaseValidate(validationContext);
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        protected IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> BaseValidate(ValidationContext validationContext)
-        {
-            foreach (var x in BaseValidate(validationContext))
-            {
-                yield return x;
-            }
-            yield break;
         }
     }
 

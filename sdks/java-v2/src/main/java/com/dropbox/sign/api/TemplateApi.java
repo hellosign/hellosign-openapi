@@ -29,7 +29,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 public class TemplateApi {
   private ApiClient apiClient;
 
@@ -94,53 +94,40 @@ public class TemplateApi {
    */
   public ApiResponse<TemplateGetResponse> templateAddUserWithHttpInfo(String templateId, TemplateAddUserRequest templateAddUserRequest) throws ApiException {
     
-    Object localVarPostBody = templateAddUserRequest;
-    
-    // verify the required parameter 'templateId' is set
+    // Check required parameters
     if (templateId == null) {
       throw new ApiException(400, "Missing the required parameter 'templateId' when calling templateAddUser");
     }
-    
-    // verify the required parameter 'templateAddUserRequest' is set
     if (templateAddUserRequest == null) {
       throw new ApiException(400, "Missing the required parameter 'templateAddUserRequest' when calling templateAddUser");
     }
-    
-    // create path and map variables
+
+    // Path parameters
     String localVarPath = "/template/add_user/{template_id}"
-      .replaceAll("\\{" + "template_id" + "\\}", apiClient.escapeString(templateId.toString()));
+            .replaceAll("\\{template_id}", apiClient.escapeString(templateId.toString()));
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-
+    String localVarAccept = apiClient.selectHeaderAccept("application/json");
+    Map<String, Object> localVarFormParams = new LinkedHashMap<>();
     localVarFormParams = templateAddUserRequest.createFormData();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
-
-    final String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "api_key", "oauth2" };
-
+    String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType("application/json");
+    String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
     GenericType<TemplateGetResponse> localVarReturnType = new GenericType<TemplateGetResponse>() {};
-
-    return apiClient.invokeAPI("TemplateApi.templateAddUser", localVarPath, "POST", localVarQueryParams, localVarPostBody,
-                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+    return apiClient.invokeAPI(
+        "TemplateApi.templateAddUser",
+        localVarPath,
+        "POST",
+        new ArrayList<>(),
+        isFileTypeFound ? null : templateAddUserRequest,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false
+    );
   }
   /**
    * Create  Template
@@ -175,47 +162,33 @@ public class TemplateApi {
    */
   public ApiResponse<TemplateCreateResponse> templateCreateWithHttpInfo(TemplateCreateRequest templateCreateRequest) throws ApiException {
     
-    Object localVarPostBody = templateCreateRequest;
-    
-    // verify the required parameter 'templateCreateRequest' is set
+    // Check required parameters
     if (templateCreateRequest == null) {
       throw new ApiException(400, "Missing the required parameter 'templateCreateRequest' when calling templateCreate");
     }
-    
-    // create path and map variables
-    String localVarPath = "/template/create";
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json", "multipart/form-data"
-    };
-
+    String localVarAccept = apiClient.selectHeaderAccept("application/json");
+    Map<String, Object> localVarFormParams = new LinkedHashMap<>();
     localVarFormParams = templateCreateRequest.createFormData();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
-
-    final String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "api_key", "oauth2" };
-
+    String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType("application/json", "multipart/form-data");
+    String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
     GenericType<TemplateCreateResponse> localVarReturnType = new GenericType<TemplateCreateResponse>() {};
-
-    return apiClient.invokeAPI("TemplateApi.templateCreate", localVarPath, "POST", localVarQueryParams, localVarPostBody,
-                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+    return apiClient.invokeAPI(
+        "TemplateApi.templateCreate",
+        "/template/create",
+        "POST",
+        new ArrayList<>(),
+        isFileTypeFound ? null : templateCreateRequest,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false
+    );
   }
   /**
    * Create Embedded Template Draft
@@ -250,47 +223,33 @@ public class TemplateApi {
    */
   public ApiResponse<TemplateCreateEmbeddedDraftResponse> templateCreateEmbeddedDraftWithHttpInfo(TemplateCreateEmbeddedDraftRequest templateCreateEmbeddedDraftRequest) throws ApiException {
     
-    Object localVarPostBody = templateCreateEmbeddedDraftRequest;
-    
-    // verify the required parameter 'templateCreateEmbeddedDraftRequest' is set
+    // Check required parameters
     if (templateCreateEmbeddedDraftRequest == null) {
       throw new ApiException(400, "Missing the required parameter 'templateCreateEmbeddedDraftRequest' when calling templateCreateEmbeddedDraft");
     }
-    
-    // create path and map variables
-    String localVarPath = "/template/create_embedded_draft";
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json", "multipart/form-data"
-    };
-
+    String localVarAccept = apiClient.selectHeaderAccept("application/json");
+    Map<String, Object> localVarFormParams = new LinkedHashMap<>();
     localVarFormParams = templateCreateEmbeddedDraftRequest.createFormData();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
-
-    final String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "api_key", "oauth2" };
-
+    String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType("application/json", "multipart/form-data");
+    String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
     GenericType<TemplateCreateEmbeddedDraftResponse> localVarReturnType = new GenericType<TemplateCreateEmbeddedDraftResponse>() {};
-
-    return apiClient.invokeAPI("TemplateApi.templateCreateEmbeddedDraft", localVarPath, "POST", localVarQueryParams, localVarPostBody,
-                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+    return apiClient.invokeAPI(
+        "TemplateApi.templateCreateEmbeddedDraft",
+        "/template/create_embedded_draft",
+        "POST",
+        new ArrayList<>(),
+        isFileTypeFound ? null : templateCreateEmbeddedDraftRequest,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false
+    );
   }
   /**
    * Delete Template
@@ -324,46 +283,36 @@ public class TemplateApi {
    */
   public ApiResponse<Void> templateDeleteWithHttpInfo(String templateId) throws ApiException {
     
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'templateId' is set
+    // Check required parameters
     if (templateId == null) {
       throw new ApiException(400, "Missing the required parameter 'templateId' when calling templateDelete");
     }
-    
-    // create path and map variables
+
+    // Path parameters
     String localVarPath = "/template/delete/{template_id}"
-      .replaceAll("\\{" + "template_id" + "\\}", apiClient.escapeString(templateId.toString()));
+            .replaceAll("\\{template_id}", apiClient.escapeString(templateId.toString()));
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-
+    String localVarAccept = apiClient.selectHeaderAccept("application/json");
+    Map<String, Object> localVarFormParams = new LinkedHashMap<>();
     localVarFormParams = new HashMap<String, Object>();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
-
-    final String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "api_key", "oauth2" };
-
-    return apiClient.invokeAPI("TemplateApi.templateDelete", localVarPath, "POST", localVarQueryParams, localVarPostBody,
-                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, null, false);
+    String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType();
+    String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
+    return apiClient.invokeAPI(
+        "TemplateApi.templateDelete",
+        localVarPath,
+        "POST",
+        new ArrayList<>(),
+        null,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        null,
+        false
+    );
   }
   /**
    * Get Template Files
@@ -419,49 +368,42 @@ public class TemplateApi {
    */
   public ApiResponse<File> templateFilesWithHttpInfo(String templateId, String fileType) throws ApiException {
     
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'templateId' is set
+    // Check required parameters
     if (templateId == null) {
       throw new ApiException(400, "Missing the required parameter 'templateId' when calling templateFiles");
     }
-    
-    // create path and map variables
+
+    // Path parameters
     String localVarPath = "/template/files/{template_id}"
-      .replaceAll("\\{" + "template_id" + "\\}", apiClient.escapeString(templateId.toString()));
+            .replaceAll("\\{template_id}", apiClient.escapeString(templateId.toString()));
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+    // Query parameters
+    List<Pair> localVarQueryParams = new ArrayList<>(
+            apiClient.parameterToPairs("", "file_type", fileType)
+    );
 
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "file_type", fileType));
-
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/pdf", "application/zip", "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-
+    String localVarAccept = apiClient.selectHeaderAccept("application/pdf", "application/zip", "application/json");
+    Map<String, Object> localVarFormParams = new LinkedHashMap<>();
     localVarFormParams = new HashMap<String, Object>();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
-
-    final String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "api_key", "oauth2" };
-
+    String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType();
+    String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
     GenericType<File> localVarReturnType = new GenericType<File>() {};
-
-    return apiClient.invokeAPI("TemplateApi.templateFiles", localVarPath, "GET", localVarQueryParams, localVarPostBody,
-                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+    return apiClient.invokeAPI(
+        "TemplateApi.templateFiles",
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        null,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false
+    );
   }
   /**
    * Get Template Files as Data Uri
@@ -496,48 +438,37 @@ public class TemplateApi {
    */
   public ApiResponse<FileResponseDataUri> templateFilesAsDataUriWithHttpInfo(String templateId) throws ApiException {
     
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'templateId' is set
+    // Check required parameters
     if (templateId == null) {
       throw new ApiException(400, "Missing the required parameter 'templateId' when calling templateFilesAsDataUri");
     }
-    
-    // create path and map variables
+
+    // Path parameters
     String localVarPath = "/template/files_as_data_uri/{template_id}"
-      .replaceAll("\\{" + "template_id" + "\\}", apiClient.escapeString(templateId.toString()));
+            .replaceAll("\\{template_id}", apiClient.escapeString(templateId.toString()));
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-
+    String localVarAccept = apiClient.selectHeaderAccept("application/json");
+    Map<String, Object> localVarFormParams = new LinkedHashMap<>();
     localVarFormParams = new HashMap<String, Object>();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
-
-    final String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "api_key", "oauth2" };
-
+    String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType();
+    String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
     GenericType<FileResponseDataUri> localVarReturnType = new GenericType<FileResponseDataUri>() {};
-
-    return apiClient.invokeAPI("TemplateApi.templateFilesAsDataUri", localVarPath, "GET", localVarQueryParams, localVarPostBody,
-                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+    return apiClient.invokeAPI(
+        "TemplateApi.templateFilesAsDataUri",
+        localVarPath,
+        "GET",
+        new ArrayList<>(),
+        null,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false
+    );
   }
   /**
    * Get Template Files as File Url
@@ -596,49 +527,42 @@ public class TemplateApi {
     if (forceDownload == null) {
         forceDownload = 1;
     }
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'templateId' is set
+    // Check required parameters
     if (templateId == null) {
       throw new ApiException(400, "Missing the required parameter 'templateId' when calling templateFilesAsFileUrl");
     }
-    
-    // create path and map variables
+
+    // Path parameters
     String localVarPath = "/template/files_as_file_url/{template_id}"
-      .replaceAll("\\{" + "template_id" + "\\}", apiClient.escapeString(templateId.toString()));
+            .replaceAll("\\{template_id}", apiClient.escapeString(templateId.toString()));
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+    // Query parameters
+    List<Pair> localVarQueryParams = new ArrayList<>(
+            apiClient.parameterToPairs("", "force_download", forceDownload)
+    );
 
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "force_download", forceDownload));
-
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-
+    String localVarAccept = apiClient.selectHeaderAccept("application/json");
+    Map<String, Object> localVarFormParams = new LinkedHashMap<>();
     localVarFormParams = new HashMap<String, Object>();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
-
-    final String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "api_key", "oauth2" };
-
+    String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType();
+    String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
     GenericType<FileResponse> localVarReturnType = new GenericType<FileResponse>() {};
-
-    return apiClient.invokeAPI("TemplateApi.templateFilesAsFileUrl", localVarPath, "GET", localVarQueryParams, localVarPostBody,
-                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+    return apiClient.invokeAPI(
+        "TemplateApi.templateFilesAsFileUrl",
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        null,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false
+    );
   }
   /**
    * Get Template
@@ -673,48 +597,37 @@ public class TemplateApi {
    */
   public ApiResponse<TemplateGetResponse> templateGetWithHttpInfo(String templateId) throws ApiException {
     
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'templateId' is set
+    // Check required parameters
     if (templateId == null) {
       throw new ApiException(400, "Missing the required parameter 'templateId' when calling templateGet");
     }
-    
-    // create path and map variables
+
+    // Path parameters
     String localVarPath = "/template/{template_id}"
-      .replaceAll("\\{" + "template_id" + "\\}", apiClient.escapeString(templateId.toString()));
+            .replaceAll("\\{template_id}", apiClient.escapeString(templateId.toString()));
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-
+    String localVarAccept = apiClient.selectHeaderAccept("application/json");
+    Map<String, Object> localVarFormParams = new LinkedHashMap<>();
     localVarFormParams = new HashMap<String, Object>();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
-
-    final String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "api_key", "oauth2" };
-
+    String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType();
+    String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
     GenericType<TemplateGetResponse> localVarReturnType = new GenericType<TemplateGetResponse>() {};
-
-    return apiClient.invokeAPI("TemplateApi.templateGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
-                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+    return apiClient.invokeAPI(
+        "TemplateApi.templateGet",
+        localVarPath,
+        "GET",
+        new ArrayList<>(),
+        null,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false
+    );
   }
   /**
    * List Templates
@@ -846,46 +759,36 @@ public class TemplateApi {
     if (pageSize == null) {
         pageSize = 20;
     }
-    Object localVarPostBody = null;
-    
-    // create path and map variables
-    String localVarPath = "/template/list";
-
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "account_id", accountId));
+    // Query parameters
+    List<Pair> localVarQueryParams = new ArrayList<>(
+            apiClient.parameterToPairs("", "account_id", accountId)
+    );
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page", page));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page_size", pageSize));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "query", query));
 
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-
+    String localVarAccept = apiClient.selectHeaderAccept("application/json");
+    Map<String, Object> localVarFormParams = new LinkedHashMap<>();
     localVarFormParams = new HashMap<String, Object>();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
-
-    final String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "api_key", "oauth2" };
-
+    String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType();
+    String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
     GenericType<TemplateListResponse> localVarReturnType = new GenericType<TemplateListResponse>() {};
-
-    return apiClient.invokeAPI("TemplateApi.templateList", localVarPath, "GET", localVarQueryParams, localVarPostBody,
-                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+    return apiClient.invokeAPI(
+        "TemplateApi.templateList",
+        "/template/list",
+        "GET",
+        localVarQueryParams,
+        null,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false
+    );
   }
   /**
    * Remove User from Template
@@ -922,53 +825,40 @@ public class TemplateApi {
    */
   public ApiResponse<TemplateGetResponse> templateRemoveUserWithHttpInfo(String templateId, TemplateRemoveUserRequest templateRemoveUserRequest) throws ApiException {
     
-    Object localVarPostBody = templateRemoveUserRequest;
-    
-    // verify the required parameter 'templateId' is set
+    // Check required parameters
     if (templateId == null) {
       throw new ApiException(400, "Missing the required parameter 'templateId' when calling templateRemoveUser");
     }
-    
-    // verify the required parameter 'templateRemoveUserRequest' is set
     if (templateRemoveUserRequest == null) {
       throw new ApiException(400, "Missing the required parameter 'templateRemoveUserRequest' when calling templateRemoveUser");
     }
-    
-    // create path and map variables
+
+    // Path parameters
     String localVarPath = "/template/remove_user/{template_id}"
-      .replaceAll("\\{" + "template_id" + "\\}", apiClient.escapeString(templateId.toString()));
+            .replaceAll("\\{template_id}", apiClient.escapeString(templateId.toString()));
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-
+    String localVarAccept = apiClient.selectHeaderAccept("application/json");
+    Map<String, Object> localVarFormParams = new LinkedHashMap<>();
     localVarFormParams = templateRemoveUserRequest.createFormData();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
-
-    final String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "api_key", "oauth2" };
-
+    String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType("application/json");
+    String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
     GenericType<TemplateGetResponse> localVarReturnType = new GenericType<TemplateGetResponse>() {};
-
-    return apiClient.invokeAPI("TemplateApi.templateRemoveUser", localVarPath, "POST", localVarQueryParams, localVarPostBody,
-                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+    return apiClient.invokeAPI(
+        "TemplateApi.templateRemoveUser",
+        localVarPath,
+        "POST",
+        new ArrayList<>(),
+        isFileTypeFound ? null : templateRemoveUserRequest,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false
+    );
   }
   /**
    * Update Template Files
@@ -1005,52 +895,39 @@ public class TemplateApi {
    */
   public ApiResponse<TemplateUpdateFilesResponse> templateUpdateFilesWithHttpInfo(String templateId, TemplateUpdateFilesRequest templateUpdateFilesRequest) throws ApiException {
     
-    Object localVarPostBody = templateUpdateFilesRequest;
-    
-    // verify the required parameter 'templateId' is set
+    // Check required parameters
     if (templateId == null) {
       throw new ApiException(400, "Missing the required parameter 'templateId' when calling templateUpdateFiles");
     }
-    
-    // verify the required parameter 'templateUpdateFilesRequest' is set
     if (templateUpdateFilesRequest == null) {
       throw new ApiException(400, "Missing the required parameter 'templateUpdateFilesRequest' when calling templateUpdateFiles");
     }
-    
-    // create path and map variables
+
+    // Path parameters
     String localVarPath = "/template/update_files/{template_id}"
-      .replaceAll("\\{" + "template_id" + "\\}", apiClient.escapeString(templateId.toString()));
+            .replaceAll("\\{template_id}", apiClient.escapeString(templateId.toString()));
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json", "multipart/form-data"
-    };
-
+    String localVarAccept = apiClient.selectHeaderAccept("application/json");
+    Map<String, Object> localVarFormParams = new LinkedHashMap<>();
     localVarFormParams = templateUpdateFilesRequest.createFormData();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
-
-    final String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "api_key", "oauth2" };
-
+    String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType("application/json", "multipart/form-data");
+    String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
     GenericType<TemplateUpdateFilesResponse> localVarReturnType = new GenericType<TemplateUpdateFilesResponse>() {};
-
-    return apiClient.invokeAPI("TemplateApi.templateUpdateFiles", localVarPath, "POST", localVarQueryParams, localVarPostBody,
-                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+    return apiClient.invokeAPI(
+        "TemplateApi.templateUpdateFiles",
+        localVarPath,
+        "POST",
+        new ArrayList<>(),
+        isFileTypeFound ? null : templateUpdateFilesRequest,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false
+    );
   }
 }

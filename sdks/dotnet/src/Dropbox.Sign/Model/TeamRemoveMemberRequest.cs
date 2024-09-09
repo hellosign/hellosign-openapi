@@ -31,7 +31,7 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "TeamRemoveMemberRequest")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class TeamRemoveMemberRequest : IOpenApiTyped, IEquatable<TeamRemoveMemberRequest>, IValidatableObject
+    public partial class TeamRemoveMemberRequest : IEquatable<TeamRemoveMemberRequest>, IValidatableObject
     {
         /// <summary>
         /// A new role member will take in a new Team.  **NOTE:** This parameter is used only if &#x60;new_team_id&#x60; is provided.
@@ -63,7 +63,6 @@ namespace Dropbox.Sign.Model
             /// </summary>
             [EnumMember(Value = "Admin")]
             Admin = 4
-
         }
 
 
@@ -118,28 +117,28 @@ namespace Dropbox.Sign.Model
         /// <value>**account_id** or **email_address** is required. If both are provided, the account id prevails.  Account id to remove from your Team.</value>
         [DataMember(Name = "account_id", EmitDefaultValue = true)]
         public string AccountId { get; set; }
-
+        
         /// <summary>
         /// **account_id** or **email_address** is required. If both are provided, the account id prevails.  Email address of the Account to remove from your Team.
         /// </summary>
         /// <value>**account_id** or **email_address** is required. If both are provided, the account id prevails.  Email address of the Account to remove from your Team.</value>
         [DataMember(Name = "email_address", EmitDefaultValue = true)]
         public string EmailAddress { get; set; }
-
+        
         /// <summary>
         /// The email address of an Account on this Team to receive all documents, templates, and API apps (if applicable) from the removed Account. If not provided, and on an Enterprise plan, this data will remain with the removed Account.  **NOTE:** Only available for Enterprise plans.
         /// </summary>
         /// <value>The email address of an Account on this Team to receive all documents, templates, and API apps (if applicable) from the removed Account. If not provided, and on an Enterprise plan, this data will remain with the removed Account.  **NOTE:** Only available for Enterprise plans.</value>
         [DataMember(Name = "new_owner_email_address", EmitDefaultValue = true)]
         public string NewOwnerEmailAddress { get; set; }
-
+        
         /// <summary>
         /// Id of the new Team.
         /// </summary>
         /// <value>Id of the new Team.</value>
         [DataMember(Name = "new_team_id", EmitDefaultValue = true)]
         public string NewTeamId { get; set; }
-
+        
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -244,6 +243,15 @@ namespace Dropbox.Sign.Model
             }
         }
 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
+            yield break;
+        }
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
@@ -279,16 +287,6 @@ namespace Dropbox.Sign.Model
             });
 
             return types;
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

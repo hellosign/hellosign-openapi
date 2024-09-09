@@ -21,7 +21,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 | [**SignatureRequestSendWithTemplate**](SignatureRequestApi.md#signaturerequestsendwithtemplate) | **POST** /signature_request/send_with_template | Send with Template |
 | [**SignatureRequestUpdate**](SignatureRequestApi.md#signaturerequestupdate) | **POST** /signature_request/update/{signature_request_id} | Update Signature Request |
 
-<a name="signaturerequestbulkcreateembeddedwithtemplate"></a>
+<a id="signaturerequestbulkcreateembeddedwithtemplate"></a>
 # **SignatureRequestBulkCreateEmbeddedWithTemplate**
 > BulkSendJobSendResponse SignatureRequestBulkCreateEmbeddedWithTemplate (SignatureRequestBulkCreateEmbeddedWithTemplateRequest signatureRequestBulkCreateEmbeddedWithTemplateRequest)
 
@@ -164,7 +164,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="signaturerequestbulksendwithtemplate"></a>
+<a id="signaturerequestbulksendwithtemplate"></a>
 # **SignatureRequestBulkSendWithTemplate**
 > BulkSendJobSendResponse SignatureRequestBulkSendWithTemplate (SignatureRequestBulkSendWithTemplateRequest signatureRequestBulkSendWithTemplateRequest)
 
@@ -306,7 +306,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="signaturerequestcancel"></a>
+<a id="signaturerequestcancel"></a>
 # **SignatureRequestCancel**
 > void SignatureRequestCancel (string signatureRequestId)
 
@@ -398,7 +398,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="signaturerequestcreateembedded"></a>
+<a id="signaturerequestcreateembedded"></a>
 # **SignatureRequestCreateEmbedded**
 > SignatureRequestGetResponse SignatureRequestCreateEmbedded (SignatureRequestCreateEmbeddedRequest signatureRequestCreateEmbeddedRequest)
 
@@ -533,7 +533,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="signaturerequestcreateembeddedwithtemplate"></a>
+<a id="signaturerequestcreateembeddedwithtemplate"></a>
 # **SignatureRequestCreateEmbeddedWithTemplate**
 > SignatureRequestGetResponse SignatureRequestCreateEmbeddedWithTemplate (SignatureRequestCreateEmbeddedWithTemplateRequest signatureRequestCreateEmbeddedWithTemplateRequest)
 
@@ -649,7 +649,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="signaturerequestfiles"></a>
+<a id="signaturerequestfiles"></a>
 # **SignatureRequestFiles**
 > System.IO.Stream SignatureRequestFiles (string signatureRequestId, string? fileType = null)
 
@@ -749,7 +749,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="signaturerequestfilesasdatauri"></a>
+<a id="signaturerequestfilesasdatauri"></a>
 # **SignatureRequestFilesAsDataUri**
 > FileResponseDataUri SignatureRequestFilesAsDataUri (string signatureRequestId)
 
@@ -844,7 +844,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="signaturerequestfilesasfileurl"></a>
+<a id="signaturerequestfilesasfileurl"></a>
 # **SignatureRequestFilesAsFileUrl**
 > FileResponse SignatureRequestFilesAsFileUrl (string signatureRequestId, int? forceDownload = null)
 
@@ -940,7 +940,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="signaturerequestget"></a>
+<a id="signaturerequestget"></a>
 # **SignatureRequestGet**
 > SignatureRequestGetResponse SignatureRequestGet (string signatureRequestId)
 
@@ -1035,7 +1035,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="signaturerequestlist"></a>
+<a id="signaturerequestlist"></a>
 # **SignatureRequestList**
 > SignatureRequestListResponse SignatureRequestList (string? accountId = null, int? page = null, int? pageSize = null, string? query = null)
 
@@ -1133,7 +1133,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="signaturerequestreleasehold"></a>
+<a id="signaturerequestreleasehold"></a>
 # **SignatureRequestReleaseHold**
 > SignatureRequestGetResponse SignatureRequestReleaseHold (string signatureRequestId)
 
@@ -1228,7 +1228,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="signaturerequestremind"></a>
+<a id="signaturerequestremind"></a>
 # **SignatureRequestRemind**
 > SignatureRequestGetResponse SignatureRequestRemind (string signatureRequestId, SignatureRequestRemindRequest signatureRequestRemindRequest)
 
@@ -1328,7 +1328,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="signaturerequestremove"></a>
+<a id="signaturerequestremove"></a>
 # **SignatureRequestRemove**
 > void SignatureRequestRemove (string signatureRequestId)
 
@@ -1419,7 +1419,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="signaturerequestsend"></a>
+<a id="signaturerequestsend"></a>
 # **SignatureRequestSend**
 > SignatureRequestGetResponse SignatureRequestSend (SignatureRequestSendRequest signatureRequestSendRequest)
 
@@ -1565,7 +1565,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="signaturerequestsendwithtemplate"></a>
+<a id="signaturerequestsendwithtemplate"></a>
 # **SignatureRequestSendWithTemplate**
 > SignatureRequestGetResponse SignatureRequestSendWithTemplate (SignatureRequestSendWithTemplateRequest signatureRequestSendWithTemplateRequest)
 
@@ -1695,7 +1695,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="signaturerequestupdate"></a>
+<a id="signaturerequestupdate"></a>
 # **SignatureRequestUpdate**
 > SignatureRequestGetResponse SignatureRequestUpdate (string signatureRequestId, SignatureRequestUpdateRequest signatureRequestUpdateRequest)
 

@@ -6,9 +6,9 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-| `templateId` | ```String``` |  The id of the Template.  |  |
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+| `templateId`<sup>*_required_</sup> | ```String``` |  The id of the Template.  |  |
 
 
 

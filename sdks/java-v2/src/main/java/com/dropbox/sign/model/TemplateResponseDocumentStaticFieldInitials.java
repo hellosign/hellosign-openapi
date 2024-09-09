@@ -26,24 +26,24 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.dropbox.sign.JSON;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.dropbox.sign.JSON;
 
 
 import com.dropbox.sign.ApiException;
 /**
  * This class extends &#x60;TemplateResponseDocumentStaticFieldBase&#x60;
  */
-@ApiModel(description = "This class extends `TemplateResponseDocumentStaticFieldBase`")
 @JsonPropertyOrder({
   TemplateResponseDocumentStaticFieldInitials.JSON_PROPERTY_TYPE
 })
-@JsonIgnoreProperties(ignoreUnknown=true)
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
+@JsonIgnoreProperties(
+  allowSetters = true, // allows the type to be set during deserialization
+  ignoreUnknown = true
+)
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.EXISTING_PROPERTY, property = "type", visible = true)
 
 public class TemplateResponseDocumentStaticFieldInitials extends TemplateResponseDocumentStaticFieldBase {
@@ -73,12 +73,11 @@ public class TemplateResponseDocumentStaticFieldInitials extends TemplateRespons
     return this;
   }
 
-   /**
+  /**
    * The type of this static field. See [field types](/api/reference/constants/#field-types).  * Text Field uses &#x60;TemplateResponseDocumentStaticFieldText&#x60; * Dropdown Field uses &#x60;TemplateResponseDocumentStaticFieldDropdown&#x60; * Hyperlink Field uses &#x60;TemplateResponseDocumentStaticFieldHyperlink&#x60; * Checkbox Field uses &#x60;TemplateResponseDocumentStaticFieldCheckbox&#x60; * Radio Field uses &#x60;TemplateResponseDocumentStaticFieldRadio&#x60; * Signature Field uses &#x60;TemplateResponseDocumentStaticFieldSignature&#x60; * Date Signed Field uses &#x60;TemplateResponseDocumentStaticFieldDateSigned&#x60; * Initials Field uses &#x60;TemplateResponseDocumentStaticFieldInitials&#x60;
    * @return type
-  **/
+   */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The type of this static field. See [field types](/api/reference/constants/#field-types).  * Text Field uses `TemplateResponseDocumentStaticFieldText` * Dropdown Field uses `TemplateResponseDocumentStaticFieldDropdown` * Hyperlink Field uses `TemplateResponseDocumentStaticFieldHyperlink` * Checkbox Field uses `TemplateResponseDocumentStaticFieldCheckbox` * Radio Field uses `TemplateResponseDocumentStaticFieldRadio` * Signature Field uses `TemplateResponseDocumentStaticFieldSignature` * Date Signed Field uses `TemplateResponseDocumentStaticFieldDateSigned` * Initials Field uses `TemplateResponseDocumentStaticFieldInitials`")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

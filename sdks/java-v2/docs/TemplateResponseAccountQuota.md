@@ -6,8 +6,8 @@ An array of the designated CC roles that must be specified when sending a Signat
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
 | `templatesLeft` | ```Integer``` |  API templates remaining.  |  |
 | `apiSignatureRequestsLeft` | ```Integer``` |  API signature requests remaining.  |  |
 | `documentsLeft` | ```Integer``` |  Signature requests remaining.  |  |

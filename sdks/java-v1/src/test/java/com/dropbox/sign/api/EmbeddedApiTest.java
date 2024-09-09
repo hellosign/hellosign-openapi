@@ -4,8 +4,9 @@ import com.dropbox.sign.ApiClient;
 import com.dropbox.sign.TestHelper;
 import com.dropbox.sign.model.*;
 import com.fasterxml.jackson.databind.JsonNode;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class EmbeddedApiTest {
     @Test
@@ -23,7 +24,7 @@ public class EmbeddedApiTest {
         EmbeddedApi api = new EmbeddedApi(apiClient);
         EmbeddedEditUrlResponse response = api.embeddedEditUrl(templateId, request);
 
-        Assert.assertEquals(expectedResponse, response);
+        assertEquals(expectedResponse, response);
     }
 
     @Test
@@ -37,6 +38,6 @@ public class EmbeddedApiTest {
         EmbeddedApi api = new EmbeddedApi(apiClient);
         EmbeddedSignUrlResponse response = api.embeddedSignUrl(signatureId);
 
-        Assert.assertEquals(expectedResponse, response);
+        assertEquals(expectedResponse, response);
     }
 }

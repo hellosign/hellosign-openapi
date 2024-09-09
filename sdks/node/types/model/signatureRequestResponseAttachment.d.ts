@@ -1,7 +1,7 @@
 import { AttributeTypeMap } from "./";
 export declare class SignatureRequestResponseAttachment {
     "id": string;
-    "signer": string;
+    "signer": number | string;
     "name": string;
     "required": boolean;
     "instructions"?: string | null;

@@ -22,19 +22,16 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.dropbox.sign.JSON;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.dropbox.sign.JSON;
 
 
 import com.dropbox.sign.ApiException;
 /**
  * A group of documents that a user can take ownership of via the claim URL.
  */
-@ApiModel(description = "A group of documents that a user can take ownership of via the claim URL.")
 @JsonPropertyOrder({
   UnclaimedDraftResponse.JSON_PROPERTY_SIGNATURE_REQUEST_ID,
   UnclaimedDraftResponse.JSON_PROPERTY_CLAIM_URL,
@@ -43,8 +40,8 @@ import com.dropbox.sign.ApiException;
   UnclaimedDraftResponse.JSON_PROPERTY_EXPIRES_AT,
   UnclaimedDraftResponse.JSON_PROPERTY_TEST_MODE
 })
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UnclaimedDraftResponse {
   public static final String JSON_PROPERTY_SIGNATURE_REQUEST_ID = "signature_request_id";
   private String signatureRequestId;
@@ -87,12 +84,11 @@ public class UnclaimedDraftResponse {
     return this;
   }
 
-   /**
+  /**
    * The ID of the signature request that is represented by this UnclaimedDraft.
    * @return signatureRequestId
-  **/
+   */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The ID of the signature request that is represented by this UnclaimedDraft.")
   @JsonProperty(JSON_PROPERTY_SIGNATURE_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -113,12 +109,11 @@ public class UnclaimedDraftResponse {
     return this;
   }
 
-   /**
+  /**
    * The URL to be used to claim this UnclaimedDraft.
    * @return claimUrl
-  **/
+   */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The URL to be used to claim this UnclaimedDraft.")
   @JsonProperty(JSON_PROPERTY_CLAIM_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -139,12 +134,11 @@ public class UnclaimedDraftResponse {
     return this;
   }
 
-   /**
+  /**
    * The URL you want signers redirected to after they successfully sign.
    * @return signingRedirectUrl
-  **/
+   */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The URL you want signers redirected to after they successfully sign.")
   @JsonProperty(JSON_PROPERTY_SIGNING_REDIRECT_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -165,12 +159,11 @@ public class UnclaimedDraftResponse {
     return this;
   }
 
-   /**
+  /**
    * The URL you want signers redirected to after they successfully request a signature (Will only be returned in the response if it is applicable to the request.).
    * @return requestingRedirectUrl
-  **/
+   */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The URL you want signers redirected to after they successfully request a signature (Will only be returned in the response if it is applicable to the request.).")
   @JsonProperty(JSON_PROPERTY_REQUESTING_REDIRECT_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -191,12 +184,11 @@ public class UnclaimedDraftResponse {
     return this;
   }
 
-   /**
+  /**
    * When the link expires.
    * @return expiresAt
-  **/
+   */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "When the link expires.")
   @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -217,12 +209,11 @@ public class UnclaimedDraftResponse {
     return this;
   }
 
-   /**
+  /**
    * Whether this is a test draft. Signature requests made from test drafts have no legal value.
    * @return testMode
-  **/
+   */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Whether this is a test draft. Signature requests made from test drafts have no legal value.")
   @JsonProperty(JSON_PROPERTY_TEST_MODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

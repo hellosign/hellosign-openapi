@@ -2,8 +2,8 @@
 
 All URIs are relative to *https://api.hellosign.com/v3*
 
-|Method | HTTP request | Description|
-|------------- | ------------- | -------------|
+Method | HTTP request | Description
+------------- | ------------- | -------------
 |[```embedded_edit_url```](EmbeddedApi.md#embedded_edit_url) | ```POST /embedded/edit_url/{template_id}``` | Get Embedded Template Edit URL|
 |[```embedded_sign_url```](EmbeddedApi.md#embedded_sign_url) | ```GET /embedded/sign_url/{signature_id}``` | Get Embedded Sign URL|
 
@@ -51,10 +51,9 @@ with ApiClient(configuration) as api_client:
         print("Exception when calling Dropbox Sign API: %s\n" % e)
 
 ```
-
+```
 
 ### Parameters
-
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `template_id` | **str** | The id of the template to edit. |  |
@@ -72,7 +71,6 @@ with ApiClient(configuration) as api_client:
 
  - **Content-Type**: application/json
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -121,10 +119,9 @@ with ApiClient(configuration) as api_client:
         print("Exception when calling Dropbox Sign API: %s\n" % e)
 
 ```
-
+```
 
 ### Parameters
-
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `signature_id` | **str** | The id of the signature to get a signature url for. |  |
@@ -141,7 +138,6 @@ with ApiClient(configuration) as api_client:
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
 
 ### HTTP response details
 

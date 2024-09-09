@@ -14,7 +14,6 @@
 package com.dropbox.sign.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -22,12 +21,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.dropbox.sign.JSON;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.dropbox.sign.JSON;
 
 
 import com.dropbox.sign.ApiException;
@@ -35,12 +33,12 @@ import com.dropbox.sign.ApiException;
  * TeamMemberResponse
  */
 @JsonPropertyOrder({
-    TeamMemberResponse.JSON_PROPERTY_ACCOUNT_ID,
-    TeamMemberResponse.JSON_PROPERTY_EMAIL_ADDRESS,
-    TeamMemberResponse.JSON_PROPERTY_ROLE
+  TeamMemberResponse.JSON_PROPERTY_ACCOUNT_ID,
+  TeamMemberResponse.JSON_PROPERTY_EMAIL_ADDRESS,
+  TeamMemberResponse.JSON_PROPERTY_ROLE
 })
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TeamMemberResponse {
   public static final String JSON_PROPERTY_ACCOUNT_ID = "account_id";
   private String accountId;
@@ -74,12 +72,11 @@ public class TeamMemberResponse {
     return this;
   }
 
-   /**
+  /**
    * Account id of the team member.
    * @return accountId
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Account id of the team member.")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -100,12 +97,11 @@ public class TeamMemberResponse {
     return this;
   }
 
-   /**
+  /**
    * Email address of the team member.
    * @return emailAddress
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Email address of the team member.")
   @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -126,12 +122,11 @@ public class TeamMemberResponse {
     return this;
   }
 
-   /**
+  /**
    * The specific role a member has on the team.
    * @return role
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The specific role a member has on the team.")
   @JsonProperty(JSON_PROPERTY_ROLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

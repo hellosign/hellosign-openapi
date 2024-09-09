@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-import { RequestFile, AttributeTypeMap, ObjectSerializer } from "./";
+import { AttributeTypeMap, ObjectSerializer } from "./";
 import { ListInfoResponse } from "./listInfoResponse";
 import { TemplateResponse } from "./templateResponse";
 import { WarningResponse } from "./warningResponse";
@@ -31,8 +31,8 @@ export class TemplateListResponse {
   /**
    * List of templates that the API caller has access to.
    */
-  "templates"?: Array<TemplateResponse>;
-  "listInfo"?: ListInfoResponse;
+  "templates": Array<TemplateResponse>;
+  "listInfo": ListInfoResponse;
   /**
    * A list of warnings.
    */

@@ -22,27 +22,24 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.dropbox.sign.JSON;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.dropbox.sign.JSON;
 
 
 import com.dropbox.sign.ApiException;
 /**
  * Contains pagination information about the data returned.
  */
-@ApiModel(description = "Contains pagination information about the data returned.")
 @JsonPropertyOrder({
   ListInfoResponse.JSON_PROPERTY_NUM_PAGES,
   ListInfoResponse.JSON_PROPERTY_NUM_RESULTS,
   ListInfoResponse.JSON_PROPERTY_PAGE,
   ListInfoResponse.JSON_PROPERTY_PAGE_SIZE
 })
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ListInfoResponse {
   public static final String JSON_PROPERTY_NUM_PAGES = "num_pages";
   private Integer numPages;
@@ -79,12 +76,11 @@ public class ListInfoResponse {
     return this;
   }
 
-   /**
+  /**
    * Total number of pages available.
    * @return numPages
-  **/
+   */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Total number of pages available.")
   @JsonProperty(JSON_PROPERTY_NUM_PAGES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -105,12 +101,11 @@ public class ListInfoResponse {
     return this;
   }
 
-   /**
+  /**
    * Total number of objects available.
    * @return numResults
-  **/
+   */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Total number of objects available.")
   @JsonProperty(JSON_PROPERTY_NUM_RESULTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -131,12 +126,11 @@ public class ListInfoResponse {
     return this;
   }
 
-   /**
+  /**
    * Number of the page being returned.
    * @return page
-  **/
+   */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Number of the page being returned.")
   @JsonProperty(JSON_PROPERTY_PAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -157,12 +151,11 @@ public class ListInfoResponse {
     return this;
   }
 
-   /**
+  /**
    * Objects returned per page.
    * @return pageSize
-  **/
+   */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Objects returned per page.")
   @JsonProperty(JSON_PROPERTY_PAGE_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

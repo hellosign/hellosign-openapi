@@ -3,13 +3,10 @@
 
 
 ## Properties
-
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| `team` | [```TeamResponse```](TeamResponse.md) |    |  |
-| `warnings` | [```[WarningResponse]```](WarningResponse.md) |  A list of warnings.  |  |
-
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+| `team`<sup>*_required_</sup> | [```TeamResponse```](TeamResponse.md) |    |  |
+| `warnings` | [```List[WarningResponse]```](WarningResponse.md) |  A list of warnings.  |  |
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
 

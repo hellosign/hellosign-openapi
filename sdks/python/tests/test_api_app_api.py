@@ -23,7 +23,8 @@ class TestApiAppApi(unittest.TestCase):
         self.mock_pool.expect_request(
             content_type='multipart/form-data',
             data=request_data,
-            response=response_data
+            response=response_data,
+            status=201,
         )
 
         obj = m.ApiAppCreateRequest.init(request_data)

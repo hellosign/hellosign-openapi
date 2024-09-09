@@ -4,8 +4,9 @@ import com.dropbox.sign.ApiClient;
 import com.dropbox.sign.TestHelper;
 import com.dropbox.sign.model.*;
 import com.fasterxml.jackson.databind.JsonNode;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class BulkSendJobApiTest {
     @Test
@@ -18,7 +19,7 @@ public class BulkSendJobApiTest {
         BulkSendJobApi api = new BulkSendJobApi(apiClient);
         BulkSendJobGetResponse response = api.bulkSendJobGet(id);
 
-        Assert.assertEquals(expectedResponse, response);
+        assertEquals(expectedResponse, response);
     }
 
     @Test
@@ -30,6 +31,6 @@ public class BulkSendJobApiTest {
         BulkSendJobApi api = new BulkSendJobApi(apiClient);
         BulkSendJobListResponse response = api.bulkSendJobList(1, 20);
 
-        Assert.assertEquals(expectedResponse, response);
+        assertEquals(expectedResponse, response);
     }
 }

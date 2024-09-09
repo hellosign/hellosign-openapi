@@ -2,8 +2,8 @@
 
 All URIs are relative to *https://api.hellosign.com/v3*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
+| Method | HTTP request | Description |
+|------------- | ------------- | -------------|
 [**teamAddMember**](TeamApi.md#teamAddMember) | **PUT** /team/add_member | Add User to Team
 [**teamCreate**](TeamApi.md#teamCreate) | **POST** /team/create | Create Team
 [**teamDelete**](TeamApi.md#teamDelete) | **DELETE** /team/destroy | Delete Team
@@ -70,8 +70,8 @@ public class Example {
 ### Parameters
 
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
  **teamAddMemberRequest** | [**TeamAddMemberRequest**](TeamAddMemberRequest.md)|  |
  **teamId** | **String**| The id of the team. | [optional]
 
@@ -146,8 +146,8 @@ public class Example {
 ### Parameters
 
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
  **teamCreateRequest** | [**TeamCreateRequest**](TeamCreateRequest.md)|  |
 
 ### Return type
@@ -354,8 +354,8 @@ public class Example {
 ### Parameters
 
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
  **teamId** | **String**| The id of the team. | [optional]
 
 ### Return type
@@ -428,8 +428,8 @@ public class Example {
 ### Parameters
 
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
  **emailAddress** | **String**| The email address for which to display the team invites. | [optional]
 
 ### Return type
@@ -504,8 +504,8 @@ public class Example {
 ### Parameters
 
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
  **teamId** | **String**| The id of the team that a member list is being requested from. |
  **page** | **Integer**| Which page number of the team member list to return. Defaults to `1`. | [optional] [default to 1]
  **pageSize** | **Integer**| Number of objects to be returned per page. Must be between `1` and `100`. Default is `20`. | [optional] [default to 20]
@@ -582,8 +582,8 @@ public class Example {
 ### Parameters
 
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
  **teamRemoveMemberRequest** | [**TeamRemoveMemberRequest**](TeamRemoveMemberRequest.md)|  |
 
 ### Return type
@@ -658,8 +658,8 @@ public class Example {
 ### Parameters
 
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
  **teamId** | **String**| The id of the parent Team. |
  **page** | **Integer**| Which page number of the SubTeam List to return. Defaults to `1`. | [optional] [default to 1]
  **pageSize** | **Integer**| Number of objects to be returned per page. Must be between `1` and `100`. Default is `20`. | [optional] [default to 20]
@@ -735,8 +735,8 @@ public class Example {
 ### Parameters
 
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
  **teamUpdateRequest** | [**TeamUpdateRequest**](TeamUpdateRequest.md)|  |
 
 ### Return type

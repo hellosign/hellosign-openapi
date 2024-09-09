@@ -14,7 +14,6 @@
 package com.dropbox.sign.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -22,12 +21,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.dropbox.sign.JSON;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.dropbox.sign.JSON;
 
 
 import com.dropbox.sign.ApiException;
@@ -35,12 +33,12 @@ import com.dropbox.sign.ApiException;
  * AccountUpdateRequest
  */
 @JsonPropertyOrder({
-    AccountUpdateRequest.JSON_PROPERTY_ACCOUNT_ID,
-    AccountUpdateRequest.JSON_PROPERTY_CALLBACK_URL,
-    AccountUpdateRequest.JSON_PROPERTY_LOCALE
+  AccountUpdateRequest.JSON_PROPERTY_ACCOUNT_ID,
+  AccountUpdateRequest.JSON_PROPERTY_CALLBACK_URL,
+  AccountUpdateRequest.JSON_PROPERTY_LOCALE
 })
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class AccountUpdateRequest {
   public static final String JSON_PROPERTY_ACCOUNT_ID = "account_id";
   private String accountId;
@@ -74,12 +72,11 @@ public class AccountUpdateRequest {
     return this;
   }
 
-   /**
+  /**
    * The ID of the Account
    * @return accountId
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The ID of the Account")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -100,12 +97,11 @@ public class AccountUpdateRequest {
     return this;
   }
 
-   /**
+  /**
    * The URL that Dropbox Sign should POST events to.
    * @return callbackUrl
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The URL that Dropbox Sign should POST events to.")
   @JsonProperty(JSON_PROPERTY_CALLBACK_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -126,12 +122,11 @@ public class AccountUpdateRequest {
     return this;
   }
 
-   /**
+  /**
    * The locale used in this Account. Check out the list of [supported locales](/api/reference/constants/#supported-locales) to learn more about the possible values.
    * @return locale
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The locale used in this Account. Check out the list of [supported locales](/api/reference/constants/#supported-locales) to learn more about the possible values.")
   @JsonProperty(JSON_PROPERTY_LOCALE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

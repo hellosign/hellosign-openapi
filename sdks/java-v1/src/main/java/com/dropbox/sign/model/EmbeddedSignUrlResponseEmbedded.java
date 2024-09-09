@@ -14,7 +14,6 @@
 package com.dropbox.sign.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -22,25 +21,23 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.dropbox.sign.JSON;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.dropbox.sign.JSON;
 
 
 import com.dropbox.sign.ApiException;
 /**
  * An object that contains necessary information to set up embedded signing.
  */
-@ApiModel(description = "An object that contains necessary information to set up embedded signing.")
 @JsonPropertyOrder({
-    EmbeddedSignUrlResponseEmbedded.JSON_PROPERTY_SIGN_URL,
-    EmbeddedSignUrlResponseEmbedded.JSON_PROPERTY_EXPIRES_AT
+  EmbeddedSignUrlResponseEmbedded.JSON_PROPERTY_SIGN_URL,
+  EmbeddedSignUrlResponseEmbedded.JSON_PROPERTY_EXPIRES_AT
 })
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class EmbeddedSignUrlResponseEmbedded {
   public static final String JSON_PROPERTY_SIGN_URL = "sign_url";
   private String signUrl;
@@ -71,12 +68,11 @@ public class EmbeddedSignUrlResponseEmbedded {
     return this;
   }
 
-   /**
+  /**
    * A signature url that can be opened in an iFrame.
    * @return signUrl
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A signature url that can be opened in an iFrame.")
   @JsonProperty(JSON_PROPERTY_SIGN_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -97,12 +93,11 @@ public class EmbeddedSignUrlResponseEmbedded {
     return this;
   }
 
-   /**
+  /**
    * The specific time that the the &#x60;sign_url&#x60; link expires, in epoch.
    * @return expiresAt
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The specific time that the the `sign_url` link expires, in epoch.")
   @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

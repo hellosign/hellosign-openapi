@@ -1,10 +1,12 @@
 wwwroot/*.js
 node_modules
 typings
+dist
+# CUSTOM - BEGIN
 test.*
 *.tgz
 .openapi-generator
-
 .composer
 tmp_docs
 vendor
+# CUSTOM - END

@@ -1,5 +1,5 @@
-import jsonDiff from 'json-diff';
-import MockAdapter from 'axios-mock-adapter';
+import * as jsonDiff from 'json-diff';
+import MockAdapter = require("axios-mock-adapter");
 import { ObjectSerializer } from '../model';
 
 export const getFixtureData = (file: string): Object => {

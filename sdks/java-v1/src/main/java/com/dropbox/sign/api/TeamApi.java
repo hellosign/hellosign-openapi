@@ -21,10 +21,11 @@ import com.dropbox.sign.model.TeamUpdateRequest;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 public class TeamApi {
   private ApiClient apiClient;
 
@@ -108,48 +109,39 @@ public class TeamApi {
    */
   public ApiResponse<TeamGetResponse> teamAddMemberWithHttpInfo(TeamAddMemberRequest teamAddMemberRequest, String teamId) throws ApiException {
     
-    Object localVarPostBody = teamAddMemberRequest;
-    
-    // verify the required parameter 'teamAddMemberRequest' is set
+    // Check required parameters
     if (teamAddMemberRequest == null) {
       throw new ApiException(400, "Missing the required parameter 'teamAddMemberRequest' when calling teamAddMember");
     }
-    
-    // create path and map variables
-    String localVarPath = "/team/add_member";
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+    // Query parameters
+    List<Pair> localVarQueryParams = new ArrayList<>(
+            apiClient.parameterToPairs("", "team_id", teamId)
+    );
 
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "team_id", teamId));
-
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-
+    String localVarAccept = apiClient.selectHeaderAccept("application/json");
+    Map<String, Object> localVarFormParams = new LinkedHashMap<>();
     localVarFormParams = teamAddMemberRequest.createFormData();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
-
-    final String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "api_key", "oauth2" };
-
+    String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType("application/json");
+    String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
     GenericType<TeamGetResponse> localVarReturnType = new GenericType<TeamGetResponse>() {};
+    return apiClient.invokeAPI(
+        "TeamApi.teamAddMember",
+        "/team/add_member",
+        "PUT",
+        localVarQueryParams,
+        isFileTypeFound ? null : teamAddMemberRequest,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false
+    );
 
-    return apiClient.invokeAPI("TeamApi.teamAddMember", localVarPath, "PUT", localVarQueryParams, localVarPostBody,
-                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
   }
   /**
    * Create Team
@@ -184,47 +176,34 @@ public class TeamApi {
    */
   public ApiResponse<TeamGetResponse> teamCreateWithHttpInfo(TeamCreateRequest teamCreateRequest) throws ApiException {
     
-    Object localVarPostBody = teamCreateRequest;
-    
-    // verify the required parameter 'teamCreateRequest' is set
+    // Check required parameters
     if (teamCreateRequest == null) {
       throw new ApiException(400, "Missing the required parameter 'teamCreateRequest' when calling teamCreate");
     }
-    
-    // create path and map variables
-    String localVarPath = "/team/create";
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-
+    String localVarAccept = apiClient.selectHeaderAccept("application/json");
+    Map<String, Object> localVarFormParams = new LinkedHashMap<>();
     localVarFormParams = teamCreateRequest.createFormData();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
-
-    final String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "api_key", "oauth2" };
-
+    String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType("application/json");
+    String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
     GenericType<TeamGetResponse> localVarReturnType = new GenericType<TeamGetResponse>() {};
+    return apiClient.invokeAPI(
+        "TeamApi.teamCreate",
+        "/team/create",
+        "POST",
+        new ArrayList<>(),
+        isFileTypeFound ? null : teamCreateRequest,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false
+    );
 
-    return apiClient.invokeAPI("TeamApi.teamCreate", localVarPath, "POST", localVarQueryParams, localVarPostBody,
-                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
   }
   /**
    * Delete Team
@@ -256,40 +235,28 @@ public class TeamApi {
    */
   public ApiResponse<Void> teamDeleteWithHttpInfo() throws ApiException {
     
-    Object localVarPostBody = null;
-    
-    // create path and map variables
-    String localVarPath = "/team/destroy";
-
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-
+    String localVarAccept = apiClient.selectHeaderAccept("application/json");
+    Map<String, Object> localVarFormParams = new LinkedHashMap<>();
     localVarFormParams = new HashMap<String, Object>();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
+    String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType();
+    String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
+    return apiClient.invokeAPI(
+        "TeamApi.teamDelete",
+        "/team/destroy",
+        "DELETE",
+        new ArrayList<>(),
+        null,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        null,
+        false
+    );
 
-    final String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "api_key", "oauth2" };
-
-    return apiClient.invokeAPI("TeamApi.teamDelete", localVarPath, "DELETE", localVarQueryParams, localVarPostBody,
-                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, null, false);
   }
   /**
    * Get Team
@@ -322,42 +289,29 @@ public class TeamApi {
    */
   public ApiResponse<TeamGetResponse> teamGetWithHttpInfo() throws ApiException {
     
-    Object localVarPostBody = null;
-    
-    // create path and map variables
-    String localVarPath = "/team";
-
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-
+    String localVarAccept = apiClient.selectHeaderAccept("application/json");
+    Map<String, Object> localVarFormParams = new LinkedHashMap<>();
     localVarFormParams = new HashMap<String, Object>();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
-
-    final String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "api_key", "oauth2" };
-
+    String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType();
+    String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
     GenericType<TeamGetResponse> localVarReturnType = new GenericType<TeamGetResponse>() {};
+    return apiClient.invokeAPI(
+        "TeamApi.teamGet",
+        "/team",
+        "GET",
+        new ArrayList<>(),
+        null,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false
+    );
 
-    return apiClient.invokeAPI("TeamApi.teamGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
-                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
   }
   /**
    * Get Team Info
@@ -411,43 +365,34 @@ public class TeamApi {
    */
   public ApiResponse<TeamGetInfoResponse> teamInfoWithHttpInfo(String teamId) throws ApiException {
     
-    Object localVarPostBody = null;
-    
-    // create path and map variables
-    String localVarPath = "/team/info";
+    // Query parameters
+    List<Pair> localVarQueryParams = new ArrayList<>(
+            apiClient.parameterToPairs("", "team_id", teamId)
+    );
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "team_id", teamId));
-
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-
+    String localVarAccept = apiClient.selectHeaderAccept("application/json");
+    Map<String, Object> localVarFormParams = new LinkedHashMap<>();
     localVarFormParams = new HashMap<String, Object>();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
-
-    final String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "api_key", "oauth2" };
-
+    String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType();
+    String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
     GenericType<TeamGetInfoResponse> localVarReturnType = new GenericType<TeamGetInfoResponse>() {};
+    return apiClient.invokeAPI(
+        "TeamApi.teamInfo",
+        "/team/info",
+        "GET",
+        localVarQueryParams,
+        null,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false
+    );
 
-    return apiClient.invokeAPI("TeamApi.teamInfo", localVarPath, "GET", localVarQueryParams, localVarPostBody,
-                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
   }
   /**
    * List Team Invites
@@ -501,43 +446,34 @@ public class TeamApi {
    */
   public ApiResponse<TeamInvitesResponse> teamInvitesWithHttpInfo(String emailAddress) throws ApiException {
     
-    Object localVarPostBody = null;
-    
-    // create path and map variables
-    String localVarPath = "/team/invites";
+    // Query parameters
+    List<Pair> localVarQueryParams = new ArrayList<>(
+            apiClient.parameterToPairs("", "email_address", emailAddress)
+    );
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "email_address", emailAddress));
-
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-
+    String localVarAccept = apiClient.selectHeaderAccept("application/json");
+    Map<String, Object> localVarFormParams = new LinkedHashMap<>();
     localVarFormParams = new HashMap<String, Object>();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
-
-    final String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "api_key", "oauth2" };
-
+    String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType();
+    String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
     GenericType<TeamInvitesResponse> localVarReturnType = new GenericType<TeamInvitesResponse>() {};
+    return apiClient.invokeAPI(
+        "TeamApi.teamInvites",
+        "/team/invites",
+        "GET",
+        localVarQueryParams,
+        null,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false
+    );
 
-    return apiClient.invokeAPI("TeamApi.teamInvites", localVarPath, "GET", localVarQueryParams, localVarPostBody,
-                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
   }
   /**
    * List Team Members
@@ -621,50 +557,44 @@ public class TeamApi {
     if (pageSize == null) {
         pageSize = 20;
     }
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'teamId' is set
+    // Check required parameters
     if (teamId == null) {
       throw new ApiException(400, "Missing the required parameter 'teamId' when calling teamMembers");
     }
-    
-    // create path and map variables
+
+    // Path parameters
     String localVarPath = "/team/members/{team_id}"
-      .replaceAll("\\{" + "team_id" + "\\}", apiClient.escapeString(teamId.toString()));
+            .replaceAll("\\{team_id}", apiClient.escapeString(teamId.toString()));
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page", page));
+    // Query parameters
+    List<Pair> localVarQueryParams = new ArrayList<>(
+            apiClient.parameterToPairs("", "page", page)
+    );
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page_size", pageSize));
 
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-
+    String localVarAccept = apiClient.selectHeaderAccept("application/json");
+    Map<String, Object> localVarFormParams = new LinkedHashMap<>();
     localVarFormParams = new HashMap<String, Object>();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
-
-    final String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "api_key", "oauth2" };
-
+    String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType();
+    String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
     GenericType<TeamMembersResponse> localVarReturnType = new GenericType<TeamMembersResponse>() {};
+    return apiClient.invokeAPI(
+        "TeamApi.teamMembers",
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        null,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false
+    );
 
-    return apiClient.invokeAPI("TeamApi.teamMembers", localVarPath, "GET", localVarQueryParams, localVarPostBody,
-                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
   }
   /**
    * Remove User from Team
@@ -699,47 +629,34 @@ public class TeamApi {
    */
   public ApiResponse<TeamGetResponse> teamRemoveMemberWithHttpInfo(TeamRemoveMemberRequest teamRemoveMemberRequest) throws ApiException {
     
-    Object localVarPostBody = teamRemoveMemberRequest;
-    
-    // verify the required parameter 'teamRemoveMemberRequest' is set
+    // Check required parameters
     if (teamRemoveMemberRequest == null) {
       throw new ApiException(400, "Missing the required parameter 'teamRemoveMemberRequest' when calling teamRemoveMember");
     }
-    
-    // create path and map variables
-    String localVarPath = "/team/remove_member";
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-
+    String localVarAccept = apiClient.selectHeaderAccept("application/json");
+    Map<String, Object> localVarFormParams = new LinkedHashMap<>();
     localVarFormParams = teamRemoveMemberRequest.createFormData();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
-
-    final String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "api_key", "oauth2" };
-
+    String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType("application/json");
+    String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
     GenericType<TeamGetResponse> localVarReturnType = new GenericType<TeamGetResponse>() {};
+    return apiClient.invokeAPI(
+        "TeamApi.teamRemoveMember",
+        "/team/remove_member",
+        "POST",
+        new ArrayList<>(),
+        isFileTypeFound ? null : teamRemoveMemberRequest,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false
+    );
 
-    return apiClient.invokeAPI("TeamApi.teamRemoveMember", localVarPath, "POST", localVarQueryParams, localVarPostBody,
-                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
   }
   /**
    * List Sub Teams
@@ -823,50 +740,44 @@ public class TeamApi {
     if (pageSize == null) {
         pageSize = 20;
     }
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'teamId' is set
+    // Check required parameters
     if (teamId == null) {
       throw new ApiException(400, "Missing the required parameter 'teamId' when calling teamSubTeams");
     }
-    
-    // create path and map variables
+
+    // Path parameters
     String localVarPath = "/team/sub_teams/{team_id}"
-      .replaceAll("\\{" + "team_id" + "\\}", apiClient.escapeString(teamId.toString()));
+            .replaceAll("\\{team_id}", apiClient.escapeString(teamId.toString()));
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page", page));
+    // Query parameters
+    List<Pair> localVarQueryParams = new ArrayList<>(
+            apiClient.parameterToPairs("", "page", page)
+    );
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page_size", pageSize));
 
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      
-    };
-
+    String localVarAccept = apiClient.selectHeaderAccept("application/json");
+    Map<String, Object> localVarFormParams = new LinkedHashMap<>();
     localVarFormParams = new HashMap<String, Object>();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
-
-    final String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "api_key", "oauth2" };
-
+    String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType();
+    String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
     GenericType<TeamSubTeamsResponse> localVarReturnType = new GenericType<TeamSubTeamsResponse>() {};
+    return apiClient.invokeAPI(
+        "TeamApi.teamSubTeams",
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        null,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false
+    );
 
-    return apiClient.invokeAPI("TeamApi.teamSubTeams", localVarPath, "GET", localVarQueryParams, localVarPostBody,
-                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
   }
   /**
    * Update Team
@@ -901,46 +812,33 @@ public class TeamApi {
    */
   public ApiResponse<TeamGetResponse> teamUpdateWithHttpInfo(TeamUpdateRequest teamUpdateRequest) throws ApiException {
     
-    Object localVarPostBody = teamUpdateRequest;
-    
-    // verify the required parameter 'teamUpdateRequest' is set
+    // Check required parameters
     if (teamUpdateRequest == null) {
       throw new ApiException(400, "Missing the required parameter 'teamUpdateRequest' when calling teamUpdate");
     }
-    
-    // create path and map variables
-    String localVarPath = "/team";
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-
+    String localVarAccept = apiClient.selectHeaderAccept("application/json");
+    Map<String, Object> localVarFormParams = new LinkedHashMap<>();
     localVarFormParams = teamUpdateRequest.createFormData();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
-
-    final String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "api_key", "oauth2" };
-
+    String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType("application/json");
+    String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
     GenericType<TeamGetResponse> localVarReturnType = new GenericType<TeamGetResponse>() {};
+    return apiClient.invokeAPI(
+        "TeamApi.teamUpdate",
+        "/team",
+        "PUT",
+        new ArrayList<>(),
+        isFileTypeFound ? null : teamUpdateRequest,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false
+    );
 
-    return apiClient.invokeAPI("TeamApi.teamUpdate", localVarPath, "PUT", localVarQueryParams, localVarPostBody,
-                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
   }
 }

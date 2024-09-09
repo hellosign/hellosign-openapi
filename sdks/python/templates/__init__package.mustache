@@ -1,28 +1,44 @@
+# coding: utf-8
+
 # flake8: noqa
 
 {{>partial_header}}
 
 __version__ = "{{packageVersion}}"
 
-# import ApiClient
-from {{packageName}}.api_client import ApiClient
+# import apis into sdk package
+{{^useCustomTemplateCode}}
+{{#apiInfo}}{{#apis}}from {{apiPackage}}.{{classFilename}} import {{classname}}
+{{/apis}}{{/apiInfo}}
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
+from dropbox_sign.apis import *
 
-# import Configuration
+{{/useCustomTemplateCode}}
+# import ApiClient
+from {{packageName}}.api_response import ApiResponse
+from {{packageName}}.api_client import ApiClient
 from {{packageName}}.configuration import Configuration
+from {{packageName}}.exceptions import OpenApiException
+from {{packageName}}.exceptions import ApiTypeError
+from {{packageName}}.exceptions import ApiValueError
+from {{packageName}}.exceptions import ApiKeyError
+from {{packageName}}.exceptions import ApiAttributeError
+from {{packageName}}.exceptions import ApiException
 {{#hasHttpSignatureMethods}}
 from {{packageName}}.signing import HttpSigningConfiguration
 {{/hasHttpSignatureMethods}}
 
-# import exceptions
-from {{packageName}}.exceptions import OpenApiException
-from {{packageName}}.exceptions import ApiAttributeError
-from {{packageName}}.exceptions import ApiTypeError
-from {{packageName}}.exceptions import ApiValueError
-from {{packageName}}.exceptions import ApiKeyError
-from {{packageName}}.exceptions import ApiException
+# import models into sdk package
+{{#models}}
+{{#model}}
+from {{modelPackage}}.{{classFilename}} import {{classname}}
+{{/model}}
+{{/models}}
+{{#useCustomTemplateCode}}
+from dropbox_sign.event_callback_helper import EventCallbackHelper
+{{/useCustomTemplateCode}}
 {{#recursionLimit}}
 
 __import__('sys').setrecursionlimit({{{.}}})
 {{/recursionLimit}}
-
-from dropbox_sign.event_callback_helper import EventCallbackHelper

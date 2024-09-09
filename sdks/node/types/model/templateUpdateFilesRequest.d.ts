@@ -1,4 +1,4 @@
-import { RequestFile, AttributeTypeMap } from "./";
+import { AttributeTypeMap, RequestFile } from "./";
 export declare class TemplateUpdateFilesRequest {
     "clientId"?: string;
     "files"?: Array<RequestFile>;

@@ -127,7 +127,6 @@ namespace Dropbox.Sign.Model
         /// </summary>
         [EnumMember(Value = "notoSanThaiMerged")]
         NotoSanThaiMerged = 16
-
     }
 
 }

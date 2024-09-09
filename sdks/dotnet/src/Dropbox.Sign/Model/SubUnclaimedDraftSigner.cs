@@ -31,7 +31,7 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "SubUnclaimedDraftSigner")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class SubUnclaimedDraftSigner : IOpenApiTyped, IEquatable<SubUnclaimedDraftSigner>, IValidatableObject
+    public partial class SubUnclaimedDraftSigner : IEquatable<SubUnclaimedDraftSigner>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SubUnclaimedDraftSigner" /> class.
@@ -84,21 +84,21 @@ namespace Dropbox.Sign.Model
         /// <value>The email address of the signer.</value>
         [DataMember(Name = "email_address", IsRequired = true, EmitDefaultValue = true)]
         public string EmailAddress { get; set; }
-
+        
         /// <summary>
         /// The name of the signer.
         /// </summary>
         /// <value>The name of the signer.</value>
         [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
         public string Name { get; set; }
-
+        
         /// <summary>
         /// The order the signer is required to sign in.
         /// </summary>
         /// <value>The order the signer is required to sign in.</value>
         [DataMember(Name = "order", EmitDefaultValue = true)]
         public int? Order { get; set; }
-
+        
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -187,6 +187,15 @@ namespace Dropbox.Sign.Model
             }
         }
 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
+            yield break;
+        }
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
@@ -210,16 +219,6 @@ namespace Dropbox.Sign.Model
             });
 
             return types;
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

@@ -31,7 +31,7 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "ApiAppResponseOptions")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class ApiAppResponseOptions : IOpenApiTyped, IEquatable<ApiAppResponseOptions>, IValidatableObject
+    public partial class ApiAppResponseOptions : IEquatable<ApiAppResponseOptions>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiAppResponseOptions" /> class.
@@ -70,7 +70,7 @@ namespace Dropbox.Sign.Model
         /// <value>Boolean denoting if signers can \&quot;Insert Everywhere\&quot; in one click while signing a document</value>
         [DataMember(Name = "can_insert_everywhere", EmitDefaultValue = true)]
         public bool CanInsertEverywhere { get; set; }
-
+        
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -135,6 +135,15 @@ namespace Dropbox.Sign.Model
             }
         }
 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
+            yield break;
+        }
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
@@ -146,16 +155,6 @@ namespace Dropbox.Sign.Model
             });
 
             return types;
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

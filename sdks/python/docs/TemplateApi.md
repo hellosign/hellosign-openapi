@@ -2,8 +2,8 @@
 
 All URIs are relative to *https://api.hellosign.com/v3*
 
-|Method | HTTP request | Description|
-|------------- | ------------- | -------------|
+Method | HTTP request | Description
+------------- | ------------- | -------------
 |[```template_add_user```](TemplateApi.md#template_add_user) | ```POST /template/add_user/{template_id}``` | Add User to Template|
 |[```template_create```](TemplateApi.md#template_create) | ```POST /template/create``` | Create  Template|
 |[```template_create_embedded_draft```](TemplateApi.md#template_create_embedded_draft) | ```POST /template/create_embedded_draft``` | Create Embedded Template Draft|
@@ -59,10 +59,9 @@ with ApiClient(configuration) as api_client:
         print("Exception when calling Dropbox Sign API: %s\n" % e)
 
 ```
-
+```
 
 ### Parameters
-
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `template_id` | **str** | The id of the Template to give the Account access to. |  |
@@ -80,7 +79,6 @@ with ApiClient(configuration) as api_client:
 
  - **Content-Type**: application/json
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -164,10 +162,9 @@ with ApiClient(configuration) as api_client:
         print("Exception when calling Dropbox Sign API: %s\n" % e)
 
 ```
-
+```
 
 ### Parameters
-
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `template_create_request` | [**TemplateCreateRequest**](TemplateCreateRequest.md) |  |  |
@@ -184,7 +181,6 @@ with ApiClient(configuration) as api_client:
 
  - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -268,10 +264,9 @@ with ApiClient(configuration) as api_client:
         print("Exception when calling Dropbox Sign API: %s\n" % e)
 
 ```
-
+```
 
 ### Parameters
-
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `template_create_embedded_draft_request` | [**TemplateCreateEmbeddedDraftRequest**](TemplateCreateEmbeddedDraftRequest.md) |  |  |
@@ -288,7 +283,6 @@ with ApiClient(configuration) as api_client:
 
  - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -334,10 +328,9 @@ with ApiClient(configuration) as api_client:
         print("Exception when calling Dropbox Sign API: %s\n" % e)
 
 ```
-
+```
 
 ### Parameters
-
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `template_id` | **str** | The id of the Template to delete. |  |
@@ -355,7 +348,6 @@ void (empty response body)
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
 
 | Status code | Description | Response headers |
@@ -366,7 +358,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # ```template_files```
-> ```file_type template_files(template_id)```
+> ```io.IOBase template_files(template_id)```
 
 Get Template Files
 
@@ -403,10 +395,9 @@ with ApiClient(configuration) as api_client:
         print("Exception when calling Dropbox Sign API: %s\n" % e)
 
 ```
-
+```
 
 ### Parameters
-
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `template_id` | **str** | The id of the template files to retrieve. |  |
@@ -414,7 +405,7 @@ with ApiClient(configuration) as api_client:
 
 ### Return type
 
-**file_type**
+**io.IOBase**
 
 ### Authorization
 
@@ -424,7 +415,6 @@ with ApiClient(configuration) as api_client:
 
  - **Content-Type**: Not defined
  - **Accept**: application/pdf, application/zip, application/json
-
 
 ### HTTP response details
 
@@ -473,10 +463,9 @@ with ApiClient(configuration) as api_client:
         print("Exception when calling Dropbox Sign API: %s\n" % e)
 
 ```
-
+```
 
 ### Parameters
-
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `template_id` | **str** | The id of the template files to retrieve. |  |
@@ -493,7 +482,6 @@ with ApiClient(configuration) as api_client:
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -542,10 +530,9 @@ with ApiClient(configuration) as api_client:
         print("Exception when calling Dropbox Sign API: %s\n" % e)
 
 ```
-
+```
 
 ### Parameters
-
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `template_id` | **str** | The id of the template files to retrieve. |  |
@@ -563,7 +550,6 @@ with ApiClient(configuration) as api_client:
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -612,10 +598,9 @@ with ApiClient(configuration) as api_client:
         print("Exception when calling Dropbox Sign API: %s\n" % e)
 
 ```
-
+```
 
 ### Parameters
-
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `template_id` | **str** | The id of the Template to retrieve. |  |
@@ -632,7 +617,6 @@ with ApiClient(configuration) as api_client:
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -683,10 +667,9 @@ with ApiClient(configuration) as api_client:
         print("Exception when calling Dropbox Sign API: %s\n" % e)
 
 ```
-
+```
 
 ### Parameters
-
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `account_id` | **str** | Which account to return Templates for. Must be a team member. Use `all` to indicate all team members. Defaults to your account. | [optional] |
@@ -706,7 +689,6 @@ with ApiClient(configuration) as api_client:
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -759,10 +741,9 @@ with ApiClient(configuration) as api_client:
         print("Exception when calling Dropbox Sign API: %s\n" % e)
 
 ```
-
+```
 
 ### Parameters
-
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `template_id` | **str** | The id of the Template to remove the Account&#39;s access to. |  |
@@ -780,7 +761,6 @@ with ApiClient(configuration) as api_client:
 
  - **Content-Type**: application/json
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -833,10 +813,9 @@ with ApiClient(configuration) as api_client:
         print("Exception when calling Dropbox Sign API: %s\n" % e)
 
 ```
-
+```
 
 ### Parameters
-
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `template_id` | **str** | The ID of the template whose files to update. |  |
@@ -854,7 +833,6 @@ with ApiClient(configuration) as api_client:
 
  - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
-
 
 ### HTTP response details
 

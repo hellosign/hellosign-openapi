@@ -14,7 +14,6 @@
 package com.dropbox.sign.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.dropbox.sign.model.SubAttachment;
@@ -30,17 +29,16 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.dropbox.sign.JSON;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.dropbox.sign.JSON;
 
 
 import com.dropbox.sign.ApiException;
@@ -48,34 +46,34 @@ import com.dropbox.sign.ApiException;
  * TemplateCreateEmbeddedDraftRequest
  */
 @JsonPropertyOrder({
-    TemplateCreateEmbeddedDraftRequest.JSON_PROPERTY_CLIENT_ID,
-    TemplateCreateEmbeddedDraftRequest.JSON_PROPERTY_FILES,
-    TemplateCreateEmbeddedDraftRequest.JSON_PROPERTY_FILE_URLS,
-    TemplateCreateEmbeddedDraftRequest.JSON_PROPERTY_ALLOW_CCS,
-    TemplateCreateEmbeddedDraftRequest.JSON_PROPERTY_ALLOW_REASSIGN,
-    TemplateCreateEmbeddedDraftRequest.JSON_PROPERTY_ATTACHMENTS,
-    TemplateCreateEmbeddedDraftRequest.JSON_PROPERTY_CC_ROLES,
-    TemplateCreateEmbeddedDraftRequest.JSON_PROPERTY_EDITOR_OPTIONS,
-    TemplateCreateEmbeddedDraftRequest.JSON_PROPERTY_FIELD_OPTIONS,
-    TemplateCreateEmbeddedDraftRequest.JSON_PROPERTY_FORCE_SIGNER_ROLES,
-    TemplateCreateEmbeddedDraftRequest.JSON_PROPERTY_FORCE_SUBJECT_MESSAGE,
-    TemplateCreateEmbeddedDraftRequest.JSON_PROPERTY_FORM_FIELD_GROUPS,
-    TemplateCreateEmbeddedDraftRequest.JSON_PROPERTY_FORM_FIELD_RULES,
-    TemplateCreateEmbeddedDraftRequest.JSON_PROPERTY_FORM_FIELDS_PER_DOCUMENT,
-    TemplateCreateEmbeddedDraftRequest.JSON_PROPERTY_MERGE_FIELDS,
-    TemplateCreateEmbeddedDraftRequest.JSON_PROPERTY_MESSAGE,
-    TemplateCreateEmbeddedDraftRequest.JSON_PROPERTY_METADATA,
-    TemplateCreateEmbeddedDraftRequest.JSON_PROPERTY_SHOW_PREVIEW,
-    TemplateCreateEmbeddedDraftRequest.JSON_PROPERTY_SHOW_PROGRESS_STEPPER,
-    TemplateCreateEmbeddedDraftRequest.JSON_PROPERTY_SIGNER_ROLES,
-    TemplateCreateEmbeddedDraftRequest.JSON_PROPERTY_SKIP_ME_NOW,
-    TemplateCreateEmbeddedDraftRequest.JSON_PROPERTY_SUBJECT,
-    TemplateCreateEmbeddedDraftRequest.JSON_PROPERTY_TEST_MODE,
-    TemplateCreateEmbeddedDraftRequest.JSON_PROPERTY_TITLE,
-    TemplateCreateEmbeddedDraftRequest.JSON_PROPERTY_USE_PREEXISTING_FIELDS
+  TemplateCreateEmbeddedDraftRequest.JSON_PROPERTY_CLIENT_ID,
+  TemplateCreateEmbeddedDraftRequest.JSON_PROPERTY_FILES,
+  TemplateCreateEmbeddedDraftRequest.JSON_PROPERTY_FILE_URLS,
+  TemplateCreateEmbeddedDraftRequest.JSON_PROPERTY_ALLOW_CCS,
+  TemplateCreateEmbeddedDraftRequest.JSON_PROPERTY_ALLOW_REASSIGN,
+  TemplateCreateEmbeddedDraftRequest.JSON_PROPERTY_ATTACHMENTS,
+  TemplateCreateEmbeddedDraftRequest.JSON_PROPERTY_CC_ROLES,
+  TemplateCreateEmbeddedDraftRequest.JSON_PROPERTY_EDITOR_OPTIONS,
+  TemplateCreateEmbeddedDraftRequest.JSON_PROPERTY_FIELD_OPTIONS,
+  TemplateCreateEmbeddedDraftRequest.JSON_PROPERTY_FORCE_SIGNER_ROLES,
+  TemplateCreateEmbeddedDraftRequest.JSON_PROPERTY_FORCE_SUBJECT_MESSAGE,
+  TemplateCreateEmbeddedDraftRequest.JSON_PROPERTY_FORM_FIELD_GROUPS,
+  TemplateCreateEmbeddedDraftRequest.JSON_PROPERTY_FORM_FIELD_RULES,
+  TemplateCreateEmbeddedDraftRequest.JSON_PROPERTY_FORM_FIELDS_PER_DOCUMENT,
+  TemplateCreateEmbeddedDraftRequest.JSON_PROPERTY_MERGE_FIELDS,
+  TemplateCreateEmbeddedDraftRequest.JSON_PROPERTY_MESSAGE,
+  TemplateCreateEmbeddedDraftRequest.JSON_PROPERTY_METADATA,
+  TemplateCreateEmbeddedDraftRequest.JSON_PROPERTY_SHOW_PREVIEW,
+  TemplateCreateEmbeddedDraftRequest.JSON_PROPERTY_SHOW_PROGRESS_STEPPER,
+  TemplateCreateEmbeddedDraftRequest.JSON_PROPERTY_SIGNER_ROLES,
+  TemplateCreateEmbeddedDraftRequest.JSON_PROPERTY_SKIP_ME_NOW,
+  TemplateCreateEmbeddedDraftRequest.JSON_PROPERTY_SUBJECT,
+  TemplateCreateEmbeddedDraftRequest.JSON_PROPERTY_TEST_MODE,
+  TemplateCreateEmbeddedDraftRequest.JSON_PROPERTY_TITLE,
+  TemplateCreateEmbeddedDraftRequest.JSON_PROPERTY_USE_PREEXISTING_FIELDS
 })
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TemplateCreateEmbeddedDraftRequest {
   public static final String JSON_PROPERTY_CLIENT_ID = "client_id";
   private String clientId;
@@ -175,12 +173,11 @@ public class TemplateCreateEmbeddedDraftRequest {
     return this;
   }
 
-   /**
+  /**
    * Client id of the app you&#39;re using to create this draft. Used to apply the branding and callback url defined for the app.
    * @return clientId
-  **/
+   */
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Client id of the app you're using to create this draft. Used to apply the branding and callback url defined for the app.")
   @JsonProperty(JSON_PROPERTY_CLIENT_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -209,12 +206,11 @@ public class TemplateCreateEmbeddedDraftRequest {
     return this;
   }
 
-   /**
+  /**
    * Use &#x60;files[]&#x60; to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.
    * @return files
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Use `files[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.")
   @JsonProperty(JSON_PROPERTY_FILES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -243,12 +239,11 @@ public class TemplateCreateEmbeddedDraftRequest {
     return this;
   }
 
-   /**
+  /**
    * Use &#x60;file_urls[]&#x60; to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.
    * @return fileUrls
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Use `file_urls[]` to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.")
   @JsonProperty(JSON_PROPERTY_FILE_URLS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -269,12 +264,11 @@ public class TemplateCreateEmbeddedDraftRequest {
     return this;
   }
 
-   /**
+  /**
    * This allows the requester to specify whether the user is allowed to provide email addresses to CC when creating a template.
    * @return allowCcs
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "This allows the requester to specify whether the user is allowed to provide email addresses to CC when creating a template.")
   @JsonProperty(JSON_PROPERTY_ALLOW_CCS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -295,12 +289,11 @@ public class TemplateCreateEmbeddedDraftRequest {
     return this;
   }
 
-   /**
+  /**
    * Allows signers to reassign their signature requests to other signers if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.  **NOTE:** Only available for Premium plan and higher.
    * @return allowReassign
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.  **NOTE:** Only available for Premium plan and higher.")
   @JsonProperty(JSON_PROPERTY_ALLOW_REASSIGN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -329,12 +322,11 @@ public class TemplateCreateEmbeddedDraftRequest {
     return this;
   }
 
-   /**
+  /**
    * A list describing the attachments
    * @return attachments
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A list describing the attachments")
   @JsonProperty(JSON_PROPERTY_ATTACHMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -363,12 +355,11 @@ public class TemplateCreateEmbeddedDraftRequest {
     return this;
   }
 
-   /**
+  /**
    * The CC roles that must be assigned when using the template to send a signature request
    * @return ccRoles
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The CC roles that must be assigned when using the template to send a signature request")
   @JsonProperty(JSON_PROPERTY_CC_ROLES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -389,12 +380,11 @@ public class TemplateCreateEmbeddedDraftRequest {
     return this;
   }
 
-   /**
+  /**
    * Get editorOptions
    * @return editorOptions
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_EDITOR_OPTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -415,12 +405,11 @@ public class TemplateCreateEmbeddedDraftRequest {
     return this;
   }
 
-   /**
+  /**
    * Get fieldOptions
    * @return fieldOptions
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FIELD_OPTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -441,12 +430,11 @@ public class TemplateCreateEmbeddedDraftRequest {
     return this;
   }
 
-   /**
+  /**
    * Provide users the ability to review/edit the template signer roles.
    * @return forceSignerRoles
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Provide users the ability to review/edit the template signer roles.")
   @JsonProperty(JSON_PROPERTY_FORCE_SIGNER_ROLES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -467,12 +455,11 @@ public class TemplateCreateEmbeddedDraftRequest {
     return this;
   }
 
-   /**
+  /**
    * Provide users the ability to review/edit the template subject and message.
    * @return forceSubjectMessage
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Provide users the ability to review/edit the template subject and message.")
   @JsonProperty(JSON_PROPERTY_FORCE_SUBJECT_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -501,12 +488,11 @@ public class TemplateCreateEmbeddedDraftRequest {
     return this;
   }
 
-   /**
+  /**
    * Group information for fields defined in &#x60;form_fields_per_document&#x60;. String-indexed JSON array with &#x60;group_label&#x60; and &#x60;requirement&#x60; keys. &#x60;form_fields_per_document&#x60; must contain fields referencing a group defined in &#x60;form_field_groups&#x60;.
    * @return formFieldGroups
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Group information for fields defined in `form_fields_per_document`. String-indexed JSON array with `group_label` and `requirement` keys. `form_fields_per_document` must contain fields referencing a group defined in `form_field_groups`.")
   @JsonProperty(JSON_PROPERTY_FORM_FIELD_GROUPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -535,12 +521,11 @@ public class TemplateCreateEmbeddedDraftRequest {
     return this;
   }
 
-   /**
+  /**
    * Conditional Logic rules for fields defined in &#x60;form_fields_per_document&#x60;.
    * @return formFieldRules
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Conditional Logic rules for fields defined in `form_fields_per_document`.")
   @JsonProperty(JSON_PROPERTY_FORM_FIELD_RULES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -569,12 +554,11 @@ public class TemplateCreateEmbeddedDraftRequest {
     return this;
   }
 
-   /**
+  /**
    * The fields that should appear on the document, expressed as an array of objects. (For more details you can read about it here: [Using Form Fields per Document](/docs/openapi/form-fields-per-document).)  **NOTE:** Fields like **text**, **dropdown**, **checkbox**, **radio**, and **hyperlink** have additional required and optional parameters. Check out the list of [additional parameters](/api/reference/constants/#form-fields-per-document) for these field types.  * Text Field use &#x60;SubFormFieldsPerDocumentText&#x60; * Dropdown Field use &#x60;SubFormFieldsPerDocumentDropdown&#x60; * Hyperlink Field use &#x60;SubFormFieldsPerDocumentHyperlink&#x60; * Checkbox Field use &#x60;SubFormFieldsPerDocumentCheckbox&#x60; * Radio Field use &#x60;SubFormFieldsPerDocumentRadio&#x60; * Signature Field use &#x60;SubFormFieldsPerDocumentSignature&#x60; * Date Signed Field use &#x60;SubFormFieldsPerDocumentDateSigned&#x60; * Initials Field use &#x60;SubFormFieldsPerDocumentInitials&#x60; * Text Merge Field use &#x60;SubFormFieldsPerDocumentTextMerge&#x60; * Checkbox Merge Field use &#x60;SubFormFieldsPerDocumentCheckboxMerge&#x60;
    * @return formFieldsPerDocument
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The fields that should appear on the document, expressed as an array of objects. (For more details you can read about it here: [Using Form Fields per Document](/docs/openapi/form-fields-per-document).)  **NOTE:** Fields like **text**, **dropdown**, **checkbox**, **radio**, and **hyperlink** have additional required and optional parameters. Check out the list of [additional parameters](/api/reference/constants/#form-fields-per-document) for these field types.  * Text Field use `SubFormFieldsPerDocumentText` * Dropdown Field use `SubFormFieldsPerDocumentDropdown` * Hyperlink Field use `SubFormFieldsPerDocumentHyperlink` * Checkbox Field use `SubFormFieldsPerDocumentCheckbox` * Radio Field use `SubFormFieldsPerDocumentRadio` * Signature Field use `SubFormFieldsPerDocumentSignature` * Date Signed Field use `SubFormFieldsPerDocumentDateSigned` * Initials Field use `SubFormFieldsPerDocumentInitials` * Text Merge Field use `SubFormFieldsPerDocumentTextMerge` * Checkbox Merge Field use `SubFormFieldsPerDocumentCheckboxMerge`")
   @JsonProperty(JSON_PROPERTY_FORM_FIELDS_PER_DOCUMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -603,12 +587,11 @@ public class TemplateCreateEmbeddedDraftRequest {
     return this;
   }
 
-   /**
+  /**
    * Add merge fields to the template. Merge fields are placed by the user creating the template and used to pre-fill data by passing values into signature requests with the &#x60;custom_fields&#x60; parameter. If the signature request using that template *does not* pass a value into a merge field, then an empty field remains in the document.
    * @return mergeFields
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Add merge fields to the template. Merge fields are placed by the user creating the template and used to pre-fill data by passing values into signature requests with the `custom_fields` parameter. If the signature request using that template *does not* pass a value into a merge field, then an empty field remains in the document.")
   @JsonProperty(JSON_PROPERTY_MERGE_FIELDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -629,12 +612,11 @@ public class TemplateCreateEmbeddedDraftRequest {
     return this;
   }
 
-   /**
+  /**
    * The default template email message.
    * @return message
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The default template email message.")
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -663,12 +645,11 @@ public class TemplateCreateEmbeddedDraftRequest {
     return this;
   }
 
-   /**
+  /**
    * Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer&#39;s order number for look up when receiving events for the signature request.  Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.
    * @return metadata
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.  Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.")
   @JsonProperty(JSON_PROPERTY_METADATA)
   @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -689,12 +670,11 @@ public class TemplateCreateEmbeddedDraftRequest {
     return this;
   }
 
-   /**
+  /**
    * This allows the requester to enable the editor/preview experience.  - &#x60;show_preview&#x3D;true&#x60;: Allows requesters to enable the editor/preview experience. - &#x60;show_preview&#x3D;false&#x60;: Allows requesters to disable the editor/preview experience.
    * @return showPreview
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "This allows the requester to enable the editor/preview experience.  - `show_preview=true`: Allows requesters to enable the editor/preview experience. - `show_preview=false`: Allows requesters to disable the editor/preview experience.")
   @JsonProperty(JSON_PROPERTY_SHOW_PREVIEW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -715,12 +695,11 @@ public class TemplateCreateEmbeddedDraftRequest {
     return this;
   }
 
-   /**
+  /**
    * When only one step remains in the signature request process and this parameter is set to &#x60;false&#x60; then the progress stepper will be hidden.
    * @return showProgressStepper
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "When only one step remains in the signature request process and this parameter is set to `false` then the progress stepper will be hidden.")
   @JsonProperty(JSON_PROPERTY_SHOW_PROGRESS_STEPPER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -749,12 +728,11 @@ public class TemplateCreateEmbeddedDraftRequest {
     return this;
   }
 
-   /**
+  /**
    * An array of the designated signer roles that must be specified when sending a SignatureRequest using this Template.
    * @return signerRoles
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "An array of the designated signer roles that must be specified when sending a SignatureRequest using this Template.")
   @JsonProperty(JSON_PROPERTY_SIGNER_ROLES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -775,12 +753,11 @@ public class TemplateCreateEmbeddedDraftRequest {
     return this;
   }
 
-   /**
+  /**
    * Disables the \&quot;Me (Now)\&quot; option for the person preparing the document. Does not work with type &#x60;send_document&#x60;. Defaults to &#x60;false&#x60;.
    * @return skipMeNow
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Disables the \"Me (Now)\" option for the person preparing the document. Does not work with type `send_document`. Defaults to `false`.")
   @JsonProperty(JSON_PROPERTY_SKIP_ME_NOW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -801,12 +778,11 @@ public class TemplateCreateEmbeddedDraftRequest {
     return this;
   }
 
-   /**
+  /**
    * The template title (alias).
    * @return subject
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The template title (alias).")
   @JsonProperty(JSON_PROPERTY_SUBJECT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -827,12 +803,11 @@ public class TemplateCreateEmbeddedDraftRequest {
     return this;
   }
 
-   /**
+  /**
    * Whether this is a test, the signature request created from this draft will not be legally binding if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.
    * @return testMode
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether this is a test, the signature request created from this draft will not be legally binding if set to `true`. Defaults to `false`.")
   @JsonProperty(JSON_PROPERTY_TEST_MODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -853,12 +828,11 @@ public class TemplateCreateEmbeddedDraftRequest {
     return this;
   }
 
-   /**
+  /**
    * The title you want to assign to the SignatureRequest.
    * @return title
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The title you want to assign to the SignatureRequest.")
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -879,12 +853,11 @@ public class TemplateCreateEmbeddedDraftRequest {
     return this;
   }
 
-   /**
+  /**
    * Enable the detection of predefined PDF fields by setting the &#x60;use_preexisting_fields&#x60; to &#x60;true&#x60; (defaults to disabled, or &#x60;false&#x60;).
    * @return usePreexistingFields
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Enable the detection of predefined PDF fields by setting the `use_preexisting_fields` to `true` (defaults to disabled, or `false`).")
   @JsonProperty(JSON_PROPERTY_USE_PREEXISTING_FIELDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

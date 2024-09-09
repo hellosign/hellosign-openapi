@@ -10,7 +10,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 | [**ApiAppList**](ApiAppApi.md#apiapplist) | **GET** /api_app/list | List API Apps |
 | [**ApiAppUpdate**](ApiAppApi.md#apiappupdate) | **PUT** /api_app/{client_id} | Update API App |
 
-<a name="apiappcreate"></a>
+<a id="apiappcreate"></a>
 # **ApiAppCreate**
 > ApiAppGetResponse ApiAppCreate (ApiAppCreateRequest apiAppCreateRequest)
 
@@ -130,7 +130,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="apiappdelete"></a>
+<a id="apiappdelete"></a>
 # **ApiAppDelete**
 > void ApiAppDelete (string clientId)
 
@@ -222,7 +222,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="apiappget"></a>
+<a id="apiappget"></a>
 # **ApiAppGet**
 > ApiAppGetResponse ApiAppGet (string clientId)
 
@@ -317,7 +317,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="apiapplist"></a>
+<a id="apiapplist"></a>
 # **ApiAppList**
 > ApiAppListResponse ApiAppList (int? page = null, int? pageSize = null)
 
@@ -414,7 +414,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="apiappupdate"></a>
+<a id="apiappupdate"></a>
 # **ApiAppUpdate**
 > ApiAppGetResponse ApiAppUpdate (string clientId, ApiAppUpdateRequest apiAppUpdateRequest)
 

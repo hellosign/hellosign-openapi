@@ -14,17 +14,9 @@
 package com.dropbox.sign.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.dropbox.sign.model.TemplateResponseDocumentStaticFieldCheckbox;
-import com.dropbox.sign.model.TemplateResponseDocumentStaticFieldDateSigned;
-import com.dropbox.sign.model.TemplateResponseDocumentStaticFieldDropdown;
-import com.dropbox.sign.model.TemplateResponseDocumentStaticFieldHyperlink;
-import com.dropbox.sign.model.TemplateResponseDocumentStaticFieldInitials;
-import com.dropbox.sign.model.TemplateResponseDocumentStaticFieldRadio;
-import com.dropbox.sign.model.TemplateResponseDocumentStaticFieldSignature;
-import com.dropbox.sign.model.TemplateResponseDocumentStaticFieldText;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -32,43 +24,36 @@ import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.dropbox.sign.JSON;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.dropbox.sign.JSON;
 
 
 import com.dropbox.sign.ApiException;
 /**
  * An array describing static overlay fields. **NOTE:** Only available for certain subscriptions.
  */
-@ApiModel(description = "An array describing static overlay fields. **NOTE:** Only available for certain subscriptions.")
 @JsonPropertyOrder({
-    TemplateResponseDocumentStaticFieldBase.JSON_PROPERTY_TYPE,
-    TemplateResponseDocumentStaticFieldBase.JSON_PROPERTY_API_ID,
-    TemplateResponseDocumentStaticFieldBase.JSON_PROPERTY_NAME,
-    TemplateResponseDocumentStaticFieldBase.JSON_PROPERTY_SIGNER,
-    TemplateResponseDocumentStaticFieldBase.JSON_PROPERTY_X,
-    TemplateResponseDocumentStaticFieldBase.JSON_PROPERTY_Y,
-    TemplateResponseDocumentStaticFieldBase.JSON_PROPERTY_WIDTH,
-    TemplateResponseDocumentStaticFieldBase.JSON_PROPERTY_HEIGHT,
-    TemplateResponseDocumentStaticFieldBase.JSON_PROPERTY_REQUIRED,
-    TemplateResponseDocumentStaticFieldBase.JSON_PROPERTY_GROUP
+  TemplateResponseDocumentStaticFieldBase.JSON_PROPERTY_TYPE,
+  TemplateResponseDocumentStaticFieldBase.JSON_PROPERTY_API_ID,
+  TemplateResponseDocumentStaticFieldBase.JSON_PROPERTY_NAME,
+  TemplateResponseDocumentStaticFieldBase.JSON_PROPERTY_SIGNER,
+  TemplateResponseDocumentStaticFieldBase.JSON_PROPERTY_X,
+  TemplateResponseDocumentStaticFieldBase.JSON_PROPERTY_Y,
+  TemplateResponseDocumentStaticFieldBase.JSON_PROPERTY_WIDTH,
+  TemplateResponseDocumentStaticFieldBase.JSON_PROPERTY_HEIGHT,
+  TemplateResponseDocumentStaticFieldBase.JSON_PROPERTY_REQUIRED,
+  TemplateResponseDocumentStaticFieldBase.JSON_PROPERTY_GROUP
 })
-@JsonIgnoreProperties(ignoreUnknown=true)
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
+@JsonIgnoreProperties(
+  allowSetters = true, // allows the type to be set during deserialization
+  ignoreUnknown = true
+)
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.EXISTING_PROPERTY, property = "type", visible = true)
 @JsonSubTypes({
-  @JsonSubTypes.Type(value = TemplateResponseDocumentStaticFieldCheckbox.class, name = "TemplateResponseDocumentStaticFieldCheckbox"),
-  @JsonSubTypes.Type(value = TemplateResponseDocumentStaticFieldDateSigned.class, name = "TemplateResponseDocumentStaticFieldDateSigned"),
-  @JsonSubTypes.Type(value = TemplateResponseDocumentStaticFieldDropdown.class, name = "TemplateResponseDocumentStaticFieldDropdown"),
-  @JsonSubTypes.Type(value = TemplateResponseDocumentStaticFieldHyperlink.class, name = "TemplateResponseDocumentStaticFieldHyperlink"),
-  @JsonSubTypes.Type(value = TemplateResponseDocumentStaticFieldInitials.class, name = "TemplateResponseDocumentStaticFieldInitials"),
-  @JsonSubTypes.Type(value = TemplateResponseDocumentStaticFieldRadio.class, name = "TemplateResponseDocumentStaticFieldRadio"),
-  @JsonSubTypes.Type(value = TemplateResponseDocumentStaticFieldSignature.class, name = "TemplateResponseDocumentStaticFieldSignature"),
-  @JsonSubTypes.Type(value = TemplateResponseDocumentStaticFieldText.class, name = "TemplateResponseDocumentStaticFieldText"),
   @JsonSubTypes.Type(value = TemplateResponseDocumentStaticFieldCheckbox.class, name = "checkbox"),
   @JsonSubTypes.Type(value = TemplateResponseDocumentStaticFieldDateSigned.class, name = "date_signed"),
   @JsonSubTypes.Type(value = TemplateResponseDocumentStaticFieldDropdown.class, name = "dropdown"),
@@ -133,12 +118,11 @@ public class TemplateResponseDocumentStaticFieldBase {
     return this;
   }
 
-   /**
+  /**
    * Get type
    * @return type
-  **/
+   */
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -159,12 +143,11 @@ public class TemplateResponseDocumentStaticFieldBase {
     return this;
   }
 
-   /**
+  /**
    * A unique id for the static field.
    * @return apiId
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A unique id for the static field.")
   @JsonProperty(JSON_PROPERTY_API_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -185,12 +168,11 @@ public class TemplateResponseDocumentStaticFieldBase {
     return this;
   }
 
-   /**
+  /**
    * The name of the static field.
    * @return name
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The name of the static field.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -211,12 +193,11 @@ public class TemplateResponseDocumentStaticFieldBase {
     return this;
   }
 
-   /**
+  /**
    * The signer of the Static Field.
    * @return signer
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The signer of the Static Field.")
   @JsonProperty(JSON_PROPERTY_SIGNER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -237,12 +218,11 @@ public class TemplateResponseDocumentStaticFieldBase {
     return this;
   }
 
-   /**
+  /**
    * The horizontal offset in pixels for this static field.
    * @return x
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The horizontal offset in pixels for this static field.")
   @JsonProperty(JSON_PROPERTY_X)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -263,12 +243,11 @@ public class TemplateResponseDocumentStaticFieldBase {
     return this;
   }
 
-   /**
+  /**
    * The vertical offset in pixels for this static field.
    * @return y
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The vertical offset in pixels for this static field.")
   @JsonProperty(JSON_PROPERTY_Y)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -289,12 +268,11 @@ public class TemplateResponseDocumentStaticFieldBase {
     return this;
   }
 
-   /**
+  /**
    * The width in pixels of this static field.
    * @return width
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The width in pixels of this static field.")
   @JsonProperty(JSON_PROPERTY_WIDTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -315,12 +293,11 @@ public class TemplateResponseDocumentStaticFieldBase {
     return this;
   }
 
-   /**
+  /**
    * The height in pixels of this static field.
    * @return height
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The height in pixels of this static field.")
   @JsonProperty(JSON_PROPERTY_HEIGHT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -341,12 +318,11 @@ public class TemplateResponseDocumentStaticFieldBase {
     return this;
   }
 
-   /**
+  /**
    * Boolean showing whether or not this field is required.
    * @return required
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Boolean showing whether or not this field is required.")
   @JsonProperty(JSON_PROPERTY_REQUIRED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -367,12 +343,11 @@ public class TemplateResponseDocumentStaticFieldBase {
     return this;
   }
 
-   /**
+  /**
    * The name of the group this field is in. If this field is not a group, this defaults to &#x60;null&#x60;.
    * @return group
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The name of the group this field is in. If this field is not a group, this defaults to `null`.")
   @JsonProperty(JSON_PROPERTY_GROUP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -667,27 +642,19 @@ public class TemplateResponseDocumentStaticFieldBase {
     return o.toString().replace("\n", "\n    ");
   }
 
-static {
-  // Initialize and register the discriminator mappings.
-  Map<String, Class<?>> mappings = new HashMap<String, Class<?>>();
-  mappings.put("TemplateResponseDocumentStaticFieldCheckbox", TemplateResponseDocumentStaticFieldCheckbox.class);
-  mappings.put("TemplateResponseDocumentStaticFieldDateSigned", TemplateResponseDocumentStaticFieldDateSigned.class);
-  mappings.put("TemplateResponseDocumentStaticFieldDropdown", TemplateResponseDocumentStaticFieldDropdown.class);
-  mappings.put("TemplateResponseDocumentStaticFieldHyperlink", TemplateResponseDocumentStaticFieldHyperlink.class);
-  mappings.put("TemplateResponseDocumentStaticFieldInitials", TemplateResponseDocumentStaticFieldInitials.class);
-  mappings.put("TemplateResponseDocumentStaticFieldRadio", TemplateResponseDocumentStaticFieldRadio.class);
-  mappings.put("TemplateResponseDocumentStaticFieldSignature", TemplateResponseDocumentStaticFieldSignature.class);
-  mappings.put("TemplateResponseDocumentStaticFieldText", TemplateResponseDocumentStaticFieldText.class);
-  mappings.put("checkbox", TemplateResponseDocumentStaticFieldCheckbox.class);
-  mappings.put("date_signed", TemplateResponseDocumentStaticFieldDateSigned.class);
-  mappings.put("dropdown", TemplateResponseDocumentStaticFieldDropdown.class);
-  mappings.put("hyperlink", TemplateResponseDocumentStaticFieldHyperlink.class);
-  mappings.put("initials", TemplateResponseDocumentStaticFieldInitials.class);
-  mappings.put("radio", TemplateResponseDocumentStaticFieldRadio.class);
-  mappings.put("signature", TemplateResponseDocumentStaticFieldSignature.class);
-  mappings.put("text", TemplateResponseDocumentStaticFieldText.class);
-  mappings.put("TemplateResponseDocumentStaticFieldBase", TemplateResponseDocumentStaticFieldBase.class);
-  JSON.registerDiscriminator(TemplateResponseDocumentStaticFieldBase.class, "type", mappings);
-}
+  static {
+    // Initialize and register the discriminator mappings.
+    Map<String, Class<?>> mappings = new HashMap<>();
+    mappings.put("checkbox", TemplateResponseDocumentStaticFieldCheckbox.class);
+    mappings.put("date_signed", TemplateResponseDocumentStaticFieldDateSigned.class);
+    mappings.put("dropdown", TemplateResponseDocumentStaticFieldDropdown.class);
+    mappings.put("hyperlink", TemplateResponseDocumentStaticFieldHyperlink.class);
+    mappings.put("initials", TemplateResponseDocumentStaticFieldInitials.class);
+    mappings.put("radio", TemplateResponseDocumentStaticFieldRadio.class);
+    mappings.put("signature", TemplateResponseDocumentStaticFieldSignature.class);
+    mappings.put("text", TemplateResponseDocumentStaticFieldText.class);
+    mappings.put("TemplateResponseDocumentStaticFieldBase", TemplateResponseDocumentStaticFieldBase.class);
+    JSON.registerDiscriminator(TemplateResponseDocumentStaticFieldBase.class, "type", mappings);
+  }
 }
 

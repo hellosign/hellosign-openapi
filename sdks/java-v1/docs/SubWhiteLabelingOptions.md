@@ -8,8 +8,8 @@ Take a look at our [white labeling guide](https://developers.hellosign.com/api/r
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
 | `headerBackgroundColor` | ```String``` |    |  |
 | `legalVersion` | [```LegalVersionEnum```](#LegalVersionEnum) |    |  |
 | `linkColor` | ```String``` |    |  |
@@ -30,7 +30,7 @@ Name | Type | Description | Notes
 
 ## Enum: LegalVersionEnum
 
-Name | Value
+| Name | Value |
 ---- | -----
 | TERMS1 | &quot;terms1&quot; |
 | TERMS2 | &quot;terms2&quot; |

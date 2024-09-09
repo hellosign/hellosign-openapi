@@ -26,26 +26,26 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.dropbox.sign.JSON;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.dropbox.sign.JSON;
 
 
 import com.dropbox.sign.ApiException;
 /**
  * This class extends &#x60;SubFormFieldsPerDocumentBase&#x60;.
  */
-@ApiModel(description = "This class extends `SubFormFieldsPerDocumentBase`.")
 @JsonPropertyOrder({
   SubFormFieldsPerDocumentCheckbox.JSON_PROPERTY_TYPE,
   SubFormFieldsPerDocumentCheckbox.JSON_PROPERTY_IS_CHECKED,
   SubFormFieldsPerDocumentCheckbox.JSON_PROPERTY_GROUP
 })
-@JsonIgnoreProperties(ignoreUnknown=true)
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
+@JsonIgnoreProperties(
+  allowSetters = true, // allows the type to be set during deserialization
+  ignoreUnknown = true
+)
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.EXISTING_PROPERTY, property = "type", visible = true)
 
 public class SubFormFieldsPerDocumentCheckbox extends SubFormFieldsPerDocumentBase {
@@ -81,12 +81,11 @@ public class SubFormFieldsPerDocumentCheckbox extends SubFormFieldsPerDocumentBa
     return this;
   }
 
-   /**
+  /**
    * A yes/no checkbox. Use the &#x60;SubFormFieldsPerDocumentCheckbox&#x60; class.
    * @return type
-  **/
+   */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "A yes/no checkbox. Use the `SubFormFieldsPerDocumentCheckbox` class.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -107,12 +106,11 @@ public class SubFormFieldsPerDocumentCheckbox extends SubFormFieldsPerDocumentBa
     return this;
   }
 
-   /**
+  /**
    * &#x60;true&#x60; for checking the checkbox field by default, otherwise &#x60;false&#x60;.
    * @return isChecked
-  **/
+   */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "`true` for checking the checkbox field by default, otherwise `false`.")
   @JsonProperty(JSON_PROPERTY_IS_CHECKED)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -133,12 +131,11 @@ public class SubFormFieldsPerDocumentCheckbox extends SubFormFieldsPerDocumentBa
     return this;
   }
 
-   /**
+  /**
    * String referencing group defined in &#x60;form_field_groups&#x60; parameter.
    * @return group
-  **/
+   */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "String referencing group defined in `form_field_groups` parameter.")
   @JsonProperty(JSON_PROPERTY_GROUP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

@@ -26,12 +26,10 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.dropbox.sign.JSON;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.dropbox.sign.JSON;
 
 
 import com.dropbox.sign.ApiException;
@@ -42,14 +40,14 @@ import com.dropbox.sign.ApiException;
   ApiAppGetResponse.JSON_PROPERTY_API_APP,
   ApiAppGetResponse.JSON_PROPERTY_WARNINGS
 })
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ApiAppGetResponse {
   public static final String JSON_PROPERTY_API_APP = "api_app";
   private ApiAppResponse apiApp;
 
   public static final String JSON_PROPERTY_WARNINGS = "warnings";
-  private List<WarningResponse> warnings;
+  private List<WarningResponse> warnings = null;
 
   public ApiAppGetResponse() { 
   }
@@ -74,14 +72,13 @@ public class ApiAppGetResponse {
     return this;
   }
 
-   /**
+  /**
    * Get apiApp
    * @return apiApp
-  **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_API_APP)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public ApiAppResponse getApiApp() {
     return apiApp;
@@ -89,7 +86,7 @@ public class ApiAppGetResponse {
 
 
   @JsonProperty(JSON_PROPERTY_API_APP)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setApiApp(ApiAppResponse apiApp) {
     this.apiApp = apiApp;
   }
@@ -108,12 +105,11 @@ public class ApiAppGetResponse {
     return this;
   }
 
-   /**
+  /**
    * A list of warnings.
    * @return warnings
-  **/
+   */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "A list of warnings.")
   @JsonProperty(JSON_PROPERTY_WARNINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

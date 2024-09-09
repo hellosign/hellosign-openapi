@@ -4,12 +4,16 @@ VisualStudioVersion = {{^netStandard}}12.0.0.0{{/netStandard}}{{#netStandard}}14
 MinimumVisualStudioVersion = {{^netStandard}}10.0.0.1{{/netStandard}}{{#netStandard}}10.0.40219.1{{/netStandard}}
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "{{packageName}}", "src\{{packageName}}\{{packageName}}.csproj", "{{packageGuid}}"
 EndProject
+{{^useCustomTemplateCode}}
 {{^excludeTests}}Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "{{testPackageName}}", "src\{{testPackageName}}\{{testPackageName}}.csproj", "{19F1DEBC-DE5E-4517-8062-F000CD499087}"
 EndProject
-{{/excludeTests}}
+{{/excludeTests}}Global
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dropbox.Sign.Test", "src\Dropbox.Sign.Test\Dropbox.Sign.Test.csproj", "{C305EB17-93FE-4BDA-89A4-120BD8C8A88A}"
 EndProject
 Global
+{{/useCustomTemplateCode}}
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -23,10 +27,12 @@ Global
 		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Release|Any CPU.Build.0 = Release|Any CPU
+{{#useCustomTemplateCode}}
         {C305EB17-93FE-4BDA-89A4-120BD8C8A88A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
         {C305EB17-93FE-4BDA-89A4-120BD8C8A88A}.Debug|Any CPU.Build.0 = Debug|Any CPU
         {C305EB17-93FE-4BDA-89A4-120BD8C8A88A}.Release|Any CPU.ActiveCfg = Release|Any CPU
         {C305EB17-93FE-4BDA-89A4-120BD8C8A88A}.Release|Any CPU.Build.0 = Release|Any CPU
+{{/useCustomTemplateCode}}
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

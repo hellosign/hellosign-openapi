@@ -22,13 +22,13 @@
  * SOFTWARE.
  */
 
-import { RequestFile, AttributeTypeMap, ObjectSerializer } from "./";
+import { AttributeTypeMap, ObjectSerializer } from "./";
 import { AccountResponse } from "./accountResponse";
 import { OAuthTokenResponse } from "./oAuthTokenResponse";
 import { WarningResponse } from "./warningResponse";
 
 export class AccountCreateResponse {
-  "account"?: AccountResponse;
+  "account": AccountResponse;
   "oauthData"?: OAuthTokenResponse;
   /**
    * A list of warnings.

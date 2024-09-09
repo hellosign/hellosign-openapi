@@ -1,12 +1,24 @@
 {{#discriminator}}
 import {{invokerPackage}}.JSON;
 {{/discriminator}}
+{{#supportUrlQuery}}
+import {{invokerPackage}}.ApiClient;
+{{/supportUrlQuery}}
 /**
  * {{description}}{{^description}}{{classname}}{{/description}}{{#isDeprecated}}
  * @deprecated{{/isDeprecated}}
  */{{#isDeprecated}}
-@Deprecated{{/isDeprecated}}{{#description}}
-@ApiModel(description = "{{{.}}}"){{/description}}
+@Deprecated{{/isDeprecated}}
+{{#swagger1AnnotationLibrary}}
+{{#description}}
+@ApiModel(description = "{{{.}}}")
+{{/description}}
+{{/swagger1AnnotationLibrary}}
+{{#swagger2AnnotationLibrary}}
+{{#description}}
+@Schema(description = "{{{.}}}")
+{{/description}}
+{{/swagger2AnnotationLibrary}}
 {{#jackson}}
 @JsonPropertyOrder({
 {{#vars}}
@@ -15,6 +27,9 @@ import {{invokerPackage}}.JSON;
 })
 {{/jackson}}
 {{>additionalModelTypeAnnotations}}{{>generatedAnnotation}}{{#discriminator}}{{>typeInfoAnnotation}}{{/discriminator}}{{>xmlAnnotation}}
+{{#vendorExtensions.x-class-extra-annotation}}
+{{{vendorExtensions.x-class-extra-annotation}}}
+{{/vendorExtensions.x-class-extra-annotation}}
 public class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{{#vendorExtensions.x-implements}}{{#-first}}implements {{{.}}}{{/-first}}{{^-first}}, {{{.}}}{{/-first}}{{#-last}} {{/-last}}{{/vendorExtensions.x-implements}}{
 {{#serializableModel}}
   private static final long serialVersionUID = 1L;
@@ -40,29 +55,17 @@ public class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{{#vendorExtens
   public static final String JSON_PROPERTY_{{nameInSnakeCase}} = "{{baseName}}";
   {{/jackson}}
   {{#withXml}}
-  {{#isXmlAttribute}}
-  @XmlAttribute(name = "{{xmlName}}{{^xmlName}}{{baseName}}{{/xmlName}}")
-  {{/isXmlAttribute}}
-  {{^isXmlAttribute}}
-    {{^isContainer}}
-  @XmlElement({{#xmlNamespace}}namespace="{{.}}", {{/xmlNamespace}}name = "{{xmlName}}{{^xmlName}}{{baseName}}{{/xmlName}}")
-    {{/isContainer}}
-    {{#isContainer}}
-  // Is a container wrapped={{isXmlWrapped}}
-      {{#items}}
-  // items.name={{name}} items.baseName={{baseName}} items.xmlName={{xmlName}} items.xmlNamespace={{xmlNamespace}}
-  // items.example={{example}} items.type={{dataType}}
-  @XmlElement({{#xmlNamespace}}namespace="{{.}}", {{/xmlNamespace}}name = "{{xmlName}}{{^xmlName}}{{baseName}}{{/xmlName}}")
-      {{/items}}
-      {{#isXmlWrapped}}
-  @XmlElementWrapper({{#xmlNamespace}}namespace="{{.}}", {{/xmlNamespace}}name = "{{xmlName}}{{^xmlName}}{{baseName}}{{/xmlName}}")
-      {{/isXmlWrapped}}
-    {{/isContainer}}
-  {{/isXmlAttribute}}
+  @Xml{{#isXmlAttribute}}Attribute{{/isXmlAttribute}}{{^isXmlAttribute}}Element{{/isXmlAttribute}}(name = "{{items.xmlName}}{{^items.xmlName}}{{xmlName}}{{^xmlName}}{{baseName}}{{/xmlName}}{{/items.xmlName}}"{{#xmlNamespace}}, namespace = "{{.}}"{{/xmlNamespace}})
+    {{#isXmlWrapped}}
+  @XmlElementWrapper(name = "{{xmlName}}{{^xmlName}}{{baseName}}{{/xmlName}}"{{#xmlNamespace}}, namespace = "{{.}}"{{/xmlNamespace}})
+    {{/isXmlWrapped}}
   {{/withXml}}
   {{#gson}}
   @SerializedName(SERIALIZED_NAME_{{nameInSnakeCase}})
   {{/gson}}
+  {{#vendorExtensions.x-field-extra-annotation}}
+  {{{vendorExtensions.x-field-extra-annotation}}}
+  {{/vendorExtensions.x-field-extra-annotation}}
   {{#vendorExtensions.x-is-jackson-optional-nullable}}
   {{#isContainer}}
   private JsonNullable<{{{datatypeWithEnum}}}> {{name}} = JsonNullable.<{{{datatypeWithEnum}}}>undefined();
@@ -72,12 +75,7 @@ public class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{{#vendorExtens
   {{/isContainer}}
   {{/vendorExtensions.x-is-jackson-optional-nullable}}
   {{^vendorExtensions.x-is-jackson-optional-nullable}}
-  {{#isContainer}}
-  private {{{datatypeWithEnum}}} {{name}}{{#required}}{{#defaultValue}} = {{{.}}}{{/defaultValue}}{{/required}}{{^required}} = null{{/required}};
-  {{/isContainer}}
-  {{^isContainer}}
   private {{{datatypeWithEnum}}} {{name}}{{#defaultValue}} = {{{.}}}{{/defaultValue}};
-  {{/isContainer}}
   {{/vendorExtensions.x-is-jackson-optional-nullable}}
 
   {{/vars}}
@@ -94,7 +92,7 @@ public class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{{#vendorExtens
   ) {
   this();
   {{#readOnlyVars}}
-    this.{{name}} = {{name}};
+    this.{{name}} = {{#vendorExtensions.x-is-jackson-optional-nullable}}{{name}} == null ? JsonNullable.<{{{datatypeWithEnum}}}>undefined() : JsonNullable.of({{name}}){{/vendorExtensions.x-is-jackson-optional-nullable}}{{^vendorExtensions.x-is-jackson-optional-nullable}}{{name}}{{/vendorExtensions.x-is-jackson-optional-nullable}};
   {{/readOnlyVars}}
   }{{/withXml}}{{/vendorExtensions.x-has-readonly-properties}}
   {{#vars}}
@@ -123,10 +121,10 @@ public class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{{#vendorExtens
   }
   {{#isArray}}
 
-  public {{classname}} add{{nameInCamelCase}}Item({{{items.datatypeWithEnum}}} {{name}}Item) {
+  public {{classname}} add{{nameInPascalCase}}Item({{{items.datatypeWithEnum}}} {{name}}Item) {
     {{#vendorExtensions.x-is-jackson-optional-nullable}}
     if (this.{{name}} == null || !this.{{name}}.isPresent()) {
-      this.{{name}} = JsonNullable.<{{{datatypeWithEnum}}}>of({{{defaultValue}}});
+      this.{{name}} = JsonNullable.<{{{datatypeWithEnum}}}>of({{{defaultValue}}}{{^defaultValue}}new {{#uniqueItems}}LinkedHashSet{{/uniqueItems}}{{^uniqueItems}}ArrayList{{/uniqueItems}}<>(){{/defaultValue}});
     }
     try {
       this.{{name}}.get().add({{name}}Item);
@@ -136,11 +134,9 @@ public class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{{#vendorExtens
     return this;
     {{/vendorExtensions.x-is-jackson-optional-nullable}}
     {{^vendorExtensions.x-is-jackson-optional-nullable}}
-    {{^required}}
     if (this.{{name}} == null) {
-      this.{{name}} = {{{defaultValue}}};
+      this.{{name}} = {{{defaultValue}}}{{^defaultValue}}new {{#uniqueItems}}LinkedHashSet{{/uniqueItems}}{{^uniqueItems}}ArrayList{{/uniqueItems}}<>(){{/defaultValue}};
     }
-    {{/required}}
     this.{{name}}.add({{name}}Item);
     return this;
     {{/vendorExtensions.x-is-jackson-optional-nullable}}
@@ -148,10 +144,10 @@ public class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{{#vendorExtens
   {{/isArray}}
   {{#isMap}}
 
-  public {{classname}} put{{nameInCamelCase}}Item(String key, {{{items.datatypeWithEnum}}} {{name}}Item) {
+  public {{classname}} put{{nameInPascalCase}}Item(String key, {{{items.datatypeWithEnum}}} {{name}}Item) {
     {{#vendorExtensions.x-is-jackson-optional-nullable}}
     if (this.{{name}} == null || !this.{{name}}.isPresent()) {
-      this.{{name}} = JsonNullable.<{{{datatypeWithEnum}}}>of({{{defaultValue}}});
+      this.{{name}} = JsonNullable.<{{{datatypeWithEnum}}}>of({{{defaultValue}}}{{^defaultValue}}new HashMap<>(){{/defaultValue}});
     }
     try {
       this.{{name}}.get().put(key, {{name}}Item);
@@ -161,11 +157,9 @@ public class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{{#vendorExtens
     return this;
     {{/vendorExtensions.x-is-jackson-optional-nullable}}
     {{^vendorExtensions.x-is-jackson-optional-nullable}}
-    {{^required}}
     if (this.{{name}} == null) {
-      this.{{name}} = {{{defaultValue}}};
+      this.{{name}} = {{{defaultValue}}}{{^defaultValue}}new HashMap<>(){{/defaultValue}};
     }
-    {{/required}}
     this.{{name}}.put(key, {{name}}Item);
     return this;
     {{/vendorExtensions.x-is-jackson-optional-nullable}}
@@ -173,7 +167,7 @@ public class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{{#vendorExtens
   {{/isMap}}
 
   {{/isReadOnly}}
-   /**
+  /**
   {{#description}}
    * {{.}}
   {{/description}}
@@ -190,22 +184,30 @@ public class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{{#vendorExtens
    {{#deprecated}}
    * @deprecated
    {{/deprecated}}
-  **/
+   */
 {{#deprecated}}
   @Deprecated
 {{/deprecated}}
 {{#required}}
 {{#isNullable}}
-  @javax.annotation.Nullable
+  @{{javaxPackage}}.annotation.Nullable
 {{/isNullable}}
 {{^isNullable}}
-  @javax.annotation.Nonnull
+  @{{javaxPackage}}.annotation.Nonnull
 {{/isNullable}}
 {{/required}}
 {{^required}}
-  @javax.annotation.Nullable
+  @{{javaxPackage}}.annotation.Nullable
 {{/required}}
-{{#useBeanValidation}}{{>beanValidation}}{{/useBeanValidation}}  @ApiModelProperty({{#example}}example = "{{{.}}}", {{/example}}{{#required}}required = {{required}}, {{/required}}value = "{{{description}}}")
+{{#useBeanValidation}}
+{{>beanValidation}}
+{{/useBeanValidation}}
+{{#swagger1AnnotationLibrary}}
+  @ApiModelProperty({{#example}}example = "{{{.}}}", {{/example}}{{#required}}required = {{required}}, {{/required}}value = "{{{description}}}")
+{{/swagger1AnnotationLibrary}}
+{{#swagger2AnnotationLibrary}}
+  @Schema({{#example}}example = "{{{.}}}", {{/example}}requiredMode = {{#required}}Schema.RequiredMode.REQUIRED{{/required}}{{^required}}Schema.RequiredMode.NOT_REQUIRED{{/required}}, description = "{{{description}}}")
+{{/swagger2AnnotationLibrary}}
 {{#vendorExtensions.x-extra-annotation}}
   {{{vendorExtensions.x-extra-annotation}}}
 {{/vendorExtensions.x-extra-annotation}}
@@ -213,8 +215,7 @@ public class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{{#vendorExtens
   {{!unannotated, Jackson would pick this up automatically and add it *in addition* to the _JsonNullable getter field}}
   @JsonIgnore
 {{/vendorExtensions.x-is-jackson-optional-nullable}}
-{{^vendorExtensions.x-is-jackson-optional-nullable}}{{#jackson}}{{> jackson_annotations}}{{/jackson}}{{/vendorExtensions.x-is-jackson-optional-nullable}}
-  public {{{datatypeWithEnum}}} {{getter}}() {
+{{^vendorExtensions.x-is-jackson-optional-nullable}}{{#jackson}}{{> jackson_annotations}}{{/jackson}}{{/vendorExtensions.x-is-jackson-optional-nullable}}  public {{{datatypeWithEnum}}} {{getter}}() {
     {{#vendorExtensions.x-is-jackson-optional-nullable}}
     {{#isReadOnly}}{{! A readonly attribute doesn't have setter => jackson will set null directly if explicitly returned by API, so make sure we have an empty JsonNullable}}
     if ({{name}} == null) {
@@ -261,6 +262,23 @@ public class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{{#vendorExtens
 
   {{/vars}}
 {{>libraries/native/additional_properties}}
+  {{#parent}}
+  {{#allVars}}
+  {{#isOverridden}}
+  @Override
+  public {{classname}} {{name}}({{{datatypeWithEnum}}} {{name}}) {
+    {{#vendorExtensions.x-is-jackson-optional-nullable}}
+    this.{{setter}}(JsonNullable.<{{{datatypeWithEnum}}}>of({{name}}));
+    {{/vendorExtensions.x-is-jackson-optional-nullable}}
+    {{^vendorExtensions.x-is-jackson-optional-nullable}}
+    this.{{setter}}({{name}});
+    {{/vendorExtensions.x-is-jackson-optional-nullable}}
+    return this;
+  }
+
+  {{/isOverridden}}
+  {{/allVars}}
+  {{/parent}}
   /**
    * Return true if this {{name}} object is equal to o.
    */
@@ -314,7 +332,7 @@ public class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{{#vendorExtens
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     {{/parent}}
     {{#vars}}
-    sb.append("    {{name}}: ").append(toIndentedString({{name}})).append("\n");
+    sb.append("    {{name}}: ").append({{#isPassword}}"*"{{/isPassword}}{{^isPassword}}toIndentedString({{name}}){{/isPassword}}).append("\n");
     {{/vars}}
     {{#additionalPropertiesType}}
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
@@ -333,7 +351,165 @@ public class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{{#vendorExtens
     }
     return o.toString().replace("\n", "\n    ");
   }
+{{#supportUrlQuery}}
 
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @return URL query string
+   */
+  public String toUrlQueryString() {
+    return toUrlQueryString(null);
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    String suffix = "";
+    String containerSuffix = "";
+    String containerPrefix = "";
+    if (prefix == null) {
+      // style=form, explode=true, e.g. /pet?name=cat&type=manx
+      prefix = "";
+    } else {
+      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
+      prefix = prefix + "[";
+      suffix = "]";
+      containerSuffix = "]";
+      containerPrefix = "[";
+    }
+
+    StringJoiner joiner = new StringJoiner("&");
+
+    {{#allVars}}
+    // add `{{baseName}}` to the URL query string
+    {{#isArray}}
+    {{#items.isPrimitiveType}}
+    {{#uniqueItems}}
+    if ({{getter}}() != null) {
+      int i = 0;
+      for ({{{items.dataType}}} _item : {{getter}}()) {
+        joiner.add(String.format("%s{{baseName}}%s%s=%s", prefix, suffix,
+            "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+            URLEncoder.encode(ApiClient.valueToString(_item), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      }
+      i++;
+    }
+    {{/uniqueItems}}
+    {{^uniqueItems}}
+    if ({{getter}}() != null) {
+      for (int i = 0; i < {{getter}}().size(); i++) {
+        joiner.add(String.format("%s{{baseName}}%s%s=%s", prefix, suffix,
+            "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+            URLEncoder.encode(ApiClient.valueToString({{getter}}().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      }
+    }
+    {{/uniqueItems}}
+    {{/items.isPrimitiveType}}
+    {{^items.isPrimitiveType}}
+    {{#items.isModel}}
+    {{#uniqueItems}}
+    if ({{getter}}() != null) {
+      int i = 0;
+      for ({{{items.dataType}}} _item : {{getter}}()) {
+        if (_item != null) {
+          joiner.add(_item.toUrlQueryString(String.format("%s{{baseName}}%s%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
+        }
+      }
+      i++;
+    }
+    {{/uniqueItems}}
+    {{^uniqueItems}}
+    if ({{getter}}() != null) {
+      for (int i = 0; i < {{getter}}().size(); i++) {
+        if ({{getter}}().get(i) != null) {
+          joiner.add({{getter}}().get(i).toUrlQueryString(String.format("%s{{baseName}}%s%s", prefix, suffix,
+          "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
+        }
+      }
+    }
+    {{/uniqueItems}}
+    {{/items.isModel}}
+    {{^items.isModel}}
+    {{#uniqueItems}}
+    if ({{getter}}() != null) {
+      int i = 0;
+      for ({{{items.dataType}}} _item : {{getter}}()) {
+        if (_item != null) {
+          joiner.add(String.format("%s{{baseName}}%s%s=%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+              URLEncoder.encode(ApiClient.valueToString(_item), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+        }
+        i++;
+      }
+    }
+    {{/uniqueItems}}
+    {{^uniqueItems}}
+    if ({{getter}}() != null) {
+      for (int i = 0; i < {{getter}}().size(); i++) {
+        if ({{getter}}().get(i) != null) {
+          joiner.add(String.format("%s{{baseName}}%s%s=%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+              URLEncoder.encode(ApiClient.valueToString({{getter}}().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+        }
+      }
+    }
+    {{/uniqueItems}}
+    {{/items.isModel}}
+    {{/items.isPrimitiveType}}
+    {{/isArray}}
+    {{^isArray}}
+    {{#isMap}}
+    {{^items.isModel}}
+    if ({{getter}}() != null) {
+      for (String _key : {{getter}}().keySet()) {
+        joiner.add(String.format("%s{{baseName}}%s%s=%s", prefix, suffix,
+            "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, _key, containerSuffix),
+            {{getter}}().get(_key), URLEncoder.encode(ApiClient.valueToString({{getter}}().get(_key)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      }
+    }
+    {{/items.isModel}}
+    {{#items.isModel}}
+    if ({{getter}}() != null) {
+      for (String _key : {{getter}}().keySet()) {
+        if ({{getter}}().get(_key) != null) {
+          joiner.add({{getter}}().get(_key).toUrlQueryString(String.format("%s{{baseName}}%s%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, _key, containerSuffix))));
+        }
+      }
+    }
+    {{/items.isModel}}
+    {{/isMap}}
+    {{^isMap}}
+    {{#isPrimitiveType}}
+    if ({{getter}}() != null) {
+      joiner.add(String.format("%s{{{baseName}}}%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString({{{getter}}}()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+    {{/isPrimitiveType}}
+    {{^isPrimitiveType}}
+    {{#isModel}}
+    if ({{getter}}() != null) {
+      joiner.add({{getter}}().toUrlQueryString(prefix + "{{{baseName}}}" + suffix));
+    }
+    {{/isModel}}
+    {{^isModel}}
+    if ({{getter}}() != null) {
+      joiner.add(String.format("%s{{{baseName}}}%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString({{{getter}}}()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+    {{/isModel}}
+    {{/isPrimitiveType}}
+    {{/isMap}}
+    {{/isArray}}
+
+    {{/allVars}}
+    return joiner.toString();
+  }
+{{/supportUrlQuery}}
 {{#parcelableModel}}
 
   public void writeToParcel(Parcel out, int flags) {
@@ -404,4 +580,8 @@ static {
   JSON.registerDiscriminator({{classname}}.class, "{{propertyBaseName}}", mappings);
 }
 {{/discriminator}}
+{{#generateBuilders}}
+
+    {{>javaBuilder}}
+{{/generateBuilders}}
 }

@@ -31,7 +31,7 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "AccountResponse")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class AccountResponse : IOpenApiTyped, IEquatable<AccountResponse>, IValidatableObject
+    public partial class AccountResponse : IEquatable<AccountResponse>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="AccountResponse" /> class.
@@ -90,75 +90,75 @@ namespace Dropbox.Sign.Model
         /// <value>The ID of the Account</value>
         [DataMember(Name = "account_id", EmitDefaultValue = true)]
         public string AccountId { get; set; }
-
+        
         /// <summary>
         /// The email address associated with the Account.
         /// </summary>
         /// <value>The email address associated with the Account.</value>
         [DataMember(Name = "email_address", EmitDefaultValue = true)]
         public string EmailAddress { get; set; }
-
+        
         /// <summary>
         /// Returns &#x60;true&#x60; if the user has been locked out of their account by a team admin.
         /// </summary>
         /// <value>Returns &#x60;true&#x60; if the user has been locked out of their account by a team admin.</value>
         [DataMember(Name = "is_locked", EmitDefaultValue = true)]
         public bool IsLocked { get; set; }
-
+        
         /// <summary>
         /// Returns &#x60;true&#x60; if the user has a paid Dropbox Sign account.
         /// </summary>
         /// <value>Returns &#x60;true&#x60; if the user has a paid Dropbox Sign account.</value>
         [DataMember(Name = "is_paid_hs", EmitDefaultValue = true)]
         public bool IsPaidHs { get; set; }
-
+        
         /// <summary>
         /// Returns &#x60;true&#x60; if the user has a paid HelloFax account.
         /// </summary>
         /// <value>Returns &#x60;true&#x60; if the user has a paid HelloFax account.</value>
         [DataMember(Name = "is_paid_hf", EmitDefaultValue = true)]
         public bool IsPaidHf { get; set; }
-
+        
         /// <summary>
         /// Gets or Sets Quotas
         /// </summary>
         [DataMember(Name = "quotas", EmitDefaultValue = true)]
         public AccountResponseQuotas Quotas { get; set; }
-
+        
         /// <summary>
         /// The URL that Dropbox Sign events will &#x60;POST&#x60; to.
         /// </summary>
         /// <value>The URL that Dropbox Sign events will &#x60;POST&#x60; to.</value>
         [DataMember(Name = "callback_url", EmitDefaultValue = true)]
         public string CallbackUrl { get; set; }
-
+        
         /// <summary>
         /// The membership role for the team.
         /// </summary>
         /// <value>The membership role for the team.</value>
         [DataMember(Name = "role_code", EmitDefaultValue = true)]
         public string RoleCode { get; set; }
-
+        
         /// <summary>
         /// The id of the team account belongs to.
         /// </summary>
         /// <value>The id of the team account belongs to.</value>
         [DataMember(Name = "team_id", EmitDefaultValue = true)]
         public string TeamId { get; set; }
-
+        
         /// <summary>
         /// The locale used in this Account. Check out the list of [supported locales](/api/reference/constants/#supported-locales) to learn more about the possible values.
         /// </summary>
         /// <value>The locale used in this Account. Check out the list of [supported locales](/api/reference/constants/#supported-locales) to learn more about the possible values.</value>
         [DataMember(Name = "locale", EmitDefaultValue = true)]
         public string Locale { get; set; }
-
+        
         /// <summary>
         /// Gets or Sets Usage
         /// </summary>
         [DataMember(Name = "usage", EmitDefaultValue = true)]
         public AccountResponseUsage Usage { get; set; }
-
+        
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -315,6 +315,15 @@ namespace Dropbox.Sign.Model
             }
         }
 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
+            yield break;
+        }
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
@@ -386,16 +395,6 @@ namespace Dropbox.Sign.Model
             });
 
             return types;
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-import { RequestFile, AttributeTypeMap, ObjectSerializer } from "./";
+import { AttributeTypeMap, ObjectSerializer, RequestFile } from "./";
 import { SubCC } from "./subCC";
 import { SubCustomField } from "./subCustomField";
 import { SubSignatureRequestTemplateSigner } from "./subSignatureRequestTemplateSigner";

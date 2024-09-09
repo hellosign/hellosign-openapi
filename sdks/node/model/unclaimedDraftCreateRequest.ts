@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-import { RequestFile, AttributeTypeMap, ObjectSerializer } from "./";
+import { AttributeTypeMap, ObjectSerializer, RequestFile } from "./";
 import { SubAttachment } from "./subAttachment";
 import { SubCustomField } from "./subCustomField";
 import { SubFieldOptions } from "./subFieldOptions";
@@ -32,6 +32,9 @@ import { SubFormFieldsPerDocumentBase } from "./subFormFieldsPerDocumentBase";
 import { SubSigningOptions } from "./subSigningOptions";
 import { SubUnclaimedDraftSigner } from "./subUnclaimedDraftSigner";
 
+/**
+ *
+ */
 export class UnclaimedDraftCreateRequest {
   /**
    * The type of unclaimed draft to create. Use `send_document` to create a claimable file, and `request_signature` for a claimable signature request. If the type is `request_signature` then signers name and email_address are not optional.

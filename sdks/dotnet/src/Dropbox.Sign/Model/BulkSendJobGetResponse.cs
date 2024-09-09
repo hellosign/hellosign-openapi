@@ -31,7 +31,7 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "BulkSendJobGetResponse")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class BulkSendJobGetResponse : IOpenApiTyped, IEquatable<BulkSendJobGetResponse>, IValidatableObject
+    public partial class BulkSendJobGetResponse : IEquatable<BulkSendJobGetResponse>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="BulkSendJobGetResponse" /> class.
@@ -41,15 +41,30 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="BulkSendJobGetResponse" /> class.
         /// </summary>
-        /// <param name="bulkSendJob">bulkSendJob.</param>
-        /// <param name="listInfo">listInfo.</param>
-        /// <param name="signatureRequests">Contains information about the Signature Requests sent in bulk..</param>
+        /// <param name="bulkSendJob">bulkSendJob (required).</param>
+        /// <param name="listInfo">listInfo (required).</param>
+        /// <param name="signatureRequests">Contains information about the Signature Requests sent in bulk. (required).</param>
         /// <param name="warnings">A list of warnings..</param>
         public BulkSendJobGetResponse(BulkSendJobResponse bulkSendJob = default(BulkSendJobResponse), ListInfoResponse listInfo = default(ListInfoResponse), List<BulkSendJobGetResponseSignatureRequests> signatureRequests = default(List<BulkSendJobGetResponseSignatureRequests>), List<WarningResponse> warnings = default(List<WarningResponse>))
         {
             
+            // to ensure "bulkSendJob" is required (not null)
+            if (bulkSendJob == null)
+            {
+                throw new ArgumentNullException("bulkSendJob is a required property for BulkSendJobGetResponse and cannot be null");
+            }
             this.BulkSendJob = bulkSendJob;
+            // to ensure "listInfo" is required (not null)
+            if (listInfo == null)
+            {
+                throw new ArgumentNullException("listInfo is a required property for BulkSendJobGetResponse and cannot be null");
+            }
             this.ListInfo = listInfo;
+            // to ensure "signatureRequests" is required (not null)
+            if (signatureRequests == null)
+            {
+                throw new ArgumentNullException("signatureRequests is a required property for BulkSendJobGetResponse and cannot be null");
+            }
             this.SignatureRequests = signatureRequests;
             this.Warnings = warnings;
         }
@@ -73,29 +88,29 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Gets or Sets BulkSendJob
         /// </summary>
-        [DataMember(Name = "bulk_send_job", EmitDefaultValue = true)]
+        [DataMember(Name = "bulk_send_job", IsRequired = true, EmitDefaultValue = true)]
         public BulkSendJobResponse BulkSendJob { get; set; }
-
+        
         /// <summary>
         /// Gets or Sets ListInfo
         /// </summary>
-        [DataMember(Name = "list_info", EmitDefaultValue = true)]
+        [DataMember(Name = "list_info", IsRequired = true, EmitDefaultValue = true)]
         public ListInfoResponse ListInfo { get; set; }
-
+        
         /// <summary>
         /// Contains information about the Signature Requests sent in bulk.
         /// </summary>
         /// <value>Contains information about the Signature Requests sent in bulk.</value>
-        [DataMember(Name = "signature_requests", EmitDefaultValue = true)]
+        [DataMember(Name = "signature_requests", IsRequired = true, EmitDefaultValue = true)]
         public List<BulkSendJobGetResponseSignatureRequests> SignatureRequests { get; set; }
-
+        
         /// <summary>
         /// A list of warnings.
         /// </summary>
         /// <value>A list of warnings.</value>
         [DataMember(Name = "warnings", EmitDefaultValue = true)]
         public List<WarningResponse> Warnings { get; set; }
-
+        
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -196,6 +211,15 @@ namespace Dropbox.Sign.Model
             }
         }
 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
+            yield break;
+        }
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
@@ -225,16 +249,6 @@ namespace Dropbox.Sign.Model
             });
 
             return types;
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

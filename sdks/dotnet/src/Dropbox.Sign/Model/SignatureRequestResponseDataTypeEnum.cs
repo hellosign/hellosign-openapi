@@ -85,7 +85,6 @@ namespace Dropbox.Sign.Model
         /// </summary>
         [EnumMember(Value = "checkbox-merge")]
         CheckboxMerge = 9
-
     }
 
 }

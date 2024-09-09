@@ -22,22 +22,17 @@
  * SOFTWARE.
  */
 
-import axios, { AxiosError, AxiosRequestConfig } from "axios";
+import axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from "axios";
 
-/* tslint:disable:no-unused-locals */
 import {
-  ObjectSerializer,
   Authentication,
-  VoidAuth,
-  Interceptor,
-  HttpBasicAuth,
-  HttpBearerAuth,
-  ApiKeyAuth,
-  OAuth,
   BulkSendJobSendResponse,
-  ErrorResponse,
   FileResponse,
   FileResponseDataUri,
+  HttpBasicAuth,
+  HttpBearerAuth,
+  Interceptor,
+  ObjectSerializer,
   SignatureRequestBulkCreateEmbeddedWithTemplateRequest,
   SignatureRequestBulkSendWithTemplateRequest,
   SignatureRequestCreateEmbeddedRequest,
@@ -48,16 +43,17 @@ import {
   SignatureRequestSendRequest,
   SignatureRequestSendWithTemplateRequest,
   SignatureRequestUpdateRequest,
+  VoidAuth,
 } from "../model";
 
 import {
+  generateFormData,
   HttpError,
   optionsI,
-  returnTypeT,
-  returnTypeI,
-  generateFormData,
-  toFormData,
   queryParamsSerializer,
+  returnTypeI,
+  returnTypeT,
+  toFormData,
   USER_AGENT,
 } from "./";
 
@@ -71,9 +67,7 @@ export enum SignatureRequestApiApiKeys {}
 
 export class SignatureRequestApi {
   protected _basePath = defaultBasePath;
-  protected _defaultHeaders: any = {
-    "User-Agent": USER_AGENT,
-  };
+  protected _defaultHeaders: any = { "User-Agent": USER_AGENT };
   protected _useQuerystring: boolean = false;
 
   protected authentications = {
@@ -99,7 +93,7 @@ export class SignatureRequestApi {
   }
 
   set defaultHeaders(defaultHeaders: any) {
-    this._defaultHeaders = defaultHeaders;
+    this._defaultHeaders = { ...defaultHeaders, "User-Agent": USER_AGENT };
   }
 
   get defaultHeaders() {
@@ -144,19 +138,10 @@ export class SignatureRequestApi {
     signatureRequestBulkCreateEmbeddedWithTemplateRequest: SignatureRequestBulkCreateEmbeddedWithTemplateRequest,
     options: optionsI = { headers: {} }
   ): Promise<returnTypeT<BulkSendJobSendResponse>> {
-    if (
-      signatureRequestBulkCreateEmbeddedWithTemplateRequest !== null &&
-      signatureRequestBulkCreateEmbeddedWithTemplateRequest !== undefined &&
-      signatureRequestBulkCreateEmbeddedWithTemplateRequest.constructor.name !==
-        "SignatureRequestBulkCreateEmbeddedWithTemplateRequest"
-    ) {
-      signatureRequestBulkCreateEmbeddedWithTemplateRequest =
-        ObjectSerializer.deserialize(
-          signatureRequestBulkCreateEmbeddedWithTemplateRequest,
-          "SignatureRequestBulkCreateEmbeddedWithTemplateRequest"
-        );
-    }
-
+    signatureRequestBulkCreateEmbeddedWithTemplateRequest = deserializeIfNeeded(
+      signatureRequestBulkCreateEmbeddedWithTemplateRequest,
+      "SignatureRequestBulkCreateEmbeddedWithTemplateRequest"
+    );
     const localVarPath =
       this.basePath + "/signature_request/bulk_create_embedded_with_template";
     let localVarQueryParameters: any = {};
@@ -245,21 +230,12 @@ export class SignatureRequestApi {
         (resolve, reject) => {
           axios.request(localVarRequestOptions).then(
             (response) => {
-              let body = response.data;
-
-              if (
-                response.status &&
-                response.status >= 200 &&
-                response.status <= 299
-              ) {
-                body = ObjectSerializer.deserialize(
-                  body,
-                  "BulkSendJobSendResponse"
-                );
-                resolve({ response: response, body: body });
-              } else {
-                reject(new HttpError(response, body, response.status));
-              }
+              handleSuccessfulResponse<BulkSendJobSendResponse>(
+                resolve,
+                reject,
+                response,
+                "BulkSendJobSendResponse"
+              );
             },
             (error: AxiosError) => {
               if (error.response == null) {
@@ -267,32 +243,25 @@ export class SignatureRequestApi {
                 return;
               }
 
-              const response = error.response;
-
-              let body;
-
-              if (response.status === 200) {
-                body = ObjectSerializer.deserialize(
-                  response.data,
+              if (
+                handleErrorCodeResponse(
+                  reject,
+                  error.response,
+                  200,
                   "BulkSendJobSendResponse"
-                );
-
-                reject(new HttpError(response, body, response.status));
+                )
+              ) {
                 return;
               }
 
-              let rangeCodeLeft = Number("4XX"[0] + "00");
-              let rangeCodeRight = Number("4XX"[0] + "99");
               if (
-                response.status >= rangeCodeLeft &&
-                response.status <= rangeCodeRight
-              ) {
-                body = ObjectSerializer.deserialize(
-                  response.data,
+                handleErrorRangeResponse(
+                  reject,
+                  error.response,
+                  "4XX",
                   "ErrorResponse"
-                );
-
-                reject(new HttpError(response, body, response.status));
+                )
+              ) {
                 return;
               }
 
@@ -313,19 +282,10 @@ export class SignatureRequestApi {
     signatureRequestBulkSendWithTemplateRequest: SignatureRequestBulkSendWithTemplateRequest,
     options: optionsI = { headers: {} }
   ): Promise<returnTypeT<BulkSendJobSendResponse>> {
-    if (
-      signatureRequestBulkSendWithTemplateRequest !== null &&
-      signatureRequestBulkSendWithTemplateRequest !== undefined &&
-      signatureRequestBulkSendWithTemplateRequest.constructor.name !==
-        "SignatureRequestBulkSendWithTemplateRequest"
-    ) {
-      signatureRequestBulkSendWithTemplateRequest =
-        ObjectSerializer.deserialize(
-          signatureRequestBulkSendWithTemplateRequest,
-          "SignatureRequestBulkSendWithTemplateRequest"
-        );
-    }
-
+    signatureRequestBulkSendWithTemplateRequest = deserializeIfNeeded(
+      signatureRequestBulkSendWithTemplateRequest,
+      "SignatureRequestBulkSendWithTemplateRequest"
+    );
     const localVarPath =
       this.basePath + "/signature_request/bulk_send_with_template";
     let localVarQueryParameters: any = {};
@@ -419,21 +379,12 @@ export class SignatureRequestApi {
         (resolve, reject) => {
           axios.request(localVarRequestOptions).then(
             (response) => {
-              let body = response.data;
-
-              if (
-                response.status &&
-                response.status >= 200 &&
-                response.status <= 299
-              ) {
-                body = ObjectSerializer.deserialize(
-                  body,
-                  "BulkSendJobSendResponse"
-                );
-                resolve({ response: response, body: body });
-              } else {
-                reject(new HttpError(response, body, response.status));
-              }
+              handleSuccessfulResponse<BulkSendJobSendResponse>(
+                resolve,
+                reject,
+                response,
+                "BulkSendJobSendResponse"
+              );
             },
             (error: AxiosError) => {
               if (error.response == null) {
@@ -441,32 +392,25 @@ export class SignatureRequestApi {
                 return;
               }
 
-              const response = error.response;
-
-              let body;
-
-              if (response.status === 200) {
-                body = ObjectSerializer.deserialize(
-                  response.data,
+              if (
+                handleErrorCodeResponse(
+                  reject,
+                  error.response,
+                  200,
                   "BulkSendJobSendResponse"
-                );
-
-                reject(new HttpError(response, body, response.status));
+                )
+              ) {
                 return;
               }
 
-              let rangeCodeLeft = Number("4XX"[0] + "00");
-              let rangeCodeRight = Number("4XX"[0] + "99");
               if (
-                response.status >= rangeCodeLeft &&
-                response.status <= rangeCodeRight
-              ) {
-                body = ObjectSerializer.deserialize(
-                  response.data,
+                handleErrorRangeResponse(
+                  reject,
+                  error.response,
+                  "4XX",
                   "ErrorResponse"
-                );
-
-                reject(new HttpError(response, body, response.status));
+                )
+              ) {
                 return;
               }
 
@@ -558,17 +502,7 @@ export class SignatureRequestApi {
       return new Promise<returnTypeI>((resolve, reject) => {
         axios.request(localVarRequestOptions).then(
           (response) => {
-            let body = response.data;
-
-            if (
-              response.status &&
-              response.status >= 200 &&
-              response.status <= 299
-            ) {
-              resolve({ response: response, body: body });
-            } else {
-              reject(new HttpError(response, body, response.status));
-            }
+            handleSuccessfulResponse(resolve, reject, response);
           },
           (error: AxiosError) => {
             if (error.response == null) {
@@ -576,22 +510,14 @@ export class SignatureRequestApi {
               return;
             }
 
-            const response = error.response;
-
-            let body;
-
-            let rangeCodeLeft = Number("4XX"[0] + "00");
-            let rangeCodeRight = Number("4XX"[0] + "99");
             if (
-              response.status >= rangeCodeLeft &&
-              response.status <= rangeCodeRight
-            ) {
-              body = ObjectSerializer.deserialize(
-                response.data,
+              handleErrorRangeResponse(
+                reject,
+                error.response,
+                "4XX",
                 "ErrorResponse"
-              );
-
-              reject(new HttpError(response, body, response.status));
+              )
+            ) {
               return;
             }
 
@@ -611,18 +537,10 @@ export class SignatureRequestApi {
     signatureRequestCreateEmbeddedRequest: SignatureRequestCreateEmbeddedRequest,
     options: optionsI = { headers: {} }
   ): Promise<returnTypeT<SignatureRequestGetResponse>> {
-    if (
-      signatureRequestCreateEmbeddedRequest !== null &&
-      signatureRequestCreateEmbeddedRequest !== undefined &&
-      signatureRequestCreateEmbeddedRequest.constructor.name !==
-        "SignatureRequestCreateEmbeddedRequest"
-    ) {
-      signatureRequestCreateEmbeddedRequest = ObjectSerializer.deserialize(
-        signatureRequestCreateEmbeddedRequest,
-        "SignatureRequestCreateEmbeddedRequest"
-      );
-    }
-
+    signatureRequestCreateEmbeddedRequest = deserializeIfNeeded(
+      signatureRequestCreateEmbeddedRequest,
+      "SignatureRequestCreateEmbeddedRequest"
+    );
     const localVarPath = this.basePath + "/signature_request/create_embedded";
     let localVarQueryParameters: any = {};
     let localVarHeaderParams: any = (<any>Object).assign(
@@ -715,21 +633,12 @@ export class SignatureRequestApi {
         (resolve, reject) => {
           axios.request(localVarRequestOptions).then(
             (response) => {
-              let body = response.data;
-
-              if (
-                response.status &&
-                response.status >= 200 &&
-                response.status <= 299
-              ) {
-                body = ObjectSerializer.deserialize(
-                  body,
-                  "SignatureRequestGetResponse"
-                );
-                resolve({ response: response, body: body });
-              } else {
-                reject(new HttpError(response, body, response.status));
-              }
+              handleSuccessfulResponse<SignatureRequestGetResponse>(
+                resolve,
+                reject,
+                response,
+                "SignatureRequestGetResponse"
+              );
             },
             (error: AxiosError) => {
               if (error.response == null) {
@@ -737,32 +646,25 @@ export class SignatureRequestApi {
                 return;
               }
 
-              const response = error.response;
-
-              let body;
-
-              if (response.status === 200) {
-                body = ObjectSerializer.deserialize(
-                  response.data,
+              if (
+                handleErrorCodeResponse(
+                  reject,
+                  error.response,
+                  200,
                   "SignatureRequestGetResponse"
-                );
-
-                reject(new HttpError(response, body, response.status));
+                )
+              ) {
                 return;
               }
 
-              let rangeCodeLeft = Number("4XX"[0] + "00");
-              let rangeCodeRight = Number("4XX"[0] + "99");
               if (
-                response.status >= rangeCodeLeft &&
-                response.status <= rangeCodeRight
-              ) {
-                body = ObjectSerializer.deserialize(
-                  response.data,
+                handleErrorRangeResponse(
+                  reject,
+                  error.response,
+                  "4XX",
                   "ErrorResponse"
-                );
-
-                reject(new HttpError(response, body, response.status));
+                )
+              ) {
                 return;
               }
 
@@ -783,19 +685,10 @@ export class SignatureRequestApi {
     signatureRequestCreateEmbeddedWithTemplateRequest: SignatureRequestCreateEmbeddedWithTemplateRequest,
     options: optionsI = { headers: {} }
   ): Promise<returnTypeT<SignatureRequestGetResponse>> {
-    if (
-      signatureRequestCreateEmbeddedWithTemplateRequest !== null &&
-      signatureRequestCreateEmbeddedWithTemplateRequest !== undefined &&
-      signatureRequestCreateEmbeddedWithTemplateRequest.constructor.name !==
-        "SignatureRequestCreateEmbeddedWithTemplateRequest"
-    ) {
-      signatureRequestCreateEmbeddedWithTemplateRequest =
-        ObjectSerializer.deserialize(
-          signatureRequestCreateEmbeddedWithTemplateRequest,
-          "SignatureRequestCreateEmbeddedWithTemplateRequest"
-        );
-    }
-
+    signatureRequestCreateEmbeddedWithTemplateRequest = deserializeIfNeeded(
+      signatureRequestCreateEmbeddedWithTemplateRequest,
+      "SignatureRequestCreateEmbeddedWithTemplateRequest"
+    );
     const localVarPath =
       this.basePath + "/signature_request/create_embedded_with_template";
     let localVarQueryParameters: any = {};
@@ -889,21 +782,12 @@ export class SignatureRequestApi {
         (resolve, reject) => {
           axios.request(localVarRequestOptions).then(
             (response) => {
-              let body = response.data;
-
-              if (
-                response.status &&
-                response.status >= 200 &&
-                response.status <= 299
-              ) {
-                body = ObjectSerializer.deserialize(
-                  body,
-                  "SignatureRequestGetResponse"
-                );
-                resolve({ response: response, body: body });
-              } else {
-                reject(new HttpError(response, body, response.status));
-              }
+              handleSuccessfulResponse<SignatureRequestGetResponse>(
+                resolve,
+                reject,
+                response,
+                "SignatureRequestGetResponse"
+              );
             },
             (error: AxiosError) => {
               if (error.response == null) {
@@ -911,32 +795,25 @@ export class SignatureRequestApi {
                 return;
               }
 
-              const response = error.response;
-
-              let body;
-
-              if (response.status === 200) {
-                body = ObjectSerializer.deserialize(
-                  response.data,
+              if (
+                handleErrorCodeResponse(
+                  reject,
+                  error.response,
+                  200,
                   "SignatureRequestGetResponse"
-                );
-
-                reject(new HttpError(response, body, response.status));
+                )
+              ) {
                 return;
               }
 
-              let rangeCodeLeft = Number("4XX"[0] + "00");
-              let rangeCodeRight = Number("4XX"[0] + "99");
               if (
-                response.status >= rangeCodeLeft &&
-                response.status <= rangeCodeRight
-              ) {
-                body = ObjectSerializer.deserialize(
-                  response.data,
+                handleErrorRangeResponse(
+                  reject,
+                  error.response,
+                  "4XX",
                   "ErrorResponse"
-                );
-
-                reject(new HttpError(response, body, response.status));
+                )
+              ) {
                 return;
               }
 
@@ -1037,18 +914,12 @@ export class SignatureRequestApi {
       return new Promise<returnTypeT<Buffer>>((resolve, reject) => {
         axios.request(localVarRequestOptions).then(
           (response) => {
-            let body = response.data;
-
-            if (
-              response.status &&
-              response.status >= 200 &&
-              response.status <= 299
-            ) {
-              body = ObjectSerializer.deserialize(body, "Buffer");
-              resolve({ response: response, body: body });
-            } else {
-              reject(new HttpError(response, body, response.status));
-            }
+            handleSuccessfulResponse<Buffer>(
+              resolve,
+              reject,
+              response,
+              "Buffer"
+            );
           },
           (error: AxiosError) => {
             if (error.response == null) {
@@ -1056,29 +927,25 @@ export class SignatureRequestApi {
               return;
             }
 
-            const response = error.response;
-
-            let body;
-
-            if (response.status === 200) {
-              body = ObjectSerializer.deserialize(response.data, "RequestFile");
-
-              reject(new HttpError(response, body, response.status));
+            if (
+              handleErrorCodeResponse(
+                reject,
+                error.response,
+                200,
+                "RequestFile"
+              )
+            ) {
               return;
             }
 
-            let rangeCodeLeft = Number("4XX"[0] + "00");
-            let rangeCodeRight = Number("4XX"[0] + "99");
             if (
-              response.status >= rangeCodeLeft &&
-              response.status <= rangeCodeRight
-            ) {
-              body = ObjectSerializer.deserialize(
-                response.data,
+              handleErrorRangeResponse(
+                reject,
+                error.response,
+                "4XX",
                 "ErrorResponse"
-              );
-
-              reject(new HttpError(response, body, response.status));
+              )
+            ) {
               return;
             }
 
@@ -1170,21 +1037,12 @@ export class SignatureRequestApi {
         (resolve, reject) => {
           axios.request(localVarRequestOptions).then(
             (response) => {
-              let body = response.data;
-
-              if (
-                response.status &&
-                response.status >= 200 &&
-                response.status <= 299
-              ) {
-                body = ObjectSerializer.deserialize(
-                  body,
-                  "FileResponseDataUri"
-                );
-                resolve({ response: response, body: body });
-              } else {
-                reject(new HttpError(response, body, response.status));
-              }
+              handleSuccessfulResponse<FileResponseDataUri>(
+                resolve,
+                reject,
+                response,
+                "FileResponseDataUri"
+              );
             },
             (error: AxiosError) => {
               if (error.response == null) {
@@ -1192,32 +1050,25 @@ export class SignatureRequestApi {
                 return;
               }
 
-              const response = error.response;
-
-              let body;
-
-              if (response.status === 200) {
-                body = ObjectSerializer.deserialize(
-                  response.data,
+              if (
+                handleErrorCodeResponse(
+                  reject,
+                  error.response,
+                  200,
                   "FileResponseDataUri"
-                );
-
-                reject(new HttpError(response, body, response.status));
+                )
+              ) {
                 return;
               }
 
-              let rangeCodeLeft = Number("4XX"[0] + "00");
-              let rangeCodeRight = Number("4XX"[0] + "99");
               if (
-                response.status >= rangeCodeLeft &&
-                response.status <= rangeCodeRight
-              ) {
-                body = ObjectSerializer.deserialize(
-                  response.data,
+                handleErrorRangeResponse(
+                  reject,
+                  error.response,
+                  "4XX",
                   "ErrorResponse"
-                );
-
-                reject(new HttpError(response, body, response.status));
+                )
+              ) {
                 return;
               }
 
@@ -1318,18 +1169,12 @@ export class SignatureRequestApi {
       return new Promise<returnTypeT<FileResponse>>((resolve, reject) => {
         axios.request(localVarRequestOptions).then(
           (response) => {
-            let body = response.data;
-
-            if (
-              response.status &&
-              response.status >= 200 &&
-              response.status <= 299
-            ) {
-              body = ObjectSerializer.deserialize(body, "FileResponse");
-              resolve({ response: response, body: body });
-            } else {
-              reject(new HttpError(response, body, response.status));
-            }
+            handleSuccessfulResponse<FileResponse>(
+              resolve,
+              reject,
+              response,
+              "FileResponse"
+            );
           },
           (error: AxiosError) => {
             if (error.response == null) {
@@ -1337,32 +1182,25 @@ export class SignatureRequestApi {
               return;
             }
 
-            const response = error.response;
-
-            let body;
-
-            if (response.status === 200) {
-              body = ObjectSerializer.deserialize(
-                response.data,
+            if (
+              handleErrorCodeResponse(
+                reject,
+                error.response,
+                200,
                 "FileResponse"
-              );
-
-              reject(new HttpError(response, body, response.status));
+              )
+            ) {
               return;
             }
 
-            let rangeCodeLeft = Number("4XX"[0] + "00");
-            let rangeCodeRight = Number("4XX"[0] + "99");
             if (
-              response.status >= rangeCodeLeft &&
-              response.status <= rangeCodeRight
-            ) {
-              body = ObjectSerializer.deserialize(
-                response.data,
+              handleErrorRangeResponse(
+                reject,
+                error.response,
+                "4XX",
                 "ErrorResponse"
-              );
-
-              reject(new HttpError(response, body, response.status));
+              )
+            ) {
               return;
             }
 
@@ -1454,21 +1292,12 @@ export class SignatureRequestApi {
         (resolve, reject) => {
           axios.request(localVarRequestOptions).then(
             (response) => {
-              let body = response.data;
-
-              if (
-                response.status &&
-                response.status >= 200 &&
-                response.status <= 299
-              ) {
-                body = ObjectSerializer.deserialize(
-                  body,
-                  "SignatureRequestGetResponse"
-                );
-                resolve({ response: response, body: body });
-              } else {
-                reject(new HttpError(response, body, response.status));
-              }
+              handleSuccessfulResponse<SignatureRequestGetResponse>(
+                resolve,
+                reject,
+                response,
+                "SignatureRequestGetResponse"
+              );
             },
             (error: AxiosError) => {
               if (error.response == null) {
@@ -1476,32 +1305,25 @@ export class SignatureRequestApi {
                 return;
               }
 
-              const response = error.response;
-
-              let body;
-
-              if (response.status === 200) {
-                body = ObjectSerializer.deserialize(
-                  response.data,
+              if (
+                handleErrorCodeResponse(
+                  reject,
+                  error.response,
+                  200,
                   "SignatureRequestGetResponse"
-                );
-
-                reject(new HttpError(response, body, response.status));
+                )
+              ) {
                 return;
               }
 
-              let rangeCodeLeft = Number("4XX"[0] + "00");
-              let rangeCodeRight = Number("4XX"[0] + "99");
               if (
-                response.status >= rangeCodeLeft &&
-                response.status <= rangeCodeRight
-              ) {
-                body = ObjectSerializer.deserialize(
-                  response.data,
+                handleErrorRangeResponse(
+                  reject,
+                  error.response,
+                  "4XX",
                   "ErrorResponse"
-                );
-
-                reject(new HttpError(response, body, response.status));
+                )
+              ) {
                 return;
               }
 
@@ -1616,21 +1438,12 @@ export class SignatureRequestApi {
         (resolve, reject) => {
           axios.request(localVarRequestOptions).then(
             (response) => {
-              let body = response.data;
-
-              if (
-                response.status &&
-                response.status >= 200 &&
-                response.status <= 299
-              ) {
-                body = ObjectSerializer.deserialize(
-                  body,
-                  "SignatureRequestListResponse"
-                );
-                resolve({ response: response, body: body });
-              } else {
-                reject(new HttpError(response, body, response.status));
-              }
+              handleSuccessfulResponse<SignatureRequestListResponse>(
+                resolve,
+                reject,
+                response,
+                "SignatureRequestListResponse"
+              );
             },
             (error: AxiosError) => {
               if (error.response == null) {
@@ -1638,32 +1451,25 @@ export class SignatureRequestApi {
                 return;
               }
 
-              const response = error.response;
-
-              let body;
-
-              if (response.status === 200) {
-                body = ObjectSerializer.deserialize(
-                  response.data,
+              if (
+                handleErrorCodeResponse(
+                  reject,
+                  error.response,
+                  200,
                   "SignatureRequestListResponse"
-                );
-
-                reject(new HttpError(response, body, response.status));
+                )
+              ) {
                 return;
               }
 
-              let rangeCodeLeft = Number("4XX"[0] + "00");
-              let rangeCodeRight = Number("4XX"[0] + "99");
               if (
-                response.status >= rangeCodeLeft &&
-                response.status <= rangeCodeRight
-              ) {
-                body = ObjectSerializer.deserialize(
-                  response.data,
+                handleErrorRangeResponse(
+                  reject,
+                  error.response,
+                  "4XX",
                   "ErrorResponse"
-                );
-
-                reject(new HttpError(response, body, response.status));
+                )
+              ) {
                 return;
               }
 
@@ -1756,21 +1562,12 @@ export class SignatureRequestApi {
         (resolve, reject) => {
           axios.request(localVarRequestOptions).then(
             (response) => {
-              let body = response.data;
-
-              if (
-                response.status &&
-                response.status >= 200 &&
-                response.status <= 299
-              ) {
-                body = ObjectSerializer.deserialize(
-                  body,
-                  "SignatureRequestGetResponse"
-                );
-                resolve({ response: response, body: body });
-              } else {
-                reject(new HttpError(response, body, response.status));
-              }
+              handleSuccessfulResponse<SignatureRequestGetResponse>(
+                resolve,
+                reject,
+                response,
+                "SignatureRequestGetResponse"
+              );
             },
             (error: AxiosError) => {
               if (error.response == null) {
@@ -1778,32 +1575,25 @@ export class SignatureRequestApi {
                 return;
               }
 
-              const response = error.response;
-
-              let body;
-
-              if (response.status === 200) {
-                body = ObjectSerializer.deserialize(
-                  response.data,
+              if (
+                handleErrorCodeResponse(
+                  reject,
+                  error.response,
+                  200,
                   "SignatureRequestGetResponse"
-                );
-
-                reject(new HttpError(response, body, response.status));
+                )
+              ) {
                 return;
               }
 
-              let rangeCodeLeft = Number("4XX"[0] + "00");
-              let rangeCodeRight = Number("4XX"[0] + "99");
               if (
-                response.status >= rangeCodeLeft &&
-                response.status <= rangeCodeRight
-              ) {
-                body = ObjectSerializer.deserialize(
-                  response.data,
+                handleErrorRangeResponse(
+                  reject,
+                  error.response,
+                  "4XX",
                   "ErrorResponse"
-                );
-
-                reject(new HttpError(response, body, response.status));
+                )
+              ) {
                 return;
               }
 
@@ -1826,18 +1616,10 @@ export class SignatureRequestApi {
     signatureRequestRemindRequest: SignatureRequestRemindRequest,
     options: optionsI = { headers: {} }
   ): Promise<returnTypeT<SignatureRequestGetResponse>> {
-    if (
-      signatureRequestRemindRequest !== null &&
-      signatureRequestRemindRequest !== undefined &&
-      signatureRequestRemindRequest.constructor.name !==
-        "SignatureRequestRemindRequest"
-    ) {
-      signatureRequestRemindRequest = ObjectSerializer.deserialize(
-        signatureRequestRemindRequest,
-        "SignatureRequestRemindRequest"
-      );
-    }
-
+    signatureRequestRemindRequest = deserializeIfNeeded(
+      signatureRequestRemindRequest,
+      "SignatureRequestRemindRequest"
+    );
     const localVarPath =
       this.basePath +
       "/signature_request/remind/{signature_request_id}".replace(
@@ -1942,21 +1724,12 @@ export class SignatureRequestApi {
         (resolve, reject) => {
           axios.request(localVarRequestOptions).then(
             (response) => {
-              let body = response.data;
-
-              if (
-                response.status &&
-                response.status >= 200 &&
-                response.status <= 299
-              ) {
-                body = ObjectSerializer.deserialize(
-                  body,
-                  "SignatureRequestGetResponse"
-                );
-                resolve({ response: response, body: body });
-              } else {
-                reject(new HttpError(response, body, response.status));
-              }
+              handleSuccessfulResponse<SignatureRequestGetResponse>(
+                resolve,
+                reject,
+                response,
+                "SignatureRequestGetResponse"
+              );
             },
             (error: AxiosError) => {
               if (error.response == null) {
@@ -1964,32 +1737,25 @@ export class SignatureRequestApi {
                 return;
               }
 
-              const response = error.response;
-
-              let body;
-
-              if (response.status === 200) {
-                body = ObjectSerializer.deserialize(
-                  response.data,
+              if (
+                handleErrorCodeResponse(
+                  reject,
+                  error.response,
+                  200,
                   "SignatureRequestGetResponse"
-                );
-
-                reject(new HttpError(response, body, response.status));
+                )
+              ) {
                 return;
               }
 
-              let rangeCodeLeft = Number("4XX"[0] + "00");
-              let rangeCodeRight = Number("4XX"[0] + "99");
               if (
-                response.status >= rangeCodeLeft &&
-                response.status <= rangeCodeRight
-              ) {
-                body = ObjectSerializer.deserialize(
-                  response.data,
+                handleErrorRangeResponse(
+                  reject,
+                  error.response,
+                  "4XX",
                   "ErrorResponse"
-                );
-
-                reject(new HttpError(response, body, response.status));
+                )
+              ) {
                 return;
               }
 
@@ -2076,17 +1842,7 @@ export class SignatureRequestApi {
       return new Promise<returnTypeI>((resolve, reject) => {
         axios.request(localVarRequestOptions).then(
           (response) => {
-            let body = response.data;
-
-            if (
-              response.status &&
-              response.status >= 200 &&
-              response.status <= 299
-            ) {
-              resolve({ response: response, body: body });
-            } else {
-              reject(new HttpError(response, body, response.status));
-            }
+            handleSuccessfulResponse(resolve, reject, response);
           },
           (error: AxiosError) => {
             if (error.response == null) {
@@ -2094,22 +1850,14 @@ export class SignatureRequestApi {
               return;
             }
 
-            const response = error.response;
-
-            let body;
-
-            let rangeCodeLeft = Number("4XX"[0] + "00");
-            let rangeCodeRight = Number("4XX"[0] + "99");
             if (
-              response.status >= rangeCodeLeft &&
-              response.status <= rangeCodeRight
-            ) {
-              body = ObjectSerializer.deserialize(
-                response.data,
+              handleErrorRangeResponse(
+                reject,
+                error.response,
+                "4XX",
                 "ErrorResponse"
-              );
-
-              reject(new HttpError(response, body, response.status));
+              )
+            ) {
               return;
             }
 
@@ -2129,18 +1877,10 @@ export class SignatureRequestApi {
     signatureRequestSendRequest: SignatureRequestSendRequest,
     options: optionsI = { headers: {} }
   ): Promise<returnTypeT<SignatureRequestGetResponse>> {
-    if (
-      signatureRequestSendRequest !== null &&
-      signatureRequestSendRequest !== undefined &&
-      signatureRequestSendRequest.constructor.name !==
-        "SignatureRequestSendRequest"
-    ) {
-      signatureRequestSendRequest = ObjectSerializer.deserialize(
-        signatureRequestSendRequest,
-        "SignatureRequestSendRequest"
-      );
-    }
-
+    signatureRequestSendRequest = deserializeIfNeeded(
+      signatureRequestSendRequest,
+      "SignatureRequestSendRequest"
+    );
     const localVarPath = this.basePath + "/signature_request/send";
     let localVarQueryParameters: any = {};
     let localVarHeaderParams: any = (<any>Object).assign(
@@ -2233,21 +1973,12 @@ export class SignatureRequestApi {
         (resolve, reject) => {
           axios.request(localVarRequestOptions).then(
             (response) => {
-              let body = response.data;
-
-              if (
-                response.status &&
-                response.status >= 200 &&
-                response.status <= 299
-              ) {
-                body = ObjectSerializer.deserialize(
-                  body,
-                  "SignatureRequestGetResponse"
-                );
-                resolve({ response: response, body: body });
-              } else {
-                reject(new HttpError(response, body, response.status));
-              }
+              handleSuccessfulResponse<SignatureRequestGetResponse>(
+                resolve,
+                reject,
+                response,
+                "SignatureRequestGetResponse"
+              );
             },
             (error: AxiosError) => {
               if (error.response == null) {
@@ -2255,32 +1986,25 @@ export class SignatureRequestApi {
                 return;
               }
 
-              const response = error.response;
-
-              let body;
-
-              if (response.status === 200) {
-                body = ObjectSerializer.deserialize(
-                  response.data,
+              if (
+                handleErrorCodeResponse(
+                  reject,
+                  error.response,
+                  200,
                   "SignatureRequestGetResponse"
-                );
-
-                reject(new HttpError(response, body, response.status));
+                )
+              ) {
                 return;
               }
 
-              let rangeCodeLeft = Number("4XX"[0] + "00");
-              let rangeCodeRight = Number("4XX"[0] + "99");
               if (
-                response.status >= rangeCodeLeft &&
-                response.status <= rangeCodeRight
-              ) {
-                body = ObjectSerializer.deserialize(
-                  response.data,
+                handleErrorRangeResponse(
+                  reject,
+                  error.response,
+                  "4XX",
                   "ErrorResponse"
-                );
-
-                reject(new HttpError(response, body, response.status));
+                )
+              ) {
                 return;
               }
 
@@ -2301,18 +2025,10 @@ export class SignatureRequestApi {
     signatureRequestSendWithTemplateRequest: SignatureRequestSendWithTemplateRequest,
     options: optionsI = { headers: {} }
   ): Promise<returnTypeT<SignatureRequestGetResponse>> {
-    if (
-      signatureRequestSendWithTemplateRequest !== null &&
-      signatureRequestSendWithTemplateRequest !== undefined &&
-      signatureRequestSendWithTemplateRequest.constructor.name !==
-        "SignatureRequestSendWithTemplateRequest"
-    ) {
-      signatureRequestSendWithTemplateRequest = ObjectSerializer.deserialize(
-        signatureRequestSendWithTemplateRequest,
-        "SignatureRequestSendWithTemplateRequest"
-      );
-    }
-
+    signatureRequestSendWithTemplateRequest = deserializeIfNeeded(
+      signatureRequestSendWithTemplateRequest,
+      "SignatureRequestSendWithTemplateRequest"
+    );
     const localVarPath =
       this.basePath + "/signature_request/send_with_template";
     let localVarQueryParameters: any = {};
@@ -2406,21 +2122,12 @@ export class SignatureRequestApi {
         (resolve, reject) => {
           axios.request(localVarRequestOptions).then(
             (response) => {
-              let body = response.data;
-
-              if (
-                response.status &&
-                response.status >= 200 &&
-                response.status <= 299
-              ) {
-                body = ObjectSerializer.deserialize(
-                  body,
-                  "SignatureRequestGetResponse"
-                );
-                resolve({ response: response, body: body });
-              } else {
-                reject(new HttpError(response, body, response.status));
-              }
+              handleSuccessfulResponse<SignatureRequestGetResponse>(
+                resolve,
+                reject,
+                response,
+                "SignatureRequestGetResponse"
+              );
             },
             (error: AxiosError) => {
               if (error.response == null) {
@@ -2428,32 +2135,25 @@ export class SignatureRequestApi {
                 return;
               }
 
-              const response = error.response;
-
-              let body;
-
-              if (response.status === 200) {
-                body = ObjectSerializer.deserialize(
-                  response.data,
+              if (
+                handleErrorCodeResponse(
+                  reject,
+                  error.response,
+                  200,
                   "SignatureRequestGetResponse"
-                );
-
-                reject(new HttpError(response, body, response.status));
+                )
+              ) {
                 return;
               }
 
-              let rangeCodeLeft = Number("4XX"[0] + "00");
-              let rangeCodeRight = Number("4XX"[0] + "99");
               if (
-                response.status >= rangeCodeLeft &&
-                response.status <= rangeCodeRight
-              ) {
-                body = ObjectSerializer.deserialize(
-                  response.data,
+                handleErrorRangeResponse(
+                  reject,
+                  error.response,
+                  "4XX",
                   "ErrorResponse"
-                );
-
-                reject(new HttpError(response, body, response.status));
+                )
+              ) {
                 return;
               }
 
@@ -2476,18 +2176,10 @@ export class SignatureRequestApi {
     signatureRequestUpdateRequest: SignatureRequestUpdateRequest,
     options: optionsI = { headers: {} }
   ): Promise<returnTypeT<SignatureRequestGetResponse>> {
-    if (
-      signatureRequestUpdateRequest !== null &&
-      signatureRequestUpdateRequest !== undefined &&
-      signatureRequestUpdateRequest.constructor.name !==
-        "SignatureRequestUpdateRequest"
-    ) {
-      signatureRequestUpdateRequest = ObjectSerializer.deserialize(
-        signatureRequestUpdateRequest,
-        "SignatureRequestUpdateRequest"
-      );
-    }
-
+    signatureRequestUpdateRequest = deserializeIfNeeded(
+      signatureRequestUpdateRequest,
+      "SignatureRequestUpdateRequest"
+    );
     const localVarPath =
       this.basePath +
       "/signature_request/update/{signature_request_id}".replace(
@@ -2592,21 +2284,12 @@ export class SignatureRequestApi {
         (resolve, reject) => {
           axios.request(localVarRequestOptions).then(
             (response) => {
-              let body = response.data;
-
-              if (
-                response.status &&
-                response.status >= 200 &&
-                response.status <= 299
-              ) {
-                body = ObjectSerializer.deserialize(
-                  body,
-                  "SignatureRequestGetResponse"
-                );
-                resolve({ response: response, body: body });
-              } else {
-                reject(new HttpError(response, body, response.status));
-              }
+              handleSuccessfulResponse<SignatureRequestGetResponse>(
+                resolve,
+                reject,
+                response,
+                "SignatureRequestGetResponse"
+              );
             },
             (error: AxiosError) => {
               if (error.response == null) {
@@ -2614,32 +2297,25 @@ export class SignatureRequestApi {
                 return;
               }
 
-              const response = error.response;
-
-              let body;
-
-              if (response.status === 200) {
-                body = ObjectSerializer.deserialize(
-                  response.data,
+              if (
+                handleErrorCodeResponse(
+                  reject,
+                  error.response,
+                  200,
                   "SignatureRequestGetResponse"
-                );
-
-                reject(new HttpError(response, body, response.status));
+                )
+              ) {
                 return;
               }
 
-              let rangeCodeLeft = Number("4XX"[0] + "00");
-              let rangeCodeRight = Number("4XX"[0] + "99");
               if (
-                response.status >= rangeCodeLeft &&
-                response.status <= rangeCodeRight
-              ) {
-                body = ObjectSerializer.deserialize(
-                  response.data,
+                handleErrorRangeResponse(
+                  reject,
+                  error.response,
+                  "4XX",
                   "ErrorResponse"
-                );
-
-                reject(new HttpError(response, body, response.status));
+                )
+              ) {
                 return;
               }
 
@@ -2650,4 +2326,74 @@ export class SignatureRequestApi {
       );
     });
   }
+}
+
+function deserializeIfNeeded<T>(obj: T, classname: string): T {
+  if (obj !== null && obj !== undefined && obj.constructor.name !== classname) {
+    return ObjectSerializer.deserialize(obj, classname);
+  }
+
+  return obj;
+}
+
+type AxiosResolve<T> = (
+  value: returnTypeT<T> | PromiseLike<returnTypeT<T>>
+) => void;
+
+type AxiosReject = (reason?: any) => void;
+
+function handleSuccessfulResponse<T>(
+  resolve: AxiosResolve<T>,
+  reject: AxiosReject,
+  response: AxiosResponse,
+  returnType?: string
+) {
+  let body = response.data;
+
+  if (response.status && response.status >= 200 && response.status <= 299) {
+    if (returnType) {
+      body = ObjectSerializer.deserialize(body, returnType);
+    }
+
+    resolve({ response: response, body: body });
+  } else {
+    reject(new HttpError(response, body, response.status));
+  }
+}
+
+function handleErrorCodeResponse(
+  reject: AxiosReject,
+  response: AxiosResponse,
+  code: number,
+  returnType: string
+): boolean {
+  if (response.status !== code) {
+    return false;
+  }
+
+  const body = ObjectSerializer.deserialize(response.data, returnType);
+
+  reject(new HttpError(response, body, response.status));
+
+  return true;
+}
+
+function handleErrorRangeResponse(
+  reject: AxiosReject,
+  response: AxiosResponse,
+  code: string,
+  returnType: string
+): boolean {
+  let rangeCodeLeft = Number(code[0] + "00");
+  let rangeCodeRight = Number(code[0] + "99");
+
+  if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
+    const body = ObjectSerializer.deserialize(response.data, returnType);
+
+    reject(new HttpError(response, body, response.status));
+
+    return true;
+  }
+
+  return false;
 }

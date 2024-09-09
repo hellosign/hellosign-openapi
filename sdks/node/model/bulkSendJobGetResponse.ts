@@ -22,19 +22,19 @@
  * SOFTWARE.
  */
 
-import { RequestFile, AttributeTypeMap, ObjectSerializer } from "./";
+import { AttributeTypeMap, ObjectSerializer } from "./";
 import { BulkSendJobGetResponseSignatureRequests } from "./bulkSendJobGetResponseSignatureRequests";
 import { BulkSendJobResponse } from "./bulkSendJobResponse";
 import { ListInfoResponse } from "./listInfoResponse";
 import { WarningResponse } from "./warningResponse";
 
 export class BulkSendJobGetResponse {
-  "bulkSendJob"?: BulkSendJobResponse;
-  "listInfo"?: ListInfoResponse;
+  "bulkSendJob": BulkSendJobResponse;
+  "listInfo": ListInfoResponse;
   /**
    * Contains information about the Signature Requests sent in bulk.
    */
-  "signatureRequests"?: Array<BulkSendJobGetResponseSignatureRequests>;
+  "signatureRequests": Array<BulkSendJobGetResponseSignatureRequests>;
   /**
    * A list of warnings.
    */

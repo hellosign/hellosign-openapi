@@ -14,7 +14,6 @@
 package com.dropbox.sign.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -22,12 +21,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.dropbox.sign.JSON;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.dropbox.sign.JSON;
 
 
 import com.dropbox.sign.ApiException;
@@ -35,11 +33,11 @@ import com.dropbox.sign.ApiException;
  * TemplateResponseSignerRole
  */
 @JsonPropertyOrder({
-    TemplateResponseSignerRole.JSON_PROPERTY_NAME,
-    TemplateResponseSignerRole.JSON_PROPERTY_ORDER
+  TemplateResponseSignerRole.JSON_PROPERTY_NAME,
+  TemplateResponseSignerRole.JSON_PROPERTY_ORDER
 })
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TemplateResponseSignerRole {
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
@@ -70,12 +68,11 @@ public class TemplateResponseSignerRole {
     return this;
   }
 
-   /**
+  /**
    * The name of the Role.
    * @return name
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The name of the Role.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -96,12 +93,11 @@ public class TemplateResponseSignerRole {
     return this;
   }
 
-   /**
+  /**
    * If signer order is assigned this is the 0-based index for this role.
    * @return order
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "If signer order is assigned this is the 0-based index for this role.")
   @JsonProperty(JSON_PROPERTY_ORDER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

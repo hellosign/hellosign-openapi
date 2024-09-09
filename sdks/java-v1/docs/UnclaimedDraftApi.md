@@ -2,8 +2,8 @@
 
 All URIs are relative to *https://api.hellosign.com/v3*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
+| Method | HTTP request | Description |
+|------------- | ------------- | -------------|
 [**unclaimedDraftCreate**](UnclaimedDraftApi.md#unclaimedDraftCreate) | **POST** /unclaimed_draft/create | Create Unclaimed Draft
 [**unclaimedDraftCreateEmbedded**](UnclaimedDraftApi.md#unclaimedDraftCreateEmbedded) | **POST** /unclaimed_draft/create_embedded | Create Embedded Unclaimed Draft
 [**unclaimedDraftCreateEmbeddedWithTemplate**](UnclaimedDraftApi.md#unclaimedDraftCreateEmbeddedWithTemplate) | **POST** /unclaimed_draft/create_embedded_with_template | Create Embedded Unclaimed Draft with Template
@@ -95,8 +95,8 @@ public class Example {
 ### Parameters
 
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
  **unclaimedDraftCreateRequest** | [**UnclaimedDraftCreateRequest**](UnclaimedDraftCreateRequest.md)|  |
 
 ### Return type
@@ -177,8 +177,8 @@ public class Example {
 ### Parameters
 
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
  **unclaimedDraftCreateEmbeddedRequest** | [**UnclaimedDraftCreateEmbeddedRequest**](UnclaimedDraftCreateEmbeddedRequest.md)|  |
 
 ### Return type
@@ -270,8 +270,8 @@ public class Example {
 ### Parameters
 
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
  **unclaimedDraftCreateEmbeddedWithTemplateRequest** | [**UnclaimedDraftCreateEmbeddedWithTemplateRequest**](UnclaimedDraftCreateEmbeddedWithTemplateRequest.md)|  |
 
 ### Return type
@@ -350,8 +350,8 @@ public class Example {
 ### Parameters
 
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
  **signatureRequestId** | **String**| The ID of the signature request to edit and resend. |
  **unclaimedDraftEditAndResendRequest** | [**UnclaimedDraftEditAndResendRequest**](UnclaimedDraftEditAndResendRequest.md)|  |
 

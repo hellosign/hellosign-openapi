@@ -31,7 +31,7 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "AccountVerifyRequest")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class AccountVerifyRequest : IOpenApiTyped, IEquatable<AccountVerifyRequest>, IValidatableObject
+    public partial class AccountVerifyRequest : IEquatable<AccountVerifyRequest>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="AccountVerifyRequest" /> class.
@@ -75,7 +75,7 @@ namespace Dropbox.Sign.Model
         /// <value>Email address to run the verification for.</value>
         [DataMember(Name = "email_address", IsRequired = true, EmitDefaultValue = true)]
         public string EmailAddress { get; set; }
-
+        
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -144,6 +144,15 @@ namespace Dropbox.Sign.Model
             }
         }
 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
+            yield break;
+        }
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
@@ -155,16 +164,6 @@ namespace Dropbox.Sign.Model
             });
 
             return types;
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

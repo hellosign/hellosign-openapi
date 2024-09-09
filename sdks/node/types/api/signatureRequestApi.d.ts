@@ -1,6 +1,5 @@
-/// <reference types="node" />
-import { Authentication, Interceptor, HttpBasicAuth, HttpBearerAuth, BulkSendJobSendResponse, FileResponse, FileResponseDataUri, SignatureRequestBulkCreateEmbeddedWithTemplateRequest, SignatureRequestBulkSendWithTemplateRequest, SignatureRequestCreateEmbeddedRequest, SignatureRequestCreateEmbeddedWithTemplateRequest, SignatureRequestGetResponse, SignatureRequestListResponse, SignatureRequestRemindRequest, SignatureRequestSendRequest, SignatureRequestSendWithTemplateRequest, SignatureRequestUpdateRequest } from "../model";
-import { optionsI, returnTypeT, returnTypeI } from "./";
+import { Authentication, BulkSendJobSendResponse, FileResponse, FileResponseDataUri, HttpBasicAuth, HttpBearerAuth, Interceptor, SignatureRequestBulkCreateEmbeddedWithTemplateRequest, SignatureRequestBulkSendWithTemplateRequest, SignatureRequestCreateEmbeddedRequest, SignatureRequestCreateEmbeddedWithTemplateRequest, SignatureRequestGetResponse, SignatureRequestListResponse, SignatureRequestRemindRequest, SignatureRequestSendRequest, SignatureRequestSendWithTemplateRequest, SignatureRequestUpdateRequest } from "../model";
+import { optionsI, returnTypeI, returnTypeT } from "./";
 export declare enum SignatureRequestApiApiKeys {
 }
 export declare class SignatureRequestApi {

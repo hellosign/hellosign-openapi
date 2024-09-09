@@ -6,8 +6,8 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
 | `clientId`<sup>*_required_</sup> | ```String``` |  Client id of the app used to create the draft. Used to apply the branding and callback url defined for the app.  |  |
 | `requesterEmailAddress`<sup>*_required_</sup> | ```String``` |  The email address of the user that should be designated as the requester of this draft.  |  |
 | `templateIds`<sup>*_required_</sup> | ```List<String>``` |  Use `template_ids` to create a SignatureRequest from one or more templates, in the order in which the templates will be used.  |  |

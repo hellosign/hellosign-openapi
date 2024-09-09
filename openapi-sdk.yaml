@@ -1409,6 +1409,803 @@ paths:
         seo:
           title: 'Get Embedded Sign URL | iFrame | Dropbox Sign for Developers'
           description: 'The Dropbox Sign API allows you to build custom integrations. To find out how to retrieve an embedded iFrame object containing a signature url, click here.'
+  /fax_line/add_user:
+    put:
+      tags:
+        - 'Fax Line'
+      summary: 'Add Fax Line User'
+      description: 'Grants a user access to the specified Fax Line.'
+      operationId: faxLineAddUser
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FaxLineAddUserRequest'
+            examples:
+              default_example:
+                $ref: '#/components/examples/FaxLineAddUserRequestExample'
+      responses:
+        200:
+          description: 'successful operation'
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-Ratelimit-Reset:
+              $ref: '#/components/headers/X-Ratelimit-Reset'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FaxLineResponse'
+              examples:
+                default_example:
+                  $ref: '#/components/examples/FaxLineResponseExample'
+        4XX:
+          description: failed_operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                400_example:
+                  $ref: '#/components/examples/Error400ResponseExample'
+                401_example:
+                  $ref: '#/components/examples/Error401ResponseExample'
+                402_example:
+                  $ref: '#/components/examples/Error402ResponseExample'
+                403_example:
+                  $ref: '#/components/examples/Error403ResponseExample'
+                404_example:
+                  $ref: '#/components/examples/Error404ResponseExample'
+                4XX_example:
+                  $ref: '#/components/examples/Error4XXResponseExample'
+      security:
+        -
+          api_key: []
+      x-codeSamples:
+        -
+          lang: PHP
+          label: PHP
+          source:
+            $ref: examples/FaxLineAddUser.php
+        -
+          lang: 'C#'
+          label: 'C#'
+          source:
+            $ref: examples/FaxLineAddUser.cs
+        -
+          lang: JavaScript
+          label: JavaScript
+          source:
+            $ref: examples/FaxLineAddUser.js
+        -
+          lang: TypeScript
+          label: TypeScript
+          source:
+            $ref: examples/FaxLineAddUser.ts
+        -
+          lang: Java
+          label: Java
+          source:
+            $ref: examples/FaxLineAddUser.java
+        -
+          lang: Ruby
+          label: Ruby
+          source:
+            $ref: examples/FaxLineAddUser.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/FaxLineAddUser.py
+        -
+          lang: cURL
+          label: cURL
+          source:
+            $ref: examples/FaxLineAddUser.sh
+      x-meta:
+        seo:
+          title: 'Fax Line Add User | API Documentation | Dropbox Fax for Developers'
+          description: 'The Dropbox Fax API allows you to build custom integrations. To find out how to add a user to an existing fax line, click here.'
+  /fax_line/area_codes:
+    get:
+      tags:
+        - 'Fax Line'
+      summary: 'Get Available Fax Line Area Codes'
+      description: 'Returns a response with the area codes available for a given state/provice and city.'
+      operationId: faxLineAreaCodeGet
+      parameters:
+        -
+          name: country
+          in: query
+          description: 'Filter area codes by country.'
+          required: true
+          schema:
+            type: string
+            enum:
+              - CA
+              - US
+              - UK
+        -
+          name: state
+          in: query
+          description: 'Filter area codes by state.'
+          schema:
+            type: string
+            enum:
+              - AK
+              - AL
+              - AR
+              - AZ
+              - CA
+              - CO
+              - CT
+              - DC
+              - DE
+              - FL
+              - GA
+              - HI
+              - IA
+              - ID
+              - IL
+              - IN
+              - KS
+              - KY
+              - LA
+              - MA
+              - MD
+              - ME
+              - MI
+              - MN
+              - MO
+              - MS
+              - MT
+              - NC
+              - ND
+              - NE
+              - NH
+              - NJ
+              - NM
+              - NV
+              - NY
+              - OH
+              - OK
+              - OR
+              - PA
+              - RI
+              - SC
+              - SD
+              - TN
+              - TX
+              - UT
+              - VA
+              - VT
+              - WA
+              - WI
+              - WV
+              - WY
+        -
+          name: province
+          in: query
+          description: 'Filter area codes by province.'
+          schema:
+            type: string
+            enum:
+              - AB
+              - BC
+              - MB
+              - NB
+              - NL
+              - NT
+              - NS
+              - NU
+              - 'ON'
+              - PE
+              - QC
+              - SK
+              - YT
+        -
+          name: city
+          in: query
+          description: 'Filter area codes by city.'
+          schema:
+            type: string
+      responses:
+        200:
+          description: 'successful operation'
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-Ratelimit-Reset:
+              $ref: '#/components/headers/X-Ratelimit-Reset'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FaxLineAreaCodeGetResponse'
+              examples:
+                default_example:
+                  $ref: '#/components/examples/FaxLineAreaCodeGetResponseExample'
+        4XX:
+          description: failed_operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                400_example:
+                  $ref: '#/components/examples/Error400ResponseExample'
+                401_example:
+                  $ref: '#/components/examples/Error401ResponseExample'
+                402_example:
+                  $ref: '#/components/examples/Error402ResponseExample'
+                403_example:
+                  $ref: '#/components/examples/Error403ResponseExample'
+                4XX_example:
+                  $ref: '#/components/examples/Error4XXResponseExample'
+      security:
+        -
+          api_key: []
+      x-codeSamples:
+        -
+          lang: PHP
+          label: PHP
+          source:
+            $ref: examples/FaxLineAreaCodeGet.php
+        -
+          lang: 'C#'
+          label: 'C#'
+          source:
+            $ref: examples/FaxLineAreaCodeGet.cs
+        -
+          lang: JavaScript
+          label: JavaScript
+          source:
+            $ref: examples/FaxLineAreaCodeGet.js
+        -
+          lang: TypeScript
+          label: TypeScript
+          source:
+            $ref: examples/FaxLineAreaCodeGet.ts
+        -
+          lang: Java
+          label: Java
+          source:
+            $ref: examples/FaxLineAreaCodeGet.java
+        -
+          lang: Ruby
+          label: Ruby
+          source:
+            $ref: examples/FaxLineAreaCodeGet.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/FaxLineAreaCodeGet.py
+        -
+          lang: cURL
+          label: cURL
+          source:
+            $ref: examples/FaxLineAreaCodeGet.sh
+      x-meta:
+        seo:
+          title: 'Fax Line Get Area Codes | API Documentation | Dropbox Fax for Developers'
+          description: 'The Dropbox Fax API allows you to build custom integrations. To find out how to purchase a new fax line, click here.'
+  /fax_line/create:
+    post:
+      tags:
+        - 'Fax Line'
+      summary: 'Purchase Fax Line'
+      description: 'Purchases a new Fax Line.'
+      operationId: faxLineCreate
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FaxLineCreateRequest'
+            examples:
+              default_example:
+                $ref: '#/components/examples/FaxLineCreateRequestExample'
+      responses:
+        200:
+          description: 'successful operation'
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-Ratelimit-Reset:
+              $ref: '#/components/headers/X-Ratelimit-Reset'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FaxLineResponse'
+              examples:
+                default_example:
+                  $ref: '#/components/examples/FaxLineResponseExample'
+        4XX:
+          description: failed_operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                400_example:
+                  $ref: '#/components/examples/Error400ResponseExample'
+                401_example:
+                  $ref: '#/components/examples/Error401ResponseExample'
+                402_example:
+                  $ref: '#/components/examples/Error402ResponseExample'
+                403_example:
+                  $ref: '#/components/examples/Error403ResponseExample'
+                404_example:
+                  $ref: '#/components/examples/Error404ResponseExample'
+                4XX_example:
+                  $ref: '#/components/examples/Error4XXResponseExample'
+      security:
+        -
+          api_key: []
+      x-codeSamples:
+        -
+          lang: PHP
+          label: PHP
+          source:
+            $ref: examples/FaxLineCreate.php
+        -
+          lang: 'C#'
+          label: 'C#'
+          source:
+            $ref: examples/FaxLineCreate.cs
+        -
+          lang: JavaScript
+          label: JavaScript
+          source:
+            $ref: examples/FaxLineCreate.js
+        -
+          lang: TypeScript
+          label: TypeScript
+          source:
+            $ref: examples/FaxLineCreate.ts
+        -
+          lang: Java
+          label: Java
+          source:
+            $ref: examples/FaxLineCreate.java
+        -
+          lang: Ruby
+          label: Ruby
+          source:
+            $ref: examples/FaxLineCreate.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/FaxLineCreate.py
+        -
+          lang: cURL
+          label: cURL
+          source:
+            $ref: examples/FaxLineCreate.sh
+      x-meta:
+        seo:
+          title: 'Purchase Fax Line | API Documentation | Dropbox Fax for Developers'
+          description: 'The Dropbox Fax API allows you to build custom integrations. To find out how to purchase a new fax line, click here.'
+  /fax_line:
+    get:
+      tags:
+        - 'Fax Line'
+      summary: 'Get Fax Line'
+      description: 'Returns the properties and settings of a Fax Line.'
+      operationId: faxLineGet
+      parameters:
+        -
+          name: number
+          in: query
+          description: 'The Fax Line number.'
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: 'successful operation'
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-Ratelimit-Reset:
+              $ref: '#/components/headers/X-Ratelimit-Reset'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FaxLineResponse'
+              examples:
+                default_example:
+                  $ref: '#/components/examples/FaxLineResponseExample'
+        4XX:
+          description: failed_operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                400_example:
+                  $ref: '#/components/examples/Error400ResponseExample'
+                401_example:
+                  $ref: '#/components/examples/Error401ResponseExample'
+                402_example:
+                  $ref: '#/components/examples/Error402ResponseExample'
+                403_example:
+                  $ref: '#/components/examples/Error403ResponseExample'
+                404_example:
+                  $ref: '#/components/examples/Error404ResponseExample'
+                4XX_example:
+                  $ref: '#/components/examples/Error4XXResponseExample'
+      security:
+        -
+          api_key: []
+      x-codeSamples:
+        -
+          lang: PHP
+          label: PHP
+          source:
+            $ref: examples/FaxLineGet.php
+        -
+          lang: 'C#'
+          label: 'C#'
+          source:
+            $ref: examples/FaxLineGet.cs
+        -
+          lang: JavaScript
+          label: JavaScript
+          source:
+            $ref: examples/FaxLineGet.js
+        -
+          lang: TypeScript
+          label: TypeScript
+          source:
+            $ref: examples/FaxLineGet.ts
+        -
+          lang: Java
+          label: Java
+          source:
+            $ref: examples/FaxLineGet.java
+        -
+          lang: Ruby
+          label: Ruby
+          source:
+            $ref: examples/FaxLineGet.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/FaxLineGet.py
+        -
+          lang: cURL
+          label: cURL
+          source:
+            $ref: examples/FaxLineGet.sh
+      x-meta:
+        seo:
+          title: 'Get Fax Line | API Documentation | Dropbox Fax for Developers'
+          description: 'The Dropbox Fax API allows you to build custom integrations. To find out how to retrieve a fax line, click here.'
+    delete:
+      tags:
+        - 'Fax Line'
+      summary: 'Delete Fax Line'
+      description: 'Deletes the specified Fax Line from the subscription.'
+      operationId: faxLineDelete
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FaxLineDeleteRequest'
+            examples:
+              default_example:
+                $ref: '#/components/examples/FaxLineDeleteRequestExample'
+      responses:
+        200:
+          description: 'successful operation'
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-Ratelimit-Reset:
+              $ref: '#/components/headers/X-Ratelimit-Reset'
+          content:
+            application/json: {}
+        4XX:
+          description: failed_operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                400_example:
+                  $ref: '#/components/examples/Error400ResponseExample'
+                401_example:
+                  $ref: '#/components/examples/Error401ResponseExample'
+                402_example:
+                  $ref: '#/components/examples/Error402ResponseExample'
+                403_example:
+                  $ref: '#/components/examples/Error403ResponseExample'
+                404_example:
+                  $ref: '#/components/examples/Error404ResponseExample'
+                4XX_example:
+                  $ref: '#/components/examples/Error4XXResponseExample'
+      security:
+        -
+          api_key: []
+      x-codeSamples:
+        -
+          lang: PHP
+          label: PHP
+          source:
+            $ref: examples/FaxLineDelete.php
+        -
+          lang: 'C#'
+          label: 'C#'
+          source:
+            $ref: examples/FaxLineDelete.cs
+        -
+          lang: JavaScript
+          label: JavaScript
+          source:
+            $ref: examples/FaxLineDelete.js
+        -
+          lang: TypeScript
+          label: TypeScript
+          source:
+            $ref: examples/FaxLineDelete.ts
+        -
+          lang: Java
+          label: Java
+          source:
+            $ref: examples/FaxLineDelete.java
+        -
+          lang: Ruby
+          label: Ruby
+          source:
+            $ref: examples/FaxLineDelete.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/FaxLineDelete.py
+        -
+          lang: cURL
+          label: cURL
+          source:
+            $ref: examples/FaxLineDelete.sh
+      x-meta:
+        seo:
+          title: 'Delete Fax Line | API Documentation | Dropbox Fax for Developers'
+          description: 'The Dropbox Fax API allows you to build custom integrations. To find out how to delete a fax line, click here.'
+  /fax_line/list:
+    get:
+      tags:
+        - 'Fax Line'
+      summary: 'List Fax Lines'
+      description: 'Returns the properties and settings of multiple Fax Lines.'
+      operationId: faxLineList
+      parameters:
+        -
+          name: account_id
+          in: query
+          description: 'Account ID'
+          schema:
+            type: string
+          example: ab55cd14a97219e36b5ff5fe23f2f9329b0c1e97
+        -
+          name: page
+          in: query
+          description: Page
+          schema:
+            type: integer
+            default: 1
+          example: 1
+        -
+          name: page_size
+          in: query
+          description: 'Page size'
+          schema:
+            type: integer
+            default: 20
+          example: 20
+        -
+          name: show_team_lines
+          in: query
+          description: 'Show team lines'
+          schema:
+            type: boolean
+      responses:
+        200:
+          description: 'successful operation'
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-Ratelimit-Reset:
+              $ref: '#/components/headers/X-Ratelimit-Reset'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FaxLineListResponse'
+              examples:
+                default_example:
+                  $ref: '#/components/examples/FaxLineListResponseExample'
+        4XX:
+          description: failed_operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                400_example:
+                  $ref: '#/components/examples/Error400ResponseExample'
+                401_example:
+                  $ref: '#/components/examples/Error401ResponseExample'
+                402_example:
+                  $ref: '#/components/examples/Error402ResponseExample'
+                403_example:
+                  $ref: '#/components/examples/Error403ResponseExample'
+                4XX_example:
+                  $ref: '#/components/examples/Error4XXResponseExample'
+      security:
+        -
+          api_key: []
+      x-codeSamples:
+        -
+          lang: PHP
+          label: PHP
+          source:
+            $ref: examples/FaxLineList.php
+        -
+          lang: 'C#'
+          label: 'C#'
+          source:
+            $ref: examples/FaxLineList.cs
+        -
+          lang: JavaScript
+          label: JavaScript
+          source:
+            $ref: examples/FaxLineList.js
+        -
+          lang: TypeScript
+          label: TypeScript
+          source:
+            $ref: examples/FaxLineList.ts
+        -
+          lang: Java
+          label: Java
+          source:
+            $ref: examples/FaxLineList.java
+        -
+          lang: Ruby
+          label: Ruby
+          source:
+            $ref: examples/FaxLineList.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/FaxLineList.py
+        -
+          lang: cURL
+          label: cURL
+          source:
+            $ref: examples/FaxLineList.sh
+      x-meta:
+        seo:
+          title: 'List Fax Lines | API Documentation | Dropbox Fax for Developers'
+          description: 'The Dropbox Fax API allows you to build custom integrations. To find out how to list your fax lines, click here.'
+  /fax_line/remove_user:
+    put:
+      tags:
+        - 'Fax Line'
+      summary: 'Remove Fax Line Access'
+      description: 'Removes a user''s access to the specified Fax Line.'
+      operationId: faxLineRemoveUser
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FaxLineRemoveUserRequest'
+            examples:
+              default_example:
+                $ref: '#/components/examples/FaxLineRemoveUserRequestExample'
+      responses:
+        200:
+          description: 'successful operation'
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-Ratelimit-Reset:
+              $ref: '#/components/headers/X-Ratelimit-Reset'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FaxLineResponse'
+              examples:
+                default_example:
+                  $ref: '#/components/examples/FaxLineResponseExample'
+        4XX:
+          description: failed_operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                400_example:
+                  $ref: '#/components/examples/Error400ResponseExample'
+                401_example:
+                  $ref: '#/components/examples/Error401ResponseExample'
+                402_example:
+                  $ref: '#/components/examples/Error402ResponseExample'
+                403_example:
+                  $ref: '#/components/examples/Error403ResponseExample'
+                404_example:
+                  $ref: '#/components/examples/Error404ResponseExample'
+                4XX_example:
+                  $ref: '#/components/examples/Error4XXResponseExample'
+      security:
+        -
+          api_key: []
+      x-codeSamples:
+        -
+          lang: PHP
+          label: PHP
+          source:
+            $ref: examples/FaxLineRemoveUser.php
+        -
+          lang: 'C#'
+          label: 'C#'
+          source:
+            $ref: examples/FaxLineRemoveUser.cs
+        -
+          lang: JavaScript
+          label: JavaScript
+          source:
+            $ref: examples/FaxLineRemoveUser.js
+        -
+          lang: TypeScript
+          label: TypeScript
+          source:
+            $ref: examples/FaxLineRemoveUser.ts
+        -
+          lang: Java
+          label: Java
+          source:
+            $ref: examples/FaxLineRemoveUser.java
+        -
+          lang: Ruby
+          label: Ruby
+          source:
+            $ref: examples/FaxLineRemoveUser.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/FaxLineRemoveUser.py
+        -
+          lang: cURL
+          label: cURL
+          source:
+            $ref: examples/FaxLineRemoveUser.sh
+      x-meta:
+        seo:
+          title: 'Fax Line Remove User | API Documentation | Dropbox Fax for Developers'
+          description: 'The Dropbox Fax API allows you to build custom integrations. To find out how to remove a user from an existing fax line, click here.'
   /oauth/token:
     post:
       tags:
@@ -6409,6 +7206,145 @@ components:
           type: boolean
           default: false
       type: object
+    FaxLineAddUserRequest:
+      required:
+        - number
+      properties:
+        number:
+          description: 'The Fax Line number.'
+          type: string
+        account_id:
+          description: 'Account ID'
+          type: string
+          example: ab55cd14a97219e36b5ff5fe23f2f9329b0c1e97
+        email_address:
+          description: 'Email address'
+          type: string
+          format: email
+      type: object
+    FaxLineAreaCodeGetStateEnum:
+      type: string
+      enum:
+        - AK
+        - AL
+        - AR
+        - AZ
+        - CA
+        - CO
+        - CT
+        - DC
+        - DE
+        - FL
+        - GA
+        - HI
+        - IA
+        - ID
+        - IL
+        - IN
+        - KS
+        - KY
+        - LA
+        - MA
+        - MD
+        - ME
+        - MI
+        - MN
+        - MO
+        - MS
+        - MT
+        - NC
+        - ND
+        - NE
+        - NH
+        - NJ
+        - NM
+        - NV
+        - NY
+        - OH
+        - OK
+        - OR
+        - PA
+        - RI
+        - SC
+        - SD
+        - TN
+        - TX
+        - UT
+        - VA
+        - VT
+        - WA
+        - WI
+        - WV
+        - WY
+    FaxLineAreaCodeGetProvinceEnum:
+      type: string
+      enum:
+        - AB
+        - BC
+        - MB
+        - NB
+        - NL
+        - NT
+        - NS
+        - NU
+        - 'ON'
+        - PE
+        - QC
+        - SK
+        - YT
+    FaxLineAreaCodeGetCountryEnum:
+      type: string
+      enum:
+        - CA
+        - US
+        - UK
+    FaxLineCreateRequest:
+      required:
+        - area_code
+        - country
+      properties:
+        area_code:
+          description: 'Area code'
+          type: integer
+        country:
+          description: Country
+          type: string
+          enum:
+            - CA
+            - US
+            - UK
+        city:
+          description: City
+          type: string
+        account_id:
+          description: 'Account ID'
+          type: string
+          example: ab55cd14a97219e36b5ff5fe23f2f9329b0c1e97
+      type: object
+    FaxLineDeleteRequest:
+      required:
+        - number
+      properties:
+        number:
+          description: 'The Fax Line number.'
+          type: string
+      type: object
+    FaxLineRemoveUserRequest:
+      required:
+        - number
+      properties:
+        number:
+          description: 'The Fax Line number.'
+          type: string
+        account_id:
+          description: 'Account ID'
+          type: string
+          example: ab55cd14a97219e36b5ff5fe23f2f9329b0c1e97
+        email_address:
+          description: 'Email address'
+          type: string
+          format: email
+      type: object
     OAuthTokenGenerateRequest:
       required:
         - client_id
@@ -9118,6 +10054,8 @@ components:
           default: false
       type: object
     AccountCreateResponse:
+      required:
+        - account
       properties:
         account:
           $ref: '#/components/schemas/AccountResponse'
@@ -9131,6 +10069,8 @@ components:
       type: object
       x-internal-class: true
     AccountGetResponse:
+      required:
+        - account
       properties:
         account:
           $ref: '#/components/schemas/AccountResponse'
@@ -9153,6 +10093,8 @@ components:
       type: object
       x-internal-class: true
     ApiAppGetResponse:
+      required:
+        - api_app
       properties:
         api_app:
           $ref: '#/components/schemas/ApiAppResponse'
@@ -9164,6 +10106,9 @@ components:
       type: object
       x-internal-class: true
     ApiAppListResponse:
+      required:
+        - api_apps
+        - list_info
       properties:
         api_apps:
           description: 'Contains information about API Apps.'
@@ -9180,6 +10125,10 @@ components:
       type: object
       x-internal-class: true
     BulkSendJobGetResponse:
+      required:
+        - bulk_send_job
+        - list_info
+        - signature_requests
       properties:
         bulk_send_job:
           $ref: '#/components/schemas/BulkSendJobResponse'
@@ -9198,6 +10147,9 @@ components:
       type: object
       x-internal-class: true
     BulkSendJobListResponse:
+      required:
+        - bulk_send_jobs
+        - list_info
       properties:
         bulk_send_jobs:
           description: 'Contains a list of BulkSendJobs that the API caller has access to.'
@@ -9214,6 +10166,8 @@ components:
       type: object
       x-internal-class: true
     BulkSendJobSendResponse:
+      required:
+        - bulk_send_job
       properties:
         bulk_send_job:
           $ref: '#/components/schemas/BulkSendJobResponse'
@@ -9225,6 +10179,8 @@ components:
       type: object
       x-internal-class: true
     EmbeddedEditUrlResponse:
+      required:
+        - embedded
       properties:
         embedded:
           $ref: '#/components/schemas/EmbeddedEditUrlResponseEmbedded'
@@ -9236,6 +10192,8 @@ components:
       type: object
       x-internal-class: true
     EmbeddedSignUrlResponse:
+      required:
+        - embedded
       properties:
         embedded:
           $ref: '#/components/schemas/EmbeddedSignUrlResponseEmbedded'
@@ -9253,7 +10211,45 @@ components:
         error:
           $ref: '#/components/schemas/ErrorResponseError'
       type: object
+    FaxLineResponse:
+      required:
+        - fax_line
+      properties:
+        fax_line:
+          $ref: '#/components/schemas/FaxLineResponseFaxLine'
+        warnings:
+          $ref: '#/components/schemas/WarningResponse'
+      type: object
+      x-internal-class: true
+    FaxLineAreaCodeGetResponse:
+      required:
+        - area_codes
+      properties:
+        area_codes:
+          type: array
+          items:
+            type: integer
+      type: object
+      x-internal-class: true
+    FaxLineListResponse:
+      required:
+        - fax_lines
+        - list_info
+      properties:
+        list_info:
+          $ref: '#/components/schemas/ListInfoResponse'
+        fax_lines:
+          type: array
+          items:
+            $ref: '#/components/schemas/FaxLineResponseFaxLine'
+        warnings:
+          $ref: '#/components/schemas/WarningResponse'
+      type: object
+      x-internal-class: true
     FileResponse:
+      required:
+        - file_url
+        - expires_at
       properties:
         file_url:
           description: 'URL to the file.'
@@ -9264,6 +10260,8 @@ components:
       type: object
       x-internal-class: true
     FileResponseDataUri:
+      required:
+        - data_uri
       properties:
         data_uri:
           description: 'File as base64 encoded string.'
@@ -9271,6 +10269,8 @@ components:
       type: object
       x-internal-class: true
     ReportCreateResponse:
+      required:
+        - report
       properties:
         report:
           $ref: '#/components/schemas/ReportResponse'
@@ -9282,6 +10282,8 @@ components:
       type: object
       x-internal-class: true
     SignatureRequestGetResponse:
+      required:
+        - signature_request
       properties:
         signature_request:
           $ref: '#/components/schemas/SignatureRequestResponse'
@@ -9293,6 +10295,9 @@ components:
       type: object
       x-internal-class: true
     SignatureRequestListResponse:
+      required:
+        - signature_requests
+        - list_info
       properties:
         signature_requests:
           description: 'Contains information about signature requests.'
@@ -9584,6 +10589,23 @@ components:
           description: 'Name of the error.'
           type: string
       type: object
+    FaxLineResponseFaxLine:
+      properties:
+        number:
+          description: Number
+          type: string
+        created_at:
+          description: 'Created at'
+          type: integer
+        updated_at:
+          description: 'Updated at'
+          type: integer
+        accounts:
+          type: array
+          items:
+            $ref: '#/components/schemas/AccountResponse'
+      type: object
+      x-internal-class: true
     ListInfoResponse:
       description: 'Contains pagination information about the data returned.'
       properties:
@@ -9745,6 +10767,7 @@ components:
         signer:
           description: 'The Signer this attachment is assigned to.'
           type: string
+          x-int-or-string: true
         name:
           description: 'The name of this attachment.'
           type: string
@@ -10374,6 +11397,7 @@ components:
           description: 'The signer of the Custom Field. Can be `null` if field is a merge field (assigned to Sender).'
           type: string
           nullable: true
+          x-int-or-string: true
         x:
           description: 'The horizontal offset in pixels for this form field.'
           type: integer
@@ -10489,6 +11513,7 @@ components:
         signer:
           description: 'The signer of the Form Field.'
           type: string
+          x-int-or-string: true
         x:
           description: 'The horizontal offset in pixels for this form field.'
           type: integer
@@ -11100,6 +12125,8 @@ components:
           type: string
       type: object
     TeamGetResponse:
+      required:
+        - team
       properties:
         team:
           $ref: '#/components/schemas/TeamResponse'
@@ -11111,6 +12138,8 @@ components:
       type: object
       x-internal-class: true
     TeamGetInfoResponse:
+      required:
+        - team
       properties:
         team:
           $ref: '#/components/schemas/TeamInfoResponse'
@@ -11122,6 +12151,8 @@ components:
       type: object
       x-internal-class: true
     TeamInvitesResponse:
+      required:
+        - team_invites
       properties:
         team_invites:
           description: 'Contains a list of team invites and their roles.'
@@ -11135,6 +12166,9 @@ components:
       type: object
       x-internal-class: true
     TeamMembersResponse:
+      required:
+        - team_members
+        - list_info
       properties:
         team_members:
           description: 'Contains a list of team members and their roles for a specific team.'
@@ -11150,6 +12184,9 @@ components:
       type: object
       x-internal-class: true
     TeamSubTeamsResponse:
+      required:
+        - sub_teams
+        - list_info
       properties:
         sub_teams:
           description: 'Contains a list with sub teams.'
@@ -11165,6 +12202,8 @@ components:
       type: object
       x-internal-class: true
     TemplateCreateResponse:
+      required:
+        - template
       properties:
         template:
           $ref: '#/components/schemas/TemplateCreateResponseTemplate'
@@ -11176,6 +12215,8 @@ components:
       type: object
       x-internal-class: true
     TemplateCreateEmbeddedDraftResponse:
+      required:
+        - template
       properties:
         template:
           $ref: '#/components/schemas/TemplateCreateEmbeddedDraftResponseTemplate'
@@ -11187,12 +12228,16 @@ components:
       type: object
       x-internal-class: true
     TemplateEditResponse:
+      required:
+        - template_id
       properties:
         template_id:
           description: 'The id of the Template.'
           type: string
       type: object
     TemplateGetResponse:
+      required:
+        - template
       properties:
         template:
           $ref: '#/components/schemas/TemplateResponse'
@@ -11204,6 +12249,9 @@ components:
       type: object
       x-internal-class: true
     TemplateListResponse:
+      required:
+        - templates
+        - list_info
       properties:
         templates:
           description: 'List of templates that the API caller has access to.'
@@ -11220,12 +12268,16 @@ components:
       type: object
       x-internal-class: true
     TemplateUpdateFilesResponse:
+      required:
+        - template
       properties:
         template:
           $ref: '#/components/schemas/TemplateUpdateFilesResponseTemplate'
       type: object
       x-internal-class: true
     UnclaimedDraftCreateResponse:
+      required:
+        - unclaimed_draft
       properties:
         unclaimed_draft:
           $ref: '#/components/schemas/UnclaimedDraftResponse'
@@ -11350,6 +12402,22 @@ components:
       summary: 'Default Example'
       value:
         $ref: examples/json/EmbeddedEditUrlRequestDefaultExample.json
+    FaxLineAddUserRequestExample:
+      summary: 'Default Example'
+      value:
+        $ref: examples/json/FaxLineAddUserRequestExample.json
+    FaxLineCreateRequestExample:
+      summary: 'Default Example'
+      value:
+        $ref: examples/json/FaxLineCreateRequestExample.json
+    FaxLineDeleteRequestExample:
+      summary: 'Default Example'
+      value:
+        $ref: examples/json/FaxLineDeleteRequestExample.json
+    FaxLineRemoveUserRequestExample:
+      summary: 'Default Example'
+      value:
+        $ref: examples/json/FaxLineRemoveUserRequestExample.json
     OAuthTokenGenerateRequestExample:
       summary: 'OAuth Token Generate Example'
       value:
@@ -11594,6 +12662,18 @@ components:
       summary: 'Error 4XX failed_operation'
       value:
         $ref: examples/json/Error4XXResponseExample.json
+    FaxLineResponseExample:
+      summary: 'Sample Fax Line Response'
+      value:
+        $ref: examples/json/FaxLineResponseExample.json
+    FaxLineAreaCodeGetResponseExample:
+      summary: 'Sample Area Code Response'
+      value:
+        $ref: examples/json/FaxLineAreaCodeGetResponseExample.json
+    FaxLineListResponseExample:
+      summary: 'Sample Fax Line List Response'
+      value:
+        $ref: examples/json/FaxLineListResponseExample.json
     ReportCreateResponseExample:
       summary: Report
       value:

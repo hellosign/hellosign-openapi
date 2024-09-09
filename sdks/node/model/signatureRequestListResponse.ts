@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-import { RequestFile, AttributeTypeMap, ObjectSerializer } from "./";
+import { AttributeTypeMap, ObjectSerializer } from "./";
 import { ListInfoResponse } from "./listInfoResponse";
 import { SignatureRequestResponse } from "./signatureRequestResponse";
 import { WarningResponse } from "./warningResponse";
@@ -31,8 +31,8 @@ export class SignatureRequestListResponse {
   /**
    * Contains information about signature requests.
    */
-  "signatureRequests"?: Array<SignatureRequestResponse>;
-  "listInfo"?: ListInfoResponse;
+  "signatureRequests": Array<SignatureRequestResponse>;
+  "listInfo": ListInfoResponse;
   /**
    * A list of warnings.
    */

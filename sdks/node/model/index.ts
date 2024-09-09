@@ -29,12 +29,37 @@ import { EmbeddedSignUrlResponse } from "./embeddedSignUrlResponse";
 import { EmbeddedSignUrlResponseEmbedded } from "./embeddedSignUrlResponseEmbedded";
 import { ErrorResponse } from "./errorResponse";
 import { ErrorResponseError } from "./errorResponseError";
+import { EventCallbackHelper } from "./eventCallbackHelper";
 import { EventCallbackRequest } from "./eventCallbackRequest";
 import { EventCallbackRequestEvent } from "./eventCallbackRequestEvent";
 import { EventCallbackRequestEventMetadata } from "./eventCallbackRequestEventMetadata";
+import { FaxLineAddUserRequest } from "./faxLineAddUserRequest";
+import { FaxLineAreaCodeGetCountryEnum } from "./faxLineAreaCodeGetCountryEnum";
+import { FaxLineAreaCodeGetProvinceEnum } from "./faxLineAreaCodeGetProvinceEnum";
+import { FaxLineAreaCodeGetResponse } from "./faxLineAreaCodeGetResponse";
+import { FaxLineAreaCodeGetStateEnum } from "./faxLineAreaCodeGetStateEnum";
+import { FaxLineCreateRequest } from "./faxLineCreateRequest";
+import { FaxLineDeleteRequest } from "./faxLineDeleteRequest";
+import { FaxLineListResponse } from "./faxLineListResponse";
+import { FaxLineRemoveUserRequest } from "./faxLineRemoveUserRequest";
+import { FaxLineResponse } from "./faxLineResponse";
+import { FaxLineResponseFaxLine } from "./faxLineResponseFaxLine";
 import { FileResponse } from "./fileResponse";
 import { FileResponseDataUri } from "./fileResponseDataUri";
 import { ListInfoResponse } from "./listInfoResponse";
+import {
+  ApiKeyAuth,
+  AttributeTypeMap,
+  Authentication,
+  HttpBasicAuth,
+  HttpBearerAuth,
+  Interceptor,
+  OAuth,
+  ObjectSerializer,
+  RequestDetailedFile,
+  RequestFile,
+  VoidAuth,
+} from "./models";
 import { OAuthTokenGenerateRequest } from "./oAuthTokenGenerateRequest";
 import { OAuthTokenRefreshRequest } from "./oAuthTokenRefreshRequest";
 import { OAuthTokenResponse } from "./oAuthTokenResponse";
@@ -170,24 +195,14 @@ import { UnclaimedDraftCreateResponse } from "./unclaimedDraftCreateResponse";
 import { UnclaimedDraftEditAndResendRequest } from "./unclaimedDraftEditAndResendRequest";
 import { UnclaimedDraftResponse } from "./unclaimedDraftResponse";
 import { WarningResponse } from "./warningResponse";
-import { EventCallbackHelper } from "./eventCallbackHelper";
-import {
-  RequestDetailedFile,
-  RequestFile,
-  AttributeTypeMap,
-  ObjectSerializer,
-  Authentication,
-  HttpBasicAuth,
-  HttpBearerAuth,
-  ApiKeyAuth,
-  OAuth,
-  VoidAuth,
-  Interceptor,
-} from "./models";
 
 export let enumsMap: { [index: string]: any } = {
   "EventCallbackRequestEvent.EventTypeEnum":
     EventCallbackRequestEvent.EventTypeEnum,
+  FaxLineAreaCodeGetCountryEnum: FaxLineAreaCodeGetCountryEnum,
+  FaxLineAreaCodeGetProvinceEnum: FaxLineAreaCodeGetProvinceEnum,
+  FaxLineAreaCodeGetStateEnum: FaxLineAreaCodeGetStateEnum,
+  "FaxLineCreateRequest.CountryEnum": FaxLineCreateRequest.CountryEnum,
   "ReportCreateRequest.ReportTypeEnum": ReportCreateRequest.ReportTypeEnum,
   "ReportResponse.ReportTypeEnum": ReportResponse.ReportTypeEnum,
   SignatureRequestResponseCustomFieldTypeEnum:
@@ -264,6 +279,14 @@ export let typeMap: { [index: string]: any } = {
   EventCallbackRequest: EventCallbackRequest,
   EventCallbackRequestEvent: EventCallbackRequestEvent,
   EventCallbackRequestEventMetadata: EventCallbackRequestEventMetadata,
+  FaxLineAddUserRequest: FaxLineAddUserRequest,
+  FaxLineAreaCodeGetResponse: FaxLineAreaCodeGetResponse,
+  FaxLineCreateRequest: FaxLineCreateRequest,
+  FaxLineDeleteRequest: FaxLineDeleteRequest,
+  FaxLineListResponse: FaxLineListResponse,
+  FaxLineRemoveUserRequest: FaxLineRemoveUserRequest,
+  FaxLineResponse: FaxLineResponse,
+  FaxLineResponseFaxLine: FaxLineResponseFaxLine,
   FileResponse: FileResponse,
   FileResponseDataUri: FileResponseDataUri,
   ListInfoResponse: ListInfoResponse,
@@ -457,6 +480,9 @@ export {
   ApiAppResponseOwnerAccount,
   ApiAppResponseWhiteLabelingOptions,
   ApiAppUpdateRequest,
+  ApiKeyAuth,
+  AttributeTypeMap,
+  Authentication,
   BulkSendJobGetResponse,
   BulkSendJobGetResponseSignatureRequests,
   BulkSendJobListResponse,
@@ -469,18 +495,37 @@ export {
   EmbeddedSignUrlResponseEmbedded,
   ErrorResponse,
   ErrorResponseError,
+  EventCallbackHelper,
   EventCallbackRequest,
   EventCallbackRequestEvent,
   EventCallbackRequestEventMetadata,
+  FaxLineAddUserRequest,
+  FaxLineAreaCodeGetCountryEnum,
+  FaxLineAreaCodeGetProvinceEnum,
+  FaxLineAreaCodeGetResponse,
+  FaxLineAreaCodeGetStateEnum,
+  FaxLineCreateRequest,
+  FaxLineDeleteRequest,
+  FaxLineListResponse,
+  FaxLineRemoveUserRequest,
+  FaxLineResponse,
+  FaxLineResponseFaxLine,
   FileResponse,
   FileResponseDataUri,
+  HttpBasicAuth,
+  HttpBearerAuth,
+  Interceptor,
   ListInfoResponse,
+  OAuth,
   OAuthTokenGenerateRequest,
   OAuthTokenRefreshRequest,
   OAuthTokenResponse,
+  ObjectSerializer,
   ReportCreateRequest,
   ReportCreateResponse,
   ReportResponse,
+  RequestDetailedFile,
+  RequestFile,
   SignatureRequestBulkCreateEmbeddedWithTemplateRequest,
   SignatureRequestBulkSendWithTemplateRequest,
   SignatureRequestCreateEmbeddedRequest,
@@ -609,17 +654,6 @@ export {
   UnclaimedDraftCreateResponse,
   UnclaimedDraftEditAndResendRequest,
   UnclaimedDraftResponse,
-  WarningResponse,
-  EventCallbackHelper,
-  RequestDetailedFile,
-  RequestFile,
-  AttributeTypeMap,
-  ObjectSerializer,
-  Authentication,
-  HttpBasicAuth,
-  HttpBearerAuth,
-  ApiKeyAuth,
-  OAuth,
   VoidAuth,
-  Interceptor,
+  WarningResponse,
 };

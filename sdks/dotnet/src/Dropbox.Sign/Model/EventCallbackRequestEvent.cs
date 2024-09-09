@@ -31,7 +31,7 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "EventCallbackRequestEvent")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class EventCallbackRequestEvent : IOpenApiTyped, IEquatable<EventCallbackRequestEvent>, IValidatableObject
+    public partial class EventCallbackRequestEvent : IEquatable<EventCallbackRequestEvent>, IValidatableObject
     {
         /// <summary>
         /// Type of callback event that was triggered.
@@ -177,7 +177,6 @@ namespace Dropbox.Sign.Model
             /// </summary>
             [EnumMember(Value = "signature_request_signer_removed")]
             SignatureRequestSignerRemoved = 23
-
         }
 
 
@@ -240,20 +239,20 @@ namespace Dropbox.Sign.Model
         /// <value>Time the event was created (using Unix time).</value>
         [DataMember(Name = "event_time", IsRequired = true, EmitDefaultValue = true)]
         public string EventTime { get; set; }
-
+        
         /// <summary>
         /// Generated hash used to verify source of event data.
         /// </summary>
         /// <value>Generated hash used to verify source of event data.</value>
         [DataMember(Name = "event_hash", IsRequired = true, EmitDefaultValue = true)]
         public string EventHash { get; set; }
-
+        
         /// <summary>
         /// Gets or Sets EventMetadata
         /// </summary>
         [DataMember(Name = "event_metadata", EmitDefaultValue = true)]
         public EventCallbackRequestEventMetadata EventMetadata { get; set; }
-
+        
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -348,6 +347,15 @@ namespace Dropbox.Sign.Model
             }
         }
 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
+            yield break;
+        }
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
@@ -377,16 +385,6 @@ namespace Dropbox.Sign.Model
             });
 
             return types;
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

@@ -317,7 +317,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TemplateGetResponse</returns>
-        System.Threading.Tasks.Task<TemplateGetResponse> TemplateAddUserAsync(string templateId, TemplateAddUserRequest templateAddUserRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<TemplateGetResponse> TemplateAddUserAsync(string templateId, TemplateAddUserRequest templateAddUserRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Add User to Template
@@ -331,7 +331,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TemplateGetResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TemplateGetResponse>> TemplateAddUserWithHttpInfoAsync(string templateId, TemplateAddUserRequest templateAddUserRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<TemplateGetResponse>> TemplateAddUserWithHttpInfoAsync(string templateId, TemplateAddUserRequest templateAddUserRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Create  Template
         /// </summary>
@@ -343,7 +343,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TemplateCreateResponse</returns>
-        System.Threading.Tasks.Task<TemplateCreateResponse> TemplateCreateAsync(TemplateCreateRequest templateCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<TemplateCreateResponse> TemplateCreateAsync(TemplateCreateRequest templateCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Create  Template
@@ -356,7 +356,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TemplateCreateResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TemplateCreateResponse>> TemplateCreateWithHttpInfoAsync(TemplateCreateRequest templateCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<TemplateCreateResponse>> TemplateCreateWithHttpInfoAsync(TemplateCreateRequest templateCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Create Embedded Template Draft
         /// </summary>
@@ -368,7 +368,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TemplateCreateEmbeddedDraftResponse</returns>
-        System.Threading.Tasks.Task<TemplateCreateEmbeddedDraftResponse> TemplateCreateEmbeddedDraftAsync(TemplateCreateEmbeddedDraftRequest templateCreateEmbeddedDraftRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<TemplateCreateEmbeddedDraftResponse> TemplateCreateEmbeddedDraftAsync(TemplateCreateEmbeddedDraftRequest templateCreateEmbeddedDraftRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Create Embedded Template Draft
@@ -381,7 +381,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TemplateCreateEmbeddedDraftResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TemplateCreateEmbeddedDraftResponse>> TemplateCreateEmbeddedDraftWithHttpInfoAsync(TemplateCreateEmbeddedDraftRequest templateCreateEmbeddedDraftRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<TemplateCreateEmbeddedDraftResponse>> TemplateCreateEmbeddedDraftWithHttpInfoAsync(TemplateCreateEmbeddedDraftRequest templateCreateEmbeddedDraftRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Delete Template
         /// </summary>
@@ -393,7 +393,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task TemplateDeleteAsync(string templateId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task TemplateDeleteAsync(string templateId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Delete Template
@@ -406,7 +406,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> TemplateDeleteWithHttpInfoAsync(string templateId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> TemplateDeleteWithHttpInfoAsync(string templateId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Get Template Files
         /// </summary>
@@ -419,7 +419,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of System.IO.Stream</returns>
-        System.Threading.Tasks.Task<System.IO.Stream> TemplateFilesAsync(string templateId, string? fileType = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<System.IO.Stream> TemplateFilesAsync(string templateId, string? fileType = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Get Template Files
@@ -433,7 +433,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
-        System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> TemplateFilesWithHttpInfoAsync(string templateId, string? fileType = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> TemplateFilesWithHttpInfoAsync(string templateId, string? fileType = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Get Template Files as Data Uri
         /// </summary>
@@ -445,7 +445,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FileResponseDataUri</returns>
-        System.Threading.Tasks.Task<FileResponseDataUri> TemplateFilesAsDataUriAsync(string templateId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<FileResponseDataUri> TemplateFilesAsDataUriAsync(string templateId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Get Template Files as Data Uri
@@ -458,7 +458,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FileResponseDataUri)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FileResponseDataUri>> TemplateFilesAsDataUriWithHttpInfoAsync(string templateId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<FileResponseDataUri>> TemplateFilesAsDataUriWithHttpInfoAsync(string templateId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Get Template Files as File Url
         /// </summary>
@@ -471,7 +471,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FileResponse</returns>
-        System.Threading.Tasks.Task<FileResponse> TemplateFilesAsFileUrlAsync(string templateId, int? forceDownload = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<FileResponse> TemplateFilesAsFileUrlAsync(string templateId, int? forceDownload = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Get Template Files as File Url
@@ -485,7 +485,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FileResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FileResponse>> TemplateFilesAsFileUrlWithHttpInfoAsync(string templateId, int? forceDownload = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<FileResponse>> TemplateFilesAsFileUrlWithHttpInfoAsync(string templateId, int? forceDownload = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Get Template
         /// </summary>
@@ -497,7 +497,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TemplateGetResponse</returns>
-        System.Threading.Tasks.Task<TemplateGetResponse> TemplateGetAsync(string templateId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<TemplateGetResponse> TemplateGetAsync(string templateId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Get Template
@@ -510,7 +510,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TemplateGetResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TemplateGetResponse>> TemplateGetWithHttpInfoAsync(string templateId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<TemplateGetResponse>> TemplateGetWithHttpInfoAsync(string templateId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// List Templates
         /// </summary>
@@ -525,7 +525,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TemplateListResponse</returns>
-        System.Threading.Tasks.Task<TemplateListResponse> TemplateListAsync(string? accountId = default(string?), int? page = default(int?), int? pageSize = default(int?), string? query = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<TemplateListResponse> TemplateListAsync(string? accountId = default(string?), int? page = default(int?), int? pageSize = default(int?), string? query = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// List Templates
@@ -541,7 +541,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TemplateListResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TemplateListResponse>> TemplateListWithHttpInfoAsync(string? accountId = default(string?), int? page = default(int?), int? pageSize = default(int?), string? query = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<TemplateListResponse>> TemplateListWithHttpInfoAsync(string? accountId = default(string?), int? page = default(int?), int? pageSize = default(int?), string? query = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Remove User from Template
         /// </summary>
@@ -554,7 +554,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TemplateGetResponse</returns>
-        System.Threading.Tasks.Task<TemplateGetResponse> TemplateRemoveUserAsync(string templateId, TemplateRemoveUserRequest templateRemoveUserRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<TemplateGetResponse> TemplateRemoveUserAsync(string templateId, TemplateRemoveUserRequest templateRemoveUserRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Remove User from Template
@@ -568,7 +568,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TemplateGetResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TemplateGetResponse>> TemplateRemoveUserWithHttpInfoAsync(string templateId, TemplateRemoveUserRequest templateRemoveUserRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<TemplateGetResponse>> TemplateRemoveUserWithHttpInfoAsync(string templateId, TemplateRemoveUserRequest templateRemoveUserRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Update Template Files
         /// </summary>
@@ -581,7 +581,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TemplateUpdateFilesResponse</returns>
-        System.Threading.Tasks.Task<TemplateUpdateFilesResponse> TemplateUpdateFilesAsync(string templateId, TemplateUpdateFilesRequest templateUpdateFilesRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<TemplateUpdateFilesResponse> TemplateUpdateFilesAsync(string templateId, TemplateUpdateFilesRequest templateUpdateFilesRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Update Template Files
@@ -595,7 +595,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TemplateUpdateFilesResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TemplateUpdateFilesResponse>> TemplateUpdateFilesWithHttpInfoAsync(string templateId, TemplateUpdateFilesRequest templateUpdateFilesRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<TemplateUpdateFilesResponse>> TemplateUpdateFilesWithHttpInfoAsync(string templateId, TemplateUpdateFilesRequest templateUpdateFilesRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -784,6 +784,7 @@ namespace Dropbox.Sign.Api
             }
 
             localVarRequestOptions.PathParameters.Add("template_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(templateId)); // path parameter
+
             localVarRequestOptions.Operation = "TemplateApi.TemplateAddUser";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -823,7 +824,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TemplateGetResponse</returns>
-        public async System.Threading.Tasks.Task<TemplateGetResponse> TemplateAddUserAsync(string templateId, TemplateAddUserRequest templateAddUserRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<TemplateGetResponse> TemplateAddUserAsync(string templateId, TemplateAddUserRequest templateAddUserRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Dropbox.Sign.Client.ApiResponse<TemplateGetResponse> localVarResponse = await TemplateAddUserWithHttpInfoAsync(templateId, templateAddUserRequest, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -838,7 +839,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TemplateGetResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<TemplateGetResponse>> TemplateAddUserWithHttpInfoAsync(string templateId, TemplateAddUserRequest templateAddUserRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<TemplateGetResponse>> TemplateAddUserWithHttpInfoAsync(string templateId, TemplateAddUserRequest templateAddUserRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'templateId' is set
             if (templateId == null)
@@ -885,6 +886,7 @@ namespace Dropbox.Sign.Api
             }
 
             localVarRequestOptions.PathParameters.Add("template_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(templateId)); // path parameter
+
             localVarRequestOptions.Operation = "TemplateApi.TemplateAddUser";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -975,6 +977,7 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+
             localVarRequestOptions.Operation = "TemplateApi.TemplateCreate";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -1013,7 +1016,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TemplateCreateResponse</returns>
-        public async System.Threading.Tasks.Task<TemplateCreateResponse> TemplateCreateAsync(TemplateCreateRequest templateCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<TemplateCreateResponse> TemplateCreateAsync(TemplateCreateRequest templateCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Dropbox.Sign.Client.ApiResponse<TemplateCreateResponse> localVarResponse = await TemplateCreateWithHttpInfoAsync(templateCreateRequest, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1027,7 +1030,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TemplateCreateResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<TemplateCreateResponse>> TemplateCreateWithHttpInfoAsync(TemplateCreateRequest templateCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<TemplateCreateResponse>> TemplateCreateWithHttpInfoAsync(TemplateCreateRequest templateCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'templateCreateRequest' is set
             if (templateCreateRequest == null)
@@ -1066,6 +1069,7 @@ namespace Dropbox.Sign.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
+
 
             localVarRequestOptions.Operation = "TemplateApi.TemplateCreate";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -1157,6 +1161,7 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+
             localVarRequestOptions.Operation = "TemplateApi.TemplateCreateEmbeddedDraft";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -1195,7 +1200,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TemplateCreateEmbeddedDraftResponse</returns>
-        public async System.Threading.Tasks.Task<TemplateCreateEmbeddedDraftResponse> TemplateCreateEmbeddedDraftAsync(TemplateCreateEmbeddedDraftRequest templateCreateEmbeddedDraftRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<TemplateCreateEmbeddedDraftResponse> TemplateCreateEmbeddedDraftAsync(TemplateCreateEmbeddedDraftRequest templateCreateEmbeddedDraftRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Dropbox.Sign.Client.ApiResponse<TemplateCreateEmbeddedDraftResponse> localVarResponse = await TemplateCreateEmbeddedDraftWithHttpInfoAsync(templateCreateEmbeddedDraftRequest, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1209,7 +1214,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TemplateCreateEmbeddedDraftResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<TemplateCreateEmbeddedDraftResponse>> TemplateCreateEmbeddedDraftWithHttpInfoAsync(TemplateCreateEmbeddedDraftRequest templateCreateEmbeddedDraftRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<TemplateCreateEmbeddedDraftResponse>> TemplateCreateEmbeddedDraftWithHttpInfoAsync(TemplateCreateEmbeddedDraftRequest templateCreateEmbeddedDraftRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'templateCreateEmbeddedDraftRequest' is set
             if (templateCreateEmbeddedDraftRequest == null)
@@ -1248,6 +1253,7 @@ namespace Dropbox.Sign.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
+
 
             localVarRequestOptions.Operation = "TemplateApi.TemplateCreateEmbeddedDraft";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -1330,6 +1336,7 @@ namespace Dropbox.Sign.Api
             }
 
             localVarRequestOptions.PathParameters.Add("template_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(templateId)); // path parameter
+
             localVarRequestOptions.Operation = "TemplateApi.TemplateDelete";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -1368,7 +1375,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task TemplateDeleteAsync(string templateId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task TemplateDeleteAsync(string templateId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             await TemplateDeleteWithHttpInfoAsync(templateId, operationIndex, cancellationToken).ConfigureAwait(false);
         }
@@ -1381,7 +1388,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<Object>> TemplateDeleteWithHttpInfoAsync(string templateId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<Object>> TemplateDeleteWithHttpInfoAsync(string templateId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'templateId' is set
             if (templateId == null)
@@ -1394,7 +1401,6 @@ namespace Dropbox.Sign.Api
 
             string[] _contentTypes = new string[] {
             };
-
             var localVarContentType = Dropbox.Sign.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
 
             // to determine the Accept header
@@ -1414,6 +1420,7 @@ namespace Dropbox.Sign.Api
             }
 
             localVarRequestOptions.PathParameters.Add("template_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(templateId)); // path parameter
+
             localVarRequestOptions.Operation = "TemplateApi.TemplateDelete";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -1504,6 +1511,7 @@ namespace Dropbox.Sign.Api
             {
                 localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "file_type", fileType));
             }
+
             localVarRequestOptions.Operation = "TemplateApi.TemplateFiles";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -1543,7 +1551,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of System.IO.Stream</returns>
-        public async System.Threading.Tasks.Task<System.IO.Stream> TemplateFilesAsync(string templateId, string? fileType = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<System.IO.Stream> TemplateFilesAsync(string templateId, string? fileType = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Dropbox.Sign.Client.ApiResponse<System.IO.Stream> localVarResponse = await TemplateFilesWithHttpInfoAsync(templateId, fileType, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1558,7 +1566,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<System.IO.Stream>> TemplateFilesWithHttpInfoAsync(string templateId, string? fileType = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<System.IO.Stream>> TemplateFilesWithHttpInfoAsync(string templateId, string? fileType = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'templateId' is set
             if (templateId == null)
@@ -1571,7 +1579,6 @@ namespace Dropbox.Sign.Api
 
             string[] _contentTypes = new string[] {
             };
-
             var localVarContentType = Dropbox.Sign.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
 
             // to determine the Accept header
@@ -1597,6 +1604,7 @@ namespace Dropbox.Sign.Api
             {
                 localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "file_type", fileType));
             }
+
             localVarRequestOptions.Operation = "TemplateApi.TemplateFiles";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -1679,6 +1687,7 @@ namespace Dropbox.Sign.Api
             }
 
             localVarRequestOptions.PathParameters.Add("template_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(templateId)); // path parameter
+
             localVarRequestOptions.Operation = "TemplateApi.TemplateFilesAsDataUri";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -1717,7 +1726,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FileResponseDataUri</returns>
-        public async System.Threading.Tasks.Task<FileResponseDataUri> TemplateFilesAsDataUriAsync(string templateId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<FileResponseDataUri> TemplateFilesAsDataUriAsync(string templateId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Dropbox.Sign.Client.ApiResponse<FileResponseDataUri> localVarResponse = await TemplateFilesAsDataUriWithHttpInfoAsync(templateId, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1731,7 +1740,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FileResponseDataUri)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<FileResponseDataUri>> TemplateFilesAsDataUriWithHttpInfoAsync(string templateId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<FileResponseDataUri>> TemplateFilesAsDataUriWithHttpInfoAsync(string templateId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'templateId' is set
             if (templateId == null)
@@ -1744,7 +1753,6 @@ namespace Dropbox.Sign.Api
 
             string[] _contentTypes = new string[] {
             };
-
             var localVarContentType = Dropbox.Sign.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
 
             // to determine the Accept header
@@ -1764,6 +1772,7 @@ namespace Dropbox.Sign.Api
             }
 
             localVarRequestOptions.PathParameters.Add("template_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(templateId)); // path parameter
+
             localVarRequestOptions.Operation = "TemplateApi.TemplateFilesAsDataUri";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -1852,6 +1861,7 @@ namespace Dropbox.Sign.Api
             {
                 localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "force_download", forceDownload));
             }
+
             localVarRequestOptions.Operation = "TemplateApi.TemplateFilesAsFileUrl";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -1891,7 +1901,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FileResponse</returns>
-        public async System.Threading.Tasks.Task<FileResponse> TemplateFilesAsFileUrlAsync(string templateId, int? forceDownload = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<FileResponse> TemplateFilesAsFileUrlAsync(string templateId, int? forceDownload = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Dropbox.Sign.Client.ApiResponse<FileResponse> localVarResponse = await TemplateFilesAsFileUrlWithHttpInfoAsync(templateId, forceDownload, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1906,7 +1916,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FileResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<FileResponse>> TemplateFilesAsFileUrlWithHttpInfoAsync(string templateId, int? forceDownload = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<FileResponse>> TemplateFilesAsFileUrlWithHttpInfoAsync(string templateId, int? forceDownload = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'templateId' is set
             if (templateId == null)
@@ -1919,7 +1929,6 @@ namespace Dropbox.Sign.Api
 
             string[] _contentTypes = new string[] {
             };
-
             var localVarContentType = Dropbox.Sign.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
 
             // to determine the Accept header
@@ -1943,6 +1952,7 @@ namespace Dropbox.Sign.Api
             {
                 localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "force_download", forceDownload));
             }
+
             localVarRequestOptions.Operation = "TemplateApi.TemplateFilesAsFileUrl";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -2025,6 +2035,7 @@ namespace Dropbox.Sign.Api
             }
 
             localVarRequestOptions.PathParameters.Add("template_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(templateId)); // path parameter
+
             localVarRequestOptions.Operation = "TemplateApi.TemplateGet";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -2063,7 +2074,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TemplateGetResponse</returns>
-        public async System.Threading.Tasks.Task<TemplateGetResponse> TemplateGetAsync(string templateId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<TemplateGetResponse> TemplateGetAsync(string templateId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Dropbox.Sign.Client.ApiResponse<TemplateGetResponse> localVarResponse = await TemplateGetWithHttpInfoAsync(templateId, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -2077,7 +2088,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TemplateGetResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<TemplateGetResponse>> TemplateGetWithHttpInfoAsync(string templateId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<TemplateGetResponse>> TemplateGetWithHttpInfoAsync(string templateId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'templateId' is set
             if (templateId == null)
@@ -2090,7 +2101,6 @@ namespace Dropbox.Sign.Api
 
             string[] _contentTypes = new string[] {
             };
-
             var localVarContentType = Dropbox.Sign.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
 
             // to determine the Accept header
@@ -2110,6 +2120,7 @@ namespace Dropbox.Sign.Api
             }
 
             localVarRequestOptions.PathParameters.Add("template_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(templateId)); // path parameter
+
             localVarRequestOptions.Operation = "TemplateApi.TemplateGet";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -2207,6 +2218,7 @@ namespace Dropbox.Sign.Api
             {
                 localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "query", query));
             }
+
             localVarRequestOptions.Operation = "TemplateApi.TemplateList";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -2248,7 +2260,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TemplateListResponse</returns>
-        public async System.Threading.Tasks.Task<TemplateListResponse> TemplateListAsync(string? accountId = default(string?), int? page = default(int?), int? pageSize = default(int?), string? query = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<TemplateListResponse> TemplateListAsync(string? accountId = default(string?), int? page = default(int?), int? pageSize = default(int?), string? query = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Dropbox.Sign.Client.ApiResponse<TemplateListResponse> localVarResponse = await TemplateListWithHttpInfoAsync(accountId, page, pageSize, query, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -2265,14 +2277,13 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TemplateListResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<TemplateListResponse>> TemplateListWithHttpInfoAsync(string? accountId = default(string?), int? page = default(int?), int? pageSize = default(int?), string? query = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<TemplateListResponse>> TemplateListWithHttpInfoAsync(string? accountId = default(string?), int? page = default(int?), int? pageSize = default(int?), string? query = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
             };
-
             var localVarContentType = Dropbox.Sign.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
 
             // to determine the Accept header
@@ -2307,6 +2318,7 @@ namespace Dropbox.Sign.Api
             {
                 localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "query", query));
             }
+
             localVarRequestOptions.Operation = "TemplateApi.TemplateList";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -2406,6 +2418,7 @@ namespace Dropbox.Sign.Api
             }
 
             localVarRequestOptions.PathParameters.Add("template_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(templateId)); // path parameter
+
             localVarRequestOptions.Operation = "TemplateApi.TemplateRemoveUser";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -2445,7 +2458,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TemplateGetResponse</returns>
-        public async System.Threading.Tasks.Task<TemplateGetResponse> TemplateRemoveUserAsync(string templateId, TemplateRemoveUserRequest templateRemoveUserRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<TemplateGetResponse> TemplateRemoveUserAsync(string templateId, TemplateRemoveUserRequest templateRemoveUserRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Dropbox.Sign.Client.ApiResponse<TemplateGetResponse> localVarResponse = await TemplateRemoveUserWithHttpInfoAsync(templateId, templateRemoveUserRequest, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -2460,7 +2473,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TemplateGetResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<TemplateGetResponse>> TemplateRemoveUserWithHttpInfoAsync(string templateId, TemplateRemoveUserRequest templateRemoveUserRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<TemplateGetResponse>> TemplateRemoveUserWithHttpInfoAsync(string templateId, TemplateRemoveUserRequest templateRemoveUserRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'templateId' is set
             if (templateId == null)
@@ -2507,6 +2520,7 @@ namespace Dropbox.Sign.Api
             }
 
             localVarRequestOptions.PathParameters.Add("template_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(templateId)); // path parameter
+
             localVarRequestOptions.Operation = "TemplateApi.TemplateRemoveUser";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -2606,6 +2620,7 @@ namespace Dropbox.Sign.Api
             }
 
             localVarRequestOptions.PathParameters.Add("template_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(templateId)); // path parameter
+
             localVarRequestOptions.Operation = "TemplateApi.TemplateUpdateFiles";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -2645,7 +2660,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TemplateUpdateFilesResponse</returns>
-        public async System.Threading.Tasks.Task<TemplateUpdateFilesResponse> TemplateUpdateFilesAsync(string templateId, TemplateUpdateFilesRequest templateUpdateFilesRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<TemplateUpdateFilesResponse> TemplateUpdateFilesAsync(string templateId, TemplateUpdateFilesRequest templateUpdateFilesRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Dropbox.Sign.Client.ApiResponse<TemplateUpdateFilesResponse> localVarResponse = await TemplateUpdateFilesWithHttpInfoAsync(templateId, templateUpdateFilesRequest, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -2660,7 +2675,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TemplateUpdateFilesResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<TemplateUpdateFilesResponse>> TemplateUpdateFilesWithHttpInfoAsync(string templateId, TemplateUpdateFilesRequest templateUpdateFilesRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<TemplateUpdateFilesResponse>> TemplateUpdateFilesWithHttpInfoAsync(string templateId, TemplateUpdateFilesRequest templateUpdateFilesRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'templateId' is set
             if (templateId == null)
@@ -2707,6 +2722,7 @@ namespace Dropbox.Sign.Api
             }
 
             localVarRequestOptions.PathParameters.Add("template_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(templateId)); // path parameter
+
             localVarRequestOptions.Operation = "TemplateApi.TemplateUpdateFiles";
             localVarRequestOptions.OperationIndex = operationIndex;
 

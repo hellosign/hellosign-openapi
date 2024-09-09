@@ -45,11 +45,13 @@ require '{{importPath}}'
 {{/apis}}
 {{/apiInfo}}
 
+{{#useCustomTemplateCode}}
 require '{{gemName}}/event_callback_helper'
 
 module Dropbox
 end
 
+{{/useCustomTemplateCode}}
 module {{moduleName}}
   class << self
     # Customize default settings for the SDK using block.

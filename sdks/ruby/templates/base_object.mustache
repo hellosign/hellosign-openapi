@@ -1,6 +1,31 @@
     # Builds the object from hash
     # @param [Hash] attributes Model attributes in the form of hash
     # @return [Object] Returns the model itself
+{{^useCustomTemplateCode}}
+    def self.build_from_hash(attributes)
+      return nil unless attributes.is_a?(Hash)
+      {{#parent}}
+      super(attributes)
+      {{/parent}}
+      attributes = attributes.transform_keys(&:to_sym)
+      transformed_hash = {}
+      openapi_types.each_pair do |key, type|
+        if attributes.key?(attribute_map[key]) && attributes[attribute_map[key]].nil?
+          transformed_hash["#{key}"] = nil
+        elsif type =~ /\AArray<(.*)>/i
+          # check to ensure the input is an array given that the attribute
+          # is documented as an array but the input is not
+          if attributes[attribute_map[key]].is_a?(Array)
+            transformed_hash["#{key}"] = attributes[attribute_map[key]].map { |v| _deserialize($1, v) }
+          end
+        elsif !attributes[attribute_map[key]].nil?
+          transformed_hash["#{key}"] = _deserialize(type, attributes[attribute_map[key]])
+        end
+      end
+      new(transformed_hash)
+    end
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
     def self.build_from_hash(attributes)
 {{#discriminator}}
       if !attributes[self.openapi_discriminator_name].nil?
@@ -38,12 +63,18 @@
 
       self
     end
+{{/useCustomTemplateCode}}
 
     # Deserializes the data based on type
     # @param string type Data type
     # @param string value Value to be deserialized
     # @return [Object] Deserialized data
+{{^useCustomTemplateCode}}
+    def self._deserialize(type, value)
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
     def _deserialize(type, value)
+{{/useCustomTemplateCode}}
       case type.to_sym
       when :Time
         Time.parse(value)
@@ -76,7 +107,9 @@
           end
         end
       else # model
-        # models (e.g. Pet)
+{{^useCustomTemplateCode}}
+        # models (e.g. Pet) or oneOf
+{{/useCustomTemplateCode}}
         klass = {{moduleName}}.const_get(type)
         klass.respond_to?(:openapi_any_of) || klass.respond_to?(:openapi_one_of) ? klass.build(value) : klass.build_from_hash(value)
       end
@@ -96,17 +129,37 @@
 
     # Returns the object in the form of hash
     # @return [Hash] Returns the object in the form of hash
+{{^useCustomTemplateCode}}
+    def to_hash
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
     def to_hash(include_nil = true)
+{{/useCustomTemplateCode}}
       hash = {{^parent}}{}{{/parent}}{{#parent}}super{{/parent}}
+{{^useCustomTemplateCode}}
+      self.class.attribute_map.each_pair do |attr, param|
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
       self.class.merged_attributes.each_pair do |attr, param|
+{{/useCustomTemplateCode}}
         value = self.send(attr)
         if value.nil?
+{{^useCustomTemplateCode}}
+          is_nullable = self.class.openapi_nullable.include?(attr)
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
           next unless include_nil
           is_nullable = self.class.merged_nullable.include?(attr)
+{{/useCustomTemplateCode}}
           next if !is_nullable || (is_nullable && !instance_variable_defined?(:"@#{attr}"))
         end
 
+{{^useCustomTemplateCode}}
+        hash[param] = _to_hash(value)
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
         hash[param] = _to_hash(value, include_nil)
+{{/useCustomTemplateCode}}
       end
       hash
     end
@@ -115,15 +168,35 @@
     # For object, use to_hash. Otherwise, just return the value
     # @param [Object] value Any valid value
     # @return [Hash] Returns the value in the form of hash
+{{^useCustomTemplateCode}}
+    def _to_hash(value)
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
     def _to_hash(value, include_nil = true)
+{{/useCustomTemplateCode}}
       if value.is_a?(Array)
+{{^useCustomTemplateCode}}
+        value.compact.map { |v| _to_hash(v) }
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
         value.compact.map { |v| _to_hash(v, include_nil) }
+{{/useCustomTemplateCode}}
       elsif value.is_a?(Hash)
         {}.tap do |hash|
+{{^useCustomTemplateCode}}
+          value.each { |k, v| hash[k] = _to_hash(v) }
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
           value.each { |k, v| hash[k] = _to_hash(v, include_nil) }
+{{/useCustomTemplateCode}}
         end
       elsif value.respond_to? :to_hash
+{{^useCustomTemplateCode}}
+        value.to_hash
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
         value.to_hash(include_nil)
+{{/useCustomTemplateCode}}
       else
         value
       end

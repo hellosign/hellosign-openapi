@@ -4,6 +4,7 @@
 # Gradle properties reference: https://docs.gradle.org/current/userguide/build_environment.html#sec:gradle_configuration_properties
 # For example, uncomment below to build for Android
 #target = android
+{{#useCustomTemplateCode}}
 GROUP={{groupId}}
 POM_ARTIFACT_ID={{artifactId}}
 VERSION_NAME={{artifactVersion}}
@@ -30,6 +31,7 @@ RELEASE_SIGNING_ENABLED=true
 SONATYPE_CONNECT_TIMEOUT_SECONDS=300
 SONATYPE_CLOSE_TIMEOUT_SECONDS=900
 
+{{/useCustomTemplateCode}}
 {{#gradleProperties}}
 {{{.}}}
 {{/gradleProperties}}

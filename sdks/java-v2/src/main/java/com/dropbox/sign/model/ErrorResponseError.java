@@ -22,26 +22,23 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.dropbox.sign.JSON;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.dropbox.sign.JSON;
 
 
 import com.dropbox.sign.ApiException;
 /**
  * Contains information about an error that occurred.
  */
-@ApiModel(description = "Contains information about an error that occurred.")
 @JsonPropertyOrder({
   ErrorResponseError.JSON_PROPERTY_ERROR_MSG,
   ErrorResponseError.JSON_PROPERTY_ERROR_NAME,
   ErrorResponseError.JSON_PROPERTY_ERROR_PATH
 })
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ErrorResponseError {
   public static final String JSON_PROPERTY_ERROR_MSG = "error_msg";
   private String errorMsg;
@@ -75,12 +72,11 @@ public class ErrorResponseError {
     return this;
   }
 
-   /**
+  /**
    * Message describing an error.
    * @return errorMsg
-  **/
+   */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Message describing an error.")
   @JsonProperty(JSON_PROPERTY_ERROR_MSG)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -101,12 +97,11 @@ public class ErrorResponseError {
     return this;
   }
 
-   /**
+  /**
    * Name of the error.
    * @return errorName
-  **/
+   */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Name of the error.")
   @JsonProperty(JSON_PROPERTY_ERROR_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -127,12 +122,11 @@ public class ErrorResponseError {
     return this;
   }
 
-   /**
+  /**
    * Path at which an error occurred.
    * @return errorPath
-  **/
+   */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Path at which an error occurred.")
   @JsonProperty(JSON_PROPERTY_ERROR_PATH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

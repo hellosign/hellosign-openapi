@@ -31,7 +31,7 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "ApiAppListResponse")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class ApiAppListResponse : IOpenApiTyped, IEquatable<ApiAppListResponse>, IValidatableObject
+    public partial class ApiAppListResponse : IEquatable<ApiAppListResponse>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiAppListResponse" /> class.
@@ -41,13 +41,23 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiAppListResponse" /> class.
         /// </summary>
-        /// <param name="apiApps">Contains information about API Apps..</param>
-        /// <param name="listInfo">listInfo.</param>
+        /// <param name="apiApps">Contains information about API Apps. (required).</param>
+        /// <param name="listInfo">listInfo (required).</param>
         /// <param name="warnings">A list of warnings..</param>
         public ApiAppListResponse(List<ApiAppResponse> apiApps = default(List<ApiAppResponse>), ListInfoResponse listInfo = default(ListInfoResponse), List<WarningResponse> warnings = default(List<WarningResponse>))
         {
             
+            // to ensure "apiApps" is required (not null)
+            if (apiApps == null)
+            {
+                throw new ArgumentNullException("apiApps is a required property for ApiAppListResponse and cannot be null");
+            }
             this.ApiApps = apiApps;
+            // to ensure "listInfo" is required (not null)
+            if (listInfo == null)
+            {
+                throw new ArgumentNullException("listInfo is a required property for ApiAppListResponse and cannot be null");
+            }
             this.ListInfo = listInfo;
             this.Warnings = warnings;
         }
@@ -72,22 +82,22 @@ namespace Dropbox.Sign.Model
         /// Contains information about API Apps.
         /// </summary>
         /// <value>Contains information about API Apps.</value>
-        [DataMember(Name = "api_apps", EmitDefaultValue = true)]
+        [DataMember(Name = "api_apps", IsRequired = true, EmitDefaultValue = true)]
         public List<ApiAppResponse> ApiApps { get; set; }
-
+        
         /// <summary>
         /// Gets or Sets ListInfo
         /// </summary>
-        [DataMember(Name = "list_info", EmitDefaultValue = true)]
+        [DataMember(Name = "list_info", IsRequired = true, EmitDefaultValue = true)]
         public ListInfoResponse ListInfo { get; set; }
-
+        
         /// <summary>
         /// A list of warnings.
         /// </summary>
         /// <value>A list of warnings.</value>
         [DataMember(Name = "warnings", EmitDefaultValue = true)]
         public List<WarningResponse> Warnings { get; set; }
-
+        
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -178,6 +188,15 @@ namespace Dropbox.Sign.Model
             }
         }
 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
+            yield break;
+        }
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
@@ -201,16 +220,6 @@ namespace Dropbox.Sign.Model
             });
 
             return types;
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

@@ -14,7 +14,6 @@
 package com.dropbox.sign.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.dropbox.sign.model.ApiAppResponseOAuth;
@@ -26,35 +25,33 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.dropbox.sign.JSON;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.dropbox.sign.JSON;
 
 
 import com.dropbox.sign.ApiException;
 /**
  * Contains information about an API App.
  */
-@ApiModel(description = "Contains information about an API App.")
 @JsonPropertyOrder({
-    ApiAppResponse.JSON_PROPERTY_CALLBACK_URL,
-    ApiAppResponse.JSON_PROPERTY_CLIENT_ID,
-    ApiAppResponse.JSON_PROPERTY_CREATED_AT,
-    ApiAppResponse.JSON_PROPERTY_DOMAINS,
-    ApiAppResponse.JSON_PROPERTY_NAME,
-    ApiAppResponse.JSON_PROPERTY_IS_APPROVED,
-    ApiAppResponse.JSON_PROPERTY_OAUTH,
-    ApiAppResponse.JSON_PROPERTY_OPTIONS,
-    ApiAppResponse.JSON_PROPERTY_OWNER_ACCOUNT,
-    ApiAppResponse.JSON_PROPERTY_WHITE_LABELING_OPTIONS
+  ApiAppResponse.JSON_PROPERTY_CALLBACK_URL,
+  ApiAppResponse.JSON_PROPERTY_CLIENT_ID,
+  ApiAppResponse.JSON_PROPERTY_CREATED_AT,
+  ApiAppResponse.JSON_PROPERTY_DOMAINS,
+  ApiAppResponse.JSON_PROPERTY_NAME,
+  ApiAppResponse.JSON_PROPERTY_IS_APPROVED,
+  ApiAppResponse.JSON_PROPERTY_OAUTH,
+  ApiAppResponse.JSON_PROPERTY_OPTIONS,
+  ApiAppResponse.JSON_PROPERTY_OWNER_ACCOUNT,
+  ApiAppResponse.JSON_PROPERTY_WHITE_LABELING_OPTIONS
 })
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ApiAppResponse {
   public static final String JSON_PROPERTY_CALLBACK_URL = "callback_url";
   private String callbackUrl;
@@ -109,12 +106,11 @@ public class ApiAppResponse {
     return this;
   }
 
-   /**
+  /**
    * The app&#39;s callback URL (for events)
    * @return callbackUrl
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The app's callback URL (for events)")
   @JsonProperty(JSON_PROPERTY_CALLBACK_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -135,12 +131,11 @@ public class ApiAppResponse {
     return this;
   }
 
-   /**
+  /**
    * The app&#39;s client id
    * @return clientId
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The app's client id")
   @JsonProperty(JSON_PROPERTY_CLIENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -161,12 +156,11 @@ public class ApiAppResponse {
     return this;
   }
 
-   /**
+  /**
    * The time that the app was created
    * @return createdAt
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The time that the app was created")
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -195,12 +189,11 @@ public class ApiAppResponse {
     return this;
   }
 
-   /**
+  /**
    * The domain name(s) associated with the app
    * @return domains
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The domain name(s) associated with the app")
   @JsonProperty(JSON_PROPERTY_DOMAINS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -221,12 +214,11 @@ public class ApiAppResponse {
     return this;
   }
 
-   /**
+  /**
    * The name of the app
    * @return name
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The name of the app")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -247,12 +239,11 @@ public class ApiAppResponse {
     return this;
   }
 
-   /**
+  /**
    * Boolean to indicate if the app has been approved
    * @return isApproved
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Boolean to indicate if the app has been approved")
   @JsonProperty(JSON_PROPERTY_IS_APPROVED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -273,12 +264,11 @@ public class ApiAppResponse {
     return this;
   }
 
-   /**
+  /**
    * Get oauth
    * @return oauth
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_OAUTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -299,12 +289,11 @@ public class ApiAppResponse {
     return this;
   }
 
-   /**
+  /**
    * Get options
    * @return options
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_OPTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -325,12 +314,11 @@ public class ApiAppResponse {
     return this;
   }
 
-   /**
+  /**
    * Get ownerAccount
    * @return ownerAccount
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_OWNER_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -351,12 +339,11 @@ public class ApiAppResponse {
     return this;
   }
 
-   /**
+  /**
    * Get whiteLabelingOptions
    * @return whiteLabelingOptions
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_WHITE_LABELING_OPTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

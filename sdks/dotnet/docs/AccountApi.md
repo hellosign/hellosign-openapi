@@ -9,7 +9,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 | [**AccountUpdate**](AccountApi.md#accountupdate) | **PUT** /account | Update Account |
 | [**AccountVerify**](AccountApi.md#accountverify) | **POST** /account/verify | Verify Account |
 
-<a name="accountcreate"></a>
+<a id="accountcreate"></a>
 # **AccountCreate**
 > AccountCreateResponse AccountCreate (AccountCreateRequest accountCreateRequest)
 
@@ -106,7 +106,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="accountget"></a>
+<a id="accountget"></a>
 # **AccountGet**
 > AccountGetResponse AccountGet (string? accountId = null, string? emailAddress = null)
 
@@ -200,7 +200,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="accountupdate"></a>
+<a id="accountupdate"></a>
 # **AccountUpdate**
 > AccountGetResponse AccountUpdate (AccountUpdateRequest accountUpdateRequest)
 
@@ -297,7 +297,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="accountverify"></a>
+<a id="accountverify"></a>
 # **AccountVerify**
 > AccountVerifyResponse AccountVerify (AccountVerifyRequest accountVerifyRequest)
 

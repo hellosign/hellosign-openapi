@@ -7,7 +7,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 | [**EmbeddedEditUrl**](EmbeddedApi.md#embeddedediturl) | **POST** /embedded/edit_url/{template_id} | Get Embedded Template Edit URL |
 | [**EmbeddedSignUrl**](EmbeddedApi.md#embeddedsignurl) | **GET** /embedded/sign_url/{signature_id} | Get Embedded Sign URL |
 
-<a name="embeddedediturl"></a>
+<a id="embeddedediturl"></a>
 # **EmbeddedEditUrl**
 > EmbeddedEditUrlResponse EmbeddedEditUrl (string templateId, EmbeddedEditUrlRequest embeddedEditUrlRequest)
 
@@ -109,7 +109,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="embeddedsignurl"></a>
+<a id="embeddedsignurl"></a>
 # **EmbeddedSignUrl**
 > EmbeddedSignUrlResponse EmbeddedSignUrl (string signatureId)
 

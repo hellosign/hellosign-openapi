@@ -16,9 +16,8 @@ The fields that should appear on the document, expressed as an array of objects.
 * Checkbox Merge Field use `SubFormFieldsPerDocumentCheckboxMerge`
 
 ## Properties
-
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
 | `document_index`<sup>*_required_</sup> | ```int``` |  Represents the integer index of the `file` or `file_url` document the field should be attached to.  |  |
 | `api_id`<sup>*_required_</sup> | ```str``` |  An identifier for the field that is unique across all documents in the request.  |  |
 | `height`<sup>*_required_</sup> | ```int``` |  Size of the field in pixels.  |  |
@@ -29,9 +28,7 @@ The fields that should appear on the document, expressed as an array of objects.
 | `x`<sup>*_required_</sup> | ```int``` |  Location coordinates of the field in pixels.  |  |
 | `y`<sup>*_required_</sup> | ```int``` |  Location coordinates of the field in pixels.  |  |
 | `name` | ```str``` |  Display name for the field.  |  |
-| `page` | ```int, none_type``` |  Page in the document where the field should be placed (requires documents be PDF files).<br><br>- When the page number parameter is supplied, the API will use the new coordinate system. - Check out the differences between both [coordinate systems](https://faq.hellosign.com/hc/en-us/articles/217115577) and how to use them.  |  |
-
+| `page` | ```int``` |  Page in the document where the field should be placed (requires documents be PDF files).<br><br>- When the page number parameter is supplied, the API will use the new coordinate system. - Check out the differences between both [coordinate systems](https://faq.hellosign.com/hc/en-us/articles/217115577) and how to use them.  |  |
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
 

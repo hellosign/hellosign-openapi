@@ -22,12 +22,12 @@
  * SOFTWARE.
  */
 
-import { RequestFile, AttributeTypeMap, ObjectSerializer } from "./";
+import { AttributeTypeMap, ObjectSerializer } from "./";
 import { TemplateResponse } from "./templateResponse";
 import { WarningResponse } from "./warningResponse";
 
 export class TemplateGetResponse {
-  "template"?: TemplateResponse;
+  "template": TemplateResponse;
   /**
    * A list of warnings.
    */

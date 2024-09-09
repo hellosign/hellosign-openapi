@@ -31,7 +31,7 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "TeamSubTeamsResponse")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class TeamSubTeamsResponse : IOpenApiTyped, IEquatable<TeamSubTeamsResponse>, IValidatableObject
+    public partial class TeamSubTeamsResponse : IEquatable<TeamSubTeamsResponse>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="TeamSubTeamsResponse" /> class.
@@ -41,13 +41,23 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TeamSubTeamsResponse" /> class.
         /// </summary>
-        /// <param name="subTeams">Contains a list with sub teams..</param>
-        /// <param name="listInfo">listInfo.</param>
+        /// <param name="subTeams">Contains a list with sub teams. (required).</param>
+        /// <param name="listInfo">listInfo (required).</param>
         /// <param name="warnings">warnings.</param>
         public TeamSubTeamsResponse(List<SubTeamResponse> subTeams = default(List<SubTeamResponse>), ListInfoResponse listInfo = default(ListInfoResponse), List<WarningResponse> warnings = default(List<WarningResponse>))
         {
             
+            // to ensure "subTeams" is required (not null)
+            if (subTeams == null)
+            {
+                throw new ArgumentNullException("subTeams is a required property for TeamSubTeamsResponse and cannot be null");
+            }
             this.SubTeams = subTeams;
+            // to ensure "listInfo" is required (not null)
+            if (listInfo == null)
+            {
+                throw new ArgumentNullException("listInfo is a required property for TeamSubTeamsResponse and cannot be null");
+            }
             this.ListInfo = listInfo;
             this.Warnings = warnings;
         }
@@ -72,21 +82,21 @@ namespace Dropbox.Sign.Model
         /// Contains a list with sub teams.
         /// </summary>
         /// <value>Contains a list with sub teams.</value>
-        [DataMember(Name = "sub_teams", EmitDefaultValue = true)]
+        [DataMember(Name = "sub_teams", IsRequired = true, EmitDefaultValue = true)]
         public List<SubTeamResponse> SubTeams { get; set; }
-
+        
         /// <summary>
         /// Gets or Sets ListInfo
         /// </summary>
-        [DataMember(Name = "list_info", EmitDefaultValue = true)]
+        [DataMember(Name = "list_info", IsRequired = true, EmitDefaultValue = true)]
         public ListInfoResponse ListInfo { get; set; }
-
+        
         /// <summary>
         /// Gets or Sets Warnings
         /// </summary>
         [DataMember(Name = "warnings", EmitDefaultValue = true)]
         public List<WarningResponse> Warnings { get; set; }
-
+        
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -177,6 +187,15 @@ namespace Dropbox.Sign.Model
             }
         }
 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
+            yield break;
+        }
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
@@ -200,16 +219,6 @@ namespace Dropbox.Sign.Model
             });
 
             return types;
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

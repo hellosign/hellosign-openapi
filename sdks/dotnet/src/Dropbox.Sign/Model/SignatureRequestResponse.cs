@@ -31,7 +31,7 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "SignatureRequestResponse")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class SignatureRequestResponse : IOpenApiTyped, IEquatable<SignatureRequestResponse>, IValidatableObject
+    public partial class SignatureRequestResponse : IEquatable<SignatureRequestResponse>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SignatureRequestResponse" /> class.
@@ -119,175 +119,175 @@ namespace Dropbox.Sign.Model
         /// <value>Whether this is a test signature request. Test requests have no legal value. Defaults to &#x60;false&#x60;.</value>
         [DataMember(Name = "test_mode", EmitDefaultValue = true)]
         public bool? TestMode { get; set; }
-
+        
         /// <summary>
         /// The id of the SignatureRequest.
         /// </summary>
         /// <value>The id of the SignatureRequest.</value>
         [DataMember(Name = "signature_request_id", EmitDefaultValue = true)]
         public string SignatureRequestId { get; set; }
-
+        
         /// <summary>
         /// The email address of the initiator of the SignatureRequest.
         /// </summary>
         /// <value>The email address of the initiator of the SignatureRequest.</value>
         [DataMember(Name = "requester_email_address", EmitDefaultValue = true)]
         public string RequesterEmailAddress { get; set; }
-
+        
         /// <summary>
         /// The title the specified Account uses for the SignatureRequest.
         /// </summary>
         /// <value>The title the specified Account uses for the SignatureRequest.</value>
         [DataMember(Name = "title", EmitDefaultValue = true)]
         public string Title { get; set; }
-
+        
         /// <summary>
         /// Default Label for account.
         /// </summary>
         /// <value>Default Label for account.</value>
         [DataMember(Name = "original_title", EmitDefaultValue = true)]
         public string OriginalTitle { get; set; }
-
+        
         /// <summary>
         /// The subject in the email that was initially sent to the signers.
         /// </summary>
         /// <value>The subject in the email that was initially sent to the signers.</value>
         [DataMember(Name = "subject", EmitDefaultValue = true)]
         public string Subject { get; set; }
-
+        
         /// <summary>
         /// The custom message in the email that was initially sent to the signers.
         /// </summary>
         /// <value>The custom message in the email that was initially sent to the signers.</value>
         [DataMember(Name = "message", EmitDefaultValue = true)]
         public string Message { get; set; }
-
+        
         /// <summary>
         /// The metadata attached to the signature request.
         /// </summary>
         /// <value>The metadata attached to the signature request.</value>
         [DataMember(Name = "metadata", EmitDefaultValue = true)]
         public Object Metadata { get; set; }
-
+        
         /// <summary>
         /// Time the signature request was created.
         /// </summary>
         /// <value>Time the signature request was created.</value>
         [DataMember(Name = "created_at", EmitDefaultValue = true)]
         public int CreatedAt { get; set; }
-
+        
         /// <summary>
         /// The time when the signature request will expire unsigned signatures. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.
         /// </summary>
         /// <value>The time when the signature request will expire unsigned signatures. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.</value>
         [DataMember(Name = "expires_at", EmitDefaultValue = true)]
         public int ExpiresAt { get; set; }
-
+        
         /// <summary>
         /// Whether or not the SignatureRequest has been fully executed by all signers.
         /// </summary>
         /// <value>Whether or not the SignatureRequest has been fully executed by all signers.</value>
         [DataMember(Name = "is_complete", EmitDefaultValue = true)]
         public bool IsComplete { get; set; }
-
+        
         /// <summary>
         /// Whether or not the SignatureRequest has been declined by a signer.
         /// </summary>
         /// <value>Whether or not the SignatureRequest has been declined by a signer.</value>
         [DataMember(Name = "is_declined", EmitDefaultValue = true)]
         public bool IsDeclined { get; set; }
-
+        
         /// <summary>
         /// Whether or not an error occurred (either during the creation of the SignatureRequest or during one of the signings).
         /// </summary>
         /// <value>Whether or not an error occurred (either during the creation of the SignatureRequest or during one of the signings).</value>
         [DataMember(Name = "has_error", EmitDefaultValue = true)]
         public bool HasError { get; set; }
-
+        
         /// <summary>
         /// The URL where a copy of the request&#39;s documents can be downloaded.
         /// </summary>
         /// <value>The URL where a copy of the request&#39;s documents can be downloaded.</value>
         [DataMember(Name = "files_url", EmitDefaultValue = true)]
         public string FilesUrl { get; set; }
-
+        
         /// <summary>
         /// The URL where a signer, after authenticating, can sign the documents. This should only be used by users with existing Dropbox Sign accounts as they will be required to log in before signing.
         /// </summary>
         /// <value>The URL where a signer, after authenticating, can sign the documents. This should only be used by users with existing Dropbox Sign accounts as they will be required to log in before signing.</value>
         [DataMember(Name = "signing_url", EmitDefaultValue = true)]
         public string SigningUrl { get; set; }
-
+        
         /// <summary>
         /// The URL where the requester and the signers can view the current status of the SignatureRequest.
         /// </summary>
         /// <value>The URL where the requester and the signers can view the current status of the SignatureRequest.</value>
         [DataMember(Name = "details_url", EmitDefaultValue = true)]
         public string DetailsUrl { get; set; }
-
+        
         /// <summary>
         /// A list of email addresses that were CCed on the SignatureRequest. They will receive a copy of the final PDF once all the signers have signed.
         /// </summary>
         /// <value>A list of email addresses that were CCed on the SignatureRequest. They will receive a copy of the final PDF once all the signers have signed.</value>
         [DataMember(Name = "cc_email_addresses", EmitDefaultValue = true)]
         public List<string> CcEmailAddresses { get; set; }
-
+        
         /// <summary>
         /// The URL you want the signer redirected to after they successfully sign.
         /// </summary>
         /// <value>The URL you want the signer redirected to after they successfully sign.</value>
         [DataMember(Name = "signing_redirect_url", EmitDefaultValue = true)]
         public string SigningRedirectUrl { get; set; }
-
+        
         /// <summary>
         /// The path where the completed document can be downloaded
         /// </summary>
         /// <value>The path where the completed document can be downloaded</value>
         [DataMember(Name = "final_copy_uri", EmitDefaultValue = true)]
         public string FinalCopyUri { get; set; }
-
+        
         /// <summary>
         /// Templates IDs used in this SignatureRequest (if any).
         /// </summary>
         /// <value>Templates IDs used in this SignatureRequest (if any).</value>
         [DataMember(Name = "template_ids", EmitDefaultValue = true)]
         public List<string> TemplateIds { get; set; }
-
+        
         /// <summary>
         /// An array of Custom Field objects containing the name and type of each custom field.  * Text Field uses &#x60;SignatureRequestResponseCustomFieldText&#x60; * Checkbox Field uses &#x60;SignatureRequestResponseCustomFieldCheckbox&#x60;
         /// </summary>
         /// <value>An array of Custom Field objects containing the name and type of each custom field.  * Text Field uses &#x60;SignatureRequestResponseCustomFieldText&#x60; * Checkbox Field uses &#x60;SignatureRequestResponseCustomFieldCheckbox&#x60;</value>
         [DataMember(Name = "custom_fields", EmitDefaultValue = true)]
         public List<SignatureRequestResponseCustomFieldBase> CustomFields { get; set; }
-
+        
         /// <summary>
         /// Signer attachments.
         /// </summary>
         /// <value>Signer attachments.</value>
         [DataMember(Name = "attachments", EmitDefaultValue = true)]
         public List<SignatureRequestResponseAttachment> Attachments { get; set; }
-
+        
         /// <summary>
         /// An array of form field objects containing the name, value, and type of each textbox or checkmark field filled in by the signers.
         /// </summary>
         /// <value>An array of form field objects containing the name, value, and type of each textbox or checkmark field filled in by the signers.</value>
         [DataMember(Name = "response_data", EmitDefaultValue = true)]
         public List<SignatureRequestResponseDataBase> ResponseData { get; set; }
-
+        
         /// <summary>
         /// An array of signature objects, 1 for each signer.
         /// </summary>
         /// <value>An array of signature objects, 1 for each signer.</value>
         [DataMember(Name = "signatures", EmitDefaultValue = true)]
         public List<SignatureRequestResponseSignatures> Signatures { get; set; }
-
+        
         /// <summary>
         /// The ID of the Bulk Send job which sent the signature request, if applicable.
         /// </summary>
         /// <value>The ID of the Bulk Send job which sent the signature request, if applicable.</value>
         [DataMember(Name = "bulk_send_job_id", EmitDefaultValue = true)]
         public string BulkSendJobId { get; set; }
-
+        
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -582,6 +582,15 @@ namespace Dropbox.Sign.Model
             }
         }
 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
+            yield break;
+        }
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
@@ -737,16 +746,6 @@ namespace Dropbox.Sign.Model
             });
 
             return types;
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

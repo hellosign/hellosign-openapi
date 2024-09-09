@@ -31,7 +31,7 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "TemplateAddUserRequest")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class TemplateAddUserRequest : IOpenApiTyped, IEquatable<TemplateAddUserRequest>, IValidatableObject
+    public partial class TemplateAddUserRequest : IEquatable<TemplateAddUserRequest>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="TemplateAddUserRequest" /> class.
@@ -74,21 +74,21 @@ namespace Dropbox.Sign.Model
         /// <value>The id of the Account to give access to the Template. **NOTE:** The account id prevails if email address is also provided.</value>
         [DataMember(Name = "account_id", EmitDefaultValue = true)]
         public string AccountId { get; set; }
-
+        
         /// <summary>
         /// The email address of the Account to give access to the Template. **NOTE:** The account id prevails if it is also provided.
         /// </summary>
         /// <value>The email address of the Account to give access to the Template. **NOTE:** The account id prevails if it is also provided.</value>
         [DataMember(Name = "email_address", EmitDefaultValue = true)]
         public string EmailAddress { get; set; }
-
+        
         /// <summary>
         /// If set to &#x60;true&#x60;, the user does not receive an email notification when a template has been shared with them. Defaults to &#x60;false&#x60;.
         /// </summary>
         /// <value>If set to &#x60;true&#x60;, the user does not receive an email notification when a template has been shared with them. Defaults to &#x60;false&#x60;.</value>
         [DataMember(Name = "skip_notification", EmitDefaultValue = true)]
         public bool SkipNotification { get; set; }
-
+        
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -173,6 +173,15 @@ namespace Dropbox.Sign.Model
             }
         }
 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
+            yield break;
+        }
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
@@ -196,16 +205,6 @@ namespace Dropbox.Sign.Model
             });
 
             return types;
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

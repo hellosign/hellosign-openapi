@@ -31,7 +31,7 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "TemplateResponseFieldAvgTextLength")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class TemplateResponseFieldAvgTextLength : IOpenApiTyped, IEquatable<TemplateResponseFieldAvgTextLength>, IValidatableObject
+    public partial class TemplateResponseFieldAvgTextLength : IEquatable<TemplateResponseFieldAvgTextLength>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="TemplateResponseFieldAvgTextLength" /> class.
@@ -72,14 +72,14 @@ namespace Dropbox.Sign.Model
         /// <value>Number of lines.</value>
         [DataMember(Name = "num_lines", EmitDefaultValue = true)]
         public int NumLines { get; set; }
-
+        
         /// <summary>
         /// Number of characters per line.
         /// </summary>
         /// <value>Number of characters per line.</value>
         [DataMember(Name = "num_chars_per_line", EmitDefaultValue = true)]
         public int NumCharsPerLine { get; set; }
-
+        
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -150,6 +150,15 @@ namespace Dropbox.Sign.Model
             }
         }
 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
+            yield break;
+        }
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
@@ -167,16 +176,6 @@ namespace Dropbox.Sign.Model
             });
 
             return types;
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

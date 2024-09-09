@@ -1,7 +1,9 @@
 "use strict";
 var __create = Object.create;
 var __defProp = Object.defineProperty;
+var __defProps = Object.defineProperties;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
+var __getOwnPropDescs = Object.getOwnPropertyDescriptors;
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __getOwnPropSymbols = Object.getOwnPropertySymbols;
 var __getProtoOf = Object.getPrototypeOf;
@@ -19,6 +21,7 @@ var __spreadValues = (a, b) => {
     }
   return a;
 };
+var __spreadProps = (a, b) => __defProps(a, __getOwnPropDescs(b));
 var __commonJS = (cb, mod) => function __require() {
   return mod || (0, cb[__getOwnPropNames(cb)[0]])((mod = { exports: {} }).exports, mod), mod.exports;
 };
@@ -577,6 +580,10 @@ var require_db = __commonJS({
       "application/cfw": {
         source: "iana"
       },
+      "application/city+json": {
+        source: "iana",
+        compressible: true
+      },
       "application/clr": {
         source: "iana"
       },
@@ -620,7 +627,8 @@ var require_db = __commonJS({
       },
       "application/cpl+xml": {
         source: "iana",
-        compressible: true
+        compressible: true,
+        extensions: ["cpl"]
       },
       "application/csrattrs": {
         source: "iana"
@@ -654,6 +662,11 @@ var require_db = __commonJS({
         source: "iana",
         compressible: true,
         extensions: ["mpd"]
+      },
+      "application/dash-patch+xml": {
+        source: "iana",
+        compressible: true,
+        extensions: ["mpp"]
       },
       "application/dashdelta": {
         source: "iana"
@@ -1195,7 +1208,8 @@ var require_db = __commonJS({
       },
       "application/media-policy-dataset+xml": {
         source: "iana",
-        compressible: true
+        compressible: true,
+        extensions: ["mpf"]
       },
       "application/media_control+xml": {
         source: "iana",
@@ -1351,6 +1365,9 @@ var require_db = __commonJS({
       "application/oauth-authz-req+jwt": {
         source: "iana"
       },
+      "application/oblivious-dns-message": {
+        source: "iana"
+      },
       "application/ocsp-request": {
         source: "iana"
       },
@@ -1443,7 +1460,8 @@ var require_db = __commonJS({
         extensions: ["pgp"]
       },
       "application/pgp-keys": {
-        source: "iana"
+        source: "iana",
+        extensions: ["asc"]
       },
       "application/pgp-signature": {
         source: "iana",
@@ -2974,6 +2992,10 @@ var require_db = __commonJS({
       "application/vnd.ecip.rlp": {
         source: "iana"
       },
+      "application/vnd.eclipse.ditto+json": {
+        source: "iana",
+        compressible: true
+      },
       "application/vnd.ecowin.chart": {
         source: "iana",
         extensions: ["mag"]
@@ -3131,6 +3153,10 @@ var require_db = __commonJS({
       "application/vnd.etsi.tsl.der": {
         source: "iana"
       },
+      "application/vnd.eu.kasparian.car+json": {
+        source: "iana",
+        compressible: true
+      },
       "application/vnd.eudora.data": {
         source: "iana"
       },
@@ -3160,6 +3186,10 @@ var require_db = __commonJS({
       },
       "application/vnd.f-secure.mobile": {
         source: "iana"
+      },
+      "application/vnd.familysearch.gedcom+zip": {
+        source: "iana",
+        compressible: false
       },
       "application/vnd.fastcopy-disk-image": {
         source: "iana"
@@ -3450,6 +3480,16 @@ var require_db = __commonJS({
       "application/vnd.hhe.lesson-player": {
         source: "iana",
         extensions: ["les"]
+      },
+      "application/vnd.hl7cda+xml": {
+        source: "iana",
+        charset: "UTF-8",
+        compressible: true
+      },
+      "application/vnd.hl7v2+xml": {
+        source: "iana",
+        charset: "UTF-8",
+        compressible: true
       },
       "application/vnd.hp-hpgl": {
         source: "iana",
@@ -3863,6 +3903,10 @@ var require_db = __commonJS({
       "application/vnd.mason+json": {
         source: "iana",
         compressible: true
+      },
+      "application/vnd.maxar.archive.3tz+zip": {
+        source: "iana",
+        compressible: false
       },
       "application/vnd.maxmind.maxmind-db": {
         source: "iana"
@@ -5484,6 +5528,10 @@ var require_db = __commonJS({
         source: "iana",
         compressible: true
       },
+      "application/vnd.syft+json": {
+        source: "iana",
+        compressible: true
+      },
       "application/vnd.symbian.install": {
         source: "apache",
         extensions: ["sis", "sisx"]
@@ -5874,7 +5922,8 @@ var require_db = __commonJS({
       },
       "application/watcherinfo+xml": {
         source: "iana",
-        compressible: true
+        compressible: true,
+        extensions: ["wif"]
       },
       "application/webpush-options+json": {
         source: "iana",
@@ -7294,10 +7343,12 @@ var require_db = __commonJS({
         extensions: ["apng"]
       },
       "image/avci": {
-        source: "iana"
+        source: "iana",
+        extensions: ["avci"]
       },
       "image/avcs": {
-        source: "iana"
+        source: "iana",
+        extensions: ["avcs"]
       },
       "image/avif": {
         source: "iana",
@@ -9729,7 +9780,7 @@ var require_common = __commonJS({
           }
           namespaces = split[i].replace(/\*/g, ".*?");
           if (namespaces[0] === "-") {
-            createDebug.skips.push(new RegExp("^" + namespaces.substr(1) + "$"));
+            createDebug.skips.push(new RegExp("^" + namespaces.slice(1) + "$"));
           } else {
             createDebug.names.push(new RegExp("^" + namespaces + "$"));
           }
@@ -9882,7 +9933,8 @@ var require_browser = __commonJS({
       if (typeof navigator !== "undefined" && navigator.userAgent && navigator.userAgent.toLowerCase().match(/(edge|trident)\/(\d+)/)) {
         return false;
       }
-      return typeof document !== "undefined" && document.documentElement && document.documentElement.style && document.documentElement.style.WebkitAppearance || typeof window !== "undefined" && window.console && (window.console.firebug || window.console.exception && window.console.table) || typeof navigator !== "undefined" && navigator.userAgent && navigator.userAgent.toLowerCase().match(/firefox\/(\d+)/) && parseInt(RegExp.$1, 10) >= 31 || typeof navigator !== "undefined" && navigator.userAgent && navigator.userAgent.toLowerCase().match(/applewebkit\/(\d+)/);
+      let m;
+      return typeof document !== "undefined" && document.documentElement && document.documentElement.style && document.documentElement.style.WebkitAppearance || typeof window !== "undefined" && window.console && (window.console.firebug || window.console.exception && window.console.table) || typeof navigator !== "undefined" && navigator.userAgent && (m = navigator.userAgent.toLowerCase().match(/firefox\/(\d+)/)) && parseInt(m[1], 10) >= 31 || typeof navigator !== "undefined" && navigator.userAgent && navigator.userAgent.toLowerCase().match(/applewebkit\/(\d+)/);
     }
     function formatArgs(args) {
       args[0] = (this.useColors ? "%c" : "") + this.namespace + (this.useColors ? " %c" : " ") + args[0] + (this.useColors ? "%c " : " ") + "+" + module2.exports.humanize(this.diff);
@@ -10202,7 +10254,7 @@ var require_node = __commonJS({
       return new Date().toISOString() + " ";
     }
     function log(...args) {
-      return process.stderr.write(util2.format(...args) + "\n");
+      return process.stderr.write(util2.formatWithOptions(exports.inspectOpts, ...args) + "\n");
     }
     function save(namespaces) {
       if (namespaces) {
@@ -10275,6 +10327,25 @@ var require_follow_redirects = __commonJS({
     var Writable = require("stream").Writable;
     var assert = require("assert");
     var debug = require_debug();
+    var useNativeURL = false;
+    try {
+      assert(new URL2());
+    } catch (error) {
+      useNativeURL = error.code === "ERR_INVALID_URL";
+    }
+    var preservedUrlFields = [
+      "auth",
+      "host",
+      "hostname",
+      "href",
+      "path",
+      "pathname",
+      "port",
+      "protocol",
+      "query",
+      "search",
+      "hash"
+    ];
     var events = ["abort", "aborted", "connect", "error", "socket", "timeout"];
     var eventHandlers = /* @__PURE__ */ Object.create(null);
     events.forEach(function(event) {
@@ -10293,7 +10364,8 @@ var require_follow_redirects = __commonJS({
     );
     var TooManyRedirectsError = createErrorType(
       "ERR_FR_TOO_MANY_REDIRECTS",
-      "Maximum number of redirects exceeded"
+      "Maximum number of redirects exceeded",
+      RedirectionError
     );
     var MaxBodyLengthExceededError = createErrorType(
       "ERR_FR_MAX_BODY_LENGTH_EXCEEDED",
@@ -10319,7 +10391,11 @@ var require_follow_redirects = __commonJS({
       }
       var self2 = this;
       this._onNativeResponse = function(response) {
-        self2._processResponse(response);
+        try {
+          self2._processResponse(response);
+        } catch (cause) {
+          self2.emit("error", cause instanceof RedirectionError ? cause : new RedirectionError({ cause }));
+        }
       };
       this._performRequest();
     }
@@ -10478,8 +10554,7 @@ var require_follow_redirects = __commonJS({
       var protocol = this._options.protocol;
       var nativeProtocol = this._options.nativeProtocols[protocol];
       if (!nativeProtocol) {
-        this.emit("error", new TypeError("Unsupported protocol " + protocol));
-        return;
+        throw new TypeError("Unsupported protocol " + protocol);
       }
       if (this._options.agents) {
         var scheme = protocol.slice(0, -1);
@@ -10531,8 +10606,7 @@ var require_follow_redirects = __commonJS({
       destroyRequest(this._currentRequest);
       response.destroy();
       if (++this._redirectCount > this._options.maxRedirects) {
-        this.emit("error", new TooManyRedirectsError());
-        return;
+        throw new TooManyRedirectsError();
       }
       var requestHeaders;
       var beforeRedirect = this._options.beforeRedirect;
@@ -10548,22 +10622,15 @@ var require_follow_redirects = __commonJS({
         removeMatchingHeaders(/^content-/i, this._options.headers);
       }
       var currentHostHeader = removeMatchingHeaders(/^host$/i, this._options.headers);
-      var currentUrlParts = url2.parse(this._currentUrl);
+      var currentUrlParts = parseUrl(this._currentUrl);
       var currentHost = currentHostHeader || currentUrlParts.host;
       var currentUrl = /^\w+:/.test(location) ? this._currentUrl : url2.format(Object.assign(currentUrlParts, { host: currentHost }));
-      var redirectUrl;
-      try {
-        redirectUrl = url2.resolve(currentUrl, location);
-      } catch (cause) {
-        this.emit("error", new RedirectionError({ cause }));
-        return;
-      }
-      debug("redirecting to", redirectUrl);
+      var redirectUrl = resolveUrl(location, currentUrl);
+      debug("redirecting to", redirectUrl.href);
       this._isRedirect = true;
-      var redirectUrlParts = url2.parse(redirectUrl);
-      Object.assign(this._options, redirectUrlParts);
-      if (redirectUrlParts.protocol !== currentUrlParts.protocol && redirectUrlParts.protocol !== "https:" || redirectUrlParts.host !== currentHost && !isSubdomain(redirectUrlParts.host, currentHost)) {
-        removeMatchingHeaders(/^(?:authorization|cookie)$/i, this._options.headers);
+      spreadUrlObject(redirectUrl, this._options);
+      if (redirectUrl.protocol !== currentUrlParts.protocol && redirectUrl.protocol !== "https:" || redirectUrl.host !== currentHost && !isSubdomain(redirectUrl.host, currentHost)) {
+        removeMatchingHeaders(/^(?:(?:proxy-)?authorization|cookie)$/i, this._options.headers);
       }
       if (isFunction2(beforeRedirect)) {
         var responseDetails = {
@@ -10575,19 +10642,10 @@ var require_follow_redirects = __commonJS({
           method,
           headers: requestHeaders
         };
-        try {
-          beforeRedirect(this._options, responseDetails, requestDetails);
-        } catch (err) {
-          this.emit("error", err);
-          return;
-        }
+        beforeRedirect(this._options, responseDetails, requestDetails);
         this._sanitizeOptions(this._options);
       }
-      try {
-        this._performRequest();
-      } catch (cause) {
-        this.emit("error", new RedirectionError({ cause }));
-      }
+      this._performRequest();
     };
     function wrap(protocols) {
       var exports2 = {
@@ -10600,22 +10658,13 @@ var require_follow_redirects = __commonJS({
         var nativeProtocol = nativeProtocols[protocol] = protocols[scheme];
         var wrappedProtocol = exports2[scheme] = Object.create(nativeProtocol);
         function request(input, options, callback) {
-          if (isString2(input)) {
-            var parsed;
-            try {
-              parsed = urlToOptions(new URL2(input));
-            } catch (err) {
-              parsed = url2.parse(input);
-            }
-            if (!isString2(parsed.protocol)) {
-              throw new InvalidUrlError({ input });
-            }
-            input = parsed;
-          } else if (URL2 && input instanceof URL2) {
-            input = urlToOptions(input);
+          if (isURL(input)) {
+            input = spreadUrlObject(input);
+          } else if (isString2(input)) {
+            input = spreadUrlObject(parseUrl(input));
           } else {
             callback = options;
-            options = input;
+            options = validateUrl(input);
             input = { protocol };
           }
           if (isFunction2(options)) {
@@ -10648,20 +10697,43 @@ var require_follow_redirects = __commonJS({
     }
     function noop2() {
     }
-    function urlToOptions(urlObject) {
-      var options = {
-        protocol: urlObject.protocol,
-        hostname: urlObject.hostname.startsWith("[") ? urlObject.hostname.slice(1, -1) : urlObject.hostname,
-        hash: urlObject.hash,
-        search: urlObject.search,
-        pathname: urlObject.pathname,
-        path: urlObject.pathname + urlObject.search,
-        href: urlObject.href
-      };
-      if (urlObject.port !== "") {
-        options.port = Number(urlObject.port);
+    function parseUrl(input) {
+      var parsed;
+      if (useNativeURL) {
+        parsed = new URL2(input);
+      } else {
+        parsed = validateUrl(url2.parse(input));
+        if (!isString2(parsed.protocol)) {
+          throw new InvalidUrlError({ input });
+        }
       }
-      return options;
+      return parsed;
+    }
+    function resolveUrl(relative, base) {
+      return useNativeURL ? new URL2(relative, base) : parseUrl(url2.resolve(base, relative));
+    }
+    function validateUrl(input) {
+      if (/^\[/.test(input.hostname) && !/^\[[:0-9a-f]+\]$/i.test(input.hostname)) {
+        throw new InvalidUrlError({ input: input.href || input });
+      }
+      if (/^\[/.test(input.host) && !/^\[[:0-9a-f]+\](:\d+)?$/i.test(input.host)) {
+        throw new InvalidUrlError({ input: input.href || input });
+      }
+      return input;
+    }
+    function spreadUrlObject(urlObject, target) {
+      var spread3 = target || {};
+      for (var key of preservedUrlFields) {
+        spread3[key] = urlObject[key];
+      }
+      if (spread3.hostname.startsWith("[")) {
+        spread3.hostname = spread3.hostname.slice(1, -1);
+      }
+      if (spread3.port !== "") {
+        spread3.port = Number(spread3.port);
+      }
+      spread3.path = spread3.search ? spread3.pathname + spread3.search : spread3.pathname;
+      return spread3;
     }
     function removeMatchingHeaders(regex, headers) {
       var lastValue;
@@ -10681,8 +10753,16 @@ var require_follow_redirects = __commonJS({
         this.message = this.cause ? message + ": " + this.cause.message : message;
       }
       CustomError.prototype = new (baseClass || Error)();
-      CustomError.prototype.constructor = CustomError;
-      CustomError.prototype.name = "Error [" + code + "]";
+      Object.defineProperties(CustomError.prototype, {
+        constructor: {
+          value: CustomError,
+          enumerable: false
+        },
+        name: {
+          value: "Error [" + code + "]",
+          enumerable: false
+        }
+      });
       return CustomError;
     }
     function destroyRequest(request, error) {
@@ -10706,8 +10786,67 @@ var require_follow_redirects = __commonJS({
     function isBuffer2(value) {
       return typeof value === "object" && "length" in value;
     }
+    function isURL(value) {
+      return URL2 && value instanceof URL2;
+    }
     module2.exports = wrap({ http: http2, https: https2 });
     module2.exports.wrap = wrap;
+  }
+});
+
+// node_modules/es-errors/index.js
+var require_es_errors = __commonJS({
+  "node_modules/es-errors/index.js"(exports, module2) {
+    "use strict";
+    module2.exports = Error;
+  }
+});
+
+// node_modules/es-errors/eval.js
+var require_eval = __commonJS({
+  "node_modules/es-errors/eval.js"(exports, module2) {
+    "use strict";
+    module2.exports = EvalError;
+  }
+});
+
+// node_modules/es-errors/range.js
+var require_range = __commonJS({
+  "node_modules/es-errors/range.js"(exports, module2) {
+    "use strict";
+    module2.exports = RangeError;
+  }
+});
+
+// node_modules/es-errors/ref.js
+var require_ref = __commonJS({
+  "node_modules/es-errors/ref.js"(exports, module2) {
+    "use strict";
+    module2.exports = ReferenceError;
+  }
+});
+
+// node_modules/es-errors/syntax.js
+var require_syntax = __commonJS({
+  "node_modules/es-errors/syntax.js"(exports, module2) {
+    "use strict";
+    module2.exports = SyntaxError;
+  }
+});
+
+// node_modules/es-errors/type.js
+var require_type = __commonJS({
+  "node_modules/es-errors/type.js"(exports, module2) {
+    "use strict";
+    module2.exports = TypeError;
+  }
+});
+
+// node_modules/es-errors/uri.js
+var require_uri = __commonJS({
+  "node_modules/es-errors/uri.js"(exports, module2) {
+    "use strict";
+    module2.exports = URIError;
   }
 });
 
@@ -10783,6 +10922,21 @@ var require_has_symbols = __commonJS({
         return false;
       }
       return hasSymbolSham();
+    };
+  }
+});
+
+// node_modules/has-proto/index.js
+var require_has_proto = __commonJS({
+  "node_modules/has-proto/index.js"(exports, module2) {
+    "use strict";
+    var test2 = {
+      __proto__: null,
+      foo: {}
+    };
+    var $Object = Object;
+    module2.exports = function hasProto() {
+      return { __proto__: test2 }.foo === test2.foo && !(test2 instanceof $Object);
     };
   }
 });
@@ -10872,12 +11026,14 @@ var require_function_bind = __commonJS({
   }
 });
 
-// node_modules/has/src/index.js
-var require_src2 = __commonJS({
-  "node_modules/has/src/index.js"(exports, module2) {
+// node_modules/hasown/index.js
+var require_hasown = __commonJS({
+  "node_modules/hasown/index.js"(exports, module2) {
     "use strict";
+    var call = Function.prototype.call;
+    var $hasOwn = Object.prototype.hasOwnProperty;
     var bind2 = require_function_bind();
-    module2.exports = bind2.call(Function.call, Object.prototype.hasOwnProperty);
+    module2.exports = bind2.call(call, $hasOwn);
   }
 });
 
@@ -10886,9 +11042,14 @@ var require_get_intrinsic = __commonJS({
   "node_modules/get-intrinsic/index.js"(exports, module2) {
     "use strict";
     var undefined2;
-    var $SyntaxError = SyntaxError;
+    var $Error = require_es_errors();
+    var $EvalError = require_eval();
+    var $RangeError = require_range();
+    var $ReferenceError = require_ref();
+    var $SyntaxError = require_syntax();
+    var $TypeError = require_type();
+    var $URIError = require_uri();
     var $Function = Function;
-    var $TypeError = TypeError;
     var getEvalledConstructor = function(expressionSyntax) {
       try {
         return $Function('"use strict"; return (' + expressionSyntax + ").constructor;")();
@@ -10919,16 +11080,18 @@ var require_get_intrinsic = __commonJS({
       }
     }() : throwTypeError;
     var hasSymbols = require_has_symbols()();
-    var getProto = Object.getPrototypeOf || function(x) {
+    var hasProto = require_has_proto()();
+    var getProto = Object.getPrototypeOf || (hasProto ? function(x) {
       return x.__proto__;
-    };
+    } : null);
     var needsEval = {};
-    var TypedArray = typeof Uint8Array === "undefined" ? undefined2 : getProto(Uint8Array);
+    var TypedArray = typeof Uint8Array === "undefined" || !getProto ? undefined2 : getProto(Uint8Array);
     var INTRINSICS = {
+      __proto__: null,
       "%AggregateError%": typeof AggregateError === "undefined" ? undefined2 : AggregateError,
       "%Array%": Array,
       "%ArrayBuffer%": typeof ArrayBuffer === "undefined" ? undefined2 : ArrayBuffer,
-      "%ArrayIteratorPrototype%": hasSymbols ? getProto([][Symbol.iterator]()) : undefined2,
+      "%ArrayIteratorPrototype%": hasSymbols && getProto ? getProto([][Symbol.iterator]()) : undefined2,
       "%AsyncFromSyncIteratorPrototype%": undefined2,
       "%AsyncFunction%": needsEval,
       "%AsyncGenerator%": needsEval,
@@ -10936,6 +11099,8 @@ var require_get_intrinsic = __commonJS({
       "%AsyncIteratorPrototype%": needsEval,
       "%Atomics%": typeof Atomics === "undefined" ? undefined2 : Atomics,
       "%BigInt%": typeof BigInt === "undefined" ? undefined2 : BigInt,
+      "%BigInt64Array%": typeof BigInt64Array === "undefined" ? undefined2 : BigInt64Array,
+      "%BigUint64Array%": typeof BigUint64Array === "undefined" ? undefined2 : BigUint64Array,
       "%Boolean%": Boolean,
       "%DataView%": typeof DataView === "undefined" ? undefined2 : DataView,
       "%Date%": Date,
@@ -10943,9 +11108,9 @@ var require_get_intrinsic = __commonJS({
       "%decodeURIComponent%": decodeURIComponent,
       "%encodeURI%": encodeURI,
       "%encodeURIComponent%": encodeURIComponent,
-      "%Error%": Error,
+      "%Error%": $Error,
       "%eval%": eval,
-      "%EvalError%": EvalError,
+      "%EvalError%": $EvalError,
       "%Float32Array%": typeof Float32Array === "undefined" ? undefined2 : Float32Array,
       "%Float64Array%": typeof Float64Array === "undefined" ? undefined2 : Float64Array,
       "%FinalizationRegistry%": typeof FinalizationRegistry === "undefined" ? undefined2 : FinalizationRegistry,
@@ -10956,10 +11121,10 @@ var require_get_intrinsic = __commonJS({
       "%Int32Array%": typeof Int32Array === "undefined" ? undefined2 : Int32Array,
       "%isFinite%": isFinite,
       "%isNaN%": isNaN,
-      "%IteratorPrototype%": hasSymbols ? getProto(getProto([][Symbol.iterator]())) : undefined2,
+      "%IteratorPrototype%": hasSymbols && getProto ? getProto(getProto([][Symbol.iterator]())) : undefined2,
       "%JSON%": typeof JSON === "object" ? JSON : undefined2,
       "%Map%": typeof Map === "undefined" ? undefined2 : Map,
-      "%MapIteratorPrototype%": typeof Map === "undefined" || !hasSymbols ? undefined2 : getProto((/* @__PURE__ */ new Map())[Symbol.iterator]()),
+      "%MapIteratorPrototype%": typeof Map === "undefined" || !hasSymbols || !getProto ? undefined2 : getProto((/* @__PURE__ */ new Map())[Symbol.iterator]()),
       "%Math%": Math,
       "%Number%": Number,
       "%Object%": Object,
@@ -10967,15 +11132,15 @@ var require_get_intrinsic = __commonJS({
       "%parseInt%": parseInt,
       "%Promise%": typeof Promise === "undefined" ? undefined2 : Promise,
       "%Proxy%": typeof Proxy === "undefined" ? undefined2 : Proxy,
-      "%RangeError%": RangeError,
-      "%ReferenceError%": ReferenceError,
+      "%RangeError%": $RangeError,
+      "%ReferenceError%": $ReferenceError,
       "%Reflect%": typeof Reflect === "undefined" ? undefined2 : Reflect,
       "%RegExp%": RegExp,
       "%Set%": typeof Set === "undefined" ? undefined2 : Set,
-      "%SetIteratorPrototype%": typeof Set === "undefined" || !hasSymbols ? undefined2 : getProto((/* @__PURE__ */ new Set())[Symbol.iterator]()),
+      "%SetIteratorPrototype%": typeof Set === "undefined" || !hasSymbols || !getProto ? undefined2 : getProto((/* @__PURE__ */ new Set())[Symbol.iterator]()),
       "%SharedArrayBuffer%": typeof SharedArrayBuffer === "undefined" ? undefined2 : SharedArrayBuffer,
       "%String%": String,
-      "%StringIteratorPrototype%": hasSymbols ? getProto(""[Symbol.iterator]()) : undefined2,
+      "%StringIteratorPrototype%": hasSymbols && getProto ? getProto(""[Symbol.iterator]()) : undefined2,
       "%Symbol%": hasSymbols ? Symbol : undefined2,
       "%SyntaxError%": $SyntaxError,
       "%ThrowTypeError%": ThrowTypeError,
@@ -10985,11 +11150,20 @@ var require_get_intrinsic = __commonJS({
       "%Uint8ClampedArray%": typeof Uint8ClampedArray === "undefined" ? undefined2 : Uint8ClampedArray,
       "%Uint16Array%": typeof Uint16Array === "undefined" ? undefined2 : Uint16Array,
       "%Uint32Array%": typeof Uint32Array === "undefined" ? undefined2 : Uint32Array,
-      "%URIError%": URIError,
+      "%URIError%": $URIError,
       "%WeakMap%": typeof WeakMap === "undefined" ? undefined2 : WeakMap,
       "%WeakRef%": typeof WeakRef === "undefined" ? undefined2 : WeakRef,
       "%WeakSet%": typeof WeakSet === "undefined" ? undefined2 : WeakSet
     };
+    if (getProto) {
+      try {
+        null.error;
+      } catch (e) {
+        errorProto = getProto(getProto(e));
+        INTRINSICS["%Error.prototype%"] = errorProto;
+      }
+    }
+    var errorProto;
     var doEval = function doEval2(name) {
       var value;
       if (name === "%AsyncFunction%") {
@@ -11005,7 +11179,7 @@ var require_get_intrinsic = __commonJS({
         }
       } else if (name === "%AsyncIteratorPrototype%") {
         var gen = doEval2("%AsyncGenerator%");
-        if (gen) {
+        if (gen && getProto) {
           value = getProto(gen.prototype);
         }
       }
@@ -11013,6 +11187,7 @@ var require_get_intrinsic = __commonJS({
       return value;
     };
     var LEGACY_ALIASES = {
+      __proto__: null,
       "%ArrayBufferPrototype%": ["ArrayBuffer", "prototype"],
       "%ArrayPrototype%": ["Array", "prototype"],
       "%ArrayProto_entries%": ["Array", "prototype", "entries"],
@@ -11066,11 +11241,12 @@ var require_get_intrinsic = __commonJS({
       "%WeakSetPrototype%": ["WeakSet", "prototype"]
     };
     var bind2 = require_function_bind();
-    var hasOwn = require_src2();
+    var hasOwn = require_hasown();
     var $concat = bind2.call(Function.call, Array.prototype.concat);
     var $spliceApply = bind2.call(Function.apply, Array.prototype.splice);
     var $replace = bind2.call(Function.call, String.prototype.replace);
     var $strSlice = bind2.call(Function.call, String.prototype.slice);
+    var $exec = bind2.call(Function.call, RegExp.prototype.exec);
     var rePropName = /[^%.[\]]+|\[(?:(-?\d+(?:\.\d+)?)|(["'])((?:(?!\2)[^\\]|\\.)*?)\2)\]|(?=(?:\.|\[\])(?:\.|\[\]|%$))/g;
     var reEscapeChar = /\\(\\)?/g;
     var stringToPath = function stringToPath2(string) {
@@ -11116,6 +11292,9 @@ var require_get_intrinsic = __commonJS({
       }
       if (arguments.length > 1 && typeof allowMissing !== "boolean") {
         throw new $TypeError('"allowMissing" argument must be a boolean');
+      }
+      if ($exec(/^%?[^%]*%?$/, name) === null) {
+        throw new $SyntaxError("`%` may not be present anywhere but at the beginning and end of the intrinsic name");
       }
       var parts = stringToPath(name);
       var intrinsicBaseName = parts.length > 0 ? parts[0] : "";
@@ -11171,38 +11350,174 @@ var require_get_intrinsic = __commonJS({
   }
 });
 
+// node_modules/es-define-property/index.js
+var require_es_define_property = __commonJS({
+  "node_modules/es-define-property/index.js"(exports, module2) {
+    "use strict";
+    var GetIntrinsic = require_get_intrinsic();
+    var $defineProperty = GetIntrinsic("%Object.defineProperty%", true) || false;
+    if ($defineProperty) {
+      try {
+        $defineProperty({}, "a", { value: 1 });
+      } catch (e) {
+        $defineProperty = false;
+      }
+    }
+    module2.exports = $defineProperty;
+  }
+});
+
+// node_modules/gopd/index.js
+var require_gopd = __commonJS({
+  "node_modules/gopd/index.js"(exports, module2) {
+    "use strict";
+    var GetIntrinsic = require_get_intrinsic();
+    var $gOPD = GetIntrinsic("%Object.getOwnPropertyDescriptor%", true);
+    if ($gOPD) {
+      try {
+        $gOPD([], "length");
+      } catch (e) {
+        $gOPD = null;
+      }
+    }
+    module2.exports = $gOPD;
+  }
+});
+
+// node_modules/define-data-property/index.js
+var require_define_data_property = __commonJS({
+  "node_modules/define-data-property/index.js"(exports, module2) {
+    "use strict";
+    var $defineProperty = require_es_define_property();
+    var $SyntaxError = require_syntax();
+    var $TypeError = require_type();
+    var gopd = require_gopd();
+    module2.exports = function defineDataProperty(obj, property, value) {
+      if (!obj || typeof obj !== "object" && typeof obj !== "function") {
+        throw new $TypeError("`obj` must be an object or a function`");
+      }
+      if (typeof property !== "string" && typeof property !== "symbol") {
+        throw new $TypeError("`property` must be a string or a symbol`");
+      }
+      if (arguments.length > 3 && typeof arguments[3] !== "boolean" && arguments[3] !== null) {
+        throw new $TypeError("`nonEnumerable`, if provided, must be a boolean or null");
+      }
+      if (arguments.length > 4 && typeof arguments[4] !== "boolean" && arguments[4] !== null) {
+        throw new $TypeError("`nonWritable`, if provided, must be a boolean or null");
+      }
+      if (arguments.length > 5 && typeof arguments[5] !== "boolean" && arguments[5] !== null) {
+        throw new $TypeError("`nonConfigurable`, if provided, must be a boolean or null");
+      }
+      if (arguments.length > 6 && typeof arguments[6] !== "boolean") {
+        throw new $TypeError("`loose`, if provided, must be a boolean");
+      }
+      var nonEnumerable = arguments.length > 3 ? arguments[3] : null;
+      var nonWritable = arguments.length > 4 ? arguments[4] : null;
+      var nonConfigurable = arguments.length > 5 ? arguments[5] : null;
+      var loose = arguments.length > 6 ? arguments[6] : false;
+      var desc = !!gopd && gopd(obj, property);
+      if ($defineProperty) {
+        $defineProperty(obj, property, {
+          configurable: nonConfigurable === null && desc ? desc.configurable : !nonConfigurable,
+          enumerable: nonEnumerable === null && desc ? desc.enumerable : !nonEnumerable,
+          value,
+          writable: nonWritable === null && desc ? desc.writable : !nonWritable
+        });
+      } else if (loose || !nonEnumerable && !nonWritable && !nonConfigurable) {
+        obj[property] = value;
+      } else {
+        throw new $SyntaxError("This environment does not support defining a property as non-configurable, non-writable, or non-enumerable.");
+      }
+    };
+  }
+});
+
+// node_modules/has-property-descriptors/index.js
+var require_has_property_descriptors = __commonJS({
+  "node_modules/has-property-descriptors/index.js"(exports, module2) {
+    "use strict";
+    var $defineProperty = require_es_define_property();
+    var hasPropertyDescriptors = function hasPropertyDescriptors2() {
+      return !!$defineProperty;
+    };
+    hasPropertyDescriptors.hasArrayLengthDefineBug = function hasArrayLengthDefineBug() {
+      if (!$defineProperty) {
+        return null;
+      }
+      try {
+        return $defineProperty([], "length", { value: 1 }).length !== 1;
+      } catch (e) {
+        return true;
+      }
+    };
+    module2.exports = hasPropertyDescriptors;
+  }
+});
+
+// node_modules/set-function-length/index.js
+var require_set_function_length = __commonJS({
+  "node_modules/set-function-length/index.js"(exports, module2) {
+    "use strict";
+    var GetIntrinsic = require_get_intrinsic();
+    var define = require_define_data_property();
+    var hasDescriptors = require_has_property_descriptors()();
+    var gOPD = require_gopd();
+    var $TypeError = require_type();
+    var $floor = GetIntrinsic("%Math.floor%");
+    module2.exports = function setFunctionLength(fn, length) {
+      if (typeof fn !== "function") {
+        throw new $TypeError("`fn` is not a function");
+      }
+      if (typeof length !== "number" || length < 0 || length > 4294967295 || $floor(length) !== length) {
+        throw new $TypeError("`length` must be a positive 32-bit integer");
+      }
+      var loose = arguments.length > 2 && !!arguments[2];
+      var functionLengthIsConfigurable = true;
+      var functionLengthIsWritable = true;
+      if ("length" in fn && gOPD) {
+        var desc = gOPD(fn, "length");
+        if (desc && !desc.configurable) {
+          functionLengthIsConfigurable = false;
+        }
+        if (desc && !desc.writable) {
+          functionLengthIsWritable = false;
+        }
+      }
+      if (functionLengthIsConfigurable || functionLengthIsWritable || !loose) {
+        if (hasDescriptors) {
+          define(fn, "length", length, true, true);
+        } else {
+          define(fn, "length", length);
+        }
+      }
+      return fn;
+    };
+  }
+});
+
 // node_modules/call-bind/index.js
 var require_call_bind = __commonJS({
   "node_modules/call-bind/index.js"(exports, module2) {
     "use strict";
     var bind2 = require_function_bind();
     var GetIntrinsic = require_get_intrinsic();
+    var setFunctionLength = require_set_function_length();
+    var $TypeError = require_type();
     var $apply = GetIntrinsic("%Function.prototype.apply%");
     var $call = GetIntrinsic("%Function.prototype.call%");
     var $reflectApply = GetIntrinsic("%Reflect.apply%", true) || bind2.call($call, $apply);
-    var $gOPD = GetIntrinsic("%Object.getOwnPropertyDescriptor%", true);
-    var $defineProperty = GetIntrinsic("%Object.defineProperty%", true);
+    var $defineProperty = require_es_define_property();
     var $max = GetIntrinsic("%Math.max%");
-    if ($defineProperty) {
-      try {
-        $defineProperty({}, "a", { value: 1 });
-      } catch (e) {
-        $defineProperty = null;
-      }
-    }
     module2.exports = function callBind(originalFunction) {
-      var func = $reflectApply(bind2, $call, arguments);
-      if ($gOPD && $defineProperty) {
-        var desc = $gOPD(func, "length");
-        if (desc.configurable) {
-          $defineProperty(
-            func,
-            "length",
-            { value: 1 + $max(0, originalFunction.length - (arguments.length - 1)) }
-          );
-        }
+      if (typeof originalFunction !== "function") {
+        throw new $TypeError("a function is required");
       }
-      return func;
+      var func = $reflectApply(bind2, $call, arguments);
+      return setFunctionLength(
+        func,
+        1 + $max(0, originalFunction.length - (arguments.length - 1)),
+        true
+      );
     };
     var applyBind = function applyBind2() {
       return $reflectApply(bind2, $apply, arguments);
@@ -11293,8 +11608,9 @@ var require_object_inspect = __commonJS({
       }
       return $replace.call(str, sepRegex, "$&_");
     }
-    var inspectCustom = require_util_inspect().custom;
-    var inspectSymbol = inspectCustom && isSymbol(inspectCustom) ? inspectCustom : null;
+    var utilInspect = require_util_inspect();
+    var inspectCustom = utilInspect.custom;
+    var inspectSymbol = isSymbol(inspectCustom) ? inspectCustom : null;
     module2.exports = function inspect_(obj, options, depth, seen) {
       var opts = options || {};
       if (has(opts, "quoteStyle") && (opts.quoteStyle !== "single" && opts.quoteStyle !== "double")) {
@@ -11366,7 +11682,7 @@ var require_object_inspect = __commonJS({
         }
         return inspect_(value, opts, depth + 1, seen);
       }
-      if (typeof obj === "function") {
+      if (typeof obj === "function" && !isRegExp2(obj)) {
         var name = nameOf(obj);
         var keys = arrObjKeys(obj, inspect);
         return "[Function" + (name ? ": " + name : " (anonymous)") + "]" + (keys.length > 0 ? " { " + $join.call(keys, ", ") + " }" : "");
@@ -11400,7 +11716,7 @@ var require_object_inspect = __commonJS({
       }
       if (isError(obj)) {
         var parts = arrObjKeys(obj, inspect);
-        if ("cause" in obj && !isEnumerable.call(obj, "cause")) {
+        if (!("cause" in Error.prototype) && "cause" in obj && !isEnumerable.call(obj, "cause")) {
           return "{ [" + String(obj) + "] " + $join.call($concat.call("[cause]: " + inspect(obj.cause), parts), ", ") + " }";
         }
         if (parts.length === 0) {
@@ -11409,24 +11725,28 @@ var require_object_inspect = __commonJS({
         return "{ [" + String(obj) + "] " + $join.call(parts, ", ") + " }";
       }
       if (typeof obj === "object" && customInspect) {
-        if (inspectSymbol && typeof obj[inspectSymbol] === "function") {
-          return obj[inspectSymbol]();
+        if (inspectSymbol && typeof obj[inspectSymbol] === "function" && utilInspect) {
+          return utilInspect(obj, { depth: maxDepth - depth });
         } else if (customInspect !== "symbol" && typeof obj.inspect === "function") {
           return obj.inspect();
         }
       }
       if (isMap(obj)) {
         var mapParts = [];
-        mapForEach.call(obj, function(value, key) {
-          mapParts.push(inspect(key, obj, true) + " => " + inspect(value, obj));
-        });
+        if (mapForEach) {
+          mapForEach.call(obj, function(value, key) {
+            mapParts.push(inspect(key, obj, true) + " => " + inspect(value, obj));
+          });
+        }
         return collectionOf("Map", mapSize.call(obj), mapParts, indent);
       }
       if (isSet(obj)) {
         var setParts = [];
-        setForEach.call(obj, function(value) {
-          setParts.push(inspect(value, obj));
-        });
+        if (setForEach) {
+          setForEach.call(obj, function(value) {
+            setParts.push(inspect(value, obj));
+          });
+        }
         return collectionOf("Set", setSize.call(obj), setParts, indent);
       }
       if (isWeakMap(obj)) {
@@ -11449,6 +11769,12 @@ var require_object_inspect = __commonJS({
       }
       if (isString2(obj)) {
         return markBoxed(inspect(String(obj)));
+      }
+      if (typeof window !== "undefined" && obj === window) {
+        return "{ [object Window] }";
+      }
+      if (typeof globalThis !== "undefined" && obj === globalThis || typeof global !== "undefined" && obj === global) {
+        return "{ [object globalThis] }";
       }
       if (!isDate2(obj) && !isRegExp2(obj)) {
         var ys = arrObjKeys(obj, inspect);
@@ -11750,7 +12076,7 @@ var require_side_channel = __commonJS({
     var GetIntrinsic = require_get_intrinsic();
     var callBound = require_callBound();
     var inspect = require_object_inspect();
-    var $TypeError = GetIntrinsic("%TypeError%");
+    var $TypeError = require_type();
     var $WeakMap = GetIntrinsic("%WeakMap%", true);
     var $Map = GetIntrinsic("%Map%", true);
     var $weakMapGet = callBound("WeakMap.prototype.get", true);
@@ -11760,7 +12086,9 @@ var require_side_channel = __commonJS({
     var $mapSet = callBound("Map.prototype.set", true);
     var $mapHas = callBound("Map.prototype.has", true);
     var listGetNode = function(list, key) {
-      for (var prev = list, curr; (curr = prev.next) !== null; prev = curr) {
+      var prev = list;
+      var curr;
+      for (; (curr = prev.next) !== null; prev = curr) {
         if (curr.key === key) {
           prev.next = curr.next;
           curr.next = list.next;
@@ -11982,6 +12310,7 @@ var require_utils = __commonJS({
         return strWithoutPlus;
       }
     };
+    var limit = 1024;
     var encode3 = function encode4(str, defaultEncoder, charset, kind, format) {
       if (str.length === 0) {
         return str;
@@ -11998,27 +12327,32 @@ var require_utils = __commonJS({
         });
       }
       var out = "";
-      for (var i = 0; i < string.length; ++i) {
-        var c = string.charCodeAt(i);
-        if (c === 45 || c === 46 || c === 95 || c === 126 || c >= 48 && c <= 57 || c >= 65 && c <= 90 || c >= 97 && c <= 122 || format === formats.RFC1738 && (c === 40 || c === 41)) {
-          out += string.charAt(i);
-          continue;
+      for (var j = 0; j < string.length; j += limit) {
+        var segment = string.length >= limit ? string.slice(j, j + limit) : string;
+        var arr = [];
+        for (var i = 0; i < segment.length; ++i) {
+          var c = segment.charCodeAt(i);
+          if (c === 45 || c === 46 || c === 95 || c === 126 || c >= 48 && c <= 57 || c >= 65 && c <= 90 || c >= 97 && c <= 122 || format === formats.RFC1738 && (c === 40 || c === 41)) {
+            arr[arr.length] = segment.charAt(i);
+            continue;
+          }
+          if (c < 128) {
+            arr[arr.length] = hexTable[c];
+            continue;
+          }
+          if (c < 2048) {
+            arr[arr.length] = hexTable[192 | c >> 6] + hexTable[128 | c & 63];
+            continue;
+          }
+          if (c < 55296 || c >= 57344) {
+            arr[arr.length] = hexTable[224 | c >> 12] + hexTable[128 | c >> 6 & 63] + hexTable[128 | c & 63];
+            continue;
+          }
+          i += 1;
+          c = 65536 + ((c & 1023) << 10 | segment.charCodeAt(i) & 1023);
+          arr[arr.length] = hexTable[240 | c >> 18] + hexTable[128 | c >> 12 & 63] + hexTable[128 | c >> 6 & 63] + hexTable[128 | c & 63];
         }
-        if (c < 128) {
-          out = out + hexTable[c];
-          continue;
-        }
-        if (c < 2048) {
-          out = out + (hexTable[192 | c >> 6] + hexTable[128 | c & 63]);
-          continue;
-        }
-        if (c < 55296 || c >= 57344) {
-          out = out + (hexTable[224 | c >> 12] + hexTable[128 | c >> 6 & 63] + hexTable[128 | c & 63]);
-          continue;
-        }
-        i += 1;
-        c = 65536 + ((c & 1023) << 10 | string.charCodeAt(i) & 1023);
-        out += hexTable[240 | c >> 18] + hexTable[128 | c >> 12 & 63] + hexTable[128 | c >> 6 & 63] + hexTable[128 | c & 63];
+        out += arr.join("");
       }
       return out;
     };
@@ -12099,7 +12433,6 @@ var require_stringify = __commonJS({
       }
     };
     var isArray2 = Array.isArray;
-    var split = String.prototype.split;
     var push = Array.prototype.push;
     var pushToArray = function(arr, valueOrArray) {
       push.apply(arr, isArray2(valueOrArray) ? valueOrArray : [valueOrArray]);
@@ -12109,10 +12442,13 @@ var require_stringify = __commonJS({
     var defaults2 = {
       addQueryPrefix: false,
       allowDots: false,
+      allowEmptyArrays: false,
+      arrayFormat: "indices",
       charset: "utf-8",
       charsetSentinel: false,
       delimiter: "&",
       encode: true,
+      encodeDotInKeys: false,
       encoder: utils.encode,
       encodeValuesOnly: false,
       format: defaultFormat,
@@ -12128,7 +12464,7 @@ var require_stringify = __commonJS({
       return typeof v === "string" || typeof v === "number" || typeof v === "boolean" || typeof v === "symbol" || typeof v === "bigint";
     };
     var sentinel = {};
-    var stringify = function stringify2(object, prefix, generateArrayPrefix, strictNullHandling, skipNulls, encoder, filter2, sort, allowDots, serializeDate, format, formatter, encodeValuesOnly, charset, sideChannel) {
+    var stringify = function stringify2(object, prefix, generateArrayPrefix, commaRoundTrip, allowEmptyArrays, strictNullHandling, skipNulls, encodeDotInKeys, encoder, filter2, sort, allowDots, serializeDate, format, formatter, encodeValuesOnly, charset, sideChannel) {
       var obj = object;
       var tmpSc = sideChannel;
       var step = 0;
@@ -12168,14 +12504,6 @@ var require_stringify = __commonJS({
       if (isNonNullishPrimitive(obj) || utils.isBuffer(obj)) {
         if (encoder) {
           var keyValue = encodeValuesOnly ? prefix : encoder(prefix, defaults2.encoder, charset, "key", format);
-          if (generateArrayPrefix === "comma" && encodeValuesOnly) {
-            var valuesArray = split.call(String(obj), ",");
-            var valuesJoined = "";
-            for (var i = 0; i < valuesArray.length; ++i) {
-              valuesJoined += (i === 0 ? "" : ",") + formatter(encoder(valuesArray[i], defaults2.encoder, charset, "value", format));
-            }
-            return [formatter(keyValue) + "=" + valuesJoined];
-          }
           return [formatter(keyValue) + "=" + formatter(encoder(obj, defaults2.encoder, charset, "value", format))];
         }
         return [formatter(prefix) + "=" + formatter(String(obj))];
@@ -12186,6 +12514,9 @@ var require_stringify = __commonJS({
       }
       var objKeys;
       if (generateArrayPrefix === "comma" && isArray2(obj)) {
+        if (encodeValuesOnly && encoder) {
+          obj = utils.maybeMap(obj, encoder);
+        }
         objKeys = [{ value: obj.length > 0 ? obj.join(",") || null : void 0 }];
       } else if (isArray2(filter2)) {
         objKeys = filter2;
@@ -12193,13 +12524,19 @@ var require_stringify = __commonJS({
         var keys = Object.keys(obj);
         objKeys = sort ? keys.sort(sort) : keys;
       }
+      var encodedPrefix = encodeDotInKeys ? prefix.replace(/\./g, "%2E") : prefix;
+      var adjustedPrefix = commaRoundTrip && isArray2(obj) && obj.length === 1 ? encodedPrefix + "[]" : encodedPrefix;
+      if (allowEmptyArrays && isArray2(obj) && obj.length === 0) {
+        return adjustedPrefix + "[]";
+      }
       for (var j = 0; j < objKeys.length; ++j) {
         var key = objKeys[j];
         var value = typeof key === "object" && typeof key.value !== "undefined" ? key.value : obj[key];
         if (skipNulls && value === null) {
           continue;
         }
-        var keyPrefix = isArray2(obj) ? typeof generateArrayPrefix === "function" ? generateArrayPrefix(prefix, key) : prefix : prefix + (allowDots ? "." + key : "[" + key + "]");
+        var encodedKey = allowDots && encodeDotInKeys ? key.replace(/\./g, "%2E") : key;
+        var keyPrefix = isArray2(obj) ? typeof generateArrayPrefix === "function" ? generateArrayPrefix(adjustedPrefix, encodedKey) : adjustedPrefix : adjustedPrefix + (allowDots ? "." + encodedKey : "[" + encodedKey + "]");
         sideChannel.set(object, step);
         var valueSideChannel = getSideChannel();
         valueSideChannel.set(sentinel, sideChannel);
@@ -12207,9 +12544,12 @@ var require_stringify = __commonJS({
           value,
           keyPrefix,
           generateArrayPrefix,
+          commaRoundTrip,
+          allowEmptyArrays,
           strictNullHandling,
           skipNulls,
-          encoder,
+          encodeDotInKeys,
+          generateArrayPrefix === "comma" && encodeValuesOnly && isArray2(obj) ? null : encoder,
           filter2,
           sort,
           allowDots,
@@ -12226,6 +12566,12 @@ var require_stringify = __commonJS({
     var normalizeStringifyOptions = function normalizeStringifyOptions2(opts) {
       if (!opts) {
         return defaults2;
+      }
+      if (typeof opts.allowEmptyArrays !== "undefined" && typeof opts.allowEmptyArrays !== "boolean") {
+        throw new TypeError("`allowEmptyArrays` option can only be `true` or `false`, when provided");
+      }
+      if (typeof opts.encodeDotInKeys !== "undefined" && typeof opts.encodeDotInKeys !== "boolean") {
+        throw new TypeError("`encodeDotInKeys` option can only be `true` or `false`, when provided");
       }
       if (opts.encoder !== null && typeof opts.encoder !== "undefined" && typeof opts.encoder !== "function") {
         throw new TypeError("Encoder has to be a function.");
@@ -12246,13 +12592,29 @@ var require_stringify = __commonJS({
       if (typeof opts.filter === "function" || isArray2(opts.filter)) {
         filter2 = opts.filter;
       }
+      var arrayFormat;
+      if (opts.arrayFormat in arrayPrefixGenerators) {
+        arrayFormat = opts.arrayFormat;
+      } else if ("indices" in opts) {
+        arrayFormat = opts.indices ? "indices" : "repeat";
+      } else {
+        arrayFormat = defaults2.arrayFormat;
+      }
+      if ("commaRoundTrip" in opts && typeof opts.commaRoundTrip !== "boolean") {
+        throw new TypeError("`commaRoundTrip` must be a boolean, or absent");
+      }
+      var allowDots = typeof opts.allowDots === "undefined" ? opts.encodeDotInKeys === true ? true : defaults2.allowDots : !!opts.allowDots;
       return {
         addQueryPrefix: typeof opts.addQueryPrefix === "boolean" ? opts.addQueryPrefix : defaults2.addQueryPrefix,
-        allowDots: typeof opts.allowDots === "undefined" ? defaults2.allowDots : !!opts.allowDots,
+        allowDots,
+        allowEmptyArrays: typeof opts.allowEmptyArrays === "boolean" ? !!opts.allowEmptyArrays : defaults2.allowEmptyArrays,
+        arrayFormat,
         charset,
         charsetSentinel: typeof opts.charsetSentinel === "boolean" ? opts.charsetSentinel : defaults2.charsetSentinel,
+        commaRoundTrip: opts.commaRoundTrip,
         delimiter: typeof opts.delimiter === "undefined" ? defaults2.delimiter : opts.delimiter,
         encode: typeof opts.encode === "boolean" ? opts.encode : defaults2.encode,
+        encodeDotInKeys: typeof opts.encodeDotInKeys === "boolean" ? opts.encodeDotInKeys : defaults2.encodeDotInKeys,
         encoder: typeof opts.encoder === "function" ? opts.encoder : defaults2.encoder,
         encodeValuesOnly: typeof opts.encodeValuesOnly === "boolean" ? opts.encodeValuesOnly : defaults2.encodeValuesOnly,
         filter: filter2,
@@ -12280,15 +12642,8 @@ var require_stringify = __commonJS({
       if (typeof obj !== "object" || obj === null) {
         return "";
       }
-      var arrayFormat;
-      if (opts && opts.arrayFormat in arrayPrefixGenerators) {
-        arrayFormat = opts.arrayFormat;
-      } else if (opts && "indices" in opts) {
-        arrayFormat = opts.indices ? "indices" : "repeat";
-      } else {
-        arrayFormat = "indices";
-      }
-      var generateArrayPrefix = arrayPrefixGenerators[arrayFormat];
+      var generateArrayPrefix = arrayPrefixGenerators[options.arrayFormat];
+      var commaRoundTrip = generateArrayPrefix === "comma" && options.commaRoundTrip;
       if (!objKeys) {
         objKeys = Object.keys(obj);
       }
@@ -12305,8 +12660,11 @@ var require_stringify = __commonJS({
           obj[key],
           key,
           generateArrayPrefix,
+          commaRoundTrip,
+          options.allowEmptyArrays,
           options.strictNullHandling,
           options.skipNulls,
+          options.encodeDotInKeys,
           options.encode ? options.encoder : null,
           options.filter,
           options.sort,
@@ -12342,20 +12700,24 @@ var require_parse = __commonJS({
     var isArray2 = Array.isArray;
     var defaults2 = {
       allowDots: false,
+      allowEmptyArrays: false,
       allowPrototypes: false,
       allowSparse: false,
       arrayLimit: 20,
       charset: "utf-8",
       charsetSentinel: false,
       comma: false,
+      decodeDotInKeys: false,
       decoder: utils.decode,
       delimiter: "&",
       depth: 5,
+      duplicates: "combine",
       ignoreQueryPrefix: false,
       interpretNumericEntities: false,
       parameterLimit: 1e3,
       parseArrays: true,
       plainObjects: false,
+      strictDepth: false,
       strictNullHandling: false
     };
     var interpretNumericEntities = function(str) {
@@ -12372,8 +12734,9 @@ var require_parse = __commonJS({
     var isoSentinel = "utf8=%26%2310003%3B";
     var charsetSentinel = "utf8=%E2%9C%93";
     var parseValues = function parseQueryStringValues(str, options) {
-      var obj = {};
+      var obj = { __proto__: null };
       var cleanStr = options.ignoreQueryPrefix ? str.replace(/^\?/, "") : str;
+      cleanStr = cleanStr.replace(/%5B/gi, "[").replace(/%5D/gi, "]");
       var limit = options.parameterLimit === Infinity ? void 0 : options.parameterLimit;
       var parts = cleanStr.split(options.delimiter, limit);
       var skipIndex = -1;
@@ -12418,9 +12781,10 @@ var require_parse = __commonJS({
         if (part.indexOf("[]=") > -1) {
           val = isArray2(val) ? [val] : val;
         }
-        if (has.call(obj, key)) {
+        var existing = has.call(obj, key);
+        if (existing && options.duplicates === "combine") {
           obj[key] = utils.combine(obj[key], val);
-        } else {
+        } else if (!existing || options.duplicates === "last") {
           obj[key] = val;
         }
       }
@@ -12432,18 +12796,19 @@ var require_parse = __commonJS({
         var obj;
         var root = chain[i];
         if (root === "[]" && options.parseArrays) {
-          obj = [].concat(leaf);
+          obj = options.allowEmptyArrays && (leaf === "" || options.strictNullHandling && leaf === null) ? [] : [].concat(leaf);
         } else {
           obj = options.plainObjects ? /* @__PURE__ */ Object.create(null) : {};
           var cleanRoot = root.charAt(0) === "[" && root.charAt(root.length - 1) === "]" ? root.slice(1, -1) : root;
-          var index = parseInt(cleanRoot, 10);
-          if (!options.parseArrays && cleanRoot === "") {
+          var decodedRoot = options.decodeDotInKeys ? cleanRoot.replace(/%2E/g, ".") : cleanRoot;
+          var index = parseInt(decodedRoot, 10);
+          if (!options.parseArrays && decodedRoot === "") {
             obj = { 0: leaf };
-          } else if (!isNaN(index) && root !== cleanRoot && String(index) === cleanRoot && index >= 0 && (options.parseArrays && index <= options.arrayLimit)) {
+          } else if (!isNaN(index) && root !== decodedRoot && String(index) === decodedRoot && index >= 0 && (options.parseArrays && index <= options.arrayLimit)) {
             obj = [];
             obj[index] = leaf;
-          } else if (cleanRoot !== "__proto__") {
-            obj[cleanRoot] = leaf;
+          } else if (decodedRoot !== "__proto__") {
+            obj[decodedRoot] = leaf;
           }
         }
         leaf = obj;
@@ -12479,6 +12844,9 @@ var require_parse = __commonJS({
         keys.push(segment[1]);
       }
       if (segment) {
+        if (options.strictDepth === true) {
+          throw new RangeError("Input depth exceeded depth option of " + options.depth + " and strictDepth is true");
+        }
         keys.push("[" + key.slice(segment.index) + "]");
       }
       return parseObject(keys, val, options, valuesParsed);
@@ -12487,29 +12855,44 @@ var require_parse = __commonJS({
       if (!opts) {
         return defaults2;
       }
-      if (opts.decoder !== null && opts.decoder !== void 0 && typeof opts.decoder !== "function") {
+      if (typeof opts.allowEmptyArrays !== "undefined" && typeof opts.allowEmptyArrays !== "boolean") {
+        throw new TypeError("`allowEmptyArrays` option can only be `true` or `false`, when provided");
+      }
+      if (typeof opts.decodeDotInKeys !== "undefined" && typeof opts.decodeDotInKeys !== "boolean") {
+        throw new TypeError("`decodeDotInKeys` option can only be `true` or `false`, when provided");
+      }
+      if (opts.decoder !== null && typeof opts.decoder !== "undefined" && typeof opts.decoder !== "function") {
         throw new TypeError("Decoder has to be a function.");
       }
       if (typeof opts.charset !== "undefined" && opts.charset !== "utf-8" && opts.charset !== "iso-8859-1") {
         throw new TypeError("The charset option must be either utf-8, iso-8859-1, or undefined");
       }
       var charset = typeof opts.charset === "undefined" ? defaults2.charset : opts.charset;
+      var duplicates = typeof opts.duplicates === "undefined" ? defaults2.duplicates : opts.duplicates;
+      if (duplicates !== "combine" && duplicates !== "first" && duplicates !== "last") {
+        throw new TypeError("The duplicates option must be either combine, first, or last");
+      }
+      var allowDots = typeof opts.allowDots === "undefined" ? opts.decodeDotInKeys === true ? true : defaults2.allowDots : !!opts.allowDots;
       return {
-        allowDots: typeof opts.allowDots === "undefined" ? defaults2.allowDots : !!opts.allowDots,
+        allowDots,
+        allowEmptyArrays: typeof opts.allowEmptyArrays === "boolean" ? !!opts.allowEmptyArrays : defaults2.allowEmptyArrays,
         allowPrototypes: typeof opts.allowPrototypes === "boolean" ? opts.allowPrototypes : defaults2.allowPrototypes,
         allowSparse: typeof opts.allowSparse === "boolean" ? opts.allowSparse : defaults2.allowSparse,
         arrayLimit: typeof opts.arrayLimit === "number" ? opts.arrayLimit : defaults2.arrayLimit,
         charset,
         charsetSentinel: typeof opts.charsetSentinel === "boolean" ? opts.charsetSentinel : defaults2.charsetSentinel,
         comma: typeof opts.comma === "boolean" ? opts.comma : defaults2.comma,
+        decodeDotInKeys: typeof opts.decodeDotInKeys === "boolean" ? opts.decodeDotInKeys : defaults2.decodeDotInKeys,
         decoder: typeof opts.decoder === "function" ? opts.decoder : defaults2.decoder,
         delimiter: typeof opts.delimiter === "string" || utils.isRegExp(opts.delimiter) ? opts.delimiter : defaults2.delimiter,
         depth: typeof opts.depth === "number" || opts.depth === false ? +opts.depth : defaults2.depth,
+        duplicates,
         ignoreQueryPrefix: opts.ignoreQueryPrefix === true,
         interpretNumericEntities: typeof opts.interpretNumericEntities === "boolean" ? opts.interpretNumericEntities : defaults2.interpretNumericEntities,
         parameterLimit: typeof opts.parameterLimit === "number" ? opts.parameterLimit : defaults2.parameterLimit,
         parseArrays: opts.parseArrays !== false,
         plainObjects: typeof opts.plainObjects === "boolean" ? opts.plainObjects : defaults2.plainObjects,
+        strictDepth: typeof opts.strictDepth === "boolean" ? !!opts.strictDepth : defaults2.strictDepth,
         strictNullHandling: typeof opts.strictNullHandling === "boolean" ? opts.strictNullHandling : defaults2.strictNullHandling
       };
     };
@@ -12593,6 +12976,18 @@ __export(api_exports, {
   EventCallbackRequest: () => EventCallbackRequest,
   EventCallbackRequestEvent: () => EventCallbackRequestEvent,
   EventCallbackRequestEventMetadata: () => EventCallbackRequestEventMetadata,
+  FaxLineAddUserRequest: () => FaxLineAddUserRequest,
+  FaxLineApi: () => FaxLineApi,
+  FaxLineAreaCodeGetCountryEnum: () => FaxLineAreaCodeGetCountryEnum,
+  FaxLineAreaCodeGetProvinceEnum: () => FaxLineAreaCodeGetProvinceEnum,
+  FaxLineAreaCodeGetResponse: () => FaxLineAreaCodeGetResponse,
+  FaxLineAreaCodeGetStateEnum: () => FaxLineAreaCodeGetStateEnum,
+  FaxLineCreateRequest: () => FaxLineCreateRequest,
+  FaxLineDeleteRequest: () => FaxLineDeleteRequest,
+  FaxLineListResponse: () => FaxLineListResponse,
+  FaxLineRemoveUserRequest: () => FaxLineRemoveUserRequest,
+  FaxLineResponse: () => FaxLineResponse,
+  FaxLineResponseFaxLine: () => FaxLineResponseFaxLine,
   FileResponse: () => FileResponse,
   FileResponseDataUri: () => FileResponseDataUri,
   HttpBasicAuth: () => HttpBasicAuth,
@@ -12808,6 +13203,7 @@ var isFormData = (thing) => {
   return thing && (typeof FormData === "function" && thing instanceof FormData || isFunction(thing.append) && ((kind = kindOf(thing)) === "formdata" || kind === "object" && isFunction(thing.toString) && thing.toString() === "[object FormData]"));
 };
 var isURLSearchParams = kindOfTest("URLSearchParams");
+var [isReadableStream, isRequest, isResponse, isHeaders] = ["ReadableStream", "Request", "Response", "Headers"].map(kindOfTest);
 var trim = (str) => str.trim ? str.trim() : str.replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g, "");
 function forEach(obj, fn, { allOwnKeys = false } = {}) {
   if (obj === null || typeof obj === "undefined") {
@@ -13017,8 +13413,7 @@ var toObjectSet = (arrayOrString, delimiter) => {
 var noop = () => {
 };
 var toFiniteNumber = (value, defaultValue) => {
-  value = +value;
-  return Number.isFinite(value) ? value : defaultValue;
+  return value != null && Number.isFinite(value = +value) ? value : defaultValue;
 };
 var ALPHA = "abcdefghijklmnopqrstuvwxyz";
 var DIGIT = "0123456789";
@@ -13062,6 +13457,26 @@ var toJSONObject = (obj) => {
 };
 var isAsyncFn = kindOfTest("AsyncFunction");
 var isThenable = (thing) => thing && (isObject(thing) || isFunction(thing)) && isFunction(thing.then) && isFunction(thing.catch);
+var _setImmediate = ((setImmediateSupported, postMessageSupported) => {
+  if (setImmediateSupported) {
+    return setImmediate;
+  }
+  return postMessageSupported ? ((token, callbacks) => {
+    _global.addEventListener("message", ({ source, data }) => {
+      if (source === _global && data === token) {
+        callbacks.length && callbacks.shift()();
+      }
+    }, false);
+    return (cb) => {
+      callbacks.push(cb);
+      _global.postMessage(token, "*");
+    };
+  })(`axios@${Math.random()}`, []) : (cb) => setTimeout(cb);
+})(
+  typeof setImmediate === "function",
+  isFunction(_global.postMessage)
+);
+var asap = typeof queueMicrotask !== "undefined" ? queueMicrotask.bind(_global) : typeof process !== "undefined" && process.nextTick || _setImmediate;
 var utils_default = {
   isArray,
   isArrayBuffer,
@@ -13073,6 +13488,10 @@ var utils_default = {
   isBoolean,
   isObject,
   isPlainObject,
+  isReadableStream,
+  isRequest,
+  isResponse,
+  isHeaders,
   isUndefined,
   isDate,
   isFile,
@@ -13113,7 +13532,9 @@ var utils_default = {
   isSpecCompliantForm,
   toJSONObject,
   isAsyncFn,
-  isThenable
+  isThenable,
+  setImmediate: _setImmediate,
+  asap
 };
 
 // node_modules/axios/lib/core/AxiosError.js
@@ -13129,7 +13550,10 @@ function AxiosError(message, code, config, request, response) {
   code && (this.code = code);
   config && (this.config = config);
   request && (this.request = request);
-  response && (this.response = response);
+  if (response) {
+    this.response = response;
+    this.status = response.status ? response.status : null;
+  }
 }
 utils_default.inherits(AxiosError, Error, {
   toJSON: function toJSON() {
@@ -13144,7 +13568,7 @@ utils_default.inherits(AxiosError, Error, {
       stack: this.stack,
       config: utils_default.toJSONObject(this.config),
       code: this.code,
-      status: this.response && this.response.status ? this.response.status : null
+      status: this.status
     };
   }
 });
@@ -13416,11 +13840,34 @@ var node_default = {
   protocols: ["http", "https", "file", "data"]
 };
 
+// node_modules/axios/lib/platform/common/utils.js
+var utils_exports = {};
+__export(utils_exports, {
+  hasBrowserEnv: () => hasBrowserEnv,
+  hasStandardBrowserEnv: () => hasStandardBrowserEnv,
+  hasStandardBrowserWebWorkerEnv: () => hasStandardBrowserWebWorkerEnv,
+  navigator: () => _navigator,
+  origin: () => origin
+});
+var hasBrowserEnv = typeof window !== "undefined" && typeof document !== "undefined";
+var _navigator = typeof navigator === "object" && navigator || void 0;
+var hasStandardBrowserEnv = hasBrowserEnv && (!_navigator || ["ReactNative", "NativeScript", "NS"].indexOf(_navigator.product) < 0);
+var hasStandardBrowserWebWorkerEnv = (() => {
+  return typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope && typeof self.importScripts === "function";
+})();
+var origin = hasBrowserEnv && window.location.href || "http://localhost";
+
+// node_modules/axios/lib/platform/index.js
+var platform_default = {
+  ...utils_exports,
+  ...node_default
+};
+
 // node_modules/axios/lib/helpers/toURLEncodedForm.js
 function toURLEncodedForm(data, options) {
-  return toFormData_default(data, new node_default.classes.URLSearchParams(), Object.assign({
+  return toFormData_default(data, new platform_default.classes.URLSearchParams(), Object.assign({
     visitor: function(value, key, path, helpers) {
-      if (node_default.isNode && utils_default.isBuffer(value)) {
+      if (platform_default.isNode && utils_default.isBuffer(value)) {
         this.append(key, value.toString("base64"));
         return false;
       }
@@ -13450,6 +13897,8 @@ function arrayToObject(arr) {
 function formDataToJSON(formData2) {
   function buildPath(path, value, target, index) {
     let name = path[index++];
+    if (name === "__proto__")
+      return true;
     const isNumericKey = Number.isFinite(+name);
     const isLast = index >= path.length;
     name = !name && utils_default.isArray(target) ? target.length : name;
@@ -13497,7 +13946,7 @@ function stringifySafely(rawValue, parser, encoder) {
 }
 var defaults = {
   transitional: transitional_default,
-  adapter: ["xhr", "http"],
+  adapter: ["xhr", "http", "fetch"],
   transformRequest: [function transformRequest(data, headers) {
     const contentType = headers.getContentType() || "";
     const hasJSONContentType = contentType.indexOf("application/json") > -1;
@@ -13507,12 +13956,9 @@ var defaults = {
     }
     const isFormData2 = utils_default.isFormData(data);
     if (isFormData2) {
-      if (!hasJSONContentType) {
-        return data;
-      }
       return hasJSONContentType ? JSON.stringify(formDataToJSON_default(data)) : data;
     }
-    if (utils_default.isArrayBuffer(data) || utils_default.isBuffer(data) || utils_default.isStream(data) || utils_default.isFile(data) || utils_default.isBlob(data)) {
+    if (utils_default.isArrayBuffer(data) || utils_default.isBuffer(data) || utils_default.isStream(data) || utils_default.isFile(data) || utils_default.isBlob(data) || utils_default.isReadableStream(data)) {
       return data;
     }
     if (utils_default.isArrayBufferView(data)) {
@@ -13546,6 +13992,9 @@ var defaults = {
     const transitional2 = this.transitional || defaults.transitional;
     const forcedJSONParsing = transitional2 && transitional2.forcedJSONParsing;
     const JSONRequested = this.responseType === "json";
+    if (utils_default.isResponse(data) || utils_default.isReadableStream(data)) {
+      return data;
+    }
     if (data && utils_default.isString(data) && (forcedJSONParsing && !this.responseType || JSONRequested)) {
       const silentJSONParsing = transitional2 && transitional2.silentJSONParsing;
       const strictJSONParsing = !silentJSONParsing && JSONRequested;
@@ -13568,8 +14017,8 @@ var defaults = {
   maxContentLength: -1,
   maxBodyLength: -1,
   env: {
-    FormData: node_default.classes.FormData,
-    Blob: node_default.classes.Blob
+    FormData: platform_default.classes.FormData,
+    Blob: platform_default.classes.Blob
   },
   validateStatus: function validateStatus(status) {
     return status >= 200 && status < 300;
@@ -13705,6 +14154,10 @@ var AxiosHeaders = class {
       setHeaders(header, valueOrRewrite);
     } else if (utils_default.isString(header) && (header = header.trim()) && !isValidHeaderName(header)) {
       setHeaders(parseHeaders_default(header), valueOrRewrite);
+    } else if (utils_default.isHeaders(header)) {
+      for (const [key, value] of header.entries()) {
+        setHeader(value, key, rewrite);
+      }
     } else {
       header != null && setHeader(valueOrRewrite, header, rewrite);
     }
@@ -13900,7 +14353,7 @@ function isAbsoluteURL(url2) {
 
 // node_modules/axios/lib/helpers/combineURLs.js
 function combineURLs(baseURL, relativeURL) {
-  return relativeURL ? baseURL.replace(/\/+$/, "") + "/" + relativeURL.replace(/^\/+/, "") : baseURL;
+  return relativeURL ? baseURL.replace(/\/?\/$/, "") + "/" + relativeURL.replace(/^\/+/, "") : baseURL;
 }
 
 // node_modules/axios/lib/core/buildFullPath.js
@@ -13920,7 +14373,7 @@ var import_follow_redirects = __toESM(require_follow_redirects(), 1);
 var import_zlib = __toESM(require("zlib"), 1);
 
 // node_modules/axios/lib/env/data.js
-var VERSION = "1.6.0";
+var VERSION = "1.7.5";
 
 // node_modules/axios/lib/helpers/parseProtocol.js
 function parseProtocol(url2) {
@@ -13931,7 +14384,7 @@ function parseProtocol(url2) {
 // node_modules/axios/lib/helpers/fromDataURI.js
 var DATA_URL_PATTERN = /^(?:([^;]+);)?(?:[^;]+;)?(base64|),([\s\S]*)$/;
 function fromDataURI(uri, asBlob, options) {
-  const _Blob = options && options.Blob || node_default.classes.Blob;
+  const _Blob = options && options.Blob || platform_default.classes.Blob;
   const protocol = parseProtocol(uri);
   if (asBlob === void 0 && _Blob) {
     asBlob = true;
@@ -13962,70 +14415,6 @@ var import_stream4 = __toESM(require("stream"), 1);
 
 // node_modules/axios/lib/helpers/AxiosTransformStream.js
 var import_stream = __toESM(require("stream"), 1);
-
-// node_modules/axios/lib/helpers/throttle.js
-function throttle(fn, freq) {
-  let timestamp = 0;
-  const threshold = 1e3 / freq;
-  let timer = null;
-  return function throttled(force, args) {
-    const now = Date.now();
-    if (force || now - timestamp > threshold) {
-      if (timer) {
-        clearTimeout(timer);
-        timer = null;
-      }
-      timestamp = now;
-      return fn.apply(null, args);
-    }
-    if (!timer) {
-      timer = setTimeout(() => {
-        timer = null;
-        timestamp = Date.now();
-        return fn.apply(null, args);
-      }, threshold - (now - timestamp));
-    }
-  };
-}
-var throttle_default = throttle;
-
-// node_modules/axios/lib/helpers/speedometer.js
-function speedometer(samplesCount, min) {
-  samplesCount = samplesCount || 10;
-  const bytes = new Array(samplesCount);
-  const timestamps = new Array(samplesCount);
-  let head = 0;
-  let tail = 0;
-  let firstSampleTS;
-  min = min !== void 0 ? min : 1e3;
-  return function push(chunkLength) {
-    const now = Date.now();
-    const startedAt = timestamps[tail];
-    if (!firstSampleTS) {
-      firstSampleTS = now;
-    }
-    bytes[head] = chunkLength;
-    timestamps[head] = now;
-    let i = tail;
-    let bytesCount = 0;
-    while (i !== head) {
-      bytesCount += bytes[i++];
-      i = i % samplesCount;
-    }
-    head = (head + 1) % samplesCount;
-    if (head === tail) {
-      tail = (tail + 1) % samplesCount;
-    }
-    if (now - firstSampleTS < min) {
-      return;
-    }
-    const passed = startedAt && now - startedAt;
-    return passed ? Math.round(bytesCount * 1e3 / passed) : void 0;
-  };
-}
-var speedometer_default = speedometer;
-
-// node_modules/axios/lib/helpers/AxiosTransformStream.js
 var kInternals = Symbol("internals");
 var AxiosTransformStream = class extends import_stream.default.Transform {
   constructor(options) {
@@ -14042,11 +14431,8 @@ var AxiosTransformStream = class extends import_stream.default.Transform {
     super({
       readableHighWaterMark: options.chunkSize
     });
-    const self2 = this;
     const internals = this[kInternals] = {
-      length: options.length,
       timeWindow: options.timeWindow,
-      ticksRate: options.ticksRate,
       chunkSize: options.chunkSize,
       maxRate: options.maxRate,
       minChunkSize: options.minChunkSize,
@@ -14057,7 +14443,6 @@ var AxiosTransformStream = class extends import_stream.default.Transform {
       bytes: 0,
       onReadCallback: null
     };
-    const _speedometer = speedometer_default(internals.ticksRate * options.samplesCount, internals.timeWindow);
     this.on("newListener", (event) => {
       if (event === "progress") {
         if (!internals.isCaptured) {
@@ -14065,31 +14450,6 @@ var AxiosTransformStream = class extends import_stream.default.Transform {
         }
       }
     });
-    let bytesNotified = 0;
-    internals.updateProgress = throttle_default(function throttledHandler() {
-      const totalBytes = internals.length;
-      const bytesTransferred = internals.bytesSeen;
-      const progressBytes = bytesTransferred - bytesNotified;
-      if (!progressBytes || self2.destroyed)
-        return;
-      const rate = _speedometer(progressBytes);
-      bytesNotified = bytesTransferred;
-      process.nextTick(() => {
-        self2.emit("progress", {
-          "loaded": bytesTransferred,
-          "total": totalBytes,
-          "progress": totalBytes ? bytesTransferred / totalBytes : void 0,
-          "bytes": progressBytes,
-          "rate": rate ? rate : void 0,
-          "estimated": rate && totalBytes && bytesTransferred <= totalBytes ? (totalBytes - bytesTransferred) / rate : void 0
-        });
-      });
-    }, internals.ticksRate);
-    const onFinish = () => {
-      internals.updateProgress(true);
-    };
-    this.once("end", onFinish);
-    this.once("error", onFinish);
   }
   _read(size) {
     const internals = this[kInternals];
@@ -14099,7 +14459,6 @@ var AxiosTransformStream = class extends import_stream.default.Transform {
     return super._read(size);
   }
   _transform(chunk, encoding, callback) {
-    const self2 = this;
     const internals = this[kInternals];
     const maxRate = internals.maxRate;
     const readableHighWaterMark = this.readableHighWaterMark;
@@ -14107,14 +14466,12 @@ var AxiosTransformStream = class extends import_stream.default.Transform {
     const divider = 1e3 / timeWindow;
     const bytesThreshold = maxRate / divider;
     const minChunkSize = internals.minChunkSize !== false ? Math.max(internals.minChunkSize, bytesThreshold * 0.01) : 0;
-    function pushChunk(_chunk, _callback) {
+    const pushChunk = (_chunk, _callback) => {
       const bytes = Buffer.byteLength(_chunk);
       internals.bytesSeen += bytes;
       internals.bytes += bytes;
-      if (internals.isCaptured) {
-        internals.updateProgress();
-      }
-      if (self2.push(_chunk)) {
+      internals.isCaptured && this.emit("progress", internals.bytesSeen);
+      if (this.push(_chunk)) {
         process.nextTick(_callback);
       } else {
         internals.onReadCallback = () => {
@@ -14122,7 +14479,7 @@ var AxiosTransformStream = class extends import_stream.default.Transform {
           process.nextTick(_callback);
         };
       }
-    }
+    };
     const transformChunk = (_chunk, _callback) => {
       const chunkSize = Buffer.byteLength(_chunk);
       let chunkRemainder = null;
@@ -14168,15 +14525,11 @@ var AxiosTransformStream = class extends import_stream.default.Transform {
       }
     });
   }
-  setLength(length) {
-    this[kInternals].length = +length;
-    return this;
-  }
 };
 var AxiosTransformStream_default = AxiosTransformStream;
 
 // node_modules/axios/lib/adapters/http.js
-var import_events = __toESM(require("events"), 1);
+var import_events = require("events");
 
 // node_modules/axios/lib/helpers/formDataToStream.js
 var import_util = require("util");
@@ -14313,6 +14666,112 @@ var callbackify = (fn, reducer) => {
 };
 var callbackify_default = callbackify;
 
+// node_modules/axios/lib/helpers/speedometer.js
+function speedometer(samplesCount, min) {
+  samplesCount = samplesCount || 10;
+  const bytes = new Array(samplesCount);
+  const timestamps = new Array(samplesCount);
+  let head = 0;
+  let tail = 0;
+  let firstSampleTS;
+  min = min !== void 0 ? min : 1e3;
+  return function push(chunkLength) {
+    const now = Date.now();
+    const startedAt = timestamps[tail];
+    if (!firstSampleTS) {
+      firstSampleTS = now;
+    }
+    bytes[head] = chunkLength;
+    timestamps[head] = now;
+    let i = tail;
+    let bytesCount = 0;
+    while (i !== head) {
+      bytesCount += bytes[i++];
+      i = i % samplesCount;
+    }
+    head = (head + 1) % samplesCount;
+    if (head === tail) {
+      tail = (tail + 1) % samplesCount;
+    }
+    if (now - firstSampleTS < min) {
+      return;
+    }
+    const passed = startedAt && now - startedAt;
+    return passed ? Math.round(bytesCount * 1e3 / passed) : void 0;
+  };
+}
+var speedometer_default = speedometer;
+
+// node_modules/axios/lib/helpers/throttle.js
+function throttle(fn, freq) {
+  let timestamp = 0;
+  let threshold = 1e3 / freq;
+  let lastArgs;
+  let timer;
+  const invoke = (args, now = Date.now()) => {
+    timestamp = now;
+    lastArgs = null;
+    if (timer) {
+      clearTimeout(timer);
+      timer = null;
+    }
+    fn.apply(null, args);
+  };
+  const throttled = (...args) => {
+    const now = Date.now();
+    const passed = now - timestamp;
+    if (passed >= threshold) {
+      invoke(args, now);
+    } else {
+      lastArgs = args;
+      if (!timer) {
+        timer = setTimeout(() => {
+          timer = null;
+          invoke(lastArgs);
+        }, threshold - passed);
+      }
+    }
+  };
+  const flush = () => lastArgs && invoke(lastArgs);
+  return [throttled, flush];
+}
+var throttle_default = throttle;
+
+// node_modules/axios/lib/helpers/progressEventReducer.js
+var progressEventReducer = (listener, isDownloadStream, freq = 3) => {
+  let bytesNotified = 0;
+  const _speedometer = speedometer_default(50, 250);
+  return throttle_default((e) => {
+    const loaded = e.loaded;
+    const total = e.lengthComputable ? e.total : void 0;
+    const progressBytes = loaded - bytesNotified;
+    const rate = _speedometer(progressBytes);
+    const inRange = loaded <= total;
+    bytesNotified = loaded;
+    const data = {
+      loaded,
+      total,
+      progress: total ? loaded / total : void 0,
+      bytes: progressBytes,
+      rate: rate ? rate : void 0,
+      estimated: rate && total && inRange ? (total - loaded) / rate : void 0,
+      event: e,
+      lengthComputable: total != null,
+      [isDownloadStream ? "download" : "upload"]: true
+    };
+    listener(data);
+  }, freq);
+};
+var progressEventDecorator = (total, throttled) => {
+  const lengthComputable = total != null;
+  return [(loaded) => throttled[0]({
+    lengthComputable,
+    total,
+    loaded
+  }), throttled[1]];
+};
+var asyncDecorator = (fn) => (...args) => utils_default.asap(() => fn(...args));
+
 // node_modules/axios/lib/adapters/http.js
 var zlibOptions = {
   flush: import_zlib.default.constants.Z_SYNC_FLUSH,
@@ -14325,15 +14784,19 @@ var brotliOptions = {
 var isBrotliSupported = utils_default.isFunction(import_zlib.default.createBrotliDecompress);
 var { http: httpFollow, https: httpsFollow } = import_follow_redirects.default;
 var isHttps = /https:?/;
-var supportedProtocols = node_default.protocols.map((protocol) => {
+var supportedProtocols = platform_default.protocols.map((protocol) => {
   return protocol + ":";
 });
-function dispatchBeforeRedirect(options) {
+var flushOnFinish = (stream4, [throttled, flush]) => {
+  stream4.on("end", flush).on("error", flush);
+  return throttled;
+};
+function dispatchBeforeRedirect(options, responseDetails) {
   if (options.beforeRedirects.proxy) {
     options.beforeRedirects.proxy(options);
   }
   if (options.beforeRedirects.config) {
-    options.beforeRedirects.config(options);
+    options.beforeRedirects.config(options, responseDetails);
   }
 }
 function setProxy(options, configProxy, location) {
@@ -14413,12 +14876,15 @@ var http_default = isHttpAdapterSupported && function httpAdapter(config) {
       const _lookup = callbackify_default(lookup, (value) => utils_default.isArray(value) ? value : [value]);
       lookup = (hostname, opt, cb) => {
         _lookup(hostname, opt, (err, arg0, arg1) => {
+          if (err) {
+            return cb(err);
+          }
           const addresses = utils_default.isArray(arg0) ? arg0.map((addr) => buildAddressEntry(addr)) : [buildAddressEntry(arg0, arg1)];
           opt.all ? cb(err, addresses) : cb(err, addresses[0].address, addresses[0].family);
         });
       };
     }
-    const emitter = new import_events.default();
+    const emitter = new import_events.EventEmitter();
     const onFinished = () => {
       if (config.cancelToken) {
         config.cancelToken.unsubscribe(abort);
@@ -14446,7 +14912,7 @@ var http_default = isHttpAdapterSupported && function httpAdapter(config) {
       }
     }
     const fullPath = buildFullPath(config.baseURL, config.url);
-    const parsed = new URL(fullPath, "http://localhost");
+    const parsed = new URL(fullPath, platform_default.hasBrowserEnv ? platform_default.origin : void 0);
     const protocol = parsed.protocol || supportedProtocols[0];
     if (protocol === "data:") {
       let convertedData;
@@ -14490,8 +14956,7 @@ var http_default = isHttpAdapterSupported && function httpAdapter(config) {
     }
     const headers = AxiosHeaders_default.from(config.headers).normalize();
     headers.set("User-Agent", "axios/" + VERSION, false);
-    const onDownloadProgress = config.onDownloadProgress;
-    const onUploadProgress = config.onUploadProgress;
+    const { onUploadProgress, onDownloadProgress } = config;
     const maxRate = config.maxRate;
     let maxUploadRate = void 0;
     let maxDownloadRate = void 0;
@@ -14550,14 +15015,15 @@ var http_default = isHttpAdapterSupported && function httpAdapter(config) {
         data = import_stream4.default.Readable.from(data, { objectMode: false });
       }
       data = import_stream4.default.pipeline([data, new AxiosTransformStream_default({
-        length: contentLength,
         maxRate: utils_default.toFiniteNumber(maxUploadRate)
       })], utils_default.noop);
-      onUploadProgress && data.on("progress", (progress) => {
-        onUploadProgress(Object.assign(progress, {
-          upload: true
-        }));
-      });
+      onUploadProgress && data.on("progress", flushOnFinish(
+        data,
+        progressEventDecorator(
+          contentLength,
+          progressEventReducer(asyncDecorator(onUploadProgress), false, 3)
+        )
+      ));
     }
     let auth = void 0;
     if (config.auth) {
@@ -14638,16 +15104,17 @@ var http_default = isHttpAdapterSupported && function httpAdapter(config) {
         return;
       const streams = [res];
       const responseLength = +res.headers["content-length"];
-      if (onDownloadProgress) {
+      if (onDownloadProgress || maxDownloadRate) {
         const transformStream = new AxiosTransformStream_default({
-          length: utils_default.toFiniteNumber(responseLength),
           maxRate: utils_default.toFiniteNumber(maxDownloadRate)
         });
-        onDownloadProgress && transformStream.on("progress", (progress) => {
-          onDownloadProgress(Object.assign(progress, {
-            download: true
-          }));
-        });
+        onDownloadProgress && transformStream.on("progress", flushOnFinish(
+          transformStream,
+          progressEventDecorator(
+            responseLength,
+            progressEventReducer(asyncDecorator(onDownloadProgress), true, 3)
+          )
+        ));
         streams.push(transformStream);
       }
       let responseStream = res;
@@ -14809,49 +15276,9 @@ var http_default = isHttpAdapterSupported && function httpAdapter(config) {
   });
 };
 
-// node_modules/axios/lib/helpers/cookies.js
-var cookies_default = node_default.isStandardBrowserEnv ? function standardBrowserEnv() {
-  return {
-    write: function write(name, value, expires, path, domain, secure) {
-      const cookie = [];
-      cookie.push(name + "=" + encodeURIComponent(value));
-      if (utils_default.isNumber(expires)) {
-        cookie.push("expires=" + new Date(expires).toGMTString());
-      }
-      if (utils_default.isString(path)) {
-        cookie.push("path=" + path);
-      }
-      if (utils_default.isString(domain)) {
-        cookie.push("domain=" + domain);
-      }
-      if (secure === true) {
-        cookie.push("secure");
-      }
-      document.cookie = cookie.join("; ");
-    },
-    read: function read(name) {
-      const match = document.cookie.match(new RegExp("(^|;\\s*)(" + name + ")=([^;]*)"));
-      return match ? decodeURIComponent(match[3]) : null;
-    },
-    remove: function remove(name) {
-      this.write(name, "", Date.now() - 864e5);
-    }
-  };
-}() : function nonStandardBrowserEnv() {
-  return {
-    write: function write() {
-    },
-    read: function read() {
-      return null;
-    },
-    remove: function remove() {
-    }
-  };
-}();
-
 // node_modules/axios/lib/helpers/isURLSameOrigin.js
-var isURLSameOrigin_default = node_default.isStandardBrowserEnv ? function standardBrowserEnv2() {
-  const msie = /(msie|trident)/i.test(navigator.userAgent);
+var isURLSameOrigin_default = platform_default.hasStandardBrowserEnv ? function standardBrowserEnv() {
+  const msie = platform_default.navigator && /(msie|trident)/i.test(platform_default.navigator.userAgent);
   const urlParsingNode = document.createElement("a");
   let originURL;
   function resolveURL(url2) {
@@ -14877,70 +15304,172 @@ var isURLSameOrigin_default = node_default.isStandardBrowserEnv ? function stand
     const parsed = utils_default.isString(requestURL) ? resolveURL(requestURL) : requestURL;
     return parsed.protocol === originURL.protocol && parsed.host === originURL.host;
   };
-}() : function nonStandardBrowserEnv2() {
+}() : function nonStandardBrowserEnv() {
   return function isURLSameOrigin() {
     return true;
   };
 }();
 
-// node_modules/axios/lib/adapters/xhr.js
-function progressEventReducer(listener, isDownloadStream) {
-  let bytesNotified = 0;
-  const _speedometer = speedometer_default(50, 250);
-  return (e) => {
-    const loaded = e.loaded;
-    const total = e.lengthComputable ? e.total : void 0;
-    const progressBytes = loaded - bytesNotified;
-    const rate = _speedometer(progressBytes);
-    const inRange = loaded <= total;
-    bytesNotified = loaded;
-    const data = {
-      loaded,
-      total,
-      progress: total ? loaded / total : void 0,
-      bytes: progressBytes,
-      rate: rate ? rate : void 0,
-      estimated: rate && total && inRange ? (total - loaded) / rate : void 0,
-      event: e
-    };
-    data[isDownloadStream ? "download" : "upload"] = true;
-    listener(data);
+// node_modules/axios/lib/helpers/cookies.js
+var cookies_default = platform_default.hasStandardBrowserEnv ? {
+  write(name, value, expires, path, domain, secure) {
+    const cookie = [name + "=" + encodeURIComponent(value)];
+    utils_default.isNumber(expires) && cookie.push("expires=" + new Date(expires).toGMTString());
+    utils_default.isString(path) && cookie.push("path=" + path);
+    utils_default.isString(domain) && cookie.push("domain=" + domain);
+    secure === true && cookie.push("secure");
+    document.cookie = cookie.join("; ");
+  },
+  read(name) {
+    const match = document.cookie.match(new RegExp("(^|;\\s*)(" + name + ")=([^;]*)"));
+    return match ? decodeURIComponent(match[3]) : null;
+  },
+  remove(name) {
+    this.write(name, "", Date.now() - 864e5);
+  }
+} : {
+  write() {
+  },
+  read() {
+    return null;
+  },
+  remove() {
+  }
+};
+
+// node_modules/axios/lib/core/mergeConfig.js
+var headersToObject = (thing) => thing instanceof AxiosHeaders_default ? { ...thing } : thing;
+function mergeConfig(config1, config2) {
+  config2 = config2 || {};
+  const config = {};
+  function getMergedValue(target, source, caseless) {
+    if (utils_default.isPlainObject(target) && utils_default.isPlainObject(source)) {
+      return utils_default.merge.call({ caseless }, target, source);
+    } else if (utils_default.isPlainObject(source)) {
+      return utils_default.merge({}, source);
+    } else if (utils_default.isArray(source)) {
+      return source.slice();
+    }
+    return source;
+  }
+  function mergeDeepProperties(a, b, caseless) {
+    if (!utils_default.isUndefined(b)) {
+      return getMergedValue(a, b, caseless);
+    } else if (!utils_default.isUndefined(a)) {
+      return getMergedValue(void 0, a, caseless);
+    }
+  }
+  function valueFromConfig2(a, b) {
+    if (!utils_default.isUndefined(b)) {
+      return getMergedValue(void 0, b);
+    }
+  }
+  function defaultToConfig2(a, b) {
+    if (!utils_default.isUndefined(b)) {
+      return getMergedValue(void 0, b);
+    } else if (!utils_default.isUndefined(a)) {
+      return getMergedValue(void 0, a);
+    }
+  }
+  function mergeDirectKeys(a, b, prop) {
+    if (prop in config2) {
+      return getMergedValue(a, b);
+    } else if (prop in config1) {
+      return getMergedValue(void 0, a);
+    }
+  }
+  const mergeMap = {
+    url: valueFromConfig2,
+    method: valueFromConfig2,
+    data: valueFromConfig2,
+    baseURL: defaultToConfig2,
+    transformRequest: defaultToConfig2,
+    transformResponse: defaultToConfig2,
+    paramsSerializer: defaultToConfig2,
+    timeout: defaultToConfig2,
+    timeoutMessage: defaultToConfig2,
+    withCredentials: defaultToConfig2,
+    withXSRFToken: defaultToConfig2,
+    adapter: defaultToConfig2,
+    responseType: defaultToConfig2,
+    xsrfCookieName: defaultToConfig2,
+    xsrfHeaderName: defaultToConfig2,
+    onUploadProgress: defaultToConfig2,
+    onDownloadProgress: defaultToConfig2,
+    decompress: defaultToConfig2,
+    maxContentLength: defaultToConfig2,
+    maxBodyLength: defaultToConfig2,
+    beforeRedirect: defaultToConfig2,
+    transport: defaultToConfig2,
+    httpAgent: defaultToConfig2,
+    httpsAgent: defaultToConfig2,
+    cancelToken: defaultToConfig2,
+    socketPath: defaultToConfig2,
+    responseEncoding: defaultToConfig2,
+    validateStatus: mergeDirectKeys,
+    headers: (a, b) => mergeDeepProperties(headersToObject(a), headersToObject(b), true)
   };
+  utils_default.forEach(Object.keys(Object.assign({}, config1, config2)), function computeConfigValue(prop) {
+    const merge2 = mergeMap[prop] || mergeDeepProperties;
+    const configValue = merge2(config1[prop], config2[prop], prop);
+    utils_default.isUndefined(configValue) && merge2 !== mergeDirectKeys || (config[prop] = configValue);
+  });
+  return config;
 }
+
+// node_modules/axios/lib/helpers/resolveConfig.js
+var resolveConfig_default = (config) => {
+  const newConfig = mergeConfig({}, config);
+  let { data, withXSRFToken, xsrfHeaderName, xsrfCookieName, headers, auth } = newConfig;
+  newConfig.headers = headers = AxiosHeaders_default.from(headers);
+  newConfig.url = buildURL(buildFullPath(newConfig.baseURL, newConfig.url), config.params, config.paramsSerializer);
+  if (auth) {
+    headers.set(
+      "Authorization",
+      "Basic " + btoa((auth.username || "") + ":" + (auth.password ? unescape(encodeURIComponent(auth.password)) : ""))
+    );
+  }
+  let contentType;
+  if (utils_default.isFormData(data)) {
+    if (platform_default.hasStandardBrowserEnv || platform_default.hasStandardBrowserWebWorkerEnv) {
+      headers.setContentType(void 0);
+    } else if ((contentType = headers.getContentType()) !== false) {
+      const [type, ...tokens] = contentType ? contentType.split(";").map((token) => token.trim()).filter(Boolean) : [];
+      headers.setContentType([type || "multipart/form-data", ...tokens].join("; "));
+    }
+  }
+  if (platform_default.hasStandardBrowserEnv) {
+    withXSRFToken && utils_default.isFunction(withXSRFToken) && (withXSRFToken = withXSRFToken(newConfig));
+    if (withXSRFToken || withXSRFToken !== false && isURLSameOrigin_default(newConfig.url)) {
+      const xsrfValue = xsrfHeaderName && xsrfCookieName && cookies_default.read(xsrfCookieName);
+      if (xsrfValue) {
+        headers.set(xsrfHeaderName, xsrfValue);
+      }
+    }
+  }
+  return newConfig;
+};
+
+// node_modules/axios/lib/adapters/xhr.js
 var isXHRAdapterSupported = typeof XMLHttpRequest !== "undefined";
 var xhr_default = isXHRAdapterSupported && function(config) {
   return new Promise(function dispatchXhrRequest(resolve, reject) {
-    let requestData = config.data;
-    const requestHeaders = AxiosHeaders_default.from(config.headers).normalize();
-    const responseType = config.responseType;
+    const _config = resolveConfig_default(config);
+    let requestData = _config.data;
+    const requestHeaders = AxiosHeaders_default.from(_config.headers).normalize();
+    let { responseType, onUploadProgress, onDownloadProgress } = _config;
     let onCanceled;
+    let uploadThrottled, downloadThrottled;
+    let flushUpload, flushDownload;
     function done() {
-      if (config.cancelToken) {
-        config.cancelToken.unsubscribe(onCanceled);
-      }
-      if (config.signal) {
-        config.signal.removeEventListener("abort", onCanceled);
-      }
-    }
-    let contentType;
-    if (utils_default.isFormData(requestData)) {
-      if (node_default.isStandardBrowserEnv || node_default.isStandardBrowserWebWorkerEnv) {
-        requestHeaders.setContentType(false);
-      } else if (!requestHeaders.getContentType(/^\s*multipart\/form-data/)) {
-        requestHeaders.setContentType("multipart/form-data");
-      } else if (utils_default.isString(contentType = requestHeaders.getContentType())) {
-        requestHeaders.setContentType(contentType.replace(/^\s*(multipart\/form-data);+/, "$1"));
-      }
+      flushUpload && flushUpload();
+      flushDownload && flushDownload();
+      _config.cancelToken && _config.cancelToken.unsubscribe(onCanceled);
+      _config.signal && _config.signal.removeEventListener("abort", onCanceled);
     }
     let request = new XMLHttpRequest();
-    if (config.auth) {
-      const username = config.auth.username || "";
-      const password = config.auth.password ? unescape(encodeURIComponent(config.auth.password)) : "";
-      requestHeaders.set("Authorization", "Basic " + btoa(username + ":" + password));
-    }
-    const fullPath = buildFullPath(config.baseURL, config.url);
-    request.open(config.method.toUpperCase(), buildURL(fullPath, config.params, config.paramsSerializer), true);
-    request.timeout = config.timeout;
+    request.open(_config.method.toUpperCase(), _config.url, true);
+    request.timeout = _config.timeout;
     function onloadend() {
       if (!request) {
         return;
@@ -14991,10 +15520,10 @@ var xhr_default = isXHRAdapterSupported && function(config) {
       request = null;
     };
     request.ontimeout = function handleTimeout() {
-      let timeoutErrorMessage = config.timeout ? "timeout of " + config.timeout + "ms exceeded" : "timeout exceeded";
-      const transitional2 = config.transitional || transitional_default;
-      if (config.timeoutErrorMessage) {
-        timeoutErrorMessage = config.timeoutErrorMessage;
+      let timeoutErrorMessage = _config.timeout ? "timeout of " + _config.timeout + "ms exceeded" : "timeout exceeded";
+      const transitional2 = _config.transitional || transitional_default;
+      if (_config.timeoutErrorMessage) {
+        timeoutErrorMessage = _config.timeoutErrorMessage;
       }
       reject(new AxiosError_default(
         timeoutErrorMessage,
@@ -15004,31 +15533,28 @@ var xhr_default = isXHRAdapterSupported && function(config) {
       ));
       request = null;
     };
-    if (node_default.isStandardBrowserEnv) {
-      const xsrfValue = isURLSameOrigin_default(fullPath) && config.xsrfCookieName && cookies_default.read(config.xsrfCookieName);
-      if (xsrfValue) {
-        requestHeaders.set(config.xsrfHeaderName, xsrfValue);
-      }
-    }
     requestData === void 0 && requestHeaders.setContentType(null);
     if ("setRequestHeader" in request) {
       utils_default.forEach(requestHeaders.toJSON(), function setRequestHeader(val, key) {
         request.setRequestHeader(key, val);
       });
     }
-    if (!utils_default.isUndefined(config.withCredentials)) {
-      request.withCredentials = !!config.withCredentials;
+    if (!utils_default.isUndefined(_config.withCredentials)) {
+      request.withCredentials = !!_config.withCredentials;
     }
     if (responseType && responseType !== "json") {
-      request.responseType = config.responseType;
+      request.responseType = _config.responseType;
     }
-    if (typeof config.onDownloadProgress === "function") {
-      request.addEventListener("progress", progressEventReducer(config.onDownloadProgress, true));
+    if (onDownloadProgress) {
+      [downloadThrottled, flushDownload] = progressEventReducer(onDownloadProgress, true);
+      request.addEventListener("progress", downloadThrottled);
     }
-    if (typeof config.onUploadProgress === "function" && request.upload) {
-      request.upload.addEventListener("progress", progressEventReducer(config.onUploadProgress));
+    if (onUploadProgress && request.upload) {
+      [uploadThrottled, flushUpload] = progressEventReducer(onUploadProgress);
+      request.upload.addEventListener("progress", uploadThrottled);
+      request.upload.addEventListener("loadend", flushUpload);
     }
-    if (config.cancelToken || config.signal) {
+    if (_config.cancelToken || _config.signal) {
       onCanceled = (cancel) => {
         if (!request) {
           return;
@@ -15037,13 +15563,13 @@ var xhr_default = isXHRAdapterSupported && function(config) {
         request.abort();
         request = null;
       };
-      config.cancelToken && config.cancelToken.subscribe(onCanceled);
-      if (config.signal) {
-        config.signal.aborted ? onCanceled() : config.signal.addEventListener("abort", onCanceled);
+      _config.cancelToken && _config.cancelToken.subscribe(onCanceled);
+      if (_config.signal) {
+        _config.signal.aborted ? onCanceled() : _config.signal.addEventListener("abort", onCanceled);
       }
     }
-    const protocol = parseProtocol(fullPath);
-    if (protocol && node_default.protocols.indexOf(protocol) === -1) {
+    const protocol = parseProtocol(_config.url);
+    if (protocol && platform_default.protocols.indexOf(protocol) === -1) {
       reject(new AxiosError_default("Unsupported protocol " + protocol + ":", AxiosError_default.ERR_BAD_REQUEST, config));
       return;
     }
@@ -15051,10 +15577,269 @@ var xhr_default = isXHRAdapterSupported && function(config) {
   });
 };
 
+// node_modules/axios/lib/helpers/composeSignals.js
+var composeSignals = (signals, timeout) => {
+  let controller = new AbortController();
+  let aborted;
+  const onabort = function(cancel) {
+    if (!aborted) {
+      aborted = true;
+      unsubscribe();
+      const err = cancel instanceof Error ? cancel : this.reason;
+      controller.abort(err instanceof AxiosError_default ? err : new CanceledError_default(err instanceof Error ? err.message : err));
+    }
+  };
+  let timer = timeout && setTimeout(() => {
+    onabort(new AxiosError_default(`timeout ${timeout} of ms exceeded`, AxiosError_default.ETIMEDOUT));
+  }, timeout);
+  const unsubscribe = () => {
+    if (signals) {
+      timer && clearTimeout(timer);
+      timer = null;
+      signals.forEach((signal2) => {
+        signal2 && (signal2.removeEventListener ? signal2.removeEventListener("abort", onabort) : signal2.unsubscribe(onabort));
+      });
+      signals = null;
+    }
+  };
+  signals.forEach((signal2) => signal2 && signal2.addEventListener && signal2.addEventListener("abort", onabort));
+  const { signal } = controller;
+  signal.unsubscribe = unsubscribe;
+  return [signal, () => {
+    timer && clearTimeout(timer);
+    timer = null;
+  }];
+};
+var composeSignals_default = composeSignals;
+
+// node_modules/axios/lib/helpers/trackStream.js
+var streamChunk = function* (chunk, chunkSize) {
+  let len = chunk.byteLength;
+  if (!chunkSize || len < chunkSize) {
+    yield chunk;
+    return;
+  }
+  let pos = 0;
+  let end;
+  while (pos < len) {
+    end = pos + chunkSize;
+    yield chunk.slice(pos, end);
+    pos = end;
+  }
+};
+var readBytes = async function* (iterable, chunkSize, encode3) {
+  for await (const chunk of iterable) {
+    yield* streamChunk(ArrayBuffer.isView(chunk) ? chunk : await encode3(String(chunk)), chunkSize);
+  }
+};
+var trackStream = (stream4, chunkSize, onProgress, onFinish, encode3) => {
+  const iterator = readBytes(stream4, chunkSize, encode3);
+  let bytes = 0;
+  let done;
+  let _onFinish = (e) => {
+    if (!done) {
+      done = true;
+      onFinish && onFinish(e);
+    }
+  };
+  return new ReadableStream({
+    async pull(controller) {
+      try {
+        const { done: done2, value } = await iterator.next();
+        if (done2) {
+          _onFinish();
+          controller.close();
+          return;
+        }
+        let len = value.byteLength;
+        if (onProgress) {
+          let loadedBytes = bytes += len;
+          onProgress(loadedBytes);
+        }
+        controller.enqueue(new Uint8Array(value));
+      } catch (err) {
+        _onFinish(err);
+        throw err;
+      }
+    },
+    cancel(reason) {
+      _onFinish(reason);
+      return iterator.return();
+    }
+  }, {
+    highWaterMark: 2
+  });
+};
+
+// node_modules/axios/lib/adapters/fetch.js
+var isFetchSupported = typeof fetch === "function" && typeof Request === "function" && typeof Response === "function";
+var isReadableStreamSupported = isFetchSupported && typeof ReadableStream === "function";
+var encodeText = isFetchSupported && (typeof TextEncoder === "function" ? ((encoder) => (str) => encoder.encode(str))(new TextEncoder()) : async (str) => new Uint8Array(await new Response(str).arrayBuffer()));
+var test = (fn, ...args) => {
+  try {
+    return !!fn(...args);
+  } catch (e) {
+    return false;
+  }
+};
+var supportsRequestStream = isReadableStreamSupported && test(() => {
+  let duplexAccessed = false;
+  const hasContentType = new Request(platform_default.origin, {
+    body: new ReadableStream(),
+    method: "POST",
+    get duplex() {
+      duplexAccessed = true;
+      return "half";
+    }
+  }).headers.has("Content-Type");
+  return duplexAccessed && !hasContentType;
+});
+var DEFAULT_CHUNK_SIZE = 64 * 1024;
+var supportsResponseStream = isReadableStreamSupported && test(() => utils_default.isReadableStream(new Response("").body));
+var resolvers = {
+  stream: supportsResponseStream && ((res) => res.body)
+};
+isFetchSupported && ((res) => {
+  ["text", "arrayBuffer", "blob", "formData", "stream"].forEach((type) => {
+    !resolvers[type] && (resolvers[type] = utils_default.isFunction(res[type]) ? (res2) => res2[type]() : (_, config) => {
+      throw new AxiosError_default(`Response type '${type}' is not supported`, AxiosError_default.ERR_NOT_SUPPORT, config);
+    });
+  });
+})(new Response());
+var getBodyLength = async (body) => {
+  if (body == null) {
+    return 0;
+  }
+  if (utils_default.isBlob(body)) {
+    return body.size;
+  }
+  if (utils_default.isSpecCompliantForm(body)) {
+    return (await new Request(body).arrayBuffer()).byteLength;
+  }
+  if (utils_default.isArrayBufferView(body) || utils_default.isArrayBuffer(body)) {
+    return body.byteLength;
+  }
+  if (utils_default.isURLSearchParams(body)) {
+    body = body + "";
+  }
+  if (utils_default.isString(body)) {
+    return (await encodeText(body)).byteLength;
+  }
+};
+var resolveBodyLength = async (headers, body) => {
+  const length = utils_default.toFiniteNumber(headers.getContentLength());
+  return length == null ? getBodyLength(body) : length;
+};
+var fetch_default = isFetchSupported && (async (config) => {
+  let {
+    url: url2,
+    method,
+    data,
+    signal,
+    cancelToken,
+    timeout,
+    onDownloadProgress,
+    onUploadProgress,
+    responseType,
+    headers,
+    withCredentials = "same-origin",
+    fetchOptions
+  } = resolveConfig_default(config);
+  responseType = responseType ? (responseType + "").toLowerCase() : "text";
+  let [composedSignal, stopTimeout] = signal || cancelToken || timeout ? composeSignals_default([signal, cancelToken], timeout) : [];
+  let finished, request;
+  const onFinish = () => {
+    !finished && setTimeout(() => {
+      composedSignal && composedSignal.unsubscribe();
+    });
+    finished = true;
+  };
+  let requestContentLength;
+  try {
+    if (onUploadProgress && supportsRequestStream && method !== "get" && method !== "head" && (requestContentLength = await resolveBodyLength(headers, data)) !== 0) {
+      let _request = new Request(url2, {
+        method: "POST",
+        body: data,
+        duplex: "half"
+      });
+      let contentTypeHeader;
+      if (utils_default.isFormData(data) && (contentTypeHeader = _request.headers.get("content-type"))) {
+        headers.setContentType(contentTypeHeader);
+      }
+      if (_request.body) {
+        const [onProgress, flush] = progressEventDecorator(
+          requestContentLength,
+          progressEventReducer(asyncDecorator(onUploadProgress))
+        );
+        data = trackStream(_request.body, DEFAULT_CHUNK_SIZE, onProgress, flush, encodeText);
+      }
+    }
+    if (!utils_default.isString(withCredentials)) {
+      withCredentials = withCredentials ? "include" : "omit";
+    }
+    const isCredentialsSupported = "credentials" in Request.prototype;
+    request = new Request(url2, {
+      ...fetchOptions,
+      signal: composedSignal,
+      method: method.toUpperCase(),
+      headers: headers.normalize().toJSON(),
+      body: data,
+      duplex: "half",
+      credentials: isCredentialsSupported ? withCredentials : void 0
+    });
+    let response = await fetch(request);
+    const isStreamResponse = supportsResponseStream && (responseType === "stream" || responseType === "response");
+    if (supportsResponseStream && (onDownloadProgress || isStreamResponse)) {
+      const options = {};
+      ["status", "statusText", "headers"].forEach((prop) => {
+        options[prop] = response[prop];
+      });
+      const responseContentLength = utils_default.toFiniteNumber(response.headers.get("content-length"));
+      const [onProgress, flush] = onDownloadProgress && progressEventDecorator(
+        responseContentLength,
+        progressEventReducer(asyncDecorator(onDownloadProgress), true)
+      ) || [];
+      response = new Response(
+        trackStream(response.body, DEFAULT_CHUNK_SIZE, onProgress, () => {
+          flush && flush();
+          isStreamResponse && onFinish();
+        }, encodeText),
+        options
+      );
+    }
+    responseType = responseType || "text";
+    let responseData = await resolvers[utils_default.findKey(resolvers, responseType) || "text"](response, config);
+    !isStreamResponse && onFinish();
+    stopTimeout && stopTimeout();
+    return await new Promise((resolve, reject) => {
+      settle(resolve, reject, {
+        data: responseData,
+        headers: AxiosHeaders_default.from(response.headers),
+        status: response.status,
+        statusText: response.statusText,
+        config,
+        request
+      });
+    });
+  } catch (err) {
+    onFinish();
+    if (err && err.name === "TypeError" && /fetch/i.test(err.message)) {
+      throw Object.assign(
+        new AxiosError_default("Network Error", AxiosError_default.ERR_NETWORK, config, request),
+        {
+          cause: err.cause || err
+        }
+      );
+    }
+    throw AxiosError_default.from(err, err && err.code, config, request);
+  }
+});
+
 // node_modules/axios/lib/adapters/adapters.js
 var knownAdapters = {
   http: http_default,
-  xhr: xhr_default
+  xhr: xhr_default,
+  fetch: fetch_default
 };
 utils_default.forEach(knownAdapters, (fn, value) => {
   if (fn) {
@@ -15149,85 +15934,6 @@ function dispatchRequest(config) {
   });
 }
 
-// node_modules/axios/lib/core/mergeConfig.js
-var headersToObject = (thing) => thing instanceof AxiosHeaders_default ? thing.toJSON() : thing;
-function mergeConfig(config1, config2) {
-  config2 = config2 || {};
-  const config = {};
-  function getMergedValue(target, source, caseless) {
-    if (utils_default.isPlainObject(target) && utils_default.isPlainObject(source)) {
-      return utils_default.merge.call({ caseless }, target, source);
-    } else if (utils_default.isPlainObject(source)) {
-      return utils_default.merge({}, source);
-    } else if (utils_default.isArray(source)) {
-      return source.slice();
-    }
-    return source;
-  }
-  function mergeDeepProperties(a, b, caseless) {
-    if (!utils_default.isUndefined(b)) {
-      return getMergedValue(a, b, caseless);
-    } else if (!utils_default.isUndefined(a)) {
-      return getMergedValue(void 0, a, caseless);
-    }
-  }
-  function valueFromConfig2(a, b) {
-    if (!utils_default.isUndefined(b)) {
-      return getMergedValue(void 0, b);
-    }
-  }
-  function defaultToConfig2(a, b) {
-    if (!utils_default.isUndefined(b)) {
-      return getMergedValue(void 0, b);
-    } else if (!utils_default.isUndefined(a)) {
-      return getMergedValue(void 0, a);
-    }
-  }
-  function mergeDirectKeys(a, b, prop) {
-    if (prop in config2) {
-      return getMergedValue(a, b);
-    } else if (prop in config1) {
-      return getMergedValue(void 0, a);
-    }
-  }
-  const mergeMap = {
-    url: valueFromConfig2,
-    method: valueFromConfig2,
-    data: valueFromConfig2,
-    baseURL: defaultToConfig2,
-    transformRequest: defaultToConfig2,
-    transformResponse: defaultToConfig2,
-    paramsSerializer: defaultToConfig2,
-    timeout: defaultToConfig2,
-    timeoutMessage: defaultToConfig2,
-    withCredentials: defaultToConfig2,
-    adapter: defaultToConfig2,
-    responseType: defaultToConfig2,
-    xsrfCookieName: defaultToConfig2,
-    xsrfHeaderName: defaultToConfig2,
-    onUploadProgress: defaultToConfig2,
-    onDownloadProgress: defaultToConfig2,
-    decompress: defaultToConfig2,
-    maxContentLength: defaultToConfig2,
-    maxBodyLength: defaultToConfig2,
-    beforeRedirect: defaultToConfig2,
-    transport: defaultToConfig2,
-    httpAgent: defaultToConfig2,
-    httpsAgent: defaultToConfig2,
-    cancelToken: defaultToConfig2,
-    socketPath: defaultToConfig2,
-    responseEncoding: defaultToConfig2,
-    validateStatus: mergeDirectKeys,
-    headers: (a, b) => mergeDeepProperties(headersToObject(a), headersToObject(b), true)
-  };
-  utils_default.forEach(Object.keys(Object.assign({}, config1, config2)), function computeConfigValue(prop) {
-    const merge2 = mergeMap[prop] || mergeDeepProperties;
-    const configValue = merge2(config1[prop], config2[prop], prop);
-    utils_default.isUndefined(configValue) && merge2 !== mergeDirectKeys || (config[prop] = configValue);
-  });
-  return config;
-}
-
 // node_modules/axios/lib/helpers/validator.js
 var validators = {};
 ["object", "boolean", "number", "function", "string", "symbol"].forEach((type, i) => {
@@ -15296,7 +16002,27 @@ var Axios = class {
       response: new InterceptorManager_default()
     };
   }
-  request(configOrUrl, config) {
+  async request(configOrUrl, config) {
+    try {
+      return await this._request(configOrUrl, config);
+    } catch (err) {
+      if (err instanceof Error) {
+        let dummy;
+        Error.captureStackTrace ? Error.captureStackTrace(dummy = {}) : dummy = new Error();
+        const stack = dummy.stack ? dummy.stack.replace(/^.+\n/, "") : "";
+        try {
+          if (!err.stack) {
+            err.stack = stack;
+          } else if (stack && !String(err.stack).endsWith(stack.replace(/^.+\n.+\n/, ""))) {
+            err.stack += "\n" + stack;
+          }
+        } catch (e) {
+        }
+      }
+      throw err;
+    }
+  }
+  _request(configOrUrl, config) {
     if (typeof configOrUrl === "string") {
       config = config || {};
       config.url = configOrUrl;
@@ -16812,6 +17538,27 @@ ErrorResponseError.attributeTypeMap = [
   }
 ];
 
+// model/eventCallbackHelper.ts
+var crypto = __toESM(require("crypto"));
+var _EventCallbackHelper = class {
+};
+var EventCallbackHelper = _EventCallbackHelper;
+EventCallbackHelper.EVENT_TYPE_ACCOUNT_CALLBACK = "account_callback";
+EventCallbackHelper.EVENT_TYPE_APP_CALLBACK = "app_callback";
+EventCallbackHelper.isValid = (apiKey, eventCallback) => {
+  const hmac = crypto.createHmac("sha256", apiKey);
+  hmac.update(
+    `${eventCallback.event.eventTime}${eventCallback.event.eventType}`
+  );
+  return eventCallback.event.eventHash === hmac.digest("hex").toString();
+};
+EventCallbackHelper.getCallbackType = (eventCallback) => {
+  if (!eventCallback.event.eventMetadata || !eventCallback.event.eventMetadata.reportedForAppId) {
+    return _EventCallbackHelper.EVENT_TYPE_ACCOUNT_CALLBACK;
+  }
+  return _EventCallbackHelper.EVENT_TYPE_APP_CALLBACK;
+};
+
 // model/eventCallbackRequest.ts
 var _EventCallbackRequest = class {
   static getAttributeTypeMap() {
@@ -16945,6 +17692,313 @@ EventCallbackRequestEventMetadata.attributeTypeMap = [
   }
 ];
 
+// model/faxLineAddUserRequest.ts
+var _FaxLineAddUserRequest = class {
+  static getAttributeTypeMap() {
+    return _FaxLineAddUserRequest.attributeTypeMap;
+  }
+  static init(data) {
+    return ObjectSerializer.deserialize(data, "FaxLineAddUserRequest");
+  }
+};
+var FaxLineAddUserRequest = _FaxLineAddUserRequest;
+FaxLineAddUserRequest.discriminator = void 0;
+FaxLineAddUserRequest.attributeTypeMap = [
+  {
+    name: "number",
+    baseName: "number",
+    type: "string"
+  },
+  {
+    name: "accountId",
+    baseName: "account_id",
+    type: "string"
+  },
+  {
+    name: "emailAddress",
+    baseName: "email_address",
+    type: "string"
+  }
+];
+
+// model/faxLineAreaCodeGetCountryEnum.ts
+var FaxLineAreaCodeGetCountryEnum = /* @__PURE__ */ ((FaxLineAreaCodeGetCountryEnum2) => {
+  FaxLineAreaCodeGetCountryEnum2["Ca"] = "CA";
+  FaxLineAreaCodeGetCountryEnum2["Us"] = "US";
+  FaxLineAreaCodeGetCountryEnum2["Uk"] = "UK";
+  return FaxLineAreaCodeGetCountryEnum2;
+})(FaxLineAreaCodeGetCountryEnum || {});
+
+// model/faxLineAreaCodeGetProvinceEnum.ts
+var FaxLineAreaCodeGetProvinceEnum = /* @__PURE__ */ ((FaxLineAreaCodeGetProvinceEnum2) => {
+  FaxLineAreaCodeGetProvinceEnum2["Ab"] = "AB";
+  FaxLineAreaCodeGetProvinceEnum2["Bc"] = "BC";
+  FaxLineAreaCodeGetProvinceEnum2["Mb"] = "MB";
+  FaxLineAreaCodeGetProvinceEnum2["Nb"] = "NB";
+  FaxLineAreaCodeGetProvinceEnum2["Nl"] = "NL";
+  FaxLineAreaCodeGetProvinceEnum2["Nt"] = "NT";
+  FaxLineAreaCodeGetProvinceEnum2["Ns"] = "NS";
+  FaxLineAreaCodeGetProvinceEnum2["Nu"] = "NU";
+  FaxLineAreaCodeGetProvinceEnum2["On"] = "ON";
+  FaxLineAreaCodeGetProvinceEnum2["Pe"] = "PE";
+  FaxLineAreaCodeGetProvinceEnum2["Qc"] = "QC";
+  FaxLineAreaCodeGetProvinceEnum2["Sk"] = "SK";
+  FaxLineAreaCodeGetProvinceEnum2["Yt"] = "YT";
+  return FaxLineAreaCodeGetProvinceEnum2;
+})(FaxLineAreaCodeGetProvinceEnum || {});
+
+// model/faxLineAreaCodeGetResponse.ts
+var _FaxLineAreaCodeGetResponse = class {
+  static getAttributeTypeMap() {
+    return _FaxLineAreaCodeGetResponse.attributeTypeMap;
+  }
+  static init(data) {
+    return ObjectSerializer.deserialize(data, "FaxLineAreaCodeGetResponse");
+  }
+};
+var FaxLineAreaCodeGetResponse = _FaxLineAreaCodeGetResponse;
+FaxLineAreaCodeGetResponse.discriminator = void 0;
+FaxLineAreaCodeGetResponse.attributeTypeMap = [
+  {
+    name: "areaCodes",
+    baseName: "area_codes",
+    type: "Array<number>"
+  }
+];
+
+// model/faxLineAreaCodeGetStateEnum.ts
+var FaxLineAreaCodeGetStateEnum = /* @__PURE__ */ ((FaxLineAreaCodeGetStateEnum2) => {
+  FaxLineAreaCodeGetStateEnum2["Ak"] = "AK";
+  FaxLineAreaCodeGetStateEnum2["Al"] = "AL";
+  FaxLineAreaCodeGetStateEnum2["Ar"] = "AR";
+  FaxLineAreaCodeGetStateEnum2["Az"] = "AZ";
+  FaxLineAreaCodeGetStateEnum2["Ca"] = "CA";
+  FaxLineAreaCodeGetStateEnum2["Co"] = "CO";
+  FaxLineAreaCodeGetStateEnum2["Ct"] = "CT";
+  FaxLineAreaCodeGetStateEnum2["Dc"] = "DC";
+  FaxLineAreaCodeGetStateEnum2["De"] = "DE";
+  FaxLineAreaCodeGetStateEnum2["Fl"] = "FL";
+  FaxLineAreaCodeGetStateEnum2["Ga"] = "GA";
+  FaxLineAreaCodeGetStateEnum2["Hi"] = "HI";
+  FaxLineAreaCodeGetStateEnum2["Ia"] = "IA";
+  FaxLineAreaCodeGetStateEnum2["Id"] = "ID";
+  FaxLineAreaCodeGetStateEnum2["Il"] = "IL";
+  FaxLineAreaCodeGetStateEnum2["In"] = "IN";
+  FaxLineAreaCodeGetStateEnum2["Ks"] = "KS";
+  FaxLineAreaCodeGetStateEnum2["Ky"] = "KY";
+  FaxLineAreaCodeGetStateEnum2["La"] = "LA";
+  FaxLineAreaCodeGetStateEnum2["Ma"] = "MA";
+  FaxLineAreaCodeGetStateEnum2["Md"] = "MD";
+  FaxLineAreaCodeGetStateEnum2["Me"] = "ME";
+  FaxLineAreaCodeGetStateEnum2["Mi"] = "MI";
+  FaxLineAreaCodeGetStateEnum2["Mn"] = "MN";
+  FaxLineAreaCodeGetStateEnum2["Mo"] = "MO";
+  FaxLineAreaCodeGetStateEnum2["Ms"] = "MS";
+  FaxLineAreaCodeGetStateEnum2["Mt"] = "MT";
+  FaxLineAreaCodeGetStateEnum2["Nc"] = "NC";
+  FaxLineAreaCodeGetStateEnum2["Nd"] = "ND";
+  FaxLineAreaCodeGetStateEnum2["Ne"] = "NE";
+  FaxLineAreaCodeGetStateEnum2["Nh"] = "NH";
+  FaxLineAreaCodeGetStateEnum2["Nj"] = "NJ";
+  FaxLineAreaCodeGetStateEnum2["Nm"] = "NM";
+  FaxLineAreaCodeGetStateEnum2["Nv"] = "NV";
+  FaxLineAreaCodeGetStateEnum2["Ny"] = "NY";
+  FaxLineAreaCodeGetStateEnum2["Oh"] = "OH";
+  FaxLineAreaCodeGetStateEnum2["Ok"] = "OK";
+  FaxLineAreaCodeGetStateEnum2["Or"] = "OR";
+  FaxLineAreaCodeGetStateEnum2["Pa"] = "PA";
+  FaxLineAreaCodeGetStateEnum2["Ri"] = "RI";
+  FaxLineAreaCodeGetStateEnum2["Sc"] = "SC";
+  FaxLineAreaCodeGetStateEnum2["Sd"] = "SD";
+  FaxLineAreaCodeGetStateEnum2["Tn"] = "TN";
+  FaxLineAreaCodeGetStateEnum2["Tx"] = "TX";
+  FaxLineAreaCodeGetStateEnum2["Ut"] = "UT";
+  FaxLineAreaCodeGetStateEnum2["Va"] = "VA";
+  FaxLineAreaCodeGetStateEnum2["Vt"] = "VT";
+  FaxLineAreaCodeGetStateEnum2["Wa"] = "WA";
+  FaxLineAreaCodeGetStateEnum2["Wi"] = "WI";
+  FaxLineAreaCodeGetStateEnum2["Wv"] = "WV";
+  FaxLineAreaCodeGetStateEnum2["Wy"] = "WY";
+  return FaxLineAreaCodeGetStateEnum2;
+})(FaxLineAreaCodeGetStateEnum || {});
+
+// model/faxLineCreateRequest.ts
+var _FaxLineCreateRequest = class {
+  static getAttributeTypeMap() {
+    return _FaxLineCreateRequest.attributeTypeMap;
+  }
+  static init(data) {
+    return ObjectSerializer.deserialize(data, "FaxLineCreateRequest");
+  }
+};
+var FaxLineCreateRequest = _FaxLineCreateRequest;
+FaxLineCreateRequest.discriminator = void 0;
+FaxLineCreateRequest.attributeTypeMap = [
+  {
+    name: "areaCode",
+    baseName: "area_code",
+    type: "number"
+  },
+  {
+    name: "country",
+    baseName: "country",
+    type: "FaxLineCreateRequest.CountryEnum"
+  },
+  {
+    name: "city",
+    baseName: "city",
+    type: "string"
+  },
+  {
+    name: "accountId",
+    baseName: "account_id",
+    type: "string"
+  }
+];
+((FaxLineCreateRequest2) => {
+  let CountryEnum;
+  ((CountryEnum2) => {
+    CountryEnum2["Ca"] = "CA";
+    CountryEnum2["Us"] = "US";
+    CountryEnum2["Uk"] = "UK";
+  })(CountryEnum = FaxLineCreateRequest2.CountryEnum || (FaxLineCreateRequest2.CountryEnum = {}));
+})(FaxLineCreateRequest || (FaxLineCreateRequest = {}));
+
+// model/faxLineDeleteRequest.ts
+var _FaxLineDeleteRequest = class {
+  static getAttributeTypeMap() {
+    return _FaxLineDeleteRequest.attributeTypeMap;
+  }
+  static init(data) {
+    return ObjectSerializer.deserialize(data, "FaxLineDeleteRequest");
+  }
+};
+var FaxLineDeleteRequest = _FaxLineDeleteRequest;
+FaxLineDeleteRequest.discriminator = void 0;
+FaxLineDeleteRequest.attributeTypeMap = [
+  {
+    name: "number",
+    baseName: "number",
+    type: "string"
+  }
+];
+
+// model/faxLineListResponse.ts
+var _FaxLineListResponse = class {
+  static getAttributeTypeMap() {
+    return _FaxLineListResponse.attributeTypeMap;
+  }
+  static init(data) {
+    return ObjectSerializer.deserialize(data, "FaxLineListResponse");
+  }
+};
+var FaxLineListResponse = _FaxLineListResponse;
+FaxLineListResponse.discriminator = void 0;
+FaxLineListResponse.attributeTypeMap = [
+  {
+    name: "listInfo",
+    baseName: "list_info",
+    type: "ListInfoResponse"
+  },
+  {
+    name: "faxLines",
+    baseName: "fax_lines",
+    type: "Array<FaxLineResponseFaxLine>"
+  },
+  {
+    name: "warnings",
+    baseName: "warnings",
+    type: "WarningResponse"
+  }
+];
+
+// model/faxLineRemoveUserRequest.ts
+var _FaxLineRemoveUserRequest = class {
+  static getAttributeTypeMap() {
+    return _FaxLineRemoveUserRequest.attributeTypeMap;
+  }
+  static init(data) {
+    return ObjectSerializer.deserialize(data, "FaxLineRemoveUserRequest");
+  }
+};
+var FaxLineRemoveUserRequest = _FaxLineRemoveUserRequest;
+FaxLineRemoveUserRequest.discriminator = void 0;
+FaxLineRemoveUserRequest.attributeTypeMap = [
+  {
+    name: "number",
+    baseName: "number",
+    type: "string"
+  },
+  {
+    name: "accountId",
+    baseName: "account_id",
+    type: "string"
+  },
+  {
+    name: "emailAddress",
+    baseName: "email_address",
+    type: "string"
+  }
+];
+
+// model/faxLineResponse.ts
+var _FaxLineResponse = class {
+  static getAttributeTypeMap() {
+    return _FaxLineResponse.attributeTypeMap;
+  }
+  static init(data) {
+    return ObjectSerializer.deserialize(data, "FaxLineResponse");
+  }
+};
+var FaxLineResponse = _FaxLineResponse;
+FaxLineResponse.discriminator = void 0;
+FaxLineResponse.attributeTypeMap = [
+  {
+    name: "faxLine",
+    baseName: "fax_line",
+    type: "FaxLineResponseFaxLine"
+  },
+  {
+    name: "warnings",
+    baseName: "warnings",
+    type: "WarningResponse"
+  }
+];
+
+// model/faxLineResponseFaxLine.ts
+var _FaxLineResponseFaxLine = class {
+  static getAttributeTypeMap() {
+    return _FaxLineResponseFaxLine.attributeTypeMap;
+  }
+  static init(data) {
+    return ObjectSerializer.deserialize(data, "FaxLineResponseFaxLine");
+  }
+};
+var FaxLineResponseFaxLine = _FaxLineResponseFaxLine;
+FaxLineResponseFaxLine.discriminator = void 0;
+FaxLineResponseFaxLine.attributeTypeMap = [
+  {
+    name: "number",
+    baseName: "number",
+    type: "string"
+  },
+  {
+    name: "createdAt",
+    baseName: "created_at",
+    type: "number"
+  },
+  {
+    name: "updatedAt",
+    baseName: "updated_at",
+    type: "number"
+  },
+  {
+    name: "accounts",
+    baseName: "accounts",
+    type: "Array<AccountResponse>"
+  }
+];
+
 // model/fileResponse.ts
 var _FileResponse = class {
   static getAttributeTypeMap() {
@@ -17021,6 +18075,195 @@ ListInfoResponse.attributeTypeMap = [
     type: "number"
   }
 ];
+
+// model/models.ts
+var primitives = [
+  "string",
+  "boolean",
+  "double",
+  "integer",
+  "long",
+  "float",
+  "number",
+  "any"
+];
+var ObjectSerializer = class {
+  static findCorrectType(data, expectedType) {
+    if (data == void 0) {
+      return expectedType;
+    } else if (primitives.indexOf(expectedType.toLowerCase()) !== -1) {
+      return expectedType;
+    } else if (expectedType === "Date") {
+      return expectedType;
+    } else {
+      if (enumsMap[expectedType]) {
+        return expectedType;
+      }
+      if (!typeMap[expectedType]) {
+        return expectedType;
+      }
+      let discriminatorProperty = typeMap[expectedType].discriminator;
+      let discriminatorValue = data[discriminatorProperty];
+      if (typeMap[expectedType].hasOwnProperty("discriminatorClassName")) {
+        let discriminatorClass = typeMap[expectedType].discriminatorClassName(discriminatorValue);
+        if (discriminatorClass) {
+          return discriminatorClass;
+        }
+      }
+      if (discriminatorProperty == null) {
+        return expectedType;
+      } else {
+        if (data[discriminatorProperty]) {
+          var discriminatorType = data[discriminatorProperty];
+          if (typeMap[discriminatorType]) {
+            return discriminatorType;
+          } else {
+            return expectedType;
+          }
+        } else {
+          return expectedType;
+        }
+      }
+    }
+  }
+  static serialize(data, type) {
+    if (data == void 0) {
+      return data;
+    } else if (primitives.indexOf(type.toLowerCase()) !== -1) {
+      return data;
+    } else if (type.lastIndexOf("Array<", 0) === 0) {
+      let subType = type.replace("Array<", "");
+      subType = subType.substring(0, subType.length - 1);
+      let transformedData = [];
+      for (let index = 0; index < data.length; index++) {
+        let datum = data[index];
+        transformedData.push(ObjectSerializer.serialize(datum, subType));
+      }
+      return transformedData;
+    } else if (type === "Date") {
+      return data.toISOString();
+    } else {
+      if (enumsMap[type]) {
+        return data;
+      }
+      if (!typeMap[type]) {
+        return data;
+      }
+      type = this.findCorrectType(data, type);
+      let attributeTypes = typeMap[type].getAttributeTypeMap();
+      let instance = {};
+      for (let index = 0; index < attributeTypes.length; index++) {
+        let attributeType = attributeTypes[index];
+        let value = ObjectSerializer.serialize(
+          data[attributeType.name],
+          attributeType.type
+        );
+        if (value !== void 0) {
+          instance[attributeType.baseName] = value;
+        }
+      }
+      return instance;
+    }
+  }
+  static deserialize(data, type) {
+    type = ObjectSerializer.findCorrectType(data, type);
+    if (data == void 0) {
+      return data;
+    } else if (primitives.indexOf(type.toLowerCase()) !== -1) {
+      return data;
+    } else if (type.lastIndexOf("Array<", 0) === 0) {
+      let subType = type.replace("Array<", "");
+      subType = subType.substring(0, subType.length - 1);
+      let transformedData = [];
+      for (let index = 0; index < data.length; index++) {
+        let datum = data[index];
+        transformedData.push(ObjectSerializer.deserialize(datum, subType));
+      }
+      return transformedData;
+    } else if (type === "Date") {
+      return new Date(data);
+    } else {
+      if (enumsMap[type]) {
+        return data;
+      }
+      if (!typeMap[type]) {
+        return data;
+      }
+      let instance = new typeMap[type]();
+      let attributeTypes = typeMap[type].getAttributeTypeMap();
+      for (let index = 0; index < attributeTypes.length; index++) {
+        let attributeType = attributeTypes[index];
+        const propertyKey = data[attributeType.baseName] !== void 0 ? attributeType.baseName : attributeType.name;
+        instance[attributeType.name] = ObjectSerializer.deserialize(
+          data[propertyKey],
+          attributeType.type
+        );
+      }
+      return instance;
+    }
+  }
+};
+var HttpBasicAuth = class {
+  constructor() {
+    this.username = "";
+    this.password = "";
+  }
+  applyToRequest(requestOptions) {
+    requestOptions.auth = {
+      username: this.username,
+      password: this.password
+    };
+  }
+};
+var HttpBearerAuth = class {
+  constructor() {
+    this.accessToken = "";
+  }
+  applyToRequest(requestOptions) {
+    if (requestOptions && requestOptions.headers) {
+      const accessToken = typeof this.accessToken === "function" ? this.accessToken() : this.accessToken;
+      requestOptions.headers["Authorization"] = "Bearer " + accessToken;
+    }
+  }
+};
+var ApiKeyAuth = class {
+  constructor(location, paramName) {
+    this.location = location;
+    this.paramName = paramName;
+    this.apiKey = "";
+  }
+  applyToRequest(requestOptions) {
+    if (this.location == "query") {
+      requestOptions.params[this.paramName] = this.apiKey;
+    } else if (this.location == "header" && requestOptions && requestOptions.headers) {
+      requestOptions.headers[this.paramName] = this.apiKey;
+    } else if (this.location == "cookie" && requestOptions && requestOptions.headers) {
+      if (requestOptions.headers["Cookie"]) {
+        requestOptions.headers["Cookie"] += "; " + this.paramName + "=" + encodeURIComponent(this.apiKey);
+      } else {
+        requestOptions.headers["Cookie"] = this.paramName + "=" + encodeURIComponent(this.apiKey);
+      }
+    }
+  }
+};
+var OAuth = class {
+  constructor() {
+    this.accessToken = "";
+  }
+  applyToRequest(requestOptions) {
+    if (requestOptions && requestOptions.headers) {
+      requestOptions.headers["Authorization"] = "Bearer " + this.accessToken;
+    }
+  }
+};
+var VoidAuth = class {
+  constructor() {
+    this.username = "";
+    this.password = "";
+  }
+  applyToRequest(_) {
+  }
+};
 
 // model/oAuthTokenGenerateRequest.ts
 var _OAuthTokenGenerateRequest = class {
@@ -23162,219 +24405,13 @@ WarningResponse.attributeTypeMap = [
   }
 ];
 
-// model/eventCallbackHelper.ts
-var crypto = __toESM(require("crypto"));
-var _EventCallbackHelper = class {
-};
-var EventCallbackHelper = _EventCallbackHelper;
-EventCallbackHelper.EVENT_TYPE_ACCOUNT_CALLBACK = "account_callback";
-EventCallbackHelper.EVENT_TYPE_APP_CALLBACK = "app_callback";
-EventCallbackHelper.isValid = (apiKey, eventCallback) => {
-  const hmac = crypto.createHmac("sha256", apiKey);
-  hmac.update(
-    `${eventCallback.event.eventTime}${eventCallback.event.eventType}`
-  );
-  return eventCallback.event.eventHash === hmac.digest("hex").toString();
-};
-EventCallbackHelper.getCallbackType = (eventCallback) => {
-  if (!eventCallback.event.eventMetadata || !eventCallback.event.eventMetadata.reportedForAppId) {
-    return _EventCallbackHelper.EVENT_TYPE_ACCOUNT_CALLBACK;
-  }
-  return _EventCallbackHelper.EVENT_TYPE_APP_CALLBACK;
-};
-
-// model/models.ts
-var primitives = [
-  "string",
-  "boolean",
-  "double",
-  "integer",
-  "long",
-  "float",
-  "number",
-  "any"
-];
-var ObjectSerializer = class {
-  static findCorrectType(data, expectedType) {
-    if (data == void 0) {
-      return expectedType;
-    } else if (primitives.indexOf(expectedType.toLowerCase()) !== -1) {
-      return expectedType;
-    } else if (expectedType === "Date") {
-      return expectedType;
-    } else {
-      if (enumsMap[expectedType]) {
-        return expectedType;
-      }
-      if (!typeMap[expectedType]) {
-        return expectedType;
-      }
-      let discriminatorProperty = typeMap[expectedType].discriminator;
-      let discriminatorValue = data[discriminatorProperty];
-      if (typeMap[expectedType].hasOwnProperty("discriminatorClassName")) {
-        let discriminatorClass = typeMap[expectedType].discriminatorClassName(discriminatorValue);
-        if (discriminatorClass) {
-          return discriminatorClass;
-        }
-      }
-      if (discriminatorProperty == null) {
-        return expectedType;
-      } else {
-        if (data[discriminatorProperty]) {
-          var discriminatorType = data[discriminatorProperty];
-          if (typeMap[discriminatorType]) {
-            return discriminatorType;
-          } else {
-            return expectedType;
-          }
-        } else {
-          return expectedType;
-        }
-      }
-    }
-  }
-  static serialize(data, type) {
-    if (data == void 0) {
-      return data;
-    } else if (primitives.indexOf(type.toLowerCase()) !== -1) {
-      return data;
-    } else if (type.lastIndexOf("Array<", 0) === 0) {
-      let subType = type.replace("Array<", "");
-      subType = subType.substring(0, subType.length - 1);
-      let transformedData = [];
-      for (let index = 0; index < data.length; index++) {
-        let datum = data[index];
-        transformedData.push(ObjectSerializer.serialize(datum, subType));
-      }
-      return transformedData;
-    } else if (type === "Date") {
-      return data.toISOString();
-    } else {
-      if (enumsMap[type]) {
-        return data;
-      }
-      if (!typeMap[type]) {
-        return data;
-      }
-      type = this.findCorrectType(data, type);
-      let attributeTypes = typeMap[type].getAttributeTypeMap();
-      let instance = {};
-      for (let index = 0; index < attributeTypes.length; index++) {
-        let attributeType = attributeTypes[index];
-        let value = ObjectSerializer.serialize(
-          data[attributeType.name],
-          attributeType.type
-        );
-        if (value !== void 0) {
-          instance[attributeType.baseName] = value;
-        }
-      }
-      return instance;
-    }
-  }
-  static deserialize(data, type) {
-    type = ObjectSerializer.findCorrectType(data, type);
-    if (data == void 0) {
-      return data;
-    } else if (primitives.indexOf(type.toLowerCase()) !== -1) {
-      return data;
-    } else if (type.lastIndexOf("Array<", 0) === 0) {
-      let subType = type.replace("Array<", "");
-      subType = subType.substring(0, subType.length - 1);
-      let transformedData = [];
-      for (let index = 0; index < data.length; index++) {
-        let datum = data[index];
-        transformedData.push(ObjectSerializer.deserialize(datum, subType));
-      }
-      return transformedData;
-    } else if (type === "Date") {
-      return new Date(data);
-    } else {
-      if (enumsMap[type]) {
-        return data;
-      }
-      if (!typeMap[type]) {
-        return data;
-      }
-      let instance = new typeMap[type]();
-      let attributeTypes = typeMap[type].getAttributeTypeMap();
-      for (let index = 0; index < attributeTypes.length; index++) {
-        let attributeType = attributeTypes[index];
-        const propertyKey = data[attributeType.baseName] !== void 0 ? attributeType.baseName : attributeType.name;
-        instance[attributeType.name] = ObjectSerializer.deserialize(
-          data[propertyKey],
-          attributeType.type
-        );
-      }
-      return instance;
-    }
-  }
-};
-var HttpBasicAuth = class {
-  constructor() {
-    this.username = "";
-    this.password = "";
-  }
-  applyToRequest(requestOptions) {
-    requestOptions.auth = {
-      username: this.username,
-      password: this.password
-    };
-  }
-};
-var HttpBearerAuth = class {
-  constructor() {
-    this.accessToken = "";
-  }
-  applyToRequest(requestOptions) {
-    if (requestOptions && requestOptions.headers) {
-      const accessToken = typeof this.accessToken === "function" ? this.accessToken() : this.accessToken;
-      requestOptions.headers["Authorization"] = "Bearer " + accessToken;
-    }
-  }
-};
-var ApiKeyAuth = class {
-  constructor(location, paramName) {
-    this.location = location;
-    this.paramName = paramName;
-    this.apiKey = "";
-  }
-  applyToRequest(requestOptions) {
-    if (this.location == "query") {
-      requestOptions.params[this.paramName] = this.apiKey;
-    } else if (this.location == "header" && requestOptions && requestOptions.headers) {
-      requestOptions.headers[this.paramName] = this.apiKey;
-    } else if (this.location == "cookie" && requestOptions && requestOptions.headers) {
-      if (requestOptions.headers["Cookie"]) {
-        requestOptions.headers["Cookie"] += "; " + this.paramName + "=" + encodeURIComponent(this.apiKey);
-      } else {
-        requestOptions.headers["Cookie"] = this.paramName + "=" + encodeURIComponent(this.apiKey);
-      }
-    }
-  }
-};
-var OAuth = class {
-  constructor() {
-    this.accessToken = "";
-  }
-  applyToRequest(requestOptions) {
-    if (requestOptions && requestOptions.headers) {
-      requestOptions.headers["Authorization"] = "Bearer " + this.accessToken;
-    }
-  }
-};
-var VoidAuth = class {
-  constructor() {
-    this.username = "";
-    this.password = "";
-  }
-  applyToRequest(_) {
-  }
-};
-
 // model/index.ts
 var enumsMap = {
   "EventCallbackRequestEvent.EventTypeEnum": EventCallbackRequestEvent.EventTypeEnum,
+  FaxLineAreaCodeGetCountryEnum,
+  FaxLineAreaCodeGetProvinceEnum,
+  FaxLineAreaCodeGetStateEnum,
+  "FaxLineCreateRequest.CountryEnum": FaxLineCreateRequest.CountryEnum,
   "ReportCreateRequest.ReportTypeEnum": ReportCreateRequest.ReportTypeEnum,
   "ReportResponse.ReportTypeEnum": ReportResponse.ReportTypeEnum,
   SignatureRequestResponseCustomFieldTypeEnum,
@@ -23437,6 +24474,14 @@ var typeMap = {
   EventCallbackRequest,
   EventCallbackRequestEvent,
   EventCallbackRequestEventMetadata,
+  FaxLineAddUserRequest,
+  FaxLineAreaCodeGetResponse,
+  FaxLineCreateRequest,
+  FaxLineDeleteRequest,
+  FaxLineListResponse,
+  FaxLineRemoveUserRequest,
+  FaxLineResponse,
+  FaxLineResponseFaxLine,
   FileResponse,
   FileResponseDataUri,
   ListInfoResponse,
@@ -23578,9 +24623,7 @@ var defaultBasePath = "https://api.hellosign.com/v3";
 var AccountApi = class {
   constructor(basePath) {
     this._basePath = defaultBasePath;
-    this._defaultHeaders = {
-      "User-Agent": USER_AGENT
-    };
+    this._defaultHeaders = { "User-Agent": USER_AGENT };
     this._useQuerystring = false;
     this.authentications = {
       default: new VoidAuth(),
@@ -23599,7 +24642,7 @@ var AccountApi = class {
     this._basePath = basePath;
   }
   set defaultHeaders(defaultHeaders) {
-    this._defaultHeaders = defaultHeaders;
+    this._defaultHeaders = __spreadProps(__spreadValues({}, defaultHeaders), { "User-Agent": USER_AGENT });
   }
   get defaultHeaders() {
     return this._defaultHeaders;
@@ -23627,12 +24670,10 @@ var AccountApi = class {
   }
   accountCreate(_0) {
     return __async(this, arguments, function* (accountCreateRequest, options = { headers: {} }) {
-      if (accountCreateRequest !== null && accountCreateRequest !== void 0 && accountCreateRequest.constructor.name !== "AccountCreateRequest") {
-        accountCreateRequest = ObjectSerializer.deserialize(
-          accountCreateRequest,
-          "AccountCreateRequest"
-        );
-      }
+      accountCreateRequest = deserializeIfNeeded(
+        accountCreateRequest,
+        "AccountCreateRequest"
+      );
       const localVarPath = this.basePath + "/account/create";
       let localVarQueryParameters = {};
       let localVarHeaderParams = Object.assign(
@@ -23706,40 +24747,32 @@ var AccountApi = class {
           (resolve, reject) => {
             axios_default.request(localVarRequestOptions).then(
               (response) => {
-                let body = response.data;
-                if (response.status && response.status >= 200 && response.status <= 299) {
-                  body = ObjectSerializer.deserialize(
-                    body,
-                    "AccountCreateResponse"
-                  );
-                  resolve({ response, body });
-                } else {
-                  reject(new HttpError(response, body, response.status));
-                }
+                handleSuccessfulResponse(
+                  resolve,
+                  reject,
+                  response,
+                  "AccountCreateResponse"
+                );
               },
               (error) => {
                 if (error.response == null) {
                   reject(error);
                   return;
                 }
-                const response = error.response;
-                let body;
-                if (response.status === 200) {
-                  body = ObjectSerializer.deserialize(
-                    response.data,
-                    "AccountCreateResponse"
-                  );
-                  reject(new HttpError(response, body, response.status));
+                if (handleErrorCodeResponse(
+                  reject,
+                  error.response,
+                  200,
+                  "AccountCreateResponse"
+                )) {
                   return;
                 }
-                let rangeCodeLeft = Number("4XX"[0] + "00");
-                let rangeCodeRight = Number("4XX"[0] + "99");
-                if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
-                  body = ObjectSerializer.deserialize(
-                    response.data,
-                    "ErrorResponse"
-                  );
-                  reject(new HttpError(response, body, response.status));
+                if (handleErrorRangeResponse(
+                  reject,
+                  error.response,
+                  "4XX",
+                  "ErrorResponse"
+                )) {
                   return;
                 }
                 reject(error);
@@ -23814,37 +24847,32 @@ var AccountApi = class {
         return new Promise((resolve, reject) => {
           axios_default.request(localVarRequestOptions).then(
             (response) => {
-              let body = response.data;
-              if (response.status && response.status >= 200 && response.status <= 299) {
-                body = ObjectSerializer.deserialize(body, "AccountGetResponse");
-                resolve({ response, body });
-              } else {
-                reject(new HttpError(response, body, response.status));
-              }
+              handleSuccessfulResponse(
+                resolve,
+                reject,
+                response,
+                "AccountGetResponse"
+              );
             },
             (error) => {
               if (error.response == null) {
                 reject(error);
                 return;
               }
-              const response = error.response;
-              let body;
-              if (response.status === 200) {
-                body = ObjectSerializer.deserialize(
-                  response.data,
-                  "AccountGetResponse"
-                );
-                reject(new HttpError(response, body, response.status));
+              if (handleErrorCodeResponse(
+                reject,
+                error.response,
+                200,
+                "AccountGetResponse"
+              )) {
                 return;
               }
-              let rangeCodeLeft = Number("4XX"[0] + "00");
-              let rangeCodeRight = Number("4XX"[0] + "99");
-              if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
-                body = ObjectSerializer.deserialize(
-                  response.data,
-                  "ErrorResponse"
-                );
-                reject(new HttpError(response, body, response.status));
+              if (handleErrorRangeResponse(
+                reject,
+                error.response,
+                "4XX",
+                "ErrorResponse"
+              )) {
                 return;
               }
               reject(error);
@@ -23856,12 +24884,10 @@ var AccountApi = class {
   }
   accountUpdate(_0) {
     return __async(this, arguments, function* (accountUpdateRequest, options = { headers: {} }) {
-      if (accountUpdateRequest !== null && accountUpdateRequest !== void 0 && accountUpdateRequest.constructor.name !== "AccountUpdateRequest") {
-        accountUpdateRequest = ObjectSerializer.deserialize(
-          accountUpdateRequest,
-          "AccountUpdateRequest"
-        );
-      }
+      accountUpdateRequest = deserializeIfNeeded(
+        accountUpdateRequest,
+        "AccountUpdateRequest"
+      );
       const localVarPath = this.basePath + "/account";
       let localVarQueryParameters = {};
       let localVarHeaderParams = Object.assign(
@@ -23934,37 +24960,32 @@ var AccountApi = class {
         return new Promise((resolve, reject) => {
           axios_default.request(localVarRequestOptions).then(
             (response) => {
-              let body = response.data;
-              if (response.status && response.status >= 200 && response.status <= 299) {
-                body = ObjectSerializer.deserialize(body, "AccountGetResponse");
-                resolve({ response, body });
-              } else {
-                reject(new HttpError(response, body, response.status));
-              }
+              handleSuccessfulResponse(
+                resolve,
+                reject,
+                response,
+                "AccountGetResponse"
+              );
             },
             (error) => {
               if (error.response == null) {
                 reject(error);
                 return;
               }
-              const response = error.response;
-              let body;
-              if (response.status === 200) {
-                body = ObjectSerializer.deserialize(
-                  response.data,
-                  "AccountGetResponse"
-                );
-                reject(new HttpError(response, body, response.status));
+              if (handleErrorCodeResponse(
+                reject,
+                error.response,
+                200,
+                "AccountGetResponse"
+              )) {
                 return;
               }
-              let rangeCodeLeft = Number("4XX"[0] + "00");
-              let rangeCodeRight = Number("4XX"[0] + "99");
-              if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
-                body = ObjectSerializer.deserialize(
-                  response.data,
-                  "ErrorResponse"
-                );
-                reject(new HttpError(response, body, response.status));
+              if (handleErrorRangeResponse(
+                reject,
+                error.response,
+                "4XX",
+                "ErrorResponse"
+              )) {
                 return;
               }
               reject(error);
@@ -23976,12 +24997,10 @@ var AccountApi = class {
   }
   accountVerify(_0) {
     return __async(this, arguments, function* (accountVerifyRequest, options = { headers: {} }) {
-      if (accountVerifyRequest !== null && accountVerifyRequest !== void 0 && accountVerifyRequest.constructor.name !== "AccountVerifyRequest") {
-        accountVerifyRequest = ObjectSerializer.deserialize(
-          accountVerifyRequest,
-          "AccountVerifyRequest"
-        );
-      }
+      accountVerifyRequest = deserializeIfNeeded(
+        accountVerifyRequest,
+        "AccountVerifyRequest"
+      );
       const localVarPath = this.basePath + "/account/verify";
       let localVarQueryParameters = {};
       let localVarHeaderParams = Object.assign(
@@ -24055,40 +25074,32 @@ var AccountApi = class {
           (resolve, reject) => {
             axios_default.request(localVarRequestOptions).then(
               (response) => {
-                let body = response.data;
-                if (response.status && response.status >= 200 && response.status <= 299) {
-                  body = ObjectSerializer.deserialize(
-                    body,
-                    "AccountVerifyResponse"
-                  );
-                  resolve({ response, body });
-                } else {
-                  reject(new HttpError(response, body, response.status));
-                }
+                handleSuccessfulResponse(
+                  resolve,
+                  reject,
+                  response,
+                  "AccountVerifyResponse"
+                );
               },
               (error) => {
                 if (error.response == null) {
                   reject(error);
                   return;
                 }
-                const response = error.response;
-                let body;
-                if (response.status === 200) {
-                  body = ObjectSerializer.deserialize(
-                    response.data,
-                    "AccountVerifyResponse"
-                  );
-                  reject(new HttpError(response, body, response.status));
+                if (handleErrorCodeResponse(
+                  reject,
+                  error.response,
+                  200,
+                  "AccountVerifyResponse"
+                )) {
                   return;
                 }
-                let rangeCodeLeft = Number("4XX"[0] + "00");
-                let rangeCodeRight = Number("4XX"[0] + "99");
-                if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
-                  body = ObjectSerializer.deserialize(
-                    response.data,
-                    "ErrorResponse"
-                  );
-                  reject(new HttpError(response, body, response.status));
+                if (handleErrorRangeResponse(
+                  reject,
+                  error.response,
+                  "4XX",
+                  "ErrorResponse"
+                )) {
                   return;
                 }
                 reject(error);
@@ -24100,15 +25111,48 @@ var AccountApi = class {
     });
   }
 };
+function deserializeIfNeeded(obj, classname) {
+  if (obj !== null && obj !== void 0 && obj.constructor.name !== classname) {
+    return ObjectSerializer.deserialize(obj, classname);
+  }
+  return obj;
+}
+function handleSuccessfulResponse(resolve, reject, response, returnType) {
+  let body = response.data;
+  if (response.status && response.status >= 200 && response.status <= 299) {
+    if (returnType) {
+      body = ObjectSerializer.deserialize(body, returnType);
+    }
+    resolve({ response, body });
+  } else {
+    reject(new HttpError(response, body, response.status));
+  }
+}
+function handleErrorCodeResponse(reject, response, code, returnType) {
+  if (response.status !== code) {
+    return false;
+  }
+  const body = ObjectSerializer.deserialize(response.data, returnType);
+  reject(new HttpError(response, body, response.status));
+  return true;
+}
+function handleErrorRangeResponse(reject, response, code, returnType) {
+  let rangeCodeLeft = Number(code[0] + "00");
+  let rangeCodeRight = Number(code[0] + "99");
+  if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
+    const body = ObjectSerializer.deserialize(response.data, returnType);
+    reject(new HttpError(response, body, response.status));
+    return true;
+  }
+  return false;
+}
 
 // api/apiAppApi.ts
 var defaultBasePath2 = "https://api.hellosign.com/v3";
 var ApiAppApi = class {
   constructor(basePath) {
     this._basePath = defaultBasePath2;
-    this._defaultHeaders = {
-      "User-Agent": USER_AGENT
-    };
+    this._defaultHeaders = { "User-Agent": USER_AGENT };
     this._useQuerystring = false;
     this.authentications = {
       default: new VoidAuth(),
@@ -24127,7 +25171,7 @@ var ApiAppApi = class {
     this._basePath = basePath;
   }
   set defaultHeaders(defaultHeaders) {
-    this._defaultHeaders = defaultHeaders;
+    this._defaultHeaders = __spreadProps(__spreadValues({}, defaultHeaders), { "User-Agent": USER_AGENT });
   }
   get defaultHeaders() {
     return this._defaultHeaders;
@@ -24155,12 +25199,10 @@ var ApiAppApi = class {
   }
   apiAppCreate(_0) {
     return __async(this, arguments, function* (apiAppCreateRequest, options = { headers: {} }) {
-      if (apiAppCreateRequest !== null && apiAppCreateRequest !== void 0 && apiAppCreateRequest.constructor.name !== "ApiAppCreateRequest") {
-        apiAppCreateRequest = ObjectSerializer.deserialize(
-          apiAppCreateRequest,
-          "ApiAppCreateRequest"
-        );
-      }
+      apiAppCreateRequest = deserializeIfNeeded2(
+        apiAppCreateRequest,
+        "ApiAppCreateRequest"
+      );
       const localVarPath = this.basePath + "/api_app";
       let localVarQueryParameters = {};
       let localVarHeaderParams = Object.assign(
@@ -24233,37 +25275,32 @@ var ApiAppApi = class {
         return new Promise((resolve, reject) => {
           axios_default.request(localVarRequestOptions).then(
             (response) => {
-              let body = response.data;
-              if (response.status && response.status >= 200 && response.status <= 299) {
-                body = ObjectSerializer.deserialize(body, "ApiAppGetResponse");
-                resolve({ response, body });
-              } else {
-                reject(new HttpError(response, body, response.status));
-              }
+              handleSuccessfulResponse2(
+                resolve,
+                reject,
+                response,
+                "ApiAppGetResponse"
+              );
             },
             (error) => {
               if (error.response == null) {
                 reject(error);
                 return;
               }
-              const response = error.response;
-              let body;
-              if (response.status === 201) {
-                body = ObjectSerializer.deserialize(
-                  response.data,
-                  "ApiAppGetResponse"
-                );
-                reject(new HttpError(response, body, response.status));
+              if (handleErrorCodeResponse2(
+                reject,
+                error.response,
+                201,
+                "ApiAppGetResponse"
+              )) {
                 return;
               }
-              let rangeCodeLeft = Number("4XX"[0] + "00");
-              let rangeCodeRight = Number("4XX"[0] + "99");
-              if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
-                body = ObjectSerializer.deserialize(
-                  response.data,
-                  "ErrorResponse"
-                );
-                reject(new HttpError(response, body, response.status));
+              if (handleErrorRangeResponse2(
+                reject,
+                error.response,
+                "4XX",
+                "ErrorResponse"
+              )) {
                 return;
               }
               reject(error);
@@ -24333,28 +25370,19 @@ var ApiAppApi = class {
         return new Promise((resolve, reject) => {
           axios_default.request(localVarRequestOptions).then(
             (response) => {
-              let body = response.data;
-              if (response.status && response.status >= 200 && response.status <= 299) {
-                resolve({ response, body });
-              } else {
-                reject(new HttpError(response, body, response.status));
-              }
+              handleSuccessfulResponse2(resolve, reject, response);
             },
             (error) => {
               if (error.response == null) {
                 reject(error);
                 return;
               }
-              const response = error.response;
-              let body;
-              let rangeCodeLeft = Number("4XX"[0] + "00");
-              let rangeCodeRight = Number("4XX"[0] + "99");
-              if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
-                body = ObjectSerializer.deserialize(
-                  response.data,
-                  "ErrorResponse"
-                );
-                reject(new HttpError(response, body, response.status));
+              if (handleErrorRangeResponse2(
+                reject,
+                error.response,
+                "4XX",
+                "ErrorResponse"
+              )) {
                 return;
               }
               reject(error);
@@ -24424,37 +25452,32 @@ var ApiAppApi = class {
         return new Promise((resolve, reject) => {
           axios_default.request(localVarRequestOptions).then(
             (response) => {
-              let body = response.data;
-              if (response.status && response.status >= 200 && response.status <= 299) {
-                body = ObjectSerializer.deserialize(body, "ApiAppGetResponse");
-                resolve({ response, body });
-              } else {
-                reject(new HttpError(response, body, response.status));
-              }
+              handleSuccessfulResponse2(
+                resolve,
+                reject,
+                response,
+                "ApiAppGetResponse"
+              );
             },
             (error) => {
               if (error.response == null) {
                 reject(error);
                 return;
               }
-              const response = error.response;
-              let body;
-              if (response.status === 200) {
-                body = ObjectSerializer.deserialize(
-                  response.data,
-                  "ApiAppGetResponse"
-                );
-                reject(new HttpError(response, body, response.status));
+              if (handleErrorCodeResponse2(
+                reject,
+                error.response,
+                200,
+                "ApiAppGetResponse"
+              )) {
                 return;
               }
-              let rangeCodeLeft = Number("4XX"[0] + "00");
-              let rangeCodeRight = Number("4XX"[0] + "99");
-              if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
-                body = ObjectSerializer.deserialize(
-                  response.data,
-                  "ErrorResponse"
-                );
-                reject(new HttpError(response, body, response.status));
+              if (handleErrorRangeResponse2(
+                reject,
+                error.response,
+                "4XX",
+                "ErrorResponse"
+              )) {
                 return;
               }
               reject(error);
@@ -24528,37 +25551,32 @@ var ApiAppApi = class {
         return new Promise((resolve, reject) => {
           axios_default.request(localVarRequestOptions).then(
             (response) => {
-              let body = response.data;
-              if (response.status && response.status >= 200 && response.status <= 299) {
-                body = ObjectSerializer.deserialize(body, "ApiAppListResponse");
-                resolve({ response, body });
-              } else {
-                reject(new HttpError(response, body, response.status));
-              }
+              handleSuccessfulResponse2(
+                resolve,
+                reject,
+                response,
+                "ApiAppListResponse"
+              );
             },
             (error) => {
               if (error.response == null) {
                 reject(error);
                 return;
               }
-              const response = error.response;
-              let body;
-              if (response.status === 200) {
-                body = ObjectSerializer.deserialize(
-                  response.data,
-                  "ApiAppListResponse"
-                );
-                reject(new HttpError(response, body, response.status));
+              if (handleErrorCodeResponse2(
+                reject,
+                error.response,
+                200,
+                "ApiAppListResponse"
+              )) {
                 return;
               }
-              let rangeCodeLeft = Number("4XX"[0] + "00");
-              let rangeCodeRight = Number("4XX"[0] + "99");
-              if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
-                body = ObjectSerializer.deserialize(
-                  response.data,
-                  "ErrorResponse"
-                );
-                reject(new HttpError(response, body, response.status));
+              if (handleErrorRangeResponse2(
+                reject,
+                error.response,
+                "4XX",
+                "ErrorResponse"
+              )) {
                 return;
               }
               reject(error);
@@ -24570,12 +25588,10 @@ var ApiAppApi = class {
   }
   apiAppUpdate(_0, _1) {
     return __async(this, arguments, function* (clientId, apiAppUpdateRequest, options = { headers: {} }) {
-      if (apiAppUpdateRequest !== null && apiAppUpdateRequest !== void 0 && apiAppUpdateRequest.constructor.name !== "ApiAppUpdateRequest") {
-        apiAppUpdateRequest = ObjectSerializer.deserialize(
-          apiAppUpdateRequest,
-          "ApiAppUpdateRequest"
-        );
-      }
+      apiAppUpdateRequest = deserializeIfNeeded2(
+        apiAppUpdateRequest,
+        "ApiAppUpdateRequest"
+      );
       const localVarPath = this.basePath + "/api_app/{client_id}".replace(
         "{client_id}",
         encodeURIComponent(String(clientId))
@@ -24656,37 +25672,32 @@ var ApiAppApi = class {
         return new Promise((resolve, reject) => {
           axios_default.request(localVarRequestOptions).then(
             (response) => {
-              let body = response.data;
-              if (response.status && response.status >= 200 && response.status <= 299) {
-                body = ObjectSerializer.deserialize(body, "ApiAppGetResponse");
-                resolve({ response, body });
-              } else {
-                reject(new HttpError(response, body, response.status));
-              }
+              handleSuccessfulResponse2(
+                resolve,
+                reject,
+                response,
+                "ApiAppGetResponse"
+              );
             },
             (error) => {
               if (error.response == null) {
                 reject(error);
                 return;
               }
-              const response = error.response;
-              let body;
-              if (response.status === 200) {
-                body = ObjectSerializer.deserialize(
-                  response.data,
-                  "ApiAppGetResponse"
-                );
-                reject(new HttpError(response, body, response.status));
+              if (handleErrorCodeResponse2(
+                reject,
+                error.response,
+                200,
+                "ApiAppGetResponse"
+              )) {
                 return;
               }
-              let rangeCodeLeft = Number("4XX"[0] + "00");
-              let rangeCodeRight = Number("4XX"[0] + "99");
-              if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
-                body = ObjectSerializer.deserialize(
-                  response.data,
-                  "ErrorResponse"
-                );
-                reject(new HttpError(response, body, response.status));
+              if (handleErrorRangeResponse2(
+                reject,
+                error.response,
+                "4XX",
+                "ErrorResponse"
+              )) {
                 return;
               }
               reject(error);
@@ -24697,15 +25708,48 @@ var ApiAppApi = class {
     });
   }
 };
+function deserializeIfNeeded2(obj, classname) {
+  if (obj !== null && obj !== void 0 && obj.constructor.name !== classname) {
+    return ObjectSerializer.deserialize(obj, classname);
+  }
+  return obj;
+}
+function handleSuccessfulResponse2(resolve, reject, response, returnType) {
+  let body = response.data;
+  if (response.status && response.status >= 200 && response.status <= 299) {
+    if (returnType) {
+      body = ObjectSerializer.deserialize(body, returnType);
+    }
+    resolve({ response, body });
+  } else {
+    reject(new HttpError(response, body, response.status));
+  }
+}
+function handleErrorCodeResponse2(reject, response, code, returnType) {
+  if (response.status !== code) {
+    return false;
+  }
+  const body = ObjectSerializer.deserialize(response.data, returnType);
+  reject(new HttpError(response, body, response.status));
+  return true;
+}
+function handleErrorRangeResponse2(reject, response, code, returnType) {
+  let rangeCodeLeft = Number(code[0] + "00");
+  let rangeCodeRight = Number(code[0] + "99");
+  if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
+    const body = ObjectSerializer.deserialize(response.data, returnType);
+    reject(new HttpError(response, body, response.status));
+    return true;
+  }
+  return false;
+}
 
 // api/bulkSendJobApi.ts
 var defaultBasePath3 = "https://api.hellosign.com/v3";
 var BulkSendJobApi = class {
   constructor(basePath) {
     this._basePath = defaultBasePath3;
-    this._defaultHeaders = {
-      "User-Agent": USER_AGENT
-    };
+    this._defaultHeaders = { "User-Agent": USER_AGENT };
     this._useQuerystring = false;
     this.authentications = {
       default: new VoidAuth(),
@@ -24724,7 +25768,7 @@ var BulkSendJobApi = class {
     this._basePath = basePath;
   }
   set defaultHeaders(defaultHeaders) {
-    this._defaultHeaders = defaultHeaders;
+    this._defaultHeaders = __spreadProps(__spreadValues({}, defaultHeaders), { "User-Agent": USER_AGENT });
   }
   get defaultHeaders() {
     return this._defaultHeaders;
@@ -24823,40 +25867,32 @@ var BulkSendJobApi = class {
           (resolve, reject) => {
             axios_default.request(localVarRequestOptions).then(
               (response) => {
-                let body = response.data;
-                if (response.status && response.status >= 200 && response.status <= 299) {
-                  body = ObjectSerializer.deserialize(
-                    body,
-                    "BulkSendJobGetResponse"
-                  );
-                  resolve({ response, body });
-                } else {
-                  reject(new HttpError(response, body, response.status));
-                }
+                handleSuccessfulResponse3(
+                  resolve,
+                  reject,
+                  response,
+                  "BulkSendJobGetResponse"
+                );
               },
               (error) => {
                 if (error.response == null) {
                   reject(error);
                   return;
                 }
-                const response = error.response;
-                let body;
-                if (response.status === 200) {
-                  body = ObjectSerializer.deserialize(
-                    response.data,
-                    "BulkSendJobGetResponse"
-                  );
-                  reject(new HttpError(response, body, response.status));
+                if (handleErrorCodeResponse3(
+                  reject,
+                  error.response,
+                  200,
+                  "BulkSendJobGetResponse"
+                )) {
                   return;
                 }
-                let rangeCodeLeft = Number("4XX"[0] + "00");
-                let rangeCodeRight = Number("4XX"[0] + "99");
-                if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
-                  body = ObjectSerializer.deserialize(
-                    response.data,
-                    "ErrorResponse"
-                  );
-                  reject(new HttpError(response, body, response.status));
+                if (handleErrorRangeResponse3(
+                  reject,
+                  error.response,
+                  "4XX",
+                  "ErrorResponse"
+                )) {
                   return;
                 }
                 reject(error);
@@ -24932,40 +25968,32 @@ var BulkSendJobApi = class {
           (resolve, reject) => {
             axios_default.request(localVarRequestOptions).then(
               (response) => {
-                let body = response.data;
-                if (response.status && response.status >= 200 && response.status <= 299) {
-                  body = ObjectSerializer.deserialize(
-                    body,
-                    "BulkSendJobListResponse"
-                  );
-                  resolve({ response, body });
-                } else {
-                  reject(new HttpError(response, body, response.status));
-                }
+                handleSuccessfulResponse3(
+                  resolve,
+                  reject,
+                  response,
+                  "BulkSendJobListResponse"
+                );
               },
               (error) => {
                 if (error.response == null) {
                   reject(error);
                   return;
                 }
-                const response = error.response;
-                let body;
-                if (response.status === 200) {
-                  body = ObjectSerializer.deserialize(
-                    response.data,
-                    "BulkSendJobListResponse"
-                  );
-                  reject(new HttpError(response, body, response.status));
+                if (handleErrorCodeResponse3(
+                  reject,
+                  error.response,
+                  200,
+                  "BulkSendJobListResponse"
+                )) {
                   return;
                 }
-                let rangeCodeLeft = Number("4XX"[0] + "00");
-                let rangeCodeRight = Number("4XX"[0] + "99");
-                if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
-                  body = ObjectSerializer.deserialize(
-                    response.data,
-                    "ErrorResponse"
-                  );
-                  reject(new HttpError(response, body, response.status));
+                if (handleErrorRangeResponse3(
+                  reject,
+                  error.response,
+                  "4XX",
+                  "ErrorResponse"
+                )) {
                   return;
                 }
                 reject(error);
@@ -24977,15 +26005,42 @@ var BulkSendJobApi = class {
     });
   }
 };
+function handleSuccessfulResponse3(resolve, reject, response, returnType) {
+  let body = response.data;
+  if (response.status && response.status >= 200 && response.status <= 299) {
+    if (returnType) {
+      body = ObjectSerializer.deserialize(body, returnType);
+    }
+    resolve({ response, body });
+  } else {
+    reject(new HttpError(response, body, response.status));
+  }
+}
+function handleErrorCodeResponse3(reject, response, code, returnType) {
+  if (response.status !== code) {
+    return false;
+  }
+  const body = ObjectSerializer.deserialize(response.data, returnType);
+  reject(new HttpError(response, body, response.status));
+  return true;
+}
+function handleErrorRangeResponse3(reject, response, code, returnType) {
+  let rangeCodeLeft = Number(code[0] + "00");
+  let rangeCodeRight = Number(code[0] + "99");
+  if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
+    const body = ObjectSerializer.deserialize(response.data, returnType);
+    reject(new HttpError(response, body, response.status));
+    return true;
+  }
+  return false;
+}
 
 // api/embeddedApi.ts
 var defaultBasePath4 = "https://api.hellosign.com/v3";
 var EmbeddedApi = class {
   constructor(basePath) {
     this._basePath = defaultBasePath4;
-    this._defaultHeaders = {
-      "User-Agent": USER_AGENT
-    };
+    this._defaultHeaders = { "User-Agent": USER_AGENT };
     this._useQuerystring = false;
     this.authentications = {
       default: new VoidAuth(),
@@ -25004,7 +26059,7 @@ var EmbeddedApi = class {
     this._basePath = basePath;
   }
   set defaultHeaders(defaultHeaders) {
-    this._defaultHeaders = defaultHeaders;
+    this._defaultHeaders = __spreadProps(__spreadValues({}, defaultHeaders), { "User-Agent": USER_AGENT });
   }
   get defaultHeaders() {
     return this._defaultHeaders;
@@ -25032,12 +26087,10 @@ var EmbeddedApi = class {
   }
   embeddedEditUrl(_0, _1) {
     return __async(this, arguments, function* (templateId, embeddedEditUrlRequest, options = { headers: {} }) {
-      if (embeddedEditUrlRequest !== null && embeddedEditUrlRequest !== void 0 && embeddedEditUrlRequest.constructor.name !== "EmbeddedEditUrlRequest") {
-        embeddedEditUrlRequest = ObjectSerializer.deserialize(
-          embeddedEditUrlRequest,
-          "EmbeddedEditUrlRequest"
-        );
-      }
+      embeddedEditUrlRequest = deserializeIfNeeded3(
+        embeddedEditUrlRequest,
+        "EmbeddedEditUrlRequest"
+      );
       const localVarPath = this.basePath + "/embedded/edit_url/{template_id}".replace(
         "{template_id}",
         encodeURIComponent(String(templateId))
@@ -25119,40 +26172,32 @@ var EmbeddedApi = class {
           (resolve, reject) => {
             axios_default.request(localVarRequestOptions).then(
               (response) => {
-                let body = response.data;
-                if (response.status && response.status >= 200 && response.status <= 299) {
-                  body = ObjectSerializer.deserialize(
-                    body,
-                    "EmbeddedEditUrlResponse"
-                  );
-                  resolve({ response, body });
-                } else {
-                  reject(new HttpError(response, body, response.status));
-                }
+                handleSuccessfulResponse4(
+                  resolve,
+                  reject,
+                  response,
+                  "EmbeddedEditUrlResponse"
+                );
               },
               (error) => {
                 if (error.response == null) {
                   reject(error);
                   return;
                 }
-                const response = error.response;
-                let body;
-                if (response.status === 200) {
-                  body = ObjectSerializer.deserialize(
-                    response.data,
-                    "EmbeddedEditUrlResponse"
-                  );
-                  reject(new HttpError(response, body, response.status));
+                if (handleErrorCodeResponse4(
+                  reject,
+                  error.response,
+                  200,
+                  "EmbeddedEditUrlResponse"
+                )) {
                   return;
                 }
-                let rangeCodeLeft = Number("4XX"[0] + "00");
-                let rangeCodeRight = Number("4XX"[0] + "99");
-                if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
-                  body = ObjectSerializer.deserialize(
-                    response.data,
-                    "ErrorResponse"
-                  );
-                  reject(new HttpError(response, body, response.status));
+                if (handleErrorRangeResponse4(
+                  reject,
+                  error.response,
+                  "4XX",
+                  "ErrorResponse"
+                )) {
                   return;
                 }
                 reject(error);
@@ -25224,40 +26269,32 @@ var EmbeddedApi = class {
           (resolve, reject) => {
             axios_default.request(localVarRequestOptions).then(
               (response) => {
-                let body = response.data;
-                if (response.status && response.status >= 200 && response.status <= 299) {
-                  body = ObjectSerializer.deserialize(
-                    body,
-                    "EmbeddedSignUrlResponse"
-                  );
-                  resolve({ response, body });
-                } else {
-                  reject(new HttpError(response, body, response.status));
-                }
+                handleSuccessfulResponse4(
+                  resolve,
+                  reject,
+                  response,
+                  "EmbeddedSignUrlResponse"
+                );
               },
               (error) => {
                 if (error.response == null) {
                   reject(error);
                   return;
                 }
-                const response = error.response;
-                let body;
-                if (response.status === 200) {
-                  body = ObjectSerializer.deserialize(
-                    response.data,
-                    "EmbeddedSignUrlResponse"
-                  );
-                  reject(new HttpError(response, body, response.status));
+                if (handleErrorCodeResponse4(
+                  reject,
+                  error.response,
+                  200,
+                  "EmbeddedSignUrlResponse"
+                )) {
                   return;
                 }
-                let rangeCodeLeft = Number("4XX"[0] + "00");
-                let rangeCodeRight = Number("4XX"[0] + "99");
-                if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
-                  body = ObjectSerializer.deserialize(
-                    response.data,
-                    "ErrorResponse"
-                  );
-                  reject(new HttpError(response, body, response.status));
+                if (handleErrorRangeResponse4(
+                  reject,
+                  error.response,
+                  "4XX",
+                  "ErrorResponse"
+                )) {
                   return;
                 }
                 reject(error);
@@ -25269,15 +26306,48 @@ var EmbeddedApi = class {
     });
   }
 };
+function deserializeIfNeeded3(obj, classname) {
+  if (obj !== null && obj !== void 0 && obj.constructor.name !== classname) {
+    return ObjectSerializer.deserialize(obj, classname);
+  }
+  return obj;
+}
+function handleSuccessfulResponse4(resolve, reject, response, returnType) {
+  let body = response.data;
+  if (response.status && response.status >= 200 && response.status <= 299) {
+    if (returnType) {
+      body = ObjectSerializer.deserialize(body, returnType);
+    }
+    resolve({ response, body });
+  } else {
+    reject(new HttpError(response, body, response.status));
+  }
+}
+function handleErrorCodeResponse4(reject, response, code, returnType) {
+  if (response.status !== code) {
+    return false;
+  }
+  const body = ObjectSerializer.deserialize(response.data, returnType);
+  reject(new HttpError(response, body, response.status));
+  return true;
+}
+function handleErrorRangeResponse4(reject, response, code, returnType) {
+  let rangeCodeLeft = Number(code[0] + "00");
+  let rangeCodeRight = Number(code[0] + "99");
+  if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
+    const body = ObjectSerializer.deserialize(response.data, returnType);
+    reject(new HttpError(response, body, response.status));
+    return true;
+  }
+  return false;
+}
 
-// api/oAuthApi.ts
-var defaultBasePath5 = "https://app.hellosign.com";
-var OAuthApi = class {
+// api/faxLineApi.ts
+var defaultBasePath5 = "https://api.hellosign.com/v3";
+var FaxLineApi = class {
   constructor(basePath) {
     this._basePath = defaultBasePath5;
-    this._defaultHeaders = {
-      "User-Agent": USER_AGENT
-    };
+    this._defaultHeaders = { "User-Agent": USER_AGENT };
     this._useQuerystring = false;
     this.authentications = {
       default: new VoidAuth(),
@@ -25296,7 +26366,827 @@ var OAuthApi = class {
     this._basePath = basePath;
   }
   set defaultHeaders(defaultHeaders) {
-    this._defaultHeaders = defaultHeaders;
+    this._defaultHeaders = __spreadProps(__spreadValues({}, defaultHeaders), { "User-Agent": USER_AGENT });
+  }
+  get defaultHeaders() {
+    return this._defaultHeaders;
+  }
+  get basePath() {
+    return this._basePath;
+  }
+  setDefaultAuthentication(auth) {
+    this.authentications.default = auth;
+  }
+  setApiKey(key) {
+    this.authentications.api_key.username = key;
+  }
+  set username(username) {
+    this.authentications.api_key.username = username;
+  }
+  set password(password) {
+    this.authentications.api_key.password = password;
+  }
+  set accessToken(accessToken) {
+    this.authentications.oauth2.accessToken = accessToken;
+  }
+  addInterceptor(interceptor) {
+    this.interceptors.push(interceptor);
+  }
+  faxLineAddUser(_0) {
+    return __async(this, arguments, function* (faxLineAddUserRequest, options = { headers: {} }) {
+      faxLineAddUserRequest = deserializeIfNeeded4(
+        faxLineAddUserRequest,
+        "FaxLineAddUserRequest"
+      );
+      const localVarPath = this.basePath + "/fax_line/add_user";
+      let localVarQueryParameters = {};
+      let localVarHeaderParams = Object.assign(
+        {},
+        this._defaultHeaders
+      );
+      const produces = ["application/json"];
+      if (produces.indexOf("application/json") >= 0) {
+        localVarHeaderParams["content-type"] = "application/json";
+      } else {
+        localVarHeaderParams["content-type"] = produces.join(",");
+      }
+      let localVarFormParams = {};
+      let localVarBodyParams = void 0;
+      if (faxLineAddUserRequest === null || faxLineAddUserRequest === void 0) {
+        throw new Error(
+          "Required parameter faxLineAddUserRequest was null or undefined when calling faxLineAddUser."
+        );
+      }
+      Object.assign(localVarHeaderParams, options.headers);
+      let localVarUseFormData = false;
+      const result = generateFormData(
+        faxLineAddUserRequest,
+        FaxLineAddUserRequest.attributeTypeMap
+      );
+      localVarUseFormData = result.localVarUseFormData;
+      let data = {};
+      if (localVarUseFormData) {
+        const formData2 = toFormData3(result.data);
+        data = formData2;
+        localVarHeaderParams = __spreadValues(__spreadValues({}, localVarHeaderParams), formData2.getHeaders());
+      } else {
+        data = ObjectSerializer.serialize(
+          faxLineAddUserRequest,
+          "FaxLineAddUserRequest"
+        );
+      }
+      let localVarRequestOptions = {
+        method: "PUT",
+        params: localVarQueryParameters,
+        headers: localVarHeaderParams,
+        url: localVarPath,
+        paramsSerializer: this._useQuerystring ? queryParamsSerializer : void 0,
+        maxContentLength: Infinity,
+        maxBodyLength: Infinity,
+        responseType: "json",
+        data
+      };
+      let authenticationPromise = Promise.resolve();
+      if (this.authentications.api_key.username) {
+        authenticationPromise = authenticationPromise.then(
+          () => this.authentications.api_key.applyToRequest(localVarRequestOptions)
+        );
+      }
+      authenticationPromise = authenticationPromise.then(
+        () => this.authentications.default.applyToRequest(localVarRequestOptions)
+      );
+      let interceptorPromise = authenticationPromise;
+      for (const interceptor of this.interceptors) {
+        interceptorPromise = interceptorPromise.then(
+          () => interceptor(localVarRequestOptions)
+        );
+      }
+      return interceptorPromise.then(() => {
+        return new Promise((resolve, reject) => {
+          axios_default.request(localVarRequestOptions).then(
+            (response) => {
+              handleSuccessfulResponse5(
+                resolve,
+                reject,
+                response,
+                "FaxLineResponse"
+              );
+            },
+            (error) => {
+              if (error.response == null) {
+                reject(error);
+                return;
+              }
+              if (handleErrorCodeResponse5(
+                reject,
+                error.response,
+                200,
+                "FaxLineResponse"
+              )) {
+                return;
+              }
+              if (handleErrorRangeResponse5(
+                reject,
+                error.response,
+                "4XX",
+                "ErrorResponse"
+              )) {
+                return;
+              }
+              reject(error);
+            }
+          );
+        });
+      });
+    });
+  }
+  faxLineAreaCodeGet(_0, _1, _2, _3) {
+    return __async(this, arguments, function* (country, state, province, city, options = { headers: {} }) {
+      const localVarPath = this.basePath + "/fax_line/area_codes";
+      let localVarQueryParameters = {};
+      let localVarHeaderParams = Object.assign(
+        {},
+        this._defaultHeaders
+      );
+      const produces = ["application/json"];
+      if (produces.indexOf("application/json") >= 0) {
+        localVarHeaderParams["content-type"] = "application/json";
+      } else {
+        localVarHeaderParams["content-type"] = produces.join(",");
+      }
+      let localVarFormParams = {};
+      let localVarBodyParams = void 0;
+      if (country === null || country === void 0) {
+        throw new Error(
+          "Required parameter country was null or undefined when calling faxLineAreaCodeGet."
+        );
+      }
+      if (country !== void 0) {
+        localVarQueryParameters["country"] = ObjectSerializer.serialize(
+          country,
+          "'CA' | 'US' | 'UK'"
+        );
+      }
+      if (state !== void 0) {
+        localVarQueryParameters["state"] = ObjectSerializer.serialize(
+          state,
+          "'AK' | 'AL' | 'AR' | 'AZ' | 'CA' | 'CO' | 'CT' | 'DC' | 'DE' | 'FL' | 'GA' | 'HI' | 'IA' | 'ID' | 'IL' | 'IN' | 'KS' | 'KY' | 'LA' | 'MA' | 'MD' | 'ME' | 'MI' | 'MN' | 'MO' | 'MS' | 'MT' | 'NC' | 'ND' | 'NE' | 'NH' | 'NJ' | 'NM' | 'NV' | 'NY' | 'OH' | 'OK' | 'OR' | 'PA' | 'RI' | 'SC' | 'SD' | 'TN' | 'TX' | 'UT' | 'VA' | 'VT' | 'WA' | 'WI' | 'WV' | 'WY'"
+        );
+      }
+      if (province !== void 0) {
+        localVarQueryParameters["province"] = ObjectSerializer.serialize(
+          province,
+          "'AB' | 'BC' | 'MB' | 'NB' | 'NL' | 'NT' | 'NS' | 'NU' | 'ON' | 'PE' | 'QC' | 'SK' | 'YT'"
+        );
+      }
+      if (city !== void 0) {
+        localVarQueryParameters["city"] = ObjectSerializer.serialize(
+          city,
+          "string"
+        );
+      }
+      Object.assign(localVarHeaderParams, options.headers);
+      let localVarUseFormData = false;
+      let localVarRequestOptions = {
+        method: "GET",
+        params: localVarQueryParameters,
+        headers: localVarHeaderParams,
+        url: localVarPath,
+        paramsSerializer: this._useQuerystring ? queryParamsSerializer : void 0,
+        maxContentLength: Infinity,
+        maxBodyLength: Infinity,
+        responseType: "json"
+      };
+      let authenticationPromise = Promise.resolve();
+      if (this.authentications.api_key.username) {
+        authenticationPromise = authenticationPromise.then(
+          () => this.authentications.api_key.applyToRequest(localVarRequestOptions)
+        );
+      }
+      authenticationPromise = authenticationPromise.then(
+        () => this.authentications.default.applyToRequest(localVarRequestOptions)
+      );
+      let interceptorPromise = authenticationPromise;
+      for (const interceptor of this.interceptors) {
+        interceptorPromise = interceptorPromise.then(
+          () => interceptor(localVarRequestOptions)
+        );
+      }
+      return interceptorPromise.then(() => {
+        return new Promise(
+          (resolve, reject) => {
+            axios_default.request(localVarRequestOptions).then(
+              (response) => {
+                handleSuccessfulResponse5(
+                  resolve,
+                  reject,
+                  response,
+                  "FaxLineAreaCodeGetResponse"
+                );
+              },
+              (error) => {
+                if (error.response == null) {
+                  reject(error);
+                  return;
+                }
+                if (handleErrorCodeResponse5(
+                  reject,
+                  error.response,
+                  200,
+                  "FaxLineAreaCodeGetResponse"
+                )) {
+                  return;
+                }
+                if (handleErrorRangeResponse5(
+                  reject,
+                  error.response,
+                  "4XX",
+                  "ErrorResponse"
+                )) {
+                  return;
+                }
+                reject(error);
+              }
+            );
+          }
+        );
+      });
+    });
+  }
+  faxLineCreate(_0) {
+    return __async(this, arguments, function* (faxLineCreateRequest, options = { headers: {} }) {
+      faxLineCreateRequest = deserializeIfNeeded4(
+        faxLineCreateRequest,
+        "FaxLineCreateRequest"
+      );
+      const localVarPath = this.basePath + "/fax_line/create";
+      let localVarQueryParameters = {};
+      let localVarHeaderParams = Object.assign(
+        {},
+        this._defaultHeaders
+      );
+      const produces = ["application/json"];
+      if (produces.indexOf("application/json") >= 0) {
+        localVarHeaderParams["content-type"] = "application/json";
+      } else {
+        localVarHeaderParams["content-type"] = produces.join(",");
+      }
+      let localVarFormParams = {};
+      let localVarBodyParams = void 0;
+      if (faxLineCreateRequest === null || faxLineCreateRequest === void 0) {
+        throw new Error(
+          "Required parameter faxLineCreateRequest was null or undefined when calling faxLineCreate."
+        );
+      }
+      Object.assign(localVarHeaderParams, options.headers);
+      let localVarUseFormData = false;
+      const result = generateFormData(
+        faxLineCreateRequest,
+        FaxLineCreateRequest.attributeTypeMap
+      );
+      localVarUseFormData = result.localVarUseFormData;
+      let data = {};
+      if (localVarUseFormData) {
+        const formData2 = toFormData3(result.data);
+        data = formData2;
+        localVarHeaderParams = __spreadValues(__spreadValues({}, localVarHeaderParams), formData2.getHeaders());
+      } else {
+        data = ObjectSerializer.serialize(
+          faxLineCreateRequest,
+          "FaxLineCreateRequest"
+        );
+      }
+      let localVarRequestOptions = {
+        method: "POST",
+        params: localVarQueryParameters,
+        headers: localVarHeaderParams,
+        url: localVarPath,
+        paramsSerializer: this._useQuerystring ? queryParamsSerializer : void 0,
+        maxContentLength: Infinity,
+        maxBodyLength: Infinity,
+        responseType: "json",
+        data
+      };
+      let authenticationPromise = Promise.resolve();
+      if (this.authentications.api_key.username) {
+        authenticationPromise = authenticationPromise.then(
+          () => this.authentications.api_key.applyToRequest(localVarRequestOptions)
+        );
+      }
+      authenticationPromise = authenticationPromise.then(
+        () => this.authentications.default.applyToRequest(localVarRequestOptions)
+      );
+      let interceptorPromise = authenticationPromise;
+      for (const interceptor of this.interceptors) {
+        interceptorPromise = interceptorPromise.then(
+          () => interceptor(localVarRequestOptions)
+        );
+      }
+      return interceptorPromise.then(() => {
+        return new Promise((resolve, reject) => {
+          axios_default.request(localVarRequestOptions).then(
+            (response) => {
+              handleSuccessfulResponse5(
+                resolve,
+                reject,
+                response,
+                "FaxLineResponse"
+              );
+            },
+            (error) => {
+              if (error.response == null) {
+                reject(error);
+                return;
+              }
+              if (handleErrorCodeResponse5(
+                reject,
+                error.response,
+                200,
+                "FaxLineResponse"
+              )) {
+                return;
+              }
+              if (handleErrorRangeResponse5(
+                reject,
+                error.response,
+                "4XX",
+                "ErrorResponse"
+              )) {
+                return;
+              }
+              reject(error);
+            }
+          );
+        });
+      });
+    });
+  }
+  faxLineDelete(_0) {
+    return __async(this, arguments, function* (faxLineDeleteRequest, options = { headers: {} }) {
+      faxLineDeleteRequest = deserializeIfNeeded4(
+        faxLineDeleteRequest,
+        "FaxLineDeleteRequest"
+      );
+      const localVarPath = this.basePath + "/fax_line";
+      let localVarQueryParameters = {};
+      let localVarHeaderParams = Object.assign(
+        {},
+        this._defaultHeaders
+      );
+      const produces = ["application/json"];
+      if (produces.indexOf("application/json") >= 0) {
+        localVarHeaderParams["content-type"] = "application/json";
+      } else {
+        localVarHeaderParams["content-type"] = produces.join(",");
+      }
+      let localVarFormParams = {};
+      let localVarBodyParams = void 0;
+      if (faxLineDeleteRequest === null || faxLineDeleteRequest === void 0) {
+        throw new Error(
+          "Required parameter faxLineDeleteRequest was null or undefined when calling faxLineDelete."
+        );
+      }
+      Object.assign(localVarHeaderParams, options.headers);
+      let localVarUseFormData = false;
+      const result = generateFormData(
+        faxLineDeleteRequest,
+        FaxLineDeleteRequest.attributeTypeMap
+      );
+      localVarUseFormData = result.localVarUseFormData;
+      let data = {};
+      if (localVarUseFormData) {
+        const formData2 = toFormData3(result.data);
+        data = formData2;
+        localVarHeaderParams = __spreadValues(__spreadValues({}, localVarHeaderParams), formData2.getHeaders());
+      } else {
+        data = ObjectSerializer.serialize(
+          faxLineDeleteRequest,
+          "FaxLineDeleteRequest"
+        );
+      }
+      let localVarRequestOptions = {
+        method: "DELETE",
+        params: localVarQueryParameters,
+        headers: localVarHeaderParams,
+        url: localVarPath,
+        paramsSerializer: this._useQuerystring ? queryParamsSerializer : void 0,
+        maxContentLength: Infinity,
+        maxBodyLength: Infinity,
+        responseType: "json",
+        data
+      };
+      let authenticationPromise = Promise.resolve();
+      if (this.authentications.api_key.username) {
+        authenticationPromise = authenticationPromise.then(
+          () => this.authentications.api_key.applyToRequest(localVarRequestOptions)
+        );
+      }
+      authenticationPromise = authenticationPromise.then(
+        () => this.authentications.default.applyToRequest(localVarRequestOptions)
+      );
+      let interceptorPromise = authenticationPromise;
+      for (const interceptor of this.interceptors) {
+        interceptorPromise = interceptorPromise.then(
+          () => interceptor(localVarRequestOptions)
+        );
+      }
+      return interceptorPromise.then(() => {
+        return new Promise((resolve, reject) => {
+          axios_default.request(localVarRequestOptions).then(
+            (response) => {
+              handleSuccessfulResponse5(resolve, reject, response);
+            },
+            (error) => {
+              if (error.response == null) {
+                reject(error);
+                return;
+              }
+              if (handleErrorRangeResponse5(
+                reject,
+                error.response,
+                "4XX",
+                "ErrorResponse"
+              )) {
+                return;
+              }
+              reject(error);
+            }
+          );
+        });
+      });
+    });
+  }
+  faxLineGet(_0) {
+    return __async(this, arguments, function* (number, options = { headers: {} }) {
+      const localVarPath = this.basePath + "/fax_line";
+      let localVarQueryParameters = {};
+      let localVarHeaderParams = Object.assign(
+        {},
+        this._defaultHeaders
+      );
+      const produces = ["application/json"];
+      if (produces.indexOf("application/json") >= 0) {
+        localVarHeaderParams["content-type"] = "application/json";
+      } else {
+        localVarHeaderParams["content-type"] = produces.join(",");
+      }
+      let localVarFormParams = {};
+      let localVarBodyParams = void 0;
+      if (number === null || number === void 0) {
+        throw new Error(
+          "Required parameter number was null or undefined when calling faxLineGet."
+        );
+      }
+      if (number !== void 0) {
+        localVarQueryParameters["number"] = ObjectSerializer.serialize(
+          number,
+          "string"
+        );
+      }
+      Object.assign(localVarHeaderParams, options.headers);
+      let localVarUseFormData = false;
+      let localVarRequestOptions = {
+        method: "GET",
+        params: localVarQueryParameters,
+        headers: localVarHeaderParams,
+        url: localVarPath,
+        paramsSerializer: this._useQuerystring ? queryParamsSerializer : void 0,
+        maxContentLength: Infinity,
+        maxBodyLength: Infinity,
+        responseType: "json"
+      };
+      let authenticationPromise = Promise.resolve();
+      if (this.authentications.api_key.username) {
+        authenticationPromise = authenticationPromise.then(
+          () => this.authentications.api_key.applyToRequest(localVarRequestOptions)
+        );
+      }
+      authenticationPromise = authenticationPromise.then(
+        () => this.authentications.default.applyToRequest(localVarRequestOptions)
+      );
+      let interceptorPromise = authenticationPromise;
+      for (const interceptor of this.interceptors) {
+        interceptorPromise = interceptorPromise.then(
+          () => interceptor(localVarRequestOptions)
+        );
+      }
+      return interceptorPromise.then(() => {
+        return new Promise((resolve, reject) => {
+          axios_default.request(localVarRequestOptions).then(
+            (response) => {
+              handleSuccessfulResponse5(
+                resolve,
+                reject,
+                response,
+                "FaxLineResponse"
+              );
+            },
+            (error) => {
+              if (error.response == null) {
+                reject(error);
+                return;
+              }
+              if (handleErrorCodeResponse5(
+                reject,
+                error.response,
+                200,
+                "FaxLineResponse"
+              )) {
+                return;
+              }
+              if (handleErrorRangeResponse5(
+                reject,
+                error.response,
+                "4XX",
+                "ErrorResponse"
+              )) {
+                return;
+              }
+              reject(error);
+            }
+          );
+        });
+      });
+    });
+  }
+  faxLineList(_0, _1, _2, _3) {
+    return __async(this, arguments, function* (accountId, page, pageSize, showTeamLines, options = { headers: {} }) {
+      const localVarPath = this.basePath + "/fax_line/list";
+      let localVarQueryParameters = {};
+      let localVarHeaderParams = Object.assign(
+        {},
+        this._defaultHeaders
+      );
+      const produces = ["application/json"];
+      if (produces.indexOf("application/json") >= 0) {
+        localVarHeaderParams["content-type"] = "application/json";
+      } else {
+        localVarHeaderParams["content-type"] = produces.join(",");
+      }
+      let localVarFormParams = {};
+      let localVarBodyParams = void 0;
+      if (accountId !== void 0) {
+        localVarQueryParameters["account_id"] = ObjectSerializer.serialize(
+          accountId,
+          "string"
+        );
+      }
+      if (page !== void 0) {
+        localVarQueryParameters["page"] = ObjectSerializer.serialize(
+          page,
+          "number"
+        );
+      }
+      if (pageSize !== void 0) {
+        localVarQueryParameters["page_size"] = ObjectSerializer.serialize(
+          pageSize,
+          "number"
+        );
+      }
+      if (showTeamLines !== void 0) {
+        localVarQueryParameters["show_team_lines"] = ObjectSerializer.serialize(
+          showTeamLines,
+          "boolean"
+        );
+      }
+      Object.assign(localVarHeaderParams, options.headers);
+      let localVarUseFormData = false;
+      let localVarRequestOptions = {
+        method: "GET",
+        params: localVarQueryParameters,
+        headers: localVarHeaderParams,
+        url: localVarPath,
+        paramsSerializer: this._useQuerystring ? queryParamsSerializer : void 0,
+        maxContentLength: Infinity,
+        maxBodyLength: Infinity,
+        responseType: "json"
+      };
+      let authenticationPromise = Promise.resolve();
+      if (this.authentications.api_key.username) {
+        authenticationPromise = authenticationPromise.then(
+          () => this.authentications.api_key.applyToRequest(localVarRequestOptions)
+        );
+      }
+      authenticationPromise = authenticationPromise.then(
+        () => this.authentications.default.applyToRequest(localVarRequestOptions)
+      );
+      let interceptorPromise = authenticationPromise;
+      for (const interceptor of this.interceptors) {
+        interceptorPromise = interceptorPromise.then(
+          () => interceptor(localVarRequestOptions)
+        );
+      }
+      return interceptorPromise.then(() => {
+        return new Promise(
+          (resolve, reject) => {
+            axios_default.request(localVarRequestOptions).then(
+              (response) => {
+                handleSuccessfulResponse5(
+                  resolve,
+                  reject,
+                  response,
+                  "FaxLineListResponse"
+                );
+              },
+              (error) => {
+                if (error.response == null) {
+                  reject(error);
+                  return;
+                }
+                if (handleErrorCodeResponse5(
+                  reject,
+                  error.response,
+                  200,
+                  "FaxLineListResponse"
+                )) {
+                  return;
+                }
+                if (handleErrorRangeResponse5(
+                  reject,
+                  error.response,
+                  "4XX",
+                  "ErrorResponse"
+                )) {
+                  return;
+                }
+                reject(error);
+              }
+            );
+          }
+        );
+      });
+    });
+  }
+  faxLineRemoveUser(_0) {
+    return __async(this, arguments, function* (faxLineRemoveUserRequest, options = { headers: {} }) {
+      faxLineRemoveUserRequest = deserializeIfNeeded4(
+        faxLineRemoveUserRequest,
+        "FaxLineRemoveUserRequest"
+      );
+      const localVarPath = this.basePath + "/fax_line/remove_user";
+      let localVarQueryParameters = {};
+      let localVarHeaderParams = Object.assign(
+        {},
+        this._defaultHeaders
+      );
+      const produces = ["application/json"];
+      if (produces.indexOf("application/json") >= 0) {
+        localVarHeaderParams["content-type"] = "application/json";
+      } else {
+        localVarHeaderParams["content-type"] = produces.join(",");
+      }
+      let localVarFormParams = {};
+      let localVarBodyParams = void 0;
+      if (faxLineRemoveUserRequest === null || faxLineRemoveUserRequest === void 0) {
+        throw new Error(
+          "Required parameter faxLineRemoveUserRequest was null or undefined when calling faxLineRemoveUser."
+        );
+      }
+      Object.assign(localVarHeaderParams, options.headers);
+      let localVarUseFormData = false;
+      const result = generateFormData(
+        faxLineRemoveUserRequest,
+        FaxLineRemoveUserRequest.attributeTypeMap
+      );
+      localVarUseFormData = result.localVarUseFormData;
+      let data = {};
+      if (localVarUseFormData) {
+        const formData2 = toFormData3(result.data);
+        data = formData2;
+        localVarHeaderParams = __spreadValues(__spreadValues({}, localVarHeaderParams), formData2.getHeaders());
+      } else {
+        data = ObjectSerializer.serialize(
+          faxLineRemoveUserRequest,
+          "FaxLineRemoveUserRequest"
+        );
+      }
+      let localVarRequestOptions = {
+        method: "PUT",
+        params: localVarQueryParameters,
+        headers: localVarHeaderParams,
+        url: localVarPath,
+        paramsSerializer: this._useQuerystring ? queryParamsSerializer : void 0,
+        maxContentLength: Infinity,
+        maxBodyLength: Infinity,
+        responseType: "json",
+        data
+      };
+      let authenticationPromise = Promise.resolve();
+      if (this.authentications.api_key.username) {
+        authenticationPromise = authenticationPromise.then(
+          () => this.authentications.api_key.applyToRequest(localVarRequestOptions)
+        );
+      }
+      authenticationPromise = authenticationPromise.then(
+        () => this.authentications.default.applyToRequest(localVarRequestOptions)
+      );
+      let interceptorPromise = authenticationPromise;
+      for (const interceptor of this.interceptors) {
+        interceptorPromise = interceptorPromise.then(
+          () => interceptor(localVarRequestOptions)
+        );
+      }
+      return interceptorPromise.then(() => {
+        return new Promise((resolve, reject) => {
+          axios_default.request(localVarRequestOptions).then(
+            (response) => {
+              handleSuccessfulResponse5(
+                resolve,
+                reject,
+                response,
+                "FaxLineResponse"
+              );
+            },
+            (error) => {
+              if (error.response == null) {
+                reject(error);
+                return;
+              }
+              if (handleErrorCodeResponse5(
+                reject,
+                error.response,
+                200,
+                "FaxLineResponse"
+              )) {
+                return;
+              }
+              if (handleErrorRangeResponse5(
+                reject,
+                error.response,
+                "4XX",
+                "ErrorResponse"
+              )) {
+                return;
+              }
+              reject(error);
+            }
+          );
+        });
+      });
+    });
+  }
+};
+function deserializeIfNeeded4(obj, classname) {
+  if (obj !== null && obj !== void 0 && obj.constructor.name !== classname) {
+    return ObjectSerializer.deserialize(obj, classname);
+  }
+  return obj;
+}
+function handleSuccessfulResponse5(resolve, reject, response, returnType) {
+  let body = response.data;
+  if (response.status && response.status >= 200 && response.status <= 299) {
+    if (returnType) {
+      body = ObjectSerializer.deserialize(body, returnType);
+    }
+    resolve({ response, body });
+  } else {
+    reject(new HttpError(response, body, response.status));
+  }
+}
+function handleErrorCodeResponse5(reject, response, code, returnType) {
+  if (response.status !== code) {
+    return false;
+  }
+  const body = ObjectSerializer.deserialize(response.data, returnType);
+  reject(new HttpError(response, body, response.status));
+  return true;
+}
+function handleErrorRangeResponse5(reject, response, code, returnType) {
+  let rangeCodeLeft = Number(code[0] + "00");
+  let rangeCodeRight = Number(code[0] + "99");
+  if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
+    const body = ObjectSerializer.deserialize(response.data, returnType);
+    reject(new HttpError(response, body, response.status));
+    return true;
+  }
+  return false;
+}
+
+// api/oAuthApi.ts
+var defaultBasePath6 = "https://app.hellosign.com";
+var OAuthApi = class {
+  constructor(basePath) {
+    this._basePath = defaultBasePath6;
+    this._defaultHeaders = { "User-Agent": USER_AGENT };
+    this._useQuerystring = false;
+    this.authentications = {
+      default: new VoidAuth(),
+      api_key: new HttpBasicAuth(),
+      oauth2: new HttpBearerAuth()
+    };
+    this.interceptors = [];
+    if (basePath) {
+      this.basePath = basePath;
+    }
+  }
+  set useQuerystring(value) {
+    this._useQuerystring = value;
+  }
+  set basePath(basePath) {
+    this._basePath = basePath;
+  }
+  set defaultHeaders(defaultHeaders) {
+    this._defaultHeaders = __spreadProps(__spreadValues({}, defaultHeaders), { "User-Agent": USER_AGENT });
   }
   get defaultHeaders() {
     return this._defaultHeaders;
@@ -25324,12 +27214,10 @@ var OAuthApi = class {
   }
   oauthTokenGenerate(_0) {
     return __async(this, arguments, function* (oAuthTokenGenerateRequest, options = { headers: {} }) {
-      if (oAuthTokenGenerateRequest !== null && oAuthTokenGenerateRequest !== void 0 && oAuthTokenGenerateRequest.constructor.name !== "OAuthTokenGenerateRequest") {
-        oAuthTokenGenerateRequest = ObjectSerializer.deserialize(
-          oAuthTokenGenerateRequest,
-          "OAuthTokenGenerateRequest"
-        );
-      }
+      oAuthTokenGenerateRequest = deserializeIfNeeded5(
+        oAuthTokenGenerateRequest,
+        "OAuthTokenGenerateRequest"
+      );
       const localVarPath = this.basePath + "/oauth/token";
       let localVarQueryParameters = {};
       let localVarHeaderParams = Object.assign(
@@ -25392,27 +27280,24 @@ var OAuthApi = class {
         return new Promise((resolve, reject) => {
           axios_default.request(localVarRequestOptions).then(
             (response) => {
-              let body = response.data;
-              if (response.status && response.status >= 200 && response.status <= 299) {
-                body = ObjectSerializer.deserialize(body, "OAuthTokenResponse");
-                resolve({ response, body });
-              } else {
-                reject(new HttpError(response, body, response.status));
-              }
+              handleSuccessfulResponse6(
+                resolve,
+                reject,
+                response,
+                "OAuthTokenResponse"
+              );
             },
             (error) => {
               if (error.response == null) {
                 reject(error);
                 return;
               }
-              const response = error.response;
-              let body;
-              if (response.status === 200) {
-                body = ObjectSerializer.deserialize(
-                  response.data,
-                  "OAuthTokenResponse"
-                );
-                reject(new HttpError(response, body, response.status));
+              if (handleErrorCodeResponse6(
+                reject,
+                error.response,
+                200,
+                "OAuthTokenResponse"
+              )) {
                 return;
               }
               reject(error);
@@ -25424,12 +27309,10 @@ var OAuthApi = class {
   }
   oauthTokenRefresh(_0) {
     return __async(this, arguments, function* (oAuthTokenRefreshRequest, options = { headers: {} }) {
-      if (oAuthTokenRefreshRequest !== null && oAuthTokenRefreshRequest !== void 0 && oAuthTokenRefreshRequest.constructor.name !== "OAuthTokenRefreshRequest") {
-        oAuthTokenRefreshRequest = ObjectSerializer.deserialize(
-          oAuthTokenRefreshRequest,
-          "OAuthTokenRefreshRequest"
-        );
-      }
+      oAuthTokenRefreshRequest = deserializeIfNeeded5(
+        oAuthTokenRefreshRequest,
+        "OAuthTokenRefreshRequest"
+      );
       const localVarPath = this.basePath + "/oauth/token?refresh";
       let localVarQueryParameters = {};
       let localVarHeaderParams = Object.assign(
@@ -25492,27 +27375,24 @@ var OAuthApi = class {
         return new Promise((resolve, reject) => {
           axios_default.request(localVarRequestOptions).then(
             (response) => {
-              let body = response.data;
-              if (response.status && response.status >= 200 && response.status <= 299) {
-                body = ObjectSerializer.deserialize(body, "OAuthTokenResponse");
-                resolve({ response, body });
-              } else {
-                reject(new HttpError(response, body, response.status));
-              }
+              handleSuccessfulResponse6(
+                resolve,
+                reject,
+                response,
+                "OAuthTokenResponse"
+              );
             },
             (error) => {
               if (error.response == null) {
                 reject(error);
                 return;
               }
-              const response = error.response;
-              let body;
-              if (response.status === 200) {
-                body = ObjectSerializer.deserialize(
-                  response.data,
-                  "OAuthTokenResponse"
-                );
-                reject(new HttpError(response, body, response.status));
+              if (handleErrorCodeResponse6(
+                reject,
+                error.response,
+                200,
+                "OAuthTokenResponse"
+              )) {
                 return;
               }
               reject(error);
@@ -25523,15 +27403,38 @@ var OAuthApi = class {
     });
   }
 };
+function deserializeIfNeeded5(obj, classname) {
+  if (obj !== null && obj !== void 0 && obj.constructor.name !== classname) {
+    return ObjectSerializer.deserialize(obj, classname);
+  }
+  return obj;
+}
+function handleSuccessfulResponse6(resolve, reject, response, returnType) {
+  let body = response.data;
+  if (response.status && response.status >= 200 && response.status <= 299) {
+    if (returnType) {
+      body = ObjectSerializer.deserialize(body, returnType);
+    }
+    resolve({ response, body });
+  } else {
+    reject(new HttpError(response, body, response.status));
+  }
+}
+function handleErrorCodeResponse6(reject, response, code, returnType) {
+  if (response.status !== code) {
+    return false;
+  }
+  const body = ObjectSerializer.deserialize(response.data, returnType);
+  reject(new HttpError(response, body, response.status));
+  return true;
+}
 
 // api/reportApi.ts
-var defaultBasePath6 = "https://api.hellosign.com/v3";
+var defaultBasePath7 = "https://api.hellosign.com/v3";
 var ReportApi = class {
   constructor(basePath) {
-    this._basePath = defaultBasePath6;
-    this._defaultHeaders = {
-      "User-Agent": USER_AGENT
-    };
+    this._basePath = defaultBasePath7;
+    this._defaultHeaders = { "User-Agent": USER_AGENT };
     this._useQuerystring = false;
     this.authentications = {
       default: new VoidAuth(),
@@ -25550,7 +27453,7 @@ var ReportApi = class {
     this._basePath = basePath;
   }
   set defaultHeaders(defaultHeaders) {
-    this._defaultHeaders = defaultHeaders;
+    this._defaultHeaders = __spreadProps(__spreadValues({}, defaultHeaders), { "User-Agent": USER_AGENT });
   }
   get defaultHeaders() {
     return this._defaultHeaders;
@@ -25578,12 +27481,10 @@ var ReportApi = class {
   }
   reportCreate(_0) {
     return __async(this, arguments, function* (reportCreateRequest, options = { headers: {} }) {
-      if (reportCreateRequest !== null && reportCreateRequest !== void 0 && reportCreateRequest.constructor.name !== "ReportCreateRequest") {
-        reportCreateRequest = ObjectSerializer.deserialize(
-          reportCreateRequest,
-          "ReportCreateRequest"
-        );
-      }
+      reportCreateRequest = deserializeIfNeeded6(
+        reportCreateRequest,
+        "ReportCreateRequest"
+      );
       const localVarPath = this.basePath + "/report/create";
       let localVarQueryParameters = {};
       let localVarHeaderParams = Object.assign(
@@ -25652,40 +27553,32 @@ var ReportApi = class {
           (resolve, reject) => {
             axios_default.request(localVarRequestOptions).then(
               (response) => {
-                let body = response.data;
-                if (response.status && response.status >= 200 && response.status <= 299) {
-                  body = ObjectSerializer.deserialize(
-                    body,
-                    "ReportCreateResponse"
-                  );
-                  resolve({ response, body });
-                } else {
-                  reject(new HttpError(response, body, response.status));
-                }
+                handleSuccessfulResponse7(
+                  resolve,
+                  reject,
+                  response,
+                  "ReportCreateResponse"
+                );
               },
               (error) => {
                 if (error.response == null) {
                   reject(error);
                   return;
                 }
-                const response = error.response;
-                let body;
-                if (response.status === 200) {
-                  body = ObjectSerializer.deserialize(
-                    response.data,
-                    "ReportCreateResponse"
-                  );
-                  reject(new HttpError(response, body, response.status));
+                if (handleErrorCodeResponse7(
+                  reject,
+                  error.response,
+                  200,
+                  "ReportCreateResponse"
+                )) {
                   return;
                 }
-                let rangeCodeLeft = Number("4XX"[0] + "00");
-                let rangeCodeRight = Number("4XX"[0] + "99");
-                if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
-                  body = ObjectSerializer.deserialize(
-                    response.data,
-                    "ErrorResponse"
-                  );
-                  reject(new HttpError(response, body, response.status));
+                if (handleErrorRangeResponse6(
+                  reject,
+                  error.response,
+                  "4XX",
+                  "ErrorResponse"
+                )) {
                   return;
                 }
                 reject(error);
@@ -25697,15 +27590,48 @@ var ReportApi = class {
     });
   }
 };
+function deserializeIfNeeded6(obj, classname) {
+  if (obj !== null && obj !== void 0 && obj.constructor.name !== classname) {
+    return ObjectSerializer.deserialize(obj, classname);
+  }
+  return obj;
+}
+function handleSuccessfulResponse7(resolve, reject, response, returnType) {
+  let body = response.data;
+  if (response.status && response.status >= 200 && response.status <= 299) {
+    if (returnType) {
+      body = ObjectSerializer.deserialize(body, returnType);
+    }
+    resolve({ response, body });
+  } else {
+    reject(new HttpError(response, body, response.status));
+  }
+}
+function handleErrorCodeResponse7(reject, response, code, returnType) {
+  if (response.status !== code) {
+    return false;
+  }
+  const body = ObjectSerializer.deserialize(response.data, returnType);
+  reject(new HttpError(response, body, response.status));
+  return true;
+}
+function handleErrorRangeResponse6(reject, response, code, returnType) {
+  let rangeCodeLeft = Number(code[0] + "00");
+  let rangeCodeRight = Number(code[0] + "99");
+  if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
+    const body = ObjectSerializer.deserialize(response.data, returnType);
+    reject(new HttpError(response, body, response.status));
+    return true;
+  }
+  return false;
+}
 
 // api/signatureRequestApi.ts
-var defaultBasePath7 = "https://api.hellosign.com/v3";
+var defaultBasePath8 = "https://api.hellosign.com/v3";
 var SignatureRequestApi = class {
   constructor(basePath) {
-    this._basePath = defaultBasePath7;
-    this._defaultHeaders = {
-      "User-Agent": USER_AGENT
-    };
+    this._basePath = defaultBasePath8;
+    this._defaultHeaders = { "User-Agent": USER_AGENT };
     this._useQuerystring = false;
     this.authentications = {
       default: new VoidAuth(),
@@ -25724,7 +27650,7 @@ var SignatureRequestApi = class {
     this._basePath = basePath;
   }
   set defaultHeaders(defaultHeaders) {
-    this._defaultHeaders = defaultHeaders;
+    this._defaultHeaders = __spreadProps(__spreadValues({}, defaultHeaders), { "User-Agent": USER_AGENT });
   }
   get defaultHeaders() {
     return this._defaultHeaders;
@@ -25752,12 +27678,10 @@ var SignatureRequestApi = class {
   }
   signatureRequestBulkCreateEmbeddedWithTemplate(_0) {
     return __async(this, arguments, function* (signatureRequestBulkCreateEmbeddedWithTemplateRequest, options = { headers: {} }) {
-      if (signatureRequestBulkCreateEmbeddedWithTemplateRequest !== null && signatureRequestBulkCreateEmbeddedWithTemplateRequest !== void 0 && signatureRequestBulkCreateEmbeddedWithTemplateRequest.constructor.name !== "SignatureRequestBulkCreateEmbeddedWithTemplateRequest") {
-        signatureRequestBulkCreateEmbeddedWithTemplateRequest = ObjectSerializer.deserialize(
-          signatureRequestBulkCreateEmbeddedWithTemplateRequest,
-          "SignatureRequestBulkCreateEmbeddedWithTemplateRequest"
-        );
-      }
+      signatureRequestBulkCreateEmbeddedWithTemplateRequest = deserializeIfNeeded7(
+        signatureRequestBulkCreateEmbeddedWithTemplateRequest,
+        "SignatureRequestBulkCreateEmbeddedWithTemplateRequest"
+      );
       const localVarPath = this.basePath + "/signature_request/bulk_create_embedded_with_template";
       let localVarQueryParameters = {};
       let localVarHeaderParams = Object.assign(
@@ -25826,40 +27750,32 @@ var SignatureRequestApi = class {
           (resolve, reject) => {
             axios_default.request(localVarRequestOptions).then(
               (response) => {
-                let body = response.data;
-                if (response.status && response.status >= 200 && response.status <= 299) {
-                  body = ObjectSerializer.deserialize(
-                    body,
-                    "BulkSendJobSendResponse"
-                  );
-                  resolve({ response, body });
-                } else {
-                  reject(new HttpError(response, body, response.status));
-                }
+                handleSuccessfulResponse8(
+                  resolve,
+                  reject,
+                  response,
+                  "BulkSendJobSendResponse"
+                );
               },
               (error) => {
                 if (error.response == null) {
                   reject(error);
                   return;
                 }
-                const response = error.response;
-                let body;
-                if (response.status === 200) {
-                  body = ObjectSerializer.deserialize(
-                    response.data,
-                    "BulkSendJobSendResponse"
-                  );
-                  reject(new HttpError(response, body, response.status));
+                if (handleErrorCodeResponse8(
+                  reject,
+                  error.response,
+                  200,
+                  "BulkSendJobSendResponse"
+                )) {
                   return;
                 }
-                let rangeCodeLeft = Number("4XX"[0] + "00");
-                let rangeCodeRight = Number("4XX"[0] + "99");
-                if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
-                  body = ObjectSerializer.deserialize(
-                    response.data,
-                    "ErrorResponse"
-                  );
-                  reject(new HttpError(response, body, response.status));
+                if (handleErrorRangeResponse7(
+                  reject,
+                  error.response,
+                  "4XX",
+                  "ErrorResponse"
+                )) {
                   return;
                 }
                 reject(error);
@@ -25872,12 +27788,10 @@ var SignatureRequestApi = class {
   }
   signatureRequestBulkSendWithTemplate(_0) {
     return __async(this, arguments, function* (signatureRequestBulkSendWithTemplateRequest, options = { headers: {} }) {
-      if (signatureRequestBulkSendWithTemplateRequest !== null && signatureRequestBulkSendWithTemplateRequest !== void 0 && signatureRequestBulkSendWithTemplateRequest.constructor.name !== "SignatureRequestBulkSendWithTemplateRequest") {
-        signatureRequestBulkSendWithTemplateRequest = ObjectSerializer.deserialize(
-          signatureRequestBulkSendWithTemplateRequest,
-          "SignatureRequestBulkSendWithTemplateRequest"
-        );
-      }
+      signatureRequestBulkSendWithTemplateRequest = deserializeIfNeeded7(
+        signatureRequestBulkSendWithTemplateRequest,
+        "SignatureRequestBulkSendWithTemplateRequest"
+      );
       const localVarPath = this.basePath + "/signature_request/bulk_send_with_template";
       let localVarQueryParameters = {};
       let localVarHeaderParams = Object.assign(
@@ -25951,40 +27865,32 @@ var SignatureRequestApi = class {
           (resolve, reject) => {
             axios_default.request(localVarRequestOptions).then(
               (response) => {
-                let body = response.data;
-                if (response.status && response.status >= 200 && response.status <= 299) {
-                  body = ObjectSerializer.deserialize(
-                    body,
-                    "BulkSendJobSendResponse"
-                  );
-                  resolve({ response, body });
-                } else {
-                  reject(new HttpError(response, body, response.status));
-                }
+                handleSuccessfulResponse8(
+                  resolve,
+                  reject,
+                  response,
+                  "BulkSendJobSendResponse"
+                );
               },
               (error) => {
                 if (error.response == null) {
                   reject(error);
                   return;
                 }
-                const response = error.response;
-                let body;
-                if (response.status === 200) {
-                  body = ObjectSerializer.deserialize(
-                    response.data,
-                    "BulkSendJobSendResponse"
-                  );
-                  reject(new HttpError(response, body, response.status));
+                if (handleErrorCodeResponse8(
+                  reject,
+                  error.response,
+                  200,
+                  "BulkSendJobSendResponse"
+                )) {
                   return;
                 }
-                let rangeCodeLeft = Number("4XX"[0] + "00");
-                let rangeCodeRight = Number("4XX"[0] + "99");
-                if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
-                  body = ObjectSerializer.deserialize(
-                    response.data,
-                    "ErrorResponse"
-                  );
-                  reject(new HttpError(response, body, response.status));
+                if (handleErrorRangeResponse7(
+                  reject,
+                  error.response,
+                  "4XX",
+                  "ErrorResponse"
+                )) {
                   return;
                 }
                 reject(error);
@@ -26055,28 +27961,19 @@ var SignatureRequestApi = class {
         return new Promise((resolve, reject) => {
           axios_default.request(localVarRequestOptions).then(
             (response) => {
-              let body = response.data;
-              if (response.status && response.status >= 200 && response.status <= 299) {
-                resolve({ response, body });
-              } else {
-                reject(new HttpError(response, body, response.status));
-              }
+              handleSuccessfulResponse8(resolve, reject, response);
             },
             (error) => {
               if (error.response == null) {
                 reject(error);
                 return;
               }
-              const response = error.response;
-              let body;
-              let rangeCodeLeft = Number("4XX"[0] + "00");
-              let rangeCodeRight = Number("4XX"[0] + "99");
-              if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
-                body = ObjectSerializer.deserialize(
-                  response.data,
-                  "ErrorResponse"
-                );
-                reject(new HttpError(response, body, response.status));
+              if (handleErrorRangeResponse7(
+                reject,
+                error.response,
+                "4XX",
+                "ErrorResponse"
+              )) {
                 return;
               }
               reject(error);
@@ -26088,12 +27985,10 @@ var SignatureRequestApi = class {
   }
   signatureRequestCreateEmbedded(_0) {
     return __async(this, arguments, function* (signatureRequestCreateEmbeddedRequest, options = { headers: {} }) {
-      if (signatureRequestCreateEmbeddedRequest !== null && signatureRequestCreateEmbeddedRequest !== void 0 && signatureRequestCreateEmbeddedRequest.constructor.name !== "SignatureRequestCreateEmbeddedRequest") {
-        signatureRequestCreateEmbeddedRequest = ObjectSerializer.deserialize(
-          signatureRequestCreateEmbeddedRequest,
-          "SignatureRequestCreateEmbeddedRequest"
-        );
-      }
+      signatureRequestCreateEmbeddedRequest = deserializeIfNeeded7(
+        signatureRequestCreateEmbeddedRequest,
+        "SignatureRequestCreateEmbeddedRequest"
+      );
       const localVarPath = this.basePath + "/signature_request/create_embedded";
       let localVarQueryParameters = {};
       let localVarHeaderParams = Object.assign(
@@ -26167,40 +28062,32 @@ var SignatureRequestApi = class {
           (resolve, reject) => {
             axios_default.request(localVarRequestOptions).then(
               (response) => {
-                let body = response.data;
-                if (response.status && response.status >= 200 && response.status <= 299) {
-                  body = ObjectSerializer.deserialize(
-                    body,
-                    "SignatureRequestGetResponse"
-                  );
-                  resolve({ response, body });
-                } else {
-                  reject(new HttpError(response, body, response.status));
-                }
+                handleSuccessfulResponse8(
+                  resolve,
+                  reject,
+                  response,
+                  "SignatureRequestGetResponse"
+                );
               },
               (error) => {
                 if (error.response == null) {
                   reject(error);
                   return;
                 }
-                const response = error.response;
-                let body;
-                if (response.status === 200) {
-                  body = ObjectSerializer.deserialize(
-                    response.data,
-                    "SignatureRequestGetResponse"
-                  );
-                  reject(new HttpError(response, body, response.status));
+                if (handleErrorCodeResponse8(
+                  reject,
+                  error.response,
+                  200,
+                  "SignatureRequestGetResponse"
+                )) {
                   return;
                 }
-                let rangeCodeLeft = Number("4XX"[0] + "00");
-                let rangeCodeRight = Number("4XX"[0] + "99");
-                if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
-                  body = ObjectSerializer.deserialize(
-                    response.data,
-                    "ErrorResponse"
-                  );
-                  reject(new HttpError(response, body, response.status));
+                if (handleErrorRangeResponse7(
+                  reject,
+                  error.response,
+                  "4XX",
+                  "ErrorResponse"
+                )) {
                   return;
                 }
                 reject(error);
@@ -26213,12 +28100,10 @@ var SignatureRequestApi = class {
   }
   signatureRequestCreateEmbeddedWithTemplate(_0) {
     return __async(this, arguments, function* (signatureRequestCreateEmbeddedWithTemplateRequest, options = { headers: {} }) {
-      if (signatureRequestCreateEmbeddedWithTemplateRequest !== null && signatureRequestCreateEmbeddedWithTemplateRequest !== void 0 && signatureRequestCreateEmbeddedWithTemplateRequest.constructor.name !== "SignatureRequestCreateEmbeddedWithTemplateRequest") {
-        signatureRequestCreateEmbeddedWithTemplateRequest = ObjectSerializer.deserialize(
-          signatureRequestCreateEmbeddedWithTemplateRequest,
-          "SignatureRequestCreateEmbeddedWithTemplateRequest"
-        );
-      }
+      signatureRequestCreateEmbeddedWithTemplateRequest = deserializeIfNeeded7(
+        signatureRequestCreateEmbeddedWithTemplateRequest,
+        "SignatureRequestCreateEmbeddedWithTemplateRequest"
+      );
       const localVarPath = this.basePath + "/signature_request/create_embedded_with_template";
       let localVarQueryParameters = {};
       let localVarHeaderParams = Object.assign(
@@ -26292,40 +28177,32 @@ var SignatureRequestApi = class {
           (resolve, reject) => {
             axios_default.request(localVarRequestOptions).then(
               (response) => {
-                let body = response.data;
-                if (response.status && response.status >= 200 && response.status <= 299) {
-                  body = ObjectSerializer.deserialize(
-                    body,
-                    "SignatureRequestGetResponse"
-                  );
-                  resolve({ response, body });
-                } else {
-                  reject(new HttpError(response, body, response.status));
-                }
+                handleSuccessfulResponse8(
+                  resolve,
+                  reject,
+                  response,
+                  "SignatureRequestGetResponse"
+                );
               },
               (error) => {
                 if (error.response == null) {
                   reject(error);
                   return;
                 }
-                const response = error.response;
-                let body;
-                if (response.status === 200) {
-                  body = ObjectSerializer.deserialize(
-                    response.data,
-                    "SignatureRequestGetResponse"
-                  );
-                  reject(new HttpError(response, body, response.status));
+                if (handleErrorCodeResponse8(
+                  reject,
+                  error.response,
+                  200,
+                  "SignatureRequestGetResponse"
+                )) {
                   return;
                 }
-                let rangeCodeLeft = Number("4XX"[0] + "00");
-                let rangeCodeRight = Number("4XX"[0] + "99");
-                if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
-                  body = ObjectSerializer.deserialize(
-                    response.data,
-                    "ErrorResponse"
-                  );
-                  reject(new HttpError(response, body, response.status));
+                if (handleErrorRangeResponse7(
+                  reject,
+                  error.response,
+                  "4XX",
+                  "ErrorResponse"
+                )) {
                   return;
                 }
                 reject(error);
@@ -26402,34 +28279,32 @@ var SignatureRequestApi = class {
         return new Promise((resolve, reject) => {
           axios_default.request(localVarRequestOptions).then(
             (response) => {
-              let body = response.data;
-              if (response.status && response.status >= 200 && response.status <= 299) {
-                body = ObjectSerializer.deserialize(body, "Buffer");
-                resolve({ response, body });
-              } else {
-                reject(new HttpError(response, body, response.status));
-              }
+              handleSuccessfulResponse8(
+                resolve,
+                reject,
+                response,
+                "Buffer"
+              );
             },
             (error) => {
               if (error.response == null) {
                 reject(error);
                 return;
               }
-              const response = error.response;
-              let body;
-              if (response.status === 200) {
-                body = ObjectSerializer.deserialize(response.data, "RequestFile");
-                reject(new HttpError(response, body, response.status));
+              if (handleErrorCodeResponse8(
+                reject,
+                error.response,
+                200,
+                "RequestFile"
+              )) {
                 return;
               }
-              let rangeCodeLeft = Number("4XX"[0] + "00");
-              let rangeCodeRight = Number("4XX"[0] + "99");
-              if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
-                body = ObjectSerializer.deserialize(
-                  response.data,
-                  "ErrorResponse"
-                );
-                reject(new HttpError(response, body, response.status));
+              if (handleErrorRangeResponse7(
+                reject,
+                error.response,
+                "4XX",
+                "ErrorResponse"
+              )) {
                 return;
               }
               reject(error);
@@ -26500,40 +28375,32 @@ var SignatureRequestApi = class {
           (resolve, reject) => {
             axios_default.request(localVarRequestOptions).then(
               (response) => {
-                let body = response.data;
-                if (response.status && response.status >= 200 && response.status <= 299) {
-                  body = ObjectSerializer.deserialize(
-                    body,
-                    "FileResponseDataUri"
-                  );
-                  resolve({ response, body });
-                } else {
-                  reject(new HttpError(response, body, response.status));
-                }
+                handleSuccessfulResponse8(
+                  resolve,
+                  reject,
+                  response,
+                  "FileResponseDataUri"
+                );
               },
               (error) => {
                 if (error.response == null) {
                   reject(error);
                   return;
                 }
-                const response = error.response;
-                let body;
-                if (response.status === 200) {
-                  body = ObjectSerializer.deserialize(
-                    response.data,
-                    "FileResponseDataUri"
-                  );
-                  reject(new HttpError(response, body, response.status));
+                if (handleErrorCodeResponse8(
+                  reject,
+                  error.response,
+                  200,
+                  "FileResponseDataUri"
+                )) {
                   return;
                 }
-                let rangeCodeLeft = Number("4XX"[0] + "00");
-                let rangeCodeRight = Number("4XX"[0] + "99");
-                if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
-                  body = ObjectSerializer.deserialize(
-                    response.data,
-                    "ErrorResponse"
-                  );
-                  reject(new HttpError(response, body, response.status));
+                if (handleErrorRangeResponse7(
+                  reject,
+                  error.response,
+                  "4XX",
+                  "ErrorResponse"
+                )) {
                   return;
                 }
                 reject(error);
@@ -26610,37 +28477,32 @@ var SignatureRequestApi = class {
         return new Promise((resolve, reject) => {
           axios_default.request(localVarRequestOptions).then(
             (response) => {
-              let body = response.data;
-              if (response.status && response.status >= 200 && response.status <= 299) {
-                body = ObjectSerializer.deserialize(body, "FileResponse");
-                resolve({ response, body });
-              } else {
-                reject(new HttpError(response, body, response.status));
-              }
+              handleSuccessfulResponse8(
+                resolve,
+                reject,
+                response,
+                "FileResponse"
+              );
             },
             (error) => {
               if (error.response == null) {
                 reject(error);
                 return;
               }
-              const response = error.response;
-              let body;
-              if (response.status === 200) {
-                body = ObjectSerializer.deserialize(
-                  response.data,
-                  "FileResponse"
-                );
-                reject(new HttpError(response, body, response.status));
+              if (handleErrorCodeResponse8(
+                reject,
+                error.response,
+                200,
+                "FileResponse"
+              )) {
                 return;
               }
-              let rangeCodeLeft = Number("4XX"[0] + "00");
-              let rangeCodeRight = Number("4XX"[0] + "99");
-              if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
-                body = ObjectSerializer.deserialize(
-                  response.data,
-                  "ErrorResponse"
-                );
-                reject(new HttpError(response, body, response.status));
+              if (handleErrorRangeResponse7(
+                reject,
+                error.response,
+                "4XX",
+                "ErrorResponse"
+              )) {
                 return;
               }
               reject(error);
@@ -26711,40 +28573,32 @@ var SignatureRequestApi = class {
           (resolve, reject) => {
             axios_default.request(localVarRequestOptions).then(
               (response) => {
-                let body = response.data;
-                if (response.status && response.status >= 200 && response.status <= 299) {
-                  body = ObjectSerializer.deserialize(
-                    body,
-                    "SignatureRequestGetResponse"
-                  );
-                  resolve({ response, body });
-                } else {
-                  reject(new HttpError(response, body, response.status));
-                }
+                handleSuccessfulResponse8(
+                  resolve,
+                  reject,
+                  response,
+                  "SignatureRequestGetResponse"
+                );
               },
               (error) => {
                 if (error.response == null) {
                   reject(error);
                   return;
                 }
-                const response = error.response;
-                let body;
-                if (response.status === 200) {
-                  body = ObjectSerializer.deserialize(
-                    response.data,
-                    "SignatureRequestGetResponse"
-                  );
-                  reject(new HttpError(response, body, response.status));
+                if (handleErrorCodeResponse8(
+                  reject,
+                  error.response,
+                  200,
+                  "SignatureRequestGetResponse"
+                )) {
                   return;
                 }
-                let rangeCodeLeft = Number("4XX"[0] + "00");
-                let rangeCodeRight = Number("4XX"[0] + "99");
-                if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
-                  body = ObjectSerializer.deserialize(
-                    response.data,
-                    "ErrorResponse"
-                  );
-                  reject(new HttpError(response, body, response.status));
+                if (handleErrorRangeResponse7(
+                  reject,
+                  error.response,
+                  "4XX",
+                  "ErrorResponse"
+                )) {
                   return;
                 }
                 reject(error);
@@ -26832,40 +28686,32 @@ var SignatureRequestApi = class {
           (resolve, reject) => {
             axios_default.request(localVarRequestOptions).then(
               (response) => {
-                let body = response.data;
-                if (response.status && response.status >= 200 && response.status <= 299) {
-                  body = ObjectSerializer.deserialize(
-                    body,
-                    "SignatureRequestListResponse"
-                  );
-                  resolve({ response, body });
-                } else {
-                  reject(new HttpError(response, body, response.status));
-                }
+                handleSuccessfulResponse8(
+                  resolve,
+                  reject,
+                  response,
+                  "SignatureRequestListResponse"
+                );
               },
               (error) => {
                 if (error.response == null) {
                   reject(error);
                   return;
                 }
-                const response = error.response;
-                let body;
-                if (response.status === 200) {
-                  body = ObjectSerializer.deserialize(
-                    response.data,
-                    "SignatureRequestListResponse"
-                  );
-                  reject(new HttpError(response, body, response.status));
+                if (handleErrorCodeResponse8(
+                  reject,
+                  error.response,
+                  200,
+                  "SignatureRequestListResponse"
+                )) {
                   return;
                 }
-                let rangeCodeLeft = Number("4XX"[0] + "00");
-                let rangeCodeRight = Number("4XX"[0] + "99");
-                if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
-                  body = ObjectSerializer.deserialize(
-                    response.data,
-                    "ErrorResponse"
-                  );
-                  reject(new HttpError(response, body, response.status));
+                if (handleErrorRangeResponse7(
+                  reject,
+                  error.response,
+                  "4XX",
+                  "ErrorResponse"
+                )) {
                   return;
                 }
                 reject(error);
@@ -26937,40 +28783,32 @@ var SignatureRequestApi = class {
           (resolve, reject) => {
             axios_default.request(localVarRequestOptions).then(
               (response) => {
-                let body = response.data;
-                if (response.status && response.status >= 200 && response.status <= 299) {
-                  body = ObjectSerializer.deserialize(
-                    body,
-                    "SignatureRequestGetResponse"
-                  );
-                  resolve({ response, body });
-                } else {
-                  reject(new HttpError(response, body, response.status));
-                }
+                handleSuccessfulResponse8(
+                  resolve,
+                  reject,
+                  response,
+                  "SignatureRequestGetResponse"
+                );
               },
               (error) => {
                 if (error.response == null) {
                   reject(error);
                   return;
                 }
-                const response = error.response;
-                let body;
-                if (response.status === 200) {
-                  body = ObjectSerializer.deserialize(
-                    response.data,
-                    "SignatureRequestGetResponse"
-                  );
-                  reject(new HttpError(response, body, response.status));
+                if (handleErrorCodeResponse8(
+                  reject,
+                  error.response,
+                  200,
+                  "SignatureRequestGetResponse"
+                )) {
                   return;
                 }
-                let rangeCodeLeft = Number("4XX"[0] + "00");
-                let rangeCodeRight = Number("4XX"[0] + "99");
-                if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
-                  body = ObjectSerializer.deserialize(
-                    response.data,
-                    "ErrorResponse"
-                  );
-                  reject(new HttpError(response, body, response.status));
+                if (handleErrorRangeResponse7(
+                  reject,
+                  error.response,
+                  "4XX",
+                  "ErrorResponse"
+                )) {
                   return;
                 }
                 reject(error);
@@ -26983,12 +28821,10 @@ var SignatureRequestApi = class {
   }
   signatureRequestRemind(_0, _1) {
     return __async(this, arguments, function* (signatureRequestId, signatureRequestRemindRequest, options = { headers: {} }) {
-      if (signatureRequestRemindRequest !== null && signatureRequestRemindRequest !== void 0 && signatureRequestRemindRequest.constructor.name !== "SignatureRequestRemindRequest") {
-        signatureRequestRemindRequest = ObjectSerializer.deserialize(
-          signatureRequestRemindRequest,
-          "SignatureRequestRemindRequest"
-        );
-      }
+      signatureRequestRemindRequest = deserializeIfNeeded7(
+        signatureRequestRemindRequest,
+        "SignatureRequestRemindRequest"
+      );
       const localVarPath = this.basePath + "/signature_request/remind/{signature_request_id}".replace(
         "{signature_request_id}",
         encodeURIComponent(String(signatureRequestId))
@@ -27070,40 +28906,32 @@ var SignatureRequestApi = class {
           (resolve, reject) => {
             axios_default.request(localVarRequestOptions).then(
               (response) => {
-                let body = response.data;
-                if (response.status && response.status >= 200 && response.status <= 299) {
-                  body = ObjectSerializer.deserialize(
-                    body,
-                    "SignatureRequestGetResponse"
-                  );
-                  resolve({ response, body });
-                } else {
-                  reject(new HttpError(response, body, response.status));
-                }
+                handleSuccessfulResponse8(
+                  resolve,
+                  reject,
+                  response,
+                  "SignatureRequestGetResponse"
+                );
               },
               (error) => {
                 if (error.response == null) {
                   reject(error);
                   return;
                 }
-                const response = error.response;
-                let body;
-                if (response.status === 200) {
-                  body = ObjectSerializer.deserialize(
-                    response.data,
-                    "SignatureRequestGetResponse"
-                  );
-                  reject(new HttpError(response, body, response.status));
+                if (handleErrorCodeResponse8(
+                  reject,
+                  error.response,
+                  200,
+                  "SignatureRequestGetResponse"
+                )) {
                   return;
                 }
-                let rangeCodeLeft = Number("4XX"[0] + "00");
-                let rangeCodeRight = Number("4XX"[0] + "99");
-                if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
-                  body = ObjectSerializer.deserialize(
-                    response.data,
-                    "ErrorResponse"
-                  );
-                  reject(new HttpError(response, body, response.status));
+                if (handleErrorRangeResponse7(
+                  reject,
+                  error.response,
+                  "4XX",
+                  "ErrorResponse"
+                )) {
                   return;
                 }
                 reject(error);
@@ -27169,28 +28997,19 @@ var SignatureRequestApi = class {
         return new Promise((resolve, reject) => {
           axios_default.request(localVarRequestOptions).then(
             (response) => {
-              let body = response.data;
-              if (response.status && response.status >= 200 && response.status <= 299) {
-                resolve({ response, body });
-              } else {
-                reject(new HttpError(response, body, response.status));
-              }
+              handleSuccessfulResponse8(resolve, reject, response);
             },
             (error) => {
               if (error.response == null) {
                 reject(error);
                 return;
               }
-              const response = error.response;
-              let body;
-              let rangeCodeLeft = Number("4XX"[0] + "00");
-              let rangeCodeRight = Number("4XX"[0] + "99");
-              if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
-                body = ObjectSerializer.deserialize(
-                  response.data,
-                  "ErrorResponse"
-                );
-                reject(new HttpError(response, body, response.status));
+              if (handleErrorRangeResponse7(
+                reject,
+                error.response,
+                "4XX",
+                "ErrorResponse"
+              )) {
                 return;
               }
               reject(error);
@@ -27202,12 +29021,10 @@ var SignatureRequestApi = class {
   }
   signatureRequestSend(_0) {
     return __async(this, arguments, function* (signatureRequestSendRequest, options = { headers: {} }) {
-      if (signatureRequestSendRequest !== null && signatureRequestSendRequest !== void 0 && signatureRequestSendRequest.constructor.name !== "SignatureRequestSendRequest") {
-        signatureRequestSendRequest = ObjectSerializer.deserialize(
-          signatureRequestSendRequest,
-          "SignatureRequestSendRequest"
-        );
-      }
+      signatureRequestSendRequest = deserializeIfNeeded7(
+        signatureRequestSendRequest,
+        "SignatureRequestSendRequest"
+      );
       const localVarPath = this.basePath + "/signature_request/send";
       let localVarQueryParameters = {};
       let localVarHeaderParams = Object.assign(
@@ -27281,40 +29098,32 @@ var SignatureRequestApi = class {
           (resolve, reject) => {
             axios_default.request(localVarRequestOptions).then(
               (response) => {
-                let body = response.data;
-                if (response.status && response.status >= 200 && response.status <= 299) {
-                  body = ObjectSerializer.deserialize(
-                    body,
-                    "SignatureRequestGetResponse"
-                  );
-                  resolve({ response, body });
-                } else {
-                  reject(new HttpError(response, body, response.status));
-                }
+                handleSuccessfulResponse8(
+                  resolve,
+                  reject,
+                  response,
+                  "SignatureRequestGetResponse"
+                );
               },
               (error) => {
                 if (error.response == null) {
                   reject(error);
                   return;
                 }
-                const response = error.response;
-                let body;
-                if (response.status === 200) {
-                  body = ObjectSerializer.deserialize(
-                    response.data,
-                    "SignatureRequestGetResponse"
-                  );
-                  reject(new HttpError(response, body, response.status));
+                if (handleErrorCodeResponse8(
+                  reject,
+                  error.response,
+                  200,
+                  "SignatureRequestGetResponse"
+                )) {
                   return;
                 }
-                let rangeCodeLeft = Number("4XX"[0] + "00");
-                let rangeCodeRight = Number("4XX"[0] + "99");
-                if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
-                  body = ObjectSerializer.deserialize(
-                    response.data,
-                    "ErrorResponse"
-                  );
-                  reject(new HttpError(response, body, response.status));
+                if (handleErrorRangeResponse7(
+                  reject,
+                  error.response,
+                  "4XX",
+                  "ErrorResponse"
+                )) {
                   return;
                 }
                 reject(error);
@@ -27327,12 +29136,10 @@ var SignatureRequestApi = class {
   }
   signatureRequestSendWithTemplate(_0) {
     return __async(this, arguments, function* (signatureRequestSendWithTemplateRequest, options = { headers: {} }) {
-      if (signatureRequestSendWithTemplateRequest !== null && signatureRequestSendWithTemplateRequest !== void 0 && signatureRequestSendWithTemplateRequest.constructor.name !== "SignatureRequestSendWithTemplateRequest") {
-        signatureRequestSendWithTemplateRequest = ObjectSerializer.deserialize(
-          signatureRequestSendWithTemplateRequest,
-          "SignatureRequestSendWithTemplateRequest"
-        );
-      }
+      signatureRequestSendWithTemplateRequest = deserializeIfNeeded7(
+        signatureRequestSendWithTemplateRequest,
+        "SignatureRequestSendWithTemplateRequest"
+      );
       const localVarPath = this.basePath + "/signature_request/send_with_template";
       let localVarQueryParameters = {};
       let localVarHeaderParams = Object.assign(
@@ -27406,40 +29213,32 @@ var SignatureRequestApi = class {
           (resolve, reject) => {
             axios_default.request(localVarRequestOptions).then(
               (response) => {
-                let body = response.data;
-                if (response.status && response.status >= 200 && response.status <= 299) {
-                  body = ObjectSerializer.deserialize(
-                    body,
-                    "SignatureRequestGetResponse"
-                  );
-                  resolve({ response, body });
-                } else {
-                  reject(new HttpError(response, body, response.status));
-                }
+                handleSuccessfulResponse8(
+                  resolve,
+                  reject,
+                  response,
+                  "SignatureRequestGetResponse"
+                );
               },
               (error) => {
                 if (error.response == null) {
                   reject(error);
                   return;
                 }
-                const response = error.response;
-                let body;
-                if (response.status === 200) {
-                  body = ObjectSerializer.deserialize(
-                    response.data,
-                    "SignatureRequestGetResponse"
-                  );
-                  reject(new HttpError(response, body, response.status));
+                if (handleErrorCodeResponse8(
+                  reject,
+                  error.response,
+                  200,
+                  "SignatureRequestGetResponse"
+                )) {
                   return;
                 }
-                let rangeCodeLeft = Number("4XX"[0] + "00");
-                let rangeCodeRight = Number("4XX"[0] + "99");
-                if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
-                  body = ObjectSerializer.deserialize(
-                    response.data,
-                    "ErrorResponse"
-                  );
-                  reject(new HttpError(response, body, response.status));
+                if (handleErrorRangeResponse7(
+                  reject,
+                  error.response,
+                  "4XX",
+                  "ErrorResponse"
+                )) {
                   return;
                 }
                 reject(error);
@@ -27452,12 +29251,10 @@ var SignatureRequestApi = class {
   }
   signatureRequestUpdate(_0, _1) {
     return __async(this, arguments, function* (signatureRequestId, signatureRequestUpdateRequest, options = { headers: {} }) {
-      if (signatureRequestUpdateRequest !== null && signatureRequestUpdateRequest !== void 0 && signatureRequestUpdateRequest.constructor.name !== "SignatureRequestUpdateRequest") {
-        signatureRequestUpdateRequest = ObjectSerializer.deserialize(
-          signatureRequestUpdateRequest,
-          "SignatureRequestUpdateRequest"
-        );
-      }
+      signatureRequestUpdateRequest = deserializeIfNeeded7(
+        signatureRequestUpdateRequest,
+        "SignatureRequestUpdateRequest"
+      );
       const localVarPath = this.basePath + "/signature_request/update/{signature_request_id}".replace(
         "{signature_request_id}",
         encodeURIComponent(String(signatureRequestId))
@@ -27539,40 +29336,32 @@ var SignatureRequestApi = class {
           (resolve, reject) => {
             axios_default.request(localVarRequestOptions).then(
               (response) => {
-                let body = response.data;
-                if (response.status && response.status >= 200 && response.status <= 299) {
-                  body = ObjectSerializer.deserialize(
-                    body,
-                    "SignatureRequestGetResponse"
-                  );
-                  resolve({ response, body });
-                } else {
-                  reject(new HttpError(response, body, response.status));
-                }
+                handleSuccessfulResponse8(
+                  resolve,
+                  reject,
+                  response,
+                  "SignatureRequestGetResponse"
+                );
               },
               (error) => {
                 if (error.response == null) {
                   reject(error);
                   return;
                 }
-                const response = error.response;
-                let body;
-                if (response.status === 200) {
-                  body = ObjectSerializer.deserialize(
-                    response.data,
-                    "SignatureRequestGetResponse"
-                  );
-                  reject(new HttpError(response, body, response.status));
+                if (handleErrorCodeResponse8(
+                  reject,
+                  error.response,
+                  200,
+                  "SignatureRequestGetResponse"
+                )) {
                   return;
                 }
-                let rangeCodeLeft = Number("4XX"[0] + "00");
-                let rangeCodeRight = Number("4XX"[0] + "99");
-                if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
-                  body = ObjectSerializer.deserialize(
-                    response.data,
-                    "ErrorResponse"
-                  );
-                  reject(new HttpError(response, body, response.status));
+                if (handleErrorRangeResponse7(
+                  reject,
+                  error.response,
+                  "4XX",
+                  "ErrorResponse"
+                )) {
                   return;
                 }
                 reject(error);
@@ -27584,15 +29373,48 @@ var SignatureRequestApi = class {
     });
   }
 };
+function deserializeIfNeeded7(obj, classname) {
+  if (obj !== null && obj !== void 0 && obj.constructor.name !== classname) {
+    return ObjectSerializer.deserialize(obj, classname);
+  }
+  return obj;
+}
+function handleSuccessfulResponse8(resolve, reject, response, returnType) {
+  let body = response.data;
+  if (response.status && response.status >= 200 && response.status <= 299) {
+    if (returnType) {
+      body = ObjectSerializer.deserialize(body, returnType);
+    }
+    resolve({ response, body });
+  } else {
+    reject(new HttpError(response, body, response.status));
+  }
+}
+function handleErrorCodeResponse8(reject, response, code, returnType) {
+  if (response.status !== code) {
+    return false;
+  }
+  const body = ObjectSerializer.deserialize(response.data, returnType);
+  reject(new HttpError(response, body, response.status));
+  return true;
+}
+function handleErrorRangeResponse7(reject, response, code, returnType) {
+  let rangeCodeLeft = Number(code[0] + "00");
+  let rangeCodeRight = Number(code[0] + "99");
+  if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
+    const body = ObjectSerializer.deserialize(response.data, returnType);
+    reject(new HttpError(response, body, response.status));
+    return true;
+  }
+  return false;
+}
 
 // api/teamApi.ts
-var defaultBasePath8 = "https://api.hellosign.com/v3";
+var defaultBasePath9 = "https://api.hellosign.com/v3";
 var TeamApi = class {
   constructor(basePath) {
-    this._basePath = defaultBasePath8;
-    this._defaultHeaders = {
-      "User-Agent": USER_AGENT
-    };
+    this._basePath = defaultBasePath9;
+    this._defaultHeaders = { "User-Agent": USER_AGENT };
     this._useQuerystring = false;
     this.authentications = {
       default: new VoidAuth(),
@@ -27611,7 +29433,7 @@ var TeamApi = class {
     this._basePath = basePath;
   }
   set defaultHeaders(defaultHeaders) {
-    this._defaultHeaders = defaultHeaders;
+    this._defaultHeaders = __spreadProps(__spreadValues({}, defaultHeaders), { "User-Agent": USER_AGENT });
   }
   get defaultHeaders() {
     return this._defaultHeaders;
@@ -27639,12 +29461,10 @@ var TeamApi = class {
   }
   teamAddMember(_0, _1) {
     return __async(this, arguments, function* (teamAddMemberRequest, teamId, options = { headers: {} }) {
-      if (teamAddMemberRequest !== null && teamAddMemberRequest !== void 0 && teamAddMemberRequest.constructor.name !== "TeamAddMemberRequest") {
-        teamAddMemberRequest = ObjectSerializer.deserialize(
-          teamAddMemberRequest,
-          "TeamAddMemberRequest"
-        );
-      }
+      teamAddMemberRequest = deserializeIfNeeded8(
+        teamAddMemberRequest,
+        "TeamAddMemberRequest"
+      );
       const localVarPath = this.basePath + "/team/add_member";
       let localVarQueryParameters = {};
       let localVarHeaderParams = Object.assign(
@@ -27723,37 +29543,32 @@ var TeamApi = class {
         return new Promise((resolve, reject) => {
           axios_default.request(localVarRequestOptions).then(
             (response) => {
-              let body = response.data;
-              if (response.status && response.status >= 200 && response.status <= 299) {
-                body = ObjectSerializer.deserialize(body, "TeamGetResponse");
-                resolve({ response, body });
-              } else {
-                reject(new HttpError(response, body, response.status));
-              }
+              handleSuccessfulResponse9(
+                resolve,
+                reject,
+                response,
+                "TeamGetResponse"
+              );
             },
             (error) => {
               if (error.response == null) {
                 reject(error);
                 return;
               }
-              const response = error.response;
-              let body;
-              if (response.status === 200) {
-                body = ObjectSerializer.deserialize(
-                  response.data,
-                  "TeamGetResponse"
-                );
-                reject(new HttpError(response, body, response.status));
+              if (handleErrorCodeResponse9(
+                reject,
+                error.response,
+                200,
+                "TeamGetResponse"
+              )) {
                 return;
               }
-              let rangeCodeLeft = Number("4XX"[0] + "00");
-              let rangeCodeRight = Number("4XX"[0] + "99");
-              if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
-                body = ObjectSerializer.deserialize(
-                  response.data,
-                  "ErrorResponse"
-                );
-                reject(new HttpError(response, body, response.status));
+              if (handleErrorRangeResponse8(
+                reject,
+                error.response,
+                "4XX",
+                "ErrorResponse"
+              )) {
                 return;
               }
               reject(error);
@@ -27765,12 +29580,10 @@ var TeamApi = class {
   }
   teamCreate(_0) {
     return __async(this, arguments, function* (teamCreateRequest, options = { headers: {} }) {
-      if (teamCreateRequest !== null && teamCreateRequest !== void 0 && teamCreateRequest.constructor.name !== "TeamCreateRequest") {
-        teamCreateRequest = ObjectSerializer.deserialize(
-          teamCreateRequest,
-          "TeamCreateRequest"
-        );
-      }
+      teamCreateRequest = deserializeIfNeeded8(
+        teamCreateRequest,
+        "TeamCreateRequest"
+      );
       const localVarPath = this.basePath + "/team/create";
       let localVarQueryParameters = {};
       let localVarHeaderParams = Object.assign(
@@ -27840,37 +29653,32 @@ var TeamApi = class {
         return new Promise((resolve, reject) => {
           axios_default.request(localVarRequestOptions).then(
             (response) => {
-              let body = response.data;
-              if (response.status && response.status >= 200 && response.status <= 299) {
-                body = ObjectSerializer.deserialize(body, "TeamGetResponse");
-                resolve({ response, body });
-              } else {
-                reject(new HttpError(response, body, response.status));
-              }
+              handleSuccessfulResponse9(
+                resolve,
+                reject,
+                response,
+                "TeamGetResponse"
+              );
             },
             (error) => {
               if (error.response == null) {
                 reject(error);
                 return;
               }
-              const response = error.response;
-              let body;
-              if (response.status === 200) {
-                body = ObjectSerializer.deserialize(
-                  response.data,
-                  "TeamGetResponse"
-                );
-                reject(new HttpError(response, body, response.status));
+              if (handleErrorCodeResponse9(
+                reject,
+                error.response,
+                200,
+                "TeamGetResponse"
+              )) {
                 return;
               }
-              let rangeCodeLeft = Number("4XX"[0] + "00");
-              let rangeCodeRight = Number("4XX"[0] + "99");
-              if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
-                body = ObjectSerializer.deserialize(
-                  response.data,
-                  "ErrorResponse"
-                );
-                reject(new HttpError(response, body, response.status));
+              if (handleErrorRangeResponse8(
+                reject,
+                error.response,
+                "4XX",
+                "ErrorResponse"
+              )) {
                 return;
               }
               reject(error);
@@ -27932,28 +29740,19 @@ var TeamApi = class {
         return new Promise((resolve, reject) => {
           axios_default.request(localVarRequestOptions).then(
             (response) => {
-              let body = response.data;
-              if (response.status && response.status >= 200 && response.status <= 299) {
-                resolve({ response, body });
-              } else {
-                reject(new HttpError(response, body, response.status));
-              }
+              handleSuccessfulResponse9(resolve, reject, response);
             },
             (error) => {
               if (error.response == null) {
                 reject(error);
                 return;
               }
-              const response = error.response;
-              let body;
-              let rangeCodeLeft = Number("4XX"[0] + "00");
-              let rangeCodeRight = Number("4XX"[0] + "99");
-              if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
-                body = ObjectSerializer.deserialize(
-                  response.data,
-                  "ErrorResponse"
-                );
-                reject(new HttpError(response, body, response.status));
+              if (handleErrorRangeResponse8(
+                reject,
+                error.response,
+                "4XX",
+                "ErrorResponse"
+              )) {
                 return;
               }
               reject(error);
@@ -28015,37 +29814,32 @@ var TeamApi = class {
         return new Promise((resolve, reject) => {
           axios_default.request(localVarRequestOptions).then(
             (response) => {
-              let body = response.data;
-              if (response.status && response.status >= 200 && response.status <= 299) {
-                body = ObjectSerializer.deserialize(body, "TeamGetResponse");
-                resolve({ response, body });
-              } else {
-                reject(new HttpError(response, body, response.status));
-              }
+              handleSuccessfulResponse9(
+                resolve,
+                reject,
+                response,
+                "TeamGetResponse"
+              );
             },
             (error) => {
               if (error.response == null) {
                 reject(error);
                 return;
               }
-              const response = error.response;
-              let body;
-              if (response.status === 200) {
-                body = ObjectSerializer.deserialize(
-                  response.data,
-                  "TeamGetResponse"
-                );
-                reject(new HttpError(response, body, response.status));
+              if (handleErrorCodeResponse9(
+                reject,
+                error.response,
+                200,
+                "TeamGetResponse"
+              )) {
                 return;
               }
-              let rangeCodeLeft = Number("4XX"[0] + "00");
-              let rangeCodeRight = Number("4XX"[0] + "99");
-              if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
-                body = ObjectSerializer.deserialize(
-                  response.data,
-                  "ErrorResponse"
-                );
-                reject(new HttpError(response, body, response.status));
+              if (handleErrorRangeResponse8(
+                reject,
+                error.response,
+                "4XX",
+                "ErrorResponse"
+              )) {
                 return;
               }
               reject(error);
@@ -28114,40 +29908,32 @@ var TeamApi = class {
           (resolve, reject) => {
             axios_default.request(localVarRequestOptions).then(
               (response) => {
-                let body = response.data;
-                if (response.status && response.status >= 200 && response.status <= 299) {
-                  body = ObjectSerializer.deserialize(
-                    body,
-                    "TeamGetInfoResponse"
-                  );
-                  resolve({ response, body });
-                } else {
-                  reject(new HttpError(response, body, response.status));
-                }
+                handleSuccessfulResponse9(
+                  resolve,
+                  reject,
+                  response,
+                  "TeamGetInfoResponse"
+                );
               },
               (error) => {
                 if (error.response == null) {
                   reject(error);
                   return;
                 }
-                const response = error.response;
-                let body;
-                if (response.status === 200) {
-                  body = ObjectSerializer.deserialize(
-                    response.data,
-                    "TeamGetInfoResponse"
-                  );
-                  reject(new HttpError(response, body, response.status));
+                if (handleErrorCodeResponse9(
+                  reject,
+                  error.response,
+                  200,
+                  "TeamGetInfoResponse"
+                )) {
                   return;
                 }
-                let rangeCodeLeft = Number("4XX"[0] + "00");
-                let rangeCodeRight = Number("4XX"[0] + "99");
-                if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
-                  body = ObjectSerializer.deserialize(
-                    response.data,
-                    "ErrorResponse"
-                  );
-                  reject(new HttpError(response, body, response.status));
+                if (handleErrorRangeResponse8(
+                  reject,
+                  error.response,
+                  "4XX",
+                  "ErrorResponse"
+                )) {
                   return;
                 }
                 reject(error);
@@ -28217,40 +30003,32 @@ var TeamApi = class {
           (resolve, reject) => {
             axios_default.request(localVarRequestOptions).then(
               (response) => {
-                let body = response.data;
-                if (response.status && response.status >= 200 && response.status <= 299) {
-                  body = ObjectSerializer.deserialize(
-                    body,
-                    "TeamInvitesResponse"
-                  );
-                  resolve({ response, body });
-                } else {
-                  reject(new HttpError(response, body, response.status));
-                }
+                handleSuccessfulResponse9(
+                  resolve,
+                  reject,
+                  response,
+                  "TeamInvitesResponse"
+                );
               },
               (error) => {
                 if (error.response == null) {
                   reject(error);
                   return;
                 }
-                const response = error.response;
-                let body;
-                if (response.status === 200) {
-                  body = ObjectSerializer.deserialize(
-                    response.data,
-                    "TeamInvitesResponse"
-                  );
-                  reject(new HttpError(response, body, response.status));
+                if (handleErrorCodeResponse9(
+                  reject,
+                  error.response,
+                  200,
+                  "TeamInvitesResponse"
+                )) {
                   return;
                 }
-                let rangeCodeLeft = Number("4XX"[0] + "00");
-                let rangeCodeRight = Number("4XX"[0] + "99");
-                if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
-                  body = ObjectSerializer.deserialize(
-                    response.data,
-                    "ErrorResponse"
-                  );
-                  reject(new HttpError(response, body, response.status));
+                if (handleErrorRangeResponse8(
+                  reject,
+                  error.response,
+                  "4XX",
+                  "ErrorResponse"
+                )) {
                   return;
                 }
                 reject(error);
@@ -28334,40 +30112,32 @@ var TeamApi = class {
           (resolve, reject) => {
             axios_default.request(localVarRequestOptions).then(
               (response) => {
-                let body = response.data;
-                if (response.status && response.status >= 200 && response.status <= 299) {
-                  body = ObjectSerializer.deserialize(
-                    body,
-                    "TeamMembersResponse"
-                  );
-                  resolve({ response, body });
-                } else {
-                  reject(new HttpError(response, body, response.status));
-                }
+                handleSuccessfulResponse9(
+                  resolve,
+                  reject,
+                  response,
+                  "TeamMembersResponse"
+                );
               },
               (error) => {
                 if (error.response == null) {
                   reject(error);
                   return;
                 }
-                const response = error.response;
-                let body;
-                if (response.status === 200) {
-                  body = ObjectSerializer.deserialize(
-                    response.data,
-                    "TeamMembersResponse"
-                  );
-                  reject(new HttpError(response, body, response.status));
+                if (handleErrorCodeResponse9(
+                  reject,
+                  error.response,
+                  200,
+                  "TeamMembersResponse"
+                )) {
                   return;
                 }
-                let rangeCodeLeft = Number("4XX"[0] + "00");
-                let rangeCodeRight = Number("4XX"[0] + "99");
-                if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
-                  body = ObjectSerializer.deserialize(
-                    response.data,
-                    "ErrorResponse"
-                  );
-                  reject(new HttpError(response, body, response.status));
+                if (handleErrorRangeResponse8(
+                  reject,
+                  error.response,
+                  "4XX",
+                  "ErrorResponse"
+                )) {
                   return;
                 }
                 reject(error);
@@ -28380,12 +30150,10 @@ var TeamApi = class {
   }
   teamRemoveMember(_0) {
     return __async(this, arguments, function* (teamRemoveMemberRequest, options = { headers: {} }) {
-      if (teamRemoveMemberRequest !== null && teamRemoveMemberRequest !== void 0 && teamRemoveMemberRequest.constructor.name !== "TeamRemoveMemberRequest") {
-        teamRemoveMemberRequest = ObjectSerializer.deserialize(
-          teamRemoveMemberRequest,
-          "TeamRemoveMemberRequest"
-        );
-      }
+      teamRemoveMemberRequest = deserializeIfNeeded8(
+        teamRemoveMemberRequest,
+        "TeamRemoveMemberRequest"
+      );
       const localVarPath = this.basePath + "/team/remove_member";
       let localVarQueryParameters = {};
       let localVarHeaderParams = Object.assign(
@@ -28458,37 +30226,32 @@ var TeamApi = class {
         return new Promise((resolve, reject) => {
           axios_default.request(localVarRequestOptions).then(
             (response) => {
-              let body = response.data;
-              if (response.status && response.status >= 200 && response.status <= 299) {
-                body = ObjectSerializer.deserialize(body, "TeamGetResponse");
-                resolve({ response, body });
-              } else {
-                reject(new HttpError(response, body, response.status));
-              }
+              handleSuccessfulResponse9(
+                resolve,
+                reject,
+                response,
+                "TeamGetResponse"
+              );
             },
             (error) => {
               if (error.response == null) {
                 reject(error);
                 return;
               }
-              const response = error.response;
-              let body;
-              if (response.status === 201) {
-                body = ObjectSerializer.deserialize(
-                  response.data,
-                  "TeamGetResponse"
-                );
-                reject(new HttpError(response, body, response.status));
+              if (handleErrorCodeResponse9(
+                reject,
+                error.response,
+                201,
+                "TeamGetResponse"
+              )) {
                 return;
               }
-              let rangeCodeLeft = Number("4XX"[0] + "00");
-              let rangeCodeRight = Number("4XX"[0] + "99");
-              if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
-                body = ObjectSerializer.deserialize(
-                  response.data,
-                  "ErrorResponse"
-                );
-                reject(new HttpError(response, body, response.status));
+              if (handleErrorRangeResponse8(
+                reject,
+                error.response,
+                "4XX",
+                "ErrorResponse"
+              )) {
                 return;
               }
               reject(error);
@@ -28571,40 +30334,32 @@ var TeamApi = class {
           (resolve, reject) => {
             axios_default.request(localVarRequestOptions).then(
               (response) => {
-                let body = response.data;
-                if (response.status && response.status >= 200 && response.status <= 299) {
-                  body = ObjectSerializer.deserialize(
-                    body,
-                    "TeamSubTeamsResponse"
-                  );
-                  resolve({ response, body });
-                } else {
-                  reject(new HttpError(response, body, response.status));
-                }
+                handleSuccessfulResponse9(
+                  resolve,
+                  reject,
+                  response,
+                  "TeamSubTeamsResponse"
+                );
               },
               (error) => {
                 if (error.response == null) {
                   reject(error);
                   return;
                 }
-                const response = error.response;
-                let body;
-                if (response.status === 200) {
-                  body = ObjectSerializer.deserialize(
-                    response.data,
-                    "TeamSubTeamsResponse"
-                  );
-                  reject(new HttpError(response, body, response.status));
+                if (handleErrorCodeResponse9(
+                  reject,
+                  error.response,
+                  200,
+                  "TeamSubTeamsResponse"
+                )) {
                   return;
                 }
-                let rangeCodeLeft = Number("4XX"[0] + "00");
-                let rangeCodeRight = Number("4XX"[0] + "99");
-                if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
-                  body = ObjectSerializer.deserialize(
-                    response.data,
-                    "ErrorResponse"
-                  );
-                  reject(new HttpError(response, body, response.status));
+                if (handleErrorRangeResponse8(
+                  reject,
+                  error.response,
+                  "4XX",
+                  "ErrorResponse"
+                )) {
                   return;
                 }
                 reject(error);
@@ -28617,12 +30372,10 @@ var TeamApi = class {
   }
   teamUpdate(_0) {
     return __async(this, arguments, function* (teamUpdateRequest, options = { headers: {} }) {
-      if (teamUpdateRequest !== null && teamUpdateRequest !== void 0 && teamUpdateRequest.constructor.name !== "TeamUpdateRequest") {
-        teamUpdateRequest = ObjectSerializer.deserialize(
-          teamUpdateRequest,
-          "TeamUpdateRequest"
-        );
-      }
+      teamUpdateRequest = deserializeIfNeeded8(
+        teamUpdateRequest,
+        "TeamUpdateRequest"
+      );
       const localVarPath = this.basePath + "/team";
       let localVarQueryParameters = {};
       let localVarHeaderParams = Object.assign(
@@ -28692,37 +30445,32 @@ var TeamApi = class {
         return new Promise((resolve, reject) => {
           axios_default.request(localVarRequestOptions).then(
             (response) => {
-              let body = response.data;
-              if (response.status && response.status >= 200 && response.status <= 299) {
-                body = ObjectSerializer.deserialize(body, "TeamGetResponse");
-                resolve({ response, body });
-              } else {
-                reject(new HttpError(response, body, response.status));
-              }
+              handleSuccessfulResponse9(
+                resolve,
+                reject,
+                response,
+                "TeamGetResponse"
+              );
             },
             (error) => {
               if (error.response == null) {
                 reject(error);
                 return;
               }
-              const response = error.response;
-              let body;
-              if (response.status === 200) {
-                body = ObjectSerializer.deserialize(
-                  response.data,
-                  "TeamGetResponse"
-                );
-                reject(new HttpError(response, body, response.status));
+              if (handleErrorCodeResponse9(
+                reject,
+                error.response,
+                200,
+                "TeamGetResponse"
+              )) {
                 return;
               }
-              let rangeCodeLeft = Number("4XX"[0] + "00");
-              let rangeCodeRight = Number("4XX"[0] + "99");
-              if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
-                body = ObjectSerializer.deserialize(
-                  response.data,
-                  "ErrorResponse"
-                );
-                reject(new HttpError(response, body, response.status));
+              if (handleErrorRangeResponse8(
+                reject,
+                error.response,
+                "4XX",
+                "ErrorResponse"
+              )) {
                 return;
               }
               reject(error);
@@ -28733,15 +30481,48 @@ var TeamApi = class {
     });
   }
 };
+function deserializeIfNeeded8(obj, classname) {
+  if (obj !== null && obj !== void 0 && obj.constructor.name !== classname) {
+    return ObjectSerializer.deserialize(obj, classname);
+  }
+  return obj;
+}
+function handleSuccessfulResponse9(resolve, reject, response, returnType) {
+  let body = response.data;
+  if (response.status && response.status >= 200 && response.status <= 299) {
+    if (returnType) {
+      body = ObjectSerializer.deserialize(body, returnType);
+    }
+    resolve({ response, body });
+  } else {
+    reject(new HttpError(response, body, response.status));
+  }
+}
+function handleErrorCodeResponse9(reject, response, code, returnType) {
+  if (response.status !== code) {
+    return false;
+  }
+  const body = ObjectSerializer.deserialize(response.data, returnType);
+  reject(new HttpError(response, body, response.status));
+  return true;
+}
+function handleErrorRangeResponse8(reject, response, code, returnType) {
+  let rangeCodeLeft = Number(code[0] + "00");
+  let rangeCodeRight = Number(code[0] + "99");
+  if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
+    const body = ObjectSerializer.deserialize(response.data, returnType);
+    reject(new HttpError(response, body, response.status));
+    return true;
+  }
+  return false;
+}
 
 // api/templateApi.ts
-var defaultBasePath9 = "https://api.hellosign.com/v3";
+var defaultBasePath10 = "https://api.hellosign.com/v3";
 var TemplateApi = class {
   constructor(basePath) {
-    this._basePath = defaultBasePath9;
-    this._defaultHeaders = {
-      "User-Agent": USER_AGENT
-    };
+    this._basePath = defaultBasePath10;
+    this._defaultHeaders = { "User-Agent": USER_AGENT };
     this._useQuerystring = false;
     this.authentications = {
       default: new VoidAuth(),
@@ -28760,7 +30541,7 @@ var TemplateApi = class {
     this._basePath = basePath;
   }
   set defaultHeaders(defaultHeaders) {
-    this._defaultHeaders = defaultHeaders;
+    this._defaultHeaders = __spreadProps(__spreadValues({}, defaultHeaders), { "User-Agent": USER_AGENT });
   }
   get defaultHeaders() {
     return this._defaultHeaders;
@@ -28788,12 +30569,10 @@ var TemplateApi = class {
   }
   templateAddUser(_0, _1) {
     return __async(this, arguments, function* (templateId, templateAddUserRequest, options = { headers: {} }) {
-      if (templateAddUserRequest !== null && templateAddUserRequest !== void 0 && templateAddUserRequest.constructor.name !== "TemplateAddUserRequest") {
-        templateAddUserRequest = ObjectSerializer.deserialize(
-          templateAddUserRequest,
-          "TemplateAddUserRequest"
-        );
-      }
+      templateAddUserRequest = deserializeIfNeeded9(
+        templateAddUserRequest,
+        "TemplateAddUserRequest"
+      );
       const localVarPath = this.basePath + "/template/add_user/{template_id}".replace(
         "{template_id}",
         encodeURIComponent(String(templateId))
@@ -28875,40 +30654,32 @@ var TemplateApi = class {
           (resolve, reject) => {
             axios_default.request(localVarRequestOptions).then(
               (response) => {
-                let body = response.data;
-                if (response.status && response.status >= 200 && response.status <= 299) {
-                  body = ObjectSerializer.deserialize(
-                    body,
-                    "TemplateGetResponse"
-                  );
-                  resolve({ response, body });
-                } else {
-                  reject(new HttpError(response, body, response.status));
-                }
+                handleSuccessfulResponse10(
+                  resolve,
+                  reject,
+                  response,
+                  "TemplateGetResponse"
+                );
               },
               (error) => {
                 if (error.response == null) {
                   reject(error);
                   return;
                 }
-                const response = error.response;
-                let body;
-                if (response.status === 200) {
-                  body = ObjectSerializer.deserialize(
-                    response.data,
-                    "TemplateGetResponse"
-                  );
-                  reject(new HttpError(response, body, response.status));
+                if (handleErrorCodeResponse10(
+                  reject,
+                  error.response,
+                  200,
+                  "TemplateGetResponse"
+                )) {
                   return;
                 }
-                let rangeCodeLeft = Number("4XX"[0] + "00");
-                let rangeCodeRight = Number("4XX"[0] + "99");
-                if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
-                  body = ObjectSerializer.deserialize(
-                    response.data,
-                    "ErrorResponse"
-                  );
-                  reject(new HttpError(response, body, response.status));
+                if (handleErrorRangeResponse9(
+                  reject,
+                  error.response,
+                  "4XX",
+                  "ErrorResponse"
+                )) {
                   return;
                 }
                 reject(error);
@@ -28921,12 +30692,10 @@ var TemplateApi = class {
   }
   templateCreate(_0) {
     return __async(this, arguments, function* (templateCreateRequest, options = { headers: {} }) {
-      if (templateCreateRequest !== null && templateCreateRequest !== void 0 && templateCreateRequest.constructor.name !== "TemplateCreateRequest") {
-        templateCreateRequest = ObjectSerializer.deserialize(
-          templateCreateRequest,
-          "TemplateCreateRequest"
-        );
-      }
+      templateCreateRequest = deserializeIfNeeded9(
+        templateCreateRequest,
+        "TemplateCreateRequest"
+      );
       const localVarPath = this.basePath + "/template/create";
       let localVarQueryParameters = {};
       let localVarHeaderParams = Object.assign(
@@ -29000,40 +30769,32 @@ var TemplateApi = class {
           (resolve, reject) => {
             axios_default.request(localVarRequestOptions).then(
               (response) => {
-                let body = response.data;
-                if (response.status && response.status >= 200 && response.status <= 299) {
-                  body = ObjectSerializer.deserialize(
-                    body,
-                    "TemplateCreateResponse"
-                  );
-                  resolve({ response, body });
-                } else {
-                  reject(new HttpError(response, body, response.status));
-                }
+                handleSuccessfulResponse10(
+                  resolve,
+                  reject,
+                  response,
+                  "TemplateCreateResponse"
+                );
               },
               (error) => {
                 if (error.response == null) {
                   reject(error);
                   return;
                 }
-                const response = error.response;
-                let body;
-                if (response.status === 200) {
-                  body = ObjectSerializer.deserialize(
-                    response.data,
-                    "TemplateCreateResponse"
-                  );
-                  reject(new HttpError(response, body, response.status));
+                if (handleErrorCodeResponse10(
+                  reject,
+                  error.response,
+                  200,
+                  "TemplateCreateResponse"
+                )) {
                   return;
                 }
-                let rangeCodeLeft = Number("4XX"[0] + "00");
-                let rangeCodeRight = Number("4XX"[0] + "99");
-                if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
-                  body = ObjectSerializer.deserialize(
-                    response.data,
-                    "ErrorResponse"
-                  );
-                  reject(new HttpError(response, body, response.status));
+                if (handleErrorRangeResponse9(
+                  reject,
+                  error.response,
+                  "4XX",
+                  "ErrorResponse"
+                )) {
                   return;
                 }
                 reject(error);
@@ -29046,12 +30807,10 @@ var TemplateApi = class {
   }
   templateCreateEmbeddedDraft(_0) {
     return __async(this, arguments, function* (templateCreateEmbeddedDraftRequest, options = { headers: {} }) {
-      if (templateCreateEmbeddedDraftRequest !== null && templateCreateEmbeddedDraftRequest !== void 0 && templateCreateEmbeddedDraftRequest.constructor.name !== "TemplateCreateEmbeddedDraftRequest") {
-        templateCreateEmbeddedDraftRequest = ObjectSerializer.deserialize(
-          templateCreateEmbeddedDraftRequest,
-          "TemplateCreateEmbeddedDraftRequest"
-        );
-      }
+      templateCreateEmbeddedDraftRequest = deserializeIfNeeded9(
+        templateCreateEmbeddedDraftRequest,
+        "TemplateCreateEmbeddedDraftRequest"
+      );
       const localVarPath = this.basePath + "/template/create_embedded_draft";
       let localVarQueryParameters = {};
       let localVarHeaderParams = Object.assign(
@@ -29125,40 +30884,32 @@ var TemplateApi = class {
           (resolve, reject) => {
             axios_default.request(localVarRequestOptions).then(
               (response) => {
-                let body = response.data;
-                if (response.status && response.status >= 200 && response.status <= 299) {
-                  body = ObjectSerializer.deserialize(
-                    body,
-                    "TemplateCreateEmbeddedDraftResponse"
-                  );
-                  resolve({ response, body });
-                } else {
-                  reject(new HttpError(response, body, response.status));
-                }
+                handleSuccessfulResponse10(
+                  resolve,
+                  reject,
+                  response,
+                  "TemplateCreateEmbeddedDraftResponse"
+                );
               },
               (error) => {
                 if (error.response == null) {
                   reject(error);
                   return;
                 }
-                const response = error.response;
-                let body;
-                if (response.status === 200) {
-                  body = ObjectSerializer.deserialize(
-                    response.data,
-                    "TemplateCreateEmbeddedDraftResponse"
-                  );
-                  reject(new HttpError(response, body, response.status));
+                if (handleErrorCodeResponse10(
+                  reject,
+                  error.response,
+                  200,
+                  "TemplateCreateEmbeddedDraftResponse"
+                )) {
                   return;
                 }
-                let rangeCodeLeft = Number("4XX"[0] + "00");
-                let rangeCodeRight = Number("4XX"[0] + "99");
-                if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
-                  body = ObjectSerializer.deserialize(
-                    response.data,
-                    "ErrorResponse"
-                  );
-                  reject(new HttpError(response, body, response.status));
+                if (handleErrorRangeResponse9(
+                  reject,
+                  error.response,
+                  "4XX",
+                  "ErrorResponse"
+                )) {
                   return;
                 }
                 reject(error);
@@ -29229,28 +30980,19 @@ var TemplateApi = class {
         return new Promise((resolve, reject) => {
           axios_default.request(localVarRequestOptions).then(
             (response) => {
-              let body = response.data;
-              if (response.status && response.status >= 200 && response.status <= 299) {
-                resolve({ response, body });
-              } else {
-                reject(new HttpError(response, body, response.status));
-              }
+              handleSuccessfulResponse10(resolve, reject, response);
             },
             (error) => {
               if (error.response == null) {
                 reject(error);
                 return;
               }
-              const response = error.response;
-              let body;
-              let rangeCodeLeft = Number("4XX"[0] + "00");
-              let rangeCodeRight = Number("4XX"[0] + "99");
-              if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
-                body = ObjectSerializer.deserialize(
-                  response.data,
-                  "ErrorResponse"
-                );
-                reject(new HttpError(response, body, response.status));
+              if (handleErrorRangeResponse9(
+                reject,
+                error.response,
+                "4XX",
+                "ErrorResponse"
+              )) {
                 return;
               }
               reject(error);
@@ -29326,34 +31068,32 @@ var TemplateApi = class {
         return new Promise((resolve, reject) => {
           axios_default.request(localVarRequestOptions).then(
             (response) => {
-              let body = response.data;
-              if (response.status && response.status >= 200 && response.status <= 299) {
-                body = ObjectSerializer.deserialize(body, "Buffer");
-                resolve({ response, body });
-              } else {
-                reject(new HttpError(response, body, response.status));
-              }
+              handleSuccessfulResponse10(
+                resolve,
+                reject,
+                response,
+                "Buffer"
+              );
             },
             (error) => {
               if (error.response == null) {
                 reject(error);
                 return;
               }
-              const response = error.response;
-              let body;
-              if (response.status === 200) {
-                body = ObjectSerializer.deserialize(response.data, "RequestFile");
-                reject(new HttpError(response, body, response.status));
+              if (handleErrorCodeResponse10(
+                reject,
+                error.response,
+                200,
+                "RequestFile"
+              )) {
                 return;
               }
-              let rangeCodeLeft = Number("4XX"[0] + "00");
-              let rangeCodeRight = Number("4XX"[0] + "99");
-              if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
-                body = ObjectSerializer.deserialize(
-                  response.data,
-                  "ErrorResponse"
-                );
-                reject(new HttpError(response, body, response.status));
+              if (handleErrorRangeResponse9(
+                reject,
+                error.response,
+                "4XX",
+                "ErrorResponse"
+              )) {
                 return;
               }
               reject(error);
@@ -29424,40 +31164,32 @@ var TemplateApi = class {
           (resolve, reject) => {
             axios_default.request(localVarRequestOptions).then(
               (response) => {
-                let body = response.data;
-                if (response.status && response.status >= 200 && response.status <= 299) {
-                  body = ObjectSerializer.deserialize(
-                    body,
-                    "FileResponseDataUri"
-                  );
-                  resolve({ response, body });
-                } else {
-                  reject(new HttpError(response, body, response.status));
-                }
+                handleSuccessfulResponse10(
+                  resolve,
+                  reject,
+                  response,
+                  "FileResponseDataUri"
+                );
               },
               (error) => {
                 if (error.response == null) {
                   reject(error);
                   return;
                 }
-                const response = error.response;
-                let body;
-                if (response.status === 200) {
-                  body = ObjectSerializer.deserialize(
-                    response.data,
-                    "FileResponseDataUri"
-                  );
-                  reject(new HttpError(response, body, response.status));
+                if (handleErrorCodeResponse10(
+                  reject,
+                  error.response,
+                  200,
+                  "FileResponseDataUri"
+                )) {
                   return;
                 }
-                let rangeCodeLeft = Number("4XX"[0] + "00");
-                let rangeCodeRight = Number("4XX"[0] + "99");
-                if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
-                  body = ObjectSerializer.deserialize(
-                    response.data,
-                    "ErrorResponse"
-                  );
-                  reject(new HttpError(response, body, response.status));
+                if (handleErrorRangeResponse9(
+                  reject,
+                  error.response,
+                  "4XX",
+                  "ErrorResponse"
+                )) {
                   return;
                 }
                 reject(error);
@@ -29534,37 +31266,32 @@ var TemplateApi = class {
         return new Promise((resolve, reject) => {
           axios_default.request(localVarRequestOptions).then(
             (response) => {
-              let body = response.data;
-              if (response.status && response.status >= 200 && response.status <= 299) {
-                body = ObjectSerializer.deserialize(body, "FileResponse");
-                resolve({ response, body });
-              } else {
-                reject(new HttpError(response, body, response.status));
-              }
+              handleSuccessfulResponse10(
+                resolve,
+                reject,
+                response,
+                "FileResponse"
+              );
             },
             (error) => {
               if (error.response == null) {
                 reject(error);
                 return;
               }
-              const response = error.response;
-              let body;
-              if (response.status === 200) {
-                body = ObjectSerializer.deserialize(
-                  response.data,
-                  "FileResponse"
-                );
-                reject(new HttpError(response, body, response.status));
+              if (handleErrorCodeResponse10(
+                reject,
+                error.response,
+                200,
+                "FileResponse"
+              )) {
                 return;
               }
-              let rangeCodeLeft = Number("4XX"[0] + "00");
-              let rangeCodeRight = Number("4XX"[0] + "99");
-              if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
-                body = ObjectSerializer.deserialize(
-                  response.data,
-                  "ErrorResponse"
-                );
-                reject(new HttpError(response, body, response.status));
+              if (handleErrorRangeResponse9(
+                reject,
+                error.response,
+                "4XX",
+                "ErrorResponse"
+              )) {
                 return;
               }
               reject(error);
@@ -29635,40 +31362,32 @@ var TemplateApi = class {
           (resolve, reject) => {
             axios_default.request(localVarRequestOptions).then(
               (response) => {
-                let body = response.data;
-                if (response.status && response.status >= 200 && response.status <= 299) {
-                  body = ObjectSerializer.deserialize(
-                    body,
-                    "TemplateGetResponse"
-                  );
-                  resolve({ response, body });
-                } else {
-                  reject(new HttpError(response, body, response.status));
-                }
+                handleSuccessfulResponse10(
+                  resolve,
+                  reject,
+                  response,
+                  "TemplateGetResponse"
+                );
               },
               (error) => {
                 if (error.response == null) {
                   reject(error);
                   return;
                 }
-                const response = error.response;
-                let body;
-                if (response.status === 200) {
-                  body = ObjectSerializer.deserialize(
-                    response.data,
-                    "TemplateGetResponse"
-                  );
-                  reject(new HttpError(response, body, response.status));
+                if (handleErrorCodeResponse10(
+                  reject,
+                  error.response,
+                  200,
+                  "TemplateGetResponse"
+                )) {
                   return;
                 }
-                let rangeCodeLeft = Number("4XX"[0] + "00");
-                let rangeCodeRight = Number("4XX"[0] + "99");
-                if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
-                  body = ObjectSerializer.deserialize(
-                    response.data,
-                    "ErrorResponse"
-                  );
-                  reject(new HttpError(response, body, response.status));
+                if (handleErrorRangeResponse9(
+                  reject,
+                  error.response,
+                  "4XX",
+                  "ErrorResponse"
+                )) {
                   return;
                 }
                 reject(error);
@@ -29756,40 +31475,32 @@ var TemplateApi = class {
           (resolve, reject) => {
             axios_default.request(localVarRequestOptions).then(
               (response) => {
-                let body = response.data;
-                if (response.status && response.status >= 200 && response.status <= 299) {
-                  body = ObjectSerializer.deserialize(
-                    body,
-                    "TemplateListResponse"
-                  );
-                  resolve({ response, body });
-                } else {
-                  reject(new HttpError(response, body, response.status));
-                }
+                handleSuccessfulResponse10(
+                  resolve,
+                  reject,
+                  response,
+                  "TemplateListResponse"
+                );
               },
               (error) => {
                 if (error.response == null) {
                   reject(error);
                   return;
                 }
-                const response = error.response;
-                let body;
-                if (response.status === 200) {
-                  body = ObjectSerializer.deserialize(
-                    response.data,
-                    "TemplateListResponse"
-                  );
-                  reject(new HttpError(response, body, response.status));
+                if (handleErrorCodeResponse10(
+                  reject,
+                  error.response,
+                  200,
+                  "TemplateListResponse"
+                )) {
                   return;
                 }
-                let rangeCodeLeft = Number("4XX"[0] + "00");
-                let rangeCodeRight = Number("4XX"[0] + "99");
-                if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
-                  body = ObjectSerializer.deserialize(
-                    response.data,
-                    "ErrorResponse"
-                  );
-                  reject(new HttpError(response, body, response.status));
+                if (handleErrorRangeResponse9(
+                  reject,
+                  error.response,
+                  "4XX",
+                  "ErrorResponse"
+                )) {
                   return;
                 }
                 reject(error);
@@ -29802,12 +31513,10 @@ var TemplateApi = class {
   }
   templateRemoveUser(_0, _1) {
     return __async(this, arguments, function* (templateId, templateRemoveUserRequest, options = { headers: {} }) {
-      if (templateRemoveUserRequest !== null && templateRemoveUserRequest !== void 0 && templateRemoveUserRequest.constructor.name !== "TemplateRemoveUserRequest") {
-        templateRemoveUserRequest = ObjectSerializer.deserialize(
-          templateRemoveUserRequest,
-          "TemplateRemoveUserRequest"
-        );
-      }
+      templateRemoveUserRequest = deserializeIfNeeded9(
+        templateRemoveUserRequest,
+        "TemplateRemoveUserRequest"
+      );
       const localVarPath = this.basePath + "/template/remove_user/{template_id}".replace(
         "{template_id}",
         encodeURIComponent(String(templateId))
@@ -29889,40 +31598,32 @@ var TemplateApi = class {
           (resolve, reject) => {
             axios_default.request(localVarRequestOptions).then(
               (response) => {
-                let body = response.data;
-                if (response.status && response.status >= 200 && response.status <= 299) {
-                  body = ObjectSerializer.deserialize(
-                    body,
-                    "TemplateGetResponse"
-                  );
-                  resolve({ response, body });
-                } else {
-                  reject(new HttpError(response, body, response.status));
-                }
+                handleSuccessfulResponse10(
+                  resolve,
+                  reject,
+                  response,
+                  "TemplateGetResponse"
+                );
               },
               (error) => {
                 if (error.response == null) {
                   reject(error);
                   return;
                 }
-                const response = error.response;
-                let body;
-                if (response.status === 200) {
-                  body = ObjectSerializer.deserialize(
-                    response.data,
-                    "TemplateGetResponse"
-                  );
-                  reject(new HttpError(response, body, response.status));
+                if (handleErrorCodeResponse10(
+                  reject,
+                  error.response,
+                  200,
+                  "TemplateGetResponse"
+                )) {
                   return;
                 }
-                let rangeCodeLeft = Number("4XX"[0] + "00");
-                let rangeCodeRight = Number("4XX"[0] + "99");
-                if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
-                  body = ObjectSerializer.deserialize(
-                    response.data,
-                    "ErrorResponse"
-                  );
-                  reject(new HttpError(response, body, response.status));
+                if (handleErrorRangeResponse9(
+                  reject,
+                  error.response,
+                  "4XX",
+                  "ErrorResponse"
+                )) {
                   return;
                 }
                 reject(error);
@@ -29935,12 +31636,10 @@ var TemplateApi = class {
   }
   templateUpdateFiles(_0, _1) {
     return __async(this, arguments, function* (templateId, templateUpdateFilesRequest, options = { headers: {} }) {
-      if (templateUpdateFilesRequest !== null && templateUpdateFilesRequest !== void 0 && templateUpdateFilesRequest.constructor.name !== "TemplateUpdateFilesRequest") {
-        templateUpdateFilesRequest = ObjectSerializer.deserialize(
-          templateUpdateFilesRequest,
-          "TemplateUpdateFilesRequest"
-        );
-      }
+      templateUpdateFilesRequest = deserializeIfNeeded9(
+        templateUpdateFilesRequest,
+        "TemplateUpdateFilesRequest"
+      );
       const localVarPath = this.basePath + "/template/update_files/{template_id}".replace(
         "{template_id}",
         encodeURIComponent(String(templateId))
@@ -30022,40 +31721,32 @@ var TemplateApi = class {
           (resolve, reject) => {
             axios_default.request(localVarRequestOptions).then(
               (response) => {
-                let body = response.data;
-                if (response.status && response.status >= 200 && response.status <= 299) {
-                  body = ObjectSerializer.deserialize(
-                    body,
-                    "TemplateUpdateFilesResponse"
-                  );
-                  resolve({ response, body });
-                } else {
-                  reject(new HttpError(response, body, response.status));
-                }
+                handleSuccessfulResponse10(
+                  resolve,
+                  reject,
+                  response,
+                  "TemplateUpdateFilesResponse"
+                );
               },
               (error) => {
                 if (error.response == null) {
                   reject(error);
                   return;
                 }
-                const response = error.response;
-                let body;
-                if (response.status === 200) {
-                  body = ObjectSerializer.deserialize(
-                    response.data,
-                    "TemplateUpdateFilesResponse"
-                  );
-                  reject(new HttpError(response, body, response.status));
+                if (handleErrorCodeResponse10(
+                  reject,
+                  error.response,
+                  200,
+                  "TemplateUpdateFilesResponse"
+                )) {
                   return;
                 }
-                let rangeCodeLeft = Number("4XX"[0] + "00");
-                let rangeCodeRight = Number("4XX"[0] + "99");
-                if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
-                  body = ObjectSerializer.deserialize(
-                    response.data,
-                    "ErrorResponse"
-                  );
-                  reject(new HttpError(response, body, response.status));
+                if (handleErrorRangeResponse9(
+                  reject,
+                  error.response,
+                  "4XX",
+                  "ErrorResponse"
+                )) {
                   return;
                 }
                 reject(error);
@@ -30067,15 +31758,48 @@ var TemplateApi = class {
     });
   }
 };
+function deserializeIfNeeded9(obj, classname) {
+  if (obj !== null && obj !== void 0 && obj.constructor.name !== classname) {
+    return ObjectSerializer.deserialize(obj, classname);
+  }
+  return obj;
+}
+function handleSuccessfulResponse10(resolve, reject, response, returnType) {
+  let body = response.data;
+  if (response.status && response.status >= 200 && response.status <= 299) {
+    if (returnType) {
+      body = ObjectSerializer.deserialize(body, returnType);
+    }
+    resolve({ response, body });
+  } else {
+    reject(new HttpError(response, body, response.status));
+  }
+}
+function handleErrorCodeResponse10(reject, response, code, returnType) {
+  if (response.status !== code) {
+    return false;
+  }
+  const body = ObjectSerializer.deserialize(response.data, returnType);
+  reject(new HttpError(response, body, response.status));
+  return true;
+}
+function handleErrorRangeResponse9(reject, response, code, returnType) {
+  let rangeCodeLeft = Number(code[0] + "00");
+  let rangeCodeRight = Number(code[0] + "99");
+  if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
+    const body = ObjectSerializer.deserialize(response.data, returnType);
+    reject(new HttpError(response, body, response.status));
+    return true;
+  }
+  return false;
+}
 
 // api/unclaimedDraftApi.ts
-var defaultBasePath10 = "https://api.hellosign.com/v3";
+var defaultBasePath11 = "https://api.hellosign.com/v3";
 var UnclaimedDraftApi = class {
   constructor(basePath) {
-    this._basePath = defaultBasePath10;
-    this._defaultHeaders = {
-      "User-Agent": USER_AGENT
-    };
+    this._basePath = defaultBasePath11;
+    this._defaultHeaders = { "User-Agent": USER_AGENT };
     this._useQuerystring = false;
     this.authentications = {
       default: new VoidAuth(),
@@ -30094,7 +31818,7 @@ var UnclaimedDraftApi = class {
     this._basePath = basePath;
   }
   set defaultHeaders(defaultHeaders) {
-    this._defaultHeaders = defaultHeaders;
+    this._defaultHeaders = __spreadProps(__spreadValues({}, defaultHeaders), { "User-Agent": USER_AGENT });
   }
   get defaultHeaders() {
     return this._defaultHeaders;
@@ -30122,12 +31846,10 @@ var UnclaimedDraftApi = class {
   }
   unclaimedDraftCreate(_0) {
     return __async(this, arguments, function* (unclaimedDraftCreateRequest, options = { headers: {} }) {
-      if (unclaimedDraftCreateRequest !== null && unclaimedDraftCreateRequest !== void 0 && unclaimedDraftCreateRequest.constructor.name !== "UnclaimedDraftCreateRequest") {
-        unclaimedDraftCreateRequest = ObjectSerializer.deserialize(
-          unclaimedDraftCreateRequest,
-          "UnclaimedDraftCreateRequest"
-        );
-      }
+      unclaimedDraftCreateRequest = deserializeIfNeeded10(
+        unclaimedDraftCreateRequest,
+        "UnclaimedDraftCreateRequest"
+      );
       const localVarPath = this.basePath + "/unclaimed_draft/create";
       let localVarQueryParameters = {};
       let localVarHeaderParams = Object.assign(
@@ -30201,40 +31923,32 @@ var UnclaimedDraftApi = class {
           (resolve, reject) => {
             axios_default.request(localVarRequestOptions).then(
               (response) => {
-                let body = response.data;
-                if (response.status && response.status >= 200 && response.status <= 299) {
-                  body = ObjectSerializer.deserialize(
-                    body,
-                    "UnclaimedDraftCreateResponse"
-                  );
-                  resolve({ response, body });
-                } else {
-                  reject(new HttpError(response, body, response.status));
-                }
+                handleSuccessfulResponse11(
+                  resolve,
+                  reject,
+                  response,
+                  "UnclaimedDraftCreateResponse"
+                );
               },
               (error) => {
                 if (error.response == null) {
                   reject(error);
                   return;
                 }
-                const response = error.response;
-                let body;
-                if (response.status === 200) {
-                  body = ObjectSerializer.deserialize(
-                    response.data,
-                    "UnclaimedDraftCreateResponse"
-                  );
-                  reject(new HttpError(response, body, response.status));
+                if (handleErrorCodeResponse11(
+                  reject,
+                  error.response,
+                  200,
+                  "UnclaimedDraftCreateResponse"
+                )) {
                   return;
                 }
-                let rangeCodeLeft = Number("4XX"[0] + "00");
-                let rangeCodeRight = Number("4XX"[0] + "99");
-                if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
-                  body = ObjectSerializer.deserialize(
-                    response.data,
-                    "ErrorResponse"
-                  );
-                  reject(new HttpError(response, body, response.status));
+                if (handleErrorRangeResponse10(
+                  reject,
+                  error.response,
+                  "4XX",
+                  "ErrorResponse"
+                )) {
                   return;
                 }
                 reject(error);
@@ -30247,12 +31961,10 @@ var UnclaimedDraftApi = class {
   }
   unclaimedDraftCreateEmbedded(_0) {
     return __async(this, arguments, function* (unclaimedDraftCreateEmbeddedRequest, options = { headers: {} }) {
-      if (unclaimedDraftCreateEmbeddedRequest !== null && unclaimedDraftCreateEmbeddedRequest !== void 0 && unclaimedDraftCreateEmbeddedRequest.constructor.name !== "UnclaimedDraftCreateEmbeddedRequest") {
-        unclaimedDraftCreateEmbeddedRequest = ObjectSerializer.deserialize(
-          unclaimedDraftCreateEmbeddedRequest,
-          "UnclaimedDraftCreateEmbeddedRequest"
-        );
-      }
+      unclaimedDraftCreateEmbeddedRequest = deserializeIfNeeded10(
+        unclaimedDraftCreateEmbeddedRequest,
+        "UnclaimedDraftCreateEmbeddedRequest"
+      );
       const localVarPath = this.basePath + "/unclaimed_draft/create_embedded";
       let localVarQueryParameters = {};
       let localVarHeaderParams = Object.assign(
@@ -30326,40 +32038,32 @@ var UnclaimedDraftApi = class {
           (resolve, reject) => {
             axios_default.request(localVarRequestOptions).then(
               (response) => {
-                let body = response.data;
-                if (response.status && response.status >= 200 && response.status <= 299) {
-                  body = ObjectSerializer.deserialize(
-                    body,
-                    "UnclaimedDraftCreateResponse"
-                  );
-                  resolve({ response, body });
-                } else {
-                  reject(new HttpError(response, body, response.status));
-                }
+                handleSuccessfulResponse11(
+                  resolve,
+                  reject,
+                  response,
+                  "UnclaimedDraftCreateResponse"
+                );
               },
               (error) => {
                 if (error.response == null) {
                   reject(error);
                   return;
                 }
-                const response = error.response;
-                let body;
-                if (response.status === 200) {
-                  body = ObjectSerializer.deserialize(
-                    response.data,
-                    "UnclaimedDraftCreateResponse"
-                  );
-                  reject(new HttpError(response, body, response.status));
+                if (handleErrorCodeResponse11(
+                  reject,
+                  error.response,
+                  200,
+                  "UnclaimedDraftCreateResponse"
+                )) {
                   return;
                 }
-                let rangeCodeLeft = Number("4XX"[0] + "00");
-                let rangeCodeRight = Number("4XX"[0] + "99");
-                if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
-                  body = ObjectSerializer.deserialize(
-                    response.data,
-                    "ErrorResponse"
-                  );
-                  reject(new HttpError(response, body, response.status));
+                if (handleErrorRangeResponse10(
+                  reject,
+                  error.response,
+                  "4XX",
+                  "ErrorResponse"
+                )) {
                   return;
                 }
                 reject(error);
@@ -30372,12 +32076,10 @@ var UnclaimedDraftApi = class {
   }
   unclaimedDraftCreateEmbeddedWithTemplate(_0) {
     return __async(this, arguments, function* (unclaimedDraftCreateEmbeddedWithTemplateRequest, options = { headers: {} }) {
-      if (unclaimedDraftCreateEmbeddedWithTemplateRequest !== null && unclaimedDraftCreateEmbeddedWithTemplateRequest !== void 0 && unclaimedDraftCreateEmbeddedWithTemplateRequest.constructor.name !== "UnclaimedDraftCreateEmbeddedWithTemplateRequest") {
-        unclaimedDraftCreateEmbeddedWithTemplateRequest = ObjectSerializer.deserialize(
-          unclaimedDraftCreateEmbeddedWithTemplateRequest,
-          "UnclaimedDraftCreateEmbeddedWithTemplateRequest"
-        );
-      }
+      unclaimedDraftCreateEmbeddedWithTemplateRequest = deserializeIfNeeded10(
+        unclaimedDraftCreateEmbeddedWithTemplateRequest,
+        "UnclaimedDraftCreateEmbeddedWithTemplateRequest"
+      );
       const localVarPath = this.basePath + "/unclaimed_draft/create_embedded_with_template";
       let localVarQueryParameters = {};
       let localVarHeaderParams = Object.assign(
@@ -30451,40 +32153,32 @@ var UnclaimedDraftApi = class {
           (resolve, reject) => {
             axios_default.request(localVarRequestOptions).then(
               (response) => {
-                let body = response.data;
-                if (response.status && response.status >= 200 && response.status <= 299) {
-                  body = ObjectSerializer.deserialize(
-                    body,
-                    "UnclaimedDraftCreateResponse"
-                  );
-                  resolve({ response, body });
-                } else {
-                  reject(new HttpError(response, body, response.status));
-                }
+                handleSuccessfulResponse11(
+                  resolve,
+                  reject,
+                  response,
+                  "UnclaimedDraftCreateResponse"
+                );
               },
               (error) => {
                 if (error.response == null) {
                   reject(error);
                   return;
                 }
-                const response = error.response;
-                let body;
-                if (response.status === 200) {
-                  body = ObjectSerializer.deserialize(
-                    response.data,
-                    "UnclaimedDraftCreateResponse"
-                  );
-                  reject(new HttpError(response, body, response.status));
+                if (handleErrorCodeResponse11(
+                  reject,
+                  error.response,
+                  200,
+                  "UnclaimedDraftCreateResponse"
+                )) {
                   return;
                 }
-                let rangeCodeLeft = Number("4XX"[0] + "00");
-                let rangeCodeRight = Number("4XX"[0] + "99");
-                if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
-                  body = ObjectSerializer.deserialize(
-                    response.data,
-                    "ErrorResponse"
-                  );
-                  reject(new HttpError(response, body, response.status));
+                if (handleErrorRangeResponse10(
+                  reject,
+                  error.response,
+                  "4XX",
+                  "ErrorResponse"
+                )) {
                   return;
                 }
                 reject(error);
@@ -30497,12 +32191,10 @@ var UnclaimedDraftApi = class {
   }
   unclaimedDraftEditAndResend(_0, _1) {
     return __async(this, arguments, function* (signatureRequestId, unclaimedDraftEditAndResendRequest, options = { headers: {} }) {
-      if (unclaimedDraftEditAndResendRequest !== null && unclaimedDraftEditAndResendRequest !== void 0 && unclaimedDraftEditAndResendRequest.constructor.name !== "UnclaimedDraftEditAndResendRequest") {
-        unclaimedDraftEditAndResendRequest = ObjectSerializer.deserialize(
-          unclaimedDraftEditAndResendRequest,
-          "UnclaimedDraftEditAndResendRequest"
-        );
-      }
+      unclaimedDraftEditAndResendRequest = deserializeIfNeeded10(
+        unclaimedDraftEditAndResendRequest,
+        "UnclaimedDraftEditAndResendRequest"
+      );
       const localVarPath = this.basePath + "/unclaimed_draft/edit_and_resend/{signature_request_id}".replace(
         "{signature_request_id}",
         encodeURIComponent(String(signatureRequestId))
@@ -30584,40 +32276,32 @@ var UnclaimedDraftApi = class {
           (resolve, reject) => {
             axios_default.request(localVarRequestOptions).then(
               (response) => {
-                let body = response.data;
-                if (response.status && response.status >= 200 && response.status <= 299) {
-                  body = ObjectSerializer.deserialize(
-                    body,
-                    "UnclaimedDraftCreateResponse"
-                  );
-                  resolve({ response, body });
-                } else {
-                  reject(new HttpError(response, body, response.status));
-                }
+                handleSuccessfulResponse11(
+                  resolve,
+                  reject,
+                  response,
+                  "UnclaimedDraftCreateResponse"
+                );
               },
               (error) => {
                 if (error.response == null) {
                   reject(error);
                   return;
                 }
-                const response = error.response;
-                let body;
-                if (response.status === 200) {
-                  body = ObjectSerializer.deserialize(
-                    response.data,
-                    "UnclaimedDraftCreateResponse"
-                  );
-                  reject(new HttpError(response, body, response.status));
+                if (handleErrorCodeResponse11(
+                  reject,
+                  error.response,
+                  200,
+                  "UnclaimedDraftCreateResponse"
+                )) {
                   return;
                 }
-                let rangeCodeLeft = Number("4XX"[0] + "00");
-                let rangeCodeRight = Number("4XX"[0] + "99");
-                if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
-                  body = ObjectSerializer.deserialize(
-                    response.data,
-                    "ErrorResponse"
-                  );
-                  reject(new HttpError(response, body, response.status));
+                if (handleErrorRangeResponse10(
+                  reject,
+                  error.response,
+                  "4XX",
+                  "ErrorResponse"
+                )) {
                   return;
                 }
                 reject(error);
@@ -30629,6 +32313,41 @@ var UnclaimedDraftApi = class {
     });
   }
 };
+function deserializeIfNeeded10(obj, classname) {
+  if (obj !== null && obj !== void 0 && obj.constructor.name !== classname) {
+    return ObjectSerializer.deserialize(obj, classname);
+  }
+  return obj;
+}
+function handleSuccessfulResponse11(resolve, reject, response, returnType) {
+  let body = response.data;
+  if (response.status && response.status >= 200 && response.status <= 299) {
+    if (returnType) {
+      body = ObjectSerializer.deserialize(body, returnType);
+    }
+    resolve({ response, body });
+  } else {
+    reject(new HttpError(response, body, response.status));
+  }
+}
+function handleErrorCodeResponse11(reject, response, code, returnType) {
+  if (response.status !== code) {
+    return false;
+  }
+  const body = ObjectSerializer.deserialize(response.data, returnType);
+  reject(new HttpError(response, body, response.status));
+  return true;
+}
+function handleErrorRangeResponse10(reject, response, code, returnType) {
+  let rangeCodeLeft = Number(code[0] + "00");
+  let rangeCodeRight = Number(code[0] + "99");
+  if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
+    const body = ObjectSerializer.deserialize(response.data, returnType);
+    reject(new HttpError(response, body, response.status));
+    return true;
+  }
+  return false;
+}
 
 // api/apis.ts
 var import_form_data2 = __toESM(require_form_data());
@@ -30645,7 +32364,7 @@ var HttpError = class extends Error {
 var queryParamsSerializer = (params) => {
   return import_qs.default.stringify(params, { arrayFormat: "brackets" });
 };
-var USER_AGENT = "OpenAPI-Generator/1.5-dev/node";
+var USER_AGENT = "OpenAPI-Generator/1.6-dev/node";
 var generateFormData = (obj, typemap) => {
   const data = {};
   let localVarUseFormData = false;
@@ -30709,6 +32428,7 @@ var APIS = [
   ApiAppApi,
   BulkSendJobApi,
   EmbeddedApi,
+  FaxLineApi,
   OAuthApi,
   ReportApi,
   SignatureRequestApi,
@@ -30759,6 +32479,18 @@ var APIS = [
   EventCallbackRequest,
   EventCallbackRequestEvent,
   EventCallbackRequestEventMetadata,
+  FaxLineAddUserRequest,
+  FaxLineApi,
+  FaxLineAreaCodeGetCountryEnum,
+  FaxLineAreaCodeGetProvinceEnum,
+  FaxLineAreaCodeGetResponse,
+  FaxLineAreaCodeGetStateEnum,
+  FaxLineCreateRequest,
+  FaxLineDeleteRequest,
+  FaxLineListResponse,
+  FaxLineRemoveUserRequest,
+  FaxLineResponse,
+  FaxLineResponseFaxLine,
   FileResponse,
   FileResponseDataUri,
   HttpBasicAuth,
@@ -30919,6 +32651,7 @@ var APIS = [
 /*!
  * mime-db
  * Copyright(c) 2014 Jonathan Ong
+ * Copyright(c) 2015-2022 Douglas Christopher Wilson
  * MIT Licensed
  */
 /*!

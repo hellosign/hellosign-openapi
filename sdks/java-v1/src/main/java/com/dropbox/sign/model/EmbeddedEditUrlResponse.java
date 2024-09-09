@@ -14,7 +14,6 @@
 package com.dropbox.sign.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.dropbox.sign.model.EmbeddedEditUrlResponseEmbedded;
@@ -24,14 +23,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.dropbox.sign.JSON;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.dropbox.sign.JSON;
 
 
 import com.dropbox.sign.ApiException;
@@ -39,11 +37,11 @@ import com.dropbox.sign.ApiException;
  * EmbeddedEditUrlResponse
  */
 @JsonPropertyOrder({
-    EmbeddedEditUrlResponse.JSON_PROPERTY_EMBEDDED,
-    EmbeddedEditUrlResponse.JSON_PROPERTY_WARNINGS
+  EmbeddedEditUrlResponse.JSON_PROPERTY_EMBEDDED,
+  EmbeddedEditUrlResponse.JSON_PROPERTY_WARNINGS
 })
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class EmbeddedEditUrlResponse {
   public static final String JSON_PROPERTY_EMBEDDED = "embedded";
   private EmbeddedEditUrlResponseEmbedded embedded;
@@ -74,14 +72,13 @@ public class EmbeddedEditUrlResponse {
     return this;
   }
 
-   /**
+  /**
    * Get embedded
    * @return embedded
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_EMBEDDED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public EmbeddedEditUrlResponseEmbedded getEmbedded() {
     return embedded;
@@ -89,7 +86,7 @@ public class EmbeddedEditUrlResponse {
 
 
   @JsonProperty(JSON_PROPERTY_EMBEDDED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setEmbedded(EmbeddedEditUrlResponseEmbedded embedded) {
     this.embedded = embedded;
   }
@@ -108,12 +105,11 @@ public class EmbeddedEditUrlResponse {
     return this;
   }
 
-   /**
+  /**
    * A list of warnings.
    * @return warnings
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A list of warnings.")
   @JsonProperty(JSON_PROPERTY_WARNINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

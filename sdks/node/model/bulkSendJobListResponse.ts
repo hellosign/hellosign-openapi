@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-import { RequestFile, AttributeTypeMap, ObjectSerializer } from "./";
+import { AttributeTypeMap, ObjectSerializer } from "./";
 import { BulkSendJobResponse } from "./bulkSendJobResponse";
 import { ListInfoResponse } from "./listInfoResponse";
 import { WarningResponse } from "./warningResponse";
@@ -31,8 +31,8 @@ export class BulkSendJobListResponse {
   /**
    * Contains a list of BulkSendJobs that the API caller has access to.
    */
-  "bulkSendJobs"?: Array<BulkSendJobResponse>;
-  "listInfo"?: ListInfoResponse;
+  "bulkSendJobs": Array<BulkSendJobResponse>;
+  "listInfo": ListInfoResponse;
   /**
    * A list of warnings.
    */

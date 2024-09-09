@@ -14,11 +14,9 @@
 package com.dropbox.sign.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.dropbox.sign.model.TemplateResponseDocumentCustomFieldCheckbox;
-import com.dropbox.sign.model.TemplateResponseDocumentCustomFieldText;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -26,37 +24,36 @@ import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.dropbox.sign.JSON;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.dropbox.sign.JSON;
 
 
 import com.dropbox.sign.ApiException;
 /**
  * An array of Form Field objects containing the name and type of each named field.
  */
-@ApiModel(description = "An array of Form Field objects containing the name and type of each named field.")
 @JsonPropertyOrder({
-    TemplateResponseDocumentCustomFieldBase.JSON_PROPERTY_TYPE,
-    TemplateResponseDocumentCustomFieldBase.JSON_PROPERTY_API_ID,
-    TemplateResponseDocumentCustomFieldBase.JSON_PROPERTY_NAME,
-    TemplateResponseDocumentCustomFieldBase.JSON_PROPERTY_SIGNER,
-    TemplateResponseDocumentCustomFieldBase.JSON_PROPERTY_X,
-    TemplateResponseDocumentCustomFieldBase.JSON_PROPERTY_Y,
-    TemplateResponseDocumentCustomFieldBase.JSON_PROPERTY_WIDTH,
-    TemplateResponseDocumentCustomFieldBase.JSON_PROPERTY_HEIGHT,
-    TemplateResponseDocumentCustomFieldBase.JSON_PROPERTY_REQUIRED,
-    TemplateResponseDocumentCustomFieldBase.JSON_PROPERTY_GROUP
+  TemplateResponseDocumentCustomFieldBase.JSON_PROPERTY_TYPE,
+  TemplateResponseDocumentCustomFieldBase.JSON_PROPERTY_API_ID,
+  TemplateResponseDocumentCustomFieldBase.JSON_PROPERTY_NAME,
+  TemplateResponseDocumentCustomFieldBase.JSON_PROPERTY_SIGNER,
+  TemplateResponseDocumentCustomFieldBase.JSON_PROPERTY_X,
+  TemplateResponseDocumentCustomFieldBase.JSON_PROPERTY_Y,
+  TemplateResponseDocumentCustomFieldBase.JSON_PROPERTY_WIDTH,
+  TemplateResponseDocumentCustomFieldBase.JSON_PROPERTY_HEIGHT,
+  TemplateResponseDocumentCustomFieldBase.JSON_PROPERTY_REQUIRED,
+  TemplateResponseDocumentCustomFieldBase.JSON_PROPERTY_GROUP
 })
-@JsonIgnoreProperties(ignoreUnknown=true)
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
+@JsonIgnoreProperties(
+  allowSetters = true, // allows the type to be set during deserialization
+  ignoreUnknown = true
+)
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.EXISTING_PROPERTY, property = "type", visible = true)
 @JsonSubTypes({
-  @JsonSubTypes.Type(value = TemplateResponseDocumentCustomFieldCheckbox.class, name = "TemplateResponseDocumentCustomFieldCheckbox"),
-  @JsonSubTypes.Type(value = TemplateResponseDocumentCustomFieldText.class, name = "TemplateResponseDocumentCustomFieldText"),
   @JsonSubTypes.Type(value = TemplateResponseDocumentCustomFieldCheckbox.class, name = "checkbox"),
   @JsonSubTypes.Type(value = TemplateResponseDocumentCustomFieldText.class, name = "text"),
 })
@@ -115,12 +112,11 @@ public class TemplateResponseDocumentCustomFieldBase {
     return this;
   }
 
-   /**
+  /**
    * Get type
    * @return type
-  **/
+   */
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -141,12 +137,11 @@ public class TemplateResponseDocumentCustomFieldBase {
     return this;
   }
 
-   /**
+  /**
    * The unique ID for this field.
    * @return apiId
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The unique ID for this field.")
   @JsonProperty(JSON_PROPERTY_API_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -167,12 +162,11 @@ public class TemplateResponseDocumentCustomFieldBase {
     return this;
   }
 
-   /**
+  /**
    * The name of the Custom Field.
    * @return name
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The name of the Custom Field.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -192,13 +186,16 @@ public class TemplateResponseDocumentCustomFieldBase {
     this.signer = signer;
     return this;
   }
+  public TemplateResponseDocumentCustomFieldBase signer(Integer signer) {
+    this.signer = String.valueOf(signer);
+    return this;
+  }
 
-   /**
+  /**
    * The signer of the Custom Field. Can be &#x60;null&#x60; if field is a merge field (assigned to Sender).
    * @return signer
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The signer of the Custom Field. Can be `null` if field is a merge field (assigned to Sender).")
   @JsonProperty(JSON_PROPERTY_SIGNER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -213,18 +210,21 @@ public class TemplateResponseDocumentCustomFieldBase {
     this.signer = signer;
   }
 
+  public void setSigner(Integer signer) {
+    this.signer = String.valueOf(signer);
+  }
+
 
   public TemplateResponseDocumentCustomFieldBase x(Integer x) {
     this.x = x;
     return this;
   }
 
-   /**
+  /**
    * The horizontal offset in pixels for this form field.
    * @return x
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The horizontal offset in pixels for this form field.")
   @JsonProperty(JSON_PROPERTY_X)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -245,12 +245,11 @@ public class TemplateResponseDocumentCustomFieldBase {
     return this;
   }
 
-   /**
+  /**
    * The vertical offset in pixels for this form field.
    * @return y
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The vertical offset in pixels for this form field.")
   @JsonProperty(JSON_PROPERTY_Y)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -271,12 +270,11 @@ public class TemplateResponseDocumentCustomFieldBase {
     return this;
   }
 
-   /**
+  /**
    * The width in pixels of this form field.
    * @return width
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The width in pixels of this form field.")
   @JsonProperty(JSON_PROPERTY_WIDTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -297,12 +295,11 @@ public class TemplateResponseDocumentCustomFieldBase {
     return this;
   }
 
-   /**
+  /**
    * The height in pixels of this form field.
    * @return height
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The height in pixels of this form field.")
   @JsonProperty(JSON_PROPERTY_HEIGHT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -323,12 +320,11 @@ public class TemplateResponseDocumentCustomFieldBase {
     return this;
   }
 
-   /**
+  /**
    * Boolean showing whether or not this field is required.
    * @return required
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Boolean showing whether or not this field is required.")
   @JsonProperty(JSON_PROPERTY_REQUIRED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -349,12 +345,11 @@ public class TemplateResponseDocumentCustomFieldBase {
     return this;
   }
 
-   /**
+  /**
    * The name of the group this field is in. If this field is not a group, this defaults to &#x60;null&#x60;.
    * @return group
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The name of the group this field is in. If this field is not a group, this defaults to `null`.")
   @JsonProperty(JSON_PROPERTY_GROUP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -649,15 +644,13 @@ public class TemplateResponseDocumentCustomFieldBase {
     return o.toString().replace("\n", "\n    ");
   }
 
-static {
-  // Initialize and register the discriminator mappings.
-  Map<String, Class<?>> mappings = new HashMap<String, Class<?>>();
-  mappings.put("TemplateResponseDocumentCustomFieldCheckbox", TemplateResponseDocumentCustomFieldCheckbox.class);
-  mappings.put("TemplateResponseDocumentCustomFieldText", TemplateResponseDocumentCustomFieldText.class);
-  mappings.put("checkbox", TemplateResponseDocumentCustomFieldCheckbox.class);
-  mappings.put("text", TemplateResponseDocumentCustomFieldText.class);
-  mappings.put("TemplateResponseDocumentCustomFieldBase", TemplateResponseDocumentCustomFieldBase.class);
-  JSON.registerDiscriminator(TemplateResponseDocumentCustomFieldBase.class, "type", mappings);
-}
+  static {
+    // Initialize and register the discriminator mappings.
+    Map<String, Class<?>> mappings = new HashMap<>();
+    mappings.put("checkbox", TemplateResponseDocumentCustomFieldCheckbox.class);
+    mappings.put("text", TemplateResponseDocumentCustomFieldText.class);
+    mappings.put("TemplateResponseDocumentCustomFieldBase", TemplateResponseDocumentCustomFieldBase.class);
+    JSON.registerDiscriminator(TemplateResponseDocumentCustomFieldBase.class, "type", mappings);
+  }
 }
 

@@ -6,8 +6,8 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
 | `name`<sup>*_required_</sup> | ```String``` |  The name of the merge field. Must be unique.  |  |
 | `type`<sup>*_required_</sup> | [```TypeEnum```](#TypeEnum) |  The type of merge field.  |  |
 
@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 
 ## Enum: TypeEnum
 
-Name | Value
+| Name | Value |
 ---- | -----
 | TEXT | &quot;text&quot; |
 | CHECKBOX | &quot;checkbox&quot; |

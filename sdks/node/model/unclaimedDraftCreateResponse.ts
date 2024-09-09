@@ -22,12 +22,12 @@
  * SOFTWARE.
  */
 
-import { RequestFile, AttributeTypeMap, ObjectSerializer } from "./";
+import { AttributeTypeMap, ObjectSerializer } from "./";
 import { UnclaimedDraftResponse } from "./unclaimedDraftResponse";
 import { WarningResponse } from "./warningResponse";
 
 export class UnclaimedDraftCreateResponse {
-  "unclaimedDraft"?: UnclaimedDraftResponse;
+  "unclaimedDraft": UnclaimedDraftResponse;
   /**
    * A list of warnings.
    */

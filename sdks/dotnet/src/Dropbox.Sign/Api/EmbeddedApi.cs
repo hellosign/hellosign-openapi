@@ -96,7 +96,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EmbeddedEditUrlResponse</returns>
-        System.Threading.Tasks.Task<EmbeddedEditUrlResponse> EmbeddedEditUrlAsync(string templateId, EmbeddedEditUrlRequest embeddedEditUrlRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<EmbeddedEditUrlResponse> EmbeddedEditUrlAsync(string templateId, EmbeddedEditUrlRequest embeddedEditUrlRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Get Embedded Template Edit URL
@@ -110,7 +110,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EmbeddedEditUrlResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<EmbeddedEditUrlResponse>> EmbeddedEditUrlWithHttpInfoAsync(string templateId, EmbeddedEditUrlRequest embeddedEditUrlRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<EmbeddedEditUrlResponse>> EmbeddedEditUrlWithHttpInfoAsync(string templateId, EmbeddedEditUrlRequest embeddedEditUrlRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Get Embedded Sign URL
         /// </summary>
@@ -122,7 +122,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EmbeddedSignUrlResponse</returns>
-        System.Threading.Tasks.Task<EmbeddedSignUrlResponse> EmbeddedSignUrlAsync(string signatureId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<EmbeddedSignUrlResponse> EmbeddedSignUrlAsync(string signatureId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Get Embedded Sign URL
@@ -135,7 +135,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EmbeddedSignUrlResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<EmbeddedSignUrlResponse>> EmbeddedSignUrlWithHttpInfoAsync(string signatureId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<EmbeddedSignUrlResponse>> EmbeddedSignUrlWithHttpInfoAsync(string signatureId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -324,6 +324,7 @@ namespace Dropbox.Sign.Api
             }
 
             localVarRequestOptions.PathParameters.Add("template_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(templateId)); // path parameter
+
             localVarRequestOptions.Operation = "EmbeddedApi.EmbeddedEditUrl";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -363,7 +364,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EmbeddedEditUrlResponse</returns>
-        public async System.Threading.Tasks.Task<EmbeddedEditUrlResponse> EmbeddedEditUrlAsync(string templateId, EmbeddedEditUrlRequest embeddedEditUrlRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EmbeddedEditUrlResponse> EmbeddedEditUrlAsync(string templateId, EmbeddedEditUrlRequest embeddedEditUrlRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Dropbox.Sign.Client.ApiResponse<EmbeddedEditUrlResponse> localVarResponse = await EmbeddedEditUrlWithHttpInfoAsync(templateId, embeddedEditUrlRequest, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -378,7 +379,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EmbeddedEditUrlResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<EmbeddedEditUrlResponse>> EmbeddedEditUrlWithHttpInfoAsync(string templateId, EmbeddedEditUrlRequest embeddedEditUrlRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<EmbeddedEditUrlResponse>> EmbeddedEditUrlWithHttpInfoAsync(string templateId, EmbeddedEditUrlRequest embeddedEditUrlRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'templateId' is set
             if (templateId == null)
@@ -425,6 +426,7 @@ namespace Dropbox.Sign.Api
             }
 
             localVarRequestOptions.PathParameters.Add("template_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(templateId)); // path parameter
+
             localVarRequestOptions.Operation = "EmbeddedApi.EmbeddedEditUrl";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -507,6 +509,7 @@ namespace Dropbox.Sign.Api
             }
 
             localVarRequestOptions.PathParameters.Add("signature_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(signatureId)); // path parameter
+
             localVarRequestOptions.Operation = "EmbeddedApi.EmbeddedSignUrl";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -545,7 +548,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EmbeddedSignUrlResponse</returns>
-        public async System.Threading.Tasks.Task<EmbeddedSignUrlResponse> EmbeddedSignUrlAsync(string signatureId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EmbeddedSignUrlResponse> EmbeddedSignUrlAsync(string signatureId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Dropbox.Sign.Client.ApiResponse<EmbeddedSignUrlResponse> localVarResponse = await EmbeddedSignUrlWithHttpInfoAsync(signatureId, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -559,7 +562,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EmbeddedSignUrlResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<EmbeddedSignUrlResponse>> EmbeddedSignUrlWithHttpInfoAsync(string signatureId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<EmbeddedSignUrlResponse>> EmbeddedSignUrlWithHttpInfoAsync(string signatureId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'signatureId' is set
             if (signatureId == null)
@@ -572,7 +575,6 @@ namespace Dropbox.Sign.Api
 
             string[] _contentTypes = new string[] {
             };
-
             var localVarContentType = Dropbox.Sign.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
 
             // to determine the Accept header
@@ -592,6 +594,7 @@ namespace Dropbox.Sign.Api
             }
 
             localVarRequestOptions.PathParameters.Add("signature_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(signatureId)); // path parameter
+
             localVarRequestOptions.Operation = "EmbeddedApi.EmbeddedSignUrl";
             localVarRequestOptions.OperationIndex = operationIndex;
 

@@ -22,12 +22,10 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.dropbox.sign.JSON;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.dropbox.sign.JSON;
 
 
 import com.dropbox.sign.ApiException;
@@ -37,8 +35,8 @@ import com.dropbox.sign.ApiException;
 @JsonPropertyOrder({
   FileResponseDataUri.JSON_PROPERTY_DATA_URI
 })
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class FileResponseDataUri {
   public static final String JSON_PROPERTY_DATA_URI = "data_uri";
   private String dataUri;
@@ -66,14 +64,13 @@ public class FileResponseDataUri {
     return this;
   }
 
-   /**
+  /**
    * File as base64 encoded string.
    * @return dataUri
-  **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "File as base64 encoded string.")
+   */
+  @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_DATA_URI)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getDataUri() {
     return dataUri;
@@ -81,7 +78,7 @@ public class FileResponseDataUri {
 
 
   @JsonProperty(JSON_PROPERTY_DATA_URI)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setDataUri(String dataUri) {
     this.dataUri = dataUri;
   }

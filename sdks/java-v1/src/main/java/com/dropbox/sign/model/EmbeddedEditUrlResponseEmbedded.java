@@ -14,7 +14,6 @@
 package com.dropbox.sign.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -22,25 +21,23 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.dropbox.sign.JSON;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.dropbox.sign.JSON;
 
 
 import com.dropbox.sign.ApiException;
 /**
  * An embedded template object.
  */
-@ApiModel(description = "An embedded template object.")
 @JsonPropertyOrder({
-    EmbeddedEditUrlResponseEmbedded.JSON_PROPERTY_EDIT_URL,
-    EmbeddedEditUrlResponseEmbedded.JSON_PROPERTY_EXPIRES_AT
+  EmbeddedEditUrlResponseEmbedded.JSON_PROPERTY_EDIT_URL,
+  EmbeddedEditUrlResponseEmbedded.JSON_PROPERTY_EXPIRES_AT
 })
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class EmbeddedEditUrlResponseEmbedded {
   public static final String JSON_PROPERTY_EDIT_URL = "edit_url";
   private String editUrl;
@@ -71,12 +68,11 @@ public class EmbeddedEditUrlResponseEmbedded {
     return this;
   }
 
-   /**
+  /**
    * A template url that can be opened in an iFrame.
    * @return editUrl
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A template url that can be opened in an iFrame.")
   @JsonProperty(JSON_PROPERTY_EDIT_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -97,12 +93,11 @@ public class EmbeddedEditUrlResponseEmbedded {
     return this;
   }
 
-   /**
+  /**
    * The specific time that the the &#x60;edit_url&#x60; link expires, in epoch.
    * @return expiresAt
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The specific time that the the `edit_url` link expires, in epoch.")
   @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

@@ -16,12 +16,10 @@ package com.dropbox.sign.model;
 import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.dropbox.sign.JSON;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.dropbox.sign.JSON;
 
 
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -52,17 +50,17 @@ public enum SubFormFieldsPerDocumentFontEnum {
   
   ROBOTO("roboto"),
   
-  ROBOTOMONO("robotoMono"),
+  ROBOTO_MONO("robotoMono"),
   
-  NOTOSANS("notoSans"),
+  NOTO_SANS("notoSans"),
   
-  NOTOSERIF("notoSerif"),
+  NOTO_SERIF("notoSerif"),
   
-  NOTOCJK_JP_REGULAR("notoCJK-JP-Regular"),
+  NOTO_CJK_JP_REGULAR("notoCJK-JP-Regular"),
   
-  NOTOHEBREW_REGULAR("notoHebrew-Regular"),
+  NOTO_HEBREW_REGULAR("notoHebrew-Regular"),
   
-  NOTOSANTHAIMERGED("notoSanThaiMerged");
+  NOTO_SAN_THAI_MERGED("notoSanThaiMerged");
 
   private String value;
 

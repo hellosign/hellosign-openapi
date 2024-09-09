@@ -31,7 +31,7 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "ApiAppResponseOAuth")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class ApiAppResponseOAuth : IOpenApiTyped, IEquatable<ApiAppResponseOAuth>, IValidatableObject
+    public partial class ApiAppResponseOAuth : IEquatable<ApiAppResponseOAuth>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiAppResponseOAuth" /> class.
@@ -76,28 +76,28 @@ namespace Dropbox.Sign.Model
         /// <value>The app&#39;s OAuth callback URL.</value>
         [DataMember(Name = "callback_url", EmitDefaultValue = true)]
         public string CallbackUrl { get; set; }
-
+        
         /// <summary>
         /// The app&#39;s OAuth secret, or null if the app does not belong to user.
         /// </summary>
         /// <value>The app&#39;s OAuth secret, or null if the app does not belong to user.</value>
         [DataMember(Name = "secret", EmitDefaultValue = true)]
         public string Secret { get; set; }
-
+        
         /// <summary>
         /// Array of OAuth scopes used by the app.
         /// </summary>
         /// <value>Array of OAuth scopes used by the app.</value>
         [DataMember(Name = "scopes", EmitDefaultValue = true)]
         public List<string> Scopes { get; set; }
-
+        
         /// <summary>
         /// Boolean indicating whether the app owner or the account granting permission is billed for OAuth requests.
         /// </summary>
         /// <value>Boolean indicating whether the app owner or the account granting permission is billed for OAuth requests.</value>
         [DataMember(Name = "charges_users", EmitDefaultValue = true)]
         public bool ChargesUsers { get; set; }
-
+        
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -193,6 +193,15 @@ namespace Dropbox.Sign.Model
             }
         }
 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
+            yield break;
+        }
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
@@ -222,16 +231,6 @@ namespace Dropbox.Sign.Model
             });
 
             return types;
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

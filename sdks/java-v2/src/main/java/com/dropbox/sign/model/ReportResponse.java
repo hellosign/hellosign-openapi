@@ -24,27 +24,24 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.dropbox.sign.JSON;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.dropbox.sign.JSON;
 
 
 import com.dropbox.sign.ApiException;
 /**
  * Contains information about the report request.
  */
-@ApiModel(description = "Contains information about the report request.")
 @JsonPropertyOrder({
   ReportResponse.JSON_PROPERTY_SUCCESS,
   ReportResponse.JSON_PROPERTY_START_DATE,
   ReportResponse.JSON_PROPERTY_END_DATE,
   ReportResponse.JSON_PROPERTY_REPORT_TYPE
 })
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ReportResponse {
   public static final String JSON_PROPERTY_SUCCESS = "success";
   private String success;
@@ -91,7 +88,7 @@ public class ReportResponse {
   }
 
   public static final String JSON_PROPERTY_REPORT_TYPE = "report_type";
-  private List<ReportTypeEnum> reportType;
+  private List<ReportTypeEnum> reportType = null;
 
   public ReportResponse() { 
   }
@@ -116,12 +113,11 @@ public class ReportResponse {
     return this;
   }
 
-   /**
+  /**
    * A message indicating the requested operation&#39;s success
    * @return success
-  **/
+   */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "A message indicating the requested operation's success")
   @JsonProperty(JSON_PROPERTY_SUCCESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -142,12 +138,11 @@ public class ReportResponse {
     return this;
   }
 
-   /**
+  /**
    * The (inclusive) start date for the report data in MM/DD/YYYY format.
    * @return startDate
-  **/
+   */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The (inclusive) start date for the report data in MM/DD/YYYY format.")
   @JsonProperty(JSON_PROPERTY_START_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -168,12 +163,11 @@ public class ReportResponse {
     return this;
   }
 
-   /**
+  /**
    * The (inclusive) end date for the report data in MM/DD/YYYY format.
    * @return endDate
-  **/
+   */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The (inclusive) end date for the report data in MM/DD/YYYY format.")
   @JsonProperty(JSON_PROPERTY_END_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -202,12 +196,11 @@ public class ReportResponse {
     return this;
   }
 
-   /**
+  /**
    * The type(s) of the report you are requesting. Allowed values are \&quot;user_activity\&quot; and \&quot;document_status\&quot;. User activity reports contain list of all users and their activity during the specified date range. Document status report contain a list of signature requests created in the specified time range (and their status).
    * @return reportType
-  **/
+   */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The type(s) of the report you are requesting. Allowed values are \"user_activity\" and \"document_status\". User activity reports contain list of all users and their activity during the specified date range. Document status report contain a list of signature requests created in the specified time range (and their status).")
   @JsonProperty(JSON_PROPERTY_REPORT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

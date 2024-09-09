@@ -22,31 +22,27 @@
  * SOFTWARE.
  */
 
-import axios, { AxiosError, AxiosRequestConfig } from "axios";
+import axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from "axios";
 
-/* tslint:disable:no-unused-locals */
 import {
-  ObjectSerializer,
   Authentication,
-  VoidAuth,
-  Interceptor,
   HttpBasicAuth,
   HttpBearerAuth,
-  ApiKeyAuth,
-  OAuth,
+  Interceptor,
   OAuthTokenGenerateRequest,
   OAuthTokenRefreshRequest,
   OAuthTokenResponse,
+  ObjectSerializer,
+  VoidAuth,
 } from "../model";
 
 import {
+  generateFormData,
   HttpError,
   optionsI,
-  returnTypeT,
-  returnTypeI,
-  generateFormData,
-  toFormData,
   queryParamsSerializer,
+  returnTypeT,
+  toFormData,
   USER_AGENT,
 } from "./";
 
@@ -60,9 +56,7 @@ export enum OAuthApiApiKeys {}
 
 export class OAuthApi {
   protected _basePath = defaultBasePath;
-  protected _defaultHeaders: any = {
-    "User-Agent": USER_AGENT,
-  };
+  protected _defaultHeaders: any = { "User-Agent": USER_AGENT };
   protected _useQuerystring: boolean = false;
 
   protected authentications = {
@@ -88,7 +82,7 @@ export class OAuthApi {
   }
 
   set defaultHeaders(defaultHeaders: any) {
-    this._defaultHeaders = defaultHeaders;
+    this._defaultHeaders = { ...defaultHeaders, "User-Agent": USER_AGENT };
   }
 
   get defaultHeaders() {
@@ -133,17 +127,10 @@ export class OAuthApi {
     oAuthTokenGenerateRequest: OAuthTokenGenerateRequest,
     options: optionsI = { headers: {} }
   ): Promise<returnTypeT<OAuthTokenResponse>> {
-    if (
-      oAuthTokenGenerateRequest !== null &&
-      oAuthTokenGenerateRequest !== undefined &&
-      oAuthTokenGenerateRequest.constructor.name !== "OAuthTokenGenerateRequest"
-    ) {
-      oAuthTokenGenerateRequest = ObjectSerializer.deserialize(
-        oAuthTokenGenerateRequest,
-        "OAuthTokenGenerateRequest"
-      );
-    }
-
+    oAuthTokenGenerateRequest = deserializeIfNeeded(
+      oAuthTokenGenerateRequest,
+      "OAuthTokenGenerateRequest"
+    );
     const localVarPath = this.basePath + "/oauth/token";
     let localVarQueryParameters: any = {};
     let localVarHeaderParams: any = (<any>Object).assign(
@@ -225,18 +212,12 @@ export class OAuthApi {
       return new Promise<returnTypeT<OAuthTokenResponse>>((resolve, reject) => {
         axios.request(localVarRequestOptions).then(
           (response) => {
-            let body = response.data;
-
-            if (
-              response.status &&
-              response.status >= 200 &&
-              response.status <= 299
-            ) {
-              body = ObjectSerializer.deserialize(body, "OAuthTokenResponse");
-              resolve({ response: response, body: body });
-            } else {
-              reject(new HttpError(response, body, response.status));
-            }
+            handleSuccessfulResponse<OAuthTokenResponse>(
+              resolve,
+              reject,
+              response,
+              "OAuthTokenResponse"
+            );
           },
           (error: AxiosError) => {
             if (error.response == null) {
@@ -244,17 +225,14 @@ export class OAuthApi {
               return;
             }
 
-            const response = error.response;
-
-            let body;
-
-            if (response.status === 200) {
-              body = ObjectSerializer.deserialize(
-                response.data,
+            if (
+              handleErrorCodeResponse(
+                reject,
+                error.response,
+                200,
                 "OAuthTokenResponse"
-              );
-
-              reject(new HttpError(response, body, response.status));
+              )
+            ) {
               return;
             }
 
@@ -274,17 +252,10 @@ export class OAuthApi {
     oAuthTokenRefreshRequest: OAuthTokenRefreshRequest,
     options: optionsI = { headers: {} }
   ): Promise<returnTypeT<OAuthTokenResponse>> {
-    if (
-      oAuthTokenRefreshRequest !== null &&
-      oAuthTokenRefreshRequest !== undefined &&
-      oAuthTokenRefreshRequest.constructor.name !== "OAuthTokenRefreshRequest"
-    ) {
-      oAuthTokenRefreshRequest = ObjectSerializer.deserialize(
-        oAuthTokenRefreshRequest,
-        "OAuthTokenRefreshRequest"
-      );
-    }
-
+    oAuthTokenRefreshRequest = deserializeIfNeeded(
+      oAuthTokenRefreshRequest,
+      "OAuthTokenRefreshRequest"
+    );
     const localVarPath = this.basePath + "/oauth/token?refresh";
     let localVarQueryParameters: any = {};
     let localVarHeaderParams: any = (<any>Object).assign(
@@ -366,18 +337,12 @@ export class OAuthApi {
       return new Promise<returnTypeT<OAuthTokenResponse>>((resolve, reject) => {
         axios.request(localVarRequestOptions).then(
           (response) => {
-            let body = response.data;
-
-            if (
-              response.status &&
-              response.status >= 200 &&
-              response.status <= 299
-            ) {
-              body = ObjectSerializer.deserialize(body, "OAuthTokenResponse");
-              resolve({ response: response, body: body });
-            } else {
-              reject(new HttpError(response, body, response.status));
-            }
+            handleSuccessfulResponse<OAuthTokenResponse>(
+              resolve,
+              reject,
+              response,
+              "OAuthTokenResponse"
+            );
           },
           (error: AxiosError) => {
             if (error.response == null) {
@@ -385,17 +350,14 @@ export class OAuthApi {
               return;
             }
 
-            const response = error.response;
-
-            let body;
-
-            if (response.status === 200) {
-              body = ObjectSerializer.deserialize(
-                response.data,
+            if (
+              handleErrorCodeResponse(
+                reject,
+                error.response,
+                200,
                 "OAuthTokenResponse"
-              );
-
-              reject(new HttpError(response, body, response.status));
+              )
+            ) {
               return;
             }
 
@@ -405,4 +367,74 @@ export class OAuthApi {
       });
     });
   }
+}
+
+function deserializeIfNeeded<T>(obj: T, classname: string): T {
+  if (obj !== null && obj !== undefined && obj.constructor.name !== classname) {
+    return ObjectSerializer.deserialize(obj, classname);
+  }
+
+  return obj;
+}
+
+type AxiosResolve<T> = (
+  value: returnTypeT<T> | PromiseLike<returnTypeT<T>>
+) => void;
+
+type AxiosReject = (reason?: any) => void;
+
+function handleSuccessfulResponse<T>(
+  resolve: AxiosResolve<T>,
+  reject: AxiosReject,
+  response: AxiosResponse,
+  returnType?: string
+) {
+  let body = response.data;
+
+  if (response.status && response.status >= 200 && response.status <= 299) {
+    if (returnType) {
+      body = ObjectSerializer.deserialize(body, returnType);
+    }
+
+    resolve({ response: response, body: body });
+  } else {
+    reject(new HttpError(response, body, response.status));
+  }
+}
+
+function handleErrorCodeResponse(
+  reject: AxiosReject,
+  response: AxiosResponse,
+  code: number,
+  returnType: string
+): boolean {
+  if (response.status !== code) {
+    return false;
+  }
+
+  const body = ObjectSerializer.deserialize(response.data, returnType);
+
+  reject(new HttpError(response, body, response.status));
+
+  return true;
+}
+
+function handleErrorRangeResponse(
+  reject: AxiosReject,
+  response: AxiosResponse,
+  code: string,
+  returnType: string
+): boolean {
+  let rangeCodeLeft = Number(code[0] + "00");
+  let rangeCodeRight = Number(code[0] + "99");
+
+  if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
+    const body = ObjectSerializer.deserialize(response.data, returnType);
+
+    reject(new HttpError(response, body, response.status));
+
+    return true;
+  }
+
+  return false;
 }

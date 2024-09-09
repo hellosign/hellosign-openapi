@@ -1,7 +1,7 @@
 import { AttributeTypeMap } from "./";
 import { TemplateUpdateFilesResponseTemplate } from "./templateUpdateFilesResponseTemplate";
 export declare class TemplateUpdateFilesResponse {
-    "template"?: TemplateUpdateFilesResponseTemplate;
+    "template": TemplateUpdateFilesResponseTemplate;
     static discriminator: string | undefined;
     static attributeTypeMap: AttributeTypeMap;
     static getAttributeTypeMap(): AttributeTypeMap;

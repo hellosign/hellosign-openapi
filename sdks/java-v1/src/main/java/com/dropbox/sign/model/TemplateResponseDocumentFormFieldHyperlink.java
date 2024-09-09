@@ -14,19 +14,11 @@
 package com.dropbox.sign.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.dropbox.sign.model.TemplateResponseDocumentFormFieldBase;
-import com.dropbox.sign.model.TemplateResponseDocumentFormFieldCheckbox;
-import com.dropbox.sign.model.TemplateResponseDocumentFormFieldDateSigned;
-import com.dropbox.sign.model.TemplateResponseDocumentFormFieldDropdown;
-import com.dropbox.sign.model.TemplateResponseDocumentFormFieldHyperlink;
-import com.dropbox.sign.model.TemplateResponseDocumentFormFieldInitials;
-import com.dropbox.sign.model.TemplateResponseDocumentFormFieldRadio;
-import com.dropbox.sign.model.TemplateResponseDocumentFormFieldSignature;
-import com.dropbox.sign.model.TemplateResponseDocumentFormFieldText;
 import com.dropbox.sign.model.TemplateResponseFieldAvgTextLength;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -34,39 +26,30 @@ import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.dropbox.sign.JSON;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.dropbox.sign.JSON;
 
 
 import com.dropbox.sign.ApiException;
 /**
  * This class extends &#x60;TemplateResponseDocumentFormFieldBase&#x60;
  */
-@ApiModel(description = "This class extends `TemplateResponseDocumentFormFieldBase`")
 @JsonPropertyOrder({
-    TemplateResponseDocumentFormFieldHyperlink.JSON_PROPERTY_TYPE,
-    TemplateResponseDocumentFormFieldHyperlink.JSON_PROPERTY_AVG_TEXT_LENGTH,
-    TemplateResponseDocumentFormFieldHyperlink.JSON_PROPERTY_IS_MULTILINE,
-    TemplateResponseDocumentFormFieldHyperlink.JSON_PROPERTY_ORIGINAL_FONT_SIZE,
-    TemplateResponseDocumentFormFieldHyperlink.JSON_PROPERTY_FONT_FAMILY
+  TemplateResponseDocumentFormFieldHyperlink.JSON_PROPERTY_TYPE,
+  TemplateResponseDocumentFormFieldHyperlink.JSON_PROPERTY_AVG_TEXT_LENGTH,
+  TemplateResponseDocumentFormFieldHyperlink.JSON_PROPERTY_IS_MULTILINE,
+  TemplateResponseDocumentFormFieldHyperlink.JSON_PROPERTY_ORIGINAL_FONT_SIZE,
+  TemplateResponseDocumentFormFieldHyperlink.JSON_PROPERTY_FONT_FAMILY
 })
-@JsonIgnoreProperties(ignoreUnknown=true)
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
+@JsonIgnoreProperties(
+  allowSetters = true, // allows the type to be set during deserialization
+  ignoreUnknown = true
+)
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.EXISTING_PROPERTY, property = "type", visible = true)
-@JsonSubTypes({
-  @JsonSubTypes.Type(value = TemplateResponseDocumentFormFieldCheckbox.class, name = "checkbox"),
-  @JsonSubTypes.Type(value = TemplateResponseDocumentFormFieldDateSigned.class, name = "date_signed"),
-  @JsonSubTypes.Type(value = TemplateResponseDocumentFormFieldDropdown.class, name = "dropdown"),
-  @JsonSubTypes.Type(value = TemplateResponseDocumentFormFieldHyperlink.class, name = "hyperlink"),
-  @JsonSubTypes.Type(value = TemplateResponseDocumentFormFieldInitials.class, name = "initials"),
-  @JsonSubTypes.Type(value = TemplateResponseDocumentFormFieldRadio.class, name = "radio"),
-  @JsonSubTypes.Type(value = TemplateResponseDocumentFormFieldSignature.class, name = "signature"),
-  @JsonSubTypes.Type(value = TemplateResponseDocumentFormFieldText.class, name = "text"),
-})
 
 public class TemplateResponseDocumentFormFieldHyperlink extends TemplateResponseDocumentFormFieldBase {
   public static final String JSON_PROPERTY_TYPE = "type";
@@ -107,12 +90,11 @@ public class TemplateResponseDocumentFormFieldHyperlink extends TemplateResponse
     return this;
   }
 
-   /**
+  /**
    * The type of this form field. See [field types](/api/reference/constants/#field-types).  * Text Field uses &#x60;TemplateResponseDocumentFormFieldText&#x60; * Dropdown Field uses &#x60;TemplateResponseDocumentFormFieldDropdown&#x60; * Hyperlink Field uses &#x60;TemplateResponseDocumentFormFieldHyperlink&#x60; * Checkbox Field uses &#x60;TemplateResponseDocumentFormFieldCheckbox&#x60; * Radio Field uses &#x60;TemplateResponseDocumentFormFieldRadio&#x60; * Signature Field uses &#x60;TemplateResponseDocumentFormFieldSignature&#x60; * Date Signed Field uses &#x60;TemplateResponseDocumentFormFieldDateSigned&#x60; * Initials Field uses &#x60;TemplateResponseDocumentFormFieldInitials&#x60;
    * @return type
-  **/
+   */
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The type of this form field. See [field types](/api/reference/constants/#field-types).  * Text Field uses `TemplateResponseDocumentFormFieldText` * Dropdown Field uses `TemplateResponseDocumentFormFieldDropdown` * Hyperlink Field uses `TemplateResponseDocumentFormFieldHyperlink` * Checkbox Field uses `TemplateResponseDocumentFormFieldCheckbox` * Radio Field uses `TemplateResponseDocumentFormFieldRadio` * Signature Field uses `TemplateResponseDocumentFormFieldSignature` * Date Signed Field uses `TemplateResponseDocumentFormFieldDateSigned` * Initials Field uses `TemplateResponseDocumentFormFieldInitials`")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -133,12 +115,11 @@ public class TemplateResponseDocumentFormFieldHyperlink extends TemplateResponse
     return this;
   }
 
-   /**
+  /**
    * Get avgTextLength
    * @return avgTextLength
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_AVG_TEXT_LENGTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -159,12 +140,11 @@ public class TemplateResponseDocumentFormFieldHyperlink extends TemplateResponse
     return this;
   }
 
-   /**
+  /**
    * Whether this form field is multiline text.
    * @return isMultiline
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether this form field is multiline text.")
   @JsonProperty(JSON_PROPERTY_IS_MULTILINE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -185,12 +165,11 @@ public class TemplateResponseDocumentFormFieldHyperlink extends TemplateResponse
     return this;
   }
 
-   /**
+  /**
    * Original font size used in this form field&#39;s text.
    * @return originalFontSize
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Original font size used in this form field's text.")
   @JsonProperty(JSON_PROPERTY_ORIGINAL_FONT_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -211,12 +190,11 @@ public class TemplateResponseDocumentFormFieldHyperlink extends TemplateResponse
     return this;
   }
 
-   /**
+  /**
    * Font family used in this form field&#39;s text.
    * @return fontFamily
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Font family used in this form field's text.")
   @JsonProperty(JSON_PROPERTY_FONT_FAMILY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -409,19 +387,11 @@ public class TemplateResponseDocumentFormFieldHyperlink extends TemplateResponse
     return o.toString().replace("\n", "\n    ");
   }
 
-static {
-  // Initialize and register the discriminator mappings.
-  Map<String, Class<?>> mappings = new HashMap<String, Class<?>>();
-  mappings.put("checkbox", TemplateResponseDocumentFormFieldCheckbox.class);
-  mappings.put("date_signed", TemplateResponseDocumentFormFieldDateSigned.class);
-  mappings.put("dropdown", TemplateResponseDocumentFormFieldDropdown.class);
-  mappings.put("hyperlink", TemplateResponseDocumentFormFieldHyperlink.class);
-  mappings.put("initials", TemplateResponseDocumentFormFieldInitials.class);
-  mappings.put("radio", TemplateResponseDocumentFormFieldRadio.class);
-  mappings.put("signature", TemplateResponseDocumentFormFieldSignature.class);
-  mappings.put("text", TemplateResponseDocumentFormFieldText.class);
-  mappings.put("TemplateResponseDocumentFormFieldHyperlink", TemplateResponseDocumentFormFieldHyperlink.class);
-  JSON.registerDiscriminator(TemplateResponseDocumentFormFieldHyperlink.class, "type", mappings);
-}
+  static {
+    // Initialize and register the discriminator mappings.
+    Map<String, Class<?>> mappings = new HashMap<>();
+    mappings.put("TemplateResponseDocumentFormFieldHyperlink", TemplateResponseDocumentFormFieldHyperlink.class);
+    JSON.registerDiscriminator(TemplateResponseDocumentFormFieldHyperlink.class, "type", mappings);
+  }
 }
 

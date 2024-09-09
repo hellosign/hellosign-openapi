@@ -31,7 +31,7 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "SignatureRequestListResponse")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class SignatureRequestListResponse : IOpenApiTyped, IEquatable<SignatureRequestListResponse>, IValidatableObject
+    public partial class SignatureRequestListResponse : IEquatable<SignatureRequestListResponse>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SignatureRequestListResponse" /> class.
@@ -41,13 +41,23 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SignatureRequestListResponse" /> class.
         /// </summary>
-        /// <param name="signatureRequests">Contains information about signature requests..</param>
-        /// <param name="listInfo">listInfo.</param>
+        /// <param name="signatureRequests">Contains information about signature requests. (required).</param>
+        /// <param name="listInfo">listInfo (required).</param>
         /// <param name="warnings">A list of warnings..</param>
         public SignatureRequestListResponse(List<SignatureRequestResponse> signatureRequests = default(List<SignatureRequestResponse>), ListInfoResponse listInfo = default(ListInfoResponse), List<WarningResponse> warnings = default(List<WarningResponse>))
         {
             
+            // to ensure "signatureRequests" is required (not null)
+            if (signatureRequests == null)
+            {
+                throw new ArgumentNullException("signatureRequests is a required property for SignatureRequestListResponse and cannot be null");
+            }
             this.SignatureRequests = signatureRequests;
+            // to ensure "listInfo" is required (not null)
+            if (listInfo == null)
+            {
+                throw new ArgumentNullException("listInfo is a required property for SignatureRequestListResponse and cannot be null");
+            }
             this.ListInfo = listInfo;
             this.Warnings = warnings;
         }
@@ -72,22 +82,22 @@ namespace Dropbox.Sign.Model
         /// Contains information about signature requests.
         /// </summary>
         /// <value>Contains information about signature requests.</value>
-        [DataMember(Name = "signature_requests", EmitDefaultValue = true)]
+        [DataMember(Name = "signature_requests", IsRequired = true, EmitDefaultValue = true)]
         public List<SignatureRequestResponse> SignatureRequests { get; set; }
-
+        
         /// <summary>
         /// Gets or Sets ListInfo
         /// </summary>
-        [DataMember(Name = "list_info", EmitDefaultValue = true)]
+        [DataMember(Name = "list_info", IsRequired = true, EmitDefaultValue = true)]
         public ListInfoResponse ListInfo { get; set; }
-
+        
         /// <summary>
         /// A list of warnings.
         /// </summary>
         /// <value>A list of warnings.</value>
         [DataMember(Name = "warnings", EmitDefaultValue = true)]
         public List<WarningResponse> Warnings { get; set; }
-
+        
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -178,6 +188,15 @@ namespace Dropbox.Sign.Model
             }
         }
 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
+            yield break;
+        }
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
@@ -201,16 +220,6 @@ namespace Dropbox.Sign.Model
             });
 
             return types;
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

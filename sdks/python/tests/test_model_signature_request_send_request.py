@@ -59,6 +59,7 @@ class TestModelSignatureRequestSendRequest(unittest.TestCase):
             height=16,
             x=112,
             y=328,
+            required=False,
         )
 
         data = models.SignatureRequestSendRequest(

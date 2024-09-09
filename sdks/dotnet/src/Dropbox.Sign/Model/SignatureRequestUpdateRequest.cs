@@ -31,7 +31,7 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "SignatureRequestUpdateRequest")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class SignatureRequestUpdateRequest : IOpenApiTyped, IEquatable<SignatureRequestUpdateRequest>, IValidatableObject
+    public partial class SignatureRequestUpdateRequest : IEquatable<SignatureRequestUpdateRequest>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SignatureRequestUpdateRequest" /> class.
@@ -81,28 +81,28 @@ namespace Dropbox.Sign.Model
         /// <value>The signature ID for the recipient.</value>
         [DataMember(Name = "signature_id", IsRequired = true, EmitDefaultValue = true)]
         public string SignatureId { get; set; }
-
+        
         /// <summary>
         /// The new email address for the recipient.  This will generate a new &#x60;signature_id&#x60; value.  **NOTE:** Optional if &#x60;name&#x60; is provided.
         /// </summary>
         /// <value>The new email address for the recipient.  This will generate a new &#x60;signature_id&#x60; value.  **NOTE:** Optional if &#x60;name&#x60; is provided.</value>
         [DataMember(Name = "email_address", EmitDefaultValue = true)]
         public string EmailAddress { get; set; }
-
+        
         /// <summary>
         /// The new name for the recipient.  **NOTE:** Optional if &#x60;email_address&#x60; is provided.
         /// </summary>
         /// <value>The new name for the recipient.  **NOTE:** Optional if &#x60;email_address&#x60; is provided.</value>
         [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
-
+        
         /// <summary>
         /// The new time when the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.
         /// </summary>
         /// <value>The new time when the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.</value>
         [DataMember(Name = "expires_at", EmitDefaultValue = true)]
         public int? ExpiresAt { get; set; }
-
+        
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -201,6 +201,15 @@ namespace Dropbox.Sign.Model
             }
         }
 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
+            yield break;
+        }
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
@@ -230,16 +239,6 @@ namespace Dropbox.Sign.Model
             });
 
             return types;
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

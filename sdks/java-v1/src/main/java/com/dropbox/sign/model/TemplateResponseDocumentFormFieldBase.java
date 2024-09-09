@@ -14,17 +14,9 @@
 package com.dropbox.sign.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.dropbox.sign.model.TemplateResponseDocumentFormFieldCheckbox;
-import com.dropbox.sign.model.TemplateResponseDocumentFormFieldDateSigned;
-import com.dropbox.sign.model.TemplateResponseDocumentFormFieldDropdown;
-import com.dropbox.sign.model.TemplateResponseDocumentFormFieldHyperlink;
-import com.dropbox.sign.model.TemplateResponseDocumentFormFieldInitials;
-import com.dropbox.sign.model.TemplateResponseDocumentFormFieldRadio;
-import com.dropbox.sign.model.TemplateResponseDocumentFormFieldSignature;
-import com.dropbox.sign.model.TemplateResponseDocumentFormFieldText;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -32,43 +24,36 @@ import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.dropbox.sign.JSON;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.dropbox.sign.JSON;
 
 
 import com.dropbox.sign.ApiException;
 /**
  * An array of Form Field objects containing the name and type of each named field.
  */
-@ApiModel(description = "An array of Form Field objects containing the name and type of each named field.")
 @JsonPropertyOrder({
-    TemplateResponseDocumentFormFieldBase.JSON_PROPERTY_TYPE,
-    TemplateResponseDocumentFormFieldBase.JSON_PROPERTY_API_ID,
-    TemplateResponseDocumentFormFieldBase.JSON_PROPERTY_NAME,
-    TemplateResponseDocumentFormFieldBase.JSON_PROPERTY_SIGNER,
-    TemplateResponseDocumentFormFieldBase.JSON_PROPERTY_X,
-    TemplateResponseDocumentFormFieldBase.JSON_PROPERTY_Y,
-    TemplateResponseDocumentFormFieldBase.JSON_PROPERTY_WIDTH,
-    TemplateResponseDocumentFormFieldBase.JSON_PROPERTY_HEIGHT,
-    TemplateResponseDocumentFormFieldBase.JSON_PROPERTY_REQUIRED,
-    TemplateResponseDocumentFormFieldBase.JSON_PROPERTY_GROUP
+  TemplateResponseDocumentFormFieldBase.JSON_PROPERTY_TYPE,
+  TemplateResponseDocumentFormFieldBase.JSON_PROPERTY_API_ID,
+  TemplateResponseDocumentFormFieldBase.JSON_PROPERTY_NAME,
+  TemplateResponseDocumentFormFieldBase.JSON_PROPERTY_SIGNER,
+  TemplateResponseDocumentFormFieldBase.JSON_PROPERTY_X,
+  TemplateResponseDocumentFormFieldBase.JSON_PROPERTY_Y,
+  TemplateResponseDocumentFormFieldBase.JSON_PROPERTY_WIDTH,
+  TemplateResponseDocumentFormFieldBase.JSON_PROPERTY_HEIGHT,
+  TemplateResponseDocumentFormFieldBase.JSON_PROPERTY_REQUIRED,
+  TemplateResponseDocumentFormFieldBase.JSON_PROPERTY_GROUP
 })
-@JsonIgnoreProperties(ignoreUnknown=true)
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
+@JsonIgnoreProperties(
+  allowSetters = true, // allows the type to be set during deserialization
+  ignoreUnknown = true
+)
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.EXISTING_PROPERTY, property = "type", visible = true)
 @JsonSubTypes({
-  @JsonSubTypes.Type(value = TemplateResponseDocumentFormFieldCheckbox.class, name = "TemplateResponseDocumentFormFieldCheckbox"),
-  @JsonSubTypes.Type(value = TemplateResponseDocumentFormFieldDateSigned.class, name = "TemplateResponseDocumentFormFieldDateSigned"),
-  @JsonSubTypes.Type(value = TemplateResponseDocumentFormFieldDropdown.class, name = "TemplateResponseDocumentFormFieldDropdown"),
-  @JsonSubTypes.Type(value = TemplateResponseDocumentFormFieldHyperlink.class, name = "TemplateResponseDocumentFormFieldHyperlink"),
-  @JsonSubTypes.Type(value = TemplateResponseDocumentFormFieldInitials.class, name = "TemplateResponseDocumentFormFieldInitials"),
-  @JsonSubTypes.Type(value = TemplateResponseDocumentFormFieldRadio.class, name = "TemplateResponseDocumentFormFieldRadio"),
-  @JsonSubTypes.Type(value = TemplateResponseDocumentFormFieldSignature.class, name = "TemplateResponseDocumentFormFieldSignature"),
-  @JsonSubTypes.Type(value = TemplateResponseDocumentFormFieldText.class, name = "TemplateResponseDocumentFormFieldText"),
   @JsonSubTypes.Type(value = TemplateResponseDocumentFormFieldCheckbox.class, name = "checkbox"),
   @JsonSubTypes.Type(value = TemplateResponseDocumentFormFieldDateSigned.class, name = "date_signed"),
   @JsonSubTypes.Type(value = TemplateResponseDocumentFormFieldDropdown.class, name = "dropdown"),
@@ -133,12 +118,11 @@ public class TemplateResponseDocumentFormFieldBase {
     return this;
   }
 
-   /**
+  /**
    * Get type
    * @return type
-  **/
+   */
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -159,12 +143,11 @@ public class TemplateResponseDocumentFormFieldBase {
     return this;
   }
 
-   /**
+  /**
    * A unique id for the form field.
    * @return apiId
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A unique id for the form field.")
   @JsonProperty(JSON_PROPERTY_API_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -185,12 +168,11 @@ public class TemplateResponseDocumentFormFieldBase {
     return this;
   }
 
-   /**
+  /**
    * The name of the form field.
    * @return name
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The name of the form field.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -210,13 +192,16 @@ public class TemplateResponseDocumentFormFieldBase {
     this.signer = signer;
     return this;
   }
+  public TemplateResponseDocumentFormFieldBase signer(Integer signer) {
+    this.signer = String.valueOf(signer);
+    return this;
+  }
 
-   /**
+  /**
    * The signer of the Form Field.
    * @return signer
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The signer of the Form Field.")
   @JsonProperty(JSON_PROPERTY_SIGNER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -231,18 +216,21 @@ public class TemplateResponseDocumentFormFieldBase {
     this.signer = signer;
   }
 
+  public void setSigner(Integer signer) {
+    this.signer = String.valueOf(signer);
+  }
+
 
   public TemplateResponseDocumentFormFieldBase x(Integer x) {
     this.x = x;
     return this;
   }
 
-   /**
+  /**
    * The horizontal offset in pixels for this form field.
    * @return x
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The horizontal offset in pixels for this form field.")
   @JsonProperty(JSON_PROPERTY_X)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -263,12 +251,11 @@ public class TemplateResponseDocumentFormFieldBase {
     return this;
   }
 
-   /**
+  /**
    * The vertical offset in pixels for this form field.
    * @return y
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The vertical offset in pixels for this form field.")
   @JsonProperty(JSON_PROPERTY_Y)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -289,12 +276,11 @@ public class TemplateResponseDocumentFormFieldBase {
     return this;
   }
 
-   /**
+  /**
    * The width in pixels of this form field.
    * @return width
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The width in pixels of this form field.")
   @JsonProperty(JSON_PROPERTY_WIDTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -315,12 +301,11 @@ public class TemplateResponseDocumentFormFieldBase {
     return this;
   }
 
-   /**
+  /**
    * The height in pixels of this form field.
    * @return height
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The height in pixels of this form field.")
   @JsonProperty(JSON_PROPERTY_HEIGHT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -341,12 +326,11 @@ public class TemplateResponseDocumentFormFieldBase {
     return this;
   }
 
-   /**
+  /**
    * Boolean showing whether or not this field is required.
    * @return required
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Boolean showing whether or not this field is required.")
   @JsonProperty(JSON_PROPERTY_REQUIRED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -367,12 +351,11 @@ public class TemplateResponseDocumentFormFieldBase {
     return this;
   }
 
-   /**
+  /**
    * The name of the group this field is in. If this field is not a group, this defaults to &#x60;null&#x60; except for Radio fields.
    * @return group
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The name of the group this field is in. If this field is not a group, this defaults to `null` except for Radio fields.")
   @JsonProperty(JSON_PROPERTY_GROUP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -667,27 +650,19 @@ public class TemplateResponseDocumentFormFieldBase {
     return o.toString().replace("\n", "\n    ");
   }
 
-static {
-  // Initialize and register the discriminator mappings.
-  Map<String, Class<?>> mappings = new HashMap<String, Class<?>>();
-  mappings.put("TemplateResponseDocumentFormFieldCheckbox", TemplateResponseDocumentFormFieldCheckbox.class);
-  mappings.put("TemplateResponseDocumentFormFieldDateSigned", TemplateResponseDocumentFormFieldDateSigned.class);
-  mappings.put("TemplateResponseDocumentFormFieldDropdown", TemplateResponseDocumentFormFieldDropdown.class);
-  mappings.put("TemplateResponseDocumentFormFieldHyperlink", TemplateResponseDocumentFormFieldHyperlink.class);
-  mappings.put("TemplateResponseDocumentFormFieldInitials", TemplateResponseDocumentFormFieldInitials.class);
-  mappings.put("TemplateResponseDocumentFormFieldRadio", TemplateResponseDocumentFormFieldRadio.class);
-  mappings.put("TemplateResponseDocumentFormFieldSignature", TemplateResponseDocumentFormFieldSignature.class);
-  mappings.put("TemplateResponseDocumentFormFieldText", TemplateResponseDocumentFormFieldText.class);
-  mappings.put("checkbox", TemplateResponseDocumentFormFieldCheckbox.class);
-  mappings.put("date_signed", TemplateResponseDocumentFormFieldDateSigned.class);
-  mappings.put("dropdown", TemplateResponseDocumentFormFieldDropdown.class);
-  mappings.put("hyperlink", TemplateResponseDocumentFormFieldHyperlink.class);
-  mappings.put("initials", TemplateResponseDocumentFormFieldInitials.class);
-  mappings.put("radio", TemplateResponseDocumentFormFieldRadio.class);
-  mappings.put("signature", TemplateResponseDocumentFormFieldSignature.class);
-  mappings.put("text", TemplateResponseDocumentFormFieldText.class);
-  mappings.put("TemplateResponseDocumentFormFieldBase", TemplateResponseDocumentFormFieldBase.class);
-  JSON.registerDiscriminator(TemplateResponseDocumentFormFieldBase.class, "type", mappings);
-}
+  static {
+    // Initialize and register the discriminator mappings.
+    Map<String, Class<?>> mappings = new HashMap<>();
+    mappings.put("checkbox", TemplateResponseDocumentFormFieldCheckbox.class);
+    mappings.put("date_signed", TemplateResponseDocumentFormFieldDateSigned.class);
+    mappings.put("dropdown", TemplateResponseDocumentFormFieldDropdown.class);
+    mappings.put("hyperlink", TemplateResponseDocumentFormFieldHyperlink.class);
+    mappings.put("initials", TemplateResponseDocumentFormFieldInitials.class);
+    mappings.put("radio", TemplateResponseDocumentFormFieldRadio.class);
+    mappings.put("signature", TemplateResponseDocumentFormFieldSignature.class);
+    mappings.put("text", TemplateResponseDocumentFormFieldText.class);
+    mappings.put("TemplateResponseDocumentFormFieldBase", TemplateResponseDocumentFormFieldBase.class);
+    JSON.registerDiscriminator(TemplateResponseDocumentFormFieldBase.class, "type", mappings);
+  }
 }
 

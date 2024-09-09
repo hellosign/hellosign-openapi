@@ -3,9 +3,8 @@
 
 
 ## Properties
-
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
 | `client_id`<sup>*_required_</sup> | ```str``` |  Client id of the app used to create the draft. Used to apply the branding and callback url defined for the app.  |  |
 | `editor_options` | [```SubEditorOptions```](SubEditorOptions.md) |    |  |
 | `is_for_embedded_signing` | ```bool``` |  The request created from this draft will also be signable in embedded mode if set to `true`.  |  |
@@ -15,7 +14,5 @@
 | `signing_redirect_url` | ```str``` |  The URL you want signers redirected to after they successfully sign.  |  |
 | `test_mode` | ```bool``` |  Whether this is a test, the signature request created from this draft will not be legally binding if set to `true`. Defaults to `false`.  |  [default to False] |
 
-
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
 

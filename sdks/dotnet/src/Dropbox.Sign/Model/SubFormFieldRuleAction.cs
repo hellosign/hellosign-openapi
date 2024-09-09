@@ -31,7 +31,7 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "SubFormFieldRuleAction")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class SubFormFieldRuleAction : IOpenApiTyped, IEquatable<SubFormFieldRuleAction>, IValidatableObject
+    public partial class SubFormFieldRuleAction : IEquatable<SubFormFieldRuleAction>, IValidatableObject
     {
         /// <summary>
         /// Defines Type
@@ -50,7 +50,6 @@ namespace Dropbox.Sign.Model
             /// </summary>
             [EnumMember(Value = "change-group-visibility")]
             GroupVisibility = 2
-
         }
 
 
@@ -102,21 +101,21 @@ namespace Dropbox.Sign.Model
         /// <value>&#x60;true&#x60; to hide the target field when rule is satisfied, otherwise &#x60;false&#x60;.</value>
         [DataMember(Name = "hidden", IsRequired = true, EmitDefaultValue = true)]
         public bool Hidden { get; set; }
-
+        
         /// <summary>
         /// **field_id** or **group_id** is required, but not both.  Must reference the &#x60;api_id&#x60; of an existing field defined within &#x60;form_fields_per_document&#x60;.  Cannot use with &#x60;group_id&#x60;. Trigger and action fields must belong to the same signer.
         /// </summary>
         /// <value>**field_id** or **group_id** is required, but not both.  Must reference the &#x60;api_id&#x60; of an existing field defined within &#x60;form_fields_per_document&#x60;.  Cannot use with &#x60;group_id&#x60;. Trigger and action fields must belong to the same signer.</value>
         [DataMember(Name = "field_id", EmitDefaultValue = true)]
         public string FieldId { get; set; }
-
+        
         /// <summary>
         /// **group_id** or **field_id** is required, but not both.  Must reference the ID of an existing group defined within &#x60;form_field_groups&#x60;.  Cannot use with &#x60;field_id&#x60;. Trigger and action fields and groups must belong to the same signer.
         /// </summary>
         /// <value>**group_id** or **field_id** is required, but not both.  Must reference the ID of an existing group defined within &#x60;form_field_groups&#x60;.  Cannot use with &#x60;field_id&#x60;. Trigger and action fields and groups must belong to the same signer.</value>
         [DataMember(Name = "group_id", EmitDefaultValue = true)]
         public string GroupId { get; set; }
-
+        
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -207,6 +206,15 @@ namespace Dropbox.Sign.Model
             }
         }
 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
+            yield break;
+        }
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
@@ -236,16 +244,6 @@ namespace Dropbox.Sign.Model
             });
 
             return types;
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

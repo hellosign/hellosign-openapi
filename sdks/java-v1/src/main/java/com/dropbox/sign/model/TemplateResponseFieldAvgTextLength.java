@@ -14,7 +14,6 @@
 package com.dropbox.sign.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -22,25 +21,23 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.dropbox.sign.JSON;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.dropbox.sign.JSON;
 
 
 import com.dropbox.sign.ApiException;
 /**
  * Average text length in this field.
  */
-@ApiModel(description = "Average text length in this field.")
 @JsonPropertyOrder({
-    TemplateResponseFieldAvgTextLength.JSON_PROPERTY_NUM_LINES,
-    TemplateResponseFieldAvgTextLength.JSON_PROPERTY_NUM_CHARS_PER_LINE
+  TemplateResponseFieldAvgTextLength.JSON_PROPERTY_NUM_LINES,
+  TemplateResponseFieldAvgTextLength.JSON_PROPERTY_NUM_CHARS_PER_LINE
 })
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TemplateResponseFieldAvgTextLength {
   public static final String JSON_PROPERTY_NUM_LINES = "num_lines";
   private Integer numLines;
@@ -71,12 +68,11 @@ public class TemplateResponseFieldAvgTextLength {
     return this;
   }
 
-   /**
+  /**
    * Number of lines.
    * @return numLines
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Number of lines.")
   @JsonProperty(JSON_PROPERTY_NUM_LINES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -97,12 +93,11 @@ public class TemplateResponseFieldAvgTextLength {
     return this;
   }
 
-   /**
+  /**
    * Number of characters per line.
    * @return numCharsPerLine
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Number of characters per line.")
   @JsonProperty(JSON_PROPERTY_NUM_CHARS_PER_LINE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

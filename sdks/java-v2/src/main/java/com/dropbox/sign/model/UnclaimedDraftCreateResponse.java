@@ -26,12 +26,10 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.dropbox.sign.JSON;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.dropbox.sign.JSON;
 
 
 import com.dropbox.sign.ApiException;
@@ -42,14 +40,14 @@ import com.dropbox.sign.ApiException;
   UnclaimedDraftCreateResponse.JSON_PROPERTY_UNCLAIMED_DRAFT,
   UnclaimedDraftCreateResponse.JSON_PROPERTY_WARNINGS
 })
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UnclaimedDraftCreateResponse {
   public static final String JSON_PROPERTY_UNCLAIMED_DRAFT = "unclaimed_draft";
   private UnclaimedDraftResponse unclaimedDraft;
 
   public static final String JSON_PROPERTY_WARNINGS = "warnings";
-  private List<WarningResponse> warnings;
+  private List<WarningResponse> warnings = null;
 
   public UnclaimedDraftCreateResponse() { 
   }
@@ -74,14 +72,13 @@ public class UnclaimedDraftCreateResponse {
     return this;
   }
 
-   /**
+  /**
    * Get unclaimedDraft
    * @return unclaimedDraft
-  **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_UNCLAIMED_DRAFT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public UnclaimedDraftResponse getUnclaimedDraft() {
     return unclaimedDraft;
@@ -89,7 +86,7 @@ public class UnclaimedDraftCreateResponse {
 
 
   @JsonProperty(JSON_PROPERTY_UNCLAIMED_DRAFT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setUnclaimedDraft(UnclaimedDraftResponse unclaimedDraft) {
     this.unclaimedDraft = unclaimedDraft;
   }
@@ -108,12 +105,11 @@ public class UnclaimedDraftCreateResponse {
     return this;
   }
 
-   /**
+  /**
    * A list of warnings.
    * @return warnings
-  **/
+   */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "A list of warnings.")
   @JsonProperty(JSON_PROPERTY_WARNINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

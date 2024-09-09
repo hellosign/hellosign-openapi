@@ -39,7 +39,6 @@ class TestSignatureRequestApi(unittest.TestCase):
                     "required": True,
                     "signer": "0",
                     "page": 1,
-                    "placeholder": "My placeholder value",
                 }
             ],
             "files": [open(get_base_path() + "/../test_fixtures/pdf-sample.pdf", "rb")]
@@ -67,7 +66,6 @@ class TestSignatureRequestApi(unittest.TestCase):
         self.assertEqual(data["form_fields_per_document"][0]["required"], obj.form_fields_per_document[0].required)
         self.assertEqual(data["form_fields_per_document"][0]["signer"], obj.form_fields_per_document[0].signer)
         self.assertEqual(data["form_fields_per_document"][0]["page"], obj.form_fields_per_document[0].page)
-        self.assertEqual(data["form_fields_per_document"][0]["placeholder"], obj.form_fields_per_document[0].placeholder)
 
         self.assertEqual(data["files"][0], obj.files[0])
 
@@ -93,21 +91,24 @@ class TestSignatureRequestApi(unittest.TestCase):
             "files": [open(get_base_path() + "/../test_fixtures/pdf-sample.pdf", "rb")]
         }
 
+        response_class = 'SignatureRequestGetResponse'
+        response_data = get_fixture_data(response_class)['default']
+
         obj = m.SignatureRequestSendRequest.init(request_data)
 
         self.mock_pool.expect_request(
             content_type='multipart/form-data',
             data=request_data,
-            response={}
+            response=response_data,
         )
 
         self.api.signature_request_send(obj)
 
         fields = self.mock_pool.get_fields()
 
-        title_result = fields[1]
-        subject_result = fields[2]
-        message_result = fields[3]
+        title_result = fields[9]
+        subject_result = fields[7]
+        message_result = fields[6]
 
         self.assertEqual(title_result[1], title)
         self.assertEqual(subject_result[1], subject)
@@ -254,7 +255,7 @@ class TestSignatureRequestApi(unittest.TestCase):
 
         self.api.signature_request_list(account_id=account_id)
 
-        request_fields = self.mock_pool.get_fields()
+        request_fields = self.mock_pool.get_query_params()
         self.assertTrue(not request_fields)
 
         account_id = None
@@ -267,7 +268,7 @@ class TestSignatureRequestApi(unittest.TestCase):
 
         self.api.signature_request_list(account_id=account_id, query=query)
 
-        request_fields = self.mock_pool.get_fields()
+        request_fields = self.mock_pool.get_query_params()
         self.assertTrue(not request_fields)
 
         account_id = 'ABC123'
@@ -280,11 +281,11 @@ class TestSignatureRequestApi(unittest.TestCase):
 
         self.api.signature_request_list(account_id=account_id, query=query)
 
-        request_fields = self.mock_pool.get_fields()
-        expected_fields = [
-            ('account_id', account_id),
-        ]
-        self.assertTrue(expected_fields == request_fields)
+        request_fields = self.mock_pool.get_query_params()
+        expected_fields = {
+            'account_id': [account_id],
+        }
+        self.assertEqual(expected_fields, request_fields)
 
         account_id = 'ABC123'
         query = 'My amazing query'
@@ -296,12 +297,12 @@ class TestSignatureRequestApi(unittest.TestCase):
 
         self.api.signature_request_list(account_id=account_id, query=query)
 
-        request_fields = self.mock_pool.get_fields()
-        expected_fields = [
-            ('account_id', account_id),
-            ('query', query),
-        ]
-        self.assertTrue(expected_fields == request_fields)
+        request_fields = self.mock_pool.get_query_params()
+        expected_fields = {
+            'account_id': [account_id],
+            'query': [query],
+        }
+        self.assertEqual(expected_fields, request_fields)
 
     def test_signature_request_release_hold(self):
         signature_request_id = 'fa5c8a0b0f492d768749333ad6fcc214c111e967'

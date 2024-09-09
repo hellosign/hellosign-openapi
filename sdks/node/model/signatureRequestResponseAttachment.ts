@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-import { RequestFile, AttributeTypeMap, ObjectSerializer } from "./";
+import { AttributeTypeMap, ObjectSerializer } from "./";
 
 /**
  * Signer attachments.
@@ -35,7 +35,7 @@ export class SignatureRequestResponseAttachment {
   /**
    * The Signer this attachment is assigned to.
    */
-  "signer": string;
+  "signer": number | string;
   /**
    * The name of this attachment.
    */

@@ -22,12 +22,10 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.dropbox.sign.JSON;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.dropbox.sign.JSON;
 
 
 import com.dropbox.sign.ApiException;
@@ -37,8 +35,8 @@ import com.dropbox.sign.ApiException;
 @JsonPropertyOrder({
   TemplateEditResponse.JSON_PROPERTY_TEMPLATE_ID
 })
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TemplateEditResponse {
   public static final String JSON_PROPERTY_TEMPLATE_ID = "template_id";
   private String templateId;
@@ -66,14 +64,13 @@ public class TemplateEditResponse {
     return this;
   }
 
-   /**
+  /**
    * The id of the Template.
    * @return templateId
-  **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The id of the Template.")
+   */
+  @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_TEMPLATE_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getTemplateId() {
     return templateId;
@@ -81,7 +78,7 @@ public class TemplateEditResponse {
 
 
   @JsonProperty(JSON_PROPERTY_TEMPLATE_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setTemplateId(String templateId) {
     this.templateId = templateId;
   }

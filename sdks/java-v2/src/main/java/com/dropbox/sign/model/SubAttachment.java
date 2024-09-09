@@ -22,12 +22,10 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.dropbox.sign.JSON;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.dropbox.sign.JSON;
 
 
 import com.dropbox.sign.ApiException;
@@ -40,8 +38,8 @@ import com.dropbox.sign.ApiException;
   SubAttachment.JSON_PROPERTY_INSTRUCTIONS,
   SubAttachment.JSON_PROPERTY_REQUIRED
 })
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SubAttachment {
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
@@ -78,12 +76,11 @@ public class SubAttachment {
     return this;
   }
 
-   /**
+  /**
    * The name of attachment.
    * @return name
-  **/
+   */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The name of attachment.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -104,12 +101,11 @@ public class SubAttachment {
     return this;
   }
 
-   /**
+  /**
    * The signer&#39;s index in the &#x60;signers&#x60; parameter (0-based indexing).  **NOTE:** Only one signer can be assigned per attachment.
    * @return signerIndex
-  **/
+   */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The signer's index in the `signers` parameter (0-based indexing).  **NOTE:** Only one signer can be assigned per attachment.")
   @JsonProperty(JSON_PROPERTY_SIGNER_INDEX)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -130,12 +126,11 @@ public class SubAttachment {
     return this;
   }
 
-   /**
+  /**
    * The instructions for uploading the attachment.
    * @return instructions
-  **/
+   */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The instructions for uploading the attachment.")
   @JsonProperty(JSON_PROPERTY_INSTRUCTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -156,12 +151,11 @@ public class SubAttachment {
     return this;
   }
 
-   /**
+  /**
    * Determines if the attachment must be uploaded.
    * @return required
-  **/
+   */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Determines if the attachment must be uploaded.")
   @JsonProperty(JSON_PROPERTY_REQUIRED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

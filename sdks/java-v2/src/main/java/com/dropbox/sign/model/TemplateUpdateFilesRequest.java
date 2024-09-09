@@ -25,12 +25,10 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.dropbox.sign.JSON;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.dropbox.sign.JSON;
 
 
 import com.dropbox.sign.ApiException;
@@ -45,17 +43,17 @@ import com.dropbox.sign.ApiException;
   TemplateUpdateFilesRequest.JSON_PROPERTY_SUBJECT,
   TemplateUpdateFilesRequest.JSON_PROPERTY_TEST_MODE
 })
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TemplateUpdateFilesRequest {
   public static final String JSON_PROPERTY_CLIENT_ID = "client_id";
   private String clientId;
 
   public static final String JSON_PROPERTY_FILES = "files";
-  private List<File> files;
+  private List<File> files = null;
 
   public static final String JSON_PROPERTY_FILE_URLS = "file_urls";
-  private List<String> fileUrls;
+  private List<String> fileUrls = null;
 
   public static final String JSON_PROPERTY_MESSAGE = "message";
   private String message;
@@ -89,12 +87,11 @@ public class TemplateUpdateFilesRequest {
     return this;
   }
 
-   /**
+  /**
    * Client id of the app you&#39;re using to update this template.
    * @return clientId
-  **/
+   */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Client id of the app you're using to update this template.")
   @JsonProperty(JSON_PROPERTY_CLIENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -123,12 +120,11 @@ public class TemplateUpdateFilesRequest {
     return this;
   }
 
-   /**
+  /**
    * Use &#x60;files[]&#x60; to indicate the uploaded file(s) to use for the template.  This endpoint requires either **files** or **file_urls[]**, but not both.
    * @return files
-  **/
+   */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Use `files[]` to indicate the uploaded file(s) to use for the template.  This endpoint requires either **files** or **file_urls[]**, but not both.")
   @JsonProperty(JSON_PROPERTY_FILES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -157,12 +153,11 @@ public class TemplateUpdateFilesRequest {
     return this;
   }
 
-   /**
+  /**
    * Use &#x60;file_urls[]&#x60; to have Dropbox Sign download the file(s) to use for the template.  This endpoint requires either **files** or **file_urls[]**, but not both.
    * @return fileUrls
-  **/
+   */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Use `file_urls[]` to have Dropbox Sign download the file(s) to use for the template.  This endpoint requires either **files** or **file_urls[]**, but not both.")
   @JsonProperty(JSON_PROPERTY_FILE_URLS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -183,12 +178,11 @@ public class TemplateUpdateFilesRequest {
     return this;
   }
 
-   /**
+  /**
    * The new default template email message.
    * @return message
-  **/
+   */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The new default template email message.")
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -209,12 +203,11 @@ public class TemplateUpdateFilesRequest {
     return this;
   }
 
-   /**
+  /**
    * The new default template email subject.
    * @return subject
-  **/
+   */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The new default template email subject.")
   @JsonProperty(JSON_PROPERTY_SUBJECT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -235,12 +228,11 @@ public class TemplateUpdateFilesRequest {
     return this;
   }
 
-   /**
+  /**
    * Whether this is a test, the signature request created from this draft will not be legally binding if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.
    * @return testMode
-  **/
+   */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Whether this is a test, the signature request created from this draft will not be legally binding if set to `true`. Defaults to `false`.")
   @JsonProperty(JSON_PROPERTY_TEST_MODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

@@ -13,7 +13,7 @@
 
 package com.dropbox.sign;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 public class Pair {
     private String name = "";
     private String value = "";

@@ -31,7 +31,7 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "SignatureRequestResponseAttachment")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class SignatureRequestResponseAttachment : IOpenApiTyped, IEquatable<SignatureRequestResponseAttachment>, IValidatableObject
+    public partial class SignatureRequestResponseAttachment : IEquatable<SignatureRequestResponseAttachment>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SignatureRequestResponseAttachment" /> class.
@@ -47,7 +47,7 @@ namespace Dropbox.Sign.Model
         /// <param name="required">A boolean value denoting if this attachment is required. (required).</param>
         /// <param name="instructions">Instructions for Signer..</param>
         /// <param name="uploadedAt">Timestamp when attachment was uploaded by Signer..</param>
-        public SignatureRequestResponseAttachment(string id = default(string), string signer = default(string), string name = default(string), bool required = default(bool), string instructions = default(string), int? uploadedAt = default(int?))
+        public SignatureRequestResponseAttachment(string id = default(string), Object signer = null, string name = default(string), bool required = default(bool), string instructions = default(string), int? uploadedAt = default(int?))
         {
             
             // to ensure "id" is required (not null)
@@ -61,7 +61,7 @@ namespace Dropbox.Sign.Model
             {
                 throw new ArgumentNullException("signer is a required property for SignatureRequestResponseAttachment and cannot be null");
             }
-            this.Signer = signer;
+            this.Signer = Convert.ToString(signer);
             // to ensure "name" is required (not null)
             if (name == null)
             {
@@ -95,42 +95,46 @@ namespace Dropbox.Sign.Model
         /// <value>The unique ID for this attachment.</value>
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
-
+        
         /// <summary>
         /// The Signer this attachment is assigned to.
         /// </summary>
         /// <value>The Signer this attachment is assigned to.</value>
         [DataMember(Name = "signer", IsRequired = true, EmitDefaultValue = true)]
-        public string Signer { get; set; }
+        public object Signer {
+            get => this._signer;
+            set => this._signer = Convert.ToString(value);
+        }
 
+        private string _signer;
         /// <summary>
         /// The name of this attachment.
         /// </summary>
         /// <value>The name of this attachment.</value>
         [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
         public string Name { get; set; }
-
+        
         /// <summary>
         /// A boolean value denoting if this attachment is required.
         /// </summary>
         /// <value>A boolean value denoting if this attachment is required.</value>
         [DataMember(Name = "required", IsRequired = true, EmitDefaultValue = true)]
         public bool Required { get; set; }
-
+        
         /// <summary>
         /// Instructions for Signer.
         /// </summary>
         /// <value>Instructions for Signer.</value>
         [DataMember(Name = "instructions", EmitDefaultValue = true)]
         public string Instructions { get; set; }
-
+        
         /// <summary>
         /// Timestamp when attachment was uploaded by Signer.
         /// </summary>
         /// <value>Timestamp when attachment was uploaded by Signer.</value>
         [DataMember(Name = "uploaded_at", EmitDefaultValue = true)]
         public int? UploadedAt { get; set; }
-
+        
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -245,6 +249,15 @@ namespace Dropbox.Sign.Model
             }
         }
 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
+            yield break;
+        }
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
@@ -286,16 +299,6 @@ namespace Dropbox.Sign.Model
             });
 
             return types;
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

@@ -14,20 +14,10 @@
 package com.dropbox.sign.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.dropbox.sign.model.SubFormFieldsPerDocumentBase;
-import com.dropbox.sign.model.SubFormFieldsPerDocumentCheckbox;
-import com.dropbox.sign.model.SubFormFieldsPerDocumentCheckboxMerge;
-import com.dropbox.sign.model.SubFormFieldsPerDocumentDateSigned;
-import com.dropbox.sign.model.SubFormFieldsPerDocumentDropdown;
-import com.dropbox.sign.model.SubFormFieldsPerDocumentHyperlink;
-import com.dropbox.sign.model.SubFormFieldsPerDocumentInitials;
-import com.dropbox.sign.model.SubFormFieldsPerDocumentRadio;
-import com.dropbox.sign.model.SubFormFieldsPerDocumentSignature;
-import com.dropbox.sign.model.SubFormFieldsPerDocumentText;
-import com.dropbox.sign.model.SubFormFieldsPerDocumentTextMerge;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -35,47 +25,36 @@ import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.dropbox.sign.JSON;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.dropbox.sign.JSON;
 
 
 import com.dropbox.sign.ApiException;
 /**
  * This class extends &#x60;SubFormFieldsPerDocumentBase&#x60;.
  */
-@ApiModel(description = "This class extends `SubFormFieldsPerDocumentBase`.")
 @JsonPropertyOrder({
-    SubFormFieldsPerDocumentText.JSON_PROPERTY_TYPE,
-    SubFormFieldsPerDocumentText.JSON_PROPERTY_PLACEHOLDER,
-    SubFormFieldsPerDocumentText.JSON_PROPERTY_AUTO_FILL_TYPE,
-    SubFormFieldsPerDocumentText.JSON_PROPERTY_LINK_ID,
-    SubFormFieldsPerDocumentText.JSON_PROPERTY_MASKED,
-    SubFormFieldsPerDocumentText.JSON_PROPERTY_VALIDATION_TYPE,
-    SubFormFieldsPerDocumentText.JSON_PROPERTY_VALIDATION_CUSTOM_REGEX,
-    SubFormFieldsPerDocumentText.JSON_PROPERTY_VALIDATION_CUSTOM_REGEX_FORMAT_LABEL,
-    SubFormFieldsPerDocumentText.JSON_PROPERTY_CONTENT,
-    SubFormFieldsPerDocumentText.JSON_PROPERTY_FONT_FAMILY,
-    SubFormFieldsPerDocumentText.JSON_PROPERTY_FONT_SIZE
+  SubFormFieldsPerDocumentText.JSON_PROPERTY_TYPE,
+  SubFormFieldsPerDocumentText.JSON_PROPERTY_PLACEHOLDER,
+  SubFormFieldsPerDocumentText.JSON_PROPERTY_AUTO_FILL_TYPE,
+  SubFormFieldsPerDocumentText.JSON_PROPERTY_LINK_ID,
+  SubFormFieldsPerDocumentText.JSON_PROPERTY_MASKED,
+  SubFormFieldsPerDocumentText.JSON_PROPERTY_VALIDATION_TYPE,
+  SubFormFieldsPerDocumentText.JSON_PROPERTY_VALIDATION_CUSTOM_REGEX,
+  SubFormFieldsPerDocumentText.JSON_PROPERTY_VALIDATION_CUSTOM_REGEX_FORMAT_LABEL,
+  SubFormFieldsPerDocumentText.JSON_PROPERTY_CONTENT,
+  SubFormFieldsPerDocumentText.JSON_PROPERTY_FONT_FAMILY,
+  SubFormFieldsPerDocumentText.JSON_PROPERTY_FONT_SIZE
 })
-@JsonIgnoreProperties(ignoreUnknown=true)
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
+@JsonIgnoreProperties(
+  allowSetters = true, // allows the type to be set during deserialization
+  ignoreUnknown = true
+)
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.EXISTING_PROPERTY, property = "type", visible = true)
-@JsonSubTypes({
-  @JsonSubTypes.Type(value = SubFormFieldsPerDocumentCheckbox.class, name = "checkbox"),
-  @JsonSubTypes.Type(value = SubFormFieldsPerDocumentCheckboxMerge.class, name = "checkbox-merge"),
-  @JsonSubTypes.Type(value = SubFormFieldsPerDocumentDateSigned.class, name = "date_signed"),
-  @JsonSubTypes.Type(value = SubFormFieldsPerDocumentDropdown.class, name = "dropdown"),
-  @JsonSubTypes.Type(value = SubFormFieldsPerDocumentHyperlink.class, name = "hyperlink"),
-  @JsonSubTypes.Type(value = SubFormFieldsPerDocumentInitials.class, name = "initials"),
-  @JsonSubTypes.Type(value = SubFormFieldsPerDocumentRadio.class, name = "radio"),
-  @JsonSubTypes.Type(value = SubFormFieldsPerDocumentSignature.class, name = "signature"),
-  @JsonSubTypes.Type(value = SubFormFieldsPerDocumentText.class, name = "text"),
-  @JsonSubTypes.Type(value = SubFormFieldsPerDocumentTextMerge.class, name = "text-merge"),
-})
 
 public class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase {
   public static final String JSON_PROPERTY_TYPE = "type";
@@ -180,17 +159,17 @@ public class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase {
     
     ROBOTO("roboto"),
     
-    ROBOTOMONO("robotoMono"),
+    ROBOTO_MONO("robotoMono"),
     
-    NOTOSANS("notoSans"),
+    NOTO_SANS("notoSans"),
     
-    NOTOSERIF("notoSerif"),
+    NOTO_SERIF("notoSerif"),
     
-    NOTOCJK_JP_REGULAR("notoCJK-JP-Regular"),
+    NOTO_CJK_JP_REGULAR("notoCJK-JP-Regular"),
     
-    NOTOHEBREW_REGULAR("notoHebrew-Regular"),
+    NOTO_HEBREW_REGULAR("notoHebrew-Regular"),
     
-    NOTOSANTHAIMERGED("notoSanThaiMerged");
+    NOTO_SAN_THAI_MERGED("notoSanThaiMerged");
 
     private String value;
 
@@ -248,12 +227,11 @@ public class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase {
     return this;
   }
 
-   /**
+  /**
    * A text input field. Use the &#x60;SubFormFieldsPerDocumentText&#x60; class.
    * @return type
-  **/
+   */
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "A text input field. Use the `SubFormFieldsPerDocumentText` class.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -274,12 +252,11 @@ public class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase {
     return this;
   }
 
-   /**
+  /**
    * Placeholder value for text field.
    * @return placeholder
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Placeholder value for text field.")
   @JsonProperty(JSON_PROPERTY_PLACEHOLDER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -300,12 +277,11 @@ public class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase {
     return this;
   }
 
-   /**
+  /**
    * Auto fill type for populating fields automatically. Check out the list of [auto fill types](/api/reference/constants/#auto-fill-types) to learn more about the possible values.
    * @return autoFillType
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Auto fill type for populating fields automatically. Check out the list of [auto fill types](/api/reference/constants/#auto-fill-types) to learn more about the possible values.")
   @JsonProperty(JSON_PROPERTY_AUTO_FILL_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -326,12 +302,11 @@ public class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase {
     return this;
   }
 
-   /**
+  /**
    * Link two or more text fields. Enter data into one linked text field, which automatically fill all other linked text fields.
    * @return linkId
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Link two or more text fields. Enter data into one linked text field, which automatically fill all other linked text fields.")
   @JsonProperty(JSON_PROPERTY_LINK_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -352,12 +327,11 @@ public class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase {
     return this;
   }
 
-   /**
+  /**
    * Masks entered data. For more information see [Masking sensitive information](https://faq.hellosign.com/hc/en-us/articles/360040742811-Masking-sensitive-information). &#x60;true&#x60; for masking the data in a text field, otherwise &#x60;false&#x60;.
    * @return masked
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Masks entered data. For more information see [Masking sensitive information](https://faq.hellosign.com/hc/en-us/articles/360040742811-Masking-sensitive-information). `true` for masking the data in a text field, otherwise `false`.")
   @JsonProperty(JSON_PROPERTY_MASKED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -378,12 +352,11 @@ public class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase {
     return this;
   }
 
-   /**
+  /**
    * Each text field may contain a &#x60;validation_type&#x60; parameter. Check out the list of [validation types](https://faq.hellosign.com/hc/en-us/articles/217115577) to learn more about the possible values.  **NOTE:** When using &#x60;custom_regex&#x60; you are required to pass a second parameter &#x60;validation_custom_regex&#x60; and you can optionally provide &#x60;validation_custom_regex_format_label&#x60; for the error message the user will see in case of an invalid value.
    * @return validationType
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Each text field may contain a `validation_type` parameter. Check out the list of [validation types](https://faq.hellosign.com/hc/en-us/articles/217115577) to learn more about the possible values.  **NOTE:** When using `custom_regex` you are required to pass a second parameter `validation_custom_regex` and you can optionally provide `validation_custom_regex_format_label` for the error message the user will see in case of an invalid value.")
   @JsonProperty(JSON_PROPERTY_VALIDATION_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -404,12 +377,11 @@ public class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase {
     return this;
   }
 
-   /**
+  /**
    * Get validationCustomRegex
    * @return validationCustomRegex
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_VALIDATION_CUSTOM_REGEX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -430,12 +402,11 @@ public class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase {
     return this;
   }
 
-   /**
+  /**
    * Get validationCustomRegexFormatLabel
    * @return validationCustomRegexFormatLabel
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_VALIDATION_CUSTOM_REGEX_FORMAT_LABEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -456,12 +427,11 @@ public class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase {
     return this;
   }
 
-   /**
+  /**
    * Content of a &#x60;me_now&#x60; text field
    * @return content
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Content of a `me_now` text field")
   @JsonProperty(JSON_PROPERTY_CONTENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -482,12 +452,11 @@ public class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase {
     return this;
   }
 
-   /**
+  /**
    * Font family for the field.
    * @return fontFamily
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Font family for the field.")
   @JsonProperty(JSON_PROPERTY_FONT_FAMILY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -508,12 +477,11 @@ public class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase {
     return this;
   }
 
-   /**
+  /**
    * The initial px font size for the field contents. Can be any integer value between &#x60;7&#x60; and &#x60;49&#x60;.  **NOTE:** Font size may be reduced during processing in order to fit the contents within the dimensions of the field.
    * @return fontSize
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The initial px font size for the field contents. Can be any integer value between `7` and `49`.  **NOTE:** Font size may be reduced during processing in order to fit the contents within the dimensions of the field.")
   @JsonProperty(JSON_PROPERTY_FONT_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -832,21 +800,11 @@ public class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase {
     return o.toString().replace("\n", "\n    ");
   }
 
-static {
-  // Initialize and register the discriminator mappings.
-  Map<String, Class<?>> mappings = new HashMap<String, Class<?>>();
-  mappings.put("checkbox", SubFormFieldsPerDocumentCheckbox.class);
-  mappings.put("checkbox-merge", SubFormFieldsPerDocumentCheckboxMerge.class);
-  mappings.put("date_signed", SubFormFieldsPerDocumentDateSigned.class);
-  mappings.put("dropdown", SubFormFieldsPerDocumentDropdown.class);
-  mappings.put("hyperlink", SubFormFieldsPerDocumentHyperlink.class);
-  mappings.put("initials", SubFormFieldsPerDocumentInitials.class);
-  mappings.put("radio", SubFormFieldsPerDocumentRadio.class);
-  mappings.put("signature", SubFormFieldsPerDocumentSignature.class);
-  mappings.put("text", SubFormFieldsPerDocumentText.class);
-  mappings.put("text-merge", SubFormFieldsPerDocumentTextMerge.class);
-  mappings.put("SubFormFieldsPerDocumentText", SubFormFieldsPerDocumentText.class);
-  JSON.registerDiscriminator(SubFormFieldsPerDocumentText.class, "type", mappings);
-}
+  static {
+    // Initialize and register the discriminator mappings.
+    Map<String, Class<?>> mappings = new HashMap<>();
+    mappings.put("SubFormFieldsPerDocumentText", SubFormFieldsPerDocumentText.class);
+    JSON.registerDiscriminator(SubFormFieldsPerDocumentText.class, "type", mappings);
+  }
 }
 

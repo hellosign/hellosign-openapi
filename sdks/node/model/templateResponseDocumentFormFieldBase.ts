@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-import { RequestFile, AttributeTypeMap, ObjectSerializer } from "./";
+import { AttributeTypeMap } from "./";
 
 /**
  * An array of Form Field objects containing the name and type of each named field.
@@ -40,7 +40,7 @@ export abstract class TemplateResponseDocumentFormFieldBase {
   /**
    * The signer of the Form Field.
    */
-  "signer"?: string;
+  "signer"?: number | string;
   /**
    * The horizontal offset in pixels for this form field.
    */

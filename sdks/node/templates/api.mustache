@@ -1,3 +1,13 @@
 // This is the entrypoint for the package
+{{^useCustomTemplateCode}}
+export * from './api/apis';
+{{#models.0}}
+export * from './model/models';
+{{/models.0}}
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
 export * from './api/index';
+{{#models.0}}
 export * from './model/index';
+{{/models.0}}
+{{/useCustomTemplateCode}}

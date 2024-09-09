@@ -27,12 +27,10 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.dropbox.sign.JSON;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.dropbox.sign.JSON;
 
 
 import com.dropbox.sign.ApiException;
@@ -44,8 +42,8 @@ import com.dropbox.sign.ApiException;
   AccountCreateResponse.JSON_PROPERTY_OAUTH_DATA,
   AccountCreateResponse.JSON_PROPERTY_WARNINGS
 })
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class AccountCreateResponse {
   public static final String JSON_PROPERTY_ACCOUNT = "account";
   private AccountResponse account;
@@ -54,7 +52,7 @@ public class AccountCreateResponse {
   private OAuthTokenResponse oauthData;
 
   public static final String JSON_PROPERTY_WARNINGS = "warnings";
-  private List<WarningResponse> warnings;
+  private List<WarningResponse> warnings = null;
 
   public AccountCreateResponse() { 
   }
@@ -79,14 +77,13 @@ public class AccountCreateResponse {
     return this;
   }
 
-   /**
+  /**
    * Get account
    * @return account
-  **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_ACCOUNT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public AccountResponse getAccount() {
     return account;
@@ -94,7 +91,7 @@ public class AccountCreateResponse {
 
 
   @JsonProperty(JSON_PROPERTY_ACCOUNT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setAccount(AccountResponse account) {
     this.account = account;
   }
@@ -105,12 +102,11 @@ public class AccountCreateResponse {
     return this;
   }
 
-   /**
+  /**
    * Get oauthData
    * @return oauthData
-  **/
+   */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_OAUTH_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -139,12 +135,11 @@ public class AccountCreateResponse {
     return this;
   }
 
-   /**
+  /**
    * A list of warnings.
    * @return warnings
-  **/
+   */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "A list of warnings.")
   @JsonProperty(JSON_PROPERTY_WARNINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

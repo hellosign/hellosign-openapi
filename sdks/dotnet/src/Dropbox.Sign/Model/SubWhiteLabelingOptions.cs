@@ -31,7 +31,7 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "SubWhiteLabelingOptions")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class SubWhiteLabelingOptions : IOpenApiTyped, IEquatable<SubWhiteLabelingOptions>, IValidatableObject
+    public partial class SubWhiteLabelingOptions : IEquatable<SubWhiteLabelingOptions>, IValidatableObject
     {
         /// <summary>
         /// Defines LegalVersion
@@ -50,7 +50,6 @@ namespace Dropbox.Sign.Model
             /// </summary>
             [EnumMember(Value = "terms2")]
             Terms2 = 2
-
         }
 
 
@@ -82,7 +81,7 @@ namespace Dropbox.Sign.Model
         /// <param name="textColor1">textColor1 (default to &quot;#808080&quot;).</param>
         /// <param name="textColor2">textColor2 (default to &quot;#FFFFFF&quot;).</param>
         /// <param name="resetToDefault">Resets white labeling options to defaults. Only useful when updating an API App..</param>
-        public SubWhiteLabelingOptions(string headerBackgroundColor = "#1A1A1A", LegalVersionEnum? legalVersion = LegalVersionEnum.Terms1, string linkColor = "#00B3E6", string pageBackgroundColor = "#F7F8F9", string primaryButtonColor = "#00B3E6", string primaryButtonColorHover = "#00B3E6", string primaryButtonTextColor = "#FFFFFF", string primaryButtonTextColorHover = "#FFFFFF", string secondaryButtonColor = "#FFFFFF", string secondaryButtonColorHover = "#FFFFFF", string secondaryButtonTextColor = "#00B3E6", string secondaryButtonTextColorHover = "#00B3E6", string textColor1 = "#808080", string textColor2 = "#FFFFFF", bool resetToDefault = default(bool))
+        public SubWhiteLabelingOptions(string headerBackgroundColor = @"#1A1A1A", LegalVersionEnum? legalVersion = LegalVersionEnum.Terms1, string linkColor = @"#00B3E6", string pageBackgroundColor = @"#F7F8F9", string primaryButtonColor = @"#00B3E6", string primaryButtonColorHover = @"#00B3E6", string primaryButtonTextColor = @"#FFFFFF", string primaryButtonTextColorHover = @"#FFFFFF", string secondaryButtonColor = @"#FFFFFF", string secondaryButtonColorHover = @"#FFFFFF", string secondaryButtonTextColor = @"#00B3E6", string secondaryButtonTextColorHover = @"#00B3E6", string textColor1 = @"#808080", string textColor2 = @"#FFFFFF", bool resetToDefault = default(bool))
         {
             
             // use default value if no "headerBackgroundColor" provided
@@ -136,86 +135,86 @@ namespace Dropbox.Sign.Model
         /// </summary>
         [DataMember(Name = "header_background_color", EmitDefaultValue = true)]
         public string HeaderBackgroundColor { get; set; }
-
+        
         /// <summary>
         /// Gets or Sets LinkColor
         /// </summary>
         [DataMember(Name = "link_color", EmitDefaultValue = true)]
         public string LinkColor { get; set; }
-
+        
         /// <summary>
         /// Gets or Sets PageBackgroundColor
         /// </summary>
         [DataMember(Name = "page_background_color", EmitDefaultValue = true)]
         public string PageBackgroundColor { get; set; }
-
+        
         /// <summary>
         /// Gets or Sets PrimaryButtonColor
         /// </summary>
         [DataMember(Name = "primary_button_color", EmitDefaultValue = true)]
         public string PrimaryButtonColor { get; set; }
-
+        
         /// <summary>
         /// Gets or Sets PrimaryButtonColorHover
         /// </summary>
         [DataMember(Name = "primary_button_color_hover", EmitDefaultValue = true)]
         public string PrimaryButtonColorHover { get; set; }
-
+        
         /// <summary>
         /// Gets or Sets PrimaryButtonTextColor
         /// </summary>
         [DataMember(Name = "primary_button_text_color", EmitDefaultValue = true)]
         public string PrimaryButtonTextColor { get; set; }
-
+        
         /// <summary>
         /// Gets or Sets PrimaryButtonTextColorHover
         /// </summary>
         [DataMember(Name = "primary_button_text_color_hover", EmitDefaultValue = true)]
         public string PrimaryButtonTextColorHover { get; set; }
-
+        
         /// <summary>
         /// Gets or Sets SecondaryButtonColor
         /// </summary>
         [DataMember(Name = "secondary_button_color", EmitDefaultValue = true)]
         public string SecondaryButtonColor { get; set; }
-
+        
         /// <summary>
         /// Gets or Sets SecondaryButtonColorHover
         /// </summary>
         [DataMember(Name = "secondary_button_color_hover", EmitDefaultValue = true)]
         public string SecondaryButtonColorHover { get; set; }
-
+        
         /// <summary>
         /// Gets or Sets SecondaryButtonTextColor
         /// </summary>
         [DataMember(Name = "secondary_button_text_color", EmitDefaultValue = true)]
         public string SecondaryButtonTextColor { get; set; }
-
+        
         /// <summary>
         /// Gets or Sets SecondaryButtonTextColorHover
         /// </summary>
         [DataMember(Name = "secondary_button_text_color_hover", EmitDefaultValue = true)]
         public string SecondaryButtonTextColorHover { get; set; }
-
+        
         /// <summary>
         /// Gets or Sets TextColor1
         /// </summary>
         [DataMember(Name = "text_color1", EmitDefaultValue = true)]
         public string TextColor1 { get; set; }
-
+        
         /// <summary>
         /// Gets or Sets TextColor2
         /// </summary>
         [DataMember(Name = "text_color2", EmitDefaultValue = true)]
         public string TextColor2 { get; set; }
-
+        
         /// <summary>
         /// Resets white labeling options to defaults. Only useful when updating an API App.
         /// </summary>
         /// <value>Resets white labeling options to defaults. Only useful when updating an API App.</value>
         [DataMember(Name = "reset_to_default", EmitDefaultValue = true)]
         public bool ResetToDefault { get; set; }
-
+        
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -416,6 +415,15 @@ namespace Dropbox.Sign.Model
             }
         }
 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
+            yield break;
+        }
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
@@ -511,16 +519,6 @@ namespace Dropbox.Sign.Model
             });
 
             return types;
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

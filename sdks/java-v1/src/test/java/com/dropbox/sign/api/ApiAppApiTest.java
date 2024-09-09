@@ -4,8 +4,9 @@ import com.dropbox.sign.ApiClient;
 import com.dropbox.sign.TestHelper;
 import com.dropbox.sign.model.*;
 import com.fasterxml.jackson.databind.JsonNode;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.io.File;
 
@@ -24,7 +25,7 @@ public class ApiAppApiTest {
         ApiAppApi api = new ApiAppApi(apiClient);
         ApiAppGetResponse response = api.apiAppCreate(request);
 
-        Assert.assertEquals(expectedResponse, response);
+        assertEquals(expectedResponse, response);
     }
 
     @Test
@@ -45,7 +46,7 @@ public class ApiAppApiTest {
         ApiAppApi api = new ApiAppApi(apiClient);
         ApiAppGetResponse response = api.apiAppGet(clientId);
 
-        Assert.assertEquals(expectedResponse, response);
+        assertEquals(expectedResponse, response);
     }
 
     @Test
@@ -57,7 +58,7 @@ public class ApiAppApiTest {
         ApiAppApi api = new ApiAppApi(apiClient);
         ApiAppListResponse response = api.apiAppList(1, 20);
 
-        Assert.assertEquals(expectedResponse, response);
+        assertEquals(expectedResponse, response);
     }
 
     @Test
@@ -76,6 +77,6 @@ public class ApiAppApiTest {
         ApiAppApi api = new ApiAppApi(apiClient);
         ApiAppGetResponse response = api.apiAppUpdate(clientId, request);
 
-        Assert.assertEquals(expectedResponse, response);
+        assertEquals(expectedResponse, response);
     }
 }

@@ -26,12 +26,10 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.dropbox.sign.JSON;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.dropbox.sign.JSON;
 
 
 import com.dropbox.sign.ApiException;
@@ -42,8 +40,11 @@ import com.dropbox.sign.ApiException;
   SignatureRequestResponseDataValueDateSigned.JSON_PROPERTY_TYPE,
   SignatureRequestResponseDataValueDateSigned.JSON_PROPERTY_VALUE
 })
-@JsonIgnoreProperties(ignoreUnknown=true)
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
+@JsonIgnoreProperties(
+  allowSetters = true, // allows the type to be set during deserialization
+  ignoreUnknown = true
+)
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.EXISTING_PROPERTY, property = "type", visible = true)
 
 public class SignatureRequestResponseDataValueDateSigned extends SignatureRequestResponseDataBase {
@@ -76,12 +77,11 @@ public class SignatureRequestResponseDataValueDateSigned extends SignatureReques
     return this;
   }
 
-   /**
+  /**
    * A date
    * @return type
-  **/
+   */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "A date")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -102,12 +102,11 @@ public class SignatureRequestResponseDataValueDateSigned extends SignatureReques
     return this;
   }
 
-   /**
+  /**
    * The value of the form field.
    * @return value
-  **/
+   */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The value of the form field.")
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

@@ -31,7 +31,7 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "SubFieldOptions")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class SubFieldOptions : IOpenApiTyped, IEquatable<SubFieldOptions>, IValidatableObject
+    public partial class SubFieldOptions : IEquatable<SubFieldOptions>, IValidatableObject
     {
         /// <summary>
         /// Allows requester to specify the date format (see list of allowed [formats](/api/reference/constants/#date-formats))  **NOTE:** Only available for Premium and higher.
@@ -75,7 +75,6 @@ namespace Dropbox.Sign.Model
             /// </summary>
             [EnumMember(Value = "YYYY - MM - DD")]
             YYYY_MM_DD = 6
-
         }
 
 
@@ -180,6 +179,15 @@ namespace Dropbox.Sign.Model
             }
         }
 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
+            yield break;
+        }
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
@@ -191,16 +199,6 @@ namespace Dropbox.Sign.Model
             });
 
             return types;
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

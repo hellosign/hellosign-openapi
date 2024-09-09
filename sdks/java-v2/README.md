@@ -56,7 +56,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.dropbox.sign</groupId>
   <artifactId>dropbox-sign</artifactId>
-  <version>2.1-dev</version>
+  <version>2.2-dev</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -72,7 +72,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.dropbox.sign:dropbox-sign:2.1-dev"
+     implementation "com.dropbox.sign:dropbox-sign:2.2-dev"
   }
 ```
 
@@ -86,7 +86,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-- `target/dropbox-sign-2.1-dev.jar`
+- `target/dropbox-sign-2.2-dev.jar`
 - `target/lib/*.jar`
 
 ## Getting Started
@@ -133,32 +133,6 @@ public class Example {
 ```
 
 
-  ## Using a Proxy
-
-  To add a HTTP proxy for the API client, use `ClientConfig`:
-
-  ```java
-  
-    import org.glassfish.jersey.apache.connector.ApacheConnectorProvider;
-    import org.glassfish.jersey.client.ClientConfig;
-    import org.glassfish.jersey.client.ClientProperties;
-    import com.dropbox.sign.*;
-    import com.dropbox.sign.api.AccountApi;
-
-    ...
-
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    ClientConfig clientConfig = defaultClient.getClientConfig();
-    clientConfig.connectorProvider(new ApacheConnectorProvider());
-    clientConfig.property(ClientProperties.PROXY_URI, "http://proxy_url_here");
-    clientConfig.property(ClientProperties.PROXY_USERNAME, "proxy_username");
-    clientConfig.property(ClientProperties.PROXY_PASSWORD, "proxy_password");
-    defaultClient.setClientConfig(clientConfig);
-
-    AccountApi apiInstance = new AccountApi(defaultClient);
-  
-  ```
-
 
 ## Documentation for API Endpoints
 
@@ -179,6 +153,13 @@ Class | Method | HTTP request | Description
 *BulkSendJobApi* | [**bulkSendJobList**](docs/BulkSendJobApi.md#bulkSendJobList) | **GET** /bulk_send_job/list | List Bulk Send Jobs
 *EmbeddedApi* | [**embeddedEditUrl**](docs/EmbeddedApi.md#embeddedEditUrl) | **POST** /embedded/edit_url/{template_id} | Get Embedded Template Edit URL
 *EmbeddedApi* | [**embeddedSignUrl**](docs/EmbeddedApi.md#embeddedSignUrl) | **GET** /embedded/sign_url/{signature_id} | Get Embedded Sign URL
+*FaxLineApi* | [**faxLineAddUser**](docs/FaxLineApi.md#faxLineAddUser) | **PUT** /fax_line/add_user | Add Fax Line User
+*FaxLineApi* | [**faxLineAreaCodeGet**](docs/FaxLineApi.md#faxLineAreaCodeGet) | **GET** /fax_line/area_codes | Get Available Fax Line Area Codes
+*FaxLineApi* | [**faxLineCreate**](docs/FaxLineApi.md#faxLineCreate) | **POST** /fax_line/create | Purchase Fax Line
+*FaxLineApi* | [**faxLineDelete**](docs/FaxLineApi.md#faxLineDelete) | **DELETE** /fax_line | Delete Fax Line
+*FaxLineApi* | [**faxLineGet**](docs/FaxLineApi.md#faxLineGet) | **GET** /fax_line | Get Fax Line
+*FaxLineApi* | [**faxLineList**](docs/FaxLineApi.md#faxLineList) | **GET** /fax_line/list | List Fax Lines
+*FaxLineApi* | [**faxLineRemoveUser**](docs/FaxLineApi.md#faxLineRemoveUser) | **PUT** /fax_line/remove_user | Remove Fax Line Access
 *OAuthApi* | [**oauthTokenGenerate**](docs/OAuthApi.md#oauthTokenGenerate) | **POST** /oauth/token | OAuth Token Generate
 *OAuthApi* | [**oauthTokenRefresh**](docs/OAuthApi.md#oauthTokenRefresh) | **POST** /oauth/token?refresh | OAuth Token Refresh
 *ReportApi* | [**reportCreate**](docs/ReportApi.md#reportCreate) | **POST** /report/create | Create Report
@@ -261,6 +242,17 @@ Class | Method | HTTP request | Description
  - [EventCallbackRequest](docs/EventCallbackRequest.md)
  - [EventCallbackRequestEvent](docs/EventCallbackRequestEvent.md)
  - [EventCallbackRequestEventMetadata](docs/EventCallbackRequestEventMetadata.md)
+ - [FaxLineAddUserRequest](docs/FaxLineAddUserRequest.md)
+ - [FaxLineAreaCodeGetCountryEnum](docs/FaxLineAreaCodeGetCountryEnum.md)
+ - [FaxLineAreaCodeGetProvinceEnum](docs/FaxLineAreaCodeGetProvinceEnum.md)
+ - [FaxLineAreaCodeGetResponse](docs/FaxLineAreaCodeGetResponse.md)
+ - [FaxLineAreaCodeGetStateEnum](docs/FaxLineAreaCodeGetStateEnum.md)
+ - [FaxLineCreateRequest](docs/FaxLineCreateRequest.md)
+ - [FaxLineDeleteRequest](docs/FaxLineDeleteRequest.md)
+ - [FaxLineListResponse](docs/FaxLineListResponse.md)
+ - [FaxLineRemoveUserRequest](docs/FaxLineRemoveUserRequest.md)
+ - [FaxLineResponse](docs/FaxLineResponse.md)
+ - [FaxLineResponseFaxLine](docs/FaxLineResponseFaxLine.md)
  - [FileResponse](docs/FileResponse.md)
  - [FileResponseDataUri](docs/FileResponseDataUri.md)
  - [ListInfoResponse](docs/ListInfoResponse.md)
@@ -401,18 +393,22 @@ Class | Method | HTTP request | Description
  - [WarningResponse](docs/WarningResponse.md)
 
 
+<a id="documentation-for-authorization"></a>
 ## Documentation for Authorization
 
+
 Authentication schemes defined for the API:
+<a id="api_key"></a>
 ### api_key
 
 
 - **Type**: HTTP basic authentication
 
+<a id="oauth2"></a>
 ### oauth2
 
 
-- **Type**: HTTP basic authentication
+- **Type**: HTTP Bearer Token authentication (JWT)
 
 
 ## Recommendation
@@ -429,7 +425,7 @@ apisupport@hellosign.com
 This Java package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
 - API version: `3.0.0`
-    - Package version: `2.1-dev`
+    - Package version: `2.2-dev`
 - Build package: `org.openapitools.codegen.languages.JavaClientCodegen`
 
 

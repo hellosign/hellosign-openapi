@@ -6,8 +6,8 @@ This class extends `SubFormFieldsPerDocumentBase`.
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
 | `type`<sup>*_required_</sup> | ```String``` |  A date. Use the `SubFormFieldsPerDocumentDateSigned` class.  |  |
 | `fontFamily` | [```FontFamilyEnum```](#FontFamilyEnum) |  Font family for the field.  |  |
 | `fontSize` | ```Integer``` |  The initial px font size for the field contents. Can be any integer value between `7` and `49`.<br><br>**NOTE:** Font size may be reduced during processing in order to fit the contents within the dimensions of the field.  |  |
@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 
 ## Enum: FontFamilyEnum
 
-Name | Value
+| Name | Value |
 ---- | -----
 | HELVETICA | &quot;helvetica&quot; |
 | ARIAL | &quot;arial&quot; |
@@ -28,12 +28,12 @@ Name | Value
 | TREBUCHET | &quot;trebuchet&quot; |
 | VERDANA | &quot;verdana&quot; |
 | ROBOTO | &quot;roboto&quot; |
-| ROBOTOMONO | &quot;robotoMono&quot; |
-| NOTOSANS | &quot;notoSans&quot; |
-| NOTOSERIF | &quot;notoSerif&quot; |
-| NOTOCJK_JP_REGULAR | &quot;notoCJK-JP-Regular&quot; |
-| NOTOHEBREW_REGULAR | &quot;notoHebrew-Regular&quot; |
-| NOTOSANTHAIMERGED | &quot;notoSanThaiMerged&quot; |
+| ROBOTO_MONO | &quot;robotoMono&quot; |
+| NOTO_SANS | &quot;notoSans&quot; |
+| NOTO_SERIF | &quot;notoSerif&quot; |
+| NOTO_CJK_JP_REGULAR | &quot;notoCJK-JP-Regular&quot; |
+| NOTO_HEBREW_REGULAR | &quot;notoHebrew-Regular&quot; |
+| NOTO_SAN_THAI_MERGED | &quot;notoSanThaiMerged&quot; |
 
 
 

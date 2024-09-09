@@ -2,11 +2,12 @@ generatorName: typescript-node
 typeMappings: {}
 additionalProperties:
   npmName: "@dropbox/sign"
-  npmVersion: 1.5-dev
+  npmVersion: 1.6-dev
   supportsES6: true
   apiDocPath: ./docs/api
   modelDocPath: ./docs/model
   sortModelPropertiesByRequiredFlag: true
+  useCustomTemplateCode: true
 files:
   npmignore:
     templateType: SupportingFiles
@@ -32,6 +33,9 @@ files:
   model-index.mustache:
     templateType: SupportingFiles
     destinationFilename: model/index.ts
+  prettierrc.cjs:
+    templateType: SupportingFiles
+    destinationFilename: .prettierrc.cjs
 globalProperties:
   apiTests: false
   modelTests: false

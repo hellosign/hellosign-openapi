@@ -2,8 +2,8 @@
 
 All URIs are relative to *https://api.hellosign.com/v3*
 
-|Method | HTTP request | Description|
-|------------- | ------------- | -------------|
+Method | HTTP request | Description
+------------- | ------------- | -------------
 |[```api_app_create```](ApiAppApi.md#api_app_create) | ```POST /api_app``` | Create API App|
 |[```api_app_delete```](ApiAppApi.md#api_app_delete) | ```DELETE /api_app/{client_id}``` | Delete API App|
 |[```api_app_get```](ApiAppApi.md#api_app_get) | ```GET /api_app/{client_id}``` | Get API App|
@@ -67,10 +67,9 @@ with ApiClient(configuration) as api_client:
         print("Exception when calling Dropbox Sign API: %s\n" % e)
 
 ```
-
+```
 
 ### Parameters
-
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `api_app_create_request` | [**ApiAppCreateRequest**](ApiAppCreateRequest.md) |  |  |
@@ -87,7 +86,6 @@ with ApiClient(configuration) as api_client:
 
  - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -133,10 +131,9 @@ with ApiClient(configuration) as api_client:
         print("Exception when calling Dropbox Sign API: %s\n" % e)
 
 ```
-
+```
 
 ### Parameters
-
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `client_id` | **str** | The client id of the API App to delete. |  |
@@ -153,7 +150,6 @@ void (empty response body)
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -202,10 +198,9 @@ with ApiClient(configuration) as api_client:
         print("Exception when calling Dropbox Sign API: %s\n" % e)
 
 ```
-
+```
 
 ### Parameters
-
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `client_id` | **str** | The client id of the API App to retrieve. |  |
@@ -222,7 +217,6 @@ with ApiClient(configuration) as api_client:
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -275,10 +269,9 @@ with ApiClient(configuration) as api_client:
         print("Exception when calling Dropbox Sign API: %s\n" % e)
 
 ```
-
+```
 
 ### Parameters
-
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `page` | **int** | Which page number of the API App List to return. Defaults to `1`. | [optional][default to 1] |
@@ -296,7 +289,6 @@ with ApiClient(configuration) as api_client:
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -359,10 +351,9 @@ with ApiClient(configuration) as api_client:
         print("Exception when calling Dropbox Sign API: %s\n" % e)
 
 ```
-
+```
 
 ### Parameters
-
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `client_id` | **str** | The client id of the API App to update. |  |
@@ -380,7 +371,6 @@ with ApiClient(configuration) as api_client:
 
  - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
-
 
 ### HTTP response details
 

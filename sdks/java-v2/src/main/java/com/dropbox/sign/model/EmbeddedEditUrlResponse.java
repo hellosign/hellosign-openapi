@@ -26,12 +26,10 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.dropbox.sign.JSON;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.dropbox.sign.JSON;
 
 
 import com.dropbox.sign.ApiException;
@@ -42,14 +40,14 @@ import com.dropbox.sign.ApiException;
   EmbeddedEditUrlResponse.JSON_PROPERTY_EMBEDDED,
   EmbeddedEditUrlResponse.JSON_PROPERTY_WARNINGS
 })
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class EmbeddedEditUrlResponse {
   public static final String JSON_PROPERTY_EMBEDDED = "embedded";
   private EmbeddedEditUrlResponseEmbedded embedded;
 
   public static final String JSON_PROPERTY_WARNINGS = "warnings";
-  private List<WarningResponse> warnings;
+  private List<WarningResponse> warnings = null;
 
   public EmbeddedEditUrlResponse() { 
   }
@@ -74,14 +72,13 @@ public class EmbeddedEditUrlResponse {
     return this;
   }
 
-   /**
+  /**
    * Get embedded
    * @return embedded
-  **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_EMBEDDED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public EmbeddedEditUrlResponseEmbedded getEmbedded() {
     return embedded;
@@ -89,7 +86,7 @@ public class EmbeddedEditUrlResponse {
 
 
   @JsonProperty(JSON_PROPERTY_EMBEDDED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setEmbedded(EmbeddedEditUrlResponseEmbedded embedded) {
     this.embedded = embedded;
   }
@@ -108,12 +105,11 @@ public class EmbeddedEditUrlResponse {
     return this;
   }
 
-   /**
+  /**
    * A list of warnings.
    * @return warnings
-  **/
+   */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "A list of warnings.")
   @JsonProperty(JSON_PROPERTY_WARNINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

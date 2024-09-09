@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-import { RequestFile, AttributeTypeMap, ObjectSerializer } from "./";
+import { AttributeTypeMap, ObjectSerializer } from "./";
 import { ListInfoResponse } from "./listInfoResponse";
 import { SubTeamResponse } from "./subTeamResponse";
 import { WarningResponse } from "./warningResponse";
@@ -31,8 +31,8 @@ export class TeamSubTeamsResponse {
   /**
    * Contains a list with sub teams.
    */
-  "subTeams"?: Array<SubTeamResponse>;
-  "listInfo"?: ListInfoResponse;
+  "subTeams": Array<SubTeamResponse>;
+  "listInfo": ListInfoResponse;
   "warnings"?: Array<WarningResponse>;
 
   static discriminator: string | undefined = undefined;

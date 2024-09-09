@@ -3,9 +3,8 @@
 An object with options to customize the app&#39;s signer page
 
 ## Properties
-
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
 | `header_background_color` | ```str``` |    |  |
 | `legal_version` | ```str``` |    |  |
 | `link_color` | ```str``` |    |  |
@@ -21,7 +20,5 @@ An object with options to customize the app&#39;s signer page
 | `text_color1` | ```str``` |    |  |
 | `text_color2` | ```str``` |    |  |
 
-
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
 

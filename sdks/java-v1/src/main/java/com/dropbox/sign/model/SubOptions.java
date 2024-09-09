@@ -14,7 +14,6 @@
 package com.dropbox.sign.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -22,24 +21,22 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.dropbox.sign.JSON;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.dropbox.sign.JSON;
 
 
 import com.dropbox.sign.ApiException;
 /**
  * Additional options supported by API App.
  */
-@ApiModel(description = "Additional options supported by API App.")
 @JsonPropertyOrder({
-    SubOptions.JSON_PROPERTY_CAN_INSERT_EVERYWHERE
+  SubOptions.JSON_PROPERTY_CAN_INSERT_EVERYWHERE
 })
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SubOptions {
   public static final String JSON_PROPERTY_CAN_INSERT_EVERYWHERE = "can_insert_everywhere";
   private Boolean canInsertEverywhere = false;
@@ -67,12 +64,11 @@ public class SubOptions {
     return this;
   }
 
-   /**
+  /**
    * Determines if signers can use \&quot;Insert Everywhere\&quot; when signing a document.
    * @return canInsertEverywhere
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Determines if signers can use \"Insert Everywhere\" when signing a document.")
   @JsonProperty(JSON_PROPERTY_CAN_INSERT_EVERYWHERE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

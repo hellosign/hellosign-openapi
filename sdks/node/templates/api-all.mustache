@@ -1,37 +1,57 @@
 {{#apiInfo}}
-import { AttributeTypeMap, ObjectSerializer, RequestDetailedFile } from "../model";
+{{^useCustomTemplateCode}}
+{{#apis}}
+{{#operations}}
+export * from './{{ classFilename }}';
+import { {{ classname }} } from './{{ classFilename }}';
+{{/operations}}
+{{#withInterfaces}}
+export * from './{{ classFilename }}Interface'
+{{/withInterfaces}}
+{{/apis}}
+{{/useCustomTemplateCode}}
 import * as http from 'http';
-import { AxiosResponse } from "axios";
-import formData from "form-data";
-import Qs from "qs";
+{{#useCustomTemplateCode}}
+import { ErrorResponse } from "../model";
+{{/useCustomTemplateCode}}
 
 export class HttpError extends Error {
-    constructor (public response: AxiosResponse, public body: any, public statusCode?: number) {
+{{^useCustomTemplateCode}}
+    constructor (public response: http.IncomingMessage, public body: any, public statusCode?: number) {
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
+    constructor (public response: AxiosResponse, public body: ErrorResponse, public statusCode?: number) {
+{{/useCustomTemplateCode}}
         super('HTTP request failed');
         this.name = 'HttpError';
     }
 }
 
-export interface optionsI {
-    headers: { [name: string]: string }
-}
+{{^useCustomTemplateCode}}
+export { RequestFile } from '../model/models';
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
+export { RequestFile } from '../model';
+{{/useCustomTemplateCode}}
 
-export interface returnTypeT<T> {
-    response: AxiosResponse,
-    body: T,
-}
+{{^useCustomTemplateCode}}
+export const APIS = [{{#apis}}{{#operations}}{{ classname }}{{/operations}}{{^-last}}, {{/-last}}{{/apis}}];
+{{/useCustomTemplateCode}}
+{{/apiInfo}}
 
-export interface returnTypeI {
-    response: AxiosResponse,
-    body?: any,
-}
+{{#useCustomTemplateCode}}
+import { AxiosResponse } from "axios";
+import { AttributeTypeMap, ObjectSerializer, RequestDetailedFile } from "../model";
+import formData from "form-data";
+import Qs from "qs";
+
+export interface optionsI { headers: { [name: string]: string } }
+export interface returnTypeT<T> { response: AxiosResponse, body: T }
+export interface returnTypeI { response: AxiosResponse, body?: any }
 
 export const queryParamsSerializer = (params) => {
     return Qs.stringify(params, { arrayFormat: 'brackets' })
 }
-
-export { RequestFile } from '../model';
-{{/apiInfo}}
 
 export const USER_AGENT = "OpenAPI-Generator/{{{npmVersion}}}/node";
 
@@ -153,3 +173,4 @@ function isBufferDetailedFile(obj: any): obj is RequestDetailedFile {
 }
 
 const shouldJsonify = (val: any): boolean => val === Object(val);
+{{/useCustomTemplateCode}}

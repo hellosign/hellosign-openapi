@@ -2,8 +2,8 @@
 
 All URIs are relative to *https://api.hellosign.com/v3*
 
-|Method | HTTP request | Description|
-|------------- | ------------- | -------------|
+Method | HTTP request | Description
+------------- | ------------- | -------------
 |[```signature_request_bulk_create_embedded_with_template```](SignatureRequestApi.md#signature_request_bulk_create_embedded_with_template) | ```POST /signature_request/bulk_create_embedded_with_template``` | Embedded Bulk Send with Template|
 |[```signature_request_bulk_send_with_template```](SignatureRequestApi.md#signature_request_bulk_send_with_template) | ```POST /signature_request/bulk_send_with_template``` | Bulk Send with Template|
 |[```signature_request_cancel```](SignatureRequestApi.md#signature_request_cancel) | ```POST /signature_request/cancel/{signature_request_id}``` | Cancel Incomplete Signature Request|
@@ -106,10 +106,9 @@ with ApiClient(configuration) as api_client:
         print("Exception when calling Dropbox Sign API: %s\n" % e)
 
 ```
-
+```
 
 ### Parameters
-
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `signature_request_bulk_create_embedded_with_template_request` | [**SignatureRequestBulkCreateEmbeddedWithTemplateRequest**](SignatureRequestBulkCreateEmbeddedWithTemplateRequest.md) |  |  |
@@ -126,7 +125,6 @@ with ApiClient(configuration) as api_client:
 
  - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -221,10 +219,9 @@ with ApiClient(configuration) as api_client:
         print("Exception when calling Dropbox Sign API: %s\n" % e)
 
 ```
-
+```
 
 ### Parameters
-
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `signature_request_bulk_send_with_template_request` | [**SignatureRequestBulkSendWithTemplateRequest**](SignatureRequestBulkSendWithTemplateRequest.md) |  |  |
@@ -241,7 +238,6 @@ with ApiClient(configuration) as api_client:
 
  - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -287,10 +283,9 @@ with ApiClient(configuration) as api_client:
         print("Exception when calling Dropbox Sign API: %s\n" % e)
 
 ```
-
+```
 
 ### Parameters
-
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `signature_request_id` | **str** | The id of the incomplete SignatureRequest to cancel. |  |
@@ -307,7 +302,6 @@ void (empty response body)
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -386,10 +380,9 @@ with ApiClient(configuration) as api_client:
         print("Exception when calling Dropbox Sign API: %s\n" % e)
 
 ```
-
+```
 
 ### Parameters
-
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `signature_request_create_embedded_request` | [**SignatureRequestCreateEmbeddedRequest**](SignatureRequestCreateEmbeddedRequest.md) |  |  |
@@ -406,7 +399,6 @@ with ApiClient(configuration) as api_client:
 
  - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -477,10 +469,9 @@ with ApiClient(configuration) as api_client:
         print("Exception when calling Dropbox Sign API: %s\n" % e)
 
 ```
-
+```
 
 ### Parameters
-
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `signature_request_create_embedded_with_template_request` | [**SignatureRequestCreateEmbeddedWithTemplateRequest**](SignatureRequestCreateEmbeddedWithTemplateRequest.md) |  |  |
@@ -498,7 +489,6 @@ with ApiClient(configuration) as api_client:
  - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
-
 ### HTTP response details
 
 | Status code | Description | Response headers |
@@ -509,7 +499,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # ```signature_request_files```
-> ```file_type signature_request_files(signature_request_id)```
+> ```io.IOBase signature_request_files(signature_request_id)```
 
 Download Files
 
@@ -546,18 +536,17 @@ with ApiClient(configuration) as api_client:
         print("Exception when calling Dropbox Sign API: %s\n" % e)
 
 ```
-
+```
 
 ### Parameters
-
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `signature_request_id` | **str** | The id of the SignatureRequest to retrieve. |  |
-| `file_type` | **str** | Set to `pdf` for a single merged document or `zip` for a collection of individual documents. | [optional][default to &quot;pdf&quot;] |
+| `file_type` | **str** | Set to `pdf` for a single merged document or `zip` for a collection of individual documents. | [optional][default to pdf] |
 
 ### Return type
 
-**file_type**
+**io.IOBase**
 
 ### Authorization
 
@@ -567,7 +556,6 @@ with ApiClient(configuration) as api_client:
 
  - **Content-Type**: Not defined
  - **Accept**: application/pdf, application/zip, application/json
-
 
 ### HTTP response details
 
@@ -616,10 +604,9 @@ with ApiClient(configuration) as api_client:
         print("Exception when calling Dropbox Sign API: %s\n" % e)
 
 ```
-
+```
 
 ### Parameters
-
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `signature_request_id` | **str** | The id of the SignatureRequest to retrieve. |  |
@@ -636,7 +623,6 @@ with ApiClient(configuration) as api_client:
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -685,10 +671,9 @@ with ApiClient(configuration) as api_client:
         print("Exception when calling Dropbox Sign API: %s\n" % e)
 
 ```
-
+```
 
 ### Parameters
-
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `signature_request_id` | **str** | The id of the SignatureRequest to retrieve. |  |
@@ -706,7 +691,6 @@ with ApiClient(configuration) as api_client:
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -755,10 +739,9 @@ with ApiClient(configuration) as api_client:
         print("Exception when calling Dropbox Sign API: %s\n" % e)
 
 ```
-
+```
 
 ### Parameters
-
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `signature_request_id` | **str** | The id of the SignatureRequest to retrieve. |  |
@@ -775,7 +758,6 @@ with ApiClient(configuration) as api_client:
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -828,10 +810,9 @@ with ApiClient(configuration) as api_client:
         print("Exception when calling Dropbox Sign API: %s\n" % e)
 
 ```
-
+```
 
 ### Parameters
-
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `account_id` | **str** | Which account to return SignatureRequests for. Must be a team member. Use `all` to indicate all team members. Defaults to your account. | [optional] |
@@ -851,7 +832,6 @@ with ApiClient(configuration) as api_client:
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -900,10 +880,9 @@ with ApiClient(configuration) as api_client:
         print("Exception when calling Dropbox Sign API: %s\n" % e)
 
 ```
-
+```
 
 ### Parameters
-
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `signature_request_id` | **str** | The id of the SignatureRequest to release. |  |
@@ -920,7 +899,6 @@ with ApiClient(configuration) as api_client:
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -973,10 +951,9 @@ with ApiClient(configuration) as api_client:
         print("Exception when calling Dropbox Sign API: %s\n" % e)
 
 ```
-
+```
 
 ### Parameters
-
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `signature_request_id` | **str** | The id of the SignatureRequest to send a reminder for. |  |
@@ -994,7 +971,6 @@ with ApiClient(configuration) as api_client:
 
  - **Content-Type**: application/json
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -1039,10 +1015,9 @@ with ApiClient(configuration) as api_client:
         print("Exception when calling Dropbox Sign API: %s\n" % e)
 
 ```
-
+```
 
 ### Parameters
-
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `signature_request_id` | **str** | The id of the SignatureRequest to remove. |  |
@@ -1059,7 +1034,6 @@ void (empty response body)
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -1149,10 +1123,9 @@ with ApiClient(configuration) as api_client:
         print("Exception when calling Dropbox Sign API: %s\n" % e)
 
 ```
-
+```
 
 ### Parameters
-
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `signature_request_send_request` | [**SignatureRequestSendRequest**](SignatureRequestSendRequest.md) |  |  |
@@ -1169,7 +1142,6 @@ with ApiClient(configuration) as api_client:
 
  - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -1253,10 +1225,9 @@ with ApiClient(configuration) as api_client:
         print("Exception when calling Dropbox Sign API: %s\n" % e)
 
 ```
-
+```
 
 ### Parameters
-
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `signature_request_send_with_template_request` | [**SignatureRequestSendWithTemplateRequest**](SignatureRequestSendWithTemplateRequest.md) |  |  |
@@ -1273,7 +1244,6 @@ with ApiClient(configuration) as api_client:
 
  - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -1327,10 +1297,9 @@ with ApiClient(configuration) as api_client:
         print("Exception when calling Dropbox Sign API: %s\n" % e)
 
 ```
-
+```
 
 ### Parameters
-
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `signature_request_id` | **str** | The id of the SignatureRequest to update. |  |
@@ -1348,7 +1317,6 @@ with ApiClient(configuration) as api_client:
 
  - **Content-Type**: application/json
  - **Accept**: application/json
-
 
 ### HTTP response details
 

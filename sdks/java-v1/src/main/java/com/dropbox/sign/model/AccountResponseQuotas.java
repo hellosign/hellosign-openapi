@@ -14,7 +14,6 @@
 package com.dropbox.sign.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -22,29 +21,27 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.dropbox.sign.JSON;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.dropbox.sign.JSON;
 
 
 import com.dropbox.sign.ApiException;
 /**
  * Details concerning remaining monthly quotas.
  */
-@ApiModel(description = "Details concerning remaining monthly quotas.")
 @JsonPropertyOrder({
-    AccountResponseQuotas.JSON_PROPERTY_API_SIGNATURE_REQUESTS_LEFT,
-    AccountResponseQuotas.JSON_PROPERTY_DOCUMENTS_LEFT,
-    AccountResponseQuotas.JSON_PROPERTY_TEMPLATES_TOTAL,
-    AccountResponseQuotas.JSON_PROPERTY_TEMPLATES_LEFT,
-    AccountResponseQuotas.JSON_PROPERTY_SMS_VERIFICATIONS_LEFT,
-    AccountResponseQuotas.JSON_PROPERTY_NUM_FAX_PAGES_LEFT
+  AccountResponseQuotas.JSON_PROPERTY_API_SIGNATURE_REQUESTS_LEFT,
+  AccountResponseQuotas.JSON_PROPERTY_DOCUMENTS_LEFT,
+  AccountResponseQuotas.JSON_PROPERTY_TEMPLATES_TOTAL,
+  AccountResponseQuotas.JSON_PROPERTY_TEMPLATES_LEFT,
+  AccountResponseQuotas.JSON_PROPERTY_SMS_VERIFICATIONS_LEFT,
+  AccountResponseQuotas.JSON_PROPERTY_NUM_FAX_PAGES_LEFT
 })
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class AccountResponseQuotas {
   public static final String JSON_PROPERTY_API_SIGNATURE_REQUESTS_LEFT = "api_signature_requests_left";
   private Integer apiSignatureRequestsLeft;
@@ -87,12 +84,11 @@ public class AccountResponseQuotas {
     return this;
   }
 
-   /**
+  /**
    * API signature requests remaining.
    * @return apiSignatureRequestsLeft
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "API signature requests remaining.")
   @JsonProperty(JSON_PROPERTY_API_SIGNATURE_REQUESTS_LEFT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -113,12 +109,11 @@ public class AccountResponseQuotas {
     return this;
   }
 
-   /**
+  /**
    * Signature requests remaining.
    * @return documentsLeft
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Signature requests remaining.")
   @JsonProperty(JSON_PROPERTY_DOCUMENTS_LEFT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -139,12 +134,11 @@ public class AccountResponseQuotas {
     return this;
   }
 
-   /**
+  /**
    * Total API templates allowed.
    * @return templatesTotal
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Total API templates allowed.")
   @JsonProperty(JSON_PROPERTY_TEMPLATES_TOTAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -165,12 +159,11 @@ public class AccountResponseQuotas {
     return this;
   }
 
-   /**
+  /**
    * API templates remaining.
    * @return templatesLeft
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "API templates remaining.")
   @JsonProperty(JSON_PROPERTY_TEMPLATES_LEFT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -191,12 +184,11 @@ public class AccountResponseQuotas {
     return this;
   }
 
-   /**
+  /**
    * SMS verifications  remaining.
    * @return smsVerificationsLeft
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "SMS verifications  remaining.")
   @JsonProperty(JSON_PROPERTY_SMS_VERIFICATIONS_LEFT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -217,12 +209,11 @@ public class AccountResponseQuotas {
     return this;
   }
 
-   /**
+  /**
    * Number of fax pages left
    * @return numFaxPagesLeft
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Number of fax pages left")
   @JsonProperty(JSON_PROPERTY_NUM_FAX_PAGES_LEFT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

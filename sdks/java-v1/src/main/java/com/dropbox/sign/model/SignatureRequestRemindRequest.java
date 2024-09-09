@@ -14,7 +14,6 @@
 package com.dropbox.sign.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -22,12 +21,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.dropbox.sign.JSON;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.dropbox.sign.JSON;
 
 
 import com.dropbox.sign.ApiException;
@@ -35,11 +33,11 @@ import com.dropbox.sign.ApiException;
  * SignatureRequestRemindRequest
  */
 @JsonPropertyOrder({
-    SignatureRequestRemindRequest.JSON_PROPERTY_EMAIL_ADDRESS,
-    SignatureRequestRemindRequest.JSON_PROPERTY_NAME
+  SignatureRequestRemindRequest.JSON_PROPERTY_EMAIL_ADDRESS,
+  SignatureRequestRemindRequest.JSON_PROPERTY_NAME
 })
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SignatureRequestRemindRequest {
   public static final String JSON_PROPERTY_EMAIL_ADDRESS = "email_address";
   private String emailAddress;
@@ -70,12 +68,11 @@ public class SignatureRequestRemindRequest {
     return this;
   }
 
-   /**
+  /**
    * The email address of the signer to send a reminder to.
    * @return emailAddress
-  **/
+   */
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The email address of the signer to send a reminder to.")
   @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -96,12 +93,11 @@ public class SignatureRequestRemindRequest {
     return this;
   }
 
-   /**
+  /**
    * The name of the signer to send a reminder to. Include if two or more signers share an email address.
    * @return name
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The name of the signer to send a reminder to. Include if two or more signers share an email address.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

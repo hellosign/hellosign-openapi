@@ -31,7 +31,7 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "OAuthTokenResponse")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class OAuthTokenResponse : IOpenApiTyped, IEquatable<OAuthTokenResponse>, IValidatableObject
+    public partial class OAuthTokenResponse : IEquatable<OAuthTokenResponse>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="OAuthTokenResponse" /> class.
@@ -77,32 +77,32 @@ namespace Dropbox.Sign.Model
         /// </summary>
         [DataMember(Name = "access_token", EmitDefaultValue = true)]
         public string AccessToken { get; set; }
-
+        
         /// <summary>
         /// Gets or Sets TokenType
         /// </summary>
         [DataMember(Name = "token_type", EmitDefaultValue = true)]
         public string TokenType { get; set; }
-
+        
         /// <summary>
         /// Gets or Sets RefreshToken
         /// </summary>
         [DataMember(Name = "refresh_token", EmitDefaultValue = true)]
         public string RefreshToken { get; set; }
-
+        
         /// <summary>
         /// Number of seconds until the &#x60;access_token&#x60; expires. Uses epoch time.
         /// </summary>
         /// <value>Number of seconds until the &#x60;access_token&#x60; expires. Uses epoch time.</value>
         [DataMember(Name = "expires_in", EmitDefaultValue = true)]
         public int ExpiresIn { get; set; }
-
+        
         /// <summary>
         /// Gets or Sets State
         /// </summary>
         [DataMember(Name = "state", EmitDefaultValue = true)]
         public string State { get; set; }
-
+        
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -207,6 +207,15 @@ namespace Dropbox.Sign.Model
             }
         }
 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
+            yield break;
+        }
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
@@ -242,16 +251,6 @@ namespace Dropbox.Sign.Model
             });
 
             return types;
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

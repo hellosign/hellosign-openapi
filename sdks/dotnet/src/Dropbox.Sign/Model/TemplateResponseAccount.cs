@@ -31,7 +31,7 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "TemplateResponseAccount")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class TemplateResponseAccount : IOpenApiTyped, IEquatable<TemplateResponseAccount>, IValidatableObject
+    public partial class TemplateResponseAccount : IEquatable<TemplateResponseAccount>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="TemplateResponseAccount" /> class.
@@ -80,41 +80,41 @@ namespace Dropbox.Sign.Model
         /// <value>The id of the Account.</value>
         [DataMember(Name = "account_id", EmitDefaultValue = true)]
         public string AccountId { get; set; }
-
+        
         /// <summary>
         /// The email address associated with the Account.
         /// </summary>
         /// <value>The email address associated with the Account.</value>
         [DataMember(Name = "email_address", EmitDefaultValue = true)]
         public string EmailAddress { get; set; }
-
+        
         /// <summary>
         /// Returns &#x60;true&#x60; if the user has been locked out of their account by a team admin.
         /// </summary>
         /// <value>Returns &#x60;true&#x60; if the user has been locked out of their account by a team admin.</value>
         [DataMember(Name = "is_locked", EmitDefaultValue = true)]
         public bool IsLocked { get; set; }
-
+        
         /// <summary>
         /// Returns &#x60;true&#x60; if the user has a paid Dropbox Sign account.
         /// </summary>
         /// <value>Returns &#x60;true&#x60; if the user has a paid Dropbox Sign account.</value>
         [DataMember(Name = "is_paid_hs", EmitDefaultValue = true)]
         public bool IsPaidHs { get; set; }
-
+        
         /// <summary>
         /// Returns &#x60;true&#x60; if the user has a paid HelloFax account.
         /// </summary>
         /// <value>Returns &#x60;true&#x60; if the user has a paid HelloFax account.</value>
         [DataMember(Name = "is_paid_hf", EmitDefaultValue = true)]
         public bool IsPaidHf { get; set; }
-
+        
         /// <summary>
         /// Gets or Sets Quotas
         /// </summary>
         [DataMember(Name = "quotas", EmitDefaultValue = true)]
         public TemplateResponseAccountQuota Quotas { get; set; }
-
+        
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -221,6 +221,15 @@ namespace Dropbox.Sign.Model
             }
         }
 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
+            yield break;
+        }
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
@@ -262,16 +271,6 @@ namespace Dropbox.Sign.Model
             });
 
             return types;
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

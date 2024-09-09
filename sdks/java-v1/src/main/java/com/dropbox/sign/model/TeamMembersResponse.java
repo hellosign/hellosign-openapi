@@ -14,7 +14,6 @@
 package com.dropbox.sign.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.dropbox.sign.model.ListInfoResponse;
@@ -25,14 +24,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.dropbox.sign.JSON;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.dropbox.sign.JSON;
 
 
 import com.dropbox.sign.ApiException;
@@ -40,15 +38,15 @@ import com.dropbox.sign.ApiException;
  * TeamMembersResponse
  */
 @JsonPropertyOrder({
-    TeamMembersResponse.JSON_PROPERTY_TEAM_MEMBERS,
-    TeamMembersResponse.JSON_PROPERTY_LIST_INFO,
-    TeamMembersResponse.JSON_PROPERTY_WARNINGS
+  TeamMembersResponse.JSON_PROPERTY_TEAM_MEMBERS,
+  TeamMembersResponse.JSON_PROPERTY_LIST_INFO,
+  TeamMembersResponse.JSON_PROPERTY_WARNINGS
 })
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TeamMembersResponse {
   public static final String JSON_PROPERTY_TEAM_MEMBERS = "team_members";
-  private List<TeamMemberResponse> teamMembers = null;
+  private List<TeamMemberResponse> teamMembers = new ArrayList<>();
 
   public static final String JSON_PROPERTY_LIST_INFO = "list_info";
   private ListInfoResponse listInfo;
@@ -87,14 +85,13 @@ public class TeamMembersResponse {
     return this;
   }
 
-   /**
+  /**
    * Contains a list of team members and their roles for a specific team.
    * @return teamMembers
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Contains a list of team members and their roles for a specific team.")
+   */
+  @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_TEAM_MEMBERS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public List<TeamMemberResponse> getTeamMembers() {
     return teamMembers;
@@ -102,7 +99,7 @@ public class TeamMembersResponse {
 
 
   @JsonProperty(JSON_PROPERTY_TEAM_MEMBERS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setTeamMembers(List<TeamMemberResponse> teamMembers) {
     this.teamMembers = teamMembers;
   }
@@ -113,14 +110,13 @@ public class TeamMembersResponse {
     return this;
   }
 
-   /**
+  /**
    * Get listInfo
    * @return listInfo
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_LIST_INFO)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public ListInfoResponse getListInfo() {
     return listInfo;
@@ -128,7 +124,7 @@ public class TeamMembersResponse {
 
 
   @JsonProperty(JSON_PROPERTY_LIST_INFO)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setListInfo(ListInfoResponse listInfo) {
     this.listInfo = listInfo;
   }
@@ -147,12 +143,11 @@ public class TeamMembersResponse {
     return this;
   }
 
-   /**
+  /**
    * Get warnings
    * @return warnings
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_WARNINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

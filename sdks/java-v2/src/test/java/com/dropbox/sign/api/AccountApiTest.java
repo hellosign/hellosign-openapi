@@ -5,8 +5,9 @@ import com.dropbox.sign.ApiException;
 import com.dropbox.sign.TestHelper;
 import com.dropbox.sign.model.*;
 import com.fasterxml.jackson.databind.JsonNode;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.fail;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.stream.IntStream;
 
@@ -24,7 +25,7 @@ public class AccountApiTest {
         AccountApi accountApi = new AccountApi(apiClient);
         AccountCreateResponse response = accountApi.accountCreate(request);
 
-        Assert.assertEquals(expectedResponse, response);
+        assertEquals(expectedResponse, response);
     }
 
     @Test
@@ -36,7 +37,7 @@ public class AccountApiTest {
         AccountApi accountApi = new AccountApi(apiClient);
         AccountGetResponse response = accountApi.accountGet(null, "jack@example.com");
 
-        Assert.assertEquals(expectedResponse, response);
+        assertEquals(expectedResponse, response);
     }
 
     @Test
@@ -52,7 +53,7 @@ public class AccountApiTest {
         AccountApi accountApi = new AccountApi(apiClient);
         AccountGetResponse response = accountApi.accountUpdate(request);
 
-        Assert.assertEquals(expectedResponse, response);
+        assertEquals(expectedResponse, response);
     }
 
     @Test
@@ -68,7 +69,7 @@ public class AccountApiTest {
         AccountApi accountApi = new AccountApi(apiClient);
         AccountVerifyResponse response = accountApi.accountVerify(request);
 
-        Assert.assertEquals(expectedResponse, response);
+        assertEquals(expectedResponse, response);
     }
 
     @Test
@@ -85,10 +86,10 @@ public class AccountApiTest {
                 ApiClient apiClient = TestHelper.setUpMock(value, expectedResponse);
                 AccountApi accountApi = new AccountApi(apiClient);
                 accountApi.accountVerify(request);
-                Assert.fail();
+                fail();
             } catch (ApiException e) {
-                Assert.assertEquals(value, e.getCode());
-                Assert.assertEquals(expectedResponse, e.getErrorResponse());
+                assertEquals(value, e.getCode());
+                assertEquals(expectedResponse, e.getErrorResponse());
             }
         });
     }

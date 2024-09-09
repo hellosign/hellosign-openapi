@@ -14,7 +14,6 @@
 package com.dropbox.sign.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -22,12 +21,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.dropbox.sign.JSON;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.dropbox.sign.JSON;
 
 
 import com.dropbox.sign.ApiException;
@@ -35,13 +33,13 @@ import com.dropbox.sign.ApiException;
  * AccountCreateRequest
  */
 @JsonPropertyOrder({
-    AccountCreateRequest.JSON_PROPERTY_EMAIL_ADDRESS,
-    AccountCreateRequest.JSON_PROPERTY_CLIENT_ID,
-    AccountCreateRequest.JSON_PROPERTY_CLIENT_SECRET,
-    AccountCreateRequest.JSON_PROPERTY_LOCALE
+  AccountCreateRequest.JSON_PROPERTY_EMAIL_ADDRESS,
+  AccountCreateRequest.JSON_PROPERTY_CLIENT_ID,
+  AccountCreateRequest.JSON_PROPERTY_CLIENT_SECRET,
+  AccountCreateRequest.JSON_PROPERTY_LOCALE
 })
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class AccountCreateRequest {
   public static final String JSON_PROPERTY_EMAIL_ADDRESS = "email_address";
   private String emailAddress;
@@ -78,12 +76,11 @@ public class AccountCreateRequest {
     return this;
   }
 
-   /**
+  /**
    * The email address which will be associated with the new Account.
    * @return emailAddress
-  **/
+   */
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The email address which will be associated with the new Account.")
   @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -104,12 +101,11 @@ public class AccountCreateRequest {
     return this;
   }
 
-   /**
+  /**
    * Used when creating a new account with OAuth authorization.  See [OAuth 2.0 Authorization](https://app.hellosign.com/api/oauthWalkthrough#OAuthAuthorization)
    * @return clientId
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Used when creating a new account with OAuth authorization.  See [OAuth 2.0 Authorization](https://app.hellosign.com/api/oauthWalkthrough#OAuthAuthorization)")
   @JsonProperty(JSON_PROPERTY_CLIENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -130,12 +126,11 @@ public class AccountCreateRequest {
     return this;
   }
 
-   /**
+  /**
    * Used when creating a new account with OAuth authorization.  See [OAuth 2.0 Authorization](https://app.hellosign.com/api/oauthWalkthrough#OAuthAuthorization)
    * @return clientSecret
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Used when creating a new account with OAuth authorization.  See [OAuth 2.0 Authorization](https://app.hellosign.com/api/oauthWalkthrough#OAuthAuthorization)")
   @JsonProperty(JSON_PROPERTY_CLIENT_SECRET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -156,12 +151,11 @@ public class AccountCreateRequest {
     return this;
   }
 
-   /**
+  /**
    * The locale used in this Account. Check out the list of [supported locales](/api/reference/constants/#supported-locales) to learn more about the possible values.
    * @return locale
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The locale used in this Account. Check out the list of [supported locales](/api/reference/constants/#supported-locales) to learn more about the possible values.")
   @JsonProperty(JSON_PROPERTY_LOCALE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

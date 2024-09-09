@@ -31,7 +31,7 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "UnclaimedDraftCreateRequest")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class UnclaimedDraftCreateRequest : IOpenApiTyped, IEquatable<UnclaimedDraftCreateRequest>, IValidatableObject
+    public partial class UnclaimedDraftCreateRequest : IEquatable<UnclaimedDraftCreateRequest>, IValidatableObject
     {
         /// <summary>
         /// The type of unclaimed draft to create. Use &#x60;send_document&#x60; to create a claimable file, and &#x60;request_signature&#x60; for a claimable signature request. If the type is &#x60;request_signature&#x60; then signers name and email_address are not optional.
@@ -51,7 +51,6 @@ namespace Dropbox.Sign.Model
             /// </summary>
             [EnumMember(Value = "request_signature")]
             RequestSignature = 2
-
         }
 
 
@@ -144,159 +143,159 @@ namespace Dropbox.Sign.Model
         /// <value>Use &#x60;files[]&#x60; to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.</value>
         [DataMember(Name = "files", EmitDefaultValue = true)]
         public List<System.IO.Stream> Files { get; set; }
-
+        
         /// <summary>
         /// Use &#x60;file_urls[]&#x60; to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.
         /// </summary>
         /// <value>Use &#x60;file_urls[]&#x60; to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.</value>
         [DataMember(Name = "file_urls", EmitDefaultValue = true)]
         public List<string> FileUrls { get; set; }
-
+        
         /// <summary>
         /// Allows signers to decline to sign a document if &#x60;true&#x60;. Defaults to &#x60;false&#x60;.
         /// </summary>
         /// <value>Allows signers to decline to sign a document if &#x60;true&#x60;. Defaults to &#x60;false&#x60;.</value>
         [DataMember(Name = "allow_decline", EmitDefaultValue = true)]
         public bool AllowDecline { get; set; }
-
+        
         /// <summary>
         /// A list describing the attachments
         /// </summary>
         /// <value>A list describing the attachments</value>
         [DataMember(Name = "attachments", EmitDefaultValue = true)]
         public List<SubAttachment> Attachments { get; set; }
-
+        
         /// <summary>
         /// The email addresses that should be CCed.
         /// </summary>
         /// <value>The email addresses that should be CCed.</value>
         [DataMember(Name = "cc_email_addresses", EmitDefaultValue = true)]
         public List<string> CcEmailAddresses { get; set; }
-
+        
         /// <summary>
         /// Client id of the app used to create the draft. Used to apply the branding and callback url defined for the app.
         /// </summary>
         /// <value>Client id of the app used to create the draft. Used to apply the branding and callback url defined for the app.</value>
         [DataMember(Name = "client_id", EmitDefaultValue = true)]
         public string ClientId { get; set; }
-
+        
         /// <summary>
         /// When used together with merge fields, &#x60;custom_fields&#x60; allows users to add pre-filled data to their signature requests.  Pre-filled data can be used with \&quot;send-once\&quot; signature requests by adding merge fields with &#x60;form_fields_per_document&#x60; or [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) while passing values back with &#x60;custom_fields&#x60; together in one API call.  For using pre-filled on repeatable signature requests, merge fields are added to templates in the Dropbox Sign UI or by calling [/template/create_embedded_draft](/api/reference/operation/templateCreateEmbeddedDraft) and then passing &#x60;custom_fields&#x60; on subsequent signature requests referencing that template.
         /// </summary>
         /// <value>When used together with merge fields, &#x60;custom_fields&#x60; allows users to add pre-filled data to their signature requests.  Pre-filled data can be used with \&quot;send-once\&quot; signature requests by adding merge fields with &#x60;form_fields_per_document&#x60; or [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) while passing values back with &#x60;custom_fields&#x60; together in one API call.  For using pre-filled on repeatable signature requests, merge fields are added to templates in the Dropbox Sign UI or by calling [/template/create_embedded_draft](/api/reference/operation/templateCreateEmbeddedDraft) and then passing &#x60;custom_fields&#x60; on subsequent signature requests referencing that template.</value>
         [DataMember(Name = "custom_fields", EmitDefaultValue = true)]
         public List<SubCustomField> CustomFields { get; set; }
-
+        
         /// <summary>
         /// Gets or Sets FieldOptions
         /// </summary>
         [DataMember(Name = "field_options", EmitDefaultValue = true)]
         public SubFieldOptions FieldOptions { get; set; }
-
+        
         /// <summary>
         /// Group information for fields defined in &#x60;form_fields_per_document&#x60;. String-indexed JSON array with &#x60;group_label&#x60; and &#x60;requirement&#x60; keys. &#x60;form_fields_per_document&#x60; must contain fields referencing a group defined in &#x60;form_field_groups&#x60;.
         /// </summary>
         /// <value>Group information for fields defined in &#x60;form_fields_per_document&#x60;. String-indexed JSON array with &#x60;group_label&#x60; and &#x60;requirement&#x60; keys. &#x60;form_fields_per_document&#x60; must contain fields referencing a group defined in &#x60;form_field_groups&#x60;.</value>
         [DataMember(Name = "form_field_groups", EmitDefaultValue = true)]
         public List<SubFormFieldGroup> FormFieldGroups { get; set; }
-
+        
         /// <summary>
         /// Conditional Logic rules for fields defined in &#x60;form_fields_per_document&#x60;.
         /// </summary>
         /// <value>Conditional Logic rules for fields defined in &#x60;form_fields_per_document&#x60;.</value>
         [DataMember(Name = "form_field_rules", EmitDefaultValue = true)]
         public List<SubFormFieldRule> FormFieldRules { get; set; }
-
+        
         /// <summary>
         /// The fields that should appear on the document, expressed as an array of objects. (For more details you can read about it here: [Using Form Fields per Document](/docs/openapi/form-fields-per-document).)  **NOTE:** Fields like **text**, **dropdown**, **checkbox**, **radio**, and **hyperlink** have additional required and optional parameters. Check out the list of [additional parameters](/api/reference/constants/#form-fields-per-document) for these field types.  * Text Field use &#x60;SubFormFieldsPerDocumentText&#x60; * Dropdown Field use &#x60;SubFormFieldsPerDocumentDropdown&#x60; * Hyperlink Field use &#x60;SubFormFieldsPerDocumentHyperlink&#x60; * Checkbox Field use &#x60;SubFormFieldsPerDocumentCheckbox&#x60; * Radio Field use &#x60;SubFormFieldsPerDocumentRadio&#x60; * Signature Field use &#x60;SubFormFieldsPerDocumentSignature&#x60; * Date Signed Field use &#x60;SubFormFieldsPerDocumentDateSigned&#x60; * Initials Field use &#x60;SubFormFieldsPerDocumentInitials&#x60; * Text Merge Field use &#x60;SubFormFieldsPerDocumentTextMerge&#x60; * Checkbox Merge Field use &#x60;SubFormFieldsPerDocumentCheckboxMerge&#x60;
         /// </summary>
         /// <value>The fields that should appear on the document, expressed as an array of objects. (For more details you can read about it here: [Using Form Fields per Document](/docs/openapi/form-fields-per-document).)  **NOTE:** Fields like **text**, **dropdown**, **checkbox**, **radio**, and **hyperlink** have additional required and optional parameters. Check out the list of [additional parameters](/api/reference/constants/#form-fields-per-document) for these field types.  * Text Field use &#x60;SubFormFieldsPerDocumentText&#x60; * Dropdown Field use &#x60;SubFormFieldsPerDocumentDropdown&#x60; * Hyperlink Field use &#x60;SubFormFieldsPerDocumentHyperlink&#x60; * Checkbox Field use &#x60;SubFormFieldsPerDocumentCheckbox&#x60; * Radio Field use &#x60;SubFormFieldsPerDocumentRadio&#x60; * Signature Field use &#x60;SubFormFieldsPerDocumentSignature&#x60; * Date Signed Field use &#x60;SubFormFieldsPerDocumentDateSigned&#x60; * Initials Field use &#x60;SubFormFieldsPerDocumentInitials&#x60; * Text Merge Field use &#x60;SubFormFieldsPerDocumentTextMerge&#x60; * Checkbox Merge Field use &#x60;SubFormFieldsPerDocumentCheckboxMerge&#x60;</value>
         [DataMember(Name = "form_fields_per_document", EmitDefaultValue = true)]
         public List<SubFormFieldsPerDocumentBase> FormFieldsPerDocument { get; set; }
-
+        
         /// <summary>
         /// Send with a value of &#x60;true&#x60; if you wish to enable automatic Text Tag removal. Defaults to &#x60;false&#x60;. When using Text Tags it is preferred that you set this to &#x60;false&#x60; and hide your tags with white text or something similar because the automatic removal system can cause unwanted clipping. See the [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) walkthrough for more details.
         /// </summary>
         /// <value>Send with a value of &#x60;true&#x60; if you wish to enable automatic Text Tag removal. Defaults to &#x60;false&#x60;. When using Text Tags it is preferred that you set this to &#x60;false&#x60; and hide your tags with white text or something similar because the automatic removal system can cause unwanted clipping. See the [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) walkthrough for more details.</value>
         [DataMember(Name = "hide_text_tags", EmitDefaultValue = true)]
         public bool HideTextTags { get; set; }
-
+        
         /// <summary>
         /// The custom message in the email that will be sent to the signers.
         /// </summary>
         /// <value>The custom message in the email that will be sent to the signers.</value>
         [DataMember(Name = "message", EmitDefaultValue = true)]
         public string Message { get; set; }
-
+        
         /// <summary>
         /// Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer&#39;s order number for look up when receiving events for the signature request.  Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.
         /// </summary>
         /// <value>Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer&#39;s order number for look up when receiving events for the signature request.  Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.</value>
         [DataMember(Name = "metadata", EmitDefaultValue = true)]
         public Dictionary<string, Object> Metadata { get; set; }
-
+        
         /// <summary>
         /// When only one step remains in the signature request process and this parameter is set to &#x60;false&#x60; then the progress stepper will be hidden.
         /// </summary>
         /// <value>When only one step remains in the signature request process and this parameter is set to &#x60;false&#x60; then the progress stepper will be hidden.</value>
         [DataMember(Name = "show_progress_stepper", EmitDefaultValue = true)]
         public bool ShowProgressStepper { get; set; }
-
+        
         /// <summary>
         /// Add Signers to your Unclaimed Draft Signature Request.
         /// </summary>
         /// <value>Add Signers to your Unclaimed Draft Signature Request.</value>
         [DataMember(Name = "signers", EmitDefaultValue = true)]
         public List<SubUnclaimedDraftSigner> Signers { get; set; }
-
+        
         /// <summary>
         /// Gets or Sets SigningOptions
         /// </summary>
         [DataMember(Name = "signing_options", EmitDefaultValue = true)]
         public SubSigningOptions SigningOptions { get; set; }
-
+        
         /// <summary>
         /// The URL you want signers redirected to after they successfully sign.
         /// </summary>
         /// <value>The URL you want signers redirected to after they successfully sign.</value>
         [DataMember(Name = "signing_redirect_url", EmitDefaultValue = true)]
         public string SigningRedirectUrl { get; set; }
-
+        
         /// <summary>
         /// The subject in the email that will be sent to the signers.
         /// </summary>
         /// <value>The subject in the email that will be sent to the signers.</value>
         [DataMember(Name = "subject", EmitDefaultValue = true)]
         public string Subject { get; set; }
-
+        
         /// <summary>
         /// Whether this is a test, the signature request created from this draft will not be legally binding if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.
         /// </summary>
         /// <value>Whether this is a test, the signature request created from this draft will not be legally binding if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.</value>
         [DataMember(Name = "test_mode", EmitDefaultValue = true)]
         public bool TestMode { get; set; }
-
+        
         /// <summary>
         /// Set &#x60;use_text_tags&#x60; to &#x60;true&#x60; to enable [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) parsing in your document (defaults to disabled, or &#x60;false&#x60;). Alternatively, if your PDF contains pre-defined fields, enable the detection of these fields by setting the &#x60;use_preexisting_fields&#x60; to &#x60;true&#x60; (defaults to disabled, or &#x60;false&#x60;). Currently we only support use of either &#x60;use_text_tags&#x60; or &#x60;use_preexisting_fields&#x60; parameter, not both.
         /// </summary>
         /// <value>Set &#x60;use_text_tags&#x60; to &#x60;true&#x60; to enable [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) parsing in your document (defaults to disabled, or &#x60;false&#x60;). Alternatively, if your PDF contains pre-defined fields, enable the detection of these fields by setting the &#x60;use_preexisting_fields&#x60; to &#x60;true&#x60; (defaults to disabled, or &#x60;false&#x60;). Currently we only support use of either &#x60;use_text_tags&#x60; or &#x60;use_preexisting_fields&#x60; parameter, not both.</value>
         [DataMember(Name = "use_preexisting_fields", EmitDefaultValue = true)]
         public bool UsePreexistingFields { get; set; }
-
+        
         /// <summary>
         /// Set &#x60;use_text_tags&#x60; to &#x60;true&#x60; to enable [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) parsing in your document (defaults to disabled, or &#x60;false&#x60;). Alternatively, if your PDF contains pre-defined fields, enable the detection of these fields by setting the &#x60;use_preexisting_fields&#x60; to &#x60;true&#x60; (defaults to disabled, or &#x60;false&#x60;). Currently we only support use of either &#x60;use_text_tags&#x60; or &#x60;use_preexisting_fields&#x60; parameter, not both.
         /// </summary>
         /// <value>Set &#x60;use_text_tags&#x60; to &#x60;true&#x60; to enable [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) parsing in your document (defaults to disabled, or &#x60;false&#x60;). Alternatively, if your PDF contains pre-defined fields, enable the detection of these fields by setting the &#x60;use_preexisting_fields&#x60; to &#x60;true&#x60; (defaults to disabled, or &#x60;false&#x60;). Currently we only support use of either &#x60;use_text_tags&#x60; or &#x60;use_preexisting_fields&#x60; parameter, not both.</value>
         [DataMember(Name = "use_text_tags", EmitDefaultValue = true)]
         public bool UseTextTags { get; set; }
-
+        
         /// <summary>
         /// When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.  **NOTE:** This does not correspond to the **expires_at** returned in the response.
         /// </summary>
         /// <value>When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.  **NOTE:** This does not correspond to the **expires_at** returned in the response.</value>
         [DataMember(Name = "expires_at", EmitDefaultValue = true)]
         public int? ExpiresAt { get; set; }
-
+        
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -577,6 +576,27 @@ namespace Dropbox.Sign.Model
             }
         }
 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
+            // Message (string) maxLength
+            if (this.Message != null && this.Message.Length > 5000)
+            {
+                yield return new ValidationResult("Invalid value for Message, length must be less than 5000.", new [] { "Message" });
+            }
+
+            // Subject (string) maxLength
+            if (this.Subject != null && this.Subject.Length > 200)
+            {
+                yield return new ValidationResult("Invalid value for Subject, length must be less than 200.", new [] { "Subject" });
+            }
+
+            yield break;
+        }
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
@@ -726,28 +746,6 @@ namespace Dropbox.Sign.Model
             });
 
             return types;
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
-        {
-            // Message (string) maxLength
-            if (this.Message != null && this.Message.Length > 5000)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Message, length must be less than 5000.", new [] { "Message" });
-            }
-
-            // Subject (string) maxLength
-            if (this.Subject != null && this.Subject.Length > 200)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Subject, length must be less than 200.", new [] { "Subject" });
-            }
-
-            yield break;
         }
     }
 

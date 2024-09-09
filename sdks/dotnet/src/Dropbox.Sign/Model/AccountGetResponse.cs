@@ -31,7 +31,7 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "AccountGetResponse")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class AccountGetResponse : IOpenApiTyped, IEquatable<AccountGetResponse>, IValidatableObject
+    public partial class AccountGetResponse : IEquatable<AccountGetResponse>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="AccountGetResponse" /> class.
@@ -41,11 +41,16 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AccountGetResponse" /> class.
         /// </summary>
-        /// <param name="account">account.</param>
+        /// <param name="account">account (required).</param>
         /// <param name="warnings">A list of warnings..</param>
         public AccountGetResponse(AccountResponse account = default(AccountResponse), List<WarningResponse> warnings = default(List<WarningResponse>))
         {
             
+            // to ensure "account" is required (not null)
+            if (account == null)
+            {
+                throw new ArgumentNullException("account is a required property for AccountGetResponse and cannot be null");
+            }
             this.Account = account;
             this.Warnings = warnings;
         }
@@ -69,16 +74,16 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Gets or Sets Account
         /// </summary>
-        [DataMember(Name = "account", EmitDefaultValue = true)]
+        [DataMember(Name = "account", IsRequired = true, EmitDefaultValue = true)]
         public AccountResponse Account { get; set; }
-
+        
         /// <summary>
         /// A list of warnings.
         /// </summary>
         /// <value>A list of warnings.</value>
         [DataMember(Name = "warnings", EmitDefaultValue = true)]
         public List<WarningResponse> Warnings { get; set; }
-
+        
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -158,6 +163,15 @@ namespace Dropbox.Sign.Model
             }
         }
 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
+            yield break;
+        }
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
@@ -175,16 +189,6 @@ namespace Dropbox.Sign.Model
             });
 
             return types;
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

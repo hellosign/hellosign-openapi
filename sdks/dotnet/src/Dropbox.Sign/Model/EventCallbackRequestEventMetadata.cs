@@ -31,7 +31,7 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "EventCallbackRequestEventMetadata")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class EventCallbackRequestEventMetadata : IOpenApiTyped, IEquatable<EventCallbackRequestEventMetadata>, IValidatableObject
+    public partial class EventCallbackRequestEventMetadata : IEquatable<EventCallbackRequestEventMetadata>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="EventCallbackRequestEventMetadata" /> class.
@@ -76,28 +76,28 @@ namespace Dropbox.Sign.Model
         /// <value>Signature ID for a specific signer. Applicable to &#x60;signature_request_signed&#x60; and &#x60;signature_request_viewed&#x60; events.</value>
         [DataMember(Name = "related_signature_id", EmitDefaultValue = true)]
         public string RelatedSignatureId { get; set; }
-
+        
         /// <summary>
         /// Account ID the event was reported for.
         /// </summary>
         /// <value>Account ID the event was reported for.</value>
         [DataMember(Name = "reported_for_account_id", EmitDefaultValue = true)]
         public string ReportedForAccountId { get; set; }
-
+        
         /// <summary>
         /// App ID the event was reported for.
         /// </summary>
         /// <value>App ID the event was reported for.</value>
         [DataMember(Name = "reported_for_app_id", EmitDefaultValue = true)]
         public string ReportedForAppId { get; set; }
-
+        
         /// <summary>
         /// Message about a declined or failed (due to error) signature flow.
         /// </summary>
         /// <value>Message about a declined or failed (due to error) signature flow.</value>
         [DataMember(Name = "event_message", EmitDefaultValue = true)]
         public string EventMessage { get; set; }
-
+        
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -196,6 +196,15 @@ namespace Dropbox.Sign.Model
             }
         }
 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
+            yield break;
+        }
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
@@ -225,16 +234,6 @@ namespace Dropbox.Sign.Model
             });
 
             return types;
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# see https://github.com/OpenAPITools/openapi-generator/tree/522a5df24ab2424dcd6e4e28393000045e3ea39e/modules/openapi-generator/src/main/resources/csharp-netcore
+# see https://github.com/OpenAPITools/openapi-generator/tree/v7.8.0/modules/openapi-generator/src/main/resources/csharp
 
 set -e
 
@@ -9,7 +9,7 @@ WORKING_DIR="/app/dotnet"
 
 docker run --rm \
   -v "${DIR}/:/local" \
-  openapitools/openapi-generator-cli:v6.0.0 generate \
+  openapitools/openapi-generator-cli:v7.8.0 generate \
     -i "/local/openapi-sdk.yaml" \
     -c "/local/openapi-config.yaml" \
     -t "/local/templates" \
@@ -48,3 +48,4 @@ printf "Running tests ...\n"
 bash "${DIR}/bin/dotnet" dotnet test src/Dropbox.Sign.Test/
 
 printf "Success!\n"
+

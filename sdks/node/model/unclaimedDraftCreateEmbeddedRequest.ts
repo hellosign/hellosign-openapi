@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-import { RequestFile, AttributeTypeMap, ObjectSerializer } from "./";
+import { AttributeTypeMap, ObjectSerializer, RequestFile } from "./";
 import { SubAttachment } from "./subAttachment";
 import { SubCustomField } from "./subCustomField";
 import { SubEditorOptions } from "./subEditorOptions";
@@ -33,6 +33,9 @@ import { SubFormFieldsPerDocumentBase } from "./subFormFieldsPerDocumentBase";
 import { SubSigningOptions } from "./subSigningOptions";
 import { SubUnclaimedDraftSigner } from "./subUnclaimedDraftSigner";
 
+/**
+ *
+ */
 export class UnclaimedDraftCreateEmbeddedRequest {
   /**
    * Client id of the app used to create the draft. Used to apply the branding and callback url defined for the app.

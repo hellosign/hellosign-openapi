@@ -6,8 +6,8 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
 | `name` | ```String``` |  Name of the associated file.  |  |
 | `index` | ```Integer``` |  Document ordering, the lowest index is displayed first and the highest last (0-based indexing).  |  |
 | `fieldGroups` | [```List<TemplateResponseDocumentFieldGroup>```](TemplateResponseDocumentFieldGroup.md) |  An array of Form Field Group objects.  |  |

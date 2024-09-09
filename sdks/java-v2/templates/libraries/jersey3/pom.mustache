@@ -65,12 +65,12 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.0.0-M5</version>
                 <configuration>
-                    <systemProperties>
+                    <systemPropertyVariables>
                         <property>
                             <name>loggerPath</name>
                             <value>conf/log4j.properties</value>
                         </property>
-                    </systemProperties>
+                    </systemPropertyVariables>
                     <argLine>-Xms512m -Xmx1500m</argLine>
                     <parallel>methods</parallel>
                     <threadCount>10</threadCount>
@@ -91,6 +91,7 @@
                     </execution>
                 </executions>
             </plugin>
+{{#useCustomTemplateCode}}
             <plugin>
                 <artifactId>maven-assembly-plugin</artifactId>
                 <executions>
@@ -107,6 +108,7 @@
                     </descriptorRefs>
                 </configuration>
             </plugin>
+{{/useCustomTemplateCode}}
             <!-- attach test jar -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -288,6 +290,13 @@
             <version>${swagger-annotations-version}</version>
         </dependency>
         {{/swagger2AnnotationLibrary}}
+{{#useCustomTemplateCode}}
+        <dependency>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
+            <version>1.15</version>
+        </dependency>
+{{/useCustomTemplateCode}}
 
         <!-- @Nullable annotation -->
         <dependency>
@@ -361,13 +370,6 @@
             <artifactId>jackson-datatype-jsr310</artifactId>
             <version>${jackson-version}</version>
         </dependency>
-        {{#threetenbp}}
-        <dependency>
-            <groupId>com.github.joschi.jackson</groupId>
-            <artifactId>jackson-datatype-threetenbp</artifactId>
-            <version>${jackson-threetenbp-version}</version>
-        </dependency>
-        {{/threetenbp}}
         {{#hasHttpSignatureMethods}}
         <dependency>
             <groupId>org.tomitribe</groupId>
@@ -403,25 +405,20 @@
             <version>${jersey-version}</version>
         </dependency>
         <!-- test dependencies -->
-        {{! TODO use latest version of junit }}
-        {{!<dependency>
+        <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
             <version>${junit-version}</version>
             <scope>test</scope>
-        </dependency>}}
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>${junit-version}</version>
-            <scope>test</scope>
         </dependency>
+{{#useCustomTemplateCode}}
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
             <version>${mockito.version}</version>
             <scope>test</scope>
         </dependency>
+{{/useCustomTemplateCode}}
     </dependencies>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -429,29 +426,26 @@
         <swagger-annotations-version>1.6.6</swagger-annotations-version>
         {{/swagger1AnnotationLibrary}}
         {{#swagger2AnnotationLibrary}}
-        <swagger-annotations-version>2.2.9</swagger-annotations-version>
+        <swagger-annotations-version>2.2.15</swagger-annotations-version>
         {{/swagger2AnnotationLibrary}}
-        <jersey-version>3.0.4</jersey-version>
-        <jackson-version>2.13.4</jackson-version>
-        <jackson-databind-version>2.13.4.2</jackson-databind-version>
+        <jersey-version>3.1.1</jersey-version>
+        <jackson-version>2.17.1</jackson-version>
+        <jackson-databind-version>2.17.1</jackson-databind-version>
         <jackson-databind-nullable-version>0.2.6</jackson-databind-nullable-version>
-        {{#threetenbp}}
-        <jackson-threetenbp-version>2.9.10</jackson-threetenbp-version>
-        {{/threetenbp}}
-        <jakarta-annotation-version>2.1.0</jakarta-annotation-version>
+        <jakarta-annotation-version>2.1.1</jakarta-annotation-version>
         {{#useBeanValidation}}
-        <beanvalidation-version>2.0.2</beanvalidation-version>
+        <beanvalidation-version>3.0.2</beanvalidation-version>
         {{/useBeanValidation}}
-        {{! TODO use latest version of junit }}
-        {{!<junit-version>5.8.2</junit-version>}}
-        <junit-version>4.13.1</junit-version>
+        <junit-version>5.10.0</junit-version>
         {{#hasHttpSignatureMethods}}
-        <http-signature-version>1.7</http-signature-version>
+        <http-signature-version>1.8</http-signature-version>
         {{/hasHttpSignatureMethods}}
         {{#hasOAuthMethods}}
-        <scribejava-apis-version>8.3.1</scribejava-apis-version>
+        <scribejava-apis-version>8.3.3</scribejava-apis-version>
         {{/hasOAuthMethods}}
         <spotless.version>2.21.0</spotless.version>
+{{#useCustomTemplateCode}}
         <mockito.version>3.12.4</mockito.version>
+{{/useCustomTemplateCode}}
     </properties>
 </project>

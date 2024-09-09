@@ -6,8 +6,8 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
 | `clientId`<sup>*_required_</sup> | ```String``` |  The client id of the app requesting authorization.  |  |
 | `clientSecret`<sup>*_required_</sup> | ```String``` |  The secret token of your app.  |  |
 | `code`<sup>*_required_</sup> | ```String``` |  The code passed to your callback when the user granted access.  |  |

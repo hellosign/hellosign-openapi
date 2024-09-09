@@ -14,10 +14,11 @@ import com.dropbox.sign.model.ReportCreateResponse;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 public class ReportApi {
   private ApiClient apiClient;
 
@@ -80,46 +81,33 @@ public class ReportApi {
    */
   public ApiResponse<ReportCreateResponse> reportCreateWithHttpInfo(ReportCreateRequest reportCreateRequest) throws ApiException {
     
-    Object localVarPostBody = reportCreateRequest;
-    
-    // verify the required parameter 'reportCreateRequest' is set
+    // Check required parameters
     if (reportCreateRequest == null) {
       throw new ApiException(400, "Missing the required parameter 'reportCreateRequest' when calling reportCreate");
     }
-    
-    // create path and map variables
-    String localVarPath = "/report/create";
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-
+    String localVarAccept = apiClient.selectHeaderAccept("application/json");
+    Map<String, Object> localVarFormParams = new LinkedHashMap<>();
     localVarFormParams = reportCreateRequest.createFormData();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
-
-    final String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "api_key" };
-
+    String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType("application/json");
+    String[] localVarAuthNames = new String[] {"api_key"};
     GenericType<ReportCreateResponse> localVarReturnType = new GenericType<ReportCreateResponse>() {};
+    return apiClient.invokeAPI(
+        "ReportApi.reportCreate",
+        "/report/create",
+        "POST",
+        new ArrayList<>(),
+        isFileTypeFound ? null : reportCreateRequest,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false
+    );
 
-    return apiClient.invokeAPI("ReportApi.reportCreate", localVarPath, "POST", localVarQueryParams, localVarPostBody,
-                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
   }
 }
