@@ -362,5 +362,5 @@ MigrationBackup/
 FodyWeavers.xsd
 
 vendor
-api
+/api
 .openapi-generator
