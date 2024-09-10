@@ -6,7 +6,7 @@ buildscript {
     dependencies {
         classpath 'com.android.tools.build:gradle:2.3.+'
         classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1'
-        classpath 'com.diffplug.spotless:spotless-plugin-gradle:6.3.0'
+        classpath 'com.diffplug.spotless:spotless-plugin-gradle:6.25.0'
     }
 }
 
@@ -157,7 +157,7 @@ javadoc {
 // Ref: https://github.com/diffplug/spotless/tree/main/plugin-gradle
 spotless {
     // comment out below to run spotless as part of the `check` task
-    enforceCheck false
+    enforceCheck true
 
     format 'misc', {
         // define the files (e.g. '*.gradle', '*.md') to apply `misc` to
@@ -170,7 +170,8 @@ spotless {
     java {
         // don't need to set target, it is inferred from java
         // apply a specific flavor of google-java-format
-        googleJavaFormat('1.8').aosp().reflowLongStrings()
+        googleJavaFormat('1.23.0').aosp().reflowLongStrings()
+        formatAnnotations()
         removeUnusedImports()
         importOrder()
     }

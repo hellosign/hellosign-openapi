@@ -1,17 +1,17 @@
 package com.dropbox.sign;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import com.dropbox.sign.model.SubFormFieldsPerDocumentBase;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.dropbox.sign.model.SubFormFieldsPerDocumentBase;
 import com.fasterxml.jackson.databind.node.ObjectNode;
-import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Iterator;
 import java.util.Map;
+import org.junit.jupiter.api.Test;
 
 public class SubFormFieldsPerDocumentTest {
     public final String packageNamePrefix = "com.dropbox.sign.model.";
@@ -19,9 +19,10 @@ public class SubFormFieldsPerDocumentTest {
     @Test
     public void testSubFormFieldsPerDocumentBase() throws Exception {
         ObjectMapper mapper = JSON.getDefault().getMapper();
-        JsonNode content = mapper.readTree(
-            Files.newInputStream(Paths.get("test_fixtures//SubFormFieldsPerDocument.json"))
-        );
+        JsonNode content =
+                mapper.readTree(
+                        Files.newInputStream(
+                                Paths.get("test_fixtures//SubFormFieldsPerDocument.json")));
         Iterator<Map.Entry<String, JsonNode>> fields = content.fields();
 
         while (fields.hasNext()) {
@@ -29,7 +30,8 @@ public class SubFormFieldsPerDocumentTest {
             String fieldName = kv.getKey();
             JsonNode expected = kv.getValue();
 
-            SubFormFieldsPerDocumentBase base = SubFormFieldsPerDocumentBase.init(expected.toString());
+            SubFormFieldsPerDocumentBase base =
+                    SubFormFieldsPerDocumentBase.init(expected.toString());
 
             assertTrue(Class.forName(packageNamePrefix + fieldName).isInstance(base));
 
@@ -44,9 +46,10 @@ public class SubFormFieldsPerDocumentTest {
     @Test
     public void testSignersAllowsInt() throws Exception {
         ObjectMapper mapper = JSON.getDefault().getMapper();
-        JsonNode content = mapper.readTree(
-            Files.newInputStream(Paths.get("test_fixtures//SubFormFieldsPerDocument.json"))
-        );
+        JsonNode content =
+                mapper.readTree(
+                        Files.newInputStream(
+                                Paths.get("test_fixtures//SubFormFieldsPerDocument.json")));
         Iterator<Map.Entry<String, JsonNode>> fields = content.fields();
 
         while (fields.hasNext()) {
@@ -56,7 +59,8 @@ public class SubFormFieldsPerDocumentTest {
 
             ((ObjectNode) data).put("signer", 1234);
 
-            SubFormFieldsPerDocumentBase result = SubFormFieldsPerDocumentBase.init(data.toString());
+            SubFormFieldsPerDocumentBase result =
+                    SubFormFieldsPerDocumentBase.init(data.toString());
 
             assertEquals(expected_signer, result.getSigner());
         }
@@ -65,9 +69,10 @@ public class SubFormFieldsPerDocumentTest {
     @Test
     public void testSignersAllowsString() throws Exception {
         ObjectMapper mapper = JSON.getDefault().getMapper();
-        JsonNode content = mapper.readTree(
-            Files.newInputStream(Paths.get("test_fixtures//SubFormFieldsPerDocument.json"))
-        );
+        JsonNode content =
+                mapper.readTree(
+                        Files.newInputStream(
+                                Paths.get("test_fixtures//SubFormFieldsPerDocument.json")));
         Iterator<Map.Entry<String, JsonNode>> fields = content.fields();
 
         while (fields.hasNext()) {
@@ -77,7 +82,8 @@ public class SubFormFieldsPerDocumentTest {
 
             ((ObjectNode) data).put("signer", "sender");
 
-            SubFormFieldsPerDocumentBase result = SubFormFieldsPerDocumentBase.init(data.toString());
+            SubFormFieldsPerDocumentBase result =
+                    SubFormFieldsPerDocumentBase.init(data.toString());
 
             assertEquals(expected_signer, result.getSigner());
         }

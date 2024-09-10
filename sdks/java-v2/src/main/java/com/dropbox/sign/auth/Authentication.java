@@ -10,15 +10,13 @@
  * Do not edit the class manually.
  */
 
-
 package com.dropbox.sign.auth;
 
-import com.dropbox.sign.Pair;
 import com.dropbox.sign.ApiException;
-
+import com.dropbox.sign.Pair;
 import java.net.URI;
-import java.util.Map;
 import java.util.List;
+import java.util.Map;
 
 public interface Authentication {
     /**
@@ -28,6 +26,12 @@ public interface Authentication {
      * @param headerParams Map of header parameters
      * @param cookieParams Map of cookie parameters
      */
-    void applyToParams(List<Pair> queryParams, Map<String, String> headerParams, Map<String, String> cookieParams, String payload, String method, URI uri) throws ApiException;
-
+    void applyToParams(
+            List<Pair> queryParams,
+            Map<String, String> headerParams,
+            Map<String, String> cookieParams,
+            String payload,
+            String method,
+            URI uri)
+            throws ApiException;
 }
