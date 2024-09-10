@@ -17,6 +17,7 @@ docker run --rm \
 
 printf "Install Python dependencies ...\n"
 bash "${DIR}/bin/python" pip install -r requirements.txt
+bash "${DIR}/bin/python" pip install -r test-requirements.txt
 
 printf "Formatting code ...\n"
 bash "${DIR}/bin/python" python -m black dropbox_sign examples tests
