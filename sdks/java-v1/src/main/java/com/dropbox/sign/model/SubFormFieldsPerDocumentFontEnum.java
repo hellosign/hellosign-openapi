@@ -10,82 +10,68 @@
  * Do not edit the class manually.
  */
 
-
 package com.dropbox.sign.model;
-
-import java.util.Objects;
-import java.util.Map;
-import java.util.HashMap;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.dropbox.sign.JSON;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-/**
- * Gets or Sets SubFormFieldsPerDocumentFontEnum
- */
+/** Gets or Sets SubFormFieldsPerDocumentFontEnum */
 public enum SubFormFieldsPerDocumentFontEnum {
-  
-  HELVETICA("helvetica"),
-  
-  ARIAL("arial"),
-  
-  COURIER("courier"),
-  
-  CALIBRI("calibri"),
-  
-  CAMBRIA("cambria"),
-  
-  GEORGIA("georgia"),
-  
-  TIMES("times"),
-  
-  TREBUCHET("trebuchet"),
-  
-  VERDANA("verdana"),
-  
-  ROBOTO("roboto"),
-  
-  ROBOTO_MONO("robotoMono"),
-  
-  NOTO_SANS("notoSans"),
-  
-  NOTO_SERIF("notoSerif"),
-  
-  NOTO_CJK_JP_REGULAR("notoCJK-JP-Regular"),
-  
-  NOTO_HEBREW_REGULAR("notoHebrew-Regular"),
-  
-  NOTO_SAN_THAI_MERGED("notoSanThaiMerged");
+    HELVETICA("helvetica"),
 
-  private String value;
+    ARIAL("arial"),
 
-  SubFormFieldsPerDocumentFontEnum(String value) {
-    this.value = value;
-  }
+    COURIER("courier"),
 
-  @JsonValue
-  public String getValue() {
-    return value;
-  }
+    CALIBRI("calibri"),
 
-  @Override
-  public String toString() {
-    return String.valueOf(value);
-  }
+    CAMBRIA("cambria"),
 
-  @JsonCreator
-  public static SubFormFieldsPerDocumentFontEnum fromValue(String value) {
-    for (SubFormFieldsPerDocumentFontEnum b : SubFormFieldsPerDocumentFontEnum.values()) {
-      if (b.value.equals(value)) {
-        return b;
-      }
+    GEORGIA("georgia"),
+
+    TIMES("times"),
+
+    TREBUCHET("trebuchet"),
+
+    VERDANA("verdana"),
+
+    ROBOTO("roboto"),
+
+    ROBOTO_MONO("robotoMono"),
+
+    NOTO_SANS("notoSans"),
+
+    NOTO_SERIF("notoSerif"),
+
+    NOTO_CJK_JP_REGULAR("notoCJK-JP-Regular"),
+
+    NOTO_HEBREW_REGULAR("notoHebrew-Regular"),
+
+    NOTO_SAN_THAI_MERGED("notoSanThaiMerged");
+
+    private String value;
+
+    SubFormFieldsPerDocumentFontEnum(String value) {
+        this.value = value;
     }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
-  }
-}
 
+    @JsonValue
+    public String getValue() {
+        return value;
+    }
+
+    @Override
+    public String toString() {
+        return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static SubFormFieldsPerDocumentFontEnum fromValue(String value) {
+        for (SubFormFieldsPerDocumentFontEnum b : SubFormFieldsPerDocumentFontEnum.values()) {
+            if (b.value.equals(value)) {
+                return b;
+            }
+        }
+        throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+}

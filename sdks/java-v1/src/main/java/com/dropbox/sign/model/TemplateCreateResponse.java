@@ -10,231 +10,216 @@
  * Do not edit the class manually.
  */
 
-
 package com.dropbox.sign.model;
 
-import java.util.Objects;
-import java.util.Map;
-import java.util.HashMap;
-import com.dropbox.sign.model.TemplateCreateResponseTemplate;
-import com.dropbox.sign.model.WarningResponse;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.dropbox.sign.ApiException;
 import com.dropbox.sign.JSON;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
-
-import com.dropbox.sign.ApiException;
-/**
- * TemplateCreateResponse
- */
+/** TemplateCreateResponse */
 @JsonPropertyOrder({
-  TemplateCreateResponse.JSON_PROPERTY_TEMPLATE,
-  TemplateCreateResponse.JSON_PROPERTY_WARNINGS
+    TemplateCreateResponse.JSON_PROPERTY_TEMPLATE,
+    TemplateCreateResponse.JSON_PROPERTY_WARNINGS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
-@JsonIgnoreProperties(ignoreUnknown=true)
+@javax.annotation.Generated(
+        value = "org.openapitools.codegen.languages.JavaClientCodegen",
+        comments = "Generator version: 7.8.0")
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class TemplateCreateResponse {
-  public static final String JSON_PROPERTY_TEMPLATE = "template";
-  private TemplateCreateResponseTemplate template;
+    public static final String JSON_PROPERTY_TEMPLATE = "template";
+    private TemplateCreateResponseTemplate template;
 
-  public static final String JSON_PROPERTY_WARNINGS = "warnings";
-  private List<WarningResponse> warnings = null;
+    public static final String JSON_PROPERTY_WARNINGS = "warnings";
+    private List<WarningResponse> warnings = null;
 
-  public TemplateCreateResponse() { 
-  }
+    public TemplateCreateResponse() {}
 
-  /**
-   * Attempt to instantiate and hydrate a new instance of this class
-   * @param jsonData String of JSON data representing target object
-   */
-  static public TemplateCreateResponse init(String jsonData) throws Exception {
-    return new ObjectMapper().readValue(jsonData, TemplateCreateResponse.class);
-  }
-
-  static public TemplateCreateResponse init(HashMap data) throws Exception {
-    return new ObjectMapper().readValue(
-      new ObjectMapper().writeValueAsString(data),
-      TemplateCreateResponse.class
-    );
-  }
-
-  public TemplateCreateResponse template(TemplateCreateResponseTemplate template) {
-    this.template = template;
-    return this;
-  }
-
-  /**
-   * Get template
-   * @return template
-   */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_TEMPLATE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public TemplateCreateResponseTemplate getTemplate() {
-    return template;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_TEMPLATE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTemplate(TemplateCreateResponseTemplate template) {
-    this.template = template;
-  }
-
-
-  public TemplateCreateResponse warnings(List<WarningResponse> warnings) {
-    this.warnings = warnings;
-    return this;
-  }
-
-  public TemplateCreateResponse addWarningsItem(WarningResponse warningsItem) {
-    if (this.warnings == null) {
-      this.warnings = new ArrayList<>();
+    /**
+     * Attempt to instantiate and hydrate a new instance of this class
+     *
+     * @param jsonData String of JSON data representing target object
+     */
+    public static TemplateCreateResponse init(String jsonData) throws Exception {
+        return new ObjectMapper().readValue(jsonData, TemplateCreateResponse.class);
     }
-    this.warnings.add(warningsItem);
-    return this;
-  }
 
-  /**
-   * A list of warnings.
-   * @return warnings
-   */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_WARNINGS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public List<WarningResponse> getWarnings() {
-    return warnings;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_WARNINGS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setWarnings(List<WarningResponse> warnings) {
-    this.warnings = warnings;
-  }
-
-
-  /**
-   * Return true if this TemplateCreateResponse object is equal to o.
-   */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public static TemplateCreateResponse init(HashMap data) throws Exception {
+        return new ObjectMapper()
+                .readValue(
+                        new ObjectMapper().writeValueAsString(data), TemplateCreateResponse.class);
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    public TemplateCreateResponse template(TemplateCreateResponseTemplate template) {
+        this.template = template;
+        return this;
     }
-    TemplateCreateResponse templateCreateResponse = (TemplateCreateResponse) o;
-    return Objects.equals(this.template, templateCreateResponse.template) &&
-        Objects.equals(this.warnings, templateCreateResponse.warnings);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(template, warnings);
-  }
+    /**
+     * Get template
+     *
+     * @return template
+     */
+    @javax.annotation.Nonnull
+    @JsonProperty(JSON_PROPERTY_TEMPLATE)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    public TemplateCreateResponseTemplate getTemplate() {
+        return template;
+    }
 
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class TemplateCreateResponse {\n");
-    sb.append("    template: ").append(toIndentedString(template)).append("\n");
-    sb.append("    warnings: ").append(toIndentedString(warnings)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
+    @JsonProperty(JSON_PROPERTY_TEMPLATE)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    public void setTemplate(TemplateCreateResponseTemplate template) {
+        this.template = template;
+    }
 
-  public Map<String, Object> createFormData() throws ApiException {
-    Map<String, Object> map = new HashMap<>();
-    boolean fileTypeFound = false;
-    try {
-    if (template != null) {
-        if (isFileTypeOrListOfFiles(template)) {
-            fileTypeFound = true;
+    public TemplateCreateResponse warnings(List<WarningResponse> warnings) {
+        this.warnings = warnings;
+        return this;
+    }
+
+    public TemplateCreateResponse addWarningsItem(WarningResponse warningsItem) {
+        if (this.warnings == null) {
+            this.warnings = new ArrayList<>();
         }
+        this.warnings.add(warningsItem);
+        return this;
+    }
 
-        if (template.getClass().equals(java.io.File.class) ||
-            template.getClass().equals(Integer.class) ||
-            template.getClass().equals(String.class) ||
-            template.getClass().isEnum()) {
-            map.put("template", template);
-        } else if (isListOfFile(template)) {
-            for(int i = 0; i< getListSize(template); i++) {
-                map.put("template[" + i + "]", getFromList(template, i));
+    /**
+     * A list of warnings.
+     *
+     * @return warnings
+     */
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_WARNINGS)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public List<WarningResponse> getWarnings() {
+        return warnings;
+    }
+
+    @JsonProperty(JSON_PROPERTY_WARNINGS)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public void setWarnings(List<WarningResponse> warnings) {
+        this.warnings = warnings;
+    }
+
+    /** Return true if this TemplateCreateResponse object is equal to o. */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        TemplateCreateResponse templateCreateResponse = (TemplateCreateResponse) o;
+        return Objects.equals(this.template, templateCreateResponse.template)
+                && Objects.equals(this.warnings, templateCreateResponse.warnings);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(template, warnings);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class TemplateCreateResponse {\n");
+        sb.append("    template: ").append(toIndentedString(template)).append("\n");
+        sb.append("    warnings: ").append(toIndentedString(warnings)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    public Map<String, Object> createFormData() throws ApiException {
+        Map<String, Object> map = new HashMap<>();
+        boolean fileTypeFound = false;
+        try {
+            if (template != null) {
+                if (isFileTypeOrListOfFiles(template)) {
+                    fileTypeFound = true;
+                }
+
+                if (template.getClass().equals(java.io.File.class)
+                        || template.getClass().equals(Integer.class)
+                        || template.getClass().equals(String.class)
+                        || template.getClass().isEnum()) {
+                    map.put("template", template);
+                } else if (isListOfFile(template)) {
+                    for (int i = 0; i < getListSize(template); i++) {
+                        map.put("template[" + i + "]", getFromList(template, i));
+                    }
+                } else {
+                    map.put("template", JSON.getDefault().getMapper().writeValueAsString(template));
+                }
             }
-        }
-        else {
-            map.put("template", JSON.getDefault().getMapper().writeValueAsString(template));
-        }
-    }
-    if (warnings != null) {
-        if (isFileTypeOrListOfFiles(warnings)) {
-            fileTypeFound = true;
-        }
+            if (warnings != null) {
+                if (isFileTypeOrListOfFiles(warnings)) {
+                    fileTypeFound = true;
+                }
 
-        if (warnings.getClass().equals(java.io.File.class) ||
-            warnings.getClass().equals(Integer.class) ||
-            warnings.getClass().equals(String.class) ||
-            warnings.getClass().isEnum()) {
-            map.put("warnings", warnings);
-        } else if (isListOfFile(warnings)) {
-            for(int i = 0; i< getListSize(warnings); i++) {
-                map.put("warnings[" + i + "]", getFromList(warnings, i));
+                if (warnings.getClass().equals(java.io.File.class)
+                        || warnings.getClass().equals(Integer.class)
+                        || warnings.getClass().equals(String.class)
+                        || warnings.getClass().isEnum()) {
+                    map.put("warnings", warnings);
+                } else if (isListOfFile(warnings)) {
+                    for (int i = 0; i < getListSize(warnings); i++) {
+                        map.put("warnings[" + i + "]", getFromList(warnings, i));
+                    }
+                } else {
+                    map.put("warnings", JSON.getDefault().getMapper().writeValueAsString(warnings));
+                }
             }
+        } catch (Exception e) {
+            throw new ApiException(e);
         }
-        else {
-            map.put("warnings", JSON.getDefault().getMapper().writeValueAsString(warnings));
+
+        return fileTypeFound ? map : new HashMap<>();
+    }
+
+    private boolean isFileTypeOrListOfFiles(Object obj) throws Exception {
+        return obj.getClass().equals(java.io.File.class) || isListOfFile(obj);
+    }
+
+    private boolean isListOfFile(Object obj) throws Exception {
+        return obj instanceof java.util.List
+                && !isListEmpty(obj)
+                && getFromList(obj, 0) instanceof java.io.File;
+    }
+
+    private boolean isListEmpty(Object obj) throws Exception {
+        return (boolean)
+                Class.forName(java.util.List.class.getName()).getMethod("isEmpty").invoke(obj);
+    }
+
+    private Object getFromList(Object obj, int index) throws Exception {
+        return Class.forName(java.util.List.class.getName())
+                .getMethod("get", int.class)
+                .invoke(obj, index);
+    }
+
+    private int getListSize(Object obj) throws Exception {
+        return (int) Class.forName(java.util.List.class.getName()).getMethod("size").invoke(obj);
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces (except the first
+     * line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
         }
+        return o.toString().replace("\n", "\n    ");
     }
-    } catch (Exception e) {
-        throw new ApiException(e);
-    }
-
-    return fileTypeFound ? map : new HashMap<>();
-  }
-
-  private boolean isFileTypeOrListOfFiles(Object obj) throws Exception {
-    return obj.getClass().equals(java.io.File.class) || isListOfFile(obj);
-  }
-
-  private boolean isListOfFile(Object obj) throws Exception {
-      return obj instanceof java.util.List && !isListEmpty(obj) && getFromList(obj, 0) instanceof java.io.File;
-  }
-
-  private boolean isListEmpty(Object obj) throws Exception {
-    return (boolean) Class.forName(java.util.List.class.getName()).getMethod("isEmpty").invoke(obj);
-  }
-
-  private Object getFromList(Object obj, int index) throws Exception {
-    return Class.forName(java.util.List.class.getName()).getMethod("get", int.class).invoke(obj, index);
-  }
-
-  private int getListSize(Object obj) throws Exception {
-    return (int) Class.forName(java.util.List.class.getName()).getMethod("size").invoke(obj);
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
-  }
-
 }
-

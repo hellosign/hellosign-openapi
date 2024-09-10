@@ -10,17 +10,16 @@
  * Do not edit the class manually.
  */
 
-
 package com.dropbox.sign;
 
-import java.util.Map;
-import java.util.List;
 import com.dropbox.sign.model.ErrorResponse;
+import java.util.List;
+import java.util.Map;
 
-/**
- * API Exception
- */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
+/** API Exception */
+@javax.annotation.Generated(
+        value = "org.openapitools.codegen.languages.JavaClientCodegen",
+        comments = "Generator version: 7.8.0")
 public class ApiException extends Exception {
     private static final long serialVersionUID = 1L;
 
@@ -39,18 +38,31 @@ public class ApiException extends Exception {
         super(message);
     }
 
-    public ApiException(String message, Throwable throwable, int code, Map<String, List<String>> responseHeaders, String responseBody) {
+    public ApiException(
+            String message,
+            Throwable throwable,
+            int code,
+            Map<String, List<String>> responseHeaders,
+            String responseBody) {
         super(message, throwable);
         this.code = code;
         this.responseHeaders = responseHeaders;
         this.responseBody = responseBody;
     }
 
-    public ApiException(String message, int code, Map<String, List<String>> responseHeaders, String responseBody) {
+    public ApiException(
+            String message,
+            int code,
+            Map<String, List<String>> responseHeaders,
+            String responseBody) {
         this(message, (Throwable) null, code, responseHeaders, responseBody);
     }
 
-    public ApiException(String message, Throwable throwable, int code, Map<String, List<String>> responseHeaders) {
+    public ApiException(
+            String message,
+            Throwable throwable,
+            int code,
+            Map<String, List<String>> responseHeaders) {
         this(message, throwable, code, responseHeaders, null);
     }
 
@@ -63,13 +75,22 @@ public class ApiException extends Exception {
         this.code = code;
     }
 
-    public ApiException(int code, String message, Map<String, List<String>> responseHeaders, String responseBody) {
+    public ApiException(
+            int code,
+            String message,
+            Map<String, List<String>> responseHeaders,
+            String responseBody) {
         this(code, message);
         this.responseHeaders = responseHeaders;
         this.responseBody = responseBody;
     }
 
-    public ApiException(int code, String message, Map<String, List<String>> responseHeaders, String responseBody, ErrorResponse errorResponse) {
+    public ApiException(
+            int code,
+            String message,
+            Map<String, List<String>> responseHeaders,
+            String responseBody,
+            ErrorResponse errorResponse) {
         this(code, message, responseHeaders, responseBody);
         this.errorResponse = errorResponse;
     }

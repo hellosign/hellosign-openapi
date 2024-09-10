@@ -10,54 +10,41 @@
  * Do not edit the class manually.
  */
 
-
 package com.dropbox.sign.model;
-
-import java.util.Objects;
-import java.util.Map;
-import java.util.HashMap;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.dropbox.sign.JSON;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-/**
- * Gets or Sets SignatureRequestResponseCustomFieldTypeEnum
- */
+/** Gets or Sets SignatureRequestResponseCustomFieldTypeEnum */
 public enum SignatureRequestResponseCustomFieldTypeEnum {
-  
-  TEXT("text"),
-  
-  CHECKBOX("checkbox");
+    TEXT("text"),
 
-  private String value;
+    CHECKBOX("checkbox");
 
-  SignatureRequestResponseCustomFieldTypeEnum(String value) {
-    this.value = value;
-  }
+    private String value;
 
-  @JsonValue
-  public String getValue() {
-    return value;
-  }
-
-  @Override
-  public String toString() {
-    return String.valueOf(value);
-  }
-
-  @JsonCreator
-  public static SignatureRequestResponseCustomFieldTypeEnum fromValue(String value) {
-    for (SignatureRequestResponseCustomFieldTypeEnum b : SignatureRequestResponseCustomFieldTypeEnum.values()) {
-      if (b.value.equals(value)) {
-        return b;
-      }
+    SignatureRequestResponseCustomFieldTypeEnum(String value) {
+        this.value = value;
     }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
-  }
-}
 
+    @JsonValue
+    public String getValue() {
+        return value;
+    }
+
+    @Override
+    public String toString() {
+        return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static SignatureRequestResponseCustomFieldTypeEnum fromValue(String value) {
+        for (SignatureRequestResponseCustomFieldTypeEnum b :
+                SignatureRequestResponseCustomFieldTypeEnum.values()) {
+            if (b.value.equals(value)) {
+                return b;
+            }
+        }
+        throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+}

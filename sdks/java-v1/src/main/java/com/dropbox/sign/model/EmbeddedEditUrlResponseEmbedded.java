@@ -10,219 +10,209 @@
  * Do not edit the class manually.
  */
 
-
 package com.dropbox.sign.model;
 
-import java.util.Objects;
-import java.util.Map;
-import java.util.HashMap;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
-import java.util.Arrays;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.dropbox.sign.ApiException;
 import com.dropbox.sign.JSON;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
-
-import com.dropbox.sign.ApiException;
-/**
- * An embedded template object.
- */
+/** An embedded template object. */
 @JsonPropertyOrder({
-  EmbeddedEditUrlResponseEmbedded.JSON_PROPERTY_EDIT_URL,
-  EmbeddedEditUrlResponseEmbedded.JSON_PROPERTY_EXPIRES_AT
+    EmbeddedEditUrlResponseEmbedded.JSON_PROPERTY_EDIT_URL,
+    EmbeddedEditUrlResponseEmbedded.JSON_PROPERTY_EXPIRES_AT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
-@JsonIgnoreProperties(ignoreUnknown=true)
+@javax.annotation.Generated(
+        value = "org.openapitools.codegen.languages.JavaClientCodegen",
+        comments = "Generator version: 7.8.0")
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class EmbeddedEditUrlResponseEmbedded {
-  public static final String JSON_PROPERTY_EDIT_URL = "edit_url";
-  private String editUrl;
+    public static final String JSON_PROPERTY_EDIT_URL = "edit_url";
+    private String editUrl;
 
-  public static final String JSON_PROPERTY_EXPIRES_AT = "expires_at";
-  private Integer expiresAt;
+    public static final String JSON_PROPERTY_EXPIRES_AT = "expires_at";
+    private Integer expiresAt;
 
-  public EmbeddedEditUrlResponseEmbedded() { 
-  }
+    public EmbeddedEditUrlResponseEmbedded() {}
 
-  /**
-   * Attempt to instantiate and hydrate a new instance of this class
-   * @param jsonData String of JSON data representing target object
-   */
-  static public EmbeddedEditUrlResponseEmbedded init(String jsonData) throws Exception {
-    return new ObjectMapper().readValue(jsonData, EmbeddedEditUrlResponseEmbedded.class);
-  }
-
-  static public EmbeddedEditUrlResponseEmbedded init(HashMap data) throws Exception {
-    return new ObjectMapper().readValue(
-      new ObjectMapper().writeValueAsString(data),
-      EmbeddedEditUrlResponseEmbedded.class
-    );
-  }
-
-  public EmbeddedEditUrlResponseEmbedded editUrl(String editUrl) {
-    this.editUrl = editUrl;
-    return this;
-  }
-
-  /**
-   * A template url that can be opened in an iFrame.
-   * @return editUrl
-   */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EDIT_URL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getEditUrl() {
-    return editUrl;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_EDIT_URL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setEditUrl(String editUrl) {
-    this.editUrl = editUrl;
-  }
-
-
-  public EmbeddedEditUrlResponseEmbedded expiresAt(Integer expiresAt) {
-    this.expiresAt = expiresAt;
-    return this;
-  }
-
-  /**
-   * The specific time that the the &#x60;edit_url&#x60; link expires, in epoch.
-   * @return expiresAt
-   */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Integer getExpiresAt() {
-    return expiresAt;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setExpiresAt(Integer expiresAt) {
-    this.expiresAt = expiresAt;
-  }
-
-
-  /**
-   * Return true if this EmbeddedEditUrlResponseEmbedded object is equal to o.
-   */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    /**
+     * Attempt to instantiate and hydrate a new instance of this class
+     *
+     * @param jsonData String of JSON data representing target object
+     */
+    public static EmbeddedEditUrlResponseEmbedded init(String jsonData) throws Exception {
+        return new ObjectMapper().readValue(jsonData, EmbeddedEditUrlResponseEmbedded.class);
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    public static EmbeddedEditUrlResponseEmbedded init(HashMap data) throws Exception {
+        return new ObjectMapper()
+                .readValue(
+                        new ObjectMapper().writeValueAsString(data),
+                        EmbeddedEditUrlResponseEmbedded.class);
     }
-    EmbeddedEditUrlResponseEmbedded embeddedEditUrlResponseEmbedded = (EmbeddedEditUrlResponseEmbedded) o;
-    return Objects.equals(this.editUrl, embeddedEditUrlResponseEmbedded.editUrl) &&
-        Objects.equals(this.expiresAt, embeddedEditUrlResponseEmbedded.expiresAt);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(editUrl, expiresAt);
-  }
+    public EmbeddedEditUrlResponseEmbedded editUrl(String editUrl) {
+        this.editUrl = editUrl;
+        return this;
+    }
 
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class EmbeddedEditUrlResponseEmbedded {\n");
-    sb.append("    editUrl: ").append(toIndentedString(editUrl)).append("\n");
-    sb.append("    expiresAt: ").append(toIndentedString(expiresAt)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
+    /**
+     * A template url that can be opened in an iFrame.
+     *
+     * @return editUrl
+     */
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_EDIT_URL)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public String getEditUrl() {
+        return editUrl;
+    }
 
-  public Map<String, Object> createFormData() throws ApiException {
-    Map<String, Object> map = new HashMap<>();
-    boolean fileTypeFound = false;
-    try {
-    if (editUrl != null) {
-        if (isFileTypeOrListOfFiles(editUrl)) {
-            fileTypeFound = true;
+    @JsonProperty(JSON_PROPERTY_EDIT_URL)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public void setEditUrl(String editUrl) {
+        this.editUrl = editUrl;
+    }
+
+    public EmbeddedEditUrlResponseEmbedded expiresAt(Integer expiresAt) {
+        this.expiresAt = expiresAt;
+        return this;
+    }
+
+    /**
+     * The specific time that the the &#x60;edit_url&#x60; link expires, in epoch.
+     *
+     * @return expiresAt
+     */
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public Integer getExpiresAt() {
+        return expiresAt;
+    }
+
+    @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public void setExpiresAt(Integer expiresAt) {
+        this.expiresAt = expiresAt;
+    }
+
+    /** Return true if this EmbeddedEditUrlResponseEmbedded object is equal to o. */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
         }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        EmbeddedEditUrlResponseEmbedded embeddedEditUrlResponseEmbedded =
+                (EmbeddedEditUrlResponseEmbedded) o;
+        return Objects.equals(this.editUrl, embeddedEditUrlResponseEmbedded.editUrl)
+                && Objects.equals(this.expiresAt, embeddedEditUrlResponseEmbedded.expiresAt);
+    }
 
-        if (editUrl.getClass().equals(java.io.File.class) ||
-            editUrl.getClass().equals(Integer.class) ||
-            editUrl.getClass().equals(String.class) ||
-            editUrl.getClass().isEnum()) {
-            map.put("edit_url", editUrl);
-        } else if (isListOfFile(editUrl)) {
-            for(int i = 0; i< getListSize(editUrl); i++) {
-                map.put("edit_url[" + i + "]", getFromList(editUrl, i));
+    @Override
+    public int hashCode() {
+        return Objects.hash(editUrl, expiresAt);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class EmbeddedEditUrlResponseEmbedded {\n");
+        sb.append("    editUrl: ").append(toIndentedString(editUrl)).append("\n");
+        sb.append("    expiresAt: ").append(toIndentedString(expiresAt)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    public Map<String, Object> createFormData() throws ApiException {
+        Map<String, Object> map = new HashMap<>();
+        boolean fileTypeFound = false;
+        try {
+            if (editUrl != null) {
+                if (isFileTypeOrListOfFiles(editUrl)) {
+                    fileTypeFound = true;
+                }
+
+                if (editUrl.getClass().equals(java.io.File.class)
+                        || editUrl.getClass().equals(Integer.class)
+                        || editUrl.getClass().equals(String.class)
+                        || editUrl.getClass().isEnum()) {
+                    map.put("edit_url", editUrl);
+                } else if (isListOfFile(editUrl)) {
+                    for (int i = 0; i < getListSize(editUrl); i++) {
+                        map.put("edit_url[" + i + "]", getFromList(editUrl, i));
+                    }
+                } else {
+                    map.put("edit_url", JSON.getDefault().getMapper().writeValueAsString(editUrl));
+                }
             }
-        }
-        else {
-            map.put("edit_url", JSON.getDefault().getMapper().writeValueAsString(editUrl));
-        }
-    }
-    if (expiresAt != null) {
-        if (isFileTypeOrListOfFiles(expiresAt)) {
-            fileTypeFound = true;
-        }
+            if (expiresAt != null) {
+                if (isFileTypeOrListOfFiles(expiresAt)) {
+                    fileTypeFound = true;
+                }
 
-        if (expiresAt.getClass().equals(java.io.File.class) ||
-            expiresAt.getClass().equals(Integer.class) ||
-            expiresAt.getClass().equals(String.class) ||
-            expiresAt.getClass().isEnum()) {
-            map.put("expires_at", expiresAt);
-        } else if (isListOfFile(expiresAt)) {
-            for(int i = 0; i< getListSize(expiresAt); i++) {
-                map.put("expires_at[" + i + "]", getFromList(expiresAt, i));
+                if (expiresAt.getClass().equals(java.io.File.class)
+                        || expiresAt.getClass().equals(Integer.class)
+                        || expiresAt.getClass().equals(String.class)
+                        || expiresAt.getClass().isEnum()) {
+                    map.put("expires_at", expiresAt);
+                } else if (isListOfFile(expiresAt)) {
+                    for (int i = 0; i < getListSize(expiresAt); i++) {
+                        map.put("expires_at[" + i + "]", getFromList(expiresAt, i));
+                    }
+                } else {
+                    map.put(
+                            "expires_at",
+                            JSON.getDefault().getMapper().writeValueAsString(expiresAt));
+                }
             }
+        } catch (Exception e) {
+            throw new ApiException(e);
         }
-        else {
-            map.put("expires_at", JSON.getDefault().getMapper().writeValueAsString(expiresAt));
+
+        return fileTypeFound ? map : new HashMap<>();
+    }
+
+    private boolean isFileTypeOrListOfFiles(Object obj) throws Exception {
+        return obj.getClass().equals(java.io.File.class) || isListOfFile(obj);
+    }
+
+    private boolean isListOfFile(Object obj) throws Exception {
+        return obj instanceof java.util.List
+                && !isListEmpty(obj)
+                && getFromList(obj, 0) instanceof java.io.File;
+    }
+
+    private boolean isListEmpty(Object obj) throws Exception {
+        return (boolean)
+                Class.forName(java.util.List.class.getName()).getMethod("isEmpty").invoke(obj);
+    }
+
+    private Object getFromList(Object obj, int index) throws Exception {
+        return Class.forName(java.util.List.class.getName())
+                .getMethod("get", int.class)
+                .invoke(obj, index);
+    }
+
+    private int getListSize(Object obj) throws Exception {
+        return (int) Class.forName(java.util.List.class.getName()).getMethod("size").invoke(obj);
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces (except the first
+     * line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
         }
+        return o.toString().replace("\n", "\n    ");
     }
-    } catch (Exception e) {
-        throw new ApiException(e);
-    }
-
-    return fileTypeFound ? map : new HashMap<>();
-  }
-
-  private boolean isFileTypeOrListOfFiles(Object obj) throws Exception {
-    return obj.getClass().equals(java.io.File.class) || isListOfFile(obj);
-  }
-
-  private boolean isListOfFile(Object obj) throws Exception {
-      return obj instanceof java.util.List && !isListEmpty(obj) && getFromList(obj, 0) instanceof java.io.File;
-  }
-
-  private boolean isListEmpty(Object obj) throws Exception {
-    return (boolean) Class.forName(java.util.List.class.getName()).getMethod("isEmpty").invoke(obj);
-  }
-
-  private Object getFromList(Object obj, int index) throws Exception {
-    return Class.forName(java.util.List.class.getName()).getMethod("get", int.class).invoke(obj, index);
-  }
-
-  private int getListSize(Object obj) throws Exception {
-    return (int) Class.forName(java.util.List.class.getName()).getMethod("size").invoke(obj);
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
-  }
-
 }
-

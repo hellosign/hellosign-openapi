@@ -1,19 +1,21 @@
 package com.dropbox.sign.api;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import com.dropbox.sign.ApiClient;
 import com.dropbox.sign.TestHelper;
 import com.dropbox.sign.model.*;
 import com.fasterxml.jackson.databind.JsonNode;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class BulkSendJobApiTest {
     @Test
     public void bulkSendJobGetTest() throws Exception {
         String id = "6e683bc0369ba3d5b6f43c2c22a8031dbf6bd174";
-        JsonNode expectedResponseData = TestHelper.getJsonContents(BulkSendJobGetResponse.class.getSimpleName());
-        BulkSendJobGetResponse expectedResponse = BulkSendJobGetResponse.init(expectedResponseData.toString());
+        JsonNode expectedResponseData =
+                TestHelper.getJsonContents(BulkSendJobGetResponse.class.getSimpleName());
+        BulkSendJobGetResponse expectedResponse =
+                BulkSendJobGetResponse.init(expectedResponseData.toString());
         ApiClient apiClient = TestHelper.setUpMock(200, expectedResponse);
 
         BulkSendJobApi api = new BulkSendJobApi(apiClient);
@@ -24,8 +26,10 @@ public class BulkSendJobApiTest {
 
     @Test
     public void bulkSendJobListTest() throws Exception {
-        JsonNode expectedResponseData = TestHelper.getJsonContents(BulkSendJobListResponse.class.getSimpleName());
-        BulkSendJobListResponse expectedResponse = BulkSendJobListResponse.init(expectedResponseData.toString());
+        JsonNode expectedResponseData =
+                TestHelper.getJsonContents(BulkSendJobListResponse.class.getSimpleName());
+        BulkSendJobListResponse expectedResponse =
+                BulkSendJobListResponse.init(expectedResponseData.toString());
         ApiClient apiClient = TestHelper.setUpMock(200, expectedResponse);
 
         BulkSendJobApi api = new BulkSendJobApi(apiClient);
