@@ -49,6 +49,14 @@ namespace Dropbox.SignSandbox.Test
             config.Username = config_merged["API_KEY"];
             config.BasePath = config_merged["BASE_URL"];
 
+            if (config_merged["USE_XDEBUG"] == true)
+            {
+                config.DefaultHeaders = new Dictionary<string, string>()
+                {
+                    ["Cookie"] = "XDEBUG_SESSION=xdebug"
+                };
+            }
+
             var signatureRequestApi = new Sign.Api.SignatureRequestApi(config);
 
             var data = TestHelper.GetJsonContents("test_fixtures/SignatureRequestSendRequest.json");
@@ -101,9 +109,17 @@ namespace Dropbox.SignSandbox.Test
             config.Username = config_merged["API_KEY"];
             config.BasePath = config_merged["BASE_URL"];
 
+            if (config_merged["USE_XDEBUG"] == true)
+            {
+                config.DefaultHeaders = new Dictionary<string, string>()
+                {
+                    ["Cookie"] = "XDEBUG_SESSION=xdebug"
+                };
+            }
+
             var signatureRequestApi = new Sign.Api.SignatureRequestApi(config);
 
-            var data = TestHelper.GetJsonContents("test_fixtures/SignatureRequestSendRequest.json");
+            var data = TestHelper.GetJsonContents("test_fixtures/SignatureRequestCreateEmbeddedRequest.json");
             data["client_id"] = config_merged["CLIENT_ID"];
             
             var sendRequest = Sign.Model.SignatureRequestCreateEmbeddedRequest.Init(data.ToString());
@@ -147,6 +163,14 @@ namespace Dropbox.SignSandbox.Test
             var config = new Sign.Client.Configuration();
             config.Username = config_merged["API_KEY"];
             config.BasePath = config_merged["BASE_URL"];
+
+            if (config_merged["USE_XDEBUG"] == true)
+            {
+                config.DefaultHeaders = new Dictionary<string, string>()
+                {
+                    ["Cookie"] = "XDEBUG_SESSION=xdebug"
+                };
+            }
 
             var signatureRequestApi = new Sign.Api.SignatureRequestApi(config);
 
