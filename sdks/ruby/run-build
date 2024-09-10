@@ -15,6 +15,12 @@ docker run --rm \
     -t "/local/templates" \
     -o "/local/"
 
+printf "Install Ruby dependencies ...\n"
+bash "${DIR}/bin/ruby" bundle
+
+printf "Formatting code ...\n"
+bash "${DIR}/bin/ruby" bundle exec rubocop --autocorrect-all --display-only-fail-level-offenses lib spec examples
+
 printf "\nInstalling composer dependencies ...\n"
 mkdir -p "${DIR}/vendor"
 bash "${DIR}/bin/php" composer install
@@ -22,9 +28,6 @@ printf "\n"
 
 printf "Adding examples to Docs ...\n"
 bash "${DIR}/bin/php" ./bin/generate-examples.php
-
-printf "Install Ruby dependencies ...\n"
-bash "${DIR}/bin/ruby" bundle
 
 printf "Replacing strings ...\n"
 docker run --rm \

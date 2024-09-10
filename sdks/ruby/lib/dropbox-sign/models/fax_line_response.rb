@@ -70,7 +70,7 @@ module Dropbox::Sign
     # @param [Object] data Data to be converted
     # @return [FaxLineResponse]
     def self.init(data)
-      return ApiClient.default.convert_to_type(
+      ApiClient.default.convert_to_type(
         data,
         "FaxLineResponse"
       ) || FaxLineResponse.new
@@ -256,7 +256,5 @@ module Dropbox::Sign
         value
       end
     end
-
   end
-
 end

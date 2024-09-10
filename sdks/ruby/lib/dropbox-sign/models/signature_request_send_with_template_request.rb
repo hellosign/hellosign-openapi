@@ -162,7 +162,7 @@ module Dropbox::Sign
     # @param [Object] data Data to be converted
     # @return [SignatureRequestSendWithTemplateRequest]
     def self.init(data)
-      return ApiClient.default.convert_to_type(
+      ApiClient.default.convert_to_type(
         data,
         "SignatureRequestSendWithTemplateRequest"
       ) || SignatureRequestSendWithTemplateRequest.new
@@ -501,7 +501,5 @@ module Dropbox::Sign
         value
       end
     end
-
   end
-
 end

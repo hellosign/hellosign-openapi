@@ -395,7 +395,7 @@ team_api = Dropbox::Sign::TeamApi.new
 email_address = "user@dropboxsign.com"
 
 begin
-  result = team_api.team_invites({email_address: email_address})
+  result = team_api.team_invites({ email_address: email_address })
   p result
 rescue Dropbox::Sign::ApiError => e
   puts "Exception when calling Dropbox Sign API: #{e}"

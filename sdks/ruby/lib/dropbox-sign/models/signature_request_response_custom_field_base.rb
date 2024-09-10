@@ -102,7 +102,7 @@ module Dropbox::Sign
         return "Dropbox::Sign::SignatureRequestResponseCustomFieldText"
       end
 
-      return nil
+      nil
     end
 
     # Initializes the object
@@ -312,7 +312,5 @@ module Dropbox::Sign
         value
       end
     end
-
   end
-
 end

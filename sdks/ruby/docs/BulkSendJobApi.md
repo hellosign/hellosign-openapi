@@ -109,7 +109,7 @@ page = 1
 page_size = 20
 
 begin
-  result = bulk_send_job_api.bulk_send_job_list({page: page, page_size: page_size})
+  result = bulk_send_job_api.bulk_send_job_list({ page: page, page_size: page_size })
   p result
 rescue Dropbox::Sign::ApiError => e
   puts "Exception when calling Dropbox Sign API: #{e}"

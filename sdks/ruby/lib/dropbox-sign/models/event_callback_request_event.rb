@@ -106,7 +106,7 @@ module Dropbox::Sign
     # @param [Object] data Data to be converted
     # @return [EventCallbackRequestEvent]
     def self.init(data)
-      return ApiClient.default.convert_to_type(
+      ApiClient.default.convert_to_type(
         data,
         "EventCallbackRequestEvent"
       ) || EventCallbackRequestEvent.new
@@ -324,7 +324,5 @@ module Dropbox::Sign
         value
       end
     end
-
   end
-
 end
