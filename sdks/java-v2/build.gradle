@@ -12,6 +12,7 @@ buildscript {
 
 plugins {
     id 'com.vanniktech.maven.publish' version '0.24.0'
+    id 'com.diffplug.spotless' version '6.25.0'
 }
 
 apply plugin: 'java'
