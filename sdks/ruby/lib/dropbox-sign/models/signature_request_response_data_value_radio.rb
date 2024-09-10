@@ -72,7 +72,7 @@ module Dropbox::Sign
     # @param [Object] data Data to be converted
     # @return [SignatureRequestResponseDataValueRadio]
     def self.init(data)
-      return ApiClient.default.convert_to_type(
+      ApiClient.default.convert_to_type(
         data,
         "SignatureRequestResponseDataValueRadio"
       ) || SignatureRequestResponseDataValueRadio.new
@@ -259,7 +259,5 @@ module Dropbox::Sign
         value
       end
     end
-
   end
-
 end

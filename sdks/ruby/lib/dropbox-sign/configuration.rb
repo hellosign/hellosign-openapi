@@ -245,7 +245,7 @@ module Dropbox::Sign
     end
 
     # Returns Auth Settings hash for api client.
-    def auth_settings()
+    def auth_settings
       result = {}
       if basic_auth_token
         result['api_key'] = {
@@ -264,7 +264,7 @@ module Dropbox::Sign
           value: "Bearer #{access_token}"
         }
       end
-      return result
+      result
     end
 
     # Returns an array of Server setting
@@ -327,7 +327,5 @@ module Dropbox::Sign
 
       url
     end
-
-
   end
 end

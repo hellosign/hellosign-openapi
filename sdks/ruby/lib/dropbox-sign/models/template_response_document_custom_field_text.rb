@@ -90,7 +90,7 @@ module Dropbox::Sign
     # @param [Object] data Data to be converted
     # @return [TemplateResponseDocumentCustomFieldText]
     def self.init(data)
-      return ApiClient.default.convert_to_type(
+      ApiClient.default.convert_to_type(
         data,
         "TemplateResponseDocumentCustomFieldText"
       ) || TemplateResponseDocumentCustomFieldText.new
@@ -297,7 +297,5 @@ module Dropbox::Sign
         value
       end
     end
-
   end
-
 end

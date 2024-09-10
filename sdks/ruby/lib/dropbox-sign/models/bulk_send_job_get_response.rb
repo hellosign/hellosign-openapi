@@ -82,7 +82,7 @@ module Dropbox::Sign
     # @param [Object] data Data to be converted
     # @return [BulkSendJobGetResponse]
     def self.init(data)
-      return ApiClient.default.convert_to_type(
+      ApiClient.default.convert_to_type(
         data,
         "BulkSendJobGetResponse"
       ) || BulkSendJobGetResponse.new
@@ -292,7 +292,5 @@ module Dropbox::Sign
         value
       end
     end
-
   end
-
 end

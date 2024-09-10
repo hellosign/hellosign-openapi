@@ -43,7 +43,7 @@ describe Dropbox::Sign::BulkSendJobApi do
       set_expected_response(200, JSON.dump(response_data))
       expected = Dropbox::Sign::BulkSendJobListResponse.init(response_data)
 
-      result = api.bulk_send_job_list({ :page => page, :page_size => page_size})
+      result = api.bulk_send_job_list({ :page => page, :page_size => page_size })
 
       expect(result.class.to_s).to eq("Dropbox::Sign::#{response_class}")
       expect(result.to_json).to be_json_eql(JSON.dump(expected))

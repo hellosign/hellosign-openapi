@@ -150,7 +150,7 @@ module Dropbox::Sign
         return "Dropbox::Sign::TemplateResponseDocumentFormFieldText"
       end
 
-      return nil
+      nil
     end
 
     # Initializes the object
@@ -380,7 +380,5 @@ module Dropbox::Sign
         value
       end
     end
-
   end
-
 end
