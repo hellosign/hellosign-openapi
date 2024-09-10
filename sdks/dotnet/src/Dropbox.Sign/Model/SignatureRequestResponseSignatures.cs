@@ -62,7 +62,7 @@ namespace Dropbox.Sign.Model
         /// <param name="error">Error message pertaining to this signer, or null..</param>
         public SignatureRequestResponseSignatures(string signatureId = default(string), string signerGroupGuid = default(string), string signerEmailAddress = default(string), string signerName = default(string), string signerRole = default(string), int? order = default(int?), string statusCode = default(string), string declineReason = default(string), int? signedAt = default(int?), int? lastViewedAt = default(int?), int? lastRemindedAt = default(int?), bool hasPin = default(bool), bool? hasSmsAuth = default(bool?), bool? hasSmsDelivery = default(bool?), string smsPhoneNumber = default(string), string reassignedBy = default(string), string reassignmentReason = default(string), string reassignedFrom = default(string), string error = default(string))
         {
-            
+
             this.SignatureId = signatureId;
             this.SignerGroupGuid = signerGroupGuid;
             this.SignerEmailAddress = signerEmailAddress;
@@ -106,133 +106,133 @@ namespace Dropbox.Sign.Model
         /// <value>Signature identifier.</value>
         [DataMember(Name = "signature_id", EmitDefaultValue = true)]
         public string SignatureId { get; set; }
-        
+
         /// <summary>
         /// Signer Group GUID
         /// </summary>
         /// <value>Signer Group GUID</value>
         [DataMember(Name = "signer_group_guid", EmitDefaultValue = true)]
         public string SignerGroupGuid { get; set; }
-        
+
         /// <summary>
         /// The email address of the signer.
         /// </summary>
         /// <value>The email address of the signer.</value>
         [DataMember(Name = "signer_email_address", EmitDefaultValue = true)]
         public string SignerEmailAddress { get; set; }
-        
+
         /// <summary>
         /// The name of the signer.
         /// </summary>
         /// <value>The name of the signer.</value>
         [DataMember(Name = "signer_name", EmitDefaultValue = true)]
         public string SignerName { get; set; }
-        
+
         /// <summary>
         /// The role of the signer.
         /// </summary>
         /// <value>The role of the signer.</value>
         [DataMember(Name = "signer_role", EmitDefaultValue = true)]
         public string SignerRole { get; set; }
-        
+
         /// <summary>
         /// If signer order is assigned this is the 0-based index for this signer.
         /// </summary>
         /// <value>If signer order is assigned this is the 0-based index for this signer.</value>
         [DataMember(Name = "order", EmitDefaultValue = true)]
         public int? Order { get; set; }
-        
+
         /// <summary>
         /// The current status of the signature. eg: awaiting_signature, signed, declined.
         /// </summary>
         /// <value>The current status of the signature. eg: awaiting_signature, signed, declined.</value>
         [DataMember(Name = "status_code", EmitDefaultValue = true)]
         public string StatusCode { get; set; }
-        
+
         /// <summary>
         /// The reason provided by the signer for declining the request.
         /// </summary>
         /// <value>The reason provided by the signer for declining the request.</value>
         [DataMember(Name = "decline_reason", EmitDefaultValue = true)]
         public string DeclineReason { get; set; }
-        
+
         /// <summary>
         /// Time that the document was signed or null.
         /// </summary>
         /// <value>Time that the document was signed or null.</value>
         [DataMember(Name = "signed_at", EmitDefaultValue = true)]
         public int? SignedAt { get; set; }
-        
+
         /// <summary>
         /// The time that the document was last viewed by this signer or null.
         /// </summary>
         /// <value>The time that the document was last viewed by this signer or null.</value>
         [DataMember(Name = "last_viewed_at", EmitDefaultValue = true)]
         public int? LastViewedAt { get; set; }
-        
+
         /// <summary>
         /// The time the last reminder email was sent to the signer or null.
         /// </summary>
         /// <value>The time the last reminder email was sent to the signer or null.</value>
         [DataMember(Name = "last_reminded_at", EmitDefaultValue = true)]
         public int? LastRemindedAt { get; set; }
-        
+
         /// <summary>
         /// Boolean to indicate whether this signature requires a PIN to access.
         /// </summary>
         /// <value>Boolean to indicate whether this signature requires a PIN to access.</value>
         [DataMember(Name = "has_pin", EmitDefaultValue = true)]
         public bool HasPin { get; set; }
-        
+
         /// <summary>
         /// Boolean to indicate whether this signature has SMS authentication enabled.
         /// </summary>
         /// <value>Boolean to indicate whether this signature has SMS authentication enabled.</value>
         [DataMember(Name = "has_sms_auth", EmitDefaultValue = true)]
         public bool? HasSmsAuth { get; set; }
-        
+
         /// <summary>
         /// Boolean to indicate whether this signature has SMS delivery enabled.
         /// </summary>
         /// <value>Boolean to indicate whether this signature has SMS delivery enabled.</value>
         [DataMember(Name = "has_sms_delivery", EmitDefaultValue = true)]
         public bool? HasSmsDelivery { get; set; }
-        
+
         /// <summary>
         /// The SMS phone number used for authentication or signature request delivery.
         /// </summary>
         /// <value>The SMS phone number used for authentication or signature request delivery.</value>
         [DataMember(Name = "sms_phone_number", EmitDefaultValue = true)]
         public string SmsPhoneNumber { get; set; }
-        
+
         /// <summary>
         /// Email address of original signer who reassigned to this signer.
         /// </summary>
         /// <value>Email address of original signer who reassigned to this signer.</value>
         [DataMember(Name = "reassigned_by", EmitDefaultValue = true)]
         public string ReassignedBy { get; set; }
-        
+
         /// <summary>
         /// Reason provided by original signer who reassigned to this signer.
         /// </summary>
         /// <value>Reason provided by original signer who reassigned to this signer.</value>
         [DataMember(Name = "reassignment_reason", EmitDefaultValue = true)]
         public string ReassignmentReason { get; set; }
-        
+
         /// <summary>
         /// Previous signature identifier.
         /// </summary>
         /// <value>Previous signature identifier.</value>
         [DataMember(Name = "reassigned_from", EmitDefaultValue = true)]
         public string ReassignedFrom { get; set; }
-        
+
         /// <summary>
         /// Error message pertaining to this signer, or null.
         /// </summary>
         /// <value>Error message pertaining to this signer, or null.</value>
         [DataMember(Name = "error", EmitDefaultValue = true)]
         public string Error { get; set; }
-        
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -294,96 +294,96 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
+            return
                 (
                     this.SignatureId == input.SignatureId ||
                     (this.SignatureId != null &&
                     this.SignatureId.Equals(input.SignatureId))
-                ) && 
+                ) &&
                 (
                     this.SignerGroupGuid == input.SignerGroupGuid ||
                     (this.SignerGroupGuid != null &&
                     this.SignerGroupGuid.Equals(input.SignerGroupGuid))
-                ) && 
+                ) &&
                 (
                     this.SignerEmailAddress == input.SignerEmailAddress ||
                     (this.SignerEmailAddress != null &&
                     this.SignerEmailAddress.Equals(input.SignerEmailAddress))
-                ) && 
+                ) &&
                 (
                     this.SignerName == input.SignerName ||
                     (this.SignerName != null &&
                     this.SignerName.Equals(input.SignerName))
-                ) && 
+                ) &&
                 (
                     this.SignerRole == input.SignerRole ||
                     (this.SignerRole != null &&
                     this.SignerRole.Equals(input.SignerRole))
-                ) && 
+                ) &&
                 (
                     this.Order == input.Order ||
                     (this.Order != null &&
                     this.Order.Equals(input.Order))
-                ) && 
+                ) &&
                 (
                     this.StatusCode == input.StatusCode ||
                     (this.StatusCode != null &&
                     this.StatusCode.Equals(input.StatusCode))
-                ) && 
+                ) &&
                 (
                     this.DeclineReason == input.DeclineReason ||
                     (this.DeclineReason != null &&
                     this.DeclineReason.Equals(input.DeclineReason))
-                ) && 
+                ) &&
                 (
                     this.SignedAt == input.SignedAt ||
                     (this.SignedAt != null &&
                     this.SignedAt.Equals(input.SignedAt))
-                ) && 
+                ) &&
                 (
                     this.LastViewedAt == input.LastViewedAt ||
                     (this.LastViewedAt != null &&
                     this.LastViewedAt.Equals(input.LastViewedAt))
-                ) && 
+                ) &&
                 (
                     this.LastRemindedAt == input.LastRemindedAt ||
                     (this.LastRemindedAt != null &&
                     this.LastRemindedAt.Equals(input.LastRemindedAt))
-                ) && 
+                ) &&
                 (
                     this.HasPin == input.HasPin ||
                     this.HasPin.Equals(input.HasPin)
-                ) && 
+                ) &&
                 (
                     this.HasSmsAuth == input.HasSmsAuth ||
                     (this.HasSmsAuth != null &&
                     this.HasSmsAuth.Equals(input.HasSmsAuth))
-                ) && 
+                ) &&
                 (
                     this.HasSmsDelivery == input.HasSmsDelivery ||
                     (this.HasSmsDelivery != null &&
                     this.HasSmsDelivery.Equals(input.HasSmsDelivery))
-                ) && 
+                ) &&
                 (
                     this.SmsPhoneNumber == input.SmsPhoneNumber ||
                     (this.SmsPhoneNumber != null &&
                     this.SmsPhoneNumber.Equals(input.SmsPhoneNumber))
-                ) && 
+                ) &&
                 (
                     this.ReassignedBy == input.ReassignedBy ||
                     (this.ReassignedBy != null &&
                     this.ReassignedBy.Equals(input.ReassignedBy))
-                ) && 
+                ) &&
                 (
                     this.ReassignmentReason == input.ReassignmentReason ||
                     (this.ReassignmentReason != null &&
                     this.ReassignmentReason.Equals(input.ReassignmentReason))
-                ) && 
+                ) &&
                 (
                     this.ReassignedFrom == input.ReassignedFrom ||
                     (this.ReassignedFrom != null &&
                     this.ReassignedFrom.Equals(input.ReassignedFrom))
-                ) && 
+                ) &&
                 (
                     this.Error == input.Error ||
                     (this.Error != null &&
@@ -489,115 +489,134 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "signature_id",
                 Property = "SignatureId",
                 Type = "string",
                 Value = SignatureId,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "signer_group_guid",
                 Property = "SignerGroupGuid",
                 Type = "string",
                 Value = SignerGroupGuid,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "signer_email_address",
                 Property = "SignerEmailAddress",
                 Type = "string",
                 Value = SignerEmailAddress,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "signer_name",
                 Property = "SignerName",
                 Type = "string",
                 Value = SignerName,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "signer_role",
                 Property = "SignerRole",
                 Type = "string",
                 Value = SignerRole,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "order",
                 Property = "Order",
                 Type = "int?",
                 Value = Order,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "status_code",
                 Property = "StatusCode",
                 Type = "string",
                 Value = StatusCode,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "decline_reason",
                 Property = "DeclineReason",
                 Type = "string",
                 Value = DeclineReason,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "signed_at",
                 Property = "SignedAt",
                 Type = "int?",
                 Value = SignedAt,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "last_viewed_at",
                 Property = "LastViewedAt",
                 Type = "int?",
                 Value = LastViewedAt,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "last_reminded_at",
                 Property = "LastRemindedAt",
                 Type = "int?",
                 Value = LastRemindedAt,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "has_pin",
                 Property = "HasPin",
                 Type = "bool",
                 Value = HasPin,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "has_sms_auth",
                 Property = "HasSmsAuth",
                 Type = "bool?",
                 Value = HasSmsAuth,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "has_sms_delivery",
                 Property = "HasSmsDelivery",
                 Type = "bool?",
                 Value = HasSmsDelivery,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "sms_phone_number",
                 Property = "SmsPhoneNumber",
                 Type = "string",
                 Value = SmsPhoneNumber,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "reassigned_by",
                 Property = "ReassignedBy",
                 Type = "string",
                 Value = ReassignedBy,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "reassignment_reason",
                 Property = "ReassignmentReason",
                 Type = "string",
                 Value = ReassignmentReason,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "reassigned_from",
                 Property = "ReassignedFrom",
                 Type = "string",
                 Value = ReassignedFrom,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "error",
                 Property = "Error",
                 Type = "string",

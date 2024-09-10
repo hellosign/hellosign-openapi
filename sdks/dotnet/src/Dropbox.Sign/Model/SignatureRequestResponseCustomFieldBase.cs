@@ -52,7 +52,7 @@ namespace Dropbox.Sign.Model
         /// <param name="editor">The name of the Role that is able to edit this field..</param>
         public SignatureRequestResponseCustomFieldBase(string type = default(string), string name = default(string), bool required = default(bool), string apiId = default(string), string editor = default(string))
         {
-            
+
             // to ensure "type" is required (not null)
             if (type == null)
             {
@@ -92,35 +92,35 @@ namespace Dropbox.Sign.Model
         /// <value>The type of this Custom Field. Only &#39;text&#39; and &#39;checkbox&#39; are currently supported.</value>
         [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
         public string Type { get; set; }
-        
+
         /// <summary>
         /// The name of the Custom Field.
         /// </summary>
         /// <value>The name of the Custom Field.</value>
         [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
         public string Name { get; set; }
-        
+
         /// <summary>
         /// A boolean value denoting if this field is required.
         /// </summary>
         /// <value>A boolean value denoting if this field is required.</value>
         [DataMember(Name = "required", EmitDefaultValue = true)]
         public bool Required { get; set; }
-        
+
         /// <summary>
         /// The unique ID for this field.
         /// </summary>
         /// <value>The unique ID for this field.</value>
         [DataMember(Name = "api_id", EmitDefaultValue = true)]
         public string ApiId { get; set; }
-        
+
         /// <summary>
         /// The name of the Role that is able to edit this field.
         /// </summary>
         /// <value>The name of the Role that is able to edit this field.</value>
         [DataMember(Name = "editor", EmitDefaultValue = true)]
         public string Editor { get; set; }
-        
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -168,26 +168,26 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
+            return
                 (
                     this.Type == input.Type ||
                     (this.Type != null &&
                     this.Type.Equals(input.Type))
-                ) && 
+                ) &&
                 (
                     this.Name == input.Name ||
                     (this.Name != null &&
                     this.Name.Equals(input.Name))
-                ) && 
+                ) &&
                 (
                     this.Required == input.Required ||
                     this.Required.Equals(input.Required)
-                ) && 
+                ) &&
                 (
                     this.ApiId == input.ApiId ||
                     (this.ApiId != null &&
                     this.ApiId.Equals(input.ApiId))
-                ) && 
+                ) &&
                 (
                     this.Editor == input.Editor ||
                     (this.Editor != null &&
@@ -247,31 +247,36 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "type",
                 Property = "Type",
                 Type = "string",
                 Value = Type,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "name",
                 Property = "Name",
                 Type = "string",
                 Value = Name,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "required",
                 Property = "Required",
                 Type = "bool",
                 Value = Required,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "api_id",
                 Property = "ApiId",
                 Type = "string",
                 Value = ApiId,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "editor",
                 Property = "Editor",
                 Type = "string",

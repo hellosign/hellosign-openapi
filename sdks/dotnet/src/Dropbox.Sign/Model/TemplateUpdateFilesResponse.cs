@@ -44,7 +44,7 @@ namespace Dropbox.Sign.Model
         /// <param name="template">template (required).</param>
         public TemplateUpdateFilesResponse(TemplateUpdateFilesResponseTemplate template = default(TemplateUpdateFilesResponseTemplate))
         {
-            
+
             // to ensure "template" is required (not null)
             if (template == null)
             {
@@ -74,7 +74,7 @@ namespace Dropbox.Sign.Model
         /// </summary>
         [DataMember(Name = "template", IsRequired = true, EmitDefaultValue = true)]
         public TemplateUpdateFilesResponseTemplate Template { get; set; }
-        
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -118,7 +118,7 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
+            return
                 (
                     this.Template == input.Template ||
                     (this.Template != null &&
@@ -155,7 +155,8 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "template",
                 Property = "Template",
                 Type = "TemplateUpdateFilesResponseTemplate",

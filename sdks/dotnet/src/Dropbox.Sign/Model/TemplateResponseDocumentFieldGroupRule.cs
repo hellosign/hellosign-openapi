@@ -45,7 +45,7 @@ namespace Dropbox.Sign.Model
         /// <param name="groupLabel">Name of the group.</param>
         public TemplateResponseDocumentFieldGroupRule(string requirement = default(string), string groupLabel = default(string))
         {
-            
+
             this.Requirement = requirement;
             this.GroupLabel = groupLabel;
         }
@@ -72,14 +72,14 @@ namespace Dropbox.Sign.Model
         /// <value>Examples: &#x60;require_0-1&#x60; &#x60;require_1&#x60; &#x60;require_1-ormore&#x60;  - Check out the list of [acceptable &#x60;requirement&#x60; checkbox type values](/api/reference/constants/#checkbox-field-grouping). - Check out the list of [acceptable &#x60;requirement&#x60; radio type fields](/api/reference/constants/#radio-field-grouping). - Radio groups require **at least** two fields per group.</value>
         [DataMember(Name = "requirement", EmitDefaultValue = true)]
         public string Requirement { get; set; }
-        
+
         /// <summary>
         /// Name of the group
         /// </summary>
         /// <value>Name of the group</value>
         [DataMember(Name = "groupLabel", EmitDefaultValue = true)]
         public string GroupLabel { get; set; }
-        
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -124,12 +124,12 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
+            return
                 (
                     this.Requirement == input.Requirement ||
                     (this.Requirement != null &&
                     this.Requirement.Equals(input.Requirement))
-                ) && 
+                ) &&
                 (
                     this.GroupLabel == input.GroupLabel ||
                     (this.GroupLabel != null &&
@@ -170,13 +170,15 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "requirement",
                 Property = "Requirement",
                 Type = "string",
                 Value = Requirement,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "groupLabel",
                 Property = "GroupLabel",
                 Type = "string",

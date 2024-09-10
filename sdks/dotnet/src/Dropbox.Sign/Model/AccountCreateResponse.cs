@@ -46,7 +46,7 @@ namespace Dropbox.Sign.Model
         /// <param name="warnings">A list of warnings..</param>
         public AccountCreateResponse(AccountResponse account = default(AccountResponse), OAuthTokenResponse oauthData = default(OAuthTokenResponse), List<WarningResponse> warnings = default(List<WarningResponse>))
         {
-            
+
             // to ensure "account" is required (not null)
             if (account == null)
             {
@@ -78,20 +78,20 @@ namespace Dropbox.Sign.Model
         /// </summary>
         [DataMember(Name = "account", IsRequired = true, EmitDefaultValue = true)]
         public AccountResponse Account { get; set; }
-        
+
         /// <summary>
         /// Gets or Sets OauthData
         /// </summary>
         [DataMember(Name = "oauth_data", EmitDefaultValue = true)]
         public OAuthTokenResponse OauthData { get; set; }
-        
+
         /// <summary>
         /// A list of warnings.
         /// </summary>
         /// <value>A list of warnings.</value>
         [DataMember(Name = "warnings", EmitDefaultValue = true)]
         public List<WarningResponse> Warnings { get; set; }
-        
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -137,17 +137,17 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
+            return
                 (
                     this.Account == input.Account ||
                     (this.Account != null &&
                     this.Account.Equals(input.Account))
-                ) && 
+                ) &&
                 (
                     this.OauthData == input.OauthData ||
                     (this.OauthData != null &&
                     this.OauthData.Equals(input.OauthData))
-                ) && 
+                ) &&
                 (
                     this.Warnings == input.Warnings ||
                     this.Warnings != null &&
@@ -193,19 +193,22 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "account",
                 Property = "Account",
                 Type = "AccountResponse",
                 Value = Account,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "oauth_data",
                 Property = "OauthData",
                 Type = "OAuthTokenResponse",
                 Value = OauthData,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "warnings",
                 Property = "Warnings",
                 Type = "List<WarningResponse>",

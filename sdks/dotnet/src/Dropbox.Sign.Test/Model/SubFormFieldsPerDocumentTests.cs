@@ -92,7 +92,7 @@ namespace Dropbox.Sign.Test.Model
                 var payload = JsonConvert.DeserializeObject<Dictionary<string, object>>(r.ReadToEnd());
                 Assert.NotNull(payload);
 
-                return new List<object[]> {new object[] {payload}};
+                return new List<object[]> { new object[] { payload } };
             }
         }
     }

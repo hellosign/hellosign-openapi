@@ -76,7 +76,7 @@ namespace Dropbox.Sign.Model
         /// <param name="smsPhoneNumberType">Specifies the feature used with the &#x60;sms_phone_number&#x60;. Default &#x60;authentication&#x60;.  If &#x60;authentication&#x60;, signer is sent a verification code via SMS that is required to access the document.  If &#x60;delivery&#x60;, a link to complete the signature request is delivered via SMS (_and_ email)..</param>
         public SubSignatureRequestSigner(string name = default(string), string emailAddress = default(string), int? order = default(int?), string pin = default(string), string smsPhoneNumber = default(string), SmsPhoneNumberTypeEnum? smsPhoneNumberType = default(SmsPhoneNumberTypeEnum?))
         {
-            
+
             // to ensure "name" is required (not null)
             if (name == null)
             {
@@ -117,35 +117,35 @@ namespace Dropbox.Sign.Model
         /// <value>The name of the signer.</value>
         [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
         public string Name { get; set; }
-        
+
         /// <summary>
         /// The email address of the signer.
         /// </summary>
         /// <value>The email address of the signer.</value>
         [DataMember(Name = "email_address", IsRequired = true, EmitDefaultValue = true)]
         public string EmailAddress { get; set; }
-        
+
         /// <summary>
         /// The order the signer is required to sign in.
         /// </summary>
         /// <value>The order the signer is required to sign in.</value>
         [DataMember(Name = "order", EmitDefaultValue = true)]
         public int? Order { get; set; }
-        
+
         /// <summary>
         /// The 4- to 12-character access code that will secure this signer&#39;s signature page.
         /// </summary>
         /// <value>The 4- to 12-character access code that will secure this signer&#39;s signature page.</value>
         [DataMember(Name = "pin", EmitDefaultValue = true)]
         public string Pin { get; set; }
-        
+
         /// <summary>
         /// An E.164 formatted phone number.  By using the feature, you agree you are responsible for obtaining a signer&#39;s consent to receive text messages from Dropbox Sign related to this signature request and confirm you have obtained such consent from all signers prior to enabling SMS delivery for this signature request. [Learn more](https://faq.hellosign.com/hc/en-us/articles/15815316468877-Dropbox-Sign-SMS-tools-add-on).  **NOTE:** Not available in test mode and requires a Standard plan or higher.
         /// </summary>
         /// <value>An E.164 formatted phone number.  By using the feature, you agree you are responsible for obtaining a signer&#39;s consent to receive text messages from Dropbox Sign related to this signature request and confirm you have obtained such consent from all signers prior to enabling SMS delivery for this signature request. [Learn more](https://faq.hellosign.com/hc/en-us/articles/15815316468877-Dropbox-Sign-SMS-tools-add-on).  **NOTE:** Not available in test mode and requires a Standard plan or higher.</value>
         [DataMember(Name = "sms_phone_number", EmitDefaultValue = true)]
         public string SmsPhoneNumber { get; set; }
-        
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -194,32 +194,32 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
+            return
                 (
                     this.Name == input.Name ||
                     (this.Name != null &&
                     this.Name.Equals(input.Name))
-                ) && 
+                ) &&
                 (
                     this.EmailAddress == input.EmailAddress ||
                     (this.EmailAddress != null &&
                     this.EmailAddress.Equals(input.EmailAddress))
-                ) && 
+                ) &&
                 (
                     this.Order == input.Order ||
                     (this.Order != null &&
                     this.Order.Equals(input.Order))
-                ) && 
+                ) &&
                 (
                     this.Pin == input.Pin ||
                     (this.Pin != null &&
                     this.Pin.Equals(input.Pin))
-                ) && 
+                ) &&
                 (
                     this.SmsPhoneNumber == input.SmsPhoneNumber ||
                     (this.SmsPhoneNumber != null &&
                     this.SmsPhoneNumber.Equals(input.SmsPhoneNumber))
-                ) && 
+                ) &&
                 (
                     this.SmsPhoneNumberType == input.SmsPhoneNumberType ||
                     this.SmsPhoneNumberType.Equals(input.SmsPhoneNumberType)
@@ -270,13 +270,13 @@ namespace Dropbox.Sign.Model
             // Pin (string) maxLength
             if (this.Pin != null && this.Pin.Length > 12)
             {
-                yield return new ValidationResult("Invalid value for Pin, length must be less than 12.", new [] { "Pin" });
+                yield return new ValidationResult("Invalid value for Pin, length must be less than 12.", new[] { "Pin" });
             }
 
             // Pin (string) minLength
             if (this.Pin != null && this.Pin.Length < 4)
             {
-                yield return new ValidationResult("Invalid value for Pin, length must be greater than 4.", new [] { "Pin" });
+                yield return new ValidationResult("Invalid value for Pin, length must be greater than 4.", new[] { "Pin" });
             }
 
             yield break;
@@ -284,37 +284,43 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "name",
                 Property = "Name",
                 Type = "string",
                 Value = Name,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "email_address",
                 Property = "EmailAddress",
                 Type = "string",
                 Value = EmailAddress,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "order",
                 Property = "Order",
                 Type = "int?",
                 Value = Order,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "pin",
                 Property = "Pin",
                 Type = "string",
                 Value = Pin,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "sms_phone_number",
                 Property = "SmsPhoneNumber",
                 Type = "string",
                 Value = SmsPhoneNumber,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "sms_phone_number_type",
                 Property = "SmsPhoneNumberType",
                 Type = "string",

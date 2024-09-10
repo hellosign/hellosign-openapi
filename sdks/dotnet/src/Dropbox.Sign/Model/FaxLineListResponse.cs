@@ -46,7 +46,7 @@ namespace Dropbox.Sign.Model
         /// <param name="warnings">warnings.</param>
         public FaxLineListResponse(ListInfoResponse listInfo = default(ListInfoResponse), List<FaxLineResponseFaxLine> faxLines = default(List<FaxLineResponseFaxLine>), WarningResponse warnings = default(WarningResponse))
         {
-            
+
             // to ensure "listInfo" is required (not null)
             if (listInfo == null)
             {
@@ -83,19 +83,19 @@ namespace Dropbox.Sign.Model
         /// </summary>
         [DataMember(Name = "list_info", IsRequired = true, EmitDefaultValue = true)]
         public ListInfoResponse ListInfo { get; set; }
-        
+
         /// <summary>
         /// Gets or Sets FaxLines
         /// </summary>
         [DataMember(Name = "fax_lines", IsRequired = true, EmitDefaultValue = true)]
         public List<FaxLineResponseFaxLine> FaxLines { get; set; }
-        
+
         /// <summary>
         /// Gets or Sets Warnings
         /// </summary>
         [DataMember(Name = "warnings", EmitDefaultValue = true)]
         public WarningResponse Warnings { get; set; }
-        
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -141,18 +141,18 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
+            return
                 (
                     this.ListInfo == input.ListInfo ||
                     (this.ListInfo != null &&
                     this.ListInfo.Equals(input.ListInfo))
-                ) && 
+                ) &&
                 (
                     this.FaxLines == input.FaxLines ||
                     this.FaxLines != null &&
                     input.FaxLines != null &&
                     this.FaxLines.SequenceEqual(input.FaxLines)
-                ) && 
+                ) &&
                 (
                     this.Warnings == input.Warnings ||
                     (this.Warnings != null &&
@@ -197,19 +197,22 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "list_info",
                 Property = "ListInfo",
                 Type = "ListInfoResponse",
                 Value = ListInfo,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "fax_lines",
                 Property = "FaxLines",
                 Type = "List<FaxLineResponseFaxLine>",
                 Value = FaxLines,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "warnings",
                 Property = "Warnings",
                 Type = "WarningResponse",

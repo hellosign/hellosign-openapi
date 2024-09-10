@@ -45,7 +45,7 @@ namespace Dropbox.Sign.Model
         /// <param name="expiresAt">When the link expires. (required).</param>
         public FileResponse(string fileUrl = default(string), int expiresAt = default(int))
         {
-            
+
             // to ensure "fileUrl" is required (not null)
             if (fileUrl == null)
             {
@@ -77,14 +77,14 @@ namespace Dropbox.Sign.Model
         /// <value>URL to the file.</value>
         [DataMember(Name = "file_url", IsRequired = true, EmitDefaultValue = true)]
         public string FileUrl { get; set; }
-        
+
         /// <summary>
         /// When the link expires.
         /// </summary>
         /// <value>When the link expires.</value>
         [DataMember(Name = "expires_at", IsRequired = true, EmitDefaultValue = true)]
         public int ExpiresAt { get; set; }
-        
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -129,12 +129,12 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
+            return
                 (
                     this.FileUrl == input.FileUrl ||
                     (this.FileUrl != null &&
                     this.FileUrl.Equals(input.FileUrl))
-                ) && 
+                ) &&
                 (
                     this.ExpiresAt == input.ExpiresAt ||
                     this.ExpiresAt.Equals(input.ExpiresAt)
@@ -171,13 +171,15 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "file_url",
                 Property = "FileUrl",
                 Type = "string",
                 Value = FileUrl,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "expires_at",
                 Property = "ExpiresAt",
                 Type = "int",

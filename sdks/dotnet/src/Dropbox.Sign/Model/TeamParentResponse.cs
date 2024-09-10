@@ -45,7 +45,7 @@ namespace Dropbox.Sign.Model
         /// <param name="name">The name of a team.</param>
         public TeamParentResponse(string teamId = default(string), string name = default(string))
         {
-            
+
             this.TeamId = teamId;
             this.Name = name;
         }
@@ -72,14 +72,14 @@ namespace Dropbox.Sign.Model
         /// <value>The id of a team</value>
         [DataMember(Name = "team_id", EmitDefaultValue = true)]
         public string TeamId { get; set; }
-        
+
         /// <summary>
         /// The name of a team
         /// </summary>
         /// <value>The name of a team</value>
         [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
-        
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -124,12 +124,12 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
+            return
                 (
                     this.TeamId == input.TeamId ||
                     (this.TeamId != null &&
                     this.TeamId.Equals(input.TeamId))
-                ) && 
+                ) &&
                 (
                     this.Name == input.Name ||
                     (this.Name != null &&
@@ -170,13 +170,15 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "team_id",
                 Property = "TeamId",
                 Type = "string",
                 Value = TeamId,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "name",
                 Property = "Name",
                 Type = "string",

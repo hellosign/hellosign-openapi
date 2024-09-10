@@ -47,7 +47,7 @@ namespace Dropbox.Sign.Model
         /// <param name="warnings">A list of warnings..</param>
         public BulkSendJobGetResponse(BulkSendJobResponse bulkSendJob = default(BulkSendJobResponse), ListInfoResponse listInfo = default(ListInfoResponse), List<BulkSendJobGetResponseSignatureRequests> signatureRequests = default(List<BulkSendJobGetResponseSignatureRequests>), List<WarningResponse> warnings = default(List<WarningResponse>))
         {
-            
+
             // to ensure "bulkSendJob" is required (not null)
             if (bulkSendJob == null)
             {
@@ -90,27 +90,27 @@ namespace Dropbox.Sign.Model
         /// </summary>
         [DataMember(Name = "bulk_send_job", IsRequired = true, EmitDefaultValue = true)]
         public BulkSendJobResponse BulkSendJob { get; set; }
-        
+
         /// <summary>
         /// Gets or Sets ListInfo
         /// </summary>
         [DataMember(Name = "list_info", IsRequired = true, EmitDefaultValue = true)]
         public ListInfoResponse ListInfo { get; set; }
-        
+
         /// <summary>
         /// Contains information about the Signature Requests sent in bulk.
         /// </summary>
         /// <value>Contains information about the Signature Requests sent in bulk.</value>
         [DataMember(Name = "signature_requests", IsRequired = true, EmitDefaultValue = true)]
         public List<BulkSendJobGetResponseSignatureRequests> SignatureRequests { get; set; }
-        
+
         /// <summary>
         /// A list of warnings.
         /// </summary>
         /// <value>A list of warnings.</value>
         [DataMember(Name = "warnings", EmitDefaultValue = true)]
         public List<WarningResponse> Warnings { get; set; }
-        
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -157,23 +157,23 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
+            return
                 (
                     this.BulkSendJob == input.BulkSendJob ||
                     (this.BulkSendJob != null &&
                     this.BulkSendJob.Equals(input.BulkSendJob))
-                ) && 
+                ) &&
                 (
                     this.ListInfo == input.ListInfo ||
                     (this.ListInfo != null &&
                     this.ListInfo.Equals(input.ListInfo))
-                ) && 
+                ) &&
                 (
                     this.SignatureRequests == input.SignatureRequests ||
                     this.SignatureRequests != null &&
                     input.SignatureRequests != null &&
                     this.SignatureRequests.SequenceEqual(input.SignatureRequests)
-                ) && 
+                ) &&
                 (
                     this.Warnings == input.Warnings ||
                     this.Warnings != null &&
@@ -223,25 +223,29 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "bulk_send_job",
                 Property = "BulkSendJob",
                 Type = "BulkSendJobResponse",
                 Value = BulkSendJob,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "list_info",
                 Property = "ListInfo",
                 Type = "ListInfoResponse",
                 Value = ListInfo,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "signature_requests",
                 Property = "SignatureRequests",
                 Type = "List<BulkSendJobGetResponseSignatureRequests>",
                 Value = SignatureRequests,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "warnings",
                 Property = "Warnings",
                 Type = "List<WarningResponse>",

@@ -68,7 +68,7 @@ namespace Dropbox.Sign.Model
         /// <param name="usePreexistingFields">Enable the detection of predefined PDF fields by setting the &#x60;use_preexisting_fields&#x60; to &#x60;true&#x60; (defaults to disabled, or &#x60;false&#x60;). (default to false).</param>
         public TemplateCreateEmbeddedDraftRequest(List<System.IO.Stream> files = default(List<System.IO.Stream>), List<string> fileUrls = default(List<string>), bool allowCcs = true, bool allowReassign = false, List<SubAttachment> attachments = default(List<SubAttachment>), List<string> ccRoles = default(List<string>), string clientId = default(string), SubEditorOptions editorOptions = default(SubEditorOptions), SubFieldOptions fieldOptions = default(SubFieldOptions), bool forceSignerRoles = false, bool forceSubjectMessage = false, List<SubFormFieldGroup> formFieldGroups = default(List<SubFormFieldGroup>), List<SubFormFieldRule> formFieldRules = default(List<SubFormFieldRule>), List<SubFormFieldsPerDocumentBase> formFieldsPerDocument = default(List<SubFormFieldsPerDocumentBase>), List<SubMergeField> mergeFields = default(List<SubMergeField>), string message = default(string), Dictionary<string, Object> metadata = default(Dictionary<string, Object>), bool showPreview = false, bool showProgressStepper = true, List<SubTemplateRole> signerRoles = default(List<SubTemplateRole>), bool skipMeNow = false, string subject = default(string), bool testMode = false, string title = default(string), bool usePreexistingFields = false)
         {
-            
+
             // to ensure "clientId" is required (not null)
             if (clientId == null)
             {
@@ -123,173 +123,173 @@ namespace Dropbox.Sign.Model
         /// <value>Client id of the app you&#39;re using to create this draft. Used to apply the branding and callback url defined for the app.</value>
         [DataMember(Name = "client_id", IsRequired = true, EmitDefaultValue = true)]
         public string ClientId { get; set; }
-        
+
         /// <summary>
         /// Use &#x60;files[]&#x60; to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.
         /// </summary>
         /// <value>Use &#x60;files[]&#x60; to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.</value>
         [DataMember(Name = "files", EmitDefaultValue = true)]
         public List<System.IO.Stream> Files { get; set; }
-        
+
         /// <summary>
         /// Use &#x60;file_urls[]&#x60; to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.
         /// </summary>
         /// <value>Use &#x60;file_urls[]&#x60; to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.</value>
         [DataMember(Name = "file_urls", EmitDefaultValue = true)]
         public List<string> FileUrls { get; set; }
-        
+
         /// <summary>
         /// This allows the requester to specify whether the user is allowed to provide email addresses to CC when creating a template.
         /// </summary>
         /// <value>This allows the requester to specify whether the user is allowed to provide email addresses to CC when creating a template.</value>
         [DataMember(Name = "allow_ccs", EmitDefaultValue = true)]
         public bool AllowCcs { get; set; }
-        
+
         /// <summary>
         /// Allows signers to reassign their signature requests to other signers if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.  **NOTE:** Only available for Premium plan and higher.
         /// </summary>
         /// <value>Allows signers to reassign their signature requests to other signers if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.  **NOTE:** Only available for Premium plan and higher.</value>
         [DataMember(Name = "allow_reassign", EmitDefaultValue = true)]
         public bool AllowReassign { get; set; }
-        
+
         /// <summary>
         /// A list describing the attachments
         /// </summary>
         /// <value>A list describing the attachments</value>
         [DataMember(Name = "attachments", EmitDefaultValue = true)]
         public List<SubAttachment> Attachments { get; set; }
-        
+
         /// <summary>
         /// The CC roles that must be assigned when using the template to send a signature request
         /// </summary>
         /// <value>The CC roles that must be assigned when using the template to send a signature request</value>
         [DataMember(Name = "cc_roles", EmitDefaultValue = true)]
         public List<string> CcRoles { get; set; }
-        
+
         /// <summary>
         /// Gets or Sets EditorOptions
         /// </summary>
         [DataMember(Name = "editor_options", EmitDefaultValue = true)]
         public SubEditorOptions EditorOptions { get; set; }
-        
+
         /// <summary>
         /// Gets or Sets FieldOptions
         /// </summary>
         [DataMember(Name = "field_options", EmitDefaultValue = true)]
         public SubFieldOptions FieldOptions { get; set; }
-        
+
         /// <summary>
         /// Provide users the ability to review/edit the template signer roles.
         /// </summary>
         /// <value>Provide users the ability to review/edit the template signer roles.</value>
         [DataMember(Name = "force_signer_roles", EmitDefaultValue = true)]
         public bool ForceSignerRoles { get; set; }
-        
+
         /// <summary>
         /// Provide users the ability to review/edit the template subject and message.
         /// </summary>
         /// <value>Provide users the ability to review/edit the template subject and message.</value>
         [DataMember(Name = "force_subject_message", EmitDefaultValue = true)]
         public bool ForceSubjectMessage { get; set; }
-        
+
         /// <summary>
         /// Group information for fields defined in &#x60;form_fields_per_document&#x60;. String-indexed JSON array with &#x60;group_label&#x60; and &#x60;requirement&#x60; keys. &#x60;form_fields_per_document&#x60; must contain fields referencing a group defined in &#x60;form_field_groups&#x60;.
         /// </summary>
         /// <value>Group information for fields defined in &#x60;form_fields_per_document&#x60;. String-indexed JSON array with &#x60;group_label&#x60; and &#x60;requirement&#x60; keys. &#x60;form_fields_per_document&#x60; must contain fields referencing a group defined in &#x60;form_field_groups&#x60;.</value>
         [DataMember(Name = "form_field_groups", EmitDefaultValue = true)]
         public List<SubFormFieldGroup> FormFieldGroups { get; set; }
-        
+
         /// <summary>
         /// Conditional Logic rules for fields defined in &#x60;form_fields_per_document&#x60;.
         /// </summary>
         /// <value>Conditional Logic rules for fields defined in &#x60;form_fields_per_document&#x60;.</value>
         [DataMember(Name = "form_field_rules", EmitDefaultValue = true)]
         public List<SubFormFieldRule> FormFieldRules { get; set; }
-        
+
         /// <summary>
         /// The fields that should appear on the document, expressed as an array of objects. (For more details you can read about it here: [Using Form Fields per Document](/docs/openapi/form-fields-per-document).)  **NOTE:** Fields like **text**, **dropdown**, **checkbox**, **radio**, and **hyperlink** have additional required and optional parameters. Check out the list of [additional parameters](/api/reference/constants/#form-fields-per-document) for these field types.  * Text Field use &#x60;SubFormFieldsPerDocumentText&#x60; * Dropdown Field use &#x60;SubFormFieldsPerDocumentDropdown&#x60; * Hyperlink Field use &#x60;SubFormFieldsPerDocumentHyperlink&#x60; * Checkbox Field use &#x60;SubFormFieldsPerDocumentCheckbox&#x60; * Radio Field use &#x60;SubFormFieldsPerDocumentRadio&#x60; * Signature Field use &#x60;SubFormFieldsPerDocumentSignature&#x60; * Date Signed Field use &#x60;SubFormFieldsPerDocumentDateSigned&#x60; * Initials Field use &#x60;SubFormFieldsPerDocumentInitials&#x60; * Text Merge Field use &#x60;SubFormFieldsPerDocumentTextMerge&#x60; * Checkbox Merge Field use &#x60;SubFormFieldsPerDocumentCheckboxMerge&#x60;
         /// </summary>
         /// <value>The fields that should appear on the document, expressed as an array of objects. (For more details you can read about it here: [Using Form Fields per Document](/docs/openapi/form-fields-per-document).)  **NOTE:** Fields like **text**, **dropdown**, **checkbox**, **radio**, and **hyperlink** have additional required and optional parameters. Check out the list of [additional parameters](/api/reference/constants/#form-fields-per-document) for these field types.  * Text Field use &#x60;SubFormFieldsPerDocumentText&#x60; * Dropdown Field use &#x60;SubFormFieldsPerDocumentDropdown&#x60; * Hyperlink Field use &#x60;SubFormFieldsPerDocumentHyperlink&#x60; * Checkbox Field use &#x60;SubFormFieldsPerDocumentCheckbox&#x60; * Radio Field use &#x60;SubFormFieldsPerDocumentRadio&#x60; * Signature Field use &#x60;SubFormFieldsPerDocumentSignature&#x60; * Date Signed Field use &#x60;SubFormFieldsPerDocumentDateSigned&#x60; * Initials Field use &#x60;SubFormFieldsPerDocumentInitials&#x60; * Text Merge Field use &#x60;SubFormFieldsPerDocumentTextMerge&#x60; * Checkbox Merge Field use &#x60;SubFormFieldsPerDocumentCheckboxMerge&#x60;</value>
         [DataMember(Name = "form_fields_per_document", EmitDefaultValue = true)]
         public List<SubFormFieldsPerDocumentBase> FormFieldsPerDocument { get; set; }
-        
+
         /// <summary>
         /// Add merge fields to the template. Merge fields are placed by the user creating the template and used to pre-fill data by passing values into signature requests with the &#x60;custom_fields&#x60; parameter. If the signature request using that template *does not* pass a value into a merge field, then an empty field remains in the document.
         /// </summary>
         /// <value>Add merge fields to the template. Merge fields are placed by the user creating the template and used to pre-fill data by passing values into signature requests with the &#x60;custom_fields&#x60; parameter. If the signature request using that template *does not* pass a value into a merge field, then an empty field remains in the document.</value>
         [DataMember(Name = "merge_fields", EmitDefaultValue = true)]
         public List<SubMergeField> MergeFields { get; set; }
-        
+
         /// <summary>
         /// The default template email message.
         /// </summary>
         /// <value>The default template email message.</value>
         [DataMember(Name = "message", EmitDefaultValue = true)]
         public string Message { get; set; }
-        
+
         /// <summary>
         /// Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer&#39;s order number for look up when receiving events for the signature request.  Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.
         /// </summary>
         /// <value>Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer&#39;s order number for look up when receiving events for the signature request.  Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.</value>
         [DataMember(Name = "metadata", EmitDefaultValue = true)]
         public Dictionary<string, Object> Metadata { get; set; }
-        
+
         /// <summary>
         /// This allows the requester to enable the editor/preview experience.  - &#x60;show_preview&#x3D;true&#x60;: Allows requesters to enable the editor/preview experience. - &#x60;show_preview&#x3D;false&#x60;: Allows requesters to disable the editor/preview experience.
         /// </summary>
         /// <value>This allows the requester to enable the editor/preview experience.  - &#x60;show_preview&#x3D;true&#x60;: Allows requesters to enable the editor/preview experience. - &#x60;show_preview&#x3D;false&#x60;: Allows requesters to disable the editor/preview experience.</value>
         [DataMember(Name = "show_preview", EmitDefaultValue = true)]
         public bool ShowPreview { get; set; }
-        
+
         /// <summary>
         /// When only one step remains in the signature request process and this parameter is set to &#x60;false&#x60; then the progress stepper will be hidden.
         /// </summary>
         /// <value>When only one step remains in the signature request process and this parameter is set to &#x60;false&#x60; then the progress stepper will be hidden.</value>
         [DataMember(Name = "show_progress_stepper", EmitDefaultValue = true)]
         public bool ShowProgressStepper { get; set; }
-        
+
         /// <summary>
         /// An array of the designated signer roles that must be specified when sending a SignatureRequest using this Template.
         /// </summary>
         /// <value>An array of the designated signer roles that must be specified when sending a SignatureRequest using this Template.</value>
         [DataMember(Name = "signer_roles", EmitDefaultValue = true)]
         public List<SubTemplateRole> SignerRoles { get; set; }
-        
+
         /// <summary>
         /// Disables the \&quot;Me (Now)\&quot; option for the person preparing the document. Does not work with type &#x60;send_document&#x60;. Defaults to &#x60;false&#x60;.
         /// </summary>
         /// <value>Disables the \&quot;Me (Now)\&quot; option for the person preparing the document. Does not work with type &#x60;send_document&#x60;. Defaults to &#x60;false&#x60;.</value>
         [DataMember(Name = "skip_me_now", EmitDefaultValue = true)]
         public bool SkipMeNow { get; set; }
-        
+
         /// <summary>
         /// The template title (alias).
         /// </summary>
         /// <value>The template title (alias).</value>
         [DataMember(Name = "subject", EmitDefaultValue = true)]
         public string Subject { get; set; }
-        
+
         /// <summary>
         /// Whether this is a test, the signature request created from this draft will not be legally binding if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.
         /// </summary>
         /// <value>Whether this is a test, the signature request created from this draft will not be legally binding if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.</value>
         [DataMember(Name = "test_mode", EmitDefaultValue = true)]
         public bool TestMode { get; set; }
-        
+
         /// <summary>
         /// The title you want to assign to the SignatureRequest.
         /// </summary>
         /// <value>The title you want to assign to the SignatureRequest.</value>
         [DataMember(Name = "title", EmitDefaultValue = true)]
         public string Title { get; set; }
-        
+
         /// <summary>
         /// Enable the detection of predefined PDF fields by setting the &#x60;use_preexisting_fields&#x60; to &#x60;true&#x60; (defaults to disabled, or &#x60;false&#x60;).
         /// </summary>
         /// <value>Enable the detection of predefined PDF fields by setting the &#x60;use_preexisting_fields&#x60; to &#x60;true&#x60; (defaults to disabled, or &#x60;false&#x60;).</value>
         [DataMember(Name = "use_preexisting_fields", EmitDefaultValue = true)]
         public bool UsePreexistingFields { get; set; }
-        
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -357,129 +357,129 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
+            return
                 (
                     this.ClientId == input.ClientId ||
                     (this.ClientId != null &&
                     this.ClientId.Equals(input.ClientId))
-                ) && 
+                ) &&
                 (
                     this.Files == input.Files ||
                     this.Files != null &&
                     input.Files != null &&
                     this.Files.SequenceEqual(input.Files)
-                ) && 
+                ) &&
                 (
                     this.FileUrls == input.FileUrls ||
                     this.FileUrls != null &&
                     input.FileUrls != null &&
                     this.FileUrls.SequenceEqual(input.FileUrls)
-                ) && 
+                ) &&
                 (
                     this.AllowCcs == input.AllowCcs ||
                     this.AllowCcs.Equals(input.AllowCcs)
-                ) && 
+                ) &&
                 (
                     this.AllowReassign == input.AllowReassign ||
                     this.AllowReassign.Equals(input.AllowReassign)
-                ) && 
+                ) &&
                 (
                     this.Attachments == input.Attachments ||
                     this.Attachments != null &&
                     input.Attachments != null &&
                     this.Attachments.SequenceEqual(input.Attachments)
-                ) && 
+                ) &&
                 (
                     this.CcRoles == input.CcRoles ||
                     this.CcRoles != null &&
                     input.CcRoles != null &&
                     this.CcRoles.SequenceEqual(input.CcRoles)
-                ) && 
+                ) &&
                 (
                     this.EditorOptions == input.EditorOptions ||
                     (this.EditorOptions != null &&
                     this.EditorOptions.Equals(input.EditorOptions))
-                ) && 
+                ) &&
                 (
                     this.FieldOptions == input.FieldOptions ||
                     (this.FieldOptions != null &&
                     this.FieldOptions.Equals(input.FieldOptions))
-                ) && 
+                ) &&
                 (
                     this.ForceSignerRoles == input.ForceSignerRoles ||
                     this.ForceSignerRoles.Equals(input.ForceSignerRoles)
-                ) && 
+                ) &&
                 (
                     this.ForceSubjectMessage == input.ForceSubjectMessage ||
                     this.ForceSubjectMessage.Equals(input.ForceSubjectMessage)
-                ) && 
+                ) &&
                 (
                     this.FormFieldGroups == input.FormFieldGroups ||
                     this.FormFieldGroups != null &&
                     input.FormFieldGroups != null &&
                     this.FormFieldGroups.SequenceEqual(input.FormFieldGroups)
-                ) && 
+                ) &&
                 (
                     this.FormFieldRules == input.FormFieldRules ||
                     this.FormFieldRules != null &&
                     input.FormFieldRules != null &&
                     this.FormFieldRules.SequenceEqual(input.FormFieldRules)
-                ) && 
+                ) &&
                 (
                     this.FormFieldsPerDocument == input.FormFieldsPerDocument ||
                     this.FormFieldsPerDocument != null &&
                     input.FormFieldsPerDocument != null &&
                     this.FormFieldsPerDocument.SequenceEqual(input.FormFieldsPerDocument)
-                ) && 
+                ) &&
                 (
                     this.MergeFields == input.MergeFields ||
                     this.MergeFields != null &&
                     input.MergeFields != null &&
                     this.MergeFields.SequenceEqual(input.MergeFields)
-                ) && 
+                ) &&
                 (
                     this.Message == input.Message ||
                     (this.Message != null &&
                     this.Message.Equals(input.Message))
-                ) && 
+                ) &&
                 (
                     this.Metadata == input.Metadata ||
                     this.Metadata != null &&
                     input.Metadata != null &&
                     this.Metadata.SequenceEqual(input.Metadata)
-                ) && 
+                ) &&
                 (
                     this.ShowPreview == input.ShowPreview ||
                     this.ShowPreview.Equals(input.ShowPreview)
-                ) && 
+                ) &&
                 (
                     this.ShowProgressStepper == input.ShowProgressStepper ||
                     this.ShowProgressStepper.Equals(input.ShowProgressStepper)
-                ) && 
+                ) &&
                 (
                     this.SignerRoles == input.SignerRoles ||
                     this.SignerRoles != null &&
                     input.SignerRoles != null &&
                     this.SignerRoles.SequenceEqual(input.SignerRoles)
-                ) && 
+                ) &&
                 (
                     this.SkipMeNow == input.SkipMeNow ||
                     this.SkipMeNow.Equals(input.SkipMeNow)
-                ) && 
+                ) &&
                 (
                     this.Subject == input.Subject ||
                     (this.Subject != null &&
                     this.Subject.Equals(input.Subject))
-                ) && 
+                ) &&
                 (
                     this.TestMode == input.TestMode ||
                     this.TestMode.Equals(input.TestMode)
-                ) && 
+                ) &&
                 (
                     this.Title == input.Title ||
                     (this.Title != null &&
                     this.Title.Equals(input.Title))
-                ) && 
+                ) &&
                 (
                     this.UsePreexistingFields == input.UsePreexistingFields ||
                     this.UsePreexistingFields.Equals(input.UsePreexistingFields)
@@ -582,13 +582,13 @@ namespace Dropbox.Sign.Model
             // Message (string) maxLength
             if (this.Message != null && this.Message.Length > 5000)
             {
-                yield return new ValidationResult("Invalid value for Message, length must be less than 5000.", new [] { "Message" });
+                yield return new ValidationResult("Invalid value for Message, length must be less than 5000.", new[] { "Message" });
             }
 
             // Subject (string) maxLength
             if (this.Subject != null && this.Subject.Length > 200)
             {
-                yield return new ValidationResult("Invalid value for Subject, length must be less than 200.", new [] { "Subject" });
+                yield return new ValidationResult("Invalid value for Subject, length must be less than 200.", new[] { "Subject" });
             }
 
             yield break;
@@ -596,151 +596,176 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "client_id",
                 Property = "ClientId",
                 Type = "string",
                 Value = ClientId,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "files",
                 Property = "Files",
                 Type = "List<System.IO.Stream>",
                 Value = Files,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "file_urls",
                 Property = "FileUrls",
                 Type = "List<string>",
                 Value = FileUrls,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "allow_ccs",
                 Property = "AllowCcs",
                 Type = "bool",
                 Value = AllowCcs,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "allow_reassign",
                 Property = "AllowReassign",
                 Type = "bool",
                 Value = AllowReassign,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "attachments",
                 Property = "Attachments",
                 Type = "List<SubAttachment>",
                 Value = Attachments,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "cc_roles",
                 Property = "CcRoles",
                 Type = "List<string>",
                 Value = CcRoles,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "editor_options",
                 Property = "EditorOptions",
                 Type = "SubEditorOptions",
                 Value = EditorOptions,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "field_options",
                 Property = "FieldOptions",
                 Type = "SubFieldOptions",
                 Value = FieldOptions,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "force_signer_roles",
                 Property = "ForceSignerRoles",
                 Type = "bool",
                 Value = ForceSignerRoles,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "force_subject_message",
                 Property = "ForceSubjectMessage",
                 Type = "bool",
                 Value = ForceSubjectMessage,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "form_field_groups",
                 Property = "FormFieldGroups",
                 Type = "List<SubFormFieldGroup>",
                 Value = FormFieldGroups,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "form_field_rules",
                 Property = "FormFieldRules",
                 Type = "List<SubFormFieldRule>",
                 Value = FormFieldRules,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "form_fields_per_document",
                 Property = "FormFieldsPerDocument",
                 Type = "List<SubFormFieldsPerDocumentBase>",
                 Value = FormFieldsPerDocument,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "merge_fields",
                 Property = "MergeFields",
                 Type = "List<SubMergeField>",
                 Value = MergeFields,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "message",
                 Property = "Message",
                 Type = "string",
                 Value = Message,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "metadata",
                 Property = "Metadata",
                 Type = "Dictionary<string, Object>",
                 Value = Metadata,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "show_preview",
                 Property = "ShowPreview",
                 Type = "bool",
                 Value = ShowPreview,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "show_progress_stepper",
                 Property = "ShowProgressStepper",
                 Type = "bool",
                 Value = ShowProgressStepper,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "signer_roles",
                 Property = "SignerRoles",
                 Type = "List<SubTemplateRole>",
                 Value = SignerRoles,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "skip_me_now",
                 Property = "SkipMeNow",
                 Type = "bool",
                 Value = SkipMeNow,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "subject",
                 Property = "Subject",
                 Type = "string",
                 Value = Subject,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "test_mode",
                 Property = "TestMode",
                 Type = "bool",
                 Value = TestMode,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "title",
                 Property = "Title",
                 Type = "string",
                 Value = Title,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "use_preexisting_fields",
                 Property = "UsePreexistingFields",
                 Type = "bool",

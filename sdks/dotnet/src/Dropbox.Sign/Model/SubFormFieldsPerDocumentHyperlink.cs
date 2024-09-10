@@ -179,7 +179,7 @@ namespace Dropbox.Sign.Model
             this.Y = y;
             this.Name = name;
             this.Page = page;
-            
+
             // to ensure "type" is required (not null)
             if (type == null)
             {
@@ -224,28 +224,28 @@ namespace Dropbox.Sign.Model
         /// <value>A hyperlink field. Use the &#x60;SubFormFieldsPerDocumentHyperlink&#x60; class.</value>
         [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
         public string Type { get; set; }
-        
+
         /// <summary>
         /// Link Text.
         /// </summary>
         /// <value>Link Text.</value>
         [DataMember(Name = "content", IsRequired = true, EmitDefaultValue = true)]
         public string Content { get; set; }
-        
+
         /// <summary>
         /// Link URL.
         /// </summary>
         /// <value>Link URL.</value>
         [DataMember(Name = "content_url", IsRequired = true, EmitDefaultValue = true)]
         public string ContentUrl { get; set; }
-        
+
         /// <summary>
         /// The initial px font size for the field contents. Can be any integer value between &#x60;7&#x60; and &#x60;49&#x60;.  **NOTE:** Font size may be reduced during processing in order to fit the contents within the dimensions of the field.
         /// </summary>
         /// <value>The initial px font size for the field contents. Can be any integer value between &#x60;7&#x60; and &#x60;49&#x60;.  **NOTE:** Font size may be reduced during processing in order to fit the contents within the dimensions of the field.</value>
         [DataMember(Name = "font_size", EmitDefaultValue = true)]
         public int FontSize { get; set; }
-        
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -294,26 +294,26 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return base.Equals(input) && 
+            return base.Equals(input) &&
                 (
                     this.Type == input.Type ||
                     (this.Type != null &&
                     this.Type.Equals(input.Type))
-                ) && base.Equals(input) && 
+                ) && base.Equals(input) &&
                 (
                     this.Content == input.Content ||
                     (this.Content != null &&
                     this.Content.Equals(input.Content))
-                ) && base.Equals(input) && 
+                ) && base.Equals(input) &&
                 (
                     this.ContentUrl == input.ContentUrl ||
                     (this.ContentUrl != null &&
                     this.ContentUrl.Equals(input.ContentUrl))
-                ) && base.Equals(input) && 
+                ) && base.Equals(input) &&
                 (
                     this.FontFamily == input.FontFamily ||
                     this.FontFamily.Equals(input.FontFamily)
-                ) && base.Equals(input) && 
+                ) && base.Equals(input) &&
                 (
                     this.FontSize == input.FontSize ||
                     this.FontSize.Equals(input.FontSize)
@@ -373,31 +373,36 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "type",
                 Property = "Type",
                 Type = "string",
                 Value = Type,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "content",
                 Property = "Content",
                 Type = "string",
                 Value = Content,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "content_url",
                 Property = "ContentUrl",
                 Type = "string",
                 Value = ContentUrl,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "font_family",
                 Property = "FontFamily",
                 Type = "string",
                 Value = FontFamily,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "font_size",
                 Property = "FontSize",
                 Type = "int",

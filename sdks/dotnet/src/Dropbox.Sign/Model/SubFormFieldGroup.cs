@@ -46,7 +46,7 @@ namespace Dropbox.Sign.Model
         /// <param name="requirement">Examples: &#x60;require_0-1&#x60; &#x60;require_1&#x60; &#x60;require_1-ormore&#x60;  - Check out the list of [acceptable &#x60;requirement&#x60; checkbox type values](/api/reference/constants/#checkbox-field-grouping). - Check out the list of [acceptable &#x60;requirement&#x60; radio type fields](/api/reference/constants/#radio-field-grouping). - Radio groups require **at least** two fields per group. (required).</param>
         public SubFormFieldGroup(string groupId = default(string), string groupLabel = default(string), string requirement = default(string))
         {
-            
+
             // to ensure "groupId" is required (not null)
             if (groupId == null)
             {
@@ -89,21 +89,21 @@ namespace Dropbox.Sign.Model
         /// <value>ID of group. Use this to reference a specific group from the &#x60;group&#x60; value in &#x60;form_fields_per_document&#x60;.</value>
         [DataMember(Name = "group_id", IsRequired = true, EmitDefaultValue = true)]
         public string GroupId { get; set; }
-        
+
         /// <summary>
         /// Name of the group
         /// </summary>
         /// <value>Name of the group</value>
         [DataMember(Name = "group_label", IsRequired = true, EmitDefaultValue = true)]
         public string GroupLabel { get; set; }
-        
+
         /// <summary>
         /// Examples: &#x60;require_0-1&#x60; &#x60;require_1&#x60; &#x60;require_1-ormore&#x60;  - Check out the list of [acceptable &#x60;requirement&#x60; checkbox type values](/api/reference/constants/#checkbox-field-grouping). - Check out the list of [acceptable &#x60;requirement&#x60; radio type fields](/api/reference/constants/#radio-field-grouping). - Radio groups require **at least** two fields per group.
         /// </summary>
         /// <value>Examples: &#x60;require_0-1&#x60; &#x60;require_1&#x60; &#x60;require_1-ormore&#x60;  - Check out the list of [acceptable &#x60;requirement&#x60; checkbox type values](/api/reference/constants/#checkbox-field-grouping). - Check out the list of [acceptable &#x60;requirement&#x60; radio type fields](/api/reference/constants/#radio-field-grouping). - Radio groups require **at least** two fields per group.</value>
         [DataMember(Name = "requirement", IsRequired = true, EmitDefaultValue = true)]
         public string Requirement { get; set; }
-        
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -149,17 +149,17 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
+            return
                 (
                     this.GroupId == input.GroupId ||
                     (this.GroupId != null &&
                     this.GroupId.Equals(input.GroupId))
-                ) && 
+                ) &&
                 (
                     this.GroupLabel == input.GroupLabel ||
                     (this.GroupLabel != null &&
                     this.GroupLabel.Equals(input.GroupLabel))
-                ) && 
+                ) &&
                 (
                     this.Requirement == input.Requirement ||
                     (this.Requirement != null &&
@@ -204,19 +204,22 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "group_id",
                 Property = "GroupId",
                 Type = "string",
                 Value = GroupId,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "group_label",
                 Property = "GroupLabel",
                 Type = "string",
                 Value = GroupLabel,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "requirement",
                 Property = "Requirement",
                 Type = "string",

@@ -45,7 +45,7 @@ namespace Dropbox.Sign.Model
         /// <param name="value">The value of the custom field. (required).</param>
         public SubBulkSignerListCustomField(string name = default(string), string value = default(string))
         {
-            
+
             // to ensure "name" is required (not null)
             if (name == null)
             {
@@ -82,14 +82,14 @@ namespace Dropbox.Sign.Model
         /// <value>The name of the custom field. Must be the field&#39;s &#x60;name&#x60; or &#x60;api_id&#x60;.</value>
         [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
         public string Name { get; set; }
-        
+
         /// <summary>
         /// The value of the custom field.
         /// </summary>
         /// <value>The value of the custom field.</value>
         [DataMember(Name = "value", IsRequired = true, EmitDefaultValue = true)]
         public string Value { get; set; }
-        
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -134,12 +134,12 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
+            return
                 (
                     this.Name == input.Name ||
                     (this.Name != null &&
                     this.Name.Equals(input.Name))
-                ) && 
+                ) &&
                 (
                     this.Value == input.Value ||
                     (this.Value != null &&
@@ -180,13 +180,15 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "name",
                 Property = "Name",
                 Type = "string",
                 Value = Name,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "value",
                 Property = "Value",
                 Type = "string",

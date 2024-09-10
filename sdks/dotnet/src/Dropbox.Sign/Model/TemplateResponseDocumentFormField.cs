@@ -133,7 +133,7 @@ namespace Dropbox.Sign.Model
         /// <param name="fontFamily">Font family used in this form field&#39;s text..</param>
         public TemplateResponseDocumentFormField(string apiId = default(string), string name = default(string), TypeEnum? type = default(TypeEnum?), string signer = default(string), int x = default(int), int y = default(int), int width = default(int), int height = default(int), bool required = default(bool), string group = default(string), TemplateResponseFieldAvgTextLength avgTextLength = default(TemplateResponseFieldAvgTextLength), bool? isMultiline = default(bool?), int? originalFontSize = default(int?), string fontFamily = default(string))
         {
-            
+
             this.ApiId = apiId;
             this.Name = name;
             this.Type = type;
@@ -312,66 +312,66 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
+            return
                 (
                     this.ApiId == input.ApiId ||
                     (this.ApiId != null &&
                     this.ApiId.Equals(input.ApiId))
-                ) && 
+                ) &&
                 (
                     this.Name == input.Name ||
                     (this.Name != null &&
                     this.Name.Equals(input.Name))
-                ) && 
+                ) &&
                 (
                     this.Type == input.Type ||
                     this.Type.Equals(input.Type)
-                ) && 
+                ) &&
                 (
                     this.Signer == input.Signer ||
                     (this.Signer != null &&
                     this.Signer.Equals(input.Signer))
-                ) && 
+                ) &&
                 (
                     this.X == input.X ||
                     this.X.Equals(input.X)
-                ) && 
+                ) &&
                 (
                     this.Y == input.Y ||
                     this.Y.Equals(input.Y)
-                ) && 
+                ) &&
                 (
                     this.Width == input.Width ||
                     this.Width.Equals(input.Width)
-                ) && 
+                ) &&
                 (
                     this.Height == input.Height ||
                     this.Height.Equals(input.Height)
-                ) && 
+                ) &&
                 (
                     this.Required == input.Required ||
                     this.Required.Equals(input.Required)
-                ) && 
+                ) &&
                 (
                     this.Group == input.Group ||
                     (this.Group != null &&
                     this.Group.Equals(input.Group))
-                ) && 
+                ) &&
                 (
                     this.AvgTextLength == input.AvgTextLength ||
                     (this.AvgTextLength != null &&
                     this.AvgTextLength.Equals(input.AvgTextLength))
-                ) && 
+                ) &&
                 (
                     this.IsMultiline == input.IsMultiline ||
                     (this.IsMultiline != null &&
                     this.IsMultiline.Equals(input.IsMultiline))
-                ) && 
+                ) &&
                 (
                     this.OriginalFontSize == input.OriginalFontSize ||
                     (this.OriginalFontSize != null &&
                     this.OriginalFontSize.Equals(input.OriginalFontSize))
-                ) && 
+                ) &&
                 (
                     this.FontFamily == input.FontFamily ||
                     (this.FontFamily != null &&
@@ -433,85 +433,99 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "api_id",
                 Property = "ApiId",
                 Type = "string",
                 Value = ApiId,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "name",
                 Property = "Name",
                 Type = "string",
                 Value = Name,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "type",
                 Property = "Type",
                 Type = "string",
                 Value = Type,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "signer",
                 Property = "Signer",
                 Type = "string",
                 Value = Signer,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "x",
                 Property = "X",
                 Type = "int",
                 Value = X,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "y",
                 Property = "Y",
                 Type = "int",
                 Value = Y,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "width",
                 Property = "Width",
                 Type = "int",
                 Value = Width,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "height",
                 Property = "Height",
                 Type = "int",
                 Value = Height,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "required",
                 Property = "Required",
                 Type = "bool",
                 Value = Required,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "group",
                 Property = "Group",
                 Type = "string",
                 Value = Group,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "avg_text_length",
                 Property = "AvgTextLength",
                 Type = "TemplateResponseFieldAvgTextLength",
                 Value = AvgTextLength,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "isMultiline",
                 Property = "IsMultiline",
                 Type = "bool?",
                 Value = IsMultiline,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "originalFontSize",
                 Property = "OriginalFontSize",
                 Type = "int?",
                 Value = OriginalFontSize,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "fontFamily",
                 Property = "FontFamily",
                 Type = "string",

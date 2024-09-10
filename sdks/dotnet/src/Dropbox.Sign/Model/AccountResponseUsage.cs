@@ -44,7 +44,7 @@ namespace Dropbox.Sign.Model
         /// <param name="faxPagesSent">Number of fax pages sent.</param>
         public AccountResponseUsage(int? faxPagesSent = default(int?))
         {
-            
+
             this.FaxPagesSent = faxPagesSent;
         }
 
@@ -70,7 +70,7 @@ namespace Dropbox.Sign.Model
         /// <value>Number of fax pages sent</value>
         [DataMember(Name = "fax_pages_sent", EmitDefaultValue = true)]
         public int? FaxPagesSent { get; set; }
-        
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -114,7 +114,7 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
+            return
                 (
                     this.FaxPagesSent == input.FaxPagesSent ||
                     (this.FaxPagesSent != null &&
@@ -151,7 +151,8 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "fax_pages_sent",
                 Property = "FaxPagesSent",
                 Type = "int?",

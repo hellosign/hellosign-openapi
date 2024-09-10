@@ -44,7 +44,7 @@ namespace Dropbox.Sign.Model
         /// <param name="templateId">The id of the Template. (required).</param>
         public TemplateEditResponse(string templateId = default(string))
         {
-            
+
             // to ensure "templateId" is required (not null)
             if (templateId == null)
             {
@@ -75,7 +75,7 @@ namespace Dropbox.Sign.Model
         /// <value>The id of the Template.</value>
         [DataMember(Name = "template_id", IsRequired = true, EmitDefaultValue = true)]
         public string TemplateId { get; set; }
-        
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -119,7 +119,7 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
+            return
                 (
                     this.TemplateId == input.TemplateId ||
                     (this.TemplateId != null &&
@@ -156,7 +156,8 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "template_id",
                 Property = "TemplateId",
                 Type = "string",

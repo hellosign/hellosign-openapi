@@ -49,7 +49,7 @@ namespace Dropbox.Sign.Model
         /// <param name="testMode">Whether this is a test draft. Signature requests made from test drafts have no legal value..</param>
         public UnclaimedDraftResponse(string signatureRequestId = default(string), string claimUrl = default(string), string signingRedirectUrl = default(string), string requestingRedirectUrl = default(string), int? expiresAt = default(int?), bool testMode = default(bool))
         {
-            
+
             this.SignatureRequestId = signatureRequestId;
             this.ClaimUrl = claimUrl;
             this.SigningRedirectUrl = signingRedirectUrl;
@@ -80,42 +80,42 @@ namespace Dropbox.Sign.Model
         /// <value>The ID of the signature request that is represented by this UnclaimedDraft.</value>
         [DataMember(Name = "signature_request_id", EmitDefaultValue = true)]
         public string SignatureRequestId { get; set; }
-        
+
         /// <summary>
         /// The URL to be used to claim this UnclaimedDraft.
         /// </summary>
         /// <value>The URL to be used to claim this UnclaimedDraft.</value>
         [DataMember(Name = "claim_url", EmitDefaultValue = true)]
         public string ClaimUrl { get; set; }
-        
+
         /// <summary>
         /// The URL you want signers redirected to after they successfully sign.
         /// </summary>
         /// <value>The URL you want signers redirected to after they successfully sign.</value>
         [DataMember(Name = "signing_redirect_url", EmitDefaultValue = true)]
         public string SigningRedirectUrl { get; set; }
-        
+
         /// <summary>
         /// The URL you want signers redirected to after they successfully request a signature (Will only be returned in the response if it is applicable to the request.).
         /// </summary>
         /// <value>The URL you want signers redirected to after they successfully request a signature (Will only be returned in the response if it is applicable to the request.).</value>
         [DataMember(Name = "requesting_redirect_url", EmitDefaultValue = true)]
         public string RequestingRedirectUrl { get; set; }
-        
+
         /// <summary>
         /// When the link expires.
         /// </summary>
         /// <value>When the link expires.</value>
         [DataMember(Name = "expires_at", EmitDefaultValue = true)]
         public int? ExpiresAt { get; set; }
-        
+
         /// <summary>
         /// Whether this is a test draft. Signature requests made from test drafts have no legal value.
         /// </summary>
         /// <value>Whether this is a test draft. Signature requests made from test drafts have no legal value.</value>
         [DataMember(Name = "test_mode", EmitDefaultValue = true)]
         public bool TestMode { get; set; }
-        
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -164,32 +164,32 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
+            return
                 (
                     this.SignatureRequestId == input.SignatureRequestId ||
                     (this.SignatureRequestId != null &&
                     this.SignatureRequestId.Equals(input.SignatureRequestId))
-                ) && 
+                ) &&
                 (
                     this.ClaimUrl == input.ClaimUrl ||
                     (this.ClaimUrl != null &&
                     this.ClaimUrl.Equals(input.ClaimUrl))
-                ) && 
+                ) &&
                 (
                     this.SigningRedirectUrl == input.SigningRedirectUrl ||
                     (this.SigningRedirectUrl != null &&
                     this.SigningRedirectUrl.Equals(input.SigningRedirectUrl))
-                ) && 
+                ) &&
                 (
                     this.RequestingRedirectUrl == input.RequestingRedirectUrl ||
                     (this.RequestingRedirectUrl != null &&
                     this.RequestingRedirectUrl.Equals(input.RequestingRedirectUrl))
-                ) && 
+                ) &&
                 (
                     this.ExpiresAt == input.ExpiresAt ||
                     (this.ExpiresAt != null &&
                     this.ExpiresAt.Equals(input.ExpiresAt))
-                ) && 
+                ) &&
                 (
                     this.TestMode == input.TestMode ||
                     this.TestMode.Equals(input.TestMode)
@@ -242,37 +242,43 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "signature_request_id",
                 Property = "SignatureRequestId",
                 Type = "string",
                 Value = SignatureRequestId,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "claim_url",
                 Property = "ClaimUrl",
                 Type = "string",
                 Value = ClaimUrl,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "signing_redirect_url",
                 Property = "SigningRedirectUrl",
                 Type = "string",
                 Value = SigningRedirectUrl,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "requesting_redirect_url",
                 Property = "RequestingRedirectUrl",
                 Type = "string",
                 Value = RequestingRedirectUrl,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "expires_at",
                 Property = "ExpiresAt",
                 Type = "int?",
                 Value = ExpiresAt,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "test_mode",
                 Property = "TestMode",
                 Type = "bool",

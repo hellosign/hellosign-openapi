@@ -45,7 +45,7 @@ namespace Dropbox.Sign.Model
         /// <param name="emailAddress">The owner account&#39;s email address.</param>
         public ApiAppResponseOwnerAccount(string accountId = default(string), string emailAddress = default(string))
         {
-            
+
             this.AccountId = accountId;
             this.EmailAddress = emailAddress;
         }
@@ -72,14 +72,14 @@ namespace Dropbox.Sign.Model
         /// <value>The owner account&#39;s ID</value>
         [DataMember(Name = "account_id", EmitDefaultValue = true)]
         public string AccountId { get; set; }
-        
+
         /// <summary>
         /// The owner account&#39;s email address
         /// </summary>
         /// <value>The owner account&#39;s email address</value>
         [DataMember(Name = "email_address", EmitDefaultValue = true)]
         public string EmailAddress { get; set; }
-        
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -124,12 +124,12 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
+            return
                 (
                     this.AccountId == input.AccountId ||
                     (this.AccountId != null &&
                     this.AccountId.Equals(input.AccountId))
-                ) && 
+                ) &&
                 (
                     this.EmailAddress == input.EmailAddress ||
                     (this.EmailAddress != null &&
@@ -170,13 +170,15 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "account_id",
                 Property = "AccountId",
                 Type = "string",
                 Value = AccountId,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "email_address",
                 Property = "EmailAddress",
                 Type = "string",

@@ -322,7 +322,7 @@ public class Example
         var faxLineApi = new FaxLineApi(config);
 
         var data = new FaxLineDeleteRequest(
-            number: "[FAX_NUMBER]",
+            number: "[FAX_NUMBER]"
         );
 
         try

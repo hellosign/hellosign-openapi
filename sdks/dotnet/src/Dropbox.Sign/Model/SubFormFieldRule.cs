@@ -47,7 +47,7 @@ namespace Dropbox.Sign.Model
         /// <param name="actions">An array of action definitions, the \&quot;then that\&quot; part of \&quot;if this, **then that**\&quot;. Any number of actions may be attached to a single rule. (required).</param>
         public SubFormFieldRule(string id = default(string), string triggerOperator = @"AND", List<SubFormFieldRuleTrigger> triggers = default(List<SubFormFieldRuleTrigger>), List<SubFormFieldRuleAction> actions = default(List<SubFormFieldRuleAction>))
         {
-            
+
             // to ensure "id" is required (not null)
             if (id == null)
             {
@@ -96,28 +96,28 @@ namespace Dropbox.Sign.Model
         /// <value>Must be unique across all defined rules.</value>
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
-        
+
         /// <summary>
         /// Currently only &#x60;AND&#x60; is supported. Support for &#x60;OR&#x60; is being worked on.
         /// </summary>
         /// <value>Currently only &#x60;AND&#x60; is supported. Support for &#x60;OR&#x60; is being worked on.</value>
         [DataMember(Name = "trigger_operator", IsRequired = true, EmitDefaultValue = true)]
         public string TriggerOperator { get; set; }
-        
+
         /// <summary>
         /// An array of trigger definitions, the \&quot;if this\&quot; part of \&quot;**if this**, then that\&quot;. Currently only a single trigger per rule is allowed.
         /// </summary>
         /// <value>An array of trigger definitions, the \&quot;if this\&quot; part of \&quot;**if this**, then that\&quot;. Currently only a single trigger per rule is allowed.</value>
         [DataMember(Name = "triggers", IsRequired = true, EmitDefaultValue = true)]
         public List<SubFormFieldRuleTrigger> Triggers { get; set; }
-        
+
         /// <summary>
         /// An array of action definitions, the \&quot;then that\&quot; part of \&quot;if this, **then that**\&quot;. Any number of actions may be attached to a single rule.
         /// </summary>
         /// <value>An array of action definitions, the \&quot;then that\&quot; part of \&quot;if this, **then that**\&quot;. Any number of actions may be attached to a single rule.</value>
         [DataMember(Name = "actions", IsRequired = true, EmitDefaultValue = true)]
         public List<SubFormFieldRuleAction> Actions { get; set; }
-        
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -164,23 +164,23 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
+            return
                 (
                     this.Id == input.Id ||
                     (this.Id != null &&
                     this.Id.Equals(input.Id))
-                ) && 
+                ) &&
                 (
                     this.TriggerOperator == input.TriggerOperator ||
                     (this.TriggerOperator != null &&
                     this.TriggerOperator.Equals(input.TriggerOperator))
-                ) && 
+                ) &&
                 (
                     this.Triggers == input.Triggers ||
                     this.Triggers != null &&
                     input.Triggers != null &&
                     this.Triggers.SequenceEqual(input.Triggers)
-                ) && 
+                ) &&
                 (
                     this.Actions == input.Actions ||
                     this.Actions != null &&
@@ -230,25 +230,29 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "id",
                 Property = "Id",
                 Type = "string",
                 Value = Id,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "trigger_operator",
                 Property = "TriggerOperator",
                 Type = "string",
                 Value = TriggerOperator,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "triggers",
                 Property = "Triggers",
                 Type = "List<SubFormFieldRuleTrigger>",
                 Value = Triggers,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "actions",
                 Property = "Actions",
                 Type = "List<SubFormFieldRuleAction>",

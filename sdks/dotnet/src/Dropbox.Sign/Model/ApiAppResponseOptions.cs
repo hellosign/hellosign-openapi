@@ -44,7 +44,7 @@ namespace Dropbox.Sign.Model
         /// <param name="canInsertEverywhere">Boolean denoting if signers can \&quot;Insert Everywhere\&quot; in one click while signing a document.</param>
         public ApiAppResponseOptions(bool canInsertEverywhere = default(bool))
         {
-            
+
             this.CanInsertEverywhere = canInsertEverywhere;
         }
 
@@ -70,7 +70,7 @@ namespace Dropbox.Sign.Model
         /// <value>Boolean denoting if signers can \&quot;Insert Everywhere\&quot; in one click while signing a document</value>
         [DataMember(Name = "can_insert_everywhere", EmitDefaultValue = true)]
         public bool CanInsertEverywhere { get; set; }
-        
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -114,7 +114,7 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
+            return
                 (
                     this.CanInsertEverywhere == input.CanInsertEverywhere ||
                     this.CanInsertEverywhere.Equals(input.CanInsertEverywhere)
@@ -147,7 +147,8 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "can_insert_everywhere",
                 Property = "CanInsertEverywhere",
                 Type = "bool",

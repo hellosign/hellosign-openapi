@@ -46,7 +46,7 @@ namespace Dropbox.Sign.Model
         /// <param name="skipNotification">If set to &#x60;true&#x60;, the user does not receive an email notification when a template has been shared with them. Defaults to &#x60;false&#x60;. (default to false).</param>
         public TemplateAddUserRequest(string accountId = default(string), string emailAddress = default(string), bool skipNotification = false)
         {
-            
+
             this.AccountId = accountId;
             this.EmailAddress = emailAddress;
             this.SkipNotification = skipNotification;
@@ -74,21 +74,21 @@ namespace Dropbox.Sign.Model
         /// <value>The id of the Account to give access to the Template. **NOTE:** The account id prevails if email address is also provided.</value>
         [DataMember(Name = "account_id", EmitDefaultValue = true)]
         public string AccountId { get; set; }
-        
+
         /// <summary>
         /// The email address of the Account to give access to the Template. **NOTE:** The account id prevails if it is also provided.
         /// </summary>
         /// <value>The email address of the Account to give access to the Template. **NOTE:** The account id prevails if it is also provided.</value>
         [DataMember(Name = "email_address", EmitDefaultValue = true)]
         public string EmailAddress { get; set; }
-        
+
         /// <summary>
         /// If set to &#x60;true&#x60;, the user does not receive an email notification when a template has been shared with them. Defaults to &#x60;false&#x60;.
         /// </summary>
         /// <value>If set to &#x60;true&#x60;, the user does not receive an email notification when a template has been shared with them. Defaults to &#x60;false&#x60;.</value>
         [DataMember(Name = "skip_notification", EmitDefaultValue = true)]
         public bool SkipNotification { get; set; }
-        
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -134,17 +134,17 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
+            return
                 (
                     this.AccountId == input.AccountId ||
                     (this.AccountId != null &&
                     this.AccountId.Equals(input.AccountId))
-                ) && 
+                ) &&
                 (
                     this.EmailAddress == input.EmailAddress ||
                     (this.EmailAddress != null &&
                     this.EmailAddress.Equals(input.EmailAddress))
-                ) && 
+                ) &&
                 (
                     this.SkipNotification == input.SkipNotification ||
                     this.SkipNotification.Equals(input.SkipNotification)
@@ -185,19 +185,22 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "account_id",
                 Property = "AccountId",
                 Type = "string",
                 Value = AccountId,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "email_address",
                 Property = "EmailAddress",
                 Type = "string",
                 Value = EmailAddress,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "skip_notification",
                 Property = "SkipNotification",
                 Type = "bool",

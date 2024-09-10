@@ -260,7 +260,7 @@ namespace Dropbox.Sign.Model
             this.Y = y;
             this.Name = name;
             this.Page = page;
-            
+
             // to ensure "type" is required (not null)
             if (type == null)
             {
@@ -301,61 +301,61 @@ namespace Dropbox.Sign.Model
         /// <value>A text input field. Use the &#x60;SubFormFieldsPerDocumentText&#x60; class.</value>
         [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
         public string Type { get; set; }
-        
+
         /// <summary>
         /// Placeholder value for text field.
         /// </summary>
         /// <value>Placeholder value for text field.</value>
         [DataMember(Name = "placeholder", EmitDefaultValue = true)]
         public string Placeholder { get; set; }
-        
+
         /// <summary>
         /// Auto fill type for populating fields automatically. Check out the list of [auto fill types](/api/reference/constants/#auto-fill-types) to learn more about the possible values.
         /// </summary>
         /// <value>Auto fill type for populating fields automatically. Check out the list of [auto fill types](/api/reference/constants/#auto-fill-types) to learn more about the possible values.</value>
         [DataMember(Name = "auto_fill_type", EmitDefaultValue = true)]
         public string AutoFillType { get; set; }
-        
+
         /// <summary>
         /// Link two or more text fields. Enter data into one linked text field, which automatically fill all other linked text fields.
         /// </summary>
         /// <value>Link two or more text fields. Enter data into one linked text field, which automatically fill all other linked text fields.</value>
         [DataMember(Name = "link_id", EmitDefaultValue = true)]
         public string LinkId { get; set; }
-        
+
         /// <summary>
         /// Masks entered data. For more information see [Masking sensitive information](https://faq.hellosign.com/hc/en-us/articles/360040742811-Masking-sensitive-information). &#x60;true&#x60; for masking the data in a text field, otherwise &#x60;false&#x60;.
         /// </summary>
         /// <value>Masks entered data. For more information see [Masking sensitive information](https://faq.hellosign.com/hc/en-us/articles/360040742811-Masking-sensitive-information). &#x60;true&#x60; for masking the data in a text field, otherwise &#x60;false&#x60;.</value>
         [DataMember(Name = "masked", EmitDefaultValue = true)]
         public bool Masked { get; set; }
-        
+
         /// <summary>
         /// Gets or Sets ValidationCustomRegex
         /// </summary>
         [DataMember(Name = "validation_custom_regex", EmitDefaultValue = true)]
         public string ValidationCustomRegex { get; set; }
-        
+
         /// <summary>
         /// Gets or Sets ValidationCustomRegexFormatLabel
         /// </summary>
         [DataMember(Name = "validation_custom_regex_format_label", EmitDefaultValue = true)]
         public string ValidationCustomRegexFormatLabel { get; set; }
-        
+
         /// <summary>
         /// Content of a &#x60;me_now&#x60; text field
         /// </summary>
         /// <value>Content of a &#x60;me_now&#x60; text field</value>
         [DataMember(Name = "content", EmitDefaultValue = true)]
         public string Content { get; set; }
-        
+
         /// <summary>
         /// The initial px font size for the field contents. Can be any integer value between &#x60;7&#x60; and &#x60;49&#x60;.  **NOTE:** Font size may be reduced during processing in order to fit the contents within the dimensions of the field.
         /// </summary>
         /// <value>The initial px font size for the field contents. Can be any integer value between &#x60;7&#x60; and &#x60;49&#x60;.  **NOTE:** Font size may be reduced during processing in order to fit the contents within the dimensions of the field.</value>
         [DataMember(Name = "font_size", EmitDefaultValue = true)]
         public int FontSize { get; set; }
-        
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -410,54 +410,54 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return base.Equals(input) && 
+            return base.Equals(input) &&
                 (
                     this.Type == input.Type ||
                     (this.Type != null &&
                     this.Type.Equals(input.Type))
-                ) && base.Equals(input) && 
+                ) && base.Equals(input) &&
                 (
                     this.Placeholder == input.Placeholder ||
                     (this.Placeholder != null &&
                     this.Placeholder.Equals(input.Placeholder))
-                ) && base.Equals(input) && 
+                ) && base.Equals(input) &&
                 (
                     this.AutoFillType == input.AutoFillType ||
                     (this.AutoFillType != null &&
                     this.AutoFillType.Equals(input.AutoFillType))
-                ) && base.Equals(input) && 
+                ) && base.Equals(input) &&
                 (
                     this.LinkId == input.LinkId ||
                     (this.LinkId != null &&
                     this.LinkId.Equals(input.LinkId))
-                ) && base.Equals(input) && 
+                ) && base.Equals(input) &&
                 (
                     this.Masked == input.Masked ||
                     this.Masked.Equals(input.Masked)
-                ) && base.Equals(input) && 
+                ) && base.Equals(input) &&
                 (
                     this.ValidationType == input.ValidationType ||
                     this.ValidationType.Equals(input.ValidationType)
-                ) && base.Equals(input) && 
+                ) && base.Equals(input) &&
                 (
                     this.ValidationCustomRegex == input.ValidationCustomRegex ||
                     (this.ValidationCustomRegex != null &&
                     this.ValidationCustomRegex.Equals(input.ValidationCustomRegex))
-                ) && base.Equals(input) && 
+                ) && base.Equals(input) &&
                 (
                     this.ValidationCustomRegexFormatLabel == input.ValidationCustomRegexFormatLabel ||
                     (this.ValidationCustomRegexFormatLabel != null &&
                     this.ValidationCustomRegexFormatLabel.Equals(input.ValidationCustomRegexFormatLabel))
-                ) && base.Equals(input) && 
+                ) && base.Equals(input) &&
                 (
                     this.Content == input.Content ||
                     (this.Content != null &&
                     this.Content.Equals(input.Content))
-                ) && base.Equals(input) && 
+                ) && base.Equals(input) &&
                 (
                     this.FontFamily == input.FontFamily ||
                     this.FontFamily.Equals(input.FontFamily)
-                ) && base.Equals(input) && 
+                ) && base.Equals(input) &&
                 (
                     this.FontSize == input.FontSize ||
                     this.FontSize.Equals(input.FontSize)
@@ -535,67 +535,78 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "type",
                 Property = "Type",
                 Type = "string",
                 Value = Type,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "placeholder",
                 Property = "Placeholder",
                 Type = "string",
                 Value = Placeholder,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "auto_fill_type",
                 Property = "AutoFillType",
                 Type = "string",
                 Value = AutoFillType,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "link_id",
                 Property = "LinkId",
                 Type = "string",
                 Value = LinkId,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "masked",
                 Property = "Masked",
                 Type = "bool",
                 Value = Masked,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "validation_type",
                 Property = "ValidationType",
                 Type = "string",
                 Value = ValidationType,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "validation_custom_regex",
                 Property = "ValidationCustomRegex",
                 Type = "string",
                 Value = ValidationCustomRegex,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "validation_custom_regex_format_label",
                 Property = "ValidationCustomRegexFormatLabel",
                 Type = "string",
                 Value = ValidationCustomRegexFormatLabel,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "content",
                 Property = "Content",
                 Type = "string",
                 Value = Content,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "font_family",
                 Property = "FontFamily",
                 Type = "string",
                 Value = FontFamily,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "font_size",
                 Property = "FontSize",
                 Type = "int",

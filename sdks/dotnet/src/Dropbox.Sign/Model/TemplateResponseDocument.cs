@@ -49,7 +49,7 @@ namespace Dropbox.Sign.Model
         /// <param name="staticFields">An array describing static overlay fields. **NOTE:** Only available for certain subscriptions..</param>
         public TemplateResponseDocument(string name = default(string), int index = default(int), List<TemplateResponseDocumentFieldGroup> fieldGroups = default(List<TemplateResponseDocumentFieldGroup>), List<TemplateResponseDocumentFormFieldBase> formFields = default(List<TemplateResponseDocumentFormFieldBase>), List<TemplateResponseDocumentCustomFieldBase> customFields = default(List<TemplateResponseDocumentCustomFieldBase>), List<TemplateResponseDocumentStaticFieldBase> staticFields = default(List<TemplateResponseDocumentStaticFieldBase>))
         {
-            
+
             this.Name = name;
             this.Index = index;
             this.FieldGroups = fieldGroups;
@@ -80,42 +80,42 @@ namespace Dropbox.Sign.Model
         /// <value>Name of the associated file.</value>
         [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
-        
+
         /// <summary>
         /// Document ordering, the lowest index is displayed first and the highest last (0-based indexing).
         /// </summary>
         /// <value>Document ordering, the lowest index is displayed first and the highest last (0-based indexing).</value>
         [DataMember(Name = "index", EmitDefaultValue = true)]
         public int Index { get; set; }
-        
+
         /// <summary>
         /// An array of Form Field Group objects.
         /// </summary>
         /// <value>An array of Form Field Group objects.</value>
         [DataMember(Name = "field_groups", EmitDefaultValue = true)]
         public List<TemplateResponseDocumentFieldGroup> FieldGroups { get; set; }
-        
+
         /// <summary>
         /// An array of Form Field objects containing the name and type of each named field.
         /// </summary>
         /// <value>An array of Form Field objects containing the name and type of each named field.</value>
         [DataMember(Name = "form_fields", EmitDefaultValue = true)]
         public List<TemplateResponseDocumentFormFieldBase> FormFields { get; set; }
-        
+
         /// <summary>
         /// An array of Form Field objects containing the name and type of each named field.
         /// </summary>
         /// <value>An array of Form Field objects containing the name and type of each named field.</value>
         [DataMember(Name = "custom_fields", EmitDefaultValue = true)]
         public List<TemplateResponseDocumentCustomFieldBase> CustomFields { get; set; }
-        
+
         /// <summary>
         /// An array describing static overlay fields. **NOTE:** Only available for certain subscriptions.
         /// </summary>
         /// <value>An array describing static overlay fields. **NOTE:** Only available for certain subscriptions.</value>
         [DataMember(Name = "static_fields", EmitDefaultValue = true)]
         public List<TemplateResponseDocumentStaticFieldBase> StaticFields { get; set; }
-        
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -164,34 +164,34 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
+            return
                 (
                     this.Name == input.Name ||
                     (this.Name != null &&
                     this.Name.Equals(input.Name))
-                ) && 
+                ) &&
                 (
                     this.Index == input.Index ||
                     this.Index.Equals(input.Index)
-                ) && 
+                ) &&
                 (
                     this.FieldGroups == input.FieldGroups ||
                     this.FieldGroups != null &&
                     input.FieldGroups != null &&
                     this.FieldGroups.SequenceEqual(input.FieldGroups)
-                ) && 
+                ) &&
                 (
                     this.FormFields == input.FormFields ||
                     this.FormFields != null &&
                     input.FormFields != null &&
                     this.FormFields.SequenceEqual(input.FormFields)
-                ) && 
+                ) &&
                 (
                     this.CustomFields == input.CustomFields ||
                     this.CustomFields != null &&
                     input.CustomFields != null &&
                     this.CustomFields.SequenceEqual(input.CustomFields)
-                ) && 
+                ) &&
                 (
                     this.StaticFields == input.StaticFields ||
                     this.StaticFields != null &&
@@ -246,37 +246,43 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "name",
                 Property = "Name",
                 Type = "string",
                 Value = Name,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "index",
                 Property = "Index",
                 Type = "int",
                 Value = Index,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "field_groups",
                 Property = "FieldGroups",
                 Type = "List<TemplateResponseDocumentFieldGroup>",
                 Value = FieldGroups,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "form_fields",
                 Property = "FormFields",
                 Type = "List<TemplateResponseDocumentFormFieldBase>",
                 Value = FormFields,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "custom_fields",
                 Property = "CustomFields",
                 Type = "List<TemplateResponseDocumentCustomFieldBase>",
                 Value = CustomFields,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "static_fields",
                 Property = "StaticFields",
                 Type = "List<TemplateResponseDocumentStaticFieldBase>",

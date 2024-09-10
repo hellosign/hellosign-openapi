@@ -45,7 +45,7 @@ namespace Dropbox.Sign.Model
         /// <param name="rule">rule.</param>
         public TemplateResponseDocumentFieldGroup(string name = default(string), TemplateResponseDocumentFieldGroupRule rule = default(TemplateResponseDocumentFieldGroupRule))
         {
-            
+
             this.Name = name;
             this.Rule = rule;
         }
@@ -72,13 +72,13 @@ namespace Dropbox.Sign.Model
         /// <value>The name of the form field group.</value>
         [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
-        
+
         /// <summary>
         /// Gets or Sets Rule
         /// </summary>
         [DataMember(Name = "rule", EmitDefaultValue = true)]
         public TemplateResponseDocumentFieldGroupRule Rule { get; set; }
-        
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -123,12 +123,12 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
+            return
                 (
                     this.Name == input.Name ||
                     (this.Name != null &&
                     this.Name.Equals(input.Name))
-                ) && 
+                ) &&
                 (
                     this.Rule == input.Rule ||
                     (this.Rule != null &&
@@ -169,13 +169,15 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "name",
                 Property = "Name",
                 Type = "string",
                 Value = Name,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "rule",
                 Property = "Rule",
                 Type = "TemplateResponseDocumentFieldGroupRule",

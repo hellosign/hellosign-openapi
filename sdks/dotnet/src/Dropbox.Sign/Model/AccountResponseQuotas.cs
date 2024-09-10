@@ -49,7 +49,7 @@ namespace Dropbox.Sign.Model
         /// <param name="numFaxPagesLeft">Number of fax pages left.</param>
         public AccountResponseQuotas(int? apiSignatureRequestsLeft = default(int?), int? documentsLeft = default(int?), int? templatesTotal = default(int?), int? templatesLeft = default(int?), int? smsVerificationsLeft = default(int?), int? numFaxPagesLeft = default(int?))
         {
-            
+
             this.ApiSignatureRequestsLeft = apiSignatureRequestsLeft;
             this.DocumentsLeft = documentsLeft;
             this.TemplatesTotal = templatesTotal;
@@ -80,42 +80,42 @@ namespace Dropbox.Sign.Model
         /// <value>API signature requests remaining.</value>
         [DataMember(Name = "api_signature_requests_left", EmitDefaultValue = true)]
         public int? ApiSignatureRequestsLeft { get; set; }
-        
+
         /// <summary>
         /// Signature requests remaining.
         /// </summary>
         /// <value>Signature requests remaining.</value>
         [DataMember(Name = "documents_left", EmitDefaultValue = true)]
         public int? DocumentsLeft { get; set; }
-        
+
         /// <summary>
         /// Total API templates allowed.
         /// </summary>
         /// <value>Total API templates allowed.</value>
         [DataMember(Name = "templates_total", EmitDefaultValue = true)]
         public int? TemplatesTotal { get; set; }
-        
+
         /// <summary>
         /// API templates remaining.
         /// </summary>
         /// <value>API templates remaining.</value>
         [DataMember(Name = "templates_left", EmitDefaultValue = true)]
         public int? TemplatesLeft { get; set; }
-        
+
         /// <summary>
         /// SMS verifications  remaining.
         /// </summary>
         /// <value>SMS verifications  remaining.</value>
         [DataMember(Name = "sms_verifications_left", EmitDefaultValue = true)]
         public int? SmsVerificationsLeft { get; set; }
-        
+
         /// <summary>
         /// Number of fax pages left
         /// </summary>
         /// <value>Number of fax pages left</value>
         [DataMember(Name = "num_fax_pages_left", EmitDefaultValue = true)]
         public int? NumFaxPagesLeft { get; set; }
-        
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -164,32 +164,32 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
+            return
                 (
                     this.ApiSignatureRequestsLeft == input.ApiSignatureRequestsLeft ||
                     (this.ApiSignatureRequestsLeft != null &&
                     this.ApiSignatureRequestsLeft.Equals(input.ApiSignatureRequestsLeft))
-                ) && 
+                ) &&
                 (
                     this.DocumentsLeft == input.DocumentsLeft ||
                     (this.DocumentsLeft != null &&
                     this.DocumentsLeft.Equals(input.DocumentsLeft))
-                ) && 
+                ) &&
                 (
                     this.TemplatesTotal == input.TemplatesTotal ||
                     (this.TemplatesTotal != null &&
                     this.TemplatesTotal.Equals(input.TemplatesTotal))
-                ) && 
+                ) &&
                 (
                     this.TemplatesLeft == input.TemplatesLeft ||
                     (this.TemplatesLeft != null &&
                     this.TemplatesLeft.Equals(input.TemplatesLeft))
-                ) && 
+                ) &&
                 (
                     this.SmsVerificationsLeft == input.SmsVerificationsLeft ||
                     (this.SmsVerificationsLeft != null &&
                     this.SmsVerificationsLeft.Equals(input.SmsVerificationsLeft))
-                ) && 
+                ) &&
                 (
                     this.NumFaxPagesLeft == input.NumFaxPagesLeft ||
                     (this.NumFaxPagesLeft != null &&
@@ -246,37 +246,43 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "api_signature_requests_left",
                 Property = "ApiSignatureRequestsLeft",
                 Type = "int?",
                 Value = ApiSignatureRequestsLeft,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "documents_left",
                 Property = "DocumentsLeft",
                 Type = "int?",
                 Value = DocumentsLeft,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "templates_total",
                 Property = "TemplatesTotal",
                 Type = "int?",
                 Value = TemplatesTotal,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "templates_left",
                 Property = "TemplatesLeft",
                 Type = "int?",
                 Value = TemplatesLeft,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "sms_verifications_left",
                 Property = "SmsVerificationsLeft",
                 Type = "int?",
                 Value = SmsVerificationsLeft,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "num_fax_pages_left",
                 Property = "NumFaxPagesLeft",
                 Type = "int?",

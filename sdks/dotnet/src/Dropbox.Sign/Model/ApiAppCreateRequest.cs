@@ -50,7 +50,7 @@ namespace Dropbox.Sign.Model
         /// <param name="whiteLabelingOptions">whiteLabelingOptions.</param>
         public ApiAppCreateRequest(string callbackUrl = default(string), System.IO.Stream customLogoFile = default(System.IO.Stream), List<string> domains = default(List<string>), string name = default(string), SubOAuth oauth = default(SubOAuth), SubOptions options = default(SubOptions), SubWhiteLabelingOptions whiteLabelingOptions = default(SubWhiteLabelingOptions))
         {
-            
+
             // to ensure "domains" is required (not null)
             if (domains == null)
             {
@@ -92,46 +92,46 @@ namespace Dropbox.Sign.Model
         /// <value>The domain names the ApiApp will be associated with.</value>
         [DataMember(Name = "domains", IsRequired = true, EmitDefaultValue = true)]
         public List<string> Domains { get; set; }
-        
+
         /// <summary>
         /// The name you want to assign to the ApiApp.
         /// </summary>
         /// <value>The name you want to assign to the ApiApp.</value>
         [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
         public string Name { get; set; }
-        
+
         /// <summary>
         /// The URL at which the ApiApp should receive event callbacks.
         /// </summary>
         /// <value>The URL at which the ApiApp should receive event callbacks.</value>
         [DataMember(Name = "callback_url", EmitDefaultValue = true)]
         public string CallbackUrl { get; set; }
-        
+
         /// <summary>
         /// An image file to use as a custom logo in embedded contexts. (Only applies to some API plans)
         /// </summary>
         /// <value>An image file to use as a custom logo in embedded contexts. (Only applies to some API plans)</value>
         [DataMember(Name = "custom_logo_file", EmitDefaultValue = true)]
         public System.IO.Stream CustomLogoFile { get; set; }
-        
+
         /// <summary>
         /// Gets or Sets Oauth
         /// </summary>
         [DataMember(Name = "oauth", EmitDefaultValue = true)]
         public SubOAuth Oauth { get; set; }
-        
+
         /// <summary>
         /// Gets or Sets Options
         /// </summary>
         [DataMember(Name = "options", EmitDefaultValue = true)]
         public SubOptions Options { get; set; }
-        
+
         /// <summary>
         /// Gets or Sets WhiteLabelingOptions
         /// </summary>
         [DataMember(Name = "white_labeling_options", EmitDefaultValue = true)]
         public SubWhiteLabelingOptions WhiteLabelingOptions { get; set; }
-        
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -181,38 +181,38 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
+            return
                 (
                     this.Domains == input.Domains ||
                     this.Domains != null &&
                     input.Domains != null &&
                     this.Domains.SequenceEqual(input.Domains)
-                ) && 
+                ) &&
                 (
                     this.Name == input.Name ||
                     (this.Name != null &&
                     this.Name.Equals(input.Name))
-                ) && 
+                ) &&
                 (
                     this.CallbackUrl == input.CallbackUrl ||
                     (this.CallbackUrl != null &&
                     this.CallbackUrl.Equals(input.CallbackUrl))
-                ) && 
+                ) &&
                 (
                     this.CustomLogoFile == input.CustomLogoFile ||
                     (this.CustomLogoFile != null &&
                     this.CustomLogoFile.Equals(input.CustomLogoFile))
-                ) && 
+                ) &&
                 (
                     this.Oauth == input.Oauth ||
                     (this.Oauth != null &&
                     this.Oauth.Equals(input.Oauth))
-                ) && 
+                ) &&
                 (
                     this.Options == input.Options ||
                     (this.Options != null &&
                     this.Options.Equals(input.Options))
-                ) && 
+                ) &&
                 (
                     this.WhiteLabelingOptions == input.WhiteLabelingOptions ||
                     (this.WhiteLabelingOptions != null &&
@@ -273,43 +273,50 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "domains",
                 Property = "Domains",
                 Type = "List<string>",
                 Value = Domains,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "name",
                 Property = "Name",
                 Type = "string",
                 Value = Name,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "callback_url",
                 Property = "CallbackUrl",
                 Type = "string",
                 Value = CallbackUrl,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "custom_logo_file",
                 Property = "CustomLogoFile",
                 Type = "System.IO.Stream",
                 Value = CustomLogoFile,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "oauth",
                 Property = "Oauth",
                 Type = "SubOAuth",
                 Value = Oauth,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "options",
                 Property = "Options",
                 Type = "SubOptions",
                 Value = Options,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "white_labeling_options",
                 Property = "WhiteLabelingOptions",
                 Type = "SubWhiteLabelingOptions",

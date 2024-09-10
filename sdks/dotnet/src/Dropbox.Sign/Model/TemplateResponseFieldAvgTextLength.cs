@@ -45,7 +45,7 @@ namespace Dropbox.Sign.Model
         /// <param name="numCharsPerLine">Number of characters per line..</param>
         public TemplateResponseFieldAvgTextLength(int numLines = default(int), int numCharsPerLine = default(int))
         {
-            
+
             this.NumLines = numLines;
             this.NumCharsPerLine = numCharsPerLine;
         }
@@ -72,14 +72,14 @@ namespace Dropbox.Sign.Model
         /// <value>Number of lines.</value>
         [DataMember(Name = "num_lines", EmitDefaultValue = true)]
         public int NumLines { get; set; }
-        
+
         /// <summary>
         /// Number of characters per line.
         /// </summary>
         /// <value>Number of characters per line.</value>
         [DataMember(Name = "num_chars_per_line", EmitDefaultValue = true)]
         public int NumCharsPerLine { get; set; }
-        
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -124,11 +124,11 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
+            return
                 (
                     this.NumLines == input.NumLines ||
                     this.NumLines.Equals(input.NumLines)
-                ) && 
+                ) &&
                 (
                     this.NumCharsPerLine == input.NumCharsPerLine ||
                     this.NumCharsPerLine.Equals(input.NumCharsPerLine)
@@ -162,13 +162,15 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "num_lines",
                 Property = "NumLines",
                 Type = "int",
                 Value = NumLines,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "num_chars_per_line",
                 Property = "NumCharsPerLine",
                 Type = "int",

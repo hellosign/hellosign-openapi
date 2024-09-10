@@ -19,7 +19,7 @@ namespace Dropbox.Sign.Model
     public struct OpenApiType
     {
         public string Name { set; get; }
-        public string Property { set; get;  }
+        public string Property { set; get; }
         public string Type { set; get; }
         public object Value { set; get; }
     }

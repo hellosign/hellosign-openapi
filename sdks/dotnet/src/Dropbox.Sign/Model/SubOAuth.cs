@@ -100,7 +100,7 @@ namespace Dropbox.Sign.Model
         /// <param name="scopes">A list of [OAuth scopes](/api/reference/tag/OAuth) to be granted to the app. (Required if &#x60;oauth[callback_url]&#x60; is provided)..</param>
         public SubOAuth(string callbackUrl = default(string), List<ScopesEnum> scopes = default(List<ScopesEnum>))
         {
-            
+
             this.CallbackUrl = callbackUrl;
             this.Scopes = scopes;
         }
@@ -127,14 +127,14 @@ namespace Dropbox.Sign.Model
         /// <value>The callback URL to be used for OAuth flows. (Required if &#x60;oauth[scopes]&#x60; is provided)</value>
         [DataMember(Name = "callback_url", EmitDefaultValue = true)]
         public string CallbackUrl { get; set; }
-        
+
         /// <summary>
         /// A list of [OAuth scopes](/api/reference/tag/OAuth) to be granted to the app. (Required if &#x60;oauth[callback_url]&#x60; is provided).
         /// </summary>
         /// <value>A list of [OAuth scopes](/api/reference/tag/OAuth) to be granted to the app. (Required if &#x60;oauth[callback_url]&#x60; is provided).</value>
         [DataMember(Name = "scopes", EmitDefaultValue = true)]
         public List<SubOAuth.ScopesEnum> Scopes { get; set; }
-        
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -179,12 +179,12 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
+            return
                 (
                     this.CallbackUrl == input.CallbackUrl ||
                     (this.CallbackUrl != null &&
                     this.CallbackUrl.Equals(input.CallbackUrl))
-                ) && 
+                ) &&
                 (
                     this.Scopes == input.Scopes ||
                     this.Scopes != null &&
@@ -226,13 +226,15 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "callback_url",
                 Property = "CallbackUrl",
                 Type = "string",
                 Value = CallbackUrl,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "scopes",
                 Property = "Scopes",
                 Type = "List<SubOAuth.ScopesEnum>",

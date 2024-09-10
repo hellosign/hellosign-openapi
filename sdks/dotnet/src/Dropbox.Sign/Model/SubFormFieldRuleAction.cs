@@ -72,7 +72,7 @@ namespace Dropbox.Sign.Model
         /// <param name="type">type (required).</param>
         public SubFormFieldRuleAction(string fieldId = default(string), string groupId = default(string), bool hidden = default(bool), TypeEnum type = default(TypeEnum))
         {
-            
+
             this.Hidden = hidden;
             this.Type = type;
             this.FieldId = fieldId;
@@ -101,21 +101,21 @@ namespace Dropbox.Sign.Model
         /// <value>&#x60;true&#x60; to hide the target field when rule is satisfied, otherwise &#x60;false&#x60;.</value>
         [DataMember(Name = "hidden", IsRequired = true, EmitDefaultValue = true)]
         public bool Hidden { get; set; }
-        
+
         /// <summary>
         /// **field_id** or **group_id** is required, but not both.  Must reference the &#x60;api_id&#x60; of an existing field defined within &#x60;form_fields_per_document&#x60;.  Cannot use with &#x60;group_id&#x60;. Trigger and action fields must belong to the same signer.
         /// </summary>
         /// <value>**field_id** or **group_id** is required, but not both.  Must reference the &#x60;api_id&#x60; of an existing field defined within &#x60;form_fields_per_document&#x60;.  Cannot use with &#x60;group_id&#x60;. Trigger and action fields must belong to the same signer.</value>
         [DataMember(Name = "field_id", EmitDefaultValue = true)]
         public string FieldId { get; set; }
-        
+
         /// <summary>
         /// **group_id** or **field_id** is required, but not both.  Must reference the ID of an existing group defined within &#x60;form_field_groups&#x60;.  Cannot use with &#x60;field_id&#x60;. Trigger and action fields and groups must belong to the same signer.
         /// </summary>
         /// <value>**group_id** or **field_id** is required, but not both.  Must reference the ID of an existing group defined within &#x60;form_field_groups&#x60;.  Cannot use with &#x60;field_id&#x60;. Trigger and action fields and groups must belong to the same signer.</value>
         [DataMember(Name = "group_id", EmitDefaultValue = true)]
         public string GroupId { get; set; }
-        
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -162,20 +162,20 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
+            return
                 (
                     this.Hidden == input.Hidden ||
                     this.Hidden.Equals(input.Hidden)
-                ) && 
+                ) &&
                 (
                     this.Type == input.Type ||
                     this.Type.Equals(input.Type)
-                ) && 
+                ) &&
                 (
                     this.FieldId == input.FieldId ||
                     (this.FieldId != null &&
                     this.FieldId.Equals(input.FieldId))
-                ) && 
+                ) &&
                 (
                     this.GroupId == input.GroupId ||
                     (this.GroupId != null &&
@@ -218,25 +218,29 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "hidden",
                 Property = "Hidden",
                 Type = "bool",
                 Value = Hidden,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "type",
                 Property = "Type",
                 Type = "string",
                 Value = Type,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "field_id",
                 Property = "FieldId",
                 Type = "string",
                 Value = FieldId,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "group_id",
                 Property = "GroupId",
                 Type = "string",

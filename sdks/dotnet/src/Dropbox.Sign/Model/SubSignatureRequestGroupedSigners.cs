@@ -46,7 +46,7 @@ namespace Dropbox.Sign.Model
         /// <param name="signers">Signers belonging to this Group.  **NOTE:** Only &#x60;name&#x60;, &#x60;email_address&#x60;, and &#x60;pin&#x60; are available to Grouped Signers. We will ignore all other properties, even though they are listed below. (required).</param>
         public SubSignatureRequestGroupedSigners(string group = default(string), int? order = default(int?), List<SubSignatureRequestSigner> signers = default(List<SubSignatureRequestSigner>))
         {
-            
+
             // to ensure "group" is required (not null)
             if (group == null)
             {
@@ -84,21 +84,21 @@ namespace Dropbox.Sign.Model
         /// <value>The name of the group.</value>
         [DataMember(Name = "group", IsRequired = true, EmitDefaultValue = true)]
         public string Group { get; set; }
-        
+
         /// <summary>
         /// Signers belonging to this Group.  **NOTE:** Only &#x60;name&#x60;, &#x60;email_address&#x60;, and &#x60;pin&#x60; are available to Grouped Signers. We will ignore all other properties, even though they are listed below.
         /// </summary>
         /// <value>Signers belonging to this Group.  **NOTE:** Only &#x60;name&#x60;, &#x60;email_address&#x60;, and &#x60;pin&#x60; are available to Grouped Signers. We will ignore all other properties, even though they are listed below.</value>
         [DataMember(Name = "signers", IsRequired = true, EmitDefaultValue = true)]
         public List<SubSignatureRequestSigner> Signers { get; set; }
-        
+
         /// <summary>
         /// The order the group is required to sign in. Use this instead of Signer-level &#x60;order&#x60;.
         /// </summary>
         /// <value>The order the group is required to sign in. Use this instead of Signer-level &#x60;order&#x60;.</value>
         [DataMember(Name = "order", EmitDefaultValue = true)]
         public int? Order { get; set; }
-        
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -144,18 +144,18 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
+            return
                 (
                     this.Group == input.Group ||
                     (this.Group != null &&
                     this.Group.Equals(input.Group))
-                ) && 
+                ) &&
                 (
                     this.Signers == input.Signers ||
                     this.Signers != null &&
                     input.Signers != null &&
                     this.Signers.SequenceEqual(input.Signers)
-                ) && 
+                ) &&
                 (
                     this.Order == input.Order ||
                     (this.Order != null &&
@@ -200,19 +200,22 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "group",
                 Property = "Group",
                 Type = "string",
                 Value = Group,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "signers",
                 Property = "Signers",
                 Type = "List<SubSignatureRequestSigner>",
                 Value = Signers,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "order",
                 Property = "Order",
                 Type = "int?",

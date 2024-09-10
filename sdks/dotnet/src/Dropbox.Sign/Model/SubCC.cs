@@ -45,7 +45,7 @@ namespace Dropbox.Sign.Model
         /// <param name="emailAddress">The email address of the CC recipient. (required).</param>
         public SubCC(string role = default(string), string emailAddress = default(string))
         {
-            
+
             // to ensure "role" is required (not null)
             if (role == null)
             {
@@ -82,14 +82,14 @@ namespace Dropbox.Sign.Model
         /// <value>Must match an existing CC role in chosen Template(s). Multiple CC recipients cannot share the same CC role.</value>
         [DataMember(Name = "role", IsRequired = true, EmitDefaultValue = true)]
         public string Role { get; set; }
-        
+
         /// <summary>
         /// The email address of the CC recipient.
         /// </summary>
         /// <value>The email address of the CC recipient.</value>
         [DataMember(Name = "email_address", IsRequired = true, EmitDefaultValue = true)]
         public string EmailAddress { get; set; }
-        
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -134,12 +134,12 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
+            return
                 (
                     this.Role == input.Role ||
                     (this.Role != null &&
                     this.Role.Equals(input.Role))
-                ) && 
+                ) &&
                 (
                     this.EmailAddress == input.EmailAddress ||
                     (this.EmailAddress != null &&
@@ -180,13 +180,15 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "role",
                 Property = "Role",
                 Type = "string",
                 Value = Role,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "email_address",
                 Property = "EmailAddress",
                 Type = "string",

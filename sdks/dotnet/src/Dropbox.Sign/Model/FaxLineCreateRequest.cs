@@ -80,7 +80,7 @@ namespace Dropbox.Sign.Model
         /// <param name="accountId">Account ID.</param>
         public FaxLineCreateRequest(int areaCode = default(int), CountryEnum country = default(CountryEnum), string city = default(string), string accountId = default(string))
         {
-            
+
             this.AreaCode = areaCode;
             this.Country = country;
             this.City = city;
@@ -109,14 +109,14 @@ namespace Dropbox.Sign.Model
         /// <value>Area code</value>
         [DataMember(Name = "area_code", IsRequired = true, EmitDefaultValue = true)]
         public int AreaCode { get; set; }
-        
+
         /// <summary>
         /// City
         /// </summary>
         /// <value>City</value>
         [DataMember(Name = "city", EmitDefaultValue = true)]
         public string City { get; set; }
-        
+
         /// <summary>
         /// Account ID
         /// </summary>
@@ -124,7 +124,7 @@ namespace Dropbox.Sign.Model
         /// <example>ab55cd14a97219e36b5ff5fe23f2f9329b0c1e97</example>
         [DataMember(Name = "account_id", EmitDefaultValue = true)]
         public string AccountId { get; set; }
-        
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -171,20 +171,20 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
+            return
                 (
                     this.AreaCode == input.AreaCode ||
                     this.AreaCode.Equals(input.AreaCode)
-                ) && 
+                ) &&
                 (
                     this.Country == input.Country ||
                     this.Country.Equals(input.Country)
-                ) && 
+                ) &&
                 (
                     this.City == input.City ||
                     (this.City != null &&
                     this.City.Equals(input.City))
-                ) && 
+                ) &&
                 (
                     this.AccountId == input.AccountId ||
                     (this.AccountId != null &&
@@ -227,25 +227,29 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "area_code",
                 Property = "AreaCode",
                 Type = "int",
                 Value = AreaCode,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "country",
                 Property = "Country",
                 Type = "string",
                 Value = Country,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "city",
                 Property = "City",
                 Type = "string",
                 Value = City,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "account_id",
                 Property = "AccountId",
                 Type = "string",

@@ -45,7 +45,7 @@ namespace Dropbox.Sign.Model
         /// <param name="order">The order in which this signer role is required to sign..</param>
         public SubTemplateRole(string name = default(string), int? order = default(int?))
         {
-            
+
             this.Name = name;
             this.Order = order;
         }
@@ -72,14 +72,14 @@ namespace Dropbox.Sign.Model
         /// <value>The role name of the signer that will be displayed when the template is used to create a signature request.</value>
         [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
-        
+
         /// <summary>
         /// The order in which this signer role is required to sign.
         /// </summary>
         /// <value>The order in which this signer role is required to sign.</value>
         [DataMember(Name = "order", EmitDefaultValue = true)]
         public int? Order { get; set; }
-        
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -124,12 +124,12 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
+            return
                 (
                     this.Name == input.Name ||
                     (this.Name != null &&
                     this.Name.Equals(input.Name))
-                ) && 
+                ) &&
                 (
                     this.Order == input.Order ||
                     (this.Order != null &&
@@ -170,13 +170,15 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "name",
                 Property = "Name",
                 Type = "string",
                 Value = Name,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "order",
                 Property = "Order",
                 Type = "int?",

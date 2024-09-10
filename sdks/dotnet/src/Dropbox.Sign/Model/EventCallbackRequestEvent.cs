@@ -200,7 +200,7 @@ namespace Dropbox.Sign.Model
         /// <param name="eventMetadata">eventMetadata.</param>
         public EventCallbackRequestEvent(string eventTime = default(string), EventTypeEnum eventType = default(EventTypeEnum), string eventHash = default(string), EventCallbackRequestEventMetadata eventMetadata = default(EventCallbackRequestEventMetadata))
         {
-            
+
             // to ensure "eventTime" is required (not null)
             if (eventTime == null)
             {
@@ -239,20 +239,20 @@ namespace Dropbox.Sign.Model
         /// <value>Time the event was created (using Unix time).</value>
         [DataMember(Name = "event_time", IsRequired = true, EmitDefaultValue = true)]
         public string EventTime { get; set; }
-        
+
         /// <summary>
         /// Generated hash used to verify source of event data.
         /// </summary>
         /// <value>Generated hash used to verify source of event data.</value>
         [DataMember(Name = "event_hash", IsRequired = true, EmitDefaultValue = true)]
         public string EventHash { get; set; }
-        
+
         /// <summary>
         /// Gets or Sets EventMetadata
         /// </summary>
         [DataMember(Name = "event_metadata", EmitDefaultValue = true)]
         public EventCallbackRequestEventMetadata EventMetadata { get; set; }
-        
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -299,21 +299,21 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
+            return
                 (
                     this.EventTime == input.EventTime ||
                     (this.EventTime != null &&
                     this.EventTime.Equals(input.EventTime))
-                ) && 
+                ) &&
                 (
                     this.EventType == input.EventType ||
                     this.EventType.Equals(input.EventType)
-                ) && 
+                ) &&
                 (
                     this.EventHash == input.EventHash ||
                     (this.EventHash != null &&
                     this.EventHash.Equals(input.EventHash))
-                ) && 
+                ) &&
                 (
                     this.EventMetadata == input.EventMetadata ||
                     (this.EventMetadata != null &&
@@ -359,25 +359,29 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "event_time",
                 Property = "EventTime",
                 Type = "string",
                 Value = EventTime,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "event_type",
                 Property = "EventType",
                 Type = "string",
                 Value = EventType,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "event_hash",
                 Property = "EventHash",
                 Type = "string",
                 Value = EventHash,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "event_metadata",
                 Property = "EventMetadata",
                 Type = "EventCallbackRequestEventMetadata",

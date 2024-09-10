@@ -45,7 +45,7 @@ namespace Dropbox.Sign.Model
         /// <param name="refreshToken">The token provided when you got the expired access token. (required).</param>
         public OAuthTokenRefreshRequest(string grantType = @"refresh_token", string refreshToken = default(string))
         {
-            
+
             // to ensure "grantType" is required (not null)
             if (grantType == null)
             {
@@ -82,14 +82,14 @@ namespace Dropbox.Sign.Model
         /// <value>When refreshing an existing token use &#x60;refresh_token&#x60;.</value>
         [DataMember(Name = "grant_type", IsRequired = true, EmitDefaultValue = true)]
         public string GrantType { get; set; }
-        
+
         /// <summary>
         /// The token provided when you got the expired access token.
         /// </summary>
         /// <value>The token provided when you got the expired access token.</value>
         [DataMember(Name = "refresh_token", IsRequired = true, EmitDefaultValue = true)]
         public string RefreshToken { get; set; }
-        
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -134,12 +134,12 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
+            return
                 (
                     this.GrantType == input.GrantType ||
                     (this.GrantType != null &&
                     this.GrantType.Equals(input.GrantType))
-                ) && 
+                ) &&
                 (
                     this.RefreshToken == input.RefreshToken ||
                     (this.RefreshToken != null &&
@@ -180,13 +180,15 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "grant_type",
                 Property = "GrantType",
                 Type = "string",
                 Value = GrantType,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "refresh_token",
                 Property = "RefreshToken",
                 Type = "string",

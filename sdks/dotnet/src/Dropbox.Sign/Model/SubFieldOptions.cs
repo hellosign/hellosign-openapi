@@ -95,7 +95,7 @@ namespace Dropbox.Sign.Model
         /// <param name="dateFormat">Allows requester to specify the date format (see list of allowed [formats](/api/reference/constants/#date-formats))  **NOTE:** Only available for Premium and higher. (required).</param>
         public SubFieldOptions(DateFormatEnum dateFormat = default(DateFormatEnum))
         {
-            
+
             this.DateFormat = dateFormat;
         }
 
@@ -158,7 +158,7 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
+            return
                 (
                     this.DateFormat == input.DateFormat ||
                     this.DateFormat.Equals(input.DateFormat)
@@ -191,7 +191,8 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "date_format",
                 Property = "DateFormat",
                 Type = "string",

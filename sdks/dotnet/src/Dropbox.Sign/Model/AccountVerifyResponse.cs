@@ -45,7 +45,7 @@ namespace Dropbox.Sign.Model
         /// <param name="warnings">A list of warnings..</param>
         public AccountVerifyResponse(AccountVerifyResponseAccount account = default(AccountVerifyResponseAccount), List<WarningResponse> warnings = default(List<WarningResponse>))
         {
-            
+
             this.Account = account;
             this.Warnings = warnings;
         }
@@ -71,14 +71,14 @@ namespace Dropbox.Sign.Model
         /// </summary>
         [DataMember(Name = "account", EmitDefaultValue = true)]
         public AccountVerifyResponseAccount Account { get; set; }
-        
+
         /// <summary>
         /// A list of warnings.
         /// </summary>
         /// <value>A list of warnings.</value>
         [DataMember(Name = "warnings", EmitDefaultValue = true)]
         public List<WarningResponse> Warnings { get; set; }
-        
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -123,12 +123,12 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
+            return
                 (
                     this.Account == input.Account ||
                     (this.Account != null &&
                     this.Account.Equals(input.Account))
-                ) && 
+                ) &&
                 (
                     this.Warnings == input.Warnings ||
                     this.Warnings != null &&
@@ -170,13 +170,15 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "account",
                 Property = "Account",
                 Type = "AccountVerifyResponseAccount",
                 Value = Account,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "warnings",
                 Property = "Warnings",
                 Type = "List<WarningResponse>",
