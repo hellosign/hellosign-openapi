@@ -87,7 +87,7 @@ namespace Dropbox.Sign.Model
         /// <param name="newRole">A new role member will take in a new Team.  **NOTE:** This parameter is used only if &#x60;new_team_id&#x60; is provided..</param>
         public TeamRemoveMemberRequest(string accountId = default(string), string emailAddress = default(string), string newOwnerEmailAddress = default(string), string newTeamId = default(string), NewRoleEnum? newRole = default(NewRoleEnum?))
         {
-            
+
             this.AccountId = accountId;
             this.EmailAddress = emailAddress;
             this.NewOwnerEmailAddress = newOwnerEmailAddress;
@@ -117,28 +117,28 @@ namespace Dropbox.Sign.Model
         /// <value>**account_id** or **email_address** is required. If both are provided, the account id prevails.  Account id to remove from your Team.</value>
         [DataMember(Name = "account_id", EmitDefaultValue = true)]
         public string AccountId { get; set; }
-        
+
         /// <summary>
         /// **account_id** or **email_address** is required. If both are provided, the account id prevails.  Email address of the Account to remove from your Team.
         /// </summary>
         /// <value>**account_id** or **email_address** is required. If both are provided, the account id prevails.  Email address of the Account to remove from your Team.</value>
         [DataMember(Name = "email_address", EmitDefaultValue = true)]
         public string EmailAddress { get; set; }
-        
+
         /// <summary>
         /// The email address of an Account on this Team to receive all documents, templates, and API apps (if applicable) from the removed Account. If not provided, and on an Enterprise plan, this data will remain with the removed Account.  **NOTE:** Only available for Enterprise plans.
         /// </summary>
         /// <value>The email address of an Account on this Team to receive all documents, templates, and API apps (if applicable) from the removed Account. If not provided, and on an Enterprise plan, this data will remain with the removed Account.  **NOTE:** Only available for Enterprise plans.</value>
         [DataMember(Name = "new_owner_email_address", EmitDefaultValue = true)]
         public string NewOwnerEmailAddress { get; set; }
-        
+
         /// <summary>
         /// Id of the new Team.
         /// </summary>
         /// <value>Id of the new Team.</value>
         [DataMember(Name = "new_team_id", EmitDefaultValue = true)]
         public string NewTeamId { get; set; }
-        
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -186,27 +186,27 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
+            return
                 (
                     this.AccountId == input.AccountId ||
                     (this.AccountId != null &&
                     this.AccountId.Equals(input.AccountId))
-                ) && 
+                ) &&
                 (
                     this.EmailAddress == input.EmailAddress ||
                     (this.EmailAddress != null &&
                     this.EmailAddress.Equals(input.EmailAddress))
-                ) && 
+                ) &&
                 (
                     this.NewOwnerEmailAddress == input.NewOwnerEmailAddress ||
                     (this.NewOwnerEmailAddress != null &&
                     this.NewOwnerEmailAddress.Equals(input.NewOwnerEmailAddress))
-                ) && 
+                ) &&
                 (
                     this.NewTeamId == input.NewTeamId ||
                     (this.NewTeamId != null &&
                     this.NewTeamId.Equals(input.NewTeamId))
-                ) && 
+                ) &&
                 (
                     this.NewRole == input.NewRole ||
                     this.NewRole.Equals(input.NewRole)
@@ -255,31 +255,36 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "account_id",
                 Property = "AccountId",
                 Type = "string",
                 Value = AccountId,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "email_address",
                 Property = "EmailAddress",
                 Type = "string",
                 Value = EmailAddress,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "new_owner_email_address",
                 Property = "NewOwnerEmailAddress",
                 Type = "string",
                 Value = NewOwnerEmailAddress,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "new_team_id",
                 Property = "NewTeamId",
                 Type = "string",
                 Value = NewTeamId,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "new_role",
                 Property = "NewRole",
                 Type = "string",

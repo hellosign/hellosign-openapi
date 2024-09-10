@@ -45,7 +45,7 @@ namespace Dropbox.Sign.Model
         /// <param name="allowEditDocuments">Allows requesters to edit documents, including delete and add (default to false).</param>
         public SubEditorOptions(bool allowEditSigners = false, bool allowEditDocuments = false)
         {
-            
+
             this.AllowEditSigners = allowEditSigners;
             this.AllowEditDocuments = allowEditDocuments;
         }
@@ -72,14 +72,14 @@ namespace Dropbox.Sign.Model
         /// <value>Allows requesters to edit the list of signers</value>
         [DataMember(Name = "allow_edit_signers", EmitDefaultValue = true)]
         public bool AllowEditSigners { get; set; }
-        
+
         /// <summary>
         /// Allows requesters to edit documents, including delete and add
         /// </summary>
         /// <value>Allows requesters to edit documents, including delete and add</value>
         [DataMember(Name = "allow_edit_documents", EmitDefaultValue = true)]
         public bool AllowEditDocuments { get; set; }
-        
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -124,11 +124,11 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
+            return
                 (
                     this.AllowEditSigners == input.AllowEditSigners ||
                     this.AllowEditSigners.Equals(input.AllowEditSigners)
-                ) && 
+                ) &&
                 (
                     this.AllowEditDocuments == input.AllowEditDocuments ||
                     this.AllowEditDocuments.Equals(input.AllowEditDocuments)
@@ -162,13 +162,15 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "allow_edit_signers",
                 Property = "AllowEditSigners",
                 Type = "bool",
                 Value = AllowEditSigners,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "allow_edit_documents",
                 Property = "AllowEditDocuments",
                 Type = "bool",

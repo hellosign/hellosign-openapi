@@ -44,7 +44,7 @@ namespace Dropbox.Sign.Model
         /// <param name="name">The name of your Team. (default to &quot;Untitled Team&quot;).</param>
         public TeamCreateRequest(string name = @"Untitled Team")
         {
-            
+
             // use default value if no "name" provided
             this.Name = name ?? "Untitled Team";
         }
@@ -71,7 +71,7 @@ namespace Dropbox.Sign.Model
         /// <value>The name of your Team.</value>
         [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
-        
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -115,7 +115,7 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
+            return
                 (
                     this.Name == input.Name ||
                     (this.Name != null &&
@@ -152,7 +152,8 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "name",
                 Property = "Name",
                 Type = "string",

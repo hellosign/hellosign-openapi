@@ -49,7 +49,7 @@ namespace Dropbox.Sign.Model
         /// <param name="uploadedAt">Timestamp when attachment was uploaded by Signer..</param>
         public SignatureRequestResponseAttachment(string id = default(string), Object signer = null, string name = default(string), bool required = default(bool), string instructions = default(string), int? uploadedAt = default(int?))
         {
-            
+
             // to ensure "id" is required (not null)
             if (id == null)
             {
@@ -95,13 +95,14 @@ namespace Dropbox.Sign.Model
         /// <value>The unique ID for this attachment.</value>
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
-        
+
         /// <summary>
         /// The Signer this attachment is assigned to.
         /// </summary>
         /// <value>The Signer this attachment is assigned to.</value>
         [DataMember(Name = "signer", IsRequired = true, EmitDefaultValue = true)]
-        public object Signer {
+        public object Signer
+        {
             get => this._signer;
             set => this._signer = Convert.ToString(value);
         }
@@ -113,28 +114,28 @@ namespace Dropbox.Sign.Model
         /// <value>The name of this attachment.</value>
         [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
         public string Name { get; set; }
-        
+
         /// <summary>
         /// A boolean value denoting if this attachment is required.
         /// </summary>
         /// <value>A boolean value denoting if this attachment is required.</value>
         [DataMember(Name = "required", IsRequired = true, EmitDefaultValue = true)]
         public bool Required { get; set; }
-        
+
         /// <summary>
         /// Instructions for Signer.
         /// </summary>
         /// <value>Instructions for Signer.</value>
         [DataMember(Name = "instructions", EmitDefaultValue = true)]
         public string Instructions { get; set; }
-        
+
         /// <summary>
         /// Timestamp when attachment was uploaded by Signer.
         /// </summary>
         /// <value>Timestamp when attachment was uploaded by Signer.</value>
         [DataMember(Name = "uploaded_at", EmitDefaultValue = true)]
         public int? UploadedAt { get; set; }
-        
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -183,31 +184,31 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
+            return
                 (
                     this.Id == input.Id ||
                     (this.Id != null &&
                     this.Id.Equals(input.Id))
-                ) && 
+                ) &&
                 (
                     this.Signer == input.Signer ||
                     (this.Signer != null &&
                     this.Signer.Equals(input.Signer))
-                ) && 
+                ) &&
                 (
                     this.Name == input.Name ||
                     (this.Name != null &&
                     this.Name.Equals(input.Name))
-                ) && 
+                ) &&
                 (
                     this.Required == input.Required ||
                     this.Required.Equals(input.Required)
-                ) && 
+                ) &&
                 (
                     this.Instructions == input.Instructions ||
                     (this.Instructions != null &&
                     this.Instructions.Equals(input.Instructions))
-                ) && 
+                ) &&
                 (
                     this.UploadedAt == input.UploadedAt ||
                     (this.UploadedAt != null &&
@@ -261,37 +262,43 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "id",
                 Property = "Id",
                 Type = "string",
                 Value = Id,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "signer",
                 Property = "Signer",
                 Type = "string",
                 Value = Signer,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "name",
                 Property = "Name",
                 Type = "string",
                 Value = Name,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "required",
                 Property = "Required",
                 Type = "bool",
                 Value = Required,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "instructions",
                 Property = "Instructions",
                 Type = "string",
                 Value = Instructions,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "uploaded_at",
                 Property = "UploadedAt",
                 Type = "int?",

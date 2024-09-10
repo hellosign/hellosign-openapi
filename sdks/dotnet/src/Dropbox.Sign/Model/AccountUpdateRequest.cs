@@ -46,7 +46,7 @@ namespace Dropbox.Sign.Model
         /// <param name="locale">The locale used in this Account. Check out the list of [supported locales](/api/reference/constants/#supported-locales) to learn more about the possible values..</param>
         public AccountUpdateRequest(string accountId = default(string), string callbackUrl = default(string), string locale = default(string))
         {
-            
+
             this.AccountId = accountId;
             this.CallbackUrl = callbackUrl;
             this.Locale = locale;
@@ -74,21 +74,21 @@ namespace Dropbox.Sign.Model
         /// <value>The ID of the Account</value>
         [DataMember(Name = "account_id", EmitDefaultValue = true)]
         public string AccountId { get; set; }
-        
+
         /// <summary>
         /// The URL that Dropbox Sign should POST events to.
         /// </summary>
         /// <value>The URL that Dropbox Sign should POST events to.</value>
         [DataMember(Name = "callback_url", EmitDefaultValue = true)]
         public string CallbackUrl { get; set; }
-        
+
         /// <summary>
         /// The locale used in this Account. Check out the list of [supported locales](/api/reference/constants/#supported-locales) to learn more about the possible values.
         /// </summary>
         /// <value>The locale used in this Account. Check out the list of [supported locales](/api/reference/constants/#supported-locales) to learn more about the possible values.</value>
         [DataMember(Name = "locale", EmitDefaultValue = true)]
         public string Locale { get; set; }
-        
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -134,17 +134,17 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
+            return
                 (
                     this.AccountId == input.AccountId ||
                     (this.AccountId != null &&
                     this.AccountId.Equals(input.AccountId))
-                ) && 
+                ) &&
                 (
                     this.CallbackUrl == input.CallbackUrl ||
                     (this.CallbackUrl != null &&
                     this.CallbackUrl.Equals(input.CallbackUrl))
-                ) && 
+                ) &&
                 (
                     this.Locale == input.Locale ||
                     (this.Locale != null &&
@@ -189,19 +189,22 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "account_id",
                 Property = "AccountId",
                 Type = "string",
                 Value = AccountId,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "callback_url",
                 Property = "CallbackUrl",
                 Type = "string",
                 Value = CallbackUrl,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "locale",
                 Property = "Locale",
                 Type = "string",

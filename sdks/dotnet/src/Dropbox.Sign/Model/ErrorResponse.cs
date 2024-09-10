@@ -44,7 +44,7 @@ namespace Dropbox.Sign.Model
         /// <param name="error">error (required).</param>
         public ErrorResponse(ErrorResponseError error = default(ErrorResponseError))
         {
-            
+
             // to ensure "error" is required (not null)
             if (error == null)
             {
@@ -74,7 +74,7 @@ namespace Dropbox.Sign.Model
         /// </summary>
         [DataMember(Name = "error", IsRequired = true, EmitDefaultValue = true)]
         public ErrorResponseError Error { get; set; }
-        
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -118,7 +118,7 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
+            return
                 (
                     this.Error == input.Error ||
                     (this.Error != null &&
@@ -155,7 +155,8 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "error",
                 Property = "Error",
                 Type = "ErrorResponseError",

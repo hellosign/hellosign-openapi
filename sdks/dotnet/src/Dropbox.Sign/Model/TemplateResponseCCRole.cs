@@ -44,7 +44,7 @@ namespace Dropbox.Sign.Model
         /// <param name="name">The name of the Role..</param>
         public TemplateResponseCCRole(string name = default(string))
         {
-            
+
             this.Name = name;
         }
 
@@ -70,7 +70,7 @@ namespace Dropbox.Sign.Model
         /// <value>The name of the Role.</value>
         [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
-        
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -114,7 +114,7 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
+            return
                 (
                     this.Name == input.Name ||
                     (this.Name != null &&
@@ -151,7 +151,8 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "name",
                 Property = "Name",
                 Type = "string",

@@ -72,7 +72,7 @@ namespace Dropbox.Sign.Model
         /// <param name="type">The type of merge field. (required).</param>
         public SubMergeField(string name = default(string), TypeEnum type = default(TypeEnum))
         {
-            
+
             // to ensure "name" is required (not null)
             if (name == null)
             {
@@ -104,7 +104,7 @@ namespace Dropbox.Sign.Model
         /// <value>The name of the merge field. Must be unique.</value>
         [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
         public string Name { get; set; }
-        
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -149,12 +149,12 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
+            return
                 (
                     this.Name == input.Name ||
                     (this.Name != null &&
                     this.Name.Equals(input.Name))
-                ) && 
+                ) &&
                 (
                     this.Type == input.Type ||
                     this.Type.Equals(input.Type)
@@ -191,13 +191,15 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "name",
                 Property = "Name",
                 Type = "string",
                 Value = Name,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "type",
                 Property = "Type",
                 Type = "string",

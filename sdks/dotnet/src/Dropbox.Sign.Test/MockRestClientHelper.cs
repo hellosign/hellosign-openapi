@@ -66,7 +66,7 @@ namespace Dropbox.Sign.Test
                 .With(request =>
                 {
                     var stream = request.Content.ReadAsStream();
-                    var streamReader = new StreamReader( stream );
+                    var streamReader = new StreamReader(stream);
                     var content = streamReader.ReadToEnd();
                     return values.All(value => content.Contains(value));
                 })
@@ -85,13 +85,13 @@ namespace Dropbox.Sign.Test
             var mockRestClient = new RestClient(options,
                 configureSerialization: serializerConfig => serializerConfig.UseSerializer(() => new CustomJsonCodec(SerializerSettings, GlobalConfiguration.Instance))
             );
-            
+
             Configuration config = new Configuration();
             config.Username = "YOUR_API_KEY";
             var client = new ApiClient(config.BasePath, mockRestClient);
             return (T)Activator.CreateInstance(typeof(T), client, client, config);
         }
-        
+
         /// <summary>
         /// Specifies the settings on a <see cref="JsonSerializer" /> object.
         /// These settings can be adjusted to accommodate custom serialization rules.
@@ -109,7 +109,7 @@ namespace Dropbox.Sign.Test
             }
         };
     }
-    
+
     // see ApiClient::CustomJsonCodec
     internal class CustomJsonCodec : IRestSerializer, ISerializer, IDeserializer
     {

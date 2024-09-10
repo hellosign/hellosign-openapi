@@ -47,12 +47,12 @@ namespace Dropbox.Sign.Test.Api
             TestHelper.AssertJsonSame(responseData.ToString(), response.ToJson());
         }
 
-        [Fact(Skip="POST /template/delete/{template_id} skipped")]
+        [Fact(Skip = "POST /template/delete/{template_id} skipped")]
         public void TemplateDeleteTest()
         {
         }
 
-        [Fact(Skip="GET /template/files/{signature_request_id} skipped")]
+        [Fact(Skip = "GET /template/files/{signature_request_id} skipped")]
         public void TemplateFilesTest()
         {
         }

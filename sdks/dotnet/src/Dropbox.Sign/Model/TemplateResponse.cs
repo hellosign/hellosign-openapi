@@ -58,7 +58,7 @@ namespace Dropbox.Sign.Model
         /// <param name="accounts">An array of the Accounts that can use this Template..</param>
         public TemplateResponse(string templateId = default(string), string title = default(string), string message = default(string), int updatedAt = default(int), bool? isEmbedded = default(bool?), bool? isCreator = default(bool?), bool? canEdit = default(bool?), bool? isLocked = default(bool?), Object metadata = default(Object), List<TemplateResponseSignerRole> signerRoles = default(List<TemplateResponseSignerRole>), List<TemplateResponseCCRole> ccRoles = default(List<TemplateResponseCCRole>), List<TemplateResponseDocument> documents = default(List<TemplateResponseDocument>), List<TemplateResponseDocumentCustomFieldBase> customFields = default(List<TemplateResponseDocumentCustomFieldBase>), List<TemplateResponseDocumentFormFieldBase> namedFormFields = default(List<TemplateResponseDocumentFormFieldBase>), List<TemplateResponseAccount> accounts = default(List<TemplateResponseAccount>))
         {
-            
+
             this.TemplateId = templateId;
             this.Title = title;
             this.Message = message;
@@ -98,84 +98,84 @@ namespace Dropbox.Sign.Model
         /// <value>The id of the Template.</value>
         [DataMember(Name = "template_id", EmitDefaultValue = true)]
         public string TemplateId { get; set; }
-        
+
         /// <summary>
         /// The title of the Template. This will also be the default subject of the message sent to signers when using this Template to send a SignatureRequest. This can be overridden when sending the SignatureRequest.
         /// </summary>
         /// <value>The title of the Template. This will also be the default subject of the message sent to signers when using this Template to send a SignatureRequest. This can be overridden when sending the SignatureRequest.</value>
         [DataMember(Name = "title", EmitDefaultValue = true)]
         public string Title { get; set; }
-        
+
         /// <summary>
         /// The default message that will be sent to signers when using this Template to send a SignatureRequest. This can be overridden when sending the SignatureRequest.
         /// </summary>
         /// <value>The default message that will be sent to signers when using this Template to send a SignatureRequest. This can be overridden when sending the SignatureRequest.</value>
         [DataMember(Name = "message", EmitDefaultValue = true)]
         public string Message { get; set; }
-        
+
         /// <summary>
         /// Time the template was last updated.
         /// </summary>
         /// <value>Time the template was last updated.</value>
         [DataMember(Name = "updated_at", EmitDefaultValue = true)]
         public int UpdatedAt { get; set; }
-        
+
         /// <summary>
         /// &#x60;true&#x60; if this template was created using an embedded flow, &#x60;false&#x60; if it was created on our website.
         /// </summary>
         /// <value>&#x60;true&#x60; if this template was created using an embedded flow, &#x60;false&#x60; if it was created on our website.</value>
         [DataMember(Name = "is_embedded", EmitDefaultValue = true)]
         public bool? IsEmbedded { get; set; }
-        
+
         /// <summary>
         /// &#x60;true&#x60; if you are the owner of this template, &#x60;false&#x60; if it&#39;s been shared with you by a team member.
         /// </summary>
         /// <value>&#x60;true&#x60; if you are the owner of this template, &#x60;false&#x60; if it&#39;s been shared with you by a team member.</value>
         [DataMember(Name = "is_creator", EmitDefaultValue = true)]
         public bool? IsCreator { get; set; }
-        
+
         /// <summary>
         /// Indicates whether edit rights have been granted to you by the owner (always &#x60;true&#x60; if that&#39;s you).
         /// </summary>
         /// <value>Indicates whether edit rights have been granted to you by the owner (always &#x60;true&#x60; if that&#39;s you).</value>
         [DataMember(Name = "can_edit", EmitDefaultValue = true)]
         public bool? CanEdit { get; set; }
-        
+
         /// <summary>
         /// Indicates whether the template is locked. If &#x60;true&#x60;, then the template was created outside your quota and can only be used in &#x60;test_mode&#x60;. If &#x60;false&#x60;, then the template is within your quota and can be used to create signature requests.
         /// </summary>
         /// <value>Indicates whether the template is locked. If &#x60;true&#x60;, then the template was created outside your quota and can only be used in &#x60;test_mode&#x60;. If &#x60;false&#x60;, then the template is within your quota and can be used to create signature requests.</value>
         [DataMember(Name = "is_locked", EmitDefaultValue = true)]
         public bool? IsLocked { get; set; }
-        
+
         /// <summary>
         /// The metadata attached to the template.
         /// </summary>
         /// <value>The metadata attached to the template.</value>
         [DataMember(Name = "metadata", EmitDefaultValue = true)]
         public Object Metadata { get; set; }
-        
+
         /// <summary>
         /// An array of the designated signer roles that must be specified when sending a SignatureRequest using this Template.
         /// </summary>
         /// <value>An array of the designated signer roles that must be specified when sending a SignatureRequest using this Template.</value>
         [DataMember(Name = "signer_roles", EmitDefaultValue = true)]
         public List<TemplateResponseSignerRole> SignerRoles { get; set; }
-        
+
         /// <summary>
         /// An array of the designated CC roles that must be specified when sending a SignatureRequest using this Template.
         /// </summary>
         /// <value>An array of the designated CC roles that must be specified when sending a SignatureRequest using this Template.</value>
         [DataMember(Name = "cc_roles", EmitDefaultValue = true)]
         public List<TemplateResponseCCRole> CcRoles { get; set; }
-        
+
         /// <summary>
         /// An array describing each document associated with this Template. Includes form field data for each document.
         /// </summary>
         /// <value>An array describing each document associated with this Template. Includes form field data for each document.</value>
         [DataMember(Name = "documents", EmitDefaultValue = true)]
         public List<TemplateResponseDocument> Documents { get; set; }
-        
+
         /// <summary>
         /// Deprecated. Use &#x60;custom_fields&#x60; inside the [documents](https://developers.hellosign.com/api/reference/operation/templateGet/#!c&#x3D;200&amp;path&#x3D;template/documents&amp;t&#x3D;response) array instead.
         /// </summary>
@@ -183,7 +183,7 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "custom_fields", EmitDefaultValue = true)]
         [Obsolete]
         public List<TemplateResponseDocumentCustomFieldBase> CustomFields { get; set; }
-        
+
         /// <summary>
         /// Deprecated. Use &#x60;form_fields&#x60; inside the [documents](https://developers.hellosign.com/api/reference/operation/templateGet/#!c&#x3D;200&amp;path&#x3D;template/documents&amp;t&#x3D;response) array instead.
         /// </summary>
@@ -191,14 +191,14 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "named_form_fields", EmitDefaultValue = true)]
         [Obsolete]
         public List<TemplateResponseDocumentFormFieldBase> NamedFormFields { get; set; }
-        
+
         /// <summary>
         /// An array of the Accounts that can use this Template.
         /// </summary>
         /// <value>An array of the Accounts that can use this Template.</value>
         [DataMember(Name = "accounts", EmitDefaultValue = true)]
         public List<TemplateResponseAccount> Accounts { get; set; }
-        
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -256,81 +256,81 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
+            return
                 (
                     this.TemplateId == input.TemplateId ||
                     (this.TemplateId != null &&
                     this.TemplateId.Equals(input.TemplateId))
-                ) && 
+                ) &&
                 (
                     this.Title == input.Title ||
                     (this.Title != null &&
                     this.Title.Equals(input.Title))
-                ) && 
+                ) &&
                 (
                     this.Message == input.Message ||
                     (this.Message != null &&
                     this.Message.Equals(input.Message))
-                ) && 
+                ) &&
                 (
                     this.UpdatedAt == input.UpdatedAt ||
                     this.UpdatedAt.Equals(input.UpdatedAt)
-                ) && 
+                ) &&
                 (
                     this.IsEmbedded == input.IsEmbedded ||
                     (this.IsEmbedded != null &&
                     this.IsEmbedded.Equals(input.IsEmbedded))
-                ) && 
+                ) &&
                 (
                     this.IsCreator == input.IsCreator ||
                     (this.IsCreator != null &&
                     this.IsCreator.Equals(input.IsCreator))
-                ) && 
+                ) &&
                 (
                     this.CanEdit == input.CanEdit ||
                     (this.CanEdit != null &&
                     this.CanEdit.Equals(input.CanEdit))
-                ) && 
+                ) &&
                 (
                     this.IsLocked == input.IsLocked ||
                     (this.IsLocked != null &&
                     this.IsLocked.Equals(input.IsLocked))
-                ) && 
+                ) &&
                 (
                     this.Metadata == input.Metadata ||
                     (this.Metadata != null &&
                     this.Metadata.Equals(input.Metadata))
-                ) && 
+                ) &&
                 (
                     this.SignerRoles == input.SignerRoles ||
                     this.SignerRoles != null &&
                     input.SignerRoles != null &&
                     this.SignerRoles.SequenceEqual(input.SignerRoles)
-                ) && 
+                ) &&
                 (
                     this.CcRoles == input.CcRoles ||
                     this.CcRoles != null &&
                     input.CcRoles != null &&
                     this.CcRoles.SequenceEqual(input.CcRoles)
-                ) && 
+                ) &&
                 (
                     this.Documents == input.Documents ||
                     this.Documents != null &&
                     input.Documents != null &&
                     this.Documents.SequenceEqual(input.Documents)
-                ) && 
+                ) &&
                 (
                     this.CustomFields == input.CustomFields ||
                     this.CustomFields != null &&
                     input.CustomFields != null &&
                     this.CustomFields.SequenceEqual(input.CustomFields)
-                ) && 
+                ) &&
                 (
                     this.NamedFormFields == input.NamedFormFields ||
                     this.NamedFormFields != null &&
                     input.NamedFormFields != null &&
                     this.NamedFormFields.SequenceEqual(input.NamedFormFields)
-                ) && 
+                ) &&
                 (
                     this.Accounts == input.Accounts ||
                     this.Accounts != null &&
@@ -421,91 +421,106 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "template_id",
                 Property = "TemplateId",
                 Type = "string",
                 Value = TemplateId,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "title",
                 Property = "Title",
                 Type = "string",
                 Value = Title,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "message",
                 Property = "Message",
                 Type = "string",
                 Value = Message,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "updated_at",
                 Property = "UpdatedAt",
                 Type = "int",
                 Value = UpdatedAt,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "is_embedded",
                 Property = "IsEmbedded",
                 Type = "bool?",
                 Value = IsEmbedded,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "is_creator",
                 Property = "IsCreator",
                 Type = "bool?",
                 Value = IsCreator,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "can_edit",
                 Property = "CanEdit",
                 Type = "bool?",
                 Value = CanEdit,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "is_locked",
                 Property = "IsLocked",
                 Type = "bool?",
                 Value = IsLocked,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "metadata",
                 Property = "Metadata",
                 Type = "Object",
                 Value = Metadata,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "signer_roles",
                 Property = "SignerRoles",
                 Type = "List<TemplateResponseSignerRole>",
                 Value = SignerRoles,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "cc_roles",
                 Property = "CcRoles",
                 Type = "List<TemplateResponseCCRole>",
                 Value = CcRoles,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "documents",
                 Property = "Documents",
                 Type = "List<TemplateResponseDocument>",
                 Value = Documents,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "custom_fields",
                 Property = "CustomFields",
                 Type = "List<TemplateResponseDocumentCustomFieldBase>",
                 Value = CustomFields,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "named_form_fields",
                 Property = "NamedFormFields",
                 Type = "List<TemplateResponseDocumentFormFieldBase>",
                 Value = NamedFormFields,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "accounts",
                 Property = "Accounts",
                 Type = "List<TemplateResponseAccount>",

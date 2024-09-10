@@ -53,7 +53,7 @@ namespace Dropbox.Sign.Model
             this.Required = required;
             this.ApiId = apiId;
             this.Editor = editor;
-            
+
             // to ensure "type" is required (not null)
             if (type == null)
             {
@@ -85,14 +85,14 @@ namespace Dropbox.Sign.Model
         /// <value>The type of this Custom Field. Only &#39;text&#39; and &#39;checkbox&#39; are currently supported.</value>
         [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
         public string Type { get; set; }
-        
+
         /// <summary>
         /// A text string for text fields
         /// </summary>
         /// <value>A text string for text fields</value>
         [DataMember(Name = "value", EmitDefaultValue = true)]
         public string Value { get; set; }
-        
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -138,12 +138,12 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return base.Equals(input) && 
+            return base.Equals(input) &&
                 (
                     this.Type == input.Type ||
                     (this.Type != null &&
                     this.Type.Equals(input.Type))
-                ) && base.Equals(input) && 
+                ) && base.Equals(input) &&
                 (
                     this.Value == input.Value ||
                     (this.Value != null &&
@@ -198,13 +198,15 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "type",
                 Property = "Type",
                 Type = "string",
                 Value = Type,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "value",
                 Property = "Value",
                 Type = "string",

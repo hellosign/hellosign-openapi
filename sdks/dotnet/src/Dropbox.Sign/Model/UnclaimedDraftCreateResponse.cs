@@ -45,7 +45,7 @@ namespace Dropbox.Sign.Model
         /// <param name="warnings">A list of warnings..</param>
         public UnclaimedDraftCreateResponse(UnclaimedDraftResponse unclaimedDraft = default(UnclaimedDraftResponse), List<WarningResponse> warnings = default(List<WarningResponse>))
         {
-            
+
             // to ensure "unclaimedDraft" is required (not null)
             if (unclaimedDraft == null)
             {
@@ -76,14 +76,14 @@ namespace Dropbox.Sign.Model
         /// </summary>
         [DataMember(Name = "unclaimed_draft", IsRequired = true, EmitDefaultValue = true)]
         public UnclaimedDraftResponse UnclaimedDraft { get; set; }
-        
+
         /// <summary>
         /// A list of warnings.
         /// </summary>
         /// <value>A list of warnings.</value>
         [DataMember(Name = "warnings", EmitDefaultValue = true)]
         public List<WarningResponse> Warnings { get; set; }
-        
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -128,12 +128,12 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
+            return
                 (
                     this.UnclaimedDraft == input.UnclaimedDraft ||
                     (this.UnclaimedDraft != null &&
                     this.UnclaimedDraft.Equals(input.UnclaimedDraft))
-                ) && 
+                ) &&
                 (
                     this.Warnings == input.Warnings ||
                     this.Warnings != null &&
@@ -175,13 +175,15 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "unclaimed_draft",
                 Property = "UnclaimedDraft",
                 Type = "UnclaimedDraftResponse",
                 Value = UnclaimedDraft,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "warnings",
                 Property = "Warnings",
                 Type = "List<WarningResponse>",

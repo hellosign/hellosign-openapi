@@ -45,7 +45,7 @@ namespace Dropbox.Sign.Model
         /// <param name="name">The name of the signer to send a reminder to. Include if two or more signers share an email address..</param>
         public SignatureRequestRemindRequest(string emailAddress = default(string), string name = default(string))
         {
-            
+
             // to ensure "emailAddress" is required (not null)
             if (emailAddress == null)
             {
@@ -77,14 +77,14 @@ namespace Dropbox.Sign.Model
         /// <value>The email address of the signer to send a reminder to.</value>
         [DataMember(Name = "email_address", IsRequired = true, EmitDefaultValue = true)]
         public string EmailAddress { get; set; }
-        
+
         /// <summary>
         /// The name of the signer to send a reminder to. Include if two or more signers share an email address.
         /// </summary>
         /// <value>The name of the signer to send a reminder to. Include if two or more signers share an email address.</value>
         [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
-        
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -129,12 +129,12 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
+            return
                 (
                     this.EmailAddress == input.EmailAddress ||
                     (this.EmailAddress != null &&
                     this.EmailAddress.Equals(input.EmailAddress))
-                ) && 
+                ) &&
                 (
                     this.Name == input.Name ||
                     (this.Name != null &&
@@ -175,13 +175,15 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "email_address",
                 Property = "EmailAddress",
                 Type = "string",
                 Value = EmailAddress,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "name",
                 Property = "Name",
                 Type = "string",

@@ -47,7 +47,7 @@ namespace Dropbox.Sign.Model
         /// <param name="createdAt">Time that the BulkSendJob was created..</param>
         public BulkSendJobResponse(string bulkSendJobId = default(string), int total = default(int), bool isCreator = default(bool), int createdAt = default(int))
         {
-            
+
             this.BulkSendJobId = bulkSendJobId;
             this.Total = total;
             this.IsCreator = isCreator;
@@ -76,28 +76,28 @@ namespace Dropbox.Sign.Model
         /// <value>The id of the BulkSendJob.</value>
         [DataMember(Name = "bulk_send_job_id", EmitDefaultValue = true)]
         public string BulkSendJobId { get; set; }
-        
+
         /// <summary>
         /// The total amount of Signature Requests queued for sending.
         /// </summary>
         /// <value>The total amount of Signature Requests queued for sending.</value>
         [DataMember(Name = "total", EmitDefaultValue = true)]
         public int Total { get; set; }
-        
+
         /// <summary>
         /// True if you are the owner of this BulkSendJob, false if it&#39;s been shared with you by a team member.
         /// </summary>
         /// <value>True if you are the owner of this BulkSendJob, false if it&#39;s been shared with you by a team member.</value>
         [DataMember(Name = "is_creator", EmitDefaultValue = true)]
         public bool IsCreator { get; set; }
-        
+
         /// <summary>
         /// Time that the BulkSendJob was created.
         /// </summary>
         /// <value>Time that the BulkSendJob was created.</value>
         [DataMember(Name = "created_at", EmitDefaultValue = true)]
         public int CreatedAt { get; set; }
-        
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -144,20 +144,20 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
+            return
                 (
                     this.BulkSendJobId == input.BulkSendJobId ||
                     (this.BulkSendJobId != null &&
                     this.BulkSendJobId.Equals(input.BulkSendJobId))
-                ) && 
+                ) &&
                 (
                     this.Total == input.Total ||
                     this.Total.Equals(input.Total)
-                ) && 
+                ) &&
                 (
                     this.IsCreator == input.IsCreator ||
                     this.IsCreator.Equals(input.IsCreator)
-                ) && 
+                ) &&
                 (
                     this.CreatedAt == input.CreatedAt ||
                     this.CreatedAt.Equals(input.CreatedAt)
@@ -196,25 +196,29 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "bulk_send_job_id",
                 Property = "BulkSendJobId",
                 Type = "string",
                 Value = BulkSendJobId,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "total",
                 Property = "Total",
                 Type = "int",
                 Value = Total,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "is_creator",
                 Property = "IsCreator",
                 Type = "bool",
                 Value = IsCreator,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "created_at",
                 Property = "CreatedAt",
                 Type = "int",

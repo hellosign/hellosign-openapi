@@ -44,7 +44,7 @@ namespace Dropbox.Sign.Model
         /// <param name="emailAddress">Email address to run the verification for. (required).</param>
         public AccountVerifyRequest(string emailAddress = default(string))
         {
-            
+
             // to ensure "emailAddress" is required (not null)
             if (emailAddress == null)
             {
@@ -75,7 +75,7 @@ namespace Dropbox.Sign.Model
         /// <value>Email address to run the verification for.</value>
         [DataMember(Name = "email_address", IsRequired = true, EmitDefaultValue = true)]
         public string EmailAddress { get; set; }
-        
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -119,7 +119,7 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
+            return
                 (
                     this.EmailAddress == input.EmailAddress ||
                     (this.EmailAddress != null &&
@@ -156,7 +156,8 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "email_address",
                 Property = "EmailAddress",
                 Type = "string",

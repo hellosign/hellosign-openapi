@@ -47,7 +47,7 @@ namespace Dropbox.Sign.Model
         /// <param name="accounts">accounts.</param>
         public FaxLineResponseFaxLine(string number = default(string), int createdAt = default(int), int updatedAt = default(int), List<AccountResponse> accounts = default(List<AccountResponse>))
         {
-            
+
             this.Number = number;
             this.CreatedAt = createdAt;
             this.UpdatedAt = updatedAt;
@@ -76,27 +76,27 @@ namespace Dropbox.Sign.Model
         /// <value>Number</value>
         [DataMember(Name = "number", EmitDefaultValue = true)]
         public string Number { get; set; }
-        
+
         /// <summary>
         /// Created at
         /// </summary>
         /// <value>Created at</value>
         [DataMember(Name = "created_at", EmitDefaultValue = true)]
         public int CreatedAt { get; set; }
-        
+
         /// <summary>
         /// Updated at
         /// </summary>
         /// <value>Updated at</value>
         [DataMember(Name = "updated_at", EmitDefaultValue = true)]
         public int UpdatedAt { get; set; }
-        
+
         /// <summary>
         /// Gets or Sets Accounts
         /// </summary>
         [DataMember(Name = "accounts", EmitDefaultValue = true)]
         public List<AccountResponse> Accounts { get; set; }
-        
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -143,20 +143,20 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
+            return
                 (
                     this.Number == input.Number ||
                     (this.Number != null &&
                     this.Number.Equals(input.Number))
-                ) && 
+                ) &&
                 (
                     this.CreatedAt == input.CreatedAt ||
                     this.CreatedAt.Equals(input.CreatedAt)
-                ) && 
+                ) &&
                 (
                     this.UpdatedAt == input.UpdatedAt ||
                     this.UpdatedAt.Equals(input.UpdatedAt)
-                ) && 
+                ) &&
                 (
                     this.Accounts == input.Accounts ||
                     this.Accounts != null &&
@@ -200,25 +200,29 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "number",
                 Property = "Number",
                 Type = "string",
                 Value = Number,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "created_at",
                 Property = "CreatedAt",
                 Type = "int",
                 Value = CreatedAt,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "updated_at",
                 Property = "UpdatedAt",
                 Type = "int",
                 Value = UpdatedAt,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "accounts",
                 Property = "Accounts",
                 Type = "List<AccountResponse>",

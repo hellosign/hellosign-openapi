@@ -44,7 +44,7 @@ namespace Dropbox.Sign.Model
         /// <param name="dataUri">File as base64 encoded string. (required).</param>
         public FileResponseDataUri(string dataUri = default(string))
         {
-            
+
             // to ensure "dataUri" is required (not null)
             if (dataUri == null)
             {
@@ -75,7 +75,7 @@ namespace Dropbox.Sign.Model
         /// <value>File as base64 encoded string.</value>
         [DataMember(Name = "data_uri", IsRequired = true, EmitDefaultValue = true)]
         public string DataUri { get; set; }
-        
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -119,7 +119,7 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
+            return
                 (
                     this.DataUri == input.DataUri ||
                     (this.DataUri != null &&
@@ -156,7 +156,8 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "data_uri",
                 Property = "DataUri",
                 Type = "string",

@@ -53,7 +53,7 @@ namespace Dropbox.Sign.Model
         /// <param name="group">The name of the group this field is in. If this field is not a group, this defaults to &#x60;null&#x60;..</param>
         public TemplateResponseDocumentStaticField(string name = default(string), string type = default(string), string signer = default(string), int x = default(int), int y = default(int), int width = default(int), int height = default(int), bool required = default(bool), string apiId = default(string), string group = default(string))
         {
-            
+
             this.Name = name;
             this.Type = type;
             this.Signer = signer;
@@ -204,47 +204,47 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
+            return
                 (
                     this.Name == input.Name ||
                     (this.Name != null &&
                     this.Name.Equals(input.Name))
-                ) && 
+                ) &&
                 (
                     this.Type == input.Type ||
                     (this.Type != null &&
                     this.Type.Equals(input.Type))
-                ) && 
+                ) &&
                 (
                     this.Signer == input.Signer ||
                     (this.Signer != null &&
                     this.Signer.Equals(input.Signer))
-                ) && 
+                ) &&
                 (
                     this.X == input.X ||
                     this.X.Equals(input.X)
-                ) && 
+                ) &&
                 (
                     this.Y == input.Y ||
                     this.Y.Equals(input.Y)
-                ) && 
+                ) &&
                 (
                     this.Width == input.Width ||
                     this.Width.Equals(input.Width)
-                ) && 
+                ) &&
                 (
                     this.Height == input.Height ||
                     this.Height.Equals(input.Height)
-                ) && 
+                ) &&
                 (
                     this.Required == input.Required ||
                     this.Required.Equals(input.Required)
-                ) && 
+                ) &&
                 (
                     this.ApiId == input.ApiId ||
                     (this.ApiId != null &&
                     this.ApiId.Equals(input.ApiId))
-                ) && 
+                ) &&
                 (
                     this.Group == input.Group ||
                     (this.Group != null &&
@@ -293,61 +293,71 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "name",
                 Property = "Name",
                 Type = "string",
                 Value = Name,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "type",
                 Property = "Type",
                 Type = "string",
                 Value = Type,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "signer",
                 Property = "Signer",
                 Type = "string",
                 Value = Signer,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "x",
                 Property = "X",
                 Type = "int",
                 Value = X,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "y",
                 Property = "Y",
                 Type = "int",
                 Value = Y,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "width",
                 Property = "Width",
                 Type = "int",
                 Value = Width,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "height",
                 Property = "Height",
                 Type = "int",
                 Value = Height,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "required",
                 Property = "Required",
                 Type = "bool",
                 Value = Required,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "api_id",
                 Property = "ApiId",
                 Type = "string",
                 Value = ApiId,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "group",
                 Property = "Group",
                 Type = "string",

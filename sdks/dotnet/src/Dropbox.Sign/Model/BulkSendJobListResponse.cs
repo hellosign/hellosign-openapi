@@ -46,7 +46,7 @@ namespace Dropbox.Sign.Model
         /// <param name="warnings">A list of warnings..</param>
         public BulkSendJobListResponse(List<BulkSendJobResponse> bulkSendJobs = default(List<BulkSendJobResponse>), ListInfoResponse listInfo = default(ListInfoResponse), List<WarningResponse> warnings = default(List<WarningResponse>))
         {
-            
+
             // to ensure "bulkSendJobs" is required (not null)
             if (bulkSendJobs == null)
             {
@@ -84,20 +84,20 @@ namespace Dropbox.Sign.Model
         /// <value>Contains a list of BulkSendJobs that the API caller has access to.</value>
         [DataMember(Name = "bulk_send_jobs", IsRequired = true, EmitDefaultValue = true)]
         public List<BulkSendJobResponse> BulkSendJobs { get; set; }
-        
+
         /// <summary>
         /// Gets or Sets ListInfo
         /// </summary>
         [DataMember(Name = "list_info", IsRequired = true, EmitDefaultValue = true)]
         public ListInfoResponse ListInfo { get; set; }
-        
+
         /// <summary>
         /// A list of warnings.
         /// </summary>
         /// <value>A list of warnings.</value>
         [DataMember(Name = "warnings", EmitDefaultValue = true)]
         public List<WarningResponse> Warnings { get; set; }
-        
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -143,18 +143,18 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
+            return
                 (
                     this.BulkSendJobs == input.BulkSendJobs ||
                     this.BulkSendJobs != null &&
                     input.BulkSendJobs != null &&
                     this.BulkSendJobs.SequenceEqual(input.BulkSendJobs)
-                ) && 
+                ) &&
                 (
                     this.ListInfo == input.ListInfo ||
                     (this.ListInfo != null &&
                     this.ListInfo.Equals(input.ListInfo))
-                ) && 
+                ) &&
                 (
                     this.Warnings == input.Warnings ||
                     this.Warnings != null &&
@@ -200,19 +200,22 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "bulk_send_jobs",
                 Property = "BulkSendJobs",
                 Type = "List<BulkSendJobResponse>",
                 Value = BulkSendJobs,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "list_info",
                 Property = "ListInfo",
                 Type = "ListInfoResponse",
                 Value = ListInfo,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "warnings",
                 Property = "Warnings",
                 Type = "List<WarningResponse>",

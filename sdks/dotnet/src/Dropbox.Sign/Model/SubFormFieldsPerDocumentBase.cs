@@ -66,7 +66,7 @@ namespace Dropbox.Sign.Model
         /// <param name="y">Location coordinates of the field in pixels. (required).</param>
         public SubFormFieldsPerDocumentBase(int documentIndex = default(int), string apiId = default(string), int height = default(int), string name = default(string), int? page = default(int?), bool required = default(bool), Object signer = null, string type = default(string), int width = default(int), int x = default(int), int y = default(int))
         {
-            
+
             this.DocumentIndex = documentIndex;
             // to ensure "apiId" is required (not null)
             if (apiId == null)
@@ -117,34 +117,35 @@ namespace Dropbox.Sign.Model
         /// <value>Represents the integer index of the &#x60;file&#x60; or &#x60;file_url&#x60; document the field should be attached to.</value>
         [DataMember(Name = "document_index", IsRequired = true, EmitDefaultValue = true)]
         public int DocumentIndex { get; set; }
-        
+
         /// <summary>
         /// An identifier for the field that is unique across all documents in the request.
         /// </summary>
         /// <value>An identifier for the field that is unique across all documents in the request.</value>
         [DataMember(Name = "api_id", IsRequired = true, EmitDefaultValue = true)]
         public string ApiId { get; set; }
-        
+
         /// <summary>
         /// Size of the field in pixels.
         /// </summary>
         /// <value>Size of the field in pixels.</value>
         [DataMember(Name = "height", IsRequired = true, EmitDefaultValue = true)]
         public int Height { get; set; }
-        
+
         /// <summary>
         /// Whether this field is required.
         /// </summary>
         /// <value>Whether this field is required.</value>
         [DataMember(Name = "required", IsRequired = true, EmitDefaultValue = true)]
         public bool Required { get; set; }
-        
+
         /// <summary>
         /// Signer index identified by the offset in the signers parameter (0-based indexing), indicating which signer should fill out the field.  **NOTE:** To set the value of the field as the preparer you must set this to &#x60;me_now&#x60;  **NOTE:** If type is &#x60;text-merge&#x60; or &#x60;checkbox-merge&#x60;, you must set this to sender in order to use pre-filled data.
         /// </summary>
         /// <value>Signer index identified by the offset in the signers parameter (0-based indexing), indicating which signer should fill out the field.  **NOTE:** To set the value of the field as the preparer you must set this to &#x60;me_now&#x60;  **NOTE:** If type is &#x60;text-merge&#x60; or &#x60;checkbox-merge&#x60;, you must set this to sender in order to use pre-filled data.</value>
         [DataMember(Name = "signer", IsRequired = true, EmitDefaultValue = true)]
-        public object Signer {
+        public object Signer
+        {
             get => this._signer;
             set => this._signer = Convert.ToString(value);
         }
@@ -155,42 +156,42 @@ namespace Dropbox.Sign.Model
         /// </summary>
         [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
         public string Type { get; set; }
-        
+
         /// <summary>
         /// Size of the field in pixels.
         /// </summary>
         /// <value>Size of the field in pixels.</value>
         [DataMember(Name = "width", IsRequired = true, EmitDefaultValue = true)]
         public int Width { get; set; }
-        
+
         /// <summary>
         /// Location coordinates of the field in pixels.
         /// </summary>
         /// <value>Location coordinates of the field in pixels.</value>
         [DataMember(Name = "x", IsRequired = true, EmitDefaultValue = true)]
         public int X { get; set; }
-        
+
         /// <summary>
         /// Location coordinates of the field in pixels.
         /// </summary>
         /// <value>Location coordinates of the field in pixels.</value>
         [DataMember(Name = "y", IsRequired = true, EmitDefaultValue = true)]
         public int Y { get; set; }
-        
+
         /// <summary>
         /// Display name for the field.
         /// </summary>
         /// <value>Display name for the field.</value>
         [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
-        
+
         /// <summary>
         /// Page in the document where the field should be placed (requires documents be PDF files).  - When the page number parameter is supplied, the API will use the new coordinate system. - Check out the differences between both [coordinate systems](https://faq.hellosign.com/hc/en-us/articles/217115577) and how to use them.
         /// </summary>
         /// <value>Page in the document where the field should be placed (requires documents be PDF files).  - When the page number parameter is supplied, the API will use the new coordinate system. - Check out the differences between both [coordinate systems](https://faq.hellosign.com/hc/en-us/articles/217115577) and how to use them.</value>
         [DataMember(Name = "page", EmitDefaultValue = true)]
         public int? Page { get; set; }
-        
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -244,51 +245,51 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
+            return
                 (
                     this.DocumentIndex == input.DocumentIndex ||
                     this.DocumentIndex.Equals(input.DocumentIndex)
-                ) && 
+                ) &&
                 (
                     this.ApiId == input.ApiId ||
                     (this.ApiId != null &&
                     this.ApiId.Equals(input.ApiId))
-                ) && 
+                ) &&
                 (
                     this.Height == input.Height ||
                     this.Height.Equals(input.Height)
-                ) && 
+                ) &&
                 (
                     this.Required == input.Required ||
                     this.Required.Equals(input.Required)
-                ) && 
+                ) &&
                 (
                     this.Signer == input.Signer ||
                     (this.Signer != null &&
                     this.Signer.Equals(input.Signer))
-                ) && 
+                ) &&
                 (
                     this.Type == input.Type ||
                     (this.Type != null &&
                     this.Type.Equals(input.Type))
-                ) && 
+                ) &&
                 (
                     this.Width == input.Width ||
                     this.Width.Equals(input.Width)
-                ) && 
+                ) &&
                 (
                     this.X == input.X ||
                     this.X.Equals(input.X)
-                ) && 
+                ) &&
                 (
                     this.Y == input.Y ||
                     this.Y.Equals(input.Y)
-                ) && 
+                ) &&
                 (
                     this.Name == input.Name ||
                     (this.Name != null &&
                     this.Name.Equals(input.Name))
-                ) && 
+                ) &&
                 (
                     this.Page == input.Page ||
                     (this.Page != null &&
@@ -357,67 +358,78 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "document_index",
                 Property = "DocumentIndex",
                 Type = "int",
                 Value = DocumentIndex,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "api_id",
                 Property = "ApiId",
                 Type = "string",
                 Value = ApiId,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "height",
                 Property = "Height",
                 Type = "int",
                 Value = Height,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "required",
                 Property = "Required",
                 Type = "bool",
                 Value = Required,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "signer",
                 Property = "Signer",
                 Type = "string",
                 Value = Signer,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "type",
                 Property = "Type",
                 Type = "string",
                 Value = Type,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "width",
                 Property = "Width",
                 Type = "int",
                 Value = Width,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "x",
                 Property = "X",
                 Type = "int",
                 Value = X,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "y",
                 Property = "Y",
                 Type = "int",
                 Value = Y,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "name",
                 Property = "Name",
                 Type = "string",
                 Value = Name,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "page",
                 Property = "Page",
                 Type = "int?",

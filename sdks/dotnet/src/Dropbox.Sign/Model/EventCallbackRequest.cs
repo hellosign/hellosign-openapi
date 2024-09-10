@@ -47,7 +47,7 @@ namespace Dropbox.Sign.Model
         /// <param name="template">template.</param>
         public EventCallbackRequest(EventCallbackRequestEvent varEvent = default(EventCallbackRequestEvent), AccountResponse account = default(AccountResponse), SignatureRequestResponse signatureRequest = default(SignatureRequestResponse), TemplateResponse template = default(TemplateResponse))
         {
-            
+
             // to ensure "varEvent" is required (not null)
             if (varEvent == null)
             {
@@ -80,25 +80,25 @@ namespace Dropbox.Sign.Model
         /// </summary>
         [DataMember(Name = "event", IsRequired = true, EmitDefaultValue = true)]
         public EventCallbackRequestEvent Event { get; set; }
-        
+
         /// <summary>
         /// Gets or Sets Account
         /// </summary>
         [DataMember(Name = "account", EmitDefaultValue = true)]
         public AccountResponse Account { get; set; }
-        
+
         /// <summary>
         /// Gets or Sets SignatureRequest
         /// </summary>
         [DataMember(Name = "signature_request", EmitDefaultValue = true)]
         public SignatureRequestResponse SignatureRequest { get; set; }
-        
+
         /// <summary>
         /// Gets or Sets Template
         /// </summary>
         [DataMember(Name = "template", EmitDefaultValue = true)]
         public TemplateResponse Template { get; set; }
-        
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -145,22 +145,22 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
+            return
                 (
                     this.Event == input.Event ||
                     (this.Event != null &&
                     this.Event.Equals(input.Event))
-                ) && 
+                ) &&
                 (
                     this.Account == input.Account ||
                     (this.Account != null &&
                     this.Account.Equals(input.Account))
-                ) && 
+                ) &&
                 (
                     this.SignatureRequest == input.SignatureRequest ||
                     (this.SignatureRequest != null &&
                     this.SignatureRequest.Equals(input.SignatureRequest))
-                ) && 
+                ) &&
                 (
                     this.Template == input.Template ||
                     (this.Template != null &&
@@ -209,25 +209,29 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "event",
                 Property = "Event",
                 Type = "EventCallbackRequestEvent",
                 Value = Event,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "account",
                 Property = "Account",
                 Type = "AccountResponse",
                 Value = Account,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "signature_request",
                 Property = "SignatureRequest",
                 Type = "SignatureRequestResponse",
                 Value = SignatureRequest,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "template",
                 Property = "Template",
                 Type = "TemplateResponse",

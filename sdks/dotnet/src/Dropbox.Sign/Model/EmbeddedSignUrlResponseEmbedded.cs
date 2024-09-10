@@ -45,7 +45,7 @@ namespace Dropbox.Sign.Model
         /// <param name="expiresAt">The specific time that the the &#x60;sign_url&#x60; link expires, in epoch..</param>
         public EmbeddedSignUrlResponseEmbedded(string signUrl = default(string), int expiresAt = default(int))
         {
-            
+
             this.SignUrl = signUrl;
             this.ExpiresAt = expiresAt;
         }
@@ -72,14 +72,14 @@ namespace Dropbox.Sign.Model
         /// <value>A signature url that can be opened in an iFrame.</value>
         [DataMember(Name = "sign_url", EmitDefaultValue = true)]
         public string SignUrl { get; set; }
-        
+
         /// <summary>
         /// The specific time that the the &#x60;sign_url&#x60; link expires, in epoch.
         /// </summary>
         /// <value>The specific time that the the &#x60;sign_url&#x60; link expires, in epoch.</value>
         [DataMember(Name = "expires_at", EmitDefaultValue = true)]
         public int ExpiresAt { get; set; }
-        
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -124,12 +124,12 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
+            return
                 (
                     this.SignUrl == input.SignUrl ||
                     (this.SignUrl != null &&
                     this.SignUrl.Equals(input.SignUrl))
-                ) && 
+                ) &&
                 (
                     this.ExpiresAt == input.ExpiresAt ||
                     this.ExpiresAt.Equals(input.ExpiresAt)
@@ -166,13 +166,15 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "sign_url",
                 Property = "SignUrl",
                 Type = "string",
                 Value = SignUrl,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "expires_at",
                 Property = "ExpiresAt",
                 Type = "int",

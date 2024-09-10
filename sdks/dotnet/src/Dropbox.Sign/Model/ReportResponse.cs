@@ -66,7 +66,7 @@ namespace Dropbox.Sign.Model
         /// <param name="reportType">The type(s) of the report you are requesting. Allowed values are \&quot;user_activity\&quot; and \&quot;document_status\&quot;. User activity reports contain list of all users and their activity during the specified date range. Document status report contain a list of signature requests created in the specified time range (and their status)..</param>
         public ReportResponse(string success = default(string), string startDate = default(string), string endDate = default(string), List<ReportTypeEnum> reportType = default(List<ReportTypeEnum>))
         {
-            
+
             this.Success = success;
             this.StartDate = startDate;
             this.EndDate = endDate;
@@ -95,28 +95,28 @@ namespace Dropbox.Sign.Model
         /// <value>A message indicating the requested operation&#39;s success</value>
         [DataMember(Name = "success", EmitDefaultValue = true)]
         public string Success { get; set; }
-        
+
         /// <summary>
         /// The (inclusive) start date for the report data in MM/DD/YYYY format.
         /// </summary>
         /// <value>The (inclusive) start date for the report data in MM/DD/YYYY format.</value>
         [DataMember(Name = "start_date", EmitDefaultValue = true)]
         public string StartDate { get; set; }
-        
+
         /// <summary>
         /// The (inclusive) end date for the report data in MM/DD/YYYY format.
         /// </summary>
         /// <value>The (inclusive) end date for the report data in MM/DD/YYYY format.</value>
         [DataMember(Name = "end_date", EmitDefaultValue = true)]
         public string EndDate { get; set; }
-        
+
         /// <summary>
         /// The type(s) of the report you are requesting. Allowed values are \&quot;user_activity\&quot; and \&quot;document_status\&quot;. User activity reports contain list of all users and their activity during the specified date range. Document status report contain a list of signature requests created in the specified time range (and their status).
         /// </summary>
         /// <value>The type(s) of the report you are requesting. Allowed values are \&quot;user_activity\&quot; and \&quot;document_status\&quot;. User activity reports contain list of all users and their activity during the specified date range. Document status report contain a list of signature requests created in the specified time range (and their status).</value>
         [DataMember(Name = "report_type", EmitDefaultValue = true)]
         public List<ReportResponse.ReportTypeEnum> ReportType { get; set; }
-        
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -163,22 +163,22 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
+            return
                 (
                     this.Success == input.Success ||
                     (this.Success != null &&
                     this.Success.Equals(input.Success))
-                ) && 
+                ) &&
                 (
                     this.StartDate == input.StartDate ||
                     (this.StartDate != null &&
                     this.StartDate.Equals(input.StartDate))
-                ) && 
+                ) &&
                 (
                     this.EndDate == input.EndDate ||
                     (this.EndDate != null &&
                     this.EndDate.Equals(input.EndDate))
-                ) && 
+                ) &&
                 (
                     this.ReportType == input.ReportType ||
                     this.ReportType != null &&
@@ -228,25 +228,29 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "success",
                 Property = "Success",
                 Type = "string",
                 Value = Success,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "start_date",
                 Property = "StartDate",
                 Type = "string",
                 Value = StartDate,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "end_date",
                 Property = "EndDate",
                 Type = "string",
                 Value = EndDate,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "report_type",
                 Property = "ReportType",
                 Type = "List<ReportResponse.ReportTypeEnum>",

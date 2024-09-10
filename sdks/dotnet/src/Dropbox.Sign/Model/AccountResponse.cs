@@ -54,7 +54,7 @@ namespace Dropbox.Sign.Model
         /// <param name="usage">usage.</param>
         public AccountResponse(string accountId = default(string), string emailAddress = default(string), bool isLocked = default(bool), bool isPaidHs = default(bool), bool isPaidHf = default(bool), AccountResponseQuotas quotas = default(AccountResponseQuotas), string callbackUrl = default(string), string roleCode = default(string), string teamId = default(string), string locale = default(string), AccountResponseUsage usage = default(AccountResponseUsage))
         {
-            
+
             this.AccountId = accountId;
             this.EmailAddress = emailAddress;
             this.IsLocked = isLocked;
@@ -90,75 +90,75 @@ namespace Dropbox.Sign.Model
         /// <value>The ID of the Account</value>
         [DataMember(Name = "account_id", EmitDefaultValue = true)]
         public string AccountId { get; set; }
-        
+
         /// <summary>
         /// The email address associated with the Account.
         /// </summary>
         /// <value>The email address associated with the Account.</value>
         [DataMember(Name = "email_address", EmitDefaultValue = true)]
         public string EmailAddress { get; set; }
-        
+
         /// <summary>
         /// Returns &#x60;true&#x60; if the user has been locked out of their account by a team admin.
         /// </summary>
         /// <value>Returns &#x60;true&#x60; if the user has been locked out of their account by a team admin.</value>
         [DataMember(Name = "is_locked", EmitDefaultValue = true)]
         public bool IsLocked { get; set; }
-        
+
         /// <summary>
         /// Returns &#x60;true&#x60; if the user has a paid Dropbox Sign account.
         /// </summary>
         /// <value>Returns &#x60;true&#x60; if the user has a paid Dropbox Sign account.</value>
         [DataMember(Name = "is_paid_hs", EmitDefaultValue = true)]
         public bool IsPaidHs { get; set; }
-        
+
         /// <summary>
         /// Returns &#x60;true&#x60; if the user has a paid HelloFax account.
         /// </summary>
         /// <value>Returns &#x60;true&#x60; if the user has a paid HelloFax account.</value>
         [DataMember(Name = "is_paid_hf", EmitDefaultValue = true)]
         public bool IsPaidHf { get; set; }
-        
+
         /// <summary>
         /// Gets or Sets Quotas
         /// </summary>
         [DataMember(Name = "quotas", EmitDefaultValue = true)]
         public AccountResponseQuotas Quotas { get; set; }
-        
+
         /// <summary>
         /// The URL that Dropbox Sign events will &#x60;POST&#x60; to.
         /// </summary>
         /// <value>The URL that Dropbox Sign events will &#x60;POST&#x60; to.</value>
         [DataMember(Name = "callback_url", EmitDefaultValue = true)]
         public string CallbackUrl { get; set; }
-        
+
         /// <summary>
         /// The membership role for the team.
         /// </summary>
         /// <value>The membership role for the team.</value>
         [DataMember(Name = "role_code", EmitDefaultValue = true)]
         public string RoleCode { get; set; }
-        
+
         /// <summary>
         /// The id of the team account belongs to.
         /// </summary>
         /// <value>The id of the team account belongs to.</value>
         [DataMember(Name = "team_id", EmitDefaultValue = true)]
         public string TeamId { get; set; }
-        
+
         /// <summary>
         /// The locale used in this Account. Check out the list of [supported locales](/api/reference/constants/#supported-locales) to learn more about the possible values.
         /// </summary>
         /// <value>The locale used in this Account. Check out the list of [supported locales](/api/reference/constants/#supported-locales) to learn more about the possible values.</value>
         [DataMember(Name = "locale", EmitDefaultValue = true)]
         public string Locale { get; set; }
-        
+
         /// <summary>
         /// Gets or Sets Usage
         /// </summary>
         [DataMember(Name = "usage", EmitDefaultValue = true)]
         public AccountResponseUsage Usage { get; set; }
-        
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -212,54 +212,54 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
+            return
                 (
                     this.AccountId == input.AccountId ||
                     (this.AccountId != null &&
                     this.AccountId.Equals(input.AccountId))
-                ) && 
+                ) &&
                 (
                     this.EmailAddress == input.EmailAddress ||
                     (this.EmailAddress != null &&
                     this.EmailAddress.Equals(input.EmailAddress))
-                ) && 
+                ) &&
                 (
                     this.IsLocked == input.IsLocked ||
                     this.IsLocked.Equals(input.IsLocked)
-                ) && 
+                ) &&
                 (
                     this.IsPaidHs == input.IsPaidHs ||
                     this.IsPaidHs.Equals(input.IsPaidHs)
-                ) && 
+                ) &&
                 (
                     this.IsPaidHf == input.IsPaidHf ||
                     this.IsPaidHf.Equals(input.IsPaidHf)
-                ) && 
+                ) &&
                 (
                     this.Quotas == input.Quotas ||
                     (this.Quotas != null &&
                     this.Quotas.Equals(input.Quotas))
-                ) && 
+                ) &&
                 (
                     this.CallbackUrl == input.CallbackUrl ||
                     (this.CallbackUrl != null &&
                     this.CallbackUrl.Equals(input.CallbackUrl))
-                ) && 
+                ) &&
                 (
                     this.RoleCode == input.RoleCode ||
                     (this.RoleCode != null &&
                     this.RoleCode.Equals(input.RoleCode))
-                ) && 
+                ) &&
                 (
                     this.TeamId == input.TeamId ||
                     (this.TeamId != null &&
                     this.TeamId.Equals(input.TeamId))
-                ) && 
+                ) &&
                 (
                     this.Locale == input.Locale ||
                     (this.Locale != null &&
                     this.Locale.Equals(input.Locale))
-                ) && 
+                ) &&
                 (
                     this.Usage == input.Usage ||
                     (this.Usage != null &&
@@ -327,67 +327,78 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "account_id",
                 Property = "AccountId",
                 Type = "string",
                 Value = AccountId,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "email_address",
                 Property = "EmailAddress",
                 Type = "string",
                 Value = EmailAddress,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "is_locked",
                 Property = "IsLocked",
                 Type = "bool",
                 Value = IsLocked,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "is_paid_hs",
                 Property = "IsPaidHs",
                 Type = "bool",
                 Value = IsPaidHs,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "is_paid_hf",
                 Property = "IsPaidHf",
                 Type = "bool",
                 Value = IsPaidHf,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "quotas",
                 Property = "Quotas",
                 Type = "AccountResponseQuotas",
                 Value = Quotas,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "callback_url",
                 Property = "CallbackUrl",
                 Type = "string",
                 Value = CallbackUrl,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "role_code",
                 Property = "RoleCode",
                 Type = "string",
                 Value = RoleCode,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "team_id",
                 Property = "TeamId",
                 Type = "string",
                 Value = TeamId,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "locale",
                 Property = "Locale",
                 Type = "string",
                 Value = Locale,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "usage",
                 Property = "Usage",
                 Type = "AccountResponseUsage",

@@ -45,7 +45,7 @@ namespace Dropbox.Sign.Model
         /// <param name="warnings">warnings.</param>
         public FaxLineResponse(FaxLineResponseFaxLine faxLine = default(FaxLineResponseFaxLine), WarningResponse warnings = default(WarningResponse))
         {
-            
+
             // to ensure "faxLine" is required (not null)
             if (faxLine == null)
             {
@@ -76,13 +76,13 @@ namespace Dropbox.Sign.Model
         /// </summary>
         [DataMember(Name = "fax_line", IsRequired = true, EmitDefaultValue = true)]
         public FaxLineResponseFaxLine FaxLine { get; set; }
-        
+
         /// <summary>
         /// Gets or Sets Warnings
         /// </summary>
         [DataMember(Name = "warnings", EmitDefaultValue = true)]
         public WarningResponse Warnings { get; set; }
-        
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -127,12 +127,12 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
+            return
                 (
                     this.FaxLine == input.FaxLine ||
                     (this.FaxLine != null &&
                     this.FaxLine.Equals(input.FaxLine))
-                ) && 
+                ) &&
                 (
                     this.Warnings == input.Warnings ||
                     (this.Warnings != null &&
@@ -173,13 +173,15 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "fax_line",
                 Property = "FaxLine",
                 Type = "FaxLineResponseFaxLine",
                 Value = FaxLine,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "warnings",
                 Property = "Warnings",
                 Type = "WarningResponse",

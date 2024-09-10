@@ -46,7 +46,7 @@ namespace Dropbox.Sign.Model
         /// <param name="order">The order the signer is required to sign in..</param>
         public SubUnclaimedDraftSigner(string emailAddress = default(string), string name = default(string), int? order = default(int?))
         {
-            
+
             // to ensure "emailAddress" is required (not null)
             if (emailAddress == null)
             {
@@ -84,21 +84,21 @@ namespace Dropbox.Sign.Model
         /// <value>The email address of the signer.</value>
         [DataMember(Name = "email_address", IsRequired = true, EmitDefaultValue = true)]
         public string EmailAddress { get; set; }
-        
+
         /// <summary>
         /// The name of the signer.
         /// </summary>
         /// <value>The name of the signer.</value>
         [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
         public string Name { get; set; }
-        
+
         /// <summary>
         /// The order the signer is required to sign in.
         /// </summary>
         /// <value>The order the signer is required to sign in.</value>
         [DataMember(Name = "order", EmitDefaultValue = true)]
         public int? Order { get; set; }
-        
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -144,17 +144,17 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
+            return
                 (
                     this.EmailAddress == input.EmailAddress ||
                     (this.EmailAddress != null &&
                     this.EmailAddress.Equals(input.EmailAddress))
-                ) && 
+                ) &&
                 (
                     this.Name == input.Name ||
                     (this.Name != null &&
                     this.Name.Equals(input.Name))
-                ) && 
+                ) &&
                 (
                     this.Order == input.Order ||
                     (this.Order != null &&
@@ -199,19 +199,22 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "email_address",
                 Property = "EmailAddress",
                 Type = "string",
                 Value = EmailAddress,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "name",
                 Property = "Name",
                 Type = "string",
                 Value = Name,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "order",
                 Property = "Order",
                 Type = "int?",

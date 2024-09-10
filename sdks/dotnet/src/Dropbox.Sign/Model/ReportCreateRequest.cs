@@ -65,7 +65,7 @@ namespace Dropbox.Sign.Model
         /// <param name="startDate">The (inclusive) start date for the report data in &#x60;MM/DD/YYYY&#x60; format. (required).</param>
         public ReportCreateRequest(string endDate = default(string), List<ReportTypeEnum> reportType = default(List<ReportTypeEnum>), string startDate = default(string))
         {
-            
+
             // to ensure "endDate" is required (not null)
             if (endDate == null)
             {
@@ -108,21 +108,21 @@ namespace Dropbox.Sign.Model
         /// <value>The (inclusive) end date for the report data in &#x60;MM/DD/YYYY&#x60; format.</value>
         [DataMember(Name = "end_date", IsRequired = true, EmitDefaultValue = true)]
         public string EndDate { get; set; }
-        
+
         /// <summary>
         /// The type(s) of the report you are requesting. Allowed values are &#x60;user_activity&#x60; and &#x60;document_status&#x60;. User activity reports contain list of all users and their activity during the specified date range. Document status report contain a list of signature requests created in the specified time range (and their status).
         /// </summary>
         /// <value>The type(s) of the report you are requesting. Allowed values are &#x60;user_activity&#x60; and &#x60;document_status&#x60;. User activity reports contain list of all users and their activity during the specified date range. Document status report contain a list of signature requests created in the specified time range (and their status).</value>
         [DataMember(Name = "report_type", IsRequired = true, EmitDefaultValue = true)]
         public List<ReportCreateRequest.ReportTypeEnum> ReportType { get; set; }
-        
+
         /// <summary>
         /// The (inclusive) start date for the report data in &#x60;MM/DD/YYYY&#x60; format.
         /// </summary>
         /// <value>The (inclusive) start date for the report data in &#x60;MM/DD/YYYY&#x60; format.</value>
         [DataMember(Name = "start_date", IsRequired = true, EmitDefaultValue = true)]
         public string StartDate { get; set; }
-        
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -168,18 +168,18 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
+            return
                 (
                     this.EndDate == input.EndDate ||
                     (this.EndDate != null &&
                     this.EndDate.Equals(input.EndDate))
-                ) && 
+                ) &&
                 (
                     this.ReportType == input.ReportType ||
                     this.ReportType != null &&
                     input.ReportType != null &&
                     this.ReportType.SequenceEqual(input.ReportType)
-                ) && 
+                ) &&
                 (
                     this.StartDate == input.StartDate ||
                     (this.StartDate != null &&
@@ -224,19 +224,22 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "end_date",
                 Property = "EndDate",
                 Type = "string",
                 Value = EndDate,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "report_type",
                 Property = "ReportType",
                 Type = "List<ReportCreateRequest.ReportTypeEnum>",
                 Value = ReportType,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "start_date",
                 Property = "StartDate",
                 Type = "string",

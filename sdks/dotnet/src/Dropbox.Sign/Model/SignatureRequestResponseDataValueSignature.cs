@@ -53,7 +53,7 @@ namespace Dropbox.Sign.Model
             this.SignatureId = signatureId;
             this.Name = name;
             this.Required = required;
-            
+
             // use default value if no "type" provided
             this.Type = type ?? "signature";
             this.Value = value;
@@ -81,14 +81,14 @@ namespace Dropbox.Sign.Model
         /// <value>A signature input field</value>
         [DataMember(Name = "type", EmitDefaultValue = true)]
         public string Type { get; set; }
-        
+
         /// <summary>
         /// The value of the form field.
         /// </summary>
         /// <value>The value of the form field.</value>
         [DataMember(Name = "value", EmitDefaultValue = true)]
         public string Value { get; set; }
-        
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -134,12 +134,12 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return base.Equals(input) && 
+            return base.Equals(input) &&
                 (
                     this.Type == input.Type ||
                     (this.Type != null &&
                     this.Type.Equals(input.Type))
-                ) && base.Equals(input) && 
+                ) && base.Equals(input) &&
                 (
                     this.Value == input.Value ||
                     (this.Value != null &&
@@ -194,13 +194,15 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "type",
                 Property = "Type",
                 Type = "string",
                 Value = Type,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "value",
                 Property = "Value",
                 Type = "string",

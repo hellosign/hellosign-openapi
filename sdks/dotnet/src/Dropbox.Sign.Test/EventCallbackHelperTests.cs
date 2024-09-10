@@ -36,7 +36,7 @@ namespace Dropbox.Sign.Test
                     EventCallbackHelper.GetCallbackType(callbackEvent)
                 );
             }
-            
+
             var app_keys = new List<string>
             {
                 "base",
@@ -53,7 +53,7 @@ namespace Dropbox.Sign.Test
                 Assert.True(EventCallbackHelper.IsValid(ApiKey, callbackEvent));
                 Assert.False(EventCallbackHelper.IsValid(Reverse(ApiKey), callbackEvent));
                 Assert.Equal(
-                    EventCallbackHelper.EVENT_TYPE_APP_CALLBACK, 
+                    EventCallbackHelper.EVENT_TYPE_APP_CALLBACK,
                     EventCallbackHelper.GetCallbackType(callbackEvent)
                 );
             }

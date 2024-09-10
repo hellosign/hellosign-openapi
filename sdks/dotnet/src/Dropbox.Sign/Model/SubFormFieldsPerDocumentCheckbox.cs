@@ -66,7 +66,7 @@ namespace Dropbox.Sign.Model
             this.Y = y;
             this.Name = name;
             this.Page = page;
-            
+
             // to ensure "type" is required (not null)
             if (type == null)
             {
@@ -99,21 +99,21 @@ namespace Dropbox.Sign.Model
         /// <value>A yes/no checkbox. Use the &#x60;SubFormFieldsPerDocumentCheckbox&#x60; class.</value>
         [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
         public string Type { get; set; }
-        
+
         /// <summary>
         /// &#x60;true&#x60; for checking the checkbox field by default, otherwise &#x60;false&#x60;.
         /// </summary>
         /// <value>&#x60;true&#x60; for checking the checkbox field by default, otherwise &#x60;false&#x60;.</value>
         [DataMember(Name = "is_checked", IsRequired = true, EmitDefaultValue = true)]
         public bool IsChecked { get; set; }
-        
+
         /// <summary>
         /// String referencing group defined in &#x60;form_field_groups&#x60; parameter.
         /// </summary>
         /// <value>String referencing group defined in &#x60;form_field_groups&#x60; parameter.</value>
         [DataMember(Name = "group", EmitDefaultValue = true)]
         public string Group { get; set; }
-        
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -160,16 +160,16 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return base.Equals(input) && 
+            return base.Equals(input) &&
                 (
                     this.Type == input.Type ||
                     (this.Type != null &&
                     this.Type.Equals(input.Type))
-                ) && base.Equals(input) && 
+                ) && base.Equals(input) &&
                 (
                     this.IsChecked == input.IsChecked ||
                     this.IsChecked.Equals(input.IsChecked)
-                ) && base.Equals(input) && 
+                ) && base.Equals(input) &&
                 (
                     this.Group == input.Group ||
                     (this.Group != null &&
@@ -225,19 +225,22 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "type",
                 Property = "Type",
                 Type = "string",
                 Value = Type,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "is_checked",
                 Property = "IsChecked",
                 Type = "bool",
                 Value = IsChecked,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "group",
                 Property = "Group",
                 Type = "string",

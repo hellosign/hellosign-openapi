@@ -45,7 +45,7 @@ namespace Dropbox.Sign.Model
         /// <param name="signers">Add Signers to your Templated-based Signature Request. Allows the requester to specify editor options when a preparing a document.  Currently only templates with a single role are supported. All signers must have the same &#x60;role&#x60; value..</param>
         public SubBulkSignerList(List<SubBulkSignerListCustomField> customFields = default(List<SubBulkSignerListCustomField>), List<SubSignatureRequestTemplateSigner> signers = default(List<SubSignatureRequestTemplateSigner>))
         {
-            
+
             this.CustomFields = customFields;
             this.Signers = signers;
         }
@@ -72,14 +72,14 @@ namespace Dropbox.Sign.Model
         /// <value>An array of custom field values.</value>
         [DataMember(Name = "custom_fields", EmitDefaultValue = true)]
         public List<SubBulkSignerListCustomField> CustomFields { get; set; }
-        
+
         /// <summary>
         /// Add Signers to your Templated-based Signature Request. Allows the requester to specify editor options when a preparing a document.  Currently only templates with a single role are supported. All signers must have the same &#x60;role&#x60; value.
         /// </summary>
         /// <value>Add Signers to your Templated-based Signature Request. Allows the requester to specify editor options when a preparing a document.  Currently only templates with a single role are supported. All signers must have the same &#x60;role&#x60; value.</value>
         [DataMember(Name = "signers", EmitDefaultValue = true)]
         public List<SubSignatureRequestTemplateSigner> Signers { get; set; }
-        
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -124,13 +124,13 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
+            return
                 (
                     this.CustomFields == input.CustomFields ||
                     this.CustomFields != null &&
                     input.CustomFields != null &&
                     this.CustomFields.SequenceEqual(input.CustomFields)
-                ) && 
+                ) &&
                 (
                     this.Signers == input.Signers ||
                     this.Signers != null &&
@@ -172,13 +172,15 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "custom_fields",
                 Property = "CustomFields",
                 Type = "List<SubBulkSignerListCustomField>",
                 Value = CustomFields,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "signers",
                 Property = "Signers",
                 Type = "List<SubSignatureRequestTemplateSigner>",
