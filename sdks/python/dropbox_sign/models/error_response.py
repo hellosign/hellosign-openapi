@@ -27,10 +27,12 @@ import io
 from pydantic import StrictBool
 from typing import Union
 
+
 class ErrorResponse(BaseModel):
     """
     ErrorResponse
-    """ # noqa: E501
+    """  # noqa: E501
+
     error: ErrorResponseError
     __properties: ClassVar[List[str]] = ["error"]
 
@@ -41,7 +43,6 @@ class ErrorResponse(BaseModel):
         arbitrary_types_allowed=True,
     )
 
-
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
         return pprint.pformat(self.model_dump(by_alias=True))
@@ -51,7 +52,9 @@ class ErrorResponse(BaseModel):
         # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
-    def to_json_form_params(self, excluded_fields: Set[str] = None) -> List[Tuple[str, str]]:
+    def to_json_form_params(
+        self, excluded_fields: Set[str] = None
+    ) -> List[Tuple[str, str]]:
         data: List[Tuple[str, str]] = []
 
         for key, value in self.to_dict(excluded_fields).items():
@@ -85,7 +88,7 @@ class ErrorResponse(BaseModel):
         )
         # override the default output from pydantic by calling `to_dict()` of error
         if self.error:
-            _dict['error'] = self.error.to_dict()
+            _dict["error"] = self.error.to_dict()
         return _dict
 
     @classmethod
@@ -97,9 +100,15 @@ class ErrorResponse(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "error": ErrorResponseError.from_dict(obj["error"]) if obj.get("error") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "error": (
+                    ErrorResponseError.from_dict(obj["error"])
+                    if obj.get("error") is not None
+                    else None
+                )
+            }
+        )
         return _obj
 
     @classmethod
@@ -120,6 +129,4 @@ class ErrorResponse(BaseModel):
 
     @classmethod
     def openapi_type_is_array(cls, property_name: str) -> bool:
-        return property_name in [
-        ]
-
+        return property_name in []

@@ -14,16 +14,14 @@ class TestReportApi(unittest.TestCase):
         self.api = apis.ReportApi(self.api_client)
 
     def test_embedded_edit_url(self):
-        request_class = 'ReportCreateRequest'
-        request_data = get_fixture_data(request_class)['default']
+        request_class = "ReportCreateRequest"
+        request_data = get_fixture_data(request_class)["default"]
 
-        response_class = 'ReportCreateResponse'
-        response_data = get_fixture_data(response_class)['default']
+        response_class = "ReportCreateResponse"
+        response_data = get_fixture_data(response_class)["default"]
 
         self.mock_pool.expect_request(
-            content_type='application/json',
-            data=request_data,
-            response=response_data
+            content_type="application/json", data=request_data, response=response_data
         )
         expected = m.ReportCreateResponse.init(response_data)
         obj = m.ReportCreateRequest.init(request_data)
@@ -34,5 +32,5 @@ class TestReportApi(unittest.TestCase):
         self.assertEqual(result, expected)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

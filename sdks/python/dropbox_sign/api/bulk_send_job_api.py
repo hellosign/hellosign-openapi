@@ -41,20 +41,30 @@ class BulkSendJobApi:
             api_client = ApiClient.get_default()
         self.api_client = api_client
 
-
     @validate_call
     def bulk_send_job_get(
         self,
-        bulk_send_job_id: Annotated[StrictStr, Field(description="The id of the BulkSendJob to retrieve.")],
-        page: Annotated[Optional[StrictInt], Field(description="Which page number of the BulkSendJob list to return. Defaults to `1`.")] = None,
-        page_size: Annotated[Optional[StrictInt], Field(description="Number of objects to be returned per page. Must be between `1` and `100`. Default is 20.")] = None,
+        bulk_send_job_id: Annotated[
+            StrictStr, Field(description="The id of the BulkSendJob to retrieve.")
+        ],
+        page: Annotated[
+            Optional[StrictInt],
+            Field(
+                description="Which page number of the BulkSendJob list to return. Defaults to `1`."
+            ),
+        ] = None,
+        page_size: Annotated[
+            Optional[StrictInt],
+            Field(
+                description="Number of objects to be returned per page. Must be between `1` and `100`. Default is 20."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -91,7 +101,7 @@ class BulkSendJobApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._bulk_send_job_get_serialize(
             bulk_send_job_id=bulk_send_job_id,
@@ -100,16 +110,15 @@ class BulkSendJobApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "BulkSendJobGetResponse",
-            '4XX': "ErrorResponse",
+            "200": "BulkSendJobGetResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -117,20 +126,30 @@ class BulkSendJobApi:
             response_types_map=_response_types_map,
         ).data
 
-
     @validate_call
     def bulk_send_job_get_with_http_info(
         self,
-        bulk_send_job_id: Annotated[StrictStr, Field(description="The id of the BulkSendJob to retrieve.")],
-        page: Annotated[Optional[StrictInt], Field(description="Which page number of the BulkSendJob list to return. Defaults to `1`.")] = None,
-        page_size: Annotated[Optional[StrictInt], Field(description="Number of objects to be returned per page. Must be between `1` and `100`. Default is 20.")] = None,
+        bulk_send_job_id: Annotated[
+            StrictStr, Field(description="The id of the BulkSendJob to retrieve.")
+        ],
+        page: Annotated[
+            Optional[StrictInt],
+            Field(
+                description="Which page number of the BulkSendJob list to return. Defaults to `1`."
+            ),
+        ] = None,
+        page_size: Annotated[
+            Optional[StrictInt],
+            Field(
+                description="Number of objects to be returned per page. Must be between `1` and `100`. Default is 20."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -167,7 +186,7 @@ class BulkSendJobApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._bulk_send_job_get_serialize(
             bulk_send_job_id=bulk_send_job_id,
@@ -176,16 +195,15 @@ class BulkSendJobApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "BulkSendJobGetResponse",
-            '4XX': "ErrorResponse",
+            "200": "BulkSendJobGetResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -193,20 +211,30 @@ class BulkSendJobApi:
             response_types_map=_response_types_map,
         )
 
-
     @validate_call
     def bulk_send_job_get_without_preload_content(
         self,
-        bulk_send_job_id: Annotated[StrictStr, Field(description="The id of the BulkSendJob to retrieve.")],
-        page: Annotated[Optional[StrictInt], Field(description="Which page number of the BulkSendJob list to return. Defaults to `1`.")] = None,
-        page_size: Annotated[Optional[StrictInt], Field(description="Number of objects to be returned per page. Must be between `1` and `100`. Default is 20.")] = None,
+        bulk_send_job_id: Annotated[
+            StrictStr, Field(description="The id of the BulkSendJob to retrieve.")
+        ],
+        page: Annotated[
+            Optional[StrictInt],
+            Field(
+                description="Which page number of the BulkSendJob list to return. Defaults to `1`."
+            ),
+        ] = None,
+        page_size: Annotated[
+            Optional[StrictInt],
+            Field(
+                description="Number of objects to be returned per page. Must be between `1` and `100`. Default is 20."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -243,7 +271,7 @@ class BulkSendJobApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._bulk_send_job_get_serialize(
             bulk_send_job_id=bulk_send_job_id,
@@ -252,19 +280,17 @@ class BulkSendJobApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "BulkSendJobGetResponse",
-            '4XX': "ErrorResponse",
+            "200": "BulkSendJobGetResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _bulk_send_job_get_serialize(
         self,
@@ -279,8 +305,7 @@ class BulkSendJobApi:
 
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -291,39 +316,32 @@ class BulkSendJobApi:
 
         # process the path parameters
         if bulk_send_job_id is not None:
-            _path_params['bulk_send_job_id'] = bulk_send_job_id
+            _path_params["bulk_send_job_id"] = bulk_send_job_id
         # process the query parameters
         if page is not None:
-            
-            _query_params.append(('page', page))
-            
+
+            _query_params.append(("page", page))
+
         if page_size is not None:
-            
-            _query_params.append(('page_size', page_size))
-            
+
+            _query_params.append(("page_size", page_size))
+
         # process the header parameters
         # process the form parameters
         # process the body parameter
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json"]
             )
 
-
         # authentication setting
-        _auth_settings: List[str] = [
-            'api_key', 
-            'oauth2'
-        ]
+        _auth_settings: List[str] = ["api_key", "oauth2"]
 
         return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/bulk_send_job/{bulk_send_job_id}',
+            method="GET",
+            resource_path="/bulk_send_job/{bulk_send_job_id}",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -333,24 +351,30 @@ class BulkSendJobApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def bulk_send_job_list(
         self,
-        page: Annotated[Optional[StrictInt], Field(description="Which page number of the BulkSendJob List to return. Defaults to `1`.")] = None,
-        page_size: Annotated[Optional[StrictInt], Field(description="Number of objects to be returned per page. Must be between `1` and `100`. Default is 20.")] = None,
+        page: Annotated[
+            Optional[StrictInt],
+            Field(
+                description="Which page number of the BulkSendJob List to return. Defaults to `1`."
+            ),
+        ] = None,
+        page_size: Annotated[
+            Optional[StrictInt],
+            Field(
+                description="Number of objects to be returned per page. Must be between `1` and `100`. Default is 20."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -385,7 +409,7 @@ class BulkSendJobApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._bulk_send_job_list_serialize(
             page=page,
@@ -393,16 +417,15 @@ class BulkSendJobApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "BulkSendJobListResponse",
-            '4XX': "ErrorResponse",
+            "200": "BulkSendJobListResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -410,19 +433,27 @@ class BulkSendJobApi:
             response_types_map=_response_types_map,
         ).data
 
-
     @validate_call
     def bulk_send_job_list_with_http_info(
         self,
-        page: Annotated[Optional[StrictInt], Field(description="Which page number of the BulkSendJob List to return. Defaults to `1`.")] = None,
-        page_size: Annotated[Optional[StrictInt], Field(description="Number of objects to be returned per page. Must be between `1` and `100`. Default is 20.")] = None,
+        page: Annotated[
+            Optional[StrictInt],
+            Field(
+                description="Which page number of the BulkSendJob List to return. Defaults to `1`."
+            ),
+        ] = None,
+        page_size: Annotated[
+            Optional[StrictInt],
+            Field(
+                description="Number of objects to be returned per page. Must be between `1` and `100`. Default is 20."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -457,7 +488,7 @@ class BulkSendJobApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._bulk_send_job_list_serialize(
             page=page,
@@ -465,16 +496,15 @@ class BulkSendJobApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "BulkSendJobListResponse",
-            '4XX': "ErrorResponse",
+            "200": "BulkSendJobListResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -482,19 +512,27 @@ class BulkSendJobApi:
             response_types_map=_response_types_map,
         )
 
-
     @validate_call
     def bulk_send_job_list_without_preload_content(
         self,
-        page: Annotated[Optional[StrictInt], Field(description="Which page number of the BulkSendJob List to return. Defaults to `1`.")] = None,
-        page_size: Annotated[Optional[StrictInt], Field(description="Number of objects to be returned per page. Must be between `1` and `100`. Default is 20.")] = None,
+        page: Annotated[
+            Optional[StrictInt],
+            Field(
+                description="Which page number of the BulkSendJob List to return. Defaults to `1`."
+            ),
+        ] = None,
+        page_size: Annotated[
+            Optional[StrictInt],
+            Field(
+                description="Number of objects to be returned per page. Must be between `1` and `100`. Default is 20."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -529,7 +567,7 @@ class BulkSendJobApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._bulk_send_job_list_serialize(
             page=page,
@@ -537,19 +575,17 @@ class BulkSendJobApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "BulkSendJobListResponse",
-            '4XX': "ErrorResponse",
+            "200": "BulkSendJobListResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _bulk_send_job_list_serialize(
         self,
@@ -563,8 +599,7 @@ class BulkSendJobApi:
 
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -576,36 +611,29 @@ class BulkSendJobApi:
         # process the path parameters
         # process the query parameters
         if page is not None:
-            
-            _query_params.append(('page', page))
-            
+
+            _query_params.append(("page", page))
+
         if page_size is not None:
-            
-            _query_params.append(('page_size', page_size))
-            
+
+            _query_params.append(("page_size", page_size))
+
         # process the header parameters
         # process the form parameters
         # process the body parameter
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json"]
             )
 
-
         # authentication setting
-        _auth_settings: List[str] = [
-            'api_key', 
-            'oauth2'
-        ]
+        _auth_settings: List[str] = ["api_key", "oauth2"]
 
         return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/bulk_send_job/list',
+            method="GET",
+            resource_path="/bulk_send_job/list",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -615,7 +643,5 @@ class BulkSendJobApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-

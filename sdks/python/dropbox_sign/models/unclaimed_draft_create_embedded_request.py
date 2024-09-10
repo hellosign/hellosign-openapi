@@ -18,7 +18,16 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictBytes, StrictInt, StrictStr, field_validator
+from pydantic import (
+    BaseModel,
+    ConfigDict,
+    Field,
+    StrictBool,
+    StrictBytes,
+    StrictInt,
+    StrictStr,
+    field_validator,
+)
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing_extensions import Annotated
 from dropbox_sign.models.sub_attachment import SubAttachment
@@ -27,7 +36,9 @@ from dropbox_sign.models.sub_editor_options import SubEditorOptions
 from dropbox_sign.models.sub_field_options import SubFieldOptions
 from dropbox_sign.models.sub_form_field_group import SubFormFieldGroup
 from dropbox_sign.models.sub_form_field_rule import SubFormFieldRule
-from dropbox_sign.models.sub_form_fields_per_document_base import SubFormFieldsPerDocumentBase
+from dropbox_sign.models.sub_form_fields_per_document_base import (
+    SubFormFieldsPerDocumentBase,
+)
 from dropbox_sign.models.sub_signing_options import SubSigningOptions
 from dropbox_sign.models.sub_unclaimed_draft_signer import SubUnclaimedDraftSigner
 from typing import Optional, Set, Tuple
@@ -36,56 +47,190 @@ import io
 from pydantic import StrictBool
 from typing import Union
 
+
 class UnclaimedDraftCreateEmbeddedRequest(BaseModel):
-    """
-    
-    """ # noqa: E501
-    client_id: StrictStr = Field(description="Client id of the app used to create the draft. Used to apply the branding and callback url defined for the app.")
-    requester_email_address: StrictStr = Field(description="The email address of the user that should be designated as the requester of this draft, if the draft type is `request_signature`.")
-    files: Optional[List[Union[StrictBytes, StrictStr, io.IOBase]]] = Field(default=None, description="Use `files[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.")
-    file_urls: Optional[List[StrictStr]] = Field(default=None, description="Use `file_urls[]` to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.")
-    allow_ccs: Optional[StrictBool] = Field(default=True, description="This allows the requester to specify whether the user is allowed to provide email addresses to CC when claiming the draft.")
-    allow_decline: Optional[StrictBool] = Field(default=False, description="Allows signers to decline to sign a document if `true`. Defaults to `false`.")
-    allow_reassign: Optional[StrictBool] = Field(default=False, description="Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.  **NOTE:** Only available for Premium plan and higher.")
-    attachments: Optional[List[SubAttachment]] = Field(default=None, description="A list describing the attachments")
-    cc_email_addresses: Optional[List[StrictStr]] = Field(default=None, description="The email addresses that should be CCed.")
-    custom_fields: Optional[List[SubCustomField]] = Field(default=None, description="When used together with merge fields, `custom_fields` allows users to add pre-filled data to their signature requests.  Pre-filled data can be used with \"send-once\" signature requests by adding merge fields with `form_fields_per_document` or [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) while passing values back with `custom_fields` together in one API call.  For using pre-filled on repeatable signature requests, merge fields are added to templates in the Dropbox Sign UI or by calling [/template/create_embedded_draft](/api/reference/operation/templateCreateEmbeddedDraft) and then passing `custom_fields` on subsequent signature requests referencing that template.")
+    """ """  # noqa: E501
+
+    client_id: StrictStr = Field(
+        description="Client id of the app used to create the draft. Used to apply the branding and callback url defined for the app."
+    )
+    requester_email_address: StrictStr = Field(
+        description="The email address of the user that should be designated as the requester of this draft, if the draft type is `request_signature`."
+    )
+    files: Optional[List[Union[StrictBytes, StrictStr, io.IOBase]]] = Field(
+        default=None,
+        description="Use `files[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.",
+    )
+    file_urls: Optional[List[StrictStr]] = Field(
+        default=None,
+        description="Use `file_urls[]` to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.",
+    )
+    allow_ccs: Optional[StrictBool] = Field(
+        default=True,
+        description="This allows the requester to specify whether the user is allowed to provide email addresses to CC when claiming the draft.",
+    )
+    allow_decline: Optional[StrictBool] = Field(
+        default=False,
+        description="Allows signers to decline to sign a document if `true`. Defaults to `false`.",
+    )
+    allow_reassign: Optional[StrictBool] = Field(
+        default=False,
+        description="Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.  **NOTE:** Only available for Premium plan and higher.",
+    )
+    attachments: Optional[List[SubAttachment]] = Field(
+        default=None, description="A list describing the attachments"
+    )
+    cc_email_addresses: Optional[List[StrictStr]] = Field(
+        default=None, description="The email addresses that should be CCed."
+    )
+    custom_fields: Optional[List[SubCustomField]] = Field(
+        default=None,
+        description='When used together with merge fields, `custom_fields` allows users to add pre-filled data to their signature requests.  Pre-filled data can be used with "send-once" signature requests by adding merge fields with `form_fields_per_document` or [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) while passing values back with `custom_fields` together in one API call.  For using pre-filled on repeatable signature requests, merge fields are added to templates in the Dropbox Sign UI or by calling [/template/create_embedded_draft](/api/reference/operation/templateCreateEmbeddedDraft) and then passing `custom_fields` on subsequent signature requests referencing that template.',
+    )
     editor_options: Optional[SubEditorOptions] = None
     field_options: Optional[SubFieldOptions] = None
-    force_signer_page: Optional[StrictBool] = Field(default=False, description="Provide users the ability to review/edit the signers.")
-    force_subject_message: Optional[StrictBool] = Field(default=False, description="Provide users the ability to review/edit the subject and message.")
-    form_field_groups: Optional[List[SubFormFieldGroup]] = Field(default=None, description="Group information for fields defined in `form_fields_per_document`. String-indexed JSON array with `group_label` and `requirement` keys. `form_fields_per_document` must contain fields referencing a group defined in `form_field_groups`.")
-    form_field_rules: Optional[List[SubFormFieldRule]] = Field(default=None, description="Conditional Logic rules for fields defined in `form_fields_per_document`.")
-    form_fields_per_document: Optional[List[SubFormFieldsPerDocumentBase]] = Field(default=None, description="The fields that should appear on the document, expressed as an array of objects. (For more details you can read about it here: [Using Form Fields per Document](/docs/openapi/form-fields-per-document).)  **NOTE:** Fields like **text**, **dropdown**, **checkbox**, **radio**, and **hyperlink** have additional required and optional parameters. Check out the list of [additional parameters](/api/reference/constants/#form-fields-per-document) for these field types.  * Text Field use `SubFormFieldsPerDocumentText` * Dropdown Field use `SubFormFieldsPerDocumentDropdown` * Hyperlink Field use `SubFormFieldsPerDocumentHyperlink` * Checkbox Field use `SubFormFieldsPerDocumentCheckbox` * Radio Field use `SubFormFieldsPerDocumentRadio` * Signature Field use `SubFormFieldsPerDocumentSignature` * Date Signed Field use `SubFormFieldsPerDocumentDateSigned` * Initials Field use `SubFormFieldsPerDocumentInitials` * Text Merge Field use `SubFormFieldsPerDocumentTextMerge` * Checkbox Merge Field use `SubFormFieldsPerDocumentCheckboxMerge`")
-    hide_text_tags: Optional[StrictBool] = Field(default=False, description="Send with a value of `true` if you wish to enable automatic Text Tag removal. Defaults to `false`. When using Text Tags it is preferred that you set this to `false` and hide your tags with white text or something similar because the automatic removal system can cause unwanted clipping. See the [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) walkthrough for more details.")
-    hold_request: Optional[StrictBool] = Field(default=False, description="The request from this draft will not automatically send to signers post-claim if set to `true`. Requester must [release](/api/reference/operation/signatureRequestReleaseHold/) the request from hold when ready to send. Defaults to `false`.")
-    is_for_embedded_signing: Optional[StrictBool] = Field(default=False, description="The request created from this draft will also be signable in embedded mode if set to `true`. Defaults to `false`.")
-    message: Optional[Annotated[str, Field(strict=True, max_length=5000)]] = Field(default=None, description="The custom message in the email that will be sent to the signers.")
-    metadata: Optional[Dict[str, Any]] = Field(default=None, description="Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.  Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.")
-    requesting_redirect_url: Optional[StrictStr] = Field(default=None, description="The URL you want signers redirected to after they successfully request a signature.")
-    show_preview: Optional[StrictBool] = Field(default=None, description="This allows the requester to enable the editor/preview experience.  - `show_preview=true`: Allows requesters to enable the editor/preview experience. - `show_preview=false`: Allows requesters to disable the editor/preview experience.")
-    show_progress_stepper: Optional[StrictBool] = Field(default=True, description="When only one step remains in the signature request process and this parameter is set to `false` then the progress stepper will be hidden.")
-    signers: Optional[List[SubUnclaimedDraftSigner]] = Field(default=None, description="Add Signers to your Unclaimed Draft Signature Request.")
+    force_signer_page: Optional[StrictBool] = Field(
+        default=False,
+        description="Provide users the ability to review/edit the signers.",
+    )
+    force_subject_message: Optional[StrictBool] = Field(
+        default=False,
+        description="Provide users the ability to review/edit the subject and message.",
+    )
+    form_field_groups: Optional[List[SubFormFieldGroup]] = Field(
+        default=None,
+        description="Group information for fields defined in `form_fields_per_document`. String-indexed JSON array with `group_label` and `requirement` keys. `form_fields_per_document` must contain fields referencing a group defined in `form_field_groups`.",
+    )
+    form_field_rules: Optional[List[SubFormFieldRule]] = Field(
+        default=None,
+        description="Conditional Logic rules for fields defined in `form_fields_per_document`.",
+    )
+    form_fields_per_document: Optional[List[SubFormFieldsPerDocumentBase]] = Field(
+        default=None,
+        description="The fields that should appear on the document, expressed as an array of objects. (For more details you can read about it here: [Using Form Fields per Document](/docs/openapi/form-fields-per-document).)  **NOTE:** Fields like **text**, **dropdown**, **checkbox**, **radio**, and **hyperlink** have additional required and optional parameters. Check out the list of [additional parameters](/api/reference/constants/#form-fields-per-document) for these field types.  * Text Field use `SubFormFieldsPerDocumentText` * Dropdown Field use `SubFormFieldsPerDocumentDropdown` * Hyperlink Field use `SubFormFieldsPerDocumentHyperlink` * Checkbox Field use `SubFormFieldsPerDocumentCheckbox` * Radio Field use `SubFormFieldsPerDocumentRadio` * Signature Field use `SubFormFieldsPerDocumentSignature` * Date Signed Field use `SubFormFieldsPerDocumentDateSigned` * Initials Field use `SubFormFieldsPerDocumentInitials` * Text Merge Field use `SubFormFieldsPerDocumentTextMerge` * Checkbox Merge Field use `SubFormFieldsPerDocumentCheckboxMerge`",
+    )
+    hide_text_tags: Optional[StrictBool] = Field(
+        default=False,
+        description="Send with a value of `true` if you wish to enable automatic Text Tag removal. Defaults to `false`. When using Text Tags it is preferred that you set this to `false` and hide your tags with white text or something similar because the automatic removal system can cause unwanted clipping. See the [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) walkthrough for more details.",
+    )
+    hold_request: Optional[StrictBool] = Field(
+        default=False,
+        description="The request from this draft will not automatically send to signers post-claim if set to `true`. Requester must [release](/api/reference/operation/signatureRequestReleaseHold/) the request from hold when ready to send. Defaults to `false`.",
+    )
+    is_for_embedded_signing: Optional[StrictBool] = Field(
+        default=False,
+        description="The request created from this draft will also be signable in embedded mode if set to `true`. Defaults to `false`.",
+    )
+    message: Optional[Annotated[str, Field(strict=True, max_length=5000)]] = Field(
+        default=None,
+        description="The custom message in the email that will be sent to the signers.",
+    )
+    metadata: Optional[Dict[str, Any]] = Field(
+        default=None,
+        description="Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.  Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.",
+    )
+    requesting_redirect_url: Optional[StrictStr] = Field(
+        default=None,
+        description="The URL you want signers redirected to after they successfully request a signature.",
+    )
+    show_preview: Optional[StrictBool] = Field(
+        default=None,
+        description="This allows the requester to enable the editor/preview experience.  - `show_preview=true`: Allows requesters to enable the editor/preview experience. - `show_preview=false`: Allows requesters to disable the editor/preview experience.",
+    )
+    show_progress_stepper: Optional[StrictBool] = Field(
+        default=True,
+        description="When only one step remains in the signature request process and this parameter is set to `false` then the progress stepper will be hidden.",
+    )
+    signers: Optional[List[SubUnclaimedDraftSigner]] = Field(
+        default=None,
+        description="Add Signers to your Unclaimed Draft Signature Request.",
+    )
     signing_options: Optional[SubSigningOptions] = None
-    signing_redirect_url: Optional[StrictStr] = Field(default=None, description="The URL you want signers redirected to after they successfully sign.")
-    skip_me_now: Optional[StrictBool] = Field(default=False, description="Disables the \"Me (Now)\" option for the person preparing the document. Does not work with type `send_document`. Defaults to `false`.")
-    subject: Optional[Annotated[str, Field(strict=True, max_length=200)]] = Field(default=None, description="The subject in the email that will be sent to the signers.")
-    test_mode: Optional[StrictBool] = Field(default=False, description="Whether this is a test, the signature request created from this draft will not be legally binding if set to `true`. Defaults to `false`.")
-    type: Optional[StrictStr] = Field(default='request_signature', description="The type of the draft. By default this is `request_signature`, but you can set it to `send_document` if you want to self sign a document and download it.")
-    use_preexisting_fields: Optional[StrictBool] = Field(default=False, description="Set `use_text_tags` to `true` to enable [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) parsing in your document (defaults to disabled, or `false`). Alternatively, if your PDF contains pre-defined fields, enable the detection of these fields by setting the `use_preexisting_fields` to `true` (defaults to disabled, or `false`). Currently we only support use of either `use_text_tags` or `use_preexisting_fields` parameter, not both.")
-    use_text_tags: Optional[StrictBool] = Field(default=False, description="Set `use_text_tags` to `true` to enable [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) parsing in your document (defaults to disabled, or `false`). Alternatively, if your PDF contains pre-defined fields, enable the detection of these fields by setting the `use_preexisting_fields` to `true` (defaults to disabled, or `false`). Currently we only support use of either `use_text_tags` or `use_preexisting_fields` parameter, not both.")
-    populate_auto_fill_fields: Optional[StrictBool] = Field(default=False, description="Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer's information during signing.  **NOTE:** Keep your signer's information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.")
-    expires_at: Optional[StrictInt] = Field(default=None, description="When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.  **NOTE:** This does not correspond to the **expires_at** returned in the response.")
-    __properties: ClassVar[List[str]] = ["client_id", "requester_email_address", "files", "file_urls", "allow_ccs", "allow_decline", "allow_reassign", "attachments", "cc_email_addresses", "custom_fields", "editor_options", "field_options", "force_signer_page", "force_subject_message", "form_field_groups", "form_field_rules", "form_fields_per_document", "hide_text_tags", "hold_request", "is_for_embedded_signing", "message", "metadata", "requesting_redirect_url", "show_preview", "show_progress_stepper", "signers", "signing_options", "signing_redirect_url", "skip_me_now", "subject", "test_mode", "type", "use_preexisting_fields", "use_text_tags", "populate_auto_fill_fields", "expires_at"]
+    signing_redirect_url: Optional[StrictStr] = Field(
+        default=None,
+        description="The URL you want signers redirected to after they successfully sign.",
+    )
+    skip_me_now: Optional[StrictBool] = Field(
+        default=False,
+        description='Disables the "Me (Now)" option for the person preparing the document. Does not work with type `send_document`. Defaults to `false`.',
+    )
+    subject: Optional[Annotated[str, Field(strict=True, max_length=200)]] = Field(
+        default=None,
+        description="The subject in the email that will be sent to the signers.",
+    )
+    test_mode: Optional[StrictBool] = Field(
+        default=False,
+        description="Whether this is a test, the signature request created from this draft will not be legally binding if set to `true`. Defaults to `false`.",
+    )
+    type: Optional[StrictStr] = Field(
+        default="request_signature",
+        description="The type of the draft. By default this is `request_signature`, but you can set it to `send_document` if you want to self sign a document and download it.",
+    )
+    use_preexisting_fields: Optional[StrictBool] = Field(
+        default=False,
+        description="Set `use_text_tags` to `true` to enable [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) parsing in your document (defaults to disabled, or `false`). Alternatively, if your PDF contains pre-defined fields, enable the detection of these fields by setting the `use_preexisting_fields` to `true` (defaults to disabled, or `false`). Currently we only support use of either `use_text_tags` or `use_preexisting_fields` parameter, not both.",
+    )
+    use_text_tags: Optional[StrictBool] = Field(
+        default=False,
+        description="Set `use_text_tags` to `true` to enable [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) parsing in your document (defaults to disabled, or `false`). Alternatively, if your PDF contains pre-defined fields, enable the detection of these fields by setting the `use_preexisting_fields` to `true` (defaults to disabled, or `false`). Currently we only support use of either `use_text_tags` or `use_preexisting_fields` parameter, not both.",
+    )
+    populate_auto_fill_fields: Optional[StrictBool] = Field(
+        default=False,
+        description="Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer's information during signing.  **NOTE:** Keep your signer's information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.",
+    )
+    expires_at: Optional[StrictInt] = Field(
+        default=None,
+        description="When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.  **NOTE:** This does not correspond to the **expires_at** returned in the response.",
+    )
+    __properties: ClassVar[List[str]] = [
+        "client_id",
+        "requester_email_address",
+        "files",
+        "file_urls",
+        "allow_ccs",
+        "allow_decline",
+        "allow_reassign",
+        "attachments",
+        "cc_email_addresses",
+        "custom_fields",
+        "editor_options",
+        "field_options",
+        "force_signer_page",
+        "force_subject_message",
+        "form_field_groups",
+        "form_field_rules",
+        "form_fields_per_document",
+        "hide_text_tags",
+        "hold_request",
+        "is_for_embedded_signing",
+        "message",
+        "metadata",
+        "requesting_redirect_url",
+        "show_preview",
+        "show_progress_stepper",
+        "signers",
+        "signing_options",
+        "signing_redirect_url",
+        "skip_me_now",
+        "subject",
+        "test_mode",
+        "type",
+        "use_preexisting_fields",
+        "use_text_tags",
+        "populate_auto_fill_fields",
+        "expires_at",
+    ]
 
-    @field_validator('type')
+    @field_validator("type")
     def type_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
             return value
 
-        if value not in set(['send_document', 'request_signature']):
-            raise ValueError("must be one of enum values ('send_document', 'request_signature')")
+        if value not in set(["send_document", "request_signature"]):
+            raise ValueError(
+                "must be one of enum values ('send_document', 'request_signature')"
+            )
         return value
 
     model_config = ConfigDict(
@@ -94,7 +239,6 @@ class UnclaimedDraftCreateEmbeddedRequest(BaseModel):
         protected_namespaces=(),
         arbitrary_types_allowed=True,
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -105,7 +249,9 @@ class UnclaimedDraftCreateEmbeddedRequest(BaseModel):
         # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
-    def to_json_form_params(self, excluded_fields: Set[str] = None) -> List[Tuple[str, str]]:
+    def to_json_form_params(
+        self, excluded_fields: Set[str] = None
+    ) -> List[Tuple[str, str]]:
         data: List[Tuple[str, str]] = []
 
         for key, value in self.to_dict(excluded_fields).items():
@@ -143,51 +289,51 @@ class UnclaimedDraftCreateEmbeddedRequest(BaseModel):
             for _item_attachments in self.attachments:
                 if _item_attachments:
                     _items.append(_item_attachments.to_dict())
-            _dict['attachments'] = _items
+            _dict["attachments"] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in custom_fields (list)
         _items = []
         if self.custom_fields:
             for _item_custom_fields in self.custom_fields:
                 if _item_custom_fields:
                     _items.append(_item_custom_fields.to_dict())
-            _dict['custom_fields'] = _items
+            _dict["custom_fields"] = _items
         # override the default output from pydantic by calling `to_dict()` of editor_options
         if self.editor_options:
-            _dict['editor_options'] = self.editor_options.to_dict()
+            _dict["editor_options"] = self.editor_options.to_dict()
         # override the default output from pydantic by calling `to_dict()` of field_options
         if self.field_options:
-            _dict['field_options'] = self.field_options.to_dict()
+            _dict["field_options"] = self.field_options.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in form_field_groups (list)
         _items = []
         if self.form_field_groups:
             for _item_form_field_groups in self.form_field_groups:
                 if _item_form_field_groups:
                     _items.append(_item_form_field_groups.to_dict())
-            _dict['form_field_groups'] = _items
+            _dict["form_field_groups"] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in form_field_rules (list)
         _items = []
         if self.form_field_rules:
             for _item_form_field_rules in self.form_field_rules:
                 if _item_form_field_rules:
                     _items.append(_item_form_field_rules.to_dict())
-            _dict['form_field_rules'] = _items
+            _dict["form_field_rules"] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in form_fields_per_document (list)
         _items = []
         if self.form_fields_per_document:
             for _item_form_fields_per_document in self.form_fields_per_document:
                 if _item_form_fields_per_document:
                     _items.append(_item_form_fields_per_document.to_dict())
-            _dict['form_fields_per_document'] = _items
+            _dict["form_fields_per_document"] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in signers (list)
         _items = []
         if self.signers:
             for _item_signers in self.signers:
                 if _item_signers:
                     _items.append(_item_signers.to_dict())
-            _dict['signers'] = _items
+            _dict["signers"] = _items
         # override the default output from pydantic by calling `to_dict()` of signing_options
         if self.signing_options:
-            _dict['signing_options'] = self.signing_options.to_dict()
+            _dict["signing_options"] = self.signing_options.to_dict()
         return _dict
 
     @classmethod
@@ -199,44 +345,150 @@ class UnclaimedDraftCreateEmbeddedRequest(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "client_id": obj.get("client_id"),
-            "requester_email_address": obj.get("requester_email_address"),
-            "files": obj.get("files"),
-            "file_urls": obj.get("file_urls"),
-            "allow_ccs": obj.get("allow_ccs") if obj.get("allow_ccs") is not None else True,
-            "allow_decline": obj.get("allow_decline") if obj.get("allow_decline") is not None else False,
-            "allow_reassign": obj.get("allow_reassign") if obj.get("allow_reassign") is not None else False,
-            "attachments": [SubAttachment.from_dict(_item) for _item in obj["attachments"]] if obj.get("attachments") is not None else None,
-            "cc_email_addresses": obj.get("cc_email_addresses"),
-            "custom_fields": [SubCustomField.from_dict(_item) for _item in obj["custom_fields"]] if obj.get("custom_fields") is not None else None,
-            "editor_options": SubEditorOptions.from_dict(obj["editor_options"]) if obj.get("editor_options") is not None else None,
-            "field_options": SubFieldOptions.from_dict(obj["field_options"]) if obj.get("field_options") is not None else None,
-            "force_signer_page": obj.get("force_signer_page") if obj.get("force_signer_page") is not None else False,
-            "force_subject_message": obj.get("force_subject_message") if obj.get("force_subject_message") is not None else False,
-            "form_field_groups": [SubFormFieldGroup.from_dict(_item) for _item in obj["form_field_groups"]] if obj.get("form_field_groups") is not None else None,
-            "form_field_rules": [SubFormFieldRule.from_dict(_item) for _item in obj["form_field_rules"]] if obj.get("form_field_rules") is not None else None,
-            "form_fields_per_document": [SubFormFieldsPerDocumentBase.from_dict(_item) for _item in obj["form_fields_per_document"]] if obj.get("form_fields_per_document") is not None else None,
-            "hide_text_tags": obj.get("hide_text_tags") if obj.get("hide_text_tags") is not None else False,
-            "hold_request": obj.get("hold_request") if obj.get("hold_request") is not None else False,
-            "is_for_embedded_signing": obj.get("is_for_embedded_signing") if obj.get("is_for_embedded_signing") is not None else False,
-            "message": obj.get("message"),
-            "metadata": obj.get("metadata"),
-            "requesting_redirect_url": obj.get("requesting_redirect_url"),
-            "show_preview": obj.get("show_preview"),
-            "show_progress_stepper": obj.get("show_progress_stepper") if obj.get("show_progress_stepper") is not None else True,
-            "signers": [SubUnclaimedDraftSigner.from_dict(_item) for _item in obj["signers"]] if obj.get("signers") is not None else None,
-            "signing_options": SubSigningOptions.from_dict(obj["signing_options"]) if obj.get("signing_options") is not None else None,
-            "signing_redirect_url": obj.get("signing_redirect_url"),
-            "skip_me_now": obj.get("skip_me_now") if obj.get("skip_me_now") is not None else False,
-            "subject": obj.get("subject"),
-            "test_mode": obj.get("test_mode") if obj.get("test_mode") is not None else False,
-            "type": obj.get("type") if obj.get("type") is not None else 'request_signature',
-            "use_preexisting_fields": obj.get("use_preexisting_fields") if obj.get("use_preexisting_fields") is not None else False,
-            "use_text_tags": obj.get("use_text_tags") if obj.get("use_text_tags") is not None else False,
-            "populate_auto_fill_fields": obj.get("populate_auto_fill_fields") if obj.get("populate_auto_fill_fields") is not None else False,
-            "expires_at": obj.get("expires_at")
-        })
+        _obj = cls.model_validate(
+            {
+                "client_id": obj.get("client_id"),
+                "requester_email_address": obj.get("requester_email_address"),
+                "files": obj.get("files"),
+                "file_urls": obj.get("file_urls"),
+                "allow_ccs": (
+                    obj.get("allow_ccs") if obj.get("allow_ccs") is not None else True
+                ),
+                "allow_decline": (
+                    obj.get("allow_decline")
+                    if obj.get("allow_decline") is not None
+                    else False
+                ),
+                "allow_reassign": (
+                    obj.get("allow_reassign")
+                    if obj.get("allow_reassign") is not None
+                    else False
+                ),
+                "attachments": (
+                    [SubAttachment.from_dict(_item) for _item in obj["attachments"]]
+                    if obj.get("attachments") is not None
+                    else None
+                ),
+                "cc_email_addresses": obj.get("cc_email_addresses"),
+                "custom_fields": (
+                    [SubCustomField.from_dict(_item) for _item in obj["custom_fields"]]
+                    if obj.get("custom_fields") is not None
+                    else None
+                ),
+                "editor_options": (
+                    SubEditorOptions.from_dict(obj["editor_options"])
+                    if obj.get("editor_options") is not None
+                    else None
+                ),
+                "field_options": (
+                    SubFieldOptions.from_dict(obj["field_options"])
+                    if obj.get("field_options") is not None
+                    else None
+                ),
+                "force_signer_page": (
+                    obj.get("force_signer_page")
+                    if obj.get("force_signer_page") is not None
+                    else False
+                ),
+                "force_subject_message": (
+                    obj.get("force_subject_message")
+                    if obj.get("force_subject_message") is not None
+                    else False
+                ),
+                "form_field_groups": (
+                    [
+                        SubFormFieldGroup.from_dict(_item)
+                        for _item in obj["form_field_groups"]
+                    ]
+                    if obj.get("form_field_groups") is not None
+                    else None
+                ),
+                "form_field_rules": (
+                    [
+                        SubFormFieldRule.from_dict(_item)
+                        for _item in obj["form_field_rules"]
+                    ]
+                    if obj.get("form_field_rules") is not None
+                    else None
+                ),
+                "form_fields_per_document": (
+                    [
+                        SubFormFieldsPerDocumentBase.from_dict(_item)
+                        for _item in obj["form_fields_per_document"]
+                    ]
+                    if obj.get("form_fields_per_document") is not None
+                    else None
+                ),
+                "hide_text_tags": (
+                    obj.get("hide_text_tags")
+                    if obj.get("hide_text_tags") is not None
+                    else False
+                ),
+                "hold_request": (
+                    obj.get("hold_request")
+                    if obj.get("hold_request") is not None
+                    else False
+                ),
+                "is_for_embedded_signing": (
+                    obj.get("is_for_embedded_signing")
+                    if obj.get("is_for_embedded_signing") is not None
+                    else False
+                ),
+                "message": obj.get("message"),
+                "metadata": obj.get("metadata"),
+                "requesting_redirect_url": obj.get("requesting_redirect_url"),
+                "show_preview": obj.get("show_preview"),
+                "show_progress_stepper": (
+                    obj.get("show_progress_stepper")
+                    if obj.get("show_progress_stepper") is not None
+                    else True
+                ),
+                "signers": (
+                    [
+                        SubUnclaimedDraftSigner.from_dict(_item)
+                        for _item in obj["signers"]
+                    ]
+                    if obj.get("signers") is not None
+                    else None
+                ),
+                "signing_options": (
+                    SubSigningOptions.from_dict(obj["signing_options"])
+                    if obj.get("signing_options") is not None
+                    else None
+                ),
+                "signing_redirect_url": obj.get("signing_redirect_url"),
+                "skip_me_now": (
+                    obj.get("skip_me_now")
+                    if obj.get("skip_me_now") is not None
+                    else False
+                ),
+                "subject": obj.get("subject"),
+                "test_mode": (
+                    obj.get("test_mode") if obj.get("test_mode") is not None else False
+                ),
+                "type": (
+                    obj.get("type")
+                    if obj.get("type") is not None
+                    else "request_signature"
+                ),
+                "use_preexisting_fields": (
+                    obj.get("use_preexisting_fields")
+                    if obj.get("use_preexisting_fields") is not None
+                    else False
+                ),
+                "use_text_tags": (
+                    obj.get("use_text_tags")
+                    if obj.get("use_text_tags") is not None
+                    else False
+                ),
+                "populate_auto_fill_fields": (
+                    obj.get("populate_auto_fill_fields")
+                    if obj.get("populate_auto_fill_fields") is not None
+                    else False
+                ),
+                "expires_at": obj.get("expires_at"),
+            }
+        )
         return _obj
 
     @classmethod
@@ -303,4 +555,3 @@ class UnclaimedDraftCreateEmbeddedRequest(BaseModel):
             "form_fields_per_document",
             "signers",
         ]
-

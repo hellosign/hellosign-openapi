@@ -26,11 +26,15 @@ import io
 from pydantic import StrictBool
 from typing import Union
 
+
 class AccountVerifyRequest(BaseModel):
     """
     AccountVerifyRequest
-    """ # noqa: E501
-    email_address: StrictStr = Field(description="Email address to run the verification for.")
+    """  # noqa: E501
+
+    email_address: StrictStr = Field(
+        description="Email address to run the verification for."
+    )
     __properties: ClassVar[List[str]] = ["email_address"]
 
     model_config = ConfigDict(
@@ -39,7 +43,6 @@ class AccountVerifyRequest(BaseModel):
         protected_namespaces=(),
         arbitrary_types_allowed=True,
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -50,7 +53,9 @@ class AccountVerifyRequest(BaseModel):
         # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
-    def to_json_form_params(self, excluded_fields: Set[str] = None) -> List[Tuple[str, str]]:
+    def to_json_form_params(
+        self, excluded_fields: Set[str] = None
+    ) -> List[Tuple[str, str]]:
         data: List[Tuple[str, str]] = []
 
         for key, value in self.to_dict(excluded_fields).items():
@@ -93,9 +98,7 @@ class AccountVerifyRequest(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "email_address": obj.get("email_address")
-        })
+        _obj = cls.model_validate({"email_address": obj.get("email_address")})
         return _obj
 
     @classmethod
@@ -116,6 +119,4 @@ class AccountVerifyRequest(BaseModel):
 
     @classmethod
     def openapi_type_is_array(cls, property_name: str) -> bool:
-        return property_name in [
-        ]
-
+        return property_name in []

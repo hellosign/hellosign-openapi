@@ -20,19 +20,38 @@ import json
 
 from pydantic import ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List
-from dropbox_sign.models.template_response_document_static_field_base import TemplateResponseDocumentStaticFieldBase
+from dropbox_sign.models.template_response_document_static_field_base import (
+    TemplateResponseDocumentStaticFieldBase,
+)
 from typing import Optional, Set, Tuple
 from typing_extensions import Self
 import io
 from pydantic import StrictBool
 from typing import Union
 
-class TemplateResponseDocumentStaticFieldSignature(TemplateResponseDocumentStaticFieldBase):
+
+class TemplateResponseDocumentStaticFieldSignature(
+    TemplateResponseDocumentStaticFieldBase
+):
     """
     This class extends `TemplateResponseDocumentStaticFieldBase`
-    """ # noqa: E501
-    type: StrictStr = Field(description="The type of this static field. See [field types](/api/reference/constants/#field-types).  * Text Field uses `TemplateResponseDocumentStaticFieldText` * Dropdown Field uses `TemplateResponseDocumentStaticFieldDropdown` * Hyperlink Field uses `TemplateResponseDocumentStaticFieldHyperlink` * Checkbox Field uses `TemplateResponseDocumentStaticFieldCheckbox` * Radio Field uses `TemplateResponseDocumentStaticFieldRadio` * Signature Field uses `TemplateResponseDocumentStaticFieldSignature` * Date Signed Field uses `TemplateResponseDocumentStaticFieldDateSigned` * Initials Field uses `TemplateResponseDocumentStaticFieldInitials`")
-    __properties: ClassVar[List[str]] = ["type", "api_id", "name", "signer", "x", "y", "width", "height", "required", "group"]
+    """  # noqa: E501
+
+    type: StrictStr = Field(
+        description="The type of this static field. See [field types](/api/reference/constants/#field-types).  * Text Field uses `TemplateResponseDocumentStaticFieldText` * Dropdown Field uses `TemplateResponseDocumentStaticFieldDropdown` * Hyperlink Field uses `TemplateResponseDocumentStaticFieldHyperlink` * Checkbox Field uses `TemplateResponseDocumentStaticFieldCheckbox` * Radio Field uses `TemplateResponseDocumentStaticFieldRadio` * Signature Field uses `TemplateResponseDocumentStaticFieldSignature` * Date Signed Field uses `TemplateResponseDocumentStaticFieldDateSigned` * Initials Field uses `TemplateResponseDocumentStaticFieldInitials`"
+    )
+    __properties: ClassVar[List[str]] = [
+        "type",
+        "api_id",
+        "name",
+        "signer",
+        "x",
+        "y",
+        "width",
+        "height",
+        "required",
+        "group",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -40,7 +59,6 @@ class TemplateResponseDocumentStaticFieldSignature(TemplateResponseDocumentStati
         protected_namespaces=(),
         arbitrary_types_allowed=True,
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -51,7 +69,9 @@ class TemplateResponseDocumentStaticFieldSignature(TemplateResponseDocumentStati
         # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
-    def to_json_form_params(self, excluded_fields: Set[str] = None) -> List[Tuple[str, str]]:
+    def to_json_form_params(
+        self, excluded_fields: Set[str] = None
+    ) -> List[Tuple[str, str]]:
         data: List[Tuple[str, str]] = []
 
         for key, value in self.to_dict(excluded_fields).items():
@@ -94,18 +114,22 @@ class TemplateResponseDocumentStaticFieldSignature(TemplateResponseDocumentStati
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "type": obj.get("type") if obj.get("type") is not None else 'signature',
-            "api_id": obj.get("api_id"),
-            "name": obj.get("name"),
-            "signer": obj.get("signer") if obj.get("signer") is not None else 'me_now',
-            "x": obj.get("x"),
-            "y": obj.get("y"),
-            "width": obj.get("width"),
-            "height": obj.get("height"),
-            "required": obj.get("required"),
-            "group": obj.get("group")
-        })
+        _obj = cls.model_validate(
+            {
+                "type": obj.get("type") if obj.get("type") is not None else "signature",
+                "api_id": obj.get("api_id"),
+                "name": obj.get("name"),
+                "signer": (
+                    obj.get("signer") if obj.get("signer") is not None else "me_now"
+                ),
+                "x": obj.get("x"),
+                "y": obj.get("y"),
+                "width": obj.get("width"),
+                "height": obj.get("height"),
+                "required": obj.get("required"),
+                "group": obj.get("group"),
+            }
+        )
         return _obj
 
     @classmethod
@@ -135,6 +159,4 @@ class TemplateResponseDocumentStaticFieldSignature(TemplateResponseDocumentStati
 
     @classmethod
     def openapi_type_is_array(cls, property_name: str) -> bool:
-        return property_name in [
-        ]
-
+        return property_name in []

@@ -27,19 +27,50 @@ import io
 from pydantic import StrictBool
 from typing import Union
 
+
 class UnclaimedDraftEditAndResendRequest(BaseModel):
     """
     UnclaimedDraftEditAndResendRequest
-    """ # noqa: E501
-    client_id: StrictStr = Field(description="Client id of the app used to create the draft. Used to apply the branding and callback url defined for the app.")
+    """  # noqa: E501
+
+    client_id: StrictStr = Field(
+        description="Client id of the app used to create the draft. Used to apply the branding and callback url defined for the app."
+    )
     editor_options: Optional[SubEditorOptions] = None
-    is_for_embedded_signing: Optional[StrictBool] = Field(default=None, description="The request created from this draft will also be signable in embedded mode if set to `true`.")
-    requester_email_address: Optional[StrictStr] = Field(default=None, description="The email address of the user that should be designated as the requester of this draft. If not set, original requester's email address will be used.")
-    requesting_redirect_url: Optional[StrictStr] = Field(default=None, description="The URL you want signers redirected to after they successfully request a signature.")
-    show_progress_stepper: Optional[StrictBool] = Field(default=True, description="When only one step remains in the signature request process and this parameter is set to `false` then the progress stepper will be hidden.")
-    signing_redirect_url: Optional[StrictStr] = Field(default=None, description="The URL you want signers redirected to after they successfully sign.")
-    test_mode: Optional[StrictBool] = Field(default=False, description="Whether this is a test, the signature request created from this draft will not be legally binding if set to `true`. Defaults to `false`.")
-    __properties: ClassVar[List[str]] = ["client_id", "editor_options", "is_for_embedded_signing", "requester_email_address", "requesting_redirect_url", "show_progress_stepper", "signing_redirect_url", "test_mode"]
+    is_for_embedded_signing: Optional[StrictBool] = Field(
+        default=None,
+        description="The request created from this draft will also be signable in embedded mode if set to `true`.",
+    )
+    requester_email_address: Optional[StrictStr] = Field(
+        default=None,
+        description="The email address of the user that should be designated as the requester of this draft. If not set, original requester's email address will be used.",
+    )
+    requesting_redirect_url: Optional[StrictStr] = Field(
+        default=None,
+        description="The URL you want signers redirected to after they successfully request a signature.",
+    )
+    show_progress_stepper: Optional[StrictBool] = Field(
+        default=True,
+        description="When only one step remains in the signature request process and this parameter is set to `false` then the progress stepper will be hidden.",
+    )
+    signing_redirect_url: Optional[StrictStr] = Field(
+        default=None,
+        description="The URL you want signers redirected to after they successfully sign.",
+    )
+    test_mode: Optional[StrictBool] = Field(
+        default=False,
+        description="Whether this is a test, the signature request created from this draft will not be legally binding if set to `true`. Defaults to `false`.",
+    )
+    __properties: ClassVar[List[str]] = [
+        "client_id",
+        "editor_options",
+        "is_for_embedded_signing",
+        "requester_email_address",
+        "requesting_redirect_url",
+        "show_progress_stepper",
+        "signing_redirect_url",
+        "test_mode",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -47,7 +78,6 @@ class UnclaimedDraftEditAndResendRequest(BaseModel):
         protected_namespaces=(),
         arbitrary_types_allowed=True,
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -58,7 +88,9 @@ class UnclaimedDraftEditAndResendRequest(BaseModel):
         # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
-    def to_json_form_params(self, excluded_fields: Set[str] = None) -> List[Tuple[str, str]]:
+    def to_json_form_params(
+        self, excluded_fields: Set[str] = None
+    ) -> List[Tuple[str, str]]:
         data: List[Tuple[str, str]] = []
 
         for key, value in self.to_dict(excluded_fields).items():
@@ -92,7 +124,7 @@ class UnclaimedDraftEditAndResendRequest(BaseModel):
         )
         # override the default output from pydantic by calling `to_dict()` of editor_options
         if self.editor_options:
-            _dict['editor_options'] = self.editor_options.to_dict()
+            _dict["editor_options"] = self.editor_options.to_dict()
         return _dict
 
     @classmethod
@@ -104,16 +136,28 @@ class UnclaimedDraftEditAndResendRequest(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "client_id": obj.get("client_id"),
-            "editor_options": SubEditorOptions.from_dict(obj["editor_options"]) if obj.get("editor_options") is not None else None,
-            "is_for_embedded_signing": obj.get("is_for_embedded_signing"),
-            "requester_email_address": obj.get("requester_email_address"),
-            "requesting_redirect_url": obj.get("requesting_redirect_url"),
-            "show_progress_stepper": obj.get("show_progress_stepper") if obj.get("show_progress_stepper") is not None else True,
-            "signing_redirect_url": obj.get("signing_redirect_url"),
-            "test_mode": obj.get("test_mode") if obj.get("test_mode") is not None else False
-        })
+        _obj = cls.model_validate(
+            {
+                "client_id": obj.get("client_id"),
+                "editor_options": (
+                    SubEditorOptions.from_dict(obj["editor_options"])
+                    if obj.get("editor_options") is not None
+                    else None
+                ),
+                "is_for_embedded_signing": obj.get("is_for_embedded_signing"),
+                "requester_email_address": obj.get("requester_email_address"),
+                "requesting_redirect_url": obj.get("requesting_redirect_url"),
+                "show_progress_stepper": (
+                    obj.get("show_progress_stepper")
+                    if obj.get("show_progress_stepper") is not None
+                    else True
+                ),
+                "signing_redirect_url": obj.get("signing_redirect_url"),
+                "test_mode": (
+                    obj.get("test_mode") if obj.get("test_mode") is not None else False
+                ),
+            }
+        )
         return _obj
 
     @classmethod
@@ -141,6 +185,4 @@ class UnclaimedDraftEditAndResendRequest(BaseModel):
 
     @classmethod
     def openapi_type_is_array(cls, property_name: str) -> bool:
-        return property_name in [
-        ]
-
+        return property_name in []

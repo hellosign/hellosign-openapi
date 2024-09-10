@@ -26,20 +26,22 @@ import io
 from pydantic import StrictBool
 from typing import Union
 
+
 class FaxLineCreateRequest(BaseModel):
     """
     FaxLineCreateRequest
-    """ # noqa: E501
+    """  # noqa: E501
+
     area_code: StrictInt = Field(description="Area code")
     country: StrictStr = Field(description="Country")
     city: Optional[StrictStr] = Field(default=None, description="City")
     account_id: Optional[StrictStr] = Field(default=None, description="Account ID")
     __properties: ClassVar[List[str]] = ["area_code", "country", "city", "account_id"]
 
-    @field_validator('country')
+    @field_validator("country")
     def country_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in set(['CA', 'US', 'UK']):
+        if value not in set(["CA", "US", "UK"]):
             raise ValueError("must be one of enum values ('CA', 'US', 'UK')")
         return value
 
@@ -50,7 +52,6 @@ class FaxLineCreateRequest(BaseModel):
         arbitrary_types_allowed=True,
     )
 
-
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
         return pprint.pformat(self.model_dump(by_alias=True))
@@ -60,7 +61,9 @@ class FaxLineCreateRequest(BaseModel):
         # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
-    def to_json_form_params(self, excluded_fields: Set[str] = None) -> List[Tuple[str, str]]:
+    def to_json_form_params(
+        self, excluded_fields: Set[str] = None
+    ) -> List[Tuple[str, str]]:
         data: List[Tuple[str, str]] = []
 
         for key, value in self.to_dict(excluded_fields).items():
@@ -103,12 +106,14 @@ class FaxLineCreateRequest(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "area_code": obj.get("area_code"),
-            "country": obj.get("country"),
-            "city": obj.get("city"),
-            "account_id": obj.get("account_id")
-        })
+        _obj = cls.model_validate(
+            {
+                "area_code": obj.get("area_code"),
+                "country": obj.get("country"),
+                "city": obj.get("city"),
+                "account_id": obj.get("account_id"),
+            }
+        )
         return _obj
 
     @classmethod
@@ -132,6 +137,4 @@ class FaxLineCreateRequest(BaseModel):
 
     @classmethod
     def openapi_type_is_array(cls, property_name: str) -> bool:
-        return property_name in [
-        ]
-
+        return property_name in []

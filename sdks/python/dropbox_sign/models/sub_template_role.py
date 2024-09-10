@@ -26,12 +26,20 @@ import io
 from pydantic import StrictBool
 from typing import Union
 
+
 class SubTemplateRole(BaseModel):
     """
     SubTemplateRole
-    """ # noqa: E501
-    name: Optional[StrictStr] = Field(default=None, description="The role name of the signer that will be displayed when the template is used to create a signature request.")
-    order: Optional[StrictInt] = Field(default=None, description="The order in which this signer role is required to sign.")
+    """  # noqa: E501
+
+    name: Optional[StrictStr] = Field(
+        default=None,
+        description="The role name of the signer that will be displayed when the template is used to create a signature request.",
+    )
+    order: Optional[StrictInt] = Field(
+        default=None,
+        description="The order in which this signer role is required to sign.",
+    )
     __properties: ClassVar[List[str]] = ["name", "order"]
 
     model_config = ConfigDict(
@@ -40,7 +48,6 @@ class SubTemplateRole(BaseModel):
         protected_namespaces=(),
         arbitrary_types_allowed=True,
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -51,7 +58,9 @@ class SubTemplateRole(BaseModel):
         # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
-    def to_json_form_params(self, excluded_fields: Set[str] = None) -> List[Tuple[str, str]]:
+    def to_json_form_params(
+        self, excluded_fields: Set[str] = None
+    ) -> List[Tuple[str, str]]:
         data: List[Tuple[str, str]] = []
 
         for key, value in self.to_dict(excluded_fields).items():
@@ -94,10 +103,7 @@ class SubTemplateRole(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "name": obj.get("name"),
-            "order": obj.get("order")
-        })
+        _obj = cls.model_validate({"name": obj.get("name"), "order": obj.get("order")})
         return _obj
 
     @classmethod
@@ -119,6 +125,4 @@ class SubTemplateRole(BaseModel):
 
     @classmethod
     def openapi_type_is_array(cls, property_name: str) -> bool:
-        return property_name in [
-        ]
-
+        return property_name in []

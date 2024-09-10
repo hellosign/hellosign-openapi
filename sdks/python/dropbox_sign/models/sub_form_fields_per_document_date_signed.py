@@ -20,30 +20,76 @@ import json
 
 from pydantic import ConfigDict, Field, StrictInt, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
-from dropbox_sign.models.sub_form_fields_per_document_base import SubFormFieldsPerDocumentBase
+from dropbox_sign.models.sub_form_fields_per_document_base import (
+    SubFormFieldsPerDocumentBase,
+)
 from typing import Optional, Set, Tuple
 from typing_extensions import Self
 import io
 from pydantic import StrictBool
 from typing import Union
 
+
 class SubFormFieldsPerDocumentDateSigned(SubFormFieldsPerDocumentBase):
     """
     This class extends `SubFormFieldsPerDocumentBase`.
-    """ # noqa: E501
-    type: StrictStr = Field(description="A date. Use the `SubFormFieldsPerDocumentDateSigned` class.")
-    font_family: Optional[StrictStr] = Field(default=None, description="Font family for the field.")
-    font_size: Optional[StrictInt] = Field(default=12, description="The initial px font size for the field contents. Can be any integer value between `7` and `49`.  **NOTE:** Font size may be reduced during processing in order to fit the contents within the dimensions of the field.")
-    __properties: ClassVar[List[str]] = ["document_index", "api_id", "height", "required", "signer", "type", "width", "x", "y", "name", "page", "font_family", "font_size"]
+    """  # noqa: E501
 
-    @field_validator('font_family')
+    type: StrictStr = Field(
+        description="A date. Use the `SubFormFieldsPerDocumentDateSigned` class."
+    )
+    font_family: Optional[StrictStr] = Field(
+        default=None, description="Font family for the field."
+    )
+    font_size: Optional[StrictInt] = Field(
+        default=12,
+        description="The initial px font size for the field contents. Can be any integer value between `7` and `49`.  **NOTE:** Font size may be reduced during processing in order to fit the contents within the dimensions of the field.",
+    )
+    __properties: ClassVar[List[str]] = [
+        "document_index",
+        "api_id",
+        "height",
+        "required",
+        "signer",
+        "type",
+        "width",
+        "x",
+        "y",
+        "name",
+        "page",
+        "font_family",
+        "font_size",
+    ]
+
+    @field_validator("font_family")
     def font_family_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
             return value
 
-        if value not in set(['helvetica', 'arial', 'courier', 'calibri', 'cambria', 'georgia', 'times', 'trebuchet', 'verdana', 'roboto', 'robotoMono', 'notoSans', 'notoSerif', 'notoCJK-JP-Regular', 'notoHebrew-Regular', 'notoSanThaiMerged']):
-            raise ValueError("must be one of enum values ('helvetica', 'arial', 'courier', 'calibri', 'cambria', 'georgia', 'times', 'trebuchet', 'verdana', 'roboto', 'robotoMono', 'notoSans', 'notoSerif', 'notoCJK-JP-Regular', 'notoHebrew-Regular', 'notoSanThaiMerged')")
+        if value not in set(
+            [
+                "helvetica",
+                "arial",
+                "courier",
+                "calibri",
+                "cambria",
+                "georgia",
+                "times",
+                "trebuchet",
+                "verdana",
+                "roboto",
+                "robotoMono",
+                "notoSans",
+                "notoSerif",
+                "notoCJK-JP-Regular",
+                "notoHebrew-Regular",
+                "notoSanThaiMerged",
+            ]
+        ):
+            raise ValueError(
+                "must be one of enum values ('helvetica', 'arial', 'courier', 'calibri', 'cambria', 'georgia', 'times', 'trebuchet', 'verdana', 'roboto', 'robotoMono', 'notoSans', 'notoSerif', 'notoCJK-JP-Regular', 'notoHebrew-Regular', 'notoSanThaiMerged')"
+            )
         return value
 
     model_config = ConfigDict(
@@ -52,7 +98,6 @@ class SubFormFieldsPerDocumentDateSigned(SubFormFieldsPerDocumentBase):
         protected_namespaces=(),
         arbitrary_types_allowed=True,
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -63,7 +108,9 @@ class SubFormFieldsPerDocumentDateSigned(SubFormFieldsPerDocumentBase):
         # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
-    def to_json_form_params(self, excluded_fields: Set[str] = None) -> List[Tuple[str, str]]:
+    def to_json_form_params(
+        self, excluded_fields: Set[str] = None
+    ) -> List[Tuple[str, str]]:
         data: List[Tuple[str, str]] = []
 
         for key, value in self.to_dict(excluded_fields).items():
@@ -106,21 +153,27 @@ class SubFormFieldsPerDocumentDateSigned(SubFormFieldsPerDocumentBase):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "document_index": obj.get("document_index"),
-            "api_id": obj.get("api_id"),
-            "height": obj.get("height"),
-            "required": obj.get("required"),
-            "signer": obj.get("signer"),
-            "type": obj.get("type") if obj.get("type") is not None else 'date_signed',
-            "width": obj.get("width"),
-            "x": obj.get("x"),
-            "y": obj.get("y"),
-            "name": obj.get("name"),
-            "page": obj.get("page"),
-            "font_family": obj.get("font_family"),
-            "font_size": obj.get("font_size") if obj.get("font_size") is not None else 12
-        })
+        _obj = cls.model_validate(
+            {
+                "document_index": obj.get("document_index"),
+                "api_id": obj.get("api_id"),
+                "height": obj.get("height"),
+                "required": obj.get("required"),
+                "signer": obj.get("signer"),
+                "type": (
+                    obj.get("type") if obj.get("type") is not None else "date_signed"
+                ),
+                "width": obj.get("width"),
+                "x": obj.get("x"),
+                "y": obj.get("y"),
+                "name": obj.get("name"),
+                "page": obj.get("page"),
+                "font_family": obj.get("font_family"),
+                "font_size": (
+                    obj.get("font_size") if obj.get("font_size") is not None else 12
+                ),
+            }
+        )
         return _obj
 
     @classmethod
@@ -153,6 +206,4 @@ class SubFormFieldsPerDocumentDateSigned(SubFormFieldsPerDocumentBase):
 
     @classmethod
     def openapi_type_is_array(cls, property_name: str) -> bool:
-        return property_name in [
-        ]
-
+        return property_name in []

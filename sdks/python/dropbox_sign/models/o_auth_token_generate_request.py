@@ -26,16 +26,30 @@ import io
 from pydantic import StrictBool
 from typing import Union
 
+
 class OAuthTokenGenerateRequest(BaseModel):
     """
     OAuthTokenGenerateRequest
-    """ # noqa: E501
-    client_id: StrictStr = Field(description="The client id of the app requesting authorization.")
+    """  # noqa: E501
+
+    client_id: StrictStr = Field(
+        description="The client id of the app requesting authorization."
+    )
     client_secret: StrictStr = Field(description="The secret token of your app.")
-    code: StrictStr = Field(description="The code passed to your callback when the user granted access.")
-    grant_type: StrictStr = Field(description="When generating a new token use `authorization_code`.")
+    code: StrictStr = Field(
+        description="The code passed to your callback when the user granted access."
+    )
+    grant_type: StrictStr = Field(
+        description="When generating a new token use `authorization_code`."
+    )
     state: StrictStr = Field(description="Same as the state you specified earlier.")
-    __properties: ClassVar[List[str]] = ["client_id", "client_secret", "code", "grant_type", "state"]
+    __properties: ClassVar[List[str]] = [
+        "client_id",
+        "client_secret",
+        "code",
+        "grant_type",
+        "state",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -43,7 +57,6 @@ class OAuthTokenGenerateRequest(BaseModel):
         protected_namespaces=(),
         arbitrary_types_allowed=True,
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -54,7 +67,9 @@ class OAuthTokenGenerateRequest(BaseModel):
         # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
-    def to_json_form_params(self, excluded_fields: Set[str] = None) -> List[Tuple[str, str]]:
+    def to_json_form_params(
+        self, excluded_fields: Set[str] = None
+    ) -> List[Tuple[str, str]]:
         data: List[Tuple[str, str]] = []
 
         for key, value in self.to_dict(excluded_fields).items():
@@ -97,13 +112,19 @@ class OAuthTokenGenerateRequest(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "client_id": obj.get("client_id"),
-            "client_secret": obj.get("client_secret"),
-            "code": obj.get("code"),
-            "grant_type": obj.get("grant_type") if obj.get("grant_type") is not None else 'authorization_code',
-            "state": obj.get("state")
-        })
+        _obj = cls.model_validate(
+            {
+                "client_id": obj.get("client_id"),
+                "client_secret": obj.get("client_secret"),
+                "code": obj.get("code"),
+                "grant_type": (
+                    obj.get("grant_type")
+                    if obj.get("grant_type") is not None
+                    else "authorization_code"
+                ),
+                "state": obj.get("state"),
+            }
+        )
         return _obj
 
     @classmethod
@@ -128,6 +149,4 @@ class OAuthTokenGenerateRequest(BaseModel):
 
     @classmethod
     def openapi_type_is_array(cls, property_name: str) -> bool:
-        return property_name in [
-        ]
-
+        return property_name in []

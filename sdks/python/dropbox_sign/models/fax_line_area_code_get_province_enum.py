@@ -27,23 +27,21 @@ class FaxLineAreaCodeGetProvinceEnum(str, Enum):
     """
     allowed enum values
     """
-    AB = 'AB'
-    BC = 'BC'
-    MB = 'MB'
-    NB = 'NB'
-    NL = 'NL'
-    NT = 'NT'
-    NS = 'NS'
-    NU = 'NU'
-    ON = 'ON'
-    PE = 'PE'
-    QC = 'QC'
-    SK = 'SK'
-    YT = 'YT'
+    AB = "AB"
+    BC = "BC"
+    MB = "MB"
+    NB = "NB"
+    NL = "NL"
+    NT = "NT"
+    NS = "NS"
+    NU = "NU"
+    ON = "ON"
+    PE = "PE"
+    QC = "QC"
+    SK = "SK"
+    YT = "YT"
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:
         """Create an instance of FaxLineAreaCodeGetProvinceEnum from a JSON string"""
         return cls(json.loads(json_str))
-
-

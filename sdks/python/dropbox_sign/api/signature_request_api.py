@@ -23,16 +23,36 @@ from typing_extensions import Annotated
 from dropbox_sign.models.bulk_send_job_send_response import BulkSendJobSendResponse
 from dropbox_sign.models.file_response import FileResponse
 from dropbox_sign.models.file_response_data_uri import FileResponseDataUri
-from dropbox_sign.models.signature_request_bulk_create_embedded_with_template_request import SignatureRequestBulkCreateEmbeddedWithTemplateRequest
-from dropbox_sign.models.signature_request_bulk_send_with_template_request import SignatureRequestBulkSendWithTemplateRequest
-from dropbox_sign.models.signature_request_create_embedded_request import SignatureRequestCreateEmbeddedRequest
-from dropbox_sign.models.signature_request_create_embedded_with_template_request import SignatureRequestCreateEmbeddedWithTemplateRequest
-from dropbox_sign.models.signature_request_get_response import SignatureRequestGetResponse
-from dropbox_sign.models.signature_request_list_response import SignatureRequestListResponse
-from dropbox_sign.models.signature_request_remind_request import SignatureRequestRemindRequest
-from dropbox_sign.models.signature_request_send_request import SignatureRequestSendRequest
-from dropbox_sign.models.signature_request_send_with_template_request import SignatureRequestSendWithTemplateRequest
-from dropbox_sign.models.signature_request_update_request import SignatureRequestUpdateRequest
+from dropbox_sign.models.signature_request_bulk_create_embedded_with_template_request import (
+    SignatureRequestBulkCreateEmbeddedWithTemplateRequest,
+)
+from dropbox_sign.models.signature_request_bulk_send_with_template_request import (
+    SignatureRequestBulkSendWithTemplateRequest,
+)
+from dropbox_sign.models.signature_request_create_embedded_request import (
+    SignatureRequestCreateEmbeddedRequest,
+)
+from dropbox_sign.models.signature_request_create_embedded_with_template_request import (
+    SignatureRequestCreateEmbeddedWithTemplateRequest,
+)
+from dropbox_sign.models.signature_request_get_response import (
+    SignatureRequestGetResponse,
+)
+from dropbox_sign.models.signature_request_list_response import (
+    SignatureRequestListResponse,
+)
+from dropbox_sign.models.signature_request_remind_request import (
+    SignatureRequestRemindRequest,
+)
+from dropbox_sign.models.signature_request_send_request import (
+    SignatureRequestSendRequest,
+)
+from dropbox_sign.models.signature_request_send_with_template_request import (
+    SignatureRequestSendWithTemplateRequest,
+)
+from dropbox_sign.models.signature_request_update_request import (
+    SignatureRequestUpdateRequest,
+)
 
 from dropbox_sign.api_client import ApiClient, RequestSerialized
 from dropbox_sign.api_response import ApiResponse
@@ -52,7 +72,6 @@ class SignatureRequestApi:
             api_client = ApiClient.get_default()
         self.api_client = api_client
 
-
     @validate_call
     def signature_request_bulk_create_embedded_with_template(
         self,
@@ -61,9 +80,8 @@ class SignatureRequestApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -96,30 +114,28 @@ class SignatureRequestApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._signature_request_bulk_create_embedded_with_template_serialize(
             signature_request_bulk_create_embedded_with_template_request=signature_request_bulk_create_embedded_with_template_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "BulkSendJobSendResponse",
-            '4XX': "ErrorResponse",
+            "200": "BulkSendJobSendResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def signature_request_bulk_create_embedded_with_template_with_http_info(
@@ -129,9 +145,8 @@ class SignatureRequestApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -164,30 +179,28 @@ class SignatureRequestApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._signature_request_bulk_create_embedded_with_template_serialize(
             signature_request_bulk_create_embedded_with_template_request=signature_request_bulk_create_embedded_with_template_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "BulkSendJobSendResponse",
-            '4XX': "ErrorResponse",
+            "200": "BulkSendJobSendResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def signature_request_bulk_create_embedded_with_template_without_preload_content(
@@ -197,9 +210,8 @@ class SignatureRequestApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -232,26 +244,24 @@ class SignatureRequestApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._signature_request_bulk_create_embedded_with_template_serialize(
             signature_request_bulk_create_embedded_with_template_request=signature_request_bulk_create_embedded_with_template_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "BulkSendJobSendResponse",
-            '4XX': "ErrorResponse",
+            "200": "BulkSendJobSendResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _signature_request_bulk_create_embedded_with_template_serialize(
         self,
@@ -264,8 +274,7 @@ class SignatureRequestApi:
 
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -289,7 +298,7 @@ class SignatureRequestApi:
 
                 if isinstance(param_value, list):
                     for index, item in enumerate(param_value):
-                        _files[f'{param_name}[{index}]'] = item
+                        _files[f"{param_name}[{index}]"] = item
                 else:
                     _files[param_name] = param_value
 
@@ -301,41 +310,34 @@ class SignatureRequestApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if signature_request_bulk_create_embedded_with_template_request is not None and has_files is False:
+        if (
+            signature_request_bulk_create_embedded_with_template_request is not None
+            and has_files is False
+        ):
             _body_params = signature_request_bulk_create_embedded_with_template_request
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json"]
             )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json', 
-                        'multipart/form-data'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json", "multipart/form-data"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'api_key'
-        ]
+        _auth_settings: List[str] = ["api_key"]
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/signature_request/bulk_create_embedded_with_template',
+            method="POST",
+            resource_path="/signature_request/bulk_create_embedded_with_template",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -345,11 +347,8 @@ class SignatureRequestApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def signature_request_bulk_send_with_template(
@@ -359,9 +358,8 @@ class SignatureRequestApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -394,30 +392,28 @@ class SignatureRequestApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._signature_request_bulk_send_with_template_serialize(
             signature_request_bulk_send_with_template_request=signature_request_bulk_send_with_template_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "BulkSendJobSendResponse",
-            '4XX': "ErrorResponse",
+            "200": "BulkSendJobSendResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def signature_request_bulk_send_with_template_with_http_info(
@@ -427,9 +423,8 @@ class SignatureRequestApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -462,30 +457,28 @@ class SignatureRequestApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._signature_request_bulk_send_with_template_serialize(
             signature_request_bulk_send_with_template_request=signature_request_bulk_send_with_template_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "BulkSendJobSendResponse",
-            '4XX': "ErrorResponse",
+            "200": "BulkSendJobSendResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def signature_request_bulk_send_with_template_without_preload_content(
@@ -495,9 +488,8 @@ class SignatureRequestApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -530,26 +522,24 @@ class SignatureRequestApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._signature_request_bulk_send_with_template_serialize(
             signature_request_bulk_send_with_template_request=signature_request_bulk_send_with_template_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "BulkSendJobSendResponse",
-            '4XX': "ErrorResponse",
+            "200": "BulkSendJobSendResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _signature_request_bulk_send_with_template_serialize(
         self,
@@ -562,8 +552,7 @@ class SignatureRequestApi:
 
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -587,7 +576,7 @@ class SignatureRequestApi:
 
                 if isinstance(param_value, list):
                     for index, item in enumerate(param_value):
-                        _files[f'{param_name}[{index}]'] = item
+                        _files[f"{param_name}[{index}]"] = item
                 else:
                     _files[param_name] = param_value
 
@@ -599,42 +588,34 @@ class SignatureRequestApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if signature_request_bulk_send_with_template_request is not None and has_files is False:
+        if (
+            signature_request_bulk_send_with_template_request is not None
+            and has_files is False
+        ):
             _body_params = signature_request_bulk_send_with_template_request
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json"]
             )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json', 
-                        'multipart/form-data'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json", "multipart/form-data"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'api_key', 
-            'oauth2'
-        ]
+        _auth_settings: List[str] = ["api_key", "oauth2"]
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/signature_request/bulk_send_with_template',
+            method="POST",
+            resource_path="/signature_request/bulk_send_with_template",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -644,23 +625,22 @@ class SignatureRequestApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def signature_request_cancel(
         self,
-        signature_request_id: Annotated[StrictStr, Field(description="The id of the incomplete SignatureRequest to cancel.")],
+        signature_request_id: Annotated[
+            StrictStr,
+            Field(description="The id of the incomplete SignatureRequest to cancel."),
+        ],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -693,23 +673,22 @@ class SignatureRequestApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._signature_request_cancel_serialize(
             signature_request_id=signature_request_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
-            '4XX': "ErrorResponse",
+            "200": None,
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -717,18 +696,19 @@ class SignatureRequestApi:
             response_types_map=_response_types_map,
         ).data
 
-
     @validate_call
     def signature_request_cancel_with_http_info(
         self,
-        signature_request_id: Annotated[StrictStr, Field(description="The id of the incomplete SignatureRequest to cancel.")],
+        signature_request_id: Annotated[
+            StrictStr,
+            Field(description="The id of the incomplete SignatureRequest to cancel."),
+        ],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -761,23 +741,22 @@ class SignatureRequestApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._signature_request_cancel_serialize(
             signature_request_id=signature_request_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
-            '4XX': "ErrorResponse",
+            "200": None,
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -785,18 +764,19 @@ class SignatureRequestApi:
             response_types_map=_response_types_map,
         )
 
-
     @validate_call
     def signature_request_cancel_without_preload_content(
         self,
-        signature_request_id: Annotated[StrictStr, Field(description="The id of the incomplete SignatureRequest to cancel.")],
+        signature_request_id: Annotated[
+            StrictStr,
+            Field(description="The id of the incomplete SignatureRequest to cancel."),
+        ],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -829,26 +809,24 @@ class SignatureRequestApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._signature_request_cancel_serialize(
             signature_request_id=signature_request_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
-            '4XX': "ErrorResponse",
+            "200": None,
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _signature_request_cancel_serialize(
         self,
@@ -861,8 +839,7 @@ class SignatureRequestApi:
 
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -873,31 +850,24 @@ class SignatureRequestApi:
 
         # process the path parameters
         if signature_request_id is not None:
-            _path_params['signature_request_id'] = signature_request_id
+            _path_params["signature_request_id"] = signature_request_id
         # process the query parameters
         # process the header parameters
         # process the form parameters
         # process the body parameter
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json"]
             )
 
-
         # authentication setting
-        _auth_settings: List[str] = [
-            'api_key', 
-            'oauth2'
-        ]
+        _auth_settings: List[str] = ["api_key", "oauth2"]
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/signature_request/cancel/{signature_request_id}',
+            method="POST",
+            resource_path="/signature_request/cancel/{signature_request_id}",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -907,11 +877,8 @@ class SignatureRequestApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def signature_request_create_embedded(
@@ -921,9 +888,8 @@ class SignatureRequestApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -956,30 +922,28 @@ class SignatureRequestApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._signature_request_create_embedded_serialize(
             signature_request_create_embedded_request=signature_request_create_embedded_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SignatureRequestGetResponse",
-            '4XX': "ErrorResponse",
+            "200": "SignatureRequestGetResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def signature_request_create_embedded_with_http_info(
@@ -989,9 +953,8 @@ class SignatureRequestApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1024,30 +987,28 @@ class SignatureRequestApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._signature_request_create_embedded_serialize(
             signature_request_create_embedded_request=signature_request_create_embedded_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SignatureRequestGetResponse",
-            '4XX': "ErrorResponse",
+            "200": "SignatureRequestGetResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def signature_request_create_embedded_without_preload_content(
@@ -1057,9 +1018,8 @@ class SignatureRequestApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1092,26 +1052,24 @@ class SignatureRequestApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._signature_request_create_embedded_serialize(
             signature_request_create_embedded_request=signature_request_create_embedded_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SignatureRequestGetResponse",
-            '4XX': "ErrorResponse",
+            "200": "SignatureRequestGetResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _signature_request_create_embedded_serialize(
         self,
@@ -1124,8 +1082,7 @@ class SignatureRequestApi:
 
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -1149,7 +1106,7 @@ class SignatureRequestApi:
 
                 if isinstance(param_value, list):
                     for index, item in enumerate(param_value):
-                        _files[f'{param_name}[{index}]'] = item
+                        _files[f"{param_name}[{index}]"] = item
                 else:
                     _files[param_name] = param_value
 
@@ -1164,39 +1121,28 @@ class SignatureRequestApi:
         if signature_request_create_embedded_request is not None and has_files is False:
             _body_params = signature_request_create_embedded_request
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json"]
             )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json', 
-                        'multipart/form-data'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json", "multipart/form-data"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'api_key', 
-            'oauth2'
-        ]
+        _auth_settings: List[str] = ["api_key", "oauth2"]
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/signature_request/create_embedded',
+            method="POST",
+            resource_path="/signature_request/create_embedded",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1206,11 +1152,8 @@ class SignatureRequestApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def signature_request_create_embedded_with_template(
@@ -1220,9 +1163,8 @@ class SignatureRequestApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1255,30 +1197,28 @@ class SignatureRequestApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._signature_request_create_embedded_with_template_serialize(
             signature_request_create_embedded_with_template_request=signature_request_create_embedded_with_template_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SignatureRequestGetResponse",
-            '4XX': "ErrorResponse",
+            "200": "SignatureRequestGetResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def signature_request_create_embedded_with_template_with_http_info(
@@ -1288,9 +1228,8 @@ class SignatureRequestApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1323,30 +1262,28 @@ class SignatureRequestApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._signature_request_create_embedded_with_template_serialize(
             signature_request_create_embedded_with_template_request=signature_request_create_embedded_with_template_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SignatureRequestGetResponse",
-            '4XX': "ErrorResponse",
+            "200": "SignatureRequestGetResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def signature_request_create_embedded_with_template_without_preload_content(
@@ -1356,9 +1293,8 @@ class SignatureRequestApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1391,26 +1327,24 @@ class SignatureRequestApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._signature_request_create_embedded_with_template_serialize(
             signature_request_create_embedded_with_template_request=signature_request_create_embedded_with_template_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SignatureRequestGetResponse",
-            '4XX': "ErrorResponse",
+            "200": "SignatureRequestGetResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _signature_request_create_embedded_with_template_serialize(
         self,
@@ -1423,8 +1357,7 @@ class SignatureRequestApi:
 
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -1448,7 +1381,7 @@ class SignatureRequestApi:
 
                 if isinstance(param_value, list):
                     for index, item in enumerate(param_value):
-                        _files[f'{param_name}[{index}]'] = item
+                        _files[f"{param_name}[{index}]"] = item
                 else:
                     _files[param_name] = param_value
 
@@ -1460,42 +1393,34 @@ class SignatureRequestApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if signature_request_create_embedded_with_template_request is not None and has_files is False:
+        if (
+            signature_request_create_embedded_with_template_request is not None
+            and has_files is False
+        ):
             _body_params = signature_request_create_embedded_with_template_request
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json"]
             )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json', 
-                        'multipart/form-data'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json", "multipart/form-data"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'api_key', 
-            'oauth2'
-        ]
+        _auth_settings: List[str] = ["api_key", "oauth2"]
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/signature_request/create_embedded_with_template',
+            method="POST",
+            resource_path="/signature_request/create_embedded_with_template",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1505,24 +1430,27 @@ class SignatureRequestApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def signature_request_files(
         self,
-        signature_request_id: Annotated[StrictStr, Field(description="The id of the SignatureRequest to retrieve.")],
-        file_type: Annotated[Optional[StrictStr], Field(description="Set to `pdf` for a single merged document or `zip` for a collection of individual documents.")] = None,
+        signature_request_id: Annotated[
+            StrictStr, Field(description="The id of the SignatureRequest to retrieve.")
+        ],
+        file_type: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="Set to `pdf` for a single merged document or `zip` for a collection of individual documents."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1557,7 +1485,7 @@ class SignatureRequestApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._signature_request_files_serialize(
             signature_request_id=signature_request_id,
@@ -1565,16 +1493,15 @@ class SignatureRequestApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "io.IOBase",
-            '4XX': "ErrorResponse",
+            "200": "io.IOBase",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -1582,19 +1509,24 @@ class SignatureRequestApi:
             response_types_map=_response_types_map,
         ).data
 
-
     @validate_call
     def signature_request_files_with_http_info(
         self,
-        signature_request_id: Annotated[StrictStr, Field(description="The id of the SignatureRequest to retrieve.")],
-        file_type: Annotated[Optional[StrictStr], Field(description="Set to `pdf` for a single merged document or `zip` for a collection of individual documents.")] = None,
+        signature_request_id: Annotated[
+            StrictStr, Field(description="The id of the SignatureRequest to retrieve.")
+        ],
+        file_type: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="Set to `pdf` for a single merged document or `zip` for a collection of individual documents."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1629,7 +1561,7 @@ class SignatureRequestApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._signature_request_files_serialize(
             signature_request_id=signature_request_id,
@@ -1637,16 +1569,15 @@ class SignatureRequestApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "io.IOBase",
-            '4XX': "ErrorResponse",
+            "200": "io.IOBase",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -1654,19 +1585,24 @@ class SignatureRequestApi:
             response_types_map=_response_types_map,
         )
 
-
     @validate_call
     def signature_request_files_without_preload_content(
         self,
-        signature_request_id: Annotated[StrictStr, Field(description="The id of the SignatureRequest to retrieve.")],
-        file_type: Annotated[Optional[StrictStr], Field(description="Set to `pdf` for a single merged document or `zip` for a collection of individual documents.")] = None,
+        signature_request_id: Annotated[
+            StrictStr, Field(description="The id of the SignatureRequest to retrieve.")
+        ],
+        file_type: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="Set to `pdf` for a single merged document or `zip` for a collection of individual documents."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1701,7 +1637,7 @@ class SignatureRequestApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._signature_request_files_serialize(
             signature_request_id=signature_request_id,
@@ -1709,19 +1645,17 @@ class SignatureRequestApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "io.IOBase",
-            '4XX': "ErrorResponse",
+            "200": "io.IOBase",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _signature_request_files_serialize(
         self,
@@ -1735,8 +1669,7 @@ class SignatureRequestApi:
 
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -1747,37 +1680,28 @@ class SignatureRequestApi:
 
         # process the path parameters
         if signature_request_id is not None:
-            _path_params['signature_request_id'] = signature_request_id
+            _path_params["signature_request_id"] = signature_request_id
         # process the query parameters
         if file_type is not None:
-            
-            _query_params.append(('file_type', file_type))
-            
+
+            _query_params.append(("file_type", file_type))
+
         # process the header parameters
         # process the form parameters
         # process the body parameter
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/pdf', 
-                    'application/zip', 
-                    'application/json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/pdf", "application/zip", "application/json"]
             )
 
-
         # authentication setting
-        _auth_settings: List[str] = [
-            'api_key', 
-            'oauth2'
-        ]
+        _auth_settings: List[str] = ["api_key", "oauth2"]
 
         return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/signature_request/files/{signature_request_id}',
+            method="GET",
+            resource_path="/signature_request/files/{signature_request_id}",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1787,23 +1711,21 @@ class SignatureRequestApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def signature_request_files_as_data_uri(
         self,
-        signature_request_id: Annotated[StrictStr, Field(description="The id of the SignatureRequest to retrieve.")],
+        signature_request_id: Annotated[
+            StrictStr, Field(description="The id of the SignatureRequest to retrieve.")
+        ],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1836,23 +1758,22 @@ class SignatureRequestApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._signature_request_files_as_data_uri_serialize(
             signature_request_id=signature_request_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "FileResponseDataUri",
-            '4XX': "ErrorResponse",
+            "200": "FileResponseDataUri",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -1860,18 +1781,18 @@ class SignatureRequestApi:
             response_types_map=_response_types_map,
         ).data
 
-
     @validate_call
     def signature_request_files_as_data_uri_with_http_info(
         self,
-        signature_request_id: Annotated[StrictStr, Field(description="The id of the SignatureRequest to retrieve.")],
+        signature_request_id: Annotated[
+            StrictStr, Field(description="The id of the SignatureRequest to retrieve.")
+        ],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1904,23 +1825,22 @@ class SignatureRequestApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._signature_request_files_as_data_uri_serialize(
             signature_request_id=signature_request_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "FileResponseDataUri",
-            '4XX': "ErrorResponse",
+            "200": "FileResponseDataUri",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -1928,18 +1848,18 @@ class SignatureRequestApi:
             response_types_map=_response_types_map,
         )
 
-
     @validate_call
     def signature_request_files_as_data_uri_without_preload_content(
         self,
-        signature_request_id: Annotated[StrictStr, Field(description="The id of the SignatureRequest to retrieve.")],
+        signature_request_id: Annotated[
+            StrictStr, Field(description="The id of the SignatureRequest to retrieve.")
+        ],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1972,26 +1892,24 @@ class SignatureRequestApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._signature_request_files_as_data_uri_serialize(
             signature_request_id=signature_request_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "FileResponseDataUri",
-            '4XX': "ErrorResponse",
+            "200": "FileResponseDataUri",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _signature_request_files_as_data_uri_serialize(
         self,
@@ -2004,8 +1922,7 @@ class SignatureRequestApi:
 
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -2016,31 +1933,24 @@ class SignatureRequestApi:
 
         # process the path parameters
         if signature_request_id is not None:
-            _path_params['signature_request_id'] = signature_request_id
+            _path_params["signature_request_id"] = signature_request_id
         # process the query parameters
         # process the header parameters
         # process the form parameters
         # process the body parameter
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json"]
             )
 
-
         # authentication setting
-        _auth_settings: List[str] = [
-            'api_key', 
-            'oauth2'
-        ]
+        _auth_settings: List[str] = ["api_key", "oauth2"]
 
         return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/signature_request/files_as_data_uri/{signature_request_id}',
+            method="GET",
+            resource_path="/signature_request/files_as_data_uri/{signature_request_id}",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2050,24 +1960,27 @@ class SignatureRequestApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def signature_request_files_as_file_url(
         self,
-        signature_request_id: Annotated[StrictStr, Field(description="The id of the SignatureRequest to retrieve.")],
-        force_download: Annotated[Optional[StrictInt], Field(description="By default when opening the `file_url` a browser will download the PDF and save it locally. When set to `0` the PDF file will be displayed in the browser.")] = None,
+        signature_request_id: Annotated[
+            StrictStr, Field(description="The id of the SignatureRequest to retrieve.")
+        ],
+        force_download: Annotated[
+            Optional[StrictInt],
+            Field(
+                description="By default when opening the `file_url` a browser will download the PDF and save it locally. When set to `0` the PDF file will be displayed in the browser."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -2102,7 +2015,7 @@ class SignatureRequestApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._signature_request_files_as_file_url_serialize(
             signature_request_id=signature_request_id,
@@ -2110,16 +2023,15 @@ class SignatureRequestApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "FileResponse",
-            '4XX': "ErrorResponse",
+            "200": "FileResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -2127,19 +2039,24 @@ class SignatureRequestApi:
             response_types_map=_response_types_map,
         ).data
 
-
     @validate_call
     def signature_request_files_as_file_url_with_http_info(
         self,
-        signature_request_id: Annotated[StrictStr, Field(description="The id of the SignatureRequest to retrieve.")],
-        force_download: Annotated[Optional[StrictInt], Field(description="By default when opening the `file_url` a browser will download the PDF and save it locally. When set to `0` the PDF file will be displayed in the browser.")] = None,
+        signature_request_id: Annotated[
+            StrictStr, Field(description="The id of the SignatureRequest to retrieve.")
+        ],
+        force_download: Annotated[
+            Optional[StrictInt],
+            Field(
+                description="By default when opening the `file_url` a browser will download the PDF and save it locally. When set to `0` the PDF file will be displayed in the browser."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -2174,7 +2091,7 @@ class SignatureRequestApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._signature_request_files_as_file_url_serialize(
             signature_request_id=signature_request_id,
@@ -2182,16 +2099,15 @@ class SignatureRequestApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "FileResponse",
-            '4XX': "ErrorResponse",
+            "200": "FileResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -2199,19 +2115,24 @@ class SignatureRequestApi:
             response_types_map=_response_types_map,
         )
 
-
     @validate_call
     def signature_request_files_as_file_url_without_preload_content(
         self,
-        signature_request_id: Annotated[StrictStr, Field(description="The id of the SignatureRequest to retrieve.")],
-        force_download: Annotated[Optional[StrictInt], Field(description="By default when opening the `file_url` a browser will download the PDF and save it locally. When set to `0` the PDF file will be displayed in the browser.")] = None,
+        signature_request_id: Annotated[
+            StrictStr, Field(description="The id of the SignatureRequest to retrieve.")
+        ],
+        force_download: Annotated[
+            Optional[StrictInt],
+            Field(
+                description="By default when opening the `file_url` a browser will download the PDF and save it locally. When set to `0` the PDF file will be displayed in the browser."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -2246,7 +2167,7 @@ class SignatureRequestApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._signature_request_files_as_file_url_serialize(
             signature_request_id=signature_request_id,
@@ -2254,19 +2175,17 @@ class SignatureRequestApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "FileResponse",
-            '4XX': "ErrorResponse",
+            "200": "FileResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _signature_request_files_as_file_url_serialize(
         self,
@@ -2280,8 +2199,7 @@ class SignatureRequestApi:
 
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -2292,35 +2210,28 @@ class SignatureRequestApi:
 
         # process the path parameters
         if signature_request_id is not None:
-            _path_params['signature_request_id'] = signature_request_id
+            _path_params["signature_request_id"] = signature_request_id
         # process the query parameters
         if force_download is not None:
-            
-            _query_params.append(('force_download', force_download))
-            
+
+            _query_params.append(("force_download", force_download))
+
         # process the header parameters
         # process the form parameters
         # process the body parameter
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json"]
             )
 
-
         # authentication setting
-        _auth_settings: List[str] = [
-            'api_key', 
-            'oauth2'
-        ]
+        _auth_settings: List[str] = ["api_key", "oauth2"]
 
         return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/signature_request/files_as_file_url/{signature_request_id}',
+            method="GET",
+            resource_path="/signature_request/files_as_file_url/{signature_request_id}",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2330,23 +2241,21 @@ class SignatureRequestApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def signature_request_get(
         self,
-        signature_request_id: Annotated[StrictStr, Field(description="The id of the SignatureRequest to retrieve.")],
+        signature_request_id: Annotated[
+            StrictStr, Field(description="The id of the SignatureRequest to retrieve.")
+        ],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -2379,23 +2288,22 @@ class SignatureRequestApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._signature_request_get_serialize(
             signature_request_id=signature_request_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SignatureRequestGetResponse",
-            '4XX': "ErrorResponse",
+            "200": "SignatureRequestGetResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -2403,18 +2311,18 @@ class SignatureRequestApi:
             response_types_map=_response_types_map,
         ).data
 
-
     @validate_call
     def signature_request_get_with_http_info(
         self,
-        signature_request_id: Annotated[StrictStr, Field(description="The id of the SignatureRequest to retrieve.")],
+        signature_request_id: Annotated[
+            StrictStr, Field(description="The id of the SignatureRequest to retrieve.")
+        ],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -2447,23 +2355,22 @@ class SignatureRequestApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._signature_request_get_serialize(
             signature_request_id=signature_request_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SignatureRequestGetResponse",
-            '4XX': "ErrorResponse",
+            "200": "SignatureRequestGetResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -2471,18 +2378,18 @@ class SignatureRequestApi:
             response_types_map=_response_types_map,
         )
 
-
     @validate_call
     def signature_request_get_without_preload_content(
         self,
-        signature_request_id: Annotated[StrictStr, Field(description="The id of the SignatureRequest to retrieve.")],
+        signature_request_id: Annotated[
+            StrictStr, Field(description="The id of the SignatureRequest to retrieve.")
+        ],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -2515,26 +2422,24 @@ class SignatureRequestApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._signature_request_get_serialize(
             signature_request_id=signature_request_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SignatureRequestGetResponse",
-            '4XX': "ErrorResponse",
+            "200": "SignatureRequestGetResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _signature_request_get_serialize(
         self,
@@ -2547,8 +2452,7 @@ class SignatureRequestApi:
 
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -2559,31 +2463,24 @@ class SignatureRequestApi:
 
         # process the path parameters
         if signature_request_id is not None:
-            _path_params['signature_request_id'] = signature_request_id
+            _path_params["signature_request_id"] = signature_request_id
         # process the query parameters
         # process the header parameters
         # process the form parameters
         # process the body parameter
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json"]
             )
 
-
         # authentication setting
-        _auth_settings: List[str] = [
-            'api_key', 
-            'oauth2'
-        ]
+        _auth_settings: List[str] = ["api_key", "oauth2"]
 
         return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/signature_request/{signature_request_id}',
+            method="GET",
+            resource_path="/signature_request/{signature_request_id}",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2593,26 +2490,42 @@ class SignatureRequestApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def signature_request_list(
         self,
-        account_id: Annotated[Optional[StrictStr], Field(description="Which account to return SignatureRequests for. Must be a team member. Use `all` to indicate all team members. Defaults to your account.")] = None,
-        page: Annotated[Optional[StrictInt], Field(description="Which page number of the SignatureRequest List to return. Defaults to `1`.")] = None,
-        page_size: Annotated[Optional[StrictInt], Field(description="Number of objects to be returned per page. Must be between `1` and `100`. Default is `20`.")] = None,
-        query: Annotated[Optional[StrictStr], Field(description="String that includes search terms and/or fields to be used to filter the SignatureRequest objects.")] = None,
+        account_id: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="Which account to return SignatureRequests for. Must be a team member. Use `all` to indicate all team members. Defaults to your account."
+            ),
+        ] = None,
+        page: Annotated[
+            Optional[StrictInt],
+            Field(
+                description="Which page number of the SignatureRequest List to return. Defaults to `1`."
+            ),
+        ] = None,
+        page_size: Annotated[
+            Optional[StrictInt],
+            Field(
+                description="Number of objects to be returned per page. Must be between `1` and `100`. Default is `20`."
+            ),
+        ] = None,
+        query: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="String that includes search terms and/or fields to be used to filter the SignatureRequest objects."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -2651,7 +2564,7 @@ class SignatureRequestApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._signature_request_list_serialize(
             account_id=account_id,
@@ -2661,16 +2574,15 @@ class SignatureRequestApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SignatureRequestListResponse",
-            '4XX': "ErrorResponse",
+            "200": "SignatureRequestListResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -2678,21 +2590,39 @@ class SignatureRequestApi:
             response_types_map=_response_types_map,
         ).data
 
-
     @validate_call
     def signature_request_list_with_http_info(
         self,
-        account_id: Annotated[Optional[StrictStr], Field(description="Which account to return SignatureRequests for. Must be a team member. Use `all` to indicate all team members. Defaults to your account.")] = None,
-        page: Annotated[Optional[StrictInt], Field(description="Which page number of the SignatureRequest List to return. Defaults to `1`.")] = None,
-        page_size: Annotated[Optional[StrictInt], Field(description="Number of objects to be returned per page. Must be between `1` and `100`. Default is `20`.")] = None,
-        query: Annotated[Optional[StrictStr], Field(description="String that includes search terms and/or fields to be used to filter the SignatureRequest objects.")] = None,
+        account_id: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="Which account to return SignatureRequests for. Must be a team member. Use `all` to indicate all team members. Defaults to your account."
+            ),
+        ] = None,
+        page: Annotated[
+            Optional[StrictInt],
+            Field(
+                description="Which page number of the SignatureRequest List to return. Defaults to `1`."
+            ),
+        ] = None,
+        page_size: Annotated[
+            Optional[StrictInt],
+            Field(
+                description="Number of objects to be returned per page. Must be between `1` and `100`. Default is `20`."
+            ),
+        ] = None,
+        query: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="String that includes search terms and/or fields to be used to filter the SignatureRequest objects."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -2731,7 +2661,7 @@ class SignatureRequestApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._signature_request_list_serialize(
             account_id=account_id,
@@ -2741,16 +2671,15 @@ class SignatureRequestApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SignatureRequestListResponse",
-            '4XX': "ErrorResponse",
+            "200": "SignatureRequestListResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -2758,21 +2687,39 @@ class SignatureRequestApi:
             response_types_map=_response_types_map,
         )
 
-
     @validate_call
     def signature_request_list_without_preload_content(
         self,
-        account_id: Annotated[Optional[StrictStr], Field(description="Which account to return SignatureRequests for. Must be a team member. Use `all` to indicate all team members. Defaults to your account.")] = None,
-        page: Annotated[Optional[StrictInt], Field(description="Which page number of the SignatureRequest List to return. Defaults to `1`.")] = None,
-        page_size: Annotated[Optional[StrictInt], Field(description="Number of objects to be returned per page. Must be between `1` and `100`. Default is `20`.")] = None,
-        query: Annotated[Optional[StrictStr], Field(description="String that includes search terms and/or fields to be used to filter the SignatureRequest objects.")] = None,
+        account_id: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="Which account to return SignatureRequests for. Must be a team member. Use `all` to indicate all team members. Defaults to your account."
+            ),
+        ] = None,
+        page: Annotated[
+            Optional[StrictInt],
+            Field(
+                description="Which page number of the SignatureRequest List to return. Defaults to `1`."
+            ),
+        ] = None,
+        page_size: Annotated[
+            Optional[StrictInt],
+            Field(
+                description="Number of objects to be returned per page. Must be between `1` and `100`. Default is `20`."
+            ),
+        ] = None,
+        query: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="String that includes search terms and/or fields to be used to filter the SignatureRequest objects."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -2811,7 +2758,7 @@ class SignatureRequestApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._signature_request_list_serialize(
             account_id=account_id,
@@ -2821,19 +2768,17 @@ class SignatureRequestApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SignatureRequestListResponse",
-            '4XX': "ErrorResponse",
+            "200": "SignatureRequestListResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _signature_request_list_serialize(
         self,
@@ -2849,8 +2794,7 @@ class SignatureRequestApi:
 
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -2862,44 +2806,37 @@ class SignatureRequestApi:
         # process the path parameters
         # process the query parameters
         if account_id is not None:
-            
-            _query_params.append(('account_id', account_id))
-            
+
+            _query_params.append(("account_id", account_id))
+
         if page is not None:
-            
-            _query_params.append(('page', page))
-            
+
+            _query_params.append(("page", page))
+
         if page_size is not None:
-            
-            _query_params.append(('page_size', page_size))
-            
+
+            _query_params.append(("page_size", page_size))
+
         if query is not None:
-            
-            _query_params.append(('query', query))
-            
+
+            _query_params.append(("query", query))
+
         # process the header parameters
         # process the form parameters
         # process the body parameter
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json"]
             )
 
-
         # authentication setting
-        _auth_settings: List[str] = [
-            'api_key', 
-            'oauth2'
-        ]
+        _auth_settings: List[str] = ["api_key", "oauth2"]
 
         return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/signature_request/list',
+            method="GET",
+            resource_path="/signature_request/list",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2909,23 +2846,21 @@ class SignatureRequestApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def signature_request_release_hold(
         self,
-        signature_request_id: Annotated[StrictStr, Field(description="The id of the SignatureRequest to release.")],
+        signature_request_id: Annotated[
+            StrictStr, Field(description="The id of the SignatureRequest to release.")
+        ],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -2958,23 +2893,22 @@ class SignatureRequestApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._signature_request_release_hold_serialize(
             signature_request_id=signature_request_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SignatureRequestGetResponse",
-            '4XX': "ErrorResponse",
+            "200": "SignatureRequestGetResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -2982,18 +2916,18 @@ class SignatureRequestApi:
             response_types_map=_response_types_map,
         ).data
 
-
     @validate_call
     def signature_request_release_hold_with_http_info(
         self,
-        signature_request_id: Annotated[StrictStr, Field(description="The id of the SignatureRequest to release.")],
+        signature_request_id: Annotated[
+            StrictStr, Field(description="The id of the SignatureRequest to release.")
+        ],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -3026,23 +2960,22 @@ class SignatureRequestApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._signature_request_release_hold_serialize(
             signature_request_id=signature_request_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SignatureRequestGetResponse",
-            '4XX': "ErrorResponse",
+            "200": "SignatureRequestGetResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -3050,18 +2983,18 @@ class SignatureRequestApi:
             response_types_map=_response_types_map,
         )
 
-
     @validate_call
     def signature_request_release_hold_without_preload_content(
         self,
-        signature_request_id: Annotated[StrictStr, Field(description="The id of the SignatureRequest to release.")],
+        signature_request_id: Annotated[
+            StrictStr, Field(description="The id of the SignatureRequest to release.")
+        ],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -3094,26 +3027,24 @@ class SignatureRequestApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._signature_request_release_hold_serialize(
             signature_request_id=signature_request_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SignatureRequestGetResponse",
-            '4XX': "ErrorResponse",
+            "200": "SignatureRequestGetResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _signature_request_release_hold_serialize(
         self,
@@ -3126,8 +3057,7 @@ class SignatureRequestApi:
 
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -3138,31 +3068,24 @@ class SignatureRequestApi:
 
         # process the path parameters
         if signature_request_id is not None:
-            _path_params['signature_request_id'] = signature_request_id
+            _path_params["signature_request_id"] = signature_request_id
         # process the query parameters
         # process the header parameters
         # process the form parameters
         # process the body parameter
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json"]
             )
 
-
         # authentication setting
-        _auth_settings: List[str] = [
-            'api_key', 
-            'oauth2'
-        ]
+        _auth_settings: List[str] = ["api_key", "oauth2"]
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/signature_request/release_hold/{signature_request_id}',
+            method="POST",
+            resource_path="/signature_request/release_hold/{signature_request_id}",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -3172,24 +3095,23 @@ class SignatureRequestApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def signature_request_remind(
         self,
-        signature_request_id: Annotated[StrictStr, Field(description="The id of the SignatureRequest to send a reminder for.")],
+        signature_request_id: Annotated[
+            StrictStr,
+            Field(description="The id of the SignatureRequest to send a reminder for."),
+        ],
         signature_request_remind_request: SignatureRequestRemindRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -3224,7 +3146,7 @@ class SignatureRequestApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._signature_request_remind_serialize(
             signature_request_id=signature_request_id,
@@ -3232,16 +3154,15 @@ class SignatureRequestApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SignatureRequestGetResponse",
-            '4XX': "ErrorResponse",
+            "200": "SignatureRequestGetResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -3249,19 +3170,20 @@ class SignatureRequestApi:
             response_types_map=_response_types_map,
         ).data
 
-
     @validate_call
     def signature_request_remind_with_http_info(
         self,
-        signature_request_id: Annotated[StrictStr, Field(description="The id of the SignatureRequest to send a reminder for.")],
+        signature_request_id: Annotated[
+            StrictStr,
+            Field(description="The id of the SignatureRequest to send a reminder for."),
+        ],
         signature_request_remind_request: SignatureRequestRemindRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -3296,7 +3218,7 @@ class SignatureRequestApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._signature_request_remind_serialize(
             signature_request_id=signature_request_id,
@@ -3304,16 +3226,15 @@ class SignatureRequestApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SignatureRequestGetResponse",
-            '4XX': "ErrorResponse",
+            "200": "SignatureRequestGetResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -3321,19 +3242,20 @@ class SignatureRequestApi:
             response_types_map=_response_types_map,
         )
 
-
     @validate_call
     def signature_request_remind_without_preload_content(
         self,
-        signature_request_id: Annotated[StrictStr, Field(description="The id of the SignatureRequest to send a reminder for.")],
+        signature_request_id: Annotated[
+            StrictStr,
+            Field(description="The id of the SignatureRequest to send a reminder for."),
+        ],
         signature_request_remind_request: SignatureRequestRemindRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -3368,7 +3290,7 @@ class SignatureRequestApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._signature_request_remind_serialize(
             signature_request_id=signature_request_id,
@@ -3376,19 +3298,17 @@ class SignatureRequestApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SignatureRequestGetResponse",
-            '4XX': "ErrorResponse",
+            "200": "SignatureRequestGetResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _signature_request_remind_serialize(
         self,
@@ -3402,8 +3322,7 @@ class SignatureRequestApi:
 
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -3427,7 +3346,7 @@ class SignatureRequestApi:
 
                 if isinstance(param_value, list):
                     for index, item in enumerate(param_value):
-                        _files[f'{param_name}[{index}]'] = item
+                        _files[f"{param_name}[{index}]"] = item
                 else:
                     _files[param_name] = param_value
 
@@ -3436,7 +3355,7 @@ class SignatureRequestApi:
 
         # process the path parameters
         if signature_request_id is not None:
-            _path_params['signature_request_id'] = signature_request_id
+            _path_params["signature_request_id"] = signature_request_id
         # process the query parameters
         # process the header parameters
         # process the form parameters
@@ -3444,38 +3363,28 @@ class SignatureRequestApi:
         if signature_request_remind_request is not None and has_files is False:
             _body_params = signature_request_remind_request
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json"]
             )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'api_key', 
-            'oauth2'
-        ]
+        _auth_settings: List[str] = ["api_key", "oauth2"]
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/signature_request/remind/{signature_request_id}',
+            method="POST",
+            resource_path="/signature_request/remind/{signature_request_id}",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -3485,23 +3394,21 @@ class SignatureRequestApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def signature_request_remove(
         self,
-        signature_request_id: Annotated[StrictStr, Field(description="The id of the SignatureRequest to remove.")],
+        signature_request_id: Annotated[
+            StrictStr, Field(description="The id of the SignatureRequest to remove.")
+        ],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -3534,23 +3441,22 @@ class SignatureRequestApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._signature_request_remove_serialize(
             signature_request_id=signature_request_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
-            '4XX': "ErrorResponse",
+            "200": None,
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -3558,18 +3464,18 @@ class SignatureRequestApi:
             response_types_map=_response_types_map,
         ).data
 
-
     @validate_call
     def signature_request_remove_with_http_info(
         self,
-        signature_request_id: Annotated[StrictStr, Field(description="The id of the SignatureRequest to remove.")],
+        signature_request_id: Annotated[
+            StrictStr, Field(description="The id of the SignatureRequest to remove.")
+        ],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -3602,23 +3508,22 @@ class SignatureRequestApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._signature_request_remove_serialize(
             signature_request_id=signature_request_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
-            '4XX': "ErrorResponse",
+            "200": None,
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -3626,18 +3531,18 @@ class SignatureRequestApi:
             response_types_map=_response_types_map,
         )
 
-
     @validate_call
     def signature_request_remove_without_preload_content(
         self,
-        signature_request_id: Annotated[StrictStr, Field(description="The id of the SignatureRequest to remove.")],
+        signature_request_id: Annotated[
+            StrictStr, Field(description="The id of the SignatureRequest to remove.")
+        ],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -3670,26 +3575,24 @@ class SignatureRequestApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._signature_request_remove_serialize(
             signature_request_id=signature_request_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
-            '4XX': "ErrorResponse",
+            "200": None,
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _signature_request_remove_serialize(
         self,
@@ -3702,8 +3605,7 @@ class SignatureRequestApi:
 
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -3714,30 +3616,24 @@ class SignatureRequestApi:
 
         # process the path parameters
         if signature_request_id is not None:
-            _path_params['signature_request_id'] = signature_request_id
+            _path_params["signature_request_id"] = signature_request_id
         # process the query parameters
         # process the header parameters
         # process the form parameters
         # process the body parameter
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json"]
             )
 
-
         # authentication setting
-        _auth_settings: List[str] = [
-            'api_key'
-        ]
+        _auth_settings: List[str] = ["api_key"]
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/signature_request/remove/{signature_request_id}',
+            method="POST",
+            resource_path="/signature_request/remove/{signature_request_id}",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -3747,11 +3643,8 @@ class SignatureRequestApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def signature_request_send(
@@ -3761,9 +3654,8 @@ class SignatureRequestApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -3796,30 +3688,28 @@ class SignatureRequestApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._signature_request_send_serialize(
             signature_request_send_request=signature_request_send_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SignatureRequestGetResponse",
-            '4XX': "ErrorResponse",
+            "200": "SignatureRequestGetResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def signature_request_send_with_http_info(
@@ -3829,9 +3719,8 @@ class SignatureRequestApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -3864,30 +3753,28 @@ class SignatureRequestApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._signature_request_send_serialize(
             signature_request_send_request=signature_request_send_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SignatureRequestGetResponse",
-            '4XX': "ErrorResponse",
+            "200": "SignatureRequestGetResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def signature_request_send_without_preload_content(
@@ -3897,9 +3784,8 @@ class SignatureRequestApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -3932,26 +3818,24 @@ class SignatureRequestApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._signature_request_send_serialize(
             signature_request_send_request=signature_request_send_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SignatureRequestGetResponse",
-            '4XX': "ErrorResponse",
+            "200": "SignatureRequestGetResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _signature_request_send_serialize(
         self,
@@ -3964,8 +3848,7 @@ class SignatureRequestApi:
 
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -3989,7 +3872,7 @@ class SignatureRequestApi:
 
                 if isinstance(param_value, list):
                     for index, item in enumerate(param_value):
-                        _files[f'{param_name}[{index}]'] = item
+                        _files[f"{param_name}[{index}]"] = item
                 else:
                     _files[param_name] = param_value
 
@@ -4004,39 +3887,28 @@ class SignatureRequestApi:
         if signature_request_send_request is not None and has_files is False:
             _body_params = signature_request_send_request
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json"]
             )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json', 
-                        'multipart/form-data'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json", "multipart/form-data"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'api_key', 
-            'oauth2'
-        ]
+        _auth_settings: List[str] = ["api_key", "oauth2"]
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/signature_request/send',
+            method="POST",
+            resource_path="/signature_request/send",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -4046,11 +3918,8 @@ class SignatureRequestApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def signature_request_send_with_template(
@@ -4060,9 +3929,8 @@ class SignatureRequestApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -4095,30 +3963,28 @@ class SignatureRequestApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._signature_request_send_with_template_serialize(
             signature_request_send_with_template_request=signature_request_send_with_template_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SignatureRequestGetResponse",
-            '4XX': "ErrorResponse",
+            "200": "SignatureRequestGetResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def signature_request_send_with_template_with_http_info(
@@ -4128,9 +3994,8 @@ class SignatureRequestApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -4163,30 +4028,28 @@ class SignatureRequestApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._signature_request_send_with_template_serialize(
             signature_request_send_with_template_request=signature_request_send_with_template_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SignatureRequestGetResponse",
-            '4XX': "ErrorResponse",
+            "200": "SignatureRequestGetResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def signature_request_send_with_template_without_preload_content(
@@ -4196,9 +4059,8 @@ class SignatureRequestApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -4231,26 +4093,24 @@ class SignatureRequestApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._signature_request_send_with_template_serialize(
             signature_request_send_with_template_request=signature_request_send_with_template_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SignatureRequestGetResponse",
-            '4XX': "ErrorResponse",
+            "200": "SignatureRequestGetResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _signature_request_send_with_template_serialize(
         self,
@@ -4263,8 +4123,7 @@ class SignatureRequestApi:
 
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -4288,7 +4147,7 @@ class SignatureRequestApi:
 
                 if isinstance(param_value, list):
                     for index, item in enumerate(param_value):
-                        _files[f'{param_name}[{index}]'] = item
+                        _files[f"{param_name}[{index}]"] = item
                 else:
                     _files[param_name] = param_value
 
@@ -4300,42 +4159,34 @@ class SignatureRequestApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if signature_request_send_with_template_request is not None and has_files is False:
+        if (
+            signature_request_send_with_template_request is not None
+            and has_files is False
+        ):
             _body_params = signature_request_send_with_template_request
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json"]
             )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json', 
-                        'multipart/form-data'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json", "multipart/form-data"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'api_key', 
-            'oauth2'
-        ]
+        _auth_settings: List[str] = ["api_key", "oauth2"]
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/signature_request/send_with_template',
+            method="POST",
+            resource_path="/signature_request/send_with_template",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -4345,24 +4196,22 @@ class SignatureRequestApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def signature_request_update(
         self,
-        signature_request_id: Annotated[StrictStr, Field(description="The id of the SignatureRequest to update.")],
+        signature_request_id: Annotated[
+            StrictStr, Field(description="The id of the SignatureRequest to update.")
+        ],
         signature_request_update_request: SignatureRequestUpdateRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -4397,7 +4246,7 @@ class SignatureRequestApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._signature_request_update_serialize(
             signature_request_id=signature_request_id,
@@ -4405,16 +4254,15 @@ class SignatureRequestApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SignatureRequestGetResponse",
-            '4XX': "ErrorResponse",
+            "200": "SignatureRequestGetResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -4422,19 +4270,19 @@ class SignatureRequestApi:
             response_types_map=_response_types_map,
         ).data
 
-
     @validate_call
     def signature_request_update_with_http_info(
         self,
-        signature_request_id: Annotated[StrictStr, Field(description="The id of the SignatureRequest to update.")],
+        signature_request_id: Annotated[
+            StrictStr, Field(description="The id of the SignatureRequest to update.")
+        ],
         signature_request_update_request: SignatureRequestUpdateRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -4469,7 +4317,7 @@ class SignatureRequestApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._signature_request_update_serialize(
             signature_request_id=signature_request_id,
@@ -4477,16 +4325,15 @@ class SignatureRequestApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SignatureRequestGetResponse",
-            '4XX': "ErrorResponse",
+            "200": "SignatureRequestGetResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -4494,19 +4341,19 @@ class SignatureRequestApi:
             response_types_map=_response_types_map,
         )
 
-
     @validate_call
     def signature_request_update_without_preload_content(
         self,
-        signature_request_id: Annotated[StrictStr, Field(description="The id of the SignatureRequest to update.")],
+        signature_request_id: Annotated[
+            StrictStr, Field(description="The id of the SignatureRequest to update.")
+        ],
         signature_request_update_request: SignatureRequestUpdateRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -4541,7 +4388,7 @@ class SignatureRequestApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._signature_request_update_serialize(
             signature_request_id=signature_request_id,
@@ -4549,19 +4396,17 @@ class SignatureRequestApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SignatureRequestGetResponse",
-            '4XX': "ErrorResponse",
+            "200": "SignatureRequestGetResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _signature_request_update_serialize(
         self,
@@ -4575,8 +4420,7 @@ class SignatureRequestApi:
 
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -4600,7 +4444,7 @@ class SignatureRequestApi:
 
                 if isinstance(param_value, list):
                     for index, item in enumerate(param_value):
-                        _files[f'{param_name}[{index}]'] = item
+                        _files[f"{param_name}[{index}]"] = item
                 else:
                     _files[param_name] = param_value
 
@@ -4609,7 +4453,7 @@ class SignatureRequestApi:
 
         # process the path parameters
         if signature_request_id is not None:
-            _path_params['signature_request_id'] = signature_request_id
+            _path_params["signature_request_id"] = signature_request_id
         # process the query parameters
         # process the header parameters
         # process the form parameters
@@ -4617,38 +4461,28 @@ class SignatureRequestApi:
         if signature_request_update_request is not None and has_files is False:
             _body_params = signature_request_update_request
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json"]
             )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'api_key', 
-            'oauth2'
-        ]
+        _auth_settings: List[str] = ["api_key", "oauth2"]
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/signature_request/update/{signature_request_id}',
+            method="POST",
+            resource_path="/signature_request/update/{signature_request_id}",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -4658,7 +4492,5 @@ class SignatureRequestApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-

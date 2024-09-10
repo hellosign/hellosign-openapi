@@ -14,16 +14,14 @@ class TestTeamApi(unittest.TestCase):
         self.api = apis.TeamApi(self.api_client)
 
     def test_team_add_member(self):
-        request_class = 'TeamAddMemberRequest'
-        request_data = get_fixture_data(request_class)['default']
+        request_class = "TeamAddMemberRequest"
+        request_data = get_fixture_data(request_class)["default"]
 
-        response_class = 'TeamGetResponse'
-        response_data = get_fixture_data(response_class)['default']
+        response_class = "TeamGetResponse"
+        response_data = get_fixture_data(response_class)["default"]
 
         self.mock_pool.expect_request(
-            content_type='application/json',
-            data=request_data,
-            response=response_data
+            content_type="application/json", data=request_data, response=response_data
         )
         expected = m.TeamGetResponse.init(response_data)
         obj = m.TeamAddMemberRequest.init(request_data)
@@ -34,16 +32,14 @@ class TestTeamApi(unittest.TestCase):
         self.assertEqual(result, expected)
 
     def test_team_create(self):
-        request_class = 'TeamCreateRequest'
-        request_data = get_fixture_data(request_class)['default']
+        request_class = "TeamCreateRequest"
+        request_data = get_fixture_data(request_class)["default"]
 
-        response_class = 'TeamGetResponse'
-        response_data = get_fixture_data(response_class)['default']
+        response_class = "TeamGetResponse"
+        response_data = get_fixture_data(response_class)["default"]
 
         self.mock_pool.expect_request(
-            content_type='application/json',
-            data=request_data,
-            response=response_data
+            content_type="application/json", data=request_data, response=response_data
         )
         expected = m.TeamGetResponse.init(response_data)
         obj = m.TeamCreateRequest.init(request_data)
@@ -54,15 +50,14 @@ class TestTeamApi(unittest.TestCase):
         self.assertEqual(result, expected)
 
     def test_team_delete(self):
-        self.skipTest('skipping test_team_create')
+        self.skipTest("skipping test_team_create")
 
     def test_team_get(self):
-        response_class = 'TeamGetResponse'
-        response_data = get_fixture_data(response_class)['default']
+        response_class = "TeamGetResponse"
+        response_data = get_fixture_data(response_class)["default"]
 
         self.mock_pool.expect_request(
-            content_type='application/json',
-            response=response_data
+            content_type="application/json", response=response_data
         )
         expected = m.TeamGetResponse.init(response_data)
 
@@ -72,16 +67,14 @@ class TestTeamApi(unittest.TestCase):
         self.assertEqual(result, expected)
 
     def test_team_update(self):
-        request_class = 'TeamUpdateRequest'
-        request_data = get_fixture_data(request_class)['default']
+        request_class = "TeamUpdateRequest"
+        request_data = get_fixture_data(request_class)["default"]
 
-        response_class = 'TeamGetResponse'
-        response_data = get_fixture_data(response_class)['default']
+        response_class = "TeamGetResponse"
+        response_data = get_fixture_data(response_class)["default"]
 
         self.mock_pool.expect_request(
-            content_type='application/json',
-            data=request_data,
-            response=response_data
+            content_type="application/json", data=request_data, response=response_data
         )
         expected = m.TeamGetResponse.init(response_data)
         obj = m.TeamUpdateRequest.init(request_data)
@@ -92,14 +85,14 @@ class TestTeamApi(unittest.TestCase):
         self.assertEqual(result, expected)
 
     def test_team_remove_member(self):
-        request_class = 'TeamRemoveMemberRequest'
-        request_data = get_fixture_data(request_class)['default']
+        request_class = "TeamRemoveMemberRequest"
+        request_data = get_fixture_data(request_class)["default"]
 
-        response_class = 'TeamGetResponse'
-        response_data = get_fixture_data(response_class)['default']
+        response_class = "TeamGetResponse"
+        response_data = get_fixture_data(response_class)["default"]
 
         self.mock_pool.expect_request(
-            content_type='application/json',
+            content_type="application/json",
             data=request_data,
             response=response_data,
             status=201,
@@ -113,5 +106,5 @@ class TestTeamApi(unittest.TestCase):
         self.assertEqual(result, expected)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

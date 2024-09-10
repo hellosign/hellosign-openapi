@@ -41,19 +41,19 @@ class EmbeddedApi:
             api_client = ApiClient.get_default()
         self.api_client = api_client
 
-
     @validate_call
     def embedded_edit_url(
         self,
-        template_id: Annotated[StrictStr, Field(description="The id of the template to edit.")],
+        template_id: Annotated[
+            StrictStr, Field(description="The id of the template to edit.")
+        ],
         embedded_edit_url_request: EmbeddedEditUrlRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -88,7 +88,7 @@ class EmbeddedApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._embedded_edit_url_serialize(
             template_id=template_id,
@@ -96,16 +96,15 @@ class EmbeddedApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "EmbeddedEditUrlResponse",
-            '4XX': "ErrorResponse",
+            "200": "EmbeddedEditUrlResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -113,19 +112,19 @@ class EmbeddedApi:
             response_types_map=_response_types_map,
         ).data
 
-
     @validate_call
     def embedded_edit_url_with_http_info(
         self,
-        template_id: Annotated[StrictStr, Field(description="The id of the template to edit.")],
+        template_id: Annotated[
+            StrictStr, Field(description="The id of the template to edit.")
+        ],
         embedded_edit_url_request: EmbeddedEditUrlRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -160,7 +159,7 @@ class EmbeddedApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._embedded_edit_url_serialize(
             template_id=template_id,
@@ -168,16 +167,15 @@ class EmbeddedApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "EmbeddedEditUrlResponse",
-            '4XX': "ErrorResponse",
+            "200": "EmbeddedEditUrlResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -185,19 +183,19 @@ class EmbeddedApi:
             response_types_map=_response_types_map,
         )
 
-
     @validate_call
     def embedded_edit_url_without_preload_content(
         self,
-        template_id: Annotated[StrictStr, Field(description="The id of the template to edit.")],
+        template_id: Annotated[
+            StrictStr, Field(description="The id of the template to edit.")
+        ],
         embedded_edit_url_request: EmbeddedEditUrlRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -232,7 +230,7 @@ class EmbeddedApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._embedded_edit_url_serialize(
             template_id=template_id,
@@ -240,19 +238,17 @@ class EmbeddedApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "EmbeddedEditUrlResponse",
-            '4XX': "ErrorResponse",
+            "200": "EmbeddedEditUrlResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _embedded_edit_url_serialize(
         self,
@@ -266,8 +262,7 @@ class EmbeddedApi:
 
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -291,7 +286,7 @@ class EmbeddedApi:
 
                 if isinstance(param_value, list):
                     for index, item in enumerate(param_value):
-                        _files[f'{param_name}[{index}]'] = item
+                        _files[f"{param_name}[{index}]"] = item
                 else:
                     _files[param_name] = param_value
 
@@ -300,7 +295,7 @@ class EmbeddedApi:
 
         # process the path parameters
         if template_id is not None:
-            _path_params['template_id'] = template_id
+            _path_params["template_id"] = template_id
         # process the query parameters
         # process the header parameters
         # process the form parameters
@@ -308,38 +303,28 @@ class EmbeddedApi:
         if embedded_edit_url_request is not None and has_files is False:
             _body_params = embedded_edit_url_request
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json"]
             )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'api_key', 
-            'oauth2'
-        ]
+        _auth_settings: List[str] = ["api_key", "oauth2"]
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/embedded/edit_url/{template_id}',
+            method="POST",
+            resource_path="/embedded/edit_url/{template_id}",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -349,23 +334,22 @@ class EmbeddedApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def embedded_sign_url(
         self,
-        signature_id: Annotated[StrictStr, Field(description="The id of the signature to get a signature url for.")],
+        signature_id: Annotated[
+            StrictStr,
+            Field(description="The id of the signature to get a signature url for."),
+        ],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -398,23 +382,22 @@ class EmbeddedApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._embedded_sign_url_serialize(
             signature_id=signature_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "EmbeddedSignUrlResponse",
-            '4XX': "ErrorResponse",
+            "200": "EmbeddedSignUrlResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -422,18 +405,19 @@ class EmbeddedApi:
             response_types_map=_response_types_map,
         ).data
 
-
     @validate_call
     def embedded_sign_url_with_http_info(
         self,
-        signature_id: Annotated[StrictStr, Field(description="The id of the signature to get a signature url for.")],
+        signature_id: Annotated[
+            StrictStr,
+            Field(description="The id of the signature to get a signature url for."),
+        ],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -466,23 +450,22 @@ class EmbeddedApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._embedded_sign_url_serialize(
             signature_id=signature_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "EmbeddedSignUrlResponse",
-            '4XX': "ErrorResponse",
+            "200": "EmbeddedSignUrlResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -490,18 +473,19 @@ class EmbeddedApi:
             response_types_map=_response_types_map,
         )
 
-
     @validate_call
     def embedded_sign_url_without_preload_content(
         self,
-        signature_id: Annotated[StrictStr, Field(description="The id of the signature to get a signature url for.")],
+        signature_id: Annotated[
+            StrictStr,
+            Field(description="The id of the signature to get a signature url for."),
+        ],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -534,26 +518,24 @@ class EmbeddedApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._embedded_sign_url_serialize(
             signature_id=signature_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "EmbeddedSignUrlResponse",
-            '4XX': "ErrorResponse",
+            "200": "EmbeddedSignUrlResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _embedded_sign_url_serialize(
         self,
@@ -566,8 +548,7 @@ class EmbeddedApi:
 
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -578,31 +559,24 @@ class EmbeddedApi:
 
         # process the path parameters
         if signature_id is not None:
-            _path_params['signature_id'] = signature_id
+            _path_params["signature_id"] = signature_id
         # process the query parameters
         # process the header parameters
         # process the form parameters
         # process the body parameter
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json"]
             )
 
-
         # authentication setting
-        _auth_settings: List[str] = [
-            'api_key', 
-            'oauth2'
-        ]
+        _auth_settings: List[str] = ["api_key", "oauth2"]
 
         return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/embedded/sign_url/{signature_id}',
+            method="GET",
+            resource_path="/embedded/sign_url/{signature_id}",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -612,7 +586,5 @@ class EmbeddedApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-

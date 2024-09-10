@@ -26,10 +26,12 @@ import io
 from pydantic import StrictBool
 from typing import Union
 
+
 class ApiAppResponseWhiteLabelingOptions(BaseModel):
     """
     An object with options to customize the app's signer page
-    """ # noqa: E501
+    """  # noqa: E501
+
     header_background_color: Optional[StrictStr] = None
     legal_version: Optional[StrictStr] = None
     link_color: Optional[StrictStr] = None
@@ -44,7 +46,22 @@ class ApiAppResponseWhiteLabelingOptions(BaseModel):
     secondary_button_text_color_hover: Optional[StrictStr] = None
     text_color1: Optional[StrictStr] = None
     text_color2: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["header_background_color", "legal_version", "link_color", "page_background_color", "primary_button_color", "primary_button_color_hover", "primary_button_text_color", "primary_button_text_color_hover", "secondary_button_color", "secondary_button_color_hover", "secondary_button_text_color", "secondary_button_text_color_hover", "text_color1", "text_color2"]
+    __properties: ClassVar[List[str]] = [
+        "header_background_color",
+        "legal_version",
+        "link_color",
+        "page_background_color",
+        "primary_button_color",
+        "primary_button_color_hover",
+        "primary_button_text_color",
+        "primary_button_text_color_hover",
+        "secondary_button_color",
+        "secondary_button_color_hover",
+        "secondary_button_text_color",
+        "secondary_button_text_color_hover",
+        "text_color1",
+        "text_color2",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -52,7 +69,6 @@ class ApiAppResponseWhiteLabelingOptions(BaseModel):
         protected_namespaces=(),
         arbitrary_types_allowed=True,
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -63,7 +79,9 @@ class ApiAppResponseWhiteLabelingOptions(BaseModel):
         # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
-    def to_json_form_params(self, excluded_fields: Set[str] = None) -> List[Tuple[str, str]]:
+    def to_json_form_params(
+        self, excluded_fields: Set[str] = None
+    ) -> List[Tuple[str, str]]:
         data: List[Tuple[str, str]] = []
 
         for key, value in self.to_dict(excluded_fields).items():
@@ -106,22 +124,28 @@ class ApiAppResponseWhiteLabelingOptions(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "header_background_color": obj.get("header_background_color"),
-            "legal_version": obj.get("legal_version"),
-            "link_color": obj.get("link_color"),
-            "page_background_color": obj.get("page_background_color"),
-            "primary_button_color": obj.get("primary_button_color"),
-            "primary_button_color_hover": obj.get("primary_button_color_hover"),
-            "primary_button_text_color": obj.get("primary_button_text_color"),
-            "primary_button_text_color_hover": obj.get("primary_button_text_color_hover"),
-            "secondary_button_color": obj.get("secondary_button_color"),
-            "secondary_button_color_hover": obj.get("secondary_button_color_hover"),
-            "secondary_button_text_color": obj.get("secondary_button_text_color"),
-            "secondary_button_text_color_hover": obj.get("secondary_button_text_color_hover"),
-            "text_color1": obj.get("text_color1"),
-            "text_color2": obj.get("text_color2")
-        })
+        _obj = cls.model_validate(
+            {
+                "header_background_color": obj.get("header_background_color"),
+                "legal_version": obj.get("legal_version"),
+                "link_color": obj.get("link_color"),
+                "page_background_color": obj.get("page_background_color"),
+                "primary_button_color": obj.get("primary_button_color"),
+                "primary_button_color_hover": obj.get("primary_button_color_hover"),
+                "primary_button_text_color": obj.get("primary_button_text_color"),
+                "primary_button_text_color_hover": obj.get(
+                    "primary_button_text_color_hover"
+                ),
+                "secondary_button_color": obj.get("secondary_button_color"),
+                "secondary_button_color_hover": obj.get("secondary_button_color_hover"),
+                "secondary_button_text_color": obj.get("secondary_button_text_color"),
+                "secondary_button_text_color_hover": obj.get(
+                    "secondary_button_text_color_hover"
+                ),
+                "text_color1": obj.get("text_color1"),
+                "text_color2": obj.get("text_color2"),
+            }
+        )
         return _obj
 
     @classmethod
@@ -155,6 +179,4 @@ class ApiAppResponseWhiteLabelingOptions(BaseModel):
 
     @classmethod
     def openapi_type_is_array(cls, property_name: str) -> bool:
-        return property_name in [
-        ]
-
+        return property_name in []

@@ -12,4 +12,3 @@ from dropbox_sign.api.signature_request_api import SignatureRequestApi
 from dropbox_sign.api.team_api import TeamApi
 from dropbox_sign.api.template_api import TemplateApi
 from dropbox_sign.api.unclaimed_draft_api import UnclaimedDraftApi
-

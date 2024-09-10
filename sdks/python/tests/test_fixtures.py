@@ -11,42 +11,42 @@ class TestFixtures(unittest.TestCase):
         api_client = ApiClient(configuration)
 
         fixtures = [
-            'AccountCreateRequest',
-            'AccountUpdateRequest',
-            'AccountVerifyRequest',
-            'ApiAppCreateRequest',
-            'ApiAppUpdateRequest',
-            'EmbeddedEditUrlRequest',
-            'OAuthTokenGenerateRequest',
-            'OAuthTokenRefreshRequest',
-            'ReportCreateRequest',
-            'SignatureRequestBulkCreateEmbeddedWithTemplateRequest',
-            'SignatureRequestBulkSendWithTemplateRequest',
-            'SignatureRequestCreateEmbeddedRequest',
-            'SignatureRequestCreateEmbeddedWithTemplateRequest',
-            'SignatureRequestRemindRequest',
-            'SignatureRequestSendRequest',
-            'SignatureRequestSendWithTemplateRequest',
-            'SignatureRequestUpdateRequest',
-            'TeamAddMemberRequest',
-            'TeamCreateRequest',
-            'TeamRemoveMemberRequest',
-            'TeamUpdateRequest',
-            'TemplateAddUserRequest',
-            'TemplateCreateEmbeddedDraftRequest',
-            'TemplateRemoveUserRequest',
-            'TemplateUpdateFilesRequest',
-            'UnclaimedDraftCreateEmbeddedRequest',
-            'UnclaimedDraftCreateEmbeddedWithTemplateRequest',
-            'UnclaimedDraftCreateRequest',
-            'UnclaimedDraftEditAndResendRequest',
+            "AccountCreateRequest",
+            "AccountUpdateRequest",
+            "AccountVerifyRequest",
+            "ApiAppCreateRequest",
+            "ApiAppUpdateRequest",
+            "EmbeddedEditUrlRequest",
+            "OAuthTokenGenerateRequest",
+            "OAuthTokenRefreshRequest",
+            "ReportCreateRequest",
+            "SignatureRequestBulkCreateEmbeddedWithTemplateRequest",
+            "SignatureRequestBulkSendWithTemplateRequest",
+            "SignatureRequestCreateEmbeddedRequest",
+            "SignatureRequestCreateEmbeddedWithTemplateRequest",
+            "SignatureRequestRemindRequest",
+            "SignatureRequestSendRequest",
+            "SignatureRequestSendWithTemplateRequest",
+            "SignatureRequestUpdateRequest",
+            "TeamAddMemberRequest",
+            "TeamCreateRequest",
+            "TeamRemoveMemberRequest",
+            "TeamUpdateRequest",
+            "TemplateAddUserRequest",
+            "TemplateCreateEmbeddedDraftRequest",
+            "TemplateRemoveUserRequest",
+            "TemplateUpdateFilesRequest",
+            "UnclaimedDraftCreateEmbeddedRequest",
+            "UnclaimedDraftCreateEmbeddedWithTemplateRequest",
+            "UnclaimedDraftCreateRequest",
+            "UnclaimedDraftEditAndResendRequest",
         ]
 
         for fixture in fixtures:
             fixture_data = get_fixture_data(fixture)
 
             for key, fixt_data in fixture_data.items():
-                class_type = eval(f'models.{fixture}')
+                class_type = eval(f"models.{fixture}")
                 yanked_files = {}
                 data = {}
 
@@ -68,5 +68,5 @@ class TestFixtures(unittest.TestCase):
                 self.assertEqual(obj.__class__.__name__, class_type.__name__)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

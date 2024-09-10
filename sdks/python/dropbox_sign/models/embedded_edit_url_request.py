@@ -28,21 +28,61 @@ import io
 from pydantic import StrictBool
 from typing import Union
 
+
 class EmbeddedEditUrlRequest(BaseModel):
     """
     EmbeddedEditUrlRequest
-    """ # noqa: E501
-    allow_edit_ccs: Optional[StrictBool] = Field(default=False, description="This allows the requester to enable/disable to add or change CC roles when editing the template.")
-    cc_roles: Optional[List[StrictStr]] = Field(default=None, description="The CC roles that must be assigned when using the template to send a signature request. To remove all CC roles, pass in a single role with no name. For use in a POST request.")
+    """  # noqa: E501
+
+    allow_edit_ccs: Optional[StrictBool] = Field(
+        default=False,
+        description="This allows the requester to enable/disable to add or change CC roles when editing the template.",
+    )
+    cc_roles: Optional[List[StrictStr]] = Field(
+        default=None,
+        description="The CC roles that must be assigned when using the template to send a signature request. To remove all CC roles, pass in a single role with no name. For use in a POST request.",
+    )
     editor_options: Optional[SubEditorOptions] = None
-    force_signer_roles: Optional[StrictBool] = Field(default=False, description="Provide users the ability to review/edit the template signer roles.")
-    force_subject_message: Optional[StrictBool] = Field(default=False, description="Provide users the ability to review/edit the template subject and message.")
-    merge_fields: Optional[List[SubMergeField]] = Field(default=None, description="Add additional merge fields to the template, which can be used used to pre-fill data by passing values into signature requests made with that template.  Remove all merge fields on the template by passing an empty array `[]`.")
-    preview_only: Optional[StrictBool] = Field(default=False, description="This allows the requester to enable the preview experience (i.e. does not allow the requester's end user to add any additional fields via the editor).  **NOTE:** This parameter overwrites `show_preview=true` (if set).")
-    show_preview: Optional[StrictBool] = Field(default=False, description="This allows the requester to enable the editor/preview experience.")
-    show_progress_stepper: Optional[StrictBool] = Field(default=True, description="When only one step remains in the signature request process and this parameter is set to `false` then the progress stepper will be hidden.")
-    test_mode: Optional[StrictBool] = Field(default=False, description="Whether this is a test, locked templates will only be available for editing if this is set to `true`. Defaults to `false`.")
-    __properties: ClassVar[List[str]] = ["allow_edit_ccs", "cc_roles", "editor_options", "force_signer_roles", "force_subject_message", "merge_fields", "preview_only", "show_preview", "show_progress_stepper", "test_mode"]
+    force_signer_roles: Optional[StrictBool] = Field(
+        default=False,
+        description="Provide users the ability to review/edit the template signer roles.",
+    )
+    force_subject_message: Optional[StrictBool] = Field(
+        default=False,
+        description="Provide users the ability to review/edit the template subject and message.",
+    )
+    merge_fields: Optional[List[SubMergeField]] = Field(
+        default=None,
+        description="Add additional merge fields to the template, which can be used used to pre-fill data by passing values into signature requests made with that template.  Remove all merge fields on the template by passing an empty array `[]`.",
+    )
+    preview_only: Optional[StrictBool] = Field(
+        default=False,
+        description="This allows the requester to enable the preview experience (i.e. does not allow the requester's end user to add any additional fields via the editor).  **NOTE:** This parameter overwrites `show_preview=true` (if set).",
+    )
+    show_preview: Optional[StrictBool] = Field(
+        default=False,
+        description="This allows the requester to enable the editor/preview experience.",
+    )
+    show_progress_stepper: Optional[StrictBool] = Field(
+        default=True,
+        description="When only one step remains in the signature request process and this parameter is set to `false` then the progress stepper will be hidden.",
+    )
+    test_mode: Optional[StrictBool] = Field(
+        default=False,
+        description="Whether this is a test, locked templates will only be available for editing if this is set to `true`. Defaults to `false`.",
+    )
+    __properties: ClassVar[List[str]] = [
+        "allow_edit_ccs",
+        "cc_roles",
+        "editor_options",
+        "force_signer_roles",
+        "force_subject_message",
+        "merge_fields",
+        "preview_only",
+        "show_preview",
+        "show_progress_stepper",
+        "test_mode",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -50,7 +90,6 @@ class EmbeddedEditUrlRequest(BaseModel):
         protected_namespaces=(),
         arbitrary_types_allowed=True,
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -61,7 +100,9 @@ class EmbeddedEditUrlRequest(BaseModel):
         # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
-    def to_json_form_params(self, excluded_fields: Set[str] = None) -> List[Tuple[str, str]]:
+    def to_json_form_params(
+        self, excluded_fields: Set[str] = None
+    ) -> List[Tuple[str, str]]:
         data: List[Tuple[str, str]] = []
 
         for key, value in self.to_dict(excluded_fields).items():
@@ -95,14 +136,14 @@ class EmbeddedEditUrlRequest(BaseModel):
         )
         # override the default output from pydantic by calling `to_dict()` of editor_options
         if self.editor_options:
-            _dict['editor_options'] = self.editor_options.to_dict()
+            _dict["editor_options"] = self.editor_options.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in merge_fields (list)
         _items = []
         if self.merge_fields:
             for _item_merge_fields in self.merge_fields:
                 if _item_merge_fields:
                     _items.append(_item_merge_fields.to_dict())
-            _dict['merge_fields'] = _items
+            _dict["merge_fields"] = _items
         return _dict
 
     @classmethod
@@ -114,18 +155,54 @@ class EmbeddedEditUrlRequest(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "allow_edit_ccs": obj.get("allow_edit_ccs") if obj.get("allow_edit_ccs") is not None else False,
-            "cc_roles": obj.get("cc_roles"),
-            "editor_options": SubEditorOptions.from_dict(obj["editor_options"]) if obj.get("editor_options") is not None else None,
-            "force_signer_roles": obj.get("force_signer_roles") if obj.get("force_signer_roles") is not None else False,
-            "force_subject_message": obj.get("force_subject_message") if obj.get("force_subject_message") is not None else False,
-            "merge_fields": [SubMergeField.from_dict(_item) for _item in obj["merge_fields"]] if obj.get("merge_fields") is not None else None,
-            "preview_only": obj.get("preview_only") if obj.get("preview_only") is not None else False,
-            "show_preview": obj.get("show_preview") if obj.get("show_preview") is not None else False,
-            "show_progress_stepper": obj.get("show_progress_stepper") if obj.get("show_progress_stepper") is not None else True,
-            "test_mode": obj.get("test_mode") if obj.get("test_mode") is not None else False
-        })
+        _obj = cls.model_validate(
+            {
+                "allow_edit_ccs": (
+                    obj.get("allow_edit_ccs")
+                    if obj.get("allow_edit_ccs") is not None
+                    else False
+                ),
+                "cc_roles": obj.get("cc_roles"),
+                "editor_options": (
+                    SubEditorOptions.from_dict(obj["editor_options"])
+                    if obj.get("editor_options") is not None
+                    else None
+                ),
+                "force_signer_roles": (
+                    obj.get("force_signer_roles")
+                    if obj.get("force_signer_roles") is not None
+                    else False
+                ),
+                "force_subject_message": (
+                    obj.get("force_subject_message")
+                    if obj.get("force_subject_message") is not None
+                    else False
+                ),
+                "merge_fields": (
+                    [SubMergeField.from_dict(_item) for _item in obj["merge_fields"]]
+                    if obj.get("merge_fields") is not None
+                    else None
+                ),
+                "preview_only": (
+                    obj.get("preview_only")
+                    if obj.get("preview_only") is not None
+                    else False
+                ),
+                "show_preview": (
+                    obj.get("show_preview")
+                    if obj.get("show_preview") is not None
+                    else False
+                ),
+                "show_progress_stepper": (
+                    obj.get("show_progress_stepper")
+                    if obj.get("show_progress_stepper") is not None
+                    else True
+                ),
+                "test_mode": (
+                    obj.get("test_mode") if obj.get("test_mode") is not None else False
+                ),
+            }
+        )
         return _obj
 
     @classmethod
@@ -159,4 +236,3 @@ class EmbeddedEditUrlRequest(BaseModel):
             "cc_roles",
             "merge_fields",
         ]
-

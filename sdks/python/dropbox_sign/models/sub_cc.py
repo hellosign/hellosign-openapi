@@ -26,12 +26,18 @@ import io
 from pydantic import StrictBool
 from typing import Union
 
+
 class SubCC(BaseModel):
     """
     SubCC
-    """ # noqa: E501
-    role: StrictStr = Field(description="Must match an existing CC role in chosen Template(s). Multiple CC recipients cannot share the same CC role.")
-    email_address: StrictStr = Field(description="The email address of the CC recipient.")
+    """  # noqa: E501
+
+    role: StrictStr = Field(
+        description="Must match an existing CC role in chosen Template(s). Multiple CC recipients cannot share the same CC role."
+    )
+    email_address: StrictStr = Field(
+        description="The email address of the CC recipient."
+    )
     __properties: ClassVar[List[str]] = ["role", "email_address"]
 
     model_config = ConfigDict(
@@ -40,7 +46,6 @@ class SubCC(BaseModel):
         protected_namespaces=(),
         arbitrary_types_allowed=True,
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -51,7 +56,9 @@ class SubCC(BaseModel):
         # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
-    def to_json_form_params(self, excluded_fields: Set[str] = None) -> List[Tuple[str, str]]:
+    def to_json_form_params(
+        self, excluded_fields: Set[str] = None
+    ) -> List[Tuple[str, str]]:
         data: List[Tuple[str, str]] = []
 
         for key, value in self.to_dict(excluded_fields).items():
@@ -94,10 +101,9 @@ class SubCC(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "role": obj.get("role"),
-            "email_address": obj.get("email_address")
-        })
+        _obj = cls.model_validate(
+            {"role": obj.get("role"), "email_address": obj.get("email_address")}
+        )
         return _obj
 
     @classmethod
@@ -119,6 +125,4 @@ class SubCC(BaseModel):
 
     @classmethod
     def openapi_type_is_array(cls, property_name: str) -> bool:
-        return property_name in [
-        ]
-
+        return property_name in []

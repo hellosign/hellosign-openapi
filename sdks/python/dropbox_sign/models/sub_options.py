@@ -26,11 +26,16 @@ import io
 from pydantic import StrictBool
 from typing import Union
 
+
 class SubOptions(BaseModel):
     """
     Additional options supported by API App.
-    """ # noqa: E501
-    can_insert_everywhere: Optional[StrictBool] = Field(default=False, description="Determines if signers can use \"Insert Everywhere\" when signing a document.")
+    """  # noqa: E501
+
+    can_insert_everywhere: Optional[StrictBool] = Field(
+        default=False,
+        description='Determines if signers can use "Insert Everywhere" when signing a document.',
+    )
     __properties: ClassVar[List[str]] = ["can_insert_everywhere"]
 
     model_config = ConfigDict(
@@ -39,7 +44,6 @@ class SubOptions(BaseModel):
         protected_namespaces=(),
         arbitrary_types_allowed=True,
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -50,7 +54,9 @@ class SubOptions(BaseModel):
         # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
-    def to_json_form_params(self, excluded_fields: Set[str] = None) -> List[Tuple[str, str]]:
+    def to_json_form_params(
+        self, excluded_fields: Set[str] = None
+    ) -> List[Tuple[str, str]]:
         data: List[Tuple[str, str]] = []
 
         for key, value in self.to_dict(excluded_fields).items():
@@ -93,9 +99,15 @@ class SubOptions(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "can_insert_everywhere": obj.get("can_insert_everywhere") if obj.get("can_insert_everywhere") is not None else False
-        })
+        _obj = cls.model_validate(
+            {
+                "can_insert_everywhere": (
+                    obj.get("can_insert_everywhere")
+                    if obj.get("can_insert_everywhere") is not None
+                    else False
+                )
+            }
+        )
         return _obj
 
     @classmethod
@@ -116,6 +128,4 @@ class SubOptions(BaseModel):
 
     @classmethod
     def openapi_type_is_array(cls, property_name: str) -> bool:
-        return property_name in [
-        ]
-
+        return property_name in []

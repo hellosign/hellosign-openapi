@@ -20,27 +20,60 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from dropbox_sign.models.template_response_document_custom_field_base import TemplateResponseDocumentCustomFieldBase
-from dropbox_sign.models.template_response_document_field_group import TemplateResponseDocumentFieldGroup
-from dropbox_sign.models.template_response_document_form_field_base import TemplateResponseDocumentFormFieldBase
-from dropbox_sign.models.template_response_document_static_field_base import TemplateResponseDocumentStaticFieldBase
+from dropbox_sign.models.template_response_document_custom_field_base import (
+    TemplateResponseDocumentCustomFieldBase,
+)
+from dropbox_sign.models.template_response_document_field_group import (
+    TemplateResponseDocumentFieldGroup,
+)
+from dropbox_sign.models.template_response_document_form_field_base import (
+    TemplateResponseDocumentFormFieldBase,
+)
+from dropbox_sign.models.template_response_document_static_field_base import (
+    TemplateResponseDocumentStaticFieldBase,
+)
 from typing import Optional, Set, Tuple
 from typing_extensions import Self
 import io
 from pydantic import StrictBool
 from typing import Union
 
+
 class TemplateResponseDocument(BaseModel):
     """
     TemplateResponseDocument
-    """ # noqa: E501
-    name: Optional[StrictStr] = Field(default=None, description="Name of the associated file.")
-    index: Optional[StrictInt] = Field(default=None, description="Document ordering, the lowest index is displayed first and the highest last (0-based indexing).")
-    field_groups: Optional[List[TemplateResponseDocumentFieldGroup]] = Field(default=None, description="An array of Form Field Group objects.")
-    form_fields: Optional[List[TemplateResponseDocumentFormFieldBase]] = Field(default=None, description="An array of Form Field objects containing the name and type of each named field.")
-    custom_fields: Optional[List[TemplateResponseDocumentCustomFieldBase]] = Field(default=None, description="An array of Form Field objects containing the name and type of each named field.")
-    static_fields: Optional[List[TemplateResponseDocumentStaticFieldBase]] = Field(default=None, description="An array describing static overlay fields. **NOTE:** Only available for certain subscriptions.")
-    __properties: ClassVar[List[str]] = ["name", "index", "field_groups", "form_fields", "custom_fields", "static_fields"]
+    """  # noqa: E501
+
+    name: Optional[StrictStr] = Field(
+        default=None, description="Name of the associated file."
+    )
+    index: Optional[StrictInt] = Field(
+        default=None,
+        description="Document ordering, the lowest index is displayed first and the highest last (0-based indexing).",
+    )
+    field_groups: Optional[List[TemplateResponseDocumentFieldGroup]] = Field(
+        default=None, description="An array of Form Field Group objects."
+    )
+    form_fields: Optional[List[TemplateResponseDocumentFormFieldBase]] = Field(
+        default=None,
+        description="An array of Form Field objects containing the name and type of each named field.",
+    )
+    custom_fields: Optional[List[TemplateResponseDocumentCustomFieldBase]] = Field(
+        default=None,
+        description="An array of Form Field objects containing the name and type of each named field.",
+    )
+    static_fields: Optional[List[TemplateResponseDocumentStaticFieldBase]] = Field(
+        default=None,
+        description="An array describing static overlay fields. **NOTE:** Only available for certain subscriptions.",
+    )
+    __properties: ClassVar[List[str]] = [
+        "name",
+        "index",
+        "field_groups",
+        "form_fields",
+        "custom_fields",
+        "static_fields",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -48,7 +81,6 @@ class TemplateResponseDocument(BaseModel):
         protected_namespaces=(),
         arbitrary_types_allowed=True,
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -59,7 +91,9 @@ class TemplateResponseDocument(BaseModel):
         # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
-    def to_json_form_params(self, excluded_fields: Set[str] = None) -> List[Tuple[str, str]]:
+    def to_json_form_params(
+        self, excluded_fields: Set[str] = None
+    ) -> List[Tuple[str, str]]:
         data: List[Tuple[str, str]] = []
 
         for key, value in self.to_dict(excluded_fields).items():
@@ -97,28 +131,28 @@ class TemplateResponseDocument(BaseModel):
             for _item_field_groups in self.field_groups:
                 if _item_field_groups:
                     _items.append(_item_field_groups.to_dict())
-            _dict['field_groups'] = _items
+            _dict["field_groups"] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in form_fields (list)
         _items = []
         if self.form_fields:
             for _item_form_fields in self.form_fields:
                 if _item_form_fields:
                     _items.append(_item_form_fields.to_dict())
-            _dict['form_fields'] = _items
+            _dict["form_fields"] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in custom_fields (list)
         _items = []
         if self.custom_fields:
             for _item_custom_fields in self.custom_fields:
                 if _item_custom_fields:
                     _items.append(_item_custom_fields.to_dict())
-            _dict['custom_fields'] = _items
+            _dict["custom_fields"] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in static_fields (list)
         _items = []
         if self.static_fields:
             for _item_static_fields in self.static_fields:
                 if _item_static_fields:
                     _items.append(_item_static_fields.to_dict())
-            _dict['static_fields'] = _items
+            _dict["static_fields"] = _items
         return _dict
 
     @classmethod
@@ -130,14 +164,44 @@ class TemplateResponseDocument(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "name": obj.get("name"),
-            "index": obj.get("index"),
-            "field_groups": [TemplateResponseDocumentFieldGroup.from_dict(_item) for _item in obj["field_groups"]] if obj.get("field_groups") is not None else None,
-            "form_fields": [TemplateResponseDocumentFormFieldBase.from_dict(_item) for _item in obj["form_fields"]] if obj.get("form_fields") is not None else None,
-            "custom_fields": [TemplateResponseDocumentCustomFieldBase.from_dict(_item) for _item in obj["custom_fields"]] if obj.get("custom_fields") is not None else None,
-            "static_fields": [TemplateResponseDocumentStaticFieldBase.from_dict(_item) for _item in obj["static_fields"]] if obj.get("static_fields") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "name": obj.get("name"),
+                "index": obj.get("index"),
+                "field_groups": (
+                    [
+                        TemplateResponseDocumentFieldGroup.from_dict(_item)
+                        for _item in obj["field_groups"]
+                    ]
+                    if obj.get("field_groups") is not None
+                    else None
+                ),
+                "form_fields": (
+                    [
+                        TemplateResponseDocumentFormFieldBase.from_dict(_item)
+                        for _item in obj["form_fields"]
+                    ]
+                    if obj.get("form_fields") is not None
+                    else None
+                ),
+                "custom_fields": (
+                    [
+                        TemplateResponseDocumentCustomFieldBase.from_dict(_item)
+                        for _item in obj["custom_fields"]
+                    ]
+                    if obj.get("custom_fields") is not None
+                    else None
+                ),
+                "static_fields": (
+                    [
+                        TemplateResponseDocumentStaticFieldBase.from_dict(_item)
+                        for _item in obj["static_fields"]
+                    ]
+                    if obj.get("static_fields") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
 
     @classmethod
@@ -169,4 +233,3 @@ class TemplateResponseDocument(BaseModel):
             "custom_fields",
             "static_fields",
         ]
-

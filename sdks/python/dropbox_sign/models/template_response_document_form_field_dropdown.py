@@ -20,19 +20,36 @@ import json
 
 from pydantic import ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List
-from dropbox_sign.models.template_response_document_form_field_base import TemplateResponseDocumentFormFieldBase
+from dropbox_sign.models.template_response_document_form_field_base import (
+    TemplateResponseDocumentFormFieldBase,
+)
 from typing import Optional, Set, Tuple
 from typing_extensions import Self
 import io
 from pydantic import StrictBool
 from typing import Union
 
+
 class TemplateResponseDocumentFormFieldDropdown(TemplateResponseDocumentFormFieldBase):
     """
     This class extends `TemplateResponseDocumentFormFieldBase`
-    """ # noqa: E501
-    type: StrictStr = Field(description="The type of this form field. See [field types](/api/reference/constants/#field-types).  * Text Field uses `TemplateResponseDocumentFormFieldText` * Dropdown Field uses `TemplateResponseDocumentFormFieldDropdown` * Hyperlink Field uses `TemplateResponseDocumentFormFieldHyperlink` * Checkbox Field uses `TemplateResponseDocumentFormFieldCheckbox` * Radio Field uses `TemplateResponseDocumentFormFieldRadio` * Signature Field uses `TemplateResponseDocumentFormFieldSignature` * Date Signed Field uses `TemplateResponseDocumentFormFieldDateSigned` * Initials Field uses `TemplateResponseDocumentFormFieldInitials`")
-    __properties: ClassVar[List[str]] = ["type", "api_id", "name", "signer", "x", "y", "width", "height", "required", "group"]
+    """  # noqa: E501
+
+    type: StrictStr = Field(
+        description="The type of this form field. See [field types](/api/reference/constants/#field-types).  * Text Field uses `TemplateResponseDocumentFormFieldText` * Dropdown Field uses `TemplateResponseDocumentFormFieldDropdown` * Hyperlink Field uses `TemplateResponseDocumentFormFieldHyperlink` * Checkbox Field uses `TemplateResponseDocumentFormFieldCheckbox` * Radio Field uses `TemplateResponseDocumentFormFieldRadio` * Signature Field uses `TemplateResponseDocumentFormFieldSignature` * Date Signed Field uses `TemplateResponseDocumentFormFieldDateSigned` * Initials Field uses `TemplateResponseDocumentFormFieldInitials`"
+    )
+    __properties: ClassVar[List[str]] = [
+        "type",
+        "api_id",
+        "name",
+        "signer",
+        "x",
+        "y",
+        "width",
+        "height",
+        "required",
+        "group",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -40,7 +57,6 @@ class TemplateResponseDocumentFormFieldDropdown(TemplateResponseDocumentFormFiel
         protected_namespaces=(),
         arbitrary_types_allowed=True,
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -51,7 +67,9 @@ class TemplateResponseDocumentFormFieldDropdown(TemplateResponseDocumentFormFiel
         # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
-    def to_json_form_params(self, excluded_fields: Set[str] = None) -> List[Tuple[str, str]]:
+    def to_json_form_params(
+        self, excluded_fields: Set[str] = None
+    ) -> List[Tuple[str, str]]:
         data: List[Tuple[str, str]] = []
 
         for key, value in self.to_dict(excluded_fields).items():
@@ -94,18 +112,20 @@ class TemplateResponseDocumentFormFieldDropdown(TemplateResponseDocumentFormFiel
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "type": obj.get("type") if obj.get("type") is not None else 'dropdown',
-            "api_id": obj.get("api_id"),
-            "name": obj.get("name"),
-            "signer": obj.get("signer"),
-            "x": obj.get("x"),
-            "y": obj.get("y"),
-            "width": obj.get("width"),
-            "height": obj.get("height"),
-            "required": obj.get("required"),
-            "group": obj.get("group")
-        })
+        _obj = cls.model_validate(
+            {
+                "type": obj.get("type") if obj.get("type") is not None else "dropdown",
+                "api_id": obj.get("api_id"),
+                "name": obj.get("name"),
+                "signer": obj.get("signer"),
+                "x": obj.get("x"),
+                "y": obj.get("y"),
+                "width": obj.get("width"),
+                "height": obj.get("height"),
+                "required": obj.get("required"),
+                "group": obj.get("group"),
+            }
+        )
         return _obj
 
     @classmethod
@@ -135,6 +155,4 @@ class TemplateResponseDocumentFormFieldDropdown(TemplateResponseDocumentFormFiel
 
     @classmethod
     def openapi_type_is_array(cls, property_name: str) -> bool:
-        return property_name in [
-        ]
-
+        return property_name in []

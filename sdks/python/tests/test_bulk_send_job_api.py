@@ -14,14 +14,13 @@ class TestBulkSendJobApi(unittest.TestCase):
         self.api = apis.BulkSendJobApi(self.api_client)
 
     def test_bulk_send_job_get(self):
-        bulk_send_job_id = '6e683bc0369ba3d5b6f43c2c22a8031dbf6bd174'
+        bulk_send_job_id = "6e683bc0369ba3d5b6f43c2c22a8031dbf6bd174"
 
-        response_class = 'BulkSendJobGetResponse'
-        response_data = get_fixture_data(response_class)['default']
+        response_class = "BulkSendJobGetResponse"
+        response_data = get_fixture_data(response_class)["default"]
 
         self.mock_pool.expect_request(
-            content_type='application/json',
-            response=response_data
+            content_type="application/json", response=response_data
         )
         expected = m.BulkSendJobGetResponse.init(response_data)
 
@@ -34,12 +33,11 @@ class TestBulkSendJobApi(unittest.TestCase):
         page = 1
         page_size = 20
 
-        response_class = 'BulkSendJobListResponse'
-        response_data = get_fixture_data(response_class)['default']
+        response_class = "BulkSendJobListResponse"
+        response_data = get_fixture_data(response_class)["default"]
 
         self.mock_pool.expect_request(
-            content_type='application/json',
-            response=response_data
+            content_type="application/json", response=response_data
         )
         expected = m.BulkSendJobListResponse.init(response_data)
 
@@ -49,5 +47,5 @@ class TestBulkSendJobApi(unittest.TestCase):
         self.assertEqual(result, expected)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

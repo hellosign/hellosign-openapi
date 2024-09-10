@@ -26,15 +26,32 @@ import io
 from pydantic import StrictBool
 from typing import Union
 
+
 class EventCallbackRequestEventMetadata(BaseModel):
     """
     Specific metadata about the event.
-    """ # noqa: E501
-    related_signature_id: Optional[StrictStr] = Field(default=None, description="Signature ID for a specific signer. Applicable to `signature_request_signed` and `signature_request_viewed` events.")
-    reported_for_account_id: Optional[StrictStr] = Field(default=None, description="Account ID the event was reported for.")
-    reported_for_app_id: Optional[StrictStr] = Field(default=None, description="App ID the event was reported for.")
-    event_message: Optional[StrictStr] = Field(default=None, description="Message about a declined or failed (due to error) signature flow.")
-    __properties: ClassVar[List[str]] = ["related_signature_id", "reported_for_account_id", "reported_for_app_id", "event_message"]
+    """  # noqa: E501
+
+    related_signature_id: Optional[StrictStr] = Field(
+        default=None,
+        description="Signature ID for a specific signer. Applicable to `signature_request_signed` and `signature_request_viewed` events.",
+    )
+    reported_for_account_id: Optional[StrictStr] = Field(
+        default=None, description="Account ID the event was reported for."
+    )
+    reported_for_app_id: Optional[StrictStr] = Field(
+        default=None, description="App ID the event was reported for."
+    )
+    event_message: Optional[StrictStr] = Field(
+        default=None,
+        description="Message about a declined or failed (due to error) signature flow.",
+    )
+    __properties: ClassVar[List[str]] = [
+        "related_signature_id",
+        "reported_for_account_id",
+        "reported_for_app_id",
+        "event_message",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -42,7 +59,6 @@ class EventCallbackRequestEventMetadata(BaseModel):
         protected_namespaces=(),
         arbitrary_types_allowed=True,
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -53,7 +69,9 @@ class EventCallbackRequestEventMetadata(BaseModel):
         # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
-    def to_json_form_params(self, excluded_fields: Set[str] = None) -> List[Tuple[str, str]]:
+    def to_json_form_params(
+        self, excluded_fields: Set[str] = None
+    ) -> List[Tuple[str, str]]:
         data: List[Tuple[str, str]] = []
 
         for key, value in self.to_dict(excluded_fields).items():
@@ -96,12 +114,14 @@ class EventCallbackRequestEventMetadata(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "related_signature_id": obj.get("related_signature_id"),
-            "reported_for_account_id": obj.get("reported_for_account_id"),
-            "reported_for_app_id": obj.get("reported_for_app_id"),
-            "event_message": obj.get("event_message")
-        })
+        _obj = cls.model_validate(
+            {
+                "related_signature_id": obj.get("related_signature_id"),
+                "reported_for_account_id": obj.get("reported_for_account_id"),
+                "reported_for_app_id": obj.get("reported_for_app_id"),
+                "event_message": obj.get("event_message"),
+            }
+        )
         return _obj
 
     @classmethod
@@ -125,6 +145,4 @@ class EventCallbackRequestEventMetadata(BaseModel):
 
     @classmethod
     def openapi_type_is_array(cls, property_name: str) -> bool:
-        return property_name in [
-        ]
-
+        return property_name in []

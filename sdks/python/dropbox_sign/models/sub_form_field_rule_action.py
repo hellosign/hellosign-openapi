@@ -18,7 +18,14 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
+from pydantic import (
+    BaseModel,
+    ConfigDict,
+    Field,
+    StrictBool,
+    StrictStr,
+    field_validator,
+)
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set, Tuple
 from typing_extensions import Self
@@ -26,21 +33,33 @@ import io
 from pydantic import StrictBool
 from typing import Union
 
+
 class SubFormFieldRuleAction(BaseModel):
     """
     SubFormFieldRuleAction
-    """ # noqa: E501
-    hidden: StrictBool = Field(description="`true` to hide the target field when rule is satisfied, otherwise `false`.")
+    """  # noqa: E501
+
+    hidden: StrictBool = Field(
+        description="`true` to hide the target field when rule is satisfied, otherwise `false`."
+    )
     type: StrictStr
-    field_id: Optional[StrictStr] = Field(default=None, description="**field_id** or **group_id** is required, but not both.  Must reference the `api_id` of an existing field defined within `form_fields_per_document`.  Cannot use with `group_id`. Trigger and action fields must belong to the same signer.")
-    group_id: Optional[StrictStr] = Field(default=None, description="**group_id** or **field_id** is required, but not both.  Must reference the ID of an existing group defined within `form_field_groups`.  Cannot use with `field_id`. Trigger and action fields and groups must belong to the same signer.")
+    field_id: Optional[StrictStr] = Field(
+        default=None,
+        description="**field_id** or **group_id** is required, but not both.  Must reference the `api_id` of an existing field defined within `form_fields_per_document`.  Cannot use with `group_id`. Trigger and action fields must belong to the same signer.",
+    )
+    group_id: Optional[StrictStr] = Field(
+        default=None,
+        description="**group_id** or **field_id** is required, but not both.  Must reference the ID of an existing group defined within `form_field_groups`.  Cannot use with `field_id`. Trigger and action fields and groups must belong to the same signer.",
+    )
     __properties: ClassVar[List[str]] = ["hidden", "type", "field_id", "group_id"]
 
-    @field_validator('type')
+    @field_validator("type")
     def type_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in set(['change-field-visibility', 'change-group-visibility']):
-            raise ValueError("must be one of enum values ('change-field-visibility', 'change-group-visibility')")
+        if value not in set(["change-field-visibility", "change-group-visibility"]):
+            raise ValueError(
+                "must be one of enum values ('change-field-visibility', 'change-group-visibility')"
+            )
         return value
 
     model_config = ConfigDict(
@@ -49,7 +68,6 @@ class SubFormFieldRuleAction(BaseModel):
         protected_namespaces=(),
         arbitrary_types_allowed=True,
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -60,7 +78,9 @@ class SubFormFieldRuleAction(BaseModel):
         # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
-    def to_json_form_params(self, excluded_fields: Set[str] = None) -> List[Tuple[str, str]]:
+    def to_json_form_params(
+        self, excluded_fields: Set[str] = None
+    ) -> List[Tuple[str, str]]:
         data: List[Tuple[str, str]] = []
 
         for key, value in self.to_dict(excluded_fields).items():
@@ -103,12 +123,14 @@ class SubFormFieldRuleAction(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "hidden": obj.get("hidden"),
-            "type": obj.get("type"),
-            "field_id": obj.get("field_id"),
-            "group_id": obj.get("group_id")
-        })
+        _obj = cls.model_validate(
+            {
+                "hidden": obj.get("hidden"),
+                "type": obj.get("type"),
+                "field_id": obj.get("field_id"),
+                "group_id": obj.get("group_id"),
+            }
+        )
         return _obj
 
     @classmethod
@@ -132,6 +154,4 @@ class SubFormFieldRuleAction(BaseModel):
 
     @classmethod
     def openapi_type_is_array(cls, property_name: str) -> bool:
-        return property_name in [
-        ]
-
+        return property_name in []

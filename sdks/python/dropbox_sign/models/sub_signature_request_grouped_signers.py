@@ -27,13 +27,20 @@ import io
 from pydantic import StrictBool
 from typing import Union
 
+
 class SubSignatureRequestGroupedSigners(BaseModel):
     """
     SubSignatureRequestGroupedSigners
-    """ # noqa: E501
+    """  # noqa: E501
+
     group: StrictStr = Field(description="The name of the group.")
-    signers: List[SubSignatureRequestSigner] = Field(description="Signers belonging to this Group.  **NOTE:** Only `name`, `email_address`, and `pin` are available to Grouped Signers. We will ignore all other properties, even though they are listed below.")
-    order: Optional[StrictInt] = Field(default=None, description="The order the group is required to sign in. Use this instead of Signer-level `order`.")
+    signers: List[SubSignatureRequestSigner] = Field(
+        description="Signers belonging to this Group.  **NOTE:** Only `name`, `email_address`, and `pin` are available to Grouped Signers. We will ignore all other properties, even though they are listed below."
+    )
+    order: Optional[StrictInt] = Field(
+        default=None,
+        description="The order the group is required to sign in. Use this instead of Signer-level `order`.",
+    )
     __properties: ClassVar[List[str]] = ["group", "signers", "order"]
 
     model_config = ConfigDict(
@@ -42,7 +49,6 @@ class SubSignatureRequestGroupedSigners(BaseModel):
         protected_namespaces=(),
         arbitrary_types_allowed=True,
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -53,7 +59,9 @@ class SubSignatureRequestGroupedSigners(BaseModel):
         # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
-    def to_json_form_params(self, excluded_fields: Set[str] = None) -> List[Tuple[str, str]]:
+    def to_json_form_params(
+        self, excluded_fields: Set[str] = None
+    ) -> List[Tuple[str, str]]:
         data: List[Tuple[str, str]] = []
 
         for key, value in self.to_dict(excluded_fields).items():
@@ -91,7 +99,7 @@ class SubSignatureRequestGroupedSigners(BaseModel):
             for _item_signers in self.signers:
                 if _item_signers:
                     _items.append(_item_signers.to_dict())
-            _dict['signers'] = _items
+            _dict["signers"] = _items
         return _dict
 
     @classmethod
@@ -103,11 +111,20 @@ class SubSignatureRequestGroupedSigners(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "group": obj.get("group"),
-            "signers": [SubSignatureRequestSigner.from_dict(_item) for _item in obj["signers"]] if obj.get("signers") is not None else None,
-            "order": obj.get("order")
-        })
+        _obj = cls.model_validate(
+            {
+                "group": obj.get("group"),
+                "signers": (
+                    [
+                        SubSignatureRequestSigner.from_dict(_item)
+                        for _item in obj["signers"]
+                    ]
+                    if obj.get("signers") is not None
+                    else None
+                ),
+                "order": obj.get("order"),
+            }
+        )
         return _obj
 
     @classmethod
@@ -133,4 +150,3 @@ class SubSignatureRequestGroupedSigners(BaseModel):
         return property_name in [
             "signers",
         ]
-

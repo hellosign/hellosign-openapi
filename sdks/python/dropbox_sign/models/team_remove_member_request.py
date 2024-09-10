@@ -26,25 +26,49 @@ import io
 from pydantic import StrictBool
 from typing import Union
 
+
 class TeamRemoveMemberRequest(BaseModel):
     """
     TeamRemoveMemberRequest
-    """ # noqa: E501
-    account_id: Optional[StrictStr] = Field(default=None, description="**account_id** or **email_address** is required. If both are provided, the account id prevails.  Account id to remove from your Team.")
-    email_address: Optional[StrictStr] = Field(default=None, description="**account_id** or **email_address** is required. If both are provided, the account id prevails.  Email address of the Account to remove from your Team.")
-    new_owner_email_address: Optional[StrictStr] = Field(default=None, description="The email address of an Account on this Team to receive all documents, templates, and API apps (if applicable) from the removed Account. If not provided, and on an Enterprise plan, this data will remain with the removed Account.  **NOTE:** Only available for Enterprise plans.")
-    new_team_id: Optional[StrictStr] = Field(default=None, description="Id of the new Team.")
-    new_role: Optional[StrictStr] = Field(default=None, description="A new role member will take in a new Team.  **NOTE:** This parameter is used only if `new_team_id` is provided.")
-    __properties: ClassVar[List[str]] = ["account_id", "email_address", "new_owner_email_address", "new_team_id", "new_role"]
+    """  # noqa: E501
 
-    @field_validator('new_role')
+    account_id: Optional[StrictStr] = Field(
+        default=None,
+        description="**account_id** or **email_address** is required. If both are provided, the account id prevails.  Account id to remove from your Team.",
+    )
+    email_address: Optional[StrictStr] = Field(
+        default=None,
+        description="**account_id** or **email_address** is required. If both are provided, the account id prevails.  Email address of the Account to remove from your Team.",
+    )
+    new_owner_email_address: Optional[StrictStr] = Field(
+        default=None,
+        description="The email address of an Account on this Team to receive all documents, templates, and API apps (if applicable) from the removed Account. If not provided, and on an Enterprise plan, this data will remain with the removed Account.  **NOTE:** Only available for Enterprise plans.",
+    )
+    new_team_id: Optional[StrictStr] = Field(
+        default=None, description="Id of the new Team."
+    )
+    new_role: Optional[StrictStr] = Field(
+        default=None,
+        description="A new role member will take in a new Team.  **NOTE:** This parameter is used only if `new_team_id` is provided.",
+    )
+    __properties: ClassVar[List[str]] = [
+        "account_id",
+        "email_address",
+        "new_owner_email_address",
+        "new_team_id",
+        "new_role",
+    ]
+
+    @field_validator("new_role")
     def new_role_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
             return value
 
-        if value not in set(['Member', 'Developer', 'Team Manager', 'Admin']):
-            raise ValueError("must be one of enum values ('Member', 'Developer', 'Team Manager', 'Admin')")
+        if value not in set(["Member", "Developer", "Team Manager", "Admin"]):
+            raise ValueError(
+                "must be one of enum values ('Member', 'Developer', 'Team Manager', 'Admin')"
+            )
         return value
 
     model_config = ConfigDict(
@@ -53,7 +77,6 @@ class TeamRemoveMemberRequest(BaseModel):
         protected_namespaces=(),
         arbitrary_types_allowed=True,
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -64,7 +87,9 @@ class TeamRemoveMemberRequest(BaseModel):
         # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
-    def to_json_form_params(self, excluded_fields: Set[str] = None) -> List[Tuple[str, str]]:
+    def to_json_form_params(
+        self, excluded_fields: Set[str] = None
+    ) -> List[Tuple[str, str]]:
         data: List[Tuple[str, str]] = []
 
         for key, value in self.to_dict(excluded_fields).items():
@@ -107,13 +132,15 @@ class TeamRemoveMemberRequest(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "account_id": obj.get("account_id"),
-            "email_address": obj.get("email_address"),
-            "new_owner_email_address": obj.get("new_owner_email_address"),
-            "new_team_id": obj.get("new_team_id"),
-            "new_role": obj.get("new_role")
-        })
+        _obj = cls.model_validate(
+            {
+                "account_id": obj.get("account_id"),
+                "email_address": obj.get("email_address"),
+                "new_owner_email_address": obj.get("new_owner_email_address"),
+                "new_team_id": obj.get("new_team_id"),
+                "new_role": obj.get("new_role"),
+            }
+        )
         return _obj
 
     @classmethod
@@ -138,6 +165,4 @@ class TeamRemoveMemberRequest(BaseModel):
 
     @classmethod
     def openapi_type_is_array(cls, property_name: str) -> bool:
-        return property_name in [
-        ]
-
+        return property_name in []

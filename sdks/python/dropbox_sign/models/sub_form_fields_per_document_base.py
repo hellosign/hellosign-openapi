@@ -28,34 +28,80 @@ from pydantic import StrictBool
 from typing import Union
 
 from typing import TYPE_CHECKING
+
 if TYPE_CHECKING:
-    from dropbox_sign.models.sub_form_fields_per_document_checkbox import SubFormFieldsPerDocumentCheckbox
-    from dropbox_sign.models.sub_form_fields_per_document_checkbox_merge import SubFormFieldsPerDocumentCheckboxMerge
-    from dropbox_sign.models.sub_form_fields_per_document_date_signed import SubFormFieldsPerDocumentDateSigned
-    from dropbox_sign.models.sub_form_fields_per_document_dropdown import SubFormFieldsPerDocumentDropdown
-    from dropbox_sign.models.sub_form_fields_per_document_hyperlink import SubFormFieldsPerDocumentHyperlink
-    from dropbox_sign.models.sub_form_fields_per_document_initials import SubFormFieldsPerDocumentInitials
-    from dropbox_sign.models.sub_form_fields_per_document_radio import SubFormFieldsPerDocumentRadio
-    from dropbox_sign.models.sub_form_fields_per_document_signature import SubFormFieldsPerDocumentSignature
-    from dropbox_sign.models.sub_form_fields_per_document_text import SubFormFieldsPerDocumentText
-    from dropbox_sign.models.sub_form_fields_per_document_text_merge import SubFormFieldsPerDocumentTextMerge
+    from dropbox_sign.models.sub_form_fields_per_document_checkbox import (
+        SubFormFieldsPerDocumentCheckbox,
+    )
+    from dropbox_sign.models.sub_form_fields_per_document_checkbox_merge import (
+        SubFormFieldsPerDocumentCheckboxMerge,
+    )
+    from dropbox_sign.models.sub_form_fields_per_document_date_signed import (
+        SubFormFieldsPerDocumentDateSigned,
+    )
+    from dropbox_sign.models.sub_form_fields_per_document_dropdown import (
+        SubFormFieldsPerDocumentDropdown,
+    )
+    from dropbox_sign.models.sub_form_fields_per_document_hyperlink import (
+        SubFormFieldsPerDocumentHyperlink,
+    )
+    from dropbox_sign.models.sub_form_fields_per_document_initials import (
+        SubFormFieldsPerDocumentInitials,
+    )
+    from dropbox_sign.models.sub_form_fields_per_document_radio import (
+        SubFormFieldsPerDocumentRadio,
+    )
+    from dropbox_sign.models.sub_form_fields_per_document_signature import (
+        SubFormFieldsPerDocumentSignature,
+    )
+    from dropbox_sign.models.sub_form_fields_per_document_text import (
+        SubFormFieldsPerDocumentText,
+    )
+    from dropbox_sign.models.sub_form_fields_per_document_text_merge import (
+        SubFormFieldsPerDocumentTextMerge,
+    )
+
 
 class SubFormFieldsPerDocumentBase(BaseModel):
     """
     The fields that should appear on the document, expressed as an array of objects. (For more details you can read about it here: [Using Form Fields per Document](/docs/openapi/form-fields-per-document).)  **NOTE:** Fields like **text**, **dropdown**, **checkbox**, **radio**, and **hyperlink** have additional required and optional parameters. Check out the list of [additional parameters](/api/reference/constants/#form-fields-per-document) for these field types.  * Text Field use `SubFormFieldsPerDocumentText` * Dropdown Field use `SubFormFieldsPerDocumentDropdown` * Hyperlink Field use `SubFormFieldsPerDocumentHyperlink` * Checkbox Field use `SubFormFieldsPerDocumentCheckbox` * Radio Field use `SubFormFieldsPerDocumentRadio` * Signature Field use `SubFormFieldsPerDocumentSignature` * Date Signed Field use `SubFormFieldsPerDocumentDateSigned` * Initials Field use `SubFormFieldsPerDocumentInitials` * Text Merge Field use `SubFormFieldsPerDocumentTextMerge` * Checkbox Merge Field use `SubFormFieldsPerDocumentCheckboxMerge`
-    """ # noqa: E501
-    document_index: StrictInt = Field(description="Represents the integer index of the `file` or `file_url` document the field should be attached to.")
-    api_id: StrictStr = Field(description="An identifier for the field that is unique across all documents in the request.")
+    """  # noqa: E501
+
+    document_index: StrictInt = Field(
+        description="Represents the integer index of the `file` or `file_url` document the field should be attached to."
+    )
+    api_id: StrictStr = Field(
+        description="An identifier for the field that is unique across all documents in the request."
+    )
     height: StrictInt = Field(description="Size of the field in pixels.")
     required: StrictBool = Field(description="Whether this field is required.")
-    signer: Union[StrictStr, StrictInt] = Field(description="Signer index identified by the offset in the signers parameter (0-based indexing), indicating which signer should fill out the field.  **NOTE:** To set the value of the field as the preparer you must set this to `me_now`  **NOTE:** If type is `text-merge` or `checkbox-merge`, you must set this to sender in order to use pre-filled data.")
+    signer: Union[StrictStr, StrictInt] = Field(
+        description="Signer index identified by the offset in the signers parameter (0-based indexing), indicating which signer should fill out the field.  **NOTE:** To set the value of the field as the preparer you must set this to `me_now`  **NOTE:** If type is `text-merge` or `checkbox-merge`, you must set this to sender in order to use pre-filled data."
+    )
     type: StrictStr
     width: StrictInt = Field(description="Size of the field in pixels.")
     x: StrictInt = Field(description="Location coordinates of the field in pixels.")
     y: StrictInt = Field(description="Location coordinates of the field in pixels.")
-    name: Optional[StrictStr] = Field(default=None, description="Display name for the field.")
-    page: Optional[StrictInt] = Field(default=None, description="Page in the document where the field should be placed (requires documents be PDF files).  - When the page number parameter is supplied, the API will use the new coordinate system. - Check out the differences between both [coordinate systems](https://faq.hellosign.com/hc/en-us/articles/217115577) and how to use them.")
-    __properties: ClassVar[List[str]] = ["document_index", "api_id", "height", "required", "signer", "type", "width", "x", "y", "name", "page"]
+    name: Optional[StrictStr] = Field(
+        default=None, description="Display name for the field."
+    )
+    page: Optional[StrictInt] = Field(
+        default=None,
+        description="Page in the document where the field should be placed (requires documents be PDF files).  - When the page number parameter is supplied, the API will use the new coordinate system. - Check out the differences between both [coordinate systems](https://faq.hellosign.com/hc/en-us/articles/217115577) and how to use them.",
+    )
+    __properties: ClassVar[List[str]] = [
+        "document_index",
+        "api_id",
+        "height",
+        "required",
+        "signer",
+        "type",
+        "width",
+        "x",
+        "y",
+        "name",
+        "page",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -64,13 +110,21 @@ class SubFormFieldsPerDocumentBase(BaseModel):
         arbitrary_types_allowed=True,
     )
 
-
     # JSON field name that stores the object type
-    __discriminator_property_name: ClassVar[str] = 'type'
+    __discriminator_property_name: ClassVar[str] = "type"
 
     # discriminator mappings
     __discriminator_value_class_map: ClassVar[Dict[str, str]] = {
-        'checkbox': 'SubFormFieldsPerDocumentCheckbox','checkbox-merge': 'SubFormFieldsPerDocumentCheckboxMerge','date_signed': 'SubFormFieldsPerDocumentDateSigned','dropdown': 'SubFormFieldsPerDocumentDropdown','hyperlink': 'SubFormFieldsPerDocumentHyperlink','initials': 'SubFormFieldsPerDocumentInitials','radio': 'SubFormFieldsPerDocumentRadio','signature': 'SubFormFieldsPerDocumentSignature','text': 'SubFormFieldsPerDocumentText','text-merge': 'SubFormFieldsPerDocumentTextMerge'
+        "checkbox": "SubFormFieldsPerDocumentCheckbox",
+        "checkbox-merge": "SubFormFieldsPerDocumentCheckboxMerge",
+        "date_signed": "SubFormFieldsPerDocumentDateSigned",
+        "dropdown": "SubFormFieldsPerDocumentDropdown",
+        "hyperlink": "SubFormFieldsPerDocumentHyperlink",
+        "initials": "SubFormFieldsPerDocumentInitials",
+        "radio": "SubFormFieldsPerDocumentRadio",
+        "signature": "SubFormFieldsPerDocumentSignature",
+        "text": "SubFormFieldsPerDocumentText",
+        "text-merge": "SubFormFieldsPerDocumentTextMerge",
     }
 
     @classmethod
@@ -91,7 +145,9 @@ class SubFormFieldsPerDocumentBase(BaseModel):
         # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
-    def to_json_form_params(self, excluded_fields: Set[str] = None) -> List[Tuple[str, str]]:
+    def to_json_form_params(
+        self, excluded_fields: Set[str] = None
+    ) -> List[Tuple[str, str]]:
         data: List[Tuple[str, str]] = []
 
         for key, value in self.to_dict(excluded_fields).items():
@@ -103,7 +159,20 @@ class SubFormFieldsPerDocumentBase(BaseModel):
         return data
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Union[SubFormFieldsPerDocumentCheckbox, SubFormFieldsPerDocumentCheckboxMerge, SubFormFieldsPerDocumentDateSigned, SubFormFieldsPerDocumentDropdown, SubFormFieldsPerDocumentHyperlink, SubFormFieldsPerDocumentInitials, SubFormFieldsPerDocumentRadio, SubFormFieldsPerDocumentSignature, SubFormFieldsPerDocumentText, SubFormFieldsPerDocumentTextMerge]]:
+    def from_json(cls, json_str: str) -> Optional[
+        Union[
+            SubFormFieldsPerDocumentCheckbox,
+            SubFormFieldsPerDocumentCheckboxMerge,
+            SubFormFieldsPerDocumentDateSigned,
+            SubFormFieldsPerDocumentDropdown,
+            SubFormFieldsPerDocumentHyperlink,
+            SubFormFieldsPerDocumentInitials,
+            SubFormFieldsPerDocumentRadio,
+            SubFormFieldsPerDocumentSignature,
+            SubFormFieldsPerDocumentText,
+            SubFormFieldsPerDocumentTextMerge,
+        ]
+    ]:
         """Create an instance of SubFormFieldsPerDocumentBase from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -126,35 +195,72 @@ class SubFormFieldsPerDocumentBase(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict[str, Any]) -> Optional[Union[SubFormFieldsPerDocumentCheckbox, SubFormFieldsPerDocumentCheckboxMerge, SubFormFieldsPerDocumentDateSigned, SubFormFieldsPerDocumentDropdown, SubFormFieldsPerDocumentHyperlink, SubFormFieldsPerDocumentInitials, SubFormFieldsPerDocumentRadio, SubFormFieldsPerDocumentSignature, SubFormFieldsPerDocumentText, SubFormFieldsPerDocumentTextMerge]]:
+    def from_dict(cls, obj: Dict[str, Any]) -> Optional[
+        Union[
+            SubFormFieldsPerDocumentCheckbox,
+            SubFormFieldsPerDocumentCheckboxMerge,
+            SubFormFieldsPerDocumentDateSigned,
+            SubFormFieldsPerDocumentDropdown,
+            SubFormFieldsPerDocumentHyperlink,
+            SubFormFieldsPerDocumentInitials,
+            SubFormFieldsPerDocumentRadio,
+            SubFormFieldsPerDocumentSignature,
+            SubFormFieldsPerDocumentText,
+            SubFormFieldsPerDocumentTextMerge,
+        ]
+    ]:
         """Create an instance of SubFormFieldsPerDocumentBase from a dict"""
         # look up the object type based on discriminator mapping
         object_type = cls.get_discriminator_value(obj)
-        if object_type ==  'SubFormFieldsPerDocumentCheckbox':
-            return import_module("dropbox_sign.models.sub_form_fields_per_document_checkbox").SubFormFieldsPerDocumentCheckbox.from_dict(obj)
-        if object_type ==  'SubFormFieldsPerDocumentCheckboxMerge':
-            return import_module("dropbox_sign.models.sub_form_fields_per_document_checkbox_merge").SubFormFieldsPerDocumentCheckboxMerge.from_dict(obj)
-        if object_type ==  'SubFormFieldsPerDocumentDateSigned':
-            return import_module("dropbox_sign.models.sub_form_fields_per_document_date_signed").SubFormFieldsPerDocumentDateSigned.from_dict(obj)
-        if object_type ==  'SubFormFieldsPerDocumentDropdown':
-            return import_module("dropbox_sign.models.sub_form_fields_per_document_dropdown").SubFormFieldsPerDocumentDropdown.from_dict(obj)
-        if object_type ==  'SubFormFieldsPerDocumentHyperlink':
-            return import_module("dropbox_sign.models.sub_form_fields_per_document_hyperlink").SubFormFieldsPerDocumentHyperlink.from_dict(obj)
-        if object_type ==  'SubFormFieldsPerDocumentInitials':
-            return import_module("dropbox_sign.models.sub_form_fields_per_document_initials").SubFormFieldsPerDocumentInitials.from_dict(obj)
-        if object_type ==  'SubFormFieldsPerDocumentRadio':
-            return import_module("dropbox_sign.models.sub_form_fields_per_document_radio").SubFormFieldsPerDocumentRadio.from_dict(obj)
-        if object_type ==  'SubFormFieldsPerDocumentSignature':
-            return import_module("dropbox_sign.models.sub_form_fields_per_document_signature").SubFormFieldsPerDocumentSignature.from_dict(obj)
-        if object_type ==  'SubFormFieldsPerDocumentText':
-            return import_module("dropbox_sign.models.sub_form_fields_per_document_text").SubFormFieldsPerDocumentText.from_dict(obj)
-        if object_type ==  'SubFormFieldsPerDocumentTextMerge':
-            return import_module("dropbox_sign.models.sub_form_fields_per_document_text_merge").SubFormFieldsPerDocumentTextMerge.from_dict(obj)
+        if object_type == "SubFormFieldsPerDocumentCheckbox":
+            return import_module(
+                "dropbox_sign.models.sub_form_fields_per_document_checkbox"
+            ).SubFormFieldsPerDocumentCheckbox.from_dict(obj)
+        if object_type == "SubFormFieldsPerDocumentCheckboxMerge":
+            return import_module(
+                "dropbox_sign.models.sub_form_fields_per_document_checkbox_merge"
+            ).SubFormFieldsPerDocumentCheckboxMerge.from_dict(obj)
+        if object_type == "SubFormFieldsPerDocumentDateSigned":
+            return import_module(
+                "dropbox_sign.models.sub_form_fields_per_document_date_signed"
+            ).SubFormFieldsPerDocumentDateSigned.from_dict(obj)
+        if object_type == "SubFormFieldsPerDocumentDropdown":
+            return import_module(
+                "dropbox_sign.models.sub_form_fields_per_document_dropdown"
+            ).SubFormFieldsPerDocumentDropdown.from_dict(obj)
+        if object_type == "SubFormFieldsPerDocumentHyperlink":
+            return import_module(
+                "dropbox_sign.models.sub_form_fields_per_document_hyperlink"
+            ).SubFormFieldsPerDocumentHyperlink.from_dict(obj)
+        if object_type == "SubFormFieldsPerDocumentInitials":
+            return import_module(
+                "dropbox_sign.models.sub_form_fields_per_document_initials"
+            ).SubFormFieldsPerDocumentInitials.from_dict(obj)
+        if object_type == "SubFormFieldsPerDocumentRadio":
+            return import_module(
+                "dropbox_sign.models.sub_form_fields_per_document_radio"
+            ).SubFormFieldsPerDocumentRadio.from_dict(obj)
+        if object_type == "SubFormFieldsPerDocumentSignature":
+            return import_module(
+                "dropbox_sign.models.sub_form_fields_per_document_signature"
+            ).SubFormFieldsPerDocumentSignature.from_dict(obj)
+        if object_type == "SubFormFieldsPerDocumentText":
+            return import_module(
+                "dropbox_sign.models.sub_form_fields_per_document_text"
+            ).SubFormFieldsPerDocumentText.from_dict(obj)
+        if object_type == "SubFormFieldsPerDocumentTextMerge":
+            return import_module(
+                "dropbox_sign.models.sub_form_fields_per_document_text_merge"
+            ).SubFormFieldsPerDocumentTextMerge.from_dict(obj)
 
-        raise ValueError("SubFormFieldsPerDocumentBase failed to lookup discriminator value from " +
-                            json.dumps(obj) + ". Discriminator property name: " + cls.__discriminator_property_name +
-                            ", mapping: " + json.dumps(cls.__discriminator_value_class_map))
-
+        raise ValueError(
+            "SubFormFieldsPerDocumentBase failed to lookup discriminator value from "
+            + json.dumps(obj)
+            + ". Discriminator property name: "
+            + cls.__discriminator_property_name
+            + ", mapping: "
+            + json.dumps(cls.__discriminator_value_class_map)
+        )
 
     @classmethod
     def openapi_types(cls) -> Dict[str, str]:
@@ -174,6 +280,4 @@ class SubFormFieldsPerDocumentBase(BaseModel):
 
     @classmethod
     def openapi_type_is_array(cls, property_name: str) -> bool:
-        return property_name in [
-        ]
-
+        return property_name in []

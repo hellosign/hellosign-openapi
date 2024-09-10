@@ -20,18 +20,24 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from dropbox_sign.models.template_response_document_field_group_rule import TemplateResponseDocumentFieldGroupRule
+from dropbox_sign.models.template_response_document_field_group_rule import (
+    TemplateResponseDocumentFieldGroupRule,
+)
 from typing import Optional, Set, Tuple
 from typing_extensions import Self
 import io
 from pydantic import StrictBool
 from typing import Union
 
+
 class TemplateResponseDocumentFieldGroup(BaseModel):
     """
     TemplateResponseDocumentFieldGroup
-    """ # noqa: E501
-    name: Optional[StrictStr] = Field(default=None, description="The name of the form field group.")
+    """  # noqa: E501
+
+    name: Optional[StrictStr] = Field(
+        default=None, description="The name of the form field group."
+    )
     rule: Optional[TemplateResponseDocumentFieldGroupRule] = None
     __properties: ClassVar[List[str]] = ["name", "rule"]
 
@@ -42,7 +48,6 @@ class TemplateResponseDocumentFieldGroup(BaseModel):
         arbitrary_types_allowed=True,
     )
 
-
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
         return pprint.pformat(self.model_dump(by_alias=True))
@@ -52,7 +57,9 @@ class TemplateResponseDocumentFieldGroup(BaseModel):
         # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
-    def to_json_form_params(self, excluded_fields: Set[str] = None) -> List[Tuple[str, str]]:
+    def to_json_form_params(
+        self, excluded_fields: Set[str] = None
+    ) -> List[Tuple[str, str]]:
         data: List[Tuple[str, str]] = []
 
         for key, value in self.to_dict(excluded_fields).items():
@@ -86,7 +93,7 @@ class TemplateResponseDocumentFieldGroup(BaseModel):
         )
         # override the default output from pydantic by calling `to_dict()` of rule
         if self.rule:
-            _dict['rule'] = self.rule.to_dict()
+            _dict["rule"] = self.rule.to_dict()
         return _dict
 
     @classmethod
@@ -98,10 +105,16 @@ class TemplateResponseDocumentFieldGroup(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "name": obj.get("name"),
-            "rule": TemplateResponseDocumentFieldGroupRule.from_dict(obj["rule"]) if obj.get("rule") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "name": obj.get("name"),
+                "rule": (
+                    TemplateResponseDocumentFieldGroupRule.from_dict(obj["rule"])
+                    if obj.get("rule") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
 
     @classmethod
@@ -123,6 +136,4 @@ class TemplateResponseDocumentFieldGroup(BaseModel):
 
     @classmethod
     def openapi_type_is_array(cls, property_name: str) -> bool:
-        return property_name in [
-        ]
-
+        return property_name in []

@@ -26,13 +26,21 @@ import io
 from pydantic import StrictBool
 from typing import Union
 
+
 class TeamMemberResponse(BaseModel):
     """
     TeamMemberResponse
-    """ # noqa: E501
-    account_id: Optional[StrictStr] = Field(default=None, description="Account id of the team member.")
-    email_address: Optional[StrictStr] = Field(default=None, description="Email address of the team member.")
-    role: Optional[StrictStr] = Field(default=None, description="The specific role a member has on the team.")
+    """  # noqa: E501
+
+    account_id: Optional[StrictStr] = Field(
+        default=None, description="Account id of the team member."
+    )
+    email_address: Optional[StrictStr] = Field(
+        default=None, description="Email address of the team member."
+    )
+    role: Optional[StrictStr] = Field(
+        default=None, description="The specific role a member has on the team."
+    )
     __properties: ClassVar[List[str]] = ["account_id", "email_address", "role"]
 
     model_config = ConfigDict(
@@ -41,7 +49,6 @@ class TeamMemberResponse(BaseModel):
         protected_namespaces=(),
         arbitrary_types_allowed=True,
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -52,7 +59,9 @@ class TeamMemberResponse(BaseModel):
         # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
-    def to_json_form_params(self, excluded_fields: Set[str] = None) -> List[Tuple[str, str]]:
+    def to_json_form_params(
+        self, excluded_fields: Set[str] = None
+    ) -> List[Tuple[str, str]]:
         data: List[Tuple[str, str]] = []
 
         for key, value in self.to_dict(excluded_fields).items():
@@ -95,11 +104,13 @@ class TeamMemberResponse(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "account_id": obj.get("account_id"),
-            "email_address": obj.get("email_address"),
-            "role": obj.get("role")
-        })
+        _obj = cls.model_validate(
+            {
+                "account_id": obj.get("account_id"),
+                "email_address": obj.get("email_address"),
+                "role": obj.get("role"),
+            }
+        )
         return _obj
 
     @classmethod
@@ -122,6 +133,4 @@ class TeamMemberResponse(BaseModel):
 
     @classmethod
     def openapi_type_is_array(cls, property_name: str) -> bool:
-        return property_name in [
-        ]
-
+        return property_name in []

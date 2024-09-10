@@ -26,12 +26,19 @@ import io
 from pydantic import StrictBool
 from typing import Union
 
+
 class TemplateResponseDocumentFieldGroupRule(BaseModel):
     """
     The rule used to validate checkboxes in the form field group. See [checkbox field grouping](/api/reference/constants/#checkbox-field-grouping).
-    """ # noqa: E501
-    requirement: Optional[StrictStr] = Field(default=None, description="Examples: `require_0-1` `require_1` `require_1-ormore`  - Check out the list of [acceptable `requirement` checkbox type values](/api/reference/constants/#checkbox-field-grouping). - Check out the list of [acceptable `requirement` radio type fields](/api/reference/constants/#radio-field-grouping). - Radio groups require **at least** two fields per group.")
-    group_label: Optional[StrictStr] = Field(default=None, description="Name of the group", alias="groupLabel")
+    """  # noqa: E501
+
+    requirement: Optional[StrictStr] = Field(
+        default=None,
+        description="Examples: `require_0-1` `require_1` `require_1-ormore`  - Check out the list of [acceptable `requirement` checkbox type values](/api/reference/constants/#checkbox-field-grouping). - Check out the list of [acceptable `requirement` radio type fields](/api/reference/constants/#radio-field-grouping). - Radio groups require **at least** two fields per group.",
+    )
+    group_label: Optional[StrictStr] = Field(
+        default=None, description="Name of the group", alias="groupLabel"
+    )
     __properties: ClassVar[List[str]] = ["requirement", "groupLabel"]
 
     model_config = ConfigDict(
@@ -40,7 +47,6 @@ class TemplateResponseDocumentFieldGroupRule(BaseModel):
         protected_namespaces=(),
         arbitrary_types_allowed=True,
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -51,7 +57,9 @@ class TemplateResponseDocumentFieldGroupRule(BaseModel):
         # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
-    def to_json_form_params(self, excluded_fields: Set[str] = None) -> List[Tuple[str, str]]:
+    def to_json_form_params(
+        self, excluded_fields: Set[str] = None
+    ) -> List[Tuple[str, str]]:
         data: List[Tuple[str, str]] = []
 
         for key, value in self.to_dict(excluded_fields).items():
@@ -94,10 +102,9 @@ class TemplateResponseDocumentFieldGroupRule(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "requirement": obj.get("requirement"),
-            "groupLabel": obj.get("groupLabel")
-        })
+        _obj = cls.model_validate(
+            {"requirement": obj.get("requirement"), "groupLabel": obj.get("groupLabel")}
+        )
         return _obj
 
     @classmethod
@@ -119,6 +126,4 @@ class TemplateResponseDocumentFieldGroupRule(BaseModel):
 
     @classmethod
     def openapi_type_is_array(cls, property_name: str) -> bool:
-        return property_name in [
-        ]
-
+        return property_name in []

@@ -29,13 +29,19 @@ import io
 from pydantic import StrictBool
 from typing import Union
 
+
 class SignatureRequestListResponse(BaseModel):
     """
     SignatureRequestListResponse
-    """ # noqa: E501
-    signature_requests: List[SignatureRequestResponse] = Field(description="Contains information about signature requests.")
+    """  # noqa: E501
+
+    signature_requests: List[SignatureRequestResponse] = Field(
+        description="Contains information about signature requests."
+    )
     list_info: ListInfoResponse
-    warnings: Optional[List[WarningResponse]] = Field(default=None, description="A list of warnings.")
+    warnings: Optional[List[WarningResponse]] = Field(
+        default=None, description="A list of warnings."
+    )
     __properties: ClassVar[List[str]] = ["signature_requests", "list_info", "warnings"]
 
     model_config = ConfigDict(
@@ -44,7 +50,6 @@ class SignatureRequestListResponse(BaseModel):
         protected_namespaces=(),
         arbitrary_types_allowed=True,
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -55,7 +60,9 @@ class SignatureRequestListResponse(BaseModel):
         # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
-    def to_json_form_params(self, excluded_fields: Set[str] = None) -> List[Tuple[str, str]]:
+    def to_json_form_params(
+        self, excluded_fields: Set[str] = None
+    ) -> List[Tuple[str, str]]:
         data: List[Tuple[str, str]] = []
 
         for key, value in self.to_dict(excluded_fields).items():
@@ -93,17 +100,17 @@ class SignatureRequestListResponse(BaseModel):
             for _item_signature_requests in self.signature_requests:
                 if _item_signature_requests:
                     _items.append(_item_signature_requests.to_dict())
-            _dict['signature_requests'] = _items
+            _dict["signature_requests"] = _items
         # override the default output from pydantic by calling `to_dict()` of list_info
         if self.list_info:
-            _dict['list_info'] = self.list_info.to_dict()
+            _dict["list_info"] = self.list_info.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in warnings (list)
         _items = []
         if self.warnings:
             for _item_warnings in self.warnings:
                 if _item_warnings:
                     _items.append(_item_warnings.to_dict())
-            _dict['warnings'] = _items
+            _dict["warnings"] = _items
         return _dict
 
     @classmethod
@@ -115,11 +122,28 @@ class SignatureRequestListResponse(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "signature_requests": [SignatureRequestResponse.from_dict(_item) for _item in obj["signature_requests"]] if obj.get("signature_requests") is not None else None,
-            "list_info": ListInfoResponse.from_dict(obj["list_info"]) if obj.get("list_info") is not None else None,
-            "warnings": [WarningResponse.from_dict(_item) for _item in obj["warnings"]] if obj.get("warnings") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "signature_requests": (
+                    [
+                        SignatureRequestResponse.from_dict(_item)
+                        for _item in obj["signature_requests"]
+                    ]
+                    if obj.get("signature_requests") is not None
+                    else None
+                ),
+                "list_info": (
+                    ListInfoResponse.from_dict(obj["list_info"])
+                    if obj.get("list_info") is not None
+                    else None
+                ),
+                "warnings": (
+                    [WarningResponse.from_dict(_item) for _item in obj["warnings"]]
+                    if obj.get("warnings") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
 
     @classmethod
@@ -146,4 +170,3 @@ class SignatureRequestListResponse(BaseModel):
             "signature_requests",
             "warnings",
         ]
-

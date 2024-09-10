@@ -27,13 +27,11 @@ class FaxLineAreaCodeGetCountryEnum(str, Enum):
     """
     allowed enum values
     """
-    CA = 'CA'
-    US = 'US'
-    UK = 'UK'
+    CA = "CA"
+    US = "US"
+    UK = "UK"
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:
         """Create an instance of FaxLineAreaCodeGetCountryEnum from a JSON string"""
         return cls(json.loads(json_str))
-
-

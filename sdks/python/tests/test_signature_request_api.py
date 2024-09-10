@@ -20,11 +20,7 @@ class TestSignatureRequestApi(unittest.TestCase):
             "subject": "The NDA we talked about",
             "message": "Please sign this NDA and then we can discuss more.",
             "signers": [
-                {
-                    "email_address": "jill@example.com",
-                    "name": "Jill",
-                    "order": 1
-                }
+                {"email_address": "jill@example.com", "name": "Jill", "order": 1}
             ],
             "form_fields_per_document": [
                 {
@@ -41,7 +37,7 @@ class TestSignatureRequestApi(unittest.TestCase):
                     "page": 1,
                 }
             ],
-            "files": [open(get_base_path() + "/../test_fixtures/pdf-sample.pdf", "rb")]
+            "files": [open(get_base_path() + "/../test_fixtures/pdf-sample.pdf", "rb")],
         }
 
         obj = m.SignatureRequestSendRequest.init(data)
@@ -51,21 +47,54 @@ class TestSignatureRequestApi(unittest.TestCase):
         self.assertEqual(data["subject"], obj.subject)
         self.assertEqual(data["message"], obj.message)
 
-        self.assertEqual(data["signers"][0]["email_address"], obj.signers[0].email_address)
+        self.assertEqual(
+            data["signers"][0]["email_address"], obj.signers[0].email_address
+        )
         self.assertEqual(data["signers"][0]["name"], obj.signers[0].name)
         self.assertEqual(data["signers"][0]["order"], obj.signers[0].order)
 
-        self.assertEqual(data["form_fields_per_document"][0]["type"], obj.form_fields_per_document[0].type)
-        self.assertEqual(data["form_fields_per_document"][0]["document_index"], obj.form_fields_per_document[0].document_index)
-        self.assertEqual(data["form_fields_per_document"][0]["api_id"], obj.form_fields_per_document[0].api_id)
-        self.assertEqual(data["form_fields_per_document"][0]["name"], obj.form_fields_per_document[0].name)
-        self.assertEqual(data["form_fields_per_document"][0]["x"], obj.form_fields_per_document[0].x)
-        self.assertEqual(data["form_fields_per_document"][0]["y"], obj.form_fields_per_document[0].y)
-        self.assertEqual(data["form_fields_per_document"][0]["width"], obj.form_fields_per_document[0].width)
-        self.assertEqual(data["form_fields_per_document"][0]["height"], obj.form_fields_per_document[0].height)
-        self.assertEqual(data["form_fields_per_document"][0]["required"], obj.form_fields_per_document[0].required)
-        self.assertEqual(data["form_fields_per_document"][0]["signer"], obj.form_fields_per_document[0].signer)
-        self.assertEqual(data["form_fields_per_document"][0]["page"], obj.form_fields_per_document[0].page)
+        self.assertEqual(
+            data["form_fields_per_document"][0]["type"],
+            obj.form_fields_per_document[0].type,
+        )
+        self.assertEqual(
+            data["form_fields_per_document"][0]["document_index"],
+            obj.form_fields_per_document[0].document_index,
+        )
+        self.assertEqual(
+            data["form_fields_per_document"][0]["api_id"],
+            obj.form_fields_per_document[0].api_id,
+        )
+        self.assertEqual(
+            data["form_fields_per_document"][0]["name"],
+            obj.form_fields_per_document[0].name,
+        )
+        self.assertEqual(
+            data["form_fields_per_document"][0]["x"], obj.form_fields_per_document[0].x
+        )
+        self.assertEqual(
+            data["form_fields_per_document"][0]["y"], obj.form_fields_per_document[0].y
+        )
+        self.assertEqual(
+            data["form_fields_per_document"][0]["width"],
+            obj.form_fields_per_document[0].width,
+        )
+        self.assertEqual(
+            data["form_fields_per_document"][0]["height"],
+            obj.form_fields_per_document[0].height,
+        )
+        self.assertEqual(
+            data["form_fields_per_document"][0]["required"],
+            obj.form_fields_per_document[0].required,
+        )
+        self.assertEqual(
+            data["form_fields_per_document"][0]["signer"],
+            obj.form_fields_per_document[0].signer,
+        )
+        self.assertEqual(
+            data["form_fields_per_document"][0]["page"],
+            obj.form_fields_per_document[0].page,
+        )
 
         self.assertEqual(data["files"][0], obj.files[0])
 
@@ -74,7 +103,7 @@ class TestSignatureRequestApi(unittest.TestCase):
     def test_init_allows_jsony_chars_in_strings(self):
         title = "테스트 - testing japanese characters in subject"
         subject = "[テスト]"
-        message = "{\"テスト - testing message\"}"
+        message = '{"テスト - testing message"}'
 
         request_data = {
             "test_mode": True,
@@ -82,22 +111,18 @@ class TestSignatureRequestApi(unittest.TestCase):
             "subject": subject,
             "message": message,
             "signers": [
-                {
-                    "email_address": "jill@example.com",
-                    "name": "Jill",
-                    "order": 1
-                }
+                {"email_address": "jill@example.com", "name": "Jill", "order": 1}
             ],
-            "files": [open(get_base_path() + "/../test_fixtures/pdf-sample.pdf", "rb")]
+            "files": [open(get_base_path() + "/../test_fixtures/pdf-sample.pdf", "rb")],
         }
 
-        response_class = 'SignatureRequestGetResponse'
-        response_data = get_fixture_data(response_class)['default']
+        response_class = "SignatureRequestGetResponse"
+        response_data = get_fixture_data(response_class)["default"]
 
         obj = m.SignatureRequestSendRequest.init(request_data)
 
         self.mock_pool.expect_request(
-            content_type='multipart/form-data',
+            content_type="multipart/form-data",
             data=request_data,
             response=response_data,
         )
@@ -117,20 +142,20 @@ class TestSignatureRequestApi(unittest.TestCase):
         obj.files[0].close()
 
     def test_signature_request_bulk_create_embedded_with_template(self):
-        request_class = 'SignatureRequestBulkCreateEmbeddedWithTemplateRequest'
-        request_data = get_fixture_data(request_class)['default']
+        request_class = "SignatureRequestBulkCreateEmbeddedWithTemplateRequest"
+        request_data = get_fixture_data(request_class)["default"]
 
-        response_class = 'BulkSendJobSendResponse'
-        response_data = get_fixture_data(response_class)['default']
+        response_class = "BulkSendJobSendResponse"
+        response_data = get_fixture_data(response_class)["default"]
 
         self.mock_pool.expect_request(
-            content_type='multipart/form-data',
+            content_type="multipart/form-data",
             data=request_data,
-            response=response_data
+            response=response_data,
         )
         expected = m.BulkSendJobSendResponse.init(response_data)
         obj = m.SignatureRequestBulkCreateEmbeddedWithTemplateRequest.init(request_data)
-        obj.signer_file = open(f'{get_base_path()}/bulk-send-sample.csv', 'rb')
+        obj.signer_file = open(f"{get_base_path()}/bulk-send-sample.csv", "rb")
 
         result = self.api.signature_request_bulk_create_embedded_with_template(obj)
 
@@ -140,20 +165,20 @@ class TestSignatureRequestApi(unittest.TestCase):
         obj.signer_file.close()
 
     def test_signature_request_bulk_send_with_template(self):
-        request_class = 'SignatureRequestBulkSendWithTemplateRequest'
-        request_data = get_fixture_data(request_class)['default']
+        request_class = "SignatureRequestBulkSendWithTemplateRequest"
+        request_data = get_fixture_data(request_class)["default"]
 
-        response_class = 'BulkSendJobSendResponse'
-        response_data = get_fixture_data(response_class)['default']
+        response_class = "BulkSendJobSendResponse"
+        response_data = get_fixture_data(response_class)["default"]
 
         self.mock_pool.expect_request(
-            content_type='multipart/form-data',
+            content_type="multipart/form-data",
             data=request_data,
-            response=response_data
+            response=response_data,
         )
         expected = m.BulkSendJobSendResponse.init(response_data)
         obj = m.SignatureRequestBulkSendWithTemplateRequest.init(request_data)
-        obj.signer_file = open(f'{get_base_path()}/bulk-send-sample.csv', 'rb')
+        obj.signer_file = open(f"{get_base_path()}/bulk-send-sample.csv", "rb")
 
         result = self.api.signature_request_bulk_send_with_template(obj)
 
@@ -163,20 +188,20 @@ class TestSignatureRequestApi(unittest.TestCase):
         obj.signer_file.close()
 
     def test_signature_request_create_embedded(self):
-        request_class = 'SignatureRequestCreateEmbeddedRequest'
-        request_data = get_fixture_data(request_class)['default']
+        request_class = "SignatureRequestCreateEmbeddedRequest"
+        request_data = get_fixture_data(request_class)["default"]
 
-        response_class = 'SignatureRequestGetResponse'
-        response_data = get_fixture_data(response_class)['default']
+        response_class = "SignatureRequestGetResponse"
+        response_data = get_fixture_data(response_class)["default"]
 
         self.mock_pool.expect_request(
-            content_type='multipart/form-data',
+            content_type="multipart/form-data",
             data=request_data,
-            response=response_data
+            response=response_data,
         )
         expected = m.SignatureRequestGetResponse.init(response_data)
         obj = m.SignatureRequestCreateEmbeddedRequest.init(request_data)
-        obj.files = [open(f'{get_base_path()}/pdf-sample.pdf', 'rb')]
+        obj.files = [open(f"{get_base_path()}/pdf-sample.pdf", "rb")]
 
         result = self.api.signature_request_create_embedded(obj)
 
@@ -186,20 +211,20 @@ class TestSignatureRequestApi(unittest.TestCase):
         obj.files[0].close()
 
     def test_signature_request_create_embedded_with_template(self):
-        request_class = 'SignatureRequestCreateEmbeddedWithTemplateRequest'
-        request_data = get_fixture_data(request_class)['default']
+        request_class = "SignatureRequestCreateEmbeddedWithTemplateRequest"
+        request_data = get_fixture_data(request_class)["default"]
 
-        response_class = 'SignatureRequestGetResponse'
-        response_data = get_fixture_data(response_class)['default']
+        response_class = "SignatureRequestGetResponse"
+        response_data = get_fixture_data(response_class)["default"]
 
         self.mock_pool.expect_request(
-            content_type='multipart/form-data',
+            content_type="multipart/form-data",
             data=request_data,
-            response=response_data
+            response=response_data,
         )
         expected = m.SignatureRequestGetResponse.init(response_data)
         obj = m.SignatureRequestCreateEmbeddedWithTemplateRequest.init(request_data)
-        obj.files = [open(f'{get_base_path()}/pdf-sample.pdf', 'rb')]
+        obj.files = [open(f"{get_base_path()}/pdf-sample.pdf", "rb")]
 
         result = self.api.signature_request_create_embedded_with_template(obj)
 
@@ -209,17 +234,16 @@ class TestSignatureRequestApi(unittest.TestCase):
         obj.files[0].close()
 
     def test_signature_request_files(self):
-        self.skipTest('skipping test_signature_request_files')
+        self.skipTest("skipping test_signature_request_files")
 
     def test_signature_request_get(self):
-        signature_request_id = 'fa5c8a0b0f492d768749333ad6fcc214c111e967'
+        signature_request_id = "fa5c8a0b0f492d768749333ad6fcc214c111e967"
 
-        response_class = 'SignatureRequestGetResponse'
-        response_data = get_fixture_data(response_class)['default']
+        response_class = "SignatureRequestGetResponse"
+        response_data = get_fixture_data(response_class)["default"]
 
         self.mock_pool.expect_request(
-            content_type='application/json',
-            response=response_data
+            content_type="application/json", response=response_data
         )
         expected = m.SignatureRequestGetResponse.init(response_data)
 
@@ -229,14 +253,13 @@ class TestSignatureRequestApi(unittest.TestCase):
         self.assertEqual(result, expected)
 
     def test_signature_request_list(self):
-        account_id = 'all'
+        account_id = "all"
 
-        response_class = 'SignatureRequestListResponse'
-        response_data = get_fixture_data(response_class)['default']
+        response_class = "SignatureRequestListResponse"
+        response_data = get_fixture_data(response_class)["default"]
 
         self.mock_pool.expect_request(
-            content_type='application/json',
-            response=response_data
+            content_type="application/json", response=response_data
         )
         expected = m.SignatureRequestListResponse.init(response_data)
 
@@ -249,7 +272,7 @@ class TestSignatureRequestApi(unittest.TestCase):
         account_id = None
 
         self.mock_pool.expect_request(
-            content_type='application/json',
+            content_type="application/json",
             response=None,
         )
 
@@ -262,7 +285,7 @@ class TestSignatureRequestApi(unittest.TestCase):
         query = None
 
         self.mock_pool.expect_request(
-            content_type='application/json',
+            content_type="application/json",
             response=None,
         )
 
@@ -271,11 +294,11 @@ class TestSignatureRequestApi(unittest.TestCase):
         request_fields = self.mock_pool.get_query_params()
         self.assertTrue(not request_fields)
 
-        account_id = 'ABC123'
+        account_id = "ABC123"
         query = None
 
         self.mock_pool.expect_request(
-            content_type='application/json',
+            content_type="application/json",
             response=None,
         )
 
@@ -283,15 +306,15 @@ class TestSignatureRequestApi(unittest.TestCase):
 
         request_fields = self.mock_pool.get_query_params()
         expected_fields = {
-            'account_id': [account_id],
+            "account_id": [account_id],
         }
         self.assertEqual(expected_fields, request_fields)
 
-        account_id = 'ABC123'
-        query = 'My amazing query'
+        account_id = "ABC123"
+        query = "My amazing query"
 
         self.mock_pool.expect_request(
-            content_type='application/json',
+            content_type="application/json",
             response=None,
         )
 
@@ -299,20 +322,19 @@ class TestSignatureRequestApi(unittest.TestCase):
 
         request_fields = self.mock_pool.get_query_params()
         expected_fields = {
-            'account_id': [account_id],
-            'query': [query],
+            "account_id": [account_id],
+            "query": [query],
         }
         self.assertEqual(expected_fields, request_fields)
 
     def test_signature_request_release_hold(self):
-        signature_request_id = 'fa5c8a0b0f492d768749333ad6fcc214c111e967'
+        signature_request_id = "fa5c8a0b0f492d768749333ad6fcc214c111e967"
 
-        response_class = 'SignatureRequestGetResponse'
-        response_data = get_fixture_data(response_class)['default']
+        response_class = "SignatureRequestGetResponse"
+        response_data = get_fixture_data(response_class)["default"]
 
         self.mock_pool.expect_request(
-            content_type='application/json',
-            response=response_data
+            content_type="application/json", response=response_data
         )
         expected = m.SignatureRequestGetResponse.init(response_data)
 
@@ -322,18 +344,16 @@ class TestSignatureRequestApi(unittest.TestCase):
         self.assertEqual(result, expected)
 
     def test_signature_request_remind(self):
-        signature_request_id = 'fa5c8a0b0f492d768749333ad6fcc214c111e967'
+        signature_request_id = "fa5c8a0b0f492d768749333ad6fcc214c111e967"
 
-        request_class = 'SignatureRequestRemindRequest'
-        request_data = get_fixture_data(request_class)['default']
+        request_class = "SignatureRequestRemindRequest"
+        request_data = get_fixture_data(request_class)["default"]
 
-        response_class = 'SignatureRequestGetResponse'
-        response_data = get_fixture_data(response_class)['default']
+        response_class = "SignatureRequestGetResponse"
+        response_data = get_fixture_data(response_class)["default"]
 
         self.mock_pool.expect_request(
-            content_type='application/json',
-            data=request_data,
-            response=response_data
+            content_type="application/json", data=request_data, response=response_data
         )
         expected = m.SignatureRequestGetResponse.init(response_data)
         obj = m.SignatureRequestRemindRequest.init(request_data)
@@ -344,23 +364,23 @@ class TestSignatureRequestApi(unittest.TestCase):
         self.assertEqual(result, expected)
 
     def test_signature_request_remove(self):
-        self.skipTest('skipping test_signature_request_remove')
+        self.skipTest("skipping test_signature_request_remove")
 
     def test_signature_request_send_request(self):
-        request_class = 'SignatureRequestSendRequest'
-        request_data = get_fixture_data(request_class)['default']
+        request_class = "SignatureRequestSendRequest"
+        request_data = get_fixture_data(request_class)["default"]
 
-        response_class = 'SignatureRequestGetResponse'
-        response_data = get_fixture_data(response_class)['default']
+        response_class = "SignatureRequestGetResponse"
+        response_data = get_fixture_data(response_class)["default"]
 
         self.mock_pool.expect_request(
-            content_type='multipart/form-data',
+            content_type="multipart/form-data",
             data=request_data,
-            response=response_data
+            response=response_data,
         )
         expected = m.SignatureRequestGetResponse.init(response_data)
         obj = m.SignatureRequestSendRequest.init(request_data)
-        obj.files = [open(f'{get_base_path()}/pdf-sample.pdf', 'rb')]
+        obj.files = [open(f"{get_base_path()}/pdf-sample.pdf", "rb")]
 
         result = self.api.signature_request_send(obj)
 
@@ -370,16 +390,14 @@ class TestSignatureRequestApi(unittest.TestCase):
         obj.files[0].close()
 
     def test_no_file_forces_application_json(self):
-        request_class = 'SignatureRequestSendRequest'
-        request_data = get_fixture_data(request_class)['default']
+        request_class = "SignatureRequestSendRequest"
+        request_data = get_fixture_data(request_class)["default"]
 
-        response_class = 'SignatureRequestGetResponse'
-        response_data = get_fixture_data(response_class)['default']
+        response_class = "SignatureRequestGetResponse"
+        response_data = get_fixture_data(response_class)["default"]
 
         self.mock_pool.expect_request(
-            content_type='application/json',
-            data=request_data,
-            response=response_data
+            content_type="application/json", data=request_data, response=response_data
         )
         expected = m.SignatureRequestGetResponse.init(response_data)
         obj = m.SignatureRequestSendRequest.init(request_data)
@@ -390,16 +408,14 @@ class TestSignatureRequestApi(unittest.TestCase):
         self.assertEqual(result, expected)
 
     def test_signature_request_send_with_template(self):
-        request_class = 'SignatureRequestSendWithTemplateRequest'
-        request_data = get_fixture_data(request_class)['default']
+        request_class = "SignatureRequestSendWithTemplateRequest"
+        request_data = get_fixture_data(request_class)["default"]
 
-        response_class = 'SignatureRequestGetResponse'
-        response_data = get_fixture_data(response_class)['default']
+        response_class = "SignatureRequestGetResponse"
+        response_data = get_fixture_data(response_class)["default"]
 
         self.mock_pool.expect_request(
-            content_type='application/json',
-            data=request_data,
-            response=response_data
+            content_type="application/json", data=request_data, response=response_data
         )
         expected = m.SignatureRequestGetResponse.init(response_data)
         obj = m.SignatureRequestSendWithTemplateRequest.init(request_data)
@@ -410,18 +426,16 @@ class TestSignatureRequestApi(unittest.TestCase):
         self.assertEqual(result, expected)
 
     def test_signature_request_update(self):
-        signature_request_id = 'fa5c8a0b0f492d768749333ad6fcc214c111e967'
+        signature_request_id = "fa5c8a0b0f492d768749333ad6fcc214c111e967"
 
-        request_class = 'SignatureRequestUpdateRequest'
-        request_data = get_fixture_data(request_class)['default']
+        request_class = "SignatureRequestUpdateRequest"
+        request_data = get_fixture_data(request_class)["default"]
 
-        response_class = 'SignatureRequestGetResponse'
-        response_data = get_fixture_data(response_class)['default']
+        response_class = "SignatureRequestGetResponse"
+        response_data = get_fixture_data(response_class)["default"]
 
         self.mock_pool.expect_request(
-            content_type='application/json',
-            data=request_data,
-            response=response_data
+            content_type="application/json", data=request_data, response=response_data
         )
         expected = m.SignatureRequestGetResponse.init(response_data)
         obj = m.SignatureRequestUpdateRequest.init(request_data)
@@ -432,5 +446,5 @@ class TestSignatureRequestApi(unittest.TestCase):
         self.assertEqual(result, expected)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
