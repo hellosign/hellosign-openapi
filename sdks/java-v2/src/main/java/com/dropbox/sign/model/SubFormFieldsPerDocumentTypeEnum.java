@@ -10,56 +10,70 @@
  * Do not edit the class manually.
  */
 
+
 package com.dropbox.sign.model;
+
+import java.util.Objects;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.dropbox.sign.JSON;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-/** Gets or Sets SubFormFieldsPerDocumentTypeEnum */
+/**
+ * Gets or Sets SubFormFieldsPerDocumentTypeEnum
+ */
 public enum SubFormFieldsPerDocumentTypeEnum {
-    CHECKBOX("checkbox"),
+  
+  CHECKBOX("checkbox"),
+  
+  CHECKBOX_MERGE("checkbox-merge"),
+  
+  DATE_SIGNED("date_signed"),
+  
+  DROPDOWN("dropdown"),
+  
+  HYPERLINK("hyperlink"),
+  
+  INITIALS("initials"),
+  
+  SIGNATURE("signature"),
+  
+  RADIO("radio"),
+  
+  TEXT("text"),
+  
+  TEXT_MERGE("text-merge");
 
-    CHECKBOX_MERGE("checkbox-merge"),
+  private String value;
 
-    DATE_SIGNED("date_signed"),
+  SubFormFieldsPerDocumentTypeEnum(String value) {
+    this.value = value;
+  }
 
-    DROPDOWN("dropdown"),
+  @JsonValue
+  public String getValue() {
+    return value;
+  }
 
-    HYPERLINK("hyperlink"),
+  @Override
+  public String toString() {
+    return String.valueOf(value);
+  }
 
-    INITIALS("initials"),
-
-    SIGNATURE("signature"),
-
-    RADIO("radio"),
-
-    TEXT("text"),
-
-    TEXT_MERGE("text-merge");
-
-    private String value;
-
-    SubFormFieldsPerDocumentTypeEnum(String value) {
-        this.value = value;
+  @JsonCreator
+  public static SubFormFieldsPerDocumentTypeEnum fromValue(String value) {
+    for (SubFormFieldsPerDocumentTypeEnum b : SubFormFieldsPerDocumentTypeEnum.values()) {
+      if (b.value.equals(value)) {
+        return b;
+      }
     }
-
-    @JsonValue
-    public String getValue() {
-        return value;
-    }
-
-    @Override
-    public String toString() {
-        return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static SubFormFieldsPerDocumentTypeEnum fromValue(String value) {
-        for (SubFormFieldsPerDocumentTypeEnum b : SubFormFieldsPerDocumentTypeEnum.values()) {
-            if (b.value.equals(value)) {
-                return b;
-            }
-        }
-        throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
+    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+  }
 }
+

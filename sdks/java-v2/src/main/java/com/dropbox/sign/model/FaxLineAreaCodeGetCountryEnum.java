@@ -10,42 +10,56 @@
  * Do not edit the class manually.
  */
 
+
 package com.dropbox.sign.model;
+
+import java.util.Objects;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.dropbox.sign.JSON;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-/** Gets or Sets FaxLineAreaCodeGetCountryEnum */
+/**
+ * Gets or Sets FaxLineAreaCodeGetCountryEnum
+ */
 public enum FaxLineAreaCodeGetCountryEnum {
-    CA("CA"),
+  
+  CA("CA"),
+  
+  US("US"),
+  
+  UK("UK");
 
-    US("US"),
+  private String value;
 
-    UK("UK");
+  FaxLineAreaCodeGetCountryEnum(String value) {
+    this.value = value;
+  }
 
-    private String value;
+  @JsonValue
+  public String getValue() {
+    return value;
+  }
 
-    FaxLineAreaCodeGetCountryEnum(String value) {
-        this.value = value;
+  @Override
+  public String toString() {
+    return String.valueOf(value);
+  }
+
+  @JsonCreator
+  public static FaxLineAreaCodeGetCountryEnum fromValue(String value) {
+    for (FaxLineAreaCodeGetCountryEnum b : FaxLineAreaCodeGetCountryEnum.values()) {
+      if (b.value.equals(value)) {
+        return b;
+      }
     }
-
-    @JsonValue
-    public String getValue() {
-        return value;
-    }
-
-    @Override
-    public String toString() {
-        return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static FaxLineAreaCodeGetCountryEnum fromValue(String value) {
-        for (FaxLineAreaCodeGetCountryEnum b : FaxLineAreaCodeGetCountryEnum.values()) {
-            if (b.value.equals(value)) {
-                return b;
-            }
-        }
-        throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
+    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+  }
 }
+

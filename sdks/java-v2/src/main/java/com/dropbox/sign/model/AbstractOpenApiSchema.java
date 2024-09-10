@@ -10,17 +10,21 @@
  * Do not edit the class manually.
  */
 
+
 package com.dropbox.sign.model;
 
-import com.fasterxml.jackson.annotation.JsonValue;
-import jakarta.ws.rs.core.GenericType;
-import java.util.Map;
+import com.dropbox.sign.ApiException;
 import java.util.Objects;
+import java.lang.reflect.Type;
+import java.util.Map;
+import jakarta.ws.rs.core.GenericType;
 
-/** Abstract class for oneOf,anyOf schemas defined in OpenAPI spec */
-@jakarta.annotation.Generated(
-        value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.8.0")
+import com.fasterxml.jackson.annotation.JsonValue;
+
+/**
+ * Abstract class for oneOf,anyOf schemas defined in OpenAPI spec
+ */
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 public abstract class AbstractOpenApiSchema {
 
     // store the actual instance of the schema/object
@@ -50,22 +54,17 @@ public abstract class AbstractOpenApiSchema {
      * @return an instance of the actual schema/object
      */
     @JsonValue
-    public Object getActualInstance() {
-        return instance;
-    }
+    public Object getActualInstance() {return instance;}
 
     /**
      * Set the actual instance
      *
      * @param instance the actual instance of the schema/object
      */
-    public void setActualInstance(Object instance) {
-        this.instance = instance;
-    }
+    public void setActualInstance(Object instance) {this.instance = instance;}
 
     /**
-     * Get the instant recursively when the schemas defined in oneOf/anyof happen to be oneOf/anyOf
-     * schema as well
+     * Get the instant recursively when the schemas defined in oneOf/anyof happen to be oneOf/anyOf schema as well
      *
      * @return an instance of the actual schema/object
      */
@@ -77,7 +76,7 @@ public abstract class AbstractOpenApiSchema {
         if (object.getActualInstance() == null) {
             return null;
         } else if (object.getActualInstance() instanceof AbstractOpenApiSchema) {
-            return getActualInstanceRecursively((AbstractOpenApiSchema) object.getActualInstance());
+            return getActualInstanceRecursively((AbstractOpenApiSchema)object.getActualInstance());
         } else {
             return object.getActualInstance();
         }
@@ -104,8 +103,8 @@ public abstract class AbstractOpenApiSchema {
     }
 
     /**
-     * Convert the given object to string with each line indented by 4 spaces (except the first
-     * line).
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
      */
     private String toIndentedString(Object o) {
         if (o == null) {
@@ -122,9 +121,9 @@ public abstract class AbstractOpenApiSchema {
             return false;
         }
         AbstractOpenApiSchema a = (AbstractOpenApiSchema) o;
-        return Objects.equals(this.instance, a.instance)
-                && Objects.equals(this.isNullable, a.isNullable)
-                && Objects.equals(this.schemaType, a.schemaType);
+        return Objects.equals(this.instance, a.instance) &&
+            Objects.equals(this.isNullable, a.isNullable) &&
+            Objects.equals(this.schemaType, a.schemaType);
     }
 
     @Override
@@ -144,4 +143,7 @@ public abstract class AbstractOpenApiSchema {
             return Boolean.FALSE;
         }
     }
+
+
+
 }
