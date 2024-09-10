@@ -31,7 +31,6 @@ plugins {
 
 apply plugin: 'java'
 apply plugin: 'maven-publish'
-apply plugin: 'com.diffplug.spotless'
 apply plugin: 'signing'
 
 group = '{{groupId}}'
@@ -284,12 +283,7 @@ javadoc {
 // Ref: https://github.com/diffplug/spotless/tree/main/plugin-gradle
 spotless {
     // comment out below to run spotless as part of the `check` task
-{{^useCustomTemplateCode}}
     enforceCheck false
-{{/useCustomTemplateCode}}
-{{#useCustomTemplateCode}}
-    enforceCheck true
-{{/useCustomTemplateCode}}
 
     format 'misc', {
         // define the files (e.g. '*.gradle', '*.md') to apply `misc` to
