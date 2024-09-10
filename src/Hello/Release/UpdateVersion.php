@@ -34,6 +34,7 @@ class UpdateVersion
         'openapi-config.yaml',
         'pom.xml',
         'src/main/java/com/dropbox/sign/ApiClient.java',
+        'src/main/java/com/dropbox/sign/Configuration.java',
     ];
 
     private const FILES_JAVA_V2 = [
@@ -45,6 +46,7 @@ class UpdateVersion
         'openapi-config.yaml',
         'pom.xml',
         'src/main/java/com/dropbox/sign/ApiClient.java',
+        'src/main/java/com/dropbox/sign/Configuration.java',
     ];
 
     private const FILES_NODE = [
@@ -71,6 +73,7 @@ class UpdateVersion
         'dropbox_sign/api_client.py',
         'dropbox_sign/configuration.py',
         'openapi-config.yaml',
+        'pyproject.toml',
         'setup.py',
     ];
 
