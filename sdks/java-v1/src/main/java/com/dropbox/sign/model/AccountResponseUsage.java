@@ -10,169 +10,158 @@
  * Do not edit the class manually.
  */
 
-
 package com.dropbox.sign.model;
 
-import java.util.Objects;
-import java.util.Map;
-import java.util.HashMap;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
-import java.util.Arrays;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.dropbox.sign.ApiException;
 import com.dropbox.sign.JSON;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
-
-import com.dropbox.sign.ApiException;
-/**
- * Details concerning monthly usage
- */
-@JsonPropertyOrder({
-  AccountResponseUsage.JSON_PROPERTY_FAX_PAGES_SENT
-})
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
-@JsonIgnoreProperties(ignoreUnknown=true)
+/** Details concerning monthly usage */
+@JsonPropertyOrder({AccountResponseUsage.JSON_PROPERTY_FAX_PAGES_SENT})
+@javax.annotation.Generated(
+        value = "org.openapitools.codegen.languages.JavaClientCodegen",
+        comments = "Generator version: 7.8.0")
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class AccountResponseUsage {
-  public static final String JSON_PROPERTY_FAX_PAGES_SENT = "fax_pages_sent";
-  private Integer faxPagesSent;
+    public static final String JSON_PROPERTY_FAX_PAGES_SENT = "fax_pages_sent";
+    private Integer faxPagesSent;
 
-  public AccountResponseUsage() { 
-  }
+    public AccountResponseUsage() {}
 
-  /**
-   * Attempt to instantiate and hydrate a new instance of this class
-   * @param jsonData String of JSON data representing target object
-   */
-  static public AccountResponseUsage init(String jsonData) throws Exception {
-    return new ObjectMapper().readValue(jsonData, AccountResponseUsage.class);
-  }
-
-  static public AccountResponseUsage init(HashMap data) throws Exception {
-    return new ObjectMapper().readValue(
-      new ObjectMapper().writeValueAsString(data),
-      AccountResponseUsage.class
-    );
-  }
-
-  public AccountResponseUsage faxPagesSent(Integer faxPagesSent) {
-    this.faxPagesSent = faxPagesSent;
-    return this;
-  }
-
-  /**
-   * Number of fax pages sent
-   * @return faxPagesSent
-   */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FAX_PAGES_SENT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Integer getFaxPagesSent() {
-    return faxPagesSent;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_FAX_PAGES_SENT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFaxPagesSent(Integer faxPagesSent) {
-    this.faxPagesSent = faxPagesSent;
-  }
-
-
-  /**
-   * Return true if this AccountResponseUsage object is equal to o.
-   */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    /**
+     * Attempt to instantiate and hydrate a new instance of this class
+     *
+     * @param jsonData String of JSON data representing target object
+     */
+    public static AccountResponseUsage init(String jsonData) throws Exception {
+        return new ObjectMapper().readValue(jsonData, AccountResponseUsage.class);
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    public static AccountResponseUsage init(HashMap data) throws Exception {
+        return new ObjectMapper()
+                .readValue(new ObjectMapper().writeValueAsString(data), AccountResponseUsage.class);
     }
-    AccountResponseUsage accountResponseUsage = (AccountResponseUsage) o;
-    return Objects.equals(this.faxPagesSent, accountResponseUsage.faxPagesSent);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(faxPagesSent);
-  }
+    public AccountResponseUsage faxPagesSent(Integer faxPagesSent) {
+        this.faxPagesSent = faxPagesSent;
+        return this;
+    }
 
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class AccountResponseUsage {\n");
-    sb.append("    faxPagesSent: ").append(toIndentedString(faxPagesSent)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
+    /**
+     * Number of fax pages sent
+     *
+     * @return faxPagesSent
+     */
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_FAX_PAGES_SENT)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public Integer getFaxPagesSent() {
+        return faxPagesSent;
+    }
 
-  public Map<String, Object> createFormData() throws ApiException {
-    Map<String, Object> map = new HashMap<>();
-    boolean fileTypeFound = false;
-    try {
-    if (faxPagesSent != null) {
-        if (isFileTypeOrListOfFiles(faxPagesSent)) {
-            fileTypeFound = true;
+    @JsonProperty(JSON_PROPERTY_FAX_PAGES_SENT)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public void setFaxPagesSent(Integer faxPagesSent) {
+        this.faxPagesSent = faxPagesSent;
+    }
+
+    /** Return true if this AccountResponseUsage object is equal to o. */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
         }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        AccountResponseUsage accountResponseUsage = (AccountResponseUsage) o;
+        return Objects.equals(this.faxPagesSent, accountResponseUsage.faxPagesSent);
+    }
 
-        if (faxPagesSent.getClass().equals(java.io.File.class) ||
-            faxPagesSent.getClass().equals(Integer.class) ||
-            faxPagesSent.getClass().equals(String.class) ||
-            faxPagesSent.getClass().isEnum()) {
-            map.put("fax_pages_sent", faxPagesSent);
-        } else if (isListOfFile(faxPagesSent)) {
-            for(int i = 0; i< getListSize(faxPagesSent); i++) {
-                map.put("fax_pages_sent[" + i + "]", getFromList(faxPagesSent, i));
+    @Override
+    public int hashCode() {
+        return Objects.hash(faxPagesSent);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class AccountResponseUsage {\n");
+        sb.append("    faxPagesSent: ").append(toIndentedString(faxPagesSent)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    public Map<String, Object> createFormData() throws ApiException {
+        Map<String, Object> map = new HashMap<>();
+        boolean fileTypeFound = false;
+        try {
+            if (faxPagesSent != null) {
+                if (isFileTypeOrListOfFiles(faxPagesSent)) {
+                    fileTypeFound = true;
+                }
+
+                if (faxPagesSent.getClass().equals(java.io.File.class)
+                        || faxPagesSent.getClass().equals(Integer.class)
+                        || faxPagesSent.getClass().equals(String.class)
+                        || faxPagesSent.getClass().isEnum()) {
+                    map.put("fax_pages_sent", faxPagesSent);
+                } else if (isListOfFile(faxPagesSent)) {
+                    for (int i = 0; i < getListSize(faxPagesSent); i++) {
+                        map.put("fax_pages_sent[" + i + "]", getFromList(faxPagesSent, i));
+                    }
+                } else {
+                    map.put(
+                            "fax_pages_sent",
+                            JSON.getDefault().getMapper().writeValueAsString(faxPagesSent));
+                }
             }
+        } catch (Exception e) {
+            throw new ApiException(e);
         }
-        else {
-            map.put("fax_pages_sent", JSON.getDefault().getMapper().writeValueAsString(faxPagesSent));
+
+        return fileTypeFound ? map : new HashMap<>();
+    }
+
+    private boolean isFileTypeOrListOfFiles(Object obj) throws Exception {
+        return obj.getClass().equals(java.io.File.class) || isListOfFile(obj);
+    }
+
+    private boolean isListOfFile(Object obj) throws Exception {
+        return obj instanceof java.util.List
+                && !isListEmpty(obj)
+                && getFromList(obj, 0) instanceof java.io.File;
+    }
+
+    private boolean isListEmpty(Object obj) throws Exception {
+        return (boolean)
+                Class.forName(java.util.List.class.getName()).getMethod("isEmpty").invoke(obj);
+    }
+
+    private Object getFromList(Object obj, int index) throws Exception {
+        return Class.forName(java.util.List.class.getName())
+                .getMethod("get", int.class)
+                .invoke(obj, index);
+    }
+
+    private int getListSize(Object obj) throws Exception {
+        return (int) Class.forName(java.util.List.class.getName()).getMethod("size").invoke(obj);
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces (except the first
+     * line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
         }
+        return o.toString().replace("\n", "\n    ");
     }
-    } catch (Exception e) {
-        throw new ApiException(e);
-    }
-
-    return fileTypeFound ? map : new HashMap<>();
-  }
-
-  private boolean isFileTypeOrListOfFiles(Object obj) throws Exception {
-    return obj.getClass().equals(java.io.File.class) || isListOfFile(obj);
-  }
-
-  private boolean isListOfFile(Object obj) throws Exception {
-      return obj instanceof java.util.List && !isListEmpty(obj) && getFromList(obj, 0) instanceof java.io.File;
-  }
-
-  private boolean isListEmpty(Object obj) throws Exception {
-    return (boolean) Class.forName(java.util.List.class.getName()).getMethod("isEmpty").invoke(obj);
-  }
-
-  private Object getFromList(Object obj, int index) throws Exception {
-    return Class.forName(java.util.List.class.getName()).getMethod("get", int.class).invoke(obj, index);
-  }
-
-  private int getListSize(Object obj) throws Exception {
-    return (int) Class.forName(java.util.List.class.getName()).getMethod("size").invoke(obj);
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
-  }
-
 }
-

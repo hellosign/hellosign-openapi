@@ -10,419 +10,421 @@
  * Do not edit the class manually.
  */
 
-
 package com.dropbox.sign.model;
 
-import java.util.Objects;
-import java.util.Map;
-import java.util.HashMap;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
-import java.util.Arrays;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.dropbox.sign.ApiException;
 import com.dropbox.sign.JSON;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
-
-import com.dropbox.sign.ApiException;
-/**
- * Details concerning remaining monthly quotas.
- */
+/** Details concerning remaining monthly quotas. */
 @JsonPropertyOrder({
-  AccountResponseQuotas.JSON_PROPERTY_API_SIGNATURE_REQUESTS_LEFT,
-  AccountResponseQuotas.JSON_PROPERTY_DOCUMENTS_LEFT,
-  AccountResponseQuotas.JSON_PROPERTY_TEMPLATES_TOTAL,
-  AccountResponseQuotas.JSON_PROPERTY_TEMPLATES_LEFT,
-  AccountResponseQuotas.JSON_PROPERTY_SMS_VERIFICATIONS_LEFT,
-  AccountResponseQuotas.JSON_PROPERTY_NUM_FAX_PAGES_LEFT
+    AccountResponseQuotas.JSON_PROPERTY_API_SIGNATURE_REQUESTS_LEFT,
+    AccountResponseQuotas.JSON_PROPERTY_DOCUMENTS_LEFT,
+    AccountResponseQuotas.JSON_PROPERTY_TEMPLATES_TOTAL,
+    AccountResponseQuotas.JSON_PROPERTY_TEMPLATES_LEFT,
+    AccountResponseQuotas.JSON_PROPERTY_SMS_VERIFICATIONS_LEFT,
+    AccountResponseQuotas.JSON_PROPERTY_NUM_FAX_PAGES_LEFT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
-@JsonIgnoreProperties(ignoreUnknown=true)
+@javax.annotation.Generated(
+        value = "org.openapitools.codegen.languages.JavaClientCodegen",
+        comments = "Generator version: 7.8.0")
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class AccountResponseQuotas {
-  public static final String JSON_PROPERTY_API_SIGNATURE_REQUESTS_LEFT = "api_signature_requests_left";
-  private Integer apiSignatureRequestsLeft;
+    public static final String JSON_PROPERTY_API_SIGNATURE_REQUESTS_LEFT =
+            "api_signature_requests_left";
+    private Integer apiSignatureRequestsLeft;
 
-  public static final String JSON_PROPERTY_DOCUMENTS_LEFT = "documents_left";
-  private Integer documentsLeft;
+    public static final String JSON_PROPERTY_DOCUMENTS_LEFT = "documents_left";
+    private Integer documentsLeft;
 
-  public static final String JSON_PROPERTY_TEMPLATES_TOTAL = "templates_total";
-  private Integer templatesTotal;
+    public static final String JSON_PROPERTY_TEMPLATES_TOTAL = "templates_total";
+    private Integer templatesTotal;
 
-  public static final String JSON_PROPERTY_TEMPLATES_LEFT = "templates_left";
-  private Integer templatesLeft;
+    public static final String JSON_PROPERTY_TEMPLATES_LEFT = "templates_left";
+    private Integer templatesLeft;
 
-  public static final String JSON_PROPERTY_SMS_VERIFICATIONS_LEFT = "sms_verifications_left";
-  private Integer smsVerificationsLeft;
+    public static final String JSON_PROPERTY_SMS_VERIFICATIONS_LEFT = "sms_verifications_left";
+    private Integer smsVerificationsLeft;
 
-  public static final String JSON_PROPERTY_NUM_FAX_PAGES_LEFT = "num_fax_pages_left";
-  private Integer numFaxPagesLeft;
+    public static final String JSON_PROPERTY_NUM_FAX_PAGES_LEFT = "num_fax_pages_left";
+    private Integer numFaxPagesLeft;
 
-  public AccountResponseQuotas() { 
-  }
+    public AccountResponseQuotas() {}
 
-  /**
-   * Attempt to instantiate and hydrate a new instance of this class
-   * @param jsonData String of JSON data representing target object
-   */
-  static public AccountResponseQuotas init(String jsonData) throws Exception {
-    return new ObjectMapper().readValue(jsonData, AccountResponseQuotas.class);
-  }
-
-  static public AccountResponseQuotas init(HashMap data) throws Exception {
-    return new ObjectMapper().readValue(
-      new ObjectMapper().writeValueAsString(data),
-      AccountResponseQuotas.class
-    );
-  }
-
-  public AccountResponseQuotas apiSignatureRequestsLeft(Integer apiSignatureRequestsLeft) {
-    this.apiSignatureRequestsLeft = apiSignatureRequestsLeft;
-    return this;
-  }
-
-  /**
-   * API signature requests remaining.
-   * @return apiSignatureRequestsLeft
-   */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_API_SIGNATURE_REQUESTS_LEFT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Integer getApiSignatureRequestsLeft() {
-    return apiSignatureRequestsLeft;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_API_SIGNATURE_REQUESTS_LEFT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setApiSignatureRequestsLeft(Integer apiSignatureRequestsLeft) {
-    this.apiSignatureRequestsLeft = apiSignatureRequestsLeft;
-  }
-
-
-  public AccountResponseQuotas documentsLeft(Integer documentsLeft) {
-    this.documentsLeft = documentsLeft;
-    return this;
-  }
-
-  /**
-   * Signature requests remaining.
-   * @return documentsLeft
-   */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DOCUMENTS_LEFT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Integer getDocumentsLeft() {
-    return documentsLeft;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_DOCUMENTS_LEFT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDocumentsLeft(Integer documentsLeft) {
-    this.documentsLeft = documentsLeft;
-  }
-
-
-  public AccountResponseQuotas templatesTotal(Integer templatesTotal) {
-    this.templatesTotal = templatesTotal;
-    return this;
-  }
-
-  /**
-   * Total API templates allowed.
-   * @return templatesTotal
-   */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TEMPLATES_TOTAL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Integer getTemplatesTotal() {
-    return templatesTotal;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_TEMPLATES_TOTAL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTemplatesTotal(Integer templatesTotal) {
-    this.templatesTotal = templatesTotal;
-  }
-
-
-  public AccountResponseQuotas templatesLeft(Integer templatesLeft) {
-    this.templatesLeft = templatesLeft;
-    return this;
-  }
-
-  /**
-   * API templates remaining.
-   * @return templatesLeft
-   */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TEMPLATES_LEFT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Integer getTemplatesLeft() {
-    return templatesLeft;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_TEMPLATES_LEFT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTemplatesLeft(Integer templatesLeft) {
-    this.templatesLeft = templatesLeft;
-  }
-
-
-  public AccountResponseQuotas smsVerificationsLeft(Integer smsVerificationsLeft) {
-    this.smsVerificationsLeft = smsVerificationsLeft;
-    return this;
-  }
-
-  /**
-   * SMS verifications  remaining.
-   * @return smsVerificationsLeft
-   */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SMS_VERIFICATIONS_LEFT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Integer getSmsVerificationsLeft() {
-    return smsVerificationsLeft;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_SMS_VERIFICATIONS_LEFT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSmsVerificationsLeft(Integer smsVerificationsLeft) {
-    this.smsVerificationsLeft = smsVerificationsLeft;
-  }
-
-
-  public AccountResponseQuotas numFaxPagesLeft(Integer numFaxPagesLeft) {
-    this.numFaxPagesLeft = numFaxPagesLeft;
-    return this;
-  }
-
-  /**
-   * Number of fax pages left
-   * @return numFaxPagesLeft
-   */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NUM_FAX_PAGES_LEFT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Integer getNumFaxPagesLeft() {
-    return numFaxPagesLeft;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_NUM_FAX_PAGES_LEFT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setNumFaxPagesLeft(Integer numFaxPagesLeft) {
-    this.numFaxPagesLeft = numFaxPagesLeft;
-  }
-
-
-  /**
-   * Return true if this AccountResponseQuotas object is equal to o.
-   */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    /**
+     * Attempt to instantiate and hydrate a new instance of this class
+     *
+     * @param jsonData String of JSON data representing target object
+     */
+    public static AccountResponseQuotas init(String jsonData) throws Exception {
+        return new ObjectMapper().readValue(jsonData, AccountResponseQuotas.class);
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    public static AccountResponseQuotas init(HashMap data) throws Exception {
+        return new ObjectMapper()
+                .readValue(
+                        new ObjectMapper().writeValueAsString(data), AccountResponseQuotas.class);
     }
-    AccountResponseQuotas accountResponseQuotas = (AccountResponseQuotas) o;
-    return Objects.equals(this.apiSignatureRequestsLeft, accountResponseQuotas.apiSignatureRequestsLeft) &&
-        Objects.equals(this.documentsLeft, accountResponseQuotas.documentsLeft) &&
-        Objects.equals(this.templatesTotal, accountResponseQuotas.templatesTotal) &&
-        Objects.equals(this.templatesLeft, accountResponseQuotas.templatesLeft) &&
-        Objects.equals(this.smsVerificationsLeft, accountResponseQuotas.smsVerificationsLeft) &&
-        Objects.equals(this.numFaxPagesLeft, accountResponseQuotas.numFaxPagesLeft);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(apiSignatureRequestsLeft, documentsLeft, templatesTotal, templatesLeft, smsVerificationsLeft, numFaxPagesLeft);
-  }
+    public AccountResponseQuotas apiSignatureRequestsLeft(Integer apiSignatureRequestsLeft) {
+        this.apiSignatureRequestsLeft = apiSignatureRequestsLeft;
+        return this;
+    }
 
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class AccountResponseQuotas {\n");
-    sb.append("    apiSignatureRequestsLeft: ").append(toIndentedString(apiSignatureRequestsLeft)).append("\n");
-    sb.append("    documentsLeft: ").append(toIndentedString(documentsLeft)).append("\n");
-    sb.append("    templatesTotal: ").append(toIndentedString(templatesTotal)).append("\n");
-    sb.append("    templatesLeft: ").append(toIndentedString(templatesLeft)).append("\n");
-    sb.append("    smsVerificationsLeft: ").append(toIndentedString(smsVerificationsLeft)).append("\n");
-    sb.append("    numFaxPagesLeft: ").append(toIndentedString(numFaxPagesLeft)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
+    /**
+     * API signature requests remaining.
+     *
+     * @return apiSignatureRequestsLeft
+     */
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_API_SIGNATURE_REQUESTS_LEFT)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public Integer getApiSignatureRequestsLeft() {
+        return apiSignatureRequestsLeft;
+    }
 
-  public Map<String, Object> createFormData() throws ApiException {
-    Map<String, Object> map = new HashMap<>();
-    boolean fileTypeFound = false;
-    try {
-    if (apiSignatureRequestsLeft != null) {
-        if (isFileTypeOrListOfFiles(apiSignatureRequestsLeft)) {
-            fileTypeFound = true;
+    @JsonProperty(JSON_PROPERTY_API_SIGNATURE_REQUESTS_LEFT)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public void setApiSignatureRequestsLeft(Integer apiSignatureRequestsLeft) {
+        this.apiSignatureRequestsLeft = apiSignatureRequestsLeft;
+    }
+
+    public AccountResponseQuotas documentsLeft(Integer documentsLeft) {
+        this.documentsLeft = documentsLeft;
+        return this;
+    }
+
+    /**
+     * Signature requests remaining.
+     *
+     * @return documentsLeft
+     */
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_DOCUMENTS_LEFT)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public Integer getDocumentsLeft() {
+        return documentsLeft;
+    }
+
+    @JsonProperty(JSON_PROPERTY_DOCUMENTS_LEFT)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public void setDocumentsLeft(Integer documentsLeft) {
+        this.documentsLeft = documentsLeft;
+    }
+
+    public AccountResponseQuotas templatesTotal(Integer templatesTotal) {
+        this.templatesTotal = templatesTotal;
+        return this;
+    }
+
+    /**
+     * Total API templates allowed.
+     *
+     * @return templatesTotal
+     */
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_TEMPLATES_TOTAL)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public Integer getTemplatesTotal() {
+        return templatesTotal;
+    }
+
+    @JsonProperty(JSON_PROPERTY_TEMPLATES_TOTAL)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public void setTemplatesTotal(Integer templatesTotal) {
+        this.templatesTotal = templatesTotal;
+    }
+
+    public AccountResponseQuotas templatesLeft(Integer templatesLeft) {
+        this.templatesLeft = templatesLeft;
+        return this;
+    }
+
+    /**
+     * API templates remaining.
+     *
+     * @return templatesLeft
+     */
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_TEMPLATES_LEFT)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public Integer getTemplatesLeft() {
+        return templatesLeft;
+    }
+
+    @JsonProperty(JSON_PROPERTY_TEMPLATES_LEFT)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public void setTemplatesLeft(Integer templatesLeft) {
+        this.templatesLeft = templatesLeft;
+    }
+
+    public AccountResponseQuotas smsVerificationsLeft(Integer smsVerificationsLeft) {
+        this.smsVerificationsLeft = smsVerificationsLeft;
+        return this;
+    }
+
+    /**
+     * SMS verifications remaining.
+     *
+     * @return smsVerificationsLeft
+     */
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_SMS_VERIFICATIONS_LEFT)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public Integer getSmsVerificationsLeft() {
+        return smsVerificationsLeft;
+    }
+
+    @JsonProperty(JSON_PROPERTY_SMS_VERIFICATIONS_LEFT)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public void setSmsVerificationsLeft(Integer smsVerificationsLeft) {
+        this.smsVerificationsLeft = smsVerificationsLeft;
+    }
+
+    public AccountResponseQuotas numFaxPagesLeft(Integer numFaxPagesLeft) {
+        this.numFaxPagesLeft = numFaxPagesLeft;
+        return this;
+    }
+
+    /**
+     * Number of fax pages left
+     *
+     * @return numFaxPagesLeft
+     */
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_NUM_FAX_PAGES_LEFT)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public Integer getNumFaxPagesLeft() {
+        return numFaxPagesLeft;
+    }
+
+    @JsonProperty(JSON_PROPERTY_NUM_FAX_PAGES_LEFT)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public void setNumFaxPagesLeft(Integer numFaxPagesLeft) {
+        this.numFaxPagesLeft = numFaxPagesLeft;
+    }
+
+    /** Return true if this AccountResponseQuotas object is equal to o. */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
         }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        AccountResponseQuotas accountResponseQuotas = (AccountResponseQuotas) o;
+        return Objects.equals(
+                        this.apiSignatureRequestsLeft,
+                        accountResponseQuotas.apiSignatureRequestsLeft)
+                && Objects.equals(this.documentsLeft, accountResponseQuotas.documentsLeft)
+                && Objects.equals(this.templatesTotal, accountResponseQuotas.templatesTotal)
+                && Objects.equals(this.templatesLeft, accountResponseQuotas.templatesLeft)
+                && Objects.equals(
+                        this.smsVerificationsLeft, accountResponseQuotas.smsVerificationsLeft)
+                && Objects.equals(this.numFaxPagesLeft, accountResponseQuotas.numFaxPagesLeft);
+    }
 
-        if (apiSignatureRequestsLeft.getClass().equals(java.io.File.class) ||
-            apiSignatureRequestsLeft.getClass().equals(Integer.class) ||
-            apiSignatureRequestsLeft.getClass().equals(String.class) ||
-            apiSignatureRequestsLeft.getClass().isEnum()) {
-            map.put("api_signature_requests_left", apiSignatureRequestsLeft);
-        } else if (isListOfFile(apiSignatureRequestsLeft)) {
-            for(int i = 0; i< getListSize(apiSignatureRequestsLeft); i++) {
-                map.put("api_signature_requests_left[" + i + "]", getFromList(apiSignatureRequestsLeft, i));
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+                apiSignatureRequestsLeft,
+                documentsLeft,
+                templatesTotal,
+                templatesLeft,
+                smsVerificationsLeft,
+                numFaxPagesLeft);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class AccountResponseQuotas {\n");
+        sb.append("    apiSignatureRequestsLeft: ")
+                .append(toIndentedString(apiSignatureRequestsLeft))
+                .append("\n");
+        sb.append("    documentsLeft: ").append(toIndentedString(documentsLeft)).append("\n");
+        sb.append("    templatesTotal: ").append(toIndentedString(templatesTotal)).append("\n");
+        sb.append("    templatesLeft: ").append(toIndentedString(templatesLeft)).append("\n");
+        sb.append("    smsVerificationsLeft: ")
+                .append(toIndentedString(smsVerificationsLeft))
+                .append("\n");
+        sb.append("    numFaxPagesLeft: ").append(toIndentedString(numFaxPagesLeft)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    public Map<String, Object> createFormData() throws ApiException {
+        Map<String, Object> map = new HashMap<>();
+        boolean fileTypeFound = false;
+        try {
+            if (apiSignatureRequestsLeft != null) {
+                if (isFileTypeOrListOfFiles(apiSignatureRequestsLeft)) {
+                    fileTypeFound = true;
+                }
+
+                if (apiSignatureRequestsLeft.getClass().equals(java.io.File.class)
+                        || apiSignatureRequestsLeft.getClass().equals(Integer.class)
+                        || apiSignatureRequestsLeft.getClass().equals(String.class)
+                        || apiSignatureRequestsLeft.getClass().isEnum()) {
+                    map.put("api_signature_requests_left", apiSignatureRequestsLeft);
+                } else if (isListOfFile(apiSignatureRequestsLeft)) {
+                    for (int i = 0; i < getListSize(apiSignatureRequestsLeft); i++) {
+                        map.put(
+                                "api_signature_requests_left[" + i + "]",
+                                getFromList(apiSignatureRequestsLeft, i));
+                    }
+                } else {
+                    map.put(
+                            "api_signature_requests_left",
+                            JSON.getDefault()
+                                    .getMapper()
+                                    .writeValueAsString(apiSignatureRequestsLeft));
+                }
             }
-        }
-        else {
-            map.put("api_signature_requests_left", JSON.getDefault().getMapper().writeValueAsString(apiSignatureRequestsLeft));
-        }
-    }
-    if (documentsLeft != null) {
-        if (isFileTypeOrListOfFiles(documentsLeft)) {
-            fileTypeFound = true;
-        }
+            if (documentsLeft != null) {
+                if (isFileTypeOrListOfFiles(documentsLeft)) {
+                    fileTypeFound = true;
+                }
 
-        if (documentsLeft.getClass().equals(java.io.File.class) ||
-            documentsLeft.getClass().equals(Integer.class) ||
-            documentsLeft.getClass().equals(String.class) ||
-            documentsLeft.getClass().isEnum()) {
-            map.put("documents_left", documentsLeft);
-        } else if (isListOfFile(documentsLeft)) {
-            for(int i = 0; i< getListSize(documentsLeft); i++) {
-                map.put("documents_left[" + i + "]", getFromList(documentsLeft, i));
+                if (documentsLeft.getClass().equals(java.io.File.class)
+                        || documentsLeft.getClass().equals(Integer.class)
+                        || documentsLeft.getClass().equals(String.class)
+                        || documentsLeft.getClass().isEnum()) {
+                    map.put("documents_left", documentsLeft);
+                } else if (isListOfFile(documentsLeft)) {
+                    for (int i = 0; i < getListSize(documentsLeft); i++) {
+                        map.put("documents_left[" + i + "]", getFromList(documentsLeft, i));
+                    }
+                } else {
+                    map.put(
+                            "documents_left",
+                            JSON.getDefault().getMapper().writeValueAsString(documentsLeft));
+                }
             }
-        }
-        else {
-            map.put("documents_left", JSON.getDefault().getMapper().writeValueAsString(documentsLeft));
-        }
-    }
-    if (templatesTotal != null) {
-        if (isFileTypeOrListOfFiles(templatesTotal)) {
-            fileTypeFound = true;
-        }
+            if (templatesTotal != null) {
+                if (isFileTypeOrListOfFiles(templatesTotal)) {
+                    fileTypeFound = true;
+                }
 
-        if (templatesTotal.getClass().equals(java.io.File.class) ||
-            templatesTotal.getClass().equals(Integer.class) ||
-            templatesTotal.getClass().equals(String.class) ||
-            templatesTotal.getClass().isEnum()) {
-            map.put("templates_total", templatesTotal);
-        } else if (isListOfFile(templatesTotal)) {
-            for(int i = 0; i< getListSize(templatesTotal); i++) {
-                map.put("templates_total[" + i + "]", getFromList(templatesTotal, i));
+                if (templatesTotal.getClass().equals(java.io.File.class)
+                        || templatesTotal.getClass().equals(Integer.class)
+                        || templatesTotal.getClass().equals(String.class)
+                        || templatesTotal.getClass().isEnum()) {
+                    map.put("templates_total", templatesTotal);
+                } else if (isListOfFile(templatesTotal)) {
+                    for (int i = 0; i < getListSize(templatesTotal); i++) {
+                        map.put("templates_total[" + i + "]", getFromList(templatesTotal, i));
+                    }
+                } else {
+                    map.put(
+                            "templates_total",
+                            JSON.getDefault().getMapper().writeValueAsString(templatesTotal));
+                }
             }
-        }
-        else {
-            map.put("templates_total", JSON.getDefault().getMapper().writeValueAsString(templatesTotal));
-        }
-    }
-    if (templatesLeft != null) {
-        if (isFileTypeOrListOfFiles(templatesLeft)) {
-            fileTypeFound = true;
-        }
+            if (templatesLeft != null) {
+                if (isFileTypeOrListOfFiles(templatesLeft)) {
+                    fileTypeFound = true;
+                }
 
-        if (templatesLeft.getClass().equals(java.io.File.class) ||
-            templatesLeft.getClass().equals(Integer.class) ||
-            templatesLeft.getClass().equals(String.class) ||
-            templatesLeft.getClass().isEnum()) {
-            map.put("templates_left", templatesLeft);
-        } else if (isListOfFile(templatesLeft)) {
-            for(int i = 0; i< getListSize(templatesLeft); i++) {
-                map.put("templates_left[" + i + "]", getFromList(templatesLeft, i));
+                if (templatesLeft.getClass().equals(java.io.File.class)
+                        || templatesLeft.getClass().equals(Integer.class)
+                        || templatesLeft.getClass().equals(String.class)
+                        || templatesLeft.getClass().isEnum()) {
+                    map.put("templates_left", templatesLeft);
+                } else if (isListOfFile(templatesLeft)) {
+                    for (int i = 0; i < getListSize(templatesLeft); i++) {
+                        map.put("templates_left[" + i + "]", getFromList(templatesLeft, i));
+                    }
+                } else {
+                    map.put(
+                            "templates_left",
+                            JSON.getDefault().getMapper().writeValueAsString(templatesLeft));
+                }
             }
-        }
-        else {
-            map.put("templates_left", JSON.getDefault().getMapper().writeValueAsString(templatesLeft));
-        }
-    }
-    if (smsVerificationsLeft != null) {
-        if (isFileTypeOrListOfFiles(smsVerificationsLeft)) {
-            fileTypeFound = true;
-        }
+            if (smsVerificationsLeft != null) {
+                if (isFileTypeOrListOfFiles(smsVerificationsLeft)) {
+                    fileTypeFound = true;
+                }
 
-        if (smsVerificationsLeft.getClass().equals(java.io.File.class) ||
-            smsVerificationsLeft.getClass().equals(Integer.class) ||
-            smsVerificationsLeft.getClass().equals(String.class) ||
-            smsVerificationsLeft.getClass().isEnum()) {
-            map.put("sms_verifications_left", smsVerificationsLeft);
-        } else if (isListOfFile(smsVerificationsLeft)) {
-            for(int i = 0; i< getListSize(smsVerificationsLeft); i++) {
-                map.put("sms_verifications_left[" + i + "]", getFromList(smsVerificationsLeft, i));
+                if (smsVerificationsLeft.getClass().equals(java.io.File.class)
+                        || smsVerificationsLeft.getClass().equals(Integer.class)
+                        || smsVerificationsLeft.getClass().equals(String.class)
+                        || smsVerificationsLeft.getClass().isEnum()) {
+                    map.put("sms_verifications_left", smsVerificationsLeft);
+                } else if (isListOfFile(smsVerificationsLeft)) {
+                    for (int i = 0; i < getListSize(smsVerificationsLeft); i++) {
+                        map.put(
+                                "sms_verifications_left[" + i + "]",
+                                getFromList(smsVerificationsLeft, i));
+                    }
+                } else {
+                    map.put(
+                            "sms_verifications_left",
+                            JSON.getDefault().getMapper().writeValueAsString(smsVerificationsLeft));
+                }
             }
-        }
-        else {
-            map.put("sms_verifications_left", JSON.getDefault().getMapper().writeValueAsString(smsVerificationsLeft));
-        }
-    }
-    if (numFaxPagesLeft != null) {
-        if (isFileTypeOrListOfFiles(numFaxPagesLeft)) {
-            fileTypeFound = true;
-        }
+            if (numFaxPagesLeft != null) {
+                if (isFileTypeOrListOfFiles(numFaxPagesLeft)) {
+                    fileTypeFound = true;
+                }
 
-        if (numFaxPagesLeft.getClass().equals(java.io.File.class) ||
-            numFaxPagesLeft.getClass().equals(Integer.class) ||
-            numFaxPagesLeft.getClass().equals(String.class) ||
-            numFaxPagesLeft.getClass().isEnum()) {
-            map.put("num_fax_pages_left", numFaxPagesLeft);
-        } else if (isListOfFile(numFaxPagesLeft)) {
-            for(int i = 0; i< getListSize(numFaxPagesLeft); i++) {
-                map.put("num_fax_pages_left[" + i + "]", getFromList(numFaxPagesLeft, i));
+                if (numFaxPagesLeft.getClass().equals(java.io.File.class)
+                        || numFaxPagesLeft.getClass().equals(Integer.class)
+                        || numFaxPagesLeft.getClass().equals(String.class)
+                        || numFaxPagesLeft.getClass().isEnum()) {
+                    map.put("num_fax_pages_left", numFaxPagesLeft);
+                } else if (isListOfFile(numFaxPagesLeft)) {
+                    for (int i = 0; i < getListSize(numFaxPagesLeft); i++) {
+                        map.put("num_fax_pages_left[" + i + "]", getFromList(numFaxPagesLeft, i));
+                    }
+                } else {
+                    map.put(
+                            "num_fax_pages_left",
+                            JSON.getDefault().getMapper().writeValueAsString(numFaxPagesLeft));
+                }
             }
+        } catch (Exception e) {
+            throw new ApiException(e);
         }
-        else {
-            map.put("num_fax_pages_left", JSON.getDefault().getMapper().writeValueAsString(numFaxPagesLeft));
+
+        return fileTypeFound ? map : new HashMap<>();
+    }
+
+    private boolean isFileTypeOrListOfFiles(Object obj) throws Exception {
+        return obj.getClass().equals(java.io.File.class) || isListOfFile(obj);
+    }
+
+    private boolean isListOfFile(Object obj) throws Exception {
+        return obj instanceof java.util.List
+                && !isListEmpty(obj)
+                && getFromList(obj, 0) instanceof java.io.File;
+    }
+
+    private boolean isListEmpty(Object obj) throws Exception {
+        return (boolean)
+                Class.forName(java.util.List.class.getName()).getMethod("isEmpty").invoke(obj);
+    }
+
+    private Object getFromList(Object obj, int index) throws Exception {
+        return Class.forName(java.util.List.class.getName())
+                .getMethod("get", int.class)
+                .invoke(obj, index);
+    }
+
+    private int getListSize(Object obj) throws Exception {
+        return (int) Class.forName(java.util.List.class.getName()).getMethod("size").invoke(obj);
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces (except the first
+     * line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
         }
+        return o.toString().replace("\n", "\n    ");
     }
-    } catch (Exception e) {
-        throw new ApiException(e);
-    }
-
-    return fileTypeFound ? map : new HashMap<>();
-  }
-
-  private boolean isFileTypeOrListOfFiles(Object obj) throws Exception {
-    return obj.getClass().equals(java.io.File.class) || isListOfFile(obj);
-  }
-
-  private boolean isListOfFile(Object obj) throws Exception {
-      return obj instanceof java.util.List && !isListEmpty(obj) && getFromList(obj, 0) instanceof java.io.File;
-  }
-
-  private boolean isListEmpty(Object obj) throws Exception {
-    return (boolean) Class.forName(java.util.List.class.getName()).getMethod("isEmpty").invoke(obj);
-  }
-
-  private Object getFromList(Object obj, int index) throws Exception {
-    return Class.forName(java.util.List.class.getName()).getMethod("get", int.class).invoke(obj, index);
-  }
-
-  private int getListSize(Object obj) throws Exception {
-    return (int) Class.forName(java.util.List.class.getName()).getMethod("size").invoke(obj);
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
-  }
-
 }
-

@@ -10,1447 +10,1488 @@
  * Do not edit the class manually.
  */
 
-
 package com.dropbox.sign.model;
 
-import java.util.Objects;
-import java.util.Map;
-import java.util.HashMap;
-import com.dropbox.sign.model.SubAttachment;
-import com.dropbox.sign.model.SubCustomField;
-import com.dropbox.sign.model.SubFieldOptions;
-import com.dropbox.sign.model.SubFormFieldGroup;
-import com.dropbox.sign.model.SubFormFieldRule;
-import com.dropbox.sign.model.SubFormFieldsPerDocumentBase;
-import com.dropbox.sign.model.SubSigningOptions;
-import com.dropbox.sign.model.SubUnclaimedDraftSigner;
+import com.dropbox.sign.ApiException;
+import com.dropbox.sign.JSON;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.dropbox.sign.JSON;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.Objects;
 
-
-import com.dropbox.sign.ApiException;
-/**
- * 
- */
+/** */
 @JsonPropertyOrder({
-  UnclaimedDraftCreateRequest.JSON_PROPERTY_TYPE,
-  UnclaimedDraftCreateRequest.JSON_PROPERTY_FILES,
-  UnclaimedDraftCreateRequest.JSON_PROPERTY_FILE_URLS,
-  UnclaimedDraftCreateRequest.JSON_PROPERTY_ALLOW_DECLINE,
-  UnclaimedDraftCreateRequest.JSON_PROPERTY_ATTACHMENTS,
-  UnclaimedDraftCreateRequest.JSON_PROPERTY_CC_EMAIL_ADDRESSES,
-  UnclaimedDraftCreateRequest.JSON_PROPERTY_CLIENT_ID,
-  UnclaimedDraftCreateRequest.JSON_PROPERTY_CUSTOM_FIELDS,
-  UnclaimedDraftCreateRequest.JSON_PROPERTY_FIELD_OPTIONS,
-  UnclaimedDraftCreateRequest.JSON_PROPERTY_FORM_FIELD_GROUPS,
-  UnclaimedDraftCreateRequest.JSON_PROPERTY_FORM_FIELD_RULES,
-  UnclaimedDraftCreateRequest.JSON_PROPERTY_FORM_FIELDS_PER_DOCUMENT,
-  UnclaimedDraftCreateRequest.JSON_PROPERTY_HIDE_TEXT_TAGS,
-  UnclaimedDraftCreateRequest.JSON_PROPERTY_MESSAGE,
-  UnclaimedDraftCreateRequest.JSON_PROPERTY_METADATA,
-  UnclaimedDraftCreateRequest.JSON_PROPERTY_SHOW_PROGRESS_STEPPER,
-  UnclaimedDraftCreateRequest.JSON_PROPERTY_SIGNERS,
-  UnclaimedDraftCreateRequest.JSON_PROPERTY_SIGNING_OPTIONS,
-  UnclaimedDraftCreateRequest.JSON_PROPERTY_SIGNING_REDIRECT_URL,
-  UnclaimedDraftCreateRequest.JSON_PROPERTY_SUBJECT,
-  UnclaimedDraftCreateRequest.JSON_PROPERTY_TEST_MODE,
-  UnclaimedDraftCreateRequest.JSON_PROPERTY_USE_PREEXISTING_FIELDS,
-  UnclaimedDraftCreateRequest.JSON_PROPERTY_USE_TEXT_TAGS,
-  UnclaimedDraftCreateRequest.JSON_PROPERTY_EXPIRES_AT
+    UnclaimedDraftCreateRequest.JSON_PROPERTY_TYPE,
+    UnclaimedDraftCreateRequest.JSON_PROPERTY_FILES,
+    UnclaimedDraftCreateRequest.JSON_PROPERTY_FILE_URLS,
+    UnclaimedDraftCreateRequest.JSON_PROPERTY_ALLOW_DECLINE,
+    UnclaimedDraftCreateRequest.JSON_PROPERTY_ATTACHMENTS,
+    UnclaimedDraftCreateRequest.JSON_PROPERTY_CC_EMAIL_ADDRESSES,
+    UnclaimedDraftCreateRequest.JSON_PROPERTY_CLIENT_ID,
+    UnclaimedDraftCreateRequest.JSON_PROPERTY_CUSTOM_FIELDS,
+    UnclaimedDraftCreateRequest.JSON_PROPERTY_FIELD_OPTIONS,
+    UnclaimedDraftCreateRequest.JSON_PROPERTY_FORM_FIELD_GROUPS,
+    UnclaimedDraftCreateRequest.JSON_PROPERTY_FORM_FIELD_RULES,
+    UnclaimedDraftCreateRequest.JSON_PROPERTY_FORM_FIELDS_PER_DOCUMENT,
+    UnclaimedDraftCreateRequest.JSON_PROPERTY_HIDE_TEXT_TAGS,
+    UnclaimedDraftCreateRequest.JSON_PROPERTY_MESSAGE,
+    UnclaimedDraftCreateRequest.JSON_PROPERTY_METADATA,
+    UnclaimedDraftCreateRequest.JSON_PROPERTY_SHOW_PROGRESS_STEPPER,
+    UnclaimedDraftCreateRequest.JSON_PROPERTY_SIGNERS,
+    UnclaimedDraftCreateRequest.JSON_PROPERTY_SIGNING_OPTIONS,
+    UnclaimedDraftCreateRequest.JSON_PROPERTY_SIGNING_REDIRECT_URL,
+    UnclaimedDraftCreateRequest.JSON_PROPERTY_SUBJECT,
+    UnclaimedDraftCreateRequest.JSON_PROPERTY_TEST_MODE,
+    UnclaimedDraftCreateRequest.JSON_PROPERTY_USE_PREEXISTING_FIELDS,
+    UnclaimedDraftCreateRequest.JSON_PROPERTY_USE_TEXT_TAGS,
+    UnclaimedDraftCreateRequest.JSON_PROPERTY_EXPIRES_AT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
-@JsonIgnoreProperties(ignoreUnknown=true)
+@javax.annotation.Generated(
+        value = "org.openapitools.codegen.languages.JavaClientCodegen",
+        comments = "Generator version: 7.8.0")
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class UnclaimedDraftCreateRequest {
-  /**
-   * The type of unclaimed draft to create. Use &#x60;send_document&#x60; to create a claimable file, and &#x60;request_signature&#x60; for a claimable signature request. If the type is &#x60;request_signature&#x60; then signers name and email_address are not optional.
-   */
-  public enum TypeEnum {
-    SEND_DOCUMENT("send_document"),
-    
-    REQUEST_SIGNATURE("request_signature");
+    /**
+     * The type of unclaimed draft to create. Use &#x60;send_document&#x60; to create a claimable
+     * file, and &#x60;request_signature&#x60; for a claimable signature request. If the type is
+     * &#x60;request_signature&#x60; then signers name and email_address are not optional.
+     */
+    public enum TypeEnum {
+        SEND_DOCUMENT("send_document"),
 
-    private String value;
+        REQUEST_SIGNATURE("request_signature");
 
-    TypeEnum(String value) {
-      this.value = value;
+        private String value;
+
+        TypeEnum(String value) {
+            this.value = value;
+        }
+
+        @JsonValue
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        @JsonCreator
+        public static TypeEnum fromValue(String value) {
+            for (TypeEnum b : TypeEnum.values()) {
+                if (b.value.equals(value)) {
+                    return b;
+                }
+            }
+            throw new IllegalArgumentException("Unexpected value '" + value + "'");
+        }
     }
 
-    @JsonValue
-    public String getValue() {
-      return value;
+    public static final String JSON_PROPERTY_TYPE = "type";
+    private TypeEnum type;
+
+    public static final String JSON_PROPERTY_FILES = "files";
+    private List<File> files = null;
+
+    public static final String JSON_PROPERTY_FILE_URLS = "file_urls";
+    private List<String> fileUrls = null;
+
+    public static final String JSON_PROPERTY_ALLOW_DECLINE = "allow_decline";
+    private Boolean allowDecline = false;
+
+    public static final String JSON_PROPERTY_ATTACHMENTS = "attachments";
+    private List<SubAttachment> attachments = null;
+
+    public static final String JSON_PROPERTY_CC_EMAIL_ADDRESSES = "cc_email_addresses";
+    private List<String> ccEmailAddresses = null;
+
+    public static final String JSON_PROPERTY_CLIENT_ID = "client_id";
+    private String clientId;
+
+    public static final String JSON_PROPERTY_CUSTOM_FIELDS = "custom_fields";
+    private List<SubCustomField> customFields = null;
+
+    public static final String JSON_PROPERTY_FIELD_OPTIONS = "field_options";
+    private SubFieldOptions fieldOptions;
+
+    public static final String JSON_PROPERTY_FORM_FIELD_GROUPS = "form_field_groups";
+    private List<SubFormFieldGroup> formFieldGroups = null;
+
+    public static final String JSON_PROPERTY_FORM_FIELD_RULES = "form_field_rules";
+    private List<SubFormFieldRule> formFieldRules = null;
+
+    public static final String JSON_PROPERTY_FORM_FIELDS_PER_DOCUMENT = "form_fields_per_document";
+    private List<SubFormFieldsPerDocumentBase> formFieldsPerDocument = null;
+
+    public static final String JSON_PROPERTY_HIDE_TEXT_TAGS = "hide_text_tags";
+    private Boolean hideTextTags = false;
+
+    public static final String JSON_PROPERTY_MESSAGE = "message";
+    private String message;
+
+    public static final String JSON_PROPERTY_METADATA = "metadata";
+    private Map<String, Object> metadata = null;
+
+    public static final String JSON_PROPERTY_SHOW_PROGRESS_STEPPER = "show_progress_stepper";
+    private Boolean showProgressStepper = true;
+
+    public static final String JSON_PROPERTY_SIGNERS = "signers";
+    private List<SubUnclaimedDraftSigner> signers = null;
+
+    public static final String JSON_PROPERTY_SIGNING_OPTIONS = "signing_options";
+    private SubSigningOptions signingOptions;
+
+    public static final String JSON_PROPERTY_SIGNING_REDIRECT_URL = "signing_redirect_url";
+    private String signingRedirectUrl;
+
+    public static final String JSON_PROPERTY_SUBJECT = "subject";
+    private String subject;
+
+    public static final String JSON_PROPERTY_TEST_MODE = "test_mode";
+    private Boolean testMode = false;
+
+    public static final String JSON_PROPERTY_USE_PREEXISTING_FIELDS = "use_preexisting_fields";
+    private Boolean usePreexistingFields = false;
+
+    public static final String JSON_PROPERTY_USE_TEXT_TAGS = "use_text_tags";
+    private Boolean useTextTags = false;
+
+    public static final String JSON_PROPERTY_EXPIRES_AT = "expires_at";
+    private Integer expiresAt;
+
+    public UnclaimedDraftCreateRequest() {}
+
+    /**
+     * Attempt to instantiate and hydrate a new instance of this class
+     *
+     * @param jsonData String of JSON data representing target object
+     */
+    public static UnclaimedDraftCreateRequest init(String jsonData) throws Exception {
+        return new ObjectMapper().readValue(jsonData, UnclaimedDraftCreateRequest.class);
+    }
+
+    public static UnclaimedDraftCreateRequest init(HashMap data) throws Exception {
+        return new ObjectMapper()
+                .readValue(
+                        new ObjectMapper().writeValueAsString(data),
+                        UnclaimedDraftCreateRequest.class);
+    }
+
+    public UnclaimedDraftCreateRequest type(TypeEnum type) {
+        this.type = type;
+        return this;
+    }
+
+    /**
+     * The type of unclaimed draft to create. Use &#x60;send_document&#x60; to create a claimable
+     * file, and &#x60;request_signature&#x60; for a claimable signature request. If the type is
+     * &#x60;request_signature&#x60; then signers name and email_address are not optional.
+     *
+     * @return type
+     */
+    @javax.annotation.Nonnull
+    @JsonProperty(JSON_PROPERTY_TYPE)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    public TypeEnum getType() {
+        return type;
+    }
+
+    @JsonProperty(JSON_PROPERTY_TYPE)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    public void setType(TypeEnum type) {
+        this.type = type;
+    }
+
+    public UnclaimedDraftCreateRequest files(List<File> files) {
+        this.files = files;
+        return this;
+    }
+
+    public UnclaimedDraftCreateRequest addFilesItem(File filesItem) {
+        if (this.files == null) {
+            this.files = new ArrayList<>();
+        }
+        this.files.add(filesItem);
+        return this;
+    }
+
+    /**
+     * Use &#x60;files[]&#x60; to indicate the uploaded file(s) to send for signature. This endpoint
+     * requires either **files** or **file_urls[]**, but not both.
+     *
+     * @return files
+     */
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_FILES)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public List<File> getFiles() {
+        return files;
+    }
+
+    @JsonProperty(JSON_PROPERTY_FILES)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public void setFiles(List<File> files) {
+        this.files = files;
+    }
+
+    public UnclaimedDraftCreateRequest fileUrls(List<String> fileUrls) {
+        this.fileUrls = fileUrls;
+        return this;
+    }
+
+    public UnclaimedDraftCreateRequest addFileUrlsItem(String fileUrlsItem) {
+        if (this.fileUrls == null) {
+            this.fileUrls = new ArrayList<>();
+        }
+        this.fileUrls.add(fileUrlsItem);
+        return this;
+    }
+
+    /**
+     * Use &#x60;file_urls[]&#x60; to have Dropbox Sign download the file(s) to send for signature.
+     * This endpoint requires either **files** or **file_urls[]**, but not both.
+     *
+     * @return fileUrls
+     */
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_FILE_URLS)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public List<String> getFileUrls() {
+        return fileUrls;
+    }
+
+    @JsonProperty(JSON_PROPERTY_FILE_URLS)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public void setFileUrls(List<String> fileUrls) {
+        this.fileUrls = fileUrls;
+    }
+
+    public UnclaimedDraftCreateRequest allowDecline(Boolean allowDecline) {
+        this.allowDecline = allowDecline;
+        return this;
+    }
+
+    /**
+     * Allows signers to decline to sign a document if &#x60;true&#x60;. Defaults to
+     * &#x60;false&#x60;.
+     *
+     * @return allowDecline
+     */
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_ALLOW_DECLINE)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public Boolean getAllowDecline() {
+        return allowDecline;
+    }
+
+    @JsonProperty(JSON_PROPERTY_ALLOW_DECLINE)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public void setAllowDecline(Boolean allowDecline) {
+        this.allowDecline = allowDecline;
+    }
+
+    public UnclaimedDraftCreateRequest attachments(List<SubAttachment> attachments) {
+        this.attachments = attachments;
+        return this;
+    }
+
+    public UnclaimedDraftCreateRequest addAttachmentsItem(SubAttachment attachmentsItem) {
+        if (this.attachments == null) {
+            this.attachments = new ArrayList<>();
+        }
+        this.attachments.add(attachmentsItem);
+        return this;
+    }
+
+    /**
+     * A list describing the attachments
+     *
+     * @return attachments
+     */
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_ATTACHMENTS)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public List<SubAttachment> getAttachments() {
+        return attachments;
+    }
+
+    @JsonProperty(JSON_PROPERTY_ATTACHMENTS)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public void setAttachments(List<SubAttachment> attachments) {
+        this.attachments = attachments;
+    }
+
+    public UnclaimedDraftCreateRequest ccEmailAddresses(List<String> ccEmailAddresses) {
+        this.ccEmailAddresses = ccEmailAddresses;
+        return this;
+    }
+
+    public UnclaimedDraftCreateRequest addCcEmailAddressesItem(String ccEmailAddressesItem) {
+        if (this.ccEmailAddresses == null) {
+            this.ccEmailAddresses = new ArrayList<>();
+        }
+        this.ccEmailAddresses.add(ccEmailAddressesItem);
+        return this;
+    }
+
+    /**
+     * The email addresses that should be CCed.
+     *
+     * @return ccEmailAddresses
+     */
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_CC_EMAIL_ADDRESSES)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public List<String> getCcEmailAddresses() {
+        return ccEmailAddresses;
+    }
+
+    @JsonProperty(JSON_PROPERTY_CC_EMAIL_ADDRESSES)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public void setCcEmailAddresses(List<String> ccEmailAddresses) {
+        this.ccEmailAddresses = ccEmailAddresses;
+    }
+
+    public UnclaimedDraftCreateRequest clientId(String clientId) {
+        this.clientId = clientId;
+        return this;
+    }
+
+    /**
+     * Client id of the app used to create the draft. Used to apply the branding and callback url
+     * defined for the app.
+     *
+     * @return clientId
+     */
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_CLIENT_ID)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public String getClientId() {
+        return clientId;
+    }
+
+    @JsonProperty(JSON_PROPERTY_CLIENT_ID)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public void setClientId(String clientId) {
+        this.clientId = clientId;
+    }
+
+    public UnclaimedDraftCreateRequest customFields(List<SubCustomField> customFields) {
+        this.customFields = customFields;
+        return this;
+    }
+
+    public UnclaimedDraftCreateRequest addCustomFieldsItem(SubCustomField customFieldsItem) {
+        if (this.customFields == null) {
+            this.customFields = new ArrayList<>();
+        }
+        this.customFields.add(customFieldsItem);
+        return this;
+    }
+
+    /**
+     * When used together with merge fields, &#x60;custom_fields&#x60; allows users to add
+     * pre-filled data to their signature requests. Pre-filled data can be used with
+     * \&quot;send-once\&quot; signature requests by adding merge fields with
+     * &#x60;form_fields_per_document&#x60; or [Text
+     * Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) while passing values
+     * back with &#x60;custom_fields&#x60; together in one API call. For using pre-filled on
+     * repeatable signature requests, merge fields are added to templates in the Dropbox Sign UI or
+     * by calling
+     * [/template/create_embedded_draft](/api/reference/operation/templateCreateEmbeddedDraft) and
+     * then passing &#x60;custom_fields&#x60; on subsequent signature requests referencing that
+     * template.
+     *
+     * @return customFields
+     */
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_CUSTOM_FIELDS)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public List<SubCustomField> getCustomFields() {
+        return customFields;
+    }
+
+    @JsonProperty(JSON_PROPERTY_CUSTOM_FIELDS)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public void setCustomFields(List<SubCustomField> customFields) {
+        this.customFields = customFields;
+    }
+
+    public UnclaimedDraftCreateRequest fieldOptions(SubFieldOptions fieldOptions) {
+        this.fieldOptions = fieldOptions;
+        return this;
+    }
+
+    /**
+     * Get fieldOptions
+     *
+     * @return fieldOptions
+     */
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_FIELD_OPTIONS)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public SubFieldOptions getFieldOptions() {
+        return fieldOptions;
+    }
+
+    @JsonProperty(JSON_PROPERTY_FIELD_OPTIONS)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public void setFieldOptions(SubFieldOptions fieldOptions) {
+        this.fieldOptions = fieldOptions;
+    }
+
+    public UnclaimedDraftCreateRequest formFieldGroups(List<SubFormFieldGroup> formFieldGroups) {
+        this.formFieldGroups = formFieldGroups;
+        return this;
+    }
+
+    public UnclaimedDraftCreateRequest addFormFieldGroupsItem(
+            SubFormFieldGroup formFieldGroupsItem) {
+        if (this.formFieldGroups == null) {
+            this.formFieldGroups = new ArrayList<>();
+        }
+        this.formFieldGroups.add(formFieldGroupsItem);
+        return this;
+    }
+
+    /**
+     * Group information for fields defined in &#x60;form_fields_per_document&#x60;. String-indexed
+     * JSON array with &#x60;group_label&#x60; and &#x60;requirement&#x60; keys.
+     * &#x60;form_fields_per_document&#x60; must contain fields referencing a group defined in
+     * &#x60;form_field_groups&#x60;.
+     *
+     * @return formFieldGroups
+     */
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_FORM_FIELD_GROUPS)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public List<SubFormFieldGroup> getFormFieldGroups() {
+        return formFieldGroups;
+    }
+
+    @JsonProperty(JSON_PROPERTY_FORM_FIELD_GROUPS)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public void setFormFieldGroups(List<SubFormFieldGroup> formFieldGroups) {
+        this.formFieldGroups = formFieldGroups;
+    }
+
+    public UnclaimedDraftCreateRequest formFieldRules(List<SubFormFieldRule> formFieldRules) {
+        this.formFieldRules = formFieldRules;
+        return this;
+    }
+
+    public UnclaimedDraftCreateRequest addFormFieldRulesItem(SubFormFieldRule formFieldRulesItem) {
+        if (this.formFieldRules == null) {
+            this.formFieldRules = new ArrayList<>();
+        }
+        this.formFieldRules.add(formFieldRulesItem);
+        return this;
+    }
+
+    /**
+     * Conditional Logic rules for fields defined in &#x60;form_fields_per_document&#x60;.
+     *
+     * @return formFieldRules
+     */
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_FORM_FIELD_RULES)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public List<SubFormFieldRule> getFormFieldRules() {
+        return formFieldRules;
+    }
+
+    @JsonProperty(JSON_PROPERTY_FORM_FIELD_RULES)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public void setFormFieldRules(List<SubFormFieldRule> formFieldRules) {
+        this.formFieldRules = formFieldRules;
+    }
+
+    public UnclaimedDraftCreateRequest formFieldsPerDocument(
+            List<SubFormFieldsPerDocumentBase> formFieldsPerDocument) {
+        this.formFieldsPerDocument = formFieldsPerDocument;
+        return this;
+    }
+
+    public UnclaimedDraftCreateRequest addFormFieldsPerDocumentItem(
+            SubFormFieldsPerDocumentBase formFieldsPerDocumentItem) {
+        if (this.formFieldsPerDocument == null) {
+            this.formFieldsPerDocument = new ArrayList<>();
+        }
+        this.formFieldsPerDocument.add(formFieldsPerDocumentItem);
+        return this;
+    }
+
+    /**
+     * The fields that should appear on the document, expressed as an array of objects. (For more
+     * details you can read about it here: [Using Form Fields per
+     * Document](/docs/openapi/form-fields-per-document).) **NOTE:** Fields like **text**,
+     * **dropdown**, **checkbox**, **radio**, and **hyperlink** have additional required and
+     * optional parameters. Check out the list of [additional
+     * parameters](/api/reference/constants/#form-fields-per-document) for these field types. * Text
+     * Field use &#x60;SubFormFieldsPerDocumentText&#x60; * Dropdown Field use
+     * &#x60;SubFormFieldsPerDocumentDropdown&#x60; * Hyperlink Field use
+     * &#x60;SubFormFieldsPerDocumentHyperlink&#x60; * Checkbox Field use
+     * &#x60;SubFormFieldsPerDocumentCheckbox&#x60; * Radio Field use
+     * &#x60;SubFormFieldsPerDocumentRadio&#x60; * Signature Field use
+     * &#x60;SubFormFieldsPerDocumentSignature&#x60; * Date Signed Field use
+     * &#x60;SubFormFieldsPerDocumentDateSigned&#x60; * Initials Field use
+     * &#x60;SubFormFieldsPerDocumentInitials&#x60; * Text Merge Field use
+     * &#x60;SubFormFieldsPerDocumentTextMerge&#x60; * Checkbox Merge Field use
+     * &#x60;SubFormFieldsPerDocumentCheckboxMerge&#x60;
+     *
+     * @return formFieldsPerDocument
+     */
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_FORM_FIELDS_PER_DOCUMENT)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public List<SubFormFieldsPerDocumentBase> getFormFieldsPerDocument() {
+        return formFieldsPerDocument;
+    }
+
+    @JsonProperty(JSON_PROPERTY_FORM_FIELDS_PER_DOCUMENT)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public void setFormFieldsPerDocument(List<SubFormFieldsPerDocumentBase> formFieldsPerDocument) {
+        this.formFieldsPerDocument = formFieldsPerDocument;
+    }
+
+    public UnclaimedDraftCreateRequest hideTextTags(Boolean hideTextTags) {
+        this.hideTextTags = hideTextTags;
+        return this;
+    }
+
+    /**
+     * Send with a value of &#x60;true&#x60; if you wish to enable automatic Text Tag removal.
+     * Defaults to &#x60;false&#x60;. When using Text Tags it is preferred that you set this to
+     * &#x60;false&#x60; and hide your tags with white text or something similar because the
+     * automatic removal system can cause unwanted clipping. See the [Text
+     * Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) walkthrough for more
+     * details.
+     *
+     * @return hideTextTags
+     */
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_HIDE_TEXT_TAGS)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public Boolean getHideTextTags() {
+        return hideTextTags;
+    }
+
+    @JsonProperty(JSON_PROPERTY_HIDE_TEXT_TAGS)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public void setHideTextTags(Boolean hideTextTags) {
+        this.hideTextTags = hideTextTags;
+    }
+
+    public UnclaimedDraftCreateRequest message(String message) {
+        this.message = message;
+        return this;
+    }
+
+    /**
+     * The custom message in the email that will be sent to the signers.
+     *
+     * @return message
+     */
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_MESSAGE)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public String getMessage() {
+        return message;
+    }
+
+    @JsonProperty(JSON_PROPERTY_MESSAGE)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public UnclaimedDraftCreateRequest metadata(Map<String, Object> metadata) {
+        this.metadata = metadata;
+        return this;
+    }
+
+    public UnclaimedDraftCreateRequest putMetadataItem(String key, Object metadataItem) {
+        if (this.metadata == null) {
+            this.metadata = new HashMap<>();
+        }
+        this.metadata.put(key, metadataItem);
+        return this;
+    }
+
+    /**
+     * Key-value data that should be attached to the signature request. This metadata is included in
+     * all API responses and events involving the signature request. For example, use the metadata
+     * field to store a signer&#39;s order number for look up when receiving events for the
+     * signature request. Each request can include up to 10 metadata keys (or 50 nested metadata
+     * keys), with key names up to 40 characters long and values up to 1000 characters long.
+     *
+     * @return metadata
+     */
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_METADATA)
+    @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
+    public Map<String, Object> getMetadata() {
+        return metadata;
+    }
+
+    @JsonProperty(JSON_PROPERTY_METADATA)
+    @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
+    public void setMetadata(Map<String, Object> metadata) {
+        this.metadata = metadata;
+    }
+
+    public UnclaimedDraftCreateRequest showProgressStepper(Boolean showProgressStepper) {
+        this.showProgressStepper = showProgressStepper;
+        return this;
+    }
+
+    /**
+     * When only one step remains in the signature request process and this parameter is set to
+     * &#x60;false&#x60; then the progress stepper will be hidden.
+     *
+     * @return showProgressStepper
+     */
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_SHOW_PROGRESS_STEPPER)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public Boolean getShowProgressStepper() {
+        return showProgressStepper;
+    }
+
+    @JsonProperty(JSON_PROPERTY_SHOW_PROGRESS_STEPPER)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public void setShowProgressStepper(Boolean showProgressStepper) {
+        this.showProgressStepper = showProgressStepper;
+    }
+
+    public UnclaimedDraftCreateRequest signers(List<SubUnclaimedDraftSigner> signers) {
+        this.signers = signers;
+        return this;
+    }
+
+    public UnclaimedDraftCreateRequest addSignersItem(SubUnclaimedDraftSigner signersItem) {
+        if (this.signers == null) {
+            this.signers = new ArrayList<>();
+        }
+        this.signers.add(signersItem);
+        return this;
+    }
+
+    /**
+     * Add Signers to your Unclaimed Draft Signature Request.
+     *
+     * @return signers
+     */
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_SIGNERS)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public List<SubUnclaimedDraftSigner> getSigners() {
+        return signers;
+    }
+
+    @JsonProperty(JSON_PROPERTY_SIGNERS)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public void setSigners(List<SubUnclaimedDraftSigner> signers) {
+        this.signers = signers;
+    }
+
+    public UnclaimedDraftCreateRequest signingOptions(SubSigningOptions signingOptions) {
+        this.signingOptions = signingOptions;
+        return this;
+    }
+
+    /**
+     * Get signingOptions
+     *
+     * @return signingOptions
+     */
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_SIGNING_OPTIONS)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public SubSigningOptions getSigningOptions() {
+        return signingOptions;
+    }
+
+    @JsonProperty(JSON_PROPERTY_SIGNING_OPTIONS)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public void setSigningOptions(SubSigningOptions signingOptions) {
+        this.signingOptions = signingOptions;
+    }
+
+    public UnclaimedDraftCreateRequest signingRedirectUrl(String signingRedirectUrl) {
+        this.signingRedirectUrl = signingRedirectUrl;
+        return this;
+    }
+
+    /**
+     * The URL you want signers redirected to after they successfully sign.
+     *
+     * @return signingRedirectUrl
+     */
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_SIGNING_REDIRECT_URL)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public String getSigningRedirectUrl() {
+        return signingRedirectUrl;
+    }
+
+    @JsonProperty(JSON_PROPERTY_SIGNING_REDIRECT_URL)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public void setSigningRedirectUrl(String signingRedirectUrl) {
+        this.signingRedirectUrl = signingRedirectUrl;
+    }
+
+    public UnclaimedDraftCreateRequest subject(String subject) {
+        this.subject = subject;
+        return this;
+    }
+
+    /**
+     * The subject in the email that will be sent to the signers.
+     *
+     * @return subject
+     */
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_SUBJECT)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public String getSubject() {
+        return subject;
+    }
+
+    @JsonProperty(JSON_PROPERTY_SUBJECT)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public void setSubject(String subject) {
+        this.subject = subject;
+    }
+
+    public UnclaimedDraftCreateRequest testMode(Boolean testMode) {
+        this.testMode = testMode;
+        return this;
+    }
+
+    /**
+     * Whether this is a test, the signature request created from this draft will not be legally
+     * binding if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.
+     *
+     * @return testMode
+     */
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_TEST_MODE)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public Boolean getTestMode() {
+        return testMode;
+    }
+
+    @JsonProperty(JSON_PROPERTY_TEST_MODE)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public void setTestMode(Boolean testMode) {
+        this.testMode = testMode;
+    }
+
+    public UnclaimedDraftCreateRequest usePreexistingFields(Boolean usePreexistingFields) {
+        this.usePreexistingFields = usePreexistingFields;
+        return this;
+    }
+
+    /**
+     * Set &#x60;use_text_tags&#x60; to &#x60;true&#x60; to enable [Text
+     * Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) parsing in your
+     * document (defaults to disabled, or &#x60;false&#x60;). Alternatively, if your PDF contains
+     * pre-defined fields, enable the detection of these fields by setting the
+     * &#x60;use_preexisting_fields&#x60; to &#x60;true&#x60; (defaults to disabled, or
+     * &#x60;false&#x60;). Currently we only support use of either &#x60;use_text_tags&#x60; or
+     * &#x60;use_preexisting_fields&#x60; parameter, not both.
+     *
+     * @return usePreexistingFields
+     */
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_USE_PREEXISTING_FIELDS)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public Boolean getUsePreexistingFields() {
+        return usePreexistingFields;
+    }
+
+    @JsonProperty(JSON_PROPERTY_USE_PREEXISTING_FIELDS)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public void setUsePreexistingFields(Boolean usePreexistingFields) {
+        this.usePreexistingFields = usePreexistingFields;
+    }
+
+    public UnclaimedDraftCreateRequest useTextTags(Boolean useTextTags) {
+        this.useTextTags = useTextTags;
+        return this;
+    }
+
+    /**
+     * Set &#x60;use_text_tags&#x60; to &#x60;true&#x60; to enable [Text
+     * Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) parsing in your
+     * document (defaults to disabled, or &#x60;false&#x60;). Alternatively, if your PDF contains
+     * pre-defined fields, enable the detection of these fields by setting the
+     * &#x60;use_preexisting_fields&#x60; to &#x60;true&#x60; (defaults to disabled, or
+     * &#x60;false&#x60;). Currently we only support use of either &#x60;use_text_tags&#x60; or
+     * &#x60;use_preexisting_fields&#x60; parameter, not both.
+     *
+     * @return useTextTags
+     */
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_USE_TEXT_TAGS)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public Boolean getUseTextTags() {
+        return useTextTags;
+    }
+
+    @JsonProperty(JSON_PROPERTY_USE_TEXT_TAGS)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public void setUseTextTags(Boolean useTextTags) {
+        this.useTextTags = useTextTags;
+    }
+
+    public UnclaimedDraftCreateRequest expiresAt(Integer expiresAt) {
+        this.expiresAt = expiresAt;
+        return this;
+    }
+
+    /**
+     * When the signature request will expire. Unsigned signatures will be moved to the expired
+     * status, and no longer signable. See [Signature Request Expiration
+     * Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.
+     * **NOTE:** This does not correspond to the **expires_at** returned in the response.
+     *
+     * @return expiresAt
+     */
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public Integer getExpiresAt() {
+        return expiresAt;
+    }
+
+    @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public void setExpiresAt(Integer expiresAt) {
+        this.expiresAt = expiresAt;
+    }
+
+    /** Return true if this UnclaimedDraftCreateRequest object is equal to o. */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        UnclaimedDraftCreateRequest unclaimedDraftCreateRequest = (UnclaimedDraftCreateRequest) o;
+        return Objects.equals(this.type, unclaimedDraftCreateRequest.type)
+                && Objects.equals(this.files, unclaimedDraftCreateRequest.files)
+                && Objects.equals(this.fileUrls, unclaimedDraftCreateRequest.fileUrls)
+                && Objects.equals(this.allowDecline, unclaimedDraftCreateRequest.allowDecline)
+                && Objects.equals(this.attachments, unclaimedDraftCreateRequest.attachments)
+                && Objects.equals(
+                        this.ccEmailAddresses, unclaimedDraftCreateRequest.ccEmailAddresses)
+                && Objects.equals(this.clientId, unclaimedDraftCreateRequest.clientId)
+                && Objects.equals(this.customFields, unclaimedDraftCreateRequest.customFields)
+                && Objects.equals(this.fieldOptions, unclaimedDraftCreateRequest.fieldOptions)
+                && Objects.equals(this.formFieldGroups, unclaimedDraftCreateRequest.formFieldGroups)
+                && Objects.equals(this.formFieldRules, unclaimedDraftCreateRequest.formFieldRules)
+                && Objects.equals(
+                        this.formFieldsPerDocument,
+                        unclaimedDraftCreateRequest.formFieldsPerDocument)
+                && Objects.equals(this.hideTextTags, unclaimedDraftCreateRequest.hideTextTags)
+                && Objects.equals(this.message, unclaimedDraftCreateRequest.message)
+                && Objects.equals(this.metadata, unclaimedDraftCreateRequest.metadata)
+                && Objects.equals(
+                        this.showProgressStepper, unclaimedDraftCreateRequest.showProgressStepper)
+                && Objects.equals(this.signers, unclaimedDraftCreateRequest.signers)
+                && Objects.equals(this.signingOptions, unclaimedDraftCreateRequest.signingOptions)
+                && Objects.equals(
+                        this.signingRedirectUrl, unclaimedDraftCreateRequest.signingRedirectUrl)
+                && Objects.equals(this.subject, unclaimedDraftCreateRequest.subject)
+                && Objects.equals(this.testMode, unclaimedDraftCreateRequest.testMode)
+                && Objects.equals(
+                        this.usePreexistingFields, unclaimedDraftCreateRequest.usePreexistingFields)
+                && Objects.equals(this.useTextTags, unclaimedDraftCreateRequest.useTextTags)
+                && Objects.equals(this.expiresAt, unclaimedDraftCreateRequest.expiresAt);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+                type,
+                files,
+                fileUrls,
+                allowDecline,
+                attachments,
+                ccEmailAddresses,
+                clientId,
+                customFields,
+                fieldOptions,
+                formFieldGroups,
+                formFieldRules,
+                formFieldsPerDocument,
+                hideTextTags,
+                message,
+                metadata,
+                showProgressStepper,
+                signers,
+                signingOptions,
+                signingRedirectUrl,
+                subject,
+                testMode,
+                usePreexistingFields,
+                useTextTags,
+                expiresAt);
     }
 
     @Override
     public String toString() {
-      return String.valueOf(value);
+        StringBuilder sb = new StringBuilder();
+        sb.append("class UnclaimedDraftCreateRequest {\n");
+        sb.append("    type: ").append(toIndentedString(type)).append("\n");
+        sb.append("    files: ").append(toIndentedString(files)).append("\n");
+        sb.append("    fileUrls: ").append(toIndentedString(fileUrls)).append("\n");
+        sb.append("    allowDecline: ").append(toIndentedString(allowDecline)).append("\n");
+        sb.append("    attachments: ").append(toIndentedString(attachments)).append("\n");
+        sb.append("    ccEmailAddresses: ").append(toIndentedString(ccEmailAddresses)).append("\n");
+        sb.append("    clientId: ").append(toIndentedString(clientId)).append("\n");
+        sb.append("    customFields: ").append(toIndentedString(customFields)).append("\n");
+        sb.append("    fieldOptions: ").append(toIndentedString(fieldOptions)).append("\n");
+        sb.append("    formFieldGroups: ").append(toIndentedString(formFieldGroups)).append("\n");
+        sb.append("    formFieldRules: ").append(toIndentedString(formFieldRules)).append("\n");
+        sb.append("    formFieldsPerDocument: ")
+                .append(toIndentedString(formFieldsPerDocument))
+                .append("\n");
+        sb.append("    hideTextTags: ").append(toIndentedString(hideTextTags)).append("\n");
+        sb.append("    message: ").append(toIndentedString(message)).append("\n");
+        sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
+        sb.append("    showProgressStepper: ")
+                .append(toIndentedString(showProgressStepper))
+                .append("\n");
+        sb.append("    signers: ").append(toIndentedString(signers)).append("\n");
+        sb.append("    signingOptions: ").append(toIndentedString(signingOptions)).append("\n");
+        sb.append("    signingRedirectUrl: ")
+                .append(toIndentedString(signingRedirectUrl))
+                .append("\n");
+        sb.append("    subject: ").append(toIndentedString(subject)).append("\n");
+        sb.append("    testMode: ").append(toIndentedString(testMode)).append("\n");
+        sb.append("    usePreexistingFields: ")
+                .append(toIndentedString(usePreexistingFields))
+                .append("\n");
+        sb.append("    useTextTags: ").append(toIndentedString(useTextTags)).append("\n");
+        sb.append("    expiresAt: ").append(toIndentedString(expiresAt)).append("\n");
+        sb.append("}");
+        return sb.toString();
     }
 
-    @JsonCreator
-    public static TypeEnum fromValue(String value) {
-      for (TypeEnum b : TypeEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-  }
-
-  public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type;
-
-  public static final String JSON_PROPERTY_FILES = "files";
-  private List<File> files = null;
-
-  public static final String JSON_PROPERTY_FILE_URLS = "file_urls";
-  private List<String> fileUrls = null;
-
-  public static final String JSON_PROPERTY_ALLOW_DECLINE = "allow_decline";
-  private Boolean allowDecline = false;
-
-  public static final String JSON_PROPERTY_ATTACHMENTS = "attachments";
-  private List<SubAttachment> attachments = null;
-
-  public static final String JSON_PROPERTY_CC_EMAIL_ADDRESSES = "cc_email_addresses";
-  private List<String> ccEmailAddresses = null;
-
-  public static final String JSON_PROPERTY_CLIENT_ID = "client_id";
-  private String clientId;
-
-  public static final String JSON_PROPERTY_CUSTOM_FIELDS = "custom_fields";
-  private List<SubCustomField> customFields = null;
-
-  public static final String JSON_PROPERTY_FIELD_OPTIONS = "field_options";
-  private SubFieldOptions fieldOptions;
-
-  public static final String JSON_PROPERTY_FORM_FIELD_GROUPS = "form_field_groups";
-  private List<SubFormFieldGroup> formFieldGroups = null;
-
-  public static final String JSON_PROPERTY_FORM_FIELD_RULES = "form_field_rules";
-  private List<SubFormFieldRule> formFieldRules = null;
-
-  public static final String JSON_PROPERTY_FORM_FIELDS_PER_DOCUMENT = "form_fields_per_document";
-  private List<SubFormFieldsPerDocumentBase> formFieldsPerDocument = null;
-
-  public static final String JSON_PROPERTY_HIDE_TEXT_TAGS = "hide_text_tags";
-  private Boolean hideTextTags = false;
-
-  public static final String JSON_PROPERTY_MESSAGE = "message";
-  private String message;
-
-  public static final String JSON_PROPERTY_METADATA = "metadata";
-  private Map<String, Object> metadata = null;
-
-  public static final String JSON_PROPERTY_SHOW_PROGRESS_STEPPER = "show_progress_stepper";
-  private Boolean showProgressStepper = true;
-
-  public static final String JSON_PROPERTY_SIGNERS = "signers";
-  private List<SubUnclaimedDraftSigner> signers = null;
-
-  public static final String JSON_PROPERTY_SIGNING_OPTIONS = "signing_options";
-  private SubSigningOptions signingOptions;
-
-  public static final String JSON_PROPERTY_SIGNING_REDIRECT_URL = "signing_redirect_url";
-  private String signingRedirectUrl;
-
-  public static final String JSON_PROPERTY_SUBJECT = "subject";
-  private String subject;
-
-  public static final String JSON_PROPERTY_TEST_MODE = "test_mode";
-  private Boolean testMode = false;
-
-  public static final String JSON_PROPERTY_USE_PREEXISTING_FIELDS = "use_preexisting_fields";
-  private Boolean usePreexistingFields = false;
-
-  public static final String JSON_PROPERTY_USE_TEXT_TAGS = "use_text_tags";
-  private Boolean useTextTags = false;
-
-  public static final String JSON_PROPERTY_EXPIRES_AT = "expires_at";
-  private Integer expiresAt;
-
-  public UnclaimedDraftCreateRequest() { 
-  }
-
-  /**
-   * Attempt to instantiate and hydrate a new instance of this class
-   * @param jsonData String of JSON data representing target object
-   */
-  static public UnclaimedDraftCreateRequest init(String jsonData) throws Exception {
-    return new ObjectMapper().readValue(jsonData, UnclaimedDraftCreateRequest.class);
-  }
-
-  static public UnclaimedDraftCreateRequest init(HashMap data) throws Exception {
-    return new ObjectMapper().readValue(
-      new ObjectMapper().writeValueAsString(data),
-      UnclaimedDraftCreateRequest.class
-    );
-  }
-
-  public UnclaimedDraftCreateRequest type(TypeEnum type) {
-    this.type = type;
-    return this;
-  }
-
-  /**
-   * The type of unclaimed draft to create. Use &#x60;send_document&#x60; to create a claimable file, and &#x60;request_signature&#x60; for a claimable signature request. If the type is &#x60;request_signature&#x60; then signers name and email_address are not optional.
-   * @return type
-   */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public TypeEnum getType() {
-    return type;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setType(TypeEnum type) {
-    this.type = type;
-  }
-
-
-  public UnclaimedDraftCreateRequest files(List<File> files) {
-    this.files = files;
-    return this;
-  }
-
-  public UnclaimedDraftCreateRequest addFilesItem(File filesItem) {
-    if (this.files == null) {
-      this.files = new ArrayList<>();
-    }
-    this.files.add(filesItem);
-    return this;
-  }
-
-  /**
-   * Use &#x60;files[]&#x60; to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.
-   * @return files
-   */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FILES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public List<File> getFiles() {
-    return files;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_FILES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFiles(List<File> files) {
-    this.files = files;
-  }
-
-
-  public UnclaimedDraftCreateRequest fileUrls(List<String> fileUrls) {
-    this.fileUrls = fileUrls;
-    return this;
-  }
-
-  public UnclaimedDraftCreateRequest addFileUrlsItem(String fileUrlsItem) {
-    if (this.fileUrls == null) {
-      this.fileUrls = new ArrayList<>();
-    }
-    this.fileUrls.add(fileUrlsItem);
-    return this;
-  }
-
-  /**
-   * Use &#x60;file_urls[]&#x60; to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.
-   * @return fileUrls
-   */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FILE_URLS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public List<String> getFileUrls() {
-    return fileUrls;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_FILE_URLS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFileUrls(List<String> fileUrls) {
-    this.fileUrls = fileUrls;
-  }
-
-
-  public UnclaimedDraftCreateRequest allowDecline(Boolean allowDecline) {
-    this.allowDecline = allowDecline;
-    return this;
-  }
-
-  /**
-   * Allows signers to decline to sign a document if &#x60;true&#x60;. Defaults to &#x60;false&#x60;.
-   * @return allowDecline
-   */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ALLOW_DECLINE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Boolean getAllowDecline() {
-    return allowDecline;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_ALLOW_DECLINE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAllowDecline(Boolean allowDecline) {
-    this.allowDecline = allowDecline;
-  }
-
-
-  public UnclaimedDraftCreateRequest attachments(List<SubAttachment> attachments) {
-    this.attachments = attachments;
-    return this;
-  }
-
-  public UnclaimedDraftCreateRequest addAttachmentsItem(SubAttachment attachmentsItem) {
-    if (this.attachments == null) {
-      this.attachments = new ArrayList<>();
-    }
-    this.attachments.add(attachmentsItem);
-    return this;
-  }
-
-  /**
-   * A list describing the attachments
-   * @return attachments
-   */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ATTACHMENTS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public List<SubAttachment> getAttachments() {
-    return attachments;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_ATTACHMENTS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAttachments(List<SubAttachment> attachments) {
-    this.attachments = attachments;
-  }
-
-
-  public UnclaimedDraftCreateRequest ccEmailAddresses(List<String> ccEmailAddresses) {
-    this.ccEmailAddresses = ccEmailAddresses;
-    return this;
-  }
-
-  public UnclaimedDraftCreateRequest addCcEmailAddressesItem(String ccEmailAddressesItem) {
-    if (this.ccEmailAddresses == null) {
-      this.ccEmailAddresses = new ArrayList<>();
-    }
-    this.ccEmailAddresses.add(ccEmailAddressesItem);
-    return this;
-  }
-
-  /**
-   * The email addresses that should be CCed.
-   * @return ccEmailAddresses
-   */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CC_EMAIL_ADDRESSES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public List<String> getCcEmailAddresses() {
-    return ccEmailAddresses;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_CC_EMAIL_ADDRESSES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCcEmailAddresses(List<String> ccEmailAddresses) {
-    this.ccEmailAddresses = ccEmailAddresses;
-  }
-
-
-  public UnclaimedDraftCreateRequest clientId(String clientId) {
-    this.clientId = clientId;
-    return this;
-  }
-
-  /**
-   * Client id of the app used to create the draft. Used to apply the branding and callback url defined for the app.
-   * @return clientId
-   */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CLIENT_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getClientId() {
-    return clientId;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_CLIENT_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setClientId(String clientId) {
-    this.clientId = clientId;
-  }
-
-
-  public UnclaimedDraftCreateRequest customFields(List<SubCustomField> customFields) {
-    this.customFields = customFields;
-    return this;
-  }
-
-  public UnclaimedDraftCreateRequest addCustomFieldsItem(SubCustomField customFieldsItem) {
-    if (this.customFields == null) {
-      this.customFields = new ArrayList<>();
-    }
-    this.customFields.add(customFieldsItem);
-    return this;
-  }
-
-  /**
-   * When used together with merge fields, &#x60;custom_fields&#x60; allows users to add pre-filled data to their signature requests.  Pre-filled data can be used with \&quot;send-once\&quot; signature requests by adding merge fields with &#x60;form_fields_per_document&#x60; or [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) while passing values back with &#x60;custom_fields&#x60; together in one API call.  For using pre-filled on repeatable signature requests, merge fields are added to templates in the Dropbox Sign UI or by calling [/template/create_embedded_draft](/api/reference/operation/templateCreateEmbeddedDraft) and then passing &#x60;custom_fields&#x60; on subsequent signature requests referencing that template.
-   * @return customFields
-   */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CUSTOM_FIELDS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public List<SubCustomField> getCustomFields() {
-    return customFields;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_CUSTOM_FIELDS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCustomFields(List<SubCustomField> customFields) {
-    this.customFields = customFields;
-  }
-
-
-  public UnclaimedDraftCreateRequest fieldOptions(SubFieldOptions fieldOptions) {
-    this.fieldOptions = fieldOptions;
-    return this;
-  }
-
-  /**
-   * Get fieldOptions
-   * @return fieldOptions
-   */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FIELD_OPTIONS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public SubFieldOptions getFieldOptions() {
-    return fieldOptions;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_FIELD_OPTIONS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFieldOptions(SubFieldOptions fieldOptions) {
-    this.fieldOptions = fieldOptions;
-  }
-
-
-  public UnclaimedDraftCreateRequest formFieldGroups(List<SubFormFieldGroup> formFieldGroups) {
-    this.formFieldGroups = formFieldGroups;
-    return this;
-  }
-
-  public UnclaimedDraftCreateRequest addFormFieldGroupsItem(SubFormFieldGroup formFieldGroupsItem) {
-    if (this.formFieldGroups == null) {
-      this.formFieldGroups = new ArrayList<>();
-    }
-    this.formFieldGroups.add(formFieldGroupsItem);
-    return this;
-  }
-
-  /**
-   * Group information for fields defined in &#x60;form_fields_per_document&#x60;. String-indexed JSON array with &#x60;group_label&#x60; and &#x60;requirement&#x60; keys. &#x60;form_fields_per_document&#x60; must contain fields referencing a group defined in &#x60;form_field_groups&#x60;.
-   * @return formFieldGroups
-   */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FORM_FIELD_GROUPS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public List<SubFormFieldGroup> getFormFieldGroups() {
-    return formFieldGroups;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_FORM_FIELD_GROUPS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFormFieldGroups(List<SubFormFieldGroup> formFieldGroups) {
-    this.formFieldGroups = formFieldGroups;
-  }
-
-
-  public UnclaimedDraftCreateRequest formFieldRules(List<SubFormFieldRule> formFieldRules) {
-    this.formFieldRules = formFieldRules;
-    return this;
-  }
-
-  public UnclaimedDraftCreateRequest addFormFieldRulesItem(SubFormFieldRule formFieldRulesItem) {
-    if (this.formFieldRules == null) {
-      this.formFieldRules = new ArrayList<>();
-    }
-    this.formFieldRules.add(formFieldRulesItem);
-    return this;
-  }
-
-  /**
-   * Conditional Logic rules for fields defined in &#x60;form_fields_per_document&#x60;.
-   * @return formFieldRules
-   */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FORM_FIELD_RULES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public List<SubFormFieldRule> getFormFieldRules() {
-    return formFieldRules;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_FORM_FIELD_RULES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFormFieldRules(List<SubFormFieldRule> formFieldRules) {
-    this.formFieldRules = formFieldRules;
-  }
-
-
-  public UnclaimedDraftCreateRequest formFieldsPerDocument(List<SubFormFieldsPerDocumentBase> formFieldsPerDocument) {
-    this.formFieldsPerDocument = formFieldsPerDocument;
-    return this;
-  }
-
-  public UnclaimedDraftCreateRequest addFormFieldsPerDocumentItem(SubFormFieldsPerDocumentBase formFieldsPerDocumentItem) {
-    if (this.formFieldsPerDocument == null) {
-      this.formFieldsPerDocument = new ArrayList<>();
-    }
-    this.formFieldsPerDocument.add(formFieldsPerDocumentItem);
-    return this;
-  }
-
-  /**
-   * The fields that should appear on the document, expressed as an array of objects. (For more details you can read about it here: [Using Form Fields per Document](/docs/openapi/form-fields-per-document).)  **NOTE:** Fields like **text**, **dropdown**, **checkbox**, **radio**, and **hyperlink** have additional required and optional parameters. Check out the list of [additional parameters](/api/reference/constants/#form-fields-per-document) for these field types.  * Text Field use &#x60;SubFormFieldsPerDocumentText&#x60; * Dropdown Field use &#x60;SubFormFieldsPerDocumentDropdown&#x60; * Hyperlink Field use &#x60;SubFormFieldsPerDocumentHyperlink&#x60; * Checkbox Field use &#x60;SubFormFieldsPerDocumentCheckbox&#x60; * Radio Field use &#x60;SubFormFieldsPerDocumentRadio&#x60; * Signature Field use &#x60;SubFormFieldsPerDocumentSignature&#x60; * Date Signed Field use &#x60;SubFormFieldsPerDocumentDateSigned&#x60; * Initials Field use &#x60;SubFormFieldsPerDocumentInitials&#x60; * Text Merge Field use &#x60;SubFormFieldsPerDocumentTextMerge&#x60; * Checkbox Merge Field use &#x60;SubFormFieldsPerDocumentCheckboxMerge&#x60;
-   * @return formFieldsPerDocument
-   */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FORM_FIELDS_PER_DOCUMENT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public List<SubFormFieldsPerDocumentBase> getFormFieldsPerDocument() {
-    return formFieldsPerDocument;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_FORM_FIELDS_PER_DOCUMENT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFormFieldsPerDocument(List<SubFormFieldsPerDocumentBase> formFieldsPerDocument) {
-    this.formFieldsPerDocument = formFieldsPerDocument;
-  }
-
-
-  public UnclaimedDraftCreateRequest hideTextTags(Boolean hideTextTags) {
-    this.hideTextTags = hideTextTags;
-    return this;
-  }
-
-  /**
-   * Send with a value of &#x60;true&#x60; if you wish to enable automatic Text Tag removal. Defaults to &#x60;false&#x60;. When using Text Tags it is preferred that you set this to &#x60;false&#x60; and hide your tags with white text or something similar because the automatic removal system can cause unwanted clipping. See the [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) walkthrough for more details.
-   * @return hideTextTags
-   */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_HIDE_TEXT_TAGS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Boolean getHideTextTags() {
-    return hideTextTags;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_HIDE_TEXT_TAGS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setHideTextTags(Boolean hideTextTags) {
-    this.hideTextTags = hideTextTags;
-  }
-
-
-  public UnclaimedDraftCreateRequest message(String message) {
-    this.message = message;
-    return this;
-  }
-
-  /**
-   * The custom message in the email that will be sent to the signers.
-   * @return message
-   */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MESSAGE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getMessage() {
-    return message;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_MESSAGE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMessage(String message) {
-    this.message = message;
-  }
-
-
-  public UnclaimedDraftCreateRequest metadata(Map<String, Object> metadata) {
-    this.metadata = metadata;
-    return this;
-  }
-
-  public UnclaimedDraftCreateRequest putMetadataItem(String key, Object metadataItem) {
-    if (this.metadata == null) {
-      this.metadata = new HashMap<>();
-    }
-    this.metadata.put(key, metadataItem);
-    return this;
-  }
-
-  /**
-   * Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer&#39;s order number for look up when receiving events for the signature request.  Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.
-   * @return metadata
-   */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_METADATA)
-  @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Map<String, Object> getMetadata() {
-    return metadata;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_METADATA)
-  @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMetadata(Map<String, Object> metadata) {
-    this.metadata = metadata;
-  }
-
-
-  public UnclaimedDraftCreateRequest showProgressStepper(Boolean showProgressStepper) {
-    this.showProgressStepper = showProgressStepper;
-    return this;
-  }
-
-  /**
-   * When only one step remains in the signature request process and this parameter is set to &#x60;false&#x60; then the progress stepper will be hidden.
-   * @return showProgressStepper
-   */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SHOW_PROGRESS_STEPPER)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Boolean getShowProgressStepper() {
-    return showProgressStepper;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_SHOW_PROGRESS_STEPPER)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setShowProgressStepper(Boolean showProgressStepper) {
-    this.showProgressStepper = showProgressStepper;
-  }
-
-
-  public UnclaimedDraftCreateRequest signers(List<SubUnclaimedDraftSigner> signers) {
-    this.signers = signers;
-    return this;
-  }
-
-  public UnclaimedDraftCreateRequest addSignersItem(SubUnclaimedDraftSigner signersItem) {
-    if (this.signers == null) {
-      this.signers = new ArrayList<>();
-    }
-    this.signers.add(signersItem);
-    return this;
-  }
-
-  /**
-   * Add Signers to your Unclaimed Draft Signature Request.
-   * @return signers
-   */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SIGNERS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public List<SubUnclaimedDraftSigner> getSigners() {
-    return signers;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_SIGNERS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSigners(List<SubUnclaimedDraftSigner> signers) {
-    this.signers = signers;
-  }
-
-
-  public UnclaimedDraftCreateRequest signingOptions(SubSigningOptions signingOptions) {
-    this.signingOptions = signingOptions;
-    return this;
-  }
-
-  /**
-   * Get signingOptions
-   * @return signingOptions
-   */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SIGNING_OPTIONS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public SubSigningOptions getSigningOptions() {
-    return signingOptions;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_SIGNING_OPTIONS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSigningOptions(SubSigningOptions signingOptions) {
-    this.signingOptions = signingOptions;
-  }
-
-
-  public UnclaimedDraftCreateRequest signingRedirectUrl(String signingRedirectUrl) {
-    this.signingRedirectUrl = signingRedirectUrl;
-    return this;
-  }
-
-  /**
-   * The URL you want signers redirected to after they successfully sign.
-   * @return signingRedirectUrl
-   */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SIGNING_REDIRECT_URL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getSigningRedirectUrl() {
-    return signingRedirectUrl;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_SIGNING_REDIRECT_URL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSigningRedirectUrl(String signingRedirectUrl) {
-    this.signingRedirectUrl = signingRedirectUrl;
-  }
-
-
-  public UnclaimedDraftCreateRequest subject(String subject) {
-    this.subject = subject;
-    return this;
-  }
-
-  /**
-   * The subject in the email that will be sent to the signers.
-   * @return subject
-   */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SUBJECT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getSubject() {
-    return subject;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_SUBJECT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSubject(String subject) {
-    this.subject = subject;
-  }
-
-
-  public UnclaimedDraftCreateRequest testMode(Boolean testMode) {
-    this.testMode = testMode;
-    return this;
-  }
-
-  /**
-   * Whether this is a test, the signature request created from this draft will not be legally binding if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.
-   * @return testMode
-   */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TEST_MODE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Boolean getTestMode() {
-    return testMode;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_TEST_MODE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTestMode(Boolean testMode) {
-    this.testMode = testMode;
-  }
-
-
-  public UnclaimedDraftCreateRequest usePreexistingFields(Boolean usePreexistingFields) {
-    this.usePreexistingFields = usePreexistingFields;
-    return this;
-  }
-
-  /**
-   * Set &#x60;use_text_tags&#x60; to &#x60;true&#x60; to enable [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) parsing in your document (defaults to disabled, or &#x60;false&#x60;). Alternatively, if your PDF contains pre-defined fields, enable the detection of these fields by setting the &#x60;use_preexisting_fields&#x60; to &#x60;true&#x60; (defaults to disabled, or &#x60;false&#x60;). Currently we only support use of either &#x60;use_text_tags&#x60; or &#x60;use_preexisting_fields&#x60; parameter, not both.
-   * @return usePreexistingFields
-   */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_USE_PREEXISTING_FIELDS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Boolean getUsePreexistingFields() {
-    return usePreexistingFields;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_USE_PREEXISTING_FIELDS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setUsePreexistingFields(Boolean usePreexistingFields) {
-    this.usePreexistingFields = usePreexistingFields;
-  }
-
-
-  public UnclaimedDraftCreateRequest useTextTags(Boolean useTextTags) {
-    this.useTextTags = useTextTags;
-    return this;
-  }
-
-  /**
-   * Set &#x60;use_text_tags&#x60; to &#x60;true&#x60; to enable [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) parsing in your document (defaults to disabled, or &#x60;false&#x60;). Alternatively, if your PDF contains pre-defined fields, enable the detection of these fields by setting the &#x60;use_preexisting_fields&#x60; to &#x60;true&#x60; (defaults to disabled, or &#x60;false&#x60;). Currently we only support use of either &#x60;use_text_tags&#x60; or &#x60;use_preexisting_fields&#x60; parameter, not both.
-   * @return useTextTags
-   */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_USE_TEXT_TAGS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Boolean getUseTextTags() {
-    return useTextTags;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_USE_TEXT_TAGS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setUseTextTags(Boolean useTextTags) {
-    this.useTextTags = useTextTags;
-  }
-
-
-  public UnclaimedDraftCreateRequest expiresAt(Integer expiresAt) {
-    this.expiresAt = expiresAt;
-    return this;
-  }
-
-  /**
-   * When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.  **NOTE:** This does not correspond to the **expires_at** returned in the response.
-   * @return expiresAt
-   */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Integer getExpiresAt() {
-    return expiresAt;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setExpiresAt(Integer expiresAt) {
-    this.expiresAt = expiresAt;
-  }
-
-
-  /**
-   * Return true if this UnclaimedDraftCreateRequest object is equal to o.
-   */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    UnclaimedDraftCreateRequest unclaimedDraftCreateRequest = (UnclaimedDraftCreateRequest) o;
-    return Objects.equals(this.type, unclaimedDraftCreateRequest.type) &&
-        Objects.equals(this.files, unclaimedDraftCreateRequest.files) &&
-        Objects.equals(this.fileUrls, unclaimedDraftCreateRequest.fileUrls) &&
-        Objects.equals(this.allowDecline, unclaimedDraftCreateRequest.allowDecline) &&
-        Objects.equals(this.attachments, unclaimedDraftCreateRequest.attachments) &&
-        Objects.equals(this.ccEmailAddresses, unclaimedDraftCreateRequest.ccEmailAddresses) &&
-        Objects.equals(this.clientId, unclaimedDraftCreateRequest.clientId) &&
-        Objects.equals(this.customFields, unclaimedDraftCreateRequest.customFields) &&
-        Objects.equals(this.fieldOptions, unclaimedDraftCreateRequest.fieldOptions) &&
-        Objects.equals(this.formFieldGroups, unclaimedDraftCreateRequest.formFieldGroups) &&
-        Objects.equals(this.formFieldRules, unclaimedDraftCreateRequest.formFieldRules) &&
-        Objects.equals(this.formFieldsPerDocument, unclaimedDraftCreateRequest.formFieldsPerDocument) &&
-        Objects.equals(this.hideTextTags, unclaimedDraftCreateRequest.hideTextTags) &&
-        Objects.equals(this.message, unclaimedDraftCreateRequest.message) &&
-        Objects.equals(this.metadata, unclaimedDraftCreateRequest.metadata) &&
-        Objects.equals(this.showProgressStepper, unclaimedDraftCreateRequest.showProgressStepper) &&
-        Objects.equals(this.signers, unclaimedDraftCreateRequest.signers) &&
-        Objects.equals(this.signingOptions, unclaimedDraftCreateRequest.signingOptions) &&
-        Objects.equals(this.signingRedirectUrl, unclaimedDraftCreateRequest.signingRedirectUrl) &&
-        Objects.equals(this.subject, unclaimedDraftCreateRequest.subject) &&
-        Objects.equals(this.testMode, unclaimedDraftCreateRequest.testMode) &&
-        Objects.equals(this.usePreexistingFields, unclaimedDraftCreateRequest.usePreexistingFields) &&
-        Objects.equals(this.useTextTags, unclaimedDraftCreateRequest.useTextTags) &&
-        Objects.equals(this.expiresAt, unclaimedDraftCreateRequest.expiresAt);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(type, files, fileUrls, allowDecline, attachments, ccEmailAddresses, clientId, customFields, fieldOptions, formFieldGroups, formFieldRules, formFieldsPerDocument, hideTextTags, message, metadata, showProgressStepper, signers, signingOptions, signingRedirectUrl, subject, testMode, usePreexistingFields, useTextTags, expiresAt);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class UnclaimedDraftCreateRequest {\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    files: ").append(toIndentedString(files)).append("\n");
-    sb.append("    fileUrls: ").append(toIndentedString(fileUrls)).append("\n");
-    sb.append("    allowDecline: ").append(toIndentedString(allowDecline)).append("\n");
-    sb.append("    attachments: ").append(toIndentedString(attachments)).append("\n");
-    sb.append("    ccEmailAddresses: ").append(toIndentedString(ccEmailAddresses)).append("\n");
-    sb.append("    clientId: ").append(toIndentedString(clientId)).append("\n");
-    sb.append("    customFields: ").append(toIndentedString(customFields)).append("\n");
-    sb.append("    fieldOptions: ").append(toIndentedString(fieldOptions)).append("\n");
-    sb.append("    formFieldGroups: ").append(toIndentedString(formFieldGroups)).append("\n");
-    sb.append("    formFieldRules: ").append(toIndentedString(formFieldRules)).append("\n");
-    sb.append("    formFieldsPerDocument: ").append(toIndentedString(formFieldsPerDocument)).append("\n");
-    sb.append("    hideTextTags: ").append(toIndentedString(hideTextTags)).append("\n");
-    sb.append("    message: ").append(toIndentedString(message)).append("\n");
-    sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
-    sb.append("    showProgressStepper: ").append(toIndentedString(showProgressStepper)).append("\n");
-    sb.append("    signers: ").append(toIndentedString(signers)).append("\n");
-    sb.append("    signingOptions: ").append(toIndentedString(signingOptions)).append("\n");
-    sb.append("    signingRedirectUrl: ").append(toIndentedString(signingRedirectUrl)).append("\n");
-    sb.append("    subject: ").append(toIndentedString(subject)).append("\n");
-    sb.append("    testMode: ").append(toIndentedString(testMode)).append("\n");
-    sb.append("    usePreexistingFields: ").append(toIndentedString(usePreexistingFields)).append("\n");
-    sb.append("    useTextTags: ").append(toIndentedString(useTextTags)).append("\n");
-    sb.append("    expiresAt: ").append(toIndentedString(expiresAt)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  public Map<String, Object> createFormData() throws ApiException {
-    Map<String, Object> map = new HashMap<>();
-    boolean fileTypeFound = false;
-    try {
-    if (type != null) {
-        if (isFileTypeOrListOfFiles(type)) {
-            fileTypeFound = true;
-        }
-
-        if (type.getClass().equals(java.io.File.class) ||
-            type.getClass().equals(Integer.class) ||
-            type.getClass().equals(String.class) ||
-            type.getClass().isEnum()) {
-            map.put("type", type);
-        } else if (isListOfFile(type)) {
-            for(int i = 0; i< getListSize(type); i++) {
-                map.put("type[" + i + "]", getFromList(type, i));
+    public Map<String, Object> createFormData() throws ApiException {
+        Map<String, Object> map = new HashMap<>();
+        boolean fileTypeFound = false;
+        try {
+            if (type != null) {
+                if (isFileTypeOrListOfFiles(type)) {
+                    fileTypeFound = true;
+                }
+
+                if (type.getClass().equals(java.io.File.class)
+                        || type.getClass().equals(Integer.class)
+                        || type.getClass().equals(String.class)
+                        || type.getClass().isEnum()) {
+                    map.put("type", type);
+                } else if (isListOfFile(type)) {
+                    for (int i = 0; i < getListSize(type); i++) {
+                        map.put("type[" + i + "]", getFromList(type, i));
+                    }
+                } else {
+                    map.put("type", JSON.getDefault().getMapper().writeValueAsString(type));
+                }
             }
-        }
-        else {
-            map.put("type", JSON.getDefault().getMapper().writeValueAsString(type));
-        }
-    }
-    if (files != null) {
-        if (isFileTypeOrListOfFiles(files)) {
-            fileTypeFound = true;
-        }
+            if (files != null) {
+                if (isFileTypeOrListOfFiles(files)) {
+                    fileTypeFound = true;
+                }
 
-        if (files.getClass().equals(java.io.File.class) ||
-            files.getClass().equals(Integer.class) ||
-            files.getClass().equals(String.class) ||
-            files.getClass().isEnum()) {
-            map.put("files", files);
-        } else if (isListOfFile(files)) {
-            for(int i = 0; i< getListSize(files); i++) {
-                map.put("files[" + i + "]", getFromList(files, i));
+                if (files.getClass().equals(java.io.File.class)
+                        || files.getClass().equals(Integer.class)
+                        || files.getClass().equals(String.class)
+                        || files.getClass().isEnum()) {
+                    map.put("files", files);
+                } else if (isListOfFile(files)) {
+                    for (int i = 0; i < getListSize(files); i++) {
+                        map.put("files[" + i + "]", getFromList(files, i));
+                    }
+                } else {
+                    map.put("files", JSON.getDefault().getMapper().writeValueAsString(files));
+                }
             }
-        }
-        else {
-            map.put("files", JSON.getDefault().getMapper().writeValueAsString(files));
-        }
-    }
-    if (fileUrls != null) {
-        if (isFileTypeOrListOfFiles(fileUrls)) {
-            fileTypeFound = true;
-        }
+            if (fileUrls != null) {
+                if (isFileTypeOrListOfFiles(fileUrls)) {
+                    fileTypeFound = true;
+                }
 
-        if (fileUrls.getClass().equals(java.io.File.class) ||
-            fileUrls.getClass().equals(Integer.class) ||
-            fileUrls.getClass().equals(String.class) ||
-            fileUrls.getClass().isEnum()) {
-            map.put("file_urls", fileUrls);
-        } else if (isListOfFile(fileUrls)) {
-            for(int i = 0; i< getListSize(fileUrls); i++) {
-                map.put("file_urls[" + i + "]", getFromList(fileUrls, i));
+                if (fileUrls.getClass().equals(java.io.File.class)
+                        || fileUrls.getClass().equals(Integer.class)
+                        || fileUrls.getClass().equals(String.class)
+                        || fileUrls.getClass().isEnum()) {
+                    map.put("file_urls", fileUrls);
+                } else if (isListOfFile(fileUrls)) {
+                    for (int i = 0; i < getListSize(fileUrls); i++) {
+                        map.put("file_urls[" + i + "]", getFromList(fileUrls, i));
+                    }
+                } else {
+                    map.put(
+                            "file_urls",
+                            JSON.getDefault().getMapper().writeValueAsString(fileUrls));
+                }
             }
-        }
-        else {
-            map.put("file_urls", JSON.getDefault().getMapper().writeValueAsString(fileUrls));
-        }
-    }
-    if (allowDecline != null) {
-        if (isFileTypeOrListOfFiles(allowDecline)) {
-            fileTypeFound = true;
-        }
+            if (allowDecline != null) {
+                if (isFileTypeOrListOfFiles(allowDecline)) {
+                    fileTypeFound = true;
+                }
 
-        if (allowDecline.getClass().equals(java.io.File.class) ||
-            allowDecline.getClass().equals(Integer.class) ||
-            allowDecline.getClass().equals(String.class) ||
-            allowDecline.getClass().isEnum()) {
-            map.put("allow_decline", allowDecline);
-        } else if (isListOfFile(allowDecline)) {
-            for(int i = 0; i< getListSize(allowDecline); i++) {
-                map.put("allow_decline[" + i + "]", getFromList(allowDecline, i));
+                if (allowDecline.getClass().equals(java.io.File.class)
+                        || allowDecline.getClass().equals(Integer.class)
+                        || allowDecline.getClass().equals(String.class)
+                        || allowDecline.getClass().isEnum()) {
+                    map.put("allow_decline", allowDecline);
+                } else if (isListOfFile(allowDecline)) {
+                    for (int i = 0; i < getListSize(allowDecline); i++) {
+                        map.put("allow_decline[" + i + "]", getFromList(allowDecline, i));
+                    }
+                } else {
+                    map.put(
+                            "allow_decline",
+                            JSON.getDefault().getMapper().writeValueAsString(allowDecline));
+                }
             }
-        }
-        else {
-            map.put("allow_decline", JSON.getDefault().getMapper().writeValueAsString(allowDecline));
-        }
-    }
-    if (attachments != null) {
-        if (isFileTypeOrListOfFiles(attachments)) {
-            fileTypeFound = true;
-        }
+            if (attachments != null) {
+                if (isFileTypeOrListOfFiles(attachments)) {
+                    fileTypeFound = true;
+                }
 
-        if (attachments.getClass().equals(java.io.File.class) ||
-            attachments.getClass().equals(Integer.class) ||
-            attachments.getClass().equals(String.class) ||
-            attachments.getClass().isEnum()) {
-            map.put("attachments", attachments);
-        } else if (isListOfFile(attachments)) {
-            for(int i = 0; i< getListSize(attachments); i++) {
-                map.put("attachments[" + i + "]", getFromList(attachments, i));
+                if (attachments.getClass().equals(java.io.File.class)
+                        || attachments.getClass().equals(Integer.class)
+                        || attachments.getClass().equals(String.class)
+                        || attachments.getClass().isEnum()) {
+                    map.put("attachments", attachments);
+                } else if (isListOfFile(attachments)) {
+                    for (int i = 0; i < getListSize(attachments); i++) {
+                        map.put("attachments[" + i + "]", getFromList(attachments, i));
+                    }
+                } else {
+                    map.put(
+                            "attachments",
+                            JSON.getDefault().getMapper().writeValueAsString(attachments));
+                }
             }
-        }
-        else {
-            map.put("attachments", JSON.getDefault().getMapper().writeValueAsString(attachments));
-        }
-    }
-    if (ccEmailAddresses != null) {
-        if (isFileTypeOrListOfFiles(ccEmailAddresses)) {
-            fileTypeFound = true;
-        }
+            if (ccEmailAddresses != null) {
+                if (isFileTypeOrListOfFiles(ccEmailAddresses)) {
+                    fileTypeFound = true;
+                }
 
-        if (ccEmailAddresses.getClass().equals(java.io.File.class) ||
-            ccEmailAddresses.getClass().equals(Integer.class) ||
-            ccEmailAddresses.getClass().equals(String.class) ||
-            ccEmailAddresses.getClass().isEnum()) {
-            map.put("cc_email_addresses", ccEmailAddresses);
-        } else if (isListOfFile(ccEmailAddresses)) {
-            for(int i = 0; i< getListSize(ccEmailAddresses); i++) {
-                map.put("cc_email_addresses[" + i + "]", getFromList(ccEmailAddresses, i));
+                if (ccEmailAddresses.getClass().equals(java.io.File.class)
+                        || ccEmailAddresses.getClass().equals(Integer.class)
+                        || ccEmailAddresses.getClass().equals(String.class)
+                        || ccEmailAddresses.getClass().isEnum()) {
+                    map.put("cc_email_addresses", ccEmailAddresses);
+                } else if (isListOfFile(ccEmailAddresses)) {
+                    for (int i = 0; i < getListSize(ccEmailAddresses); i++) {
+                        map.put("cc_email_addresses[" + i + "]", getFromList(ccEmailAddresses, i));
+                    }
+                } else {
+                    map.put(
+                            "cc_email_addresses",
+                            JSON.getDefault().getMapper().writeValueAsString(ccEmailAddresses));
+                }
             }
-        }
-        else {
-            map.put("cc_email_addresses", JSON.getDefault().getMapper().writeValueAsString(ccEmailAddresses));
-        }
-    }
-    if (clientId != null) {
-        if (isFileTypeOrListOfFiles(clientId)) {
-            fileTypeFound = true;
-        }
+            if (clientId != null) {
+                if (isFileTypeOrListOfFiles(clientId)) {
+                    fileTypeFound = true;
+                }
 
-        if (clientId.getClass().equals(java.io.File.class) ||
-            clientId.getClass().equals(Integer.class) ||
-            clientId.getClass().equals(String.class) ||
-            clientId.getClass().isEnum()) {
-            map.put("client_id", clientId);
-        } else if (isListOfFile(clientId)) {
-            for(int i = 0; i< getListSize(clientId); i++) {
-                map.put("client_id[" + i + "]", getFromList(clientId, i));
+                if (clientId.getClass().equals(java.io.File.class)
+                        || clientId.getClass().equals(Integer.class)
+                        || clientId.getClass().equals(String.class)
+                        || clientId.getClass().isEnum()) {
+                    map.put("client_id", clientId);
+                } else if (isListOfFile(clientId)) {
+                    for (int i = 0; i < getListSize(clientId); i++) {
+                        map.put("client_id[" + i + "]", getFromList(clientId, i));
+                    }
+                } else {
+                    map.put(
+                            "client_id",
+                            JSON.getDefault().getMapper().writeValueAsString(clientId));
+                }
             }
-        }
-        else {
-            map.put("client_id", JSON.getDefault().getMapper().writeValueAsString(clientId));
-        }
-    }
-    if (customFields != null) {
-        if (isFileTypeOrListOfFiles(customFields)) {
-            fileTypeFound = true;
-        }
+            if (customFields != null) {
+                if (isFileTypeOrListOfFiles(customFields)) {
+                    fileTypeFound = true;
+                }
 
-        if (customFields.getClass().equals(java.io.File.class) ||
-            customFields.getClass().equals(Integer.class) ||
-            customFields.getClass().equals(String.class) ||
-            customFields.getClass().isEnum()) {
-            map.put("custom_fields", customFields);
-        } else if (isListOfFile(customFields)) {
-            for(int i = 0; i< getListSize(customFields); i++) {
-                map.put("custom_fields[" + i + "]", getFromList(customFields, i));
+                if (customFields.getClass().equals(java.io.File.class)
+                        || customFields.getClass().equals(Integer.class)
+                        || customFields.getClass().equals(String.class)
+                        || customFields.getClass().isEnum()) {
+                    map.put("custom_fields", customFields);
+                } else if (isListOfFile(customFields)) {
+                    for (int i = 0; i < getListSize(customFields); i++) {
+                        map.put("custom_fields[" + i + "]", getFromList(customFields, i));
+                    }
+                } else {
+                    map.put(
+                            "custom_fields",
+                            JSON.getDefault().getMapper().writeValueAsString(customFields));
+                }
             }
-        }
-        else {
-            map.put("custom_fields", JSON.getDefault().getMapper().writeValueAsString(customFields));
-        }
-    }
-    if (fieldOptions != null) {
-        if (isFileTypeOrListOfFiles(fieldOptions)) {
-            fileTypeFound = true;
-        }
+            if (fieldOptions != null) {
+                if (isFileTypeOrListOfFiles(fieldOptions)) {
+                    fileTypeFound = true;
+                }
 
-        if (fieldOptions.getClass().equals(java.io.File.class) ||
-            fieldOptions.getClass().equals(Integer.class) ||
-            fieldOptions.getClass().equals(String.class) ||
-            fieldOptions.getClass().isEnum()) {
-            map.put("field_options", fieldOptions);
-        } else if (isListOfFile(fieldOptions)) {
-            for(int i = 0; i< getListSize(fieldOptions); i++) {
-                map.put("field_options[" + i + "]", getFromList(fieldOptions, i));
+                if (fieldOptions.getClass().equals(java.io.File.class)
+                        || fieldOptions.getClass().equals(Integer.class)
+                        || fieldOptions.getClass().equals(String.class)
+                        || fieldOptions.getClass().isEnum()) {
+                    map.put("field_options", fieldOptions);
+                } else if (isListOfFile(fieldOptions)) {
+                    for (int i = 0; i < getListSize(fieldOptions); i++) {
+                        map.put("field_options[" + i + "]", getFromList(fieldOptions, i));
+                    }
+                } else {
+                    map.put(
+                            "field_options",
+                            JSON.getDefault().getMapper().writeValueAsString(fieldOptions));
+                }
             }
-        }
-        else {
-            map.put("field_options", JSON.getDefault().getMapper().writeValueAsString(fieldOptions));
-        }
-    }
-    if (formFieldGroups != null) {
-        if (isFileTypeOrListOfFiles(formFieldGroups)) {
-            fileTypeFound = true;
-        }
+            if (formFieldGroups != null) {
+                if (isFileTypeOrListOfFiles(formFieldGroups)) {
+                    fileTypeFound = true;
+                }
 
-        if (formFieldGroups.getClass().equals(java.io.File.class) ||
-            formFieldGroups.getClass().equals(Integer.class) ||
-            formFieldGroups.getClass().equals(String.class) ||
-            formFieldGroups.getClass().isEnum()) {
-            map.put("form_field_groups", formFieldGroups);
-        } else if (isListOfFile(formFieldGroups)) {
-            for(int i = 0; i< getListSize(formFieldGroups); i++) {
-                map.put("form_field_groups[" + i + "]", getFromList(formFieldGroups, i));
+                if (formFieldGroups.getClass().equals(java.io.File.class)
+                        || formFieldGroups.getClass().equals(Integer.class)
+                        || formFieldGroups.getClass().equals(String.class)
+                        || formFieldGroups.getClass().isEnum()) {
+                    map.put("form_field_groups", formFieldGroups);
+                } else if (isListOfFile(formFieldGroups)) {
+                    for (int i = 0; i < getListSize(formFieldGroups); i++) {
+                        map.put("form_field_groups[" + i + "]", getFromList(formFieldGroups, i));
+                    }
+                } else {
+                    map.put(
+                            "form_field_groups",
+                            JSON.getDefault().getMapper().writeValueAsString(formFieldGroups));
+                }
             }
-        }
-        else {
-            map.put("form_field_groups", JSON.getDefault().getMapper().writeValueAsString(formFieldGroups));
-        }
-    }
-    if (formFieldRules != null) {
-        if (isFileTypeOrListOfFiles(formFieldRules)) {
-            fileTypeFound = true;
-        }
+            if (formFieldRules != null) {
+                if (isFileTypeOrListOfFiles(formFieldRules)) {
+                    fileTypeFound = true;
+                }
 
-        if (formFieldRules.getClass().equals(java.io.File.class) ||
-            formFieldRules.getClass().equals(Integer.class) ||
-            formFieldRules.getClass().equals(String.class) ||
-            formFieldRules.getClass().isEnum()) {
-            map.put("form_field_rules", formFieldRules);
-        } else if (isListOfFile(formFieldRules)) {
-            for(int i = 0; i< getListSize(formFieldRules); i++) {
-                map.put("form_field_rules[" + i + "]", getFromList(formFieldRules, i));
+                if (formFieldRules.getClass().equals(java.io.File.class)
+                        || formFieldRules.getClass().equals(Integer.class)
+                        || formFieldRules.getClass().equals(String.class)
+                        || formFieldRules.getClass().isEnum()) {
+                    map.put("form_field_rules", formFieldRules);
+                } else if (isListOfFile(formFieldRules)) {
+                    for (int i = 0; i < getListSize(formFieldRules); i++) {
+                        map.put("form_field_rules[" + i + "]", getFromList(formFieldRules, i));
+                    }
+                } else {
+                    map.put(
+                            "form_field_rules",
+                            JSON.getDefault().getMapper().writeValueAsString(formFieldRules));
+                }
             }
-        }
-        else {
-            map.put("form_field_rules", JSON.getDefault().getMapper().writeValueAsString(formFieldRules));
-        }
-    }
-    if (formFieldsPerDocument != null) {
-        if (isFileTypeOrListOfFiles(formFieldsPerDocument)) {
-            fileTypeFound = true;
-        }
+            if (formFieldsPerDocument != null) {
+                if (isFileTypeOrListOfFiles(formFieldsPerDocument)) {
+                    fileTypeFound = true;
+                }
 
-        if (formFieldsPerDocument.getClass().equals(java.io.File.class) ||
-            formFieldsPerDocument.getClass().equals(Integer.class) ||
-            formFieldsPerDocument.getClass().equals(String.class) ||
-            formFieldsPerDocument.getClass().isEnum()) {
-            map.put("form_fields_per_document", formFieldsPerDocument);
-        } else if (isListOfFile(formFieldsPerDocument)) {
-            for(int i = 0; i< getListSize(formFieldsPerDocument); i++) {
-                map.put("form_fields_per_document[" + i + "]", getFromList(formFieldsPerDocument, i));
+                if (formFieldsPerDocument.getClass().equals(java.io.File.class)
+                        || formFieldsPerDocument.getClass().equals(Integer.class)
+                        || formFieldsPerDocument.getClass().equals(String.class)
+                        || formFieldsPerDocument.getClass().isEnum()) {
+                    map.put("form_fields_per_document", formFieldsPerDocument);
+                } else if (isListOfFile(formFieldsPerDocument)) {
+                    for (int i = 0; i < getListSize(formFieldsPerDocument); i++) {
+                        map.put(
+                                "form_fields_per_document[" + i + "]",
+                                getFromList(formFieldsPerDocument, i));
+                    }
+                } else {
+                    map.put(
+                            "form_fields_per_document",
+                            JSON.getDefault()
+                                    .getMapper()
+                                    .writeValueAsString(formFieldsPerDocument));
+                }
             }
-        }
-        else {
-            map.put("form_fields_per_document", JSON.getDefault().getMapper().writeValueAsString(formFieldsPerDocument));
-        }
-    }
-    if (hideTextTags != null) {
-        if (isFileTypeOrListOfFiles(hideTextTags)) {
-            fileTypeFound = true;
-        }
+            if (hideTextTags != null) {
+                if (isFileTypeOrListOfFiles(hideTextTags)) {
+                    fileTypeFound = true;
+                }
 
-        if (hideTextTags.getClass().equals(java.io.File.class) ||
-            hideTextTags.getClass().equals(Integer.class) ||
-            hideTextTags.getClass().equals(String.class) ||
-            hideTextTags.getClass().isEnum()) {
-            map.put("hide_text_tags", hideTextTags);
-        } else if (isListOfFile(hideTextTags)) {
-            for(int i = 0; i< getListSize(hideTextTags); i++) {
-                map.put("hide_text_tags[" + i + "]", getFromList(hideTextTags, i));
+                if (hideTextTags.getClass().equals(java.io.File.class)
+                        || hideTextTags.getClass().equals(Integer.class)
+                        || hideTextTags.getClass().equals(String.class)
+                        || hideTextTags.getClass().isEnum()) {
+                    map.put("hide_text_tags", hideTextTags);
+                } else if (isListOfFile(hideTextTags)) {
+                    for (int i = 0; i < getListSize(hideTextTags); i++) {
+                        map.put("hide_text_tags[" + i + "]", getFromList(hideTextTags, i));
+                    }
+                } else {
+                    map.put(
+                            "hide_text_tags",
+                            JSON.getDefault().getMapper().writeValueAsString(hideTextTags));
+                }
             }
-        }
-        else {
-            map.put("hide_text_tags", JSON.getDefault().getMapper().writeValueAsString(hideTextTags));
-        }
-    }
-    if (message != null) {
-        if (isFileTypeOrListOfFiles(message)) {
-            fileTypeFound = true;
-        }
+            if (message != null) {
+                if (isFileTypeOrListOfFiles(message)) {
+                    fileTypeFound = true;
+                }
 
-        if (message.getClass().equals(java.io.File.class) ||
-            message.getClass().equals(Integer.class) ||
-            message.getClass().equals(String.class) ||
-            message.getClass().isEnum()) {
-            map.put("message", message);
-        } else if (isListOfFile(message)) {
-            for(int i = 0; i< getListSize(message); i++) {
-                map.put("message[" + i + "]", getFromList(message, i));
+                if (message.getClass().equals(java.io.File.class)
+                        || message.getClass().equals(Integer.class)
+                        || message.getClass().equals(String.class)
+                        || message.getClass().isEnum()) {
+                    map.put("message", message);
+                } else if (isListOfFile(message)) {
+                    for (int i = 0; i < getListSize(message); i++) {
+                        map.put("message[" + i + "]", getFromList(message, i));
+                    }
+                } else {
+                    map.put("message", JSON.getDefault().getMapper().writeValueAsString(message));
+                }
             }
-        }
-        else {
-            map.put("message", JSON.getDefault().getMapper().writeValueAsString(message));
-        }
-    }
-    if (metadata != null) {
-        if (isFileTypeOrListOfFiles(metadata)) {
-            fileTypeFound = true;
-        }
+            if (metadata != null) {
+                if (isFileTypeOrListOfFiles(metadata)) {
+                    fileTypeFound = true;
+                }
 
-        if (metadata.getClass().equals(java.io.File.class) ||
-            metadata.getClass().equals(Integer.class) ||
-            metadata.getClass().equals(String.class) ||
-            metadata.getClass().isEnum()) {
-            map.put("metadata", metadata);
-        } else if (isListOfFile(metadata)) {
-            for(int i = 0; i< getListSize(metadata); i++) {
-                map.put("metadata[" + i + "]", getFromList(metadata, i));
+                if (metadata.getClass().equals(java.io.File.class)
+                        || metadata.getClass().equals(Integer.class)
+                        || metadata.getClass().equals(String.class)
+                        || metadata.getClass().isEnum()) {
+                    map.put("metadata", metadata);
+                } else if (isListOfFile(metadata)) {
+                    for (int i = 0; i < getListSize(metadata); i++) {
+                        map.put("metadata[" + i + "]", getFromList(metadata, i));
+                    }
+                } else {
+                    map.put("metadata", JSON.getDefault().getMapper().writeValueAsString(metadata));
+                }
             }
-        }
-        else {
-            map.put("metadata", JSON.getDefault().getMapper().writeValueAsString(metadata));
-        }
-    }
-    if (showProgressStepper != null) {
-        if (isFileTypeOrListOfFiles(showProgressStepper)) {
-            fileTypeFound = true;
-        }
+            if (showProgressStepper != null) {
+                if (isFileTypeOrListOfFiles(showProgressStepper)) {
+                    fileTypeFound = true;
+                }
 
-        if (showProgressStepper.getClass().equals(java.io.File.class) ||
-            showProgressStepper.getClass().equals(Integer.class) ||
-            showProgressStepper.getClass().equals(String.class) ||
-            showProgressStepper.getClass().isEnum()) {
-            map.put("show_progress_stepper", showProgressStepper);
-        } else if (isListOfFile(showProgressStepper)) {
-            for(int i = 0; i< getListSize(showProgressStepper); i++) {
-                map.put("show_progress_stepper[" + i + "]", getFromList(showProgressStepper, i));
+                if (showProgressStepper.getClass().equals(java.io.File.class)
+                        || showProgressStepper.getClass().equals(Integer.class)
+                        || showProgressStepper.getClass().equals(String.class)
+                        || showProgressStepper.getClass().isEnum()) {
+                    map.put("show_progress_stepper", showProgressStepper);
+                } else if (isListOfFile(showProgressStepper)) {
+                    for (int i = 0; i < getListSize(showProgressStepper); i++) {
+                        map.put(
+                                "show_progress_stepper[" + i + "]",
+                                getFromList(showProgressStepper, i));
+                    }
+                } else {
+                    map.put(
+                            "show_progress_stepper",
+                            JSON.getDefault().getMapper().writeValueAsString(showProgressStepper));
+                }
             }
-        }
-        else {
-            map.put("show_progress_stepper", JSON.getDefault().getMapper().writeValueAsString(showProgressStepper));
-        }
-    }
-    if (signers != null) {
-        if (isFileTypeOrListOfFiles(signers)) {
-            fileTypeFound = true;
-        }
+            if (signers != null) {
+                if (isFileTypeOrListOfFiles(signers)) {
+                    fileTypeFound = true;
+                }
 
-        if (signers.getClass().equals(java.io.File.class) ||
-            signers.getClass().equals(Integer.class) ||
-            signers.getClass().equals(String.class) ||
-            signers.getClass().isEnum()) {
-            map.put("signers", signers);
-        } else if (isListOfFile(signers)) {
-            for(int i = 0; i< getListSize(signers); i++) {
-                map.put("signers[" + i + "]", getFromList(signers, i));
+                if (signers.getClass().equals(java.io.File.class)
+                        || signers.getClass().equals(Integer.class)
+                        || signers.getClass().equals(String.class)
+                        || signers.getClass().isEnum()) {
+                    map.put("signers", signers);
+                } else if (isListOfFile(signers)) {
+                    for (int i = 0; i < getListSize(signers); i++) {
+                        map.put("signers[" + i + "]", getFromList(signers, i));
+                    }
+                } else {
+                    map.put("signers", JSON.getDefault().getMapper().writeValueAsString(signers));
+                }
             }
-        }
-        else {
-            map.put("signers", JSON.getDefault().getMapper().writeValueAsString(signers));
-        }
-    }
-    if (signingOptions != null) {
-        if (isFileTypeOrListOfFiles(signingOptions)) {
-            fileTypeFound = true;
-        }
+            if (signingOptions != null) {
+                if (isFileTypeOrListOfFiles(signingOptions)) {
+                    fileTypeFound = true;
+                }
 
-        if (signingOptions.getClass().equals(java.io.File.class) ||
-            signingOptions.getClass().equals(Integer.class) ||
-            signingOptions.getClass().equals(String.class) ||
-            signingOptions.getClass().isEnum()) {
-            map.put("signing_options", signingOptions);
-        } else if (isListOfFile(signingOptions)) {
-            for(int i = 0; i< getListSize(signingOptions); i++) {
-                map.put("signing_options[" + i + "]", getFromList(signingOptions, i));
+                if (signingOptions.getClass().equals(java.io.File.class)
+                        || signingOptions.getClass().equals(Integer.class)
+                        || signingOptions.getClass().equals(String.class)
+                        || signingOptions.getClass().isEnum()) {
+                    map.put("signing_options", signingOptions);
+                } else if (isListOfFile(signingOptions)) {
+                    for (int i = 0; i < getListSize(signingOptions); i++) {
+                        map.put("signing_options[" + i + "]", getFromList(signingOptions, i));
+                    }
+                } else {
+                    map.put(
+                            "signing_options",
+                            JSON.getDefault().getMapper().writeValueAsString(signingOptions));
+                }
             }
-        }
-        else {
-            map.put("signing_options", JSON.getDefault().getMapper().writeValueAsString(signingOptions));
-        }
-    }
-    if (signingRedirectUrl != null) {
-        if (isFileTypeOrListOfFiles(signingRedirectUrl)) {
-            fileTypeFound = true;
-        }
+            if (signingRedirectUrl != null) {
+                if (isFileTypeOrListOfFiles(signingRedirectUrl)) {
+                    fileTypeFound = true;
+                }
 
-        if (signingRedirectUrl.getClass().equals(java.io.File.class) ||
-            signingRedirectUrl.getClass().equals(Integer.class) ||
-            signingRedirectUrl.getClass().equals(String.class) ||
-            signingRedirectUrl.getClass().isEnum()) {
-            map.put("signing_redirect_url", signingRedirectUrl);
-        } else if (isListOfFile(signingRedirectUrl)) {
-            for(int i = 0; i< getListSize(signingRedirectUrl); i++) {
-                map.put("signing_redirect_url[" + i + "]", getFromList(signingRedirectUrl, i));
+                if (signingRedirectUrl.getClass().equals(java.io.File.class)
+                        || signingRedirectUrl.getClass().equals(Integer.class)
+                        || signingRedirectUrl.getClass().equals(String.class)
+                        || signingRedirectUrl.getClass().isEnum()) {
+                    map.put("signing_redirect_url", signingRedirectUrl);
+                } else if (isListOfFile(signingRedirectUrl)) {
+                    for (int i = 0; i < getListSize(signingRedirectUrl); i++) {
+                        map.put(
+                                "signing_redirect_url[" + i + "]",
+                                getFromList(signingRedirectUrl, i));
+                    }
+                } else {
+                    map.put(
+                            "signing_redirect_url",
+                            JSON.getDefault().getMapper().writeValueAsString(signingRedirectUrl));
+                }
             }
-        }
-        else {
-            map.put("signing_redirect_url", JSON.getDefault().getMapper().writeValueAsString(signingRedirectUrl));
-        }
-    }
-    if (subject != null) {
-        if (isFileTypeOrListOfFiles(subject)) {
-            fileTypeFound = true;
-        }
+            if (subject != null) {
+                if (isFileTypeOrListOfFiles(subject)) {
+                    fileTypeFound = true;
+                }
 
-        if (subject.getClass().equals(java.io.File.class) ||
-            subject.getClass().equals(Integer.class) ||
-            subject.getClass().equals(String.class) ||
-            subject.getClass().isEnum()) {
-            map.put("subject", subject);
-        } else if (isListOfFile(subject)) {
-            for(int i = 0; i< getListSize(subject); i++) {
-                map.put("subject[" + i + "]", getFromList(subject, i));
+                if (subject.getClass().equals(java.io.File.class)
+                        || subject.getClass().equals(Integer.class)
+                        || subject.getClass().equals(String.class)
+                        || subject.getClass().isEnum()) {
+                    map.put("subject", subject);
+                } else if (isListOfFile(subject)) {
+                    for (int i = 0; i < getListSize(subject); i++) {
+                        map.put("subject[" + i + "]", getFromList(subject, i));
+                    }
+                } else {
+                    map.put("subject", JSON.getDefault().getMapper().writeValueAsString(subject));
+                }
             }
-        }
-        else {
-            map.put("subject", JSON.getDefault().getMapper().writeValueAsString(subject));
-        }
-    }
-    if (testMode != null) {
-        if (isFileTypeOrListOfFiles(testMode)) {
-            fileTypeFound = true;
-        }
+            if (testMode != null) {
+                if (isFileTypeOrListOfFiles(testMode)) {
+                    fileTypeFound = true;
+                }
 
-        if (testMode.getClass().equals(java.io.File.class) ||
-            testMode.getClass().equals(Integer.class) ||
-            testMode.getClass().equals(String.class) ||
-            testMode.getClass().isEnum()) {
-            map.put("test_mode", testMode);
-        } else if (isListOfFile(testMode)) {
-            for(int i = 0; i< getListSize(testMode); i++) {
-                map.put("test_mode[" + i + "]", getFromList(testMode, i));
+                if (testMode.getClass().equals(java.io.File.class)
+                        || testMode.getClass().equals(Integer.class)
+                        || testMode.getClass().equals(String.class)
+                        || testMode.getClass().isEnum()) {
+                    map.put("test_mode", testMode);
+                } else if (isListOfFile(testMode)) {
+                    for (int i = 0; i < getListSize(testMode); i++) {
+                        map.put("test_mode[" + i + "]", getFromList(testMode, i));
+                    }
+                } else {
+                    map.put(
+                            "test_mode",
+                            JSON.getDefault().getMapper().writeValueAsString(testMode));
+                }
             }
-        }
-        else {
-            map.put("test_mode", JSON.getDefault().getMapper().writeValueAsString(testMode));
-        }
-    }
-    if (usePreexistingFields != null) {
-        if (isFileTypeOrListOfFiles(usePreexistingFields)) {
-            fileTypeFound = true;
-        }
+            if (usePreexistingFields != null) {
+                if (isFileTypeOrListOfFiles(usePreexistingFields)) {
+                    fileTypeFound = true;
+                }
 
-        if (usePreexistingFields.getClass().equals(java.io.File.class) ||
-            usePreexistingFields.getClass().equals(Integer.class) ||
-            usePreexistingFields.getClass().equals(String.class) ||
-            usePreexistingFields.getClass().isEnum()) {
-            map.put("use_preexisting_fields", usePreexistingFields);
-        } else if (isListOfFile(usePreexistingFields)) {
-            for(int i = 0; i< getListSize(usePreexistingFields); i++) {
-                map.put("use_preexisting_fields[" + i + "]", getFromList(usePreexistingFields, i));
+                if (usePreexistingFields.getClass().equals(java.io.File.class)
+                        || usePreexistingFields.getClass().equals(Integer.class)
+                        || usePreexistingFields.getClass().equals(String.class)
+                        || usePreexistingFields.getClass().isEnum()) {
+                    map.put("use_preexisting_fields", usePreexistingFields);
+                } else if (isListOfFile(usePreexistingFields)) {
+                    for (int i = 0; i < getListSize(usePreexistingFields); i++) {
+                        map.put(
+                                "use_preexisting_fields[" + i + "]",
+                                getFromList(usePreexistingFields, i));
+                    }
+                } else {
+                    map.put(
+                            "use_preexisting_fields",
+                            JSON.getDefault().getMapper().writeValueAsString(usePreexistingFields));
+                }
             }
-        }
-        else {
-            map.put("use_preexisting_fields", JSON.getDefault().getMapper().writeValueAsString(usePreexistingFields));
-        }
-    }
-    if (useTextTags != null) {
-        if (isFileTypeOrListOfFiles(useTextTags)) {
-            fileTypeFound = true;
-        }
+            if (useTextTags != null) {
+                if (isFileTypeOrListOfFiles(useTextTags)) {
+                    fileTypeFound = true;
+                }
 
-        if (useTextTags.getClass().equals(java.io.File.class) ||
-            useTextTags.getClass().equals(Integer.class) ||
-            useTextTags.getClass().equals(String.class) ||
-            useTextTags.getClass().isEnum()) {
-            map.put("use_text_tags", useTextTags);
-        } else if (isListOfFile(useTextTags)) {
-            for(int i = 0; i< getListSize(useTextTags); i++) {
-                map.put("use_text_tags[" + i + "]", getFromList(useTextTags, i));
+                if (useTextTags.getClass().equals(java.io.File.class)
+                        || useTextTags.getClass().equals(Integer.class)
+                        || useTextTags.getClass().equals(String.class)
+                        || useTextTags.getClass().isEnum()) {
+                    map.put("use_text_tags", useTextTags);
+                } else if (isListOfFile(useTextTags)) {
+                    for (int i = 0; i < getListSize(useTextTags); i++) {
+                        map.put("use_text_tags[" + i + "]", getFromList(useTextTags, i));
+                    }
+                } else {
+                    map.put(
+                            "use_text_tags",
+                            JSON.getDefault().getMapper().writeValueAsString(useTextTags));
+                }
             }
-        }
-        else {
-            map.put("use_text_tags", JSON.getDefault().getMapper().writeValueAsString(useTextTags));
-        }
-    }
-    if (expiresAt != null) {
-        if (isFileTypeOrListOfFiles(expiresAt)) {
-            fileTypeFound = true;
-        }
+            if (expiresAt != null) {
+                if (isFileTypeOrListOfFiles(expiresAt)) {
+                    fileTypeFound = true;
+                }
 
-        if (expiresAt.getClass().equals(java.io.File.class) ||
-            expiresAt.getClass().equals(Integer.class) ||
-            expiresAt.getClass().equals(String.class) ||
-            expiresAt.getClass().isEnum()) {
-            map.put("expires_at", expiresAt);
-        } else if (isListOfFile(expiresAt)) {
-            for(int i = 0; i< getListSize(expiresAt); i++) {
-                map.put("expires_at[" + i + "]", getFromList(expiresAt, i));
+                if (expiresAt.getClass().equals(java.io.File.class)
+                        || expiresAt.getClass().equals(Integer.class)
+                        || expiresAt.getClass().equals(String.class)
+                        || expiresAt.getClass().isEnum()) {
+                    map.put("expires_at", expiresAt);
+                } else if (isListOfFile(expiresAt)) {
+                    for (int i = 0; i < getListSize(expiresAt); i++) {
+                        map.put("expires_at[" + i + "]", getFromList(expiresAt, i));
+                    }
+                } else {
+                    map.put(
+                            "expires_at",
+                            JSON.getDefault().getMapper().writeValueAsString(expiresAt));
+                }
             }
+        } catch (Exception e) {
+            throw new ApiException(e);
         }
-        else {
-            map.put("expires_at", JSON.getDefault().getMapper().writeValueAsString(expiresAt));
+
+        return fileTypeFound ? map : new HashMap<>();
+    }
+
+    private boolean isFileTypeOrListOfFiles(Object obj) throws Exception {
+        return obj.getClass().equals(java.io.File.class) || isListOfFile(obj);
+    }
+
+    private boolean isListOfFile(Object obj) throws Exception {
+        return obj instanceof java.util.List
+                && !isListEmpty(obj)
+                && getFromList(obj, 0) instanceof java.io.File;
+    }
+
+    private boolean isListEmpty(Object obj) throws Exception {
+        return (boolean)
+                Class.forName(java.util.List.class.getName()).getMethod("isEmpty").invoke(obj);
+    }
+
+    private Object getFromList(Object obj, int index) throws Exception {
+        return Class.forName(java.util.List.class.getName())
+                .getMethod("get", int.class)
+                .invoke(obj, index);
+    }
+
+    private int getListSize(Object obj) throws Exception {
+        return (int) Class.forName(java.util.List.class.getName()).getMethod("size").invoke(obj);
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces (except the first
+     * line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
         }
+        return o.toString().replace("\n", "\n    ");
     }
-    } catch (Exception e) {
-        throw new ApiException(e);
-    }
-
-    return fileTypeFound ? map : new HashMap<>();
-  }
-
-  private boolean isFileTypeOrListOfFiles(Object obj) throws Exception {
-    return obj.getClass().equals(java.io.File.class) || isListOfFile(obj);
-  }
-
-  private boolean isListOfFile(Object obj) throws Exception {
-      return obj instanceof java.util.List && !isListEmpty(obj) && getFromList(obj, 0) instanceof java.io.File;
-  }
-
-  private boolean isListEmpty(Object obj) throws Exception {
-    return (boolean) Class.forName(java.util.List.class.getName()).getMethod("isEmpty").invoke(obj);
-  }
-
-  private Object getFromList(Object obj, int index) throws Exception {
-    return Class.forName(java.util.List.class.getName()).getMethod("get", int.class).invoke(obj, index);
-  }
-
-  private int getListSize(Object obj) throws Exception {
-    return (int) Class.forName(java.util.List.class.getName()).getMethod("size").invoke(obj);
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
-  }
-
 }
-

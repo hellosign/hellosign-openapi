@@ -10,219 +10,205 @@
  * Do not edit the class manually.
  */
 
-
 package com.dropbox.sign.model;
 
-import java.util.Objects;
-import java.util.Map;
-import java.util.HashMap;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
-import java.util.Arrays;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.dropbox.sign.ApiException;
 import com.dropbox.sign.JSON;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
-
-import com.dropbox.sign.ApiException;
-/**
- * FileResponse
- */
-@JsonPropertyOrder({
-  FileResponse.JSON_PROPERTY_FILE_URL,
-  FileResponse.JSON_PROPERTY_EXPIRES_AT
-})
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
-@JsonIgnoreProperties(ignoreUnknown=true)
+/** FileResponse */
+@JsonPropertyOrder({FileResponse.JSON_PROPERTY_FILE_URL, FileResponse.JSON_PROPERTY_EXPIRES_AT})
+@javax.annotation.Generated(
+        value = "org.openapitools.codegen.languages.JavaClientCodegen",
+        comments = "Generator version: 7.8.0")
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class FileResponse {
-  public static final String JSON_PROPERTY_FILE_URL = "file_url";
-  private String fileUrl;
+    public static final String JSON_PROPERTY_FILE_URL = "file_url";
+    private String fileUrl;
 
-  public static final String JSON_PROPERTY_EXPIRES_AT = "expires_at";
-  private Integer expiresAt;
+    public static final String JSON_PROPERTY_EXPIRES_AT = "expires_at";
+    private Integer expiresAt;
 
-  public FileResponse() { 
-  }
+    public FileResponse() {}
 
-  /**
-   * Attempt to instantiate and hydrate a new instance of this class
-   * @param jsonData String of JSON data representing target object
-   */
-  static public FileResponse init(String jsonData) throws Exception {
-    return new ObjectMapper().readValue(jsonData, FileResponse.class);
-  }
-
-  static public FileResponse init(HashMap data) throws Exception {
-    return new ObjectMapper().readValue(
-      new ObjectMapper().writeValueAsString(data),
-      FileResponse.class
-    );
-  }
-
-  public FileResponse fileUrl(String fileUrl) {
-    this.fileUrl = fileUrl;
-    return this;
-  }
-
-  /**
-   * URL to the file.
-   * @return fileUrl
-   */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_FILE_URL)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public String getFileUrl() {
-    return fileUrl;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_FILE_URL)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setFileUrl(String fileUrl) {
-    this.fileUrl = fileUrl;
-  }
-
-
-  public FileResponse expiresAt(Integer expiresAt) {
-    this.expiresAt = expiresAt;
-    return this;
-  }
-
-  /**
-   * When the link expires.
-   * @return expiresAt
-   */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public Integer getExpiresAt() {
-    return expiresAt;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setExpiresAt(Integer expiresAt) {
-    this.expiresAt = expiresAt;
-  }
-
-
-  /**
-   * Return true if this FileResponse object is equal to o.
-   */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    /**
+     * Attempt to instantiate and hydrate a new instance of this class
+     *
+     * @param jsonData String of JSON data representing target object
+     */
+    public static FileResponse init(String jsonData) throws Exception {
+        return new ObjectMapper().readValue(jsonData, FileResponse.class);
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    public static FileResponse init(HashMap data) throws Exception {
+        return new ObjectMapper()
+                .readValue(new ObjectMapper().writeValueAsString(data), FileResponse.class);
     }
-    FileResponse fileResponse = (FileResponse) o;
-    return Objects.equals(this.fileUrl, fileResponse.fileUrl) &&
-        Objects.equals(this.expiresAt, fileResponse.expiresAt);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(fileUrl, expiresAt);
-  }
+    public FileResponse fileUrl(String fileUrl) {
+        this.fileUrl = fileUrl;
+        return this;
+    }
 
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class FileResponse {\n");
-    sb.append("    fileUrl: ").append(toIndentedString(fileUrl)).append("\n");
-    sb.append("    expiresAt: ").append(toIndentedString(expiresAt)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
+    /**
+     * URL to the file.
+     *
+     * @return fileUrl
+     */
+    @javax.annotation.Nonnull
+    @JsonProperty(JSON_PROPERTY_FILE_URL)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    public String getFileUrl() {
+        return fileUrl;
+    }
 
-  public Map<String, Object> createFormData() throws ApiException {
-    Map<String, Object> map = new HashMap<>();
-    boolean fileTypeFound = false;
-    try {
-    if (fileUrl != null) {
-        if (isFileTypeOrListOfFiles(fileUrl)) {
-            fileTypeFound = true;
+    @JsonProperty(JSON_PROPERTY_FILE_URL)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    public void setFileUrl(String fileUrl) {
+        this.fileUrl = fileUrl;
+    }
+
+    public FileResponse expiresAt(Integer expiresAt) {
+        this.expiresAt = expiresAt;
+        return this;
+    }
+
+    /**
+     * When the link expires.
+     *
+     * @return expiresAt
+     */
+    @javax.annotation.Nonnull
+    @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    public Integer getExpiresAt() {
+        return expiresAt;
+    }
+
+    @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    public void setExpiresAt(Integer expiresAt) {
+        this.expiresAt = expiresAt;
+    }
+
+    /** Return true if this FileResponse object is equal to o. */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
         }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        FileResponse fileResponse = (FileResponse) o;
+        return Objects.equals(this.fileUrl, fileResponse.fileUrl)
+                && Objects.equals(this.expiresAt, fileResponse.expiresAt);
+    }
 
-        if (fileUrl.getClass().equals(java.io.File.class) ||
-            fileUrl.getClass().equals(Integer.class) ||
-            fileUrl.getClass().equals(String.class) ||
-            fileUrl.getClass().isEnum()) {
-            map.put("file_url", fileUrl);
-        } else if (isListOfFile(fileUrl)) {
-            for(int i = 0; i< getListSize(fileUrl); i++) {
-                map.put("file_url[" + i + "]", getFromList(fileUrl, i));
+    @Override
+    public int hashCode() {
+        return Objects.hash(fileUrl, expiresAt);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class FileResponse {\n");
+        sb.append("    fileUrl: ").append(toIndentedString(fileUrl)).append("\n");
+        sb.append("    expiresAt: ").append(toIndentedString(expiresAt)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    public Map<String, Object> createFormData() throws ApiException {
+        Map<String, Object> map = new HashMap<>();
+        boolean fileTypeFound = false;
+        try {
+            if (fileUrl != null) {
+                if (isFileTypeOrListOfFiles(fileUrl)) {
+                    fileTypeFound = true;
+                }
+
+                if (fileUrl.getClass().equals(java.io.File.class)
+                        || fileUrl.getClass().equals(Integer.class)
+                        || fileUrl.getClass().equals(String.class)
+                        || fileUrl.getClass().isEnum()) {
+                    map.put("file_url", fileUrl);
+                } else if (isListOfFile(fileUrl)) {
+                    for (int i = 0; i < getListSize(fileUrl); i++) {
+                        map.put("file_url[" + i + "]", getFromList(fileUrl, i));
+                    }
+                } else {
+                    map.put("file_url", JSON.getDefault().getMapper().writeValueAsString(fileUrl));
+                }
             }
-        }
-        else {
-            map.put("file_url", JSON.getDefault().getMapper().writeValueAsString(fileUrl));
-        }
-    }
-    if (expiresAt != null) {
-        if (isFileTypeOrListOfFiles(expiresAt)) {
-            fileTypeFound = true;
-        }
+            if (expiresAt != null) {
+                if (isFileTypeOrListOfFiles(expiresAt)) {
+                    fileTypeFound = true;
+                }
 
-        if (expiresAt.getClass().equals(java.io.File.class) ||
-            expiresAt.getClass().equals(Integer.class) ||
-            expiresAt.getClass().equals(String.class) ||
-            expiresAt.getClass().isEnum()) {
-            map.put("expires_at", expiresAt);
-        } else if (isListOfFile(expiresAt)) {
-            for(int i = 0; i< getListSize(expiresAt); i++) {
-                map.put("expires_at[" + i + "]", getFromList(expiresAt, i));
+                if (expiresAt.getClass().equals(java.io.File.class)
+                        || expiresAt.getClass().equals(Integer.class)
+                        || expiresAt.getClass().equals(String.class)
+                        || expiresAt.getClass().isEnum()) {
+                    map.put("expires_at", expiresAt);
+                } else if (isListOfFile(expiresAt)) {
+                    for (int i = 0; i < getListSize(expiresAt); i++) {
+                        map.put("expires_at[" + i + "]", getFromList(expiresAt, i));
+                    }
+                } else {
+                    map.put(
+                            "expires_at",
+                            JSON.getDefault().getMapper().writeValueAsString(expiresAt));
+                }
             }
+        } catch (Exception e) {
+            throw new ApiException(e);
         }
-        else {
-            map.put("expires_at", JSON.getDefault().getMapper().writeValueAsString(expiresAt));
+
+        return fileTypeFound ? map : new HashMap<>();
+    }
+
+    private boolean isFileTypeOrListOfFiles(Object obj) throws Exception {
+        return obj.getClass().equals(java.io.File.class) || isListOfFile(obj);
+    }
+
+    private boolean isListOfFile(Object obj) throws Exception {
+        return obj instanceof java.util.List
+                && !isListEmpty(obj)
+                && getFromList(obj, 0) instanceof java.io.File;
+    }
+
+    private boolean isListEmpty(Object obj) throws Exception {
+        return (boolean)
+                Class.forName(java.util.List.class.getName()).getMethod("isEmpty").invoke(obj);
+    }
+
+    private Object getFromList(Object obj, int index) throws Exception {
+        return Class.forName(java.util.List.class.getName())
+                .getMethod("get", int.class)
+                .invoke(obj, index);
+    }
+
+    private int getListSize(Object obj) throws Exception {
+        return (int) Class.forName(java.util.List.class.getName()).getMethod("size").invoke(obj);
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces (except the first
+     * line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
         }
+        return o.toString().replace("\n", "\n    ");
     }
-    } catch (Exception e) {
-        throw new ApiException(e);
-    }
-
-    return fileTypeFound ? map : new HashMap<>();
-  }
-
-  private boolean isFileTypeOrListOfFiles(Object obj) throws Exception {
-    return obj.getClass().equals(java.io.File.class) || isListOfFile(obj);
-  }
-
-  private boolean isListOfFile(Object obj) throws Exception {
-      return obj instanceof java.util.List && !isListEmpty(obj) && getFromList(obj, 0) instanceof java.io.File;
-  }
-
-  private boolean isListEmpty(Object obj) throws Exception {
-    return (boolean) Class.forName(java.util.List.class.getName()).getMethod("isEmpty").invoke(obj);
-  }
-
-  private Object getFromList(Object obj, int index) throws Exception {
-    return Class.forName(java.util.List.class.getName()).getMethod("get", int.class).invoke(obj, index);
-  }
-
-  private int getListSize(Object obj) throws Exception {
-    return (int) Class.forName(java.util.List.class.getName()).getMethod("size").invoke(obj);
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
-  }
-
 }
-
