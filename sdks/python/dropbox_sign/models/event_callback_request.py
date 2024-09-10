@@ -30,15 +30,22 @@ import io
 from pydantic import StrictBool
 from typing import Union
 
+
 class EventCallbackRequest(BaseModel):
     """
     EventCallbackRequest
-    """ # noqa: E501
+    """  # noqa: E501
+
     event: EventCallbackRequestEvent
     account: Optional[AccountResponse] = None
     signature_request: Optional[SignatureRequestResponse] = None
     template: Optional[TemplateResponse] = None
-    __properties: ClassVar[List[str]] = ["event", "account", "signature_request", "template"]
+    __properties: ClassVar[List[str]] = [
+        "event",
+        "account",
+        "signature_request",
+        "template",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -46,7 +53,6 @@ class EventCallbackRequest(BaseModel):
         protected_namespaces=(),
         arbitrary_types_allowed=True,
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -57,7 +63,9 @@ class EventCallbackRequest(BaseModel):
         # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
-    def to_json_form_params(self, excluded_fields: Set[str] = None) -> List[Tuple[str, str]]:
+    def to_json_form_params(
+        self, excluded_fields: Set[str] = None
+    ) -> List[Tuple[str, str]]:
         data: List[Tuple[str, str]] = []
 
         for key, value in self.to_dict(excluded_fields).items():
@@ -91,16 +99,16 @@ class EventCallbackRequest(BaseModel):
         )
         # override the default output from pydantic by calling `to_dict()` of event
         if self.event:
-            _dict['event'] = self.event.to_dict()
+            _dict["event"] = self.event.to_dict()
         # override the default output from pydantic by calling `to_dict()` of account
         if self.account:
-            _dict['account'] = self.account.to_dict()
+            _dict["account"] = self.account.to_dict()
         # override the default output from pydantic by calling `to_dict()` of signature_request
         if self.signature_request:
-            _dict['signature_request'] = self.signature_request.to_dict()
+            _dict["signature_request"] = self.signature_request.to_dict()
         # override the default output from pydantic by calling `to_dict()` of template
         if self.template:
-            _dict['template'] = self.template.to_dict()
+            _dict["template"] = self.template.to_dict()
         return _dict
 
     @classmethod
@@ -112,12 +120,30 @@ class EventCallbackRequest(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "event": EventCallbackRequestEvent.from_dict(obj["event"]) if obj.get("event") is not None else None,
-            "account": AccountResponse.from_dict(obj["account"]) if obj.get("account") is not None else None,
-            "signature_request": SignatureRequestResponse.from_dict(obj["signature_request"]) if obj.get("signature_request") is not None else None,
-            "template": TemplateResponse.from_dict(obj["template"]) if obj.get("template") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "event": (
+                    EventCallbackRequestEvent.from_dict(obj["event"])
+                    if obj.get("event") is not None
+                    else None
+                ),
+                "account": (
+                    AccountResponse.from_dict(obj["account"])
+                    if obj.get("account") is not None
+                    else None
+                ),
+                "signature_request": (
+                    SignatureRequestResponse.from_dict(obj["signature_request"])
+                    if obj.get("signature_request") is not None
+                    else None
+                ),
+                "template": (
+                    TemplateResponse.from_dict(obj["template"])
+                    if obj.get("template") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
 
     @classmethod
@@ -141,6 +167,4 @@ class EventCallbackRequest(BaseModel):
 
     @classmethod
     def openapi_type_is_array(cls, property_name: str) -> bool:
-        return property_name in [
-        ]
-
+        return property_name in []

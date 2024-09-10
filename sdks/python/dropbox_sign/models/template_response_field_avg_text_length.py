@@ -26,12 +26,16 @@ import io
 from pydantic import StrictBool
 from typing import Union
 
+
 class TemplateResponseFieldAvgTextLength(BaseModel):
     """
     Average text length in this field.
-    """ # noqa: E501
+    """  # noqa: E501
+
     num_lines: Optional[StrictInt] = Field(default=None, description="Number of lines.")
-    num_chars_per_line: Optional[StrictInt] = Field(default=None, description="Number of characters per line.")
+    num_chars_per_line: Optional[StrictInt] = Field(
+        default=None, description="Number of characters per line."
+    )
     __properties: ClassVar[List[str]] = ["num_lines", "num_chars_per_line"]
 
     model_config = ConfigDict(
@@ -40,7 +44,6 @@ class TemplateResponseFieldAvgTextLength(BaseModel):
         protected_namespaces=(),
         arbitrary_types_allowed=True,
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -51,7 +54,9 @@ class TemplateResponseFieldAvgTextLength(BaseModel):
         # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
-    def to_json_form_params(self, excluded_fields: Set[str] = None) -> List[Tuple[str, str]]:
+    def to_json_form_params(
+        self, excluded_fields: Set[str] = None
+    ) -> List[Tuple[str, str]]:
         data: List[Tuple[str, str]] = []
 
         for key, value in self.to_dict(excluded_fields).items():
@@ -94,10 +99,12 @@ class TemplateResponseFieldAvgTextLength(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "num_lines": obj.get("num_lines"),
-            "num_chars_per_line": obj.get("num_chars_per_line")
-        })
+        _obj = cls.model_validate(
+            {
+                "num_lines": obj.get("num_lines"),
+                "num_chars_per_line": obj.get("num_chars_per_line"),
+            }
+        )
         return _obj
 
     @classmethod
@@ -119,6 +126,4 @@ class TemplateResponseFieldAvgTextLength(BaseModel):
 
     @classmethod
     def openapi_type_is_array(cls, property_name: str) -> bool:
-        return property_name in [
-        ]
-
+        return property_name in []

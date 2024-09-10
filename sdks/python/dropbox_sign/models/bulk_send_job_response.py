@@ -26,15 +26,32 @@ import io
 from pydantic import StrictBool
 from typing import Union
 
+
 class BulkSendJobResponse(BaseModel):
     """
     Contains information about the BulkSendJob such as when it was created and how many signature requests are queued.
-    """ # noqa: E501
-    bulk_send_job_id: Optional[StrictStr] = Field(default=None, description="The id of the BulkSendJob.")
-    total: Optional[StrictInt] = Field(default=None, description="The total amount of Signature Requests queued for sending.")
-    is_creator: Optional[StrictBool] = Field(default=None, description="True if you are the owner of this BulkSendJob, false if it's been shared with you by a team member.")
-    created_at: Optional[StrictInt] = Field(default=None, description="Time that the BulkSendJob was created.")
-    __properties: ClassVar[List[str]] = ["bulk_send_job_id", "total", "is_creator", "created_at"]
+    """  # noqa: E501
+
+    bulk_send_job_id: Optional[StrictStr] = Field(
+        default=None, description="The id of the BulkSendJob."
+    )
+    total: Optional[StrictInt] = Field(
+        default=None,
+        description="The total amount of Signature Requests queued for sending.",
+    )
+    is_creator: Optional[StrictBool] = Field(
+        default=None,
+        description="True if you are the owner of this BulkSendJob, false if it's been shared with you by a team member.",
+    )
+    created_at: Optional[StrictInt] = Field(
+        default=None, description="Time that the BulkSendJob was created."
+    )
+    __properties: ClassVar[List[str]] = [
+        "bulk_send_job_id",
+        "total",
+        "is_creator",
+        "created_at",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -42,7 +59,6 @@ class BulkSendJobResponse(BaseModel):
         protected_namespaces=(),
         arbitrary_types_allowed=True,
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -53,7 +69,9 @@ class BulkSendJobResponse(BaseModel):
         # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
-    def to_json_form_params(self, excluded_fields: Set[str] = None) -> List[Tuple[str, str]]:
+    def to_json_form_params(
+        self, excluded_fields: Set[str] = None
+    ) -> List[Tuple[str, str]]:
         data: List[Tuple[str, str]] = []
 
         for key, value in self.to_dict(excluded_fields).items():
@@ -96,12 +114,14 @@ class BulkSendJobResponse(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "bulk_send_job_id": obj.get("bulk_send_job_id"),
-            "total": obj.get("total"),
-            "is_creator": obj.get("is_creator"),
-            "created_at": obj.get("created_at")
-        })
+        _obj = cls.model_validate(
+            {
+                "bulk_send_job_id": obj.get("bulk_send_job_id"),
+                "total": obj.get("total"),
+                "is_creator": obj.get("is_creator"),
+                "created_at": obj.get("created_at"),
+            }
+        )
         return _obj
 
     @classmethod
@@ -125,6 +145,4 @@ class BulkSendJobResponse(BaseModel):
 
     @classmethod
     def openapi_type_is_array(cls, property_name: str) -> bool:
-        return property_name in [
-        ]
-
+        return property_name in []

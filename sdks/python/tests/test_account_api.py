@@ -15,16 +15,16 @@ class TestAccountApi(unittest.TestCase):
         self.api = apis.AccountApi(self.api_client)
 
     def test_http_code_range(self):
-        request_class = 'AccountCreateRequest'
-        request_data = get_fixture_data(request_class)['default']
+        request_class = "AccountCreateRequest"
+        request_data = get_fixture_data(request_class)["default"]
 
-        response_class = 'ErrorResponse'
-        response_data = get_fixture_data(response_class)['default']
+        response_class = "ErrorResponse"
+        response_data = get_fixture_data(response_class)["default"]
 
         code = random.randrange(400, 499)
 
         self.mock_pool.expect_request(
-            content_type='application/json',
+            content_type="application/json",
             data=request_data,
             response=response_data,
             status=code,
@@ -39,16 +39,14 @@ class TestAccountApi(unittest.TestCase):
             self.assertEqual(e.data, expected)
 
     def test_account_create(self):
-        request_class = 'AccountCreateRequest'
-        request_data = get_fixture_data(request_class)['default']
+        request_class = "AccountCreateRequest"
+        request_data = get_fixture_data(request_class)["default"]
 
-        response_class = 'AccountCreateResponse'
-        response_data = get_fixture_data(response_class)['default']
+        response_class = "AccountCreateResponse"
+        response_data = get_fixture_data(response_class)["default"]
 
         self.mock_pool.expect_request(
-            content_type='application/json',
-            data=request_data,
-            response=response_data
+            content_type="application/json", data=request_data, response=response_data
         )
         expected = m.AccountCreateResponse.init(response_data)
         obj = m.AccountCreateRequest.init(request_data)
@@ -59,12 +57,11 @@ class TestAccountApi(unittest.TestCase):
         self.assertEqual(result, expected)
 
     def test_account_get(self):
-        response_class = 'AccountGetResponse'
-        response_data = get_fixture_data(response_class)['default']
+        response_class = "AccountGetResponse"
+        response_data = get_fixture_data(response_class)["default"]
 
         self.mock_pool.expect_request(
-            content_type='application/json',
-            response=response_data
+            content_type="application/json", response=response_data
         )
         expected = m.AccountGetResponse.init(response_data)
 
@@ -74,16 +71,14 @@ class TestAccountApi(unittest.TestCase):
         self.assertEqual(result, expected)
 
     def test_account_update(self):
-        request_class = 'AccountUpdateRequest'
-        request_data = get_fixture_data(request_class)['default']
+        request_class = "AccountUpdateRequest"
+        request_data = get_fixture_data(request_class)["default"]
 
-        response_class = 'AccountGetResponse'
-        response_data = get_fixture_data(response_class)['default']
+        response_class = "AccountGetResponse"
+        response_data = get_fixture_data(response_class)["default"]
 
         self.mock_pool.expect_request(
-            content_type='application/json',
-            data=request_data,
-            response=response_data
+            content_type="application/json", data=request_data, response=response_data
         )
         expected = m.AccountGetResponse.init(response_data)
         obj = m.AccountUpdateRequest.init(request_data)
@@ -94,16 +89,14 @@ class TestAccountApi(unittest.TestCase):
         self.assertEqual(result, expected)
 
     def test_account_verify(self):
-        request_class = 'AccountVerifyRequest'
-        request_data = get_fixture_data(request_class)['default']
+        request_class = "AccountVerifyRequest"
+        request_data = get_fixture_data(request_class)["default"]
 
-        response_class = 'AccountVerifyResponse'
-        response_data = get_fixture_data(response_class)['default']
+        response_class = "AccountVerifyResponse"
+        response_data = get_fixture_data(response_class)["default"]
 
         self.mock_pool.expect_request(
-            content_type='application/json',
-            data=request_data,
-            response=response_data
+            content_type="application/json", data=request_data, response=response_data
         )
         expected = m.AccountVerifyResponse.init(response_data)
         obj = m.AccountVerifyRequest.init(request_data)
@@ -114,5 +107,5 @@ class TestAccountApi(unittest.TestCase):
         self.assertEqual(result, expected)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

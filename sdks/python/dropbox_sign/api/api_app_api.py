@@ -43,7 +43,6 @@ class ApiAppApi:
             api_client = ApiClient.get_default()
         self.api_client = api_client
 
-
     @validate_call
     def api_app_create(
         self,
@@ -52,9 +51,8 @@ class ApiAppApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -87,30 +85,28 @@ class ApiAppApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._api_app_create_serialize(
             api_app_create_request=api_app_create_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "ApiAppGetResponse",
-            '4XX': "ErrorResponse",
+            "201": "ApiAppGetResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def api_app_create_with_http_info(
@@ -120,9 +116,8 @@ class ApiAppApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -155,30 +150,28 @@ class ApiAppApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._api_app_create_serialize(
             api_app_create_request=api_app_create_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "ApiAppGetResponse",
-            '4XX': "ErrorResponse",
+            "201": "ApiAppGetResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def api_app_create_without_preload_content(
@@ -188,9 +181,8 @@ class ApiAppApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -223,26 +215,24 @@ class ApiAppApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._api_app_create_serialize(
             api_app_create_request=api_app_create_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "ApiAppGetResponse",
-            '4XX': "ErrorResponse",
+            "201": "ApiAppGetResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _api_app_create_serialize(
         self,
@@ -255,8 +245,7 @@ class ApiAppApi:
 
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -280,7 +269,7 @@ class ApiAppApi:
 
                 if isinstance(param_value, list):
                     for index, item in enumerate(param_value):
-                        _files[f'{param_name}[{index}]'] = item
+                        _files[f"{param_name}[{index}]"] = item
                 else:
                     _files[param_name] = param_value
 
@@ -295,39 +284,28 @@ class ApiAppApi:
         if api_app_create_request is not None and has_files is False:
             _body_params = api_app_create_request
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json"]
             )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json', 
-                        'multipart/form-data'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json", "multipart/form-data"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'api_key', 
-            'oauth2'
-        ]
+        _auth_settings: List[str] = ["api_key", "oauth2"]
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/api_app',
+            method="POST",
+            resource_path="/api_app",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -337,23 +315,21 @@ class ApiAppApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def api_app_delete(
         self,
-        client_id: Annotated[StrictStr, Field(description="The client id of the API App to delete.")],
+        client_id: Annotated[
+            StrictStr, Field(description="The client id of the API App to delete.")
+        ],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -386,23 +362,22 @@ class ApiAppApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._api_app_delete_serialize(
             client_id=client_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '204': None,
-            '4XX': "ErrorResponse",
+            "204": None,
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -410,18 +385,18 @@ class ApiAppApi:
             response_types_map=_response_types_map,
         ).data
 
-
     @validate_call
     def api_app_delete_with_http_info(
         self,
-        client_id: Annotated[StrictStr, Field(description="The client id of the API App to delete.")],
+        client_id: Annotated[
+            StrictStr, Field(description="The client id of the API App to delete.")
+        ],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -454,23 +429,22 @@ class ApiAppApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._api_app_delete_serialize(
             client_id=client_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '204': None,
-            '4XX': "ErrorResponse",
+            "204": None,
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -478,18 +452,18 @@ class ApiAppApi:
             response_types_map=_response_types_map,
         )
 
-
     @validate_call
     def api_app_delete_without_preload_content(
         self,
-        client_id: Annotated[StrictStr, Field(description="The client id of the API App to delete.")],
+        client_id: Annotated[
+            StrictStr, Field(description="The client id of the API App to delete.")
+        ],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -522,26 +496,24 @@ class ApiAppApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._api_app_delete_serialize(
             client_id=client_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '204': None,
-            '4XX': "ErrorResponse",
+            "204": None,
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _api_app_delete_serialize(
         self,
@@ -554,8 +526,7 @@ class ApiAppApi:
 
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -566,31 +537,24 @@ class ApiAppApi:
 
         # process the path parameters
         if client_id is not None:
-            _path_params['client_id'] = client_id
+            _path_params["client_id"] = client_id
         # process the query parameters
         # process the header parameters
         # process the form parameters
         # process the body parameter
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json"]
             )
 
-
         # authentication setting
-        _auth_settings: List[str] = [
-            'api_key', 
-            'oauth2'
-        ]
+        _auth_settings: List[str] = ["api_key", "oauth2"]
 
         return self.api_client.param_serialize(
-            method='DELETE',
-            resource_path='/api_app/{client_id}',
+            method="DELETE",
+            resource_path="/api_app/{client_id}",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -600,23 +564,21 @@ class ApiAppApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def api_app_get(
         self,
-        client_id: Annotated[StrictStr, Field(description="The client id of the API App to retrieve.")],
+        client_id: Annotated[
+            StrictStr, Field(description="The client id of the API App to retrieve.")
+        ],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -649,23 +611,22 @@ class ApiAppApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._api_app_get_serialize(
             client_id=client_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ApiAppGetResponse",
-            '4XX': "ErrorResponse",
+            "200": "ApiAppGetResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -673,18 +634,18 @@ class ApiAppApi:
             response_types_map=_response_types_map,
         ).data
 
-
     @validate_call
     def api_app_get_with_http_info(
         self,
-        client_id: Annotated[StrictStr, Field(description="The client id of the API App to retrieve.")],
+        client_id: Annotated[
+            StrictStr, Field(description="The client id of the API App to retrieve.")
+        ],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -717,23 +678,22 @@ class ApiAppApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._api_app_get_serialize(
             client_id=client_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ApiAppGetResponse",
-            '4XX': "ErrorResponse",
+            "200": "ApiAppGetResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -741,18 +701,18 @@ class ApiAppApi:
             response_types_map=_response_types_map,
         )
 
-
     @validate_call
     def api_app_get_without_preload_content(
         self,
-        client_id: Annotated[StrictStr, Field(description="The client id of the API App to retrieve.")],
+        client_id: Annotated[
+            StrictStr, Field(description="The client id of the API App to retrieve.")
+        ],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -785,26 +745,24 @@ class ApiAppApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._api_app_get_serialize(
             client_id=client_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ApiAppGetResponse",
-            '4XX': "ErrorResponse",
+            "200": "ApiAppGetResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _api_app_get_serialize(
         self,
@@ -817,8 +775,7 @@ class ApiAppApi:
 
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -829,31 +786,24 @@ class ApiAppApi:
 
         # process the path parameters
         if client_id is not None:
-            _path_params['client_id'] = client_id
+            _path_params["client_id"] = client_id
         # process the query parameters
         # process the header parameters
         # process the form parameters
         # process the body parameter
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json"]
             )
 
-
         # authentication setting
-        _auth_settings: List[str] = [
-            'api_key', 
-            'oauth2'
-        ]
+        _auth_settings: List[str] = ["api_key", "oauth2"]
 
         return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api_app/{client_id}',
+            method="GET",
+            resource_path="/api_app/{client_id}",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -863,24 +813,30 @@ class ApiAppApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def api_app_list(
         self,
-        page: Annotated[Optional[StrictInt], Field(description="Which page number of the API App List to return. Defaults to `1`.")] = None,
-        page_size: Annotated[Optional[StrictInt], Field(description="Number of objects to be returned per page. Must be between `1` and `100`. Default is `20`.")] = None,
+        page: Annotated[
+            Optional[StrictInt],
+            Field(
+                description="Which page number of the API App List to return. Defaults to `1`."
+            ),
+        ] = None,
+        page_size: Annotated[
+            Optional[StrictInt],
+            Field(
+                description="Number of objects to be returned per page. Must be between `1` and `100`. Default is `20`."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -915,7 +871,7 @@ class ApiAppApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._api_app_list_serialize(
             page=page,
@@ -923,16 +879,15 @@ class ApiAppApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ApiAppListResponse",
-            '4XX': "ErrorResponse",
+            "200": "ApiAppListResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -940,19 +895,27 @@ class ApiAppApi:
             response_types_map=_response_types_map,
         ).data
 
-
     @validate_call
     def api_app_list_with_http_info(
         self,
-        page: Annotated[Optional[StrictInt], Field(description="Which page number of the API App List to return. Defaults to `1`.")] = None,
-        page_size: Annotated[Optional[StrictInt], Field(description="Number of objects to be returned per page. Must be between `1` and `100`. Default is `20`.")] = None,
+        page: Annotated[
+            Optional[StrictInt],
+            Field(
+                description="Which page number of the API App List to return. Defaults to `1`."
+            ),
+        ] = None,
+        page_size: Annotated[
+            Optional[StrictInt],
+            Field(
+                description="Number of objects to be returned per page. Must be between `1` and `100`. Default is `20`."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -987,7 +950,7 @@ class ApiAppApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._api_app_list_serialize(
             page=page,
@@ -995,16 +958,15 @@ class ApiAppApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ApiAppListResponse",
-            '4XX': "ErrorResponse",
+            "200": "ApiAppListResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -1012,19 +974,27 @@ class ApiAppApi:
             response_types_map=_response_types_map,
         )
 
-
     @validate_call
     def api_app_list_without_preload_content(
         self,
-        page: Annotated[Optional[StrictInt], Field(description="Which page number of the API App List to return. Defaults to `1`.")] = None,
-        page_size: Annotated[Optional[StrictInt], Field(description="Number of objects to be returned per page. Must be between `1` and `100`. Default is `20`.")] = None,
+        page: Annotated[
+            Optional[StrictInt],
+            Field(
+                description="Which page number of the API App List to return. Defaults to `1`."
+            ),
+        ] = None,
+        page_size: Annotated[
+            Optional[StrictInt],
+            Field(
+                description="Number of objects to be returned per page. Must be between `1` and `100`. Default is `20`."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1059,7 +1029,7 @@ class ApiAppApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._api_app_list_serialize(
             page=page,
@@ -1067,19 +1037,17 @@ class ApiAppApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ApiAppListResponse",
-            '4XX': "ErrorResponse",
+            "200": "ApiAppListResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _api_app_list_serialize(
         self,
@@ -1093,8 +1061,7 @@ class ApiAppApi:
 
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -1106,36 +1073,29 @@ class ApiAppApi:
         # process the path parameters
         # process the query parameters
         if page is not None:
-            
-            _query_params.append(('page', page))
-            
+
+            _query_params.append(("page", page))
+
         if page_size is not None:
-            
-            _query_params.append(('page_size', page_size))
-            
+
+            _query_params.append(("page_size", page_size))
+
         # process the header parameters
         # process the form parameters
         # process the body parameter
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json"]
             )
 
-
         # authentication setting
-        _auth_settings: List[str] = [
-            'api_key', 
-            'oauth2'
-        ]
+        _auth_settings: List[str] = ["api_key", "oauth2"]
 
         return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api_app/list',
+            method="GET",
+            resource_path="/api_app/list",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1145,24 +1105,22 @@ class ApiAppApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def api_app_update(
         self,
-        client_id: Annotated[StrictStr, Field(description="The client id of the API App to update.")],
+        client_id: Annotated[
+            StrictStr, Field(description="The client id of the API App to update.")
+        ],
         api_app_update_request: ApiAppUpdateRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1197,7 +1155,7 @@ class ApiAppApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._api_app_update_serialize(
             client_id=client_id,
@@ -1205,16 +1163,15 @@ class ApiAppApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ApiAppGetResponse",
-            '4XX': "ErrorResponse",
+            "200": "ApiAppGetResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -1222,19 +1179,19 @@ class ApiAppApi:
             response_types_map=_response_types_map,
         ).data
 
-
     @validate_call
     def api_app_update_with_http_info(
         self,
-        client_id: Annotated[StrictStr, Field(description="The client id of the API App to update.")],
+        client_id: Annotated[
+            StrictStr, Field(description="The client id of the API App to update.")
+        ],
         api_app_update_request: ApiAppUpdateRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1269,7 +1226,7 @@ class ApiAppApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._api_app_update_serialize(
             client_id=client_id,
@@ -1277,16 +1234,15 @@ class ApiAppApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ApiAppGetResponse",
-            '4XX': "ErrorResponse",
+            "200": "ApiAppGetResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -1294,19 +1250,19 @@ class ApiAppApi:
             response_types_map=_response_types_map,
         )
 
-
     @validate_call
     def api_app_update_without_preload_content(
         self,
-        client_id: Annotated[StrictStr, Field(description="The client id of the API App to update.")],
+        client_id: Annotated[
+            StrictStr, Field(description="The client id of the API App to update.")
+        ],
         api_app_update_request: ApiAppUpdateRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1341,7 +1297,7 @@ class ApiAppApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._api_app_update_serialize(
             client_id=client_id,
@@ -1349,19 +1305,17 @@ class ApiAppApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ApiAppGetResponse",
-            '4XX': "ErrorResponse",
+            "200": "ApiAppGetResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _api_app_update_serialize(
         self,
@@ -1375,8 +1329,7 @@ class ApiAppApi:
 
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -1400,7 +1353,7 @@ class ApiAppApi:
 
                 if isinstance(param_value, list):
                     for index, item in enumerate(param_value):
-                        _files[f'{param_name}[{index}]'] = item
+                        _files[f"{param_name}[{index}]"] = item
                 else:
                     _files[param_name] = param_value
 
@@ -1409,7 +1362,7 @@ class ApiAppApi:
 
         # process the path parameters
         if client_id is not None:
-            _path_params['client_id'] = client_id
+            _path_params["client_id"] = client_id
         # process the query parameters
         # process the header parameters
         # process the form parameters
@@ -1417,39 +1370,28 @@ class ApiAppApi:
         if api_app_update_request is not None and has_files is False:
             _body_params = api_app_update_request
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json"]
             )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json', 
-                        'multipart/form-data'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json", "multipart/form-data"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'api_key', 
-            'oauth2'
-        ]
+        _auth_settings: List[str] = ["api_key", "oauth2"]
 
         return self.api_client.param_serialize(
-            method='PUT',
-            resource_path='/api_app/{client_id}',
+            method="PUT",
+            resource_path="/api_app/{client_id}",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1459,7 +1401,5 @@ class ApiAppApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-

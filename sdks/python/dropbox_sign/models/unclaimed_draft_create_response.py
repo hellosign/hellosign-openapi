@@ -28,12 +28,16 @@ import io
 from pydantic import StrictBool
 from typing import Union
 
+
 class UnclaimedDraftCreateResponse(BaseModel):
     """
     UnclaimedDraftCreateResponse
-    """ # noqa: E501
+    """  # noqa: E501
+
     unclaimed_draft: UnclaimedDraftResponse
-    warnings: Optional[List[WarningResponse]] = Field(default=None, description="A list of warnings.")
+    warnings: Optional[List[WarningResponse]] = Field(
+        default=None, description="A list of warnings."
+    )
     __properties: ClassVar[List[str]] = ["unclaimed_draft", "warnings"]
 
     model_config = ConfigDict(
@@ -42,7 +46,6 @@ class UnclaimedDraftCreateResponse(BaseModel):
         protected_namespaces=(),
         arbitrary_types_allowed=True,
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -53,7 +56,9 @@ class UnclaimedDraftCreateResponse(BaseModel):
         # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
-    def to_json_form_params(self, excluded_fields: Set[str] = None) -> List[Tuple[str, str]]:
+    def to_json_form_params(
+        self, excluded_fields: Set[str] = None
+    ) -> List[Tuple[str, str]]:
         data: List[Tuple[str, str]] = []
 
         for key, value in self.to_dict(excluded_fields).items():
@@ -87,14 +92,14 @@ class UnclaimedDraftCreateResponse(BaseModel):
         )
         # override the default output from pydantic by calling `to_dict()` of unclaimed_draft
         if self.unclaimed_draft:
-            _dict['unclaimed_draft'] = self.unclaimed_draft.to_dict()
+            _dict["unclaimed_draft"] = self.unclaimed_draft.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in warnings (list)
         _items = []
         if self.warnings:
             for _item_warnings in self.warnings:
                 if _item_warnings:
                     _items.append(_item_warnings.to_dict())
-            _dict['warnings'] = _items
+            _dict["warnings"] = _items
         return _dict
 
     @classmethod
@@ -106,10 +111,20 @@ class UnclaimedDraftCreateResponse(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "unclaimed_draft": UnclaimedDraftResponse.from_dict(obj["unclaimed_draft"]) if obj.get("unclaimed_draft") is not None else None,
-            "warnings": [WarningResponse.from_dict(_item) for _item in obj["warnings"]] if obj.get("warnings") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "unclaimed_draft": (
+                    UnclaimedDraftResponse.from_dict(obj["unclaimed_draft"])
+                    if obj.get("unclaimed_draft") is not None
+                    else None
+                ),
+                "warnings": (
+                    [WarningResponse.from_dict(_item) for _item in obj["warnings"]]
+                    if obj.get("warnings") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
 
     @classmethod
@@ -134,4 +149,3 @@ class UnclaimedDraftCreateResponse(BaseModel):
         return property_name in [
             "warnings",
         ]
-

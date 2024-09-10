@@ -28,19 +28,35 @@ from pydantic import StrictBool
 from typing import Union
 
 from typing import TYPE_CHECKING
+
 if TYPE_CHECKING:
-    from dropbox_sign.models.signature_request_response_custom_field_checkbox import SignatureRequestResponseCustomFieldCheckbox
-    from dropbox_sign.models.signature_request_response_custom_field_text import SignatureRequestResponseCustomFieldText
+    from dropbox_sign.models.signature_request_response_custom_field_checkbox import (
+        SignatureRequestResponseCustomFieldCheckbox,
+    )
+    from dropbox_sign.models.signature_request_response_custom_field_text import (
+        SignatureRequestResponseCustomFieldText,
+    )
+
 
 class SignatureRequestResponseCustomFieldBase(BaseModel):
     """
     An array of Custom Field objects containing the name and type of each custom field.  * Text Field uses `SignatureRequestResponseCustomFieldText` * Checkbox Field uses `SignatureRequestResponseCustomFieldCheckbox`
-    """ # noqa: E501
-    type: StrictStr = Field(description="The type of this Custom Field. Only 'text' and 'checkbox' are currently supported.")
+    """  # noqa: E501
+
+    type: StrictStr = Field(
+        description="The type of this Custom Field. Only 'text' and 'checkbox' are currently supported."
+    )
     name: StrictStr = Field(description="The name of the Custom Field.")
-    required: Optional[StrictBool] = Field(default=None, description="A boolean value denoting if this field is required.")
-    api_id: Optional[StrictStr] = Field(default=None, description="The unique ID for this field.")
-    editor: Optional[StrictStr] = Field(default=None, description="The name of the Role that is able to edit this field.")
+    required: Optional[StrictBool] = Field(
+        default=None, description="A boolean value denoting if this field is required."
+    )
+    api_id: Optional[StrictStr] = Field(
+        default=None, description="The unique ID for this field."
+    )
+    editor: Optional[StrictStr] = Field(
+        default=None,
+        description="The name of the Role that is able to edit this field.",
+    )
     __properties: ClassVar[List[str]] = ["type", "name", "required", "api_id", "editor"]
 
     model_config = ConfigDict(
@@ -50,13 +66,13 @@ class SignatureRequestResponseCustomFieldBase(BaseModel):
         arbitrary_types_allowed=True,
     )
 
-
     # JSON field name that stores the object type
-    __discriminator_property_name: ClassVar[str] = 'type'
+    __discriminator_property_name: ClassVar[str] = "type"
 
     # discriminator mappings
     __discriminator_value_class_map: ClassVar[Dict[str, str]] = {
-        'checkbox': 'SignatureRequestResponseCustomFieldCheckbox','text': 'SignatureRequestResponseCustomFieldText'
+        "checkbox": "SignatureRequestResponseCustomFieldCheckbox",
+        "text": "SignatureRequestResponseCustomFieldText",
     }
 
     @classmethod
@@ -77,7 +93,9 @@ class SignatureRequestResponseCustomFieldBase(BaseModel):
         # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
-    def to_json_form_params(self, excluded_fields: Set[str] = None) -> List[Tuple[str, str]]:
+    def to_json_form_params(
+        self, excluded_fields: Set[str] = None
+    ) -> List[Tuple[str, str]]:
         data: List[Tuple[str, str]] = []
 
         for key, value in self.to_dict(excluded_fields).items():
@@ -89,7 +107,12 @@ class SignatureRequestResponseCustomFieldBase(BaseModel):
         return data
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Union[SignatureRequestResponseCustomFieldCheckbox, SignatureRequestResponseCustomFieldText]]:
+    def from_json(cls, json_str: str) -> Optional[
+        Union[
+            SignatureRequestResponseCustomFieldCheckbox,
+            SignatureRequestResponseCustomFieldText,
+        ]
+    ]:
         """Create an instance of SignatureRequestResponseCustomFieldBase from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -112,19 +135,32 @@ class SignatureRequestResponseCustomFieldBase(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict[str, Any]) -> Optional[Union[SignatureRequestResponseCustomFieldCheckbox, SignatureRequestResponseCustomFieldText]]:
+    def from_dict(cls, obj: Dict[str, Any]) -> Optional[
+        Union[
+            SignatureRequestResponseCustomFieldCheckbox,
+            SignatureRequestResponseCustomFieldText,
+        ]
+    ]:
         """Create an instance of SignatureRequestResponseCustomFieldBase from a dict"""
         # look up the object type based on discriminator mapping
         object_type = cls.get_discriminator_value(obj)
-        if object_type ==  'SignatureRequestResponseCustomFieldCheckbox':
-            return import_module("dropbox_sign.models.signature_request_response_custom_field_checkbox").SignatureRequestResponseCustomFieldCheckbox.from_dict(obj)
-        if object_type ==  'SignatureRequestResponseCustomFieldText':
-            return import_module("dropbox_sign.models.signature_request_response_custom_field_text").SignatureRequestResponseCustomFieldText.from_dict(obj)
+        if object_type == "SignatureRequestResponseCustomFieldCheckbox":
+            return import_module(
+                "dropbox_sign.models.signature_request_response_custom_field_checkbox"
+            ).SignatureRequestResponseCustomFieldCheckbox.from_dict(obj)
+        if object_type == "SignatureRequestResponseCustomFieldText":
+            return import_module(
+                "dropbox_sign.models.signature_request_response_custom_field_text"
+            ).SignatureRequestResponseCustomFieldText.from_dict(obj)
 
-        raise ValueError("SignatureRequestResponseCustomFieldBase failed to lookup discriminator value from " +
-                            json.dumps(obj) + ". Discriminator property name: " + cls.__discriminator_property_name +
-                            ", mapping: " + json.dumps(cls.__discriminator_value_class_map))
-
+        raise ValueError(
+            "SignatureRequestResponseCustomFieldBase failed to lookup discriminator value from "
+            + json.dumps(obj)
+            + ". Discriminator property name: "
+            + cls.__discriminator_property_name
+            + ", mapping: "
+            + json.dumps(cls.__discriminator_value_class_map)
+        )
 
     @classmethod
     def openapi_types(cls) -> Dict[str, str]:
@@ -138,6 +174,4 @@ class SignatureRequestResponseCustomFieldBase(BaseModel):
 
     @classmethod
     def openapi_type_is_array(cls, property_name: str) -> bool:
-        return property_name in [
-        ]
-
+        return property_name in []

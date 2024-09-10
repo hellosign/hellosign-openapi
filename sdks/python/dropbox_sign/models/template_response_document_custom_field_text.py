@@ -20,24 +20,59 @@ import json
 
 from pydantic import ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from dropbox_sign.models.template_response_document_custom_field_base import TemplateResponseDocumentCustomFieldBase
-from dropbox_sign.models.template_response_field_avg_text_length import TemplateResponseFieldAvgTextLength
+from dropbox_sign.models.template_response_document_custom_field_base import (
+    TemplateResponseDocumentCustomFieldBase,
+)
+from dropbox_sign.models.template_response_field_avg_text_length import (
+    TemplateResponseFieldAvgTextLength,
+)
 from typing import Optional, Set, Tuple
 from typing_extensions import Self
 import io
 from pydantic import StrictBool
 from typing import Union
 
+
 class TemplateResponseDocumentCustomFieldText(TemplateResponseDocumentCustomFieldBase):
     """
     This class extends `TemplateResponseDocumentCustomFieldBase`
-    """ # noqa: E501
-    type: StrictStr = Field(description="The type of this Custom Field. Only `text` and `checkbox` are currently supported.  * Text uses `TemplateResponseDocumentCustomFieldText` * Checkbox uses `TemplateResponseDocumentCustomFieldCheckbox`")
+    """  # noqa: E501
+
+    type: StrictStr = Field(
+        description="The type of this Custom Field. Only `text` and `checkbox` are currently supported.  * Text uses `TemplateResponseDocumentCustomFieldText` * Checkbox uses `TemplateResponseDocumentCustomFieldCheckbox`"
+    )
     avg_text_length: Optional[TemplateResponseFieldAvgTextLength] = None
-    is_multiline: Optional[StrictBool] = Field(default=None, description="Whether this form field is multiline text.", alias="isMultiline")
-    original_font_size: Optional[StrictInt] = Field(default=None, description="Original font size used in this form field's text.", alias="originalFontSize")
-    font_family: Optional[StrictStr] = Field(default=None, description="Font family used in this form field's text.", alias="fontFamily")
-    __properties: ClassVar[List[str]] = ["type", "api_id", "name", "signer", "x", "y", "width", "height", "required", "group", "avg_text_length", "isMultiline", "originalFontSize", "fontFamily"]
+    is_multiline: Optional[StrictBool] = Field(
+        default=None,
+        description="Whether this form field is multiline text.",
+        alias="isMultiline",
+    )
+    original_font_size: Optional[StrictInt] = Field(
+        default=None,
+        description="Original font size used in this form field's text.",
+        alias="originalFontSize",
+    )
+    font_family: Optional[StrictStr] = Field(
+        default=None,
+        description="Font family used in this form field's text.",
+        alias="fontFamily",
+    )
+    __properties: ClassVar[List[str]] = [
+        "type",
+        "api_id",
+        "name",
+        "signer",
+        "x",
+        "y",
+        "width",
+        "height",
+        "required",
+        "group",
+        "avg_text_length",
+        "isMultiline",
+        "originalFontSize",
+        "fontFamily",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -45,7 +80,6 @@ class TemplateResponseDocumentCustomFieldText(TemplateResponseDocumentCustomFiel
         protected_namespaces=(),
         arbitrary_types_allowed=True,
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -56,7 +90,9 @@ class TemplateResponseDocumentCustomFieldText(TemplateResponseDocumentCustomFiel
         # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
-    def to_json_form_params(self, excluded_fields: Set[str] = None) -> List[Tuple[str, str]]:
+    def to_json_form_params(
+        self, excluded_fields: Set[str] = None
+    ) -> List[Tuple[str, str]]:
         data: List[Tuple[str, str]] = []
 
         for key, value in self.to_dict(excluded_fields).items():
@@ -90,7 +126,7 @@ class TemplateResponseDocumentCustomFieldText(TemplateResponseDocumentCustomFiel
         )
         # override the default output from pydantic by calling `to_dict()` of avg_text_length
         if self.avg_text_length:
-            _dict['avg_text_length'] = self.avg_text_length.to_dict()
+            _dict["avg_text_length"] = self.avg_text_length.to_dict()
         return _dict
 
     @classmethod
@@ -102,22 +138,28 @@ class TemplateResponseDocumentCustomFieldText(TemplateResponseDocumentCustomFiel
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "type": obj.get("type") if obj.get("type") is not None else 'text',
-            "api_id": obj.get("api_id"),
-            "name": obj.get("name"),
-            "signer": obj.get("signer"),
-            "x": obj.get("x"),
-            "y": obj.get("y"),
-            "width": obj.get("width"),
-            "height": obj.get("height"),
-            "required": obj.get("required"),
-            "group": obj.get("group"),
-            "avg_text_length": TemplateResponseFieldAvgTextLength.from_dict(obj["avg_text_length"]) if obj.get("avg_text_length") is not None else None,
-            "isMultiline": obj.get("isMultiline"),
-            "originalFontSize": obj.get("originalFontSize"),
-            "fontFamily": obj.get("fontFamily")
-        })
+        _obj = cls.model_validate(
+            {
+                "type": obj.get("type") if obj.get("type") is not None else "text",
+                "api_id": obj.get("api_id"),
+                "name": obj.get("name"),
+                "signer": obj.get("signer"),
+                "x": obj.get("x"),
+                "y": obj.get("y"),
+                "width": obj.get("width"),
+                "height": obj.get("height"),
+                "required": obj.get("required"),
+                "group": obj.get("group"),
+                "avg_text_length": (
+                    TemplateResponseFieldAvgTextLength.from_dict(obj["avg_text_length"])
+                    if obj.get("avg_text_length") is not None
+                    else None
+                ),
+                "isMultiline": obj.get("isMultiline"),
+                "originalFontSize": obj.get("originalFontSize"),
+                "fontFamily": obj.get("fontFamily"),
+            }
+        )
         return _obj
 
     @classmethod
@@ -151,6 +193,4 @@ class TemplateResponseDocumentCustomFieldText(TemplateResponseDocumentCustomFiel
 
     @classmethod
     def openapi_type_is_array(cls, property_name: str) -> bool:
-        return property_name in [
-        ]
-
+        return property_name in []

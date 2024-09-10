@@ -23,15 +23,21 @@ from typing_extensions import Annotated
 from dropbox_sign.models.file_response import FileResponse
 from dropbox_sign.models.file_response_data_uri import FileResponseDataUri
 from dropbox_sign.models.template_add_user_request import TemplateAddUserRequest
-from dropbox_sign.models.template_create_embedded_draft_request import TemplateCreateEmbeddedDraftRequest
-from dropbox_sign.models.template_create_embedded_draft_response import TemplateCreateEmbeddedDraftResponse
+from dropbox_sign.models.template_create_embedded_draft_request import (
+    TemplateCreateEmbeddedDraftRequest,
+)
+from dropbox_sign.models.template_create_embedded_draft_response import (
+    TemplateCreateEmbeddedDraftResponse,
+)
 from dropbox_sign.models.template_create_request import TemplateCreateRequest
 from dropbox_sign.models.template_create_response import TemplateCreateResponse
 from dropbox_sign.models.template_get_response import TemplateGetResponse
 from dropbox_sign.models.template_list_response import TemplateListResponse
 from dropbox_sign.models.template_remove_user_request import TemplateRemoveUserRequest
 from dropbox_sign.models.template_update_files_request import TemplateUpdateFilesRequest
-from dropbox_sign.models.template_update_files_response import TemplateUpdateFilesResponse
+from dropbox_sign.models.template_update_files_response import (
+    TemplateUpdateFilesResponse,
+)
 
 from dropbox_sign.api_client import ApiClient, RequestSerialized
 from dropbox_sign.api_response import ApiResponse
@@ -51,19 +57,20 @@ class TemplateApi:
             api_client = ApiClient.get_default()
         self.api_client = api_client
 
-
     @validate_call
     def template_add_user(
         self,
-        template_id: Annotated[StrictStr, Field(description="The id of the Template to give the Account access to.")],
+        template_id: Annotated[
+            StrictStr,
+            Field(description="The id of the Template to give the Account access to."),
+        ],
         template_add_user_request: TemplateAddUserRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -98,7 +105,7 @@ class TemplateApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._template_add_user_serialize(
             template_id=template_id,
@@ -106,16 +113,15 @@ class TemplateApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "TemplateGetResponse",
-            '4XX': "ErrorResponse",
+            "200": "TemplateGetResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -123,19 +129,20 @@ class TemplateApi:
             response_types_map=_response_types_map,
         ).data
 
-
     @validate_call
     def template_add_user_with_http_info(
         self,
-        template_id: Annotated[StrictStr, Field(description="The id of the Template to give the Account access to.")],
+        template_id: Annotated[
+            StrictStr,
+            Field(description="The id of the Template to give the Account access to."),
+        ],
         template_add_user_request: TemplateAddUserRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -170,7 +177,7 @@ class TemplateApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._template_add_user_serialize(
             template_id=template_id,
@@ -178,16 +185,15 @@ class TemplateApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "TemplateGetResponse",
-            '4XX': "ErrorResponse",
+            "200": "TemplateGetResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -195,19 +201,20 @@ class TemplateApi:
             response_types_map=_response_types_map,
         )
 
-
     @validate_call
     def template_add_user_without_preload_content(
         self,
-        template_id: Annotated[StrictStr, Field(description="The id of the Template to give the Account access to.")],
+        template_id: Annotated[
+            StrictStr,
+            Field(description="The id of the Template to give the Account access to."),
+        ],
         template_add_user_request: TemplateAddUserRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -242,7 +249,7 @@ class TemplateApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._template_add_user_serialize(
             template_id=template_id,
@@ -250,19 +257,17 @@ class TemplateApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "TemplateGetResponse",
-            '4XX': "ErrorResponse",
+            "200": "TemplateGetResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _template_add_user_serialize(
         self,
@@ -276,8 +281,7 @@ class TemplateApi:
 
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -301,7 +305,7 @@ class TemplateApi:
 
                 if isinstance(param_value, list):
                     for index, item in enumerate(param_value):
-                        _files[f'{param_name}[{index}]'] = item
+                        _files[f"{param_name}[{index}]"] = item
                 else:
                     _files[param_name] = param_value
 
@@ -310,7 +314,7 @@ class TemplateApi:
 
         # process the path parameters
         if template_id is not None:
-            _path_params['template_id'] = template_id
+            _path_params["template_id"] = template_id
         # process the query parameters
         # process the header parameters
         # process the form parameters
@@ -318,38 +322,28 @@ class TemplateApi:
         if template_add_user_request is not None and has_files is False:
             _body_params = template_add_user_request
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json"]
             )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'api_key', 
-            'oauth2'
-        ]
+        _auth_settings: List[str] = ["api_key", "oauth2"]
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/template/add_user/{template_id}',
+            method="POST",
+            resource_path="/template/add_user/{template_id}",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -359,11 +353,8 @@ class TemplateApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def template_create(
@@ -373,9 +364,8 @@ class TemplateApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -408,30 +398,28 @@ class TemplateApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._template_create_serialize(
             template_create_request=template_create_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "TemplateCreateResponse",
-            '4XX': "ErrorResponse",
+            "200": "TemplateCreateResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def template_create_with_http_info(
@@ -441,9 +429,8 @@ class TemplateApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -476,30 +463,28 @@ class TemplateApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._template_create_serialize(
             template_create_request=template_create_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "TemplateCreateResponse",
-            '4XX': "ErrorResponse",
+            "200": "TemplateCreateResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def template_create_without_preload_content(
@@ -509,9 +494,8 @@ class TemplateApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -544,26 +528,24 @@ class TemplateApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._template_create_serialize(
             template_create_request=template_create_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "TemplateCreateResponse",
-            '4XX': "ErrorResponse",
+            "200": "TemplateCreateResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _template_create_serialize(
         self,
@@ -576,8 +558,7 @@ class TemplateApi:
 
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -601,7 +582,7 @@ class TemplateApi:
 
                 if isinstance(param_value, list):
                     for index, item in enumerate(param_value):
-                        _files[f'{param_name}[{index}]'] = item
+                        _files[f"{param_name}[{index}]"] = item
                 else:
                     _files[param_name] = param_value
 
@@ -616,39 +597,28 @@ class TemplateApi:
         if template_create_request is not None and has_files is False:
             _body_params = template_create_request
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json"]
             )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json', 
-                        'multipart/form-data'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json", "multipart/form-data"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'api_key', 
-            'oauth2'
-        ]
+        _auth_settings: List[str] = ["api_key", "oauth2"]
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/template/create',
+            method="POST",
+            resource_path="/template/create",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -658,11 +628,8 @@ class TemplateApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def template_create_embedded_draft(
@@ -672,9 +639,8 @@ class TemplateApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -707,30 +673,28 @@ class TemplateApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._template_create_embedded_draft_serialize(
             template_create_embedded_draft_request=template_create_embedded_draft_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "TemplateCreateEmbeddedDraftResponse",
-            '4XX': "ErrorResponse",
+            "200": "TemplateCreateEmbeddedDraftResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def template_create_embedded_draft_with_http_info(
@@ -740,9 +704,8 @@ class TemplateApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -775,30 +738,28 @@ class TemplateApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._template_create_embedded_draft_serialize(
             template_create_embedded_draft_request=template_create_embedded_draft_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "TemplateCreateEmbeddedDraftResponse",
-            '4XX': "ErrorResponse",
+            "200": "TemplateCreateEmbeddedDraftResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def template_create_embedded_draft_without_preload_content(
@@ -808,9 +769,8 @@ class TemplateApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -843,26 +803,24 @@ class TemplateApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._template_create_embedded_draft_serialize(
             template_create_embedded_draft_request=template_create_embedded_draft_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "TemplateCreateEmbeddedDraftResponse",
-            '4XX': "ErrorResponse",
+            "200": "TemplateCreateEmbeddedDraftResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _template_create_embedded_draft_serialize(
         self,
@@ -875,8 +833,7 @@ class TemplateApi:
 
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -900,7 +857,7 @@ class TemplateApi:
 
                 if isinstance(param_value, list):
                     for index, item in enumerate(param_value):
-                        _files[f'{param_name}[{index}]'] = item
+                        _files[f"{param_name}[{index}]"] = item
                 else:
                     _files[param_name] = param_value
 
@@ -915,39 +872,28 @@ class TemplateApi:
         if template_create_embedded_draft_request is not None and has_files is False:
             _body_params = template_create_embedded_draft_request
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json"]
             )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json', 
-                        'multipart/form-data'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json", "multipart/form-data"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'api_key', 
-            'oauth2'
-        ]
+        _auth_settings: List[str] = ["api_key", "oauth2"]
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/template/create_embedded_draft',
+            method="POST",
+            resource_path="/template/create_embedded_draft",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -957,23 +903,21 @@ class TemplateApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def template_delete(
         self,
-        template_id: Annotated[StrictStr, Field(description="The id of the Template to delete.")],
+        template_id: Annotated[
+            StrictStr, Field(description="The id of the Template to delete.")
+        ],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1006,23 +950,22 @@ class TemplateApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._template_delete_serialize(
             template_id=template_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
-            '4XX': "ErrorResponse",
+            "200": None,
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -1030,18 +973,18 @@ class TemplateApi:
             response_types_map=_response_types_map,
         ).data
 
-
     @validate_call
     def template_delete_with_http_info(
         self,
-        template_id: Annotated[StrictStr, Field(description="The id of the Template to delete.")],
+        template_id: Annotated[
+            StrictStr, Field(description="The id of the Template to delete.")
+        ],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1074,23 +1017,22 @@ class TemplateApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._template_delete_serialize(
             template_id=template_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
-            '4XX': "ErrorResponse",
+            "200": None,
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -1098,18 +1040,18 @@ class TemplateApi:
             response_types_map=_response_types_map,
         )
 
-
     @validate_call
     def template_delete_without_preload_content(
         self,
-        template_id: Annotated[StrictStr, Field(description="The id of the Template to delete.")],
+        template_id: Annotated[
+            StrictStr, Field(description="The id of the Template to delete.")
+        ],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1142,26 +1084,24 @@ class TemplateApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._template_delete_serialize(
             template_id=template_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
-            '4XX': "ErrorResponse",
+            "200": None,
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _template_delete_serialize(
         self,
@@ -1174,8 +1114,7 @@ class TemplateApi:
 
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -1186,31 +1125,24 @@ class TemplateApi:
 
         # process the path parameters
         if template_id is not None:
-            _path_params['template_id'] = template_id
+            _path_params["template_id"] = template_id
         # process the query parameters
         # process the header parameters
         # process the form parameters
         # process the body parameter
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json"]
             )
 
-
         # authentication setting
-        _auth_settings: List[str] = [
-            'api_key', 
-            'oauth2'
-        ]
+        _auth_settings: List[str] = ["api_key", "oauth2"]
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/template/delete/{template_id}',
+            method="POST",
+            resource_path="/template/delete/{template_id}",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1220,24 +1152,27 @@ class TemplateApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def template_files(
         self,
-        template_id: Annotated[StrictStr, Field(description="The id of the template files to retrieve.")],
-        file_type: Annotated[Optional[StrictStr], Field(description="Set to `pdf` for a single merged document or `zip` for a collection of individual documents.")] = None,
+        template_id: Annotated[
+            StrictStr, Field(description="The id of the template files to retrieve.")
+        ],
+        file_type: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="Set to `pdf` for a single merged document or `zip` for a collection of individual documents."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1272,7 +1207,7 @@ class TemplateApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._template_files_serialize(
             template_id=template_id,
@@ -1280,16 +1215,15 @@ class TemplateApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "io.IOBase",
-            '4XX': "ErrorResponse",
+            "200": "io.IOBase",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -1297,19 +1231,24 @@ class TemplateApi:
             response_types_map=_response_types_map,
         ).data
 
-
     @validate_call
     def template_files_with_http_info(
         self,
-        template_id: Annotated[StrictStr, Field(description="The id of the template files to retrieve.")],
-        file_type: Annotated[Optional[StrictStr], Field(description="Set to `pdf` for a single merged document or `zip` for a collection of individual documents.")] = None,
+        template_id: Annotated[
+            StrictStr, Field(description="The id of the template files to retrieve.")
+        ],
+        file_type: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="Set to `pdf` for a single merged document or `zip` for a collection of individual documents."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1344,7 +1283,7 @@ class TemplateApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._template_files_serialize(
             template_id=template_id,
@@ -1352,16 +1291,15 @@ class TemplateApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "io.IOBase",
-            '4XX': "ErrorResponse",
+            "200": "io.IOBase",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -1369,19 +1307,24 @@ class TemplateApi:
             response_types_map=_response_types_map,
         )
 
-
     @validate_call
     def template_files_without_preload_content(
         self,
-        template_id: Annotated[StrictStr, Field(description="The id of the template files to retrieve.")],
-        file_type: Annotated[Optional[StrictStr], Field(description="Set to `pdf` for a single merged document or `zip` for a collection of individual documents.")] = None,
+        template_id: Annotated[
+            StrictStr, Field(description="The id of the template files to retrieve.")
+        ],
+        file_type: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="Set to `pdf` for a single merged document or `zip` for a collection of individual documents."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1416,7 +1359,7 @@ class TemplateApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._template_files_serialize(
             template_id=template_id,
@@ -1424,19 +1367,17 @@ class TemplateApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "io.IOBase",
-            '4XX': "ErrorResponse",
+            "200": "io.IOBase",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _template_files_serialize(
         self,
@@ -1450,8 +1391,7 @@ class TemplateApi:
 
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -1462,37 +1402,28 @@ class TemplateApi:
 
         # process the path parameters
         if template_id is not None:
-            _path_params['template_id'] = template_id
+            _path_params["template_id"] = template_id
         # process the query parameters
         if file_type is not None:
-            
-            _query_params.append(('file_type', file_type))
-            
+
+            _query_params.append(("file_type", file_type))
+
         # process the header parameters
         # process the form parameters
         # process the body parameter
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/pdf', 
-                    'application/zip', 
-                    'application/json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/pdf", "application/zip", "application/json"]
             )
 
-
         # authentication setting
-        _auth_settings: List[str] = [
-            'api_key', 
-            'oauth2'
-        ]
+        _auth_settings: List[str] = ["api_key", "oauth2"]
 
         return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/template/files/{template_id}',
+            method="GET",
+            resource_path="/template/files/{template_id}",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1502,23 +1433,21 @@ class TemplateApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def template_files_as_data_uri(
         self,
-        template_id: Annotated[StrictStr, Field(description="The id of the template files to retrieve.")],
+        template_id: Annotated[
+            StrictStr, Field(description="The id of the template files to retrieve.")
+        ],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1551,23 +1480,22 @@ class TemplateApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._template_files_as_data_uri_serialize(
             template_id=template_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "FileResponseDataUri",
-            '4XX': "ErrorResponse",
+            "200": "FileResponseDataUri",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -1575,18 +1503,18 @@ class TemplateApi:
             response_types_map=_response_types_map,
         ).data
 
-
     @validate_call
     def template_files_as_data_uri_with_http_info(
         self,
-        template_id: Annotated[StrictStr, Field(description="The id of the template files to retrieve.")],
+        template_id: Annotated[
+            StrictStr, Field(description="The id of the template files to retrieve.")
+        ],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1619,23 +1547,22 @@ class TemplateApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._template_files_as_data_uri_serialize(
             template_id=template_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "FileResponseDataUri",
-            '4XX': "ErrorResponse",
+            "200": "FileResponseDataUri",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -1643,18 +1570,18 @@ class TemplateApi:
             response_types_map=_response_types_map,
         )
 
-
     @validate_call
     def template_files_as_data_uri_without_preload_content(
         self,
-        template_id: Annotated[StrictStr, Field(description="The id of the template files to retrieve.")],
+        template_id: Annotated[
+            StrictStr, Field(description="The id of the template files to retrieve.")
+        ],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1687,26 +1614,24 @@ class TemplateApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._template_files_as_data_uri_serialize(
             template_id=template_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "FileResponseDataUri",
-            '4XX': "ErrorResponse",
+            "200": "FileResponseDataUri",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _template_files_as_data_uri_serialize(
         self,
@@ -1719,8 +1644,7 @@ class TemplateApi:
 
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -1731,31 +1655,24 @@ class TemplateApi:
 
         # process the path parameters
         if template_id is not None:
-            _path_params['template_id'] = template_id
+            _path_params["template_id"] = template_id
         # process the query parameters
         # process the header parameters
         # process the form parameters
         # process the body parameter
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json"]
             )
 
-
         # authentication setting
-        _auth_settings: List[str] = [
-            'api_key', 
-            'oauth2'
-        ]
+        _auth_settings: List[str] = ["api_key", "oauth2"]
 
         return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/template/files_as_data_uri/{template_id}',
+            method="GET",
+            resource_path="/template/files_as_data_uri/{template_id}",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1765,24 +1682,27 @@ class TemplateApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def template_files_as_file_url(
         self,
-        template_id: Annotated[StrictStr, Field(description="The id of the template files to retrieve.")],
-        force_download: Annotated[Optional[StrictInt], Field(description="By default when opening the `file_url` a browser will download the PDF and save it locally. When set to `0` the PDF file will be displayed in the browser.")] = None,
+        template_id: Annotated[
+            StrictStr, Field(description="The id of the template files to retrieve.")
+        ],
+        force_download: Annotated[
+            Optional[StrictInt],
+            Field(
+                description="By default when opening the `file_url` a browser will download the PDF and save it locally. When set to `0` the PDF file will be displayed in the browser."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1817,7 +1737,7 @@ class TemplateApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._template_files_as_file_url_serialize(
             template_id=template_id,
@@ -1825,16 +1745,15 @@ class TemplateApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "FileResponse",
-            '4XX': "ErrorResponse",
+            "200": "FileResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -1842,19 +1761,24 @@ class TemplateApi:
             response_types_map=_response_types_map,
         ).data
 
-
     @validate_call
     def template_files_as_file_url_with_http_info(
         self,
-        template_id: Annotated[StrictStr, Field(description="The id of the template files to retrieve.")],
-        force_download: Annotated[Optional[StrictInt], Field(description="By default when opening the `file_url` a browser will download the PDF and save it locally. When set to `0` the PDF file will be displayed in the browser.")] = None,
+        template_id: Annotated[
+            StrictStr, Field(description="The id of the template files to retrieve.")
+        ],
+        force_download: Annotated[
+            Optional[StrictInt],
+            Field(
+                description="By default when opening the `file_url` a browser will download the PDF and save it locally. When set to `0` the PDF file will be displayed in the browser."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1889,7 +1813,7 @@ class TemplateApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._template_files_as_file_url_serialize(
             template_id=template_id,
@@ -1897,16 +1821,15 @@ class TemplateApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "FileResponse",
-            '4XX': "ErrorResponse",
+            "200": "FileResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -1914,19 +1837,24 @@ class TemplateApi:
             response_types_map=_response_types_map,
         )
 
-
     @validate_call
     def template_files_as_file_url_without_preload_content(
         self,
-        template_id: Annotated[StrictStr, Field(description="The id of the template files to retrieve.")],
-        force_download: Annotated[Optional[StrictInt], Field(description="By default when opening the `file_url` a browser will download the PDF and save it locally. When set to `0` the PDF file will be displayed in the browser.")] = None,
+        template_id: Annotated[
+            StrictStr, Field(description="The id of the template files to retrieve.")
+        ],
+        force_download: Annotated[
+            Optional[StrictInt],
+            Field(
+                description="By default when opening the `file_url` a browser will download the PDF and save it locally. When set to `0` the PDF file will be displayed in the browser."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1961,7 +1889,7 @@ class TemplateApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._template_files_as_file_url_serialize(
             template_id=template_id,
@@ -1969,19 +1897,17 @@ class TemplateApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "FileResponse",
-            '4XX': "ErrorResponse",
+            "200": "FileResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _template_files_as_file_url_serialize(
         self,
@@ -1995,8 +1921,7 @@ class TemplateApi:
 
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -2007,35 +1932,28 @@ class TemplateApi:
 
         # process the path parameters
         if template_id is not None:
-            _path_params['template_id'] = template_id
+            _path_params["template_id"] = template_id
         # process the query parameters
         if force_download is not None:
-            
-            _query_params.append(('force_download', force_download))
-            
+
+            _query_params.append(("force_download", force_download))
+
         # process the header parameters
         # process the form parameters
         # process the body parameter
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json"]
             )
 
-
         # authentication setting
-        _auth_settings: List[str] = [
-            'api_key', 
-            'oauth2'
-        ]
+        _auth_settings: List[str] = ["api_key", "oauth2"]
 
         return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/template/files_as_file_url/{template_id}',
+            method="GET",
+            resource_path="/template/files_as_file_url/{template_id}",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2045,23 +1963,21 @@ class TemplateApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def template_get(
         self,
-        template_id: Annotated[StrictStr, Field(description="The id of the Template to retrieve.")],
+        template_id: Annotated[
+            StrictStr, Field(description="The id of the Template to retrieve.")
+        ],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -2094,23 +2010,22 @@ class TemplateApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._template_get_serialize(
             template_id=template_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "TemplateGetResponse",
-            '4XX': "ErrorResponse",
+            "200": "TemplateGetResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -2118,18 +2033,18 @@ class TemplateApi:
             response_types_map=_response_types_map,
         ).data
 
-
     @validate_call
     def template_get_with_http_info(
         self,
-        template_id: Annotated[StrictStr, Field(description="The id of the Template to retrieve.")],
+        template_id: Annotated[
+            StrictStr, Field(description="The id of the Template to retrieve.")
+        ],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -2162,23 +2077,22 @@ class TemplateApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._template_get_serialize(
             template_id=template_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "TemplateGetResponse",
-            '4XX': "ErrorResponse",
+            "200": "TemplateGetResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -2186,18 +2100,18 @@ class TemplateApi:
             response_types_map=_response_types_map,
         )
 
-
     @validate_call
     def template_get_without_preload_content(
         self,
-        template_id: Annotated[StrictStr, Field(description="The id of the Template to retrieve.")],
+        template_id: Annotated[
+            StrictStr, Field(description="The id of the Template to retrieve.")
+        ],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -2230,26 +2144,24 @@ class TemplateApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._template_get_serialize(
             template_id=template_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "TemplateGetResponse",
-            '4XX': "ErrorResponse",
+            "200": "TemplateGetResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _template_get_serialize(
         self,
@@ -2262,8 +2174,7 @@ class TemplateApi:
 
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -2274,31 +2185,24 @@ class TemplateApi:
 
         # process the path parameters
         if template_id is not None:
-            _path_params['template_id'] = template_id
+            _path_params["template_id"] = template_id
         # process the query parameters
         # process the header parameters
         # process the form parameters
         # process the body parameter
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json"]
             )
 
-
         # authentication setting
-        _auth_settings: List[str] = [
-            'api_key', 
-            'oauth2'
-        ]
+        _auth_settings: List[str] = ["api_key", "oauth2"]
 
         return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/template/{template_id}',
+            method="GET",
+            resource_path="/template/{template_id}",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2308,26 +2212,42 @@ class TemplateApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def template_list(
         self,
-        account_id: Annotated[Optional[StrictStr], Field(description="Which account to return Templates for. Must be a team member. Use `all` to indicate all team members. Defaults to your account.")] = None,
-        page: Annotated[Optional[StrictInt], Field(description="Which page number of the Template List to return. Defaults to `1`.")] = None,
-        page_size: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="Number of objects to be returned per page. Must be between `1` and `100`. Default is `20`.")] = None,
-        query: Annotated[Optional[StrictStr], Field(description="String that includes search terms and/or fields to be used to filter the Template objects.")] = None,
+        account_id: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="Which account to return Templates for. Must be a team member. Use `all` to indicate all team members. Defaults to your account."
+            ),
+        ] = None,
+        page: Annotated[
+            Optional[StrictInt],
+            Field(
+                description="Which page number of the Template List to return. Defaults to `1`."
+            ),
+        ] = None,
+        page_size: Annotated[
+            Optional[Annotated[int, Field(le=100, strict=True, ge=1)]],
+            Field(
+                description="Number of objects to be returned per page. Must be between `1` and `100`. Default is `20`."
+            ),
+        ] = None,
+        query: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="String that includes search terms and/or fields to be used to filter the Template objects."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -2366,7 +2286,7 @@ class TemplateApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._template_list_serialize(
             account_id=account_id,
@@ -2376,16 +2296,15 @@ class TemplateApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "TemplateListResponse",
-            '4XX': "ErrorResponse",
+            "200": "TemplateListResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -2393,21 +2312,39 @@ class TemplateApi:
             response_types_map=_response_types_map,
         ).data
 
-
     @validate_call
     def template_list_with_http_info(
         self,
-        account_id: Annotated[Optional[StrictStr], Field(description="Which account to return Templates for. Must be a team member. Use `all` to indicate all team members. Defaults to your account.")] = None,
-        page: Annotated[Optional[StrictInt], Field(description="Which page number of the Template List to return. Defaults to `1`.")] = None,
-        page_size: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="Number of objects to be returned per page. Must be between `1` and `100`. Default is `20`.")] = None,
-        query: Annotated[Optional[StrictStr], Field(description="String that includes search terms and/or fields to be used to filter the Template objects.")] = None,
+        account_id: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="Which account to return Templates for. Must be a team member. Use `all` to indicate all team members. Defaults to your account."
+            ),
+        ] = None,
+        page: Annotated[
+            Optional[StrictInt],
+            Field(
+                description="Which page number of the Template List to return. Defaults to `1`."
+            ),
+        ] = None,
+        page_size: Annotated[
+            Optional[Annotated[int, Field(le=100, strict=True, ge=1)]],
+            Field(
+                description="Number of objects to be returned per page. Must be between `1` and `100`. Default is `20`."
+            ),
+        ] = None,
+        query: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="String that includes search terms and/or fields to be used to filter the Template objects."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -2446,7 +2383,7 @@ class TemplateApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._template_list_serialize(
             account_id=account_id,
@@ -2456,16 +2393,15 @@ class TemplateApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "TemplateListResponse",
-            '4XX': "ErrorResponse",
+            "200": "TemplateListResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -2473,21 +2409,39 @@ class TemplateApi:
             response_types_map=_response_types_map,
         )
 
-
     @validate_call
     def template_list_without_preload_content(
         self,
-        account_id: Annotated[Optional[StrictStr], Field(description="Which account to return Templates for. Must be a team member. Use `all` to indicate all team members. Defaults to your account.")] = None,
-        page: Annotated[Optional[StrictInt], Field(description="Which page number of the Template List to return. Defaults to `1`.")] = None,
-        page_size: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="Number of objects to be returned per page. Must be between `1` and `100`. Default is `20`.")] = None,
-        query: Annotated[Optional[StrictStr], Field(description="String that includes search terms and/or fields to be used to filter the Template objects.")] = None,
+        account_id: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="Which account to return Templates for. Must be a team member. Use `all` to indicate all team members. Defaults to your account."
+            ),
+        ] = None,
+        page: Annotated[
+            Optional[StrictInt],
+            Field(
+                description="Which page number of the Template List to return. Defaults to `1`."
+            ),
+        ] = None,
+        page_size: Annotated[
+            Optional[Annotated[int, Field(le=100, strict=True, ge=1)]],
+            Field(
+                description="Number of objects to be returned per page. Must be between `1` and `100`. Default is `20`."
+            ),
+        ] = None,
+        query: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="String that includes search terms and/or fields to be used to filter the Template objects."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -2526,7 +2480,7 @@ class TemplateApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._template_list_serialize(
             account_id=account_id,
@@ -2536,19 +2490,17 @@ class TemplateApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "TemplateListResponse",
-            '4XX': "ErrorResponse",
+            "200": "TemplateListResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _template_list_serialize(
         self,
@@ -2564,8 +2516,7 @@ class TemplateApi:
 
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -2577,44 +2528,37 @@ class TemplateApi:
         # process the path parameters
         # process the query parameters
         if account_id is not None:
-            
-            _query_params.append(('account_id', account_id))
-            
+
+            _query_params.append(("account_id", account_id))
+
         if page is not None:
-            
-            _query_params.append(('page', page))
-            
+
+            _query_params.append(("page", page))
+
         if page_size is not None:
-            
-            _query_params.append(('page_size', page_size))
-            
+
+            _query_params.append(("page_size", page_size))
+
         if query is not None:
-            
-            _query_params.append(('query', query))
-            
+
+            _query_params.append(("query", query))
+
         # process the header parameters
         # process the form parameters
         # process the body parameter
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json"]
             )
 
-
         # authentication setting
-        _auth_settings: List[str] = [
-            'api_key', 
-            'oauth2'
-        ]
+        _auth_settings: List[str] = ["api_key", "oauth2"]
 
         return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/template/list',
+            method="GET",
+            resource_path="/template/list",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2624,24 +2568,25 @@ class TemplateApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def template_remove_user(
         self,
-        template_id: Annotated[StrictStr, Field(description="The id of the Template to remove the Account's access to.")],
+        template_id: Annotated[
+            StrictStr,
+            Field(
+                description="The id of the Template to remove the Account's access to."
+            ),
+        ],
         template_remove_user_request: TemplateRemoveUserRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -2676,7 +2621,7 @@ class TemplateApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._template_remove_user_serialize(
             template_id=template_id,
@@ -2684,16 +2629,15 @@ class TemplateApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "TemplateGetResponse",
-            '4XX': "ErrorResponse",
+            "200": "TemplateGetResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -2701,19 +2645,22 @@ class TemplateApi:
             response_types_map=_response_types_map,
         ).data
 
-
     @validate_call
     def template_remove_user_with_http_info(
         self,
-        template_id: Annotated[StrictStr, Field(description="The id of the Template to remove the Account's access to.")],
+        template_id: Annotated[
+            StrictStr,
+            Field(
+                description="The id of the Template to remove the Account's access to."
+            ),
+        ],
         template_remove_user_request: TemplateRemoveUserRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -2748,7 +2695,7 @@ class TemplateApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._template_remove_user_serialize(
             template_id=template_id,
@@ -2756,16 +2703,15 @@ class TemplateApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "TemplateGetResponse",
-            '4XX': "ErrorResponse",
+            "200": "TemplateGetResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -2773,19 +2719,22 @@ class TemplateApi:
             response_types_map=_response_types_map,
         )
 
-
     @validate_call
     def template_remove_user_without_preload_content(
         self,
-        template_id: Annotated[StrictStr, Field(description="The id of the Template to remove the Account's access to.")],
+        template_id: Annotated[
+            StrictStr,
+            Field(
+                description="The id of the Template to remove the Account's access to."
+            ),
+        ],
         template_remove_user_request: TemplateRemoveUserRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -2820,7 +2769,7 @@ class TemplateApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._template_remove_user_serialize(
             template_id=template_id,
@@ -2828,19 +2777,17 @@ class TemplateApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "TemplateGetResponse",
-            '4XX': "ErrorResponse",
+            "200": "TemplateGetResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _template_remove_user_serialize(
         self,
@@ -2854,8 +2801,7 @@ class TemplateApi:
 
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -2879,7 +2825,7 @@ class TemplateApi:
 
                 if isinstance(param_value, list):
                     for index, item in enumerate(param_value):
-                        _files[f'{param_name}[{index}]'] = item
+                        _files[f"{param_name}[{index}]"] = item
                 else:
                     _files[param_name] = param_value
 
@@ -2888,7 +2834,7 @@ class TemplateApi:
 
         # process the path parameters
         if template_id is not None:
-            _path_params['template_id'] = template_id
+            _path_params["template_id"] = template_id
         # process the query parameters
         # process the header parameters
         # process the form parameters
@@ -2896,38 +2842,28 @@ class TemplateApi:
         if template_remove_user_request is not None and has_files is False:
             _body_params = template_remove_user_request
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json"]
             )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'api_key', 
-            'oauth2'
-        ]
+        _auth_settings: List[str] = ["api_key", "oauth2"]
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/template/remove_user/{template_id}',
+            method="POST",
+            resource_path="/template/remove_user/{template_id}",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2937,24 +2873,23 @@ class TemplateApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def template_update_files(
         self,
-        template_id: Annotated[StrictStr, Field(description="The ID of the template whose files to update.")],
+        template_id: Annotated[
+            StrictStr,
+            Field(description="The ID of the template whose files to update."),
+        ],
         template_update_files_request: TemplateUpdateFilesRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -2989,7 +2924,7 @@ class TemplateApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._template_update_files_serialize(
             template_id=template_id,
@@ -2997,16 +2932,15 @@ class TemplateApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "TemplateUpdateFilesResponse",
-            '4XX': "ErrorResponse",
+            "200": "TemplateUpdateFilesResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -3014,19 +2948,20 @@ class TemplateApi:
             response_types_map=_response_types_map,
         ).data
 
-
     @validate_call
     def template_update_files_with_http_info(
         self,
-        template_id: Annotated[StrictStr, Field(description="The ID of the template whose files to update.")],
+        template_id: Annotated[
+            StrictStr,
+            Field(description="The ID of the template whose files to update."),
+        ],
         template_update_files_request: TemplateUpdateFilesRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -3061,7 +2996,7 @@ class TemplateApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._template_update_files_serialize(
             template_id=template_id,
@@ -3069,16 +3004,15 @@ class TemplateApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "TemplateUpdateFilesResponse",
-            '4XX': "ErrorResponse",
+            "200": "TemplateUpdateFilesResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -3086,19 +3020,20 @@ class TemplateApi:
             response_types_map=_response_types_map,
         )
 
-
     @validate_call
     def template_update_files_without_preload_content(
         self,
-        template_id: Annotated[StrictStr, Field(description="The ID of the template whose files to update.")],
+        template_id: Annotated[
+            StrictStr,
+            Field(description="The ID of the template whose files to update."),
+        ],
         template_update_files_request: TemplateUpdateFilesRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -3133,7 +3068,7 @@ class TemplateApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._template_update_files_serialize(
             template_id=template_id,
@@ -3141,19 +3076,17 @@ class TemplateApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "TemplateUpdateFilesResponse",
-            '4XX': "ErrorResponse",
+            "200": "TemplateUpdateFilesResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _template_update_files_serialize(
         self,
@@ -3167,8 +3100,7 @@ class TemplateApi:
 
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -3192,7 +3124,7 @@ class TemplateApi:
 
                 if isinstance(param_value, list):
                     for index, item in enumerate(param_value):
-                        _files[f'{param_name}[{index}]'] = item
+                        _files[f"{param_name}[{index}]"] = item
                 else:
                     _files[param_name] = param_value
 
@@ -3201,7 +3133,7 @@ class TemplateApi:
 
         # process the path parameters
         if template_id is not None:
-            _path_params['template_id'] = template_id
+            _path_params["template_id"] = template_id
         # process the query parameters
         # process the header parameters
         # process the form parameters
@@ -3209,39 +3141,28 @@ class TemplateApi:
         if template_update_files_request is not None and has_files is False:
             _body_params = template_update_files_request
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json"]
             )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json', 
-                        'multipart/form-data'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json", "multipart/form-data"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'api_key', 
-            'oauth2'
-        ]
+        _auth_settings: List[str] = ["api_key", "oauth2"]
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/template/update_files/{template_id}',
+            method="POST",
+            resource_path="/template/update_files/{template_id}",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -3251,7 +3172,5 @@ class TemplateApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-

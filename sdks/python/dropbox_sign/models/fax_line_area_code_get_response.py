@@ -26,10 +26,12 @@ import io
 from pydantic import StrictBool
 from typing import Union
 
+
 class FaxLineAreaCodeGetResponse(BaseModel):
     """
     FaxLineAreaCodeGetResponse
-    """ # noqa: E501
+    """  # noqa: E501
+
     area_codes: List[StrictInt]
     __properties: ClassVar[List[str]] = ["area_codes"]
 
@@ -40,7 +42,6 @@ class FaxLineAreaCodeGetResponse(BaseModel):
         arbitrary_types_allowed=True,
     )
 
-
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
         return pprint.pformat(self.model_dump(by_alias=True))
@@ -50,7 +51,9 @@ class FaxLineAreaCodeGetResponse(BaseModel):
         # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
-    def to_json_form_params(self, excluded_fields: Set[str] = None) -> List[Tuple[str, str]]:
+    def to_json_form_params(
+        self, excluded_fields: Set[str] = None
+    ) -> List[Tuple[str, str]]:
         data: List[Tuple[str, str]] = []
 
         for key, value in self.to_dict(excluded_fields).items():
@@ -93,9 +96,7 @@ class FaxLineAreaCodeGetResponse(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "area_codes": obj.get("area_codes")
-        })
+        _obj = cls.model_validate({"area_codes": obj.get("area_codes")})
         return _obj
 
     @classmethod
@@ -119,4 +120,3 @@ class FaxLineAreaCodeGetResponse(BaseModel):
         return property_name in [
             "area_codes",
         ]
-

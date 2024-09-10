@@ -27,26 +27,50 @@ import io
 from pydantic import StrictBool
 from typing import Union
 
+
 class SubSignatureRequestSigner(BaseModel):
     """
     SubSignatureRequestSigner
-    """ # noqa: E501
+    """  # noqa: E501
+
     name: StrictStr = Field(description="The name of the signer.")
     email_address: StrictStr = Field(description="The email address of the signer.")
-    order: Optional[StrictInt] = Field(default=None, description="The order the signer is required to sign in.")
-    pin: Optional[Annotated[str, Field(min_length=4, strict=True, max_length=12)]] = Field(default=None, description="The 4- to 12-character access code that will secure this signer's signature page.")
-    sms_phone_number: Optional[StrictStr] = Field(default=None, description="An E.164 formatted phone number.  By using the feature, you agree you are responsible for obtaining a signer's consent to receive text messages from Dropbox Sign related to this signature request and confirm you have obtained such consent from all signers prior to enabling SMS delivery for this signature request. [Learn more](https://faq.hellosign.com/hc/en-us/articles/15815316468877-Dropbox-Sign-SMS-tools-add-on).  **NOTE:** Not available in test mode and requires a Standard plan or higher.")
-    sms_phone_number_type: Optional[StrictStr] = Field(default=None, description="Specifies the feature used with the `sms_phone_number`. Default `authentication`.  If `authentication`, signer is sent a verification code via SMS that is required to access the document.  If `delivery`, a link to complete the signature request is delivered via SMS (_and_ email).")
-    __properties: ClassVar[List[str]] = ["name", "email_address", "order", "pin", "sms_phone_number", "sms_phone_number_type"]
+    order: Optional[StrictInt] = Field(
+        default=None, description="The order the signer is required to sign in."
+    )
+    pin: Optional[Annotated[str, Field(min_length=4, strict=True, max_length=12)]] = (
+        Field(
+            default=None,
+            description="The 4- to 12-character access code that will secure this signer's signature page.",
+        )
+    )
+    sms_phone_number: Optional[StrictStr] = Field(
+        default=None,
+        description="An E.164 formatted phone number.  By using the feature, you agree you are responsible for obtaining a signer's consent to receive text messages from Dropbox Sign related to this signature request and confirm you have obtained such consent from all signers prior to enabling SMS delivery for this signature request. [Learn more](https://faq.hellosign.com/hc/en-us/articles/15815316468877-Dropbox-Sign-SMS-tools-add-on).  **NOTE:** Not available in test mode and requires a Standard plan or higher.",
+    )
+    sms_phone_number_type: Optional[StrictStr] = Field(
+        default=None,
+        description="Specifies the feature used with the `sms_phone_number`. Default `authentication`.  If `authentication`, signer is sent a verification code via SMS that is required to access the document.  If `delivery`, a link to complete the signature request is delivered via SMS (_and_ email).",
+    )
+    __properties: ClassVar[List[str]] = [
+        "name",
+        "email_address",
+        "order",
+        "pin",
+        "sms_phone_number",
+        "sms_phone_number_type",
+    ]
 
-    @field_validator('sms_phone_number_type')
+    @field_validator("sms_phone_number_type")
     def sms_phone_number_type_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
             return value
 
-        if value not in set(['authentication', 'delivery']):
-            raise ValueError("must be one of enum values ('authentication', 'delivery')")
+        if value not in set(["authentication", "delivery"]):
+            raise ValueError(
+                "must be one of enum values ('authentication', 'delivery')"
+            )
         return value
 
     model_config = ConfigDict(
@@ -55,7 +79,6 @@ class SubSignatureRequestSigner(BaseModel):
         protected_namespaces=(),
         arbitrary_types_allowed=True,
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -66,7 +89,9 @@ class SubSignatureRequestSigner(BaseModel):
         # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
-    def to_json_form_params(self, excluded_fields: Set[str] = None) -> List[Tuple[str, str]]:
+    def to_json_form_params(
+        self, excluded_fields: Set[str] = None
+    ) -> List[Tuple[str, str]]:
         data: List[Tuple[str, str]] = []
 
         for key, value in self.to_dict(excluded_fields).items():
@@ -109,14 +134,16 @@ class SubSignatureRequestSigner(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "name": obj.get("name"),
-            "email_address": obj.get("email_address"),
-            "order": obj.get("order"),
-            "pin": obj.get("pin"),
-            "sms_phone_number": obj.get("sms_phone_number"),
-            "sms_phone_number_type": obj.get("sms_phone_number_type")
-        })
+        _obj = cls.model_validate(
+            {
+                "name": obj.get("name"),
+                "email_address": obj.get("email_address"),
+                "order": obj.get("order"),
+                "pin": obj.get("pin"),
+                "sms_phone_number": obj.get("sms_phone_number"),
+                "sms_phone_number_type": obj.get("sms_phone_number_type"),
+            }
+        )
         return _obj
 
     @classmethod
@@ -142,6 +169,4 @@ class SubSignatureRequestSigner(BaseModel):
 
     @classmethod
     def openapi_type_is_array(cls, property_name: str) -> bool:
-        return property_name in [
-        ]
-
+        return property_name in []

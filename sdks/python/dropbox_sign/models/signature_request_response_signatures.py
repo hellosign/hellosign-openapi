@@ -26,30 +26,101 @@ import io
 from pydantic import StrictBool
 from typing import Union
 
+
 class SignatureRequestResponseSignatures(BaseModel):
     """
     An array of signature objects, 1 for each signer.
-    """ # noqa: E501
-    signature_id: Optional[StrictStr] = Field(default=None, description="Signature identifier.")
-    signer_group_guid: Optional[StrictStr] = Field(default=None, description="Signer Group GUID")
-    signer_email_address: Optional[StrictStr] = Field(default=None, description="The email address of the signer.")
-    signer_name: Optional[StrictStr] = Field(default=None, description="The name of the signer.")
-    signer_role: Optional[StrictStr] = Field(default=None, description="The role of the signer.")
-    order: Optional[StrictInt] = Field(default=None, description="If signer order is assigned this is the 0-based index for this signer.")
-    status_code: Optional[StrictStr] = Field(default=None, description="The current status of the signature. eg: awaiting_signature, signed, declined.")
-    decline_reason: Optional[StrictStr] = Field(default=None, description="The reason provided by the signer for declining the request.")
-    signed_at: Optional[StrictInt] = Field(default=None, description="Time that the document was signed or null.")
-    last_viewed_at: Optional[StrictInt] = Field(default=None, description="The time that the document was last viewed by this signer or null.")
-    last_reminded_at: Optional[StrictInt] = Field(default=None, description="The time the last reminder email was sent to the signer or null.")
-    has_pin: Optional[StrictBool] = Field(default=None, description="Boolean to indicate whether this signature requires a PIN to access.")
-    has_sms_auth: Optional[StrictBool] = Field(default=None, description="Boolean to indicate whether this signature has SMS authentication enabled.")
-    has_sms_delivery: Optional[StrictBool] = Field(default=None, description="Boolean to indicate whether this signature has SMS delivery enabled.")
-    sms_phone_number: Optional[StrictStr] = Field(default=None, description="The SMS phone number used for authentication or signature request delivery.")
-    reassigned_by: Optional[StrictStr] = Field(default=None, description="Email address of original signer who reassigned to this signer.")
-    reassignment_reason: Optional[StrictStr] = Field(default=None, description="Reason provided by original signer who reassigned to this signer.")
-    reassigned_from: Optional[StrictStr] = Field(default=None, description="Previous signature identifier.")
-    error: Optional[StrictStr] = Field(default=None, description="Error message pertaining to this signer, or null.")
-    __properties: ClassVar[List[str]] = ["signature_id", "signer_group_guid", "signer_email_address", "signer_name", "signer_role", "order", "status_code", "decline_reason", "signed_at", "last_viewed_at", "last_reminded_at", "has_pin", "has_sms_auth", "has_sms_delivery", "sms_phone_number", "reassigned_by", "reassignment_reason", "reassigned_from", "error"]
+    """  # noqa: E501
+
+    signature_id: Optional[StrictStr] = Field(
+        default=None, description="Signature identifier."
+    )
+    signer_group_guid: Optional[StrictStr] = Field(
+        default=None, description="Signer Group GUID"
+    )
+    signer_email_address: Optional[StrictStr] = Field(
+        default=None, description="The email address of the signer."
+    )
+    signer_name: Optional[StrictStr] = Field(
+        default=None, description="The name of the signer."
+    )
+    signer_role: Optional[StrictStr] = Field(
+        default=None, description="The role of the signer."
+    )
+    order: Optional[StrictInt] = Field(
+        default=None,
+        description="If signer order is assigned this is the 0-based index for this signer.",
+    )
+    status_code: Optional[StrictStr] = Field(
+        default=None,
+        description="The current status of the signature. eg: awaiting_signature, signed, declined.",
+    )
+    decline_reason: Optional[StrictStr] = Field(
+        default=None,
+        description="The reason provided by the signer for declining the request.",
+    )
+    signed_at: Optional[StrictInt] = Field(
+        default=None, description="Time that the document was signed or null."
+    )
+    last_viewed_at: Optional[StrictInt] = Field(
+        default=None,
+        description="The time that the document was last viewed by this signer or null.",
+    )
+    last_reminded_at: Optional[StrictInt] = Field(
+        default=None,
+        description="The time the last reminder email was sent to the signer or null.",
+    )
+    has_pin: Optional[StrictBool] = Field(
+        default=None,
+        description="Boolean to indicate whether this signature requires a PIN to access.",
+    )
+    has_sms_auth: Optional[StrictBool] = Field(
+        default=None,
+        description="Boolean to indicate whether this signature has SMS authentication enabled.",
+    )
+    has_sms_delivery: Optional[StrictBool] = Field(
+        default=None,
+        description="Boolean to indicate whether this signature has SMS delivery enabled.",
+    )
+    sms_phone_number: Optional[StrictStr] = Field(
+        default=None,
+        description="The SMS phone number used for authentication or signature request delivery.",
+    )
+    reassigned_by: Optional[StrictStr] = Field(
+        default=None,
+        description="Email address of original signer who reassigned to this signer.",
+    )
+    reassignment_reason: Optional[StrictStr] = Field(
+        default=None,
+        description="Reason provided by original signer who reassigned to this signer.",
+    )
+    reassigned_from: Optional[StrictStr] = Field(
+        default=None, description="Previous signature identifier."
+    )
+    error: Optional[StrictStr] = Field(
+        default=None, description="Error message pertaining to this signer, or null."
+    )
+    __properties: ClassVar[List[str]] = [
+        "signature_id",
+        "signer_group_guid",
+        "signer_email_address",
+        "signer_name",
+        "signer_role",
+        "order",
+        "status_code",
+        "decline_reason",
+        "signed_at",
+        "last_viewed_at",
+        "last_reminded_at",
+        "has_pin",
+        "has_sms_auth",
+        "has_sms_delivery",
+        "sms_phone_number",
+        "reassigned_by",
+        "reassignment_reason",
+        "reassigned_from",
+        "error",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -57,7 +128,6 @@ class SignatureRequestResponseSignatures(BaseModel):
         protected_namespaces=(),
         arbitrary_types_allowed=True,
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -68,7 +138,9 @@ class SignatureRequestResponseSignatures(BaseModel):
         # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
-    def to_json_form_params(self, excluded_fields: Set[str] = None) -> List[Tuple[str, str]]:
+    def to_json_form_params(
+        self, excluded_fields: Set[str] = None
+    ) -> List[Tuple[str, str]]:
         data: List[Tuple[str, str]] = []
 
         for key, value in self.to_dict(excluded_fields).items():
@@ -111,27 +183,29 @@ class SignatureRequestResponseSignatures(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "signature_id": obj.get("signature_id"),
-            "signer_group_guid": obj.get("signer_group_guid"),
-            "signer_email_address": obj.get("signer_email_address"),
-            "signer_name": obj.get("signer_name"),
-            "signer_role": obj.get("signer_role"),
-            "order": obj.get("order"),
-            "status_code": obj.get("status_code"),
-            "decline_reason": obj.get("decline_reason"),
-            "signed_at": obj.get("signed_at"),
-            "last_viewed_at": obj.get("last_viewed_at"),
-            "last_reminded_at": obj.get("last_reminded_at"),
-            "has_pin": obj.get("has_pin"),
-            "has_sms_auth": obj.get("has_sms_auth"),
-            "has_sms_delivery": obj.get("has_sms_delivery"),
-            "sms_phone_number": obj.get("sms_phone_number"),
-            "reassigned_by": obj.get("reassigned_by"),
-            "reassignment_reason": obj.get("reassignment_reason"),
-            "reassigned_from": obj.get("reassigned_from"),
-            "error": obj.get("error")
-        })
+        _obj = cls.model_validate(
+            {
+                "signature_id": obj.get("signature_id"),
+                "signer_group_guid": obj.get("signer_group_guid"),
+                "signer_email_address": obj.get("signer_email_address"),
+                "signer_name": obj.get("signer_name"),
+                "signer_role": obj.get("signer_role"),
+                "order": obj.get("order"),
+                "status_code": obj.get("status_code"),
+                "decline_reason": obj.get("decline_reason"),
+                "signed_at": obj.get("signed_at"),
+                "last_viewed_at": obj.get("last_viewed_at"),
+                "last_reminded_at": obj.get("last_reminded_at"),
+                "has_pin": obj.get("has_pin"),
+                "has_sms_auth": obj.get("has_sms_auth"),
+                "has_sms_delivery": obj.get("has_sms_delivery"),
+                "sms_phone_number": obj.get("sms_phone_number"),
+                "reassigned_by": obj.get("reassigned_by"),
+                "reassignment_reason": obj.get("reassignment_reason"),
+                "reassigned_from": obj.get("reassigned_from"),
+                "error": obj.get("error"),
+            }
+        )
         return _obj
 
     @classmethod
@@ -170,6 +244,4 @@ class SignatureRequestResponseSignatures(BaseModel):
 
     @classmethod
     def openapi_type_is_array(cls, property_name: str) -> bool:
-        return property_name in [
-        ]
-
+        return property_name in []

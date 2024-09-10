@@ -27,17 +27,42 @@ import io
 from pydantic import StrictBool
 from typing import Union
 
+
 class TemplateUpdateFilesRequest(BaseModel):
     """
     TemplateUpdateFilesRequest
-    """ # noqa: E501
-    client_id: Optional[StrictStr] = Field(default=None, description="Client id of the app you're using to update this template.")
-    files: Optional[List[Union[StrictBytes, StrictStr, io.IOBase]]] = Field(default=None, description="Use `files[]` to indicate the uploaded file(s) to use for the template.  This endpoint requires either **files** or **file_urls[]**, but not both.")
-    file_urls: Optional[List[StrictStr]] = Field(default=None, description="Use `file_urls[]` to have Dropbox Sign download the file(s) to use for the template.  This endpoint requires either **files** or **file_urls[]**, but not both.")
-    message: Optional[Annotated[str, Field(strict=True, max_length=5000)]] = Field(default=None, description="The new default template email message.")
-    subject: Optional[Annotated[str, Field(strict=True, max_length=100)]] = Field(default=None, description="The new default template email subject.")
-    test_mode: Optional[StrictBool] = Field(default=False, description="Whether this is a test, the signature request created from this draft will not be legally binding if set to `true`. Defaults to `false`.")
-    __properties: ClassVar[List[str]] = ["client_id", "files", "file_urls", "message", "subject", "test_mode"]
+    """  # noqa: E501
+
+    client_id: Optional[StrictStr] = Field(
+        default=None,
+        description="Client id of the app you're using to update this template.",
+    )
+    files: Optional[List[Union[StrictBytes, StrictStr, io.IOBase]]] = Field(
+        default=None,
+        description="Use `files[]` to indicate the uploaded file(s) to use for the template.  This endpoint requires either **files** or **file_urls[]**, but not both.",
+    )
+    file_urls: Optional[List[StrictStr]] = Field(
+        default=None,
+        description="Use `file_urls[]` to have Dropbox Sign download the file(s) to use for the template.  This endpoint requires either **files** or **file_urls[]**, but not both.",
+    )
+    message: Optional[Annotated[str, Field(strict=True, max_length=5000)]] = Field(
+        default=None, description="The new default template email message."
+    )
+    subject: Optional[Annotated[str, Field(strict=True, max_length=100)]] = Field(
+        default=None, description="The new default template email subject."
+    )
+    test_mode: Optional[StrictBool] = Field(
+        default=False,
+        description="Whether this is a test, the signature request created from this draft will not be legally binding if set to `true`. Defaults to `false`.",
+    )
+    __properties: ClassVar[List[str]] = [
+        "client_id",
+        "files",
+        "file_urls",
+        "message",
+        "subject",
+        "test_mode",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -45,7 +70,6 @@ class TemplateUpdateFilesRequest(BaseModel):
         protected_namespaces=(),
         arbitrary_types_allowed=True,
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -56,7 +80,9 @@ class TemplateUpdateFilesRequest(BaseModel):
         # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
-    def to_json_form_params(self, excluded_fields: Set[str] = None) -> List[Tuple[str, str]]:
+    def to_json_form_params(
+        self, excluded_fields: Set[str] = None
+    ) -> List[Tuple[str, str]]:
         data: List[Tuple[str, str]] = []
 
         for key, value in self.to_dict(excluded_fields).items():
@@ -99,14 +125,18 @@ class TemplateUpdateFilesRequest(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "client_id": obj.get("client_id"),
-            "files": obj.get("files"),
-            "file_urls": obj.get("file_urls"),
-            "message": obj.get("message"),
-            "subject": obj.get("subject"),
-            "test_mode": obj.get("test_mode") if obj.get("test_mode") is not None else False
-        })
+        _obj = cls.model_validate(
+            {
+                "client_id": obj.get("client_id"),
+                "files": obj.get("files"),
+                "file_urls": obj.get("file_urls"),
+                "message": obj.get("message"),
+                "subject": obj.get("subject"),
+                "test_mode": (
+                    obj.get("test_mode") if obj.get("test_mode") is not None else False
+                ),
+            }
+        )
         return _obj
 
     @classmethod
@@ -136,4 +166,3 @@ class TemplateUpdateFilesRequest(BaseModel):
             "files",
             "file_urls",
         ]
-

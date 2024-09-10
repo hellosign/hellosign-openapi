@@ -26,13 +26,19 @@ import io
 from pydantic import StrictBool
 from typing import Union
 
+
 class SubFormFieldGroup(BaseModel):
     """
     SubFormFieldGroup
-    """ # noqa: E501
-    group_id: StrictStr = Field(description="ID of group. Use this to reference a specific group from the `group` value in `form_fields_per_document`.")
+    """  # noqa: E501
+
+    group_id: StrictStr = Field(
+        description="ID of group. Use this to reference a specific group from the `group` value in `form_fields_per_document`."
+    )
     group_label: StrictStr = Field(description="Name of the group")
-    requirement: StrictStr = Field(description="Examples: `require_0-1` `require_1` `require_1-ormore`  - Check out the list of [acceptable `requirement` checkbox type values](/api/reference/constants/#checkbox-field-grouping). - Check out the list of [acceptable `requirement` radio type fields](/api/reference/constants/#radio-field-grouping). - Radio groups require **at least** two fields per group.")
+    requirement: StrictStr = Field(
+        description="Examples: `require_0-1` `require_1` `require_1-ormore`  - Check out the list of [acceptable `requirement` checkbox type values](/api/reference/constants/#checkbox-field-grouping). - Check out the list of [acceptable `requirement` radio type fields](/api/reference/constants/#radio-field-grouping). - Radio groups require **at least** two fields per group."
+    )
     __properties: ClassVar[List[str]] = ["group_id", "group_label", "requirement"]
 
     model_config = ConfigDict(
@@ -41,7 +47,6 @@ class SubFormFieldGroup(BaseModel):
         protected_namespaces=(),
         arbitrary_types_allowed=True,
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -52,7 +57,9 @@ class SubFormFieldGroup(BaseModel):
         # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
-    def to_json_form_params(self, excluded_fields: Set[str] = None) -> List[Tuple[str, str]]:
+    def to_json_form_params(
+        self, excluded_fields: Set[str] = None
+    ) -> List[Tuple[str, str]]:
         data: List[Tuple[str, str]] = []
 
         for key, value in self.to_dict(excluded_fields).items():
@@ -95,11 +102,13 @@ class SubFormFieldGroup(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "group_id": obj.get("group_id"),
-            "group_label": obj.get("group_label"),
-            "requirement": obj.get("requirement")
-        })
+        _obj = cls.model_validate(
+            {
+                "group_id": obj.get("group_id"),
+                "group_label": obj.get("group_label"),
+                "requirement": obj.get("requirement"),
+            }
+        )
         return _obj
 
     @classmethod
@@ -122,6 +131,4 @@ class SubFormFieldGroup(BaseModel):
 
     @classmethod
     def openapi_type_is_array(cls, property_name: str) -> bool:
-        return property_name in [
-        ]
-
+        return property_name in []

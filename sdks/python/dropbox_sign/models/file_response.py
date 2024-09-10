@@ -26,10 +26,12 @@ import io
 from pydantic import StrictBool
 from typing import Union
 
+
 class FileResponse(BaseModel):
     """
     FileResponse
-    """ # noqa: E501
+    """  # noqa: E501
+
     file_url: StrictStr = Field(description="URL to the file.")
     expires_at: StrictInt = Field(description="When the link expires.")
     __properties: ClassVar[List[str]] = ["file_url", "expires_at"]
@@ -41,7 +43,6 @@ class FileResponse(BaseModel):
         arbitrary_types_allowed=True,
     )
 
-
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
         return pprint.pformat(self.model_dump(by_alias=True))
@@ -51,7 +52,9 @@ class FileResponse(BaseModel):
         # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
-    def to_json_form_params(self, excluded_fields: Set[str] = None) -> List[Tuple[str, str]]:
+    def to_json_form_params(
+        self, excluded_fields: Set[str] = None
+    ) -> List[Tuple[str, str]]:
         data: List[Tuple[str, str]] = []
 
         for key, value in self.to_dict(excluded_fields).items():
@@ -94,10 +97,9 @@ class FileResponse(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "file_url": obj.get("file_url"),
-            "expires_at": obj.get("expires_at")
-        })
+        _obj = cls.model_validate(
+            {"file_url": obj.get("file_url"), "expires_at": obj.get("expires_at")}
+        )
         return _obj
 
     @classmethod
@@ -119,6 +121,4 @@ class FileResponse(BaseModel):
 
     @classmethod
     def openapi_type_is_array(cls, property_name: str) -> bool:
-        return property_name in [
-        ]
-
+        return property_name in []

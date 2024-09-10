@@ -27,16 +27,28 @@ import io
 from pydantic import StrictBool
 from typing import Union
 
+
 class TeamInfoResponse(BaseModel):
     """
     TeamInfoResponse
-    """ # noqa: E501
+    """  # noqa: E501
+
     team_id: Optional[StrictStr] = Field(default=None, description="The id of a team")
     team_parent: Optional[TeamParentResponse] = None
     name: Optional[StrictStr] = Field(default=None, description="The name of a team")
-    num_members: Optional[StrictInt] = Field(default=None, description="Number of members within a team")
-    num_sub_teams: Optional[StrictInt] = Field(default=None, description="Number of sub teams within a team")
-    __properties: ClassVar[List[str]] = ["team_id", "team_parent", "name", "num_members", "num_sub_teams"]
+    num_members: Optional[StrictInt] = Field(
+        default=None, description="Number of members within a team"
+    )
+    num_sub_teams: Optional[StrictInt] = Field(
+        default=None, description="Number of sub teams within a team"
+    )
+    __properties: ClassVar[List[str]] = [
+        "team_id",
+        "team_parent",
+        "name",
+        "num_members",
+        "num_sub_teams",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -44,7 +56,6 @@ class TeamInfoResponse(BaseModel):
         protected_namespaces=(),
         arbitrary_types_allowed=True,
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -55,7 +66,9 @@ class TeamInfoResponse(BaseModel):
         # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
-    def to_json_form_params(self, excluded_fields: Set[str] = None) -> List[Tuple[str, str]]:
+    def to_json_form_params(
+        self, excluded_fields: Set[str] = None
+    ) -> List[Tuple[str, str]]:
         data: List[Tuple[str, str]] = []
 
         for key, value in self.to_dict(excluded_fields).items():
@@ -89,7 +102,7 @@ class TeamInfoResponse(BaseModel):
         )
         # override the default output from pydantic by calling `to_dict()` of team_parent
         if self.team_parent:
-            _dict['team_parent'] = self.team_parent.to_dict()
+            _dict["team_parent"] = self.team_parent.to_dict()
         return _dict
 
     @classmethod
@@ -101,13 +114,19 @@ class TeamInfoResponse(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "team_id": obj.get("team_id"),
-            "team_parent": TeamParentResponse.from_dict(obj["team_parent"]) if obj.get("team_parent") is not None else None,
-            "name": obj.get("name"),
-            "num_members": obj.get("num_members"),
-            "num_sub_teams": obj.get("num_sub_teams")
-        })
+        _obj = cls.model_validate(
+            {
+                "team_id": obj.get("team_id"),
+                "team_parent": (
+                    TeamParentResponse.from_dict(obj["team_parent"])
+                    if obj.get("team_parent") is not None
+                    else None
+                ),
+                "name": obj.get("name"),
+                "num_members": obj.get("num_members"),
+                "num_sub_teams": obj.get("num_sub_teams"),
+            }
+        )
         return _obj
 
     @classmethod
@@ -132,6 +151,4 @@ class TeamInfoResponse(BaseModel):
 
     @classmethod
     def openapi_type_is_array(cls, property_name: str) -> bool:
-        return property_name in [
-        ]
-
+        return property_name in []

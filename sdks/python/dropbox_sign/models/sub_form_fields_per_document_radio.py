@@ -20,21 +20,45 @@ import json
 
 from pydantic import ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List
-from dropbox_sign.models.sub_form_fields_per_document_base import SubFormFieldsPerDocumentBase
+from dropbox_sign.models.sub_form_fields_per_document_base import (
+    SubFormFieldsPerDocumentBase,
+)
 from typing import Optional, Set, Tuple
 from typing_extensions import Self
 import io
 from pydantic import StrictBool
 from typing import Union
 
+
 class SubFormFieldsPerDocumentRadio(SubFormFieldsPerDocumentBase):
     """
     This class extends `SubFormFieldsPerDocumentBase`.
-    """ # noqa: E501
-    type: StrictStr = Field(description="An input field for radios. Use the `SubFormFieldsPerDocumentRadio` class.")
-    group: StrictStr = Field(description="String referencing group defined in `form_field_groups` parameter.")
-    is_checked: StrictBool = Field(description="`true` for checking the radio field by default, otherwise `false`. Only one radio field per group can be `true`.")
-    __properties: ClassVar[List[str]] = ["document_index", "api_id", "height", "required", "signer", "type", "width", "x", "y", "group", "is_checked", "name", "page"]
+    """  # noqa: E501
+
+    type: StrictStr = Field(
+        description="An input field for radios. Use the `SubFormFieldsPerDocumentRadio` class."
+    )
+    group: StrictStr = Field(
+        description="String referencing group defined in `form_field_groups` parameter."
+    )
+    is_checked: StrictBool = Field(
+        description="`true` for checking the radio field by default, otherwise `false`. Only one radio field per group can be `true`."
+    )
+    __properties: ClassVar[List[str]] = [
+        "document_index",
+        "api_id",
+        "height",
+        "required",
+        "signer",
+        "type",
+        "width",
+        "x",
+        "y",
+        "group",
+        "is_checked",
+        "name",
+        "page",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -42,7 +66,6 @@ class SubFormFieldsPerDocumentRadio(SubFormFieldsPerDocumentBase):
         protected_namespaces=(),
         arbitrary_types_allowed=True,
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -53,7 +76,9 @@ class SubFormFieldsPerDocumentRadio(SubFormFieldsPerDocumentBase):
         # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
-    def to_json_form_params(self, excluded_fields: Set[str] = None) -> List[Tuple[str, str]]:
+    def to_json_form_params(
+        self, excluded_fields: Set[str] = None
+    ) -> List[Tuple[str, str]]:
         data: List[Tuple[str, str]] = []
 
         for key, value in self.to_dict(excluded_fields).items():
@@ -96,21 +121,23 @@ class SubFormFieldsPerDocumentRadio(SubFormFieldsPerDocumentBase):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "document_index": obj.get("document_index"),
-            "api_id": obj.get("api_id"),
-            "height": obj.get("height"),
-            "required": obj.get("required"),
-            "signer": obj.get("signer"),
-            "type": obj.get("type") if obj.get("type") is not None else 'radio',
-            "width": obj.get("width"),
-            "x": obj.get("x"),
-            "y": obj.get("y"),
-            "group": obj.get("group"),
-            "is_checked": obj.get("is_checked"),
-            "name": obj.get("name"),
-            "page": obj.get("page")
-        })
+        _obj = cls.model_validate(
+            {
+                "document_index": obj.get("document_index"),
+                "api_id": obj.get("api_id"),
+                "height": obj.get("height"),
+                "required": obj.get("required"),
+                "signer": obj.get("signer"),
+                "type": obj.get("type") if obj.get("type") is not None else "radio",
+                "width": obj.get("width"),
+                "x": obj.get("x"),
+                "y": obj.get("y"),
+                "group": obj.get("group"),
+                "is_checked": obj.get("is_checked"),
+                "name": obj.get("name"),
+                "page": obj.get("page"),
+            }
+        )
         return _obj
 
     @classmethod
@@ -143,6 +170,4 @@ class SubFormFieldsPerDocumentRadio(SubFormFieldsPerDocumentBase):
 
     @classmethod
     def openapi_type_is_array(cls, property_name: str) -> bool:
-        return property_name in [
-        ]
-
+        return property_name in []

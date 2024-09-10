@@ -26,13 +26,11 @@ Creates a new API App.
 ```python
 from pprint import pprint
 
-from dropbox_sign import \
-    ApiClient, ApiException, Configuration, apis, models
+from dropbox_sign import ApiClient, ApiException, Configuration, apis, models
 
 configuration = Configuration(
     # Configure HTTP basic authorization: api_key
     username="YOUR_API_KEY",
-
     # or, configure Bearer (JWT) authorization: oauth2
     # access_token="YOUR_ACCESS_TOKEN",
 )
@@ -50,7 +48,7 @@ with ApiClient(configuration) as api_client:
         primary_button_text_color="#ffffff",
     )
 
-    custom_logo_file = open('./CustomLogoFile.png', 'rb')
+    custom_logo_file = open("./CustomLogoFile.png", "rb")
 
     data = models.ApiAppCreateRequest(
         name="My Production App",
@@ -109,13 +107,11 @@ Deletes an API App. Can only be invoked for apps you own.
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
-from dropbox_sign import \
-    ApiClient, ApiException, Configuration, apis
+from dropbox_sign import ApiClient, ApiException, Configuration, apis
 
 configuration = Configuration(
     # Configure HTTP basic authorization: api_key
     username="YOUR_API_KEY",
-
     # or, configure Bearer (JWT) authorization: oauth2
     # access_token="YOUR_ACCESS_TOKEN",
 )
@@ -175,13 +171,11 @@ Returns an object with information about an API App.
 ```python
 from pprint import pprint
 
-from dropbox_sign import \
-    ApiClient, ApiException, Configuration, apis
+from dropbox_sign import ApiClient, ApiException, Configuration, apis
 
 configuration = Configuration(
     # Configure HTTP basic authorization: api_key
     username="YOUR_API_KEY",
-
     # or, configure Bearer (JWT) authorization: oauth2
     # access_token="YOUR_ACCESS_TOKEN",
 )
@@ -242,13 +236,11 @@ Returns a list of API Apps that are accessible by you. If you are on a team with
 ```python
 from pprint import pprint
 
-from dropbox_sign import \
-    ApiClient, ApiException, Configuration, apis
+from dropbox_sign import ApiClient, ApiException, Configuration, apis
 
 configuration = Configuration(
     # Configure HTTP basic authorization: api_key
     username="YOUR_API_KEY",
-
     # or, configure Bearer (JWT) authorization: oauth2
     # access_token="YOUR_ACCESS_TOKEN",
 )
@@ -314,13 +306,11 @@ Updates an existing API App. Can only be invoked for apps you own. Only the fiel
 ```python
 from pprint import pprint
 
-from dropbox_sign import \
-    ApiClient, ApiException, Configuration, apis, models
+from dropbox_sign import ApiClient, ApiException, Configuration, apis, models
 
 configuration = Configuration(
     # Configure HTTP basic authorization: api_key
     username="YOUR_API_KEY",
-
     # or, configure Bearer (JWT) authorization: oauth2
     # access_token="YOUR_ACCESS_TOKEN",
 )
@@ -333,7 +323,7 @@ with ApiClient(configuration) as api_client:
         primary_button_text_color="#ffffff",
     )
 
-    custom_logo_file = open('./CustomLogoFile.png', 'rb')
+    custom_logo_file = open("./CustomLogoFile.png", "rb")
 
     data = models.ApiAppUpdateRequest(
         name="New Name",

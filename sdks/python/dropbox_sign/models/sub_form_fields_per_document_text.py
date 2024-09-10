@@ -18,50 +18,142 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import ConfigDict, Field, StrictBool, StrictInt, StrictStr, field_validator
+from pydantic import (
+    ConfigDict,
+    Field,
+    StrictBool,
+    StrictInt,
+    StrictStr,
+    field_validator,
+)
 from typing import Any, ClassVar, Dict, List, Optional
-from dropbox_sign.models.sub_form_fields_per_document_base import SubFormFieldsPerDocumentBase
+from dropbox_sign.models.sub_form_fields_per_document_base import (
+    SubFormFieldsPerDocumentBase,
+)
 from typing import Optional, Set, Tuple
 from typing_extensions import Self
 import io
 from pydantic import StrictBool
 from typing import Union
 
+
 class SubFormFieldsPerDocumentText(SubFormFieldsPerDocumentBase):
     """
     This class extends `SubFormFieldsPerDocumentBase`.
-    """ # noqa: E501
-    type: StrictStr = Field(description="A text input field. Use the `SubFormFieldsPerDocumentText` class.")
-    placeholder: Optional[StrictStr] = Field(default=None, description="Placeholder value for text field.")
-    auto_fill_type: Optional[StrictStr] = Field(default=None, description="Auto fill type for populating fields automatically. Check out the list of [auto fill types](/api/reference/constants/#auto-fill-types) to learn more about the possible values.")
-    link_id: Optional[StrictStr] = Field(default=None, description="Link two or more text fields. Enter data into one linked text field, which automatically fill all other linked text fields.")
-    masked: Optional[StrictBool] = Field(default=None, description="Masks entered data. For more information see [Masking sensitive information](https://faq.hellosign.com/hc/en-us/articles/360040742811-Masking-sensitive-information). `true` for masking the data in a text field, otherwise `false`.")
-    validation_type: Optional[StrictStr] = Field(default=None, description="Each text field may contain a `validation_type` parameter. Check out the list of [validation types](https://faq.hellosign.com/hc/en-us/articles/217115577) to learn more about the possible values.  **NOTE:** When using `custom_regex` you are required to pass a second parameter `validation_custom_regex` and you can optionally provide `validation_custom_regex_format_label` for the error message the user will see in case of an invalid value.")
+    """  # noqa: E501
+
+    type: StrictStr = Field(
+        description="A text input field. Use the `SubFormFieldsPerDocumentText` class."
+    )
+    placeholder: Optional[StrictStr] = Field(
+        default=None, description="Placeholder value for text field."
+    )
+    auto_fill_type: Optional[StrictStr] = Field(
+        default=None,
+        description="Auto fill type for populating fields automatically. Check out the list of [auto fill types](/api/reference/constants/#auto-fill-types) to learn more about the possible values.",
+    )
+    link_id: Optional[StrictStr] = Field(
+        default=None,
+        description="Link two or more text fields. Enter data into one linked text field, which automatically fill all other linked text fields.",
+    )
+    masked: Optional[StrictBool] = Field(
+        default=None,
+        description="Masks entered data. For more information see [Masking sensitive information](https://faq.hellosign.com/hc/en-us/articles/360040742811-Masking-sensitive-information). `true` for masking the data in a text field, otherwise `false`.",
+    )
+    validation_type: Optional[StrictStr] = Field(
+        default=None,
+        description="Each text field may contain a `validation_type` parameter. Check out the list of [validation types](https://faq.hellosign.com/hc/en-us/articles/217115577) to learn more about the possible values.  **NOTE:** When using `custom_regex` you are required to pass a second parameter `validation_custom_regex` and you can optionally provide `validation_custom_regex_format_label` for the error message the user will see in case of an invalid value.",
+    )
     validation_custom_regex: Optional[StrictStr] = None
     validation_custom_regex_format_label: Optional[StrictStr] = None
-    content: Optional[StrictStr] = Field(default=None, description="Content of a `me_now` text field")
-    font_family: Optional[StrictStr] = Field(default=None, description="Font family for the field.")
-    font_size: Optional[StrictInt] = Field(default=12, description="The initial px font size for the field contents. Can be any integer value between `7` and `49`.  **NOTE:** Font size may be reduced during processing in order to fit the contents within the dimensions of the field.")
-    __properties: ClassVar[List[str]] = ["document_index", "api_id", "height", "required", "signer", "type", "width", "x", "y", "name", "page", "placeholder", "auto_fill_type", "link_id", "masked", "validation_type", "validation_custom_regex", "validation_custom_regex_format_label", "content", "font_family", "font_size"]
+    content: Optional[StrictStr] = Field(
+        default=None, description="Content of a `me_now` text field"
+    )
+    font_family: Optional[StrictStr] = Field(
+        default=None, description="Font family for the field."
+    )
+    font_size: Optional[StrictInt] = Field(
+        default=12,
+        description="The initial px font size for the field contents. Can be any integer value between `7` and `49`.  **NOTE:** Font size may be reduced during processing in order to fit the contents within the dimensions of the field.",
+    )
+    __properties: ClassVar[List[str]] = [
+        "document_index",
+        "api_id",
+        "height",
+        "required",
+        "signer",
+        "type",
+        "width",
+        "x",
+        "y",
+        "name",
+        "page",
+        "placeholder",
+        "auto_fill_type",
+        "link_id",
+        "masked",
+        "validation_type",
+        "validation_custom_regex",
+        "validation_custom_regex_format_label",
+        "content",
+        "font_family",
+        "font_size",
+    ]
 
-    @field_validator('validation_type')
+    @field_validator("validation_type")
     def validation_type_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
             return value
 
-        if value not in set(['numbers_only', 'letters_only', 'phone_number', 'bank_routing_number', 'bank_account_number', 'email_address', 'zip_code', 'social_security_number', 'employer_identification_number', 'custom_regex']):
-            raise ValueError("must be one of enum values ('numbers_only', 'letters_only', 'phone_number', 'bank_routing_number', 'bank_account_number', 'email_address', 'zip_code', 'social_security_number', 'employer_identification_number', 'custom_regex')")
+        if value not in set(
+            [
+                "numbers_only",
+                "letters_only",
+                "phone_number",
+                "bank_routing_number",
+                "bank_account_number",
+                "email_address",
+                "zip_code",
+                "social_security_number",
+                "employer_identification_number",
+                "custom_regex",
+            ]
+        ):
+            raise ValueError(
+                "must be one of enum values ('numbers_only', 'letters_only', 'phone_number', 'bank_routing_number', 'bank_account_number', 'email_address', 'zip_code', 'social_security_number', 'employer_identification_number', 'custom_regex')"
+            )
         return value
 
-    @field_validator('font_family')
+    @field_validator("font_family")
     def font_family_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
             return value
 
-        if value not in set(['helvetica', 'arial', 'courier', 'calibri', 'cambria', 'georgia', 'times', 'trebuchet', 'verdana', 'roboto', 'robotoMono', 'notoSans', 'notoSerif', 'notoCJK-JP-Regular', 'notoHebrew-Regular', 'notoSanThaiMerged']):
-            raise ValueError("must be one of enum values ('helvetica', 'arial', 'courier', 'calibri', 'cambria', 'georgia', 'times', 'trebuchet', 'verdana', 'roboto', 'robotoMono', 'notoSans', 'notoSerif', 'notoCJK-JP-Regular', 'notoHebrew-Regular', 'notoSanThaiMerged')")
+        if value not in set(
+            [
+                "helvetica",
+                "arial",
+                "courier",
+                "calibri",
+                "cambria",
+                "georgia",
+                "times",
+                "trebuchet",
+                "verdana",
+                "roboto",
+                "robotoMono",
+                "notoSans",
+                "notoSerif",
+                "notoCJK-JP-Regular",
+                "notoHebrew-Regular",
+                "notoSanThaiMerged",
+            ]
+        ):
+            raise ValueError(
+                "must be one of enum values ('helvetica', 'arial', 'courier', 'calibri', 'cambria', 'georgia', 'times', 'trebuchet', 'verdana', 'roboto', 'robotoMono', 'notoSans', 'notoSerif', 'notoCJK-JP-Regular', 'notoHebrew-Regular', 'notoSanThaiMerged')"
+            )
         return value
 
     model_config = ConfigDict(
@@ -70,7 +162,6 @@ class SubFormFieldsPerDocumentText(SubFormFieldsPerDocumentBase):
         protected_namespaces=(),
         arbitrary_types_allowed=True,
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -81,7 +172,9 @@ class SubFormFieldsPerDocumentText(SubFormFieldsPerDocumentBase):
         # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
-    def to_json_form_params(self, excluded_fields: Set[str] = None) -> List[Tuple[str, str]]:
+    def to_json_form_params(
+        self, excluded_fields: Set[str] = None
+    ) -> List[Tuple[str, str]]:
         data: List[Tuple[str, str]] = []
 
         for key, value in self.to_dict(excluded_fields).items():
@@ -124,29 +217,35 @@ class SubFormFieldsPerDocumentText(SubFormFieldsPerDocumentBase):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "document_index": obj.get("document_index"),
-            "api_id": obj.get("api_id"),
-            "height": obj.get("height"),
-            "required": obj.get("required"),
-            "signer": obj.get("signer"),
-            "type": obj.get("type") if obj.get("type") is not None else 'text',
-            "width": obj.get("width"),
-            "x": obj.get("x"),
-            "y": obj.get("y"),
-            "name": obj.get("name"),
-            "page": obj.get("page"),
-            "placeholder": obj.get("placeholder"),
-            "auto_fill_type": obj.get("auto_fill_type"),
-            "link_id": obj.get("link_id"),
-            "masked": obj.get("masked"),
-            "validation_type": obj.get("validation_type"),
-            "validation_custom_regex": obj.get("validation_custom_regex"),
-            "validation_custom_regex_format_label": obj.get("validation_custom_regex_format_label"),
-            "content": obj.get("content"),
-            "font_family": obj.get("font_family"),
-            "font_size": obj.get("font_size") if obj.get("font_size") is not None else 12
-        })
+        _obj = cls.model_validate(
+            {
+                "document_index": obj.get("document_index"),
+                "api_id": obj.get("api_id"),
+                "height": obj.get("height"),
+                "required": obj.get("required"),
+                "signer": obj.get("signer"),
+                "type": obj.get("type") if obj.get("type") is not None else "text",
+                "width": obj.get("width"),
+                "x": obj.get("x"),
+                "y": obj.get("y"),
+                "name": obj.get("name"),
+                "page": obj.get("page"),
+                "placeholder": obj.get("placeholder"),
+                "auto_fill_type": obj.get("auto_fill_type"),
+                "link_id": obj.get("link_id"),
+                "masked": obj.get("masked"),
+                "validation_type": obj.get("validation_type"),
+                "validation_custom_regex": obj.get("validation_custom_regex"),
+                "validation_custom_regex_format_label": obj.get(
+                    "validation_custom_regex_format_label"
+                ),
+                "content": obj.get("content"),
+                "font_family": obj.get("font_family"),
+                "font_size": (
+                    obj.get("font_size") if obj.get("font_size") is not None else 12
+                ),
+            }
+        )
         return _obj
 
     @classmethod
@@ -187,6 +286,4 @@ class SubFormFieldsPerDocumentText(SubFormFieldsPerDocumentBase):
 
     @classmethod
     def openapi_type_is_array(cls, property_name: str) -> bool:
-        return property_name in [
-        ]
-
+        return property_name in []

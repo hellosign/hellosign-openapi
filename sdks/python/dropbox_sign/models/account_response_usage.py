@@ -26,11 +26,15 @@ import io
 from pydantic import StrictBool
 from typing import Union
 
+
 class AccountResponseUsage(BaseModel):
     """
     Details concerning monthly usage
-    """ # noqa: E501
-    fax_pages_sent: Optional[StrictInt] = Field(default=None, description="Number of fax pages sent")
+    """  # noqa: E501
+
+    fax_pages_sent: Optional[StrictInt] = Field(
+        default=None, description="Number of fax pages sent"
+    )
     __properties: ClassVar[List[str]] = ["fax_pages_sent"]
 
     model_config = ConfigDict(
@@ -39,7 +43,6 @@ class AccountResponseUsage(BaseModel):
         protected_namespaces=(),
         arbitrary_types_allowed=True,
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -50,7 +53,9 @@ class AccountResponseUsage(BaseModel):
         # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
-    def to_json_form_params(self, excluded_fields: Set[str] = None) -> List[Tuple[str, str]]:
+    def to_json_form_params(
+        self, excluded_fields: Set[str] = None
+    ) -> List[Tuple[str, str]]:
         data: List[Tuple[str, str]] = []
 
         for key, value in self.to_dict(excluded_fields).items():
@@ -93,9 +98,7 @@ class AccountResponseUsage(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "fax_pages_sent": obj.get("fax_pages_sent")
-        })
+        _obj = cls.model_validate({"fax_pages_sent": obj.get("fax_pages_sent")})
         return _obj
 
     @classmethod
@@ -116,6 +119,4 @@ class AccountResponseUsage(BaseModel):
 
     @classmethod
     def openapi_type_is_array(cls, property_name: str) -> bool:
-        return property_name in [
-        ]
-
+        return property_name in []

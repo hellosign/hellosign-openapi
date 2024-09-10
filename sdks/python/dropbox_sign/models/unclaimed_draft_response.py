@@ -26,17 +26,42 @@ import io
 from pydantic import StrictBool
 from typing import Union
 
+
 class UnclaimedDraftResponse(BaseModel):
     """
     A group of documents that a user can take ownership of via the claim URL.
-    """ # noqa: E501
-    signature_request_id: Optional[StrictStr] = Field(default=None, description="The ID of the signature request that is represented by this UnclaimedDraft.")
-    claim_url: Optional[StrictStr] = Field(default=None, description="The URL to be used to claim this UnclaimedDraft.")
-    signing_redirect_url: Optional[StrictStr] = Field(default=None, description="The URL you want signers redirected to after they successfully sign.")
-    requesting_redirect_url: Optional[StrictStr] = Field(default=None, description="The URL you want signers redirected to after they successfully request a signature (Will only be returned in the response if it is applicable to the request.).")
-    expires_at: Optional[StrictInt] = Field(default=None, description="When the link expires.")
-    test_mode: Optional[StrictBool] = Field(default=None, description="Whether this is a test draft. Signature requests made from test drafts have no legal value.")
-    __properties: ClassVar[List[str]] = ["signature_request_id", "claim_url", "signing_redirect_url", "requesting_redirect_url", "expires_at", "test_mode"]
+    """  # noqa: E501
+
+    signature_request_id: Optional[StrictStr] = Field(
+        default=None,
+        description="The ID of the signature request that is represented by this UnclaimedDraft.",
+    )
+    claim_url: Optional[StrictStr] = Field(
+        default=None, description="The URL to be used to claim this UnclaimedDraft."
+    )
+    signing_redirect_url: Optional[StrictStr] = Field(
+        default=None,
+        description="The URL you want signers redirected to after they successfully sign.",
+    )
+    requesting_redirect_url: Optional[StrictStr] = Field(
+        default=None,
+        description="The URL you want signers redirected to after they successfully request a signature (Will only be returned in the response if it is applicable to the request.).",
+    )
+    expires_at: Optional[StrictInt] = Field(
+        default=None, description="When the link expires."
+    )
+    test_mode: Optional[StrictBool] = Field(
+        default=None,
+        description="Whether this is a test draft. Signature requests made from test drafts have no legal value.",
+    )
+    __properties: ClassVar[List[str]] = [
+        "signature_request_id",
+        "claim_url",
+        "signing_redirect_url",
+        "requesting_redirect_url",
+        "expires_at",
+        "test_mode",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -44,7 +69,6 @@ class UnclaimedDraftResponse(BaseModel):
         protected_namespaces=(),
         arbitrary_types_allowed=True,
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -55,7 +79,9 @@ class UnclaimedDraftResponse(BaseModel):
         # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
-    def to_json_form_params(self, excluded_fields: Set[str] = None) -> List[Tuple[str, str]]:
+    def to_json_form_params(
+        self, excluded_fields: Set[str] = None
+    ) -> List[Tuple[str, str]]:
         data: List[Tuple[str, str]] = []
 
         for key, value in self.to_dict(excluded_fields).items():
@@ -98,14 +124,16 @@ class UnclaimedDraftResponse(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "signature_request_id": obj.get("signature_request_id"),
-            "claim_url": obj.get("claim_url"),
-            "signing_redirect_url": obj.get("signing_redirect_url"),
-            "requesting_redirect_url": obj.get("requesting_redirect_url"),
-            "expires_at": obj.get("expires_at"),
-            "test_mode": obj.get("test_mode")
-        })
+        _obj = cls.model_validate(
+            {
+                "signature_request_id": obj.get("signature_request_id"),
+                "claim_url": obj.get("claim_url"),
+                "signing_redirect_url": obj.get("signing_redirect_url"),
+                "requesting_redirect_url": obj.get("requesting_redirect_url"),
+                "expires_at": obj.get("expires_at"),
+                "test_mode": obj.get("test_mode"),
+            }
+        )
         return _obj
 
     @classmethod
@@ -131,6 +159,4 @@ class UnclaimedDraftResponse(BaseModel):
 
     @classmethod
     def openapi_type_is_array(cls, property_name: str) -> bool:
-        return property_name in [
-        ]
-
+        return property_name in []

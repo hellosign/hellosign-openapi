@@ -20,17 +20,21 @@ import json
 
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List
-from dropbox_sign.models.template_update_files_response_template import TemplateUpdateFilesResponseTemplate
+from dropbox_sign.models.template_update_files_response_template import (
+    TemplateUpdateFilesResponseTemplate,
+)
 from typing import Optional, Set, Tuple
 from typing_extensions import Self
 import io
 from pydantic import StrictBool
 from typing import Union
 
+
 class TemplateUpdateFilesResponse(BaseModel):
     """
     TemplateUpdateFilesResponse
-    """ # noqa: E501
+    """  # noqa: E501
+
     template: TemplateUpdateFilesResponseTemplate
     __properties: ClassVar[List[str]] = ["template"]
 
@@ -41,7 +45,6 @@ class TemplateUpdateFilesResponse(BaseModel):
         arbitrary_types_allowed=True,
     )
 
-
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
         return pprint.pformat(self.model_dump(by_alias=True))
@@ -51,7 +54,9 @@ class TemplateUpdateFilesResponse(BaseModel):
         # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
-    def to_json_form_params(self, excluded_fields: Set[str] = None) -> List[Tuple[str, str]]:
+    def to_json_form_params(
+        self, excluded_fields: Set[str] = None
+    ) -> List[Tuple[str, str]]:
         data: List[Tuple[str, str]] = []
 
         for key, value in self.to_dict(excluded_fields).items():
@@ -85,7 +90,7 @@ class TemplateUpdateFilesResponse(BaseModel):
         )
         # override the default output from pydantic by calling `to_dict()` of template
         if self.template:
-            _dict['template'] = self.template.to_dict()
+            _dict["template"] = self.template.to_dict()
         return _dict
 
     @classmethod
@@ -97,9 +102,15 @@ class TemplateUpdateFilesResponse(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "template": TemplateUpdateFilesResponseTemplate.from_dict(obj["template"]) if obj.get("template") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "template": (
+                    TemplateUpdateFilesResponseTemplate.from_dict(obj["template"])
+                    if obj.get("template") is not None
+                    else None
+                )
+            }
+        )
         return _obj
 
     @classmethod
@@ -120,6 +131,4 @@ class TemplateUpdateFilesResponse(BaseModel):
 
     @classmethod
     def openapi_type_is_array(cls, property_name: str) -> bool:
-        return property_name in [
-        ]
-
+        return property_name in []

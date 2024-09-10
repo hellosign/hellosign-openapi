@@ -28,25 +28,63 @@ from pydantic import StrictBool
 from typing import Union
 
 from typing import TYPE_CHECKING
+
 if TYPE_CHECKING:
-    from dropbox_sign.models.template_response_document_custom_field_checkbox import TemplateResponseDocumentCustomFieldCheckbox
-    from dropbox_sign.models.template_response_document_custom_field_text import TemplateResponseDocumentCustomFieldText
+    from dropbox_sign.models.template_response_document_custom_field_checkbox import (
+        TemplateResponseDocumentCustomFieldCheckbox,
+    )
+    from dropbox_sign.models.template_response_document_custom_field_text import (
+        TemplateResponseDocumentCustomFieldText,
+    )
+
 
 class TemplateResponseDocumentCustomFieldBase(BaseModel):
     """
     An array of Form Field objects containing the name and type of each named field.
-    """ # noqa: E501
+    """  # noqa: E501
+
     type: StrictStr
-    api_id: Optional[StrictStr] = Field(default=None, description="The unique ID for this field.")
-    name: Optional[StrictStr] = Field(default=None, description="The name of the Custom Field.")
-    signer: Union[StrictStr, StrictInt, None] = Field(description="The signer of the Custom Field. Can be `null` if field is a merge field (assigned to Sender).")
-    x: Optional[StrictInt] = Field(default=None, description="The horizontal offset in pixels for this form field.")
-    y: Optional[StrictInt] = Field(default=None, description="The vertical offset in pixels for this form field.")
-    width: Optional[StrictInt] = Field(default=None, description="The width in pixels of this form field.")
-    height: Optional[StrictInt] = Field(default=None, description="The height in pixels of this form field.")
-    required: Optional[StrictBool] = Field(default=None, description="Boolean showing whether or not this field is required.")
-    group: Optional[StrictStr] = Field(default=None, description="The name of the group this field is in. If this field is not a group, this defaults to `null`.")
-    __properties: ClassVar[List[str]] = ["type", "api_id", "name", "signer", "x", "y", "width", "height", "required", "group"]
+    api_id: Optional[StrictStr] = Field(
+        default=None, description="The unique ID for this field."
+    )
+    name: Optional[StrictStr] = Field(
+        default=None, description="The name of the Custom Field."
+    )
+    signer: Union[StrictStr, StrictInt, None] = Field(
+        description="The signer of the Custom Field. Can be `null` if field is a merge field (assigned to Sender)."
+    )
+    x: Optional[StrictInt] = Field(
+        default=None, description="The horizontal offset in pixels for this form field."
+    )
+    y: Optional[StrictInt] = Field(
+        default=None, description="The vertical offset in pixels for this form field."
+    )
+    width: Optional[StrictInt] = Field(
+        default=None, description="The width in pixels of this form field."
+    )
+    height: Optional[StrictInt] = Field(
+        default=None, description="The height in pixels of this form field."
+    )
+    required: Optional[StrictBool] = Field(
+        default=None,
+        description="Boolean showing whether or not this field is required.",
+    )
+    group: Optional[StrictStr] = Field(
+        default=None,
+        description="The name of the group this field is in. If this field is not a group, this defaults to `null`.",
+    )
+    __properties: ClassVar[List[str]] = [
+        "type",
+        "api_id",
+        "name",
+        "signer",
+        "x",
+        "y",
+        "width",
+        "height",
+        "required",
+        "group",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -55,13 +93,13 @@ class TemplateResponseDocumentCustomFieldBase(BaseModel):
         arbitrary_types_allowed=True,
     )
 
-
     # JSON field name that stores the object type
-    __discriminator_property_name: ClassVar[str] = 'type'
+    __discriminator_property_name: ClassVar[str] = "type"
 
     # discriminator mappings
     __discriminator_value_class_map: ClassVar[Dict[str, str]] = {
-        'checkbox': 'TemplateResponseDocumentCustomFieldCheckbox','text': 'TemplateResponseDocumentCustomFieldText'
+        "checkbox": "TemplateResponseDocumentCustomFieldCheckbox",
+        "text": "TemplateResponseDocumentCustomFieldText",
     }
 
     @classmethod
@@ -82,7 +120,9 @@ class TemplateResponseDocumentCustomFieldBase(BaseModel):
         # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
-    def to_json_form_params(self, excluded_fields: Set[str] = None) -> List[Tuple[str, str]]:
+    def to_json_form_params(
+        self, excluded_fields: Set[str] = None
+    ) -> List[Tuple[str, str]]:
         data: List[Tuple[str, str]] = []
 
         for key, value in self.to_dict(excluded_fields).items():
@@ -94,7 +134,12 @@ class TemplateResponseDocumentCustomFieldBase(BaseModel):
         return data
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Union[TemplateResponseDocumentCustomFieldCheckbox, TemplateResponseDocumentCustomFieldText]]:
+    def from_json(cls, json_str: str) -> Optional[
+        Union[
+            TemplateResponseDocumentCustomFieldCheckbox,
+            TemplateResponseDocumentCustomFieldText,
+        ]
+    ]:
         """Create an instance of TemplateResponseDocumentCustomFieldBase from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -117,19 +162,32 @@ class TemplateResponseDocumentCustomFieldBase(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict[str, Any]) -> Optional[Union[TemplateResponseDocumentCustomFieldCheckbox, TemplateResponseDocumentCustomFieldText]]:
+    def from_dict(cls, obj: Dict[str, Any]) -> Optional[
+        Union[
+            TemplateResponseDocumentCustomFieldCheckbox,
+            TemplateResponseDocumentCustomFieldText,
+        ]
+    ]:
         """Create an instance of TemplateResponseDocumentCustomFieldBase from a dict"""
         # look up the object type based on discriminator mapping
         object_type = cls.get_discriminator_value(obj)
-        if object_type ==  'TemplateResponseDocumentCustomFieldCheckbox':
-            return import_module("dropbox_sign.models.template_response_document_custom_field_checkbox").TemplateResponseDocumentCustomFieldCheckbox.from_dict(obj)
-        if object_type ==  'TemplateResponseDocumentCustomFieldText':
-            return import_module("dropbox_sign.models.template_response_document_custom_field_text").TemplateResponseDocumentCustomFieldText.from_dict(obj)
+        if object_type == "TemplateResponseDocumentCustomFieldCheckbox":
+            return import_module(
+                "dropbox_sign.models.template_response_document_custom_field_checkbox"
+            ).TemplateResponseDocumentCustomFieldCheckbox.from_dict(obj)
+        if object_type == "TemplateResponseDocumentCustomFieldText":
+            return import_module(
+                "dropbox_sign.models.template_response_document_custom_field_text"
+            ).TemplateResponseDocumentCustomFieldText.from_dict(obj)
 
-        raise ValueError("TemplateResponseDocumentCustomFieldBase failed to lookup discriminator value from " +
-                            json.dumps(obj) + ". Discriminator property name: " + cls.__discriminator_property_name +
-                            ", mapping: " + json.dumps(cls.__discriminator_value_class_map))
-
+        raise ValueError(
+            "TemplateResponseDocumentCustomFieldBase failed to lookup discriminator value from "
+            + json.dumps(obj)
+            + ". Discriminator property name: "
+            + cls.__discriminator_property_name
+            + ", mapping: "
+            + json.dumps(cls.__discriminator_value_class_map)
+        )
 
     @classmethod
     def openapi_types(cls) -> Dict[str, str]:
@@ -148,6 +206,4 @@ class TemplateResponseDocumentCustomFieldBase(BaseModel):
 
     @classmethod
     def openapi_type_is_array(cls, property_name: str) -> bool:
-        return property_name in [
-        ]
-
+        return property_name in []

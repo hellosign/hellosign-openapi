@@ -20,20 +20,37 @@ import json
 
 from pydantic import ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from dropbox_sign.models.signature_request_response_custom_field_base import SignatureRequestResponseCustomFieldBase
+from dropbox_sign.models.signature_request_response_custom_field_base import (
+    SignatureRequestResponseCustomFieldBase,
+)
 from typing import Optional, Set, Tuple
 from typing_extensions import Self
 import io
 from pydantic import StrictBool
 from typing import Union
 
-class SignatureRequestResponseCustomFieldCheckbox(SignatureRequestResponseCustomFieldBase):
+
+class SignatureRequestResponseCustomFieldCheckbox(
+    SignatureRequestResponseCustomFieldBase
+):
     """
     This class extends `SignatureRequestResponseCustomFieldBase`.
-    """ # noqa: E501
-    type: StrictStr = Field(description="The type of this Custom Field. Only 'text' and 'checkbox' are currently supported.")
-    value: Optional[StrictBool] = Field(default=None, description="A true/false for checkbox fields")
-    __properties: ClassVar[List[str]] = ["type", "name", "required", "api_id", "editor", "value"]
+    """  # noqa: E501
+
+    type: StrictStr = Field(
+        description="The type of this Custom Field. Only 'text' and 'checkbox' are currently supported."
+    )
+    value: Optional[StrictBool] = Field(
+        default=None, description="A true/false for checkbox fields"
+    )
+    __properties: ClassVar[List[str]] = [
+        "type",
+        "name",
+        "required",
+        "api_id",
+        "editor",
+        "value",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -41,7 +58,6 @@ class SignatureRequestResponseCustomFieldCheckbox(SignatureRequestResponseCustom
         protected_namespaces=(),
         arbitrary_types_allowed=True,
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -52,7 +68,9 @@ class SignatureRequestResponseCustomFieldCheckbox(SignatureRequestResponseCustom
         # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
-    def to_json_form_params(self, excluded_fields: Set[str] = None) -> List[Tuple[str, str]]:
+    def to_json_form_params(
+        self, excluded_fields: Set[str] = None
+    ) -> List[Tuple[str, str]]:
         data: List[Tuple[str, str]] = []
 
         for key, value in self.to_dict(excluded_fields).items():
@@ -95,14 +113,16 @@ class SignatureRequestResponseCustomFieldCheckbox(SignatureRequestResponseCustom
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "type": obj.get("type") if obj.get("type") is not None else 'checkbox',
-            "name": obj.get("name"),
-            "required": obj.get("required"),
-            "api_id": obj.get("api_id"),
-            "editor": obj.get("editor"),
-            "value": obj.get("value")
-        })
+        _obj = cls.model_validate(
+            {
+                "type": obj.get("type") if obj.get("type") is not None else "checkbox",
+                "name": obj.get("name"),
+                "required": obj.get("required"),
+                "api_id": obj.get("api_id"),
+                "editor": obj.get("editor"),
+                "value": obj.get("value"),
+            }
+        )
         return _obj
 
     @classmethod
@@ -128,6 +148,4 @@ class SignatureRequestResponseCustomFieldCheckbox(SignatureRequestResponseCustom
 
     @classmethod
     def openapi_type_is_array(cls, property_name: str) -> bool:
-        return property_name in [
-        ]
-
+        return property_name in []

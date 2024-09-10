@@ -26,11 +26,15 @@ import io
 from pydantic import StrictBool
 from typing import Union
 
+
 class TemplateCreateResponseTemplate(BaseModel):
     """
     Template object with parameters: `template_id`.
-    """ # noqa: E501
-    template_id: Optional[StrictStr] = Field(default=None, description="The id of the Template.")
+    """  # noqa: E501
+
+    template_id: Optional[StrictStr] = Field(
+        default=None, description="The id of the Template."
+    )
     __properties: ClassVar[List[str]] = ["template_id"]
 
     model_config = ConfigDict(
@@ -39,7 +43,6 @@ class TemplateCreateResponseTemplate(BaseModel):
         protected_namespaces=(),
         arbitrary_types_allowed=True,
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -50,7 +53,9 @@ class TemplateCreateResponseTemplate(BaseModel):
         # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
-    def to_json_form_params(self, excluded_fields: Set[str] = None) -> List[Tuple[str, str]]:
+    def to_json_form_params(
+        self, excluded_fields: Set[str] = None
+    ) -> List[Tuple[str, str]]:
         data: List[Tuple[str, str]] = []
 
         for key, value in self.to_dict(excluded_fields).items():
@@ -93,9 +98,7 @@ class TemplateCreateResponseTemplate(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "template_id": obj.get("template_id")
-        })
+        _obj = cls.model_validate({"template_id": obj.get("template_id")})
         return _obj
 
     @classmethod
@@ -116,6 +119,4 @@ class TemplateCreateResponseTemplate(BaseModel):
 
     @classmethod
     def openapi_type_is_array(cls, property_name: str) -> bool:
-        return property_name in [
-        ]
-
+        return property_name in []

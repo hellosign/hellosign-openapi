@@ -26,12 +26,19 @@ import io
 from pydantic import StrictBool
 from typing import Union
 
+
 class SignatureRequestRemindRequest(BaseModel):
     """
     SignatureRequestRemindRequest
-    """ # noqa: E501
-    email_address: StrictStr = Field(description="The email address of the signer to send a reminder to.")
-    name: Optional[StrictStr] = Field(default=None, description="The name of the signer to send a reminder to. Include if two or more signers share an email address.")
+    """  # noqa: E501
+
+    email_address: StrictStr = Field(
+        description="The email address of the signer to send a reminder to."
+    )
+    name: Optional[StrictStr] = Field(
+        default=None,
+        description="The name of the signer to send a reminder to. Include if two or more signers share an email address.",
+    )
     __properties: ClassVar[List[str]] = ["email_address", "name"]
 
     model_config = ConfigDict(
@@ -40,7 +47,6 @@ class SignatureRequestRemindRequest(BaseModel):
         protected_namespaces=(),
         arbitrary_types_allowed=True,
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -51,7 +57,9 @@ class SignatureRequestRemindRequest(BaseModel):
         # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
-    def to_json_form_params(self, excluded_fields: Set[str] = None) -> List[Tuple[str, str]]:
+    def to_json_form_params(
+        self, excluded_fields: Set[str] = None
+    ) -> List[Tuple[str, str]]:
         data: List[Tuple[str, str]] = []
 
         for key, value in self.to_dict(excluded_fields).items():
@@ -94,10 +102,9 @@ class SignatureRequestRemindRequest(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "email_address": obj.get("email_address"),
-            "name": obj.get("name")
-        })
+        _obj = cls.model_validate(
+            {"email_address": obj.get("email_address"), "name": obj.get("name")}
+        )
         return _obj
 
     @classmethod
@@ -119,6 +126,4 @@ class SignatureRequestRemindRequest(BaseModel):
 
     @classmethod
     def openapi_type_is_array(cls, property_name: str) -> bool:
-        return property_name in [
-        ]
-
+        return property_name in []

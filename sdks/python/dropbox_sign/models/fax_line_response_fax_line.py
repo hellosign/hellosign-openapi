@@ -27,15 +27,22 @@ import io
 from pydantic import StrictBool
 from typing import Union
 
+
 class FaxLineResponseFaxLine(BaseModel):
     """
     FaxLineResponseFaxLine
-    """ # noqa: E501
+    """  # noqa: E501
+
     number: Optional[StrictStr] = Field(default=None, description="Number")
     created_at: Optional[StrictInt] = Field(default=None, description="Created at")
     updated_at: Optional[StrictInt] = Field(default=None, description="Updated at")
     accounts: Optional[List[AccountResponse]] = None
-    __properties: ClassVar[List[str]] = ["number", "created_at", "updated_at", "accounts"]
+    __properties: ClassVar[List[str]] = [
+        "number",
+        "created_at",
+        "updated_at",
+        "accounts",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -43,7 +50,6 @@ class FaxLineResponseFaxLine(BaseModel):
         protected_namespaces=(),
         arbitrary_types_allowed=True,
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -54,7 +60,9 @@ class FaxLineResponseFaxLine(BaseModel):
         # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
-    def to_json_form_params(self, excluded_fields: Set[str] = None) -> List[Tuple[str, str]]:
+    def to_json_form_params(
+        self, excluded_fields: Set[str] = None
+    ) -> List[Tuple[str, str]]:
         data: List[Tuple[str, str]] = []
 
         for key, value in self.to_dict(excluded_fields).items():
@@ -92,7 +100,7 @@ class FaxLineResponseFaxLine(BaseModel):
             for _item_accounts in self.accounts:
                 if _item_accounts:
                     _items.append(_item_accounts.to_dict())
-            _dict['accounts'] = _items
+            _dict["accounts"] = _items
         return _dict
 
     @classmethod
@@ -104,12 +112,18 @@ class FaxLineResponseFaxLine(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "number": obj.get("number"),
-            "created_at": obj.get("created_at"),
-            "updated_at": obj.get("updated_at"),
-            "accounts": [AccountResponse.from_dict(_item) for _item in obj["accounts"]] if obj.get("accounts") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "number": obj.get("number"),
+                "created_at": obj.get("created_at"),
+                "updated_at": obj.get("updated_at"),
+                "accounts": (
+                    [AccountResponse.from_dict(_item) for _item in obj["accounts"]]
+                    if obj.get("accounts") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
 
     @classmethod
@@ -136,4 +150,3 @@ class FaxLineResponseFaxLine(BaseModel):
         return property_name in [
             "accounts",
         ]
-

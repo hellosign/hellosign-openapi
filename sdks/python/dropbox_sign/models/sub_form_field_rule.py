@@ -29,15 +29,30 @@ import io
 from pydantic import StrictBool
 from typing import Union
 
+
 class SubFormFieldRule(BaseModel):
     """
     SubFormFieldRule
-    """ # noqa: E501
+    """  # noqa: E501
+
     id: StrictStr = Field(description="Must be unique across all defined rules.")
-    trigger_operator: StrictStr = Field(description="Currently only `AND` is supported. Support for `OR` is being worked on.")
-    triggers: Annotated[List[SubFormFieldRuleTrigger], Field(min_length=1, max_length=1)] = Field(description="An array of trigger definitions, the \"if this\" part of \"**if this**, then that\". Currently only a single trigger per rule is allowed.")
-    actions: Annotated[List[SubFormFieldRuleAction], Field(min_length=1)] = Field(description="An array of action definitions, the \"then that\" part of \"if this, **then that**\". Any number of actions may be attached to a single rule.")
-    __properties: ClassVar[List[str]] = ["id", "trigger_operator", "triggers", "actions"]
+    trigger_operator: StrictStr = Field(
+        description="Currently only `AND` is supported. Support for `OR` is being worked on."
+    )
+    triggers: Annotated[
+        List[SubFormFieldRuleTrigger], Field(min_length=1, max_length=1)
+    ] = Field(
+        description='An array of trigger definitions, the "if this" part of "**if this**, then that". Currently only a single trigger per rule is allowed.'
+    )
+    actions: Annotated[List[SubFormFieldRuleAction], Field(min_length=1)] = Field(
+        description='An array of action definitions, the "then that" part of "if this, **then that**". Any number of actions may be attached to a single rule.'
+    )
+    __properties: ClassVar[List[str]] = [
+        "id",
+        "trigger_operator",
+        "triggers",
+        "actions",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -45,7 +60,6 @@ class SubFormFieldRule(BaseModel):
         protected_namespaces=(),
         arbitrary_types_allowed=True,
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -56,7 +70,9 @@ class SubFormFieldRule(BaseModel):
         # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
-    def to_json_form_params(self, excluded_fields: Set[str] = None) -> List[Tuple[str, str]]:
+    def to_json_form_params(
+        self, excluded_fields: Set[str] = None
+    ) -> List[Tuple[str, str]]:
         data: List[Tuple[str, str]] = []
 
         for key, value in self.to_dict(excluded_fields).items():
@@ -94,14 +110,14 @@ class SubFormFieldRule(BaseModel):
             for _item_triggers in self.triggers:
                 if _item_triggers:
                     _items.append(_item_triggers.to_dict())
-            _dict['triggers'] = _items
+            _dict["triggers"] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in actions (list)
         _items = []
         if self.actions:
             for _item_actions in self.actions:
                 if _item_actions:
                     _items.append(_item_actions.to_dict())
-            _dict['actions'] = _items
+            _dict["actions"] = _items
         return _dict
 
     @classmethod
@@ -113,12 +129,32 @@ class SubFormFieldRule(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "id": obj.get("id"),
-            "trigger_operator": obj.get("trigger_operator") if obj.get("trigger_operator") is not None else 'AND',
-            "triggers": [SubFormFieldRuleTrigger.from_dict(_item) for _item in obj["triggers"]] if obj.get("triggers") is not None else None,
-            "actions": [SubFormFieldRuleAction.from_dict(_item) for _item in obj["actions"]] if obj.get("actions") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "id": obj.get("id"),
+                "trigger_operator": (
+                    obj.get("trigger_operator")
+                    if obj.get("trigger_operator") is not None
+                    else "AND"
+                ),
+                "triggers": (
+                    [
+                        SubFormFieldRuleTrigger.from_dict(_item)
+                        for _item in obj["triggers"]
+                    ]
+                    if obj.get("triggers") is not None
+                    else None
+                ),
+                "actions": (
+                    [
+                        SubFormFieldRuleAction.from_dict(_item)
+                        for _item in obj["actions"]
+                    ]
+                    if obj.get("actions") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
 
     @classmethod
@@ -146,4 +182,3 @@ class SubFormFieldRule(BaseModel):
             "triggers",
             "actions",
         ]
-

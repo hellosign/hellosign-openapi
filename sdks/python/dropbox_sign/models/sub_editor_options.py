@@ -26,12 +26,19 @@ import io
 from pydantic import StrictBool
 from typing import Union
 
+
 class SubEditorOptions(BaseModel):
     """
     This allows the requester to specify editor options when a preparing a document
-    """ # noqa: E501
-    allow_edit_signers: Optional[StrictBool] = Field(default=False, description="Allows requesters to edit the list of signers")
-    allow_edit_documents: Optional[StrictBool] = Field(default=False, description="Allows requesters to edit documents, including delete and add")
+    """  # noqa: E501
+
+    allow_edit_signers: Optional[StrictBool] = Field(
+        default=False, description="Allows requesters to edit the list of signers"
+    )
+    allow_edit_documents: Optional[StrictBool] = Field(
+        default=False,
+        description="Allows requesters to edit documents, including delete and add",
+    )
     __properties: ClassVar[List[str]] = ["allow_edit_signers", "allow_edit_documents"]
 
     model_config = ConfigDict(
@@ -40,7 +47,6 @@ class SubEditorOptions(BaseModel):
         protected_namespaces=(),
         arbitrary_types_allowed=True,
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -51,7 +57,9 @@ class SubEditorOptions(BaseModel):
         # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
-    def to_json_form_params(self, excluded_fields: Set[str] = None) -> List[Tuple[str, str]]:
+    def to_json_form_params(
+        self, excluded_fields: Set[str] = None
+    ) -> List[Tuple[str, str]]:
         data: List[Tuple[str, str]] = []
 
         for key, value in self.to_dict(excluded_fields).items():
@@ -94,10 +102,20 @@ class SubEditorOptions(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "allow_edit_signers": obj.get("allow_edit_signers") if obj.get("allow_edit_signers") is not None else False,
-            "allow_edit_documents": obj.get("allow_edit_documents") if obj.get("allow_edit_documents") is not None else False
-        })
+        _obj = cls.model_validate(
+            {
+                "allow_edit_signers": (
+                    obj.get("allow_edit_signers")
+                    if obj.get("allow_edit_signers") is not None
+                    else False
+                ),
+                "allow_edit_documents": (
+                    obj.get("allow_edit_documents")
+                    if obj.get("allow_edit_documents") is not None
+                    else False
+                ),
+            }
+        )
         return _obj
 
     @classmethod
@@ -119,6 +137,4 @@ class SubEditorOptions(BaseModel):
 
     @classmethod
     def openapi_type_is_array(cls, property_name: str) -> bool:
-        return property_name in [
-        ]
-
+        return property_name in []

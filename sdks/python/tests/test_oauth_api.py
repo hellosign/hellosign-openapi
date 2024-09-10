@@ -14,16 +14,14 @@ class TestOAuthApi(unittest.TestCase):
         self.api = apis.OAuthApi(self.api_client)
 
     def test_token_generate(self):
-        request_class = 'OAuthTokenGenerateRequest'
-        request_data = get_fixture_data(request_class)['default']
+        request_class = "OAuthTokenGenerateRequest"
+        request_data = get_fixture_data(request_class)["default"]
 
-        response_class = 'OAuthTokenResponse'
-        response_data = get_fixture_data(response_class)['default']
+        response_class = "OAuthTokenResponse"
+        response_data = get_fixture_data(response_class)["default"]
 
         self.mock_pool.expect_request(
-            content_type='application/json',
-            data=request_data,
-            response=response_data
+            content_type="application/json", data=request_data, response=response_data
         )
         expected = m.OAuthTokenResponse.init(response_data)
         obj = m.OAuthTokenGenerateRequest.init(request_data)
@@ -34,16 +32,14 @@ class TestOAuthApi(unittest.TestCase):
         self.assertEqual(result, expected)
 
     def test_token_refresh(self):
-        request_class = 'OAuthTokenRefreshRequest'
-        request_data = get_fixture_data(request_class)['default']
+        request_class = "OAuthTokenRefreshRequest"
+        request_data = get_fixture_data(request_class)["default"]
 
-        response_class = 'OAuthTokenResponse'
-        response_data = get_fixture_data(response_class)['default']
+        response_class = "OAuthTokenResponse"
+        response_data = get_fixture_data(response_class)["default"]
 
         self.mock_pool.expect_request(
-            content_type='application/json',
-            data=request_data,
-            response=response_data
+            content_type="application/json", data=request_data, response=response_data
         )
         expected = m.OAuthTokenResponse.init(response_data)
         obj = m.OAuthTokenRefreshRequest.init(request_data)
@@ -54,5 +50,5 @@ class TestOAuthApi(unittest.TestCase):
         self.assertEqual(result, expected)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

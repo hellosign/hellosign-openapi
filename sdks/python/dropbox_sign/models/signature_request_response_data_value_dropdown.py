@@ -20,20 +20,35 @@ import json
 
 from pydantic import ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from dropbox_sign.models.signature_request_response_data_base import SignatureRequestResponseDataBase
+from dropbox_sign.models.signature_request_response_data_base import (
+    SignatureRequestResponseDataBase,
+)
 from typing import Optional, Set, Tuple
 from typing_extensions import Self
 import io
 from pydantic import StrictBool
 from typing import Union
 
+
 class SignatureRequestResponseDataValueDropdown(SignatureRequestResponseDataBase):
     """
     SignatureRequestResponseDataValueDropdown
-    """ # noqa: E501
-    type: Optional[StrictStr] = Field(default='dropdown', description="An input field for dropdowns")
-    value: Optional[StrictStr] = Field(default=None, description="The value of the form field.")
-    __properties: ClassVar[List[str]] = ["api_id", "signature_id", "name", "required", "type", "value"]
+    """  # noqa: E501
+
+    type: Optional[StrictStr] = Field(
+        default="dropdown", description="An input field for dropdowns"
+    )
+    value: Optional[StrictStr] = Field(
+        default=None, description="The value of the form field."
+    )
+    __properties: ClassVar[List[str]] = [
+        "api_id",
+        "signature_id",
+        "name",
+        "required",
+        "type",
+        "value",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -41,7 +56,6 @@ class SignatureRequestResponseDataValueDropdown(SignatureRequestResponseDataBase
         protected_namespaces=(),
         arbitrary_types_allowed=True,
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -52,7 +66,9 @@ class SignatureRequestResponseDataValueDropdown(SignatureRequestResponseDataBase
         # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
-    def to_json_form_params(self, excluded_fields: Set[str] = None) -> List[Tuple[str, str]]:
+    def to_json_form_params(
+        self, excluded_fields: Set[str] = None
+    ) -> List[Tuple[str, str]]:
         data: List[Tuple[str, str]] = []
 
         for key, value in self.to_dict(excluded_fields).items():
@@ -95,14 +111,16 @@ class SignatureRequestResponseDataValueDropdown(SignatureRequestResponseDataBase
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "api_id": obj.get("api_id"),
-            "signature_id": obj.get("signature_id"),
-            "name": obj.get("name"),
-            "required": obj.get("required"),
-            "type": obj.get("type") if obj.get("type") is not None else 'dropdown',
-            "value": obj.get("value")
-        })
+        _obj = cls.model_validate(
+            {
+                "api_id": obj.get("api_id"),
+                "signature_id": obj.get("signature_id"),
+                "name": obj.get("name"),
+                "required": obj.get("required"),
+                "type": obj.get("type") if obj.get("type") is not None else "dropdown",
+                "value": obj.get("value"),
+            }
+        )
         return _obj
 
     @classmethod
@@ -128,6 +146,4 @@ class SignatureRequestResponseDataValueDropdown(SignatureRequestResponseDataBase
 
     @classmethod
     def openapi_type_is_array(cls, property_name: str) -> bool:
-        return property_name in [
-        ]
-
+        return property_name in []

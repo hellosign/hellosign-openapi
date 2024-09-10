@@ -25,13 +25,11 @@ Creates a new Draft that can be claimed using the claim URL. The first authentic
 ```python
 from pprint import pprint
 
-from dropbox_sign import \
-    ApiClient, ApiException, Configuration, apis, models
+from dropbox_sign import ApiClient, ApiException, Configuration, apis, models
 
 configuration = Configuration(
     # Configure HTTP basic authorization: api_key
     username="YOUR_API_KEY",
-
     # or, configure Bearer (JWT) authorization: oauth2
     # access_token="YOUR_ACCESS_TOKEN",
 )
@@ -133,13 +131,11 @@ Creates a new Draft that can be claimed and used in an embedded iFrame. The firs
 ```python
 from pprint import pprint
 
-from dropbox_sign import \
-    ApiClient, ApiException, Configuration, apis, models
+from dropbox_sign import ApiClient, ApiException, Configuration, apis, models
 
 configuration = Configuration(
     # Configure HTTP basic authorization: api_key
     username="YOUR_API_KEY",
-
     # or, configure Bearer (JWT) authorization: oauth2
     # access_token="YOUR_ACCESS_TOKEN",
 )
@@ -205,13 +201,11 @@ Creates a new Draft with a previously saved template(s) that can be claimed and 
 ```python
 from pprint import pprint
 
-from dropbox_sign import \
-    ApiClient, ApiException, Configuration, apis, models
+from dropbox_sign import ApiClient, ApiException, Configuration, apis, models
 
 configuration = Configuration(
     # Configure HTTP basic authorization: api_key
     username="YOUR_API_KEY",
-
     # or, configure Bearer (JWT) authorization: oauth2
     # access_token="YOUR_ACCESS_TOKEN",
 )
@@ -240,7 +234,9 @@ with ApiClient(configuration) as api_client:
     )
 
     try:
-        response = unclaimed_draft_api.unclaimed_draft_create_embedded_with_template(data)
+        response = unclaimed_draft_api.unclaimed_draft_create_embedded_with_template(
+            data
+        )
         pprint(response)
     except ApiException as e:
         print("Exception when calling Dropbox Sign API: %s\n" % e)
@@ -290,13 +286,11 @@ Creates a new signature request from an embedded request that can be edited prio
 ```python
 from pprint import pprint
 
-from dropbox_sign import \
-    ApiClient, ApiException, Configuration, apis, models
+from dropbox_sign import ApiClient, ApiException, Configuration, apis, models
 
 configuration = Configuration(
     # Configure HTTP basic authorization: api_key
     username="YOUR_API_KEY",
-
     # or, configure Bearer (JWT) authorization: oauth2
     # access_token="YOUR_ACCESS_TOKEN",
 )
@@ -312,7 +306,9 @@ with ApiClient(configuration) as api_client:
     signature_request_id = "2f9781e1a83jdja934d808c153c2e1d3df6f8f2f"
 
     try:
-        response = unclaimed_draft_api.unclaimed_draft_edit_and_resend(signature_request_id, data)
+        response = unclaimed_draft_api.unclaimed_draft_edit_and_resend(
+            signature_request_id, data
+        )
         pprint(response)
     except ApiException as e:
         print("Exception when calling Dropbox Sign API: %s\n" % e)

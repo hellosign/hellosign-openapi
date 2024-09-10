@@ -26,23 +26,36 @@ import io
 from pydantic import StrictBool
 from typing import Union
 
+
 class TeamAddMemberRequest(BaseModel):
     """
     TeamAddMemberRequest
-    """ # noqa: E501
-    account_id: Optional[StrictStr] = Field(default=None, description="`account_id` or `email_address` is required. If both are provided, the account id prevails.  Account id of the user to invite to your Team.")
-    email_address: Optional[StrictStr] = Field(default=None, description="`account_id` or `email_address` is required, If both are provided, the account id prevails.  Email address of the user to invite to your Team.")
-    role: Optional[StrictStr] = Field(default=None, description="A role member will take in a new Team.  **NOTE:** This parameter is used only if `team_id` is provided.")
+    """  # noqa: E501
+
+    account_id: Optional[StrictStr] = Field(
+        default=None,
+        description="`account_id` or `email_address` is required. If both are provided, the account id prevails.  Account id of the user to invite to your Team.",
+    )
+    email_address: Optional[StrictStr] = Field(
+        default=None,
+        description="`account_id` or `email_address` is required, If both are provided, the account id prevails.  Email address of the user to invite to your Team.",
+    )
+    role: Optional[StrictStr] = Field(
+        default=None,
+        description="A role member will take in a new Team.  **NOTE:** This parameter is used only if `team_id` is provided.",
+    )
     __properties: ClassVar[List[str]] = ["account_id", "email_address", "role"]
 
-    @field_validator('role')
+    @field_validator("role")
     def role_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
             return value
 
-        if value not in set(['Member', 'Developer', 'Team Manager', 'Admin']):
-            raise ValueError("must be one of enum values ('Member', 'Developer', 'Team Manager', 'Admin')")
+        if value not in set(["Member", "Developer", "Team Manager", "Admin"]):
+            raise ValueError(
+                "must be one of enum values ('Member', 'Developer', 'Team Manager', 'Admin')"
+            )
         return value
 
     model_config = ConfigDict(
@@ -51,7 +64,6 @@ class TeamAddMemberRequest(BaseModel):
         protected_namespaces=(),
         arbitrary_types_allowed=True,
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -62,7 +74,9 @@ class TeamAddMemberRequest(BaseModel):
         # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
-    def to_json_form_params(self, excluded_fields: Set[str] = None) -> List[Tuple[str, str]]:
+    def to_json_form_params(
+        self, excluded_fields: Set[str] = None
+    ) -> List[Tuple[str, str]]:
         data: List[Tuple[str, str]] = []
 
         for key, value in self.to_dict(excluded_fields).items():
@@ -105,11 +119,13 @@ class TeamAddMemberRequest(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "account_id": obj.get("account_id"),
-            "email_address": obj.get("email_address"),
-            "role": obj.get("role")
-        })
+        _obj = cls.model_validate(
+            {
+                "account_id": obj.get("account_id"),
+                "email_address": obj.get("email_address"),
+                "role": obj.get("role"),
+            }
+        )
         return _obj
 
     @classmethod
@@ -132,6 +148,4 @@ class TeamAddMemberRequest(BaseModel):
 
     @classmethod
     def openapi_type_is_array(cls, property_name: str) -> bool:
-        return property_name in [
-        ]
-
+        return property_name in []

@@ -14,18 +14,16 @@ class TestEmbeddedApi(unittest.TestCase):
         self.api = apis.EmbeddedApi(self.api_client)
 
     def test_embedded_edit_url(self):
-        template_id = '5de8179668f2033afac48da1868d0093bf133266'
+        template_id = "5de8179668f2033afac48da1868d0093bf133266"
 
-        request_class = 'EmbeddedEditUrlRequest'
-        request_data = get_fixture_data(request_class)['default']
+        request_class = "EmbeddedEditUrlRequest"
+        request_data = get_fixture_data(request_class)["default"]
 
-        response_class = 'EmbeddedEditUrlResponse'
-        response_data = get_fixture_data(response_class)['default']
+        response_class = "EmbeddedEditUrlResponse"
+        response_data = get_fixture_data(response_class)["default"]
 
         self.mock_pool.expect_request(
-            content_type='application/json',
-            data=request_data,
-            response=response_data
+            content_type="application/json", data=request_data, response=response_data
         )
         expected = m.EmbeddedEditUrlResponse.init(response_data)
         obj = m.EmbeddedEditUrlRequest.init(request_data)
@@ -36,14 +34,13 @@ class TestEmbeddedApi(unittest.TestCase):
         self.assertEqual(result, expected)
 
     def test_embedded_sign_url(self):
-        signature_id = '50e3542f738adfa7ddd4cbd4c00d2a8ab6e4194b'
+        signature_id = "50e3542f738adfa7ddd4cbd4c00d2a8ab6e4194b"
 
-        response_class = 'EmbeddedSignUrlResponse'
-        response_data = get_fixture_data(response_class)['default']
+        response_class = "EmbeddedSignUrlResponse"
+        response_data = get_fixture_data(response_class)["default"]
 
         self.mock_pool.expect_request(
-            content_type='application/json',
-            response=response_data
+            content_type="application/json", response=response_data
         )
         expected = m.EmbeddedSignUrlResponse.init(response_data)
 
@@ -53,5 +50,5 @@ class TestEmbeddedApi(unittest.TestCase):
         self.assertEqual(result, expected)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
