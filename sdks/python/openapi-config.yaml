@@ -12,14 +12,18 @@ additionalProperties:
   packageUrl: https://github.com/hellosign/dropbox-sign-python
   infoName: Official Python SDK for the Dropbox Sign API
   useCustomTemplateCode: true
+  licenseCopyrightYear: 2024
 files:
-  __init__apis.mustache:
+  dropbox-__init__apis.mustache:
     templateType: SupportingFiles
     destinationFilename: dropbox_sign/apis/__init__.py
-  event_callback_helper.mustache:
+  dropbox-event_callback_helper.mustache:
     templateType: SupportingFiles
     destinationFilename: dropbox_sign/event_callback_helper.py
-  VERSION.mustache:
+  dropbox-LICENSE.mustache:
+    templateType: SupportingFiles
+    destinationFilename: LICENSE
+  dropbox-VERSION.mustache:
     templateType: SupportingFiles
     destinationFilename: VERSION
 globalProperties:
