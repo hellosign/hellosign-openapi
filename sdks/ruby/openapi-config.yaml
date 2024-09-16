@@ -15,11 +15,15 @@ additionalProperties:
   gitUserId: hellosign
   gitRepoId: dropbox-sign-ruby
   useCustomTemplateCode: true
+  licenseCopyrightYear: 2024
 files:
-  event_callback_helper.mustache:
+  dropbox-event_callback_helper.mustache:
     templateType: SupportingFiles
     destinationFilename: lib/dropbox-sign/event_callback_helper.rb
-  VERSION-root.mustache:
+  dropbox-LICENSE.mustache:
+    templateType: SupportingFiles
+    destinationFilename: LICENSE
+  dropbox-VERSION.mustache:
     templateType: SupportingFiles
     destinationFilename: VERSION
 globalProperties:

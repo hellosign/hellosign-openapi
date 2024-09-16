@@ -8,32 +8,36 @@ additionalProperties:
   modelDocPath: ./docs/model
   sortModelPropertiesByRequiredFlag: true
   useCustomTemplateCode: true
+  licenseCopyrightYear: 2024
 files:
-  npmignore:
+  dropbox-npmignore:
     templateType: SupportingFiles
     destinationFilename: .npmignore
-  api-doc.mustache:
+  dropbox-api-doc.mustache:
     templateType: APIDocs
     destinationFilename: .md
-  model-doc.mustache:
+  dropbox-model-doc.mustache:
     templateType: ModelDocs
     destinationFilename: .md
-  README.mustache:
+  dropbox-README.mustache:
     templateType: SupportingFiles
     destinationFilename: README.md
-  eventCallbackHelper.mustache:
+  dropbox-eventCallbackHelper.mustache:
     templateType: SupportingFiles
     destinationFilename: model/eventCallbackHelper.ts
-  VERSION.mustache:
+  dropbox-LICENSE.mustache:
+    templateType: SupportingFiles
+    destinationFilename: LICENSE
+  dropbox-VERSION.mustache:
     templateType: SupportingFiles
     destinationFilename: VERSION
-  api-index.mustache:
+  dropbox-api-index.mustache:
     templateType: SupportingFiles
     destinationFilename: api/index.ts
-  model-index.mustache:
+  dropbox-model-index.mustache:
     templateType: SupportingFiles
     destinationFilename: model/index.ts
-  prettierrc.cjs:
+  dropbox-prettierrc.cjs:
     templateType: SupportingFiles
     destinationFilename: .prettierrc.cjs
 globalProperties:

@@ -14,11 +14,15 @@ additionalProperties:
   packageGuid: "{F8C8232D-7020-4603-8E04-18D060AE530B}"
   legacyDiscriminatorBehavior: true
   useCustomTemplateCode: true
+  licenseCopyrightYear: 2024
 files:
-  EventCallbackHelper.cs:
+  dropbox-EventCallbackHelper.cs:
     templateType: SupportingFiles
     destinationFilename: src/Dropbox.Sign/EventCallbackHelper.cs
-  VERSION.mustache:
+  dropbox-LICENSE.mustache:
+    templateType: SupportingFiles
+    destinationFilename: LICENSE
+  dropbox-VERSION.mustache:
     templateType: SupportingFiles
     destinationFilename: VERSION
 globalProperties:
