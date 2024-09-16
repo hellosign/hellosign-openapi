@@ -27,15 +27,28 @@ import io
 from pydantic import StrictBool
 from typing import Union
 
+
 class TeamResponse(BaseModel):
     """
     Contains information about your team and its members
-    """ # noqa: E501
+    """  # noqa: E501
+
     name: Optional[StrictStr] = Field(default=None, description="The name of your Team")
     accounts: Optional[List[AccountResponse]] = None
-    invited_accounts: Optional[List[AccountResponse]] = Field(default=None, description="A list of all Accounts that have an outstanding invitation to join your Team. Note that this response is a subset of the response parameters found in `GET /account`.")
-    invited_emails: Optional[List[StrictStr]] = Field(default=None, description="A list of email addresses that have an outstanding invitation to join your Team and do not yet have a Dropbox Sign account.")
-    __properties: ClassVar[List[str]] = ["name", "accounts", "invited_accounts", "invited_emails"]
+    invited_accounts: Optional[List[AccountResponse]] = Field(
+        default=None,
+        description="A list of all Accounts that have an outstanding invitation to join your Team. Note that this response is a subset of the response parameters found in `GET /account`.",
+    )
+    invited_emails: Optional[List[StrictStr]] = Field(
+        default=None,
+        description="A list of email addresses that have an outstanding invitation to join your Team and do not yet have a Dropbox Sign account.",
+    )
+    __properties: ClassVar[List[str]] = [
+        "name",
+        "accounts",
+        "invited_accounts",
+        "invited_emails",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -43,7 +56,6 @@ class TeamResponse(BaseModel):
         protected_namespaces=(),
         arbitrary_types_allowed=True,
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -54,7 +66,9 @@ class TeamResponse(BaseModel):
         # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
-    def to_json_form_params(self, excluded_fields: Set[str] = None) -> List[Tuple[str, str]]:
+    def to_json_form_params(
+        self, excluded_fields: Set[str] = None
+    ) -> List[Tuple[str, str]]:
         data: List[Tuple[str, str]] = []
 
         for key, value in self.to_dict(excluded_fields).items():
@@ -92,14 +106,14 @@ class TeamResponse(BaseModel):
             for _item_accounts in self.accounts:
                 if _item_accounts:
                     _items.append(_item_accounts.to_dict())
-            _dict['accounts'] = _items
+            _dict["accounts"] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in invited_accounts (list)
         _items = []
         if self.invited_accounts:
             for _item_invited_accounts in self.invited_accounts:
                 if _item_invited_accounts:
                     _items.append(_item_invited_accounts.to_dict())
-            _dict['invited_accounts'] = _items
+            _dict["invited_accounts"] = _items
         return _dict
 
     @classmethod
@@ -111,12 +125,25 @@ class TeamResponse(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "name": obj.get("name"),
-            "accounts": [AccountResponse.from_dict(_item) for _item in obj["accounts"]] if obj.get("accounts") is not None else None,
-            "invited_accounts": [AccountResponse.from_dict(_item) for _item in obj["invited_accounts"]] if obj.get("invited_accounts") is not None else None,
-            "invited_emails": obj.get("invited_emails")
-        })
+        _obj = cls.model_validate(
+            {
+                "name": obj.get("name"),
+                "accounts": (
+                    [AccountResponse.from_dict(_item) for _item in obj["accounts"]]
+                    if obj.get("accounts") is not None
+                    else None
+                ),
+                "invited_accounts": (
+                    [
+                        AccountResponse.from_dict(_item)
+                        for _item in obj["invited_accounts"]
+                    ]
+                    if obj.get("invited_accounts") is not None
+                    else None
+                ),
+                "invited_emails": obj.get("invited_emails"),
+            }
+        )
         return _obj
 
     @classmethod
@@ -145,4 +172,3 @@ class TeamResponse(BaseModel):
             "invited_accounts",
             "invited_emails",
         ]
-

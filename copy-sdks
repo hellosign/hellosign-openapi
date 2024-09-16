@@ -102,8 +102,18 @@ function copy_files()
   git reset --hard origin/${REPO_MAIN_BRANCH}
   git pull origin ${REPO_MAIN_BRANCH}
   git checkout -b "release-${VERSION}"
+  git rm -rf --cached .
 
-  cp -r "${DIR}/sdks/${SDK}/." "${SDK_DIR}"
+  popd
+
+  cp -r "${DIR}/sdks/${SDK}" "${SDK_DIR}-tmp"
+  cp -r "${SDK_DIR}/.git" "${SDK_DIR}-tmp/"
+  rm -rf "${SDK_DIR}"
+  mv "${SDK_DIR}-tmp" "${SDK_DIR}"
+
+  pushd "${SDK_DIR}/"
+
+  git add .
 
   rm -f "${SDK_DIR}/openapi-sdk.yaml"
   rm -rf "${SDK_DIR}/examples"

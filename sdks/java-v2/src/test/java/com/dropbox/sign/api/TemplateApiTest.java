@@ -1,25 +1,27 @@
 package com.dropbox.sign.api;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import com.dropbox.sign.ApiClient;
 import com.dropbox.sign.TestHelper;
 import com.dropbox.sign.model.*;
 import com.fasterxml.jackson.databind.JsonNode;
-import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 import java.io.File;
+import org.junit.jupiter.api.Test;
 
 public class TemplateApiTest {
     @Test
     public void templateAddUserTest() throws Exception {
         String templateId = "f57db65d3f933b5316d398057a36176831451a35";
 
-        JsonNode expectedResponseData = TestHelper.getJsonContents(TemplateGetResponse.class.getSimpleName());
-        TemplateGetResponse expectedResponse = TemplateGetResponse.init(expectedResponseData.toString());
+        JsonNode expectedResponseData =
+                TestHelper.getJsonContents(TemplateGetResponse.class.getSimpleName());
+        TemplateGetResponse expectedResponse =
+                TemplateGetResponse.init(expectedResponseData.toString());
         ApiClient apiClient = TestHelper.setUpMock(200, expectedResponse);
 
-        JsonNode requestData = TestHelper.getJsonContents(TemplateAddUserRequest.class.getSimpleName());
+        JsonNode requestData =
+                TestHelper.getJsonContents(TemplateAddUserRequest.class.getSimpleName());
 
         TemplateAddUserRequest request = TemplateAddUserRequest.init(requestData.toString());
 
@@ -31,13 +33,19 @@ public class TemplateApiTest {
 
     @Test
     public void templateCreateEmbeddedDraftTest() throws Exception {
-        JsonNode expectedResponseData = TestHelper.getJsonContents(TemplateCreateEmbeddedDraftResponse.class.getSimpleName());
-        TemplateCreateEmbeddedDraftResponse expectedResponse = TemplateCreateEmbeddedDraftResponse.init(expectedResponseData.toString());
+        JsonNode expectedResponseData =
+                TestHelper.getJsonContents(
+                        TemplateCreateEmbeddedDraftResponse.class.getSimpleName());
+        TemplateCreateEmbeddedDraftResponse expectedResponse =
+                TemplateCreateEmbeddedDraftResponse.init(expectedResponseData.toString());
         ApiClient apiClient = TestHelper.setUpMock(200, expectedResponse);
 
-        JsonNode requestData = TestHelper.getJsonContents(TemplateCreateEmbeddedDraftRequest.class.getSimpleName());
+        JsonNode requestData =
+                TestHelper.getJsonContents(
+                        TemplateCreateEmbeddedDraftRequest.class.getSimpleName());
 
-        TemplateCreateEmbeddedDraftRequest request = TemplateCreateEmbeddedDraftRequest.init(requestData.toString());
+        TemplateCreateEmbeddedDraftRequest request =
+                TemplateCreateEmbeddedDraftRequest.init(requestData.toString());
         request.addFilesItem(new File("test_fixtures/pdf-sample.pdf"));
 
         TemplateApi api = new TemplateApi(apiClient);
@@ -48,8 +56,8 @@ public class TemplateApiTest {
 
     @Test
     public void templateDeleteTest() {
-        //String templateId = null;
-        //api.templateDelete(templateId);
+        // String templateId = null;
+        // api.templateDelete(templateId);
         // TODO: test validations
     }
 
@@ -62,8 +70,10 @@ public class TemplateApiTest {
     public void templateGetTest() throws Exception {
         String templateId = "f57db65d3f933b5316d398057a36176831451a35";
 
-        JsonNode expectedResponseData = TestHelper.getJsonContents(TemplateGetResponse.class.getSimpleName());
-        TemplateGetResponse expectedResponse = TemplateGetResponse.init(expectedResponseData.toString());
+        JsonNode expectedResponseData =
+                TestHelper.getJsonContents(TemplateGetResponse.class.getSimpleName());
+        TemplateGetResponse expectedResponse =
+                TemplateGetResponse.init(expectedResponseData.toString());
         ApiClient apiClient = TestHelper.setUpMock(200, expectedResponse);
 
         TemplateApi api = new TemplateApi(apiClient);
@@ -76,8 +86,10 @@ public class TemplateApiTest {
     public void templateListTest() throws Exception {
         String accountId = "all";
 
-        JsonNode expectedResponseData = TestHelper.getJsonContents(TemplateListResponse.class.getSimpleName());
-        TemplateListResponse expectedResponse = TemplateListResponse.init(expectedResponseData.toString());
+        JsonNode expectedResponseData =
+                TestHelper.getJsonContents(TemplateListResponse.class.getSimpleName());
+        TemplateListResponse expectedResponse =
+                TemplateListResponse.init(expectedResponseData.toString());
         ApiClient apiClient = TestHelper.setUpMock(200, expectedResponse);
 
         TemplateApi api = new TemplateApi(apiClient);
@@ -90,11 +102,14 @@ public class TemplateApiTest {
     public void templateRemoveUserTest() throws Exception {
         String templateId = "f57db65d3f933b5316d398057a36176831451a35";
 
-        JsonNode expectedResponseData = TestHelper.getJsonContents(TemplateGetResponse.class.getSimpleName());
-        TemplateGetResponse expectedResponse = TemplateGetResponse.init(expectedResponseData.toString());
+        JsonNode expectedResponseData =
+                TestHelper.getJsonContents(TemplateGetResponse.class.getSimpleName());
+        TemplateGetResponse expectedResponse =
+                TemplateGetResponse.init(expectedResponseData.toString());
         ApiClient apiClient = TestHelper.setUpMock(200, expectedResponse);
 
-        JsonNode requestData = TestHelper.getJsonContents(TemplateRemoveUserRequest.class.getSimpleName());
+        JsonNode requestData =
+                TestHelper.getJsonContents(TemplateRemoveUserRequest.class.getSimpleName());
 
         TemplateRemoveUserRequest request = TemplateRemoveUserRequest.init(requestData.toString());
 
@@ -108,13 +123,17 @@ public class TemplateApiTest {
     public void templateUpdateFilesTest() throws Exception {
         String templateId = "f57db65d3f933b5316d398057a36176831451a35";
 
-        JsonNode expectedResponseData = TestHelper.getJsonContents(TemplateUpdateFilesResponse.class.getSimpleName());
-        TemplateUpdateFilesResponse expectedResponse = TemplateUpdateFilesResponse.init(expectedResponseData.toString());
+        JsonNode expectedResponseData =
+                TestHelper.getJsonContents(TemplateUpdateFilesResponse.class.getSimpleName());
+        TemplateUpdateFilesResponse expectedResponse =
+                TemplateUpdateFilesResponse.init(expectedResponseData.toString());
         ApiClient apiClient = TestHelper.setUpMock(200, expectedResponse);
 
-        JsonNode requestData = TestHelper.getJsonContents(TemplateUpdateFilesRequest.class.getSimpleName());
+        JsonNode requestData =
+                TestHelper.getJsonContents(TemplateUpdateFilesRequest.class.getSimpleName());
 
-        TemplateUpdateFilesRequest request = TemplateUpdateFilesRequest.init(requestData.toString());
+        TemplateUpdateFilesRequest request =
+                TemplateUpdateFilesRequest.init(requestData.toString());
         request.addFilesItem(new File("test_fixtures/pdf-sample.pdf"));
 
         TemplateApi api = new TemplateApi(apiClient);

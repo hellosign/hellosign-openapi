@@ -45,7 +45,7 @@ namespace Dropbox.Sign.Model
         /// <param name="warnings">warnings.</param>
         public TeamInvitesResponse(List<TeamInviteResponse> teamInvites = default(List<TeamInviteResponse>), List<WarningResponse> warnings = default(List<WarningResponse>))
         {
-            
+
             // to ensure "teamInvites" is required (not null)
             if (teamInvites == null)
             {
@@ -77,13 +77,13 @@ namespace Dropbox.Sign.Model
         /// <value>Contains a list of team invites and their roles.</value>
         [DataMember(Name = "team_invites", IsRequired = true, EmitDefaultValue = true)]
         public List<TeamInviteResponse> TeamInvites { get; set; }
-        
+
         /// <summary>
         /// Gets or Sets Warnings
         /// </summary>
         [DataMember(Name = "warnings", EmitDefaultValue = true)]
         public List<WarningResponse> Warnings { get; set; }
-        
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -128,13 +128,13 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
+            return
                 (
                     this.TeamInvites == input.TeamInvites ||
                     this.TeamInvites != null &&
                     input.TeamInvites != null &&
                     this.TeamInvites.SequenceEqual(input.TeamInvites)
-                ) && 
+                ) &&
                 (
                     this.Warnings == input.Warnings ||
                     this.Warnings != null &&
@@ -176,13 +176,15 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "team_invites",
                 Property = "TeamInvites",
                 Type = "List<TeamInviteResponse>",
                 Value = TeamInvites,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "warnings",
                 Property = "Warnings",
                 Type = "List<WarningResponse>",

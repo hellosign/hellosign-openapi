@@ -210,7 +210,7 @@ namespace Dropbox.Sign.Client
         /// <summary>
         /// Gets or sets the base path for API access.
         /// </summary>
-        public virtual string BasePath 
+        public virtual string BasePath
         {
             get { return _basePath; }
             set { _basePath = value; }
@@ -548,7 +548,7 @@ namespace Dropbox.Sign.Client
 
             return url;
         }
-        
+
         /// <summary>
         /// Gets and Sets the RemoteCertificateValidationCallback
         /// </summary>
@@ -565,7 +565,7 @@ namespace Dropbox.Sign.Client
         {
             string report = "C# SDK (Dropbox.Sign) Debug Report:\n";
             report += "    OS: " + System.Environment.OSVersion + "\n";
-            report += "    .NET Framework Version: " + System.Environment.Version  + "\n";
+            report += "    .NET Framework Version: " + System.Environment.Version + "\n";
             report += "    Version of the API: 3.0.0\n";
             report += "    SDK Package Version: 1.6-dev\n";
 

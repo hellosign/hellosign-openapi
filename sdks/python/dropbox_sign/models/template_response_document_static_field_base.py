@@ -28,31 +28,82 @@ from pydantic import StrictBool
 from typing import Union
 
 from typing import TYPE_CHECKING
+
 if TYPE_CHECKING:
-    from dropbox_sign.models.template_response_document_static_field_checkbox import TemplateResponseDocumentStaticFieldCheckbox
-    from dropbox_sign.models.template_response_document_static_field_date_signed import TemplateResponseDocumentStaticFieldDateSigned
-    from dropbox_sign.models.template_response_document_static_field_dropdown import TemplateResponseDocumentStaticFieldDropdown
-    from dropbox_sign.models.template_response_document_static_field_hyperlink import TemplateResponseDocumentStaticFieldHyperlink
-    from dropbox_sign.models.template_response_document_static_field_initials import TemplateResponseDocumentStaticFieldInitials
-    from dropbox_sign.models.template_response_document_static_field_radio import TemplateResponseDocumentStaticFieldRadio
-    from dropbox_sign.models.template_response_document_static_field_signature import TemplateResponseDocumentStaticFieldSignature
-    from dropbox_sign.models.template_response_document_static_field_text import TemplateResponseDocumentStaticFieldText
+    from dropbox_sign.models.template_response_document_static_field_checkbox import (
+        TemplateResponseDocumentStaticFieldCheckbox,
+    )
+    from dropbox_sign.models.template_response_document_static_field_date_signed import (
+        TemplateResponseDocumentStaticFieldDateSigned,
+    )
+    from dropbox_sign.models.template_response_document_static_field_dropdown import (
+        TemplateResponseDocumentStaticFieldDropdown,
+    )
+    from dropbox_sign.models.template_response_document_static_field_hyperlink import (
+        TemplateResponseDocumentStaticFieldHyperlink,
+    )
+    from dropbox_sign.models.template_response_document_static_field_initials import (
+        TemplateResponseDocumentStaticFieldInitials,
+    )
+    from dropbox_sign.models.template_response_document_static_field_radio import (
+        TemplateResponseDocumentStaticFieldRadio,
+    )
+    from dropbox_sign.models.template_response_document_static_field_signature import (
+        TemplateResponseDocumentStaticFieldSignature,
+    )
+    from dropbox_sign.models.template_response_document_static_field_text import (
+        TemplateResponseDocumentStaticFieldText,
+    )
+
 
 class TemplateResponseDocumentStaticFieldBase(BaseModel):
     """
     An array describing static overlay fields. **NOTE:** Only available for certain subscriptions.
-    """ # noqa: E501
+    """  # noqa: E501
+
     type: StrictStr
-    api_id: Optional[StrictStr] = Field(default=None, description="A unique id for the static field.")
-    name: Optional[StrictStr] = Field(default=None, description="The name of the static field.")
-    signer: Optional[StrictStr] = Field(default='me_now', description="The signer of the Static Field.")
-    x: Optional[StrictInt] = Field(default=None, description="The horizontal offset in pixels for this static field.")
-    y: Optional[StrictInt] = Field(default=None, description="The vertical offset in pixels for this static field.")
-    width: Optional[StrictInt] = Field(default=None, description="The width in pixels of this static field.")
-    height: Optional[StrictInt] = Field(default=None, description="The height in pixels of this static field.")
-    required: Optional[StrictBool] = Field(default=None, description="Boolean showing whether or not this field is required.")
-    group: Optional[StrictStr] = Field(default=None, description="The name of the group this field is in. If this field is not a group, this defaults to `null`.")
-    __properties: ClassVar[List[str]] = ["type", "api_id", "name", "signer", "x", "y", "width", "height", "required", "group"]
+    api_id: Optional[StrictStr] = Field(
+        default=None, description="A unique id for the static field."
+    )
+    name: Optional[StrictStr] = Field(
+        default=None, description="The name of the static field."
+    )
+    signer: Optional[StrictStr] = Field(
+        default="me_now", description="The signer of the Static Field."
+    )
+    x: Optional[StrictInt] = Field(
+        default=None,
+        description="The horizontal offset in pixels for this static field.",
+    )
+    y: Optional[StrictInt] = Field(
+        default=None, description="The vertical offset in pixels for this static field."
+    )
+    width: Optional[StrictInt] = Field(
+        default=None, description="The width in pixels of this static field."
+    )
+    height: Optional[StrictInt] = Field(
+        default=None, description="The height in pixels of this static field."
+    )
+    required: Optional[StrictBool] = Field(
+        default=None,
+        description="Boolean showing whether or not this field is required.",
+    )
+    group: Optional[StrictStr] = Field(
+        default=None,
+        description="The name of the group this field is in. If this field is not a group, this defaults to `null`.",
+    )
+    __properties: ClassVar[List[str]] = [
+        "type",
+        "api_id",
+        "name",
+        "signer",
+        "x",
+        "y",
+        "width",
+        "height",
+        "required",
+        "group",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -61,13 +112,19 @@ class TemplateResponseDocumentStaticFieldBase(BaseModel):
         arbitrary_types_allowed=True,
     )
 
-
     # JSON field name that stores the object type
-    __discriminator_property_name: ClassVar[str] = 'type'
+    __discriminator_property_name: ClassVar[str] = "type"
 
     # discriminator mappings
     __discriminator_value_class_map: ClassVar[Dict[str, str]] = {
-        'checkbox': 'TemplateResponseDocumentStaticFieldCheckbox','date_signed': 'TemplateResponseDocumentStaticFieldDateSigned','dropdown': 'TemplateResponseDocumentStaticFieldDropdown','hyperlink': 'TemplateResponseDocumentStaticFieldHyperlink','initials': 'TemplateResponseDocumentStaticFieldInitials','radio': 'TemplateResponseDocumentStaticFieldRadio','signature': 'TemplateResponseDocumentStaticFieldSignature','text': 'TemplateResponseDocumentStaticFieldText'
+        "checkbox": "TemplateResponseDocumentStaticFieldCheckbox",
+        "date_signed": "TemplateResponseDocumentStaticFieldDateSigned",
+        "dropdown": "TemplateResponseDocumentStaticFieldDropdown",
+        "hyperlink": "TemplateResponseDocumentStaticFieldHyperlink",
+        "initials": "TemplateResponseDocumentStaticFieldInitials",
+        "radio": "TemplateResponseDocumentStaticFieldRadio",
+        "signature": "TemplateResponseDocumentStaticFieldSignature",
+        "text": "TemplateResponseDocumentStaticFieldText",
     }
 
     @classmethod
@@ -88,7 +145,9 @@ class TemplateResponseDocumentStaticFieldBase(BaseModel):
         # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
-    def to_json_form_params(self, excluded_fields: Set[str] = None) -> List[Tuple[str, str]]:
+    def to_json_form_params(
+        self, excluded_fields: Set[str] = None
+    ) -> List[Tuple[str, str]]:
         data: List[Tuple[str, str]] = []
 
         for key, value in self.to_dict(excluded_fields).items():
@@ -100,7 +159,18 @@ class TemplateResponseDocumentStaticFieldBase(BaseModel):
         return data
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Union[TemplateResponseDocumentStaticFieldCheckbox, TemplateResponseDocumentStaticFieldDateSigned, TemplateResponseDocumentStaticFieldDropdown, TemplateResponseDocumentStaticFieldHyperlink, TemplateResponseDocumentStaticFieldInitials, TemplateResponseDocumentStaticFieldRadio, TemplateResponseDocumentStaticFieldSignature, TemplateResponseDocumentStaticFieldText]]:
+    def from_json(cls, json_str: str) -> Optional[
+        Union[
+            TemplateResponseDocumentStaticFieldCheckbox,
+            TemplateResponseDocumentStaticFieldDateSigned,
+            TemplateResponseDocumentStaticFieldDropdown,
+            TemplateResponseDocumentStaticFieldHyperlink,
+            TemplateResponseDocumentStaticFieldInitials,
+            TemplateResponseDocumentStaticFieldRadio,
+            TemplateResponseDocumentStaticFieldSignature,
+            TemplateResponseDocumentStaticFieldText,
+        ]
+    ]:
         """Create an instance of TemplateResponseDocumentStaticFieldBase from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -123,31 +193,62 @@ class TemplateResponseDocumentStaticFieldBase(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict[str, Any]) -> Optional[Union[TemplateResponseDocumentStaticFieldCheckbox, TemplateResponseDocumentStaticFieldDateSigned, TemplateResponseDocumentStaticFieldDropdown, TemplateResponseDocumentStaticFieldHyperlink, TemplateResponseDocumentStaticFieldInitials, TemplateResponseDocumentStaticFieldRadio, TemplateResponseDocumentStaticFieldSignature, TemplateResponseDocumentStaticFieldText]]:
+    def from_dict(cls, obj: Dict[str, Any]) -> Optional[
+        Union[
+            TemplateResponseDocumentStaticFieldCheckbox,
+            TemplateResponseDocumentStaticFieldDateSigned,
+            TemplateResponseDocumentStaticFieldDropdown,
+            TemplateResponseDocumentStaticFieldHyperlink,
+            TemplateResponseDocumentStaticFieldInitials,
+            TemplateResponseDocumentStaticFieldRadio,
+            TemplateResponseDocumentStaticFieldSignature,
+            TemplateResponseDocumentStaticFieldText,
+        ]
+    ]:
         """Create an instance of TemplateResponseDocumentStaticFieldBase from a dict"""
         # look up the object type based on discriminator mapping
         object_type = cls.get_discriminator_value(obj)
-        if object_type ==  'TemplateResponseDocumentStaticFieldCheckbox':
-            return import_module("dropbox_sign.models.template_response_document_static_field_checkbox").TemplateResponseDocumentStaticFieldCheckbox.from_dict(obj)
-        if object_type ==  'TemplateResponseDocumentStaticFieldDateSigned':
-            return import_module("dropbox_sign.models.template_response_document_static_field_date_signed").TemplateResponseDocumentStaticFieldDateSigned.from_dict(obj)
-        if object_type ==  'TemplateResponseDocumentStaticFieldDropdown':
-            return import_module("dropbox_sign.models.template_response_document_static_field_dropdown").TemplateResponseDocumentStaticFieldDropdown.from_dict(obj)
-        if object_type ==  'TemplateResponseDocumentStaticFieldHyperlink':
-            return import_module("dropbox_sign.models.template_response_document_static_field_hyperlink").TemplateResponseDocumentStaticFieldHyperlink.from_dict(obj)
-        if object_type ==  'TemplateResponseDocumentStaticFieldInitials':
-            return import_module("dropbox_sign.models.template_response_document_static_field_initials").TemplateResponseDocumentStaticFieldInitials.from_dict(obj)
-        if object_type ==  'TemplateResponseDocumentStaticFieldRadio':
-            return import_module("dropbox_sign.models.template_response_document_static_field_radio").TemplateResponseDocumentStaticFieldRadio.from_dict(obj)
-        if object_type ==  'TemplateResponseDocumentStaticFieldSignature':
-            return import_module("dropbox_sign.models.template_response_document_static_field_signature").TemplateResponseDocumentStaticFieldSignature.from_dict(obj)
-        if object_type ==  'TemplateResponseDocumentStaticFieldText':
-            return import_module("dropbox_sign.models.template_response_document_static_field_text").TemplateResponseDocumentStaticFieldText.from_dict(obj)
+        if object_type == "TemplateResponseDocumentStaticFieldCheckbox":
+            return import_module(
+                "dropbox_sign.models.template_response_document_static_field_checkbox"
+            ).TemplateResponseDocumentStaticFieldCheckbox.from_dict(obj)
+        if object_type == "TemplateResponseDocumentStaticFieldDateSigned":
+            return import_module(
+                "dropbox_sign.models.template_response_document_static_field_date_signed"
+            ).TemplateResponseDocumentStaticFieldDateSigned.from_dict(obj)
+        if object_type == "TemplateResponseDocumentStaticFieldDropdown":
+            return import_module(
+                "dropbox_sign.models.template_response_document_static_field_dropdown"
+            ).TemplateResponseDocumentStaticFieldDropdown.from_dict(obj)
+        if object_type == "TemplateResponseDocumentStaticFieldHyperlink":
+            return import_module(
+                "dropbox_sign.models.template_response_document_static_field_hyperlink"
+            ).TemplateResponseDocumentStaticFieldHyperlink.from_dict(obj)
+        if object_type == "TemplateResponseDocumentStaticFieldInitials":
+            return import_module(
+                "dropbox_sign.models.template_response_document_static_field_initials"
+            ).TemplateResponseDocumentStaticFieldInitials.from_dict(obj)
+        if object_type == "TemplateResponseDocumentStaticFieldRadio":
+            return import_module(
+                "dropbox_sign.models.template_response_document_static_field_radio"
+            ).TemplateResponseDocumentStaticFieldRadio.from_dict(obj)
+        if object_type == "TemplateResponseDocumentStaticFieldSignature":
+            return import_module(
+                "dropbox_sign.models.template_response_document_static_field_signature"
+            ).TemplateResponseDocumentStaticFieldSignature.from_dict(obj)
+        if object_type == "TemplateResponseDocumentStaticFieldText":
+            return import_module(
+                "dropbox_sign.models.template_response_document_static_field_text"
+            ).TemplateResponseDocumentStaticFieldText.from_dict(obj)
 
-        raise ValueError("TemplateResponseDocumentStaticFieldBase failed to lookup discriminator value from " +
-                            json.dumps(obj) + ". Discriminator property name: " + cls.__discriminator_property_name +
-                            ", mapping: " + json.dumps(cls.__discriminator_value_class_map))
-
+        raise ValueError(
+            "TemplateResponseDocumentStaticFieldBase failed to lookup discriminator value from "
+            + json.dumps(obj)
+            + ". Discriminator property name: "
+            + cls.__discriminator_property_name
+            + ", mapping: "
+            + json.dumps(cls.__discriminator_value_class_map)
+        )
 
     @classmethod
     def openapi_types(cls) -> Dict[str, str]:
@@ -166,6 +267,4 @@ class TemplateResponseDocumentStaticFieldBase(BaseModel):
 
     @classmethod
     def openapi_type_is_array(cls, property_name: str) -> bool:
-        return property_name in [
-        ]
-
+        return property_name in []

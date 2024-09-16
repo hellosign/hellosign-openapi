@@ -27,12 +27,10 @@ class SignatureRequestResponseCustomFieldTypeEnum(str, Enum):
     """
     allowed enum values
     """
-    TEXT = 'text'
-    CHECKBOX = 'checkbox'
+    TEXT = "text"
+    CHECKBOX = "checkbox"
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:
         """Create an instance of SignatureRequestResponseCustomFieldTypeEnum from a JSON string"""
         return cls(json.loads(json_str))
-
-

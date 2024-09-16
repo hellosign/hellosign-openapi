@@ -71,7 +71,9 @@ class TestModelSignatureRequestSendRequest(unittest.TestCase):
                 "cc1@example.com",
                 "cc2@example.com",
             ],
-            file_url=["https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf"],
+            file_url=[
+                "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf"
+            ],
             metadata={
                 "custom_id": 1234,
                 "custom_text": "NDA #9",
@@ -86,9 +88,9 @@ class TestModelSignatureRequestSendRequest(unittest.TestCase):
 
         self.assertEqual(
             data.form_fields_per_document[0].__class__.__name__,
-            models.SubFormFieldsPerDocumentTextMerge.__name__
+            models.SubFormFieldsPerDocumentTextMerge.__name__,
         )
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

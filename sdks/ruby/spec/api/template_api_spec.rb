@@ -99,7 +99,7 @@ describe Dropbox::Sign::TemplateApi do
       set_expected_response(200, JSON.dump(response_data))
       expected = Dropbox::Sign::TemplateListResponse.init(response_data)
 
-      result = api.template_list({:account_id => account_id})
+      result = api.template_list({ :account_id => account_id })
 
       expect(result.class.to_s).to eq("Dropbox::Sign::#{response_class}")
       expect(result.to_json).to be_json_eql(JSON.dump(expected))

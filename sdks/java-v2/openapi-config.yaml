@@ -27,11 +27,15 @@ additionalProperties:
   licenseName: MIT License
   licenseUrl: https://www.opensource.org/licenses/mit-license.php
   useCustomTemplateCode: true
+  licenseCopyrightYear: 2024
 files:
-  EventCallbackHelper.mustache:
+  dropbox-EventCallbackHelper.mustache:
     templateType: SupportingFiles
     destinationFilename: src/main/java/com/dropbox/sign/EventCallbackHelper.java
-  VERSION.mustache:
+  dropbox-LICENSE.mustache:
+    templateType: SupportingFiles
+    destinationFilename: LICENSE
+  dropbox-VERSION.mustache:
     templateType: SupportingFiles
     destinationFilename: VERSION
 globalProperties:

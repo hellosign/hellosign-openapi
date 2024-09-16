@@ -62,7 +62,7 @@ namespace Dropbox.Sign.Model
             this.Height = height;
             this.Required = required;
             this.Group = group;
-            
+
             // to ensure "type" is required (not null)
             if (type == null)
             {
@@ -93,7 +93,7 @@ namespace Dropbox.Sign.Model
         /// <value>The type of this Custom Field. Only &#x60;text&#x60; and &#x60;checkbox&#x60; are currently supported.  * Text uses &#x60;TemplateResponseDocumentCustomFieldText&#x60; * Checkbox uses &#x60;TemplateResponseDocumentCustomFieldCheckbox&#x60;</value>
         [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
         public string Type { get; set; }
-        
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -138,7 +138,7 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return base.Equals(input) && 
+            return base.Equals(input) &&
                 (
                     this.Type == input.Type ||
                     (this.Type != null &&
@@ -189,7 +189,8 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "type",
                 Property = "Type",
                 Type = "string",

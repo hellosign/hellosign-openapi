@@ -47,7 +47,7 @@ namespace Dropbox.Sign.Model
         /// <param name="invitedEmails">A list of email addresses that have an outstanding invitation to join your Team and do not yet have a Dropbox Sign account..</param>
         public TeamResponse(string name = default(string), List<AccountResponse> accounts = default(List<AccountResponse>), List<AccountResponse> invitedAccounts = default(List<AccountResponse>), List<string> invitedEmails = default(List<string>))
         {
-            
+
             this.Name = name;
             this.Accounts = accounts;
             this.InvitedAccounts = invitedAccounts;
@@ -76,27 +76,27 @@ namespace Dropbox.Sign.Model
         /// <value>The name of your Team</value>
         [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
-        
+
         /// <summary>
         /// Gets or Sets Accounts
         /// </summary>
         [DataMember(Name = "accounts", EmitDefaultValue = true)]
         public List<AccountResponse> Accounts { get; set; }
-        
+
         /// <summary>
         /// A list of all Accounts that have an outstanding invitation to join your Team. Note that this response is a subset of the response parameters found in &#x60;GET /account&#x60;.
         /// </summary>
         /// <value>A list of all Accounts that have an outstanding invitation to join your Team. Note that this response is a subset of the response parameters found in &#x60;GET /account&#x60;.</value>
         [DataMember(Name = "invited_accounts", EmitDefaultValue = true)]
         public List<AccountResponse> InvitedAccounts { get; set; }
-        
+
         /// <summary>
         /// A list of email addresses that have an outstanding invitation to join your Team and do not yet have a Dropbox Sign account.
         /// </summary>
         /// <value>A list of email addresses that have an outstanding invitation to join your Team and do not yet have a Dropbox Sign account.</value>
         [DataMember(Name = "invited_emails", EmitDefaultValue = true)]
         public List<string> InvitedEmails { get; set; }
-        
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -143,24 +143,24 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
+            return
                 (
                     this.Name == input.Name ||
                     (this.Name != null &&
                     this.Name.Equals(input.Name))
-                ) && 
+                ) &&
                 (
                     this.Accounts == input.Accounts ||
                     this.Accounts != null &&
                     input.Accounts != null &&
                     this.Accounts.SequenceEqual(input.Accounts)
-                ) && 
+                ) &&
                 (
                     this.InvitedAccounts == input.InvitedAccounts ||
                     this.InvitedAccounts != null &&
                     input.InvitedAccounts != null &&
                     this.InvitedAccounts.SequenceEqual(input.InvitedAccounts)
-                ) && 
+                ) &&
                 (
                     this.InvitedEmails == input.InvitedEmails ||
                     this.InvitedEmails != null &&
@@ -210,25 +210,29 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "name",
                 Property = "Name",
                 Type = "string",
                 Value = Name,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "accounts",
                 Property = "Accounts",
                 Type = "List<AccountResponse>",
                 Value = Accounts,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "invited_accounts",
                 Property = "InvitedAccounts",
                 Type = "List<AccountResponse>",
                 Value = InvitedAccounts,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "invited_emails",
                 Property = "InvitedEmails",
                 Type = "List<string>",

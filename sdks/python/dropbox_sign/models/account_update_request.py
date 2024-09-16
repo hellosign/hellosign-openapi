@@ -26,13 +26,22 @@ import io
 from pydantic import StrictBool
 from typing import Union
 
+
 class AccountUpdateRequest(BaseModel):
     """
     AccountUpdateRequest
-    """ # noqa: E501
-    account_id: Optional[StrictStr] = Field(default=None, description="The ID of the Account")
-    callback_url: Optional[StrictStr] = Field(default=None, description="The URL that Dropbox Sign should POST events to.")
-    locale: Optional[StrictStr] = Field(default=None, description="The locale used in this Account. Check out the list of [supported locales](/api/reference/constants/#supported-locales) to learn more about the possible values.")
+    """  # noqa: E501
+
+    account_id: Optional[StrictStr] = Field(
+        default=None, description="The ID of the Account"
+    )
+    callback_url: Optional[StrictStr] = Field(
+        default=None, description="The URL that Dropbox Sign should POST events to."
+    )
+    locale: Optional[StrictStr] = Field(
+        default=None,
+        description="The locale used in this Account. Check out the list of [supported locales](/api/reference/constants/#supported-locales) to learn more about the possible values.",
+    )
     __properties: ClassVar[List[str]] = ["account_id", "callback_url", "locale"]
 
     model_config = ConfigDict(
@@ -41,7 +50,6 @@ class AccountUpdateRequest(BaseModel):
         protected_namespaces=(),
         arbitrary_types_allowed=True,
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -52,7 +60,9 @@ class AccountUpdateRequest(BaseModel):
         # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
-    def to_json_form_params(self, excluded_fields: Set[str] = None) -> List[Tuple[str, str]]:
+    def to_json_form_params(
+        self, excluded_fields: Set[str] = None
+    ) -> List[Tuple[str, str]]:
         data: List[Tuple[str, str]] = []
 
         for key, value in self.to_dict(excluded_fields).items():
@@ -95,11 +105,13 @@ class AccountUpdateRequest(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "account_id": obj.get("account_id"),
-            "callback_url": obj.get("callback_url"),
-            "locale": obj.get("locale")
-        })
+        _obj = cls.model_validate(
+            {
+                "account_id": obj.get("account_id"),
+                "callback_url": obj.get("callback_url"),
+                "locale": obj.get("locale"),
+            }
+        )
         return _obj
 
     @classmethod
@@ -122,6 +134,4 @@ class AccountUpdateRequest(BaseModel):
 
     @classmethod
     def openapi_type_is_array(cls, property_name: str) -> bool:
-        return property_name in [
-        ]
-
+        return property_name in []

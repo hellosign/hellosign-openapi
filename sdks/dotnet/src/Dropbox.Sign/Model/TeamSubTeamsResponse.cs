@@ -46,7 +46,7 @@ namespace Dropbox.Sign.Model
         /// <param name="warnings">warnings.</param>
         public TeamSubTeamsResponse(List<SubTeamResponse> subTeams = default(List<SubTeamResponse>), ListInfoResponse listInfo = default(ListInfoResponse), List<WarningResponse> warnings = default(List<WarningResponse>))
         {
-            
+
             // to ensure "subTeams" is required (not null)
             if (subTeams == null)
             {
@@ -84,19 +84,19 @@ namespace Dropbox.Sign.Model
         /// <value>Contains a list with sub teams.</value>
         [DataMember(Name = "sub_teams", IsRequired = true, EmitDefaultValue = true)]
         public List<SubTeamResponse> SubTeams { get; set; }
-        
+
         /// <summary>
         /// Gets or Sets ListInfo
         /// </summary>
         [DataMember(Name = "list_info", IsRequired = true, EmitDefaultValue = true)]
         public ListInfoResponse ListInfo { get; set; }
-        
+
         /// <summary>
         /// Gets or Sets Warnings
         /// </summary>
         [DataMember(Name = "warnings", EmitDefaultValue = true)]
         public List<WarningResponse> Warnings { get; set; }
-        
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -142,18 +142,18 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
+            return
                 (
                     this.SubTeams == input.SubTeams ||
                     this.SubTeams != null &&
                     input.SubTeams != null &&
                     this.SubTeams.SequenceEqual(input.SubTeams)
-                ) && 
+                ) &&
                 (
                     this.ListInfo == input.ListInfo ||
                     (this.ListInfo != null &&
                     this.ListInfo.Equals(input.ListInfo))
-                ) && 
+                ) &&
                 (
                     this.Warnings == input.Warnings ||
                     this.Warnings != null &&
@@ -199,19 +199,22 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "sub_teams",
                 Property = "SubTeams",
                 Type = "List<SubTeamResponse>",
                 Value = SubTeams,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "list_info",
                 Property = "ListInfo",
                 Type = "ListInfoResponse",
                 Value = ListInfo,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "warnings",
                 Property = "Warnings",
                 Type = "List<WarningResponse>",

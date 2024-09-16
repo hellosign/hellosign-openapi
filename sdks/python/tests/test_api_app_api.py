@@ -14,21 +14,21 @@ class TestApiAppApi(unittest.TestCase):
         self.api = apis.ApiAppApi(self.api_client)
 
     def test_api_app_create(self):
-        request_class = 'ApiAppCreateRequest'
-        request_data = get_fixture_data(request_class)['default']
+        request_class = "ApiAppCreateRequest"
+        request_data = get_fixture_data(request_class)["default"]
 
-        response_class = 'ApiAppGetResponse'
-        response_data = get_fixture_data(response_class)['default']
+        response_class = "ApiAppGetResponse"
+        response_data = get_fixture_data(response_class)["default"]
 
         self.mock_pool.expect_request(
-            content_type='multipart/form-data',
+            content_type="multipart/form-data",
             data=request_data,
             response=response_data,
             status=201,
         )
 
         obj = m.ApiAppCreateRequest.init(request_data)
-        obj.custom_logo_file = open(f'{get_base_path()}/pdf-sample.pdf', 'rb')
+        obj.custom_logo_file = open(f"{get_base_path()}/pdf-sample.pdf", "rb")
 
         expected = m.ApiAppGetResponse.init(response_data)
 
@@ -40,14 +40,13 @@ class TestApiAppApi(unittest.TestCase):
         obj.custom_logo_file.close()
 
     def test_api_app_get(self):
-        client_id = '0dd3b823a682527788c4e40cb7b6f7e9'
+        client_id = "0dd3b823a682527788c4e40cb7b6f7e9"
 
-        response_class = 'ApiAppGetResponse'
-        response_data = get_fixture_data(response_class)['default']
+        response_class = "ApiAppGetResponse"
+        response_data = get_fixture_data(response_class)["default"]
 
         self.mock_pool.expect_request(
-            content_type='application/json',
-            response=response_data
+            content_type="application/json", response=response_data
         )
         expected = m.ApiAppGetResponse.init(response_data)
 
@@ -57,22 +56,22 @@ class TestApiAppApi(unittest.TestCase):
         self.assertEqual(result, expected)
 
     def test_api_app_update(self):
-        client_id = '0dd3b823a682527788c4e40cb7b6f7e9'
+        client_id = "0dd3b823a682527788c4e40cb7b6f7e9"
 
-        request_class = 'ApiAppUpdateRequest'
-        request_data = get_fixture_data(request_class)['default']
+        request_class = "ApiAppUpdateRequest"
+        request_data = get_fixture_data(request_class)["default"]
 
-        response_class = 'ApiAppGetResponse'
-        response_data = get_fixture_data(response_class)['default']
+        response_class = "ApiAppGetResponse"
+        response_data = get_fixture_data(response_class)["default"]
 
         self.mock_pool.expect_request(
-            content_type='multipart/form-data',
+            content_type="multipart/form-data",
             data=request_data,
-            response=response_data
+            response=response_data,
         )
 
         obj = m.ApiAppUpdateRequest.init(request_data)
-        obj.custom_logo_file = open(f'{get_base_path()}/pdf-sample.pdf', 'rb')
+        obj.custom_logo_file = open(f"{get_base_path()}/pdf-sample.pdf", "rb")
 
         expected = m.ApiAppGetResponse.init(response_data)
 
@@ -84,18 +83,17 @@ class TestApiAppApi(unittest.TestCase):
         obj.custom_logo_file.close()
 
     def test_api_app_delete(self):
-        self.skipTest('skipping test_api_app_delete')
+        self.skipTest("skipping test_api_app_delete")
 
     def test_api_app_list(self):
         page = 1
         page_size = 20
 
-        response_class = 'ApiAppListResponse'
-        response_data = get_fixture_data(response_class)['default']
+        response_class = "ApiAppListResponse"
+        response_data = get_fixture_data(response_class)["default"]
 
         self.mock_pool.expect_request(
-            content_type='application/json',
-            response=response_data
+            content_type="application/json", response=response_data
         )
         expected = m.ApiAppListResponse.init(response_data)
 
@@ -105,5 +103,5 @@ class TestApiAppApi(unittest.TestCase):
         self.assertEqual(result, expected)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

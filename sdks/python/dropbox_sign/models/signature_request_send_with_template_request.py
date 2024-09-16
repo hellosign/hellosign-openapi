@@ -23,7 +23,9 @@ from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing_extensions import Annotated
 from dropbox_sign.models.sub_cc import SubCC
 from dropbox_sign.models.sub_custom_field import SubCustomField
-from dropbox_sign.models.sub_signature_request_template_signer import SubSignatureRequestTemplateSigner
+from dropbox_sign.models.sub_signature_request_template_signer import (
+    SubSignatureRequestTemplateSigner,
+)
 from dropbox_sign.models.sub_signing_options import SubSigningOptions
 from typing import Optional, Set, Tuple
 from typing_extensions import Self
@@ -31,28 +33,92 @@ import io
 from pydantic import StrictBool
 from typing import Union
 
+
 class SignatureRequestSendWithTemplateRequest(BaseModel):
-    """
-    
-    """ # noqa: E501
-    template_ids: List[StrictStr] = Field(description="Use `template_ids` to create a SignatureRequest from one or more templates, in the order in which the template will be used.")
-    signers: List[SubSignatureRequestTemplateSigner] = Field(description="Add Signers to your Templated-based Signature Request.")
-    allow_decline: Optional[StrictBool] = Field(default=False, description="Allows signers to decline to sign a document if `true`. Defaults to `false`.")
-    ccs: Optional[List[SubCC]] = Field(default=None, description="Add CC email recipients. Required when a CC role exists for the Template.")
-    client_id: Optional[StrictStr] = Field(default=None, description="Client id of the app to associate with the signature request. Used to apply the branding and callback url defined for the app.")
-    custom_fields: Optional[List[SubCustomField]] = Field(default=None, description="An array defining values and options for custom fields. Required when a custom field exists in the Template.")
-    files: Optional[List[Union[StrictBytes, StrictStr, io.IOBase]]] = Field(default=None, description="Use `files[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.")
-    file_urls: Optional[List[StrictStr]] = Field(default=None, description="Use `file_urls[]` to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.")
-    is_qualified_signature: Optional[StrictBool] = Field(default=False, description="Send with a value of `true` if you wish to enable [Qualified Electronic Signatures](https://www.hellosign.com/features/qualified-electronic-signatures) (QES), which requires a face-to-face call to verify the signer's identity.<br> **NOTE:** QES is only available on the Premium API plan as an add-on purchase. Cannot be used in `test_mode`. Only works on requests with one signer.")
-    is_eid: Optional[StrictBool] = Field(default=False, description="Send with a value of `true` if you wish to enable [electronic identification (eID)](https://www.hellosign.com/features/electronic-id), which requires the signer to verify their identity with an eID provider to sign a document.<br> **NOTE:** eID is only available on the Premium API plan. Cannot be used in `test_mode`. Only works on requests with one signer.")
-    message: Optional[Annotated[str, Field(strict=True, max_length=5000)]] = Field(default=None, description="The custom message in the email that will be sent to the signers.")
-    metadata: Optional[Dict[str, Any]] = Field(default=None, description="Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.  Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.")
+    """ """  # noqa: E501
+
+    template_ids: List[StrictStr] = Field(
+        description="Use `template_ids` to create a SignatureRequest from one or more templates, in the order in which the template will be used."
+    )
+    signers: List[SubSignatureRequestTemplateSigner] = Field(
+        description="Add Signers to your Templated-based Signature Request."
+    )
+    allow_decline: Optional[StrictBool] = Field(
+        default=False,
+        description="Allows signers to decline to sign a document if `true`. Defaults to `false`.",
+    )
+    ccs: Optional[List[SubCC]] = Field(
+        default=None,
+        description="Add CC email recipients. Required when a CC role exists for the Template.",
+    )
+    client_id: Optional[StrictStr] = Field(
+        default=None,
+        description="Client id of the app to associate with the signature request. Used to apply the branding and callback url defined for the app.",
+    )
+    custom_fields: Optional[List[SubCustomField]] = Field(
+        default=None,
+        description="An array defining values and options for custom fields. Required when a custom field exists in the Template.",
+    )
+    files: Optional[List[Union[StrictBytes, StrictStr, io.IOBase]]] = Field(
+        default=None,
+        description="Use `files[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.",
+    )
+    file_urls: Optional[List[StrictStr]] = Field(
+        default=None,
+        description="Use `file_urls[]` to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.",
+    )
+    is_qualified_signature: Optional[StrictBool] = Field(
+        default=False,
+        description="Send with a value of `true` if you wish to enable [Qualified Electronic Signatures](https://www.hellosign.com/features/qualified-electronic-signatures) (QES), which requires a face-to-face call to verify the signer's identity.<br> **NOTE:** QES is only available on the Premium API plan as an add-on purchase. Cannot be used in `test_mode`. Only works on requests with one signer.",
+    )
+    is_eid: Optional[StrictBool] = Field(
+        default=False,
+        description="Send with a value of `true` if you wish to enable [electronic identification (eID)](https://www.hellosign.com/features/electronic-id), which requires the signer to verify their identity with an eID provider to sign a document.<br> **NOTE:** eID is only available on the Premium API plan. Cannot be used in `test_mode`. Only works on requests with one signer.",
+    )
+    message: Optional[Annotated[str, Field(strict=True, max_length=5000)]] = Field(
+        default=None,
+        description="The custom message in the email that will be sent to the signers.",
+    )
+    metadata: Optional[Dict[str, Any]] = Field(
+        default=None,
+        description="Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.  Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.",
+    )
     signing_options: Optional[SubSigningOptions] = None
-    signing_redirect_url: Optional[StrictStr] = Field(default=None, description="The URL you want signers redirected to after they successfully sign.")
-    subject: Optional[Annotated[str, Field(strict=True, max_length=255)]] = Field(default=None, description="The subject in the email that will be sent to the signers.")
-    test_mode: Optional[StrictBool] = Field(default=False, description="Whether this is a test, the signature request will not be legally binding if set to `true`. Defaults to `false`.")
-    title: Optional[Annotated[str, Field(strict=True, max_length=255)]] = Field(default=None, description="The title you want to assign to the SignatureRequest.")
-    __properties: ClassVar[List[str]] = ["template_ids", "signers", "allow_decline", "ccs", "client_id", "custom_fields", "files", "file_urls", "is_qualified_signature", "is_eid", "message", "metadata", "signing_options", "signing_redirect_url", "subject", "test_mode", "title"]
+    signing_redirect_url: Optional[StrictStr] = Field(
+        default=None,
+        description="The URL you want signers redirected to after they successfully sign.",
+    )
+    subject: Optional[Annotated[str, Field(strict=True, max_length=255)]] = Field(
+        default=None,
+        description="The subject in the email that will be sent to the signers.",
+    )
+    test_mode: Optional[StrictBool] = Field(
+        default=False,
+        description="Whether this is a test, the signature request will not be legally binding if set to `true`. Defaults to `false`.",
+    )
+    title: Optional[Annotated[str, Field(strict=True, max_length=255)]] = Field(
+        default=None,
+        description="The title you want to assign to the SignatureRequest.",
+    )
+    __properties: ClassVar[List[str]] = [
+        "template_ids",
+        "signers",
+        "allow_decline",
+        "ccs",
+        "client_id",
+        "custom_fields",
+        "files",
+        "file_urls",
+        "is_qualified_signature",
+        "is_eid",
+        "message",
+        "metadata",
+        "signing_options",
+        "signing_redirect_url",
+        "subject",
+        "test_mode",
+        "title",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -60,7 +126,6 @@ class SignatureRequestSendWithTemplateRequest(BaseModel):
         protected_namespaces=(),
         arbitrary_types_allowed=True,
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -71,7 +136,9 @@ class SignatureRequestSendWithTemplateRequest(BaseModel):
         # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
-    def to_json_form_params(self, excluded_fields: Set[str] = None) -> List[Tuple[str, str]]:
+    def to_json_form_params(
+        self, excluded_fields: Set[str] = None
+    ) -> List[Tuple[str, str]]:
         data: List[Tuple[str, str]] = []
 
         for key, value in self.to_dict(excluded_fields).items():
@@ -109,24 +176,24 @@ class SignatureRequestSendWithTemplateRequest(BaseModel):
             for _item_signers in self.signers:
                 if _item_signers:
                     _items.append(_item_signers.to_dict())
-            _dict['signers'] = _items
+            _dict["signers"] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in ccs (list)
         _items = []
         if self.ccs:
             for _item_ccs in self.ccs:
                 if _item_ccs:
                     _items.append(_item_ccs.to_dict())
-            _dict['ccs'] = _items
+            _dict["ccs"] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in custom_fields (list)
         _items = []
         if self.custom_fields:
             for _item_custom_fields in self.custom_fields:
                 if _item_custom_fields:
                     _items.append(_item_custom_fields.to_dict())
-            _dict['custom_fields'] = _items
+            _dict["custom_fields"] = _items
         # override the default output from pydantic by calling `to_dict()` of signing_options
         if self.signing_options:
-            _dict['signing_options'] = self.signing_options.to_dict()
+            _dict["signing_options"] = self.signing_options.to_dict()
         return _dict
 
     @classmethod
@@ -138,25 +205,56 @@ class SignatureRequestSendWithTemplateRequest(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "template_ids": obj.get("template_ids"),
-            "signers": [SubSignatureRequestTemplateSigner.from_dict(_item) for _item in obj["signers"]] if obj.get("signers") is not None else None,
-            "allow_decline": obj.get("allow_decline") if obj.get("allow_decline") is not None else False,
-            "ccs": [SubCC.from_dict(_item) for _item in obj["ccs"]] if obj.get("ccs") is not None else None,
-            "client_id": obj.get("client_id"),
-            "custom_fields": [SubCustomField.from_dict(_item) for _item in obj["custom_fields"]] if obj.get("custom_fields") is not None else None,
-            "files": obj.get("files"),
-            "file_urls": obj.get("file_urls"),
-            "is_qualified_signature": obj.get("is_qualified_signature") if obj.get("is_qualified_signature") is not None else False,
-            "is_eid": obj.get("is_eid") if obj.get("is_eid") is not None else False,
-            "message": obj.get("message"),
-            "metadata": obj.get("metadata"),
-            "signing_options": SubSigningOptions.from_dict(obj["signing_options"]) if obj.get("signing_options") is not None else None,
-            "signing_redirect_url": obj.get("signing_redirect_url"),
-            "subject": obj.get("subject"),
-            "test_mode": obj.get("test_mode") if obj.get("test_mode") is not None else False,
-            "title": obj.get("title")
-        })
+        _obj = cls.model_validate(
+            {
+                "template_ids": obj.get("template_ids"),
+                "signers": (
+                    [
+                        SubSignatureRequestTemplateSigner.from_dict(_item)
+                        for _item in obj["signers"]
+                    ]
+                    if obj.get("signers") is not None
+                    else None
+                ),
+                "allow_decline": (
+                    obj.get("allow_decline")
+                    if obj.get("allow_decline") is not None
+                    else False
+                ),
+                "ccs": (
+                    [SubCC.from_dict(_item) for _item in obj["ccs"]]
+                    if obj.get("ccs") is not None
+                    else None
+                ),
+                "client_id": obj.get("client_id"),
+                "custom_fields": (
+                    [SubCustomField.from_dict(_item) for _item in obj["custom_fields"]]
+                    if obj.get("custom_fields") is not None
+                    else None
+                ),
+                "files": obj.get("files"),
+                "file_urls": obj.get("file_urls"),
+                "is_qualified_signature": (
+                    obj.get("is_qualified_signature")
+                    if obj.get("is_qualified_signature") is not None
+                    else False
+                ),
+                "is_eid": obj.get("is_eid") if obj.get("is_eid") is not None else False,
+                "message": obj.get("message"),
+                "metadata": obj.get("metadata"),
+                "signing_options": (
+                    SubSigningOptions.from_dict(obj["signing_options"])
+                    if obj.get("signing_options") is not None
+                    else None
+                ),
+                "signing_redirect_url": obj.get("signing_redirect_url"),
+                "subject": obj.get("subject"),
+                "test_mode": (
+                    obj.get("test_mode") if obj.get("test_mode") is not None else False
+                ),
+                "title": obj.get("title"),
+            }
+        )
         return _obj
 
     @classmethod
@@ -201,4 +299,3 @@ class SignatureRequestSendWithTemplateRequest(BaseModel):
             "files",
             "file_urls",
         ]
-

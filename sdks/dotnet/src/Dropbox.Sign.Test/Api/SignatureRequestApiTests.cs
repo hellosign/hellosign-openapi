@@ -53,7 +53,7 @@ namespace Dropbox.Sign.Test.Api
             TestHelper.AssertJsonSame(responseData.ToString(), response.ToJson());
         }
 
-        [Fact(Skip="POST /signature_request/cancel/{signature_request_id} skipped")]
+        [Fact(Skip = "POST /signature_request/cancel/{signature_request_id} skipped")]
         public void SignatureRequestCancelTest()
         {
         }
@@ -106,7 +106,7 @@ namespace Dropbox.Sign.Test.Api
             TestHelper.AssertJsonSame(responseData.ToString(), response.ToJson());
         }
 
-        [Fact(Skip="GET /signature_request/files/{signature_request_id} skipped")]
+        [Fact(Skip = "GET /signature_request/files/{signature_request_id} skipped")]
         public void SignatureRequestFilesTest()
         {
         }
@@ -168,7 +168,7 @@ namespace Dropbox.Sign.Test.Api
             TestHelper.AssertJsonSame(responseData.ToString(), response.ToJson());
         }
 
-        [Fact(Skip="POST /signature_request/remove/{signature_request_id} skipped")]
+        [Fact(Skip = "POST /signature_request/remove/{signature_request_id} skipped")]
         public void SignatureRequestRemoveTest()
         {
         }

@@ -27,12 +27,18 @@ import io
 from pydantic import StrictBool
 from typing import Union
 
+
 class TemplateUpdateFilesResponseTemplate(BaseModel):
     """
     Contains template id
-    """ # noqa: E501
-    template_id: Optional[StrictStr] = Field(default=None, description="The id of the Template.")
-    warnings: Optional[List[WarningResponse]] = Field(default=None, description="A list of warnings.")
+    """  # noqa: E501
+
+    template_id: Optional[StrictStr] = Field(
+        default=None, description="The id of the Template."
+    )
+    warnings: Optional[List[WarningResponse]] = Field(
+        default=None, description="A list of warnings."
+    )
     __properties: ClassVar[List[str]] = ["template_id", "warnings"]
 
     model_config = ConfigDict(
@@ -41,7 +47,6 @@ class TemplateUpdateFilesResponseTemplate(BaseModel):
         protected_namespaces=(),
         arbitrary_types_allowed=True,
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -52,7 +57,9 @@ class TemplateUpdateFilesResponseTemplate(BaseModel):
         # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
-    def to_json_form_params(self, excluded_fields: Set[str] = None) -> List[Tuple[str, str]]:
+    def to_json_form_params(
+        self, excluded_fields: Set[str] = None
+    ) -> List[Tuple[str, str]]:
         data: List[Tuple[str, str]] = []
 
         for key, value in self.to_dict(excluded_fields).items():
@@ -90,7 +97,7 @@ class TemplateUpdateFilesResponseTemplate(BaseModel):
             for _item_warnings in self.warnings:
                 if _item_warnings:
                     _items.append(_item_warnings.to_dict())
-            _dict['warnings'] = _items
+            _dict["warnings"] = _items
         return _dict
 
     @classmethod
@@ -102,10 +109,16 @@ class TemplateUpdateFilesResponseTemplate(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "template_id": obj.get("template_id"),
-            "warnings": [WarningResponse.from_dict(_item) for _item in obj["warnings"]] if obj.get("warnings") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "template_id": obj.get("template_id"),
+                "warnings": (
+                    [WarningResponse.from_dict(_item) for _item in obj["warnings"]]
+                    if obj.get("warnings") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
 
     @classmethod
@@ -130,4 +143,3 @@ class TemplateUpdateFilesResponseTemplate(BaseModel):
         return property_name in [
             "warnings",
         ]
-

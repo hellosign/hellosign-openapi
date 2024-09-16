@@ -53,7 +53,7 @@ namespace Dropbox.Sign.Model
         /// <param name="testMode">Whether this is a test, locked templates will only be available for editing if this is set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;. (default to false).</param>
         public EmbeddedEditUrlRequest(bool allowEditCcs = false, List<string> ccRoles = default(List<string>), SubEditorOptions editorOptions = default(SubEditorOptions), bool forceSignerRoles = false, bool forceSubjectMessage = false, List<SubMergeField> mergeFields = default(List<SubMergeField>), bool previewOnly = false, bool showPreview = false, bool showProgressStepper = true, bool testMode = false)
         {
-            
+
             this.AllowEditCcs = allowEditCcs;
             this.CcRoles = ccRoles;
             this.EditorOptions = editorOptions;
@@ -88,69 +88,69 @@ namespace Dropbox.Sign.Model
         /// <value>This allows the requester to enable/disable to add or change CC roles when editing the template.</value>
         [DataMember(Name = "allow_edit_ccs", EmitDefaultValue = true)]
         public bool AllowEditCcs { get; set; }
-        
+
         /// <summary>
         /// The CC roles that must be assigned when using the template to send a signature request. To remove all CC roles, pass in a single role with no name. For use in a POST request.
         /// </summary>
         /// <value>The CC roles that must be assigned when using the template to send a signature request. To remove all CC roles, pass in a single role with no name. For use in a POST request.</value>
         [DataMember(Name = "cc_roles", EmitDefaultValue = true)]
         public List<string> CcRoles { get; set; }
-        
+
         /// <summary>
         /// Gets or Sets EditorOptions
         /// </summary>
         [DataMember(Name = "editor_options", EmitDefaultValue = true)]
         public SubEditorOptions EditorOptions { get; set; }
-        
+
         /// <summary>
         /// Provide users the ability to review/edit the template signer roles.
         /// </summary>
         /// <value>Provide users the ability to review/edit the template signer roles.</value>
         [DataMember(Name = "force_signer_roles", EmitDefaultValue = true)]
         public bool ForceSignerRoles { get; set; }
-        
+
         /// <summary>
         /// Provide users the ability to review/edit the template subject and message.
         /// </summary>
         /// <value>Provide users the ability to review/edit the template subject and message.</value>
         [DataMember(Name = "force_subject_message", EmitDefaultValue = true)]
         public bool ForceSubjectMessage { get; set; }
-        
+
         /// <summary>
         /// Add additional merge fields to the template, which can be used used to pre-fill data by passing values into signature requests made with that template.  Remove all merge fields on the template by passing an empty array &#x60;[]&#x60;.
         /// </summary>
         /// <value>Add additional merge fields to the template, which can be used used to pre-fill data by passing values into signature requests made with that template.  Remove all merge fields on the template by passing an empty array &#x60;[]&#x60;.</value>
         [DataMember(Name = "merge_fields", EmitDefaultValue = true)]
         public List<SubMergeField> MergeFields { get; set; }
-        
+
         /// <summary>
         /// This allows the requester to enable the preview experience (i.e. does not allow the requester&#39;s end user to add any additional fields via the editor).  **NOTE:** This parameter overwrites &#x60;show_preview&#x3D;true&#x60; (if set).
         /// </summary>
         /// <value>This allows the requester to enable the preview experience (i.e. does not allow the requester&#39;s end user to add any additional fields via the editor).  **NOTE:** This parameter overwrites &#x60;show_preview&#x3D;true&#x60; (if set).</value>
         [DataMember(Name = "preview_only", EmitDefaultValue = true)]
         public bool PreviewOnly { get; set; }
-        
+
         /// <summary>
         /// This allows the requester to enable the editor/preview experience.
         /// </summary>
         /// <value>This allows the requester to enable the editor/preview experience.</value>
         [DataMember(Name = "show_preview", EmitDefaultValue = true)]
         public bool ShowPreview { get; set; }
-        
+
         /// <summary>
         /// When only one step remains in the signature request process and this parameter is set to &#x60;false&#x60; then the progress stepper will be hidden.
         /// </summary>
         /// <value>When only one step remains in the signature request process and this parameter is set to &#x60;false&#x60; then the progress stepper will be hidden.</value>
         [DataMember(Name = "show_progress_stepper", EmitDefaultValue = true)]
         public bool ShowProgressStepper { get; set; }
-        
+
         /// <summary>
         /// Whether this is a test, locked templates will only be available for editing if this is set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.
         /// </summary>
         /// <value>Whether this is a test, locked templates will only be available for editing if this is set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.</value>
         [DataMember(Name = "test_mode", EmitDefaultValue = true)]
         public bool TestMode { get; set; }
-        
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -203,48 +203,48 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
+            return
                 (
                     this.AllowEditCcs == input.AllowEditCcs ||
                     this.AllowEditCcs.Equals(input.AllowEditCcs)
-                ) && 
+                ) &&
                 (
                     this.CcRoles == input.CcRoles ||
                     this.CcRoles != null &&
                     input.CcRoles != null &&
                     this.CcRoles.SequenceEqual(input.CcRoles)
-                ) && 
+                ) &&
                 (
                     this.EditorOptions == input.EditorOptions ||
                     (this.EditorOptions != null &&
                     this.EditorOptions.Equals(input.EditorOptions))
-                ) && 
+                ) &&
                 (
                     this.ForceSignerRoles == input.ForceSignerRoles ||
                     this.ForceSignerRoles.Equals(input.ForceSignerRoles)
-                ) && 
+                ) &&
                 (
                     this.ForceSubjectMessage == input.ForceSubjectMessage ||
                     this.ForceSubjectMessage.Equals(input.ForceSubjectMessage)
-                ) && 
+                ) &&
                 (
                     this.MergeFields == input.MergeFields ||
                     this.MergeFields != null &&
                     input.MergeFields != null &&
                     this.MergeFields.SequenceEqual(input.MergeFields)
-                ) && 
+                ) &&
                 (
                     this.PreviewOnly == input.PreviewOnly ||
                     this.PreviewOnly.Equals(input.PreviewOnly)
-                ) && 
+                ) &&
                 (
                     this.ShowPreview == input.ShowPreview ||
                     this.ShowPreview.Equals(input.ShowPreview)
-                ) && 
+                ) &&
                 (
                     this.ShowProgressStepper == input.ShowProgressStepper ||
                     this.ShowProgressStepper.Equals(input.ShowProgressStepper)
-                ) && 
+                ) &&
                 (
                     this.TestMode == input.TestMode ||
                     this.TestMode.Equals(input.TestMode)
@@ -295,61 +295,71 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "allow_edit_ccs",
                 Property = "AllowEditCcs",
                 Type = "bool",
                 Value = AllowEditCcs,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "cc_roles",
                 Property = "CcRoles",
                 Type = "List<string>",
                 Value = CcRoles,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "editor_options",
                 Property = "EditorOptions",
                 Type = "SubEditorOptions",
                 Value = EditorOptions,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "force_signer_roles",
                 Property = "ForceSignerRoles",
                 Type = "bool",
                 Value = ForceSignerRoles,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "force_subject_message",
                 Property = "ForceSubjectMessage",
                 Type = "bool",
                 Value = ForceSubjectMessage,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "merge_fields",
                 Property = "MergeFields",
                 Type = "List<SubMergeField>",
                 Value = MergeFields,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "preview_only",
                 Property = "PreviewOnly",
                 Type = "bool",
                 Value = PreviewOnly,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "show_preview",
                 Property = "ShowPreview",
                 Type = "bool",
                 Value = ShowPreview,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "show_progress_stepper",
                 Property = "ShowProgressStepper",
                 Type = "bool",
                 Value = ShowProgressStepper,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "test_mode",
                 Property = "TestMode",
                 Type = "bool",

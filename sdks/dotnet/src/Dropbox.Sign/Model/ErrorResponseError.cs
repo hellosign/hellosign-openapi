@@ -46,7 +46,7 @@ namespace Dropbox.Sign.Model
         /// <param name="errorName">Name of the error. (required).</param>
         public ErrorResponseError(string errorMsg = default(string), string errorPath = default(string), string errorName = default(string))
         {
-            
+
             // to ensure "errorMsg" is required (not null)
             if (errorMsg == null)
             {
@@ -84,21 +84,21 @@ namespace Dropbox.Sign.Model
         /// <value>Message describing an error.</value>
         [DataMember(Name = "error_msg", IsRequired = true, EmitDefaultValue = true)]
         public string ErrorMsg { get; set; }
-        
+
         /// <summary>
         /// Name of the error.
         /// </summary>
         /// <value>Name of the error.</value>
         [DataMember(Name = "error_name", IsRequired = true, EmitDefaultValue = true)]
         public string ErrorName { get; set; }
-        
+
         /// <summary>
         /// Path at which an error occurred.
         /// </summary>
         /// <value>Path at which an error occurred.</value>
         [DataMember(Name = "error_path", EmitDefaultValue = true)]
         public string ErrorPath { get; set; }
-        
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -144,17 +144,17 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
+            return
                 (
                     this.ErrorMsg == input.ErrorMsg ||
                     (this.ErrorMsg != null &&
                     this.ErrorMsg.Equals(input.ErrorMsg))
-                ) && 
+                ) &&
                 (
                     this.ErrorName == input.ErrorName ||
                     (this.ErrorName != null &&
                     this.ErrorName.Equals(input.ErrorName))
-                ) && 
+                ) &&
                 (
                     this.ErrorPath == input.ErrorPath ||
                     (this.ErrorPath != null &&
@@ -199,19 +199,22 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "error_msg",
                 Property = "ErrorMsg",
                 Type = "string",
                 Value = ErrorMsg,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "error_name",
                 Property = "ErrorName",
                 Type = "string",
                 Value = ErrorName,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "error_path",
                 Property = "ErrorPath",
                 Type = "string",

@@ -27,19 +27,17 @@ class SignatureRequestResponseDataTypeEnum(str, Enum):
     """
     allowed enum values
     """
-    TEXT = 'text'
-    CHECKBOX = 'checkbox'
-    DATE_SIGNED = 'date_signed'
-    DROPDOWN = 'dropdown'
-    INITIALS = 'initials'
-    RADIO = 'radio'
-    SIGNATURE = 'signature'
-    TEXT_MINUS_MERGE = 'text-merge'
-    CHECKBOX_MINUS_MERGE = 'checkbox-merge'
+    TEXT = "text"
+    CHECKBOX = "checkbox"
+    DATE_SIGNED = "date_signed"
+    DROPDOWN = "dropdown"
+    INITIALS = "initials"
+    RADIO = "radio"
+    SIGNATURE = "signature"
+    TEXT_MINUS_MERGE = "text-merge"
+    CHECKBOX_MINUS_MERGE = "checkbox-merge"
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:
         """Create an instance of SignatureRequestResponseDataTypeEnum from a JSON string"""
         return cls(json.loads(json_str))
-
-

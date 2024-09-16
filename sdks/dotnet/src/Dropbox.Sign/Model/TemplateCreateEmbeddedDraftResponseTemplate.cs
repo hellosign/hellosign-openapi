@@ -47,7 +47,7 @@ namespace Dropbox.Sign.Model
         /// <param name="warnings">A list of warnings..</param>
         public TemplateCreateEmbeddedDraftResponseTemplate(string templateId = default(string), string editUrl = default(string), int expiresAt = default(int), List<WarningResponse> warnings = default(List<WarningResponse>))
         {
-            
+
             this.TemplateId = templateId;
             this.EditUrl = editUrl;
             this.ExpiresAt = expiresAt;
@@ -76,21 +76,21 @@ namespace Dropbox.Sign.Model
         /// <value>The id of the Template.</value>
         [DataMember(Name = "template_id", EmitDefaultValue = true)]
         public string TemplateId { get; set; }
-        
+
         /// <summary>
         /// Link to edit the template.
         /// </summary>
         /// <value>Link to edit the template.</value>
         [DataMember(Name = "edit_url", EmitDefaultValue = true)]
         public string EditUrl { get; set; }
-        
+
         /// <summary>
         /// When the link expires.
         /// </summary>
         /// <value>When the link expires.</value>
         [DataMember(Name = "expires_at", EmitDefaultValue = true)]
         public int ExpiresAt { get; set; }
-        
+
         /// <summary>
         /// A list of warnings.
         /// </summary>
@@ -98,7 +98,7 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "warnings", EmitDefaultValue = true)]
         [Obsolete]
         public List<WarningResponse> Warnings { get; set; }
-        
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -145,21 +145,21 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
+            return
                 (
                     this.TemplateId == input.TemplateId ||
                     (this.TemplateId != null &&
                     this.TemplateId.Equals(input.TemplateId))
-                ) && 
+                ) &&
                 (
                     this.EditUrl == input.EditUrl ||
                     (this.EditUrl != null &&
                     this.EditUrl.Equals(input.EditUrl))
-                ) && 
+                ) &&
                 (
                     this.ExpiresAt == input.ExpiresAt ||
                     this.ExpiresAt.Equals(input.ExpiresAt)
-                ) && 
+                ) &&
                 (
                     this.Warnings == input.Warnings ||
                     this.Warnings != null &&
@@ -206,25 +206,29 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "template_id",
                 Property = "TemplateId",
                 Type = "string",
                 Value = TemplateId,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "edit_url",
                 Property = "EditUrl",
                 Type = "string",
                 Value = EditUrl,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "expires_at",
                 Property = "ExpiresAt",
                 Type = "int",
                 Value = ExpiresAt,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "warnings",
                 Property = "Warnings",
                 Type = "List<WarningResponse>",

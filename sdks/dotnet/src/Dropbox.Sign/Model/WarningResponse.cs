@@ -45,7 +45,7 @@ namespace Dropbox.Sign.Model
         /// <param name="warningName">Warning name (required).</param>
         public WarningResponse(string warningMsg = default(string), string warningName = default(string))
         {
-            
+
             // to ensure "warningMsg" is required (not null)
             if (warningMsg == null)
             {
@@ -82,14 +82,14 @@ namespace Dropbox.Sign.Model
         /// <value>Warning message</value>
         [DataMember(Name = "warning_msg", IsRequired = true, EmitDefaultValue = true)]
         public string WarningMsg { get; set; }
-        
+
         /// <summary>
         /// Warning name
         /// </summary>
         /// <value>Warning name</value>
         [DataMember(Name = "warning_name", IsRequired = true, EmitDefaultValue = true)]
         public string WarningName { get; set; }
-        
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -134,12 +134,12 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
+            return
                 (
                     this.WarningMsg == input.WarningMsg ||
                     (this.WarningMsg != null &&
                     this.WarningMsg.Equals(input.WarningMsg))
-                ) && 
+                ) &&
                 (
                     this.WarningName == input.WarningName ||
                     (this.WarningName != null &&
@@ -180,13 +180,15 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "warning_msg",
                 Property = "WarningMsg",
                 Type = "string",
                 Value = WarningMsg,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "warning_name",
                 Property = "WarningName",
                 Type = "string",

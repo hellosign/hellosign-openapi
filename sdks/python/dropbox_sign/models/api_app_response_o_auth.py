@@ -26,15 +26,32 @@ import io
 from pydantic import StrictBool
 from typing import Union
 
+
 class ApiAppResponseOAuth(BaseModel):
     """
     An object describing the app's OAuth properties, or null if OAuth is not configured for the app.
-    """ # noqa: E501
-    callback_url: Optional[StrictStr] = Field(default=None, description="The app's OAuth callback URL.")
-    secret: Optional[StrictStr] = Field(default=None, description="The app's OAuth secret, or null if the app does not belong to user.")
-    scopes: Optional[List[StrictStr]] = Field(default=None, description="Array of OAuth scopes used by the app.")
-    charges_users: Optional[StrictBool] = Field(default=None, description="Boolean indicating whether the app owner or the account granting permission is billed for OAuth requests.")
-    __properties: ClassVar[List[str]] = ["callback_url", "secret", "scopes", "charges_users"]
+    """  # noqa: E501
+
+    callback_url: Optional[StrictStr] = Field(
+        default=None, description="The app's OAuth callback URL."
+    )
+    secret: Optional[StrictStr] = Field(
+        default=None,
+        description="The app's OAuth secret, or null if the app does not belong to user.",
+    )
+    scopes: Optional[List[StrictStr]] = Field(
+        default=None, description="Array of OAuth scopes used by the app."
+    )
+    charges_users: Optional[StrictBool] = Field(
+        default=None,
+        description="Boolean indicating whether the app owner or the account granting permission is billed for OAuth requests.",
+    )
+    __properties: ClassVar[List[str]] = [
+        "callback_url",
+        "secret",
+        "scopes",
+        "charges_users",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -42,7 +59,6 @@ class ApiAppResponseOAuth(BaseModel):
         protected_namespaces=(),
         arbitrary_types_allowed=True,
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -53,7 +69,9 @@ class ApiAppResponseOAuth(BaseModel):
         # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
-    def to_json_form_params(self, excluded_fields: Set[str] = None) -> List[Tuple[str, str]]:
+    def to_json_form_params(
+        self, excluded_fields: Set[str] = None
+    ) -> List[Tuple[str, str]]:
         data: List[Tuple[str, str]] = []
 
         for key, value in self.to_dict(excluded_fields).items():
@@ -96,12 +114,14 @@ class ApiAppResponseOAuth(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "callback_url": obj.get("callback_url"),
-            "secret": obj.get("secret"),
-            "scopes": obj.get("scopes"),
-            "charges_users": obj.get("charges_users")
-        })
+        _obj = cls.model_validate(
+            {
+                "callback_url": obj.get("callback_url"),
+                "secret": obj.get("secret"),
+                "scopes": obj.get("scopes"),
+                "charges_users": obj.get("charges_users"),
+            }
+        )
         return _obj
 
     @classmethod
@@ -128,4 +148,3 @@ class ApiAppResponseOAuth(BaseModel):
         return property_name in [
             "scopes",
         ]
-

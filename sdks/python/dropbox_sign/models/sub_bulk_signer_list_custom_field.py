@@ -26,11 +26,15 @@ import io
 from pydantic import StrictBool
 from typing import Union
 
+
 class SubBulkSignerListCustomField(BaseModel):
     """
     SubBulkSignerListCustomField
-    """ # noqa: E501
-    name: StrictStr = Field(description="The name of the custom field. Must be the field's `name` or `api_id`.")
+    """  # noqa: E501
+
+    name: StrictStr = Field(
+        description="The name of the custom field. Must be the field's `name` or `api_id`."
+    )
     value: StrictStr = Field(description="The value of the custom field.")
     __properties: ClassVar[List[str]] = ["name", "value"]
 
@@ -41,7 +45,6 @@ class SubBulkSignerListCustomField(BaseModel):
         arbitrary_types_allowed=True,
     )
 
-
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
         return pprint.pformat(self.model_dump(by_alias=True))
@@ -51,7 +54,9 @@ class SubBulkSignerListCustomField(BaseModel):
         # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
-    def to_json_form_params(self, excluded_fields: Set[str] = None) -> List[Tuple[str, str]]:
+    def to_json_form_params(
+        self, excluded_fields: Set[str] = None
+    ) -> List[Tuple[str, str]]:
         data: List[Tuple[str, str]] = []
 
         for key, value in self.to_dict(excluded_fields).items():
@@ -94,10 +99,7 @@ class SubBulkSignerListCustomField(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "name": obj.get("name"),
-            "value": obj.get("value")
-        })
+        _obj = cls.model_validate({"name": obj.get("name"), "value": obj.get("value")})
         return _obj
 
     @classmethod
@@ -119,6 +121,4 @@ class SubBulkSignerListCustomField(BaseModel):
 
     @classmethod
     def openapi_type_is_array(cls, property_name: str) -> bool:
-        return property_name in [
-        ]
-
+        return property_name in []

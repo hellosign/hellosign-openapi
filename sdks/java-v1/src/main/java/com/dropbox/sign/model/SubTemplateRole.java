@@ -10,219 +10,202 @@
  * Do not edit the class manually.
  */
 
-
 package com.dropbox.sign.model;
 
-import java.util.Objects;
-import java.util.Map;
-import java.util.HashMap;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
-import java.util.Arrays;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.dropbox.sign.ApiException;
 import com.dropbox.sign.JSON;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
-
-import com.dropbox.sign.ApiException;
-/**
- * SubTemplateRole
- */
-@JsonPropertyOrder({
-  SubTemplateRole.JSON_PROPERTY_NAME,
-  SubTemplateRole.JSON_PROPERTY_ORDER
-})
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
-@JsonIgnoreProperties(ignoreUnknown=true)
+/** SubTemplateRole */
+@JsonPropertyOrder({SubTemplateRole.JSON_PROPERTY_NAME, SubTemplateRole.JSON_PROPERTY_ORDER})
+@javax.annotation.Generated(
+        value = "org.openapitools.codegen.languages.JavaClientCodegen",
+        comments = "Generator version: 7.8.0")
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class SubTemplateRole {
-  public static final String JSON_PROPERTY_NAME = "name";
-  private String name;
+    public static final String JSON_PROPERTY_NAME = "name";
+    private String name;
 
-  public static final String JSON_PROPERTY_ORDER = "order";
-  private Integer order;
+    public static final String JSON_PROPERTY_ORDER = "order";
+    private Integer order;
 
-  public SubTemplateRole() { 
-  }
+    public SubTemplateRole() {}
 
-  /**
-   * Attempt to instantiate and hydrate a new instance of this class
-   * @param jsonData String of JSON data representing target object
-   */
-  static public SubTemplateRole init(String jsonData) throws Exception {
-    return new ObjectMapper().readValue(jsonData, SubTemplateRole.class);
-  }
-
-  static public SubTemplateRole init(HashMap data) throws Exception {
-    return new ObjectMapper().readValue(
-      new ObjectMapper().writeValueAsString(data),
-      SubTemplateRole.class
-    );
-  }
-
-  public SubTemplateRole name(String name) {
-    this.name = name;
-    return this;
-  }
-
-  /**
-   * The role name of the signer that will be displayed when the template is used to create a signature request.
-   * @return name
-   */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getName() {
-    return name;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setName(String name) {
-    this.name = name;
-  }
-
-
-  public SubTemplateRole order(Integer order) {
-    this.order = order;
-    return this;
-  }
-
-  /**
-   * The order in which this signer role is required to sign.
-   * @return order
-   */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ORDER)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Integer getOrder() {
-    return order;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_ORDER)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setOrder(Integer order) {
-    this.order = order;
-  }
-
-
-  /**
-   * Return true if this SubTemplateRole object is equal to o.
-   */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    /**
+     * Attempt to instantiate and hydrate a new instance of this class
+     *
+     * @param jsonData String of JSON data representing target object
+     */
+    public static SubTemplateRole init(String jsonData) throws Exception {
+        return new ObjectMapper().readValue(jsonData, SubTemplateRole.class);
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    public static SubTemplateRole init(HashMap data) throws Exception {
+        return new ObjectMapper()
+                .readValue(new ObjectMapper().writeValueAsString(data), SubTemplateRole.class);
     }
-    SubTemplateRole subTemplateRole = (SubTemplateRole) o;
-    return Objects.equals(this.name, subTemplateRole.name) &&
-        Objects.equals(this.order, subTemplateRole.order);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(name, order);
-  }
+    public SubTemplateRole name(String name) {
+        this.name = name;
+        return this;
+    }
 
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class SubTemplateRole {\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    order: ").append(toIndentedString(order)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
+    /**
+     * The role name of the signer that will be displayed when the template is used to create a
+     * signature request.
+     *
+     * @return name
+     */
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_NAME)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public String getName() {
+        return name;
+    }
 
-  public Map<String, Object> createFormData() throws ApiException {
-    Map<String, Object> map = new HashMap<>();
-    boolean fileTypeFound = false;
-    try {
-    if (name != null) {
-        if (isFileTypeOrListOfFiles(name)) {
-            fileTypeFound = true;
+    @JsonProperty(JSON_PROPERTY_NAME)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public SubTemplateRole order(Integer order) {
+        this.order = order;
+        return this;
+    }
+
+    /**
+     * The order in which this signer role is required to sign.
+     *
+     * @return order
+     */
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_ORDER)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public Integer getOrder() {
+        return order;
+    }
+
+    @JsonProperty(JSON_PROPERTY_ORDER)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public void setOrder(Integer order) {
+        this.order = order;
+    }
+
+    /** Return true if this SubTemplateRole object is equal to o. */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
         }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        SubTemplateRole subTemplateRole = (SubTemplateRole) o;
+        return Objects.equals(this.name, subTemplateRole.name)
+                && Objects.equals(this.order, subTemplateRole.order);
+    }
 
-        if (name.getClass().equals(java.io.File.class) ||
-            name.getClass().equals(Integer.class) ||
-            name.getClass().equals(String.class) ||
-            name.getClass().isEnum()) {
-            map.put("name", name);
-        } else if (isListOfFile(name)) {
-            for(int i = 0; i< getListSize(name); i++) {
-                map.put("name[" + i + "]", getFromList(name, i));
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, order);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class SubTemplateRole {\n");
+        sb.append("    name: ").append(toIndentedString(name)).append("\n");
+        sb.append("    order: ").append(toIndentedString(order)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    public Map<String, Object> createFormData() throws ApiException {
+        Map<String, Object> map = new HashMap<>();
+        boolean fileTypeFound = false;
+        try {
+            if (name != null) {
+                if (isFileTypeOrListOfFiles(name)) {
+                    fileTypeFound = true;
+                }
+
+                if (name.getClass().equals(java.io.File.class)
+                        || name.getClass().equals(Integer.class)
+                        || name.getClass().equals(String.class)
+                        || name.getClass().isEnum()) {
+                    map.put("name", name);
+                } else if (isListOfFile(name)) {
+                    for (int i = 0; i < getListSize(name); i++) {
+                        map.put("name[" + i + "]", getFromList(name, i));
+                    }
+                } else {
+                    map.put("name", JSON.getDefault().getMapper().writeValueAsString(name));
+                }
             }
-        }
-        else {
-            map.put("name", JSON.getDefault().getMapper().writeValueAsString(name));
-        }
-    }
-    if (order != null) {
-        if (isFileTypeOrListOfFiles(order)) {
-            fileTypeFound = true;
-        }
+            if (order != null) {
+                if (isFileTypeOrListOfFiles(order)) {
+                    fileTypeFound = true;
+                }
 
-        if (order.getClass().equals(java.io.File.class) ||
-            order.getClass().equals(Integer.class) ||
-            order.getClass().equals(String.class) ||
-            order.getClass().isEnum()) {
-            map.put("order", order);
-        } else if (isListOfFile(order)) {
-            for(int i = 0; i< getListSize(order); i++) {
-                map.put("order[" + i + "]", getFromList(order, i));
+                if (order.getClass().equals(java.io.File.class)
+                        || order.getClass().equals(Integer.class)
+                        || order.getClass().equals(String.class)
+                        || order.getClass().isEnum()) {
+                    map.put("order", order);
+                } else if (isListOfFile(order)) {
+                    for (int i = 0; i < getListSize(order); i++) {
+                        map.put("order[" + i + "]", getFromList(order, i));
+                    }
+                } else {
+                    map.put("order", JSON.getDefault().getMapper().writeValueAsString(order));
+                }
             }
+        } catch (Exception e) {
+            throw new ApiException(e);
         }
-        else {
-            map.put("order", JSON.getDefault().getMapper().writeValueAsString(order));
+
+        return fileTypeFound ? map : new HashMap<>();
+    }
+
+    private boolean isFileTypeOrListOfFiles(Object obj) throws Exception {
+        return obj.getClass().equals(java.io.File.class) || isListOfFile(obj);
+    }
+
+    private boolean isListOfFile(Object obj) throws Exception {
+        return obj instanceof java.util.List
+                && !isListEmpty(obj)
+                && getFromList(obj, 0) instanceof java.io.File;
+    }
+
+    private boolean isListEmpty(Object obj) throws Exception {
+        return (boolean)
+                Class.forName(java.util.List.class.getName()).getMethod("isEmpty").invoke(obj);
+    }
+
+    private Object getFromList(Object obj, int index) throws Exception {
+        return Class.forName(java.util.List.class.getName())
+                .getMethod("get", int.class)
+                .invoke(obj, index);
+    }
+
+    private int getListSize(Object obj) throws Exception {
+        return (int) Class.forName(java.util.List.class.getName()).getMethod("size").invoke(obj);
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces (except the first
+     * line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
         }
+        return o.toString().replace("\n", "\n    ");
     }
-    } catch (Exception e) {
-        throw new ApiException(e);
-    }
-
-    return fileTypeFound ? map : new HashMap<>();
-  }
-
-  private boolean isFileTypeOrListOfFiles(Object obj) throws Exception {
-    return obj.getClass().equals(java.io.File.class) || isListOfFile(obj);
-  }
-
-  private boolean isListOfFile(Object obj) throws Exception {
-      return obj instanceof java.util.List && !isListEmpty(obj) && getFromList(obj, 0) instanceof java.io.File;
-  }
-
-  private boolean isListEmpty(Object obj) throws Exception {
-    return (boolean) Class.forName(java.util.List.class.getName()).getMethod("isEmpty").invoke(obj);
-  }
-
-  private Object getFromList(Object obj, int index) throws Exception {
-    return Class.forName(java.util.List.class.getName()).getMethod("get", int.class).invoke(obj, index);
-  }
-
-  private int getListSize(Object obj) throws Exception {
-    return (int) Class.forName(java.util.List.class.getName()).getMethod("size").invoke(obj);
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
-  }
-
 }
-

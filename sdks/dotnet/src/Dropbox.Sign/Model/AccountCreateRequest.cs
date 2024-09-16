@@ -47,7 +47,7 @@ namespace Dropbox.Sign.Model
         /// <param name="locale">The locale used in this Account. Check out the list of [supported locales](/api/reference/constants/#supported-locales) to learn more about the possible values..</param>
         public AccountCreateRequest(string clientId = default(string), string clientSecret = default(string), string emailAddress = default(string), string locale = default(string))
         {
-            
+
             // to ensure "emailAddress" is required (not null)
             if (emailAddress == null)
             {
@@ -81,28 +81,28 @@ namespace Dropbox.Sign.Model
         /// <value>The email address which will be associated with the new Account.</value>
         [DataMember(Name = "email_address", IsRequired = true, EmitDefaultValue = true)]
         public string EmailAddress { get; set; }
-        
+
         /// <summary>
         /// Used when creating a new account with OAuth authorization.  See [OAuth 2.0 Authorization](https://app.hellosign.com/api/oauthWalkthrough#OAuthAuthorization)
         /// </summary>
         /// <value>Used when creating a new account with OAuth authorization.  See [OAuth 2.0 Authorization](https://app.hellosign.com/api/oauthWalkthrough#OAuthAuthorization)</value>
         [DataMember(Name = "client_id", EmitDefaultValue = true)]
         public string ClientId { get; set; }
-        
+
         /// <summary>
         /// Used when creating a new account with OAuth authorization.  See [OAuth 2.0 Authorization](https://app.hellosign.com/api/oauthWalkthrough#OAuthAuthorization)
         /// </summary>
         /// <value>Used when creating a new account with OAuth authorization.  See [OAuth 2.0 Authorization](https://app.hellosign.com/api/oauthWalkthrough#OAuthAuthorization)</value>
         [DataMember(Name = "client_secret", EmitDefaultValue = true)]
         public string ClientSecret { get; set; }
-        
+
         /// <summary>
         /// The locale used in this Account. Check out the list of [supported locales](/api/reference/constants/#supported-locales) to learn more about the possible values.
         /// </summary>
         /// <value>The locale used in this Account. Check out the list of [supported locales](/api/reference/constants/#supported-locales) to learn more about the possible values.</value>
         [DataMember(Name = "locale", EmitDefaultValue = true)]
         public string Locale { get; set; }
-        
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -149,22 +149,22 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
+            return
                 (
                     this.EmailAddress == input.EmailAddress ||
                     (this.EmailAddress != null &&
                     this.EmailAddress.Equals(input.EmailAddress))
-                ) && 
+                ) &&
                 (
                     this.ClientId == input.ClientId ||
                     (this.ClientId != null &&
                     this.ClientId.Equals(input.ClientId))
-                ) && 
+                ) &&
                 (
                     this.ClientSecret == input.ClientSecret ||
                     (this.ClientSecret != null &&
                     this.ClientSecret.Equals(input.ClientSecret))
-                ) && 
+                ) &&
                 (
                     this.Locale == input.Locale ||
                     (this.Locale != null &&
@@ -213,25 +213,29 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "email_address",
                 Property = "EmailAddress",
                 Type = "string",
                 Value = EmailAddress,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "client_id",
                 Property = "ClientId",
                 Type = "string",
                 Value = ClientId,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "client_secret",
                 Property = "ClientSecret",
                 Type = "string",
                 Value = ClientSecret,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "locale",
                 Property = "Locale",
                 Type = "string",

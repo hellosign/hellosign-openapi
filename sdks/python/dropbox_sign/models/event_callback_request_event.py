@@ -20,28 +20,71 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
-from dropbox_sign.models.event_callback_request_event_metadata import EventCallbackRequestEventMetadata
+from dropbox_sign.models.event_callback_request_event_metadata import (
+    EventCallbackRequestEventMetadata,
+)
 from typing import Optional, Set, Tuple
 from typing_extensions import Self
 import io
 from pydantic import StrictBool
 from typing import Union
 
+
 class EventCallbackRequestEvent(BaseModel):
     """
     Basic information about the event that occurred.
-    """ # noqa: E501
-    event_time: StrictStr = Field(description="Time the event was created (using Unix time).")
-    event_type: StrictStr = Field(description="Type of callback event that was triggered.")
-    event_hash: StrictStr = Field(description="Generated hash used to verify source of event data.")
-    event_metadata: Optional[EventCallbackRequestEventMetadata] = None
-    __properties: ClassVar[List[str]] = ["event_time", "event_type", "event_hash", "event_metadata"]
+    """  # noqa: E501
 
-    @field_validator('event_type')
+    event_time: StrictStr = Field(
+        description="Time the event was created (using Unix time)."
+    )
+    event_type: StrictStr = Field(
+        description="Type of callback event that was triggered."
+    )
+    event_hash: StrictStr = Field(
+        description="Generated hash used to verify source of event data."
+    )
+    event_metadata: Optional[EventCallbackRequestEventMetadata] = None
+    __properties: ClassVar[List[str]] = [
+        "event_time",
+        "event_type",
+        "event_hash",
+        "event_metadata",
+    ]
+
+    @field_validator("event_type")
     def event_type_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in set(['account_confirmed', 'unknown_error', 'file_error', 'sign_url_invalid', 'signature_request_viewed', 'signature_request_signed', 'signature_request_sent', 'signature_request_all_signed', 'signature_request_email_bounce', 'signature_request_remind', 'signature_request_incomplete_qes', 'signature_request_destroyed', 'signature_request_canceled', 'signature_request_downloadable', 'signature_request_declined', 'signature_request_reassigned', 'signature_request_invalid', 'signature_request_prepared', 'signature_request_expired', 'template_created', 'template_error', 'callback_test', 'signature_request_signer_removed']):
-            raise ValueError("must be one of enum values ('account_confirmed', 'unknown_error', 'file_error', 'sign_url_invalid', 'signature_request_viewed', 'signature_request_signed', 'signature_request_sent', 'signature_request_all_signed', 'signature_request_email_bounce', 'signature_request_remind', 'signature_request_incomplete_qes', 'signature_request_destroyed', 'signature_request_canceled', 'signature_request_downloadable', 'signature_request_declined', 'signature_request_reassigned', 'signature_request_invalid', 'signature_request_prepared', 'signature_request_expired', 'template_created', 'template_error', 'callback_test', 'signature_request_signer_removed')")
+        if value not in set(
+            [
+                "account_confirmed",
+                "unknown_error",
+                "file_error",
+                "sign_url_invalid",
+                "signature_request_viewed",
+                "signature_request_signed",
+                "signature_request_sent",
+                "signature_request_all_signed",
+                "signature_request_email_bounce",
+                "signature_request_remind",
+                "signature_request_incomplete_qes",
+                "signature_request_destroyed",
+                "signature_request_canceled",
+                "signature_request_downloadable",
+                "signature_request_declined",
+                "signature_request_reassigned",
+                "signature_request_invalid",
+                "signature_request_prepared",
+                "signature_request_expired",
+                "template_created",
+                "template_error",
+                "callback_test",
+                "signature_request_signer_removed",
+            ]
+        ):
+            raise ValueError(
+                "must be one of enum values ('account_confirmed', 'unknown_error', 'file_error', 'sign_url_invalid', 'signature_request_viewed', 'signature_request_signed', 'signature_request_sent', 'signature_request_all_signed', 'signature_request_email_bounce', 'signature_request_remind', 'signature_request_incomplete_qes', 'signature_request_destroyed', 'signature_request_canceled', 'signature_request_downloadable', 'signature_request_declined', 'signature_request_reassigned', 'signature_request_invalid', 'signature_request_prepared', 'signature_request_expired', 'template_created', 'template_error', 'callback_test', 'signature_request_signer_removed')"
+            )
         return value
 
     model_config = ConfigDict(
@@ -50,7 +93,6 @@ class EventCallbackRequestEvent(BaseModel):
         protected_namespaces=(),
         arbitrary_types_allowed=True,
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -61,7 +103,9 @@ class EventCallbackRequestEvent(BaseModel):
         # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
-    def to_json_form_params(self, excluded_fields: Set[str] = None) -> List[Tuple[str, str]]:
+    def to_json_form_params(
+        self, excluded_fields: Set[str] = None
+    ) -> List[Tuple[str, str]]:
         data: List[Tuple[str, str]] = []
 
         for key, value in self.to_dict(excluded_fields).items():
@@ -95,7 +139,7 @@ class EventCallbackRequestEvent(BaseModel):
         )
         # override the default output from pydantic by calling `to_dict()` of event_metadata
         if self.event_metadata:
-            _dict['event_metadata'] = self.event_metadata.to_dict()
+            _dict["event_metadata"] = self.event_metadata.to_dict()
         return _dict
 
     @classmethod
@@ -107,12 +151,18 @@ class EventCallbackRequestEvent(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "event_time": obj.get("event_time"),
-            "event_type": obj.get("event_type"),
-            "event_hash": obj.get("event_hash"),
-            "event_metadata": EventCallbackRequestEventMetadata.from_dict(obj["event_metadata"]) if obj.get("event_metadata") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "event_time": obj.get("event_time"),
+                "event_type": obj.get("event_type"),
+                "event_hash": obj.get("event_hash"),
+                "event_metadata": (
+                    EventCallbackRequestEventMetadata.from_dict(obj["event_metadata"])
+                    if obj.get("event_metadata") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
 
     @classmethod
@@ -136,6 +186,4 @@ class EventCallbackRequestEvent(BaseModel):
 
     @classmethod
     def openapi_type_is_array(cls, property_name: str) -> bool:
-        return property_name in [
-        ]
-
+        return property_name in []

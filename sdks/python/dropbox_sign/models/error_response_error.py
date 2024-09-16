@@ -26,13 +26,17 @@ import io
 from pydantic import StrictBool
 from typing import Union
 
+
 class ErrorResponseError(BaseModel):
     """
     Contains information about an error that occurred.
-    """ # noqa: E501
+    """  # noqa: E501
+
     error_msg: StrictStr = Field(description="Message describing an error.")
     error_name: StrictStr = Field(description="Name of the error.")
-    error_path: Optional[StrictStr] = Field(default=None, description="Path at which an error occurred.")
+    error_path: Optional[StrictStr] = Field(
+        default=None, description="Path at which an error occurred."
+    )
     __properties: ClassVar[List[str]] = ["error_msg", "error_name", "error_path"]
 
     model_config = ConfigDict(
@@ -41,7 +45,6 @@ class ErrorResponseError(BaseModel):
         protected_namespaces=(),
         arbitrary_types_allowed=True,
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -52,7 +55,9 @@ class ErrorResponseError(BaseModel):
         # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
-    def to_json_form_params(self, excluded_fields: Set[str] = None) -> List[Tuple[str, str]]:
+    def to_json_form_params(
+        self, excluded_fields: Set[str] = None
+    ) -> List[Tuple[str, str]]:
         data: List[Tuple[str, str]] = []
 
         for key, value in self.to_dict(excluded_fields).items():
@@ -95,11 +100,13 @@ class ErrorResponseError(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "error_msg": obj.get("error_msg"),
-            "error_name": obj.get("error_name"),
-            "error_path": obj.get("error_path")
-        })
+        _obj = cls.model_validate(
+            {
+                "error_msg": obj.get("error_msg"),
+                "error_name": obj.get("error_name"),
+                "error_path": obj.get("error_path"),
+            }
+        )
         return _obj
 
     @classmethod
@@ -122,6 +129,4 @@ class ErrorResponseError(BaseModel):
 
     @classmethod
     def openapi_type_is_array(cls, property_name: str) -> bool:
-        return property_name in [
-        ]
-
+        return property_name in []

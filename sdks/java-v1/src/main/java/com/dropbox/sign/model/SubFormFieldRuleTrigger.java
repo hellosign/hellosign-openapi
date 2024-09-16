@@ -10,370 +10,373 @@
  * Do not edit the class manually.
  */
 
-
 package com.dropbox.sign.model;
 
-import java.util.Objects;
-import java.util.Map;
-import java.util.HashMap;
+import com.dropbox.sign.ApiException;
+import com.dropbox.sign.JSON;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.dropbox.sign.JSON;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
-
-import com.dropbox.sign.ApiException;
-/**
- * SubFormFieldRuleTrigger
- */
+/** SubFormFieldRuleTrigger */
 @JsonPropertyOrder({
-  SubFormFieldRuleTrigger.JSON_PROPERTY_ID,
-  SubFormFieldRuleTrigger.JSON_PROPERTY_OPERATOR,
-  SubFormFieldRuleTrigger.JSON_PROPERTY_VALUE,
-  SubFormFieldRuleTrigger.JSON_PROPERTY_VALUES
+    SubFormFieldRuleTrigger.JSON_PROPERTY_ID,
+    SubFormFieldRuleTrigger.JSON_PROPERTY_OPERATOR,
+    SubFormFieldRuleTrigger.JSON_PROPERTY_VALUE,
+    SubFormFieldRuleTrigger.JSON_PROPERTY_VALUES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
-@JsonIgnoreProperties(ignoreUnknown=true)
+@javax.annotation.Generated(
+        value = "org.openapitools.codegen.languages.JavaClientCodegen",
+        comments = "Generator version: 7.8.0")
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class SubFormFieldRuleTrigger {
-  public static final String JSON_PROPERTY_ID = "id";
-  private String id;
+    public static final String JSON_PROPERTY_ID = "id";
+    private String id;
 
-  /**
-   * Different field types allow different &#x60;operator&#x60; values: - Field type of **text**:   - **is**: exact match   - **not**: not exact match   - **match**: regular expression, without /. Example:     - OK &#x60;[a-zA-Z0-9]&#x60;     - Not OK &#x60;/[a-zA-Z0-9]/&#x60; - Field type of **dropdown**:   - **is**: exact match, single value   - **not**: not exact match, single value   - **any**: exact match, array of values.   - **none**: not exact match, array of values. - Field type of **checkbox**:   - **is**: exact match, single value   - **not**: not exact match, single value - Field type of **radio**:   - **is**: exact match, single value   - **not**: not exact match, single value
-   */
-  public enum OperatorEnum {
-    ANY("any"),
-    
-    IS("is"),
-    
-    MATCH("match"),
-    
-    NONE("none"),
-    
-    NOT("not");
+    /**
+     * Different field types allow different &#x60;operator&#x60; values: - Field type of **text**:
+     * - **is**: exact match - **not**: not exact match - **match**: regular expression, without /.
+     * Example: - OK &#x60;[a-zA-Z0-9]&#x60; - Not OK &#x60;/[a-zA-Z0-9]/&#x60; - Field type of
+     * **dropdown**: - **is**: exact match, single value - **not**: not exact match, single value -
+     * **any**: exact match, array of values. - **none**: not exact match, array of values. - Field
+     * type of **checkbox**: - **is**: exact match, single value - **not**: not exact match, single
+     * value - Field type of **radio**: - **is**: exact match, single value - **not**: not exact
+     * match, single value
+     */
+    public enum OperatorEnum {
+        ANY("any"),
 
-    private String value;
+        IS("is"),
 
-    OperatorEnum(String value) {
-      this.value = value;
+        MATCH("match"),
+
+        NONE("none"),
+
+        NOT("not");
+
+        private String value;
+
+        OperatorEnum(String value) {
+            this.value = value;
+        }
+
+        @JsonValue
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        @JsonCreator
+        public static OperatorEnum fromValue(String value) {
+            for (OperatorEnum b : OperatorEnum.values()) {
+                if (b.value.equals(value)) {
+                    return b;
+                }
+            }
+            throw new IllegalArgumentException("Unexpected value '" + value + "'");
+        }
     }
 
-    @JsonValue
+    public static final String JSON_PROPERTY_OPERATOR = "operator";
+    private OperatorEnum operator;
+
+    public static final String JSON_PROPERTY_VALUE = "value";
+    private String value;
+
+    public static final String JSON_PROPERTY_VALUES = "values";
+    private List<String> values = null;
+
+    public SubFormFieldRuleTrigger() {}
+
+    /**
+     * Attempt to instantiate and hydrate a new instance of this class
+     *
+     * @param jsonData String of JSON data representing target object
+     */
+    public static SubFormFieldRuleTrigger init(String jsonData) throws Exception {
+        return new ObjectMapper().readValue(jsonData, SubFormFieldRuleTrigger.class);
+    }
+
+    public static SubFormFieldRuleTrigger init(HashMap data) throws Exception {
+        return new ObjectMapper()
+                .readValue(
+                        new ObjectMapper().writeValueAsString(data), SubFormFieldRuleTrigger.class);
+    }
+
+    public SubFormFieldRuleTrigger id(String id) {
+        this.id = id;
+        return this;
+    }
+
+    /**
+     * Must reference the &#x60;api_id&#x60; of an existing field defined within
+     * &#x60;form_fields_per_document&#x60;. Trigger and action fields and groups must belong to the
+     * same signer.
+     *
+     * @return id
+     */
+    @javax.annotation.Nonnull
+    @JsonProperty(JSON_PROPERTY_ID)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    public String getId() {
+        return id;
+    }
+
+    @JsonProperty(JSON_PROPERTY_ID)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public SubFormFieldRuleTrigger operator(OperatorEnum operator) {
+        this.operator = operator;
+        return this;
+    }
+
+    /**
+     * Different field types allow different &#x60;operator&#x60; values: - Field type of **text**:
+     * - **is**: exact match - **not**: not exact match - **match**: regular expression, without /.
+     * Example: - OK &#x60;[a-zA-Z0-9]&#x60; - Not OK &#x60;/[a-zA-Z0-9]/&#x60; - Field type of
+     * **dropdown**: - **is**: exact match, single value - **not**: not exact match, single value -
+     * **any**: exact match, array of values. - **none**: not exact match, array of values. - Field
+     * type of **checkbox**: - **is**: exact match, single value - **not**: not exact match, single
+     * value - Field type of **radio**: - **is**: exact match, single value - **not**: not exact
+     * match, single value
+     *
+     * @return operator
+     */
+    @javax.annotation.Nonnull
+    @JsonProperty(JSON_PROPERTY_OPERATOR)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    public OperatorEnum getOperator() {
+        return operator;
+    }
+
+    @JsonProperty(JSON_PROPERTY_OPERATOR)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    public void setOperator(OperatorEnum operator) {
+        this.operator = operator;
+    }
+
+    public SubFormFieldRuleTrigger value(String value) {
+        this.value = value;
+        return this;
+    }
+
+    /**
+     * **value** or **values** is required, but not both. The value to match against **operator**. -
+     * When **operator** is one of the following, **value** must be &#x60;String&#x60;: -
+     * &#x60;is&#x60; - &#x60;not&#x60; - &#x60;match&#x60; Otherwise, - **checkbox**: When **type**
+     * of trigger is **checkbox**, **value** must be &#x60;0&#x60; or &#x60;1&#x60; - **radio**:
+     * When **type** of trigger is **radio**, **value** must be &#x60;1&#x60;
+     *
+     * @return value
+     */
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_VALUE)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getValue() {
-      return value;
+        return value;
+    }
+
+    @JsonProperty(JSON_PROPERTY_VALUE)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public void setValue(String value) {
+        this.value = value;
+    }
+
+    public SubFormFieldRuleTrigger values(List<String> values) {
+        this.values = values;
+        return this;
+    }
+
+    public SubFormFieldRuleTrigger addValuesItem(String valuesItem) {
+        if (this.values == null) {
+            this.values = new ArrayList<>();
+        }
+        this.values.add(valuesItem);
+        return this;
+    }
+
+    /**
+     * **values** or **value** is required, but not both. The values to match against **operator**
+     * when it is one of the following: - &#x60;any&#x60; - &#x60;none&#x60;
+     *
+     * @return values
+     */
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_VALUES)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public List<String> getValues() {
+        return values;
+    }
+
+    @JsonProperty(JSON_PROPERTY_VALUES)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public void setValues(List<String> values) {
+        this.values = values;
+    }
+
+    /** Return true if this SubFormFieldRuleTrigger object is equal to o. */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        SubFormFieldRuleTrigger subFormFieldRuleTrigger = (SubFormFieldRuleTrigger) o;
+        return Objects.equals(this.id, subFormFieldRuleTrigger.id)
+                && Objects.equals(this.operator, subFormFieldRuleTrigger.operator)
+                && Objects.equals(this.value, subFormFieldRuleTrigger.value)
+                && Objects.equals(this.values, subFormFieldRuleTrigger.values);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, operator, value, values);
     }
 
     @Override
     public String toString() {
-      return String.valueOf(value);
+        StringBuilder sb = new StringBuilder();
+        sb.append("class SubFormFieldRuleTrigger {\n");
+        sb.append("    id: ").append(toIndentedString(id)).append("\n");
+        sb.append("    operator: ").append(toIndentedString(operator)).append("\n");
+        sb.append("    value: ").append(toIndentedString(value)).append("\n");
+        sb.append("    values: ").append(toIndentedString(values)).append("\n");
+        sb.append("}");
+        return sb.toString();
     }
 
-    @JsonCreator
-    public static OperatorEnum fromValue(String value) {
-      for (OperatorEnum b : OperatorEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-  }
+    public Map<String, Object> createFormData() throws ApiException {
+        Map<String, Object> map = new HashMap<>();
+        boolean fileTypeFound = false;
+        try {
+            if (id != null) {
+                if (isFileTypeOrListOfFiles(id)) {
+                    fileTypeFound = true;
+                }
 
-  public static final String JSON_PROPERTY_OPERATOR = "operator";
-  private OperatorEnum operator;
-
-  public static final String JSON_PROPERTY_VALUE = "value";
-  private String value;
-
-  public static final String JSON_PROPERTY_VALUES = "values";
-  private List<String> values = null;
-
-  public SubFormFieldRuleTrigger() { 
-  }
-
-  /**
-   * Attempt to instantiate and hydrate a new instance of this class
-   * @param jsonData String of JSON data representing target object
-   */
-  static public SubFormFieldRuleTrigger init(String jsonData) throws Exception {
-    return new ObjectMapper().readValue(jsonData, SubFormFieldRuleTrigger.class);
-  }
-
-  static public SubFormFieldRuleTrigger init(HashMap data) throws Exception {
-    return new ObjectMapper().readValue(
-      new ObjectMapper().writeValueAsString(data),
-      SubFormFieldRuleTrigger.class
-    );
-  }
-
-  public SubFormFieldRuleTrigger id(String id) {
-    this.id = id;
-    return this;
-  }
-
-  /**
-   * Must reference the &#x60;api_id&#x60; of an existing field defined within &#x60;form_fields_per_document&#x60;. Trigger and action fields and groups must belong to the same signer.
-   * @return id
-   */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public String getId() {
-    return id;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(String id) {
-    this.id = id;
-  }
-
-
-  public SubFormFieldRuleTrigger operator(OperatorEnum operator) {
-    this.operator = operator;
-    return this;
-  }
-
-  /**
-   * Different field types allow different &#x60;operator&#x60; values: - Field type of **text**:   - **is**: exact match   - **not**: not exact match   - **match**: regular expression, without /. Example:     - OK &#x60;[a-zA-Z0-9]&#x60;     - Not OK &#x60;/[a-zA-Z0-9]/&#x60; - Field type of **dropdown**:   - **is**: exact match, single value   - **not**: not exact match, single value   - **any**: exact match, array of values.   - **none**: not exact match, array of values. - Field type of **checkbox**:   - **is**: exact match, single value   - **not**: not exact match, single value - Field type of **radio**:   - **is**: exact match, single value   - **not**: not exact match, single value
-   * @return operator
-   */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_OPERATOR)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public OperatorEnum getOperator() {
-    return operator;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_OPERATOR)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setOperator(OperatorEnum operator) {
-    this.operator = operator;
-  }
-
-
-  public SubFormFieldRuleTrigger value(String value) {
-    this.value = value;
-    return this;
-  }
-
-  /**
-   * **value** or **values** is required, but not both.  The value to match against **operator**.  - When **operator** is one of the following, **value** must be &#x60;String&#x60;:   - &#x60;is&#x60;   - &#x60;not&#x60;   - &#x60;match&#x60;  Otherwise, - **checkbox**: When **type** of trigger is **checkbox**, **value** must be &#x60;0&#x60; or &#x60;1&#x60; - **radio**: When **type** of trigger is **radio**, **value** must be &#x60;1&#x60;
-   * @return value
-   */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_VALUE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getValue() {
-    return value;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_VALUE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setValue(String value) {
-    this.value = value;
-  }
-
-
-  public SubFormFieldRuleTrigger values(List<String> values) {
-    this.values = values;
-    return this;
-  }
-
-  public SubFormFieldRuleTrigger addValuesItem(String valuesItem) {
-    if (this.values == null) {
-      this.values = new ArrayList<>();
-    }
-    this.values.add(valuesItem);
-    return this;
-  }
-
-  /**
-   * **values** or **value** is required, but not both.  The values to match against **operator** when it is one of the following:  - &#x60;any&#x60; - &#x60;none&#x60;
-   * @return values
-   */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_VALUES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public List<String> getValues() {
-    return values;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_VALUES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setValues(List<String> values) {
-    this.values = values;
-  }
-
-
-  /**
-   * Return true if this SubFormFieldRuleTrigger object is equal to o.
-   */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    SubFormFieldRuleTrigger subFormFieldRuleTrigger = (SubFormFieldRuleTrigger) o;
-    return Objects.equals(this.id, subFormFieldRuleTrigger.id) &&
-        Objects.equals(this.operator, subFormFieldRuleTrigger.operator) &&
-        Objects.equals(this.value, subFormFieldRuleTrigger.value) &&
-        Objects.equals(this.values, subFormFieldRuleTrigger.values);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(id, operator, value, values);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class SubFormFieldRuleTrigger {\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    operator: ").append(toIndentedString(operator)).append("\n");
-    sb.append("    value: ").append(toIndentedString(value)).append("\n");
-    sb.append("    values: ").append(toIndentedString(values)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  public Map<String, Object> createFormData() throws ApiException {
-    Map<String, Object> map = new HashMap<>();
-    boolean fileTypeFound = false;
-    try {
-    if (id != null) {
-        if (isFileTypeOrListOfFiles(id)) {
-            fileTypeFound = true;
-        }
-
-        if (id.getClass().equals(java.io.File.class) ||
-            id.getClass().equals(Integer.class) ||
-            id.getClass().equals(String.class) ||
-            id.getClass().isEnum()) {
-            map.put("id", id);
-        } else if (isListOfFile(id)) {
-            for(int i = 0; i< getListSize(id); i++) {
-                map.put("id[" + i + "]", getFromList(id, i));
+                if (id.getClass().equals(java.io.File.class)
+                        || id.getClass().equals(Integer.class)
+                        || id.getClass().equals(String.class)
+                        || id.getClass().isEnum()) {
+                    map.put("id", id);
+                } else if (isListOfFile(id)) {
+                    for (int i = 0; i < getListSize(id); i++) {
+                        map.put("id[" + i + "]", getFromList(id, i));
+                    }
+                } else {
+                    map.put("id", JSON.getDefault().getMapper().writeValueAsString(id));
+                }
             }
-        }
-        else {
-            map.put("id", JSON.getDefault().getMapper().writeValueAsString(id));
-        }
-    }
-    if (operator != null) {
-        if (isFileTypeOrListOfFiles(operator)) {
-            fileTypeFound = true;
-        }
+            if (operator != null) {
+                if (isFileTypeOrListOfFiles(operator)) {
+                    fileTypeFound = true;
+                }
 
-        if (operator.getClass().equals(java.io.File.class) ||
-            operator.getClass().equals(Integer.class) ||
-            operator.getClass().equals(String.class) ||
-            operator.getClass().isEnum()) {
-            map.put("operator", operator);
-        } else if (isListOfFile(operator)) {
-            for(int i = 0; i< getListSize(operator); i++) {
-                map.put("operator[" + i + "]", getFromList(operator, i));
+                if (operator.getClass().equals(java.io.File.class)
+                        || operator.getClass().equals(Integer.class)
+                        || operator.getClass().equals(String.class)
+                        || operator.getClass().isEnum()) {
+                    map.put("operator", operator);
+                } else if (isListOfFile(operator)) {
+                    for (int i = 0; i < getListSize(operator); i++) {
+                        map.put("operator[" + i + "]", getFromList(operator, i));
+                    }
+                } else {
+                    map.put("operator", JSON.getDefault().getMapper().writeValueAsString(operator));
+                }
             }
-        }
-        else {
-            map.put("operator", JSON.getDefault().getMapper().writeValueAsString(operator));
-        }
-    }
-    if (value != null) {
-        if (isFileTypeOrListOfFiles(value)) {
-            fileTypeFound = true;
-        }
+            if (value != null) {
+                if (isFileTypeOrListOfFiles(value)) {
+                    fileTypeFound = true;
+                }
 
-        if (value.getClass().equals(java.io.File.class) ||
-            value.getClass().equals(Integer.class) ||
-            value.getClass().equals(String.class) ||
-            value.getClass().isEnum()) {
-            map.put("value", value);
-        } else if (isListOfFile(value)) {
-            for(int i = 0; i< getListSize(value); i++) {
-                map.put("value[" + i + "]", getFromList(value, i));
+                if (value.getClass().equals(java.io.File.class)
+                        || value.getClass().equals(Integer.class)
+                        || value.getClass().equals(String.class)
+                        || value.getClass().isEnum()) {
+                    map.put("value", value);
+                } else if (isListOfFile(value)) {
+                    for (int i = 0; i < getListSize(value); i++) {
+                        map.put("value[" + i + "]", getFromList(value, i));
+                    }
+                } else {
+                    map.put("value", JSON.getDefault().getMapper().writeValueAsString(value));
+                }
             }
-        }
-        else {
-            map.put("value", JSON.getDefault().getMapper().writeValueAsString(value));
-        }
-    }
-    if (values != null) {
-        if (isFileTypeOrListOfFiles(values)) {
-            fileTypeFound = true;
-        }
+            if (values != null) {
+                if (isFileTypeOrListOfFiles(values)) {
+                    fileTypeFound = true;
+                }
 
-        if (values.getClass().equals(java.io.File.class) ||
-            values.getClass().equals(Integer.class) ||
-            values.getClass().equals(String.class) ||
-            values.getClass().isEnum()) {
-            map.put("values", values);
-        } else if (isListOfFile(values)) {
-            for(int i = 0; i< getListSize(values); i++) {
-                map.put("values[" + i + "]", getFromList(values, i));
+                if (values.getClass().equals(java.io.File.class)
+                        || values.getClass().equals(Integer.class)
+                        || values.getClass().equals(String.class)
+                        || values.getClass().isEnum()) {
+                    map.put("values", values);
+                } else if (isListOfFile(values)) {
+                    for (int i = 0; i < getListSize(values); i++) {
+                        map.put("values[" + i + "]", getFromList(values, i));
+                    }
+                } else {
+                    map.put("values", JSON.getDefault().getMapper().writeValueAsString(values));
+                }
             }
+        } catch (Exception e) {
+            throw new ApiException(e);
         }
-        else {
-            map.put("values", JSON.getDefault().getMapper().writeValueAsString(values));
+
+        return fileTypeFound ? map : new HashMap<>();
+    }
+
+    private boolean isFileTypeOrListOfFiles(Object obj) throws Exception {
+        return obj.getClass().equals(java.io.File.class) || isListOfFile(obj);
+    }
+
+    private boolean isListOfFile(Object obj) throws Exception {
+        return obj instanceof java.util.List
+                && !isListEmpty(obj)
+                && getFromList(obj, 0) instanceof java.io.File;
+    }
+
+    private boolean isListEmpty(Object obj) throws Exception {
+        return (boolean)
+                Class.forName(java.util.List.class.getName()).getMethod("isEmpty").invoke(obj);
+    }
+
+    private Object getFromList(Object obj, int index) throws Exception {
+        return Class.forName(java.util.List.class.getName())
+                .getMethod("get", int.class)
+                .invoke(obj, index);
+    }
+
+    private int getListSize(Object obj) throws Exception {
+        return (int) Class.forName(java.util.List.class.getName()).getMethod("size").invoke(obj);
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces (except the first
+     * line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
         }
+        return o.toString().replace("\n", "\n    ");
     }
-    } catch (Exception e) {
-        throw new ApiException(e);
-    }
-
-    return fileTypeFound ? map : new HashMap<>();
-  }
-
-  private boolean isFileTypeOrListOfFiles(Object obj) throws Exception {
-    return obj.getClass().equals(java.io.File.class) || isListOfFile(obj);
-  }
-
-  private boolean isListOfFile(Object obj) throws Exception {
-      return obj instanceof java.util.List && !isListEmpty(obj) && getFromList(obj, 0) instanceof java.io.File;
-  }
-
-  private boolean isListEmpty(Object obj) throws Exception {
-    return (boolean) Class.forName(java.util.List.class.getName()).getMethod("isEmpty").invoke(obj);
-  }
-
-  private Object getFromList(Object obj, int index) throws Exception {
-    return Class.forName(java.util.List.class.getName()).getMethod("get", int.class).invoke(obj, index);
-  }
-
-  private int getListSize(Object obj) throws Exception {
-    return (int) Class.forName(java.util.List.class.getName()).getMethod("size").invoke(obj);
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
-  }
-
 }
-

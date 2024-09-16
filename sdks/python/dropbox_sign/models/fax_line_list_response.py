@@ -29,10 +29,12 @@ import io
 from pydantic import StrictBool
 from typing import Union
 
+
 class FaxLineListResponse(BaseModel):
     """
     FaxLineListResponse
-    """ # noqa: E501
+    """  # noqa: E501
+
     list_info: ListInfoResponse
     fax_lines: List[FaxLineResponseFaxLine]
     warnings: Optional[WarningResponse] = None
@@ -45,7 +47,6 @@ class FaxLineListResponse(BaseModel):
         arbitrary_types_allowed=True,
     )
 
-
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
         return pprint.pformat(self.model_dump(by_alias=True))
@@ -55,7 +56,9 @@ class FaxLineListResponse(BaseModel):
         # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
-    def to_json_form_params(self, excluded_fields: Set[str] = None) -> List[Tuple[str, str]]:
+    def to_json_form_params(
+        self, excluded_fields: Set[str] = None
+    ) -> List[Tuple[str, str]]:
         data: List[Tuple[str, str]] = []
 
         for key, value in self.to_dict(excluded_fields).items():
@@ -89,17 +92,17 @@ class FaxLineListResponse(BaseModel):
         )
         # override the default output from pydantic by calling `to_dict()` of list_info
         if self.list_info:
-            _dict['list_info'] = self.list_info.to_dict()
+            _dict["list_info"] = self.list_info.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in fax_lines (list)
         _items = []
         if self.fax_lines:
             for _item_fax_lines in self.fax_lines:
                 if _item_fax_lines:
                     _items.append(_item_fax_lines.to_dict())
-            _dict['fax_lines'] = _items
+            _dict["fax_lines"] = _items
         # override the default output from pydantic by calling `to_dict()` of warnings
         if self.warnings:
-            _dict['warnings'] = self.warnings.to_dict()
+            _dict["warnings"] = self.warnings.to_dict()
         return _dict
 
     @classmethod
@@ -111,11 +114,28 @@ class FaxLineListResponse(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "list_info": ListInfoResponse.from_dict(obj["list_info"]) if obj.get("list_info") is not None else None,
-            "fax_lines": [FaxLineResponseFaxLine.from_dict(_item) for _item in obj["fax_lines"]] if obj.get("fax_lines") is not None else None,
-            "warnings": WarningResponse.from_dict(obj["warnings"]) if obj.get("warnings") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "list_info": (
+                    ListInfoResponse.from_dict(obj["list_info"])
+                    if obj.get("list_info") is not None
+                    else None
+                ),
+                "fax_lines": (
+                    [
+                        FaxLineResponseFaxLine.from_dict(_item)
+                        for _item in obj["fax_lines"]
+                    ]
+                    if obj.get("fax_lines") is not None
+                    else None
+                ),
+                "warnings": (
+                    WarningResponse.from_dict(obj["warnings"])
+                    if obj.get("warnings") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
 
     @classmethod
@@ -141,4 +161,3 @@ class FaxLineListResponse(BaseModel):
         return property_name in [
             "fax_lines",
         ]
-

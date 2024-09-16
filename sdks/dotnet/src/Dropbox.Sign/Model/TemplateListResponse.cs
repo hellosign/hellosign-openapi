@@ -46,7 +46,7 @@ namespace Dropbox.Sign.Model
         /// <param name="warnings">A list of warnings..</param>
         public TemplateListResponse(List<TemplateResponse> templates = default(List<TemplateResponse>), ListInfoResponse listInfo = default(ListInfoResponse), List<WarningResponse> warnings = default(List<WarningResponse>))
         {
-            
+
             // to ensure "templates" is required (not null)
             if (templates == null)
             {
@@ -84,20 +84,20 @@ namespace Dropbox.Sign.Model
         /// <value>List of templates that the API caller has access to.</value>
         [DataMember(Name = "templates", IsRequired = true, EmitDefaultValue = true)]
         public List<TemplateResponse> Templates { get; set; }
-        
+
         /// <summary>
         /// Gets or Sets ListInfo
         /// </summary>
         [DataMember(Name = "list_info", IsRequired = true, EmitDefaultValue = true)]
         public ListInfoResponse ListInfo { get; set; }
-        
+
         /// <summary>
         /// A list of warnings.
         /// </summary>
         /// <value>A list of warnings.</value>
         [DataMember(Name = "warnings", EmitDefaultValue = true)]
         public List<WarningResponse> Warnings { get; set; }
-        
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -143,18 +143,18 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
+            return
                 (
                     this.Templates == input.Templates ||
                     this.Templates != null &&
                     input.Templates != null &&
                     this.Templates.SequenceEqual(input.Templates)
-                ) && 
+                ) &&
                 (
                     this.ListInfo == input.ListInfo ||
                     (this.ListInfo != null &&
                     this.ListInfo.Equals(input.ListInfo))
-                ) && 
+                ) &&
                 (
                     this.Warnings == input.Warnings ||
                     this.Warnings != null &&
@@ -200,19 +200,22 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "templates",
                 Property = "Templates",
                 Type = "List<TemplateResponse>",
                 Value = Templates,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "list_info",
                 Property = "ListInfo",
                 Type = "ListInfoResponse",
                 Value = ListInfo,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "warnings",
                 Property = "Warnings",
                 Type = "List<WarningResponse>",

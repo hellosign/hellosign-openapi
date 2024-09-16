@@ -32,13 +32,11 @@ Gives the specified Account access to the specified Template. The specified Acco
 ```python
 from pprint import pprint
 
-from dropbox_sign import \
-    ApiClient, ApiException, Configuration, apis, models
+from dropbox_sign import ApiClient, ApiException, Configuration, apis, models
 
 configuration = Configuration(
     # Configure HTTP basic authorization: api_key
     username="YOUR_API_KEY",
-
     # or, configure Bearer (JWT) authorization: oauth2
     # access_token="YOUR_ACCESS_TOKEN",
 )
@@ -104,13 +102,11 @@ Creates a template that can then be used.
 ```python
 from pprint import pprint
 
-from dropbox_sign import \
-    ApiClient, ApiException, Configuration, apis, models
+from dropbox_sign import ApiClient, ApiException, Configuration, apis, models
 
 configuration = Configuration(
     # Configure HTTP basic authorization: api_key
     username="YOUR_API_KEY",
-
     # or, configure Bearer (JWT) authorization: oauth2
     # access_token="YOUR_ACCESS_TOKEN",
 )
@@ -206,13 +202,11 @@ The first step in an embedded template workflow. Creates a draft template that c
 ```python
 from pprint import pprint
 
-from dropbox_sign import \
-    ApiClient, ApiException, Configuration, apis, models
+from dropbox_sign import ApiClient, ApiException, Configuration, apis, models
 
 configuration = Configuration(
     # Configure HTTP basic authorization: api_key
     username="YOUR_API_KEY",
-
     # or, configure Bearer (JWT) authorization: oauth2
     # access_token="YOUR_ACCESS_TOKEN",
 )
@@ -306,13 +300,11 @@ Completely deletes the template specified from the account.
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
-from dropbox_sign import \
-    ApiClient, ApiException, Configuration, apis
+from dropbox_sign import ApiClient, ApiException, Configuration, apis
 
 configuration = Configuration(
     # Configure HTTP basic authorization: api_key
     username="YOUR_API_KEY",
-
     # or, configure Bearer (JWT) authorization: oauth2
     # access_token="YOUR_ACCESS_TOKEN",
 )
@@ -372,13 +364,11 @@ Obtain a copy of the current documents specified by the `template_id` parameter.
 ```python
 from pprint import pprint
 
-from dropbox_sign import \
-    ApiClient, ApiException, Configuration, apis
+from dropbox_sign import ApiClient, ApiException, Configuration, apis
 
 configuration = Configuration(
     # Configure HTTP basic authorization: api_key
     username="YOUR_API_KEY",
-
     # or, configure Bearer (JWT) authorization: oauth2
     # access_token="YOUR_ACCESS_TOKEN",
 )
@@ -390,7 +380,7 @@ with ApiClient(configuration) as api_client:
 
     try:
         response = template_api.template_files(template_id, file_type="pdf")
-        open('file_response.pdf', 'wb').write(response.read())
+        open("file_response.pdf", "wb").write(response.read())
     except ApiException as e:
         print("Exception when calling Dropbox Sign API: %s\n" % e)
 
@@ -440,13 +430,11 @@ Obtain a copy of the current documents specified by the `template_id` parameter.
 ```python
 from pprint import pprint
 
-from dropbox_sign import \
-    ApiClient, ApiException, Configuration, apis
+from dropbox_sign import ApiClient, ApiException, Configuration, apis
 
 configuration = Configuration(
     # Configure HTTP basic authorization: api_key
     username="YOUR_API_KEY",
-
     # or, configure Bearer (JWT) authorization: oauth2
     # access_token="YOUR_ACCESS_TOKEN",
 )
@@ -507,13 +495,11 @@ Obtain a copy of the current documents specified by the `template_id` parameter.
 ```python
 from pprint import pprint
 
-from dropbox_sign import \
-    ApiClient, ApiException, Configuration, apis
+from dropbox_sign import ApiClient, ApiException, Configuration, apis
 
 configuration = Configuration(
     # Configure HTTP basic authorization: api_key
     username="YOUR_API_KEY",
-
     # or, configure Bearer (JWT) authorization: oauth2
     # access_token="YOUR_ACCESS_TOKEN",
 )
@@ -575,13 +561,11 @@ Returns the Template specified by the `template_id` parameter.
 ```python
 from pprint import pprint
 
-from dropbox_sign import \
-    ApiClient, ApiException, Configuration, apis
+from dropbox_sign import ApiClient, ApiException, Configuration, apis
 
 configuration = Configuration(
     # Configure HTTP basic authorization: api_key
     username="YOUR_API_KEY",
-
     # or, configure Bearer (JWT) authorization: oauth2
     # access_token="YOUR_ACCESS_TOKEN",
 )
@@ -642,13 +626,11 @@ Returns a list of the Templates that are accessible by you.  Take a look at our 
 ```python
 from pprint import pprint
 
-from dropbox_sign import \
-    ApiClient, ApiException, Configuration, apis
+from dropbox_sign import ApiClient, ApiException, Configuration, apis
 
 configuration = Configuration(
     # Configure HTTP basic authorization: api_key
     username="YOUR_API_KEY",
-
     # or, configure Bearer (JWT) authorization: oauth2
     # access_token="YOUR_ACCESS_TOKEN",
 )
@@ -714,13 +696,11 @@ Removes the specified Account's access to the specified Template.
 ```python
 from pprint import pprint
 
-from dropbox_sign import \
-    ApiClient, ApiException, Configuration, apis, models
+from dropbox_sign import ApiClient, ApiException, Configuration, apis, models
 
 configuration = Configuration(
     # Configure HTTP basic authorization: api_key
     username="YOUR_API_KEY",
-
     # or, configure Bearer (JWT) authorization: oauth2
     # access_token="YOUR_ACCESS_TOKEN",
 )
@@ -786,13 +766,11 @@ Overlays a new file with the overlay of an existing template. The new file(s) mu
 ```python
 from pprint import pprint
 
-from dropbox_sign import \
-    ApiClient, ApiException, Configuration, apis, models
+from dropbox_sign import ApiClient, ApiException, Configuration, apis, models
 
 configuration = Configuration(
     # Configure HTTP basic authorization: api_key
     username="YOUR_API_KEY",
-
     # or, configure Bearer (JWT) authorization: oauth2
     # access_token="YOUR_ACCESS_TOKEN",
 )

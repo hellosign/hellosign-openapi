@@ -85,7 +85,7 @@ module Dropbox::Sign
     # @param [Object] data Data to be converted
     # @return [TemplateResponseAccountQuota]
     def self.init(data)
-      return ApiClient.default.convert_to_type(
+      ApiClient.default.convert_to_type(
         data,
         "TemplateResponseAccountQuota"
       ) || TemplateResponseAccountQuota.new
@@ -276,7 +276,5 @@ module Dropbox::Sign
         value
       end
     end
-
   end
-
 end

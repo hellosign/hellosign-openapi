@@ -50,7 +50,7 @@ public class EmbeddedApi {
   }
 
   /**
-   * Get Embedded Template Edit URL
+   * Get Embedded Template Edit URL.
    * Retrieves an embedded object containing a template url that can be opened in an iFrame. Note that only templates created via the embedded template process are available to be edited with this endpoint.
    * @param templateId The id of the template to edit. (required)
    * @param embeddedEditUrlRequest  (required)
@@ -69,7 +69,7 @@ public class EmbeddedApi {
 
 
   /**
-   * Get Embedded Template Edit URL
+   * Get Embedded Template Edit URL.
    * Retrieves an embedded object containing a template url that can be opened in an iFrame. Note that only templates created via the embedded template process are available to be edited with this endpoint.
    * @param templateId The id of the template to edit. (required)
    * @param embeddedEditUrlRequest  (required)
@@ -120,7 +120,7 @@ public class EmbeddedApi {
     );
   }
   /**
-   * Get Embedded Sign URL
+   * Get Embedded Sign URL.
    * Retrieves an embedded object containing a signature url that can be opened in an iFrame. Note that templates created via the embedded template process will only be accessible through the API.
    * @param signatureId The id of the signature to get a signature url for. (required)
    * @return EmbeddedSignUrlResponse
@@ -138,7 +138,7 @@ public class EmbeddedApi {
 
 
   /**
-   * Get Embedded Sign URL
+   * Get Embedded Sign URL.
    * Retrieves an embedded object containing a signature url that can be opened in an iFrame. Note that templates created via the embedded template process will only be accessible through the API.
    * @param signatureId The id of the signature to get a signature url for. (required)
    * @return ApiResponse&lt;EmbeddedSignUrlResponse&gt;

@@ -63,7 +63,7 @@ namespace Dropbox.Sign.Model
         /// <param name="group">The name of the group this field is in. If this field is not a group, this defaults to &#x60;null&#x60; except for Radio fields..</param>
         public TemplateResponseDocumentFormFieldBase(string apiId = default(string), string name = default(string), string type = default(string), Object signer = null, int x = default(int), int y = default(int), int width = default(int), int height = default(int), bool required = default(bool), string group = default(string))
         {
-            
+
             // to ensure "type" is required (not null)
             if (type == null)
             {
@@ -102,27 +102,28 @@ namespace Dropbox.Sign.Model
         /// </summary>
         [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
         public string Type { get; set; }
-        
+
         /// <summary>
         /// A unique id for the form field.
         /// </summary>
         /// <value>A unique id for the form field.</value>
         [DataMember(Name = "api_id", EmitDefaultValue = true)]
         public string ApiId { get; set; }
-        
+
         /// <summary>
         /// The name of the form field.
         /// </summary>
         /// <value>The name of the form field.</value>
         [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
-        
+
         /// <summary>
         /// The signer of the Form Field.
         /// </summary>
         /// <value>The signer of the Form Field.</value>
         [DataMember(Name = "signer", EmitDefaultValue = true)]
-        public object Signer {
+        public object Signer
+        {
             get => this._signer;
             set => this._signer = Convert.ToString(value);
         }
@@ -134,42 +135,42 @@ namespace Dropbox.Sign.Model
         /// <value>The horizontal offset in pixels for this form field.</value>
         [DataMember(Name = "x", EmitDefaultValue = true)]
         public int X { get; set; }
-        
+
         /// <summary>
         /// The vertical offset in pixels for this form field.
         /// </summary>
         /// <value>The vertical offset in pixels for this form field.</value>
         [DataMember(Name = "y", EmitDefaultValue = true)]
         public int Y { get; set; }
-        
+
         /// <summary>
         /// The width in pixels of this form field.
         /// </summary>
         /// <value>The width in pixels of this form field.</value>
         [DataMember(Name = "width", EmitDefaultValue = true)]
         public int Width { get; set; }
-        
+
         /// <summary>
         /// The height in pixels of this form field.
         /// </summary>
         /// <value>The height in pixels of this form field.</value>
         [DataMember(Name = "height", EmitDefaultValue = true)]
         public int Height { get; set; }
-        
+
         /// <summary>
         /// Boolean showing whether or not this field is required.
         /// </summary>
         /// <value>Boolean showing whether or not this field is required.</value>
         [DataMember(Name = "required", EmitDefaultValue = true)]
         public bool Required { get; set; }
-        
+
         /// <summary>
         /// The name of the group this field is in. If this field is not a group, this defaults to &#x60;null&#x60; except for Radio fields.
         /// </summary>
         /// <value>The name of the group this field is in. If this field is not a group, this defaults to &#x60;null&#x60; except for Radio fields.</value>
         [DataMember(Name = "group", EmitDefaultValue = true)]
         public string Group { get; set; }
-        
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -222,47 +223,47 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
+            return
                 (
                     this.Type == input.Type ||
                     (this.Type != null &&
                     this.Type.Equals(input.Type))
-                ) && 
+                ) &&
                 (
                     this.ApiId == input.ApiId ||
                     (this.ApiId != null &&
                     this.ApiId.Equals(input.ApiId))
-                ) && 
+                ) &&
                 (
                     this.Name == input.Name ||
                     (this.Name != null &&
                     this.Name.Equals(input.Name))
-                ) && 
+                ) &&
                 (
                     this.Signer == input.Signer ||
                     (this.Signer != null &&
                     this.Signer.Equals(input.Signer))
-                ) && 
+                ) &&
                 (
                     this.X == input.X ||
                     this.X.Equals(input.X)
-                ) && 
+                ) &&
                 (
                     this.Y == input.Y ||
                     this.Y.Equals(input.Y)
-                ) && 
+                ) &&
                 (
                     this.Width == input.Width ||
                     this.Width.Equals(input.Width)
-                ) && 
+                ) &&
                 (
                     this.Height == input.Height ||
                     this.Height.Equals(input.Height)
-                ) && 
+                ) &&
                 (
                     this.Required == input.Required ||
                     this.Required.Equals(input.Required)
-                ) && 
+                ) &&
                 (
                     this.Group == input.Group ||
                     (this.Group != null &&
@@ -330,61 +331,71 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "type",
                 Property = "Type",
                 Type = "string",
                 Value = Type,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "api_id",
                 Property = "ApiId",
                 Type = "string",
                 Value = ApiId,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "name",
                 Property = "Name",
                 Type = "string",
                 Value = Name,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "signer",
                 Property = "Signer",
                 Type = "string",
                 Value = Signer,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "x",
                 Property = "X",
                 Type = "int",
                 Value = X,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "y",
                 Property = "Y",
                 Type = "int",
                 Value = Y,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "width",
                 Property = "Width",
                 Type = "int",
                 Value = Width,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "height",
                 Property = "Height",
                 Type = "int",
                 Value = Height,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "required",
                 Property = "Required",
                 Type = "bool",
                 Value = Required,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "group",
                 Property = "Group",
                 Type = "string",

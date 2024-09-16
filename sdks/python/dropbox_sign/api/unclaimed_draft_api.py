@@ -19,11 +19,21 @@ from typing_extensions import Annotated
 
 from pydantic import Field, StrictStr
 from typing_extensions import Annotated
-from dropbox_sign.models.unclaimed_draft_create_embedded_request import UnclaimedDraftCreateEmbeddedRequest
-from dropbox_sign.models.unclaimed_draft_create_embedded_with_template_request import UnclaimedDraftCreateEmbeddedWithTemplateRequest
-from dropbox_sign.models.unclaimed_draft_create_request import UnclaimedDraftCreateRequest
-from dropbox_sign.models.unclaimed_draft_create_response import UnclaimedDraftCreateResponse
-from dropbox_sign.models.unclaimed_draft_edit_and_resend_request import UnclaimedDraftEditAndResendRequest
+from dropbox_sign.models.unclaimed_draft_create_embedded_request import (
+    UnclaimedDraftCreateEmbeddedRequest,
+)
+from dropbox_sign.models.unclaimed_draft_create_embedded_with_template_request import (
+    UnclaimedDraftCreateEmbeddedWithTemplateRequest,
+)
+from dropbox_sign.models.unclaimed_draft_create_request import (
+    UnclaimedDraftCreateRequest,
+)
+from dropbox_sign.models.unclaimed_draft_create_response import (
+    UnclaimedDraftCreateResponse,
+)
+from dropbox_sign.models.unclaimed_draft_edit_and_resend_request import (
+    UnclaimedDraftEditAndResendRequest,
+)
 
 from dropbox_sign.api_client import ApiClient, RequestSerialized
 from dropbox_sign.api_response import ApiResponse
@@ -43,7 +53,6 @@ class UnclaimedDraftApi:
             api_client = ApiClient.get_default()
         self.api_client = api_client
 
-
     @validate_call
     def unclaimed_draft_create(
         self,
@@ -52,9 +61,8 @@ class UnclaimedDraftApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -87,30 +95,28 @@ class UnclaimedDraftApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._unclaimed_draft_create_serialize(
             unclaimed_draft_create_request=unclaimed_draft_create_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UnclaimedDraftCreateResponse",
-            '4XX': "ErrorResponse",
+            "200": "UnclaimedDraftCreateResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def unclaimed_draft_create_with_http_info(
@@ -120,9 +126,8 @@ class UnclaimedDraftApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -155,30 +160,28 @@ class UnclaimedDraftApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._unclaimed_draft_create_serialize(
             unclaimed_draft_create_request=unclaimed_draft_create_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UnclaimedDraftCreateResponse",
-            '4XX': "ErrorResponse",
+            "200": "UnclaimedDraftCreateResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def unclaimed_draft_create_without_preload_content(
@@ -188,9 +191,8 @@ class UnclaimedDraftApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -223,26 +225,24 @@ class UnclaimedDraftApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._unclaimed_draft_create_serialize(
             unclaimed_draft_create_request=unclaimed_draft_create_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UnclaimedDraftCreateResponse",
-            '4XX': "ErrorResponse",
+            "200": "UnclaimedDraftCreateResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _unclaimed_draft_create_serialize(
         self,
@@ -255,8 +255,7 @@ class UnclaimedDraftApi:
 
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -280,7 +279,7 @@ class UnclaimedDraftApi:
 
                 if isinstance(param_value, list):
                     for index, item in enumerate(param_value):
-                        _files[f'{param_name}[{index}]'] = item
+                        _files[f"{param_name}[{index}]"] = item
                 else:
                     _files[param_name] = param_value
 
@@ -295,39 +294,28 @@ class UnclaimedDraftApi:
         if unclaimed_draft_create_request is not None and has_files is False:
             _body_params = unclaimed_draft_create_request
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json"]
             )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json', 
-                        'multipart/form-data'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json", "multipart/form-data"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'api_key', 
-            'oauth2'
-        ]
+        _auth_settings: List[str] = ["api_key", "oauth2"]
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/unclaimed_draft/create',
+            method="POST",
+            resource_path="/unclaimed_draft/create",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -337,11 +325,8 @@ class UnclaimedDraftApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def unclaimed_draft_create_embedded(
@@ -351,9 +336,8 @@ class UnclaimedDraftApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -386,30 +370,28 @@ class UnclaimedDraftApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._unclaimed_draft_create_embedded_serialize(
             unclaimed_draft_create_embedded_request=unclaimed_draft_create_embedded_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UnclaimedDraftCreateResponse",
-            '4XX': "ErrorResponse",
+            "200": "UnclaimedDraftCreateResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def unclaimed_draft_create_embedded_with_http_info(
@@ -419,9 +401,8 @@ class UnclaimedDraftApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -454,30 +435,28 @@ class UnclaimedDraftApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._unclaimed_draft_create_embedded_serialize(
             unclaimed_draft_create_embedded_request=unclaimed_draft_create_embedded_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UnclaimedDraftCreateResponse",
-            '4XX': "ErrorResponse",
+            "200": "UnclaimedDraftCreateResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def unclaimed_draft_create_embedded_without_preload_content(
@@ -487,9 +466,8 @@ class UnclaimedDraftApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -522,26 +500,24 @@ class UnclaimedDraftApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._unclaimed_draft_create_embedded_serialize(
             unclaimed_draft_create_embedded_request=unclaimed_draft_create_embedded_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UnclaimedDraftCreateResponse",
-            '4XX': "ErrorResponse",
+            "200": "UnclaimedDraftCreateResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _unclaimed_draft_create_embedded_serialize(
         self,
@@ -554,8 +530,7 @@ class UnclaimedDraftApi:
 
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -579,7 +554,7 @@ class UnclaimedDraftApi:
 
                 if isinstance(param_value, list):
                     for index, item in enumerate(param_value):
-                        _files[f'{param_name}[{index}]'] = item
+                        _files[f"{param_name}[{index}]"] = item
                 else:
                     _files[param_name] = param_value
 
@@ -594,39 +569,28 @@ class UnclaimedDraftApi:
         if unclaimed_draft_create_embedded_request is not None and has_files is False:
             _body_params = unclaimed_draft_create_embedded_request
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json"]
             )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json', 
-                        'multipart/form-data'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json", "multipart/form-data"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'api_key', 
-            'oauth2'
-        ]
+        _auth_settings: List[str] = ["api_key", "oauth2"]
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/unclaimed_draft/create_embedded',
+            method="POST",
+            resource_path="/unclaimed_draft/create_embedded",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -636,11 +600,8 @@ class UnclaimedDraftApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def unclaimed_draft_create_embedded_with_template(
@@ -650,9 +611,8 @@ class UnclaimedDraftApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -685,30 +645,28 @@ class UnclaimedDraftApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._unclaimed_draft_create_embedded_with_template_serialize(
             unclaimed_draft_create_embedded_with_template_request=unclaimed_draft_create_embedded_with_template_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UnclaimedDraftCreateResponse",
-            '4XX': "ErrorResponse",
+            "200": "UnclaimedDraftCreateResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def unclaimed_draft_create_embedded_with_template_with_http_info(
@@ -718,9 +676,8 @@ class UnclaimedDraftApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -753,30 +710,28 @@ class UnclaimedDraftApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._unclaimed_draft_create_embedded_with_template_serialize(
             unclaimed_draft_create_embedded_with_template_request=unclaimed_draft_create_embedded_with_template_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UnclaimedDraftCreateResponse",
-            '4XX': "ErrorResponse",
+            "200": "UnclaimedDraftCreateResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def unclaimed_draft_create_embedded_with_template_without_preload_content(
@@ -786,9 +741,8 @@ class UnclaimedDraftApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -821,26 +775,24 @@ class UnclaimedDraftApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._unclaimed_draft_create_embedded_with_template_serialize(
             unclaimed_draft_create_embedded_with_template_request=unclaimed_draft_create_embedded_with_template_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UnclaimedDraftCreateResponse",
-            '4XX': "ErrorResponse",
+            "200": "UnclaimedDraftCreateResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _unclaimed_draft_create_embedded_with_template_serialize(
         self,
@@ -853,8 +805,7 @@ class UnclaimedDraftApi:
 
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -878,7 +829,7 @@ class UnclaimedDraftApi:
 
                 if isinstance(param_value, list):
                     for index, item in enumerate(param_value):
-                        _files[f'{param_name}[{index}]'] = item
+                        _files[f"{param_name}[{index}]"] = item
                 else:
                     _files[param_name] = param_value
 
@@ -890,42 +841,34 @@ class UnclaimedDraftApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if unclaimed_draft_create_embedded_with_template_request is not None and has_files is False:
+        if (
+            unclaimed_draft_create_embedded_with_template_request is not None
+            and has_files is False
+        ):
             _body_params = unclaimed_draft_create_embedded_with_template_request
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json"]
             )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json', 
-                        'multipart/form-data'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json", "multipart/form-data"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'api_key', 
-            'oauth2'
-        ]
+        _auth_settings: List[str] = ["api_key", "oauth2"]
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/unclaimed_draft/create_embedded_with_template',
+            method="POST",
+            resource_path="/unclaimed_draft/create_embedded_with_template",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -935,24 +878,23 @@ class UnclaimedDraftApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def unclaimed_draft_edit_and_resend(
         self,
-        signature_request_id: Annotated[StrictStr, Field(description="The ID of the signature request to edit and resend.")],
+        signature_request_id: Annotated[
+            StrictStr,
+            Field(description="The ID of the signature request to edit and resend."),
+        ],
         unclaimed_draft_edit_and_resend_request: UnclaimedDraftEditAndResendRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -987,7 +929,7 @@ class UnclaimedDraftApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._unclaimed_draft_edit_and_resend_serialize(
             signature_request_id=signature_request_id,
@@ -995,16 +937,15 @@ class UnclaimedDraftApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UnclaimedDraftCreateResponse",
-            '4XX': "ErrorResponse",
+            "200": "UnclaimedDraftCreateResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -1012,19 +953,20 @@ class UnclaimedDraftApi:
             response_types_map=_response_types_map,
         ).data
 
-
     @validate_call
     def unclaimed_draft_edit_and_resend_with_http_info(
         self,
-        signature_request_id: Annotated[StrictStr, Field(description="The ID of the signature request to edit and resend.")],
+        signature_request_id: Annotated[
+            StrictStr,
+            Field(description="The ID of the signature request to edit and resend."),
+        ],
         unclaimed_draft_edit_and_resend_request: UnclaimedDraftEditAndResendRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1059,7 +1001,7 @@ class UnclaimedDraftApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._unclaimed_draft_edit_and_resend_serialize(
             signature_request_id=signature_request_id,
@@ -1067,16 +1009,15 @@ class UnclaimedDraftApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UnclaimedDraftCreateResponse",
-            '4XX': "ErrorResponse",
+            "200": "UnclaimedDraftCreateResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -1084,19 +1025,20 @@ class UnclaimedDraftApi:
             response_types_map=_response_types_map,
         )
 
-
     @validate_call
     def unclaimed_draft_edit_and_resend_without_preload_content(
         self,
-        signature_request_id: Annotated[StrictStr, Field(description="The ID of the signature request to edit and resend.")],
+        signature_request_id: Annotated[
+            StrictStr,
+            Field(description="The ID of the signature request to edit and resend."),
+        ],
         unclaimed_draft_edit_and_resend_request: UnclaimedDraftEditAndResendRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1131,7 +1073,7 @@ class UnclaimedDraftApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._unclaimed_draft_edit_and_resend_serialize(
             signature_request_id=signature_request_id,
@@ -1139,19 +1081,17 @@ class UnclaimedDraftApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UnclaimedDraftCreateResponse",
-            '4XX': "ErrorResponse",
+            "200": "UnclaimedDraftCreateResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _unclaimed_draft_edit_and_resend_serialize(
         self,
@@ -1165,8 +1105,7 @@ class UnclaimedDraftApi:
 
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -1190,7 +1129,7 @@ class UnclaimedDraftApi:
 
                 if isinstance(param_value, list):
                     for index, item in enumerate(param_value):
-                        _files[f'{param_name}[{index}]'] = item
+                        _files[f"{param_name}[{index}]"] = item
                 else:
                     _files[param_name] = param_value
 
@@ -1199,7 +1138,7 @@ class UnclaimedDraftApi:
 
         # process the path parameters
         if signature_request_id is not None:
-            _path_params['signature_request_id'] = signature_request_id
+            _path_params["signature_request_id"] = signature_request_id
         # process the query parameters
         # process the header parameters
         # process the form parameters
@@ -1207,38 +1146,28 @@ class UnclaimedDraftApi:
         if unclaimed_draft_edit_and_resend_request is not None and has_files is False:
             _body_params = unclaimed_draft_edit_and_resend_request
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json"]
             )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'api_key', 
-            'oauth2'
-        ]
+        _auth_settings: List[str] = ["api_key", "oauth2"]
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/unclaimed_draft/edit_and_resend/{signature_request_id}',
+            method="POST",
+            resource_path="/unclaimed_draft/edit_and_resend/{signature_request_id}",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1248,7 +1177,5 @@ class UnclaimedDraftApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-

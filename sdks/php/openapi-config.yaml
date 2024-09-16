@@ -16,11 +16,15 @@ additionalProperties:
   developerOrganizationUrl: "https://hellosign.com"
   developerOrganizationEmail: "apisupport@hellosign.com"
   useCustomTemplateCode: true
+  licenseCopyrightYear: 2024
 files:
-  EventCallbackHelper.mustache:
+  dropbox-EventCallbackHelper.mustache:
     templateType: SupportingFiles
     destinationFilename: src/EventCallbackHelper.php
-  VERSION.mustache:
+  dropbox-LICENSE.mustache:
+    templateType: SupportingFiles
+    destinationFilename: LICENSE
+  dropbox-VERSION.mustache:
     templateType: SupportingFiles
     destinationFilename: VERSION
 globalProperties:

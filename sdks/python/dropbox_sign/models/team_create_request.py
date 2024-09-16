@@ -26,11 +26,15 @@ import io
 from pydantic import StrictBool
 from typing import Union
 
+
 class TeamCreateRequest(BaseModel):
     """
     TeamCreateRequest
-    """ # noqa: E501
-    name: Optional[StrictStr] = Field(default='Untitled Team', description="The name of your Team.")
+    """  # noqa: E501
+
+    name: Optional[StrictStr] = Field(
+        default="Untitled Team", description="The name of your Team."
+    )
     __properties: ClassVar[List[str]] = ["name"]
 
     model_config = ConfigDict(
@@ -39,7 +43,6 @@ class TeamCreateRequest(BaseModel):
         protected_namespaces=(),
         arbitrary_types_allowed=True,
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -50,7 +53,9 @@ class TeamCreateRequest(BaseModel):
         # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
-    def to_json_form_params(self, excluded_fields: Set[str] = None) -> List[Tuple[str, str]]:
+    def to_json_form_params(
+        self, excluded_fields: Set[str] = None
+    ) -> List[Tuple[str, str]]:
         data: List[Tuple[str, str]] = []
 
         for key, value in self.to_dict(excluded_fields).items():
@@ -93,9 +98,13 @@ class TeamCreateRequest(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "name": obj.get("name") if obj.get("name") is not None else 'Untitled Team'
-        })
+        _obj = cls.model_validate(
+            {
+                "name": (
+                    obj.get("name") if obj.get("name") is not None else "Untitled Team"
+                )
+            }
+        )
         return _obj
 
     @classmethod
@@ -116,6 +125,4 @@ class TeamCreateRequest(BaseModel):
 
     @classmethod
     def openapi_type_is_array(cls, property_name: str) -> bool:
-        return property_name in [
-        ]
-
+        return property_name in []

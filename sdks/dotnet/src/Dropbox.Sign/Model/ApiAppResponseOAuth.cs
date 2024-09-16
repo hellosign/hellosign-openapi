@@ -47,7 +47,7 @@ namespace Dropbox.Sign.Model
         /// <param name="chargesUsers">Boolean indicating whether the app owner or the account granting permission is billed for OAuth requests..</param>
         public ApiAppResponseOAuth(string callbackUrl = default(string), string secret = default(string), List<string> scopes = default(List<string>), bool chargesUsers = default(bool))
         {
-            
+
             this.CallbackUrl = callbackUrl;
             this.Secret = secret;
             this.Scopes = scopes;
@@ -76,28 +76,28 @@ namespace Dropbox.Sign.Model
         /// <value>The app&#39;s OAuth callback URL.</value>
         [DataMember(Name = "callback_url", EmitDefaultValue = true)]
         public string CallbackUrl { get; set; }
-        
+
         /// <summary>
         /// The app&#39;s OAuth secret, or null if the app does not belong to user.
         /// </summary>
         /// <value>The app&#39;s OAuth secret, or null if the app does not belong to user.</value>
         [DataMember(Name = "secret", EmitDefaultValue = true)]
         public string Secret { get; set; }
-        
+
         /// <summary>
         /// Array of OAuth scopes used by the app.
         /// </summary>
         /// <value>Array of OAuth scopes used by the app.</value>
         [DataMember(Name = "scopes", EmitDefaultValue = true)]
         public List<string> Scopes { get; set; }
-        
+
         /// <summary>
         /// Boolean indicating whether the app owner or the account granting permission is billed for OAuth requests.
         /// </summary>
         /// <value>Boolean indicating whether the app owner or the account granting permission is billed for OAuth requests.</value>
         [DataMember(Name = "charges_users", EmitDefaultValue = true)]
         public bool ChargesUsers { get; set; }
-        
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -144,23 +144,23 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
+            return
                 (
                     this.CallbackUrl == input.CallbackUrl ||
                     (this.CallbackUrl != null &&
                     this.CallbackUrl.Equals(input.CallbackUrl))
-                ) && 
+                ) &&
                 (
                     this.Secret == input.Secret ||
                     (this.Secret != null &&
                     this.Secret.Equals(input.Secret))
-                ) && 
+                ) &&
                 (
                     this.Scopes == input.Scopes ||
                     this.Scopes != null &&
                     input.Scopes != null &&
                     this.Scopes.SequenceEqual(input.Scopes)
-                ) && 
+                ) &&
                 (
                     this.ChargesUsers == input.ChargesUsers ||
                     this.ChargesUsers.Equals(input.ChargesUsers)
@@ -205,25 +205,29 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "callback_url",
                 Property = "CallbackUrl",
                 Type = "string",
                 Value = CallbackUrl,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "secret",
                 Property = "Secret",
                 Type = "string",
                 Value = Secret,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "scopes",
                 Property = "Scopes",
                 Type = "List<string>",
                 Value = Scopes,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "charges_users",
                 Property = "ChargesUsers",
                 Type = "bool",

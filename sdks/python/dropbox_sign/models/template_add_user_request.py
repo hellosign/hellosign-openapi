@@ -26,14 +26,29 @@ import io
 from pydantic import StrictBool
 from typing import Union
 
+
 class TemplateAddUserRequest(BaseModel):
     """
     TemplateAddUserRequest
-    """ # noqa: E501
-    account_id: Optional[StrictStr] = Field(default=None, description="The id of the Account to give access to the Template. **NOTE:** The account id prevails if email address is also provided.")
-    email_address: Optional[StrictStr] = Field(default=None, description="The email address of the Account to give access to the Template. **NOTE:** The account id prevails if it is also provided.")
-    skip_notification: Optional[StrictBool] = Field(default=False, description="If set to `true`, the user does not receive an email notification when a template has been shared with them. Defaults to `false`.")
-    __properties: ClassVar[List[str]] = ["account_id", "email_address", "skip_notification"]
+    """  # noqa: E501
+
+    account_id: Optional[StrictStr] = Field(
+        default=None,
+        description="The id of the Account to give access to the Template. **NOTE:** The account id prevails if email address is also provided.",
+    )
+    email_address: Optional[StrictStr] = Field(
+        default=None,
+        description="The email address of the Account to give access to the Template. **NOTE:** The account id prevails if it is also provided.",
+    )
+    skip_notification: Optional[StrictBool] = Field(
+        default=False,
+        description="If set to `true`, the user does not receive an email notification when a template has been shared with them. Defaults to `false`.",
+    )
+    __properties: ClassVar[List[str]] = [
+        "account_id",
+        "email_address",
+        "skip_notification",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -41,7 +56,6 @@ class TemplateAddUserRequest(BaseModel):
         protected_namespaces=(),
         arbitrary_types_allowed=True,
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -52,7 +66,9 @@ class TemplateAddUserRequest(BaseModel):
         # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
-    def to_json_form_params(self, excluded_fields: Set[str] = None) -> List[Tuple[str, str]]:
+    def to_json_form_params(
+        self, excluded_fields: Set[str] = None
+    ) -> List[Tuple[str, str]]:
         data: List[Tuple[str, str]] = []
 
         for key, value in self.to_dict(excluded_fields).items():
@@ -95,11 +111,17 @@ class TemplateAddUserRequest(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "account_id": obj.get("account_id"),
-            "email_address": obj.get("email_address"),
-            "skip_notification": obj.get("skip_notification") if obj.get("skip_notification") is not None else False
-        })
+        _obj = cls.model_validate(
+            {
+                "account_id": obj.get("account_id"),
+                "email_address": obj.get("email_address"),
+                "skip_notification": (
+                    obj.get("skip_notification")
+                    if obj.get("skip_notification") is not None
+                    else False
+                ),
+            }
+        )
         return _obj
 
     @classmethod
@@ -122,6 +144,4 @@ class TemplateAddUserRequest(BaseModel):
 
     @classmethod
     def openapi_type_is_array(cls, property_name: str) -> bool:
-        return property_name in [
-        ]
-
+        return property_name in []

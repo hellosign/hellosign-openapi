@@ -26,10 +26,12 @@ import io
 from pydantic import StrictBool
 from typing import Union
 
+
 class SubTeamResponse(BaseModel):
     """
     SubTeamResponse
-    """ # noqa: E501
+    """  # noqa: E501
+
     team_id: Optional[StrictStr] = Field(default=None, description="The id of a team")
     name: Optional[StrictStr] = Field(default=None, description="The name of a team")
     __properties: ClassVar[List[str]] = ["team_id", "name"]
@@ -41,7 +43,6 @@ class SubTeamResponse(BaseModel):
         arbitrary_types_allowed=True,
     )
 
-
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
         return pprint.pformat(self.model_dump(by_alias=True))
@@ -51,7 +52,9 @@ class SubTeamResponse(BaseModel):
         # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
-    def to_json_form_params(self, excluded_fields: Set[str] = None) -> List[Tuple[str, str]]:
+    def to_json_form_params(
+        self, excluded_fields: Set[str] = None
+    ) -> List[Tuple[str, str]]:
         data: List[Tuple[str, str]] = []
 
         for key, value in self.to_dict(excluded_fields).items():
@@ -94,10 +97,9 @@ class SubTeamResponse(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "team_id": obj.get("team_id"),
-            "name": obj.get("name")
-        })
+        _obj = cls.model_validate(
+            {"team_id": obj.get("team_id"), "name": obj.get("name")}
+        )
         return _obj
 
     @classmethod
@@ -119,6 +121,4 @@ class SubTeamResponse(BaseModel):
 
     @classmethod
     def openapi_type_is_array(cls, property_name: str) -> bool:
-        return property_name in [
-        ]
-
+        return property_name in []

@@ -1,7 +1,6 @@
 from pprint import pprint
 
-from dropbox_sign import \
-    ApiClient, ApiException, Configuration, apis, models
+from dropbox_sign import ApiClient, ApiException, Configuration, apis, models
 
 configuration = Configuration(
     # Configure HTTP basic authorization: api_key

@@ -48,7 +48,7 @@ namespace Dropbox.Sign.Model
         /// <param name="numSubTeams">Number of sub teams within a team.</param>
         public TeamInfoResponse(string teamId = default(string), TeamParentResponse teamParent = default(TeamParentResponse), string name = default(string), int numMembers = default(int), int numSubTeams = default(int))
         {
-            
+
             this.TeamId = teamId;
             this.TeamParent = teamParent;
             this.Name = name;
@@ -78,34 +78,34 @@ namespace Dropbox.Sign.Model
         /// <value>The id of a team</value>
         [DataMember(Name = "team_id", EmitDefaultValue = true)]
         public string TeamId { get; set; }
-        
+
         /// <summary>
         /// Gets or Sets TeamParent
         /// </summary>
         [DataMember(Name = "team_parent", EmitDefaultValue = true)]
         public TeamParentResponse TeamParent { get; set; }
-        
+
         /// <summary>
         /// The name of a team
         /// </summary>
         /// <value>The name of a team</value>
         [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
-        
+
         /// <summary>
         /// Number of members within a team
         /// </summary>
         /// <value>Number of members within a team</value>
         [DataMember(Name = "num_members", EmitDefaultValue = true)]
         public int NumMembers { get; set; }
-        
+
         /// <summary>
         /// Number of sub teams within a team
         /// </summary>
         /// <value>Number of sub teams within a team</value>
         [DataMember(Name = "num_sub_teams", EmitDefaultValue = true)]
         public int NumSubTeams { get; set; }
-        
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -153,26 +153,26 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
+            return
                 (
                     this.TeamId == input.TeamId ||
                     (this.TeamId != null &&
                     this.TeamId.Equals(input.TeamId))
-                ) && 
+                ) &&
                 (
                     this.TeamParent == input.TeamParent ||
                     (this.TeamParent != null &&
                     this.TeamParent.Equals(input.TeamParent))
-                ) && 
+                ) &&
                 (
                     this.Name == input.Name ||
                     (this.Name != null &&
                     this.Name.Equals(input.Name))
-                ) && 
+                ) &&
                 (
                     this.NumMembers == input.NumMembers ||
                     this.NumMembers.Equals(input.NumMembers)
-                ) && 
+                ) &&
                 (
                     this.NumSubTeams == input.NumSubTeams ||
                     this.NumSubTeams.Equals(input.NumSubTeams)
@@ -218,31 +218,36 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "team_id",
                 Property = "TeamId",
                 Type = "string",
                 Value = TeamId,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "team_parent",
                 Property = "TeamParent",
                 Type = "TeamParentResponse",
                 Value = TeamParent,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "name",
                 Property = "Name",
                 Type = "string",
                 Value = Name,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "num_members",
                 Property = "NumMembers",
                 Type = "int",
                 Value = NumMembers,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "num_sub_teams",
                 Property = "NumSubTeams",
                 Type = "int",

@@ -48,7 +48,7 @@ namespace Dropbox.Sign.Model
         /// <param name="state">state.</param>
         public OAuthTokenResponse(string accessToken = default(string), string tokenType = default(string), string refreshToken = default(string), int expiresIn = default(int), string state = default(string))
         {
-            
+
             this.AccessToken = accessToken;
             this.TokenType = tokenType;
             this.RefreshToken = refreshToken;
@@ -77,32 +77,32 @@ namespace Dropbox.Sign.Model
         /// </summary>
         [DataMember(Name = "access_token", EmitDefaultValue = true)]
         public string AccessToken { get; set; }
-        
+
         /// <summary>
         /// Gets or Sets TokenType
         /// </summary>
         [DataMember(Name = "token_type", EmitDefaultValue = true)]
         public string TokenType { get; set; }
-        
+
         /// <summary>
         /// Gets or Sets RefreshToken
         /// </summary>
         [DataMember(Name = "refresh_token", EmitDefaultValue = true)]
         public string RefreshToken { get; set; }
-        
+
         /// <summary>
         /// Number of seconds until the &#x60;access_token&#x60; expires. Uses epoch time.
         /// </summary>
         /// <value>Number of seconds until the &#x60;access_token&#x60; expires. Uses epoch time.</value>
         [DataMember(Name = "expires_in", EmitDefaultValue = true)]
         public int ExpiresIn { get; set; }
-        
+
         /// <summary>
         /// Gets or Sets State
         /// </summary>
         [DataMember(Name = "state", EmitDefaultValue = true)]
         public string State { get; set; }
-        
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -150,26 +150,26 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
+            return
                 (
                     this.AccessToken == input.AccessToken ||
                     (this.AccessToken != null &&
                     this.AccessToken.Equals(input.AccessToken))
-                ) && 
+                ) &&
                 (
                     this.TokenType == input.TokenType ||
                     (this.TokenType != null &&
                     this.TokenType.Equals(input.TokenType))
-                ) && 
+                ) &&
                 (
                     this.RefreshToken == input.RefreshToken ||
                     (this.RefreshToken != null &&
                     this.RefreshToken.Equals(input.RefreshToken))
-                ) && 
+                ) &&
                 (
                     this.ExpiresIn == input.ExpiresIn ||
                     this.ExpiresIn.Equals(input.ExpiresIn)
-                ) && 
+                ) &&
                 (
                     this.State == input.State ||
                     (this.State != null &&
@@ -219,31 +219,36 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "access_token",
                 Property = "AccessToken",
                 Type = "string",
                 Value = AccessToken,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "token_type",
                 Property = "TokenType",
                 Type = "string",
                 Value = TokenType,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "refresh_token",
                 Property = "RefreshToken",
                 Type = "string",
                 Value = RefreshToken,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "expires_in",
                 Property = "ExpiresIn",
                 Type = "int",
                 Value = ExpiresIn,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "state",
                 Property = "State",
                 Type = "string",

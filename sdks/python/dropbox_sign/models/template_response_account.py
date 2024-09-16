@@ -20,24 +20,48 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from dropbox_sign.models.template_response_account_quota import TemplateResponseAccountQuota
+from dropbox_sign.models.template_response_account_quota import (
+    TemplateResponseAccountQuota,
+)
 from typing import Optional, Set, Tuple
 from typing_extensions import Self
 import io
 from pydantic import StrictBool
 from typing import Union
 
+
 class TemplateResponseAccount(BaseModel):
     """
     TemplateResponseAccount
-    """ # noqa: E501
-    account_id: Optional[StrictStr] = Field(default=None, description="The id of the Account.")
-    email_address: Optional[StrictStr] = Field(default=None, description="The email address associated with the Account.")
-    is_locked: Optional[StrictBool] = Field(default=None, description="Returns `true` if the user has been locked out of their account by a team admin.")
-    is_paid_hs: Optional[StrictBool] = Field(default=None, description="Returns `true` if the user has a paid Dropbox Sign account.")
-    is_paid_hf: Optional[StrictBool] = Field(default=None, description="Returns `true` if the user has a paid HelloFax account.")
+    """  # noqa: E501
+
+    account_id: Optional[StrictStr] = Field(
+        default=None, description="The id of the Account."
+    )
+    email_address: Optional[StrictStr] = Field(
+        default=None, description="The email address associated with the Account."
+    )
+    is_locked: Optional[StrictBool] = Field(
+        default=None,
+        description="Returns `true` if the user has been locked out of their account by a team admin.",
+    )
+    is_paid_hs: Optional[StrictBool] = Field(
+        default=None,
+        description="Returns `true` if the user has a paid Dropbox Sign account.",
+    )
+    is_paid_hf: Optional[StrictBool] = Field(
+        default=None,
+        description="Returns `true` if the user has a paid HelloFax account.",
+    )
     quotas: Optional[TemplateResponseAccountQuota] = None
-    __properties: ClassVar[List[str]] = ["account_id", "email_address", "is_locked", "is_paid_hs", "is_paid_hf", "quotas"]
+    __properties: ClassVar[List[str]] = [
+        "account_id",
+        "email_address",
+        "is_locked",
+        "is_paid_hs",
+        "is_paid_hf",
+        "quotas",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -45,7 +69,6 @@ class TemplateResponseAccount(BaseModel):
         protected_namespaces=(),
         arbitrary_types_allowed=True,
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -56,7 +79,9 @@ class TemplateResponseAccount(BaseModel):
         # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
-    def to_json_form_params(self, excluded_fields: Set[str] = None) -> List[Tuple[str, str]]:
+    def to_json_form_params(
+        self, excluded_fields: Set[str] = None
+    ) -> List[Tuple[str, str]]:
         data: List[Tuple[str, str]] = []
 
         for key, value in self.to_dict(excluded_fields).items():
@@ -90,7 +115,7 @@ class TemplateResponseAccount(BaseModel):
         )
         # override the default output from pydantic by calling `to_dict()` of quotas
         if self.quotas:
-            _dict['quotas'] = self.quotas.to_dict()
+            _dict["quotas"] = self.quotas.to_dict()
         return _dict
 
     @classmethod
@@ -102,14 +127,20 @@ class TemplateResponseAccount(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "account_id": obj.get("account_id"),
-            "email_address": obj.get("email_address"),
-            "is_locked": obj.get("is_locked"),
-            "is_paid_hs": obj.get("is_paid_hs"),
-            "is_paid_hf": obj.get("is_paid_hf"),
-            "quotas": TemplateResponseAccountQuota.from_dict(obj["quotas"]) if obj.get("quotas") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "account_id": obj.get("account_id"),
+                "email_address": obj.get("email_address"),
+                "is_locked": obj.get("is_locked"),
+                "is_paid_hs": obj.get("is_paid_hs"),
+                "is_paid_hf": obj.get("is_paid_hf"),
+                "quotas": (
+                    TemplateResponseAccountQuota.from_dict(obj["quotas"])
+                    if obj.get("quotas") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
 
     @classmethod
@@ -135,6 +166,4 @@ class TemplateResponseAccount(BaseModel):
 
     @classmethod
     def openapi_type_is_array(cls, property_name: str) -> bool:
-        return property_name in [
-        ]
-
+        return property_name in []

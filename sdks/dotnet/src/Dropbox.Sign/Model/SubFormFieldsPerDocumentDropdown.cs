@@ -179,7 +179,7 @@ namespace Dropbox.Sign.Model
             this.Y = y;
             this.Name = name;
             this.Page = page;
-            
+
             // to ensure "type" is required (not null)
             if (type == null)
             {
@@ -219,28 +219,28 @@ namespace Dropbox.Sign.Model
         /// <value>An input field for dropdowns. Use the &#x60;SubFormFieldsPerDocumentDropdown&#x60; class.</value>
         [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
         public string Type { get; set; }
-        
+
         /// <summary>
         /// Array of string values representing dropdown values.
         /// </summary>
         /// <value>Array of string values representing dropdown values.</value>
         [DataMember(Name = "options", IsRequired = true, EmitDefaultValue = true)]
         public List<string> Options { get; set; }
-        
+
         /// <summary>
         /// Selected value in &#x60;options&#x60; array. Value must exist in array.
         /// </summary>
         /// <value>Selected value in &#x60;options&#x60; array. Value must exist in array.</value>
         [DataMember(Name = "content", EmitDefaultValue = true)]
         public string Content { get; set; }
-        
+
         /// <summary>
         /// The initial px font size for the field contents. Can be any integer value between &#x60;7&#x60; and &#x60;49&#x60;.  **NOTE:** Font size may be reduced during processing in order to fit the contents within the dimensions of the field.
         /// </summary>
         /// <value>The initial px font size for the field contents. Can be any integer value between &#x60;7&#x60; and &#x60;49&#x60;.  **NOTE:** Font size may be reduced during processing in order to fit the contents within the dimensions of the field.</value>
         [DataMember(Name = "font_size", EmitDefaultValue = true)]
         public int FontSize { get; set; }
-        
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -289,27 +289,27 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return base.Equals(input) && 
+            return base.Equals(input) &&
                 (
                     this.Type == input.Type ||
                     (this.Type != null &&
                     this.Type.Equals(input.Type))
-                ) && base.Equals(input) && 
+                ) && base.Equals(input) &&
                 (
                     this.Options == input.Options ||
                     this.Options != null &&
                     input.Options != null &&
                     this.Options.SequenceEqual(input.Options)
-                ) && base.Equals(input) && 
+                ) && base.Equals(input) &&
                 (
                     this.Content == input.Content ||
                     (this.Content != null &&
                     this.Content.Equals(input.Content))
-                ) && base.Equals(input) && 
+                ) && base.Equals(input) &&
                 (
                     this.FontFamily == input.FontFamily ||
                     this.FontFamily.Equals(input.FontFamily)
-                ) && base.Equals(input) && 
+                ) && base.Equals(input) &&
                 (
                     this.FontSize == input.FontSize ||
                     this.FontSize.Equals(input.FontSize)
@@ -369,31 +369,36 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "type",
                 Property = "Type",
                 Type = "string",
                 Value = Type,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "options",
                 Property = "Options",
                 Type = "List<string>",
                 Value = Options,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "content",
                 Property = "Content",
                 Type = "string",
                 Value = Content,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "font_family",
                 Property = "FontFamily",
                 Type = "string",
                 Value = FontFamily,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "font_size",
                 Property = "FontSize",
                 Type = "int",

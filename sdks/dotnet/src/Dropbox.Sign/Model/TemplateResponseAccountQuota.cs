@@ -47,7 +47,7 @@ namespace Dropbox.Sign.Model
         /// <param name="smsVerificationsLeft">SMS verifications remaining..</param>
         public TemplateResponseAccountQuota(int templatesLeft = default(int), int apiSignatureRequestsLeft = default(int), int documentsLeft = default(int), int smsVerificationsLeft = default(int))
         {
-            
+
             this.TemplatesLeft = templatesLeft;
             this.ApiSignatureRequestsLeft = apiSignatureRequestsLeft;
             this.DocumentsLeft = documentsLeft;
@@ -76,28 +76,28 @@ namespace Dropbox.Sign.Model
         /// <value>API templates remaining.</value>
         [DataMember(Name = "templates_left", EmitDefaultValue = true)]
         public int TemplatesLeft { get; set; }
-        
+
         /// <summary>
         /// API signature requests remaining.
         /// </summary>
         /// <value>API signature requests remaining.</value>
         [DataMember(Name = "api_signature_requests_left", EmitDefaultValue = true)]
         public int ApiSignatureRequestsLeft { get; set; }
-        
+
         /// <summary>
         /// Signature requests remaining.
         /// </summary>
         /// <value>Signature requests remaining.</value>
         [DataMember(Name = "documents_left", EmitDefaultValue = true)]
         public int DocumentsLeft { get; set; }
-        
+
         /// <summary>
         /// SMS verifications remaining.
         /// </summary>
         /// <value>SMS verifications remaining.</value>
         [DataMember(Name = "sms_verifications_left", EmitDefaultValue = true)]
         public int SmsVerificationsLeft { get; set; }
-        
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -144,19 +144,19 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
+            return
                 (
                     this.TemplatesLeft == input.TemplatesLeft ||
                     this.TemplatesLeft.Equals(input.TemplatesLeft)
-                ) && 
+                ) &&
                 (
                     this.ApiSignatureRequestsLeft == input.ApiSignatureRequestsLeft ||
                     this.ApiSignatureRequestsLeft.Equals(input.ApiSignatureRequestsLeft)
-                ) && 
+                ) &&
                 (
                     this.DocumentsLeft == input.DocumentsLeft ||
                     this.DocumentsLeft.Equals(input.DocumentsLeft)
-                ) && 
+                ) &&
                 (
                     this.SmsVerificationsLeft == input.SmsVerificationsLeft ||
                     this.SmsVerificationsLeft.Equals(input.SmsVerificationsLeft)
@@ -192,25 +192,29 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "templates_left",
                 Property = "TemplatesLeft",
                 Type = "int",
                 Value = TemplatesLeft,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "api_signature_requests_left",
                 Property = "ApiSignatureRequestsLeft",
                 Type = "int",
                 Value = ApiSignatureRequestsLeft,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "documents_left",
                 Property = "DocumentsLeft",
                 Type = "int",
                 Value = DocumentsLeft,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "sms_verifications_left",
                 Property = "SmsVerificationsLeft",
                 Type = "int",

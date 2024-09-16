@@ -26,18 +26,33 @@ import io
 from pydantic import StrictBool
 from typing import Union
 
+
 class SubFieldOptions(BaseModel):
     """
     This allows the requester to specify field options for a signature request.
-    """ # noqa: E501
-    date_format: StrictStr = Field(description="Allows requester to specify the date format (see list of allowed [formats](/api/reference/constants/#date-formats))  **NOTE:** Only available for Premium and higher.")
+    """  # noqa: E501
+
+    date_format: StrictStr = Field(
+        description="Allows requester to specify the date format (see list of allowed [formats](/api/reference/constants/#date-formats))  **NOTE:** Only available for Premium and higher."
+    )
     __properties: ClassVar[List[str]] = ["date_format"]
 
-    @field_validator('date_format')
+    @field_validator("date_format")
     def date_format_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in set(['MM / DD / YYYY', 'MM - DD - YYYY', 'DD / MM / YYYY', 'DD - MM - YYYY', 'YYYY / MM / DD', 'YYYY - MM - DD']):
-            raise ValueError("must be one of enum values ('MM / DD / YYYY', 'MM - DD - YYYY', 'DD / MM / YYYY', 'DD - MM - YYYY', 'YYYY / MM / DD', 'YYYY - MM - DD')")
+        if value not in set(
+            [
+                "MM / DD / YYYY",
+                "MM - DD - YYYY",
+                "DD / MM / YYYY",
+                "DD - MM - YYYY",
+                "YYYY / MM / DD",
+                "YYYY - MM - DD",
+            ]
+        ):
+            raise ValueError(
+                "must be one of enum values ('MM / DD / YYYY', 'MM - DD - YYYY', 'DD / MM / YYYY', 'DD - MM - YYYY', 'YYYY / MM / DD', 'YYYY - MM - DD')"
+            )
         return value
 
     model_config = ConfigDict(
@@ -46,7 +61,6 @@ class SubFieldOptions(BaseModel):
         protected_namespaces=(),
         arbitrary_types_allowed=True,
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -57,7 +71,9 @@ class SubFieldOptions(BaseModel):
         # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
-    def to_json_form_params(self, excluded_fields: Set[str] = None) -> List[Tuple[str, str]]:
+    def to_json_form_params(
+        self, excluded_fields: Set[str] = None
+    ) -> List[Tuple[str, str]]:
         data: List[Tuple[str, str]] = []
 
         for key, value in self.to_dict(excluded_fields).items():
@@ -100,9 +116,7 @@ class SubFieldOptions(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "date_format": obj.get("date_format")
-        })
+        _obj = cls.model_validate({"date_format": obj.get("date_format")})
         return _obj
 
     @classmethod
@@ -123,6 +137,4 @@ class SubFieldOptions(BaseModel):
 
     @classmethod
     def openapi_type_is_array(cls, property_name: str) -> bool:
-        return property_name in [
-        ]
-
+        return property_name in []

@@ -20,20 +20,31 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
-from dropbox_sign.models.sub_bulk_signer_list_custom_field import SubBulkSignerListCustomField
-from dropbox_sign.models.sub_signature_request_template_signer import SubSignatureRequestTemplateSigner
+from dropbox_sign.models.sub_bulk_signer_list_custom_field import (
+    SubBulkSignerListCustomField,
+)
+from dropbox_sign.models.sub_signature_request_template_signer import (
+    SubSignatureRequestTemplateSigner,
+)
 from typing import Optional, Set, Tuple
 from typing_extensions import Self
 import io
 from pydantic import StrictBool
 from typing import Union
 
+
 class SubBulkSignerList(BaseModel):
     """
     SubBulkSignerList
-    """ # noqa: E501
-    custom_fields: Optional[List[SubBulkSignerListCustomField]] = Field(default=None, description="An array of custom field values.")
-    signers: Optional[List[SubSignatureRequestTemplateSigner]] = Field(default=None, description="Add Signers to your Templated-based Signature Request. Allows the requester to specify editor options when a preparing a document.  Currently only templates with a single role are supported. All signers must have the same `role` value.")
+    """  # noqa: E501
+
+    custom_fields: Optional[List[SubBulkSignerListCustomField]] = Field(
+        default=None, description="An array of custom field values."
+    )
+    signers: Optional[List[SubSignatureRequestTemplateSigner]] = Field(
+        default=None,
+        description="Add Signers to your Templated-based Signature Request. Allows the requester to specify editor options when a preparing a document.  Currently only templates with a single role are supported. All signers must have the same `role` value.",
+    )
     __properties: ClassVar[List[str]] = ["custom_fields", "signers"]
 
     model_config = ConfigDict(
@@ -42,7 +53,6 @@ class SubBulkSignerList(BaseModel):
         protected_namespaces=(),
         arbitrary_types_allowed=True,
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -53,7 +63,9 @@ class SubBulkSignerList(BaseModel):
         # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
-    def to_json_form_params(self, excluded_fields: Set[str] = None) -> List[Tuple[str, str]]:
+    def to_json_form_params(
+        self, excluded_fields: Set[str] = None
+    ) -> List[Tuple[str, str]]:
         data: List[Tuple[str, str]] = []
 
         for key, value in self.to_dict(excluded_fields).items():
@@ -91,14 +103,14 @@ class SubBulkSignerList(BaseModel):
             for _item_custom_fields in self.custom_fields:
                 if _item_custom_fields:
                     _items.append(_item_custom_fields.to_dict())
-            _dict['custom_fields'] = _items
+            _dict["custom_fields"] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in signers (list)
         _items = []
         if self.signers:
             for _item_signers in self.signers:
                 if _item_signers:
                     _items.append(_item_signers.to_dict())
-            _dict['signers'] = _items
+            _dict["signers"] = _items
         return _dict
 
     @classmethod
@@ -110,10 +122,26 @@ class SubBulkSignerList(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "custom_fields": [SubBulkSignerListCustomField.from_dict(_item) for _item in obj["custom_fields"]] if obj.get("custom_fields") is not None else None,
-            "signers": [SubSignatureRequestTemplateSigner.from_dict(_item) for _item in obj["signers"]] if obj.get("signers") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "custom_fields": (
+                    [
+                        SubBulkSignerListCustomField.from_dict(_item)
+                        for _item in obj["custom_fields"]
+                    ]
+                    if obj.get("custom_fields") is not None
+                    else None
+                ),
+                "signers": (
+                    [
+                        SubSignatureRequestTemplateSigner.from_dict(_item)
+                        for _item in obj["signers"]
+                    ]
+                    if obj.get("signers") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
 
     @classmethod
@@ -139,4 +167,3 @@ class SubBulkSignerList(BaseModel):
             "custom_fields",
             "signers",
         ]
-

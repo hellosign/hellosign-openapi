@@ -47,7 +47,7 @@ namespace Dropbox.Sign.Model
         /// <param name="eventMessage">Message about a declined or failed (due to error) signature flow..</param>
         public EventCallbackRequestEventMetadata(string relatedSignatureId = default(string), string reportedForAccountId = default(string), string reportedForAppId = default(string), string eventMessage = default(string))
         {
-            
+
             this.RelatedSignatureId = relatedSignatureId;
             this.ReportedForAccountId = reportedForAccountId;
             this.ReportedForAppId = reportedForAppId;
@@ -76,28 +76,28 @@ namespace Dropbox.Sign.Model
         /// <value>Signature ID for a specific signer. Applicable to &#x60;signature_request_signed&#x60; and &#x60;signature_request_viewed&#x60; events.</value>
         [DataMember(Name = "related_signature_id", EmitDefaultValue = true)]
         public string RelatedSignatureId { get; set; }
-        
+
         /// <summary>
         /// Account ID the event was reported for.
         /// </summary>
         /// <value>Account ID the event was reported for.</value>
         [DataMember(Name = "reported_for_account_id", EmitDefaultValue = true)]
         public string ReportedForAccountId { get; set; }
-        
+
         /// <summary>
         /// App ID the event was reported for.
         /// </summary>
         /// <value>App ID the event was reported for.</value>
         [DataMember(Name = "reported_for_app_id", EmitDefaultValue = true)]
         public string ReportedForAppId { get; set; }
-        
+
         /// <summary>
         /// Message about a declined or failed (due to error) signature flow.
         /// </summary>
         /// <value>Message about a declined or failed (due to error) signature flow.</value>
         [DataMember(Name = "event_message", EmitDefaultValue = true)]
         public string EventMessage { get; set; }
-        
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -144,22 +144,22 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
+            return
                 (
                     this.RelatedSignatureId == input.RelatedSignatureId ||
                     (this.RelatedSignatureId != null &&
                     this.RelatedSignatureId.Equals(input.RelatedSignatureId))
-                ) && 
+                ) &&
                 (
                     this.ReportedForAccountId == input.ReportedForAccountId ||
                     (this.ReportedForAccountId != null &&
                     this.ReportedForAccountId.Equals(input.ReportedForAccountId))
-                ) && 
+                ) &&
                 (
                     this.ReportedForAppId == input.ReportedForAppId ||
                     (this.ReportedForAppId != null &&
                     this.ReportedForAppId.Equals(input.ReportedForAppId))
-                ) && 
+                ) &&
                 (
                     this.EventMessage == input.EventMessage ||
                     (this.EventMessage != null &&
@@ -208,25 +208,29 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "related_signature_id",
                 Property = "RelatedSignatureId",
                 Type = "string",
                 Value = RelatedSignatureId,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "reported_for_account_id",
                 Property = "ReportedForAccountId",
                 Type = "string",
                 Value = ReportedForAccountId,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "reported_for_app_id",
                 Property = "ReportedForAppId",
                 Type = "string",
                 Value = ReportedForAppId,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "event_message",
                 Property = "EventMessage",
                 Type = "string",

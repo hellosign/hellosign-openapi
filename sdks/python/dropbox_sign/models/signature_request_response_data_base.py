@@ -28,27 +28,63 @@ from pydantic import StrictBool
 from typing import Union
 
 from typing import TYPE_CHECKING
+
 if TYPE_CHECKING:
-    from dropbox_sign.models.signature_request_response_data_value_checkbox import SignatureRequestResponseDataValueCheckbox
-    from dropbox_sign.models.signature_request_response_data_value_checkbox_merge import SignatureRequestResponseDataValueCheckboxMerge
-    from dropbox_sign.models.signature_request_response_data_value_date_signed import SignatureRequestResponseDataValueDateSigned
-    from dropbox_sign.models.signature_request_response_data_value_dropdown import SignatureRequestResponseDataValueDropdown
-    from dropbox_sign.models.signature_request_response_data_value_initials import SignatureRequestResponseDataValueInitials
-    from dropbox_sign.models.signature_request_response_data_value_radio import SignatureRequestResponseDataValueRadio
-    from dropbox_sign.models.signature_request_response_data_value_signature import SignatureRequestResponseDataValueSignature
-    from dropbox_sign.models.signature_request_response_data_value_text import SignatureRequestResponseDataValueText
-    from dropbox_sign.models.signature_request_response_data_value_text_merge import SignatureRequestResponseDataValueTextMerge
+    from dropbox_sign.models.signature_request_response_data_value_checkbox import (
+        SignatureRequestResponseDataValueCheckbox,
+    )
+    from dropbox_sign.models.signature_request_response_data_value_checkbox_merge import (
+        SignatureRequestResponseDataValueCheckboxMerge,
+    )
+    from dropbox_sign.models.signature_request_response_data_value_date_signed import (
+        SignatureRequestResponseDataValueDateSigned,
+    )
+    from dropbox_sign.models.signature_request_response_data_value_dropdown import (
+        SignatureRequestResponseDataValueDropdown,
+    )
+    from dropbox_sign.models.signature_request_response_data_value_initials import (
+        SignatureRequestResponseDataValueInitials,
+    )
+    from dropbox_sign.models.signature_request_response_data_value_radio import (
+        SignatureRequestResponseDataValueRadio,
+    )
+    from dropbox_sign.models.signature_request_response_data_value_signature import (
+        SignatureRequestResponseDataValueSignature,
+    )
+    from dropbox_sign.models.signature_request_response_data_value_text import (
+        SignatureRequestResponseDataValueText,
+    )
+    from dropbox_sign.models.signature_request_response_data_value_text_merge import (
+        SignatureRequestResponseDataValueTextMerge,
+    )
+
 
 class SignatureRequestResponseDataBase(BaseModel):
     """
     An array of form field objects containing the name, value, and type of each textbox or checkmark field filled in by the signers.
-    """ # noqa: E501
-    api_id: Optional[StrictStr] = Field(default=None, description="The unique ID for this field.")
-    signature_id: Optional[StrictStr] = Field(default=None, description="The ID of the signature to which this response is linked.")
-    name: Optional[StrictStr] = Field(default=None, description="The name of the form field.")
-    required: Optional[StrictBool] = Field(default=None, description="A boolean value denoting if this field is required.")
+    """  # noqa: E501
+
+    api_id: Optional[StrictStr] = Field(
+        default=None, description="The unique ID for this field."
+    )
+    signature_id: Optional[StrictStr] = Field(
+        default=None,
+        description="The ID of the signature to which this response is linked.",
+    )
+    name: Optional[StrictStr] = Field(
+        default=None, description="The name of the form field."
+    )
+    required: Optional[StrictBool] = Field(
+        default=None, description="A boolean value denoting if this field is required."
+    )
     type: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["api_id", "signature_id", "name", "required", "type"]
+    __properties: ClassVar[List[str]] = [
+        "api_id",
+        "signature_id",
+        "name",
+        "required",
+        "type",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -57,13 +93,20 @@ class SignatureRequestResponseDataBase(BaseModel):
         arbitrary_types_allowed=True,
     )
 
-
     # JSON field name that stores the object type
-    __discriminator_property_name: ClassVar[str] = 'type'
+    __discriminator_property_name: ClassVar[str] = "type"
 
     # discriminator mappings
     __discriminator_value_class_map: ClassVar[Dict[str, str]] = {
-        'checkbox': 'SignatureRequestResponseDataValueCheckbox','checkbox-merge': 'SignatureRequestResponseDataValueCheckboxMerge','date_signed': 'SignatureRequestResponseDataValueDateSigned','dropdown': 'SignatureRequestResponseDataValueDropdown','initials': 'SignatureRequestResponseDataValueInitials','radio': 'SignatureRequestResponseDataValueRadio','signature': 'SignatureRequestResponseDataValueSignature','text': 'SignatureRequestResponseDataValueText','text-merge': 'SignatureRequestResponseDataValueTextMerge'
+        "checkbox": "SignatureRequestResponseDataValueCheckbox",
+        "checkbox-merge": "SignatureRequestResponseDataValueCheckboxMerge",
+        "date_signed": "SignatureRequestResponseDataValueDateSigned",
+        "dropdown": "SignatureRequestResponseDataValueDropdown",
+        "initials": "SignatureRequestResponseDataValueInitials",
+        "radio": "SignatureRequestResponseDataValueRadio",
+        "signature": "SignatureRequestResponseDataValueSignature",
+        "text": "SignatureRequestResponseDataValueText",
+        "text-merge": "SignatureRequestResponseDataValueTextMerge",
     }
 
     @classmethod
@@ -84,7 +127,9 @@ class SignatureRequestResponseDataBase(BaseModel):
         # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
-    def to_json_form_params(self, excluded_fields: Set[str] = None) -> List[Tuple[str, str]]:
+    def to_json_form_params(
+        self, excluded_fields: Set[str] = None
+    ) -> List[Tuple[str, str]]:
         data: List[Tuple[str, str]] = []
 
         for key, value in self.to_dict(excluded_fields).items():
@@ -96,7 +141,19 @@ class SignatureRequestResponseDataBase(BaseModel):
         return data
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Union[SignatureRequestResponseDataValueCheckbox, SignatureRequestResponseDataValueCheckboxMerge, SignatureRequestResponseDataValueDateSigned, SignatureRequestResponseDataValueDropdown, SignatureRequestResponseDataValueInitials, SignatureRequestResponseDataValueRadio, SignatureRequestResponseDataValueSignature, SignatureRequestResponseDataValueText, SignatureRequestResponseDataValueTextMerge]]:
+    def from_json(cls, json_str: str) -> Optional[
+        Union[
+            SignatureRequestResponseDataValueCheckbox,
+            SignatureRequestResponseDataValueCheckboxMerge,
+            SignatureRequestResponseDataValueDateSigned,
+            SignatureRequestResponseDataValueDropdown,
+            SignatureRequestResponseDataValueInitials,
+            SignatureRequestResponseDataValueRadio,
+            SignatureRequestResponseDataValueSignature,
+            SignatureRequestResponseDataValueText,
+            SignatureRequestResponseDataValueTextMerge,
+        ]
+    ]:
         """Create an instance of SignatureRequestResponseDataBase from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -119,33 +176,67 @@ class SignatureRequestResponseDataBase(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict[str, Any]) -> Optional[Union[SignatureRequestResponseDataValueCheckbox, SignatureRequestResponseDataValueCheckboxMerge, SignatureRequestResponseDataValueDateSigned, SignatureRequestResponseDataValueDropdown, SignatureRequestResponseDataValueInitials, SignatureRequestResponseDataValueRadio, SignatureRequestResponseDataValueSignature, SignatureRequestResponseDataValueText, SignatureRequestResponseDataValueTextMerge]]:
+    def from_dict(cls, obj: Dict[str, Any]) -> Optional[
+        Union[
+            SignatureRequestResponseDataValueCheckbox,
+            SignatureRequestResponseDataValueCheckboxMerge,
+            SignatureRequestResponseDataValueDateSigned,
+            SignatureRequestResponseDataValueDropdown,
+            SignatureRequestResponseDataValueInitials,
+            SignatureRequestResponseDataValueRadio,
+            SignatureRequestResponseDataValueSignature,
+            SignatureRequestResponseDataValueText,
+            SignatureRequestResponseDataValueTextMerge,
+        ]
+    ]:
         """Create an instance of SignatureRequestResponseDataBase from a dict"""
         # look up the object type based on discriminator mapping
         object_type = cls.get_discriminator_value(obj)
-        if object_type ==  'SignatureRequestResponseDataValueCheckbox':
-            return import_module("dropbox_sign.models.signature_request_response_data_value_checkbox").SignatureRequestResponseDataValueCheckbox.from_dict(obj)
-        if object_type ==  'SignatureRequestResponseDataValueCheckboxMerge':
-            return import_module("dropbox_sign.models.signature_request_response_data_value_checkbox_merge").SignatureRequestResponseDataValueCheckboxMerge.from_dict(obj)
-        if object_type ==  'SignatureRequestResponseDataValueDateSigned':
-            return import_module("dropbox_sign.models.signature_request_response_data_value_date_signed").SignatureRequestResponseDataValueDateSigned.from_dict(obj)
-        if object_type ==  'SignatureRequestResponseDataValueDropdown':
-            return import_module("dropbox_sign.models.signature_request_response_data_value_dropdown").SignatureRequestResponseDataValueDropdown.from_dict(obj)
-        if object_type ==  'SignatureRequestResponseDataValueInitials':
-            return import_module("dropbox_sign.models.signature_request_response_data_value_initials").SignatureRequestResponseDataValueInitials.from_dict(obj)
-        if object_type ==  'SignatureRequestResponseDataValueRadio':
-            return import_module("dropbox_sign.models.signature_request_response_data_value_radio").SignatureRequestResponseDataValueRadio.from_dict(obj)
-        if object_type ==  'SignatureRequestResponseDataValueSignature':
-            return import_module("dropbox_sign.models.signature_request_response_data_value_signature").SignatureRequestResponseDataValueSignature.from_dict(obj)
-        if object_type ==  'SignatureRequestResponseDataValueText':
-            return import_module("dropbox_sign.models.signature_request_response_data_value_text").SignatureRequestResponseDataValueText.from_dict(obj)
-        if object_type ==  'SignatureRequestResponseDataValueTextMerge':
-            return import_module("dropbox_sign.models.signature_request_response_data_value_text_merge").SignatureRequestResponseDataValueTextMerge.from_dict(obj)
+        if object_type == "SignatureRequestResponseDataValueCheckbox":
+            return import_module(
+                "dropbox_sign.models.signature_request_response_data_value_checkbox"
+            ).SignatureRequestResponseDataValueCheckbox.from_dict(obj)
+        if object_type == "SignatureRequestResponseDataValueCheckboxMerge":
+            return import_module(
+                "dropbox_sign.models.signature_request_response_data_value_checkbox_merge"
+            ).SignatureRequestResponseDataValueCheckboxMerge.from_dict(obj)
+        if object_type == "SignatureRequestResponseDataValueDateSigned":
+            return import_module(
+                "dropbox_sign.models.signature_request_response_data_value_date_signed"
+            ).SignatureRequestResponseDataValueDateSigned.from_dict(obj)
+        if object_type == "SignatureRequestResponseDataValueDropdown":
+            return import_module(
+                "dropbox_sign.models.signature_request_response_data_value_dropdown"
+            ).SignatureRequestResponseDataValueDropdown.from_dict(obj)
+        if object_type == "SignatureRequestResponseDataValueInitials":
+            return import_module(
+                "dropbox_sign.models.signature_request_response_data_value_initials"
+            ).SignatureRequestResponseDataValueInitials.from_dict(obj)
+        if object_type == "SignatureRequestResponseDataValueRadio":
+            return import_module(
+                "dropbox_sign.models.signature_request_response_data_value_radio"
+            ).SignatureRequestResponseDataValueRadio.from_dict(obj)
+        if object_type == "SignatureRequestResponseDataValueSignature":
+            return import_module(
+                "dropbox_sign.models.signature_request_response_data_value_signature"
+            ).SignatureRequestResponseDataValueSignature.from_dict(obj)
+        if object_type == "SignatureRequestResponseDataValueText":
+            return import_module(
+                "dropbox_sign.models.signature_request_response_data_value_text"
+            ).SignatureRequestResponseDataValueText.from_dict(obj)
+        if object_type == "SignatureRequestResponseDataValueTextMerge":
+            return import_module(
+                "dropbox_sign.models.signature_request_response_data_value_text_merge"
+            ).SignatureRequestResponseDataValueTextMerge.from_dict(obj)
 
-        raise ValueError("SignatureRequestResponseDataBase failed to lookup discriminator value from " +
-                            json.dumps(obj) + ". Discriminator property name: " + cls.__discriminator_property_name +
-                            ", mapping: " + json.dumps(cls.__discriminator_value_class_map))
-
+        raise ValueError(
+            "SignatureRequestResponseDataBase failed to lookup discriminator value from "
+            + json.dumps(obj)
+            + ". Discriminator property name: "
+            + cls.__discriminator_property_name
+            + ", mapping: "
+            + json.dumps(cls.__discriminator_value_class_map)
+        )
 
     @classmethod
     def openapi_types(cls) -> Dict[str, str]:
@@ -159,6 +250,4 @@ class SignatureRequestResponseDataBase(BaseModel):
 
     @classmethod
     def openapi_type_is_array(cls, property_name: str) -> bool:
-        return property_name in [
-        ]
-
+        return property_name in []

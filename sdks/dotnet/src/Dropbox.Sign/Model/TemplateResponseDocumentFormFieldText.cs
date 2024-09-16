@@ -142,7 +142,7 @@ namespace Dropbox.Sign.Model
             this.Height = height;
             this.Required = required;
             this.Group = group;
-            
+
             // to ensure "type" is required (not null)
             if (type == null)
             {
@@ -178,34 +178,34 @@ namespace Dropbox.Sign.Model
         /// <value>The type of this form field. See [field types](/api/reference/constants/#field-types).  * Text Field uses &#x60;TemplateResponseDocumentFormFieldText&#x60; * Dropdown Field uses &#x60;TemplateResponseDocumentFormFieldDropdown&#x60; * Hyperlink Field uses &#x60;TemplateResponseDocumentFormFieldHyperlink&#x60; * Checkbox Field uses &#x60;TemplateResponseDocumentFormFieldCheckbox&#x60; * Radio Field uses &#x60;TemplateResponseDocumentFormFieldRadio&#x60; * Signature Field uses &#x60;TemplateResponseDocumentFormFieldSignature&#x60; * Date Signed Field uses &#x60;TemplateResponseDocumentFormFieldDateSigned&#x60; * Initials Field uses &#x60;TemplateResponseDocumentFormFieldInitials&#x60;</value>
         [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
         public string Type { get; set; }
-        
+
         /// <summary>
         /// Gets or Sets AvgTextLength
         /// </summary>
         [DataMember(Name = "avg_text_length", EmitDefaultValue = true)]
         public TemplateResponseFieldAvgTextLength AvgTextLength { get; set; }
-        
+
         /// <summary>
         /// Whether this form field is multiline text.
         /// </summary>
         /// <value>Whether this form field is multiline text.</value>
         [DataMember(Name = "isMultiline", EmitDefaultValue = true)]
         public bool IsMultiline { get; set; }
-        
+
         /// <summary>
         /// Original font size used in this form field&#39;s text.
         /// </summary>
         /// <value>Original font size used in this form field&#39;s text.</value>
         [DataMember(Name = "originalFontSize", EmitDefaultValue = true)]
         public int OriginalFontSize { get; set; }
-        
+
         /// <summary>
         /// Font family used in this form field&#39;s text.
         /// </summary>
         /// <value>Font family used in this form field&#39;s text.</value>
         [DataMember(Name = "fontFamily", EmitDefaultValue = true)]
         public string FontFamily { get; set; }
-        
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -255,30 +255,30 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return base.Equals(input) && 
+            return base.Equals(input) &&
                 (
                     this.Type == input.Type ||
                     (this.Type != null &&
                     this.Type.Equals(input.Type))
-                ) && base.Equals(input) && 
+                ) && base.Equals(input) &&
                 (
                     this.AvgTextLength == input.AvgTextLength ||
                     (this.AvgTextLength != null &&
                     this.AvgTextLength.Equals(input.AvgTextLength))
-                ) && base.Equals(input) && 
+                ) && base.Equals(input) &&
                 (
                     this.IsMultiline == input.IsMultiline ||
                     this.IsMultiline.Equals(input.IsMultiline)
-                ) && base.Equals(input) && 
+                ) && base.Equals(input) &&
                 (
                     this.OriginalFontSize == input.OriginalFontSize ||
                     this.OriginalFontSize.Equals(input.OriginalFontSize)
-                ) && base.Equals(input) && 
+                ) && base.Equals(input) &&
                 (
                     this.FontFamily == input.FontFamily ||
                     (this.FontFamily != null &&
                     this.FontFamily.Equals(input.FontFamily))
-                ) && base.Equals(input) && 
+                ) && base.Equals(input) &&
                 (
                     this.ValidationType == input.ValidationType ||
                     this.ValidationType.Equals(input.ValidationType)
@@ -339,37 +339,43 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "type",
                 Property = "Type",
                 Type = "string",
                 Value = Type,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "avg_text_length",
                 Property = "AvgTextLength",
                 Type = "TemplateResponseFieldAvgTextLength",
                 Value = AvgTextLength,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "isMultiline",
                 Property = "IsMultiline",
                 Type = "bool",
                 Value = IsMultiline,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "originalFontSize",
                 Property = "OriginalFontSize",
                 Type = "int",
                 Value = OriginalFontSize,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "fontFamily",
                 Property = "FontFamily",
                 Type = "string",
                 Value = FontFamily,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "validation_type",
                 Property = "ValidationType",
                 Type = "string",

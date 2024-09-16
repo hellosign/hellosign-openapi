@@ -67,3 +67,4 @@ target/
 
 .openapi-generator
 /vendor
+/.github/workflows/python.yml

@@ -224,15 +224,15 @@ namespace Dropbox.Sign.Client
         }
 
         /// <summary>
-            /// Initializes a new instance of the <see cref="ApiClient" />. This should be used in unit tests only
-            /// </summary>
+        /// Initializes a new instance of the <see cref="ApiClient" />. This should be used in unit tests only
+        /// </summary>
         /// <param name="basePath">The target service's base path in URL format.</param>
         /// <param name="mockClient">Mock client for unit testing purpose </param>
         /// <exception cref="ArgumentException"></exception>
         public ApiClient(string basePath, RestClient mockClient)
         {
             if (string.IsNullOrEmpty(basePath))
-            throw new ArgumentException("basePath cannot be empty");
+                throw new ArgumentException("basePath cannot be empty");
 
             _baseUrl = basePath;
             _restClient = mockClient;
@@ -479,7 +479,7 @@ namespace Dropbox.Sign.Client
                 RemoteCertificateValidationCallback = configuration.RemoteCertificateValidationCallback
             };
             setOptions(clientOptions);
-            
+
             RestClient client = _restClient;
             if (client == null)
             {
@@ -559,7 +559,7 @@ namespace Dropbox.Sign.Client
 
         private RestResponse<T> DeserializeRestResponseFromPolicy<T>(RestClient client, RestRequest request, PolicyResult<RestResponse> policyResult)
         {
-            if (policyResult.Outcome == OutcomeType.Successful) 
+            if (policyResult.Outcome == OutcomeType.Successful)
             {
                 return client.Deserialize<T>(policyResult.Result);
             }
@@ -571,7 +571,7 @@ namespace Dropbox.Sign.Client
                 };
             }
         }
-                
+
         private ApiResponse<T> Exec<T>(RestRequest request, RequestOptions options, IReadableConfiguration configuration)
         {
             Action<RestClientOptions> setOptions = (clientOptions) =>

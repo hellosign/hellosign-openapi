@@ -26,17 +26,38 @@ import io
 from pydantic import StrictBool
 from typing import Union
 
+
 class AccountResponseQuotas(BaseModel):
     """
     Details concerning remaining monthly quotas.
-    """ # noqa: E501
-    api_signature_requests_left: Optional[StrictInt] = Field(default=None, description="API signature requests remaining.")
-    documents_left: Optional[StrictInt] = Field(default=None, description="Signature requests remaining.")
-    templates_total: Optional[StrictInt] = Field(default=None, description="Total API templates allowed.")
-    templates_left: Optional[StrictInt] = Field(default=None, description="API templates remaining.")
-    sms_verifications_left: Optional[StrictInt] = Field(default=None, description="SMS verifications  remaining.")
-    num_fax_pages_left: Optional[StrictInt] = Field(default=None, description="Number of fax pages left")
-    __properties: ClassVar[List[str]] = ["api_signature_requests_left", "documents_left", "templates_total", "templates_left", "sms_verifications_left", "num_fax_pages_left"]
+    """  # noqa: E501
+
+    api_signature_requests_left: Optional[StrictInt] = Field(
+        default=None, description="API signature requests remaining."
+    )
+    documents_left: Optional[StrictInt] = Field(
+        default=None, description="Signature requests remaining."
+    )
+    templates_total: Optional[StrictInt] = Field(
+        default=None, description="Total API templates allowed."
+    )
+    templates_left: Optional[StrictInt] = Field(
+        default=None, description="API templates remaining."
+    )
+    sms_verifications_left: Optional[StrictInt] = Field(
+        default=None, description="SMS verifications  remaining."
+    )
+    num_fax_pages_left: Optional[StrictInt] = Field(
+        default=None, description="Number of fax pages left"
+    )
+    __properties: ClassVar[List[str]] = [
+        "api_signature_requests_left",
+        "documents_left",
+        "templates_total",
+        "templates_left",
+        "sms_verifications_left",
+        "num_fax_pages_left",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -44,7 +65,6 @@ class AccountResponseQuotas(BaseModel):
         protected_namespaces=(),
         arbitrary_types_allowed=True,
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -55,7 +75,9 @@ class AccountResponseQuotas(BaseModel):
         # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
-    def to_json_form_params(self, excluded_fields: Set[str] = None) -> List[Tuple[str, str]]:
+    def to_json_form_params(
+        self, excluded_fields: Set[str] = None
+    ) -> List[Tuple[str, str]]:
         data: List[Tuple[str, str]] = []
 
         for key, value in self.to_dict(excluded_fields).items():
@@ -98,14 +120,16 @@ class AccountResponseQuotas(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "api_signature_requests_left": obj.get("api_signature_requests_left"),
-            "documents_left": obj.get("documents_left"),
-            "templates_total": obj.get("templates_total"),
-            "templates_left": obj.get("templates_left"),
-            "sms_verifications_left": obj.get("sms_verifications_left"),
-            "num_fax_pages_left": obj.get("num_fax_pages_left")
-        })
+        _obj = cls.model_validate(
+            {
+                "api_signature_requests_left": obj.get("api_signature_requests_left"),
+                "documents_left": obj.get("documents_left"),
+                "templates_total": obj.get("templates_total"),
+                "templates_left": obj.get("templates_left"),
+                "sms_verifications_left": obj.get("sms_verifications_left"),
+                "num_fax_pages_left": obj.get("num_fax_pages_left"),
+            }
+        )
         return _obj
 
     @classmethod
@@ -131,6 +155,4 @@ class AccountResponseQuotas(BaseModel):
 
     @classmethod
     def openapi_type_is_array(cls, property_name: str) -> bool:
-        return property_name in [
-        ]
-
+        return property_name in []

@@ -27,26 +27,24 @@ class SubFormFieldsPerDocumentFontEnum(str, Enum):
     """
     allowed enum values
     """
-    HELVETICA = 'helvetica'
-    ARIAL = 'arial'
-    COURIER = 'courier'
-    CALIBRI = 'calibri'
-    CAMBRIA = 'cambria'
-    GEORGIA = 'georgia'
-    TIMES = 'times'
-    TREBUCHET = 'trebuchet'
-    VERDANA = 'verdana'
-    ROBOTO = 'roboto'
-    ROBOTOMONO = 'robotoMono'
-    NOTOSANS = 'notoSans'
-    NOTOSERIF = 'notoSerif'
-    NOTO_CJK_MINUS_JP_MINUS_REGULAR = 'notoCJK-JP-Regular'
-    NOTO_HEBREW_MINUS_REGULAR = 'notoHebrew-Regular'
-    NOTOSANTHAIMERGED = 'notoSanThaiMerged'
+    HELVETICA = "helvetica"
+    ARIAL = "arial"
+    COURIER = "courier"
+    CALIBRI = "calibri"
+    CAMBRIA = "cambria"
+    GEORGIA = "georgia"
+    TIMES = "times"
+    TREBUCHET = "trebuchet"
+    VERDANA = "verdana"
+    ROBOTO = "roboto"
+    ROBOTOMONO = "robotoMono"
+    NOTOSANS = "notoSans"
+    NOTOSERIF = "notoSerif"
+    NOTO_CJK_MINUS_JP_MINUS_REGULAR = "notoCJK-JP-Regular"
+    NOTO_HEBREW_MINUS_REGULAR = "notoHebrew-Regular"
+    NOTOSANTHAIMERGED = "notoSanThaiMerged"
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:
         """Create an instance of SubFormFieldsPerDocumentFontEnum from a JSON string"""
         return cls(json.loads(json_str))
-
-

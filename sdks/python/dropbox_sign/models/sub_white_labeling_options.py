@@ -18,7 +18,14 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
+from pydantic import (
+    BaseModel,
+    ConfigDict,
+    Field,
+    StrictBool,
+    StrictStr,
+    field_validator,
+)
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set, Tuple
 from typing_extensions import Self
@@ -26,34 +33,55 @@ import io
 from pydantic import StrictBool
 from typing import Union
 
+
 class SubWhiteLabelingOptions(BaseModel):
     """
     An array of elements and values serialized to a string, to be used to customize the app's signer page. (Only applies to some API plans)  Take a look at our [white labeling guide](https://developers.hellosign.com/api/reference/premium-branding/) to learn more.
-    """ # noqa: E501
-    header_background_color: Optional[StrictStr] = '#1A1A1A'
-    legal_version: Optional[StrictStr] = 'terms1'
-    link_color: Optional[StrictStr] = '#00B3E6'
-    page_background_color: Optional[StrictStr] = '#F7F8F9'
-    primary_button_color: Optional[StrictStr] = '#00B3E6'
-    primary_button_color_hover: Optional[StrictStr] = '#00B3E6'
-    primary_button_text_color: Optional[StrictStr] = '#FFFFFF'
-    primary_button_text_color_hover: Optional[StrictStr] = '#FFFFFF'
-    secondary_button_color: Optional[StrictStr] = '#FFFFFF'
-    secondary_button_color_hover: Optional[StrictStr] = '#FFFFFF'
-    secondary_button_text_color: Optional[StrictStr] = '#00B3E6'
-    secondary_button_text_color_hover: Optional[StrictStr] = '#00B3E6'
-    text_color1: Optional[StrictStr] = '#808080'
-    text_color2: Optional[StrictStr] = '#FFFFFF'
-    reset_to_default: Optional[StrictBool] = Field(default=None, description="Resets white labeling options to defaults. Only useful when updating an API App.")
-    __properties: ClassVar[List[str]] = ["header_background_color", "legal_version", "link_color", "page_background_color", "primary_button_color", "primary_button_color_hover", "primary_button_text_color", "primary_button_text_color_hover", "secondary_button_color", "secondary_button_color_hover", "secondary_button_text_color", "secondary_button_text_color_hover", "text_color1", "text_color2", "reset_to_default"]
+    """  # noqa: E501
 
-    @field_validator('legal_version')
+    header_background_color: Optional[StrictStr] = "#1A1A1A"
+    legal_version: Optional[StrictStr] = "terms1"
+    link_color: Optional[StrictStr] = "#00B3E6"
+    page_background_color: Optional[StrictStr] = "#F7F8F9"
+    primary_button_color: Optional[StrictStr] = "#00B3E6"
+    primary_button_color_hover: Optional[StrictStr] = "#00B3E6"
+    primary_button_text_color: Optional[StrictStr] = "#FFFFFF"
+    primary_button_text_color_hover: Optional[StrictStr] = "#FFFFFF"
+    secondary_button_color: Optional[StrictStr] = "#FFFFFF"
+    secondary_button_color_hover: Optional[StrictStr] = "#FFFFFF"
+    secondary_button_text_color: Optional[StrictStr] = "#00B3E6"
+    secondary_button_text_color_hover: Optional[StrictStr] = "#00B3E6"
+    text_color1: Optional[StrictStr] = "#808080"
+    text_color2: Optional[StrictStr] = "#FFFFFF"
+    reset_to_default: Optional[StrictBool] = Field(
+        default=None,
+        description="Resets white labeling options to defaults. Only useful when updating an API App.",
+    )
+    __properties: ClassVar[List[str]] = [
+        "header_background_color",
+        "legal_version",
+        "link_color",
+        "page_background_color",
+        "primary_button_color",
+        "primary_button_color_hover",
+        "primary_button_text_color",
+        "primary_button_text_color_hover",
+        "secondary_button_color",
+        "secondary_button_color_hover",
+        "secondary_button_text_color",
+        "secondary_button_text_color_hover",
+        "text_color1",
+        "text_color2",
+        "reset_to_default",
+    ]
+
+    @field_validator("legal_version")
     def legal_version_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
             return value
 
-        if value not in set(['terms1', 'terms2']):
+        if value not in set(["terms1", "terms2"]):
             raise ValueError("must be one of enum values ('terms1', 'terms2')")
         return value
 
@@ -64,7 +92,6 @@ class SubWhiteLabelingOptions(BaseModel):
         arbitrary_types_allowed=True,
     )
 
-
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
         return pprint.pformat(self.model_dump(by_alias=True))
@@ -74,7 +101,9 @@ class SubWhiteLabelingOptions(BaseModel):
         # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
-    def to_json_form_params(self, excluded_fields: Set[str] = None) -> List[Tuple[str, str]]:
+    def to_json_form_params(
+        self, excluded_fields: Set[str] = None
+    ) -> List[Tuple[str, str]]:
         data: List[Tuple[str, str]] = []
 
         for key, value in self.to_dict(excluded_fields).items():
@@ -117,23 +146,81 @@ class SubWhiteLabelingOptions(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "header_background_color": obj.get("header_background_color") if obj.get("header_background_color") is not None else '#1A1A1A',
-            "legal_version": obj.get("legal_version") if obj.get("legal_version") is not None else 'terms1',
-            "link_color": obj.get("link_color") if obj.get("link_color") is not None else '#00B3E6',
-            "page_background_color": obj.get("page_background_color") if obj.get("page_background_color") is not None else '#F7F8F9',
-            "primary_button_color": obj.get("primary_button_color") if obj.get("primary_button_color") is not None else '#00B3E6',
-            "primary_button_color_hover": obj.get("primary_button_color_hover") if obj.get("primary_button_color_hover") is not None else '#00B3E6',
-            "primary_button_text_color": obj.get("primary_button_text_color") if obj.get("primary_button_text_color") is not None else '#FFFFFF',
-            "primary_button_text_color_hover": obj.get("primary_button_text_color_hover") if obj.get("primary_button_text_color_hover") is not None else '#FFFFFF',
-            "secondary_button_color": obj.get("secondary_button_color") if obj.get("secondary_button_color") is not None else '#FFFFFF',
-            "secondary_button_color_hover": obj.get("secondary_button_color_hover") if obj.get("secondary_button_color_hover") is not None else '#FFFFFF',
-            "secondary_button_text_color": obj.get("secondary_button_text_color") if obj.get("secondary_button_text_color") is not None else '#00B3E6',
-            "secondary_button_text_color_hover": obj.get("secondary_button_text_color_hover") if obj.get("secondary_button_text_color_hover") is not None else '#00B3E6',
-            "text_color1": obj.get("text_color1") if obj.get("text_color1") is not None else '#808080',
-            "text_color2": obj.get("text_color2") if obj.get("text_color2") is not None else '#FFFFFF',
-            "reset_to_default": obj.get("reset_to_default")
-        })
+        _obj = cls.model_validate(
+            {
+                "header_background_color": (
+                    obj.get("header_background_color")
+                    if obj.get("header_background_color") is not None
+                    else "#1A1A1A"
+                ),
+                "legal_version": (
+                    obj.get("legal_version")
+                    if obj.get("legal_version") is not None
+                    else "terms1"
+                ),
+                "link_color": (
+                    obj.get("link_color")
+                    if obj.get("link_color") is not None
+                    else "#00B3E6"
+                ),
+                "page_background_color": (
+                    obj.get("page_background_color")
+                    if obj.get("page_background_color") is not None
+                    else "#F7F8F9"
+                ),
+                "primary_button_color": (
+                    obj.get("primary_button_color")
+                    if obj.get("primary_button_color") is not None
+                    else "#00B3E6"
+                ),
+                "primary_button_color_hover": (
+                    obj.get("primary_button_color_hover")
+                    if obj.get("primary_button_color_hover") is not None
+                    else "#00B3E6"
+                ),
+                "primary_button_text_color": (
+                    obj.get("primary_button_text_color")
+                    if obj.get("primary_button_text_color") is not None
+                    else "#FFFFFF"
+                ),
+                "primary_button_text_color_hover": (
+                    obj.get("primary_button_text_color_hover")
+                    if obj.get("primary_button_text_color_hover") is not None
+                    else "#FFFFFF"
+                ),
+                "secondary_button_color": (
+                    obj.get("secondary_button_color")
+                    if obj.get("secondary_button_color") is not None
+                    else "#FFFFFF"
+                ),
+                "secondary_button_color_hover": (
+                    obj.get("secondary_button_color_hover")
+                    if obj.get("secondary_button_color_hover") is not None
+                    else "#FFFFFF"
+                ),
+                "secondary_button_text_color": (
+                    obj.get("secondary_button_text_color")
+                    if obj.get("secondary_button_text_color") is not None
+                    else "#00B3E6"
+                ),
+                "secondary_button_text_color_hover": (
+                    obj.get("secondary_button_text_color_hover")
+                    if obj.get("secondary_button_text_color_hover") is not None
+                    else "#00B3E6"
+                ),
+                "text_color1": (
+                    obj.get("text_color1")
+                    if obj.get("text_color1") is not None
+                    else "#808080"
+                ),
+                "text_color2": (
+                    obj.get("text_color2")
+                    if obj.get("text_color2") is not None
+                    else "#FFFFFF"
+                ),
+                "reset_to_default": obj.get("reset_to_default"),
+            }
+        )
         return _obj
 
     @classmethod
@@ -168,6 +255,4 @@ class SubWhiteLabelingOptions(BaseModel):
 
     @classmethod
     def openapi_type_is_array(cls, property_name: str) -> bool:
-        return property_name in [
-        ]
-
+        return property_name in []

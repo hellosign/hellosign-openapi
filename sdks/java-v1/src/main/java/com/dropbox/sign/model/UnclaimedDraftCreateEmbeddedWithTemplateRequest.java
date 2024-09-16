@@ -10,1686 +10,1770 @@
  * Do not edit the class manually.
  */
 
-
 package com.dropbox.sign.model;
 
-import java.util.Objects;
-import java.util.Map;
-import java.util.HashMap;
-import com.dropbox.sign.model.SubCC;
-import com.dropbox.sign.model.SubCustomField;
-import com.dropbox.sign.model.SubEditorOptions;
-import com.dropbox.sign.model.SubFieldOptions;
-import com.dropbox.sign.model.SubSigningOptions;
-import com.dropbox.sign.model.SubUnclaimedDraftTemplateSigner;
+import com.dropbox.sign.ApiException;
+import com.dropbox.sign.JSON;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.dropbox.sign.JSON;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.Objects;
 
-
-import com.dropbox.sign.ApiException;
-/**
- * UnclaimedDraftCreateEmbeddedWithTemplateRequest
- */
+/** UnclaimedDraftCreateEmbeddedWithTemplateRequest */
 @JsonPropertyOrder({
-  UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_CLIENT_ID,
-  UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_REQUESTER_EMAIL_ADDRESS,
-  UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_TEMPLATE_IDS,
-  UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_ALLOW_DECLINE,
-  UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_ALLOW_REASSIGN,
-  UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_CCS,
-  UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_CUSTOM_FIELDS,
-  UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_EDITOR_OPTIONS,
-  UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_FIELD_OPTIONS,
-  UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_FILES,
-  UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_FILE_URLS,
-  UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_FORCE_SIGNER_ROLES,
-  UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_FORCE_SUBJECT_MESSAGE,
-  UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_HOLD_REQUEST,
-  UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_IS_FOR_EMBEDDED_SIGNING,
-  UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_MESSAGE,
-  UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_METADATA,
-  UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_PREVIEW_ONLY,
-  UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_REQUESTING_REDIRECT_URL,
-  UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_SHOW_PREVIEW,
-  UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_SHOW_PROGRESS_STEPPER,
-  UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_SIGNERS,
-  UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_SIGNING_OPTIONS,
-  UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_SIGNING_REDIRECT_URL,
-  UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_SKIP_ME_NOW,
-  UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_SUBJECT,
-  UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_TEST_MODE,
-  UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_TITLE,
-  UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_POPULATE_AUTO_FILL_FIELDS,
-  UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_ALLOW_CCS
+    UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_CLIENT_ID,
+    UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_REQUESTER_EMAIL_ADDRESS,
+    UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_TEMPLATE_IDS,
+    UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_ALLOW_DECLINE,
+    UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_ALLOW_REASSIGN,
+    UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_CCS,
+    UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_CUSTOM_FIELDS,
+    UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_EDITOR_OPTIONS,
+    UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_FIELD_OPTIONS,
+    UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_FILES,
+    UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_FILE_URLS,
+    UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_FORCE_SIGNER_ROLES,
+    UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_FORCE_SUBJECT_MESSAGE,
+    UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_HOLD_REQUEST,
+    UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_IS_FOR_EMBEDDED_SIGNING,
+    UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_MESSAGE,
+    UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_METADATA,
+    UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_PREVIEW_ONLY,
+    UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_REQUESTING_REDIRECT_URL,
+    UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_SHOW_PREVIEW,
+    UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_SHOW_PROGRESS_STEPPER,
+    UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_SIGNERS,
+    UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_SIGNING_OPTIONS,
+    UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_SIGNING_REDIRECT_URL,
+    UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_SKIP_ME_NOW,
+    UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_SUBJECT,
+    UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_TEST_MODE,
+    UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_TITLE,
+    UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_POPULATE_AUTO_FILL_FIELDS,
+    UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_ALLOW_CCS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
-@JsonIgnoreProperties(ignoreUnknown=true)
+@javax.annotation.Generated(
+        value = "org.openapitools.codegen.languages.JavaClientCodegen",
+        comments = "Generator version: 7.8.0")
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class UnclaimedDraftCreateEmbeddedWithTemplateRequest {
-  public static final String JSON_PROPERTY_CLIENT_ID = "client_id";
-  private String clientId;
+    public static final String JSON_PROPERTY_CLIENT_ID = "client_id";
+    private String clientId;
 
-  public static final String JSON_PROPERTY_REQUESTER_EMAIL_ADDRESS = "requester_email_address";
-  private String requesterEmailAddress;
+    public static final String JSON_PROPERTY_REQUESTER_EMAIL_ADDRESS = "requester_email_address";
+    private String requesterEmailAddress;
 
-  public static final String JSON_PROPERTY_TEMPLATE_IDS = "template_ids";
-  private List<String> templateIds = new ArrayList<>();
+    public static final String JSON_PROPERTY_TEMPLATE_IDS = "template_ids";
+    private List<String> templateIds = new ArrayList<>();
 
-  public static final String JSON_PROPERTY_ALLOW_DECLINE = "allow_decline";
-  private Boolean allowDecline = false;
+    public static final String JSON_PROPERTY_ALLOW_DECLINE = "allow_decline";
+    private Boolean allowDecline = false;
 
-  public static final String JSON_PROPERTY_ALLOW_REASSIGN = "allow_reassign";
-  private Boolean allowReassign = false;
+    public static final String JSON_PROPERTY_ALLOW_REASSIGN = "allow_reassign";
+    private Boolean allowReassign = false;
 
-  public static final String JSON_PROPERTY_CCS = "ccs";
-  private List<SubCC> ccs = null;
+    public static final String JSON_PROPERTY_CCS = "ccs";
+    private List<SubCC> ccs = null;
 
-  public static final String JSON_PROPERTY_CUSTOM_FIELDS = "custom_fields";
-  private List<SubCustomField> customFields = null;
+    public static final String JSON_PROPERTY_CUSTOM_FIELDS = "custom_fields";
+    private List<SubCustomField> customFields = null;
 
-  public static final String JSON_PROPERTY_EDITOR_OPTIONS = "editor_options";
-  private SubEditorOptions editorOptions;
+    public static final String JSON_PROPERTY_EDITOR_OPTIONS = "editor_options";
+    private SubEditorOptions editorOptions;
 
-  public static final String JSON_PROPERTY_FIELD_OPTIONS = "field_options";
-  private SubFieldOptions fieldOptions;
+    public static final String JSON_PROPERTY_FIELD_OPTIONS = "field_options";
+    private SubFieldOptions fieldOptions;
 
-  public static final String JSON_PROPERTY_FILES = "files";
-  private List<File> files = null;
+    public static final String JSON_PROPERTY_FILES = "files";
+    private List<File> files = null;
 
-  public static final String JSON_PROPERTY_FILE_URLS = "file_urls";
-  private List<String> fileUrls = null;
+    public static final String JSON_PROPERTY_FILE_URLS = "file_urls";
+    private List<String> fileUrls = null;
 
-  public static final String JSON_PROPERTY_FORCE_SIGNER_ROLES = "force_signer_roles";
-  private Boolean forceSignerRoles = false;
+    public static final String JSON_PROPERTY_FORCE_SIGNER_ROLES = "force_signer_roles";
+    private Boolean forceSignerRoles = false;
 
-  public static final String JSON_PROPERTY_FORCE_SUBJECT_MESSAGE = "force_subject_message";
-  private Boolean forceSubjectMessage = false;
+    public static final String JSON_PROPERTY_FORCE_SUBJECT_MESSAGE = "force_subject_message";
+    private Boolean forceSubjectMessage = false;
 
-  public static final String JSON_PROPERTY_HOLD_REQUEST = "hold_request";
-  private Boolean holdRequest = false;
+    public static final String JSON_PROPERTY_HOLD_REQUEST = "hold_request";
+    private Boolean holdRequest = false;
 
-  public static final String JSON_PROPERTY_IS_FOR_EMBEDDED_SIGNING = "is_for_embedded_signing";
-  private Boolean isForEmbeddedSigning = false;
+    public static final String JSON_PROPERTY_IS_FOR_EMBEDDED_SIGNING = "is_for_embedded_signing";
+    private Boolean isForEmbeddedSigning = false;
 
-  public static final String JSON_PROPERTY_MESSAGE = "message";
-  private String message;
+    public static final String JSON_PROPERTY_MESSAGE = "message";
+    private String message;
 
-  public static final String JSON_PROPERTY_METADATA = "metadata";
-  private Map<String, Object> metadata = null;
+    public static final String JSON_PROPERTY_METADATA = "metadata";
+    private Map<String, Object> metadata = null;
 
-  public static final String JSON_PROPERTY_PREVIEW_ONLY = "preview_only";
-  private Boolean previewOnly = false;
+    public static final String JSON_PROPERTY_PREVIEW_ONLY = "preview_only";
+    private Boolean previewOnly = false;
 
-  public static final String JSON_PROPERTY_REQUESTING_REDIRECT_URL = "requesting_redirect_url";
-  private String requestingRedirectUrl;
+    public static final String JSON_PROPERTY_REQUESTING_REDIRECT_URL = "requesting_redirect_url";
+    private String requestingRedirectUrl;
 
-  public static final String JSON_PROPERTY_SHOW_PREVIEW = "show_preview";
-  private Boolean showPreview = false;
+    public static final String JSON_PROPERTY_SHOW_PREVIEW = "show_preview";
+    private Boolean showPreview = false;
 
-  public static final String JSON_PROPERTY_SHOW_PROGRESS_STEPPER = "show_progress_stepper";
-  private Boolean showProgressStepper = true;
+    public static final String JSON_PROPERTY_SHOW_PROGRESS_STEPPER = "show_progress_stepper";
+    private Boolean showProgressStepper = true;
 
-  public static final String JSON_PROPERTY_SIGNERS = "signers";
-  private List<SubUnclaimedDraftTemplateSigner> signers = null;
+    public static final String JSON_PROPERTY_SIGNERS = "signers";
+    private List<SubUnclaimedDraftTemplateSigner> signers = null;
 
-  public static final String JSON_PROPERTY_SIGNING_OPTIONS = "signing_options";
-  private SubSigningOptions signingOptions;
+    public static final String JSON_PROPERTY_SIGNING_OPTIONS = "signing_options";
+    private SubSigningOptions signingOptions;
 
-  public static final String JSON_PROPERTY_SIGNING_REDIRECT_URL = "signing_redirect_url";
-  private String signingRedirectUrl;
+    public static final String JSON_PROPERTY_SIGNING_REDIRECT_URL = "signing_redirect_url";
+    private String signingRedirectUrl;
 
-  public static final String JSON_PROPERTY_SKIP_ME_NOW = "skip_me_now";
-  private Boolean skipMeNow = false;
+    public static final String JSON_PROPERTY_SKIP_ME_NOW = "skip_me_now";
+    private Boolean skipMeNow = false;
 
-  public static final String JSON_PROPERTY_SUBJECT = "subject";
-  private String subject;
+    public static final String JSON_PROPERTY_SUBJECT = "subject";
+    private String subject;
 
-  public static final String JSON_PROPERTY_TEST_MODE = "test_mode";
-  private Boolean testMode = false;
+    public static final String JSON_PROPERTY_TEST_MODE = "test_mode";
+    private Boolean testMode = false;
 
-  public static final String JSON_PROPERTY_TITLE = "title";
-  private String title;
+    public static final String JSON_PROPERTY_TITLE = "title";
+    private String title;
 
-  public static final String JSON_PROPERTY_POPULATE_AUTO_FILL_FIELDS = "populate_auto_fill_fields";
-  private Boolean populateAutoFillFields = false;
+    public static final String JSON_PROPERTY_POPULATE_AUTO_FILL_FIELDS =
+            "populate_auto_fill_fields";
+    private Boolean populateAutoFillFields = false;
 
-  public static final String JSON_PROPERTY_ALLOW_CCS = "allow_ccs";
-  private Boolean allowCcs = false;
+    public static final String JSON_PROPERTY_ALLOW_CCS = "allow_ccs";
+    private Boolean allowCcs = false;
 
-  public UnclaimedDraftCreateEmbeddedWithTemplateRequest() { 
-  }
+    public UnclaimedDraftCreateEmbeddedWithTemplateRequest() {}
 
-  /**
-   * Attempt to instantiate and hydrate a new instance of this class
-   * @param jsonData String of JSON data representing target object
-   */
-  static public UnclaimedDraftCreateEmbeddedWithTemplateRequest init(String jsonData) throws Exception {
-    return new ObjectMapper().readValue(jsonData, UnclaimedDraftCreateEmbeddedWithTemplateRequest.class);
-  }
-
-  static public UnclaimedDraftCreateEmbeddedWithTemplateRequest init(HashMap data) throws Exception {
-    return new ObjectMapper().readValue(
-      new ObjectMapper().writeValueAsString(data),
-      UnclaimedDraftCreateEmbeddedWithTemplateRequest.class
-    );
-  }
-
-  public UnclaimedDraftCreateEmbeddedWithTemplateRequest clientId(String clientId) {
-    this.clientId = clientId;
-    return this;
-  }
-
-  /**
-   * Client id of the app used to create the draft. Used to apply the branding and callback url defined for the app.
-   * @return clientId
-   */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_CLIENT_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public String getClientId() {
-    return clientId;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_CLIENT_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setClientId(String clientId) {
-    this.clientId = clientId;
-  }
-
-
-  public UnclaimedDraftCreateEmbeddedWithTemplateRequest requesterEmailAddress(String requesterEmailAddress) {
-    this.requesterEmailAddress = requesterEmailAddress;
-    return this;
-  }
-
-  /**
-   * The email address of the user that should be designated as the requester of this draft.
-   * @return requesterEmailAddress
-   */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_REQUESTER_EMAIL_ADDRESS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public String getRequesterEmailAddress() {
-    return requesterEmailAddress;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_REQUESTER_EMAIL_ADDRESS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setRequesterEmailAddress(String requesterEmailAddress) {
-    this.requesterEmailAddress = requesterEmailAddress;
-  }
-
-
-  public UnclaimedDraftCreateEmbeddedWithTemplateRequest templateIds(List<String> templateIds) {
-    this.templateIds = templateIds;
-    return this;
-  }
-
-  public UnclaimedDraftCreateEmbeddedWithTemplateRequest addTemplateIdsItem(String templateIdsItem) {
-    if (this.templateIds == null) {
-      this.templateIds = new ArrayList<>();
+    /**
+     * Attempt to instantiate and hydrate a new instance of this class
+     *
+     * @param jsonData String of JSON data representing target object
+     */
+    public static UnclaimedDraftCreateEmbeddedWithTemplateRequest init(String jsonData)
+            throws Exception {
+        return new ObjectMapper()
+                .readValue(jsonData, UnclaimedDraftCreateEmbeddedWithTemplateRequest.class);
     }
-    this.templateIds.add(templateIdsItem);
-    return this;
-  }
 
-  /**
-   * Use &#x60;template_ids&#x60; to create a SignatureRequest from one or more templates, in the order in which the templates will be used.
-   * @return templateIds
-   */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_TEMPLATE_IDS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public List<String> getTemplateIds() {
-    return templateIds;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_TEMPLATE_IDS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTemplateIds(List<String> templateIds) {
-    this.templateIds = templateIds;
-  }
-
-
-  public UnclaimedDraftCreateEmbeddedWithTemplateRequest allowDecline(Boolean allowDecline) {
-    this.allowDecline = allowDecline;
-    return this;
-  }
-
-  /**
-   * Allows signers to decline to sign a document if &#x60;true&#x60;. Defaults to &#x60;false&#x60;.
-   * @return allowDecline
-   */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ALLOW_DECLINE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Boolean getAllowDecline() {
-    return allowDecline;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_ALLOW_DECLINE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAllowDecline(Boolean allowDecline) {
-    this.allowDecline = allowDecline;
-  }
-
-
-  public UnclaimedDraftCreateEmbeddedWithTemplateRequest allowReassign(Boolean allowReassign) {
-    this.allowReassign = allowReassign;
-    return this;
-  }
-
-  /**
-   * Allows signers to reassign their signature requests to other signers if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.  **NOTE:** Only available for Premium plan and higher.
-   * @return allowReassign
-   */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ALLOW_REASSIGN)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Boolean getAllowReassign() {
-    return allowReassign;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_ALLOW_REASSIGN)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAllowReassign(Boolean allowReassign) {
-    this.allowReassign = allowReassign;
-  }
-
-
-  public UnclaimedDraftCreateEmbeddedWithTemplateRequest ccs(List<SubCC> ccs) {
-    this.ccs = ccs;
-    return this;
-  }
-
-  public UnclaimedDraftCreateEmbeddedWithTemplateRequest addCcsItem(SubCC ccsItem) {
-    if (this.ccs == null) {
-      this.ccs = new ArrayList<>();
+    public static UnclaimedDraftCreateEmbeddedWithTemplateRequest init(HashMap data)
+            throws Exception {
+        return new ObjectMapper()
+                .readValue(
+                        new ObjectMapper().writeValueAsString(data),
+                        UnclaimedDraftCreateEmbeddedWithTemplateRequest.class);
     }
-    this.ccs.add(ccsItem);
-    return this;
-  }
 
-  /**
-   * Add CC email recipients. Required when a CC role exists for the Template.
-   * @return ccs
-   */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CCS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public List<SubCC> getCcs() {
-    return ccs;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_CCS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCcs(List<SubCC> ccs) {
-    this.ccs = ccs;
-  }
-
-
-  public UnclaimedDraftCreateEmbeddedWithTemplateRequest customFields(List<SubCustomField> customFields) {
-    this.customFields = customFields;
-    return this;
-  }
-
-  public UnclaimedDraftCreateEmbeddedWithTemplateRequest addCustomFieldsItem(SubCustomField customFieldsItem) {
-    if (this.customFields == null) {
-      this.customFields = new ArrayList<>();
+    public UnclaimedDraftCreateEmbeddedWithTemplateRequest clientId(String clientId) {
+        this.clientId = clientId;
+        return this;
     }
-    this.customFields.add(customFieldsItem);
-    return this;
-  }
 
-  /**
-   * An array defining values and options for custom fields. Required when a custom field exists in the Template.
-   * @return customFields
-   */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CUSTOM_FIELDS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public List<SubCustomField> getCustomFields() {
-    return customFields;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_CUSTOM_FIELDS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCustomFields(List<SubCustomField> customFields) {
-    this.customFields = customFields;
-  }
-
-
-  public UnclaimedDraftCreateEmbeddedWithTemplateRequest editorOptions(SubEditorOptions editorOptions) {
-    this.editorOptions = editorOptions;
-    return this;
-  }
-
-  /**
-   * Get editorOptions
-   * @return editorOptions
-   */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EDITOR_OPTIONS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public SubEditorOptions getEditorOptions() {
-    return editorOptions;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_EDITOR_OPTIONS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setEditorOptions(SubEditorOptions editorOptions) {
-    this.editorOptions = editorOptions;
-  }
-
-
-  public UnclaimedDraftCreateEmbeddedWithTemplateRequest fieldOptions(SubFieldOptions fieldOptions) {
-    this.fieldOptions = fieldOptions;
-    return this;
-  }
-
-  /**
-   * Get fieldOptions
-   * @return fieldOptions
-   */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FIELD_OPTIONS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public SubFieldOptions getFieldOptions() {
-    return fieldOptions;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_FIELD_OPTIONS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFieldOptions(SubFieldOptions fieldOptions) {
-    this.fieldOptions = fieldOptions;
-  }
-
-
-  public UnclaimedDraftCreateEmbeddedWithTemplateRequest files(List<File> files) {
-    this.files = files;
-    return this;
-  }
-
-  public UnclaimedDraftCreateEmbeddedWithTemplateRequest addFilesItem(File filesItem) {
-    if (this.files == null) {
-      this.files = new ArrayList<>();
+    /**
+     * Client id of the app used to create the draft. Used to apply the branding and callback url
+     * defined for the app.
+     *
+     * @return clientId
+     */
+    @javax.annotation.Nonnull
+    @JsonProperty(JSON_PROPERTY_CLIENT_ID)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    public String getClientId() {
+        return clientId;
     }
-    this.files.add(filesItem);
-    return this;
-  }
 
-  /**
-   * Use &#x60;files[]&#x60; to append additional files to the signature request being created from the template. Dropbox Sign will parse the files for [text tags](https://app.hellosign.com/api/textTagsWalkthrough) and append it to the signature request. Text tags for signers not on the template(s) will be ignored.  **files** or **file_urls[]** is required, but not both.
-   * @return files
-   */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FILES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public List<File> getFiles() {
-    return files;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_FILES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFiles(List<File> files) {
-    this.files = files;
-  }
-
-
-  public UnclaimedDraftCreateEmbeddedWithTemplateRequest fileUrls(List<String> fileUrls) {
-    this.fileUrls = fileUrls;
-    return this;
-  }
-
-  public UnclaimedDraftCreateEmbeddedWithTemplateRequest addFileUrlsItem(String fileUrlsItem) {
-    if (this.fileUrls == null) {
-      this.fileUrls = new ArrayList<>();
+    @JsonProperty(JSON_PROPERTY_CLIENT_ID)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    public void setClientId(String clientId) {
+        this.clientId = clientId;
     }
-    this.fileUrls.add(fileUrlsItem);
-    return this;
-  }
 
-  /**
-   * Use file_urls[] to append additional files to the signature request being created from the template. Dropbox Sign will download the file, then parse it for [text tags](https://app.hellosign.com/api/textTagsWalkthrough), and append to the signature request. Text tags for signers not on the template(s) will be ignored.  **files** or **file_urls[]** is required, but not both.
-   * @return fileUrls
-   */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FILE_URLS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public List<String> getFileUrls() {
-    return fileUrls;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_FILE_URLS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFileUrls(List<String> fileUrls) {
-    this.fileUrls = fileUrls;
-  }
-
-
-  public UnclaimedDraftCreateEmbeddedWithTemplateRequest forceSignerRoles(Boolean forceSignerRoles) {
-    this.forceSignerRoles = forceSignerRoles;
-    return this;
-  }
-
-  /**
-   * Provide users the ability to review/edit the template signer roles.
-   * @return forceSignerRoles
-   */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FORCE_SIGNER_ROLES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Boolean getForceSignerRoles() {
-    return forceSignerRoles;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_FORCE_SIGNER_ROLES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setForceSignerRoles(Boolean forceSignerRoles) {
-    this.forceSignerRoles = forceSignerRoles;
-  }
-
-
-  public UnclaimedDraftCreateEmbeddedWithTemplateRequest forceSubjectMessage(Boolean forceSubjectMessage) {
-    this.forceSubjectMessage = forceSubjectMessage;
-    return this;
-  }
-
-  /**
-   * Provide users the ability to review/edit the template subject and message.
-   * @return forceSubjectMessage
-   */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FORCE_SUBJECT_MESSAGE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Boolean getForceSubjectMessage() {
-    return forceSubjectMessage;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_FORCE_SUBJECT_MESSAGE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setForceSubjectMessage(Boolean forceSubjectMessage) {
-    this.forceSubjectMessage = forceSubjectMessage;
-  }
-
-
-  public UnclaimedDraftCreateEmbeddedWithTemplateRequest holdRequest(Boolean holdRequest) {
-    this.holdRequest = holdRequest;
-    return this;
-  }
-
-  /**
-   * The request from this draft will not automatically send to signers post-claim if set to 1. Requester must [release](/api/reference/operation/signatureRequestReleaseHold/) the request from hold when ready to send. Defaults to &#x60;false&#x60;.
-   * @return holdRequest
-   */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_HOLD_REQUEST)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Boolean getHoldRequest() {
-    return holdRequest;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_HOLD_REQUEST)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setHoldRequest(Boolean holdRequest) {
-    this.holdRequest = holdRequest;
-  }
-
-
-  public UnclaimedDraftCreateEmbeddedWithTemplateRequest isForEmbeddedSigning(Boolean isForEmbeddedSigning) {
-    this.isForEmbeddedSigning = isForEmbeddedSigning;
-    return this;
-  }
-
-  /**
-   * The request created from this draft will also be signable in embedded mode if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.
-   * @return isForEmbeddedSigning
-   */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IS_FOR_EMBEDDED_SIGNING)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Boolean getIsForEmbeddedSigning() {
-    return isForEmbeddedSigning;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_IS_FOR_EMBEDDED_SIGNING)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setIsForEmbeddedSigning(Boolean isForEmbeddedSigning) {
-    this.isForEmbeddedSigning = isForEmbeddedSigning;
-  }
-
-
-  public UnclaimedDraftCreateEmbeddedWithTemplateRequest message(String message) {
-    this.message = message;
-    return this;
-  }
-
-  /**
-   * The custom message in the email that will be sent to the signers.
-   * @return message
-   */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MESSAGE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getMessage() {
-    return message;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_MESSAGE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMessage(String message) {
-    this.message = message;
-  }
-
-
-  public UnclaimedDraftCreateEmbeddedWithTemplateRequest metadata(Map<String, Object> metadata) {
-    this.metadata = metadata;
-    return this;
-  }
-
-  public UnclaimedDraftCreateEmbeddedWithTemplateRequest putMetadataItem(String key, Object metadataItem) {
-    if (this.metadata == null) {
-      this.metadata = new HashMap<>();
+    public UnclaimedDraftCreateEmbeddedWithTemplateRequest requesterEmailAddress(
+            String requesterEmailAddress) {
+        this.requesterEmailAddress = requesterEmailAddress;
+        return this;
     }
-    this.metadata.put(key, metadataItem);
-    return this;
-  }
 
-  /**
-   * Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer&#39;s order number for look up when receiving events for the signature request.  Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.
-   * @return metadata
-   */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_METADATA)
-  @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Map<String, Object> getMetadata() {
-    return metadata;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_METADATA)
-  @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMetadata(Map<String, Object> metadata) {
-    this.metadata = metadata;
-  }
-
-
-  public UnclaimedDraftCreateEmbeddedWithTemplateRequest previewOnly(Boolean previewOnly) {
-    this.previewOnly = previewOnly;
-    return this;
-  }
-
-  /**
-   * This allows the requester to enable the preview experience (i.e. does not allow the requester&#39;s end user to add any additional fields via the editor).  - &#x60;preview_only&#x3D;true&#x60;: Allows requesters to enable the preview only experience. - &#x60;preview_only&#x3D;false&#x60;: Allows requesters to disable the preview only experience.  **NOTE:** This parameter overwrites &#x60;show_preview&#x3D;1&#x60; (if set).
-   * @return previewOnly
-   */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PREVIEW_ONLY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Boolean getPreviewOnly() {
-    return previewOnly;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_PREVIEW_ONLY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPreviewOnly(Boolean previewOnly) {
-    this.previewOnly = previewOnly;
-  }
-
-
-  public UnclaimedDraftCreateEmbeddedWithTemplateRequest requestingRedirectUrl(String requestingRedirectUrl) {
-    this.requestingRedirectUrl = requestingRedirectUrl;
-    return this;
-  }
-
-  /**
-   * The URL you want signers redirected to after they successfully request a signature.
-   * @return requestingRedirectUrl
-   */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_REQUESTING_REDIRECT_URL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getRequestingRedirectUrl() {
-    return requestingRedirectUrl;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_REQUESTING_REDIRECT_URL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setRequestingRedirectUrl(String requestingRedirectUrl) {
-    this.requestingRedirectUrl = requestingRedirectUrl;
-  }
-
-
-  public UnclaimedDraftCreateEmbeddedWithTemplateRequest showPreview(Boolean showPreview) {
-    this.showPreview = showPreview;
-    return this;
-  }
-
-  /**
-   * This allows the requester to enable the editor/preview experience.  - &#x60;show_preview&#x3D;true&#x60;: Allows requesters to enable the editor/preview experience. - &#x60;show_preview&#x3D;false&#x60;: Allows requesters to disable the editor/preview experience.
-   * @return showPreview
-   */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SHOW_PREVIEW)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Boolean getShowPreview() {
-    return showPreview;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_SHOW_PREVIEW)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setShowPreview(Boolean showPreview) {
-    this.showPreview = showPreview;
-  }
-
-
-  public UnclaimedDraftCreateEmbeddedWithTemplateRequest showProgressStepper(Boolean showProgressStepper) {
-    this.showProgressStepper = showProgressStepper;
-    return this;
-  }
-
-  /**
-   * When only one step remains in the signature request process and this parameter is set to &#x60;false&#x60; then the progress stepper will be hidden.
-   * @return showProgressStepper
-   */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SHOW_PROGRESS_STEPPER)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Boolean getShowProgressStepper() {
-    return showProgressStepper;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_SHOW_PROGRESS_STEPPER)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setShowProgressStepper(Boolean showProgressStepper) {
-    this.showProgressStepper = showProgressStepper;
-  }
-
-
-  public UnclaimedDraftCreateEmbeddedWithTemplateRequest signers(List<SubUnclaimedDraftTemplateSigner> signers) {
-    this.signers = signers;
-    return this;
-  }
-
-  public UnclaimedDraftCreateEmbeddedWithTemplateRequest addSignersItem(SubUnclaimedDraftTemplateSigner signersItem) {
-    if (this.signers == null) {
-      this.signers = new ArrayList<>();
+    /**
+     * The email address of the user that should be designated as the requester of this draft.
+     *
+     * @return requesterEmailAddress
+     */
+    @javax.annotation.Nonnull
+    @JsonProperty(JSON_PROPERTY_REQUESTER_EMAIL_ADDRESS)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    public String getRequesterEmailAddress() {
+        return requesterEmailAddress;
     }
-    this.signers.add(signersItem);
-    return this;
-  }
 
-  /**
-   * Add Signers to your Templated-based Signature Request.
-   * @return signers
-   */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SIGNERS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public List<SubUnclaimedDraftTemplateSigner> getSigners() {
-    return signers;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_SIGNERS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSigners(List<SubUnclaimedDraftTemplateSigner> signers) {
-    this.signers = signers;
-  }
-
-
-  public UnclaimedDraftCreateEmbeddedWithTemplateRequest signingOptions(SubSigningOptions signingOptions) {
-    this.signingOptions = signingOptions;
-    return this;
-  }
-
-  /**
-   * Get signingOptions
-   * @return signingOptions
-   */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SIGNING_OPTIONS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public SubSigningOptions getSigningOptions() {
-    return signingOptions;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_SIGNING_OPTIONS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSigningOptions(SubSigningOptions signingOptions) {
-    this.signingOptions = signingOptions;
-  }
-
-
-  public UnclaimedDraftCreateEmbeddedWithTemplateRequest signingRedirectUrl(String signingRedirectUrl) {
-    this.signingRedirectUrl = signingRedirectUrl;
-    return this;
-  }
-
-  /**
-   * The URL you want signers redirected to after they successfully sign.
-   * @return signingRedirectUrl
-   */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SIGNING_REDIRECT_URL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getSigningRedirectUrl() {
-    return signingRedirectUrl;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_SIGNING_REDIRECT_URL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSigningRedirectUrl(String signingRedirectUrl) {
-    this.signingRedirectUrl = signingRedirectUrl;
-  }
-
-
-  public UnclaimedDraftCreateEmbeddedWithTemplateRequest skipMeNow(Boolean skipMeNow) {
-    this.skipMeNow = skipMeNow;
-    return this;
-  }
-
-  /**
-   * Disables the \&quot;Me (Now)\&quot; option for the person preparing the document. Does not work with type &#x60;send_document&#x60;. Defaults to &#x60;false&#x60;.
-   * @return skipMeNow
-   */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SKIP_ME_NOW)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Boolean getSkipMeNow() {
-    return skipMeNow;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_SKIP_ME_NOW)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSkipMeNow(Boolean skipMeNow) {
-    this.skipMeNow = skipMeNow;
-  }
-
-
-  public UnclaimedDraftCreateEmbeddedWithTemplateRequest subject(String subject) {
-    this.subject = subject;
-    return this;
-  }
-
-  /**
-   * The subject in the email that will be sent to the signers.
-   * @return subject
-   */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SUBJECT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getSubject() {
-    return subject;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_SUBJECT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSubject(String subject) {
-    this.subject = subject;
-  }
-
-
-  public UnclaimedDraftCreateEmbeddedWithTemplateRequest testMode(Boolean testMode) {
-    this.testMode = testMode;
-    return this;
-  }
-
-  /**
-   * Whether this is a test, the signature request created from this draft will not be legally binding if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.
-   * @return testMode
-   */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TEST_MODE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Boolean getTestMode() {
-    return testMode;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_TEST_MODE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTestMode(Boolean testMode) {
-    this.testMode = testMode;
-  }
-
-
-  public UnclaimedDraftCreateEmbeddedWithTemplateRequest title(String title) {
-    this.title = title;
-    return this;
-  }
-
-  /**
-   * The title you want to assign to the SignatureRequest.
-   * @return title
-   */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TITLE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getTitle() {
-    return title;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_TITLE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTitle(String title) {
-    this.title = title;
-  }
-
-
-  public UnclaimedDraftCreateEmbeddedWithTemplateRequest populateAutoFillFields(Boolean populateAutoFillFields) {
-    this.populateAutoFillFields = populateAutoFillFields;
-    return this;
-  }
-
-  /**
-   * Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer&#39;s information during signing.  **NOTE:** Keep your signer&#39;s information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
-   * @return populateAutoFillFields
-   */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_POPULATE_AUTO_FILL_FIELDS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Boolean getPopulateAutoFillFields() {
-    return populateAutoFillFields;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_POPULATE_AUTO_FILL_FIELDS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPopulateAutoFillFields(Boolean populateAutoFillFields) {
-    this.populateAutoFillFields = populateAutoFillFields;
-  }
-
-
-  public UnclaimedDraftCreateEmbeddedWithTemplateRequest allowCcs(Boolean allowCcs) {
-    this.allowCcs = allowCcs;
-    return this;
-  }
-
-  /**
-   * This allows the requester to specify whether the user is allowed to provide email addresses to CC when claiming the draft.
-   * @return allowCcs
-   */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ALLOW_CCS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Boolean getAllowCcs() {
-    return allowCcs;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_ALLOW_CCS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAllowCcs(Boolean allowCcs) {
-    this.allowCcs = allowCcs;
-  }
-
-
-  /**
-   * Return true if this UnclaimedDraftCreateEmbeddedWithTemplateRequest object is equal to o.
-   */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    @JsonProperty(JSON_PROPERTY_REQUESTER_EMAIL_ADDRESS)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    public void setRequesterEmailAddress(String requesterEmailAddress) {
+        this.requesterEmailAddress = requesterEmailAddress;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    public UnclaimedDraftCreateEmbeddedWithTemplateRequest templateIds(List<String> templateIds) {
+        this.templateIds = templateIds;
+        return this;
     }
-    UnclaimedDraftCreateEmbeddedWithTemplateRequest unclaimedDraftCreateEmbeddedWithTemplateRequest = (UnclaimedDraftCreateEmbeddedWithTemplateRequest) o;
-    return Objects.equals(this.clientId, unclaimedDraftCreateEmbeddedWithTemplateRequest.clientId) &&
-        Objects.equals(this.requesterEmailAddress, unclaimedDraftCreateEmbeddedWithTemplateRequest.requesterEmailAddress) &&
-        Objects.equals(this.templateIds, unclaimedDraftCreateEmbeddedWithTemplateRequest.templateIds) &&
-        Objects.equals(this.allowDecline, unclaimedDraftCreateEmbeddedWithTemplateRequest.allowDecline) &&
-        Objects.equals(this.allowReassign, unclaimedDraftCreateEmbeddedWithTemplateRequest.allowReassign) &&
-        Objects.equals(this.ccs, unclaimedDraftCreateEmbeddedWithTemplateRequest.ccs) &&
-        Objects.equals(this.customFields, unclaimedDraftCreateEmbeddedWithTemplateRequest.customFields) &&
-        Objects.equals(this.editorOptions, unclaimedDraftCreateEmbeddedWithTemplateRequest.editorOptions) &&
-        Objects.equals(this.fieldOptions, unclaimedDraftCreateEmbeddedWithTemplateRequest.fieldOptions) &&
-        Objects.equals(this.files, unclaimedDraftCreateEmbeddedWithTemplateRequest.files) &&
-        Objects.equals(this.fileUrls, unclaimedDraftCreateEmbeddedWithTemplateRequest.fileUrls) &&
-        Objects.equals(this.forceSignerRoles, unclaimedDraftCreateEmbeddedWithTemplateRequest.forceSignerRoles) &&
-        Objects.equals(this.forceSubjectMessage, unclaimedDraftCreateEmbeddedWithTemplateRequest.forceSubjectMessage) &&
-        Objects.equals(this.holdRequest, unclaimedDraftCreateEmbeddedWithTemplateRequest.holdRequest) &&
-        Objects.equals(this.isForEmbeddedSigning, unclaimedDraftCreateEmbeddedWithTemplateRequest.isForEmbeddedSigning) &&
-        Objects.equals(this.message, unclaimedDraftCreateEmbeddedWithTemplateRequest.message) &&
-        Objects.equals(this.metadata, unclaimedDraftCreateEmbeddedWithTemplateRequest.metadata) &&
-        Objects.equals(this.previewOnly, unclaimedDraftCreateEmbeddedWithTemplateRequest.previewOnly) &&
-        Objects.equals(this.requestingRedirectUrl, unclaimedDraftCreateEmbeddedWithTemplateRequest.requestingRedirectUrl) &&
-        Objects.equals(this.showPreview, unclaimedDraftCreateEmbeddedWithTemplateRequest.showPreview) &&
-        Objects.equals(this.showProgressStepper, unclaimedDraftCreateEmbeddedWithTemplateRequest.showProgressStepper) &&
-        Objects.equals(this.signers, unclaimedDraftCreateEmbeddedWithTemplateRequest.signers) &&
-        Objects.equals(this.signingOptions, unclaimedDraftCreateEmbeddedWithTemplateRequest.signingOptions) &&
-        Objects.equals(this.signingRedirectUrl, unclaimedDraftCreateEmbeddedWithTemplateRequest.signingRedirectUrl) &&
-        Objects.equals(this.skipMeNow, unclaimedDraftCreateEmbeddedWithTemplateRequest.skipMeNow) &&
-        Objects.equals(this.subject, unclaimedDraftCreateEmbeddedWithTemplateRequest.subject) &&
-        Objects.equals(this.testMode, unclaimedDraftCreateEmbeddedWithTemplateRequest.testMode) &&
-        Objects.equals(this.title, unclaimedDraftCreateEmbeddedWithTemplateRequest.title) &&
-        Objects.equals(this.populateAutoFillFields, unclaimedDraftCreateEmbeddedWithTemplateRequest.populateAutoFillFields) &&
-        Objects.equals(this.allowCcs, unclaimedDraftCreateEmbeddedWithTemplateRequest.allowCcs);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(clientId, requesterEmailAddress, templateIds, allowDecline, allowReassign, ccs, customFields, editorOptions, fieldOptions, files, fileUrls, forceSignerRoles, forceSubjectMessage, holdRequest, isForEmbeddedSigning, message, metadata, previewOnly, requestingRedirectUrl, showPreview, showProgressStepper, signers, signingOptions, signingRedirectUrl, skipMeNow, subject, testMode, title, populateAutoFillFields, allowCcs);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class UnclaimedDraftCreateEmbeddedWithTemplateRequest {\n");
-    sb.append("    clientId: ").append(toIndentedString(clientId)).append("\n");
-    sb.append("    requesterEmailAddress: ").append(toIndentedString(requesterEmailAddress)).append("\n");
-    sb.append("    templateIds: ").append(toIndentedString(templateIds)).append("\n");
-    sb.append("    allowDecline: ").append(toIndentedString(allowDecline)).append("\n");
-    sb.append("    allowReassign: ").append(toIndentedString(allowReassign)).append("\n");
-    sb.append("    ccs: ").append(toIndentedString(ccs)).append("\n");
-    sb.append("    customFields: ").append(toIndentedString(customFields)).append("\n");
-    sb.append("    editorOptions: ").append(toIndentedString(editorOptions)).append("\n");
-    sb.append("    fieldOptions: ").append(toIndentedString(fieldOptions)).append("\n");
-    sb.append("    files: ").append(toIndentedString(files)).append("\n");
-    sb.append("    fileUrls: ").append(toIndentedString(fileUrls)).append("\n");
-    sb.append("    forceSignerRoles: ").append(toIndentedString(forceSignerRoles)).append("\n");
-    sb.append("    forceSubjectMessage: ").append(toIndentedString(forceSubjectMessage)).append("\n");
-    sb.append("    holdRequest: ").append(toIndentedString(holdRequest)).append("\n");
-    sb.append("    isForEmbeddedSigning: ").append(toIndentedString(isForEmbeddedSigning)).append("\n");
-    sb.append("    message: ").append(toIndentedString(message)).append("\n");
-    sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
-    sb.append("    previewOnly: ").append(toIndentedString(previewOnly)).append("\n");
-    sb.append("    requestingRedirectUrl: ").append(toIndentedString(requestingRedirectUrl)).append("\n");
-    sb.append("    showPreview: ").append(toIndentedString(showPreview)).append("\n");
-    sb.append("    showProgressStepper: ").append(toIndentedString(showProgressStepper)).append("\n");
-    sb.append("    signers: ").append(toIndentedString(signers)).append("\n");
-    sb.append("    signingOptions: ").append(toIndentedString(signingOptions)).append("\n");
-    sb.append("    signingRedirectUrl: ").append(toIndentedString(signingRedirectUrl)).append("\n");
-    sb.append("    skipMeNow: ").append(toIndentedString(skipMeNow)).append("\n");
-    sb.append("    subject: ").append(toIndentedString(subject)).append("\n");
-    sb.append("    testMode: ").append(toIndentedString(testMode)).append("\n");
-    sb.append("    title: ").append(toIndentedString(title)).append("\n");
-    sb.append("    populateAutoFillFields: ").append(toIndentedString(populateAutoFillFields)).append("\n");
-    sb.append("    allowCcs: ").append(toIndentedString(allowCcs)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  public Map<String, Object> createFormData() throws ApiException {
-    Map<String, Object> map = new HashMap<>();
-    boolean fileTypeFound = false;
-    try {
-    if (clientId != null) {
-        if (isFileTypeOrListOfFiles(clientId)) {
-            fileTypeFound = true;
+    public UnclaimedDraftCreateEmbeddedWithTemplateRequest addTemplateIdsItem(
+            String templateIdsItem) {
+        if (this.templateIds == null) {
+            this.templateIds = new ArrayList<>();
         }
+        this.templateIds.add(templateIdsItem);
+        return this;
+    }
 
-        if (clientId.getClass().equals(java.io.File.class) ||
-            clientId.getClass().equals(Integer.class) ||
-            clientId.getClass().equals(String.class) ||
-            clientId.getClass().isEnum()) {
-            map.put("client_id", clientId);
-        } else if (isListOfFile(clientId)) {
-            for(int i = 0; i< getListSize(clientId); i++) {
-                map.put("client_id[" + i + "]", getFromList(clientId, i));
+    /**
+     * Use &#x60;template_ids&#x60; to create a SignatureRequest from one or more templates, in the
+     * order in which the templates will be used.
+     *
+     * @return templateIds
+     */
+    @javax.annotation.Nonnull
+    @JsonProperty(JSON_PROPERTY_TEMPLATE_IDS)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    public List<String> getTemplateIds() {
+        return templateIds;
+    }
+
+    @JsonProperty(JSON_PROPERTY_TEMPLATE_IDS)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    public void setTemplateIds(List<String> templateIds) {
+        this.templateIds = templateIds;
+    }
+
+    public UnclaimedDraftCreateEmbeddedWithTemplateRequest allowDecline(Boolean allowDecline) {
+        this.allowDecline = allowDecline;
+        return this;
+    }
+
+    /**
+     * Allows signers to decline to sign a document if &#x60;true&#x60;. Defaults to
+     * &#x60;false&#x60;.
+     *
+     * @return allowDecline
+     */
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_ALLOW_DECLINE)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public Boolean getAllowDecline() {
+        return allowDecline;
+    }
+
+    @JsonProperty(JSON_PROPERTY_ALLOW_DECLINE)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public void setAllowDecline(Boolean allowDecline) {
+        this.allowDecline = allowDecline;
+    }
+
+    public UnclaimedDraftCreateEmbeddedWithTemplateRequest allowReassign(Boolean allowReassign) {
+        this.allowReassign = allowReassign;
+        return this;
+    }
+
+    /**
+     * Allows signers to reassign their signature requests to other signers if set to
+     * &#x60;true&#x60;. Defaults to &#x60;false&#x60;. **NOTE:** Only available for Premium plan
+     * and higher.
+     *
+     * @return allowReassign
+     */
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_ALLOW_REASSIGN)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public Boolean getAllowReassign() {
+        return allowReassign;
+    }
+
+    @JsonProperty(JSON_PROPERTY_ALLOW_REASSIGN)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public void setAllowReassign(Boolean allowReassign) {
+        this.allowReassign = allowReassign;
+    }
+
+    public UnclaimedDraftCreateEmbeddedWithTemplateRequest ccs(List<SubCC> ccs) {
+        this.ccs = ccs;
+        return this;
+    }
+
+    public UnclaimedDraftCreateEmbeddedWithTemplateRequest addCcsItem(SubCC ccsItem) {
+        if (this.ccs == null) {
+            this.ccs = new ArrayList<>();
+        }
+        this.ccs.add(ccsItem);
+        return this;
+    }
+
+    /**
+     * Add CC email recipients. Required when a CC role exists for the Template.
+     *
+     * @return ccs
+     */
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_CCS)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public List<SubCC> getCcs() {
+        return ccs;
+    }
+
+    @JsonProperty(JSON_PROPERTY_CCS)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public void setCcs(List<SubCC> ccs) {
+        this.ccs = ccs;
+    }
+
+    public UnclaimedDraftCreateEmbeddedWithTemplateRequest customFields(
+            List<SubCustomField> customFields) {
+        this.customFields = customFields;
+        return this;
+    }
+
+    public UnclaimedDraftCreateEmbeddedWithTemplateRequest addCustomFieldsItem(
+            SubCustomField customFieldsItem) {
+        if (this.customFields == null) {
+            this.customFields = new ArrayList<>();
+        }
+        this.customFields.add(customFieldsItem);
+        return this;
+    }
+
+    /**
+     * An array defining values and options for custom fields. Required when a custom field exists
+     * in the Template.
+     *
+     * @return customFields
+     */
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_CUSTOM_FIELDS)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public List<SubCustomField> getCustomFields() {
+        return customFields;
+    }
+
+    @JsonProperty(JSON_PROPERTY_CUSTOM_FIELDS)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public void setCustomFields(List<SubCustomField> customFields) {
+        this.customFields = customFields;
+    }
+
+    public UnclaimedDraftCreateEmbeddedWithTemplateRequest editorOptions(
+            SubEditorOptions editorOptions) {
+        this.editorOptions = editorOptions;
+        return this;
+    }
+
+    /**
+     * Get editorOptions
+     *
+     * @return editorOptions
+     */
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_EDITOR_OPTIONS)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public SubEditorOptions getEditorOptions() {
+        return editorOptions;
+    }
+
+    @JsonProperty(JSON_PROPERTY_EDITOR_OPTIONS)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public void setEditorOptions(SubEditorOptions editorOptions) {
+        this.editorOptions = editorOptions;
+    }
+
+    public UnclaimedDraftCreateEmbeddedWithTemplateRequest fieldOptions(
+            SubFieldOptions fieldOptions) {
+        this.fieldOptions = fieldOptions;
+        return this;
+    }
+
+    /**
+     * Get fieldOptions
+     *
+     * @return fieldOptions
+     */
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_FIELD_OPTIONS)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public SubFieldOptions getFieldOptions() {
+        return fieldOptions;
+    }
+
+    @JsonProperty(JSON_PROPERTY_FIELD_OPTIONS)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public void setFieldOptions(SubFieldOptions fieldOptions) {
+        this.fieldOptions = fieldOptions;
+    }
+
+    public UnclaimedDraftCreateEmbeddedWithTemplateRequest files(List<File> files) {
+        this.files = files;
+        return this;
+    }
+
+    public UnclaimedDraftCreateEmbeddedWithTemplateRequest addFilesItem(File filesItem) {
+        if (this.files == null) {
+            this.files = new ArrayList<>();
+        }
+        this.files.add(filesItem);
+        return this;
+    }
+
+    /**
+     * Use &#x60;files[]&#x60; to append additional files to the signature request being created
+     * from the template. Dropbox Sign will parse the files for [text
+     * tags](https://app.hellosign.com/api/textTagsWalkthrough) and append it to the signature
+     * request. Text tags for signers not on the template(s) will be ignored. **files** or
+     * **file_urls[]** is required, but not both.
+     *
+     * @return files
+     */
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_FILES)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public List<File> getFiles() {
+        return files;
+    }
+
+    @JsonProperty(JSON_PROPERTY_FILES)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public void setFiles(List<File> files) {
+        this.files = files;
+    }
+
+    public UnclaimedDraftCreateEmbeddedWithTemplateRequest fileUrls(List<String> fileUrls) {
+        this.fileUrls = fileUrls;
+        return this;
+    }
+
+    public UnclaimedDraftCreateEmbeddedWithTemplateRequest addFileUrlsItem(String fileUrlsItem) {
+        if (this.fileUrls == null) {
+            this.fileUrls = new ArrayList<>();
+        }
+        this.fileUrls.add(fileUrlsItem);
+        return this;
+    }
+
+    /**
+     * Use file_urls[] to append additional files to the signature request being created from the
+     * template. Dropbox Sign will download the file, then parse it for [text
+     * tags](https://app.hellosign.com/api/textTagsWalkthrough), and append to the signature
+     * request. Text tags for signers not on the template(s) will be ignored. **files** or
+     * **file_urls[]** is required, but not both.
+     *
+     * @return fileUrls
+     */
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_FILE_URLS)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public List<String> getFileUrls() {
+        return fileUrls;
+    }
+
+    @JsonProperty(JSON_PROPERTY_FILE_URLS)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public void setFileUrls(List<String> fileUrls) {
+        this.fileUrls = fileUrls;
+    }
+
+    public UnclaimedDraftCreateEmbeddedWithTemplateRequest forceSignerRoles(
+            Boolean forceSignerRoles) {
+        this.forceSignerRoles = forceSignerRoles;
+        return this;
+    }
+
+    /**
+     * Provide users the ability to review/edit the template signer roles.
+     *
+     * @return forceSignerRoles
+     */
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_FORCE_SIGNER_ROLES)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public Boolean getForceSignerRoles() {
+        return forceSignerRoles;
+    }
+
+    @JsonProperty(JSON_PROPERTY_FORCE_SIGNER_ROLES)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public void setForceSignerRoles(Boolean forceSignerRoles) {
+        this.forceSignerRoles = forceSignerRoles;
+    }
+
+    public UnclaimedDraftCreateEmbeddedWithTemplateRequest forceSubjectMessage(
+            Boolean forceSubjectMessage) {
+        this.forceSubjectMessage = forceSubjectMessage;
+        return this;
+    }
+
+    /**
+     * Provide users the ability to review/edit the template subject and message.
+     *
+     * @return forceSubjectMessage
+     */
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_FORCE_SUBJECT_MESSAGE)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public Boolean getForceSubjectMessage() {
+        return forceSubjectMessage;
+    }
+
+    @JsonProperty(JSON_PROPERTY_FORCE_SUBJECT_MESSAGE)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public void setForceSubjectMessage(Boolean forceSubjectMessage) {
+        this.forceSubjectMessage = forceSubjectMessage;
+    }
+
+    public UnclaimedDraftCreateEmbeddedWithTemplateRequest holdRequest(Boolean holdRequest) {
+        this.holdRequest = holdRequest;
+        return this;
+    }
+
+    /**
+     * The request from this draft will not automatically send to signers post-claim if set to 1.
+     * Requester must [release](/api/reference/operation/signatureRequestReleaseHold/) the request
+     * from hold when ready to send. Defaults to &#x60;false&#x60;.
+     *
+     * @return holdRequest
+     */
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_HOLD_REQUEST)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public Boolean getHoldRequest() {
+        return holdRequest;
+    }
+
+    @JsonProperty(JSON_PROPERTY_HOLD_REQUEST)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public void setHoldRequest(Boolean holdRequest) {
+        this.holdRequest = holdRequest;
+    }
+
+    public UnclaimedDraftCreateEmbeddedWithTemplateRequest isForEmbeddedSigning(
+            Boolean isForEmbeddedSigning) {
+        this.isForEmbeddedSigning = isForEmbeddedSigning;
+        return this;
+    }
+
+    /**
+     * The request created from this draft will also be signable in embedded mode if set to
+     * &#x60;true&#x60;. Defaults to &#x60;false&#x60;.
+     *
+     * @return isForEmbeddedSigning
+     */
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_IS_FOR_EMBEDDED_SIGNING)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public Boolean getIsForEmbeddedSigning() {
+        return isForEmbeddedSigning;
+    }
+
+    @JsonProperty(JSON_PROPERTY_IS_FOR_EMBEDDED_SIGNING)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public void setIsForEmbeddedSigning(Boolean isForEmbeddedSigning) {
+        this.isForEmbeddedSigning = isForEmbeddedSigning;
+    }
+
+    public UnclaimedDraftCreateEmbeddedWithTemplateRequest message(String message) {
+        this.message = message;
+        return this;
+    }
+
+    /**
+     * The custom message in the email that will be sent to the signers.
+     *
+     * @return message
+     */
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_MESSAGE)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public String getMessage() {
+        return message;
+    }
+
+    @JsonProperty(JSON_PROPERTY_MESSAGE)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public UnclaimedDraftCreateEmbeddedWithTemplateRequest metadata(Map<String, Object> metadata) {
+        this.metadata = metadata;
+        return this;
+    }
+
+    public UnclaimedDraftCreateEmbeddedWithTemplateRequest putMetadataItem(
+            String key, Object metadataItem) {
+        if (this.metadata == null) {
+            this.metadata = new HashMap<>();
+        }
+        this.metadata.put(key, metadataItem);
+        return this;
+    }
+
+    /**
+     * Key-value data that should be attached to the signature request. This metadata is included in
+     * all API responses and events involving the signature request. For example, use the metadata
+     * field to store a signer&#39;s order number for look up when receiving events for the
+     * signature request. Each request can include up to 10 metadata keys (or 50 nested metadata
+     * keys), with key names up to 40 characters long and values up to 1000 characters long.
+     *
+     * @return metadata
+     */
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_METADATA)
+    @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
+    public Map<String, Object> getMetadata() {
+        return metadata;
+    }
+
+    @JsonProperty(JSON_PROPERTY_METADATA)
+    @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
+    public void setMetadata(Map<String, Object> metadata) {
+        this.metadata = metadata;
+    }
+
+    public UnclaimedDraftCreateEmbeddedWithTemplateRequest previewOnly(Boolean previewOnly) {
+        this.previewOnly = previewOnly;
+        return this;
+    }
+
+    /**
+     * This allows the requester to enable the preview experience (i.e. does not allow the
+     * requester&#39;s end user to add any additional fields via the editor). -
+     * &#x60;preview_only&#x3D;true&#x60;: Allows requesters to enable the preview only experience.
+     * - &#x60;preview_only&#x3D;false&#x60;: Allows requesters to disable the preview only
+     * experience. **NOTE:** This parameter overwrites &#x60;show_preview&#x3D;1&#x60; (if set).
+     *
+     * @return previewOnly
+     */
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_PREVIEW_ONLY)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public Boolean getPreviewOnly() {
+        return previewOnly;
+    }
+
+    @JsonProperty(JSON_PROPERTY_PREVIEW_ONLY)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public void setPreviewOnly(Boolean previewOnly) {
+        this.previewOnly = previewOnly;
+    }
+
+    public UnclaimedDraftCreateEmbeddedWithTemplateRequest requestingRedirectUrl(
+            String requestingRedirectUrl) {
+        this.requestingRedirectUrl = requestingRedirectUrl;
+        return this;
+    }
+
+    /**
+     * The URL you want signers redirected to after they successfully request a signature.
+     *
+     * @return requestingRedirectUrl
+     */
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_REQUESTING_REDIRECT_URL)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public String getRequestingRedirectUrl() {
+        return requestingRedirectUrl;
+    }
+
+    @JsonProperty(JSON_PROPERTY_REQUESTING_REDIRECT_URL)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public void setRequestingRedirectUrl(String requestingRedirectUrl) {
+        this.requestingRedirectUrl = requestingRedirectUrl;
+    }
+
+    public UnclaimedDraftCreateEmbeddedWithTemplateRequest showPreview(Boolean showPreview) {
+        this.showPreview = showPreview;
+        return this;
+    }
+
+    /**
+     * This allows the requester to enable the editor/preview experience. -
+     * &#x60;show_preview&#x3D;true&#x60;: Allows requesters to enable the editor/preview
+     * experience. - &#x60;show_preview&#x3D;false&#x60;: Allows requesters to disable the
+     * editor/preview experience.
+     *
+     * @return showPreview
+     */
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_SHOW_PREVIEW)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public Boolean getShowPreview() {
+        return showPreview;
+    }
+
+    @JsonProperty(JSON_PROPERTY_SHOW_PREVIEW)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public void setShowPreview(Boolean showPreview) {
+        this.showPreview = showPreview;
+    }
+
+    public UnclaimedDraftCreateEmbeddedWithTemplateRequest showProgressStepper(
+            Boolean showProgressStepper) {
+        this.showProgressStepper = showProgressStepper;
+        return this;
+    }
+
+    /**
+     * When only one step remains in the signature request process and this parameter is set to
+     * &#x60;false&#x60; then the progress stepper will be hidden.
+     *
+     * @return showProgressStepper
+     */
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_SHOW_PROGRESS_STEPPER)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public Boolean getShowProgressStepper() {
+        return showProgressStepper;
+    }
+
+    @JsonProperty(JSON_PROPERTY_SHOW_PROGRESS_STEPPER)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public void setShowProgressStepper(Boolean showProgressStepper) {
+        this.showProgressStepper = showProgressStepper;
+    }
+
+    public UnclaimedDraftCreateEmbeddedWithTemplateRequest signers(
+            List<SubUnclaimedDraftTemplateSigner> signers) {
+        this.signers = signers;
+        return this;
+    }
+
+    public UnclaimedDraftCreateEmbeddedWithTemplateRequest addSignersItem(
+            SubUnclaimedDraftTemplateSigner signersItem) {
+        if (this.signers == null) {
+            this.signers = new ArrayList<>();
+        }
+        this.signers.add(signersItem);
+        return this;
+    }
+
+    /**
+     * Add Signers to your Templated-based Signature Request.
+     *
+     * @return signers
+     */
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_SIGNERS)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public List<SubUnclaimedDraftTemplateSigner> getSigners() {
+        return signers;
+    }
+
+    @JsonProperty(JSON_PROPERTY_SIGNERS)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public void setSigners(List<SubUnclaimedDraftTemplateSigner> signers) {
+        this.signers = signers;
+    }
+
+    public UnclaimedDraftCreateEmbeddedWithTemplateRequest signingOptions(
+            SubSigningOptions signingOptions) {
+        this.signingOptions = signingOptions;
+        return this;
+    }
+
+    /**
+     * Get signingOptions
+     *
+     * @return signingOptions
+     */
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_SIGNING_OPTIONS)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public SubSigningOptions getSigningOptions() {
+        return signingOptions;
+    }
+
+    @JsonProperty(JSON_PROPERTY_SIGNING_OPTIONS)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public void setSigningOptions(SubSigningOptions signingOptions) {
+        this.signingOptions = signingOptions;
+    }
+
+    public UnclaimedDraftCreateEmbeddedWithTemplateRequest signingRedirectUrl(
+            String signingRedirectUrl) {
+        this.signingRedirectUrl = signingRedirectUrl;
+        return this;
+    }
+
+    /**
+     * The URL you want signers redirected to after they successfully sign.
+     *
+     * @return signingRedirectUrl
+     */
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_SIGNING_REDIRECT_URL)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public String getSigningRedirectUrl() {
+        return signingRedirectUrl;
+    }
+
+    @JsonProperty(JSON_PROPERTY_SIGNING_REDIRECT_URL)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public void setSigningRedirectUrl(String signingRedirectUrl) {
+        this.signingRedirectUrl = signingRedirectUrl;
+    }
+
+    public UnclaimedDraftCreateEmbeddedWithTemplateRequest skipMeNow(Boolean skipMeNow) {
+        this.skipMeNow = skipMeNow;
+        return this;
+    }
+
+    /**
+     * Disables the \&quot;Me (Now)\&quot; option for the person preparing the document. Does not
+     * work with type &#x60;send_document&#x60;. Defaults to &#x60;false&#x60;.
+     *
+     * @return skipMeNow
+     */
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_SKIP_ME_NOW)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public Boolean getSkipMeNow() {
+        return skipMeNow;
+    }
+
+    @JsonProperty(JSON_PROPERTY_SKIP_ME_NOW)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public void setSkipMeNow(Boolean skipMeNow) {
+        this.skipMeNow = skipMeNow;
+    }
+
+    public UnclaimedDraftCreateEmbeddedWithTemplateRequest subject(String subject) {
+        this.subject = subject;
+        return this;
+    }
+
+    /**
+     * The subject in the email that will be sent to the signers.
+     *
+     * @return subject
+     */
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_SUBJECT)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public String getSubject() {
+        return subject;
+    }
+
+    @JsonProperty(JSON_PROPERTY_SUBJECT)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public void setSubject(String subject) {
+        this.subject = subject;
+    }
+
+    public UnclaimedDraftCreateEmbeddedWithTemplateRequest testMode(Boolean testMode) {
+        this.testMode = testMode;
+        return this;
+    }
+
+    /**
+     * Whether this is a test, the signature request created from this draft will not be legally
+     * binding if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.
+     *
+     * @return testMode
+     */
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_TEST_MODE)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public Boolean getTestMode() {
+        return testMode;
+    }
+
+    @JsonProperty(JSON_PROPERTY_TEST_MODE)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public void setTestMode(Boolean testMode) {
+        this.testMode = testMode;
+    }
+
+    public UnclaimedDraftCreateEmbeddedWithTemplateRequest title(String title) {
+        this.title = title;
+        return this;
+    }
+
+    /**
+     * The title you want to assign to the SignatureRequest.
+     *
+     * @return title
+     */
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_TITLE)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public String getTitle() {
+        return title;
+    }
+
+    @JsonProperty(JSON_PROPERTY_TITLE)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public UnclaimedDraftCreateEmbeddedWithTemplateRequest populateAutoFillFields(
+            Boolean populateAutoFillFields) {
+        this.populateAutoFillFields = populateAutoFillFields;
+        return this;
+    }
+
+    /**
+     * Controls whether [auto fill
+     * fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can
+     * automatically populate a signer&#39;s information during signing. **NOTE:** Keep your
+     * signer&#39;s information safe by ensuring that the _signer on your signature request is the
+     * intended party_ before using this feature.
+     *
+     * @return populateAutoFillFields
+     */
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_POPULATE_AUTO_FILL_FIELDS)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public Boolean getPopulateAutoFillFields() {
+        return populateAutoFillFields;
+    }
+
+    @JsonProperty(JSON_PROPERTY_POPULATE_AUTO_FILL_FIELDS)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public void setPopulateAutoFillFields(Boolean populateAutoFillFields) {
+        this.populateAutoFillFields = populateAutoFillFields;
+    }
+
+    public UnclaimedDraftCreateEmbeddedWithTemplateRequest allowCcs(Boolean allowCcs) {
+        this.allowCcs = allowCcs;
+        return this;
+    }
+
+    /**
+     * This allows the requester to specify whether the user is allowed to provide email addresses
+     * to CC when claiming the draft.
+     *
+     * @return allowCcs
+     */
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_ALLOW_CCS)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public Boolean getAllowCcs() {
+        return allowCcs;
+    }
+
+    @JsonProperty(JSON_PROPERTY_ALLOW_CCS)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public void setAllowCcs(Boolean allowCcs) {
+        this.allowCcs = allowCcs;
+    }
+
+    /** Return true if this UnclaimedDraftCreateEmbeddedWithTemplateRequest object is equal to o. */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        UnclaimedDraftCreateEmbeddedWithTemplateRequest
+                unclaimedDraftCreateEmbeddedWithTemplateRequest =
+                        (UnclaimedDraftCreateEmbeddedWithTemplateRequest) o;
+        return Objects.equals(
+                        this.clientId, unclaimedDraftCreateEmbeddedWithTemplateRequest.clientId)
+                && Objects.equals(
+                        this.requesterEmailAddress,
+                        unclaimedDraftCreateEmbeddedWithTemplateRequest.requesterEmailAddress)
+                && Objects.equals(
+                        this.templateIds,
+                        unclaimedDraftCreateEmbeddedWithTemplateRequest.templateIds)
+                && Objects.equals(
+                        this.allowDecline,
+                        unclaimedDraftCreateEmbeddedWithTemplateRequest.allowDecline)
+                && Objects.equals(
+                        this.allowReassign,
+                        unclaimedDraftCreateEmbeddedWithTemplateRequest.allowReassign)
+                && Objects.equals(this.ccs, unclaimedDraftCreateEmbeddedWithTemplateRequest.ccs)
+                && Objects.equals(
+                        this.customFields,
+                        unclaimedDraftCreateEmbeddedWithTemplateRequest.customFields)
+                && Objects.equals(
+                        this.editorOptions,
+                        unclaimedDraftCreateEmbeddedWithTemplateRequest.editorOptions)
+                && Objects.equals(
+                        this.fieldOptions,
+                        unclaimedDraftCreateEmbeddedWithTemplateRequest.fieldOptions)
+                && Objects.equals(this.files, unclaimedDraftCreateEmbeddedWithTemplateRequest.files)
+                && Objects.equals(
+                        this.fileUrls, unclaimedDraftCreateEmbeddedWithTemplateRequest.fileUrls)
+                && Objects.equals(
+                        this.forceSignerRoles,
+                        unclaimedDraftCreateEmbeddedWithTemplateRequest.forceSignerRoles)
+                && Objects.equals(
+                        this.forceSubjectMessage,
+                        unclaimedDraftCreateEmbeddedWithTemplateRequest.forceSubjectMessage)
+                && Objects.equals(
+                        this.holdRequest,
+                        unclaimedDraftCreateEmbeddedWithTemplateRequest.holdRequest)
+                && Objects.equals(
+                        this.isForEmbeddedSigning,
+                        unclaimedDraftCreateEmbeddedWithTemplateRequest.isForEmbeddedSigning)
+                && Objects.equals(
+                        this.message, unclaimedDraftCreateEmbeddedWithTemplateRequest.message)
+                && Objects.equals(
+                        this.metadata, unclaimedDraftCreateEmbeddedWithTemplateRequest.metadata)
+                && Objects.equals(
+                        this.previewOnly,
+                        unclaimedDraftCreateEmbeddedWithTemplateRequest.previewOnly)
+                && Objects.equals(
+                        this.requestingRedirectUrl,
+                        unclaimedDraftCreateEmbeddedWithTemplateRequest.requestingRedirectUrl)
+                && Objects.equals(
+                        this.showPreview,
+                        unclaimedDraftCreateEmbeddedWithTemplateRequest.showPreview)
+                && Objects.equals(
+                        this.showProgressStepper,
+                        unclaimedDraftCreateEmbeddedWithTemplateRequest.showProgressStepper)
+                && Objects.equals(
+                        this.signers, unclaimedDraftCreateEmbeddedWithTemplateRequest.signers)
+                && Objects.equals(
+                        this.signingOptions,
+                        unclaimedDraftCreateEmbeddedWithTemplateRequest.signingOptions)
+                && Objects.equals(
+                        this.signingRedirectUrl,
+                        unclaimedDraftCreateEmbeddedWithTemplateRequest.signingRedirectUrl)
+                && Objects.equals(
+                        this.skipMeNow, unclaimedDraftCreateEmbeddedWithTemplateRequest.skipMeNow)
+                && Objects.equals(
+                        this.subject, unclaimedDraftCreateEmbeddedWithTemplateRequest.subject)
+                && Objects.equals(
+                        this.testMode, unclaimedDraftCreateEmbeddedWithTemplateRequest.testMode)
+                && Objects.equals(this.title, unclaimedDraftCreateEmbeddedWithTemplateRequest.title)
+                && Objects.equals(
+                        this.populateAutoFillFields,
+                        unclaimedDraftCreateEmbeddedWithTemplateRequest.populateAutoFillFields)
+                && Objects.equals(
+                        this.allowCcs, unclaimedDraftCreateEmbeddedWithTemplateRequest.allowCcs);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+                clientId,
+                requesterEmailAddress,
+                templateIds,
+                allowDecline,
+                allowReassign,
+                ccs,
+                customFields,
+                editorOptions,
+                fieldOptions,
+                files,
+                fileUrls,
+                forceSignerRoles,
+                forceSubjectMessage,
+                holdRequest,
+                isForEmbeddedSigning,
+                message,
+                metadata,
+                previewOnly,
+                requestingRedirectUrl,
+                showPreview,
+                showProgressStepper,
+                signers,
+                signingOptions,
+                signingRedirectUrl,
+                skipMeNow,
+                subject,
+                testMode,
+                title,
+                populateAutoFillFields,
+                allowCcs);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class UnclaimedDraftCreateEmbeddedWithTemplateRequest {\n");
+        sb.append("    clientId: ").append(toIndentedString(clientId)).append("\n");
+        sb.append("    requesterEmailAddress: ")
+                .append(toIndentedString(requesterEmailAddress))
+                .append("\n");
+        sb.append("    templateIds: ").append(toIndentedString(templateIds)).append("\n");
+        sb.append("    allowDecline: ").append(toIndentedString(allowDecline)).append("\n");
+        sb.append("    allowReassign: ").append(toIndentedString(allowReassign)).append("\n");
+        sb.append("    ccs: ").append(toIndentedString(ccs)).append("\n");
+        sb.append("    customFields: ").append(toIndentedString(customFields)).append("\n");
+        sb.append("    editorOptions: ").append(toIndentedString(editorOptions)).append("\n");
+        sb.append("    fieldOptions: ").append(toIndentedString(fieldOptions)).append("\n");
+        sb.append("    files: ").append(toIndentedString(files)).append("\n");
+        sb.append("    fileUrls: ").append(toIndentedString(fileUrls)).append("\n");
+        sb.append("    forceSignerRoles: ").append(toIndentedString(forceSignerRoles)).append("\n");
+        sb.append("    forceSubjectMessage: ")
+                .append(toIndentedString(forceSubjectMessage))
+                .append("\n");
+        sb.append("    holdRequest: ").append(toIndentedString(holdRequest)).append("\n");
+        sb.append("    isForEmbeddedSigning: ")
+                .append(toIndentedString(isForEmbeddedSigning))
+                .append("\n");
+        sb.append("    message: ").append(toIndentedString(message)).append("\n");
+        sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
+        sb.append("    previewOnly: ").append(toIndentedString(previewOnly)).append("\n");
+        sb.append("    requestingRedirectUrl: ")
+                .append(toIndentedString(requestingRedirectUrl))
+                .append("\n");
+        sb.append("    showPreview: ").append(toIndentedString(showPreview)).append("\n");
+        sb.append("    showProgressStepper: ")
+                .append(toIndentedString(showProgressStepper))
+                .append("\n");
+        sb.append("    signers: ").append(toIndentedString(signers)).append("\n");
+        sb.append("    signingOptions: ").append(toIndentedString(signingOptions)).append("\n");
+        sb.append("    signingRedirectUrl: ")
+                .append(toIndentedString(signingRedirectUrl))
+                .append("\n");
+        sb.append("    skipMeNow: ").append(toIndentedString(skipMeNow)).append("\n");
+        sb.append("    subject: ").append(toIndentedString(subject)).append("\n");
+        sb.append("    testMode: ").append(toIndentedString(testMode)).append("\n");
+        sb.append("    title: ").append(toIndentedString(title)).append("\n");
+        sb.append("    populateAutoFillFields: ")
+                .append(toIndentedString(populateAutoFillFields))
+                .append("\n");
+        sb.append("    allowCcs: ").append(toIndentedString(allowCcs)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    public Map<String, Object> createFormData() throws ApiException {
+        Map<String, Object> map = new HashMap<>();
+        boolean fileTypeFound = false;
+        try {
+            if (clientId != null) {
+                if (isFileTypeOrListOfFiles(clientId)) {
+                    fileTypeFound = true;
+                }
+
+                if (clientId.getClass().equals(java.io.File.class)
+                        || clientId.getClass().equals(Integer.class)
+                        || clientId.getClass().equals(String.class)
+                        || clientId.getClass().isEnum()) {
+                    map.put("client_id", clientId);
+                } else if (isListOfFile(clientId)) {
+                    for (int i = 0; i < getListSize(clientId); i++) {
+                        map.put("client_id[" + i + "]", getFromList(clientId, i));
+                    }
+                } else {
+                    map.put(
+                            "client_id",
+                            JSON.getDefault().getMapper().writeValueAsString(clientId));
+                }
             }
-        }
-        else {
-            map.put("client_id", JSON.getDefault().getMapper().writeValueAsString(clientId));
-        }
-    }
-    if (requesterEmailAddress != null) {
-        if (isFileTypeOrListOfFiles(requesterEmailAddress)) {
-            fileTypeFound = true;
-        }
+            if (requesterEmailAddress != null) {
+                if (isFileTypeOrListOfFiles(requesterEmailAddress)) {
+                    fileTypeFound = true;
+                }
 
-        if (requesterEmailAddress.getClass().equals(java.io.File.class) ||
-            requesterEmailAddress.getClass().equals(Integer.class) ||
-            requesterEmailAddress.getClass().equals(String.class) ||
-            requesterEmailAddress.getClass().isEnum()) {
-            map.put("requester_email_address", requesterEmailAddress);
-        } else if (isListOfFile(requesterEmailAddress)) {
-            for(int i = 0; i< getListSize(requesterEmailAddress); i++) {
-                map.put("requester_email_address[" + i + "]", getFromList(requesterEmailAddress, i));
+                if (requesterEmailAddress.getClass().equals(java.io.File.class)
+                        || requesterEmailAddress.getClass().equals(Integer.class)
+                        || requesterEmailAddress.getClass().equals(String.class)
+                        || requesterEmailAddress.getClass().isEnum()) {
+                    map.put("requester_email_address", requesterEmailAddress);
+                } else if (isListOfFile(requesterEmailAddress)) {
+                    for (int i = 0; i < getListSize(requesterEmailAddress); i++) {
+                        map.put(
+                                "requester_email_address[" + i + "]",
+                                getFromList(requesterEmailAddress, i));
+                    }
+                } else {
+                    map.put(
+                            "requester_email_address",
+                            JSON.getDefault()
+                                    .getMapper()
+                                    .writeValueAsString(requesterEmailAddress));
+                }
             }
-        }
-        else {
-            map.put("requester_email_address", JSON.getDefault().getMapper().writeValueAsString(requesterEmailAddress));
-        }
-    }
-    if (templateIds != null) {
-        if (isFileTypeOrListOfFiles(templateIds)) {
-            fileTypeFound = true;
-        }
+            if (templateIds != null) {
+                if (isFileTypeOrListOfFiles(templateIds)) {
+                    fileTypeFound = true;
+                }
 
-        if (templateIds.getClass().equals(java.io.File.class) ||
-            templateIds.getClass().equals(Integer.class) ||
-            templateIds.getClass().equals(String.class) ||
-            templateIds.getClass().isEnum()) {
-            map.put("template_ids", templateIds);
-        } else if (isListOfFile(templateIds)) {
-            for(int i = 0; i< getListSize(templateIds); i++) {
-                map.put("template_ids[" + i + "]", getFromList(templateIds, i));
+                if (templateIds.getClass().equals(java.io.File.class)
+                        || templateIds.getClass().equals(Integer.class)
+                        || templateIds.getClass().equals(String.class)
+                        || templateIds.getClass().isEnum()) {
+                    map.put("template_ids", templateIds);
+                } else if (isListOfFile(templateIds)) {
+                    for (int i = 0; i < getListSize(templateIds); i++) {
+                        map.put("template_ids[" + i + "]", getFromList(templateIds, i));
+                    }
+                } else {
+                    map.put(
+                            "template_ids",
+                            JSON.getDefault().getMapper().writeValueAsString(templateIds));
+                }
             }
-        }
-        else {
-            map.put("template_ids", JSON.getDefault().getMapper().writeValueAsString(templateIds));
-        }
-    }
-    if (allowDecline != null) {
-        if (isFileTypeOrListOfFiles(allowDecline)) {
-            fileTypeFound = true;
-        }
+            if (allowDecline != null) {
+                if (isFileTypeOrListOfFiles(allowDecline)) {
+                    fileTypeFound = true;
+                }
 
-        if (allowDecline.getClass().equals(java.io.File.class) ||
-            allowDecline.getClass().equals(Integer.class) ||
-            allowDecline.getClass().equals(String.class) ||
-            allowDecline.getClass().isEnum()) {
-            map.put("allow_decline", allowDecline);
-        } else if (isListOfFile(allowDecline)) {
-            for(int i = 0; i< getListSize(allowDecline); i++) {
-                map.put("allow_decline[" + i + "]", getFromList(allowDecline, i));
+                if (allowDecline.getClass().equals(java.io.File.class)
+                        || allowDecline.getClass().equals(Integer.class)
+                        || allowDecline.getClass().equals(String.class)
+                        || allowDecline.getClass().isEnum()) {
+                    map.put("allow_decline", allowDecline);
+                } else if (isListOfFile(allowDecline)) {
+                    for (int i = 0; i < getListSize(allowDecline); i++) {
+                        map.put("allow_decline[" + i + "]", getFromList(allowDecline, i));
+                    }
+                } else {
+                    map.put(
+                            "allow_decline",
+                            JSON.getDefault().getMapper().writeValueAsString(allowDecline));
+                }
             }
-        }
-        else {
-            map.put("allow_decline", JSON.getDefault().getMapper().writeValueAsString(allowDecline));
-        }
-    }
-    if (allowReassign != null) {
-        if (isFileTypeOrListOfFiles(allowReassign)) {
-            fileTypeFound = true;
-        }
+            if (allowReassign != null) {
+                if (isFileTypeOrListOfFiles(allowReassign)) {
+                    fileTypeFound = true;
+                }
 
-        if (allowReassign.getClass().equals(java.io.File.class) ||
-            allowReassign.getClass().equals(Integer.class) ||
-            allowReassign.getClass().equals(String.class) ||
-            allowReassign.getClass().isEnum()) {
-            map.put("allow_reassign", allowReassign);
-        } else if (isListOfFile(allowReassign)) {
-            for(int i = 0; i< getListSize(allowReassign); i++) {
-                map.put("allow_reassign[" + i + "]", getFromList(allowReassign, i));
+                if (allowReassign.getClass().equals(java.io.File.class)
+                        || allowReassign.getClass().equals(Integer.class)
+                        || allowReassign.getClass().equals(String.class)
+                        || allowReassign.getClass().isEnum()) {
+                    map.put("allow_reassign", allowReassign);
+                } else if (isListOfFile(allowReassign)) {
+                    for (int i = 0; i < getListSize(allowReassign); i++) {
+                        map.put("allow_reassign[" + i + "]", getFromList(allowReassign, i));
+                    }
+                } else {
+                    map.put(
+                            "allow_reassign",
+                            JSON.getDefault().getMapper().writeValueAsString(allowReassign));
+                }
             }
-        }
-        else {
-            map.put("allow_reassign", JSON.getDefault().getMapper().writeValueAsString(allowReassign));
-        }
-    }
-    if (ccs != null) {
-        if (isFileTypeOrListOfFiles(ccs)) {
-            fileTypeFound = true;
-        }
+            if (ccs != null) {
+                if (isFileTypeOrListOfFiles(ccs)) {
+                    fileTypeFound = true;
+                }
 
-        if (ccs.getClass().equals(java.io.File.class) ||
-            ccs.getClass().equals(Integer.class) ||
-            ccs.getClass().equals(String.class) ||
-            ccs.getClass().isEnum()) {
-            map.put("ccs", ccs);
-        } else if (isListOfFile(ccs)) {
-            for(int i = 0; i< getListSize(ccs); i++) {
-                map.put("ccs[" + i + "]", getFromList(ccs, i));
+                if (ccs.getClass().equals(java.io.File.class)
+                        || ccs.getClass().equals(Integer.class)
+                        || ccs.getClass().equals(String.class)
+                        || ccs.getClass().isEnum()) {
+                    map.put("ccs", ccs);
+                } else if (isListOfFile(ccs)) {
+                    for (int i = 0; i < getListSize(ccs); i++) {
+                        map.put("ccs[" + i + "]", getFromList(ccs, i));
+                    }
+                } else {
+                    map.put("ccs", JSON.getDefault().getMapper().writeValueAsString(ccs));
+                }
             }
-        }
-        else {
-            map.put("ccs", JSON.getDefault().getMapper().writeValueAsString(ccs));
-        }
-    }
-    if (customFields != null) {
-        if (isFileTypeOrListOfFiles(customFields)) {
-            fileTypeFound = true;
-        }
+            if (customFields != null) {
+                if (isFileTypeOrListOfFiles(customFields)) {
+                    fileTypeFound = true;
+                }
 
-        if (customFields.getClass().equals(java.io.File.class) ||
-            customFields.getClass().equals(Integer.class) ||
-            customFields.getClass().equals(String.class) ||
-            customFields.getClass().isEnum()) {
-            map.put("custom_fields", customFields);
-        } else if (isListOfFile(customFields)) {
-            for(int i = 0; i< getListSize(customFields); i++) {
-                map.put("custom_fields[" + i + "]", getFromList(customFields, i));
+                if (customFields.getClass().equals(java.io.File.class)
+                        || customFields.getClass().equals(Integer.class)
+                        || customFields.getClass().equals(String.class)
+                        || customFields.getClass().isEnum()) {
+                    map.put("custom_fields", customFields);
+                } else if (isListOfFile(customFields)) {
+                    for (int i = 0; i < getListSize(customFields); i++) {
+                        map.put("custom_fields[" + i + "]", getFromList(customFields, i));
+                    }
+                } else {
+                    map.put(
+                            "custom_fields",
+                            JSON.getDefault().getMapper().writeValueAsString(customFields));
+                }
             }
-        }
-        else {
-            map.put("custom_fields", JSON.getDefault().getMapper().writeValueAsString(customFields));
-        }
-    }
-    if (editorOptions != null) {
-        if (isFileTypeOrListOfFiles(editorOptions)) {
-            fileTypeFound = true;
-        }
+            if (editorOptions != null) {
+                if (isFileTypeOrListOfFiles(editorOptions)) {
+                    fileTypeFound = true;
+                }
 
-        if (editorOptions.getClass().equals(java.io.File.class) ||
-            editorOptions.getClass().equals(Integer.class) ||
-            editorOptions.getClass().equals(String.class) ||
-            editorOptions.getClass().isEnum()) {
-            map.put("editor_options", editorOptions);
-        } else if (isListOfFile(editorOptions)) {
-            for(int i = 0; i< getListSize(editorOptions); i++) {
-                map.put("editor_options[" + i + "]", getFromList(editorOptions, i));
+                if (editorOptions.getClass().equals(java.io.File.class)
+                        || editorOptions.getClass().equals(Integer.class)
+                        || editorOptions.getClass().equals(String.class)
+                        || editorOptions.getClass().isEnum()) {
+                    map.put("editor_options", editorOptions);
+                } else if (isListOfFile(editorOptions)) {
+                    for (int i = 0; i < getListSize(editorOptions); i++) {
+                        map.put("editor_options[" + i + "]", getFromList(editorOptions, i));
+                    }
+                } else {
+                    map.put(
+                            "editor_options",
+                            JSON.getDefault().getMapper().writeValueAsString(editorOptions));
+                }
             }
-        }
-        else {
-            map.put("editor_options", JSON.getDefault().getMapper().writeValueAsString(editorOptions));
-        }
-    }
-    if (fieldOptions != null) {
-        if (isFileTypeOrListOfFiles(fieldOptions)) {
-            fileTypeFound = true;
-        }
+            if (fieldOptions != null) {
+                if (isFileTypeOrListOfFiles(fieldOptions)) {
+                    fileTypeFound = true;
+                }
 
-        if (fieldOptions.getClass().equals(java.io.File.class) ||
-            fieldOptions.getClass().equals(Integer.class) ||
-            fieldOptions.getClass().equals(String.class) ||
-            fieldOptions.getClass().isEnum()) {
-            map.put("field_options", fieldOptions);
-        } else if (isListOfFile(fieldOptions)) {
-            for(int i = 0; i< getListSize(fieldOptions); i++) {
-                map.put("field_options[" + i + "]", getFromList(fieldOptions, i));
+                if (fieldOptions.getClass().equals(java.io.File.class)
+                        || fieldOptions.getClass().equals(Integer.class)
+                        || fieldOptions.getClass().equals(String.class)
+                        || fieldOptions.getClass().isEnum()) {
+                    map.put("field_options", fieldOptions);
+                } else if (isListOfFile(fieldOptions)) {
+                    for (int i = 0; i < getListSize(fieldOptions); i++) {
+                        map.put("field_options[" + i + "]", getFromList(fieldOptions, i));
+                    }
+                } else {
+                    map.put(
+                            "field_options",
+                            JSON.getDefault().getMapper().writeValueAsString(fieldOptions));
+                }
             }
-        }
-        else {
-            map.put("field_options", JSON.getDefault().getMapper().writeValueAsString(fieldOptions));
-        }
-    }
-    if (files != null) {
-        if (isFileTypeOrListOfFiles(files)) {
-            fileTypeFound = true;
-        }
+            if (files != null) {
+                if (isFileTypeOrListOfFiles(files)) {
+                    fileTypeFound = true;
+                }
 
-        if (files.getClass().equals(java.io.File.class) ||
-            files.getClass().equals(Integer.class) ||
-            files.getClass().equals(String.class) ||
-            files.getClass().isEnum()) {
-            map.put("files", files);
-        } else if (isListOfFile(files)) {
-            for(int i = 0; i< getListSize(files); i++) {
-                map.put("files[" + i + "]", getFromList(files, i));
+                if (files.getClass().equals(java.io.File.class)
+                        || files.getClass().equals(Integer.class)
+                        || files.getClass().equals(String.class)
+                        || files.getClass().isEnum()) {
+                    map.put("files", files);
+                } else if (isListOfFile(files)) {
+                    for (int i = 0; i < getListSize(files); i++) {
+                        map.put("files[" + i + "]", getFromList(files, i));
+                    }
+                } else {
+                    map.put("files", JSON.getDefault().getMapper().writeValueAsString(files));
+                }
             }
-        }
-        else {
-            map.put("files", JSON.getDefault().getMapper().writeValueAsString(files));
-        }
-    }
-    if (fileUrls != null) {
-        if (isFileTypeOrListOfFiles(fileUrls)) {
-            fileTypeFound = true;
-        }
+            if (fileUrls != null) {
+                if (isFileTypeOrListOfFiles(fileUrls)) {
+                    fileTypeFound = true;
+                }
 
-        if (fileUrls.getClass().equals(java.io.File.class) ||
-            fileUrls.getClass().equals(Integer.class) ||
-            fileUrls.getClass().equals(String.class) ||
-            fileUrls.getClass().isEnum()) {
-            map.put("file_urls", fileUrls);
-        } else if (isListOfFile(fileUrls)) {
-            for(int i = 0; i< getListSize(fileUrls); i++) {
-                map.put("file_urls[" + i + "]", getFromList(fileUrls, i));
+                if (fileUrls.getClass().equals(java.io.File.class)
+                        || fileUrls.getClass().equals(Integer.class)
+                        || fileUrls.getClass().equals(String.class)
+                        || fileUrls.getClass().isEnum()) {
+                    map.put("file_urls", fileUrls);
+                } else if (isListOfFile(fileUrls)) {
+                    for (int i = 0; i < getListSize(fileUrls); i++) {
+                        map.put("file_urls[" + i + "]", getFromList(fileUrls, i));
+                    }
+                } else {
+                    map.put(
+                            "file_urls",
+                            JSON.getDefault().getMapper().writeValueAsString(fileUrls));
+                }
             }
-        }
-        else {
-            map.put("file_urls", JSON.getDefault().getMapper().writeValueAsString(fileUrls));
-        }
-    }
-    if (forceSignerRoles != null) {
-        if (isFileTypeOrListOfFiles(forceSignerRoles)) {
-            fileTypeFound = true;
-        }
+            if (forceSignerRoles != null) {
+                if (isFileTypeOrListOfFiles(forceSignerRoles)) {
+                    fileTypeFound = true;
+                }
 
-        if (forceSignerRoles.getClass().equals(java.io.File.class) ||
-            forceSignerRoles.getClass().equals(Integer.class) ||
-            forceSignerRoles.getClass().equals(String.class) ||
-            forceSignerRoles.getClass().isEnum()) {
-            map.put("force_signer_roles", forceSignerRoles);
-        } else if (isListOfFile(forceSignerRoles)) {
-            for(int i = 0; i< getListSize(forceSignerRoles); i++) {
-                map.put("force_signer_roles[" + i + "]", getFromList(forceSignerRoles, i));
+                if (forceSignerRoles.getClass().equals(java.io.File.class)
+                        || forceSignerRoles.getClass().equals(Integer.class)
+                        || forceSignerRoles.getClass().equals(String.class)
+                        || forceSignerRoles.getClass().isEnum()) {
+                    map.put("force_signer_roles", forceSignerRoles);
+                } else if (isListOfFile(forceSignerRoles)) {
+                    for (int i = 0; i < getListSize(forceSignerRoles); i++) {
+                        map.put("force_signer_roles[" + i + "]", getFromList(forceSignerRoles, i));
+                    }
+                } else {
+                    map.put(
+                            "force_signer_roles",
+                            JSON.getDefault().getMapper().writeValueAsString(forceSignerRoles));
+                }
             }
-        }
-        else {
-            map.put("force_signer_roles", JSON.getDefault().getMapper().writeValueAsString(forceSignerRoles));
-        }
-    }
-    if (forceSubjectMessage != null) {
-        if (isFileTypeOrListOfFiles(forceSubjectMessage)) {
-            fileTypeFound = true;
-        }
+            if (forceSubjectMessage != null) {
+                if (isFileTypeOrListOfFiles(forceSubjectMessage)) {
+                    fileTypeFound = true;
+                }
 
-        if (forceSubjectMessage.getClass().equals(java.io.File.class) ||
-            forceSubjectMessage.getClass().equals(Integer.class) ||
-            forceSubjectMessage.getClass().equals(String.class) ||
-            forceSubjectMessage.getClass().isEnum()) {
-            map.put("force_subject_message", forceSubjectMessage);
-        } else if (isListOfFile(forceSubjectMessage)) {
-            for(int i = 0; i< getListSize(forceSubjectMessage); i++) {
-                map.put("force_subject_message[" + i + "]", getFromList(forceSubjectMessage, i));
+                if (forceSubjectMessage.getClass().equals(java.io.File.class)
+                        || forceSubjectMessage.getClass().equals(Integer.class)
+                        || forceSubjectMessage.getClass().equals(String.class)
+                        || forceSubjectMessage.getClass().isEnum()) {
+                    map.put("force_subject_message", forceSubjectMessage);
+                } else if (isListOfFile(forceSubjectMessage)) {
+                    for (int i = 0; i < getListSize(forceSubjectMessage); i++) {
+                        map.put(
+                                "force_subject_message[" + i + "]",
+                                getFromList(forceSubjectMessage, i));
+                    }
+                } else {
+                    map.put(
+                            "force_subject_message",
+                            JSON.getDefault().getMapper().writeValueAsString(forceSubjectMessage));
+                }
             }
-        }
-        else {
-            map.put("force_subject_message", JSON.getDefault().getMapper().writeValueAsString(forceSubjectMessage));
-        }
-    }
-    if (holdRequest != null) {
-        if (isFileTypeOrListOfFiles(holdRequest)) {
-            fileTypeFound = true;
-        }
+            if (holdRequest != null) {
+                if (isFileTypeOrListOfFiles(holdRequest)) {
+                    fileTypeFound = true;
+                }
 
-        if (holdRequest.getClass().equals(java.io.File.class) ||
-            holdRequest.getClass().equals(Integer.class) ||
-            holdRequest.getClass().equals(String.class) ||
-            holdRequest.getClass().isEnum()) {
-            map.put("hold_request", holdRequest);
-        } else if (isListOfFile(holdRequest)) {
-            for(int i = 0; i< getListSize(holdRequest); i++) {
-                map.put("hold_request[" + i + "]", getFromList(holdRequest, i));
+                if (holdRequest.getClass().equals(java.io.File.class)
+                        || holdRequest.getClass().equals(Integer.class)
+                        || holdRequest.getClass().equals(String.class)
+                        || holdRequest.getClass().isEnum()) {
+                    map.put("hold_request", holdRequest);
+                } else if (isListOfFile(holdRequest)) {
+                    for (int i = 0; i < getListSize(holdRequest); i++) {
+                        map.put("hold_request[" + i + "]", getFromList(holdRequest, i));
+                    }
+                } else {
+                    map.put(
+                            "hold_request",
+                            JSON.getDefault().getMapper().writeValueAsString(holdRequest));
+                }
             }
-        }
-        else {
-            map.put("hold_request", JSON.getDefault().getMapper().writeValueAsString(holdRequest));
-        }
-    }
-    if (isForEmbeddedSigning != null) {
-        if (isFileTypeOrListOfFiles(isForEmbeddedSigning)) {
-            fileTypeFound = true;
-        }
+            if (isForEmbeddedSigning != null) {
+                if (isFileTypeOrListOfFiles(isForEmbeddedSigning)) {
+                    fileTypeFound = true;
+                }
 
-        if (isForEmbeddedSigning.getClass().equals(java.io.File.class) ||
-            isForEmbeddedSigning.getClass().equals(Integer.class) ||
-            isForEmbeddedSigning.getClass().equals(String.class) ||
-            isForEmbeddedSigning.getClass().isEnum()) {
-            map.put("is_for_embedded_signing", isForEmbeddedSigning);
-        } else if (isListOfFile(isForEmbeddedSigning)) {
-            for(int i = 0; i< getListSize(isForEmbeddedSigning); i++) {
-                map.put("is_for_embedded_signing[" + i + "]", getFromList(isForEmbeddedSigning, i));
+                if (isForEmbeddedSigning.getClass().equals(java.io.File.class)
+                        || isForEmbeddedSigning.getClass().equals(Integer.class)
+                        || isForEmbeddedSigning.getClass().equals(String.class)
+                        || isForEmbeddedSigning.getClass().isEnum()) {
+                    map.put("is_for_embedded_signing", isForEmbeddedSigning);
+                } else if (isListOfFile(isForEmbeddedSigning)) {
+                    for (int i = 0; i < getListSize(isForEmbeddedSigning); i++) {
+                        map.put(
+                                "is_for_embedded_signing[" + i + "]",
+                                getFromList(isForEmbeddedSigning, i));
+                    }
+                } else {
+                    map.put(
+                            "is_for_embedded_signing",
+                            JSON.getDefault().getMapper().writeValueAsString(isForEmbeddedSigning));
+                }
             }
-        }
-        else {
-            map.put("is_for_embedded_signing", JSON.getDefault().getMapper().writeValueAsString(isForEmbeddedSigning));
-        }
-    }
-    if (message != null) {
-        if (isFileTypeOrListOfFiles(message)) {
-            fileTypeFound = true;
-        }
+            if (message != null) {
+                if (isFileTypeOrListOfFiles(message)) {
+                    fileTypeFound = true;
+                }
 
-        if (message.getClass().equals(java.io.File.class) ||
-            message.getClass().equals(Integer.class) ||
-            message.getClass().equals(String.class) ||
-            message.getClass().isEnum()) {
-            map.put("message", message);
-        } else if (isListOfFile(message)) {
-            for(int i = 0; i< getListSize(message); i++) {
-                map.put("message[" + i + "]", getFromList(message, i));
+                if (message.getClass().equals(java.io.File.class)
+                        || message.getClass().equals(Integer.class)
+                        || message.getClass().equals(String.class)
+                        || message.getClass().isEnum()) {
+                    map.put("message", message);
+                } else if (isListOfFile(message)) {
+                    for (int i = 0; i < getListSize(message); i++) {
+                        map.put("message[" + i + "]", getFromList(message, i));
+                    }
+                } else {
+                    map.put("message", JSON.getDefault().getMapper().writeValueAsString(message));
+                }
             }
-        }
-        else {
-            map.put("message", JSON.getDefault().getMapper().writeValueAsString(message));
-        }
-    }
-    if (metadata != null) {
-        if (isFileTypeOrListOfFiles(metadata)) {
-            fileTypeFound = true;
-        }
+            if (metadata != null) {
+                if (isFileTypeOrListOfFiles(metadata)) {
+                    fileTypeFound = true;
+                }
 
-        if (metadata.getClass().equals(java.io.File.class) ||
-            metadata.getClass().equals(Integer.class) ||
-            metadata.getClass().equals(String.class) ||
-            metadata.getClass().isEnum()) {
-            map.put("metadata", metadata);
-        } else if (isListOfFile(metadata)) {
-            for(int i = 0; i< getListSize(metadata); i++) {
-                map.put("metadata[" + i + "]", getFromList(metadata, i));
+                if (metadata.getClass().equals(java.io.File.class)
+                        || metadata.getClass().equals(Integer.class)
+                        || metadata.getClass().equals(String.class)
+                        || metadata.getClass().isEnum()) {
+                    map.put("metadata", metadata);
+                } else if (isListOfFile(metadata)) {
+                    for (int i = 0; i < getListSize(metadata); i++) {
+                        map.put("metadata[" + i + "]", getFromList(metadata, i));
+                    }
+                } else {
+                    map.put("metadata", JSON.getDefault().getMapper().writeValueAsString(metadata));
+                }
             }
-        }
-        else {
-            map.put("metadata", JSON.getDefault().getMapper().writeValueAsString(metadata));
-        }
-    }
-    if (previewOnly != null) {
-        if (isFileTypeOrListOfFiles(previewOnly)) {
-            fileTypeFound = true;
-        }
+            if (previewOnly != null) {
+                if (isFileTypeOrListOfFiles(previewOnly)) {
+                    fileTypeFound = true;
+                }
 
-        if (previewOnly.getClass().equals(java.io.File.class) ||
-            previewOnly.getClass().equals(Integer.class) ||
-            previewOnly.getClass().equals(String.class) ||
-            previewOnly.getClass().isEnum()) {
-            map.put("preview_only", previewOnly);
-        } else if (isListOfFile(previewOnly)) {
-            for(int i = 0; i< getListSize(previewOnly); i++) {
-                map.put("preview_only[" + i + "]", getFromList(previewOnly, i));
+                if (previewOnly.getClass().equals(java.io.File.class)
+                        || previewOnly.getClass().equals(Integer.class)
+                        || previewOnly.getClass().equals(String.class)
+                        || previewOnly.getClass().isEnum()) {
+                    map.put("preview_only", previewOnly);
+                } else if (isListOfFile(previewOnly)) {
+                    for (int i = 0; i < getListSize(previewOnly); i++) {
+                        map.put("preview_only[" + i + "]", getFromList(previewOnly, i));
+                    }
+                } else {
+                    map.put(
+                            "preview_only",
+                            JSON.getDefault().getMapper().writeValueAsString(previewOnly));
+                }
             }
-        }
-        else {
-            map.put("preview_only", JSON.getDefault().getMapper().writeValueAsString(previewOnly));
-        }
-    }
-    if (requestingRedirectUrl != null) {
-        if (isFileTypeOrListOfFiles(requestingRedirectUrl)) {
-            fileTypeFound = true;
-        }
+            if (requestingRedirectUrl != null) {
+                if (isFileTypeOrListOfFiles(requestingRedirectUrl)) {
+                    fileTypeFound = true;
+                }
 
-        if (requestingRedirectUrl.getClass().equals(java.io.File.class) ||
-            requestingRedirectUrl.getClass().equals(Integer.class) ||
-            requestingRedirectUrl.getClass().equals(String.class) ||
-            requestingRedirectUrl.getClass().isEnum()) {
-            map.put("requesting_redirect_url", requestingRedirectUrl);
-        } else if (isListOfFile(requestingRedirectUrl)) {
-            for(int i = 0; i< getListSize(requestingRedirectUrl); i++) {
-                map.put("requesting_redirect_url[" + i + "]", getFromList(requestingRedirectUrl, i));
+                if (requestingRedirectUrl.getClass().equals(java.io.File.class)
+                        || requestingRedirectUrl.getClass().equals(Integer.class)
+                        || requestingRedirectUrl.getClass().equals(String.class)
+                        || requestingRedirectUrl.getClass().isEnum()) {
+                    map.put("requesting_redirect_url", requestingRedirectUrl);
+                } else if (isListOfFile(requestingRedirectUrl)) {
+                    for (int i = 0; i < getListSize(requestingRedirectUrl); i++) {
+                        map.put(
+                                "requesting_redirect_url[" + i + "]",
+                                getFromList(requestingRedirectUrl, i));
+                    }
+                } else {
+                    map.put(
+                            "requesting_redirect_url",
+                            JSON.getDefault()
+                                    .getMapper()
+                                    .writeValueAsString(requestingRedirectUrl));
+                }
             }
-        }
-        else {
-            map.put("requesting_redirect_url", JSON.getDefault().getMapper().writeValueAsString(requestingRedirectUrl));
-        }
-    }
-    if (showPreview != null) {
-        if (isFileTypeOrListOfFiles(showPreview)) {
-            fileTypeFound = true;
-        }
+            if (showPreview != null) {
+                if (isFileTypeOrListOfFiles(showPreview)) {
+                    fileTypeFound = true;
+                }
 
-        if (showPreview.getClass().equals(java.io.File.class) ||
-            showPreview.getClass().equals(Integer.class) ||
-            showPreview.getClass().equals(String.class) ||
-            showPreview.getClass().isEnum()) {
-            map.put("show_preview", showPreview);
-        } else if (isListOfFile(showPreview)) {
-            for(int i = 0; i< getListSize(showPreview); i++) {
-                map.put("show_preview[" + i + "]", getFromList(showPreview, i));
+                if (showPreview.getClass().equals(java.io.File.class)
+                        || showPreview.getClass().equals(Integer.class)
+                        || showPreview.getClass().equals(String.class)
+                        || showPreview.getClass().isEnum()) {
+                    map.put("show_preview", showPreview);
+                } else if (isListOfFile(showPreview)) {
+                    for (int i = 0; i < getListSize(showPreview); i++) {
+                        map.put("show_preview[" + i + "]", getFromList(showPreview, i));
+                    }
+                } else {
+                    map.put(
+                            "show_preview",
+                            JSON.getDefault().getMapper().writeValueAsString(showPreview));
+                }
             }
-        }
-        else {
-            map.put("show_preview", JSON.getDefault().getMapper().writeValueAsString(showPreview));
-        }
-    }
-    if (showProgressStepper != null) {
-        if (isFileTypeOrListOfFiles(showProgressStepper)) {
-            fileTypeFound = true;
-        }
+            if (showProgressStepper != null) {
+                if (isFileTypeOrListOfFiles(showProgressStepper)) {
+                    fileTypeFound = true;
+                }
 
-        if (showProgressStepper.getClass().equals(java.io.File.class) ||
-            showProgressStepper.getClass().equals(Integer.class) ||
-            showProgressStepper.getClass().equals(String.class) ||
-            showProgressStepper.getClass().isEnum()) {
-            map.put("show_progress_stepper", showProgressStepper);
-        } else if (isListOfFile(showProgressStepper)) {
-            for(int i = 0; i< getListSize(showProgressStepper); i++) {
-                map.put("show_progress_stepper[" + i + "]", getFromList(showProgressStepper, i));
+                if (showProgressStepper.getClass().equals(java.io.File.class)
+                        || showProgressStepper.getClass().equals(Integer.class)
+                        || showProgressStepper.getClass().equals(String.class)
+                        || showProgressStepper.getClass().isEnum()) {
+                    map.put("show_progress_stepper", showProgressStepper);
+                } else if (isListOfFile(showProgressStepper)) {
+                    for (int i = 0; i < getListSize(showProgressStepper); i++) {
+                        map.put(
+                                "show_progress_stepper[" + i + "]",
+                                getFromList(showProgressStepper, i));
+                    }
+                } else {
+                    map.put(
+                            "show_progress_stepper",
+                            JSON.getDefault().getMapper().writeValueAsString(showProgressStepper));
+                }
             }
-        }
-        else {
-            map.put("show_progress_stepper", JSON.getDefault().getMapper().writeValueAsString(showProgressStepper));
-        }
-    }
-    if (signers != null) {
-        if (isFileTypeOrListOfFiles(signers)) {
-            fileTypeFound = true;
-        }
+            if (signers != null) {
+                if (isFileTypeOrListOfFiles(signers)) {
+                    fileTypeFound = true;
+                }
 
-        if (signers.getClass().equals(java.io.File.class) ||
-            signers.getClass().equals(Integer.class) ||
-            signers.getClass().equals(String.class) ||
-            signers.getClass().isEnum()) {
-            map.put("signers", signers);
-        } else if (isListOfFile(signers)) {
-            for(int i = 0; i< getListSize(signers); i++) {
-                map.put("signers[" + i + "]", getFromList(signers, i));
+                if (signers.getClass().equals(java.io.File.class)
+                        || signers.getClass().equals(Integer.class)
+                        || signers.getClass().equals(String.class)
+                        || signers.getClass().isEnum()) {
+                    map.put("signers", signers);
+                } else if (isListOfFile(signers)) {
+                    for (int i = 0; i < getListSize(signers); i++) {
+                        map.put("signers[" + i + "]", getFromList(signers, i));
+                    }
+                } else {
+                    map.put("signers", JSON.getDefault().getMapper().writeValueAsString(signers));
+                }
             }
-        }
-        else {
-            map.put("signers", JSON.getDefault().getMapper().writeValueAsString(signers));
-        }
-    }
-    if (signingOptions != null) {
-        if (isFileTypeOrListOfFiles(signingOptions)) {
-            fileTypeFound = true;
-        }
+            if (signingOptions != null) {
+                if (isFileTypeOrListOfFiles(signingOptions)) {
+                    fileTypeFound = true;
+                }
 
-        if (signingOptions.getClass().equals(java.io.File.class) ||
-            signingOptions.getClass().equals(Integer.class) ||
-            signingOptions.getClass().equals(String.class) ||
-            signingOptions.getClass().isEnum()) {
-            map.put("signing_options", signingOptions);
-        } else if (isListOfFile(signingOptions)) {
-            for(int i = 0; i< getListSize(signingOptions); i++) {
-                map.put("signing_options[" + i + "]", getFromList(signingOptions, i));
+                if (signingOptions.getClass().equals(java.io.File.class)
+                        || signingOptions.getClass().equals(Integer.class)
+                        || signingOptions.getClass().equals(String.class)
+                        || signingOptions.getClass().isEnum()) {
+                    map.put("signing_options", signingOptions);
+                } else if (isListOfFile(signingOptions)) {
+                    for (int i = 0; i < getListSize(signingOptions); i++) {
+                        map.put("signing_options[" + i + "]", getFromList(signingOptions, i));
+                    }
+                } else {
+                    map.put(
+                            "signing_options",
+                            JSON.getDefault().getMapper().writeValueAsString(signingOptions));
+                }
             }
-        }
-        else {
-            map.put("signing_options", JSON.getDefault().getMapper().writeValueAsString(signingOptions));
-        }
-    }
-    if (signingRedirectUrl != null) {
-        if (isFileTypeOrListOfFiles(signingRedirectUrl)) {
-            fileTypeFound = true;
-        }
+            if (signingRedirectUrl != null) {
+                if (isFileTypeOrListOfFiles(signingRedirectUrl)) {
+                    fileTypeFound = true;
+                }
 
-        if (signingRedirectUrl.getClass().equals(java.io.File.class) ||
-            signingRedirectUrl.getClass().equals(Integer.class) ||
-            signingRedirectUrl.getClass().equals(String.class) ||
-            signingRedirectUrl.getClass().isEnum()) {
-            map.put("signing_redirect_url", signingRedirectUrl);
-        } else if (isListOfFile(signingRedirectUrl)) {
-            for(int i = 0; i< getListSize(signingRedirectUrl); i++) {
-                map.put("signing_redirect_url[" + i + "]", getFromList(signingRedirectUrl, i));
+                if (signingRedirectUrl.getClass().equals(java.io.File.class)
+                        || signingRedirectUrl.getClass().equals(Integer.class)
+                        || signingRedirectUrl.getClass().equals(String.class)
+                        || signingRedirectUrl.getClass().isEnum()) {
+                    map.put("signing_redirect_url", signingRedirectUrl);
+                } else if (isListOfFile(signingRedirectUrl)) {
+                    for (int i = 0; i < getListSize(signingRedirectUrl); i++) {
+                        map.put(
+                                "signing_redirect_url[" + i + "]",
+                                getFromList(signingRedirectUrl, i));
+                    }
+                } else {
+                    map.put(
+                            "signing_redirect_url",
+                            JSON.getDefault().getMapper().writeValueAsString(signingRedirectUrl));
+                }
             }
-        }
-        else {
-            map.put("signing_redirect_url", JSON.getDefault().getMapper().writeValueAsString(signingRedirectUrl));
-        }
-    }
-    if (skipMeNow != null) {
-        if (isFileTypeOrListOfFiles(skipMeNow)) {
-            fileTypeFound = true;
-        }
+            if (skipMeNow != null) {
+                if (isFileTypeOrListOfFiles(skipMeNow)) {
+                    fileTypeFound = true;
+                }
 
-        if (skipMeNow.getClass().equals(java.io.File.class) ||
-            skipMeNow.getClass().equals(Integer.class) ||
-            skipMeNow.getClass().equals(String.class) ||
-            skipMeNow.getClass().isEnum()) {
-            map.put("skip_me_now", skipMeNow);
-        } else if (isListOfFile(skipMeNow)) {
-            for(int i = 0; i< getListSize(skipMeNow); i++) {
-                map.put("skip_me_now[" + i + "]", getFromList(skipMeNow, i));
+                if (skipMeNow.getClass().equals(java.io.File.class)
+                        || skipMeNow.getClass().equals(Integer.class)
+                        || skipMeNow.getClass().equals(String.class)
+                        || skipMeNow.getClass().isEnum()) {
+                    map.put("skip_me_now", skipMeNow);
+                } else if (isListOfFile(skipMeNow)) {
+                    for (int i = 0; i < getListSize(skipMeNow); i++) {
+                        map.put("skip_me_now[" + i + "]", getFromList(skipMeNow, i));
+                    }
+                } else {
+                    map.put(
+                            "skip_me_now",
+                            JSON.getDefault().getMapper().writeValueAsString(skipMeNow));
+                }
             }
-        }
-        else {
-            map.put("skip_me_now", JSON.getDefault().getMapper().writeValueAsString(skipMeNow));
-        }
-    }
-    if (subject != null) {
-        if (isFileTypeOrListOfFiles(subject)) {
-            fileTypeFound = true;
-        }
+            if (subject != null) {
+                if (isFileTypeOrListOfFiles(subject)) {
+                    fileTypeFound = true;
+                }
 
-        if (subject.getClass().equals(java.io.File.class) ||
-            subject.getClass().equals(Integer.class) ||
-            subject.getClass().equals(String.class) ||
-            subject.getClass().isEnum()) {
-            map.put("subject", subject);
-        } else if (isListOfFile(subject)) {
-            for(int i = 0; i< getListSize(subject); i++) {
-                map.put("subject[" + i + "]", getFromList(subject, i));
+                if (subject.getClass().equals(java.io.File.class)
+                        || subject.getClass().equals(Integer.class)
+                        || subject.getClass().equals(String.class)
+                        || subject.getClass().isEnum()) {
+                    map.put("subject", subject);
+                } else if (isListOfFile(subject)) {
+                    for (int i = 0; i < getListSize(subject); i++) {
+                        map.put("subject[" + i + "]", getFromList(subject, i));
+                    }
+                } else {
+                    map.put("subject", JSON.getDefault().getMapper().writeValueAsString(subject));
+                }
             }
-        }
-        else {
-            map.put("subject", JSON.getDefault().getMapper().writeValueAsString(subject));
-        }
-    }
-    if (testMode != null) {
-        if (isFileTypeOrListOfFiles(testMode)) {
-            fileTypeFound = true;
-        }
+            if (testMode != null) {
+                if (isFileTypeOrListOfFiles(testMode)) {
+                    fileTypeFound = true;
+                }
 
-        if (testMode.getClass().equals(java.io.File.class) ||
-            testMode.getClass().equals(Integer.class) ||
-            testMode.getClass().equals(String.class) ||
-            testMode.getClass().isEnum()) {
-            map.put("test_mode", testMode);
-        } else if (isListOfFile(testMode)) {
-            for(int i = 0; i< getListSize(testMode); i++) {
-                map.put("test_mode[" + i + "]", getFromList(testMode, i));
+                if (testMode.getClass().equals(java.io.File.class)
+                        || testMode.getClass().equals(Integer.class)
+                        || testMode.getClass().equals(String.class)
+                        || testMode.getClass().isEnum()) {
+                    map.put("test_mode", testMode);
+                } else if (isListOfFile(testMode)) {
+                    for (int i = 0; i < getListSize(testMode); i++) {
+                        map.put("test_mode[" + i + "]", getFromList(testMode, i));
+                    }
+                } else {
+                    map.put(
+                            "test_mode",
+                            JSON.getDefault().getMapper().writeValueAsString(testMode));
+                }
             }
-        }
-        else {
-            map.put("test_mode", JSON.getDefault().getMapper().writeValueAsString(testMode));
-        }
-    }
-    if (title != null) {
-        if (isFileTypeOrListOfFiles(title)) {
-            fileTypeFound = true;
-        }
+            if (title != null) {
+                if (isFileTypeOrListOfFiles(title)) {
+                    fileTypeFound = true;
+                }
 
-        if (title.getClass().equals(java.io.File.class) ||
-            title.getClass().equals(Integer.class) ||
-            title.getClass().equals(String.class) ||
-            title.getClass().isEnum()) {
-            map.put("title", title);
-        } else if (isListOfFile(title)) {
-            for(int i = 0; i< getListSize(title); i++) {
-                map.put("title[" + i + "]", getFromList(title, i));
+                if (title.getClass().equals(java.io.File.class)
+                        || title.getClass().equals(Integer.class)
+                        || title.getClass().equals(String.class)
+                        || title.getClass().isEnum()) {
+                    map.put("title", title);
+                } else if (isListOfFile(title)) {
+                    for (int i = 0; i < getListSize(title); i++) {
+                        map.put("title[" + i + "]", getFromList(title, i));
+                    }
+                } else {
+                    map.put("title", JSON.getDefault().getMapper().writeValueAsString(title));
+                }
             }
-        }
-        else {
-            map.put("title", JSON.getDefault().getMapper().writeValueAsString(title));
-        }
-    }
-    if (populateAutoFillFields != null) {
-        if (isFileTypeOrListOfFiles(populateAutoFillFields)) {
-            fileTypeFound = true;
-        }
+            if (populateAutoFillFields != null) {
+                if (isFileTypeOrListOfFiles(populateAutoFillFields)) {
+                    fileTypeFound = true;
+                }
 
-        if (populateAutoFillFields.getClass().equals(java.io.File.class) ||
-            populateAutoFillFields.getClass().equals(Integer.class) ||
-            populateAutoFillFields.getClass().equals(String.class) ||
-            populateAutoFillFields.getClass().isEnum()) {
-            map.put("populate_auto_fill_fields", populateAutoFillFields);
-        } else if (isListOfFile(populateAutoFillFields)) {
-            for(int i = 0; i< getListSize(populateAutoFillFields); i++) {
-                map.put("populate_auto_fill_fields[" + i + "]", getFromList(populateAutoFillFields, i));
+                if (populateAutoFillFields.getClass().equals(java.io.File.class)
+                        || populateAutoFillFields.getClass().equals(Integer.class)
+                        || populateAutoFillFields.getClass().equals(String.class)
+                        || populateAutoFillFields.getClass().isEnum()) {
+                    map.put("populate_auto_fill_fields", populateAutoFillFields);
+                } else if (isListOfFile(populateAutoFillFields)) {
+                    for (int i = 0; i < getListSize(populateAutoFillFields); i++) {
+                        map.put(
+                                "populate_auto_fill_fields[" + i + "]",
+                                getFromList(populateAutoFillFields, i));
+                    }
+                } else {
+                    map.put(
+                            "populate_auto_fill_fields",
+                            JSON.getDefault()
+                                    .getMapper()
+                                    .writeValueAsString(populateAutoFillFields));
+                }
             }
-        }
-        else {
-            map.put("populate_auto_fill_fields", JSON.getDefault().getMapper().writeValueAsString(populateAutoFillFields));
-        }
-    }
-    if (allowCcs != null) {
-        if (isFileTypeOrListOfFiles(allowCcs)) {
-            fileTypeFound = true;
-        }
+            if (allowCcs != null) {
+                if (isFileTypeOrListOfFiles(allowCcs)) {
+                    fileTypeFound = true;
+                }
 
-        if (allowCcs.getClass().equals(java.io.File.class) ||
-            allowCcs.getClass().equals(Integer.class) ||
-            allowCcs.getClass().equals(String.class) ||
-            allowCcs.getClass().isEnum()) {
-            map.put("allow_ccs", allowCcs);
-        } else if (isListOfFile(allowCcs)) {
-            for(int i = 0; i< getListSize(allowCcs); i++) {
-                map.put("allow_ccs[" + i + "]", getFromList(allowCcs, i));
+                if (allowCcs.getClass().equals(java.io.File.class)
+                        || allowCcs.getClass().equals(Integer.class)
+                        || allowCcs.getClass().equals(String.class)
+                        || allowCcs.getClass().isEnum()) {
+                    map.put("allow_ccs", allowCcs);
+                } else if (isListOfFile(allowCcs)) {
+                    for (int i = 0; i < getListSize(allowCcs); i++) {
+                        map.put("allow_ccs[" + i + "]", getFromList(allowCcs, i));
+                    }
+                } else {
+                    map.put(
+                            "allow_ccs",
+                            JSON.getDefault().getMapper().writeValueAsString(allowCcs));
+                }
             }
+        } catch (Exception e) {
+            throw new ApiException(e);
         }
-        else {
-            map.put("allow_ccs", JSON.getDefault().getMapper().writeValueAsString(allowCcs));
+
+        return fileTypeFound ? map : new HashMap<>();
+    }
+
+    private boolean isFileTypeOrListOfFiles(Object obj) throws Exception {
+        return obj.getClass().equals(java.io.File.class) || isListOfFile(obj);
+    }
+
+    private boolean isListOfFile(Object obj) throws Exception {
+        return obj instanceof java.util.List
+                && !isListEmpty(obj)
+                && getFromList(obj, 0) instanceof java.io.File;
+    }
+
+    private boolean isListEmpty(Object obj) throws Exception {
+        return (boolean)
+                Class.forName(java.util.List.class.getName()).getMethod("isEmpty").invoke(obj);
+    }
+
+    private Object getFromList(Object obj, int index) throws Exception {
+        return Class.forName(java.util.List.class.getName())
+                .getMethod("get", int.class)
+                .invoke(obj, index);
+    }
+
+    private int getListSize(Object obj) throws Exception {
+        return (int) Class.forName(java.util.List.class.getName()).getMethod("size").invoke(obj);
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces (except the first
+     * line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
         }
+        return o.toString().replace("\n", "\n    ");
     }
-    } catch (Exception e) {
-        throw new ApiException(e);
-    }
-
-    return fileTypeFound ? map : new HashMap<>();
-  }
-
-  private boolean isFileTypeOrListOfFiles(Object obj) throws Exception {
-    return obj.getClass().equals(java.io.File.class) || isListOfFile(obj);
-  }
-
-  private boolean isListOfFile(Object obj) throws Exception {
-      return obj instanceof java.util.List && !isListEmpty(obj) && getFromList(obj, 0) instanceof java.io.File;
-  }
-
-  private boolean isListEmpty(Object obj) throws Exception {
-    return (boolean) Class.forName(java.util.List.class.getName()).getMethod("isEmpty").invoke(obj);
-  }
-
-  private Object getFromList(Object obj, int index) throws Exception {
-    return Class.forName(java.util.List.class.getName()).getMethod("get", int.class).invoke(obj, index);
-  }
-
-  private int getListSize(Object obj) throws Exception {
-    return (int) Class.forName(java.util.List.class.getName()).getMethod("size").invoke(obj);
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
-  }
-
 }
-

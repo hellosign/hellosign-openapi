@@ -18,7 +18,14 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
+from pydantic import (
+    BaseModel,
+    ConfigDict,
+    Field,
+    StrictBool,
+    StrictStr,
+    field_validator,
+)
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set, Tuple
 from typing_extensions import Self
@@ -26,22 +33,42 @@ import io
 from pydantic import StrictBool
 from typing import Union
 
+
 class SubSigningOptions(BaseModel):
     """
     This allows the requester to specify the types allowed for creating a signature.  **NOTE:** If `signing_options` are not defined in the request, the allowed types will default to those specified in the account settings.
-    """ # noqa: E501
-    default_type: StrictStr = Field(description="The default type shown (limited to the listed types)")
-    draw: Optional[StrictBool] = Field(default=False, description="Allows drawing the signature")
-    phone: Optional[StrictBool] = Field(default=False, description="Allows using a smartphone to email the signature")
-    type: Optional[StrictBool] = Field(default=False, description="Allows typing the signature")
-    upload: Optional[StrictBool] = Field(default=False, description="Allows uploading the signature")
-    __properties: ClassVar[List[str]] = ["default_type", "draw", "phone", "type", "upload"]
+    """  # noqa: E501
 
-    @field_validator('default_type')
+    default_type: StrictStr = Field(
+        description="The default type shown (limited to the listed types)"
+    )
+    draw: Optional[StrictBool] = Field(
+        default=False, description="Allows drawing the signature"
+    )
+    phone: Optional[StrictBool] = Field(
+        default=False, description="Allows using a smartphone to email the signature"
+    )
+    type: Optional[StrictBool] = Field(
+        default=False, description="Allows typing the signature"
+    )
+    upload: Optional[StrictBool] = Field(
+        default=False, description="Allows uploading the signature"
+    )
+    __properties: ClassVar[List[str]] = [
+        "default_type",
+        "draw",
+        "phone",
+        "type",
+        "upload",
+    ]
+
+    @field_validator("default_type")
     def default_type_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in set(['draw', 'phone', 'type', 'upload']):
-            raise ValueError("must be one of enum values ('draw', 'phone', 'type', 'upload')")
+        if value not in set(["draw", "phone", "type", "upload"]):
+            raise ValueError(
+                "must be one of enum values ('draw', 'phone', 'type', 'upload')"
+            )
         return value
 
     model_config = ConfigDict(
@@ -50,7 +77,6 @@ class SubSigningOptions(BaseModel):
         protected_namespaces=(),
         arbitrary_types_allowed=True,
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -61,7 +87,9 @@ class SubSigningOptions(BaseModel):
         # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
-    def to_json_form_params(self, excluded_fields: Set[str] = None) -> List[Tuple[str, str]]:
+    def to_json_form_params(
+        self, excluded_fields: Set[str] = None
+    ) -> List[Tuple[str, str]]:
         data: List[Tuple[str, str]] = []
 
         for key, value in self.to_dict(excluded_fields).items():
@@ -104,13 +132,15 @@ class SubSigningOptions(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "default_type": obj.get("default_type"),
-            "draw": obj.get("draw") if obj.get("draw") is not None else False,
-            "phone": obj.get("phone") if obj.get("phone") is not None else False,
-            "type": obj.get("type") if obj.get("type") is not None else False,
-            "upload": obj.get("upload") if obj.get("upload") is not None else False
-        })
+        _obj = cls.model_validate(
+            {
+                "default_type": obj.get("default_type"),
+                "draw": obj.get("draw") if obj.get("draw") is not None else False,
+                "phone": obj.get("phone") if obj.get("phone") is not None else False,
+                "type": obj.get("type") if obj.get("type") is not None else False,
+                "upload": obj.get("upload") if obj.get("upload") is not None else False,
+            }
+        )
         return _obj
 
     @classmethod
@@ -135,6 +165,4 @@ class SubSigningOptions(BaseModel):
 
     @classmethod
     def openapi_type_is_array(cls, property_name: str) -> bool:
-        return property_name in [
-        ]
-
+        return property_name in []

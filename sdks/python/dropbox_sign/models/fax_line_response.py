@@ -28,10 +28,12 @@ import io
 from pydantic import StrictBool
 from typing import Union
 
+
 class FaxLineResponse(BaseModel):
     """
     FaxLineResponse
-    """ # noqa: E501
+    """  # noqa: E501
+
     fax_line: FaxLineResponseFaxLine
     warnings: Optional[WarningResponse] = None
     __properties: ClassVar[List[str]] = ["fax_line", "warnings"]
@@ -43,7 +45,6 @@ class FaxLineResponse(BaseModel):
         arbitrary_types_allowed=True,
     )
 
-
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
         return pprint.pformat(self.model_dump(by_alias=True))
@@ -53,7 +54,9 @@ class FaxLineResponse(BaseModel):
         # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
-    def to_json_form_params(self, excluded_fields: Set[str] = None) -> List[Tuple[str, str]]:
+    def to_json_form_params(
+        self, excluded_fields: Set[str] = None
+    ) -> List[Tuple[str, str]]:
         data: List[Tuple[str, str]] = []
 
         for key, value in self.to_dict(excluded_fields).items():
@@ -87,10 +90,10 @@ class FaxLineResponse(BaseModel):
         )
         # override the default output from pydantic by calling `to_dict()` of fax_line
         if self.fax_line:
-            _dict['fax_line'] = self.fax_line.to_dict()
+            _dict["fax_line"] = self.fax_line.to_dict()
         # override the default output from pydantic by calling `to_dict()` of warnings
         if self.warnings:
-            _dict['warnings'] = self.warnings.to_dict()
+            _dict["warnings"] = self.warnings.to_dict()
         return _dict
 
     @classmethod
@@ -102,10 +105,20 @@ class FaxLineResponse(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "fax_line": FaxLineResponseFaxLine.from_dict(obj["fax_line"]) if obj.get("fax_line") is not None else None,
-            "warnings": WarningResponse.from_dict(obj["warnings"]) if obj.get("warnings") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "fax_line": (
+                    FaxLineResponseFaxLine.from_dict(obj["fax_line"])
+                    if obj.get("fax_line") is not None
+                    else None
+                ),
+                "warnings": (
+                    WarningResponse.from_dict(obj["warnings"])
+                    if obj.get("warnings") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
 
     @classmethod
@@ -127,6 +140,4 @@ class FaxLineResponse(BaseModel):
 
     @classmethod
     def openapi_type_is_array(cls, property_name: str) -> bool:
-        return property_name in [
-        ]
-
+        return property_name in []

@@ -46,7 +46,7 @@ namespace Dropbox.Sign.Model
         /// <param name="role">The specific role a member has on the team..</param>
         public TeamMemberResponse(string accountId = default(string), string emailAddress = default(string), string role = default(string))
         {
-            
+
             this.AccountId = accountId;
             this.EmailAddress = emailAddress;
             this.Role = role;
@@ -74,21 +74,21 @@ namespace Dropbox.Sign.Model
         /// <value>Account id of the team member.</value>
         [DataMember(Name = "account_id", EmitDefaultValue = true)]
         public string AccountId { get; set; }
-        
+
         /// <summary>
         /// Email address of the team member.
         /// </summary>
         /// <value>Email address of the team member.</value>
         [DataMember(Name = "email_address", EmitDefaultValue = true)]
         public string EmailAddress { get; set; }
-        
+
         /// <summary>
         /// The specific role a member has on the team.
         /// </summary>
         /// <value>The specific role a member has on the team.</value>
         [DataMember(Name = "role", EmitDefaultValue = true)]
         public string Role { get; set; }
-        
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -134,17 +134,17 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
+            return
                 (
                     this.AccountId == input.AccountId ||
                     (this.AccountId != null &&
                     this.AccountId.Equals(input.AccountId))
-                ) && 
+                ) &&
                 (
                     this.EmailAddress == input.EmailAddress ||
                     (this.EmailAddress != null &&
                     this.EmailAddress.Equals(input.EmailAddress))
-                ) && 
+                ) &&
                 (
                     this.Role == input.Role ||
                     (this.Role != null &&
@@ -189,19 +189,22 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "account_id",
                 Property = "AccountId",
                 Type = "string",
                 Value = AccountId,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "email_address",
                 Property = "EmailAddress",
                 Type = "string",
                 Value = EmailAddress,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "role",
                 Property = "Role",
                 Type = "string",

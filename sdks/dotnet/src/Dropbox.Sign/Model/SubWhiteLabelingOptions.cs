@@ -83,7 +83,7 @@ namespace Dropbox.Sign.Model
         /// <param name="resetToDefault">Resets white labeling options to defaults. Only useful when updating an API App..</param>
         public SubWhiteLabelingOptions(string headerBackgroundColor = @"#1A1A1A", LegalVersionEnum? legalVersion = LegalVersionEnum.Terms1, string linkColor = @"#00B3E6", string pageBackgroundColor = @"#F7F8F9", string primaryButtonColor = @"#00B3E6", string primaryButtonColorHover = @"#00B3E6", string primaryButtonTextColor = @"#FFFFFF", string primaryButtonTextColorHover = @"#FFFFFF", string secondaryButtonColor = @"#FFFFFF", string secondaryButtonColorHover = @"#FFFFFF", string secondaryButtonTextColor = @"#00B3E6", string secondaryButtonTextColorHover = @"#00B3E6", string textColor1 = @"#808080", string textColor2 = @"#FFFFFF", bool resetToDefault = default(bool))
         {
-            
+
             // use default value if no "headerBackgroundColor" provided
             this.HeaderBackgroundColor = headerBackgroundColor ?? "#1A1A1A";
             this.LegalVersion = legalVersion;
@@ -135,86 +135,86 @@ namespace Dropbox.Sign.Model
         /// </summary>
         [DataMember(Name = "header_background_color", EmitDefaultValue = true)]
         public string HeaderBackgroundColor { get; set; }
-        
+
         /// <summary>
         /// Gets or Sets LinkColor
         /// </summary>
         [DataMember(Name = "link_color", EmitDefaultValue = true)]
         public string LinkColor { get; set; }
-        
+
         /// <summary>
         /// Gets or Sets PageBackgroundColor
         /// </summary>
         [DataMember(Name = "page_background_color", EmitDefaultValue = true)]
         public string PageBackgroundColor { get; set; }
-        
+
         /// <summary>
         /// Gets or Sets PrimaryButtonColor
         /// </summary>
         [DataMember(Name = "primary_button_color", EmitDefaultValue = true)]
         public string PrimaryButtonColor { get; set; }
-        
+
         /// <summary>
         /// Gets or Sets PrimaryButtonColorHover
         /// </summary>
         [DataMember(Name = "primary_button_color_hover", EmitDefaultValue = true)]
         public string PrimaryButtonColorHover { get; set; }
-        
+
         /// <summary>
         /// Gets or Sets PrimaryButtonTextColor
         /// </summary>
         [DataMember(Name = "primary_button_text_color", EmitDefaultValue = true)]
         public string PrimaryButtonTextColor { get; set; }
-        
+
         /// <summary>
         /// Gets or Sets PrimaryButtonTextColorHover
         /// </summary>
         [DataMember(Name = "primary_button_text_color_hover", EmitDefaultValue = true)]
         public string PrimaryButtonTextColorHover { get; set; }
-        
+
         /// <summary>
         /// Gets or Sets SecondaryButtonColor
         /// </summary>
         [DataMember(Name = "secondary_button_color", EmitDefaultValue = true)]
         public string SecondaryButtonColor { get; set; }
-        
+
         /// <summary>
         /// Gets or Sets SecondaryButtonColorHover
         /// </summary>
         [DataMember(Name = "secondary_button_color_hover", EmitDefaultValue = true)]
         public string SecondaryButtonColorHover { get; set; }
-        
+
         /// <summary>
         /// Gets or Sets SecondaryButtonTextColor
         /// </summary>
         [DataMember(Name = "secondary_button_text_color", EmitDefaultValue = true)]
         public string SecondaryButtonTextColor { get; set; }
-        
+
         /// <summary>
         /// Gets or Sets SecondaryButtonTextColorHover
         /// </summary>
         [DataMember(Name = "secondary_button_text_color_hover", EmitDefaultValue = true)]
         public string SecondaryButtonTextColorHover { get; set; }
-        
+
         /// <summary>
         /// Gets or Sets TextColor1
         /// </summary>
         [DataMember(Name = "text_color1", EmitDefaultValue = true)]
         public string TextColor1 { get; set; }
-        
+
         /// <summary>
         /// Gets or Sets TextColor2
         /// </summary>
         [DataMember(Name = "text_color2", EmitDefaultValue = true)]
         public string TextColor2 { get; set; }
-        
+
         /// <summary>
         /// Resets white labeling options to defaults. Only useful when updating an API App.
         /// </summary>
         /// <value>Resets white labeling options to defaults. Only useful when updating an API App.</value>
         [DataMember(Name = "reset_to_default", EmitDefaultValue = true)]
         public bool ResetToDefault { get; set; }
-        
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -272,76 +272,76 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
+            return
                 (
                     this.HeaderBackgroundColor == input.HeaderBackgroundColor ||
                     (this.HeaderBackgroundColor != null &&
                     this.HeaderBackgroundColor.Equals(input.HeaderBackgroundColor))
-                ) && 
+                ) &&
                 (
                     this.LegalVersion == input.LegalVersion ||
                     this.LegalVersion.Equals(input.LegalVersion)
-                ) && 
+                ) &&
                 (
                     this.LinkColor == input.LinkColor ||
                     (this.LinkColor != null &&
                     this.LinkColor.Equals(input.LinkColor))
-                ) && 
+                ) &&
                 (
                     this.PageBackgroundColor == input.PageBackgroundColor ||
                     (this.PageBackgroundColor != null &&
                     this.PageBackgroundColor.Equals(input.PageBackgroundColor))
-                ) && 
+                ) &&
                 (
                     this.PrimaryButtonColor == input.PrimaryButtonColor ||
                     (this.PrimaryButtonColor != null &&
                     this.PrimaryButtonColor.Equals(input.PrimaryButtonColor))
-                ) && 
+                ) &&
                 (
                     this.PrimaryButtonColorHover == input.PrimaryButtonColorHover ||
                     (this.PrimaryButtonColorHover != null &&
                     this.PrimaryButtonColorHover.Equals(input.PrimaryButtonColorHover))
-                ) && 
+                ) &&
                 (
                     this.PrimaryButtonTextColor == input.PrimaryButtonTextColor ||
                     (this.PrimaryButtonTextColor != null &&
                     this.PrimaryButtonTextColor.Equals(input.PrimaryButtonTextColor))
-                ) && 
+                ) &&
                 (
                     this.PrimaryButtonTextColorHover == input.PrimaryButtonTextColorHover ||
                     (this.PrimaryButtonTextColorHover != null &&
                     this.PrimaryButtonTextColorHover.Equals(input.PrimaryButtonTextColorHover))
-                ) && 
+                ) &&
                 (
                     this.SecondaryButtonColor == input.SecondaryButtonColor ||
                     (this.SecondaryButtonColor != null &&
                     this.SecondaryButtonColor.Equals(input.SecondaryButtonColor))
-                ) && 
+                ) &&
                 (
                     this.SecondaryButtonColorHover == input.SecondaryButtonColorHover ||
                     (this.SecondaryButtonColorHover != null &&
                     this.SecondaryButtonColorHover.Equals(input.SecondaryButtonColorHover))
-                ) && 
+                ) &&
                 (
                     this.SecondaryButtonTextColor == input.SecondaryButtonTextColor ||
                     (this.SecondaryButtonTextColor != null &&
                     this.SecondaryButtonTextColor.Equals(input.SecondaryButtonTextColor))
-                ) && 
+                ) &&
                 (
                     this.SecondaryButtonTextColorHover == input.SecondaryButtonTextColorHover ||
                     (this.SecondaryButtonTextColorHover != null &&
                     this.SecondaryButtonTextColorHover.Equals(input.SecondaryButtonTextColorHover))
-                ) && 
+                ) &&
                 (
                     this.TextColor1 == input.TextColor1 ||
                     (this.TextColor1 != null &&
                     this.TextColor1.Equals(input.TextColor1))
-                ) && 
+                ) &&
                 (
                     this.TextColor2 == input.TextColor2 ||
                     (this.TextColor2 != null &&
                     this.TextColor2.Equals(input.TextColor2))
-                ) && 
+                ) &&
                 (
                     this.ResetToDefault == input.ResetToDefault ||
                     this.ResetToDefault.Equals(input.ResetToDefault)
@@ -427,91 +427,106 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "header_background_color",
                 Property = "HeaderBackgroundColor",
                 Type = "string",
                 Value = HeaderBackgroundColor,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "legal_version",
                 Property = "LegalVersion",
                 Type = "string",
                 Value = LegalVersion,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "link_color",
                 Property = "LinkColor",
                 Type = "string",
                 Value = LinkColor,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "page_background_color",
                 Property = "PageBackgroundColor",
                 Type = "string",
                 Value = PageBackgroundColor,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "primary_button_color",
                 Property = "PrimaryButtonColor",
                 Type = "string",
                 Value = PrimaryButtonColor,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "primary_button_color_hover",
                 Property = "PrimaryButtonColorHover",
                 Type = "string",
                 Value = PrimaryButtonColorHover,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "primary_button_text_color",
                 Property = "PrimaryButtonTextColor",
                 Type = "string",
                 Value = PrimaryButtonTextColor,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "primary_button_text_color_hover",
                 Property = "PrimaryButtonTextColorHover",
                 Type = "string",
                 Value = PrimaryButtonTextColorHover,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "secondary_button_color",
                 Property = "SecondaryButtonColor",
                 Type = "string",
                 Value = SecondaryButtonColor,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "secondary_button_color_hover",
                 Property = "SecondaryButtonColorHover",
                 Type = "string",
                 Value = SecondaryButtonColorHover,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "secondary_button_text_color",
                 Property = "SecondaryButtonTextColor",
                 Type = "string",
                 Value = SecondaryButtonTextColor,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "secondary_button_text_color_hover",
                 Property = "SecondaryButtonTextColorHover",
                 Type = "string",
                 Value = SecondaryButtonTextColorHover,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "text_color1",
                 Property = "TextColor1",
                 Type = "string",
                 Value = TextColor1,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "text_color2",
                 Property = "TextColor2",
                 Type = "string",
                 Value = TextColor2,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "reset_to_default",
                 Property = "ResetToDefault",
                 Type = "bool",

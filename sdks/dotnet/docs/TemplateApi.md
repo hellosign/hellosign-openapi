@@ -1111,7 +1111,7 @@ public class Example
         };
 
         var data = new TemplateUpdateFilesRequest(
-            files: files,
+            files: files
         );
 
         var templateId = "21f920ec2b7f4b6bb64d3ed79f26303843046536";

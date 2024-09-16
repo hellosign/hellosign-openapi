@@ -35,7 +35,7 @@ namespace Dropbox.Sign.Test.Api
             TestHelper.AssertJsonSame(responseData.ToString(), response.ToJson());
         }
 
-        [Fact(Skip="DELETE /team/destroy skipped")]
+        [Fact(Skip = "DELETE /team/destroy skipped")]
         public void TeamDeleteTest()
         {
         }

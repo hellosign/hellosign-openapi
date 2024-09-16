@@ -26,15 +26,31 @@ import io
 from pydantic import StrictBool
 from typing import Union
 
+
 class SignatureRequestUpdateRequest(BaseModel):
     """
     SignatureRequestUpdateRequest
-    """ # noqa: E501
+    """  # noqa: E501
+
     signature_id: StrictStr = Field(description="The signature ID for the recipient.")
-    email_address: Optional[StrictStr] = Field(default=None, description="The new email address for the recipient.  This will generate a new `signature_id` value.  **NOTE:** Optional if `name` is provided.")
-    name: Optional[StrictStr] = Field(default=None, description="The new name for the recipient.  **NOTE:** Optional if `email_address` is provided.")
-    expires_at: Optional[StrictInt] = Field(default=None, description="The new time when the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.")
-    __properties: ClassVar[List[str]] = ["signature_id", "email_address", "name", "expires_at"]
+    email_address: Optional[StrictStr] = Field(
+        default=None,
+        description="The new email address for the recipient.  This will generate a new `signature_id` value.  **NOTE:** Optional if `name` is provided.",
+    )
+    name: Optional[StrictStr] = Field(
+        default=None,
+        description="The new name for the recipient.  **NOTE:** Optional if `email_address` is provided.",
+    )
+    expires_at: Optional[StrictInt] = Field(
+        default=None,
+        description="The new time when the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.",
+    )
+    __properties: ClassVar[List[str]] = [
+        "signature_id",
+        "email_address",
+        "name",
+        "expires_at",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -42,7 +58,6 @@ class SignatureRequestUpdateRequest(BaseModel):
         protected_namespaces=(),
         arbitrary_types_allowed=True,
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -53,7 +68,9 @@ class SignatureRequestUpdateRequest(BaseModel):
         # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
-    def to_json_form_params(self, excluded_fields: Set[str] = None) -> List[Tuple[str, str]]:
+    def to_json_form_params(
+        self, excluded_fields: Set[str] = None
+    ) -> List[Tuple[str, str]]:
         data: List[Tuple[str, str]] = []
 
         for key, value in self.to_dict(excluded_fields).items():
@@ -96,12 +113,14 @@ class SignatureRequestUpdateRequest(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "signature_id": obj.get("signature_id"),
-            "email_address": obj.get("email_address"),
-            "name": obj.get("name"),
-            "expires_at": obj.get("expires_at")
-        })
+        _obj = cls.model_validate(
+            {
+                "signature_id": obj.get("signature_id"),
+                "email_address": obj.get("email_address"),
+                "name": obj.get("name"),
+                "expires_at": obj.get("expires_at"),
+            }
+        )
         return _obj
 
     @classmethod
@@ -125,6 +144,4 @@ class SignatureRequestUpdateRequest(BaseModel):
 
     @classmethod
     def openapi_type_is_array(cls, property_name: str) -> bool:
-        return property_name in [
-        ]
-
+        return property_name in []

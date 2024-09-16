@@ -87,7 +87,7 @@ namespace Dropbox.Sign.Model
         /// <param name="upload">Allows uploading the signature (default to false).</param>
         public SubSigningOptions(DefaultTypeEnum defaultType = default(DefaultTypeEnum), bool draw = false, bool phone = false, bool type = false, bool upload = false)
         {
-            
+
             this.DefaultType = defaultType;
             this.Draw = draw;
             this.Phone = phone;
@@ -117,28 +117,28 @@ namespace Dropbox.Sign.Model
         /// <value>Allows drawing the signature</value>
         [DataMember(Name = "draw", EmitDefaultValue = true)]
         public bool Draw { get; set; }
-        
+
         /// <summary>
         /// Allows using a smartphone to email the signature
         /// </summary>
         /// <value>Allows using a smartphone to email the signature</value>
         [DataMember(Name = "phone", EmitDefaultValue = true)]
         public bool Phone { get; set; }
-        
+
         /// <summary>
         /// Allows typing the signature
         /// </summary>
         /// <value>Allows typing the signature</value>
         [DataMember(Name = "type", EmitDefaultValue = true)]
         public bool Type { get; set; }
-        
+
         /// <summary>
         /// Allows uploading the signature
         /// </summary>
         /// <value>Allows uploading the signature</value>
         [DataMember(Name = "upload", EmitDefaultValue = true)]
         public bool Upload { get; set; }
-        
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -186,23 +186,23 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
+            return
                 (
                     this.DefaultType == input.DefaultType ||
                     this.DefaultType.Equals(input.DefaultType)
-                ) && 
+                ) &&
                 (
                     this.Draw == input.Draw ||
                     this.Draw.Equals(input.Draw)
-                ) && 
+                ) &&
                 (
                     this.Phone == input.Phone ||
                     this.Phone.Equals(input.Phone)
-                ) && 
+                ) &&
                 (
                     this.Type == input.Type ||
                     this.Type.Equals(input.Type)
-                ) && 
+                ) &&
                 (
                     this.Upload == input.Upload ||
                     this.Upload.Equals(input.Upload)
@@ -239,31 +239,36 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "default_type",
                 Property = "DefaultType",
                 Type = "string",
                 Value = DefaultType,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "draw",
                 Property = "Draw",
                 Type = "bool",
                 Value = Draw,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "phone",
                 Property = "Phone",
                 Type = "bool",
                 Value = Phone,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "type",
                 Property = "Type",
                 Type = "bool",
                 Value = Type,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "upload",
                 Property = "Upload",
                 Type = "bool",

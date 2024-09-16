@@ -26,12 +26,20 @@ import io
 from pydantic import StrictBool
 from typing import Union
 
+
 class TemplateRemoveUserRequest(BaseModel):
     """
     TemplateRemoveUserRequest
-    """ # noqa: E501
-    account_id: Optional[StrictStr] = Field(default=None, description="The id or email address of the Account to remove access to the Template. The account id prevails if both are provided.")
-    email_address: Optional[StrictStr] = Field(default=None, description="The id or email address of the Account to remove access to the Template. The account id prevails if both are provided.")
+    """  # noqa: E501
+
+    account_id: Optional[StrictStr] = Field(
+        default=None,
+        description="The id or email address of the Account to remove access to the Template. The account id prevails if both are provided.",
+    )
+    email_address: Optional[StrictStr] = Field(
+        default=None,
+        description="The id or email address of the Account to remove access to the Template. The account id prevails if both are provided.",
+    )
     __properties: ClassVar[List[str]] = ["account_id", "email_address"]
 
     model_config = ConfigDict(
@@ -40,7 +48,6 @@ class TemplateRemoveUserRequest(BaseModel):
         protected_namespaces=(),
         arbitrary_types_allowed=True,
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -51,7 +58,9 @@ class TemplateRemoveUserRequest(BaseModel):
         # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
-    def to_json_form_params(self, excluded_fields: Set[str] = None) -> List[Tuple[str, str]]:
+    def to_json_form_params(
+        self, excluded_fields: Set[str] = None
+    ) -> List[Tuple[str, str]]:
         data: List[Tuple[str, str]] = []
 
         for key, value in self.to_dict(excluded_fields).items():
@@ -94,10 +103,12 @@ class TemplateRemoveUserRequest(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "account_id": obj.get("account_id"),
-            "email_address": obj.get("email_address")
-        })
+        _obj = cls.model_validate(
+            {
+                "account_id": obj.get("account_id"),
+                "email_address": obj.get("email_address"),
+            }
+        )
         return _obj
 
     @classmethod
@@ -119,6 +130,4 @@ class TemplateRemoveUserRequest(BaseModel):
 
     @classmethod
     def openapi_type_is_array(cls, property_name: str) -> bool:
-        return property_name in [
-        ]
-
+        return property_name in []

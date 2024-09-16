@@ -67,7 +67,7 @@ namespace Dropbox.Sign.Model
         /// <param name="expiresAt">When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details..</param>
         public SignatureRequestEditEmbeddedRequest(List<System.IO.Stream> files = default(List<System.IO.Stream>), List<string> fileUrls = default(List<string>), List<SubSignatureRequestSigner> signers = default(List<SubSignatureRequestSigner>), List<SubSignatureRequestGroupedSigners> groupedSigners = default(List<SubSignatureRequestGroupedSigners>), bool allowDecline = false, bool allowReassign = false, List<SubAttachment> attachments = default(List<SubAttachment>), List<string> ccEmailAddresses = default(List<string>), string clientId = default(string), List<SubCustomField> customFields = default(List<SubCustomField>), SubFieldOptions fieldOptions = default(SubFieldOptions), List<SubFormFieldGroup> formFieldGroups = default(List<SubFormFieldGroup>), List<SubFormFieldRule> formFieldRules = default(List<SubFormFieldRule>), List<SubFormFieldsPerDocumentBase> formFieldsPerDocument = default(List<SubFormFieldsPerDocumentBase>), bool hideTextTags = false, string message = default(string), Dictionary<string, Object> metadata = default(Dictionary<string, Object>), SubSigningOptions signingOptions = default(SubSigningOptions), string subject = default(string), bool testMode = false, string title = default(string), bool useTextTags = false, bool populateAutoFillFields = false, int? expiresAt = default(int?))
         {
-            
+
             // to ensure "clientId" is required (not null)
             if (clientId == null)
             {
@@ -347,127 +347,127 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
+            return
                 (
                     this.ClientId == input.ClientId ||
                     (this.ClientId != null &&
                     this.ClientId.Equals(input.ClientId))
-                ) && 
+                ) &&
                 (
                     this.Files == input.Files ||
                     this.Files != null &&
                     input.Files != null &&
                     this.Files.SequenceEqual(input.Files)
-                ) && 
+                ) &&
                 (
                     this.FileUrls == input.FileUrls ||
                     this.FileUrls != null &&
                     input.FileUrls != null &&
                     this.FileUrls.SequenceEqual(input.FileUrls)
-                ) && 
+                ) &&
                 (
                     this.Signers == input.Signers ||
                     this.Signers != null &&
                     input.Signers != null &&
                     this.Signers.SequenceEqual(input.Signers)
-                ) && 
+                ) &&
                 (
                     this.GroupedSigners == input.GroupedSigners ||
                     this.GroupedSigners != null &&
                     input.GroupedSigners != null &&
                     this.GroupedSigners.SequenceEqual(input.GroupedSigners)
-                ) && 
+                ) &&
                 (
                     this.AllowDecline == input.AllowDecline ||
                     this.AllowDecline.Equals(input.AllowDecline)
-                ) && 
+                ) &&
                 (
                     this.AllowReassign == input.AllowReassign ||
                     this.AllowReassign.Equals(input.AllowReassign)
-                ) && 
+                ) &&
                 (
                     this.Attachments == input.Attachments ||
                     this.Attachments != null &&
                     input.Attachments != null &&
                     this.Attachments.SequenceEqual(input.Attachments)
-                ) && 
+                ) &&
                 (
                     this.CcEmailAddresses == input.CcEmailAddresses ||
                     this.CcEmailAddresses != null &&
                     input.CcEmailAddresses != null &&
                     this.CcEmailAddresses.SequenceEqual(input.CcEmailAddresses)
-                ) && 
+                ) &&
                 (
                     this.CustomFields == input.CustomFields ||
                     this.CustomFields != null &&
                     input.CustomFields != null &&
                     this.CustomFields.SequenceEqual(input.CustomFields)
-                ) && 
+                ) &&
                 (
                     this.FieldOptions == input.FieldOptions ||
                     (this.FieldOptions != null &&
                     this.FieldOptions.Equals(input.FieldOptions))
-                ) && 
+                ) &&
                 (
                     this.FormFieldGroups == input.FormFieldGroups ||
                     this.FormFieldGroups != null &&
                     input.FormFieldGroups != null &&
                     this.FormFieldGroups.SequenceEqual(input.FormFieldGroups)
-                ) && 
+                ) &&
                 (
                     this.FormFieldRules == input.FormFieldRules ||
                     this.FormFieldRules != null &&
                     input.FormFieldRules != null &&
                     this.FormFieldRules.SequenceEqual(input.FormFieldRules)
-                ) && 
+                ) &&
                 (
                     this.FormFieldsPerDocument == input.FormFieldsPerDocument ||
                     this.FormFieldsPerDocument != null &&
                     input.FormFieldsPerDocument != null &&
                     this.FormFieldsPerDocument.SequenceEqual(input.FormFieldsPerDocument)
-                ) && 
+                ) &&
                 (
                     this.HideTextTags == input.HideTextTags ||
                     this.HideTextTags.Equals(input.HideTextTags)
-                ) && 
+                ) &&
                 (
                     this.Message == input.Message ||
                     (this.Message != null &&
                     this.Message.Equals(input.Message))
-                ) && 
+                ) &&
                 (
                     this.Metadata == input.Metadata ||
                     this.Metadata != null &&
                     input.Metadata != null &&
                     this.Metadata.SequenceEqual(input.Metadata)
-                ) && 
+                ) &&
                 (
                     this.SigningOptions == input.SigningOptions ||
                     (this.SigningOptions != null &&
                     this.SigningOptions.Equals(input.SigningOptions))
-                ) && 
+                ) &&
                 (
                     this.Subject == input.Subject ||
                     (this.Subject != null &&
                     this.Subject.Equals(input.Subject))
-                ) && 
+                ) &&
                 (
                     this.TestMode == input.TestMode ||
                     this.TestMode.Equals(input.TestMode)
-                ) && 
+                ) &&
                 (
                     this.Title == input.Title ||
                     (this.Title != null &&
                     this.Title.Equals(input.Title))
-                ) && 
+                ) &&
                 (
                     this.UseTextTags == input.UseTextTags ||
                     this.UseTextTags.Equals(input.UseTextTags)
-                ) && 
+                ) &&
                 (
                     this.PopulateAutoFillFields == input.PopulateAutoFillFields ||
                     this.PopulateAutoFillFields.Equals(input.PopulateAutoFillFields)
-                ) && 
+                ) &&
                 (
                     this.ExpiresAt == input.ExpiresAt ||
                     (this.ExpiresAt != null &&
@@ -569,145 +569,169 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "client_id",
                 Property = "ClientId",
                 Type = "string",
                 Value = ClientId,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "files",
                 Property = "Files",
                 Type = "List<System.IO.Stream>",
                 Value = Files,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "file_urls",
                 Property = "FileUrls",
                 Type = "List<string>",
                 Value = FileUrls,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "signers",
                 Property = "Signers",
                 Type = "List<SubSignatureRequestSigner>",
                 Value = Signers,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "grouped_signers",
                 Property = "GroupedSigners",
                 Type = "List<SubSignatureRequestGroupedSigners>",
                 Value = GroupedSigners,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "allow_decline",
                 Property = "AllowDecline",
                 Type = "bool",
                 Value = AllowDecline,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "allow_reassign",
                 Property = "AllowReassign",
                 Type = "bool",
                 Value = AllowReassign,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "attachments",
                 Property = "Attachments",
                 Type = "List<SubAttachment>",
                 Value = Attachments,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "cc_email_addresses",
                 Property = "CcEmailAddresses",
                 Type = "List<string>",
                 Value = CcEmailAddresses,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "custom_fields",
                 Property = "CustomFields",
                 Type = "List<SubCustomField>",
                 Value = CustomFields,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "field_options",
                 Property = "FieldOptions",
                 Type = "SubFieldOptions",
                 Value = FieldOptions,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "form_field_groups",
                 Property = "FormFieldGroups",
                 Type = "List<SubFormFieldGroup>",
                 Value = FormFieldGroups,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "form_field_rules",
                 Property = "FormFieldRules",
                 Type = "List<SubFormFieldRule>",
                 Value = FormFieldRules,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "form_fields_per_document",
                 Property = "FormFieldsPerDocument",
                 Type = "List<SubFormFieldsPerDocumentBase>",
                 Value = FormFieldsPerDocument,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "hide_text_tags",
                 Property = "HideTextTags",
                 Type = "bool",
                 Value = HideTextTags,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "message",
                 Property = "Message",
                 Type = "string",
                 Value = Message,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "metadata",
                 Property = "Metadata",
                 Type = "Dictionary<string, Object>",
                 Value = Metadata,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "signing_options",
                 Property = "SigningOptions",
                 Type = "SubSigningOptions",
                 Value = SigningOptions,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "subject",
                 Property = "Subject",
                 Type = "string",
                 Value = Subject,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "test_mode",
                 Property = "TestMode",
                 Type = "bool",
                 Value = TestMode,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "title",
                 Property = "Title",
                 Type = "string",
                 Value = Title,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "use_text_tags",
                 Property = "UseTextTags",
                 Type = "bool",
                 Value = UseTextTags,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "populate_auto_fill_fields",
                 Property = "PopulateAutoFillFields",
                 Type = "bool",
                 Value = PopulateAutoFillFields,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "expires_at",
                 Property = "ExpiresAt",
                 Type = "int?",
@@ -727,19 +751,19 @@ namespace Dropbox.Sign.Model
             // Message (string) maxLength
             if (this.Message != null && this.Message.Length > 5000)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Message, length must be less than 5000.", new [] { "Message" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Message, length must be less than 5000.", new[] { "Message" });
             }
 
             // Subject (string) maxLength
             if (this.Subject != null && this.Subject.Length > 255)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Subject, length must be less than 255.", new [] { "Subject" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Subject, length must be less than 255.", new[] { "Subject" });
             }
 
             // Title (string) maxLength
             if (this.Title != null && this.Title.Length > 255)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Title, length must be less than 255.", new [] { "Title" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Title, length must be less than 255.", new[] { "Title" });
             }
 
             yield break;

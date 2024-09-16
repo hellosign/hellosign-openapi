@@ -45,7 +45,6 @@ class AccountApi:
             api_client = ApiClient.get_default()
         self.api_client = api_client
 
-
     @validate_call
     def account_create(
         self,
@@ -54,9 +53,8 @@ class AccountApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -89,30 +87,28 @@ class AccountApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._account_create_serialize(
             account_create_request=account_create_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AccountCreateResponse",
-            '4XX': "ErrorResponse",
+            "200": "AccountCreateResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def account_create_with_http_info(
@@ -122,9 +118,8 @@ class AccountApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -157,30 +152,28 @@ class AccountApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._account_create_serialize(
             account_create_request=account_create_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AccountCreateResponse",
-            '4XX': "ErrorResponse",
+            "200": "AccountCreateResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def account_create_without_preload_content(
@@ -190,9 +183,8 @@ class AccountApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -225,26 +217,24 @@ class AccountApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._account_create_serialize(
             account_create_request=account_create_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AccountCreateResponse",
-            '4XX': "ErrorResponse",
+            "200": "AccountCreateResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _account_create_serialize(
         self,
@@ -257,8 +247,7 @@ class AccountApi:
 
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -282,7 +271,7 @@ class AccountApi:
 
                 if isinstance(param_value, list):
                     for index, item in enumerate(param_value):
-                        _files[f'{param_name}[{index}]'] = item
+                        _files[f"{param_name}[{index}]"] = item
                 else:
                     _files[param_name] = param_value
 
@@ -297,38 +286,28 @@ class AccountApi:
         if account_create_request is not None and has_files is False:
             _body_params = account_create_request
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json"]
             )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'api_key', 
-            'oauth2'
-        ]
+        _auth_settings: List[str] = ["api_key", "oauth2"]
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/account/create',
+            method="POST",
+            resource_path="/account/create",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -338,24 +317,30 @@ class AccountApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def account_get(
         self,
-        account_id: Annotated[Optional[StrictStr], Field(description="`account_id` or `email_address` is required. If both are provided, the account id prevails.  The ID of the Account.")] = None,
-        email_address: Annotated[Optional[StrictStr], Field(description="`account_id` or `email_address` is required, If both are provided, the account id prevails.  The email address of the Account.")] = None,
+        account_id: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="`account_id` or `email_address` is required. If both are provided, the account id prevails.  The ID of the Account."
+            ),
+        ] = None,
+        email_address: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="`account_id` or `email_address` is required, If both are provided, the account id prevails.  The email address of the Account."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -390,7 +375,7 @@ class AccountApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._account_get_serialize(
             account_id=account_id,
@@ -398,16 +383,15 @@ class AccountApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AccountGetResponse",
-            '4XX': "ErrorResponse",
+            "200": "AccountGetResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -415,19 +399,27 @@ class AccountApi:
             response_types_map=_response_types_map,
         ).data
 
-
     @validate_call
     def account_get_with_http_info(
         self,
-        account_id: Annotated[Optional[StrictStr], Field(description="`account_id` or `email_address` is required. If both are provided, the account id prevails.  The ID of the Account.")] = None,
-        email_address: Annotated[Optional[StrictStr], Field(description="`account_id` or `email_address` is required, If both are provided, the account id prevails.  The email address of the Account.")] = None,
+        account_id: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="`account_id` or `email_address` is required. If both are provided, the account id prevails.  The ID of the Account."
+            ),
+        ] = None,
+        email_address: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="`account_id` or `email_address` is required, If both are provided, the account id prevails.  The email address of the Account."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -462,7 +454,7 @@ class AccountApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._account_get_serialize(
             account_id=account_id,
@@ -470,16 +462,15 @@ class AccountApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AccountGetResponse",
-            '4XX': "ErrorResponse",
+            "200": "AccountGetResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -487,19 +478,27 @@ class AccountApi:
             response_types_map=_response_types_map,
         )
 
-
     @validate_call
     def account_get_without_preload_content(
         self,
-        account_id: Annotated[Optional[StrictStr], Field(description="`account_id` or `email_address` is required. If both are provided, the account id prevails.  The ID of the Account.")] = None,
-        email_address: Annotated[Optional[StrictStr], Field(description="`account_id` or `email_address` is required, If both are provided, the account id prevails.  The email address of the Account.")] = None,
+        account_id: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="`account_id` or `email_address` is required. If both are provided, the account id prevails.  The ID of the Account."
+            ),
+        ] = None,
+        email_address: Annotated[
+            Optional[StrictStr],
+            Field(
+                description="`account_id` or `email_address` is required, If both are provided, the account id prevails.  The email address of the Account."
+            ),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -534,7 +533,7 @@ class AccountApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._account_get_serialize(
             account_id=account_id,
@@ -542,19 +541,17 @@ class AccountApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AccountGetResponse",
-            '4XX': "ErrorResponse",
+            "200": "AccountGetResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _account_get_serialize(
         self,
@@ -568,8 +565,7 @@ class AccountApi:
 
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -581,36 +577,29 @@ class AccountApi:
         # process the path parameters
         # process the query parameters
         if account_id is not None:
-            
-            _query_params.append(('account_id', account_id))
-            
+
+            _query_params.append(("account_id", account_id))
+
         if email_address is not None:
-            
-            _query_params.append(('email_address', email_address))
-            
+
+            _query_params.append(("email_address", email_address))
+
         # process the header parameters
         # process the form parameters
         # process the body parameter
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json"]
             )
 
-
         # authentication setting
-        _auth_settings: List[str] = [
-            'api_key', 
-            'oauth2'
-        ]
+        _auth_settings: List[str] = ["api_key", "oauth2"]
 
         return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/account',
+            method="GET",
+            resource_path="/account",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -620,11 +609,8 @@ class AccountApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def account_update(
@@ -634,9 +620,8 @@ class AccountApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -669,30 +654,28 @@ class AccountApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._account_update_serialize(
             account_update_request=account_update_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AccountGetResponse",
-            '4XX': "ErrorResponse",
+            "200": "AccountGetResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def account_update_with_http_info(
@@ -702,9 +685,8 @@ class AccountApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -737,30 +719,28 @@ class AccountApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._account_update_serialize(
             account_update_request=account_update_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AccountGetResponse",
-            '4XX': "ErrorResponse",
+            "200": "AccountGetResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def account_update_without_preload_content(
@@ -770,9 +750,8 @@ class AccountApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -805,26 +784,24 @@ class AccountApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._account_update_serialize(
             account_update_request=account_update_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AccountGetResponse",
-            '4XX': "ErrorResponse",
+            "200": "AccountGetResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _account_update_serialize(
         self,
@@ -837,8 +814,7 @@ class AccountApi:
 
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -862,7 +838,7 @@ class AccountApi:
 
                 if isinstance(param_value, list):
                     for index, item in enumerate(param_value):
-                        _files[f'{param_name}[{index}]'] = item
+                        _files[f"{param_name}[{index}]"] = item
                 else:
                     _files[param_name] = param_value
 
@@ -877,38 +853,28 @@ class AccountApi:
         if account_update_request is not None and has_files is False:
             _body_params = account_update_request
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json"]
             )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'api_key', 
-            'oauth2'
-        ]
+        _auth_settings: List[str] = ["api_key", "oauth2"]
 
         return self.api_client.param_serialize(
-            method='PUT',
-            resource_path='/account',
+            method="PUT",
+            resource_path="/account",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -918,11 +884,8 @@ class AccountApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def account_verify(
@@ -932,9 +895,8 @@ class AccountApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -967,30 +929,28 @@ class AccountApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._account_verify_serialize(
             account_verify_request=account_verify_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AccountVerifyResponse",
-            '4XX': "ErrorResponse",
+            "200": "AccountVerifyResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def account_verify_with_http_info(
@@ -1000,9 +960,8 @@ class AccountApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1035,30 +994,28 @@ class AccountApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._account_verify_serialize(
             account_verify_request=account_verify_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AccountVerifyResponse",
-            '4XX': "ErrorResponse",
+            "200": "AccountVerifyResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def account_verify_without_preload_content(
@@ -1068,9 +1025,8 @@ class AccountApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1103,26 +1059,24 @@ class AccountApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._account_verify_serialize(
             account_verify_request=account_verify_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AccountVerifyResponse",
-            '4XX': "ErrorResponse",
+            "200": "AccountVerifyResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _account_verify_serialize(
         self,
@@ -1135,8 +1089,7 @@ class AccountApi:
 
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -1160,7 +1113,7 @@ class AccountApi:
 
                 if isinstance(param_value, list):
                     for index, item in enumerate(param_value):
-                        _files[f'{param_name}[{index}]'] = item
+                        _files[f"{param_name}[{index}]"] = item
                 else:
                     _files[param_name] = param_value
 
@@ -1175,38 +1128,28 @@ class AccountApi:
         if account_verify_request is not None and has_files is False:
             _body_params = account_verify_request
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json"]
             )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'api_key', 
-            'oauth2'
-        ]
+        _auth_settings: List[str] = ["api_key", "oauth2"]
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/account/verify',
+            method="POST",
+            resource_path="/account/verify",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1216,7 +1159,5 @@ class AccountApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-

@@ -48,7 +48,7 @@ namespace Dropbox.Sign.Model
         /// <param name="state">Same as the state you specified earlier. (required).</param>
         public OAuthTokenGenerateRequest(string clientId = default(string), string clientSecret = default(string), string code = default(string), string grantType = @"authorization_code", string state = default(string))
         {
-            
+
             // to ensure "clientId" is required (not null)
             if (clientId == null)
             {
@@ -103,35 +103,35 @@ namespace Dropbox.Sign.Model
         /// <value>The client id of the app requesting authorization.</value>
         [DataMember(Name = "client_id", IsRequired = true, EmitDefaultValue = true)]
         public string ClientId { get; set; }
-        
+
         /// <summary>
         /// The secret token of your app.
         /// </summary>
         /// <value>The secret token of your app.</value>
         [DataMember(Name = "client_secret", IsRequired = true, EmitDefaultValue = true)]
         public string ClientSecret { get; set; }
-        
+
         /// <summary>
         /// The code passed to your callback when the user granted access.
         /// </summary>
         /// <value>The code passed to your callback when the user granted access.</value>
         [DataMember(Name = "code", IsRequired = true, EmitDefaultValue = true)]
         public string Code { get; set; }
-        
+
         /// <summary>
         /// When generating a new token use &#x60;authorization_code&#x60;.
         /// </summary>
         /// <value>When generating a new token use &#x60;authorization_code&#x60;.</value>
         [DataMember(Name = "grant_type", IsRequired = true, EmitDefaultValue = true)]
         public string GrantType { get; set; }
-        
+
         /// <summary>
         /// Same as the state you specified earlier.
         /// </summary>
         /// <value>Same as the state you specified earlier.</value>
         [DataMember(Name = "state", IsRequired = true, EmitDefaultValue = true)]
         public string State { get; set; }
-        
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -179,27 +179,27 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
+            return
                 (
                     this.ClientId == input.ClientId ||
                     (this.ClientId != null &&
                     this.ClientId.Equals(input.ClientId))
-                ) && 
+                ) &&
                 (
                     this.ClientSecret == input.ClientSecret ||
                     (this.ClientSecret != null &&
                     this.ClientSecret.Equals(input.ClientSecret))
-                ) && 
+                ) &&
                 (
                     this.Code == input.Code ||
                     (this.Code != null &&
                     this.Code.Equals(input.Code))
-                ) && 
+                ) &&
                 (
                     this.GrantType == input.GrantType ||
                     (this.GrantType != null &&
                     this.GrantType.Equals(input.GrantType))
-                ) && 
+                ) &&
                 (
                     this.State == input.State ||
                     (this.State != null &&
@@ -252,31 +252,36 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "client_id",
                 Property = "ClientId",
                 Type = "string",
                 Value = ClientId,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "client_secret",
                 Property = "ClientSecret",
                 Type = "string",
                 Value = ClientSecret,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "code",
                 Property = "Code",
                 Type = "string",
                 Value = Code,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "grant_type",
                 Property = "GrantType",
                 Type = "string",
                 Value = GrantType,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "state",
                 Property = "State",
                 Type = "string",

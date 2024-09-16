@@ -56,7 +56,12 @@ public class {{classname}} {
   {{#operation}}
   {{^vendorExtensions.x-group-parameters}}
   /**
+{{^useCustomTemplateCode}}
    * {{summary}}
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
+   * {{summary}}.
+{{/useCustomTemplateCode}}
    * {{notes}}
    {{#allParams}}
    * @param {{paramName}} {{description}}{{#required}} (required){{/required}}{{^required}} (optional{{#defaultValue}}, default to {{.}}{{/defaultValue}}){{/required}}
@@ -96,7 +101,12 @@ public class {{classname}} {
 {{/useCustomTemplateCode}}
   {{^vendorExtensions.x-group-parameters}}
   /**
+{{^useCustomTemplateCode}}
    * {{summary}}
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
+   * {{summary}}.
+{{/useCustomTemplateCode}}
    * {{notes}}
    {{#allParams}}
    * @param {{paramName}} {{description}}{{#required}} (required){{/required}}{{^required}} (optional{{#defaultValue}}, default to {{.}}{{/defaultValue}}){{/required}}
@@ -310,7 +320,12 @@ public class {{classname}} {
   }
 
   /**
+{{^useCustomTemplateCode}}
    * {{summary}}
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
+   * {{summary}}.
+{{/useCustomTemplateCode}}
    * {{notes}}{{#pathParams}}
    * @param {{paramName}} {{description}} (required){{/pathParams}}
    * @return {{operationId}}Request

@@ -47,7 +47,7 @@ namespace Dropbox.Sign.Model
         /// <param name="pageSize">Objects returned per page..</param>
         public ListInfoResponse(int numPages = default(int), int? numResults = default(int?), int page = default(int), int pageSize = default(int))
         {
-            
+
             this.NumPages = numPages;
             this.NumResults = numResults;
             this.Page = page;
@@ -76,28 +76,28 @@ namespace Dropbox.Sign.Model
         /// <value>Total number of pages available.</value>
         [DataMember(Name = "num_pages", EmitDefaultValue = true)]
         public int NumPages { get; set; }
-        
+
         /// <summary>
         /// Total number of objects available.
         /// </summary>
         /// <value>Total number of objects available.</value>
         [DataMember(Name = "num_results", EmitDefaultValue = true)]
         public int? NumResults { get; set; }
-        
+
         /// <summary>
         /// Number of the page being returned.
         /// </summary>
         /// <value>Number of the page being returned.</value>
         [DataMember(Name = "page", EmitDefaultValue = true)]
         public int Page { get; set; }
-        
+
         /// <summary>
         /// Objects returned per page.
         /// </summary>
         /// <value>Objects returned per page.</value>
         [DataMember(Name = "page_size", EmitDefaultValue = true)]
         public int PageSize { get; set; }
-        
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -144,20 +144,20 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
+            return
                 (
                     this.NumPages == input.NumPages ||
                     this.NumPages.Equals(input.NumPages)
-                ) && 
+                ) &&
                 (
                     this.NumResults == input.NumResults ||
                     (this.NumResults != null &&
                     this.NumResults.Equals(input.NumResults))
-                ) && 
+                ) &&
                 (
                     this.Page == input.Page ||
                     this.Page.Equals(input.Page)
-                ) && 
+                ) &&
                 (
                     this.PageSize == input.PageSize ||
                     this.PageSize.Equals(input.PageSize)
@@ -196,25 +196,29 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "num_pages",
                 Property = "NumPages",
                 Type = "int",
                 Value = NumPages,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "num_results",
                 Property = "NumResults",
                 Type = "int?",
                 Value = NumResults,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "page",
                 Property = "Page",
                 Type = "int",
                 Value = Page,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "page_size",
                 Property = "PageSize",
                 Type = "int",

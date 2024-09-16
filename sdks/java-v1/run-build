@@ -51,6 +51,7 @@ fi
 rm -rf "${DIR}/api"
 
 printf "Building ...\n"
+bash "${DIR}/bin/gradle" ./gradlew spotlessApply
 bash "${DIR}/bin/gradle" ./gradlew clean build
 
 printf "Success!\n"

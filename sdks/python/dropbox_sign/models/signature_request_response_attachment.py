@@ -26,17 +26,34 @@ import io
 from pydantic import StrictBool
 from typing import Union
 
+
 class SignatureRequestResponseAttachment(BaseModel):
     """
     Signer attachments.
-    """ # noqa: E501
+    """  # noqa: E501
+
     id: StrictStr = Field(description="The unique ID for this attachment.")
-    signer: Union[StrictStr, StrictInt] = Field(description="The Signer this attachment is assigned to.")
+    signer: Union[StrictStr, StrictInt] = Field(
+        description="The Signer this attachment is assigned to."
+    )
     name: StrictStr = Field(description="The name of this attachment.")
-    required: StrictBool = Field(description="A boolean value denoting if this attachment is required.")
-    instructions: Optional[StrictStr] = Field(default=None, description="Instructions for Signer.")
-    uploaded_at: Optional[StrictInt] = Field(default=None, description="Timestamp when attachment was uploaded by Signer.")
-    __properties: ClassVar[List[str]] = ["id", "signer", "name", "required", "instructions", "uploaded_at"]
+    required: StrictBool = Field(
+        description="A boolean value denoting if this attachment is required."
+    )
+    instructions: Optional[StrictStr] = Field(
+        default=None, description="Instructions for Signer."
+    )
+    uploaded_at: Optional[StrictInt] = Field(
+        default=None, description="Timestamp when attachment was uploaded by Signer."
+    )
+    __properties: ClassVar[List[str]] = [
+        "id",
+        "signer",
+        "name",
+        "required",
+        "instructions",
+        "uploaded_at",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -44,7 +61,6 @@ class SignatureRequestResponseAttachment(BaseModel):
         protected_namespaces=(),
         arbitrary_types_allowed=True,
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -55,7 +71,9 @@ class SignatureRequestResponseAttachment(BaseModel):
         # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
-    def to_json_form_params(self, excluded_fields: Set[str] = None) -> List[Tuple[str, str]]:
+    def to_json_form_params(
+        self, excluded_fields: Set[str] = None
+    ) -> List[Tuple[str, str]]:
         data: List[Tuple[str, str]] = []
 
         for key, value in self.to_dict(excluded_fields).items():
@@ -98,14 +116,16 @@ class SignatureRequestResponseAttachment(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "id": obj.get("id"),
-            "signer": obj.get("signer"),
-            "name": obj.get("name"),
-            "required": obj.get("required"),
-            "instructions": obj.get("instructions"),
-            "uploaded_at": obj.get("uploaded_at")
-        })
+        _obj = cls.model_validate(
+            {
+                "id": obj.get("id"),
+                "signer": obj.get("signer"),
+                "name": obj.get("name"),
+                "required": obj.get("required"),
+                "instructions": obj.get("instructions"),
+                "uploaded_at": obj.get("uploaded_at"),
+            }
+        )
         return _obj
 
     @classmethod
@@ -131,6 +151,4 @@ class SignatureRequestResponseAttachment(BaseModel):
 
     @classmethod
     def openapi_type_is_array(cls, property_name: str) -> bool:
-        return property_name in [
-        ]
-
+        return property_name in []

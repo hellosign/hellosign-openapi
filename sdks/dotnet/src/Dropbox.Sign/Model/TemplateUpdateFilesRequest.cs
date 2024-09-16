@@ -49,7 +49,7 @@ namespace Dropbox.Sign.Model
         /// <param name="testMode">Whether this is a test, the signature request created from this draft will not be legally binding if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;. (default to false).</param>
         public TemplateUpdateFilesRequest(string clientId = default(string), List<System.IO.Stream> files = default(List<System.IO.Stream>), List<string> fileUrls = default(List<string>), string message = default(string), string subject = default(string), bool testMode = false)
         {
-            
+
             this.ClientId = clientId;
             this.Files = files;
             this.FileUrls = fileUrls;
@@ -80,42 +80,42 @@ namespace Dropbox.Sign.Model
         /// <value>Client id of the app you&#39;re using to update this template.</value>
         [DataMember(Name = "client_id", EmitDefaultValue = true)]
         public string ClientId { get; set; }
-        
+
         /// <summary>
         /// Use &#x60;files[]&#x60; to indicate the uploaded file(s) to use for the template.  This endpoint requires either **files** or **file_urls[]**, but not both.
         /// </summary>
         /// <value>Use &#x60;files[]&#x60; to indicate the uploaded file(s) to use for the template.  This endpoint requires either **files** or **file_urls[]**, but not both.</value>
         [DataMember(Name = "files", EmitDefaultValue = true)]
         public List<System.IO.Stream> Files { get; set; }
-        
+
         /// <summary>
         /// Use &#x60;file_urls[]&#x60; to have Dropbox Sign download the file(s) to use for the template.  This endpoint requires either **files** or **file_urls[]**, but not both.
         /// </summary>
         /// <value>Use &#x60;file_urls[]&#x60; to have Dropbox Sign download the file(s) to use for the template.  This endpoint requires either **files** or **file_urls[]**, but not both.</value>
         [DataMember(Name = "file_urls", EmitDefaultValue = true)]
         public List<string> FileUrls { get; set; }
-        
+
         /// <summary>
         /// The new default template email message.
         /// </summary>
         /// <value>The new default template email message.</value>
         [DataMember(Name = "message", EmitDefaultValue = true)]
         public string Message { get; set; }
-        
+
         /// <summary>
         /// The new default template email subject.
         /// </summary>
         /// <value>The new default template email subject.</value>
         [DataMember(Name = "subject", EmitDefaultValue = true)]
         public string Subject { get; set; }
-        
+
         /// <summary>
         /// Whether this is a test, the signature request created from this draft will not be legally binding if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.
         /// </summary>
         /// <value>Whether this is a test, the signature request created from this draft will not be legally binding if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.</value>
         [DataMember(Name = "test_mode", EmitDefaultValue = true)]
         public bool TestMode { get; set; }
-        
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -164,34 +164,34 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
+            return
                 (
                     this.ClientId == input.ClientId ||
                     (this.ClientId != null &&
                     this.ClientId.Equals(input.ClientId))
-                ) && 
+                ) &&
                 (
                     this.Files == input.Files ||
                     this.Files != null &&
                     input.Files != null &&
                     this.Files.SequenceEqual(input.Files)
-                ) && 
+                ) &&
                 (
                     this.FileUrls == input.FileUrls ||
                     this.FileUrls != null &&
                     input.FileUrls != null &&
                     this.FileUrls.SequenceEqual(input.FileUrls)
-                ) && 
+                ) &&
                 (
                     this.Message == input.Message ||
                     (this.Message != null &&
                     this.Message.Equals(input.Message))
-                ) && 
+                ) &&
                 (
                     this.Subject == input.Subject ||
                     (this.Subject != null &&
                     this.Subject.Equals(input.Subject))
-                ) && 
+                ) &&
                 (
                     this.TestMode == input.TestMode ||
                     this.TestMode.Equals(input.TestMode)
@@ -242,13 +242,13 @@ namespace Dropbox.Sign.Model
             // Message (string) maxLength
             if (this.Message != null && this.Message.Length > 5000)
             {
-                yield return new ValidationResult("Invalid value for Message, length must be less than 5000.", new [] { "Message" });
+                yield return new ValidationResult("Invalid value for Message, length must be less than 5000.", new[] { "Message" });
             }
 
             // Subject (string) maxLength
             if (this.Subject != null && this.Subject.Length > 100)
             {
-                yield return new ValidationResult("Invalid value for Subject, length must be less than 100.", new [] { "Subject" });
+                yield return new ValidationResult("Invalid value for Subject, length must be less than 100.", new[] { "Subject" });
             }
 
             yield break;
@@ -256,37 +256,43 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "client_id",
                 Property = "ClientId",
                 Type = "string",
                 Value = ClientId,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "files",
                 Property = "Files",
                 Type = "List<System.IO.Stream>",
                 Value = Files,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "file_urls",
                 Property = "FileUrls",
                 Type = "List<string>",
                 Value = FileUrls,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "message",
                 Property = "Message",
                 Type = "string",
                 Value = Message,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "subject",
                 Property = "Subject",
                 Type = "string",
                 Value = Subject,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "test_mode",
                 Property = "TestMode",
                 Type = "bool",

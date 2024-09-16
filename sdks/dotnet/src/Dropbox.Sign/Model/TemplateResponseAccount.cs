@@ -49,7 +49,7 @@ namespace Dropbox.Sign.Model
         /// <param name="quotas">quotas.</param>
         public TemplateResponseAccount(string accountId = default(string), string emailAddress = default(string), bool isLocked = default(bool), bool isPaidHs = default(bool), bool isPaidHf = default(bool), TemplateResponseAccountQuota quotas = default(TemplateResponseAccountQuota))
         {
-            
+
             this.AccountId = accountId;
             this.EmailAddress = emailAddress;
             this.IsLocked = isLocked;
@@ -80,41 +80,41 @@ namespace Dropbox.Sign.Model
         /// <value>The id of the Account.</value>
         [DataMember(Name = "account_id", EmitDefaultValue = true)]
         public string AccountId { get; set; }
-        
+
         /// <summary>
         /// The email address associated with the Account.
         /// </summary>
         /// <value>The email address associated with the Account.</value>
         [DataMember(Name = "email_address", EmitDefaultValue = true)]
         public string EmailAddress { get; set; }
-        
+
         /// <summary>
         /// Returns &#x60;true&#x60; if the user has been locked out of their account by a team admin.
         /// </summary>
         /// <value>Returns &#x60;true&#x60; if the user has been locked out of their account by a team admin.</value>
         [DataMember(Name = "is_locked", EmitDefaultValue = true)]
         public bool IsLocked { get; set; }
-        
+
         /// <summary>
         /// Returns &#x60;true&#x60; if the user has a paid Dropbox Sign account.
         /// </summary>
         /// <value>Returns &#x60;true&#x60; if the user has a paid Dropbox Sign account.</value>
         [DataMember(Name = "is_paid_hs", EmitDefaultValue = true)]
         public bool IsPaidHs { get; set; }
-        
+
         /// <summary>
         /// Returns &#x60;true&#x60; if the user has a paid HelloFax account.
         /// </summary>
         /// <value>Returns &#x60;true&#x60; if the user has a paid HelloFax account.</value>
         [DataMember(Name = "is_paid_hf", EmitDefaultValue = true)]
         public bool IsPaidHf { get; set; }
-        
+
         /// <summary>
         /// Gets or Sets Quotas
         /// </summary>
         [DataMember(Name = "quotas", EmitDefaultValue = true)]
         public TemplateResponseAccountQuota Quotas { get; set; }
-        
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -163,29 +163,29 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
+            return
                 (
                     this.AccountId == input.AccountId ||
                     (this.AccountId != null &&
                     this.AccountId.Equals(input.AccountId))
-                ) && 
+                ) &&
                 (
                     this.EmailAddress == input.EmailAddress ||
                     (this.EmailAddress != null &&
                     this.EmailAddress.Equals(input.EmailAddress))
-                ) && 
+                ) &&
                 (
                     this.IsLocked == input.IsLocked ||
                     this.IsLocked.Equals(input.IsLocked)
-                ) && 
+                ) &&
                 (
                     this.IsPaidHs == input.IsPaidHs ||
                     this.IsPaidHs.Equals(input.IsPaidHs)
-                ) && 
+                ) &&
                 (
                     this.IsPaidHf == input.IsPaidHf ||
                     this.IsPaidHf.Equals(input.IsPaidHf)
-                ) && 
+                ) &&
                 (
                     this.Quotas == input.Quotas ||
                     (this.Quotas != null &&
@@ -233,37 +233,43 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "account_id",
                 Property = "AccountId",
                 Type = "string",
                 Value = AccountId,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "email_address",
                 Property = "EmailAddress",
                 Type = "string",
                 Value = EmailAddress,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "is_locked",
                 Property = "IsLocked",
                 Type = "bool",
                 Value = IsLocked,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "is_paid_hs",
                 Property = "IsPaidHs",
                 Type = "bool",
                 Value = IsPaidHs,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "is_paid_hf",
                 Property = "IsPaidHf",
                 Type = "bool",
                 Value = IsPaidHf,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "quotas",
                 Property = "Quotas",
                 Type = "TemplateResponseAccountQuota",

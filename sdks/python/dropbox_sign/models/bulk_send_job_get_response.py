@@ -20,7 +20,9 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
-from dropbox_sign.models.bulk_send_job_get_response_signature_requests import BulkSendJobGetResponseSignatureRequests
+from dropbox_sign.models.bulk_send_job_get_response_signature_requests import (
+    BulkSendJobGetResponseSignatureRequests,
+)
 from dropbox_sign.models.bulk_send_job_response import BulkSendJobResponse
 from dropbox_sign.models.list_info_response import ListInfoResponse
 from dropbox_sign.models.warning_response import WarningResponse
@@ -30,15 +32,26 @@ import io
 from pydantic import StrictBool
 from typing import Union
 
+
 class BulkSendJobGetResponse(BaseModel):
     """
     BulkSendJobGetResponse
-    """ # noqa: E501
+    """  # noqa: E501
+
     bulk_send_job: BulkSendJobResponse
     list_info: ListInfoResponse
-    signature_requests: List[BulkSendJobGetResponseSignatureRequests] = Field(description="Contains information about the Signature Requests sent in bulk.")
-    warnings: Optional[List[WarningResponse]] = Field(default=None, description="A list of warnings.")
-    __properties: ClassVar[List[str]] = ["bulk_send_job", "list_info", "signature_requests", "warnings"]
+    signature_requests: List[BulkSendJobGetResponseSignatureRequests] = Field(
+        description="Contains information about the Signature Requests sent in bulk."
+    )
+    warnings: Optional[List[WarningResponse]] = Field(
+        default=None, description="A list of warnings."
+    )
+    __properties: ClassVar[List[str]] = [
+        "bulk_send_job",
+        "list_info",
+        "signature_requests",
+        "warnings",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -46,7 +59,6 @@ class BulkSendJobGetResponse(BaseModel):
         protected_namespaces=(),
         arbitrary_types_allowed=True,
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -57,7 +69,9 @@ class BulkSendJobGetResponse(BaseModel):
         # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
-    def to_json_form_params(self, excluded_fields: Set[str] = None) -> List[Tuple[str, str]]:
+    def to_json_form_params(
+        self, excluded_fields: Set[str] = None
+    ) -> List[Tuple[str, str]]:
         data: List[Tuple[str, str]] = []
 
         for key, value in self.to_dict(excluded_fields).items():
@@ -91,24 +105,24 @@ class BulkSendJobGetResponse(BaseModel):
         )
         # override the default output from pydantic by calling `to_dict()` of bulk_send_job
         if self.bulk_send_job:
-            _dict['bulk_send_job'] = self.bulk_send_job.to_dict()
+            _dict["bulk_send_job"] = self.bulk_send_job.to_dict()
         # override the default output from pydantic by calling `to_dict()` of list_info
         if self.list_info:
-            _dict['list_info'] = self.list_info.to_dict()
+            _dict["list_info"] = self.list_info.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in signature_requests (list)
         _items = []
         if self.signature_requests:
             for _item_signature_requests in self.signature_requests:
                 if _item_signature_requests:
                     _items.append(_item_signature_requests.to_dict())
-            _dict['signature_requests'] = _items
+            _dict["signature_requests"] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in warnings (list)
         _items = []
         if self.warnings:
             for _item_warnings in self.warnings:
                 if _item_warnings:
                     _items.append(_item_warnings.to_dict())
-            _dict['warnings'] = _items
+            _dict["warnings"] = _items
         return _dict
 
     @classmethod
@@ -120,12 +134,33 @@ class BulkSendJobGetResponse(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "bulk_send_job": BulkSendJobResponse.from_dict(obj["bulk_send_job"]) if obj.get("bulk_send_job") is not None else None,
-            "list_info": ListInfoResponse.from_dict(obj["list_info"]) if obj.get("list_info") is not None else None,
-            "signature_requests": [BulkSendJobGetResponseSignatureRequests.from_dict(_item) for _item in obj["signature_requests"]] if obj.get("signature_requests") is not None else None,
-            "warnings": [WarningResponse.from_dict(_item) for _item in obj["warnings"]] if obj.get("warnings") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "bulk_send_job": (
+                    BulkSendJobResponse.from_dict(obj["bulk_send_job"])
+                    if obj.get("bulk_send_job") is not None
+                    else None
+                ),
+                "list_info": (
+                    ListInfoResponse.from_dict(obj["list_info"])
+                    if obj.get("list_info") is not None
+                    else None
+                ),
+                "signature_requests": (
+                    [
+                        BulkSendJobGetResponseSignatureRequests.from_dict(_item)
+                        for _item in obj["signature_requests"]
+                    ]
+                    if obj.get("signature_requests") is not None
+                    else None
+                ),
+                "warnings": (
+                    [WarningResponse.from_dict(_item) for _item in obj["warnings"]]
+                    if obj.get("warnings") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
 
     @classmethod
@@ -153,4 +188,3 @@ class BulkSendJobGetResponse(BaseModel):
             "signature_requests",
             "warnings",
         ]
-

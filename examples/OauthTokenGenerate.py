@@ -1,12 +1,11 @@
 from pprint import pprint
 
-from dropbox_sign import \
-    ApiClient, ApiException, Configuration, apis, models
+from dropbox_sign import ApiClient, ApiException, Configuration, apis, models
 
 configuration = Configuration()
 
 with ApiClient(configuration) as api_client:
-    api = apis.OAuthApi(api_client)
+    oauth_api = apis.OAuthApi(api_client)
 
     data = models.OAuthTokenGenerateRequest(
         state="900e06e2",

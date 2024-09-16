@@ -28,22 +28,58 @@ import io
 from pydantic import StrictBool
 from typing import Union
 
+
 class AccountResponse(BaseModel):
     """
     AccountResponse
-    """ # noqa: E501
-    account_id: Optional[StrictStr] = Field(default=None, description="The ID of the Account")
-    email_address: Optional[StrictStr] = Field(default=None, description="The email address associated with the Account.")
-    is_locked: Optional[StrictBool] = Field(default=None, description="Returns `true` if the user has been locked out of their account by a team admin.")
-    is_paid_hs: Optional[StrictBool] = Field(default=None, description="Returns `true` if the user has a paid Dropbox Sign account.")
-    is_paid_hf: Optional[StrictBool] = Field(default=None, description="Returns `true` if the user has a paid HelloFax account.")
+    """  # noqa: E501
+
+    account_id: Optional[StrictStr] = Field(
+        default=None, description="The ID of the Account"
+    )
+    email_address: Optional[StrictStr] = Field(
+        default=None, description="The email address associated with the Account."
+    )
+    is_locked: Optional[StrictBool] = Field(
+        default=None,
+        description="Returns `true` if the user has been locked out of their account by a team admin.",
+    )
+    is_paid_hs: Optional[StrictBool] = Field(
+        default=None,
+        description="Returns `true` if the user has a paid Dropbox Sign account.",
+    )
+    is_paid_hf: Optional[StrictBool] = Field(
+        default=None,
+        description="Returns `true` if the user has a paid HelloFax account.",
+    )
     quotas: Optional[AccountResponseQuotas] = None
-    callback_url: Optional[StrictStr] = Field(default=None, description="The URL that Dropbox Sign events will `POST` to.")
-    role_code: Optional[StrictStr] = Field(default=None, description="The membership role for the team.")
-    team_id: Optional[StrictStr] = Field(default=None, description="The id of the team account belongs to.")
-    locale: Optional[StrictStr] = Field(default=None, description="The locale used in this Account. Check out the list of [supported locales](/api/reference/constants/#supported-locales) to learn more about the possible values.")
+    callback_url: Optional[StrictStr] = Field(
+        default=None, description="The URL that Dropbox Sign events will `POST` to."
+    )
+    role_code: Optional[StrictStr] = Field(
+        default=None, description="The membership role for the team."
+    )
+    team_id: Optional[StrictStr] = Field(
+        default=None, description="The id of the team account belongs to."
+    )
+    locale: Optional[StrictStr] = Field(
+        default=None,
+        description="The locale used in this Account. Check out the list of [supported locales](/api/reference/constants/#supported-locales) to learn more about the possible values.",
+    )
     usage: Optional[AccountResponseUsage] = None
-    __properties: ClassVar[List[str]] = ["account_id", "email_address", "is_locked", "is_paid_hs", "is_paid_hf", "quotas", "callback_url", "role_code", "team_id", "locale", "usage"]
+    __properties: ClassVar[List[str]] = [
+        "account_id",
+        "email_address",
+        "is_locked",
+        "is_paid_hs",
+        "is_paid_hf",
+        "quotas",
+        "callback_url",
+        "role_code",
+        "team_id",
+        "locale",
+        "usage",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -51,7 +87,6 @@ class AccountResponse(BaseModel):
         protected_namespaces=(),
         arbitrary_types_allowed=True,
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -62,7 +97,9 @@ class AccountResponse(BaseModel):
         # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
-    def to_json_form_params(self, excluded_fields: Set[str] = None) -> List[Tuple[str, str]]:
+    def to_json_form_params(
+        self, excluded_fields: Set[str] = None
+    ) -> List[Tuple[str, str]]:
         data: List[Tuple[str, str]] = []
 
         for key, value in self.to_dict(excluded_fields).items():
@@ -96,10 +133,10 @@ class AccountResponse(BaseModel):
         )
         # override the default output from pydantic by calling `to_dict()` of quotas
         if self.quotas:
-            _dict['quotas'] = self.quotas.to_dict()
+            _dict["quotas"] = self.quotas.to_dict()
         # override the default output from pydantic by calling `to_dict()` of usage
         if self.usage:
-            _dict['usage'] = self.usage.to_dict()
+            _dict["usage"] = self.usage.to_dict()
         return _dict
 
     @classmethod
@@ -111,19 +148,29 @@ class AccountResponse(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "account_id": obj.get("account_id"),
-            "email_address": obj.get("email_address"),
-            "is_locked": obj.get("is_locked"),
-            "is_paid_hs": obj.get("is_paid_hs"),
-            "is_paid_hf": obj.get("is_paid_hf"),
-            "quotas": AccountResponseQuotas.from_dict(obj["quotas"]) if obj.get("quotas") is not None else None,
-            "callback_url": obj.get("callback_url"),
-            "role_code": obj.get("role_code"),
-            "team_id": obj.get("team_id"),
-            "locale": obj.get("locale"),
-            "usage": AccountResponseUsage.from_dict(obj["usage"]) if obj.get("usage") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "account_id": obj.get("account_id"),
+                "email_address": obj.get("email_address"),
+                "is_locked": obj.get("is_locked"),
+                "is_paid_hs": obj.get("is_paid_hs"),
+                "is_paid_hf": obj.get("is_paid_hf"),
+                "quotas": (
+                    AccountResponseQuotas.from_dict(obj["quotas"])
+                    if obj.get("quotas") is not None
+                    else None
+                ),
+                "callback_url": obj.get("callback_url"),
+                "role_code": obj.get("role_code"),
+                "team_id": obj.get("team_id"),
+                "locale": obj.get("locale"),
+                "usage": (
+                    AccountResponseUsage.from_dict(obj["usage"])
+                    if obj.get("usage") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
 
     @classmethod
@@ -154,6 +201,4 @@ class AccountResponse(BaseModel):
 
     @classmethod
     def openapi_type_is_array(cls, property_name: str) -> bool:
-        return property_name in [
-        ]
-
+        return property_name in []

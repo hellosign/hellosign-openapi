@@ -26,10 +26,12 @@ import io
 from pydantic import StrictBool
 from typing import Union
 
+
 class FaxLineDeleteRequest(BaseModel):
     """
     FaxLineDeleteRequest
-    """ # noqa: E501
+    """  # noqa: E501
+
     number: StrictStr = Field(description="The Fax Line number.")
     __properties: ClassVar[List[str]] = ["number"]
 
@@ -40,7 +42,6 @@ class FaxLineDeleteRequest(BaseModel):
         arbitrary_types_allowed=True,
     )
 
-
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
         return pprint.pformat(self.model_dump(by_alias=True))
@@ -50,7 +51,9 @@ class FaxLineDeleteRequest(BaseModel):
         # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
-    def to_json_form_params(self, excluded_fields: Set[str] = None) -> List[Tuple[str, str]]:
+    def to_json_form_params(
+        self, excluded_fields: Set[str] = None
+    ) -> List[Tuple[str, str]]:
         data: List[Tuple[str, str]] = []
 
         for key, value in self.to_dict(excluded_fields).items():
@@ -93,9 +96,7 @@ class FaxLineDeleteRequest(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "number": obj.get("number")
-        })
+        _obj = cls.model_validate({"number": obj.get("number")})
         return _obj
 
     @classmethod
@@ -116,6 +117,4 @@ class FaxLineDeleteRequest(BaseModel):
 
     @classmethod
     def openapi_type_is_array(cls, property_name: str) -> bool:
-        return property_name in [
-        ]
-
+        return property_name in []

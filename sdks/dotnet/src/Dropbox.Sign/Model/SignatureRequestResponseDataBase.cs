@@ -59,7 +59,7 @@ namespace Dropbox.Sign.Model
         /// <param name="type">type.</param>
         public SignatureRequestResponseDataBase(string apiId = default(string), string signatureId = default(string), string name = default(string), bool required = default(bool), string type = default(string))
         {
-            
+
             this.ApiId = apiId;
             this.SignatureId = signatureId;
             this.Name = name;
@@ -89,34 +89,34 @@ namespace Dropbox.Sign.Model
         /// <value>The unique ID for this field.</value>
         [DataMember(Name = "api_id", EmitDefaultValue = true)]
         public string ApiId { get; set; }
-        
+
         /// <summary>
         /// The ID of the signature to which this response is linked.
         /// </summary>
         /// <value>The ID of the signature to which this response is linked.</value>
         [DataMember(Name = "signature_id", EmitDefaultValue = true)]
         public string SignatureId { get; set; }
-        
+
         /// <summary>
         /// The name of the form field.
         /// </summary>
         /// <value>The name of the form field.</value>
         [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
-        
+
         /// <summary>
         /// A boolean value denoting if this field is required.
         /// </summary>
         /// <value>A boolean value denoting if this field is required.</value>
         [DataMember(Name = "required", EmitDefaultValue = true)]
         public bool Required { get; set; }
-        
+
         /// <summary>
         /// Gets or Sets Type
         /// </summary>
         [DataMember(Name = "type", EmitDefaultValue = true)]
         public string Type { get; set; }
-        
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -164,26 +164,26 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
+            return
                 (
                     this.ApiId == input.ApiId ||
                     (this.ApiId != null &&
                     this.ApiId.Equals(input.ApiId))
-                ) && 
+                ) &&
                 (
                     this.SignatureId == input.SignatureId ||
                     (this.SignatureId != null &&
                     this.SignatureId.Equals(input.SignatureId))
-                ) && 
+                ) &&
                 (
                     this.Name == input.Name ||
                     (this.Name != null &&
                     this.Name.Equals(input.Name))
-                ) && 
+                ) &&
                 (
                     this.Required == input.Required ||
                     this.Required.Equals(input.Required)
-                ) && 
+                ) &&
                 (
                     this.Type == input.Type ||
                     (this.Type != null &&
@@ -243,31 +243,36 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "api_id",
                 Property = "ApiId",
                 Type = "string",
                 Value = ApiId,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "signature_id",
                 Property = "SignatureId",
                 Type = "string",
                 Value = SignatureId,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "name",
                 Property = "Name",
                 Type = "string",
                 Value = Name,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "required",
                 Property = "Required",
                 Type = "bool",
                 Value = Required,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "type",
                 Property = "Type",
                 Type = "string",

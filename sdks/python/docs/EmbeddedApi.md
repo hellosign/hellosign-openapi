@@ -23,13 +23,11 @@ Retrieves an embedded object containing a template url that can be opened in an 
 ```python
 from pprint import pprint
 
-from dropbox_sign import \
-    ApiClient, ApiException, Configuration, apis, models
+from dropbox_sign import ApiClient, ApiException, Configuration, apis, models
 
 configuration = Configuration(
     # Configure HTTP basic authorization: api_key
     username="YOUR_API_KEY",
-
     # or, configure Bearer (JWT) authorization: oauth2
     # access_token="YOUR_ACCESS_TOKEN",
 )
@@ -96,13 +94,11 @@ Retrieves an embedded object containing a signature url that can be opened in an
 ```python
 from pprint import pprint
 
-from dropbox_sign import \
-    ApiClient, ApiException, Configuration, apis
+from dropbox_sign import ApiClient, ApiException, Configuration, apis
 
 configuration = Configuration(
     # Configure HTTP basic authorization: api_key
     username="YOUR_API_KEY",
-
     # or, configure Bearer (JWT) authorization: oauth2
     # access_token="YOUR_ACCESS_TOKEN",
 )

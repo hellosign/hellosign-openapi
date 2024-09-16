@@ -26,15 +26,28 @@ import io
 from pydantic import StrictBool
 from typing import Union
 
+
 class SubAttachment(BaseModel):
     """
     SubAttachment
-    """ # noqa: E501
+    """  # noqa: E501
+
     name: StrictStr = Field(description="The name of attachment.")
-    signer_index: StrictInt = Field(description="The signer's index in the `signers` parameter (0-based indexing).  **NOTE:** Only one signer can be assigned per attachment.")
-    instructions: Optional[StrictStr] = Field(default=None, description="The instructions for uploading the attachment.")
-    required: Optional[StrictBool] = Field(default=False, description="Determines if the attachment must be uploaded.")
-    __properties: ClassVar[List[str]] = ["name", "signer_index", "instructions", "required"]
+    signer_index: StrictInt = Field(
+        description="The signer's index in the `signers` parameter (0-based indexing).  **NOTE:** Only one signer can be assigned per attachment."
+    )
+    instructions: Optional[StrictStr] = Field(
+        default=None, description="The instructions for uploading the attachment."
+    )
+    required: Optional[StrictBool] = Field(
+        default=False, description="Determines if the attachment must be uploaded."
+    )
+    __properties: ClassVar[List[str]] = [
+        "name",
+        "signer_index",
+        "instructions",
+        "required",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -42,7 +55,6 @@ class SubAttachment(BaseModel):
         protected_namespaces=(),
         arbitrary_types_allowed=True,
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -53,7 +65,9 @@ class SubAttachment(BaseModel):
         # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
-    def to_json_form_params(self, excluded_fields: Set[str] = None) -> List[Tuple[str, str]]:
+    def to_json_form_params(
+        self, excluded_fields: Set[str] = None
+    ) -> List[Tuple[str, str]]:
         data: List[Tuple[str, str]] = []
 
         for key, value in self.to_dict(excluded_fields).items():
@@ -96,12 +110,16 @@ class SubAttachment(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "name": obj.get("name"),
-            "signer_index": obj.get("signer_index"),
-            "instructions": obj.get("instructions"),
-            "required": obj.get("required") if obj.get("required") is not None else False
-        })
+        _obj = cls.model_validate(
+            {
+                "name": obj.get("name"),
+                "signer_index": obj.get("signer_index"),
+                "instructions": obj.get("instructions"),
+                "required": (
+                    obj.get("required") if obj.get("required") is not None else False
+                ),
+            }
+        )
         return _obj
 
     @classmethod
@@ -125,6 +143,4 @@ class SubAttachment(BaseModel):
 
     @classmethod
     def openapi_type_is_array(cls, property_name: str) -> bool:
-        return property_name in [
-        ]
-
+        return property_name in []

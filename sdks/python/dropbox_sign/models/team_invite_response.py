@@ -26,17 +26,36 @@ import io
 from pydantic import StrictBool
 from typing import Union
 
+
 class TeamInviteResponse(BaseModel):
     """
     TeamInviteResponse
-    """ # noqa: E501
-    email_address: Optional[StrictStr] = Field(default=None, description="Email address of the user invited to this team.")
+    """  # noqa: E501
+
+    email_address: Optional[StrictStr] = Field(
+        default=None, description="Email address of the user invited to this team."
+    )
     team_id: Optional[StrictStr] = Field(default=None, description="Id of the team.")
-    role: Optional[StrictStr] = Field(default=None, description="Role of the user invited to this team.")
-    sent_at: Optional[StrictInt] = Field(default=None, description="Timestamp when the invitation was sent.")
-    redeemed_at: Optional[StrictInt] = Field(default=None, description="Timestamp when the invitation was redeemed.")
-    expires_at: Optional[StrictInt] = Field(default=None, description="Timestamp when the invitation is expiring.")
-    __properties: ClassVar[List[str]] = ["email_address", "team_id", "role", "sent_at", "redeemed_at", "expires_at"]
+    role: Optional[StrictStr] = Field(
+        default=None, description="Role of the user invited to this team."
+    )
+    sent_at: Optional[StrictInt] = Field(
+        default=None, description="Timestamp when the invitation was sent."
+    )
+    redeemed_at: Optional[StrictInt] = Field(
+        default=None, description="Timestamp when the invitation was redeemed."
+    )
+    expires_at: Optional[StrictInt] = Field(
+        default=None, description="Timestamp when the invitation is expiring."
+    )
+    __properties: ClassVar[List[str]] = [
+        "email_address",
+        "team_id",
+        "role",
+        "sent_at",
+        "redeemed_at",
+        "expires_at",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -44,7 +63,6 @@ class TeamInviteResponse(BaseModel):
         protected_namespaces=(),
         arbitrary_types_allowed=True,
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -55,7 +73,9 @@ class TeamInviteResponse(BaseModel):
         # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
-    def to_json_form_params(self, excluded_fields: Set[str] = None) -> List[Tuple[str, str]]:
+    def to_json_form_params(
+        self, excluded_fields: Set[str] = None
+    ) -> List[Tuple[str, str]]:
         data: List[Tuple[str, str]] = []
 
         for key, value in self.to_dict(excluded_fields).items():
@@ -98,14 +118,16 @@ class TeamInviteResponse(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "email_address": obj.get("email_address"),
-            "team_id": obj.get("team_id"),
-            "role": obj.get("role"),
-            "sent_at": obj.get("sent_at"),
-            "redeemed_at": obj.get("redeemed_at"),
-            "expires_at": obj.get("expires_at")
-        })
+        _obj = cls.model_validate(
+            {
+                "email_address": obj.get("email_address"),
+                "team_id": obj.get("team_id"),
+                "role": obj.get("role"),
+                "sent_at": obj.get("sent_at"),
+                "redeemed_at": obj.get("redeemed_at"),
+                "expires_at": obj.get("expires_at"),
+            }
+        )
         return _obj
 
     @classmethod
@@ -131,6 +153,4 @@ class TeamInviteResponse(BaseModel):
 
     @classmethod
     def openapi_type_is_array(cls, property_name: str) -> bool:
-        return property_name in [
-        ]
-
+        return property_name in []

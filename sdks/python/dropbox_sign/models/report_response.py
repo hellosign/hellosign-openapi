@@ -26,25 +26,46 @@ import io
 from pydantic import StrictBool
 from typing import Union
 
+
 class ReportResponse(BaseModel):
     """
     Contains information about the report request.
-    """ # noqa: E501
-    success: Optional[StrictStr] = Field(default=None, description="A message indicating the requested operation's success")
-    start_date: Optional[StrictStr] = Field(default=None, description="The (inclusive) start date for the report data in MM/DD/YYYY format.")
-    end_date: Optional[StrictStr] = Field(default=None, description="The (inclusive) end date for the report data in MM/DD/YYYY format.")
-    report_type: Optional[List[StrictStr]] = Field(default=None, description="The type(s) of the report you are requesting. Allowed values are \"user_activity\" and \"document_status\". User activity reports contain list of all users and their activity during the specified date range. Document status report contain a list of signature requests created in the specified time range (and their status).")
-    __properties: ClassVar[List[str]] = ["success", "start_date", "end_date", "report_type"]
+    """  # noqa: E501
 
-    @field_validator('report_type')
+    success: Optional[StrictStr] = Field(
+        default=None,
+        description="A message indicating the requested operation's success",
+    )
+    start_date: Optional[StrictStr] = Field(
+        default=None,
+        description="The (inclusive) start date for the report data in MM/DD/YYYY format.",
+    )
+    end_date: Optional[StrictStr] = Field(
+        default=None,
+        description="The (inclusive) end date for the report data in MM/DD/YYYY format.",
+    )
+    report_type: Optional[List[StrictStr]] = Field(
+        default=None,
+        description='The type(s) of the report you are requesting. Allowed values are "user_activity" and "document_status". User activity reports contain list of all users and their activity during the specified date range. Document status report contain a list of signature requests created in the specified time range (and their status).',
+    )
+    __properties: ClassVar[List[str]] = [
+        "success",
+        "start_date",
+        "end_date",
+        "report_type",
+    ]
+
+    @field_validator("report_type")
     def report_type_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
             return value
 
         for i in value:
-            if i not in set(['user_activity', 'document_status']):
-                raise ValueError("each list item must be one of ('user_activity', 'document_status')")
+            if i not in set(["user_activity", "document_status"]):
+                raise ValueError(
+                    "each list item must be one of ('user_activity', 'document_status')"
+                )
         return value
 
     model_config = ConfigDict(
@@ -53,7 +74,6 @@ class ReportResponse(BaseModel):
         protected_namespaces=(),
         arbitrary_types_allowed=True,
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -64,7 +84,9 @@ class ReportResponse(BaseModel):
         # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
-    def to_json_form_params(self, excluded_fields: Set[str] = None) -> List[Tuple[str, str]]:
+    def to_json_form_params(
+        self, excluded_fields: Set[str] = None
+    ) -> List[Tuple[str, str]]:
         data: List[Tuple[str, str]] = []
 
         for key, value in self.to_dict(excluded_fields).items():
@@ -107,12 +129,14 @@ class ReportResponse(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "success": obj.get("success"),
-            "start_date": obj.get("start_date"),
-            "end_date": obj.get("end_date"),
-            "report_type": obj.get("report_type")
-        })
+        _obj = cls.model_validate(
+            {
+                "success": obj.get("success"),
+                "start_date": obj.get("start_date"),
+                "end_date": obj.get("end_date"),
+                "report_type": obj.get("report_type"),
+            }
+        )
         return _obj
 
     @classmethod
@@ -139,4 +163,3 @@ class ReportResponse(BaseModel):
         return property_name in [
             "report_type",
         ]
-

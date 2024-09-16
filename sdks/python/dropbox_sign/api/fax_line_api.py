@@ -21,7 +21,9 @@ from pydantic import Field, StrictBool, StrictInt, StrictStr, field_validator
 from typing import Optional
 from typing_extensions import Annotated
 from dropbox_sign.models.fax_line_add_user_request import FaxLineAddUserRequest
-from dropbox_sign.models.fax_line_area_code_get_response import FaxLineAreaCodeGetResponse
+from dropbox_sign.models.fax_line_area_code_get_response import (
+    FaxLineAreaCodeGetResponse,
+)
 from dropbox_sign.models.fax_line_create_request import FaxLineCreateRequest
 from dropbox_sign.models.fax_line_delete_request import FaxLineDeleteRequest
 from dropbox_sign.models.fax_line_list_response import FaxLineListResponse
@@ -46,7 +48,6 @@ class FaxLineApi:
             api_client = ApiClient.get_default()
         self.api_client = api_client
 
-
     @validate_call
     def fax_line_add_user(
         self,
@@ -55,9 +56,8 @@ class FaxLineApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -90,30 +90,28 @@ class FaxLineApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._fax_line_add_user_serialize(
             fax_line_add_user_request=fax_line_add_user_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "FaxLineResponse",
-            '4XX': "ErrorResponse",
+            "200": "FaxLineResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def fax_line_add_user_with_http_info(
@@ -123,9 +121,8 @@ class FaxLineApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -158,30 +155,28 @@ class FaxLineApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._fax_line_add_user_serialize(
             fax_line_add_user_request=fax_line_add_user_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "FaxLineResponse",
-            '4XX': "ErrorResponse",
+            "200": "FaxLineResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def fax_line_add_user_without_preload_content(
@@ -191,9 +186,8 @@ class FaxLineApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -226,26 +220,24 @@ class FaxLineApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._fax_line_add_user_serialize(
             fax_line_add_user_request=fax_line_add_user_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "FaxLineResponse",
-            '4XX': "ErrorResponse",
+            "200": "FaxLineResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _fax_line_add_user_serialize(
         self,
@@ -258,8 +250,7 @@ class FaxLineApi:
 
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -283,7 +274,7 @@ class FaxLineApi:
 
                 if isinstance(param_value, list):
                     for index, item in enumerate(param_value):
-                        _files[f'{param_name}[{index}]'] = item
+                        _files[f"{param_name}[{index}]"] = item
                 else:
                     _files[param_name] = param_value
 
@@ -298,37 +289,28 @@ class FaxLineApi:
         if fax_line_add_user_request is not None and has_files is False:
             _body_params = fax_line_add_user_request
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json"]
             )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'api_key'
-        ]
+        _auth_settings: List[str] = ["api_key"]
 
         return self.api_client.param_serialize(
-            method='PUT',
-            resource_path='/fax_line/add_user',
+            method="PUT",
+            resource_path="/fax_line/add_user",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -338,26 +320,30 @@ class FaxLineApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def fax_line_area_code_get(
         self,
-        country: Annotated[StrictStr, Field(description="Filter area codes by country.")],
-        state: Annotated[Optional[StrictStr], Field(description="Filter area codes by state.")] = None,
-        province: Annotated[Optional[StrictStr], Field(description="Filter area codes by province.")] = None,
-        city: Annotated[Optional[StrictStr], Field(description="Filter area codes by city.")] = None,
+        country: Annotated[
+            StrictStr, Field(description="Filter area codes by country.")
+        ],
+        state: Annotated[
+            Optional[StrictStr], Field(description="Filter area codes by state.")
+        ] = None,
+        province: Annotated[
+            Optional[StrictStr], Field(description="Filter area codes by province.")
+        ] = None,
+        city: Annotated[
+            Optional[StrictStr], Field(description="Filter area codes by city.")
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -396,7 +382,7 @@ class FaxLineApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._fax_line_area_code_get_serialize(
             country=country,
@@ -406,16 +392,15 @@ class FaxLineApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "FaxLineAreaCodeGetResponse",
-            '4XX': "ErrorResponse",
+            "200": "FaxLineAreaCodeGetResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -423,21 +408,27 @@ class FaxLineApi:
             response_types_map=_response_types_map,
         ).data
 
-
     @validate_call
     def fax_line_area_code_get_with_http_info(
         self,
-        country: Annotated[StrictStr, Field(description="Filter area codes by country.")],
-        state: Annotated[Optional[StrictStr], Field(description="Filter area codes by state.")] = None,
-        province: Annotated[Optional[StrictStr], Field(description="Filter area codes by province.")] = None,
-        city: Annotated[Optional[StrictStr], Field(description="Filter area codes by city.")] = None,
+        country: Annotated[
+            StrictStr, Field(description="Filter area codes by country.")
+        ],
+        state: Annotated[
+            Optional[StrictStr], Field(description="Filter area codes by state.")
+        ] = None,
+        province: Annotated[
+            Optional[StrictStr], Field(description="Filter area codes by province.")
+        ] = None,
+        city: Annotated[
+            Optional[StrictStr], Field(description="Filter area codes by city.")
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -476,7 +467,7 @@ class FaxLineApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._fax_line_area_code_get_serialize(
             country=country,
@@ -486,16 +477,15 @@ class FaxLineApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "FaxLineAreaCodeGetResponse",
-            '4XX': "ErrorResponse",
+            "200": "FaxLineAreaCodeGetResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -503,21 +493,27 @@ class FaxLineApi:
             response_types_map=_response_types_map,
         )
 
-
     @validate_call
     def fax_line_area_code_get_without_preload_content(
         self,
-        country: Annotated[StrictStr, Field(description="Filter area codes by country.")],
-        state: Annotated[Optional[StrictStr], Field(description="Filter area codes by state.")] = None,
-        province: Annotated[Optional[StrictStr], Field(description="Filter area codes by province.")] = None,
-        city: Annotated[Optional[StrictStr], Field(description="Filter area codes by city.")] = None,
+        country: Annotated[
+            StrictStr, Field(description="Filter area codes by country.")
+        ],
+        state: Annotated[
+            Optional[StrictStr], Field(description="Filter area codes by state.")
+        ] = None,
+        province: Annotated[
+            Optional[StrictStr], Field(description="Filter area codes by province.")
+        ] = None,
+        city: Annotated[
+            Optional[StrictStr], Field(description="Filter area codes by city.")
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -556,7 +552,7 @@ class FaxLineApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._fax_line_area_code_get_serialize(
             country=country,
@@ -566,19 +562,17 @@ class FaxLineApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "FaxLineAreaCodeGetResponse",
-            '4XX': "ErrorResponse",
+            "200": "FaxLineAreaCodeGetResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _fax_line_area_code_get_serialize(
         self,
@@ -594,8 +588,7 @@ class FaxLineApi:
 
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -607,43 +600,37 @@ class FaxLineApi:
         # process the path parameters
         # process the query parameters
         if country is not None:
-            
-            _query_params.append(('country', country))
-            
+
+            _query_params.append(("country", country))
+
         if state is not None:
-            
-            _query_params.append(('state', state))
-            
+
+            _query_params.append(("state", state))
+
         if province is not None:
-            
-            _query_params.append(('province', province))
-            
+
+            _query_params.append(("province", province))
+
         if city is not None:
-            
-            _query_params.append(('city', city))
-            
+
+            _query_params.append(("city", city))
+
         # process the header parameters
         # process the form parameters
         # process the body parameter
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json"]
             )
 
-
         # authentication setting
-        _auth_settings: List[str] = [
-            'api_key'
-        ]
+        _auth_settings: List[str] = ["api_key"]
 
         return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/fax_line/area_codes',
+            method="GET",
+            resource_path="/fax_line/area_codes",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -653,11 +640,8 @@ class FaxLineApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def fax_line_create(
@@ -667,9 +651,8 @@ class FaxLineApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -702,30 +685,28 @@ class FaxLineApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._fax_line_create_serialize(
             fax_line_create_request=fax_line_create_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "FaxLineResponse",
-            '4XX': "ErrorResponse",
+            "200": "FaxLineResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def fax_line_create_with_http_info(
@@ -735,9 +716,8 @@ class FaxLineApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -770,30 +750,28 @@ class FaxLineApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._fax_line_create_serialize(
             fax_line_create_request=fax_line_create_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "FaxLineResponse",
-            '4XX': "ErrorResponse",
+            "200": "FaxLineResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def fax_line_create_without_preload_content(
@@ -803,9 +781,8 @@ class FaxLineApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -838,26 +815,24 @@ class FaxLineApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._fax_line_create_serialize(
             fax_line_create_request=fax_line_create_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "FaxLineResponse",
-            '4XX': "ErrorResponse",
+            "200": "FaxLineResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _fax_line_create_serialize(
         self,
@@ -870,8 +845,7 @@ class FaxLineApi:
 
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -895,7 +869,7 @@ class FaxLineApi:
 
                 if isinstance(param_value, list):
                     for index, item in enumerate(param_value):
-                        _files[f'{param_name}[{index}]'] = item
+                        _files[f"{param_name}[{index}]"] = item
                 else:
                     _files[param_name] = param_value
 
@@ -910,37 +884,28 @@ class FaxLineApi:
         if fax_line_create_request is not None and has_files is False:
             _body_params = fax_line_create_request
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json"]
             )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'api_key'
-        ]
+        _auth_settings: List[str] = ["api_key"]
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/fax_line/create',
+            method="POST",
+            resource_path="/fax_line/create",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -950,11 +915,8 @@ class FaxLineApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def fax_line_delete(
@@ -964,9 +926,8 @@ class FaxLineApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -999,30 +960,28 @@ class FaxLineApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._fax_line_delete_serialize(
             fax_line_delete_request=fax_line_delete_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
-            '4XX': "ErrorResponse",
+            "200": None,
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def fax_line_delete_with_http_info(
@@ -1032,9 +991,8 @@ class FaxLineApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1067,30 +1025,28 @@ class FaxLineApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._fax_line_delete_serialize(
             fax_line_delete_request=fax_line_delete_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
-            '4XX': "ErrorResponse",
+            "200": None,
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def fax_line_delete_without_preload_content(
@@ -1100,9 +1056,8 @@ class FaxLineApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1135,26 +1090,24 @@ class FaxLineApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._fax_line_delete_serialize(
             fax_line_delete_request=fax_line_delete_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
-            '4XX': "ErrorResponse",
+            "200": None,
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _fax_line_delete_serialize(
         self,
@@ -1167,8 +1120,7 @@ class FaxLineApi:
 
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -1192,7 +1144,7 @@ class FaxLineApi:
 
                 if isinstance(param_value, list):
                     for index, item in enumerate(param_value):
-                        _files[f'{param_name}[{index}]'] = item
+                        _files[f"{param_name}[{index}]"] = item
                 else:
                     _files[param_name] = param_value
 
@@ -1207,37 +1159,28 @@ class FaxLineApi:
         if fax_line_delete_request is not None and has_files is False:
             _body_params = fax_line_delete_request
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json"]
             )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'api_key'
-        ]
+        _auth_settings: List[str] = ["api_key"]
 
         return self.api_client.param_serialize(
-            method='DELETE',
-            resource_path='/fax_line',
+            method="DELETE",
+            resource_path="/fax_line",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1247,11 +1190,8 @@ class FaxLineApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def fax_line_get(
@@ -1261,9 +1201,8 @@ class FaxLineApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1296,30 +1235,28 @@ class FaxLineApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._fax_line_get_serialize(
             number=number,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "FaxLineResponse",
-            '4XX': "ErrorResponse",
+            "200": "FaxLineResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def fax_line_get_with_http_info(
@@ -1329,9 +1266,8 @@ class FaxLineApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1364,30 +1300,28 @@ class FaxLineApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._fax_line_get_serialize(
             number=number,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "FaxLineResponse",
-            '4XX': "ErrorResponse",
+            "200": "FaxLineResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def fax_line_get_without_preload_content(
@@ -1397,9 +1331,8 @@ class FaxLineApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1432,26 +1365,24 @@ class FaxLineApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._fax_line_get_serialize(
             number=number,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "FaxLineResponse",
-            '4XX': "ErrorResponse",
+            "200": "FaxLineResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _fax_line_get_serialize(
         self,
@@ -1464,8 +1395,7 @@ class FaxLineApi:
 
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -1477,31 +1407,25 @@ class FaxLineApi:
         # process the path parameters
         # process the query parameters
         if number is not None:
-            
-            _query_params.append(('number', number))
-            
+
+            _query_params.append(("number", number))
+
         # process the header parameters
         # process the form parameters
         # process the body parameter
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json"]
             )
 
-
         # authentication setting
-        _auth_settings: List[str] = [
-            'api_key'
-        ]
+        _auth_settings: List[str] = ["api_key"]
 
         return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/fax_line',
+            method="GET",
+            resource_path="/fax_line",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1511,26 +1435,28 @@ class FaxLineApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def fax_line_list(
         self,
-        account_id: Annotated[Optional[StrictStr], Field(description="Account ID")] = None,
+        account_id: Annotated[
+            Optional[StrictStr], Field(description="Account ID")
+        ] = None,
         page: Annotated[Optional[StrictInt], Field(description="Page")] = None,
-        page_size: Annotated[Optional[StrictInt], Field(description="Page size")] = None,
-        show_team_lines: Annotated[Optional[StrictBool], Field(description="Show team lines")] = None,
+        page_size: Annotated[
+            Optional[StrictInt], Field(description="Page size")
+        ] = None,
+        show_team_lines: Annotated[
+            Optional[StrictBool], Field(description="Show team lines")
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1569,7 +1495,7 @@ class FaxLineApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._fax_line_list_serialize(
             account_id=account_id,
@@ -1579,16 +1505,15 @@ class FaxLineApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "FaxLineListResponse",
-            '4XX': "ErrorResponse",
+            "200": "FaxLineListResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -1596,21 +1521,25 @@ class FaxLineApi:
             response_types_map=_response_types_map,
         ).data
 
-
     @validate_call
     def fax_line_list_with_http_info(
         self,
-        account_id: Annotated[Optional[StrictStr], Field(description="Account ID")] = None,
+        account_id: Annotated[
+            Optional[StrictStr], Field(description="Account ID")
+        ] = None,
         page: Annotated[Optional[StrictInt], Field(description="Page")] = None,
-        page_size: Annotated[Optional[StrictInt], Field(description="Page size")] = None,
-        show_team_lines: Annotated[Optional[StrictBool], Field(description="Show team lines")] = None,
+        page_size: Annotated[
+            Optional[StrictInt], Field(description="Page size")
+        ] = None,
+        show_team_lines: Annotated[
+            Optional[StrictBool], Field(description="Show team lines")
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1649,7 +1578,7 @@ class FaxLineApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._fax_line_list_serialize(
             account_id=account_id,
@@ -1659,16 +1588,15 @@ class FaxLineApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "FaxLineListResponse",
-            '4XX': "ErrorResponse",
+            "200": "FaxLineListResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
@@ -1676,21 +1604,25 @@ class FaxLineApi:
             response_types_map=_response_types_map,
         )
 
-
     @validate_call
     def fax_line_list_without_preload_content(
         self,
-        account_id: Annotated[Optional[StrictStr], Field(description="Account ID")] = None,
+        account_id: Annotated[
+            Optional[StrictStr], Field(description="Account ID")
+        ] = None,
         page: Annotated[Optional[StrictInt], Field(description="Page")] = None,
-        page_size: Annotated[Optional[StrictInt], Field(description="Page size")] = None,
-        show_team_lines: Annotated[Optional[StrictBool], Field(description="Show team lines")] = None,
+        page_size: Annotated[
+            Optional[StrictInt], Field(description="Page size")
+        ] = None,
+        show_team_lines: Annotated[
+            Optional[StrictBool], Field(description="Show team lines")
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1729,7 +1661,7 @@ class FaxLineApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._fax_line_list_serialize(
             account_id=account_id,
@@ -1739,19 +1671,17 @@ class FaxLineApi:
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "FaxLineListResponse",
-            '4XX': "ErrorResponse",
+            "200": "FaxLineListResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _fax_line_list_serialize(
         self,
@@ -1767,8 +1697,7 @@ class FaxLineApi:
 
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -1780,43 +1709,37 @@ class FaxLineApi:
         # process the path parameters
         # process the query parameters
         if account_id is not None:
-            
-            _query_params.append(('account_id', account_id))
-            
+
+            _query_params.append(("account_id", account_id))
+
         if page is not None:
-            
-            _query_params.append(('page', page))
-            
+
+            _query_params.append(("page", page))
+
         if page_size is not None:
-            
-            _query_params.append(('page_size', page_size))
-            
+
+            _query_params.append(("page_size", page_size))
+
         if show_team_lines is not None:
-            
-            _query_params.append(('show_team_lines', show_team_lines))
-            
+
+            _query_params.append(("show_team_lines", show_team_lines))
+
         # process the header parameters
         # process the form parameters
         # process the body parameter
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json"]
             )
 
-
         # authentication setting
-        _auth_settings: List[str] = [
-            'api_key'
-        ]
+        _auth_settings: List[str] = ["api_key"]
 
         return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/fax_line/list',
+            method="GET",
+            resource_path="/fax_line/list",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1826,11 +1749,8 @@ class FaxLineApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-
-
 
     @validate_call
     def fax_line_remove_user(
@@ -1840,9 +1760,8 @@ class FaxLineApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1875,30 +1794,28 @@ class FaxLineApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._fax_line_remove_user_serialize(
             fax_line_remove_user_request=fax_line_remove_user_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "FaxLineResponse",
-            '4XX': "ErrorResponse",
+            "200": "FaxLineResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         ).data
-
 
     @validate_call
     def fax_line_remove_user_with_http_info(
@@ -1908,9 +1825,8 @@ class FaxLineApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -1943,30 +1859,28 @@ class FaxLineApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._fax_line_remove_user_serialize(
             fax_line_remove_user_request=fax_line_remove_user_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "FaxLineResponse",
-            '4XX': "ErrorResponse",
+            "200": "FaxLineResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
         )
-
 
     @validate_call
     def fax_line_remove_user_without_preload_content(
@@ -1976,9 +1890,8 @@ class FaxLineApi:
             None,
             Annotated[StrictFloat, Field(gt=0)],
             Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
         ] = None,
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
@@ -2011,26 +1924,24 @@ class FaxLineApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """ # noqa: E501
+        """  # noqa: E501
 
         _param = self._fax_line_remove_user_serialize(
             fax_line_remove_user_request=fax_line_remove_user_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
-            _host_index=_host_index
+            _host_index=_host_index,
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "FaxLineResponse",
-            '4XX': "ErrorResponse",
+            "200": "FaxLineResponse",
+            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
+            *_param, _request_timeout=_request_timeout
         )
         return response_data.response
-
 
     def _fax_line_remove_user_serialize(
         self,
@@ -2043,8 +1954,7 @@ class FaxLineApi:
 
         _host = None
 
-        _collection_formats: Dict[str, str] = {
-        }
+        _collection_formats: Dict[str, str] = {}
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
@@ -2068,7 +1978,7 @@ class FaxLineApi:
 
                 if isinstance(param_value, list):
                     for index, item in enumerate(param_value):
-                        _files[f'{param_name}[{index}]'] = item
+                        _files[f"{param_name}[{index}]"] = item
                 else:
                     _files[param_name] = param_value
 
@@ -2083,37 +1993,28 @@ class FaxLineApi:
         if fax_line_remove_user_request is not None and has_files is False:
             _body_params = fax_line_remove_user_request
 
-
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json"]
             )
 
         # set the HTTP header `Content-Type`
         if _content_type:
-            _header_params['Content-Type'] = _content_type
+            _header_params["Content-Type"] = _content_type
         else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
+            _default_content_type = self.api_client.select_header_content_type(
+                ["application/json"]
             )
             if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
+                _header_params["Content-Type"] = _default_content_type
 
         # authentication setting
-        _auth_settings: List[str] = [
-            'api_key'
-        ]
+        _auth_settings: List[str] = ["api_key"]
 
         return self.api_client.param_serialize(
-            method='PUT',
-            resource_path='/fax_line/remove_user',
+            method="PUT",
+            resource_path="/fax_line/remove_user",
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2123,7 +2024,5 @@ class FaxLineApi:
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
             _host=_host,
-            _request_auth=_request_auth
+            _request_auth=_request_auth,
         )
-
-

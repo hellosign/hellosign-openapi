@@ -27,20 +27,18 @@ class SubFormFieldsPerDocumentTypeEnum(str, Enum):
     """
     allowed enum values
     """
-    CHECKBOX = 'checkbox'
-    CHECKBOX_MINUS_MERGE = 'checkbox-merge'
-    DATE_SIGNED = 'date_signed'
-    DROPDOWN = 'dropdown'
-    HYPERLINK = 'hyperlink'
-    INITIALS = 'initials'
-    SIGNATURE = 'signature'
-    RADIO = 'radio'
-    TEXT = 'text'
-    TEXT_MINUS_MERGE = 'text-merge'
+    CHECKBOX = "checkbox"
+    CHECKBOX_MINUS_MERGE = "checkbox-merge"
+    DATE_SIGNED = "date_signed"
+    DROPDOWN = "dropdown"
+    HYPERLINK = "hyperlink"
+    INITIALS = "initials"
+    SIGNATURE = "signature"
+    RADIO = "radio"
+    TEXT = "text"
+    TEXT_MINUS_MERGE = "text-merge"
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:
         """Create an instance of SubFormFieldsPerDocumentTypeEnum from a JSON string"""
         return cls(json.loads(json_str))
-
-

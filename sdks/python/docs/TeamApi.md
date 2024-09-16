@@ -31,13 +31,11 @@ Invites a user (specified using the `email_address` parameter) to your Team. If 
 ```python
 from pprint import pprint
 
-from dropbox_sign import \
-    ApiClient, ApiException, Configuration, apis, models
+from dropbox_sign import ApiClient, ApiException, Configuration, apis, models
 
 configuration = Configuration(
     # Configure HTTP basic authorization: api_key
     username="YOUR_API_KEY",
-
     # or, configure Bearer (JWT) authorization: oauth2
     # access_token="YOUR_ACCESS_TOKEN",
 )
@@ -101,13 +99,11 @@ Creates a new Team and makes you a member. You must not currently belong to a Te
 ```python
 from pprint import pprint
 
-from dropbox_sign import \
-    ApiClient, ApiException, Configuration, apis, models
+from dropbox_sign import ApiClient, ApiException, Configuration, apis, models
 
 configuration = Configuration(
     # Configure HTTP basic authorization: api_key
     username="YOUR_API_KEY",
-
     # or, configure Bearer (JWT) authorization: oauth2
     # access_token="YOUR_ACCESS_TOKEN",
 )
@@ -168,13 +164,11 @@ Deletes your Team. Can only be invoked when you have a Team with only one member
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
-from dropbox_sign import \
-    ApiClient, ApiException, Configuration, apis
+from dropbox_sign import ApiClient, ApiException, Configuration, apis
 
 configuration = Configuration(
     # Configure HTTP basic authorization: api_key
     username="YOUR_API_KEY",
-
     # or, configure Bearer (JWT) authorization: oauth2
     # access_token="YOUR_ACCESS_TOKEN",
 )
@@ -230,13 +224,11 @@ Returns information about your Team as well as a list of its members. If you do 
 ```python
 from pprint import pprint
 
-from dropbox_sign import \
-    ApiClient, ApiException, Configuration, apis
+from dropbox_sign import ApiClient, ApiException, Configuration, apis
 
 configuration = Configuration(
     # Configure HTTP basic authorization: api_key
     username="YOUR_API_KEY",
-
     # or, configure Bearer (JWT) authorization: oauth2
     # access_token="YOUR_ACCESS_TOKEN",
 )
@@ -293,13 +285,11 @@ Provides information about a team.
 ```python
 from pprint import pprint
 
-from dropbox_sign import \
-    ApiClient, ApiException, Configuration, apis
+from dropbox_sign import ApiClient, ApiException, Configuration, apis
 
 configuration = Configuration(
     # Configure HTTP basic authorization: api_key
     username="YOUR_API_KEY",
-
     # or, configure Bearer (JWT) authorization: oauth2
     # access_token="YOUR_ACCESS_TOKEN",
 )
@@ -358,13 +348,11 @@ Provides a list of team invites (and their roles).
 ```python
 from pprint import pprint
 
-from dropbox_sign import \
-    ApiClient, ApiException, Configuration, apis
+from dropbox_sign import ApiClient, ApiException, Configuration, apis
 
 configuration = Configuration(
     # Configure HTTP basic authorization: api_key
     username="YOUR_API_KEY",
-
     # or, configure Bearer (JWT) authorization: oauth2
     # access_token="YOUR_ACCESS_TOKEN",
 )
@@ -425,13 +413,11 @@ Provides a paginated list of members (and their roles) that belong to a given te
 ```python
 from pprint import pprint
 
-from dropbox_sign import \
-    ApiClient, ApiException, Configuration, apis
+from dropbox_sign import ApiClient, ApiException, Configuration, apis
 
 configuration = Configuration(
     # Configure HTTP basic authorization: api_key
     username="YOUR_API_KEY",
-
     # or, configure Bearer (JWT) authorization: oauth2
     # access_token="YOUR_ACCESS_TOKEN",
 )
@@ -494,13 +480,11 @@ Removes the provided user Account from your Team. If the Account had an outstand
 ```python
 from pprint import pprint
 
-from dropbox_sign import \
-    ApiClient, ApiException, Configuration, apis, models
+from dropbox_sign import ApiClient, ApiException, Configuration, apis, models
 
 configuration = Configuration(
     # Configure HTTP basic authorization: api_key
     username="YOUR_API_KEY",
-
     # or, configure Bearer (JWT) authorization: oauth2
     # access_token="YOUR_ACCESS_TOKEN",
 )
@@ -564,13 +548,11 @@ Provides a paginated list of sub teams that belong to a given team.
 ```python
 from pprint import pprint
 
-from dropbox_sign import \
-    ApiClient, ApiException, Configuration, apis
+from dropbox_sign import ApiClient, ApiException, Configuration, apis
 
 configuration = Configuration(
     # Configure HTTP basic authorization: api_key
     username="YOUR_API_KEY",
-
     # or, configure Bearer (JWT) authorization: oauth2
     # access_token="YOUR_ACCESS_TOKEN",
 )
@@ -633,13 +615,11 @@ Updates the name of your Team.
 ```python
 from pprint import pprint
 
-from dropbox_sign import \
-    ApiClient, ApiException, Configuration, apis, models
+from dropbox_sign import ApiClient, ApiException, Configuration, apis, models
 
 configuration = Configuration(
     # Configure HTTP basic authorization: api_key
     username="YOUR_API_KEY",
-
     # or, configure Bearer (JWT) authorization: oauth2
     # access_token="YOUR_ACCESS_TOKEN",
 )

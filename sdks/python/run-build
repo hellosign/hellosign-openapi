@@ -15,6 +15,13 @@ docker run --rm \
     -t "/local/templates" \
     -o "/local/"
 
+printf "Install Python dependencies ...\n"
+bash "${DIR}/bin/python" pip install -r requirements.txt
+bash "${DIR}/bin/python" pip install -r test-requirements.txt
+
+printf "Formatting code ...\n"
+bash "${DIR}/bin/python" python -m black dropbox_sign examples tests
+
 printf "\nInstalling composer dependencies ...\n"
 mkdir -p "${DIR}/vendor"
 bash "${DIR}/bin/php" composer install
@@ -22,9 +29,6 @@ printf "\n"
 
 printf "Adding examples to Docs ...\n"
 bash "${DIR}/bin/php" ./bin/generate-examples.php
-
-printf "Install Python dependencies ...\n"
-bash "${DIR}/bin/python" pip install -r requirements.txt
 
 # avoid docker messing with permissions
 if [[ -z "$GITHUB_ACTIONS" ]]; then

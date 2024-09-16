@@ -26,12 +26,18 @@ import io
 from pydantic import StrictBool
 from typing import Union
 
+
 class OAuthTokenRefreshRequest(BaseModel):
     """
     OAuthTokenRefreshRequest
-    """ # noqa: E501
-    grant_type: StrictStr = Field(description="When refreshing an existing token use `refresh_token`.")
-    refresh_token: StrictStr = Field(description="The token provided when you got the expired access token.")
+    """  # noqa: E501
+
+    grant_type: StrictStr = Field(
+        description="When refreshing an existing token use `refresh_token`."
+    )
+    refresh_token: StrictStr = Field(
+        description="The token provided when you got the expired access token."
+    )
     __properties: ClassVar[List[str]] = ["grant_type", "refresh_token"]
 
     model_config = ConfigDict(
@@ -40,7 +46,6 @@ class OAuthTokenRefreshRequest(BaseModel):
         protected_namespaces=(),
         arbitrary_types_allowed=True,
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -51,7 +56,9 @@ class OAuthTokenRefreshRequest(BaseModel):
         # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
-    def to_json_form_params(self, excluded_fields: Set[str] = None) -> List[Tuple[str, str]]:
+    def to_json_form_params(
+        self, excluded_fields: Set[str] = None
+    ) -> List[Tuple[str, str]]:
         data: List[Tuple[str, str]] = []
 
         for key, value in self.to_dict(excluded_fields).items():
@@ -94,10 +101,16 @@ class OAuthTokenRefreshRequest(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "grant_type": obj.get("grant_type") if obj.get("grant_type") is not None else 'refresh_token',
-            "refresh_token": obj.get("refresh_token")
-        })
+        _obj = cls.model_validate(
+            {
+                "grant_type": (
+                    obj.get("grant_type")
+                    if obj.get("grant_type") is not None
+                    else "refresh_token"
+                ),
+                "refresh_token": obj.get("refresh_token"),
+            }
+        )
         return _obj
 
     @classmethod
@@ -119,6 +132,4 @@ class OAuthTokenRefreshRequest(BaseModel):
 
     @classmethod
     def openapi_type_is_array(cls, property_name: str) -> bool:
-        return property_name in [
-        ]
-
+        return property_name in []

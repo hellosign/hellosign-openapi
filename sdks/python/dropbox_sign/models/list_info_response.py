@@ -26,15 +26,30 @@ import io
 from pydantic import StrictBool
 from typing import Union
 
+
 class ListInfoResponse(BaseModel):
     """
     Contains pagination information about the data returned.
-    """ # noqa: E501
-    num_pages: Optional[StrictInt] = Field(default=None, description="Total number of pages available.")
-    num_results: Optional[StrictInt] = Field(default=None, description="Total number of objects available.")
-    page: Optional[StrictInt] = Field(default=None, description="Number of the page being returned.")
-    page_size: Optional[StrictInt] = Field(default=None, description="Objects returned per page.")
-    __properties: ClassVar[List[str]] = ["num_pages", "num_results", "page", "page_size"]
+    """  # noqa: E501
+
+    num_pages: Optional[StrictInt] = Field(
+        default=None, description="Total number of pages available."
+    )
+    num_results: Optional[StrictInt] = Field(
+        default=None, description="Total number of objects available."
+    )
+    page: Optional[StrictInt] = Field(
+        default=None, description="Number of the page being returned."
+    )
+    page_size: Optional[StrictInt] = Field(
+        default=None, description="Objects returned per page."
+    )
+    __properties: ClassVar[List[str]] = [
+        "num_pages",
+        "num_results",
+        "page",
+        "page_size",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -42,7 +57,6 @@ class ListInfoResponse(BaseModel):
         protected_namespaces=(),
         arbitrary_types_allowed=True,
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -53,7 +67,9 @@ class ListInfoResponse(BaseModel):
         # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
-    def to_json_form_params(self, excluded_fields: Set[str] = None) -> List[Tuple[str, str]]:
+    def to_json_form_params(
+        self, excluded_fields: Set[str] = None
+    ) -> List[Tuple[str, str]]:
         data: List[Tuple[str, str]] = []
 
         for key, value in self.to_dict(excluded_fields).items():
@@ -96,12 +112,14 @@ class ListInfoResponse(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "num_pages": obj.get("num_pages"),
-            "num_results": obj.get("num_results"),
-            "page": obj.get("page"),
-            "page_size": obj.get("page_size")
-        })
+        _obj = cls.model_validate(
+            {
+                "num_pages": obj.get("num_pages"),
+                "num_results": obj.get("num_results"),
+                "page": obj.get("page"),
+                "page_size": obj.get("page_size"),
+            }
+        )
         return _obj
 
     @classmethod
@@ -125,6 +143,4 @@ class ListInfoResponse(BaseModel):
 
     @classmethod
     def openapi_type_is_array(cls, property_name: str) -> bool:
-        return property_name in [
-        ]
-
+        return property_name in []

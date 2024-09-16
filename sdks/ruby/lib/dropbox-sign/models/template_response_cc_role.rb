@@ -66,7 +66,7 @@ module Dropbox::Sign
     # @param [Object] data Data to be converted
     # @return [TemplateResponseCCRole]
     def self.init(data)
-      return ApiClient.default.convert_to_type(
+      ApiClient.default.convert_to_type(
         data,
         "TemplateResponseCCRole"
       ) || TemplateResponseCCRole.new
@@ -242,7 +242,5 @@ module Dropbox::Sign
         value
       end
     end
-
   end
-
 end

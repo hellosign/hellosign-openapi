@@ -29,11 +29,15 @@ import io
 from pydantic import StrictBool
 from typing import Union
 
+
 class TeamMembersResponse(BaseModel):
     """
     TeamMembersResponse
-    """ # noqa: E501
-    team_members: List[TeamMemberResponse] = Field(description="Contains a list of team members and their roles for a specific team.")
+    """  # noqa: E501
+
+    team_members: List[TeamMemberResponse] = Field(
+        description="Contains a list of team members and their roles for a specific team."
+    )
     list_info: ListInfoResponse
     warnings: Optional[List[WarningResponse]] = None
     __properties: ClassVar[List[str]] = ["team_members", "list_info", "warnings"]
@@ -45,7 +49,6 @@ class TeamMembersResponse(BaseModel):
         arbitrary_types_allowed=True,
     )
 
-
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
         return pprint.pformat(self.model_dump(by_alias=True))
@@ -55,7 +58,9 @@ class TeamMembersResponse(BaseModel):
         # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
-    def to_json_form_params(self, excluded_fields: Set[str] = None) -> List[Tuple[str, str]]:
+    def to_json_form_params(
+        self, excluded_fields: Set[str] = None
+    ) -> List[Tuple[str, str]]:
         data: List[Tuple[str, str]] = []
 
         for key, value in self.to_dict(excluded_fields).items():
@@ -93,17 +98,17 @@ class TeamMembersResponse(BaseModel):
             for _item_team_members in self.team_members:
                 if _item_team_members:
                     _items.append(_item_team_members.to_dict())
-            _dict['team_members'] = _items
+            _dict["team_members"] = _items
         # override the default output from pydantic by calling `to_dict()` of list_info
         if self.list_info:
-            _dict['list_info'] = self.list_info.to_dict()
+            _dict["list_info"] = self.list_info.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in warnings (list)
         _items = []
         if self.warnings:
             for _item_warnings in self.warnings:
                 if _item_warnings:
                     _items.append(_item_warnings.to_dict())
-            _dict['warnings'] = _items
+            _dict["warnings"] = _items
         return _dict
 
     @classmethod
@@ -115,11 +120,28 @@ class TeamMembersResponse(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "team_members": [TeamMemberResponse.from_dict(_item) for _item in obj["team_members"]] if obj.get("team_members") is not None else None,
-            "list_info": ListInfoResponse.from_dict(obj["list_info"]) if obj.get("list_info") is not None else None,
-            "warnings": [WarningResponse.from_dict(_item) for _item in obj["warnings"]] if obj.get("warnings") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "team_members": (
+                    [
+                        TeamMemberResponse.from_dict(_item)
+                        for _item in obj["team_members"]
+                    ]
+                    if obj.get("team_members") is not None
+                    else None
+                ),
+                "list_info": (
+                    ListInfoResponse.from_dict(obj["list_info"])
+                    if obj.get("list_info") is not None
+                    else None
+                ),
+                "warnings": (
+                    [WarningResponse.from_dict(_item) for _item in obj["warnings"]]
+                    if obj.get("warnings") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
 
     @classmethod
@@ -146,4 +168,3 @@ class TeamMembersResponse(BaseModel):
             "team_members",
             "warnings",
         ]
-

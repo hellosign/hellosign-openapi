@@ -26,21 +26,35 @@ import io
 from pydantic import StrictBool
 from typing import Union
 
+
 class SubFormFieldRuleTrigger(BaseModel):
     """
     SubFormFieldRuleTrigger
-    """ # noqa: E501
-    id: StrictStr = Field(description="Must reference the `api_id` of an existing field defined within `form_fields_per_document`. Trigger and action fields and groups must belong to the same signer.")
-    operator: StrictStr = Field(description="Different field types allow different `operator` values: - Field type of **text**:   - **is**: exact match   - **not**: not exact match   - **match**: regular expression, without /. Example:     - OK `[a-zA-Z0-9]`     - Not OK `/[a-zA-Z0-9]/` - Field type of **dropdown**:   - **is**: exact match, single value   - **not**: not exact match, single value   - **any**: exact match, array of values.   - **none**: not exact match, array of values. - Field type of **checkbox**:   - **is**: exact match, single value   - **not**: not exact match, single value - Field type of **radio**:   - **is**: exact match, single value   - **not**: not exact match, single value")
-    value: Optional[StrictStr] = Field(default=None, description="**value** or **values** is required, but not both.  The value to match against **operator**.  - When **operator** is one of the following, **value** must be `String`:   - `is`   - `not`   - `match`  Otherwise, - **checkbox**: When **type** of trigger is **checkbox**, **value** must be `0` or `1` - **radio**: When **type** of trigger is **radio**, **value** must be `1`")
-    values: Optional[List[StrictStr]] = Field(default=None, description="**values** or **value** is required, but not both.  The values to match against **operator** when it is one of the following:  - `any` - `none`")
+    """  # noqa: E501
+
+    id: StrictStr = Field(
+        description="Must reference the `api_id` of an existing field defined within `form_fields_per_document`. Trigger and action fields and groups must belong to the same signer."
+    )
+    operator: StrictStr = Field(
+        description="Different field types allow different `operator` values: - Field type of **text**:   - **is**: exact match   - **not**: not exact match   - **match**: regular expression, without /. Example:     - OK `[a-zA-Z0-9]`     - Not OK `/[a-zA-Z0-9]/` - Field type of **dropdown**:   - **is**: exact match, single value   - **not**: not exact match, single value   - **any**: exact match, array of values.   - **none**: not exact match, array of values. - Field type of **checkbox**:   - **is**: exact match, single value   - **not**: not exact match, single value - Field type of **radio**:   - **is**: exact match, single value   - **not**: not exact match, single value"
+    )
+    value: Optional[StrictStr] = Field(
+        default=None,
+        description="**value** or **values** is required, but not both.  The value to match against **operator**.  - When **operator** is one of the following, **value** must be `String`:   - `is`   - `not`   - `match`  Otherwise, - **checkbox**: When **type** of trigger is **checkbox**, **value** must be `0` or `1` - **radio**: When **type** of trigger is **radio**, **value** must be `1`",
+    )
+    values: Optional[List[StrictStr]] = Field(
+        default=None,
+        description="**values** or **value** is required, but not both.  The values to match against **operator** when it is one of the following:  - `any` - `none`",
+    )
     __properties: ClassVar[List[str]] = ["id", "operator", "value", "values"]
 
-    @field_validator('operator')
+    @field_validator("operator")
     def operator_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in set(['any', 'is', 'match', 'none', 'not']):
-            raise ValueError("must be one of enum values ('any', 'is', 'match', 'none', 'not')")
+        if value not in set(["any", "is", "match", "none", "not"]):
+            raise ValueError(
+                "must be one of enum values ('any', 'is', 'match', 'none', 'not')"
+            )
         return value
 
     model_config = ConfigDict(
@@ -49,7 +63,6 @@ class SubFormFieldRuleTrigger(BaseModel):
         protected_namespaces=(),
         arbitrary_types_allowed=True,
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -60,7 +73,9 @@ class SubFormFieldRuleTrigger(BaseModel):
         # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
-    def to_json_form_params(self, excluded_fields: Set[str] = None) -> List[Tuple[str, str]]:
+    def to_json_form_params(
+        self, excluded_fields: Set[str] = None
+    ) -> List[Tuple[str, str]]:
         data: List[Tuple[str, str]] = []
 
         for key, value in self.to_dict(excluded_fields).items():
@@ -103,12 +118,14 @@ class SubFormFieldRuleTrigger(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "id": obj.get("id"),
-            "operator": obj.get("operator"),
-            "value": obj.get("value"),
-            "values": obj.get("values")
-        })
+        _obj = cls.model_validate(
+            {
+                "id": obj.get("id"),
+                "operator": obj.get("operator"),
+                "value": obj.get("value"),
+                "values": obj.get("values"),
+            }
+        )
         return _obj
 
     @classmethod
@@ -135,4 +152,3 @@ class SubFormFieldRuleTrigger(BaseModel):
         return property_name in [
             "values",
         ]
-

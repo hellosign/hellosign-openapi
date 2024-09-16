@@ -44,7 +44,7 @@ namespace Dropbox.Sign.Model
         /// <param name="number">The Fax Line number. (required).</param>
         public FaxLineDeleteRequest(string number = default(string))
         {
-            
+
             // to ensure "number" is required (not null)
             if (number == null)
             {
@@ -75,7 +75,7 @@ namespace Dropbox.Sign.Model
         /// <value>The Fax Line number.</value>
         [DataMember(Name = "number", IsRequired = true, EmitDefaultValue = true)]
         public string Number { get; set; }
-        
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -119,7 +119,7 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
+            return
                 (
                     this.Number == input.Number ||
                     (this.Number != null &&
@@ -156,7 +156,8 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "number",
                 Property = "Number",
                 Type = "string",

@@ -683,7 +683,7 @@ template_api = Dropbox::Sign::TemplateApi.new
 account_id = "f57db65d3f933b5316d398057a36176831451a35"
 
 begin
-  result = template_api.template_list({account_id: account_id})
+  result = template_api.template_list({ account_id: account_id })
   p result
 rescue Dropbox::Sign::ApiError => e
   puts "Exception when calling Dropbox Sign API: #{e}"

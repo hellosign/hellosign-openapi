@@ -56,7 +56,7 @@ namespace Dropbox.Sign.Model
         /// <param name="title">The title you want to assign to the SignatureRequest..</param>
         public SignatureRequestBulkSendWithTemplateRequest(List<string> templateIds = default(List<string>), System.IO.Stream signerFile = default(System.IO.Stream), List<SubBulkSignerList> signerList = default(List<SubBulkSignerList>), bool allowDecline = false, List<SubCC> ccs = default(List<SubCC>), string clientId = default(string), List<SubCustomField> customFields = default(List<SubCustomField>), string message = default(string), Dictionary<string, Object> metadata = default(Dictionary<string, Object>), string signingRedirectUrl = default(string), string subject = default(string), bool testMode = false, string title = default(string))
         {
-            
+
             // to ensure "templateIds" is required (not null)
             if (templateIds == null)
             {
@@ -99,91 +99,91 @@ namespace Dropbox.Sign.Model
         /// <value>Use &#x60;template_ids&#x60; to create a SignatureRequest from one or more templates, in the order in which the template will be used.</value>
         [DataMember(Name = "template_ids", IsRequired = true, EmitDefaultValue = true)]
         public List<string> TemplateIds { get; set; }
-        
+
         /// <summary>
         /// &#x60;signer_file&#x60; is a CSV file defining values and options for signer fields. Required unless a &#x60;signer_list&#x60; is used, you may not use both. The CSV can have the following columns:  - &#x60;name&#x60;: the name of the signer filling the role of RoleName - &#x60;email_address&#x60;: email address of the signer filling the role of RoleName - &#x60;pin&#x60;: the 4- to 12-character access code that will secure this signer&#39;s signature page (optional) - &#x60;sms_phone_number&#x60;: An E.164 formatted phone number that will receive a code via SMS to access this signer&#39;s signature page. (optional)      By using the feature, you agree you are responsible for obtaining a signer&#39;s consent to receive text messages from Dropbox Sign related to this signature request and confirm you have obtained such consent from all signers prior to enabling SMS delivery for this signature request. [Learn more](https://faq.hellosign.com/hc/en-us/articles/15815316468877-Dropbox-Sign-SMS-tools-add-on).      **NOTE:** Not available in test mode and requires a Standard plan or higher. - &#x60;*_field&#x60;: any column with a _field\&quot; suffix will be treated as a custom field (optional)      You may only specify field values here, any other options should be set in the custom_fields request parameter.  Example CSV:  &#x60;&#x60;&#x60; name, email_address, pin, company_field George, george@example.com, d79a3td, ABC Corp Mary, mary@example.com, gd9as5b, 123 LLC &#x60;&#x60;&#x60;
         /// </summary>
         /// <value>&#x60;signer_file&#x60; is a CSV file defining values and options for signer fields. Required unless a &#x60;signer_list&#x60; is used, you may not use both. The CSV can have the following columns:  - &#x60;name&#x60;: the name of the signer filling the role of RoleName - &#x60;email_address&#x60;: email address of the signer filling the role of RoleName - &#x60;pin&#x60;: the 4- to 12-character access code that will secure this signer&#39;s signature page (optional) - &#x60;sms_phone_number&#x60;: An E.164 formatted phone number that will receive a code via SMS to access this signer&#39;s signature page. (optional)      By using the feature, you agree you are responsible for obtaining a signer&#39;s consent to receive text messages from Dropbox Sign related to this signature request and confirm you have obtained such consent from all signers prior to enabling SMS delivery for this signature request. [Learn more](https://faq.hellosign.com/hc/en-us/articles/15815316468877-Dropbox-Sign-SMS-tools-add-on).      **NOTE:** Not available in test mode and requires a Standard plan or higher. - &#x60;*_field&#x60;: any column with a _field\&quot; suffix will be treated as a custom field (optional)      You may only specify field values here, any other options should be set in the custom_fields request parameter.  Example CSV:  &#x60;&#x60;&#x60; name, email_address, pin, company_field George, george@example.com, d79a3td, ABC Corp Mary, mary@example.com, gd9as5b, 123 LLC &#x60;&#x60;&#x60;</value>
         [DataMember(Name = "signer_file", EmitDefaultValue = true)]
         public System.IO.Stream SignerFile { get; set; }
-        
+
         /// <summary>
         /// &#x60;signer_list&#x60; is an array defining values and options for signer fields. Required unless a &#x60;signer_file&#x60; is used, you may not use both.
         /// </summary>
         /// <value>&#x60;signer_list&#x60; is an array defining values and options for signer fields. Required unless a &#x60;signer_file&#x60; is used, you may not use both.</value>
         [DataMember(Name = "signer_list", EmitDefaultValue = true)]
         public List<SubBulkSignerList> SignerList { get; set; }
-        
+
         /// <summary>
         /// Allows signers to decline to sign a document if &#x60;true&#x60;. Defaults to &#x60;false&#x60;.
         /// </summary>
         /// <value>Allows signers to decline to sign a document if &#x60;true&#x60;. Defaults to &#x60;false&#x60;.</value>
         [DataMember(Name = "allow_decline", EmitDefaultValue = true)]
         public bool AllowDecline { get; set; }
-        
+
         /// <summary>
         /// Add CC email recipients. Required when a CC role exists for the Template.
         /// </summary>
         /// <value>Add CC email recipients. Required when a CC role exists for the Template.</value>
         [DataMember(Name = "ccs", EmitDefaultValue = true)]
         public List<SubCC> Ccs { get; set; }
-        
+
         /// <summary>
         /// The client id of the API App you want to associate with this request. Used to apply the branding and callback url defined for the app.
         /// </summary>
         /// <value>The client id of the API App you want to associate with this request. Used to apply the branding and callback url defined for the app.</value>
         [DataMember(Name = "client_id", EmitDefaultValue = true)]
         public string ClientId { get; set; }
-        
+
         /// <summary>
         /// When used together with merge fields, &#x60;custom_fields&#x60; allows users to add pre-filled data to their signature requests.  Pre-filled data can be used with \&quot;send-once\&quot; signature requests by adding merge fields with &#x60;form_fields_per_document&#x60; or [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) while passing values back with &#x60;custom_fields&#x60; together in one API call.  For using pre-filled on repeatable signature requests, merge fields are added to templates in the Dropbox Sign UI or by calling [/template/create_embedded_draft](/api/reference/operation/templateCreateEmbeddedDraft) and then passing &#x60;custom_fields&#x60; on subsequent signature requests referencing that template.
         /// </summary>
         /// <value>When used together with merge fields, &#x60;custom_fields&#x60; allows users to add pre-filled data to their signature requests.  Pre-filled data can be used with \&quot;send-once\&quot; signature requests by adding merge fields with &#x60;form_fields_per_document&#x60; or [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) while passing values back with &#x60;custom_fields&#x60; together in one API call.  For using pre-filled on repeatable signature requests, merge fields are added to templates in the Dropbox Sign UI or by calling [/template/create_embedded_draft](/api/reference/operation/templateCreateEmbeddedDraft) and then passing &#x60;custom_fields&#x60; on subsequent signature requests referencing that template.</value>
         [DataMember(Name = "custom_fields", EmitDefaultValue = true)]
         public List<SubCustomField> CustomFields { get; set; }
-        
+
         /// <summary>
         /// The custom message in the email that will be sent to the signers.
         /// </summary>
         /// <value>The custom message in the email that will be sent to the signers.</value>
         [DataMember(Name = "message", EmitDefaultValue = true)]
         public string Message { get; set; }
-        
+
         /// <summary>
         /// Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer&#39;s order number for look up when receiving events for the signature request.  Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.
         /// </summary>
         /// <value>Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer&#39;s order number for look up when receiving events for the signature request.  Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.</value>
         [DataMember(Name = "metadata", EmitDefaultValue = true)]
         public Dictionary<string, Object> Metadata { get; set; }
-        
+
         /// <summary>
         /// The URL you want signers redirected to after they successfully sign.
         /// </summary>
         /// <value>The URL you want signers redirected to after they successfully sign.</value>
         [DataMember(Name = "signing_redirect_url", EmitDefaultValue = true)]
         public string SigningRedirectUrl { get; set; }
-        
+
         /// <summary>
         /// The subject in the email that will be sent to the signers.
         /// </summary>
         /// <value>The subject in the email that will be sent to the signers.</value>
         [DataMember(Name = "subject", EmitDefaultValue = true)]
         public string Subject { get; set; }
-        
+
         /// <summary>
         /// Whether this is a test, the signature request will not be legally binding if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.
         /// </summary>
         /// <value>Whether this is a test, the signature request will not be legally binding if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.</value>
         [DataMember(Name = "test_mode", EmitDefaultValue = true)]
         public bool TestMode { get; set; }
-        
+
         /// <summary>
         /// The title you want to assign to the SignatureRequest.
         /// </summary>
         /// <value>The title you want to assign to the SignatureRequest.</value>
         [DataMember(Name = "title", EmitDefaultValue = true)]
         public string Title { get; set; }
-        
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -239,70 +239,70 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
+            return
                 (
                     this.TemplateIds == input.TemplateIds ||
                     this.TemplateIds != null &&
                     input.TemplateIds != null &&
                     this.TemplateIds.SequenceEqual(input.TemplateIds)
-                ) && 
+                ) &&
                 (
                     this.SignerFile == input.SignerFile ||
                     (this.SignerFile != null &&
                     this.SignerFile.Equals(input.SignerFile))
-                ) && 
+                ) &&
                 (
                     this.SignerList == input.SignerList ||
                     this.SignerList != null &&
                     input.SignerList != null &&
                     this.SignerList.SequenceEqual(input.SignerList)
-                ) && 
+                ) &&
                 (
                     this.AllowDecline == input.AllowDecline ||
                     this.AllowDecline.Equals(input.AllowDecline)
-                ) && 
+                ) &&
                 (
                     this.Ccs == input.Ccs ||
                     this.Ccs != null &&
                     input.Ccs != null &&
                     this.Ccs.SequenceEqual(input.Ccs)
-                ) && 
+                ) &&
                 (
                     this.ClientId == input.ClientId ||
                     (this.ClientId != null &&
                     this.ClientId.Equals(input.ClientId))
-                ) && 
+                ) &&
                 (
                     this.CustomFields == input.CustomFields ||
                     this.CustomFields != null &&
                     input.CustomFields != null &&
                     this.CustomFields.SequenceEqual(input.CustomFields)
-                ) && 
+                ) &&
                 (
                     this.Message == input.Message ||
                     (this.Message != null &&
                     this.Message.Equals(input.Message))
-                ) && 
+                ) &&
                 (
                     this.Metadata == input.Metadata ||
                     this.Metadata != null &&
                     input.Metadata != null &&
                     this.Metadata.SequenceEqual(input.Metadata)
-                ) && 
+                ) &&
                 (
                     this.SigningRedirectUrl == input.SigningRedirectUrl ||
                     (this.SigningRedirectUrl != null &&
                     this.SigningRedirectUrl.Equals(input.SigningRedirectUrl))
-                ) && 
+                ) &&
                 (
                     this.Subject == input.Subject ||
                     (this.Subject != null &&
                     this.Subject.Equals(input.Subject))
-                ) && 
+                ) &&
                 (
                     this.TestMode == input.TestMode ||
                     this.TestMode.Equals(input.TestMode)
-                ) && 
+                ) &&
                 (
                     this.Title == input.Title ||
                     (this.Title != null &&
@@ -379,19 +379,19 @@ namespace Dropbox.Sign.Model
             // Message (string) maxLength
             if (this.Message != null && this.Message.Length > 5000)
             {
-                yield return new ValidationResult("Invalid value for Message, length must be less than 5000.", new [] { "Message" });
+                yield return new ValidationResult("Invalid value for Message, length must be less than 5000.", new[] { "Message" });
             }
 
             // Subject (string) maxLength
             if (this.Subject != null && this.Subject.Length > 255)
             {
-                yield return new ValidationResult("Invalid value for Subject, length must be less than 255.", new [] { "Subject" });
+                yield return new ValidationResult("Invalid value for Subject, length must be less than 255.", new[] { "Subject" });
             }
 
             // Title (string) maxLength
             if (this.Title != null && this.Title.Length > 255)
             {
-                yield return new ValidationResult("Invalid value for Title, length must be less than 255.", new [] { "Title" });
+                yield return new ValidationResult("Invalid value for Title, length must be less than 255.", new[] { "Title" });
             }
 
             yield break;
@@ -399,79 +399,92 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "template_ids",
                 Property = "TemplateIds",
                 Type = "List<string>",
                 Value = TemplateIds,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "signer_file",
                 Property = "SignerFile",
                 Type = "System.IO.Stream",
                 Value = SignerFile,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "signer_list",
                 Property = "SignerList",
                 Type = "List<SubBulkSignerList>",
                 Value = SignerList,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "allow_decline",
                 Property = "AllowDecline",
                 Type = "bool",
                 Value = AllowDecline,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "ccs",
                 Property = "Ccs",
                 Type = "List<SubCC>",
                 Value = Ccs,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "client_id",
                 Property = "ClientId",
                 Type = "string",
                 Value = ClientId,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "custom_fields",
                 Property = "CustomFields",
                 Type = "List<SubCustomField>",
                 Value = CustomFields,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "message",
                 Property = "Message",
                 Type = "string",
                 Value = Message,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "metadata",
                 Property = "Metadata",
                 Type = "Dictionary<string, Object>",
                 Value = Metadata,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "signing_redirect_url",
                 Property = "SigningRedirectUrl",
                 Type = "string",
                 Value = SigningRedirectUrl,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "subject",
                 Property = "Subject",
                 Type = "string",
                 Value = Subject,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "test_mode",
                 Property = "TestMode",
                 Type = "bool",
                 Value = TestMode,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "title",
                 Property = "Title",
                 Type = "string",

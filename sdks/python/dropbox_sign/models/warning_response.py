@@ -26,10 +26,12 @@ import io
 from pydantic import StrictBool
 from typing import Union
 
+
 class WarningResponse(BaseModel):
     """
     A list of warnings.
-    """ # noqa: E501
+    """  # noqa: E501
+
     warning_msg: StrictStr = Field(description="Warning message")
     warning_name: StrictStr = Field(description="Warning name")
     __properties: ClassVar[List[str]] = ["warning_msg", "warning_name"]
@@ -41,7 +43,6 @@ class WarningResponse(BaseModel):
         arbitrary_types_allowed=True,
     )
 
-
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
         return pprint.pformat(self.model_dump(by_alias=True))
@@ -51,7 +52,9 @@ class WarningResponse(BaseModel):
         # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
-    def to_json_form_params(self, excluded_fields: Set[str] = None) -> List[Tuple[str, str]]:
+    def to_json_form_params(
+        self, excluded_fields: Set[str] = None
+    ) -> List[Tuple[str, str]]:
         data: List[Tuple[str, str]] = []
 
         for key, value in self.to_dict(excluded_fields).items():
@@ -94,10 +97,12 @@ class WarningResponse(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "warning_msg": obj.get("warning_msg"),
-            "warning_name": obj.get("warning_name")
-        })
+        _obj = cls.model_validate(
+            {
+                "warning_msg": obj.get("warning_msg"),
+                "warning_name": obj.get("warning_name"),
+            }
+        )
         return _obj
 
     @classmethod
@@ -119,6 +124,4 @@ class WarningResponse(BaseModel):
 
     @classmethod
     def openapi_type_is_array(cls, property_name: str) -> bool:
-        return property_name in [
-        ]
-
+        return property_name in []

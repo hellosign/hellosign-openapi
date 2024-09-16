@@ -30,18 +30,36 @@ import io
 from pydantic import StrictBool
 from typing import Union
 
+
 class ApiAppCreateRequest(BaseModel):
     """
     ApiAppCreateRequest
-    """ # noqa: E501
-    domains: Annotated[List[StrictStr], Field(min_length=1, max_length=2)] = Field(description="The domain names the ApiApp will be associated with.")
+    """  # noqa: E501
+
+    domains: Annotated[List[StrictStr], Field(min_length=1, max_length=2)] = Field(
+        description="The domain names the ApiApp will be associated with."
+    )
     name: StrictStr = Field(description="The name you want to assign to the ApiApp.")
-    callback_url: Optional[StrictStr] = Field(default=None, description="The URL at which the ApiApp should receive event callbacks.")
-    custom_logo_file: Optional[Union[StrictBytes, StrictStr, io.IOBase]] = Field(default=None, description="An image file to use as a custom logo in embedded contexts. (Only applies to some API plans)")
+    callback_url: Optional[StrictStr] = Field(
+        default=None,
+        description="The URL at which the ApiApp should receive event callbacks.",
+    )
+    custom_logo_file: Optional[Union[StrictBytes, StrictStr, io.IOBase]] = Field(
+        default=None,
+        description="An image file to use as a custom logo in embedded contexts. (Only applies to some API plans)",
+    )
     oauth: Optional[SubOAuth] = None
     options: Optional[SubOptions] = None
     white_labeling_options: Optional[SubWhiteLabelingOptions] = None
-    __properties: ClassVar[List[str]] = ["domains", "name", "callback_url", "custom_logo_file", "oauth", "options", "white_labeling_options"]
+    __properties: ClassVar[List[str]] = [
+        "domains",
+        "name",
+        "callback_url",
+        "custom_logo_file",
+        "oauth",
+        "options",
+        "white_labeling_options",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -49,7 +67,6 @@ class ApiAppCreateRequest(BaseModel):
         protected_namespaces=(),
         arbitrary_types_allowed=True,
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -60,7 +77,9 @@ class ApiAppCreateRequest(BaseModel):
         # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
-    def to_json_form_params(self, excluded_fields: Set[str] = None) -> List[Tuple[str, str]]:
+    def to_json_form_params(
+        self, excluded_fields: Set[str] = None
+    ) -> List[Tuple[str, str]]:
         data: List[Tuple[str, str]] = []
 
         for key, value in self.to_dict(excluded_fields).items():
@@ -94,13 +113,13 @@ class ApiAppCreateRequest(BaseModel):
         )
         # override the default output from pydantic by calling `to_dict()` of oauth
         if self.oauth:
-            _dict['oauth'] = self.oauth.to_dict()
+            _dict["oauth"] = self.oauth.to_dict()
         # override the default output from pydantic by calling `to_dict()` of options
         if self.options:
-            _dict['options'] = self.options.to_dict()
+            _dict["options"] = self.options.to_dict()
         # override the default output from pydantic by calling `to_dict()` of white_labeling_options
         if self.white_labeling_options:
-            _dict['white_labeling_options'] = self.white_labeling_options.to_dict()
+            _dict["white_labeling_options"] = self.white_labeling_options.to_dict()
         return _dict
 
     @classmethod
@@ -112,15 +131,29 @@ class ApiAppCreateRequest(BaseModel):
         if not isinstance(obj, dict):
             return cls.model_validate(obj)
 
-        _obj = cls.model_validate({
-            "domains": obj.get("domains"),
-            "name": obj.get("name"),
-            "callback_url": obj.get("callback_url"),
-            "custom_logo_file": obj.get("custom_logo_file"),
-            "oauth": SubOAuth.from_dict(obj["oauth"]) if obj.get("oauth") is not None else None,
-            "options": SubOptions.from_dict(obj["options"]) if obj.get("options") is not None else None,
-            "white_labeling_options": SubWhiteLabelingOptions.from_dict(obj["white_labeling_options"]) if obj.get("white_labeling_options") is not None else None
-        })
+        _obj = cls.model_validate(
+            {
+                "domains": obj.get("domains"),
+                "name": obj.get("name"),
+                "callback_url": obj.get("callback_url"),
+                "custom_logo_file": obj.get("custom_logo_file"),
+                "oauth": (
+                    SubOAuth.from_dict(obj["oauth"])
+                    if obj.get("oauth") is not None
+                    else None
+                ),
+                "options": (
+                    SubOptions.from_dict(obj["options"])
+                    if obj.get("options") is not None
+                    else None
+                ),
+                "white_labeling_options": (
+                    SubWhiteLabelingOptions.from_dict(obj["white_labeling_options"])
+                    if obj.get("white_labeling_options") is not None
+                    else None
+                ),
+            }
+        )
         return _obj
 
     @classmethod
@@ -150,4 +183,3 @@ class ApiAppCreateRequest(BaseModel):
         return property_name in [
             "domains",
         ]
-

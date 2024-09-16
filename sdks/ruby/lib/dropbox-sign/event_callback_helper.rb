@@ -33,7 +33,7 @@ module Dropbox::Sign
         "#{event_callback.event.event_time}#{event_callback.event.event_type}",
       )
 
-      return event_callback.event.event_hash === hash
+      event_callback.event.event_hash === hash
     end
 
     # Identifies the callback type, one of "account_callback" or "app_callback".
@@ -48,7 +48,7 @@ module Dropbox::Sign
         return EVENT_TYPE_ACCOUNT_CALLBACK
       end
 
-      return EVENT_TYPE_APP_CALLBACK
+      EVENT_TYPE_APP_CALLBACK
     end
   end
 end

@@ -73,7 +73,7 @@ namespace Dropbox.Sign.Model
         /// <param name="allowCcs">This allows the requester to specify whether the user is allowed to provide email addresses to CC when claiming the draft. (default to false).</param>
         public UnclaimedDraftCreateEmbeddedWithTemplateRequest(bool allowDecline = false, bool allowReassign = false, List<SubCC> ccs = default(List<SubCC>), string clientId = default(string), List<SubCustomField> customFields = default(List<SubCustomField>), SubEditorOptions editorOptions = default(SubEditorOptions), SubFieldOptions fieldOptions = default(SubFieldOptions), List<System.IO.Stream> files = default(List<System.IO.Stream>), List<string> fileUrls = default(List<string>), bool forceSignerRoles = false, bool forceSubjectMessage = false, bool holdRequest = false, bool isForEmbeddedSigning = false, string message = default(string), Dictionary<string, Object> metadata = default(Dictionary<string, Object>), bool previewOnly = false, string requesterEmailAddress = default(string), string requestingRedirectUrl = default(string), bool showPreview = false, bool showProgressStepper = true, List<SubUnclaimedDraftTemplateSigner> signers = default(List<SubUnclaimedDraftTemplateSigner>), SubSigningOptions signingOptions = default(SubSigningOptions), string signingRedirectUrl = default(string), bool skipMeNow = false, string subject = default(string), List<string> templateIds = default(List<string>), bool testMode = false, string title = default(string), bool populateAutoFillFields = false, bool allowCcs = false)
         {
-            
+
             // to ensure "clientId" is required (not null)
             if (clientId == null)
             {
@@ -143,207 +143,207 @@ namespace Dropbox.Sign.Model
         /// <value>Client id of the app used to create the draft. Used to apply the branding and callback url defined for the app.</value>
         [DataMember(Name = "client_id", IsRequired = true, EmitDefaultValue = true)]
         public string ClientId { get; set; }
-        
+
         /// <summary>
         /// The email address of the user that should be designated as the requester of this draft.
         /// </summary>
         /// <value>The email address of the user that should be designated as the requester of this draft.</value>
         [DataMember(Name = "requester_email_address", IsRequired = true, EmitDefaultValue = true)]
         public string RequesterEmailAddress { get; set; }
-        
+
         /// <summary>
         /// Use &#x60;template_ids&#x60; to create a SignatureRequest from one or more templates, in the order in which the templates will be used.
         /// </summary>
         /// <value>Use &#x60;template_ids&#x60; to create a SignatureRequest from one or more templates, in the order in which the templates will be used.</value>
         [DataMember(Name = "template_ids", IsRequired = true, EmitDefaultValue = true)]
         public List<string> TemplateIds { get; set; }
-        
+
         /// <summary>
         /// Allows signers to decline to sign a document if &#x60;true&#x60;. Defaults to &#x60;false&#x60;.
         /// </summary>
         /// <value>Allows signers to decline to sign a document if &#x60;true&#x60;. Defaults to &#x60;false&#x60;.</value>
         [DataMember(Name = "allow_decline", EmitDefaultValue = true)]
         public bool AllowDecline { get; set; }
-        
+
         /// <summary>
         /// Allows signers to reassign their signature requests to other signers if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.  **NOTE:** Only available for Premium plan and higher.
         /// </summary>
         /// <value>Allows signers to reassign their signature requests to other signers if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.  **NOTE:** Only available for Premium plan and higher.</value>
         [DataMember(Name = "allow_reassign", EmitDefaultValue = true)]
         public bool AllowReassign { get; set; }
-        
+
         /// <summary>
         /// Add CC email recipients. Required when a CC role exists for the Template.
         /// </summary>
         /// <value>Add CC email recipients. Required when a CC role exists for the Template.</value>
         [DataMember(Name = "ccs", EmitDefaultValue = true)]
         public List<SubCC> Ccs { get; set; }
-        
+
         /// <summary>
         /// An array defining values and options for custom fields. Required when a custom field exists in the Template.
         /// </summary>
         /// <value>An array defining values and options for custom fields. Required when a custom field exists in the Template.</value>
         [DataMember(Name = "custom_fields", EmitDefaultValue = true)]
         public List<SubCustomField> CustomFields { get; set; }
-        
+
         /// <summary>
         /// Gets or Sets EditorOptions
         /// </summary>
         [DataMember(Name = "editor_options", EmitDefaultValue = true)]
         public SubEditorOptions EditorOptions { get; set; }
-        
+
         /// <summary>
         /// Gets or Sets FieldOptions
         /// </summary>
         [DataMember(Name = "field_options", EmitDefaultValue = true)]
         public SubFieldOptions FieldOptions { get; set; }
-        
+
         /// <summary>
         /// Use &#x60;files[]&#x60; to append additional files to the signature request being created from the template. Dropbox Sign will parse the files for [text tags](https://app.hellosign.com/api/textTagsWalkthrough) and append it to the signature request. Text tags for signers not on the template(s) will be ignored.  **files** or **file_urls[]** is required, but not both.
         /// </summary>
         /// <value>Use &#x60;files[]&#x60; to append additional files to the signature request being created from the template. Dropbox Sign will parse the files for [text tags](https://app.hellosign.com/api/textTagsWalkthrough) and append it to the signature request. Text tags for signers not on the template(s) will be ignored.  **files** or **file_urls[]** is required, but not both.</value>
         [DataMember(Name = "files", EmitDefaultValue = true)]
         public List<System.IO.Stream> Files { get; set; }
-        
+
         /// <summary>
         /// Use file_urls[] to append additional files to the signature request being created from the template. Dropbox Sign will download the file, then parse it for [text tags](https://app.hellosign.com/api/textTagsWalkthrough), and append to the signature request. Text tags for signers not on the template(s) will be ignored.  **files** or **file_urls[]** is required, but not both.
         /// </summary>
         /// <value>Use file_urls[] to append additional files to the signature request being created from the template. Dropbox Sign will download the file, then parse it for [text tags](https://app.hellosign.com/api/textTagsWalkthrough), and append to the signature request. Text tags for signers not on the template(s) will be ignored.  **files** or **file_urls[]** is required, but not both.</value>
         [DataMember(Name = "file_urls", EmitDefaultValue = true)]
         public List<string> FileUrls { get; set; }
-        
+
         /// <summary>
         /// Provide users the ability to review/edit the template signer roles.
         /// </summary>
         /// <value>Provide users the ability to review/edit the template signer roles.</value>
         [DataMember(Name = "force_signer_roles", EmitDefaultValue = true)]
         public bool ForceSignerRoles { get; set; }
-        
+
         /// <summary>
         /// Provide users the ability to review/edit the template subject and message.
         /// </summary>
         /// <value>Provide users the ability to review/edit the template subject and message.</value>
         [DataMember(Name = "force_subject_message", EmitDefaultValue = true)]
         public bool ForceSubjectMessage { get; set; }
-        
+
         /// <summary>
         /// The request from this draft will not automatically send to signers post-claim if set to 1. Requester must [release](/api/reference/operation/signatureRequestReleaseHold/) the request from hold when ready to send. Defaults to &#x60;false&#x60;.
         /// </summary>
         /// <value>The request from this draft will not automatically send to signers post-claim if set to 1. Requester must [release](/api/reference/operation/signatureRequestReleaseHold/) the request from hold when ready to send. Defaults to &#x60;false&#x60;.</value>
         [DataMember(Name = "hold_request", EmitDefaultValue = true)]
         public bool HoldRequest { get; set; }
-        
+
         /// <summary>
         /// The request created from this draft will also be signable in embedded mode if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.
         /// </summary>
         /// <value>The request created from this draft will also be signable in embedded mode if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.</value>
         [DataMember(Name = "is_for_embedded_signing", EmitDefaultValue = true)]
         public bool IsForEmbeddedSigning { get; set; }
-        
+
         /// <summary>
         /// The custom message in the email that will be sent to the signers.
         /// </summary>
         /// <value>The custom message in the email that will be sent to the signers.</value>
         [DataMember(Name = "message", EmitDefaultValue = true)]
         public string Message { get; set; }
-        
+
         /// <summary>
         /// Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer&#39;s order number for look up when receiving events for the signature request.  Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.
         /// </summary>
         /// <value>Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer&#39;s order number for look up when receiving events for the signature request.  Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.</value>
         [DataMember(Name = "metadata", EmitDefaultValue = true)]
         public Dictionary<string, Object> Metadata { get; set; }
-        
+
         /// <summary>
         /// This allows the requester to enable the preview experience (i.e. does not allow the requester&#39;s end user to add any additional fields via the editor).  - &#x60;preview_only&#x3D;true&#x60;: Allows requesters to enable the preview only experience. - &#x60;preview_only&#x3D;false&#x60;: Allows requesters to disable the preview only experience.  **NOTE:** This parameter overwrites &#x60;show_preview&#x3D;1&#x60; (if set).
         /// </summary>
         /// <value>This allows the requester to enable the preview experience (i.e. does not allow the requester&#39;s end user to add any additional fields via the editor).  - &#x60;preview_only&#x3D;true&#x60;: Allows requesters to enable the preview only experience. - &#x60;preview_only&#x3D;false&#x60;: Allows requesters to disable the preview only experience.  **NOTE:** This parameter overwrites &#x60;show_preview&#x3D;1&#x60; (if set).</value>
         [DataMember(Name = "preview_only", EmitDefaultValue = true)]
         public bool PreviewOnly { get; set; }
-        
+
         /// <summary>
         /// The URL you want signers redirected to after they successfully request a signature.
         /// </summary>
         /// <value>The URL you want signers redirected to after they successfully request a signature.</value>
         [DataMember(Name = "requesting_redirect_url", EmitDefaultValue = true)]
         public string RequestingRedirectUrl { get; set; }
-        
+
         /// <summary>
         /// This allows the requester to enable the editor/preview experience.  - &#x60;show_preview&#x3D;true&#x60;: Allows requesters to enable the editor/preview experience. - &#x60;show_preview&#x3D;false&#x60;: Allows requesters to disable the editor/preview experience.
         /// </summary>
         /// <value>This allows the requester to enable the editor/preview experience.  - &#x60;show_preview&#x3D;true&#x60;: Allows requesters to enable the editor/preview experience. - &#x60;show_preview&#x3D;false&#x60;: Allows requesters to disable the editor/preview experience.</value>
         [DataMember(Name = "show_preview", EmitDefaultValue = true)]
         public bool ShowPreview { get; set; }
-        
+
         /// <summary>
         /// When only one step remains in the signature request process and this parameter is set to &#x60;false&#x60; then the progress stepper will be hidden.
         /// </summary>
         /// <value>When only one step remains in the signature request process and this parameter is set to &#x60;false&#x60; then the progress stepper will be hidden.</value>
         [DataMember(Name = "show_progress_stepper", EmitDefaultValue = true)]
         public bool ShowProgressStepper { get; set; }
-        
+
         /// <summary>
         /// Add Signers to your Templated-based Signature Request.
         /// </summary>
         /// <value>Add Signers to your Templated-based Signature Request.</value>
         [DataMember(Name = "signers", EmitDefaultValue = true)]
         public List<SubUnclaimedDraftTemplateSigner> Signers { get; set; }
-        
+
         /// <summary>
         /// Gets or Sets SigningOptions
         /// </summary>
         [DataMember(Name = "signing_options", EmitDefaultValue = true)]
         public SubSigningOptions SigningOptions { get; set; }
-        
+
         /// <summary>
         /// The URL you want signers redirected to after they successfully sign.
         /// </summary>
         /// <value>The URL you want signers redirected to after they successfully sign.</value>
         [DataMember(Name = "signing_redirect_url", EmitDefaultValue = true)]
         public string SigningRedirectUrl { get; set; }
-        
+
         /// <summary>
         /// Disables the \&quot;Me (Now)\&quot; option for the person preparing the document. Does not work with type &#x60;send_document&#x60;. Defaults to &#x60;false&#x60;.
         /// </summary>
         /// <value>Disables the \&quot;Me (Now)\&quot; option for the person preparing the document. Does not work with type &#x60;send_document&#x60;. Defaults to &#x60;false&#x60;.</value>
         [DataMember(Name = "skip_me_now", EmitDefaultValue = true)]
         public bool SkipMeNow { get; set; }
-        
+
         /// <summary>
         /// The subject in the email that will be sent to the signers.
         /// </summary>
         /// <value>The subject in the email that will be sent to the signers.</value>
         [DataMember(Name = "subject", EmitDefaultValue = true)]
         public string Subject { get; set; }
-        
+
         /// <summary>
         /// Whether this is a test, the signature request created from this draft will not be legally binding if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.
         /// </summary>
         /// <value>Whether this is a test, the signature request created from this draft will not be legally binding if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.</value>
         [DataMember(Name = "test_mode", EmitDefaultValue = true)]
         public bool TestMode { get; set; }
-        
+
         /// <summary>
         /// The title you want to assign to the SignatureRequest.
         /// </summary>
         /// <value>The title you want to assign to the SignatureRequest.</value>
         [DataMember(Name = "title", EmitDefaultValue = true)]
         public string Title { get; set; }
-        
+
         /// <summary>
         /// Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer&#39;s information during signing.  **NOTE:** Keep your signer&#39;s information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
         /// </summary>
         /// <value>Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer&#39;s information during signing.  **NOTE:** Keep your signer&#39;s information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.</value>
         [DataMember(Name = "populate_auto_fill_fields", EmitDefaultValue = true)]
         public bool PopulateAutoFillFields { get; set; }
-        
+
         /// <summary>
         /// This allows the requester to specify whether the user is allowed to provide email addresses to CC when claiming the draft.
         /// </summary>
         /// <value>This allows the requester to specify whether the user is allowed to provide email addresses to CC when claiming the draft.</value>
         [DataMember(Name = "allow_ccs", EmitDefaultValue = true)]
         public bool AllowCcs { get; set; }
-        
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -416,147 +416,147 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
+            return
                 (
                     this.ClientId == input.ClientId ||
                     (this.ClientId != null &&
                     this.ClientId.Equals(input.ClientId))
-                ) && 
+                ) &&
                 (
                     this.RequesterEmailAddress == input.RequesterEmailAddress ||
                     (this.RequesterEmailAddress != null &&
                     this.RequesterEmailAddress.Equals(input.RequesterEmailAddress))
-                ) && 
+                ) &&
                 (
                     this.TemplateIds == input.TemplateIds ||
                     this.TemplateIds != null &&
                     input.TemplateIds != null &&
                     this.TemplateIds.SequenceEqual(input.TemplateIds)
-                ) && 
+                ) &&
                 (
                     this.AllowDecline == input.AllowDecline ||
                     this.AllowDecline.Equals(input.AllowDecline)
-                ) && 
+                ) &&
                 (
                     this.AllowReassign == input.AllowReassign ||
                     this.AllowReassign.Equals(input.AllowReassign)
-                ) && 
+                ) &&
                 (
                     this.Ccs == input.Ccs ||
                     this.Ccs != null &&
                     input.Ccs != null &&
                     this.Ccs.SequenceEqual(input.Ccs)
-                ) && 
+                ) &&
                 (
                     this.CustomFields == input.CustomFields ||
                     this.CustomFields != null &&
                     input.CustomFields != null &&
                     this.CustomFields.SequenceEqual(input.CustomFields)
-                ) && 
+                ) &&
                 (
                     this.EditorOptions == input.EditorOptions ||
                     (this.EditorOptions != null &&
                     this.EditorOptions.Equals(input.EditorOptions))
-                ) && 
+                ) &&
                 (
                     this.FieldOptions == input.FieldOptions ||
                     (this.FieldOptions != null &&
                     this.FieldOptions.Equals(input.FieldOptions))
-                ) && 
+                ) &&
                 (
                     this.Files == input.Files ||
                     this.Files != null &&
                     input.Files != null &&
                     this.Files.SequenceEqual(input.Files)
-                ) && 
+                ) &&
                 (
                     this.FileUrls == input.FileUrls ||
                     this.FileUrls != null &&
                     input.FileUrls != null &&
                     this.FileUrls.SequenceEqual(input.FileUrls)
-                ) && 
+                ) &&
                 (
                     this.ForceSignerRoles == input.ForceSignerRoles ||
                     this.ForceSignerRoles.Equals(input.ForceSignerRoles)
-                ) && 
+                ) &&
                 (
                     this.ForceSubjectMessage == input.ForceSubjectMessage ||
                     this.ForceSubjectMessage.Equals(input.ForceSubjectMessage)
-                ) && 
+                ) &&
                 (
                     this.HoldRequest == input.HoldRequest ||
                     this.HoldRequest.Equals(input.HoldRequest)
-                ) && 
+                ) &&
                 (
                     this.IsForEmbeddedSigning == input.IsForEmbeddedSigning ||
                     this.IsForEmbeddedSigning.Equals(input.IsForEmbeddedSigning)
-                ) && 
+                ) &&
                 (
                     this.Message == input.Message ||
                     (this.Message != null &&
                     this.Message.Equals(input.Message))
-                ) && 
+                ) &&
                 (
                     this.Metadata == input.Metadata ||
                     this.Metadata != null &&
                     input.Metadata != null &&
                     this.Metadata.SequenceEqual(input.Metadata)
-                ) && 
+                ) &&
                 (
                     this.PreviewOnly == input.PreviewOnly ||
                     this.PreviewOnly.Equals(input.PreviewOnly)
-                ) && 
+                ) &&
                 (
                     this.RequestingRedirectUrl == input.RequestingRedirectUrl ||
                     (this.RequestingRedirectUrl != null &&
                     this.RequestingRedirectUrl.Equals(input.RequestingRedirectUrl))
-                ) && 
+                ) &&
                 (
                     this.ShowPreview == input.ShowPreview ||
                     this.ShowPreview.Equals(input.ShowPreview)
-                ) && 
+                ) &&
                 (
                     this.ShowProgressStepper == input.ShowProgressStepper ||
                     this.ShowProgressStepper.Equals(input.ShowProgressStepper)
-                ) && 
+                ) &&
                 (
                     this.Signers == input.Signers ||
                     this.Signers != null &&
                     input.Signers != null &&
                     this.Signers.SequenceEqual(input.Signers)
-                ) && 
+                ) &&
                 (
                     this.SigningOptions == input.SigningOptions ||
                     (this.SigningOptions != null &&
                     this.SigningOptions.Equals(input.SigningOptions))
-                ) && 
+                ) &&
                 (
                     this.SigningRedirectUrl == input.SigningRedirectUrl ||
                     (this.SigningRedirectUrl != null &&
                     this.SigningRedirectUrl.Equals(input.SigningRedirectUrl))
-                ) && 
+                ) &&
                 (
                     this.SkipMeNow == input.SkipMeNow ||
                     this.SkipMeNow.Equals(input.SkipMeNow)
-                ) && 
+                ) &&
                 (
                     this.Subject == input.Subject ||
                     (this.Subject != null &&
                     this.Subject.Equals(input.Subject))
-                ) && 
+                ) &&
                 (
                     this.TestMode == input.TestMode ||
                     this.TestMode.Equals(input.TestMode)
-                ) && 
+                ) &&
                 (
                     this.Title == input.Title ||
                     (this.Title != null &&
                     this.Title.Equals(input.Title))
-                ) && 
+                ) &&
                 (
                     this.PopulateAutoFillFields == input.PopulateAutoFillFields ||
                     this.PopulateAutoFillFields.Equals(input.PopulateAutoFillFields)
-                ) && 
+                ) &&
                 (
                     this.AllowCcs == input.AllowCcs ||
                     this.AllowCcs.Equals(input.AllowCcs)
@@ -667,19 +667,19 @@ namespace Dropbox.Sign.Model
             // Message (string) maxLength
             if (this.Message != null && this.Message.Length > 5000)
             {
-                yield return new ValidationResult("Invalid value for Message, length must be less than 5000.", new [] { "Message" });
+                yield return new ValidationResult("Invalid value for Message, length must be less than 5000.", new[] { "Message" });
             }
 
             // Subject (string) maxLength
             if (this.Subject != null && this.Subject.Length > 255)
             {
-                yield return new ValidationResult("Invalid value for Subject, length must be less than 255.", new [] { "Subject" });
+                yield return new ValidationResult("Invalid value for Subject, length must be less than 255.", new[] { "Subject" });
             }
 
             // Title (string) maxLength
             if (this.Title != null && this.Title.Length > 255)
             {
-                yield return new ValidationResult("Invalid value for Title, length must be less than 255.", new [] { "Title" });
+                yield return new ValidationResult("Invalid value for Title, length must be less than 255.", new[] { "Title" });
             }
 
             yield break;
@@ -687,181 +687,211 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "client_id",
                 Property = "ClientId",
                 Type = "string",
                 Value = ClientId,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "requester_email_address",
                 Property = "RequesterEmailAddress",
                 Type = "string",
                 Value = RequesterEmailAddress,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "template_ids",
                 Property = "TemplateIds",
                 Type = "List<string>",
                 Value = TemplateIds,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "allow_decline",
                 Property = "AllowDecline",
                 Type = "bool",
                 Value = AllowDecline,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "allow_reassign",
                 Property = "AllowReassign",
                 Type = "bool",
                 Value = AllowReassign,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "ccs",
                 Property = "Ccs",
                 Type = "List<SubCC>",
                 Value = Ccs,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "custom_fields",
                 Property = "CustomFields",
                 Type = "List<SubCustomField>",
                 Value = CustomFields,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "editor_options",
                 Property = "EditorOptions",
                 Type = "SubEditorOptions",
                 Value = EditorOptions,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "field_options",
                 Property = "FieldOptions",
                 Type = "SubFieldOptions",
                 Value = FieldOptions,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "files",
                 Property = "Files",
                 Type = "List<System.IO.Stream>",
                 Value = Files,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "file_urls",
                 Property = "FileUrls",
                 Type = "List<string>",
                 Value = FileUrls,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "force_signer_roles",
                 Property = "ForceSignerRoles",
                 Type = "bool",
                 Value = ForceSignerRoles,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "force_subject_message",
                 Property = "ForceSubjectMessage",
                 Type = "bool",
                 Value = ForceSubjectMessage,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "hold_request",
                 Property = "HoldRequest",
                 Type = "bool",
                 Value = HoldRequest,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "is_for_embedded_signing",
                 Property = "IsForEmbeddedSigning",
                 Type = "bool",
                 Value = IsForEmbeddedSigning,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "message",
                 Property = "Message",
                 Type = "string",
                 Value = Message,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "metadata",
                 Property = "Metadata",
                 Type = "Dictionary<string, Object>",
                 Value = Metadata,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "preview_only",
                 Property = "PreviewOnly",
                 Type = "bool",
                 Value = PreviewOnly,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "requesting_redirect_url",
                 Property = "RequestingRedirectUrl",
                 Type = "string",
                 Value = RequestingRedirectUrl,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "show_preview",
                 Property = "ShowPreview",
                 Type = "bool",
                 Value = ShowPreview,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "show_progress_stepper",
                 Property = "ShowProgressStepper",
                 Type = "bool",
                 Value = ShowProgressStepper,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "signers",
                 Property = "Signers",
                 Type = "List<SubUnclaimedDraftTemplateSigner>",
                 Value = Signers,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "signing_options",
                 Property = "SigningOptions",
                 Type = "SubSigningOptions",
                 Value = SigningOptions,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "signing_redirect_url",
                 Property = "SigningRedirectUrl",
                 Type = "string",
                 Value = SigningRedirectUrl,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "skip_me_now",
                 Property = "SkipMeNow",
                 Type = "bool",
                 Value = SkipMeNow,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "subject",
                 Property = "Subject",
                 Type = "string",
                 Value = Subject,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "test_mode",
                 Property = "TestMode",
                 Type = "bool",
                 Value = TestMode,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "title",
                 Property = "Title",
                 Type = "string",
                 Value = Title,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "populate_auto_fill_fields",
                 Property = "PopulateAutoFillFields",
                 Type = "bool",
                 Value = PopulateAutoFillFields,
             });
-            types.Add(new OpenApiType(){
+            types.Add(new OpenApiType()
+            {
                 Name = "allow_ccs",
                 Property = "AllowCcs",
                 Type = "bool",
