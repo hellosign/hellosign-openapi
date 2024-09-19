@@ -121,6 +121,11 @@ All URIs are relative to *https://api.hellosign.com/v3*
 |*Dropbox::Sign::BulkSendJobApi* | [**bulk_send_job_list**](docs/BulkSendJobApi.md#bulk_send_job_list) | **GET** /bulk_send_job/list | List Bulk Send Jobs |
 |*Dropbox::Sign::EmbeddedApi* | [**embedded_edit_url**](docs/EmbeddedApi.md#embedded_edit_url) | **POST** /embedded/edit_url/{template_id} | Get Embedded Template Edit URL |
 |*Dropbox::Sign::EmbeddedApi* | [**embedded_sign_url**](docs/EmbeddedApi.md#embedded_sign_url) | **GET** /embedded/sign_url/{signature_id} | Get Embedded Sign URL |
+|*Dropbox::Sign::FaxApi* | [**delete_fax**](docs/FaxApi.md#delete_fax) | **DELETE** /fax/{fax_id} | Delete Fax |
+|*Dropbox::Sign::FaxApi* | [**get_fax_by_id**](docs/FaxApi.md#get_fax_by_id) | **GET** /fax/{fax_id} | Get Fax |
+|*Dropbox::Sign::FaxApi* | [**get_fax_files**](docs/FaxApi.md#get_fax_files) | **GET** /fax/files/{fax_id} | List Fax Files |
+|*Dropbox::Sign::FaxApi* | [**list_faxes**](docs/FaxApi.md#list_faxes) | **GET** /fax/list | Lists Faxes |
+|*Dropbox::Sign::FaxApi* | [**send_fax**](docs/FaxApi.md#send_fax) | **POST** /fax/send | Send Fax |
 |*Dropbox::Sign::FaxLineApi* | [**fax_line_add_user**](docs/FaxLineApi.md#fax_line_add_user) | **PUT** /fax_line/add_user | Add Fax Line User |
 |*Dropbox::Sign::FaxLineApi* | [**fax_line_area_code_get**](docs/FaxLineApi.md#fax_line_area_code_get) | **GET** /fax_line/area_codes | Get Available Fax Line Area Codes |
 |*Dropbox::Sign::FaxLineApi* | [**fax_line_create**](docs/FaxLineApi.md#fax_line_create) | **POST** /fax_line/create | Purchase Fax Line |
@@ -221,6 +226,11 @@ All URIs are relative to *https://api.hellosign.com/v3*
  - [Dropbox::Sign::FaxLineRemoveUserRequest](docs/FaxLineRemoveUserRequest.md)
  - [Dropbox::Sign::FaxLineResponse](docs/FaxLineResponse.md)
  - [Dropbox::Sign::FaxLineResponseFaxLine](docs/FaxLineResponseFaxLine.md)
+ - [Dropbox::Sign::FaxListResponse](docs/FaxListResponse.md)
+ - [Dropbox::Sign::FaxResponse](docs/FaxResponse.md)
+ - [Dropbox::Sign::FaxResponseFax](docs/FaxResponseFax.md)
+ - [Dropbox::Sign::FaxResponseFaxTransmission](docs/FaxResponseFaxTransmission.md)
+ - [Dropbox::Sign::FaxSendRequest](docs/FaxSendRequest.md)
  - [Dropbox::Sign::FileResponse](docs/FileResponse.md)
  - [Dropbox::Sign::FileResponseDataUri](docs/FileResponseDataUri.md)
  - [Dropbox::Sign::ListInfoResponse](docs/ListInfoResponse.md)
@@ -265,6 +275,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
  - [Dropbox::Sign::SubCustomField](docs/SubCustomField.md)
  - [Dropbox::Sign::SubEditorOptions](docs/SubEditorOptions.md)
  - [Dropbox::Sign::SubFieldOptions](docs/SubFieldOptions.md)
+ - [Dropbox::Sign::SubFile](docs/SubFile.md)
  - [Dropbox::Sign::SubFormFieldGroup](docs/SubFormFieldGroup.md)
  - [Dropbox::Sign::SubFormFieldRule](docs/SubFormFieldRule.md)
  - [Dropbox::Sign::SubFormFieldRuleAction](docs/SubFormFieldRuleAction.md)

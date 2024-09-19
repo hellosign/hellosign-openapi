@@ -44,6 +44,11 @@ import { FaxLineListResponse } from "./faxLineListResponse";
 import { FaxLineRemoveUserRequest } from "./faxLineRemoveUserRequest";
 import { FaxLineResponse } from "./faxLineResponse";
 import { FaxLineResponseFaxLine } from "./faxLineResponseFaxLine";
+import { FaxListResponse } from "./faxListResponse";
+import { FaxResponse } from "./faxResponse";
+import { FaxResponseFax } from "./faxResponseFax";
+import { FaxResponseFaxTransmission } from "./faxResponseFaxTransmission";
+import { FaxSendRequest } from "./faxSendRequest";
 import { FileResponse } from "./fileResponse";
 import { FileResponseDataUri } from "./fileResponseDataUri";
 import { ListInfoResponse } from "./listInfoResponse";
@@ -101,6 +106,7 @@ import { SubCC } from "./subCC";
 import { SubCustomField } from "./subCustomField";
 import { SubEditorOptions } from "./subEditorOptions";
 import { SubFieldOptions } from "./subFieldOptions";
+import { SubFile } from "./subFile";
 import { SubFormFieldGroup } from "./subFormFieldGroup";
 import { SubFormFieldRule } from "./subFormFieldRule";
 import { SubFormFieldRuleAction } from "./subFormFieldRuleAction";
@@ -287,6 +293,11 @@ export let typeMap: { [index: string]: any } = {
   FaxLineRemoveUserRequest: FaxLineRemoveUserRequest,
   FaxLineResponse: FaxLineResponse,
   FaxLineResponseFaxLine: FaxLineResponseFaxLine,
+  FaxListResponse: FaxListResponse,
+  FaxResponse: FaxResponse,
+  FaxResponseFax: FaxResponseFax,
+  FaxResponseFaxTransmission: FaxResponseFaxTransmission,
+  FaxSendRequest: FaxSendRequest,
   FileResponse: FileResponse,
   FileResponseDataUri: FileResponseDataUri,
   ListInfoResponse: ListInfoResponse,
@@ -344,6 +355,7 @@ export let typeMap: { [index: string]: any } = {
   SubCustomField: SubCustomField,
   SubEditorOptions: SubEditorOptions,
   SubFieldOptions: SubFieldOptions,
+  SubFile: SubFile,
   SubFormFieldGroup: SubFormFieldGroup,
   SubFormFieldRule: SubFormFieldRule,
   SubFormFieldRuleAction: SubFormFieldRuleAction,
@@ -510,6 +522,11 @@ export {
   FaxLineRemoveUserRequest,
   FaxLineResponse,
   FaxLineResponseFaxLine,
+  FaxListResponse,
+  FaxResponse,
+  FaxResponseFax,
+  FaxResponseFaxTransmission,
+  FaxSendRequest,
   FileResponse,
   FileResponseDataUri,
   HttpBasicAuth,
@@ -561,6 +578,7 @@ export {
   SubCustomField,
   SubEditorOptions,
   SubFieldOptions,
+  SubFile,
   SubFormFieldGroup,
   SubFormFieldRule,
   SubFormFieldRuleAction,

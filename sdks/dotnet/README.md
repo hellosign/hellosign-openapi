@@ -141,6 +141,11 @@ Class | Method | HTTP request | Description
 *BulkSendJobApi* | [**BulkSendJobList**](docs/BulkSendJobApi.md#bulksendjoblist) | **GET** /bulk_send_job/list | List Bulk Send Jobs
 *EmbeddedApi* | [**EmbeddedEditUrl**](docs/EmbeddedApi.md#embeddedediturl) | **POST** /embedded/edit_url/{template_id} | Get Embedded Template Edit URL
 *EmbeddedApi* | [**EmbeddedSignUrl**](docs/EmbeddedApi.md#embeddedsignurl) | **GET** /embedded/sign_url/{signature_id} | Get Embedded Sign URL
+*FaxApi* | [**DeleteFax**](docs/FaxApi.md#deletefax) | **DELETE** /fax/{fax_id} | Delete Fax
+*FaxApi* | [**GetFaxById**](docs/FaxApi.md#getfaxbyid) | **GET** /fax/{fax_id} | Get Fax
+*FaxApi* | [**GetFaxFiles**](docs/FaxApi.md#getfaxfiles) | **GET** /fax/files/{fax_id} | List Fax Files
+*FaxApi* | [**ListFaxes**](docs/FaxApi.md#listfaxes) | **GET** /fax/list | Lists Faxes
+*FaxApi* | [**SendFax**](docs/FaxApi.md#sendfax) | **POST** /fax/send | Send Fax
 *FaxLineApi* | [**FaxLineAddUser**](docs/FaxLineApi.md#faxlineadduser) | **PUT** /fax_line/add_user | Add Fax Line User
 *FaxLineApi* | [**FaxLineAreaCodeGet**](docs/FaxLineApi.md#faxlineareacodeget) | **GET** /fax_line/area_codes | Get Available Fax Line Area Codes
 *FaxLineApi* | [**FaxLineCreate**](docs/FaxLineApi.md#faxlinecreate) | **POST** /fax_line/create | Purchase Fax Line
@@ -242,6 +247,11 @@ Class | Method | HTTP request | Description
  - [Model.FaxLineRemoveUserRequest](docs/FaxLineRemoveUserRequest.md)
  - [Model.FaxLineResponse](docs/FaxLineResponse.md)
  - [Model.FaxLineResponseFaxLine](docs/FaxLineResponseFaxLine.md)
+ - [Model.FaxListResponse](docs/FaxListResponse.md)
+ - [Model.FaxResponse](docs/FaxResponse.md)
+ - [Model.FaxResponseFax](docs/FaxResponseFax.md)
+ - [Model.FaxResponseFaxTransmission](docs/FaxResponseFaxTransmission.md)
+ - [Model.FaxSendRequest](docs/FaxSendRequest.md)
  - [Model.FileResponse](docs/FileResponse.md)
  - [Model.FileResponseDataUri](docs/FileResponseDataUri.md)
  - [Model.ListInfoResponse](docs/ListInfoResponse.md)
@@ -286,6 +296,7 @@ Class | Method | HTTP request | Description
  - [Model.SubCustomField](docs/SubCustomField.md)
  - [Model.SubEditorOptions](docs/SubEditorOptions.md)
  - [Model.SubFieldOptions](docs/SubFieldOptions.md)
+ - [Model.SubFile](docs/SubFile.md)
  - [Model.SubFormFieldGroup](docs/SubFormFieldGroup.md)
  - [Model.SubFormFieldRule](docs/SubFormFieldRule.md)
  - [Model.SubFormFieldRuleAction](docs/SubFormFieldRuleAction.md)

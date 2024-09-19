@@ -1,0 +1,133 @@
+/**
+ * The MIT License (MIT)
+ *
+ * Copyright (C) 2023 dropbox.com
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
+
+import { AttributeTypeMap, ObjectSerializer } from "./";
+import { SubFile } from "./subFile";
+
+export class FaxSendRequest {
+  /**
+   * Fax Send To Recipient
+   */
+  "to"?: string;
+  /**
+   * Fax Send From Sender (used only with fax number)
+   */
+  "from"?: string | null;
+  /**
+   * Fax File to Send
+   */
+  "file"?: Array<SubFile>;
+  /**
+   * Fax File URL to Send
+   */
+  "fileUrl"?: Array<string>;
+  /**
+   * Fax File URL Names
+   */
+  "fileUrlNames"?: Array<string>;
+  /**
+   * API Test Mode Setting
+   */
+  "testMode"?: boolean;
+  /**
+   * Fax Cover Page for Recipient
+   */
+  "coverPageTo"?: string | null;
+  /**
+   * Fax Cover Page for Sender
+   */
+  "coverPageFrom"?: string | null;
+  /**
+   * Fax Cover Page Message
+   */
+  "coverPageMessage"?: string | null;
+  /**
+   * Fax Title
+   */
+  "title"?: string | null;
+
+  static discriminator: string | undefined = undefined;
+
+  static attributeTypeMap: AttributeTypeMap = [
+    {
+      name: "to",
+      baseName: "to",
+      type: "string",
+    },
+    {
+      name: "from",
+      baseName: "from",
+      type: "string",
+    },
+    {
+      name: "file",
+      baseName: "file",
+      type: "Array<SubFile>",
+    },
+    {
+      name: "fileUrl",
+      baseName: "file_url",
+      type: "Array<string>",
+    },
+    {
+      name: "fileUrlNames",
+      baseName: "file_url_names",
+      type: "Array<string>",
+    },
+    {
+      name: "testMode",
+      baseName: "test_mode",
+      type: "boolean",
+    },
+    {
+      name: "coverPageTo",
+      baseName: "cover_page_to",
+      type: "string",
+    },
+    {
+      name: "coverPageFrom",
+      baseName: "cover_page_from",
+      type: "string",
+    },
+    {
+      name: "coverPageMessage",
+      baseName: "cover_page_message",
+      type: "string",
+    },
+    {
+      name: "title",
+      baseName: "title",
+      type: "string",
+    },
+  ];
+
+  static getAttributeTypeMap(): AttributeTypeMap {
+    return FaxSendRequest.attributeTypeMap;
+  }
+
+  /** Attempt to instantiate and hydrate a new instance of this class */
+  static init(data: any): FaxSendRequest {
+    return ObjectSerializer.deserialize(data, "FaxSendRequest");
+  }
+}

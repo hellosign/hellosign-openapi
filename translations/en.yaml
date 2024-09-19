@@ -130,6 +130,45 @@
 "EmbeddedSignUrl::DESCRIPTION": Retrieves an embedded object containing a signature url that can be opened in an iFrame. Note that templates created via the embedded template process will only be accessible through the API.
 "EmbeddedSignUrl::SIGNATURE_ID": The id of the signature to get a signature url for.
 
+"FaxGet::SUMMARY": Get Fax
+"FaxGet::DESCRIPTION": Returns information about fax
+"FaxParam::FAX_ID": Fax ID
+"FaxDelete::SUMMARY": Delete Fax
+"FaxDelete::DESCRIPTION": Deletes the specified Fax from the system.
+"FaxFiles::SUMMARY": List Fax Files
+"FaxFiles::DESCRIPTION": Returns list of fax files
+"FaxList::SUMMARY": Lists Faxes
+"FaxList::DESCRIPTION": Returns properties of multiple faxes
+"FaxList::PAGE": Page
+"FaxList::PAGE_SIZE": Page size
+"FaxSend::SUMMARY": Send Fax
+"FaxSend::DESCRIPTION": Action to prepare and send a fax
+"FaxSend::TO": Fax Send To Recipient
+"FaxSend::FROM": Fax Send From Sender (used only with fax number)
+"FaxSend::FILE": Fax File to Send
+"FaxSend::FILE_URL": Fax File URL to Send
+"FaxSend::FILE_URL_NAMES": Fax File URL Names
+"FaxSend::TEST_MODE": API Test Mode Setting
+"FaxSend::COVER_PAGE_TO": Fax Cover Page for Recipient
+"FaxSend::COVER_PAGE_FROM": Fax Cover Page for Sender
+"FaxSend::COVER_PAGE_MESSAGE": Fax Cover Page Message
+"FaxSend::TITLE": Fax Title
+"FaxResponseExample::SUMMARY": Fax Response
+"FaxResponseFax::FAX_ID": Fax ID
+"FaxResponseFax::TITLE": Fax Title
+"FaxResponseFax::ORIGINAL_TITLE": Fax Original Title
+"FaxResponseFax::SUBJECT": Fax Subject
+"FaxResponseFax::MESSAGE": Fax Message
+"FaxResponseFax::METADATA": Fax Metadata
+"FaxResponseFax::CREATED_AT": Fax Created At Timestamp
+"FaxResponseFax::FROM": Fax Sender Email
+"FaxResponseFax::TRANSMISSIONS": Fax Transmissions List
+"FaxResponseFax::FILES_URL": Fax Files URL
+"FaxResponseFaxTransmission::RECIPIENT": Fax Transmission Recipient
+"FaxResponseFaxTransmission::SENDER": Fax Transmission Sender
+"FaxResponseFaxTransmission::STATUS_CODE": Fax Transmission Status Code
+"FaxResponseFaxTransmission::SENT_AT": Fax Transmission Sent Timestamp
+"FaxListResponseExample::SUMMARY": Returns the properties and settings of multiple Faxes.
 "FaxLineAddUser::SUMMARY": Add Fax Line User
 "FaxLineAddUser::DESCRIPTION": Grants a user access to the specified Fax Line.
 "FaxLineAddUser::NUMBER": The Fax Line number.
@@ -930,6 +969,10 @@
 
   **NOTE:** Only available for Premium and higher.
 
+"Sub::File::DESCRIPTION": Actual uploaded physical file
+"Sub::File::NAME": Actual physical uploaded file name that is derived during upload. Not settable parameter.
+
+
 "Sub::FormFieldGroup::DESCRIPTION": Group information for fields defined in `form_fields_per_document`. String-indexed JSON array with `group_label` and `requirement` keys. `form_fields_per_document` must contain fields referencing a group defined in `form_field_groups`.
 "Sub::FormFieldGroup::GROUP_ID_LABEL": ID of group. Use this to reference a specific group from the `group` value in `form_fields_per_document`.
 "Sub::FormFieldGroup::GROUP_LABEL": Name of the group
@@ -1659,6 +1702,16 @@
 "EmbeddedEditUrl::SEO::DESCRIPTION": "The Dropbox Sign API allows you to build custom integrations. To find out how to retrieve an embedded iFrame object containing a template url, click here."
 "EmbeddedSignUrl::SEO::TITLE": "Get Embedded Sign URL | iFrame | Dropbox Sign for Developers"
 "EmbeddedSignUrl::SEO::DESCRIPTION": "The Dropbox Sign API allows you to build custom integrations. To find out how to retrieve an embedded iFrame object containing a signature url, click here."
+"FaxGet::SEO::TITLE": "Get Fax | API Documentation | Dropbox Fax for Developers"
+"FaxGet::SEO::DESCRIPTION": "The Dropbox Fax API allows you to build custom integrations. To find out how to retrieve a fax, click here."
+"FaxDelete::SEO::TITLE": "Delete Fax | API Documentation | Dropbox Fax for Developers"
+"FaxDelete::SEO::DESCRIPTION": "The Dropbox Fax API allows you to build custom integrations. To find out how to delete a fax, click here."
+"FaxFiles::SEO::TITLE": "Fax Files | API Documentation | Dropbox Fax for Developers"
+"FaxFiles::SEO::DESCRIPTION": "The Dropbox Fax API allows you to build custom integrations. To find out how to list fax files, click here."
+"FaxList::SEO::TITLE": "List Faxes | API Documentation | Dropbox Fax for Developers"
+"FaxList::SEO::DESCRIPTION": "The Dropbox Fax API allows you to build custom integrations. To find out how to list your faxes, click here."
+"FaxSend::SEO::TITLE": "Send Fax| API Documentation | Dropbox Fax for Developers"
+"FaxSend::SEO::DESCRIPTION": "The Dropbox Fax API allows you to build custom integrations. To find out how to send a fax, click here."
 "FaxLineAddUser::SEO::TITLE": "Fax Line Add User | API Documentation | Dropbox Fax for Developers"
 "FaxLineAddUser::SEO::DESCRIPTION": "The Dropbox Fax API allows you to build custom integrations. To find out how to add a user to an existing fax line, click here."
 "FaxLineAreaCodeGet::SEO::TITLE": "Fax Line Get Area Codes | API Documentation | Dropbox Fax for Developers"
