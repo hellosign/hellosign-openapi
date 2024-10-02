@@ -10698,7 +10698,7 @@ components:
     TemplateResponseCCRole:
       properties:
         name:
-          description: '_t__TemplateResponseCCRole::TEMPLATES_LEFT'
+          description: '_t__TemplateResponseCCRole::NAME'
           type: string
       type: object
       x-internal-class: true
