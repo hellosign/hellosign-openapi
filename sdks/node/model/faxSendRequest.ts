@@ -22,50 +22,45 @@
  * SOFTWARE.
  */
 
-import { AttributeTypeMap, ObjectSerializer } from "./";
-import { SubFile } from "./subFile";
+import { AttributeTypeMap, ObjectSerializer, RequestFile } from "./";
 
 export class FaxSendRequest {
   /**
    * Fax Send To Recipient
    */
-  "to"?: string;
+  "to": string;
   /**
    * Fax Send From Sender (used only with fax number)
    */
-  "from"?: string | null;
+  "from"?: string;
   /**
    * Fax File to Send
    */
-  "file"?: Array<SubFile>;
+  "files"?: Array<RequestFile>;
   /**
    * Fax File URL to Send
    */
-  "fileUrl"?: Array<string>;
-  /**
-   * Fax File URL Names
-   */
-  "fileUrlNames"?: Array<string>;
+  "fileUrls"?: Array<string>;
   /**
    * API Test Mode Setting
    */
-  "testMode"?: boolean;
+  "testMode"?: boolean = false;
   /**
    * Fax Cover Page for Recipient
    */
-  "coverPageTo"?: string | null;
+  "coverPageTo"?: string;
   /**
    * Fax Cover Page for Sender
    */
-  "coverPageFrom"?: string | null;
+  "coverPageFrom"?: string;
   /**
    * Fax Cover Page Message
    */
-  "coverPageMessage"?: string | null;
+  "coverPageMessage"?: string;
   /**
    * Fax Title
    */
-  "title"?: string | null;
+  "title"?: string;
 
   static discriminator: string | undefined = undefined;
 
@@ -81,18 +76,13 @@ export class FaxSendRequest {
       type: "string",
     },
     {
-      name: "file",
-      baseName: "file",
-      type: "Array<SubFile>",
+      name: "files",
+      baseName: "files",
+      type: "Array<RequestFile>",
     },
     {
-      name: "fileUrl",
-      baseName: "file_url",
-      type: "Array<string>",
-    },
-    {
-      name: "fileUrlNames",
-      baseName: "file_url_names",
+      name: "fileUrls",
+      baseName: "file_urls",
       type: "Array<string>",
     },
     {

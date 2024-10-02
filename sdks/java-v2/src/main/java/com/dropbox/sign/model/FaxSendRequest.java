@@ -16,12 +16,12 @@ package com.dropbox.sign.model;
 import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
-import com.dropbox.sign.model.SubFile;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -38,9 +38,8 @@ import com.dropbox.sign.ApiException;
 @JsonPropertyOrder({
   FaxSendRequest.JSON_PROPERTY_TO,
   FaxSendRequest.JSON_PROPERTY_FROM,
-  FaxSendRequest.JSON_PROPERTY_FILE,
-  FaxSendRequest.JSON_PROPERTY_FILE_URL,
-  FaxSendRequest.JSON_PROPERTY_FILE_URL_NAMES,
+  FaxSendRequest.JSON_PROPERTY_FILES,
+  FaxSendRequest.JSON_PROPERTY_FILE_URLS,
   FaxSendRequest.JSON_PROPERTY_TEST_MODE,
   FaxSendRequest.JSON_PROPERTY_COVER_PAGE_TO,
   FaxSendRequest.JSON_PROPERTY_COVER_PAGE_FROM,
@@ -56,17 +55,14 @@ public class FaxSendRequest {
   public static final String JSON_PROPERTY_FROM = "from";
   private String from;
 
-  public static final String JSON_PROPERTY_FILE = "file";
-  private List<SubFile> _file = null;
+  public static final String JSON_PROPERTY_FILES = "files";
+  private List<File> files = null;
 
-  public static final String JSON_PROPERTY_FILE_URL = "file_url";
-  private List<String> fileUrl = null;
-
-  public static final String JSON_PROPERTY_FILE_URL_NAMES = "file_url_names";
-  private List<String> fileUrlNames = null;
+  public static final String JSON_PROPERTY_FILE_URLS = "file_urls";
+  private List<String> fileUrls = null;
 
   public static final String JSON_PROPERTY_TEST_MODE = "test_mode";
-  private Boolean testMode;
+  private Boolean testMode = false;
 
   public static final String JSON_PROPERTY_COVER_PAGE_TO = "cover_page_to";
   private String coverPageTo;
@@ -107,9 +103,9 @@ public class FaxSendRequest {
    * Fax Send To Recipient
    * @return to
    */
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_TO)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getTo() {
     return to;
@@ -117,7 +113,7 @@ public class FaxSendRequest {
 
 
   @JsonProperty(JSON_PROPERTY_TO)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setTo(String to) {
     this.to = to;
   }
@@ -148,102 +144,69 @@ public class FaxSendRequest {
   }
 
 
-  public FaxSendRequest _file(List<SubFile> _file) {
-    this._file = _file;
+  public FaxSendRequest files(List<File> files) {
+    this.files = files;
     return this;
   }
 
-  public FaxSendRequest addFileItem(SubFile _fileItem) {
-    if (this._file == null) {
-      this._file = new ArrayList<>();
+  public FaxSendRequest addFilesItem(File filesItem) {
+    if (this.files == null) {
+      this.files = new ArrayList<>();
     }
-    this._file.add(_fileItem);
+    this.files.add(filesItem);
     return this;
   }
 
   /**
    * Fax File to Send
-   * @return _file
+   * @return files
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FILE)
+  @JsonProperty(JSON_PROPERTY_FILES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<SubFile> getFile() {
-    return _file;
+  public List<File> getFiles() {
+    return files;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FILE)
+  @JsonProperty(JSON_PROPERTY_FILES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFile(List<SubFile> _file) {
-    this._file = _file;
+  public void setFiles(List<File> files) {
+    this.files = files;
   }
 
 
-  public FaxSendRequest fileUrl(List<String> fileUrl) {
-    this.fileUrl = fileUrl;
+  public FaxSendRequest fileUrls(List<String> fileUrls) {
+    this.fileUrls = fileUrls;
     return this;
   }
 
-  public FaxSendRequest addFileUrlItem(String fileUrlItem) {
-    if (this.fileUrl == null) {
-      this.fileUrl = new ArrayList<>();
+  public FaxSendRequest addFileUrlsItem(String fileUrlsItem) {
+    if (this.fileUrls == null) {
+      this.fileUrls = new ArrayList<>();
     }
-    this.fileUrl.add(fileUrlItem);
+    this.fileUrls.add(fileUrlsItem);
     return this;
   }
 
   /**
    * Fax File URL to Send
-   * @return fileUrl
+   * @return fileUrls
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FILE_URL)
+  @JsonProperty(JSON_PROPERTY_FILE_URLS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<String> getFileUrl() {
-    return fileUrl;
+  public List<String> getFileUrls() {
+    return fileUrls;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FILE_URL)
+  @JsonProperty(JSON_PROPERTY_FILE_URLS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFileUrl(List<String> fileUrl) {
-    this.fileUrl = fileUrl;
-  }
-
-
-  public FaxSendRequest fileUrlNames(List<String> fileUrlNames) {
-    this.fileUrlNames = fileUrlNames;
-    return this;
-  }
-
-  public FaxSendRequest addFileUrlNamesItem(String fileUrlNamesItem) {
-    if (this.fileUrlNames == null) {
-      this.fileUrlNames = new ArrayList<>();
-    }
-    this.fileUrlNames.add(fileUrlNamesItem);
-    return this;
-  }
-
-  /**
-   * Fax File URL Names
-   * @return fileUrlNames
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FILE_URL_NAMES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public List<String> getFileUrlNames() {
-    return fileUrlNames;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_FILE_URL_NAMES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFileUrlNames(List<String> fileUrlNames) {
-    this.fileUrlNames = fileUrlNames;
+  public void setFileUrls(List<String> fileUrls) {
+    this.fileUrls = fileUrls;
   }
 
 
@@ -386,9 +349,8 @@ public class FaxSendRequest {
     FaxSendRequest faxSendRequest = (FaxSendRequest) o;
     return Objects.equals(this.to, faxSendRequest.to) &&
         Objects.equals(this.from, faxSendRequest.from) &&
-        Objects.equals(this._file, faxSendRequest._file) &&
-        Objects.equals(this.fileUrl, faxSendRequest.fileUrl) &&
-        Objects.equals(this.fileUrlNames, faxSendRequest.fileUrlNames) &&
+        Objects.equals(this.files, faxSendRequest.files) &&
+        Objects.equals(this.fileUrls, faxSendRequest.fileUrls) &&
         Objects.equals(this.testMode, faxSendRequest.testMode) &&
         Objects.equals(this.coverPageTo, faxSendRequest.coverPageTo) &&
         Objects.equals(this.coverPageFrom, faxSendRequest.coverPageFrom) &&
@@ -398,7 +360,7 @@ public class FaxSendRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(to, from, _file, fileUrl, fileUrlNames, testMode, coverPageTo, coverPageFrom, coverPageMessage, title);
+    return Objects.hash(to, from, files, fileUrls, testMode, coverPageTo, coverPageFrom, coverPageMessage, title);
   }
 
   @Override
@@ -407,9 +369,8 @@ public class FaxSendRequest {
     sb.append("class FaxSendRequest {\n");
     sb.append("    to: ").append(toIndentedString(to)).append("\n");
     sb.append("    from: ").append(toIndentedString(from)).append("\n");
-    sb.append("    _file: ").append(toIndentedString(_file)).append("\n");
-    sb.append("    fileUrl: ").append(toIndentedString(fileUrl)).append("\n");
-    sb.append("    fileUrlNames: ").append(toIndentedString(fileUrlNames)).append("\n");
+    sb.append("    files: ").append(toIndentedString(files)).append("\n");
+    sb.append("    fileUrls: ").append(toIndentedString(fileUrls)).append("\n");
     sb.append("    testMode: ").append(toIndentedString(testMode)).append("\n");
     sb.append("    coverPageTo: ").append(toIndentedString(coverPageTo)).append("\n");
     sb.append("    coverPageFrom: ").append(toIndentedString(coverPageFrom)).append("\n");
@@ -461,61 +422,42 @@ public class FaxSendRequest {
             map.put("from", JSON.getDefault().getMapper().writeValueAsString(from));
         }
     }
-    if (_file != null) {
-        if (isFileTypeOrListOfFiles(_file)) {
+    if (files != null) {
+        if (isFileTypeOrListOfFiles(files)) {
             fileTypeFound = true;
         }
 
-        if (_file.getClass().equals(java.io.File.class) ||
-            _file.getClass().equals(Integer.class) ||
-            _file.getClass().equals(String.class) ||
-            _file.getClass().isEnum()) {
-            map.put("file", _file);
-        } else if (isListOfFile(_file)) {
-            for(int i = 0; i< getListSize(_file); i++) {
-                map.put("file[" + i + "]", getFromList(_file, i));
+        if (files.getClass().equals(java.io.File.class) ||
+            files.getClass().equals(Integer.class) ||
+            files.getClass().equals(String.class) ||
+            files.getClass().isEnum()) {
+            map.put("files", files);
+        } else if (isListOfFile(files)) {
+            for(int i = 0; i< getListSize(files); i++) {
+                map.put("files[" + i + "]", getFromList(files, i));
             }
         }
         else {
-            map.put("file", JSON.getDefault().getMapper().writeValueAsString(_file));
+            map.put("files", JSON.getDefault().getMapper().writeValueAsString(files));
         }
     }
-    if (fileUrl != null) {
-        if (isFileTypeOrListOfFiles(fileUrl)) {
+    if (fileUrls != null) {
+        if (isFileTypeOrListOfFiles(fileUrls)) {
             fileTypeFound = true;
         }
 
-        if (fileUrl.getClass().equals(java.io.File.class) ||
-            fileUrl.getClass().equals(Integer.class) ||
-            fileUrl.getClass().equals(String.class) ||
-            fileUrl.getClass().isEnum()) {
-            map.put("file_url", fileUrl);
-        } else if (isListOfFile(fileUrl)) {
-            for(int i = 0; i< getListSize(fileUrl); i++) {
-                map.put("file_url[" + i + "]", getFromList(fileUrl, i));
+        if (fileUrls.getClass().equals(java.io.File.class) ||
+            fileUrls.getClass().equals(Integer.class) ||
+            fileUrls.getClass().equals(String.class) ||
+            fileUrls.getClass().isEnum()) {
+            map.put("file_urls", fileUrls);
+        } else if (isListOfFile(fileUrls)) {
+            for(int i = 0; i< getListSize(fileUrls); i++) {
+                map.put("file_urls[" + i + "]", getFromList(fileUrls, i));
             }
         }
         else {
-            map.put("file_url", JSON.getDefault().getMapper().writeValueAsString(fileUrl));
-        }
-    }
-    if (fileUrlNames != null) {
-        if (isFileTypeOrListOfFiles(fileUrlNames)) {
-            fileTypeFound = true;
-        }
-
-        if (fileUrlNames.getClass().equals(java.io.File.class) ||
-            fileUrlNames.getClass().equals(Integer.class) ||
-            fileUrlNames.getClass().equals(String.class) ||
-            fileUrlNames.getClass().isEnum()) {
-            map.put("file_url_names", fileUrlNames);
-        } else if (isListOfFile(fileUrlNames)) {
-            for(int i = 0; i< getListSize(fileUrlNames); i++) {
-                map.put("file_url_names[" + i + "]", getFromList(fileUrlNames, i));
-            }
-        }
-        else {
-            map.put("file_url_names", JSON.getDefault().getMapper().writeValueAsString(fileUrlNames));
+            map.put("file_urls", JSON.getDefault().getMapper().writeValueAsString(fileUrls));
         }
     }
     if (testMode != null) {

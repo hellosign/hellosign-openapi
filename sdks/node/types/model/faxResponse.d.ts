@@ -1,9 +1,16 @@
 import { AttributeTypeMap } from "./";
-import { FaxResponseFax } from "./faxResponseFax";
-import { WarningResponse } from "./warningResponse";
+import { FaxResponseTransmission } from "./faxResponseTransmission";
 export declare class FaxResponse {
-    "fax": FaxResponseFax;
-    "warnings"?: Array<WarningResponse>;
+    "faxId"?: string;
+    "title"?: string;
+    "originalTitle"?: string;
+    "subject"?: string;
+    "message"?: string;
+    "metadata"?: object;
+    "createdAt"?: number;
+    "from"?: string;
+    "transmissions"?: Array<FaxResponseTransmission>;
+    "filesUrl"?: string;
     static discriminator: string | undefined;
     static attributeTypeMap: AttributeTypeMap;
     static getAttributeTypeMap(): AttributeTypeMap;

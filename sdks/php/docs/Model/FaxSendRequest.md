@@ -6,12 +6,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-| `to` | ```string``` |  Fax Send To Recipient  |  |
+| `to`<sup>*_required_</sup> | ```string``` |  Fax Send To Recipient  |  |
 | `from` | ```string``` |  Fax Send From Sender (used only with fax number)  |  |
-| `file` | [```\Dropbox\Sign\Model\SubFile[]```](SubFile.md) |  Fax File to Send  |  |
-| `file_url` | ```string[]``` |  Fax File URL to Send  |  |
-| `file_url_names` | ```string[]``` |  Fax File URL Names  |  |
-| `test_mode` | ```bool``` |  API Test Mode Setting  |  |
+| `files` | ```\SplFileObject[]``` |  Fax File to Send  |  |
+| `file_urls` | ```string[]``` |  Fax File URL to Send  |  |
+| `test_mode` | ```bool``` |  API Test Mode Setting  |  [default to false] |
 | `cover_page_to` | ```string``` |  Fax Cover Page for Recipient  |  |
 | `cover_page_from` | ```string``` |  Fax Cover Page for Sender  |  |
 | `cover_page_message` | ```string``` |  Fax Cover Page Message  |  |

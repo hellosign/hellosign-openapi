@@ -9,8 +9,8 @@ import com.dropbox.sign.Pair;
 import jakarta.ws.rs.core.GenericType;
 
 import com.dropbox.sign.model.ErrorResponse;
+import com.dropbox.sign.model.FaxGetResponse;
 import com.dropbox.sign.model.FaxListResponse;
-import com.dropbox.sign.model.FaxResponse;
 import com.dropbox.sign.model.FaxSendRequest;
 import java.io.File;
 
@@ -58,12 +58,12 @@ public class FaxApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+       <tr><td> 204 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public void deleteFax(String faxId) throws ApiException {
-    deleteFaxWithHttpInfo(faxId);
+  public void faxDelete(String faxId) throws ApiException {
+    faxDeleteWithHttpInfo(faxId);
   }
 
 
@@ -76,15 +76,15 @@ public class FaxApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+       <tr><td> 204 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> deleteFaxWithHttpInfo(String faxId) throws ApiException {
+  public ApiResponse<Void> faxDeleteWithHttpInfo(String faxId) throws ApiException {
     
     // Check required parameters
     if (faxId == null) {
-      throw new ApiException(400, "Missing the required parameter 'faxId' when calling deleteFax");
+      throw new ApiException(400, "Missing the required parameter 'faxId' when calling faxDelete");
     }
 
     // Path parameters
@@ -98,7 +98,7 @@ public class FaxApi {
     String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key"};
     return apiClient.invokeAPI(
-        "FaxApi.deleteFax",
+        "FaxApi.faxDelete",
         localVarPath,
         "DELETE",
         new ArrayList<>(),
@@ -110,71 +110,6 @@ public class FaxApi {
         localVarContentType,
         localVarAuthNames,
         null,
-        false
-    );
-  }
-  /**
-   * Get Fax.
-   * Returns information about fax
-   * @param faxId Fax ID (required)
-   * @return FaxResponse
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
-       <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
-     </table>
-   */
-  public FaxResponse getFaxById(String faxId) throws ApiException {
-    return getFaxByIdWithHttpInfo(faxId).getData();
-  }
-
-
-  /**
-   * Get Fax.
-   * Returns information about fax
-   * @param faxId Fax ID (required)
-   * @return ApiResponse&lt;FaxResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
-       <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
-     </table>
-   */
-  public ApiResponse<FaxResponse> getFaxByIdWithHttpInfo(String faxId) throws ApiException {
-    
-    // Check required parameters
-    if (faxId == null) {
-      throw new ApiException(400, "Missing the required parameter 'faxId' when calling getFaxById");
-    }
-
-    // Path parameters
-    String localVarPath = "/fax/{fax_id}"
-            .replaceAll("\\{fax_id}", apiClient.escapeString(faxId.toString()));
-
-    String localVarAccept = apiClient.selectHeaderAccept("application/json");
-    Map<String, Object> localVarFormParams = new LinkedHashMap<>();
-    localVarFormParams = new HashMap<String, Object>();
-    boolean isFileTypeFound = !localVarFormParams.isEmpty();
-    String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"api_key"};
-    GenericType<FaxResponse> localVarReturnType = new GenericType<FaxResponse>() {};
-    return apiClient.invokeAPI(
-        "FaxApi.getFaxById",
-        localVarPath,
-        "GET",
-        new ArrayList<>(),
-        null,
-        new LinkedHashMap<>(),
-        new LinkedHashMap<>(),
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
         false
     );
   }
@@ -191,8 +126,8 @@ public class FaxApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public File getFaxFiles(String faxId) throws ApiException {
-    return getFaxFilesWithHttpInfo(faxId).getData();
+  public File faxFiles(String faxId) throws ApiException {
+    return faxFilesWithHttpInfo(faxId).getData();
   }
 
 
@@ -209,11 +144,11 @@ public class FaxApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<File> getFaxFilesWithHttpInfo(String faxId) throws ApiException {
+  public ApiResponse<File> faxFilesWithHttpInfo(String faxId) throws ApiException {
     
     // Check required parameters
     if (faxId == null) {
-      throw new ApiException(400, "Missing the required parameter 'faxId' when calling getFaxFiles");
+      throw new ApiException(400, "Missing the required parameter 'faxId' when calling faxFiles");
     }
 
     // Path parameters
@@ -228,7 +163,72 @@ public class FaxApi {
     String[] localVarAuthNames = new String[] {"api_key"};
     GenericType<File> localVarReturnType = new GenericType<File>() {};
     return apiClient.invokeAPI(
-        "FaxApi.getFaxFiles",
+        "FaxApi.faxFiles",
+        localVarPath,
+        "GET",
+        new ArrayList<>(),
+        null,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false
+    );
+  }
+  /**
+   * Get Fax.
+   * Returns information about fax
+   * @param faxId Fax ID (required)
+   * @return FaxGetResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+       <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
+     </table>
+   */
+  public FaxGetResponse faxGet(String faxId) throws ApiException {
+    return faxGetWithHttpInfo(faxId).getData();
+  }
+
+
+  /**
+   * Get Fax.
+   * Returns information about fax
+   * @param faxId Fax ID (required)
+   * @return ApiResponse&lt;FaxGetResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+       <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<FaxGetResponse> faxGetWithHttpInfo(String faxId) throws ApiException {
+    
+    // Check required parameters
+    if (faxId == null) {
+      throw new ApiException(400, "Missing the required parameter 'faxId' when calling faxGet");
+    }
+
+    // Path parameters
+    String localVarPath = "/fax/{fax_id}"
+            .replaceAll("\\{fax_id}", apiClient.escapeString(faxId.toString()));
+
+    String localVarAccept = apiClient.selectHeaderAccept("application/json");
+    Map<String, Object> localVarFormParams = new LinkedHashMap<>();
+    localVarFormParams = new HashMap<String, Object>();
+    boolean isFileTypeFound = !localVarFormParams.isEmpty();
+    String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType();
+    String[] localVarAuthNames = new String[] {"api_key"};
+    GenericType<FaxGetResponse> localVarReturnType = new GenericType<FaxGetResponse>() {};
+    return apiClient.invokeAPI(
+        "FaxApi.faxGet",
         localVarPath,
         "GET",
         new ArrayList<>(),
@@ -246,8 +246,8 @@ public class FaxApi {
   /**
    * Lists Faxes.
    * Returns properties of multiple faxes
-   * @param page Page (required)
-   * @param pageSize Page size (required)
+   * @param page Page (optional, default to 1)
+   * @param pageSize Page size (optional, default to 20)
    * @return FaxListResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -257,16 +257,55 @@ public class FaxApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public FaxListResponse listFaxes(Integer page, Integer pageSize) throws ApiException {
-    return listFaxesWithHttpInfo(page, pageSize).getData();
+  public FaxListResponse faxList(Integer page, Integer pageSize) throws ApiException {
+    return faxListWithHttpInfo(page, pageSize).getData();
+  }
+
+
+  /**
+   * @see FaxApi#faxList(Integer, Integer)
+   */
+  public FaxListResponse faxList() throws ApiException {
+    Integer page = 1;
+    Integer pageSize = 20;
+
+    return faxListWithHttpInfo(page, pageSize).getData();
+  }
+
+  /**
+   * @see FaxApi#faxListWithHttpInfo(Integer, Integer)
+   */
+  public ApiResponse<FaxListResponse> faxListWithHttpInfo() throws ApiException {
+    Integer page = 1;
+    Integer pageSize = 20;
+
+    return faxListWithHttpInfo(page, pageSize);
+  }
+
+  /**
+   * @see FaxApi#faxList(Integer, Integer)
+   */
+  public FaxListResponse faxList(Integer page) throws ApiException {
+    Integer pageSize = 20;
+
+    return faxListWithHttpInfo(page, pageSize).getData();
+  }
+
+  /**
+   * @see FaxApi#faxListWithHttpInfo(Integer, Integer)
+   */
+  public ApiResponse<FaxListResponse> faxListWithHttpInfo(Integer page) throws ApiException {
+    Integer pageSize = 20;
+
+    return faxListWithHttpInfo(page, pageSize);
   }
 
 
   /**
    * Lists Faxes.
    * Returns properties of multiple faxes
-   * @param page Page (required)
-   * @param pageSize Page size (required)
+   * @param page Page (optional, default to 1)
+   * @param pageSize Page size (optional, default to 20)
    * @return ApiResponse&lt;FaxListResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -276,16 +315,14 @@ public class FaxApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<FaxListResponse> listFaxesWithHttpInfo(Integer page, Integer pageSize) throws ApiException {
+  public ApiResponse<FaxListResponse> faxListWithHttpInfo(Integer page, Integer pageSize) throws ApiException {
     
-    // Check required parameters
     if (page == null) {
-      throw new ApiException(400, "Missing the required parameter 'page' when calling listFaxes");
+        page = 1;
     }
     if (pageSize == null) {
-      throw new ApiException(400, "Missing the required parameter 'pageSize' when calling listFaxes");
+        pageSize = 20;
     }
-
     // Query parameters
     List<Pair> localVarQueryParams = new ArrayList<>(
             apiClient.parameterToPairs("", "page", page)
@@ -300,7 +337,7 @@ public class FaxApi {
     String[] localVarAuthNames = new String[] {"api_key"};
     GenericType<FaxListResponse> localVarReturnType = new GenericType<FaxListResponse>() {};
     return apiClient.invokeAPI(
-        "FaxApi.listFaxes",
+        "FaxApi.faxList",
         "/fax/list",
         "GET",
         localVarQueryParams,
@@ -319,7 +356,7 @@ public class FaxApi {
    * Send Fax.
    * Action to prepare and send a fax
    * @param faxSendRequest  (required)
-   * @return FaxResponse
+   * @return FaxGetResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -328,8 +365,8 @@ public class FaxApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public FaxResponse sendFax(FaxSendRequest faxSendRequest) throws ApiException {
-    return sendFaxWithHttpInfo(faxSendRequest).getData();
+  public FaxGetResponse faxSend(FaxSendRequest faxSendRequest) throws ApiException {
+    return faxSendWithHttpInfo(faxSendRequest).getData();
   }
 
 
@@ -337,7 +374,7 @@ public class FaxApi {
    * Send Fax.
    * Action to prepare and send a fax
    * @param faxSendRequest  (required)
-   * @return ApiResponse&lt;FaxResponse&gt;
+   * @return ApiResponse&lt;FaxGetResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -346,22 +383,22 @@ public class FaxApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<FaxResponse> sendFaxWithHttpInfo(FaxSendRequest faxSendRequest) throws ApiException {
+  public ApiResponse<FaxGetResponse> faxSendWithHttpInfo(FaxSendRequest faxSendRequest) throws ApiException {
     
     // Check required parameters
     if (faxSendRequest == null) {
-      throw new ApiException(400, "Missing the required parameter 'faxSendRequest' when calling sendFax");
+      throw new ApiException(400, "Missing the required parameter 'faxSendRequest' when calling faxSend");
     }
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     Map<String, Object> localVarFormParams = new LinkedHashMap<>();
     localVarFormParams = faxSendRequest.createFormData();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
-    String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType("application/json");
+    String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType("application/json", "multipart/form-data");
     String[] localVarAuthNames = new String[] {"api_key"};
-    GenericType<FaxResponse> localVarReturnType = new GenericType<FaxResponse>() {};
+    GenericType<FaxGetResponse> localVarReturnType = new GenericType<FaxGetResponse>() {};
     return apiClient.invokeAPI(
-        "FaxApi.sendFax",
+        "FaxApi.faxSend",
         "/fax/send",
         "POST",
         new ArrayList<>(),

@@ -57,8 +57,16 @@ class FaxResponse implements ModelInterface, ArrayAccess, JsonSerializable
      * @var string[]
      */
     protected static $openAPITypes = [
-        'fax' => '\Dropbox\Sign\Model\FaxResponseFax',
-        'warnings' => '\Dropbox\Sign\Model\WarningResponse[]',
+        'fax_id' => 'string',
+        'title' => 'string',
+        'original_title' => 'string',
+        'subject' => 'string',
+        'message' => 'string',
+        'metadata' => 'array',
+        'created_at' => 'int',
+        'from' => 'string',
+        'transmissions' => '\Dropbox\Sign\Model\FaxResponseTransmission[]',
+        'files_url' => 'string',
     ];
 
     /**
@@ -69,8 +77,16 @@ class FaxResponse implements ModelInterface, ArrayAccess, JsonSerializable
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        'fax' => null,
-        'warnings' => null,
+        'fax_id' => null,
+        'title' => null,
+        'original_title' => null,
+        'subject' => null,
+        'message' => null,
+        'metadata' => null,
+        'created_at' => null,
+        'from' => null,
+        'transmissions' => null,
+        'files_url' => null,
     ];
 
     /**
@@ -79,8 +95,16 @@ class FaxResponse implements ModelInterface, ArrayAccess, JsonSerializable
      * @var bool[]
      */
     protected static array $openAPINullables = [
-        'fax' => false,
-        'warnings' => false,
+        'fax_id' => false,
+        'title' => false,
+        'original_title' => false,
+        'subject' => false,
+        'message' => false,
+        'metadata' => false,
+        'created_at' => false,
+        'from' => false,
+        'transmissions' => false,
+        'files_url' => false,
     ];
 
     /**
@@ -161,8 +185,16 @@ class FaxResponse implements ModelInterface, ArrayAccess, JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'fax' => 'fax',
-        'warnings' => 'warnings',
+        'fax_id' => 'fax_id',
+        'title' => 'title',
+        'original_title' => 'original_title',
+        'subject' => 'subject',
+        'message' => 'message',
+        'metadata' => 'metadata',
+        'created_at' => 'created_at',
+        'from' => 'from',
+        'transmissions' => 'transmissions',
+        'files_url' => 'files_url',
     ];
 
     /**
@@ -171,8 +203,16 @@ class FaxResponse implements ModelInterface, ArrayAccess, JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'fax' => 'setFax',
-        'warnings' => 'setWarnings',
+        'fax_id' => 'setFaxId',
+        'title' => 'setTitle',
+        'original_title' => 'setOriginalTitle',
+        'subject' => 'setSubject',
+        'message' => 'setMessage',
+        'metadata' => 'setMetadata',
+        'created_at' => 'setCreatedAt',
+        'from' => 'setFrom',
+        'transmissions' => 'setTransmissions',
+        'files_url' => 'setFilesUrl',
     ];
 
     /**
@@ -181,8 +221,16 @@ class FaxResponse implements ModelInterface, ArrayAccess, JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'fax' => 'getFax',
-        'warnings' => 'getWarnings',
+        'fax_id' => 'getFaxId',
+        'title' => 'getTitle',
+        'original_title' => 'getOriginalTitle',
+        'subject' => 'getSubject',
+        'message' => 'getMessage',
+        'metadata' => 'getMetadata',
+        'created_at' => 'getCreatedAt',
+        'from' => 'getFrom',
+        'transmissions' => 'getTransmissions',
+        'files_url' => 'getFilesUrl',
     ];
 
     /**
@@ -241,8 +289,16 @@ class FaxResponse implements ModelInterface, ArrayAccess, JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('fax', $data ?? [], null);
-        $this->setIfExists('warnings', $data ?? [], null);
+        $this->setIfExists('fax_id', $data ?? [], null);
+        $this->setIfExists('title', $data ?? [], null);
+        $this->setIfExists('original_title', $data ?? [], null);
+        $this->setIfExists('subject', $data ?? [], null);
+        $this->setIfExists('message', $data ?? [], null);
+        $this->setIfExists('metadata', $data ?? [], null);
+        $this->setIfExists('created_at', $data ?? [], null);
+        $this->setIfExists('from', $data ?? [], null);
+        $this->setIfExists('transmissions', $data ?? [], null);
+        $this->setIfExists('files_url', $data ?? [], null);
     }
 
     /**
@@ -288,12 +344,7 @@ class FaxResponse implements ModelInterface, ArrayAccess, JsonSerializable
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = [];
-
-        if ($this->container['fax'] === null) {
-            $invalidProperties[] = "'fax' can't be null";
-        }
-        return $invalidProperties;
+        return [];
     }
 
     /**
@@ -308,55 +359,271 @@ class FaxResponse implements ModelInterface, ArrayAccess, JsonSerializable
     }
 
     /**
-     * Gets fax
+     * Gets fax_id
      *
-     * @return FaxResponseFax
+     * @return string|null
      */
-    public function getFax()
+    public function getFaxId()
     {
-        return $this->container['fax'];
+        return $this->container['fax_id'];
     }
 
     /**
-     * Sets fax
+     * Sets fax_id
      *
-     * @param FaxResponseFax $fax fax
+     * @param string|null $fax_id Fax ID
      *
      * @return self
      */
-    public function setFax(FaxResponseFax $fax)
+    public function setFaxId(?string $fax_id)
     {
-        if (is_null($fax)) {
-            throw new InvalidArgumentException('non-nullable fax cannot be null');
+        if (is_null($fax_id)) {
+            throw new InvalidArgumentException('non-nullable fax_id cannot be null');
         }
-        $this->container['fax'] = $fax;
+        $this->container['fax_id'] = $fax_id;
 
         return $this;
     }
 
     /**
-     * Gets warnings
+     * Gets title
      *
-     * @return WarningResponse[]|null
+     * @return string|null
      */
-    public function getWarnings()
+    public function getTitle()
     {
-        return $this->container['warnings'];
+        return $this->container['title'];
     }
 
     /**
-     * Sets warnings
+     * Sets title
      *
-     * @param WarningResponse[]|null $warnings a list of warnings
+     * @param string|null $title Fax Title
      *
      * @return self
      */
-    public function setWarnings(?array $warnings)
+    public function setTitle(?string $title)
     {
-        if (is_null($warnings)) {
-            throw new InvalidArgumentException('non-nullable warnings cannot be null');
+        if (is_null($title)) {
+            throw new InvalidArgumentException('non-nullable title cannot be null');
         }
-        $this->container['warnings'] = $warnings;
+        $this->container['title'] = $title;
+
+        return $this;
+    }
+
+    /**
+     * Gets original_title
+     *
+     * @return string|null
+     */
+    public function getOriginalTitle()
+    {
+        return $this->container['original_title'];
+    }
+
+    /**
+     * Sets original_title
+     *
+     * @param string|null $original_title Fax Original Title
+     *
+     * @return self
+     */
+    public function setOriginalTitle(?string $original_title)
+    {
+        if (is_null($original_title)) {
+            throw new InvalidArgumentException('non-nullable original_title cannot be null');
+        }
+        $this->container['original_title'] = $original_title;
+
+        return $this;
+    }
+
+    /**
+     * Gets subject
+     *
+     * @return string|null
+     */
+    public function getSubject()
+    {
+        return $this->container['subject'];
+    }
+
+    /**
+     * Sets subject
+     *
+     * @param string|null $subject Fax Subject
+     *
+     * @return self
+     */
+    public function setSubject(?string $subject)
+    {
+        if (is_null($subject)) {
+            throw new InvalidArgumentException('non-nullable subject cannot be null');
+        }
+        $this->container['subject'] = $subject;
+
+        return $this;
+    }
+
+    /**
+     * Gets message
+     *
+     * @return string|null
+     */
+    public function getMessage()
+    {
+        return $this->container['message'];
+    }
+
+    /**
+     * Sets message
+     *
+     * @param string|null $message Fax Message
+     *
+     * @return self
+     */
+    public function setMessage(?string $message)
+    {
+        if (is_null($message)) {
+            throw new InvalidArgumentException('non-nullable message cannot be null');
+        }
+        $this->container['message'] = $message;
+
+        return $this;
+    }
+
+    /**
+     * Gets metadata
+     *
+     * @return array|null
+     */
+    public function getMetadata()
+    {
+        return $this->container['metadata'];
+    }
+
+    /**
+     * Sets metadata
+     *
+     * @param array|null $metadata Fax Metadata
+     *
+     * @return self
+     */
+    public function setMetadata(?array $metadata)
+    {
+        if (is_null($metadata)) {
+            throw new InvalidArgumentException('non-nullable metadata cannot be null');
+        }
+        $this->container['metadata'] = $metadata;
+
+        return $this;
+    }
+
+    /**
+     * Gets created_at
+     *
+     * @return int|null
+     */
+    public function getCreatedAt()
+    {
+        return $this->container['created_at'];
+    }
+
+    /**
+     * Sets created_at
+     *
+     * @param int|null $created_at Fax Created At Timestamp
+     *
+     * @return self
+     */
+    public function setCreatedAt(?int $created_at)
+    {
+        if (is_null($created_at)) {
+            throw new InvalidArgumentException('non-nullable created_at cannot be null');
+        }
+        $this->container['created_at'] = $created_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets from
+     *
+     * @return string|null
+     */
+    public function getFrom()
+    {
+        return $this->container['from'];
+    }
+
+    /**
+     * Sets from
+     *
+     * @param string|null $from Fax Sender Email
+     *
+     * @return self
+     */
+    public function setFrom(?string $from)
+    {
+        if (is_null($from)) {
+            throw new InvalidArgumentException('non-nullable from cannot be null');
+        }
+        $this->container['from'] = $from;
+
+        return $this;
+    }
+
+    /**
+     * Gets transmissions
+     *
+     * @return FaxResponseTransmission[]|null
+     */
+    public function getTransmissions()
+    {
+        return $this->container['transmissions'];
+    }
+
+    /**
+     * Sets transmissions
+     *
+     * @param FaxResponseTransmission[]|null $transmissions Fax Transmissions List
+     *
+     * @return self
+     */
+    public function setTransmissions(?array $transmissions)
+    {
+        if (is_null($transmissions)) {
+            throw new InvalidArgumentException('non-nullable transmissions cannot be null');
+        }
+        $this->container['transmissions'] = $transmissions;
+
+        return $this;
+    }
+
+    /**
+     * Gets files_url
+     *
+     * @return string|null
+     */
+    public function getFilesUrl()
+    {
+        return $this->container['files_url'];
+    }
+
+    /**
+     * Sets files_url
+     *
+     * @param string|null $files_url Fax Files URL
+     *
+     * @return self
+     */
+    public function setFilesUrl(?string $files_url)
+    {
+        if (is_null($files_url)) {
+            throw new InvalidArgumentException('non-nullable files_url cannot be null');
+        }
+        $this->container['files_url'] = $files_url;
 
         return $this;
     }

@@ -4,15 +4,15 @@ All URIs are relative to *https://api.hellosign.com/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-|[```delete_fax```](FaxApi.md#delete_fax) | ```DELETE /fax/{fax_id}``` | Delete Fax|
-|[```get_fax_by_id```](FaxApi.md#get_fax_by_id) | ```GET /fax/{fax_id}``` | Get Fax|
-|[```get_fax_files```](FaxApi.md#get_fax_files) | ```GET /fax/files/{fax_id}``` | List Fax Files|
-|[```list_faxes```](FaxApi.md#list_faxes) | ```GET /fax/list``` | Lists Faxes|
-|[```send_fax```](FaxApi.md#send_fax) | ```POST /fax/send``` | Send Fax|
+|[```fax_delete```](FaxApi.md#fax_delete) | ```DELETE /fax/{fax_id}``` | Delete Fax|
+|[```fax_files```](FaxApi.md#fax_files) | ```GET /fax/files/{fax_id}``` | List Fax Files|
+|[```fax_get```](FaxApi.md#fax_get) | ```GET /fax/{fax_id}``` | Get Fax|
+|[```fax_list```](FaxApi.md#fax_list) | ```GET /fax/list``` | Lists Faxes|
+|[```fax_send```](FaxApi.md#fax_send) | ```POST /fax/send``` | Send Fax|
 
 
-# ```delete_fax```
-> ```delete_fax(fax_id)```
+# ```fax_delete```
+> ```fax_delete(fax_id)```
 
 Delete Fax
 
@@ -65,75 +65,13 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
+**204** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
 **4XX** | failed_operation |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# ```get_fax_by_id```
-> ```FaxResponse get_fax_by_id(fax_id)```
-
-Get Fax
-
-Returns information about fax
-
-### Example
-
-* Basic Authentication (api_key):
-
-```python
-from pprint import pprint
-
-from dropbox_sign import ApiClient, ApiException, Configuration, apis
-
-configuration = Configuration(
-    # Configure HTTP basic authorization: api_key
-    username="YOUR_API_KEY",
-)
-
-with ApiClient(configuration) as api_client:
-    fax_api = apis.FaxApi(api_client)
-
-    faxId = "fa5c8a0b0f492d768749333ad6fcc214c111e967"
-
-    try:
-        response = fax_api.get_fax_by_id(client_id)
-        pprint(response)
-    except ApiException as e:
-        print("Exception when calling Dropbox Sign API: %s\n" % e)
-
-```
-```
-
-### Parameters
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| `fax_id` | **str** | Fax ID |  |
-
-### Return type
-
-[**FaxResponse**](FaxResponse.md)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
-**4XX** | failed_operation |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# ```get_fax_files```
-> ```io.IOBase get_fax_files(fax_id)```
+# ```fax_files```
+> ```io.IOBase fax_files(fax_id)```
 
 List Fax Files
 
@@ -193,8 +131,70 @@ with ApiClient(configuration) as api_client:
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# ```list_faxes```
-> ```FaxListResponse list_faxes(page, page_size)```
+# ```fax_get```
+> ```FaxGetResponse fax_get(fax_id)```
+
+Get Fax
+
+Returns information about fax
+
+### Example
+
+* Basic Authentication (api_key):
+
+```python
+from pprint import pprint
+
+from dropbox_sign import ApiClient, ApiException, Configuration, apis
+
+configuration = Configuration(
+    # Configure HTTP basic authorization: api_key
+    username="YOUR_API_KEY",
+)
+
+with ApiClient(configuration) as api_client:
+    fax_api = apis.FaxApi(api_client)
+
+    faxId = "fa5c8a0b0f492d768749333ad6fcc214c111e967"
+
+    try:
+        response = fax_api.get_fax_by_id(client_id)
+        pprint(response)
+    except ApiException as e:
+        print("Exception when calling Dropbox Sign API: %s\n" % e)
+
+```
+```
+
+### Parameters
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| `fax_id` | **str** | Fax ID |  |
+
+### Return type
+
+[**FaxGetResponse**](FaxGetResponse.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
+**4XX** | failed_operation |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# ```fax_list```
+> ```FaxListResponse fax_list()```
 
 Lists Faxes
 
@@ -235,8 +235,8 @@ with ApiClient(configuration) as api_client:
 ### Parameters
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| `page` | **int** | Page |  |
-| `page_size` | **int** | Page size |  |
+| `page` | **int** | Page | [optional][default to 1] |
+| `page_size` | **int** | Page size | [optional][default to 20] |
 
 ### Return type
 
@@ -260,8 +260,8 @@ with ApiClient(configuration) as api_client:
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# ```send_fax```
-> ```FaxResponse send_fax(fax_send_request)```
+# ```fax_send```
+> ```FaxGetResponse fax_send(fax_send_request)```
 
 Send Fax
 
@@ -305,7 +305,7 @@ with ApiClient(configuration) as api_client:
 
 ### Return type
 
-[**FaxResponse**](FaxResponse.md)
+[**FaxGetResponse**](FaxGetResponse.md)
 
 ### Authorization
 
@@ -313,7 +313,7 @@ with ApiClient(configuration) as api_client:
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 ### HTTP response details

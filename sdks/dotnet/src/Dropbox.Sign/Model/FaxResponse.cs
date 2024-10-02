@@ -41,18 +41,29 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FaxResponse" /> class.
         /// </summary>
-        /// <param name="fax">fax (required).</param>
-        /// <param name="warnings">A list of warnings..</param>
-        public FaxResponse(FaxResponseFax fax = default(FaxResponseFax), List<WarningResponse> warnings = default(List<WarningResponse>))
+        /// <param name="faxId">Fax ID.</param>
+        /// <param name="title">Fax Title.</param>
+        /// <param name="originalTitle">Fax Original Title.</param>
+        /// <param name="subject">Fax Subject.</param>
+        /// <param name="message">Fax Message.</param>
+        /// <param name="metadata">Fax Metadata.</param>
+        /// <param name="createdAt">Fax Created At Timestamp.</param>
+        /// <param name="from">Fax Sender Email.</param>
+        /// <param name="transmissions">Fax Transmissions List.</param>
+        /// <param name="filesUrl">Fax Files URL.</param>
+        public FaxResponse(string faxId = default(string), string title = default(string), string originalTitle = default(string), string subject = default(string), string message = default(string), Object metadata = default(Object), int createdAt = default(int), string from = default(string), List<FaxResponseTransmission> transmissions = default(List<FaxResponseTransmission>), string filesUrl = default(string))
         {
 
-            // to ensure "fax" is required (not null)
-            if (fax == null)
-            {
-                throw new ArgumentNullException("fax is a required property for FaxResponse and cannot be null");
-            }
-            this.Fax = fax;
-            this.Warnings = warnings;
+            this.FaxId = faxId;
+            this.Title = title;
+            this.OriginalTitle = originalTitle;
+            this.Subject = subject;
+            this.Message = message;
+            this.Metadata = metadata;
+            this.CreatedAt = createdAt;
+            this.From = from;
+            this.Transmissions = transmissions;
+            this.FilesUrl = filesUrl;
         }
 
         /// <summary>
@@ -72,17 +83,74 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
-        /// Gets or Sets Fax
+        /// Fax ID
         /// </summary>
-        [DataMember(Name = "fax", IsRequired = true, EmitDefaultValue = true)]
-        public FaxResponseFax Fax { get; set; }
+        /// <value>Fax ID</value>
+        [DataMember(Name = "fax_id", EmitDefaultValue = true)]
+        public string FaxId { get; set; }
 
         /// <summary>
-        /// A list of warnings.
+        /// Fax Title
         /// </summary>
-        /// <value>A list of warnings.</value>
-        [DataMember(Name = "warnings", EmitDefaultValue = true)]
-        public List<WarningResponse> Warnings { get; set; }
+        /// <value>Fax Title</value>
+        [DataMember(Name = "title", EmitDefaultValue = true)]
+        public string Title { get; set; }
+
+        /// <summary>
+        /// Fax Original Title
+        /// </summary>
+        /// <value>Fax Original Title</value>
+        [DataMember(Name = "original_title", EmitDefaultValue = true)]
+        public string OriginalTitle { get; set; }
+
+        /// <summary>
+        /// Fax Subject
+        /// </summary>
+        /// <value>Fax Subject</value>
+        [DataMember(Name = "subject", EmitDefaultValue = true)]
+        public string Subject { get; set; }
+
+        /// <summary>
+        /// Fax Message
+        /// </summary>
+        /// <value>Fax Message</value>
+        [DataMember(Name = "message", EmitDefaultValue = true)]
+        public string Message { get; set; }
+
+        /// <summary>
+        /// Fax Metadata
+        /// </summary>
+        /// <value>Fax Metadata</value>
+        [DataMember(Name = "metadata", EmitDefaultValue = true)]
+        public Object Metadata { get; set; }
+
+        /// <summary>
+        /// Fax Created At Timestamp
+        /// </summary>
+        /// <value>Fax Created At Timestamp</value>
+        [DataMember(Name = "created_at", EmitDefaultValue = true)]
+        public int CreatedAt { get; set; }
+
+        /// <summary>
+        /// Fax Sender Email
+        /// </summary>
+        /// <value>Fax Sender Email</value>
+        [DataMember(Name = "from", EmitDefaultValue = true)]
+        public string From { get; set; }
+
+        /// <summary>
+        /// Fax Transmissions List
+        /// </summary>
+        /// <value>Fax Transmissions List</value>
+        [DataMember(Name = "transmissions", EmitDefaultValue = true)]
+        public List<FaxResponseTransmission> Transmissions { get; set; }
+
+        /// <summary>
+        /// Fax Files URL
+        /// </summary>
+        /// <value>Fax Files URL</value>
+        [DataMember(Name = "files_url", EmitDefaultValue = true)]
+        public string FilesUrl { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -92,8 +160,16 @@ namespace Dropbox.Sign.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class FaxResponse {\n");
-            sb.Append("  Fax: ").Append(Fax).Append("\n");
-            sb.Append("  Warnings: ").Append(Warnings).Append("\n");
+            sb.Append("  FaxId: ").Append(FaxId).Append("\n");
+            sb.Append("  Title: ").Append(Title).Append("\n");
+            sb.Append("  OriginalTitle: ").Append(OriginalTitle).Append("\n");
+            sb.Append("  Subject: ").Append(Subject).Append("\n");
+            sb.Append("  Message: ").Append(Message).Append("\n");
+            sb.Append("  Metadata: ").Append(Metadata).Append("\n");
+            sb.Append("  CreatedAt: ").Append(CreatedAt).Append("\n");
+            sb.Append("  From: ").Append(From).Append("\n");
+            sb.Append("  Transmissions: ").Append(Transmissions).Append("\n");
+            sb.Append("  FilesUrl: ").Append(FilesUrl).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -130,15 +206,54 @@ namespace Dropbox.Sign.Model
             }
             return
                 (
-                    this.Fax == input.Fax ||
-                    (this.Fax != null &&
-                    this.Fax.Equals(input.Fax))
+                    this.FaxId == input.FaxId ||
+                    (this.FaxId != null &&
+                    this.FaxId.Equals(input.FaxId))
                 ) &&
                 (
-                    this.Warnings == input.Warnings ||
-                    this.Warnings != null &&
-                    input.Warnings != null &&
-                    this.Warnings.SequenceEqual(input.Warnings)
+                    this.Title == input.Title ||
+                    (this.Title != null &&
+                    this.Title.Equals(input.Title))
+                ) &&
+                (
+                    this.OriginalTitle == input.OriginalTitle ||
+                    (this.OriginalTitle != null &&
+                    this.OriginalTitle.Equals(input.OriginalTitle))
+                ) &&
+                (
+                    this.Subject == input.Subject ||
+                    (this.Subject != null &&
+                    this.Subject.Equals(input.Subject))
+                ) &&
+                (
+                    this.Message == input.Message ||
+                    (this.Message != null &&
+                    this.Message.Equals(input.Message))
+                ) &&
+                (
+                    this.Metadata == input.Metadata ||
+                    (this.Metadata != null &&
+                    this.Metadata.Equals(input.Metadata))
+                ) &&
+                (
+                    this.CreatedAt == input.CreatedAt ||
+                    this.CreatedAt.Equals(input.CreatedAt)
+                ) &&
+                (
+                    this.From == input.From ||
+                    (this.From != null &&
+                    this.From.Equals(input.From))
+                ) &&
+                (
+                    this.Transmissions == input.Transmissions ||
+                    this.Transmissions != null &&
+                    input.Transmissions != null &&
+                    this.Transmissions.SequenceEqual(input.Transmissions)
+                ) &&
+                (
+                    this.FilesUrl == input.FilesUrl ||
+                    (this.FilesUrl != null &&
+                    this.FilesUrl.Equals(input.FilesUrl))
                 );
         }
 
@@ -151,13 +266,42 @@ namespace Dropbox.Sign.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Fax != null)
+                if (this.FaxId != null)
                 {
-                    hashCode = (hashCode * 59) + this.Fax.GetHashCode();
+                    hashCode = (hashCode * 59) + this.FaxId.GetHashCode();
                 }
-                if (this.Warnings != null)
+                if (this.Title != null)
                 {
-                    hashCode = (hashCode * 59) + this.Warnings.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Title.GetHashCode();
+                }
+                if (this.OriginalTitle != null)
+                {
+                    hashCode = (hashCode * 59) + this.OriginalTitle.GetHashCode();
+                }
+                if (this.Subject != null)
+                {
+                    hashCode = (hashCode * 59) + this.Subject.GetHashCode();
+                }
+                if (this.Message != null)
+                {
+                    hashCode = (hashCode * 59) + this.Message.GetHashCode();
+                }
+                if (this.Metadata != null)
+                {
+                    hashCode = (hashCode * 59) + this.Metadata.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.CreatedAt.GetHashCode();
+                if (this.From != null)
+                {
+                    hashCode = (hashCode * 59) + this.From.GetHashCode();
+                }
+                if (this.Transmissions != null)
+                {
+                    hashCode = (hashCode * 59) + this.Transmissions.GetHashCode();
+                }
+                if (this.FilesUrl != null)
+                {
+                    hashCode = (hashCode * 59) + this.FilesUrl.GetHashCode();
                 }
                 return hashCode;
             }
@@ -177,17 +321,73 @@ namespace Dropbox.Sign.Model
             var types = new List<OpenApiType>();
             types.Add(new OpenApiType()
             {
-                Name = "fax",
-                Property = "Fax",
-                Type = "FaxResponseFax",
-                Value = Fax,
+                Name = "fax_id",
+                Property = "FaxId",
+                Type = "string",
+                Value = FaxId,
             });
             types.Add(new OpenApiType()
             {
-                Name = "warnings",
-                Property = "Warnings",
-                Type = "List<WarningResponse>",
-                Value = Warnings,
+                Name = "title",
+                Property = "Title",
+                Type = "string",
+                Value = Title,
+            });
+            types.Add(new OpenApiType()
+            {
+                Name = "original_title",
+                Property = "OriginalTitle",
+                Type = "string",
+                Value = OriginalTitle,
+            });
+            types.Add(new OpenApiType()
+            {
+                Name = "subject",
+                Property = "Subject",
+                Type = "string",
+                Value = Subject,
+            });
+            types.Add(new OpenApiType()
+            {
+                Name = "message",
+                Property = "Message",
+                Type = "string",
+                Value = Message,
+            });
+            types.Add(new OpenApiType()
+            {
+                Name = "metadata",
+                Property = "Metadata",
+                Type = "Object",
+                Value = Metadata,
+            });
+            types.Add(new OpenApiType()
+            {
+                Name = "created_at",
+                Property = "CreatedAt",
+                Type = "int",
+                Value = CreatedAt,
+            });
+            types.Add(new OpenApiType()
+            {
+                Name = "from",
+                Property = "From",
+                Type = "string",
+                Value = From,
+            });
+            types.Add(new OpenApiType()
+            {
+                Name = "transmissions",
+                Property = "Transmissions",
+                Type = "List<FaxResponseTransmission>",
+                Value = Transmissions,
+            });
+            types.Add(new OpenApiType()
+            {
+                Name = "files_url",
+                Property = "FilesUrl",
+                Type = "string",
+                Value = FilesUrl,
             });
 
             return types;

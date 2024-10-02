@@ -18,10 +18,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from dropbox_sign.models.fax_response_fax import FaxResponseFax
-from dropbox_sign.models.warning_response import WarningResponse
+from dropbox_sign.models.fax_response_transmission import FaxResponseTransmission
 from typing import Optional, Set, Tuple
 from typing_extensions import Self
 import io
@@ -34,11 +33,36 @@ class FaxResponse(BaseModel):
     FaxResponse
     """  # noqa: E501
 
-    fax: FaxResponseFax
-    warnings: Optional[List[WarningResponse]] = Field(
-        default=None, description="A list of warnings."
+    fax_id: Optional[StrictStr] = Field(default=None, description="Fax ID")
+    title: Optional[StrictStr] = Field(default=None, description="Fax Title")
+    original_title: Optional[StrictStr] = Field(
+        default=None, description="Fax Original Title"
     )
-    __properties: ClassVar[List[str]] = ["fax", "warnings"]
+    subject: Optional[StrictStr] = Field(default=None, description="Fax Subject")
+    message: Optional[StrictStr] = Field(default=None, description="Fax Message")
+    metadata: Optional[Dict[str, Any]] = Field(default=None, description="Fax Metadata")
+    created_at: Optional[StrictInt] = Field(
+        default=None, description="Fax Created At Timestamp"
+    )
+    var_from: Optional[StrictStr] = Field(
+        default=None, description="Fax Sender Email", alias="from"
+    )
+    transmissions: Optional[List[FaxResponseTransmission]] = Field(
+        default=None, description="Fax Transmissions List"
+    )
+    files_url: Optional[StrictStr] = Field(default=None, description="Fax Files URL")
+    __properties: ClassVar[List[str]] = [
+        "fax_id",
+        "title",
+        "original_title",
+        "subject",
+        "message",
+        "metadata",
+        "created_at",
+        "from",
+        "transmissions",
+        "files_url",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -90,16 +114,13 @@ class FaxResponse(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of fax
-        if self.fax:
-            _dict["fax"] = self.fax.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of each item in warnings (list)
+        # override the default output from pydantic by calling `to_dict()` of each item in transmissions (list)
         _items = []
-        if self.warnings:
-            for _item_warnings in self.warnings:
-                if _item_warnings:
-                    _items.append(_item_warnings.to_dict())
-            _dict["warnings"] = _items
+        if self.transmissions:
+            for _item_transmissions in self.transmissions:
+                if _item_transmissions:
+                    _items.append(_item_transmissions.to_dict())
+            _dict["transmissions"] = _items
         return _dict
 
     @classmethod
@@ -113,16 +134,23 @@ class FaxResponse(BaseModel):
 
         _obj = cls.model_validate(
             {
-                "fax": (
-                    FaxResponseFax.from_dict(obj["fax"])
-                    if obj.get("fax") is not None
+                "fax_id": obj.get("fax_id"),
+                "title": obj.get("title"),
+                "original_title": obj.get("original_title"),
+                "subject": obj.get("subject"),
+                "message": obj.get("message"),
+                "metadata": obj.get("metadata"),
+                "created_at": obj.get("created_at"),
+                "from": obj.get("from"),
+                "transmissions": (
+                    [
+                        FaxResponseTransmission.from_dict(_item)
+                        for _item in obj["transmissions"]
+                    ]
+                    if obj.get("transmissions") is not None
                     else None
                 ),
-                "warnings": (
-                    [WarningResponse.from_dict(_item) for _item in obj["warnings"]]
-                    if obj.get("warnings") is not None
-                    else None
-                ),
+                "files_url": obj.get("files_url"),
             }
         )
         return _obj
@@ -140,12 +168,20 @@ class FaxResponse(BaseModel):
     @classmethod
     def openapi_types(cls) -> Dict[str, str]:
         return {
-            "fax": "(FaxResponseFax,)",
-            "warnings": "(List[WarningResponse],)",
+            "fax_id": "(str,)",
+            "title": "(str,)",
+            "original_title": "(str,)",
+            "subject": "(str,)",
+            "message": "(str,)",
+            "metadata": "(object,)",
+            "created_at": "(int,)",
+            "var_from": "(str,)",
+            "transmissions": "(List[FaxResponseTransmission],)",
+            "files_url": "(str,)",
         }
 
     @classmethod
     def openapi_type_is_array(cls, property_name: str) -> bool:
         return property_name in [
-            "warnings",
+            "transmissions",
         ]

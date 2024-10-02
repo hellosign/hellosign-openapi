@@ -23,39 +23,35 @@ module Dropbox::Sign
     attr_accessor :to
 
     # Fax Send From Sender (used only with fax number)
-    # @return [String, nil]
+    # @return [String]
     attr_accessor :from
 
     # Fax File to Send
-    # @return [Array<SubFile>]
-    attr_accessor :file
+    # @return [Array<File>]
+    attr_accessor :files
 
     # Fax File URL to Send
     # @return [Array<String>]
-    attr_accessor :file_url
-
-    # Fax File URL Names
-    # @return [Array<String>]
-    attr_accessor :file_url_names
+    attr_accessor :file_urls
 
     # API Test Mode Setting
     # @return [Boolean]
     attr_accessor :test_mode
 
     # Fax Cover Page for Recipient
-    # @return [String, nil]
+    # @return [String]
     attr_accessor :cover_page_to
 
     # Fax Cover Page for Sender
-    # @return [String, nil]
+    # @return [String]
     attr_accessor :cover_page_from
 
     # Fax Cover Page Message
-    # @return [String, nil]
+    # @return [String]
     attr_accessor :cover_page_message
 
     # Fax Title
-    # @return [String, nil]
+    # @return [String]
     attr_accessor :title
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -63,9 +59,8 @@ module Dropbox::Sign
       {
         :'to' => :'to',
         :'from' => :'from',
-        :'file' => :'file',
-        :'file_url' => :'file_url',
-        :'file_url_names' => :'file_url_names',
+        :'files' => :'files',
+        :'file_urls' => :'file_urls',
         :'test_mode' => :'test_mode',
         :'cover_page_to' => :'cover_page_to',
         :'cover_page_from' => :'cover_page_from',
@@ -84,9 +79,8 @@ module Dropbox::Sign
       {
         :'to' => :'String',
         :'from' => :'String',
-        :'file' => :'Array<SubFile>',
-        :'file_url' => :'Array<String>',
-        :'file_url_names' => :'Array<String>',
+        :'files' => :'Array<File>',
+        :'file_urls' => :'Array<String>',
         :'test_mode' => :'Boolean',
         :'cover_page_to' => :'String',
         :'cover_page_from' => :'String',
@@ -98,11 +92,6 @@ module Dropbox::Sign
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
-        :'from',
-        :'cover_page_to',
-        :'cover_page_from',
-        :'cover_page_message',
-        :'title'
       ])
     end
 
@@ -154,26 +143,22 @@ module Dropbox::Sign
         self.from = attributes[:'from']
       end
 
-      if attributes.key?(:'file')
-        if (value = attributes[:'file']).is_a?(Array)
-          self.file = value
+      if attributes.key?(:'files')
+        if (value = attributes[:'files']).is_a?(Array)
+          self.files = value
         end
       end
 
-      if attributes.key?(:'file_url')
-        if (value = attributes[:'file_url']).is_a?(Array)
-          self.file_url = value
-        end
-      end
-
-      if attributes.key?(:'file_url_names')
-        if (value = attributes[:'file_url_names']).is_a?(Array)
-          self.file_url_names = value
+      if attributes.key?(:'file_urls')
+        if (value = attributes[:'file_urls']).is_a?(Array)
+          self.file_urls = value
         end
       end
 
       if attributes.key?(:'test_mode')
         self.test_mode = attributes[:'test_mode']
+      else
+        self.test_mode = false
       end
 
       if attributes.key?(:'cover_page_to')
@@ -197,12 +182,17 @@ module Dropbox::Sign
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @to.nil?
+        invalid_properties.push('invalid value for "to", to cannot be nil.')
+      end
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @to.nil?
       true
     end
 
@@ -213,9 +203,8 @@ module Dropbox::Sign
       self.class == o.class &&
           to == o.to &&
           from == o.from &&
-          file == o.file &&
-          file_url == o.file_url &&
-          file_url_names == o.file_url_names &&
+          files == o.files &&
+          file_urls == o.file_urls &&
           test_mode == o.test_mode &&
           cover_page_to == o.cover_page_to &&
           cover_page_from == o.cover_page_from &&
@@ -232,7 +221,7 @@ module Dropbox::Sign
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [to, from, file, file_url, file_url_names, test_mode, cover_page_to, cover_page_from, cover_page_message, title].hash
+      [to, from, files, file_urls, test_mode, cover_page_to, cover_page_from, cover_page_message, title].hash
     end
 
     # Builds the object from hash

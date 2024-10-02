@@ -37,7 +37,7 @@ namespace Dropbox.Sign.Api
         /// <param name="faxId">Fax ID</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns></returns>
-        void DeleteFax(string faxId, int operationIndex = 0);
+        void FaxDelete(string faxId, int operationIndex = 0);
 
         /// <summary>
         /// Delete Fax
@@ -49,30 +49,7 @@ namespace Dropbox.Sign.Api
         /// <param name="faxId">Fax ID</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> DeleteFaxWithHttpInfo(string faxId, int operationIndex = 0);
-        /// <summary>
-        /// Get Fax
-        /// </summary>
-        /// <remarks>
-        /// Returns information about fax
-        /// </remarks>
-        /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="faxId">Fax ID</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>FaxResponse</returns>
-        FaxResponse GetFaxById(string faxId, int operationIndex = 0);
-
-        /// <summary>
-        /// Get Fax
-        /// </summary>
-        /// <remarks>
-        /// Returns information about fax
-        /// </remarks>
-        /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="faxId">Fax ID</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of FaxResponse</returns>
-        ApiResponse<FaxResponse> GetFaxByIdWithHttpInfo(string faxId, int operationIndex = 0);
+        ApiResponse<Object> FaxDeleteWithHttpInfo(string faxId, int operationIndex = 0);
         /// <summary>
         /// List Fax Files
         /// </summary>
@@ -83,7 +60,7 @@ namespace Dropbox.Sign.Api
         /// <param name="faxId">Fax ID</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>System.IO.Stream</returns>
-        System.IO.Stream GetFaxFiles(string faxId, int operationIndex = 0);
+        System.IO.Stream FaxFiles(string faxId, int operationIndex = 0);
 
         /// <summary>
         /// List Fax Files
@@ -95,7 +72,30 @@ namespace Dropbox.Sign.Api
         /// <param name="faxId">Fax ID</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of System.IO.Stream</returns>
-        ApiResponse<System.IO.Stream> GetFaxFilesWithHttpInfo(string faxId, int operationIndex = 0);
+        ApiResponse<System.IO.Stream> FaxFilesWithHttpInfo(string faxId, int operationIndex = 0);
+        /// <summary>
+        /// Get Fax
+        /// </summary>
+        /// <remarks>
+        /// Returns information about fax
+        /// </remarks>
+        /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="faxId">Fax ID</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>FaxGetResponse</returns>
+        FaxGetResponse FaxGet(string faxId, int operationIndex = 0);
+
+        /// <summary>
+        /// Get Fax
+        /// </summary>
+        /// <remarks>
+        /// Returns information about fax
+        /// </remarks>
+        /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="faxId">Fax ID</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of FaxGetResponse</returns>
+        ApiResponse<FaxGetResponse> FaxGetWithHttpInfo(string faxId, int operationIndex = 0);
         /// <summary>
         /// Lists Faxes
         /// </summary>
@@ -103,11 +103,11 @@ namespace Dropbox.Sign.Api
         /// Returns properties of multiple faxes
         /// </remarks>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="page">Page</param>
-        /// <param name="pageSize">Page size</param>
+        /// <param name="page">Page (optional, default to 1)</param>
+        /// <param name="pageSize">Page size (optional, default to 20)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>FaxListResponse</returns>
-        FaxListResponse ListFaxes(int page, int pageSize, int operationIndex = 0);
+        FaxListResponse FaxList(int? page = default(int?), int? pageSize = default(int?), int operationIndex = 0);
 
         /// <summary>
         /// Lists Faxes
@@ -116,11 +116,11 @@ namespace Dropbox.Sign.Api
         /// Returns properties of multiple faxes
         /// </remarks>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="page">Page</param>
-        /// <param name="pageSize">Page size</param>
+        /// <param name="page">Page (optional, default to 1)</param>
+        /// <param name="pageSize">Page size (optional, default to 20)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of FaxListResponse</returns>
-        ApiResponse<FaxListResponse> ListFaxesWithHttpInfo(int page, int pageSize, int operationIndex = 0);
+        ApiResponse<FaxListResponse> FaxListWithHttpInfo(int? page = default(int?), int? pageSize = default(int?), int operationIndex = 0);
         /// <summary>
         /// Send Fax
         /// </summary>
@@ -130,8 +130,8 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxSendRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>FaxResponse</returns>
-        FaxResponse SendFax(FaxSendRequest faxSendRequest, int operationIndex = 0);
+        /// <returns>FaxGetResponse</returns>
+        FaxGetResponse FaxSend(FaxSendRequest faxSendRequest, int operationIndex = 0);
 
         /// <summary>
         /// Send Fax
@@ -142,8 +142,8 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxSendRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of FaxResponse</returns>
-        ApiResponse<FaxResponse> SendFaxWithHttpInfo(FaxSendRequest faxSendRequest, int operationIndex = 0);
+        /// <returns>ApiResponse of FaxGetResponse</returns>
+        ApiResponse<FaxGetResponse> FaxSendWithHttpInfo(FaxSendRequest faxSendRequest, int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -164,7 +164,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task DeleteFaxAsync(string faxId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task FaxDeleteAsync(string faxId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Delete Fax
@@ -177,32 +177,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteFaxWithHttpInfoAsync(string faxId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
-        /// <summary>
-        /// Get Fax
-        /// </summary>
-        /// <remarks>
-        /// Returns information about fax
-        /// </remarks>
-        /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="faxId">Fax ID</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of FaxResponse</returns>
-        System.Threading.Tasks.Task<FaxResponse> GetFaxByIdAsync(string faxId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
-
-        /// <summary>
-        /// Get Fax
-        /// </summary>
-        /// <remarks>
-        /// Returns information about fax
-        /// </remarks>
-        /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="faxId">Fax ID</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (FaxResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FaxResponse>> GetFaxByIdWithHttpInfoAsync(string faxId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> FaxDeleteWithHttpInfoAsync(string faxId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// List Fax Files
         /// </summary>
@@ -214,7 +189,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of System.IO.Stream</returns>
-        System.Threading.Tasks.Task<System.IO.Stream> GetFaxFilesAsync(string faxId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<System.IO.Stream> FaxFilesAsync(string faxId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// List Fax Files
@@ -227,7 +202,32 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
-        System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> GetFaxFilesWithHttpInfoAsync(string faxId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> FaxFilesWithHttpInfoAsync(string faxId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <summary>
+        /// Get Fax
+        /// </summary>
+        /// <remarks>
+        /// Returns information about fax
+        /// </remarks>
+        /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="faxId">Fax ID</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of FaxGetResponse</returns>
+        System.Threading.Tasks.Task<FaxGetResponse> FaxGetAsync(string faxId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Get Fax
+        /// </summary>
+        /// <remarks>
+        /// Returns information about fax
+        /// </remarks>
+        /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="faxId">Fax ID</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (FaxGetResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<FaxGetResponse>> FaxGetWithHttpInfoAsync(string faxId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Lists Faxes
         /// </summary>
@@ -235,12 +235,12 @@ namespace Dropbox.Sign.Api
         /// Returns properties of multiple faxes
         /// </remarks>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="page">Page</param>
-        /// <param name="pageSize">Page size</param>
+        /// <param name="page">Page (optional, default to 1)</param>
+        /// <param name="pageSize">Page size (optional, default to 20)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FaxListResponse</returns>
-        System.Threading.Tasks.Task<FaxListResponse> ListFaxesAsync(int page, int pageSize, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<FaxListResponse> FaxListAsync(int? page = default(int?), int? pageSize = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Lists Faxes
@@ -249,12 +249,12 @@ namespace Dropbox.Sign.Api
         /// Returns properties of multiple faxes
         /// </remarks>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="page">Page</param>
-        /// <param name="pageSize">Page size</param>
+        /// <param name="page">Page (optional, default to 1)</param>
+        /// <param name="pageSize">Page size (optional, default to 20)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FaxListResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FaxListResponse>> ListFaxesWithHttpInfoAsync(int page, int pageSize, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<FaxListResponse>> FaxListWithHttpInfoAsync(int? page = default(int?), int? pageSize = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Send Fax
         /// </summary>
@@ -265,8 +265,8 @@ namespace Dropbox.Sign.Api
         /// <param name="faxSendRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of FaxResponse</returns>
-        System.Threading.Tasks.Task<FaxResponse> SendFaxAsync(FaxSendRequest faxSendRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <returns>Task of FaxGetResponse</returns>
+        System.Threading.Tasks.Task<FaxGetResponse> FaxSendAsync(FaxSendRequest faxSendRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Send Fax
@@ -278,8 +278,8 @@ namespace Dropbox.Sign.Api
         /// <param name="faxSendRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (FaxResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FaxResponse>> SendFaxWithHttpInfoAsync(FaxSendRequest faxSendRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (FaxGetResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<FaxGetResponse>> FaxSendWithHttpInfoAsync(FaxSendRequest faxSendRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -407,9 +407,9 @@ namespace Dropbox.Sign.Api
         /// <param name="faxId">Fax ID</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns></returns>
-        public void DeleteFax(string faxId, int operationIndex = 0)
+        public void FaxDelete(string faxId, int operationIndex = 0)
         {
-            DeleteFaxWithHttpInfo(faxId);
+            FaxDeleteWithHttpInfo(faxId);
         }
 
         /// <summary>
@@ -419,12 +419,12 @@ namespace Dropbox.Sign.Api
         /// <param name="faxId">Fax ID</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public Dropbox.Sign.Client.ApiResponse<Object> DeleteFaxWithHttpInfo(string faxId, int operationIndex = 0)
+        public Dropbox.Sign.Client.ApiResponse<Object> FaxDeleteWithHttpInfo(string faxId, int operationIndex = 0)
         {
             // verify the required parameter 'faxId' is set
             if (faxId == null)
             {
-                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'faxId' when calling FaxApi->DeleteFax");
+                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'faxId' when calling FaxApi->FaxDelete");
             }
 
             Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
@@ -451,7 +451,7 @@ namespace Dropbox.Sign.Api
 
             localVarRequestOptions.PathParameters.Add("fax_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(faxId)); // path parameter
 
-            localVarRequestOptions.Operation = "FaxApi.DeleteFax";
+            localVarRequestOptions.Operation = "FaxApi.FaxDelete";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (api_key) required
@@ -465,7 +465,7 @@ namespace Dropbox.Sign.Api
             var localVarResponse = this.Client.Delete<Object>("/fax/{fax_id}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("DeleteFax", localVarResponse);
+                Exception _exception = this.ExceptionFactory("FaxDelete", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -483,9 +483,9 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task DeleteFaxAsync(string faxId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task FaxDeleteAsync(string faxId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            await DeleteFaxWithHttpInfoAsync(faxId, operationIndex, cancellationToken).ConfigureAwait(false);
+            await FaxDeleteWithHttpInfoAsync(faxId, operationIndex, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -496,12 +496,12 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<Object>> DeleteFaxWithHttpInfoAsync(string faxId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<Object>> FaxDeleteWithHttpInfoAsync(string faxId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'faxId' is set
             if (faxId == null)
             {
-                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'faxId' when calling FaxApi->DeleteFax");
+                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'faxId' when calling FaxApi->FaxDelete");
             }
 
 
@@ -529,7 +529,7 @@ namespace Dropbox.Sign.Api
 
             localVarRequestOptions.PathParameters.Add("fax_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(faxId)); // path parameter
 
-            localVarRequestOptions.Operation = "FaxApi.DeleteFax";
+            localVarRequestOptions.Operation = "FaxApi.FaxDelete";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (api_key) required
@@ -544,163 +544,7 @@ namespace Dropbox.Sign.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("DeleteFax", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Get Fax Returns information about fax
-        /// </summary>
-        /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="faxId">Fax ID</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>FaxResponse</returns>
-        public FaxResponse GetFaxById(string faxId, int operationIndex = 0)
-        {
-            Dropbox.Sign.Client.ApiResponse<FaxResponse> localVarResponse = GetFaxByIdWithHttpInfo(faxId);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Get Fax Returns information about fax
-        /// </summary>
-        /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="faxId">Fax ID</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of FaxResponse</returns>
-        public Dropbox.Sign.Client.ApiResponse<FaxResponse> GetFaxByIdWithHttpInfo(string faxId, int operationIndex = 0)
-        {
-            // verify the required parameter 'faxId' is set
-            if (faxId == null)
-            {
-                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'faxId' when calling FaxApi->GetFaxById");
-            }
-
-            Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-            var localVarContentType = Dropbox.Sign.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Dropbox.Sign.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("fax_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(faxId)); // path parameter
-
-            localVarRequestOptions.Operation = "FaxApi.GetFaxById";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
-            // authentication (api_key) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Dropbox.Sign.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<FaxResponse>("/fax/{fax_id}", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetFaxById", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Get Fax Returns information about fax
-        /// </summary>
-        /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="faxId">Fax ID</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of FaxResponse</returns>
-        public async System.Threading.Tasks.Task<FaxResponse> GetFaxByIdAsync(string faxId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-        {
-            Dropbox.Sign.Client.ApiResponse<FaxResponse> localVarResponse = await GetFaxByIdWithHttpInfoAsync(faxId, operationIndex, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Get Fax Returns information about fax
-        /// </summary>
-        /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="faxId">Fax ID</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (FaxResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<FaxResponse>> GetFaxByIdWithHttpInfoAsync(string faxId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-        {
-            // verify the required parameter 'faxId' is set
-            if (faxId == null)
-            {
-                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'faxId' when calling FaxApi->GetFaxById");
-            }
-
-
-            Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-            var localVarContentType = Dropbox.Sign.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Dropbox.Sign.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("fax_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(faxId)); // path parameter
-
-            localVarRequestOptions.Operation = "FaxApi.GetFaxById";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
-            // authentication (api_key) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Dropbox.Sign.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
-
-            // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<FaxResponse>("/fax/{fax_id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetFaxById", localVarResponse);
+                Exception _exception = this.ExceptionFactory("FaxDelete", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -717,9 +561,9 @@ namespace Dropbox.Sign.Api
         /// <param name="faxId">Fax ID</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>System.IO.Stream</returns>
-        public System.IO.Stream GetFaxFiles(string faxId, int operationIndex = 0)
+        public System.IO.Stream FaxFiles(string faxId, int operationIndex = 0)
         {
-            Dropbox.Sign.Client.ApiResponse<System.IO.Stream> localVarResponse = GetFaxFilesWithHttpInfo(faxId);
+            Dropbox.Sign.Client.ApiResponse<System.IO.Stream> localVarResponse = FaxFilesWithHttpInfo(faxId);
             return localVarResponse.Data;
         }
 
@@ -730,12 +574,12 @@ namespace Dropbox.Sign.Api
         /// <param name="faxId">Fax ID</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of System.IO.Stream</returns>
-        public Dropbox.Sign.Client.ApiResponse<System.IO.Stream> GetFaxFilesWithHttpInfo(string faxId, int operationIndex = 0)
+        public Dropbox.Sign.Client.ApiResponse<System.IO.Stream> FaxFilesWithHttpInfo(string faxId, int operationIndex = 0)
         {
             // verify the required parameter 'faxId' is set
             if (faxId == null)
             {
-                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'faxId' when calling FaxApi->GetFaxFiles");
+                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'faxId' when calling FaxApi->FaxFiles");
             }
 
             Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
@@ -763,7 +607,7 @@ namespace Dropbox.Sign.Api
 
             localVarRequestOptions.PathParameters.Add("fax_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(faxId)); // path parameter
 
-            localVarRequestOptions.Operation = "FaxApi.GetFaxFiles";
+            localVarRequestOptions.Operation = "FaxApi.FaxFiles";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (api_key) required
@@ -777,7 +621,7 @@ namespace Dropbox.Sign.Api
             var localVarResponse = this.Client.Get<System.IO.Stream>("/fax/files/{fax_id}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetFaxFiles", localVarResponse);
+                Exception _exception = this.ExceptionFactory("FaxFiles", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -795,9 +639,9 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of System.IO.Stream</returns>
-        public async System.Threading.Tasks.Task<System.IO.Stream> GetFaxFilesAsync(string faxId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<System.IO.Stream> FaxFilesAsync(string faxId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Dropbox.Sign.Client.ApiResponse<System.IO.Stream> localVarResponse = await GetFaxFilesWithHttpInfoAsync(faxId, operationIndex, cancellationToken).ConfigureAwait(false);
+            Dropbox.Sign.Client.ApiResponse<System.IO.Stream> localVarResponse = await FaxFilesWithHttpInfoAsync(faxId, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -809,12 +653,12 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<System.IO.Stream>> GetFaxFilesWithHttpInfoAsync(string faxId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<System.IO.Stream>> FaxFilesWithHttpInfoAsync(string faxId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'faxId' is set
             if (faxId == null)
             {
-                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'faxId' when calling FaxApi->GetFaxFiles");
+                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'faxId' when calling FaxApi->FaxFiles");
             }
 
 
@@ -843,7 +687,7 @@ namespace Dropbox.Sign.Api
 
             localVarRequestOptions.PathParameters.Add("fax_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(faxId)); // path parameter
 
-            localVarRequestOptions.Operation = "FaxApi.GetFaxFiles";
+            localVarRequestOptions.Operation = "FaxApi.FaxFiles";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (api_key) required
@@ -858,7 +702,163 @@ namespace Dropbox.Sign.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetFaxFiles", localVarResponse);
+                Exception _exception = this.ExceptionFactory("FaxFiles", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get Fax Returns information about fax
+        /// </summary>
+        /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="faxId">Fax ID</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>FaxGetResponse</returns>
+        public FaxGetResponse FaxGet(string faxId, int operationIndex = 0)
+        {
+            Dropbox.Sign.Client.ApiResponse<FaxGetResponse> localVarResponse = FaxGetWithHttpInfo(faxId);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get Fax Returns information about fax
+        /// </summary>
+        /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="faxId">Fax ID</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of FaxGetResponse</returns>
+        public Dropbox.Sign.Client.ApiResponse<FaxGetResponse> FaxGetWithHttpInfo(string faxId, int operationIndex = 0)
+        {
+            // verify the required parameter 'faxId' is set
+            if (faxId == null)
+            {
+                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'faxId' when calling FaxApi->FaxGet");
+            }
+
+            Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+            var localVarContentType = Dropbox.Sign.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Dropbox.Sign.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("fax_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(faxId)); // path parameter
+
+            localVarRequestOptions.Operation = "FaxApi.FaxGet";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (api_key) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Dropbox.Sign.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<FaxGetResponse>("/fax/{fax_id}", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("FaxGet", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get Fax Returns information about fax
+        /// </summary>
+        /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="faxId">Fax ID</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of FaxGetResponse</returns>
+        public async System.Threading.Tasks.Task<FaxGetResponse> FaxGetAsync(string faxId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            Dropbox.Sign.Client.ApiResponse<FaxGetResponse> localVarResponse = await FaxGetWithHttpInfoAsync(faxId, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get Fax Returns information about fax
+        /// </summary>
+        /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="faxId">Fax ID</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (FaxGetResponse)</returns>
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<FaxGetResponse>> FaxGetWithHttpInfoAsync(string faxId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'faxId' is set
+            if (faxId == null)
+            {
+                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'faxId' when calling FaxApi->FaxGet");
+            }
+
+
+            Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+            var localVarContentType = Dropbox.Sign.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Dropbox.Sign.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("fax_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(faxId)); // path parameter
+
+            localVarRequestOptions.Operation = "FaxApi.FaxGet";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (api_key) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Dropbox.Sign.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<FaxGetResponse>("/fax/{fax_id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("FaxGet", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -872,13 +872,13 @@ namespace Dropbox.Sign.Api
         /// Lists Faxes Returns properties of multiple faxes
         /// </summary>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="page">Page</param>
-        /// <param name="pageSize">Page size</param>
+        /// <param name="page">Page (optional, default to 1)</param>
+        /// <param name="pageSize">Page size (optional, default to 20)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>FaxListResponse</returns>
-        public FaxListResponse ListFaxes(int page, int pageSize, int operationIndex = 0)
+        public FaxListResponse FaxList(int? page = default(int?), int? pageSize = default(int?), int operationIndex = 0)
         {
-            Dropbox.Sign.Client.ApiResponse<FaxListResponse> localVarResponse = ListFaxesWithHttpInfo(page, pageSize);
+            Dropbox.Sign.Client.ApiResponse<FaxListResponse> localVarResponse = FaxListWithHttpInfo(page, pageSize);
             return localVarResponse.Data;
         }
 
@@ -886,11 +886,11 @@ namespace Dropbox.Sign.Api
         /// Lists Faxes Returns properties of multiple faxes
         /// </summary>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="page">Page</param>
-        /// <param name="pageSize">Page size</param>
+        /// <param name="page">Page (optional, default to 1)</param>
+        /// <param name="pageSize">Page size (optional, default to 20)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of FaxListResponse</returns>
-        public Dropbox.Sign.Client.ApiResponse<FaxListResponse> ListFaxesWithHttpInfo(int page, int pageSize, int operationIndex = 0)
+        public Dropbox.Sign.Client.ApiResponse<FaxListResponse> FaxListWithHttpInfo(int? page = default(int?), int? pageSize = default(int?), int operationIndex = 0)
         {
             Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
 
@@ -914,10 +914,16 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "page", page));
-            localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "page_size", pageSize));
+            if (page != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "page", page));
+            }
+            if (pageSize != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "page_size", pageSize));
+            }
 
-            localVarRequestOptions.Operation = "FaxApi.ListFaxes";
+            localVarRequestOptions.Operation = "FaxApi.FaxList";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (api_key) required
@@ -931,7 +937,7 @@ namespace Dropbox.Sign.Api
             var localVarResponse = this.Client.Get<FaxListResponse>("/fax/list", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("ListFaxes", localVarResponse);
+                Exception _exception = this.ExceptionFactory("FaxList", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -945,14 +951,14 @@ namespace Dropbox.Sign.Api
         /// Lists Faxes Returns properties of multiple faxes
         /// </summary>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="page">Page</param>
-        /// <param name="pageSize">Page size</param>
+        /// <param name="page">Page (optional, default to 1)</param>
+        /// <param name="pageSize">Page size (optional, default to 20)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FaxListResponse</returns>
-        public async System.Threading.Tasks.Task<FaxListResponse> ListFaxesAsync(int page, int pageSize, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<FaxListResponse> FaxListAsync(int? page = default(int?), int? pageSize = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Dropbox.Sign.Client.ApiResponse<FaxListResponse> localVarResponse = await ListFaxesWithHttpInfoAsync(page, pageSize, operationIndex, cancellationToken).ConfigureAwait(false);
+            Dropbox.Sign.Client.ApiResponse<FaxListResponse> localVarResponse = await FaxListWithHttpInfoAsync(page, pageSize, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -960,12 +966,12 @@ namespace Dropbox.Sign.Api
         /// Lists Faxes Returns properties of multiple faxes
         /// </summary>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="page">Page</param>
-        /// <param name="pageSize">Page size</param>
+        /// <param name="page">Page (optional, default to 1)</param>
+        /// <param name="pageSize">Page size (optional, default to 20)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FaxListResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<FaxListResponse>> ListFaxesWithHttpInfoAsync(int page, int pageSize, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<FaxListResponse>> FaxListWithHttpInfoAsync(int? page = default(int?), int? pageSize = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
@@ -990,10 +996,16 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "page", page));
-            localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "page_size", pageSize));
+            if (page != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "page", page));
+            }
+            if (pageSize != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "page_size", pageSize));
+            }
 
-            localVarRequestOptions.Operation = "FaxApi.ListFaxes";
+            localVarRequestOptions.Operation = "FaxApi.FaxList";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (api_key) required
@@ -1008,7 +1020,7 @@ namespace Dropbox.Sign.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("ListFaxes", localVarResponse);
+                Exception _exception = this.ExceptionFactory("FaxList", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -1024,10 +1036,10 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxSendRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>FaxResponse</returns>
-        public FaxResponse SendFax(FaxSendRequest faxSendRequest, int operationIndex = 0)
+        /// <returns>FaxGetResponse</returns>
+        public FaxGetResponse FaxSend(FaxSendRequest faxSendRequest, int operationIndex = 0)
         {
-            Dropbox.Sign.Client.ApiResponse<FaxResponse> localVarResponse = SendFaxWithHttpInfo(faxSendRequest);
+            Dropbox.Sign.Client.ApiResponse<FaxGetResponse> localVarResponse = FaxSendWithHttpInfo(faxSendRequest);
             return localVarResponse.Data;
         }
 
@@ -1037,13 +1049,13 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxSendRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of FaxResponse</returns>
-        public Dropbox.Sign.Client.ApiResponse<FaxResponse> SendFaxWithHttpInfo(FaxSendRequest faxSendRequest, int operationIndex = 0)
+        /// <returns>ApiResponse of FaxGetResponse</returns>
+        public Dropbox.Sign.Client.ApiResponse<FaxGetResponse> FaxSendWithHttpInfo(FaxSendRequest faxSendRequest, int operationIndex = 0)
         {
             // verify the required parameter 'faxSendRequest' is set
             if (faxSendRequest == null)
             {
-                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'faxSendRequest' when calling FaxApi->SendFax");
+                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'faxSendRequest' when calling FaxApi->FaxSend");
             }
 
             Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
@@ -1078,7 +1090,7 @@ namespace Dropbox.Sign.Api
             }
 
 
-            localVarRequestOptions.Operation = "FaxApi.SendFax";
+            localVarRequestOptions.Operation = "FaxApi.FaxSend";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (api_key) required
@@ -1089,10 +1101,10 @@ namespace Dropbox.Sign.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<FaxResponse>("/fax/send", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Post<FaxGetResponse>("/fax/send", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("SendFax", localVarResponse);
+                Exception _exception = this.ExceptionFactory("FaxSend", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -1109,10 +1121,10 @@ namespace Dropbox.Sign.Api
         /// <param name="faxSendRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of FaxResponse</returns>
-        public async System.Threading.Tasks.Task<FaxResponse> SendFaxAsync(FaxSendRequest faxSendRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        /// <returns>Task of FaxGetResponse</returns>
+        public async System.Threading.Tasks.Task<FaxGetResponse> FaxSendAsync(FaxSendRequest faxSendRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Dropbox.Sign.Client.ApiResponse<FaxResponse> localVarResponse = await SendFaxWithHttpInfoAsync(faxSendRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Dropbox.Sign.Client.ApiResponse<FaxGetResponse> localVarResponse = await FaxSendWithHttpInfoAsync(faxSendRequest, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1123,13 +1135,13 @@ namespace Dropbox.Sign.Api
         /// <param name="faxSendRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (FaxResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<FaxResponse>> SendFaxWithHttpInfoAsync(FaxSendRequest faxSendRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (FaxGetResponse)</returns>
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<FaxGetResponse>> FaxSendWithHttpInfoAsync(FaxSendRequest faxSendRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'faxSendRequest' is set
             if (faxSendRequest == null)
             {
-                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'faxSendRequest' when calling FaxApi->SendFax");
+                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'faxSendRequest' when calling FaxApi->FaxSend");
             }
 
 
@@ -1165,7 +1177,7 @@ namespace Dropbox.Sign.Api
             }
 
 
-            localVarRequestOptions.Operation = "FaxApi.SendFax";
+            localVarRequestOptions.Operation = "FaxApi.FaxSend";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (api_key) required
@@ -1176,11 +1188,11 @@ namespace Dropbox.Sign.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<FaxResponse>("/fax/send", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<FaxGetResponse>("/fax/send", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("SendFax", localVarResponse);
+                Exception _exception = this.ExceptionFactory("FaxSend", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

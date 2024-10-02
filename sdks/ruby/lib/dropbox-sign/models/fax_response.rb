@@ -18,18 +18,59 @@ end
 
 module Dropbox::Sign
   class FaxResponse
-    # @return [FaxResponseFax]
-    attr_accessor :fax
+    # Fax ID
+    # @return [String]
+    attr_accessor :fax_id
 
-    # A list of warnings.
-    # @return [Array<WarningResponse>]
-    attr_accessor :warnings
+    # Fax Title
+    # @return [String]
+    attr_accessor :title
+
+    # Fax Original Title
+    # @return [String]
+    attr_accessor :original_title
+
+    # Fax Subject
+    # @return [String]
+    attr_accessor :subject
+
+    # Fax Message
+    # @return [String]
+    attr_accessor :message
+
+    # Fax Metadata
+    # @return [Object]
+    attr_accessor :metadata
+
+    # Fax Created At Timestamp
+    # @return [Integer]
+    attr_accessor :created_at
+
+    # Fax Sender Email
+    # @return [String]
+    attr_accessor :from
+
+    # Fax Transmissions List
+    # @return [Array<FaxResponseTransmission>]
+    attr_accessor :transmissions
+
+    # Fax Files URL
+    # @return [String]
+    attr_accessor :files_url
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'fax' => :'fax',
-        :'warnings' => :'warnings'
+        :'fax_id' => :'fax_id',
+        :'title' => :'title',
+        :'original_title' => :'original_title',
+        :'subject' => :'subject',
+        :'message' => :'message',
+        :'metadata' => :'metadata',
+        :'created_at' => :'created_at',
+        :'from' => :'from',
+        :'transmissions' => :'transmissions',
+        :'files_url' => :'files_url'
       }
     end
 
@@ -41,8 +82,16 @@ module Dropbox::Sign
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'fax' => :'FaxResponseFax',
-        :'warnings' => :'Array<WarningResponse>'
+        :'fax_id' => :'String',
+        :'title' => :'String',
+        :'original_title' => :'String',
+        :'subject' => :'String',
+        :'message' => :'String',
+        :'metadata' => :'Object',
+        :'created_at' => :'Integer',
+        :'from' => :'String',
+        :'transmissions' => :'Array<FaxResponseTransmission>',
+        :'files_url' => :'String'
       }
     end
 
@@ -92,14 +141,46 @@ module Dropbox::Sign
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'fax')
-        self.fax = attributes[:'fax']
+      if attributes.key?(:'fax_id')
+        self.fax_id = attributes[:'fax_id']
       end
 
-      if attributes.key?(:'warnings')
-        if (value = attributes[:'warnings']).is_a?(Array)
-          self.warnings = value
+      if attributes.key?(:'title')
+        self.title = attributes[:'title']
+      end
+
+      if attributes.key?(:'original_title')
+        self.original_title = attributes[:'original_title']
+      end
+
+      if attributes.key?(:'subject')
+        self.subject = attributes[:'subject']
+      end
+
+      if attributes.key?(:'message')
+        self.message = attributes[:'message']
+      end
+
+      if attributes.key?(:'metadata')
+        self.metadata = attributes[:'metadata']
+      end
+
+      if attributes.key?(:'created_at')
+        self.created_at = attributes[:'created_at']
+      end
+
+      if attributes.key?(:'from')
+        self.from = attributes[:'from']
+      end
+
+      if attributes.key?(:'transmissions')
+        if (value = attributes[:'transmissions']).is_a?(Array)
+          self.transmissions = value
         end
+      end
+
+      if attributes.key?(:'files_url')
+        self.files_url = attributes[:'files_url']
       end
     end
 
@@ -107,17 +188,12 @@ module Dropbox::Sign
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @fax.nil?
-        invalid_properties.push('invalid value for "fax", fax cannot be nil.')
-      end
-
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @fax.nil?
       true
     end
 
@@ -126,8 +202,16 @@ module Dropbox::Sign
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          fax == o.fax &&
-          warnings == o.warnings
+          fax_id == o.fax_id &&
+          title == o.title &&
+          original_title == o.original_title &&
+          subject == o.subject &&
+          message == o.message &&
+          metadata == o.metadata &&
+          created_at == o.created_at &&
+          from == o.from &&
+          transmissions == o.transmissions &&
+          files_url == o.files_url
     end
 
     # @see the `==` method
@@ -139,7 +223,7 @@ module Dropbox::Sign
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [fax, warnings].hash
+      [fax_id, title, original_title, subject, message, metadata, created_at, from, transmissions, files_url].hash
     end
 
     # Builds the object from hash

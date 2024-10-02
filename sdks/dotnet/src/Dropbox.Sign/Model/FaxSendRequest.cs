@@ -41,24 +41,27 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FaxSendRequest" /> class.
         /// </summary>
-        /// <param name="to">Fax Send To Recipient.</param>
+        /// <param name="to">Fax Send To Recipient (required).</param>
         /// <param name="from">Fax Send From Sender (used only with fax number).</param>
-        /// <param name="file">Fax File to Send.</param>
-        /// <param name="fileUrl">Fax File URL to Send.</param>
-        /// <param name="fileUrlNames">Fax File URL Names.</param>
-        /// <param name="testMode">API Test Mode Setting.</param>
+        /// <param name="files">Fax File to Send.</param>
+        /// <param name="fileUrls">Fax File URL to Send.</param>
+        /// <param name="testMode">API Test Mode Setting (default to false).</param>
         /// <param name="coverPageTo">Fax Cover Page for Recipient.</param>
         /// <param name="coverPageFrom">Fax Cover Page for Sender.</param>
         /// <param name="coverPageMessage">Fax Cover Page Message.</param>
         /// <param name="title">Fax Title.</param>
-        public FaxSendRequest(string to = default(string), string from = default(string), List<SubFile> file = default(List<SubFile>), List<string> fileUrl = default(List<string>), List<string> fileUrlNames = default(List<string>), bool testMode = default(bool), string coverPageTo = default(string), string coverPageFrom = default(string), string coverPageMessage = default(string), string title = default(string))
+        public FaxSendRequest(string to = default(string), string from = default(string), List<System.IO.Stream> files = default(List<System.IO.Stream>), List<string> fileUrls = default(List<string>), bool testMode = false, string coverPageTo = default(string), string coverPageFrom = default(string), string coverPageMessage = default(string), string title = default(string))
         {
 
+            // to ensure "to" is required (not null)
+            if (to == null)
+            {
+                throw new ArgumentNullException("to is a required property for FaxSendRequest and cannot be null");
+            }
             this.To = to;
             this.From = from;
-            this.File = file;
-            this.FileUrl = fileUrl;
-            this.FileUrlNames = fileUrlNames;
+            this.Files = files;
+            this.FileUrls = fileUrls;
             this.TestMode = testMode;
             this.CoverPageTo = coverPageTo;
             this.CoverPageFrom = coverPageFrom;
@@ -87,7 +90,7 @@ namespace Dropbox.Sign.Model
         /// </summary>
         /// <value>Fax Send To Recipient</value>
         /// <example>recipient@example.com</example>
-        [DataMember(Name = "to", EmitDefaultValue = true)]
+        [DataMember(Name = "to", IsRequired = true, EmitDefaultValue = true)]
         public string To { get; set; }
 
         /// <summary>
@@ -102,28 +105,20 @@ namespace Dropbox.Sign.Model
         /// Fax File to Send
         /// </summary>
         /// <value>Fax File to Send</value>
-        [DataMember(Name = "file", EmitDefaultValue = true)]
-        public List<SubFile> File { get; set; }
+        [DataMember(Name = "files", EmitDefaultValue = true)]
+        public List<System.IO.Stream> Files { get; set; }
 
         /// <summary>
         /// Fax File URL to Send
         /// </summary>
         /// <value>Fax File URL to Send</value>
-        [DataMember(Name = "file_url", EmitDefaultValue = true)]
-        public List<string> FileUrl { get; set; }
-
-        /// <summary>
-        /// Fax File URL Names
-        /// </summary>
-        /// <value>Fax File URL Names</value>
-        [DataMember(Name = "file_url_names", EmitDefaultValue = true)]
-        public List<string> FileUrlNames { get; set; }
+        [DataMember(Name = "file_urls", EmitDefaultValue = true)]
+        public List<string> FileUrls { get; set; }
 
         /// <summary>
         /// API Test Mode Setting
         /// </summary>
         /// <value>API Test Mode Setting</value>
-        /// <example>false</example>
         [DataMember(Name = "test_mode", EmitDefaultValue = true)]
         public bool TestMode { get; set; }
 
@@ -169,9 +164,8 @@ namespace Dropbox.Sign.Model
             sb.Append("class FaxSendRequest {\n");
             sb.Append("  To: ").Append(To).Append("\n");
             sb.Append("  From: ").Append(From).Append("\n");
-            sb.Append("  File: ").Append(File).Append("\n");
-            sb.Append("  FileUrl: ").Append(FileUrl).Append("\n");
-            sb.Append("  FileUrlNames: ").Append(FileUrlNames).Append("\n");
+            sb.Append("  Files: ").Append(Files).Append("\n");
+            sb.Append("  FileUrls: ").Append(FileUrls).Append("\n");
             sb.Append("  TestMode: ").Append(TestMode).Append("\n");
             sb.Append("  CoverPageTo: ").Append(CoverPageTo).Append("\n");
             sb.Append("  CoverPageFrom: ").Append(CoverPageFrom).Append("\n");
@@ -223,22 +217,16 @@ namespace Dropbox.Sign.Model
                     this.From.Equals(input.From))
                 ) &&
                 (
-                    this.File == input.File ||
-                    this.File != null &&
-                    input.File != null &&
-                    this.File.SequenceEqual(input.File)
+                    this.Files == input.Files ||
+                    this.Files != null &&
+                    input.Files != null &&
+                    this.Files.SequenceEqual(input.Files)
                 ) &&
                 (
-                    this.FileUrl == input.FileUrl ||
-                    this.FileUrl != null &&
-                    input.FileUrl != null &&
-                    this.FileUrl.SequenceEqual(input.FileUrl)
-                ) &&
-                (
-                    this.FileUrlNames == input.FileUrlNames ||
-                    this.FileUrlNames != null &&
-                    input.FileUrlNames != null &&
-                    this.FileUrlNames.SequenceEqual(input.FileUrlNames)
+                    this.FileUrls == input.FileUrls ||
+                    this.FileUrls != null &&
+                    input.FileUrls != null &&
+                    this.FileUrls.SequenceEqual(input.FileUrls)
                 ) &&
                 (
                     this.TestMode == input.TestMode ||
@@ -283,17 +271,13 @@ namespace Dropbox.Sign.Model
                 {
                     hashCode = (hashCode * 59) + this.From.GetHashCode();
                 }
-                if (this.File != null)
+                if (this.Files != null)
                 {
-                    hashCode = (hashCode * 59) + this.File.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Files.GetHashCode();
                 }
-                if (this.FileUrl != null)
+                if (this.FileUrls != null)
                 {
-                    hashCode = (hashCode * 59) + this.FileUrl.GetHashCode();
-                }
-                if (this.FileUrlNames != null)
-                {
-                    hashCode = (hashCode * 59) + this.FileUrlNames.GetHashCode();
+                    hashCode = (hashCode * 59) + this.FileUrls.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.TestMode.GetHashCode();
                 if (this.CoverPageTo != null)
@@ -344,24 +328,17 @@ namespace Dropbox.Sign.Model
             });
             types.Add(new OpenApiType()
             {
-                Name = "file",
-                Property = "File",
-                Type = "List<SubFile>",
-                Value = File,
+                Name = "files",
+                Property = "Files",
+                Type = "List<System.IO.Stream>",
+                Value = Files,
             });
             types.Add(new OpenApiType()
             {
-                Name = "file_url",
-                Property = "FileUrl",
+                Name = "file_urls",
+                Property = "FileUrls",
                 Type = "List<string>",
-                Value = FileUrl,
-            });
-            types.Add(new OpenApiType()
-            {
-                Name = "file_url_names",
-                Property = "FileUrlNames",
-                Type = "List<string>",
-                Value = FileUrlNames,
+                Value = FileUrls,
             });
             types.Add(new OpenApiType()
             {

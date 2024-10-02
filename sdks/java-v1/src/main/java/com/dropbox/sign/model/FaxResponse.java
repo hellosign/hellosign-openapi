@@ -26,17 +26,52 @@ import java.util.Map;
 import java.util.Objects;
 
 /** FaxResponse */
-@JsonPropertyOrder({FaxResponse.JSON_PROPERTY_FAX, FaxResponse.JSON_PROPERTY_WARNINGS})
+@JsonPropertyOrder({
+    FaxResponse.JSON_PROPERTY_FAX_ID,
+    FaxResponse.JSON_PROPERTY_TITLE,
+    FaxResponse.JSON_PROPERTY_ORIGINAL_TITLE,
+    FaxResponse.JSON_PROPERTY_SUBJECT,
+    FaxResponse.JSON_PROPERTY_MESSAGE,
+    FaxResponse.JSON_PROPERTY_METADATA,
+    FaxResponse.JSON_PROPERTY_CREATED_AT,
+    FaxResponse.JSON_PROPERTY_FROM,
+    FaxResponse.JSON_PROPERTY_TRANSMISSIONS,
+    FaxResponse.JSON_PROPERTY_FILES_URL
+})
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class FaxResponse {
-    public static final String JSON_PROPERTY_FAX = "fax";
-    private FaxResponseFax fax;
+    public static final String JSON_PROPERTY_FAX_ID = "fax_id";
+    private String faxId;
 
-    public static final String JSON_PROPERTY_WARNINGS = "warnings";
-    private List<WarningResponse> warnings = null;
+    public static final String JSON_PROPERTY_TITLE = "title";
+    private String title;
+
+    public static final String JSON_PROPERTY_ORIGINAL_TITLE = "original_title";
+    private String originalTitle;
+
+    public static final String JSON_PROPERTY_SUBJECT = "subject";
+    private String subject;
+
+    public static final String JSON_PROPERTY_MESSAGE = "message";
+    private String message;
+
+    public static final String JSON_PROPERTY_METADATA = "metadata";
+    private Object metadata;
+
+    public static final String JSON_PROPERTY_CREATED_AT = "created_at";
+    private Integer createdAt;
+
+    public static final String JSON_PROPERTY_FROM = "from";
+    private String from;
+
+    public static final String JSON_PROPERTY_TRANSMISSIONS = "transmissions";
+    private List<FaxResponseTransmission> transmissions = null;
+
+    public static final String JSON_PROPERTY_FILES_URL = "files_url";
+    private String filesUrl;
 
     public FaxResponse() {}
 
@@ -54,57 +89,232 @@ public class FaxResponse {
                 .readValue(new ObjectMapper().writeValueAsString(data), FaxResponse.class);
     }
 
-    public FaxResponse fax(FaxResponseFax fax) {
-        this.fax = fax;
+    public FaxResponse faxId(String faxId) {
+        this.faxId = faxId;
         return this;
     }
 
     /**
-     * Get fax
+     * Fax ID
      *
-     * @return fax
+     * @return faxId
      */
-    @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_FAX)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public FaxResponseFax getFax() {
-        return fax;
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_FAX_ID)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public String getFaxId() {
+        return faxId;
     }
 
-    @JsonProperty(JSON_PROPERTY_FAX)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setFax(FaxResponseFax fax) {
-        this.fax = fax;
+    @JsonProperty(JSON_PROPERTY_FAX_ID)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public void setFaxId(String faxId) {
+        this.faxId = faxId;
     }
 
-    public FaxResponse warnings(List<WarningResponse> warnings) {
-        this.warnings = warnings;
+    public FaxResponse title(String title) {
+        this.title = title;
         return this;
     }
 
-    public FaxResponse addWarningsItem(WarningResponse warningsItem) {
-        if (this.warnings == null) {
-            this.warnings = new ArrayList<>();
+    /**
+     * Fax Title
+     *
+     * @return title
+     */
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_TITLE)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public String getTitle() {
+        return title;
+    }
+
+    @JsonProperty(JSON_PROPERTY_TITLE)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public FaxResponse originalTitle(String originalTitle) {
+        this.originalTitle = originalTitle;
+        return this;
+    }
+
+    /**
+     * Fax Original Title
+     *
+     * @return originalTitle
+     */
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_ORIGINAL_TITLE)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public String getOriginalTitle() {
+        return originalTitle;
+    }
+
+    @JsonProperty(JSON_PROPERTY_ORIGINAL_TITLE)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public void setOriginalTitle(String originalTitle) {
+        this.originalTitle = originalTitle;
+    }
+
+    public FaxResponse subject(String subject) {
+        this.subject = subject;
+        return this;
+    }
+
+    /**
+     * Fax Subject
+     *
+     * @return subject
+     */
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_SUBJECT)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public String getSubject() {
+        return subject;
+    }
+
+    @JsonProperty(JSON_PROPERTY_SUBJECT)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public void setSubject(String subject) {
+        this.subject = subject;
+    }
+
+    public FaxResponse message(String message) {
+        this.message = message;
+        return this;
+    }
+
+    /**
+     * Fax Message
+     *
+     * @return message
+     */
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_MESSAGE)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public String getMessage() {
+        return message;
+    }
+
+    @JsonProperty(JSON_PROPERTY_MESSAGE)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public FaxResponse metadata(Object metadata) {
+        this.metadata = metadata;
+        return this;
+    }
+
+    /**
+     * Fax Metadata
+     *
+     * @return metadata
+     */
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_METADATA)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public Object getMetadata() {
+        return metadata;
+    }
+
+    @JsonProperty(JSON_PROPERTY_METADATA)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public void setMetadata(Object metadata) {
+        this.metadata = metadata;
+    }
+
+    public FaxResponse createdAt(Integer createdAt) {
+        this.createdAt = createdAt;
+        return this;
+    }
+
+    /**
+     * Fax Created At Timestamp
+     *
+     * @return createdAt
+     */
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_CREATED_AT)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public Integer getCreatedAt() {
+        return createdAt;
+    }
+
+    @JsonProperty(JSON_PROPERTY_CREATED_AT)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public void setCreatedAt(Integer createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public FaxResponse from(String from) {
+        this.from = from;
+        return this;
+    }
+
+    /**
+     * Fax Sender Email
+     *
+     * @return from
+     */
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_FROM)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public String getFrom() {
+        return from;
+    }
+
+    @JsonProperty(JSON_PROPERTY_FROM)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public void setFrom(String from) {
+        this.from = from;
+    }
+
+    public FaxResponse transmissions(List<FaxResponseTransmission> transmissions) {
+        this.transmissions = transmissions;
+        return this;
+    }
+
+    public FaxResponse addTransmissionsItem(FaxResponseTransmission transmissionsItem) {
+        if (this.transmissions == null) {
+            this.transmissions = new ArrayList<>();
         }
-        this.warnings.add(warningsItem);
+        this.transmissions.add(transmissionsItem);
         return this;
     }
 
     /**
-     * A list of warnings.
+     * Fax Transmissions List
      *
-     * @return warnings
+     * @return transmissions
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_WARNINGS)
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_TRANSMISSIONS)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public List<WarningResponse> getWarnings() {
-        return warnings;
+    public List<FaxResponseTransmission> getTransmissions() {
+        return transmissions;
     }
 
-    @JsonProperty(JSON_PROPERTY_WARNINGS)
+    @JsonProperty(JSON_PROPERTY_TRANSMISSIONS)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setWarnings(List<WarningResponse> warnings) {
-        this.warnings = warnings;
+    public void setTransmissions(List<FaxResponseTransmission> transmissions) {
+        this.transmissions = transmissions;
+    }
+
+    public FaxResponse filesUrl(String filesUrl) {
+        this.filesUrl = filesUrl;
+        return this;
+    }
+
+    /**
+     * Fax Files URL
+     *
+     * @return filesUrl
+     */
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_FILES_URL)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public String getFilesUrl() {
+        return filesUrl;
+    }
+
+    @JsonProperty(JSON_PROPERTY_FILES_URL)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public void setFilesUrl(String filesUrl) {
+        this.filesUrl = filesUrl;
     }
 
     /** Return true if this FaxResponse object is equal to o. */
@@ -117,21 +327,47 @@ public class FaxResponse {
             return false;
         }
         FaxResponse faxResponse = (FaxResponse) o;
-        return Objects.equals(this.fax, faxResponse.fax)
-                && Objects.equals(this.warnings, faxResponse.warnings);
+        return Objects.equals(this.faxId, faxResponse.faxId)
+                && Objects.equals(this.title, faxResponse.title)
+                && Objects.equals(this.originalTitle, faxResponse.originalTitle)
+                && Objects.equals(this.subject, faxResponse.subject)
+                && Objects.equals(this.message, faxResponse.message)
+                && Objects.equals(this.metadata, faxResponse.metadata)
+                && Objects.equals(this.createdAt, faxResponse.createdAt)
+                && Objects.equals(this.from, faxResponse.from)
+                && Objects.equals(this.transmissions, faxResponse.transmissions)
+                && Objects.equals(this.filesUrl, faxResponse.filesUrl);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(fax, warnings);
+        return Objects.hash(
+                faxId,
+                title,
+                originalTitle,
+                subject,
+                message,
+                metadata,
+                createdAt,
+                from,
+                transmissions,
+                filesUrl);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class FaxResponse {\n");
-        sb.append("    fax: ").append(toIndentedString(fax)).append("\n");
-        sb.append("    warnings: ").append(toIndentedString(warnings)).append("\n");
+        sb.append("    faxId: ").append(toIndentedString(faxId)).append("\n");
+        sb.append("    title: ").append(toIndentedString(title)).append("\n");
+        sb.append("    originalTitle: ").append(toIndentedString(originalTitle)).append("\n");
+        sb.append("    subject: ").append(toIndentedString(subject)).append("\n");
+        sb.append("    message: ").append(toIndentedString(message)).append("\n");
+        sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
+        sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
+        sb.append("    from: ").append(toIndentedString(from)).append("\n");
+        sb.append("    transmissions: ").append(toIndentedString(transmissions)).append("\n");
+        sb.append("    filesUrl: ").append(toIndentedString(filesUrl)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -140,40 +376,192 @@ public class FaxResponse {
         Map<String, Object> map = new HashMap<>();
         boolean fileTypeFound = false;
         try {
-            if (fax != null) {
-                if (isFileTypeOrListOfFiles(fax)) {
+            if (faxId != null) {
+                if (isFileTypeOrListOfFiles(faxId)) {
                     fileTypeFound = true;
                 }
 
-                if (fax.getClass().equals(java.io.File.class)
-                        || fax.getClass().equals(Integer.class)
-                        || fax.getClass().equals(String.class)
-                        || fax.getClass().isEnum()) {
-                    map.put("fax", fax);
-                } else if (isListOfFile(fax)) {
-                    for (int i = 0; i < getListSize(fax); i++) {
-                        map.put("fax[" + i + "]", getFromList(fax, i));
+                if (faxId.getClass().equals(java.io.File.class)
+                        || faxId.getClass().equals(Integer.class)
+                        || faxId.getClass().equals(String.class)
+                        || faxId.getClass().isEnum()) {
+                    map.put("fax_id", faxId);
+                } else if (isListOfFile(faxId)) {
+                    for (int i = 0; i < getListSize(faxId); i++) {
+                        map.put("fax_id[" + i + "]", getFromList(faxId, i));
                     }
                 } else {
-                    map.put("fax", JSON.getDefault().getMapper().writeValueAsString(fax));
+                    map.put("fax_id", JSON.getDefault().getMapper().writeValueAsString(faxId));
                 }
             }
-            if (warnings != null) {
-                if (isFileTypeOrListOfFiles(warnings)) {
+            if (title != null) {
+                if (isFileTypeOrListOfFiles(title)) {
                     fileTypeFound = true;
                 }
 
-                if (warnings.getClass().equals(java.io.File.class)
-                        || warnings.getClass().equals(Integer.class)
-                        || warnings.getClass().equals(String.class)
-                        || warnings.getClass().isEnum()) {
-                    map.put("warnings", warnings);
-                } else if (isListOfFile(warnings)) {
-                    for (int i = 0; i < getListSize(warnings); i++) {
-                        map.put("warnings[" + i + "]", getFromList(warnings, i));
+                if (title.getClass().equals(java.io.File.class)
+                        || title.getClass().equals(Integer.class)
+                        || title.getClass().equals(String.class)
+                        || title.getClass().isEnum()) {
+                    map.put("title", title);
+                } else if (isListOfFile(title)) {
+                    for (int i = 0; i < getListSize(title); i++) {
+                        map.put("title[" + i + "]", getFromList(title, i));
                     }
                 } else {
-                    map.put("warnings", JSON.getDefault().getMapper().writeValueAsString(warnings));
+                    map.put("title", JSON.getDefault().getMapper().writeValueAsString(title));
+                }
+            }
+            if (originalTitle != null) {
+                if (isFileTypeOrListOfFiles(originalTitle)) {
+                    fileTypeFound = true;
+                }
+
+                if (originalTitle.getClass().equals(java.io.File.class)
+                        || originalTitle.getClass().equals(Integer.class)
+                        || originalTitle.getClass().equals(String.class)
+                        || originalTitle.getClass().isEnum()) {
+                    map.put("original_title", originalTitle);
+                } else if (isListOfFile(originalTitle)) {
+                    for (int i = 0; i < getListSize(originalTitle); i++) {
+                        map.put("original_title[" + i + "]", getFromList(originalTitle, i));
+                    }
+                } else {
+                    map.put(
+                            "original_title",
+                            JSON.getDefault().getMapper().writeValueAsString(originalTitle));
+                }
+            }
+            if (subject != null) {
+                if (isFileTypeOrListOfFiles(subject)) {
+                    fileTypeFound = true;
+                }
+
+                if (subject.getClass().equals(java.io.File.class)
+                        || subject.getClass().equals(Integer.class)
+                        || subject.getClass().equals(String.class)
+                        || subject.getClass().isEnum()) {
+                    map.put("subject", subject);
+                } else if (isListOfFile(subject)) {
+                    for (int i = 0; i < getListSize(subject); i++) {
+                        map.put("subject[" + i + "]", getFromList(subject, i));
+                    }
+                } else {
+                    map.put("subject", JSON.getDefault().getMapper().writeValueAsString(subject));
+                }
+            }
+            if (message != null) {
+                if (isFileTypeOrListOfFiles(message)) {
+                    fileTypeFound = true;
+                }
+
+                if (message.getClass().equals(java.io.File.class)
+                        || message.getClass().equals(Integer.class)
+                        || message.getClass().equals(String.class)
+                        || message.getClass().isEnum()) {
+                    map.put("message", message);
+                } else if (isListOfFile(message)) {
+                    for (int i = 0; i < getListSize(message); i++) {
+                        map.put("message[" + i + "]", getFromList(message, i));
+                    }
+                } else {
+                    map.put("message", JSON.getDefault().getMapper().writeValueAsString(message));
+                }
+            }
+            if (metadata != null) {
+                if (isFileTypeOrListOfFiles(metadata)) {
+                    fileTypeFound = true;
+                }
+
+                if (metadata.getClass().equals(java.io.File.class)
+                        || metadata.getClass().equals(Integer.class)
+                        || metadata.getClass().equals(String.class)
+                        || metadata.getClass().isEnum()) {
+                    map.put("metadata", metadata);
+                } else if (isListOfFile(metadata)) {
+                    for (int i = 0; i < getListSize(metadata); i++) {
+                        map.put("metadata[" + i + "]", getFromList(metadata, i));
+                    }
+                } else {
+                    map.put("metadata", JSON.getDefault().getMapper().writeValueAsString(metadata));
+                }
+            }
+            if (createdAt != null) {
+                if (isFileTypeOrListOfFiles(createdAt)) {
+                    fileTypeFound = true;
+                }
+
+                if (createdAt.getClass().equals(java.io.File.class)
+                        || createdAt.getClass().equals(Integer.class)
+                        || createdAt.getClass().equals(String.class)
+                        || createdAt.getClass().isEnum()) {
+                    map.put("created_at", createdAt);
+                } else if (isListOfFile(createdAt)) {
+                    for (int i = 0; i < getListSize(createdAt); i++) {
+                        map.put("created_at[" + i + "]", getFromList(createdAt, i));
+                    }
+                } else {
+                    map.put(
+                            "created_at",
+                            JSON.getDefault().getMapper().writeValueAsString(createdAt));
+                }
+            }
+            if (from != null) {
+                if (isFileTypeOrListOfFiles(from)) {
+                    fileTypeFound = true;
+                }
+
+                if (from.getClass().equals(java.io.File.class)
+                        || from.getClass().equals(Integer.class)
+                        || from.getClass().equals(String.class)
+                        || from.getClass().isEnum()) {
+                    map.put("from", from);
+                } else if (isListOfFile(from)) {
+                    for (int i = 0; i < getListSize(from); i++) {
+                        map.put("from[" + i + "]", getFromList(from, i));
+                    }
+                } else {
+                    map.put("from", JSON.getDefault().getMapper().writeValueAsString(from));
+                }
+            }
+            if (transmissions != null) {
+                if (isFileTypeOrListOfFiles(transmissions)) {
+                    fileTypeFound = true;
+                }
+
+                if (transmissions.getClass().equals(java.io.File.class)
+                        || transmissions.getClass().equals(Integer.class)
+                        || transmissions.getClass().equals(String.class)
+                        || transmissions.getClass().isEnum()) {
+                    map.put("transmissions", transmissions);
+                } else if (isListOfFile(transmissions)) {
+                    for (int i = 0; i < getListSize(transmissions); i++) {
+                        map.put("transmissions[" + i + "]", getFromList(transmissions, i));
+                    }
+                } else {
+                    map.put(
+                            "transmissions",
+                            JSON.getDefault().getMapper().writeValueAsString(transmissions));
+                }
+            }
+            if (filesUrl != null) {
+                if (isFileTypeOrListOfFiles(filesUrl)) {
+                    fileTypeFound = true;
+                }
+
+                if (filesUrl.getClass().equals(java.io.File.class)
+                        || filesUrl.getClass().equals(Integer.class)
+                        || filesUrl.getClass().equals(String.class)
+                        || filesUrl.getClass().isEnum()) {
+                    map.put("files_url", filesUrl);
+                } else if (isListOfFile(filesUrl)) {
+                    for (int i = 0; i < getListSize(filesUrl); i++) {
+                        map.put("files_url[" + i + "]", getFromList(filesUrl, i));
+                    }
+                } else {
+                    map.put(
+                            "files_url",
+                            JSON.getDefault().getMapper().writeValueAsString(filesUrl));
                 }
             }
         } catch (Exception e) {

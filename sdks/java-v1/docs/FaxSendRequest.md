@@ -8,11 +8,10 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-| `to` | ```String``` |  Fax Send To Recipient  |  |
+| `to`<sup>*_required_</sup> | ```String``` |  Fax Send To Recipient  |  |
 | `from` | ```String``` |  Fax Send From Sender (used only with fax number)  |  |
-| `_file` | [```List<SubFile>```](SubFile.md) |  Fax File to Send  |  |
-| `fileUrl` | ```List<String>``` |  Fax File URL to Send  |  |
-| `fileUrlNames` | ```List<String>``` |  Fax File URL Names  |  |
+| `files` | ```List<File>``` |  Fax File to Send  |  |
+| `fileUrls` | ```List<String>``` |  Fax File URL to Send  |  |
 | `testMode` | ```Boolean``` |  API Test Mode Setting  |  |
 | `coverPageTo` | ```String``` |  Fax Cover Page for Recipient  |  |
 | `coverPageFrom` | ```String``` |  Fax Cover Page for Sender  |  |

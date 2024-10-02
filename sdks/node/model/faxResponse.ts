@@ -23,28 +23,102 @@
  */
 
 import { AttributeTypeMap, ObjectSerializer } from "./";
-import { FaxResponseFax } from "./faxResponseFax";
-import { WarningResponse } from "./warningResponse";
+import { FaxResponseTransmission } from "./faxResponseTransmission";
 
 export class FaxResponse {
-  "fax": FaxResponseFax;
   /**
-   * A list of warnings.
+   * Fax ID
    */
-  "warnings"?: Array<WarningResponse>;
+  "faxId"?: string;
+  /**
+   * Fax Title
+   */
+  "title"?: string;
+  /**
+   * Fax Original Title
+   */
+  "originalTitle"?: string;
+  /**
+   * Fax Subject
+   */
+  "subject"?: string;
+  /**
+   * Fax Message
+   */
+  "message"?: string;
+  /**
+   * Fax Metadata
+   */
+  "metadata"?: object;
+  /**
+   * Fax Created At Timestamp
+   */
+  "createdAt"?: number;
+  /**
+   * Fax Sender Email
+   */
+  "from"?: string;
+  /**
+   * Fax Transmissions List
+   */
+  "transmissions"?: Array<FaxResponseTransmission>;
+  /**
+   * Fax Files URL
+   */
+  "filesUrl"?: string;
 
   static discriminator: string | undefined = undefined;
 
   static attributeTypeMap: AttributeTypeMap = [
     {
-      name: "fax",
-      baseName: "fax",
-      type: "FaxResponseFax",
+      name: "faxId",
+      baseName: "fax_id",
+      type: "string",
     },
     {
-      name: "warnings",
-      baseName: "warnings",
-      type: "Array<WarningResponse>",
+      name: "title",
+      baseName: "title",
+      type: "string",
+    },
+    {
+      name: "originalTitle",
+      baseName: "original_title",
+      type: "string",
+    },
+    {
+      name: "subject",
+      baseName: "subject",
+      type: "string",
+    },
+    {
+      name: "message",
+      baseName: "message",
+      type: "string",
+    },
+    {
+      name: "metadata",
+      baseName: "metadata",
+      type: "object",
+    },
+    {
+      name: "createdAt",
+      baseName: "created_at",
+      type: "number",
+    },
+    {
+      name: "from",
+      baseName: "from",
+      type: "string",
+    },
+    {
+      name: "transmissions",
+      baseName: "transmissions",
+      type: "Array<FaxResponseTransmission>",
+    },
+    {
+      name: "filesUrl",
+      baseName: "files_url",
+      type: "string",
     },
   ];
 

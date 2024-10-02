@@ -6,12 +6,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-| `to` | ```string``` |  Fax Send To Recipient  |  |
+| `to`<sup>*_required_</sup> | ```string``` |  Fax Send To Recipient  |  |
 | `from` | ```string``` |  Fax Send From Sender (used only with fax number)  |  |
-| `file` | [```Array<SubFile>```](SubFile.md) |  Fax File to Send  |  |
-| `fileUrl` | ```Array<string>``` |  Fax File URL to Send  |  |
-| `fileUrlNames` | ```Array<string>``` |  Fax File URL Names  |  |
-| `testMode` | ```boolean``` |  API Test Mode Setting  |  |
+| `files` | ```Array<RequestFile>``` |  Fax File to Send  |  |
+| `fileUrls` | ```Array<string>``` |  Fax File URL to Send  |  |
+| `testMode` | ```boolean``` |  API Test Mode Setting  |  [default to false] |
 | `coverPageTo` | ```string``` |  Fax Cover Page for Recipient  |  |
 | `coverPageFrom` | ```string``` |  Fax Cover Page for Sender  |  |
 | `coverPageMessage` | ```string``` |  Fax Cover Page Message  |  |

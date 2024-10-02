@@ -33,7 +33,7 @@ import java.util.Objects;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class FaxListResponse {
     public static final String JSON_PROPERTY_FAXES = "faxes";
-    private List<FaxResponseFax> faxes = new ArrayList<>();
+    private List<FaxResponse> faxes = new ArrayList<>();
 
     public static final String JSON_PROPERTY_LIST_INFO = "list_info";
     private ListInfoResponse listInfo;
@@ -54,12 +54,12 @@ public class FaxListResponse {
                 .readValue(new ObjectMapper().writeValueAsString(data), FaxListResponse.class);
     }
 
-    public FaxListResponse faxes(List<FaxResponseFax> faxes) {
+    public FaxListResponse faxes(List<FaxResponse> faxes) {
         this.faxes = faxes;
         return this;
     }
 
-    public FaxListResponse addFaxesItem(FaxResponseFax faxesItem) {
+    public FaxListResponse addFaxesItem(FaxResponse faxesItem) {
         if (this.faxes == null) {
             this.faxes = new ArrayList<>();
         }
@@ -75,13 +75,13 @@ public class FaxListResponse {
     @javax.annotation.Nonnull
     @JsonProperty(JSON_PROPERTY_FAXES)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public List<FaxResponseFax> getFaxes() {
+    public List<FaxResponse> getFaxes() {
         return faxes;
     }
 
     @JsonProperty(JSON_PROPERTY_FAXES)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setFaxes(List<FaxResponseFax> faxes) {
+    public void setFaxes(List<FaxResponse> faxes) {
         this.faxes = faxes;
     }
 

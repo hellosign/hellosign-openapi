@@ -4,16 +4,16 @@ All URIs are relative to *https://api.hellosign.com/v3*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [`delete_fax`](FaxApi.md#delete_fax) | **DELETE** `/fax/{fax_id}` | Delete Fax |
-| [`get_fax_by_id`](FaxApi.md#get_fax_by_id) | **GET** `/fax/{fax_id}` | Get Fax |
-| [`get_fax_files`](FaxApi.md#get_fax_files) | **GET** `/fax/files/{fax_id}` | List Fax Files |
-| [`list_faxes`](FaxApi.md#list_faxes) | **GET** `/fax/list` | Lists Faxes |
-| [`send_fax`](FaxApi.md#send_fax) | **POST** `/fax/send` | Send Fax |
+| [`fax_delete`](FaxApi.md#fax_delete) | **DELETE** `/fax/{fax_id}` | Delete Fax |
+| [`fax_files`](FaxApi.md#fax_files) | **GET** `/fax/files/{fax_id}` | List Fax Files |
+| [`fax_get`](FaxApi.md#fax_get) | **GET** `/fax/{fax_id}` | Get Fax |
+| [`fax_list`](FaxApi.md#fax_list) | **GET** `/fax/list` | Lists Faxes |
+| [`fax_send`](FaxApi.md#fax_send) | **POST** `/fax/send` | Send Fax |
 
 
-## `delete_fax`
+## `fax_delete`
 
-> `delete_fax(fax_id)`
+> `fax_delete(fax_id)`
 
 Delete Fax
 
@@ -39,21 +39,21 @@ end
 
 ```
 
-#### Using the `delete_fax_with_http_info` variant
+#### Using the `fax_delete_with_http_info` variant
 
 This returns an Array which contains the response data (`nil` in this case), status code and headers.
 
-> `<Array(nil, Integer, Hash)> delete_fax_with_http_info(fax_id)`
+> `<Array(nil, Integer, Hash)> fax_delete_with_http_info(fax_id)`
 
 ```ruby
 begin
   # Delete Fax
-  data, status_code, headers = api_instance.delete_fax_with_http_info(fax_id)
+  data, status_code, headers = api_instance.fax_delete_with_http_info(fax_id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => nil
 rescue Dropbox::Sign::ApiError => e
-  puts "Error when calling FaxApi->delete_fax_with_http_info: #{e}"
+  puts "Error when calling FaxApi->fax_delete_with_http_info: #{e}"
 end
 ```
 
@@ -77,78 +77,9 @@ nil (empty response body)
 - **Accept**: application/json
 
 
-## `get_fax_by_id`
+## `fax_files`
 
-> `<FaxResponse> get_fax_by_id(fax_id)`
-
-Get Fax
-
-Returns information about fax
-
-### Examples
-
-```ruby
-require "dropbox-sign"
-
-Dropbox::Sign.configure do |config|
-  # Configure HTTP basic authorization: api_key
-  config.username = "YOUR_API_KEY"
-end
-
-fax_api = Dropbox::Sign::FaxApi.new
-
-fax_id = "fa5c8a0b0f492d768749333ad6fcc214c111e967"
-
-begin
-  result = fax_api.get_fax_by_id(fax_id)
-  p result
-rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling Dropbox Sign API: #{e}"
-end
-
-```
-
-#### Using the `get_fax_by_id_with_http_info` variant
-
-This returns an Array which contains the response data, status code and headers.
-
-> `<Array(<FaxResponse>, Integer, Hash)> get_fax_by_id_with_http_info(fax_id)`
-
-```ruby
-begin
-  # Get Fax
-  data, status_code, headers = api_instance.get_fax_by_id_with_http_info(fax_id)
-  p status_code # => 2xx
-  p headers # => { ... }
-  p data # => <FaxResponse>
-rescue Dropbox::Sign::ApiError => e
-  puts "Error when calling FaxApi->get_fax_by_id_with_http_info: #{e}"
-end
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| `fax_id` | **String** | Fax ID |  |
-
-### Return type
-
-[**FaxResponse**](FaxResponse.md)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## `get_fax_files`
-
-> `File get_fax_files(fax_id)`
+> `File fax_files(fax_id)`
 
 List Fax Files
 
@@ -177,21 +108,21 @@ end
 
 ```
 
-#### Using the `get_fax_files_with_http_info` variant
+#### Using the `fax_files_with_http_info` variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> `<Array(File, Integer, Hash)> get_fax_files_with_http_info(fax_id)`
+> `<Array(File, Integer, Hash)> fax_files_with_http_info(fax_id)`
 
 ```ruby
 begin
   # List Fax Files
-  data, status_code, headers = api_instance.get_fax_files_with_http_info(fax_id)
+  data, status_code, headers = api_instance.fax_files_with_http_info(fax_id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => File
 rescue Dropbox::Sign::ApiError => e
-  puts "Error when calling FaxApi->get_fax_files_with_http_info: #{e}"
+  puts "Error when calling FaxApi->fax_files_with_http_info: #{e}"
 end
 ```
 
@@ -215,9 +146,78 @@ end
 - **Accept**: application/pdf, application/json
 
 
-## `list_faxes`
+## `fax_get`
 
-> `<FaxListResponse> list_faxes(page, page_size)`
+> `<FaxGetResponse> fax_get(fax_id)`
+
+Get Fax
+
+Returns information about fax
+
+### Examples
+
+```ruby
+require "dropbox-sign"
+
+Dropbox::Sign.configure do |config|
+  # Configure HTTP basic authorization: api_key
+  config.username = "YOUR_API_KEY"
+end
+
+fax_api = Dropbox::Sign::FaxApi.new
+
+fax_id = "fa5c8a0b0f492d768749333ad6fcc214c111e967"
+
+begin
+  result = fax_api.get_fax_by_id(fax_id)
+  p result
+rescue Dropbox::Sign::ApiError => e
+  puts "Exception when calling Dropbox Sign API: #{e}"
+end
+
+```
+
+#### Using the `fax_get_with_http_info` variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> `<Array(<FaxGetResponse>, Integer, Hash)> fax_get_with_http_info(fax_id)`
+
+```ruby
+begin
+  # Get Fax
+  data, status_code, headers = api_instance.fax_get_with_http_info(fax_id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <FaxGetResponse>
+rescue Dropbox::Sign::ApiError => e
+  puts "Error when calling FaxApi->fax_get_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| `fax_id` | **String** | Fax ID |  |
+
+### Return type
+
+[**FaxGetResponse**](FaxGetResponse.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## `fax_list`
+
+> `<FaxListResponse> fax_list(opts)`
 
 Lists Faxes
 
@@ -247,21 +247,21 @@ end
 
 ```
 
-#### Using the `list_faxes_with_http_info` variant
+#### Using the `fax_list_with_http_info` variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> `<Array(<FaxListResponse>, Integer, Hash)> list_faxes_with_http_info(page, page_size)`
+> `<Array(<FaxListResponse>, Integer, Hash)> fax_list_with_http_info(opts)`
 
 ```ruby
 begin
   # Lists Faxes
-  data, status_code, headers = api_instance.list_faxes_with_http_info(page, page_size)
+  data, status_code, headers = api_instance.fax_list_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <FaxListResponse>
 rescue Dropbox::Sign::ApiError => e
-  puts "Error when calling FaxApi->list_faxes_with_http_info: #{e}"
+  puts "Error when calling FaxApi->fax_list_with_http_info: #{e}"
 end
 ```
 
@@ -269,8 +269,8 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| `page` | **Integer** | Page |  |
-| `page_size` | **Integer** | Page size |  |
+| `page` | **Integer** | Page | [optional][default to 1] |
+| `page_size` | **Integer** | Page size | [optional][default to 20] |
 
 ### Return type
 
@@ -286,9 +286,9 @@ end
 - **Accept**: application/json
 
 
-## `send_fax`
+## `fax_send`
 
-> `<FaxResponse> send_fax(fax_send_request)`
+> `<FaxGetResponse> fax_send(fax_send_request)`
 
 Send Fax
 
@@ -319,21 +319,21 @@ end
 
 ```
 
-#### Using the `send_fax_with_http_info` variant
+#### Using the `fax_send_with_http_info` variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> `<Array(<FaxResponse>, Integer, Hash)> send_fax_with_http_info(fax_send_request)`
+> `<Array(<FaxGetResponse>, Integer, Hash)> fax_send_with_http_info(fax_send_request)`
 
 ```ruby
 begin
   # Send Fax
-  data, status_code, headers = api_instance.send_fax_with_http_info(fax_send_request)
+  data, status_code, headers = api_instance.fax_send_with_http_info(fax_send_request)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <FaxResponse>
+  p data # => <FaxGetResponse>
 rescue Dropbox::Sign::ApiError => e
-  puts "Error when calling FaxApi->send_fax_with_http_info: #{e}"
+  puts "Error when calling FaxApi->fax_send_with_http_info: #{e}"
 end
 ```
 
@@ -345,7 +345,7 @@ end
 
 ### Return type
 
-[**FaxResponse**](FaxResponse.md)
+[**FaxGetResponse**](FaxGetResponse.md)
 
 ### Authorization
 
@@ -353,6 +353,6 @@ end
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
+- **Content-Type**: application/json, multipart/form-data
 - **Accept**: application/json
 

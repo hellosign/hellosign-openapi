@@ -33,6 +33,7 @@ import { EventCallbackHelper } from "./eventCallbackHelper";
 import { EventCallbackRequest } from "./eventCallbackRequest";
 import { EventCallbackRequestEvent } from "./eventCallbackRequestEvent";
 import { EventCallbackRequestEventMetadata } from "./eventCallbackRequestEventMetadata";
+import { FaxGetResponse } from "./faxGetResponse";
 import { FaxLineAddUserRequest } from "./faxLineAddUserRequest";
 import { FaxLineAreaCodeGetCountryEnum } from "./faxLineAreaCodeGetCountryEnum";
 import { FaxLineAreaCodeGetProvinceEnum } from "./faxLineAreaCodeGetProvinceEnum";
@@ -46,8 +47,7 @@ import { FaxLineResponse } from "./faxLineResponse";
 import { FaxLineResponseFaxLine } from "./faxLineResponseFaxLine";
 import { FaxListResponse } from "./faxListResponse";
 import { FaxResponse } from "./faxResponse";
-import { FaxResponseFax } from "./faxResponseFax";
-import { FaxResponseFaxTransmission } from "./faxResponseFaxTransmission";
+import { FaxResponseTransmission } from "./faxResponseTransmission";
 import { FaxSendRequest } from "./faxSendRequest";
 import { FileResponse } from "./fileResponse";
 import { FileResponseDataUri } from "./fileResponseDataUri";
@@ -106,7 +106,6 @@ import { SubCC } from "./subCC";
 import { SubCustomField } from "./subCustomField";
 import { SubEditorOptions } from "./subEditorOptions";
 import { SubFieldOptions } from "./subFieldOptions";
-import { SubFile } from "./subFile";
 import { SubFormFieldGroup } from "./subFormFieldGroup";
 import { SubFormFieldRule } from "./subFormFieldRule";
 import { SubFormFieldRuleAction } from "./subFormFieldRuleAction";
@@ -285,6 +284,7 @@ export let typeMap: { [index: string]: any } = {
   EventCallbackRequest: EventCallbackRequest,
   EventCallbackRequestEvent: EventCallbackRequestEvent,
   EventCallbackRequestEventMetadata: EventCallbackRequestEventMetadata,
+  FaxGetResponse: FaxGetResponse,
   FaxLineAddUserRequest: FaxLineAddUserRequest,
   FaxLineAreaCodeGetResponse: FaxLineAreaCodeGetResponse,
   FaxLineCreateRequest: FaxLineCreateRequest,
@@ -295,8 +295,7 @@ export let typeMap: { [index: string]: any } = {
   FaxLineResponseFaxLine: FaxLineResponseFaxLine,
   FaxListResponse: FaxListResponse,
   FaxResponse: FaxResponse,
-  FaxResponseFax: FaxResponseFax,
-  FaxResponseFaxTransmission: FaxResponseFaxTransmission,
+  FaxResponseTransmission: FaxResponseTransmission,
   FaxSendRequest: FaxSendRequest,
   FileResponse: FileResponse,
   FileResponseDataUri: FileResponseDataUri,
@@ -355,7 +354,6 @@ export let typeMap: { [index: string]: any } = {
   SubCustomField: SubCustomField,
   SubEditorOptions: SubEditorOptions,
   SubFieldOptions: SubFieldOptions,
-  SubFile: SubFile,
   SubFormFieldGroup: SubFormFieldGroup,
   SubFormFieldRule: SubFormFieldRule,
   SubFormFieldRuleAction: SubFormFieldRuleAction,
@@ -511,6 +509,7 @@ export {
   EventCallbackRequest,
   EventCallbackRequestEvent,
   EventCallbackRequestEventMetadata,
+  FaxGetResponse,
   FaxLineAddUserRequest,
   FaxLineAreaCodeGetCountryEnum,
   FaxLineAreaCodeGetProvinceEnum,
@@ -524,8 +523,7 @@ export {
   FaxLineResponseFaxLine,
   FaxListResponse,
   FaxResponse,
-  FaxResponseFax,
-  FaxResponseFaxTransmission,
+  FaxResponseTransmission,
   FaxSendRequest,
   FileResponse,
   FileResponseDataUri,
@@ -578,7 +576,6 @@ export {
   SubCustomField,
   SubEditorOptions,
   SubFieldOptions,
-  SubFile,
   SubFormFieldGroup,
   SubFormFieldRule,
   SubFormFieldRuleAction,

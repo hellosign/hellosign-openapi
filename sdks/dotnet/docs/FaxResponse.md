@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Fax** | [**FaxResponseFax**](FaxResponseFax.md) |    | **Warnings** | [**List&lt;WarningResponse&gt;**](WarningResponse.md) |  A list of warnings.  | [optional] 
+**FaxId** | **string** |  Fax ID  | [optional] **Title** | **string** |  Fax Title  | [optional] **OriginalTitle** | **string** |  Fax Original Title  | [optional] **Subject** | **string** |  Fax Subject  | [optional] **Message** | **string** |  Fax Message  | [optional] **Metadata** | **Object** |  Fax Metadata  | [optional] **CreatedAt** | **int** |  Fax Created At Timestamp  | [optional] **From** | **string** |  Fax Sender Email  | [optional] **Transmissions** | [**List&lt;FaxResponseTransmission&gt;**](FaxResponseTransmission.md) |  Fax Transmissions List  | [optional] **FilesUrl** | **string** |  Fax Files URL  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

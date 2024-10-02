@@ -27,8 +27,8 @@ module Dropbox::Sign
     # @param fax_id [String] Fax ID
     # @param [Hash] opts the optional parameters
     # @return [nil]
-    def delete_fax(fax_id, opts = {})
-      delete_fax_with_http_info(fax_id, opts)
+    def fax_delete(fax_id, opts = {})
+      fax_delete_with_http_info(fax_id, opts)
       nil
     end
 
@@ -37,13 +37,13 @@ module Dropbox::Sign
     # @param fax_id [String] Fax ID
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def delete_fax_with_http_info(fax_id, opts = {})
+    def fax_delete_with_http_info(fax_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FaxApi.delete_fax ...'
+        @api_client.config.logger.debug 'Calling API: FaxApi.fax_delete ...'
       end
       # verify the required parameter 'fax_id' is set
       if @api_client.config.client_side_validation && fax_id.nil?
-        fail ArgumentError, "Missing the required parameter 'fax_id' when calling FaxApi.delete_fax"
+        fail ArgumentError, "Missing the required parameter 'fax_id' when calling FaxApi.fax_delete"
       end
       # resource path
       local_var_path = '/fax/{fax_id}'.sub('{' + 'fax_id' + '}', CGI.escape(fax_id.to_s))
@@ -69,7 +69,7 @@ module Dropbox::Sign
       auth_names = opts[:debug_auth_names] || ['api_key']
 
       new_options = opts.merge(
-        :operation => :"FaxApi.delete_fax",
+        :operation => :"FaxApi.fax_delete",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -84,101 +84,7 @@ module Dropbox::Sign
       end
 
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FaxApi#delete_fax\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
-    # Get Fax
-    # Returns information about fax
-    # @param fax_id [String] Fax ID
-    # @param [Hash] opts the optional parameters
-    # @return [FaxResponse]
-    def get_fax_by_id(fax_id, opts = {})
-      data, _status_code, _headers = get_fax_by_id_with_http_info(fax_id, opts)
-      data
-    end
-
-    # Get Fax
-    # Returns information about fax
-    # @param fax_id [String] Fax ID
-    # @param [Hash] opts the optional parameters
-    # @return [Array<(FaxResponse, Integer, Hash)>] FaxResponse data, response status code and response headers
-    def get_fax_by_id_with_http_info(fax_id, opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FaxApi.get_fax_by_id ...'
-      end
-      # verify the required parameter 'fax_id' is set
-      if @api_client.config.client_side_validation && fax_id.nil?
-        fail ArgumentError, "Missing the required parameter 'fax_id' when calling FaxApi.get_fax_by_id"
-      end
-      # resource path
-      local_var_path = '/fax/{fax_id}'.sub('{' + 'fax_id' + '}', CGI.escape(fax_id.to_s))
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-
-      # header parameters
-      header_params = opts[:header_params] || {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
-
-      post_body = {}
-      form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:debug_body]
-
-      # return_type
-      return_type = opts[:debug_return_type] || 'FaxResponse'
-
-      # auth_names
-      auth_names = opts[:debug_auth_names] || ['api_key']
-
-      new_options = opts.merge(
-        :operation => :"FaxApi.get_fax_by_id",
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => return_type
-      )
-
-      begin
-        data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
-      rescue Dropbox::Sign::ApiError => e
-        if e.code === 200
-          body = @api_client.convert_to_type(
-            JSON.parse("[#{e.response_body}]", :symbolize_names => true)[0],
-            "Dropbox::Sign::FaxResponse"
-          )
-
-          fail ApiError.new(:code => e.code,
-                            :response_headers => e.response_headers,
-                            :response_body => body),
-               e.message
-        end
-
-        range_code = "4XX".split('').first
-        range_code_left = "#{range_code}00".to_i
-        range_code_right = "#{range_code}99".to_i
-        if e.code >= range_code_left && e.code <= range_code_right
-          body = @api_client.convert_to_type(
-            JSON.parse("[#{e.response_body}]", :symbolize_names => true)[0],
-            "Dropbox::Sign::ErrorResponse"
-          )
-
-          fail ApiError.new(:code => e.code,
-                            :response_headers => e.response_headers,
-                            :response_body => body),
-               e.message
-        end
-
-      end
-
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FaxApi#get_fax_by_id\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FaxApi#fax_delete\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -188,8 +94,8 @@ module Dropbox::Sign
     # @param fax_id [String] Fax ID
     # @param [Hash] opts the optional parameters
     # @return [File]
-    def get_fax_files(fax_id, opts = {})
-      data, _status_code, _headers = get_fax_files_with_http_info(fax_id, opts)
+    def fax_files(fax_id, opts = {})
+      data, _status_code, _headers = fax_files_with_http_info(fax_id, opts)
       data
     end
 
@@ -198,13 +104,13 @@ module Dropbox::Sign
     # @param fax_id [String] Fax ID
     # @param [Hash] opts the optional parameters
     # @return [Array<(File, Integer, Hash)>] File data, response status code and response headers
-    def get_fax_files_with_http_info(fax_id, opts = {})
+    def fax_files_with_http_info(fax_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FaxApi.get_fax_files ...'
+        @api_client.config.logger.debug 'Calling API: FaxApi.fax_files ...'
       end
       # verify the required parameter 'fax_id' is set
       if @api_client.config.client_side_validation && fax_id.nil?
-        fail ArgumentError, "Missing the required parameter 'fax_id' when calling FaxApi.get_fax_files"
+        fail ArgumentError, "Missing the required parameter 'fax_id' when calling FaxApi.fax_files"
       end
       # resource path
       local_var_path = '/fax/files/{fax_id}'.sub('{' + 'fax_id' + '}', CGI.escape(fax_id.to_s))
@@ -230,7 +136,7 @@ module Dropbox::Sign
       auth_names = opts[:debug_auth_names] || ['api_key']
 
       new_options = opts.merge(
-        :operation => :"FaxApi.get_fax_files",
+        :operation => :"FaxApi.fax_files",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -272,50 +178,136 @@ module Dropbox::Sign
       end
 
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FaxApi#get_fax_files\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FaxApi#fax_files\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get Fax
+    # Returns information about fax
+    # @param fax_id [String] Fax ID
+    # @param [Hash] opts the optional parameters
+    # @return [FaxGetResponse]
+    def fax_get(fax_id, opts = {})
+      data, _status_code, _headers = fax_get_with_http_info(fax_id, opts)
+      data
+    end
+
+    # Get Fax
+    # Returns information about fax
+    # @param fax_id [String] Fax ID
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(FaxGetResponse, Integer, Hash)>] FaxGetResponse data, response status code and response headers
+    def fax_get_with_http_info(fax_id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: FaxApi.fax_get ...'
+      end
+      # verify the required parameter 'fax_id' is set
+      if @api_client.config.client_side_validation && fax_id.nil?
+        fail ArgumentError, "Missing the required parameter 'fax_id' when calling FaxApi.fax_get"
+      end
+      # resource path
+      local_var_path = '/fax/{fax_id}'.sub('{' + 'fax_id' + '}', CGI.escape(fax_id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+
+      post_body = {}
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'FaxGetResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['api_key']
+
+      new_options = opts.merge(
+        :operation => :"FaxApi.fax_get",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      begin
+        data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      rescue Dropbox::Sign::ApiError => e
+        if e.code === 200
+          body = @api_client.convert_to_type(
+            JSON.parse("[#{e.response_body}]", :symbolize_names => true)[0],
+            "Dropbox::Sign::FaxGetResponse"
+          )
+
+          fail ApiError.new(:code => e.code,
+                            :response_headers => e.response_headers,
+                            :response_body => body),
+               e.message
+        end
+
+        range_code = "4XX".split('').first
+        range_code_left = "#{range_code}00".to_i
+        range_code_right = "#{range_code}99".to_i
+        if e.code >= range_code_left && e.code <= range_code_right
+          body = @api_client.convert_to_type(
+            JSON.parse("[#{e.response_body}]", :symbolize_names => true)[0],
+            "Dropbox::Sign::ErrorResponse"
+          )
+
+          fail ApiError.new(:code => e.code,
+                            :response_headers => e.response_headers,
+                            :response_body => body),
+               e.message
+        end
+
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FaxApi#fax_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
 
     # Lists Faxes
     # Returns properties of multiple faxes
-    # @param page [Integer] Page
-    # @param page_size [Integer] Page size
     # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :page Page (default to 1)
+    # @option opts [Integer] :page_size Page size (default to 20)
     # @return [FaxListResponse]
-    def list_faxes(page, page_size, opts = {})
-      data, _status_code, _headers = list_faxes_with_http_info(page, page_size, opts)
+    def fax_list(opts = {})
+      data, _status_code, _headers = fax_list_with_http_info(opts)
       data
     end
 
     # Lists Faxes
     # Returns properties of multiple faxes
-    # @param page [Integer] Page
-    # @param page_size [Integer] Page size
     # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :page Page (default to 1)
+    # @option opts [Integer] :page_size Page size (default to 20)
     # @return [Array<(FaxListResponse, Integer, Hash)>] FaxListResponse data, response status code and response headers
-    def list_faxes_with_http_info(page, page_size, opts = {})
+    def fax_list_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FaxApi.list_faxes ...'
+        @api_client.config.logger.debug 'Calling API: FaxApi.fax_list ...'
       end
-      # verify the required parameter 'page' is set
-      if @api_client.config.client_side_validation && page.nil?
-        fail ArgumentError, "Missing the required parameter 'page' when calling FaxApi.list_faxes"
-      end
-      if @api_client.config.client_side_validation && page < 1
-        fail ArgumentError, 'invalid value for "page" when calling FaxApi.list_faxes, must be greater than or equal to 1.'
+      if @api_client.config.client_side_validation && !opts[:'page'].nil? && opts[:'page'] < 1
+        fail ArgumentError, 'invalid value for "opts[:"page"]" when calling FaxApi.fax_list, must be greater than or equal to 1.'
       end
 
-      # verify the required parameter 'page_size' is set
-      if @api_client.config.client_side_validation && page_size.nil?
-        fail ArgumentError, "Missing the required parameter 'page_size' when calling FaxApi.list_faxes"
-      end
-      if @api_client.config.client_side_validation && page_size > 100
-        fail ArgumentError, 'invalid value for "page_size" when calling FaxApi.list_faxes, must be smaller than or equal to 100.'
+      if @api_client.config.client_side_validation && !opts[:'page_size'].nil? && opts[:'page_size'] > 100
+        fail ArgumentError, 'invalid value for "opts[:"page_size"]" when calling FaxApi.fax_list, must be smaller than or equal to 100.'
       end
 
-      if @api_client.config.client_side_validation && page_size < 1
-        fail ArgumentError, 'invalid value for "page_size" when calling FaxApi.list_faxes, must be greater than or equal to 1.'
+      if @api_client.config.client_side_validation && !opts[:'page_size'].nil? && opts[:'page_size'] < 1
+        fail ArgumentError, 'invalid value for "opts[:"page_size"]" when calling FaxApi.fax_list, must be greater than or equal to 1.'
       end
 
       # resource path
@@ -323,8 +315,8 @@ module Dropbox::Sign
 
       # query parameters
       query_params = opts[:query_params] || {}
-      query_params[:'page'] = page
-      query_params[:'page_size'] = page_size
+      query_params[:'page'] = opts[:'page'] if !opts[:'page'].nil?
+      query_params[:'page_size'] = opts[:'page_size'] if !opts[:'page_size'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -344,7 +336,7 @@ module Dropbox::Sign
       auth_names = opts[:debug_auth_names] || ['api_key']
 
       new_options = opts.merge(
-        :operation => :"FaxApi.list_faxes",
+        :operation => :"FaxApi.fax_list",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -386,7 +378,7 @@ module Dropbox::Sign
       end
 
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FaxApi#list_faxes\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FaxApi#fax_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -395,9 +387,9 @@ module Dropbox::Sign
     # Action to prepare and send a fax
     # @param fax_send_request [FaxSendRequest] 
     # @param [Hash] opts the optional parameters
-    # @return [FaxResponse]
-    def send_fax(fax_send_request, opts = {})
-      data, _status_code, _headers = send_fax_with_http_info(fax_send_request, opts)
+    # @return [FaxGetResponse]
+    def fax_send(fax_send_request, opts = {})
+      data, _status_code, _headers = fax_send_with_http_info(fax_send_request, opts)
       data
     end
 
@@ -405,14 +397,14 @@ module Dropbox::Sign
     # Action to prepare and send a fax
     # @param fax_send_request [FaxSendRequest] 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(FaxResponse, Integer, Hash)>] FaxResponse data, response status code and response headers
-    def send_fax_with_http_info(fax_send_request, opts = {})
+    # @return [Array<(FaxGetResponse, Integer, Hash)>] FaxGetResponse data, response status code and response headers
+    def fax_send_with_http_info(fax_send_request, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FaxApi.send_fax ...'
+        @api_client.config.logger.debug 'Calling API: FaxApi.fax_send ...'
       end
       # verify the required parameter 'fax_send_request' is set
       if @api_client.config.client_side_validation && fax_send_request.nil?
-        fail ArgumentError, "Missing the required parameter 'fax_send_request' when calling FaxApi.send_fax"
+        fail ArgumentError, "Missing the required parameter 'fax_send_request' when calling FaxApi.fax_send"
       end
       # resource path
       local_var_path = '/fax/send'
@@ -425,7 +417,7 @@ module Dropbox::Sign
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
       # HTTP header 'Content-Type'
-      content_type = @api_client.select_header_content_type(['application/json'])
+      content_type = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
       if !content_type.nil?
         header_params['Content-Type'] = content_type
       end
@@ -447,13 +439,13 @@ module Dropbox::Sign
       end
 
       # return_type
-      return_type = opts[:debug_return_type] || 'FaxResponse'
+      return_type = opts[:debug_return_type] || 'FaxGetResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['api_key']
 
       new_options = opts.merge(
-        :operation => :"FaxApi.send_fax",
+        :operation => :"FaxApi.fax_send",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -468,7 +460,7 @@ module Dropbox::Sign
         if e.code === 200
           body = @api_client.convert_to_type(
             JSON.parse("[#{e.response_body}]", :symbolize_names => true)[0],
-            "Dropbox::Sign::FaxResponse"
+            "Dropbox::Sign::FaxGetResponse"
           )
 
           fail ApiError.new(:code => e.code,
@@ -495,7 +487,7 @@ module Dropbox::Sign
       end
 
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FaxApi#send_fax\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FaxApi#fax_send\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

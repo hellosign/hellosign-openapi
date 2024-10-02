@@ -12977,6 +12977,7 @@ __export(api_exports, {
   EventCallbackRequestEvent: () => EventCallbackRequestEvent,
   EventCallbackRequestEventMetadata: () => EventCallbackRequestEventMetadata,
   FaxApi: () => FaxApi,
+  FaxGetResponse: () => FaxGetResponse,
   FaxLineAddUserRequest: () => FaxLineAddUserRequest,
   FaxLineApi: () => FaxLineApi,
   FaxLineAreaCodeGetCountryEnum: () => FaxLineAreaCodeGetCountryEnum,
@@ -12991,8 +12992,7 @@ __export(api_exports, {
   FaxLineResponseFaxLine: () => FaxLineResponseFaxLine,
   FaxListResponse: () => FaxListResponse,
   FaxResponse: () => FaxResponse,
-  FaxResponseFax: () => FaxResponseFax,
-  FaxResponseFaxTransmission: () => FaxResponseFaxTransmission,
+  FaxResponseTransmission: () => FaxResponseTransmission,
   FaxSendRequest: () => FaxSendRequest,
   FileResponse: () => FileResponse,
   FileResponseDataUri: () => FileResponseDataUri,
@@ -13046,7 +13046,6 @@ __export(api_exports, {
   SubCustomField: () => SubCustomField,
   SubEditorOptions: () => SubEditorOptions,
   SubFieldOptions: () => SubFieldOptions,
-  SubFile: () => SubFile,
   SubFormFieldGroup: () => SubFormFieldGroup,
   SubFormFieldRule: () => SubFormFieldRule,
   SubFormFieldRuleAction: () => SubFormFieldRuleAction,
@@ -17699,6 +17698,30 @@ EventCallbackRequestEventMetadata.attributeTypeMap = [
   }
 ];
 
+// model/faxGetResponse.ts
+var _FaxGetResponse = class {
+  static getAttributeTypeMap() {
+    return _FaxGetResponse.attributeTypeMap;
+  }
+  static init(data) {
+    return ObjectSerializer.deserialize(data, "FaxGetResponse");
+  }
+};
+var FaxGetResponse = _FaxGetResponse;
+FaxGetResponse.discriminator = void 0;
+FaxGetResponse.attributeTypeMap = [
+  {
+    name: "fax",
+    baseName: "fax",
+    type: "FaxResponse"
+  },
+  {
+    name: "warnings",
+    baseName: "warnings",
+    type: "Array<WarningResponse>"
+  }
+];
+
 // model/faxLineAddUserRequest.ts
 var _FaxLineAddUserRequest = class {
   static getAttributeTypeMap() {
@@ -18021,7 +18044,7 @@ FaxListResponse.attributeTypeMap = [
   {
     name: "faxes",
     baseName: "faxes",
-    type: "Array<FaxResponseFax>"
+    type: "Array<FaxResponse>"
   },
   {
     name: "listInfo",
@@ -18042,30 +18065,6 @@ var _FaxResponse = class {
 var FaxResponse = _FaxResponse;
 FaxResponse.discriminator = void 0;
 FaxResponse.attributeTypeMap = [
-  {
-    name: "fax",
-    baseName: "fax",
-    type: "FaxResponseFax"
-  },
-  {
-    name: "warnings",
-    baseName: "warnings",
-    type: "Array<WarningResponse>"
-  }
-];
-
-// model/faxResponseFax.ts
-var _FaxResponseFax = class {
-  static getAttributeTypeMap() {
-    return _FaxResponseFax.attributeTypeMap;
-  }
-  static init(data) {
-    return ObjectSerializer.deserialize(data, "FaxResponseFax");
-  }
-};
-var FaxResponseFax = _FaxResponseFax;
-FaxResponseFax.discriminator = void 0;
-FaxResponseFax.attributeTypeMap = [
   {
     name: "faxId",
     baseName: "fax_id",
@@ -18109,7 +18108,7 @@ FaxResponseFax.attributeTypeMap = [
   {
     name: "transmissions",
     baseName: "transmissions",
-    type: "Array<FaxResponseFaxTransmission>"
+    type: "Array<FaxResponseTransmission>"
   },
   {
     name: "filesUrl",
@@ -18118,18 +18117,18 @@ FaxResponseFax.attributeTypeMap = [
   }
 ];
 
-// model/faxResponseFaxTransmission.ts
-var _FaxResponseFaxTransmission = class {
+// model/faxResponseTransmission.ts
+var _FaxResponseTransmission = class {
   static getAttributeTypeMap() {
-    return _FaxResponseFaxTransmission.attributeTypeMap;
+    return _FaxResponseTransmission.attributeTypeMap;
   }
   static init(data) {
-    return ObjectSerializer.deserialize(data, "FaxResponseFaxTransmission");
+    return ObjectSerializer.deserialize(data, "FaxResponseTransmission");
   }
 };
-var FaxResponseFaxTransmission = _FaxResponseFaxTransmission;
-FaxResponseFaxTransmission.discriminator = void 0;
-FaxResponseFaxTransmission.attributeTypeMap = [
+var FaxResponseTransmission = _FaxResponseTransmission;
+FaxResponseTransmission.discriminator = void 0;
+FaxResponseTransmission.attributeTypeMap = [
   {
     name: "recipient",
     baseName: "recipient",
@@ -18154,6 +18153,9 @@ FaxResponseFaxTransmission.attributeTypeMap = [
 
 // model/faxSendRequest.ts
 var _FaxSendRequest = class {
+  constructor() {
+    this["testMode"] = false;
+  }
   static getAttributeTypeMap() {
     return _FaxSendRequest.attributeTypeMap;
   }
@@ -18175,18 +18177,13 @@ FaxSendRequest.attributeTypeMap = [
     type: "string"
   },
   {
-    name: "file",
-    baseName: "file",
-    type: "Array<SubFile>"
+    name: "files",
+    baseName: "files",
+    type: "Array<RequestFile>"
   },
   {
-    name: "fileUrl",
-    baseName: "file_url",
-    type: "Array<string>"
-  },
-  {
-    name: "fileUrlNames",
-    baseName: "file_url_names",
+    name: "fileUrls",
+    baseName: "file_urls",
     type: "Array<string>"
   },
   {
@@ -20460,28 +20457,6 @@ SubFieldOptions.attributeTypeMap = [
     DateFormatEnum2["YYYY_MM_DD"] = "YYYY - MM - DD";
   })(DateFormatEnum = SubFieldOptions2.DateFormatEnum || (SubFieldOptions2.DateFormatEnum = {}));
 })(SubFieldOptions || (SubFieldOptions = {}));
-
-// model/subFile.ts
-var _SubFile = class {
-  constructor() {
-    this["name"] = "";
-  }
-  static getAttributeTypeMap() {
-    return _SubFile.attributeTypeMap;
-  }
-  static init(data) {
-    return ObjectSerializer.deserialize(data, "SubFile");
-  }
-};
-var SubFile = _SubFile;
-SubFile.discriminator = void 0;
-SubFile.attributeTypeMap = [
-  {
-    name: "name",
-    baseName: "name",
-    type: "string"
-  }
-];
 
 // model/subFormFieldGroup.ts
 var _SubFormFieldGroup = class {
@@ -24713,6 +24688,7 @@ var typeMap = {
   EventCallbackRequest,
   EventCallbackRequestEvent,
   EventCallbackRequestEventMetadata,
+  FaxGetResponse,
   FaxLineAddUserRequest,
   FaxLineAreaCodeGetResponse,
   FaxLineCreateRequest,
@@ -24723,8 +24699,7 @@ var typeMap = {
   FaxLineResponseFaxLine,
   FaxListResponse,
   FaxResponse,
-  FaxResponseFax,
-  FaxResponseFaxTransmission,
+  FaxResponseTransmission,
   FaxSendRequest,
   FileResponse,
   FileResponseDataUri,
@@ -24768,7 +24743,6 @@ var typeMap = {
   SubCustomField,
   SubEditorOptions,
   SubFieldOptions,
-  SubFile,
   SubFormFieldGroup,
   SubFormFieldRule,
   SubFormFieldRuleAction,
@@ -26637,7 +26611,7 @@ var FaxApi = class {
   addInterceptor(interceptor) {
     this.interceptors.push(interceptor);
   }
-  deleteFax(_0) {
+  faxDelete(_0) {
     return __async(this, arguments, function* (faxId, options = { headers: {} }) {
       const localVarPath = this.basePath + "/fax/{fax_id}".replace(
         "{fax_id}",
@@ -26658,7 +26632,7 @@ var FaxApi = class {
       let localVarBodyParams = void 0;
       if (faxId === null || faxId === void 0) {
         throw new Error(
-          "Required parameter faxId was null or undefined when calling deleteFax."
+          "Required parameter faxId was null or undefined when calling faxDelete."
         );
       }
       Object.assign(localVarHeaderParams, options.headers);
@@ -26714,97 +26688,7 @@ var FaxApi = class {
       });
     });
   }
-  getFaxById(_0) {
-    return __async(this, arguments, function* (faxId, options = { headers: {} }) {
-      const localVarPath = this.basePath + "/fax/{fax_id}".replace(
-        "{fax_id}",
-        encodeURIComponent(String(faxId))
-      );
-      let localVarQueryParameters = {};
-      let localVarHeaderParams = Object.assign(
-        {},
-        this._defaultHeaders
-      );
-      const produces = ["application/json"];
-      if (produces.indexOf("application/json") >= 0) {
-        localVarHeaderParams["content-type"] = "application/json";
-      } else {
-        localVarHeaderParams["content-type"] = produces.join(",");
-      }
-      let localVarFormParams = {};
-      let localVarBodyParams = void 0;
-      if (faxId === null || faxId === void 0) {
-        throw new Error(
-          "Required parameter faxId was null or undefined when calling getFaxById."
-        );
-      }
-      Object.assign(localVarHeaderParams, options.headers);
-      let localVarUseFormData = false;
-      let localVarRequestOptions = {
-        method: "GET",
-        params: localVarQueryParameters,
-        headers: localVarHeaderParams,
-        url: localVarPath,
-        paramsSerializer: this._useQuerystring ? queryParamsSerializer : void 0,
-        maxContentLength: Infinity,
-        maxBodyLength: Infinity,
-        responseType: "json"
-      };
-      let authenticationPromise = Promise.resolve();
-      if (this.authentications.api_key.username) {
-        authenticationPromise = authenticationPromise.then(
-          () => this.authentications.api_key.applyToRequest(localVarRequestOptions)
-        );
-      }
-      authenticationPromise = authenticationPromise.then(
-        () => this.authentications.default.applyToRequest(localVarRequestOptions)
-      );
-      let interceptorPromise = authenticationPromise;
-      for (const interceptor of this.interceptors) {
-        interceptorPromise = interceptorPromise.then(
-          () => interceptor(localVarRequestOptions)
-        );
-      }
-      return interceptorPromise.then(() => {
-        return new Promise((resolve, reject) => {
-          axios_default.request(localVarRequestOptions).then(
-            (response) => {
-              handleSuccessfulResponse5(
-                resolve,
-                reject,
-                response,
-                "FaxResponse"
-              );
-            },
-            (error) => {
-              if (error.response == null) {
-                reject(error);
-                return;
-              }
-              if (handleErrorCodeResponse5(
-                reject,
-                error.response,
-                200,
-                "FaxResponse"
-              )) {
-                return;
-              }
-              if (handleErrorRangeResponse5(
-                reject,
-                error.response,
-                "4XX",
-                "ErrorResponse"
-              )) {
-                return;
-              }
-              reject(error);
-            }
-          );
-        });
-      });
-    });
-  }
-  getFaxFiles(_0) {
+  faxFiles(_0) {
     return __async(this, arguments, function* (faxId, options = { headers: {} }) {
       const localVarPath = this.basePath + "/fax/files/{fax_id}".replace(
         "{fax_id}",
@@ -26825,7 +26709,7 @@ var FaxApi = class {
       let localVarBodyParams = void 0;
       if (faxId === null || faxId === void 0) {
         throw new Error(
-          "Required parameter faxId was null or undefined when calling getFaxFiles."
+          "Required parameter faxId was null or undefined when calling faxFiles."
         );
       }
       Object.assign(localVarHeaderParams, options.headers);
@@ -26894,7 +26778,97 @@ var FaxApi = class {
       });
     });
   }
-  listFaxes(_0, _1) {
+  faxGet(_0) {
+    return __async(this, arguments, function* (faxId, options = { headers: {} }) {
+      const localVarPath = this.basePath + "/fax/{fax_id}".replace(
+        "{fax_id}",
+        encodeURIComponent(String(faxId))
+      );
+      let localVarQueryParameters = {};
+      let localVarHeaderParams = Object.assign(
+        {},
+        this._defaultHeaders
+      );
+      const produces = ["application/json"];
+      if (produces.indexOf("application/json") >= 0) {
+        localVarHeaderParams["content-type"] = "application/json";
+      } else {
+        localVarHeaderParams["content-type"] = produces.join(",");
+      }
+      let localVarFormParams = {};
+      let localVarBodyParams = void 0;
+      if (faxId === null || faxId === void 0) {
+        throw new Error(
+          "Required parameter faxId was null or undefined when calling faxGet."
+        );
+      }
+      Object.assign(localVarHeaderParams, options.headers);
+      let localVarUseFormData = false;
+      let localVarRequestOptions = {
+        method: "GET",
+        params: localVarQueryParameters,
+        headers: localVarHeaderParams,
+        url: localVarPath,
+        paramsSerializer: this._useQuerystring ? queryParamsSerializer : void 0,
+        maxContentLength: Infinity,
+        maxBodyLength: Infinity,
+        responseType: "json"
+      };
+      let authenticationPromise = Promise.resolve();
+      if (this.authentications.api_key.username) {
+        authenticationPromise = authenticationPromise.then(
+          () => this.authentications.api_key.applyToRequest(localVarRequestOptions)
+        );
+      }
+      authenticationPromise = authenticationPromise.then(
+        () => this.authentications.default.applyToRequest(localVarRequestOptions)
+      );
+      let interceptorPromise = authenticationPromise;
+      for (const interceptor of this.interceptors) {
+        interceptorPromise = interceptorPromise.then(
+          () => interceptor(localVarRequestOptions)
+        );
+      }
+      return interceptorPromise.then(() => {
+        return new Promise((resolve, reject) => {
+          axios_default.request(localVarRequestOptions).then(
+            (response) => {
+              handleSuccessfulResponse5(
+                resolve,
+                reject,
+                response,
+                "FaxGetResponse"
+              );
+            },
+            (error) => {
+              if (error.response == null) {
+                reject(error);
+                return;
+              }
+              if (handleErrorCodeResponse5(
+                reject,
+                error.response,
+                200,
+                "FaxGetResponse"
+              )) {
+                return;
+              }
+              if (handleErrorRangeResponse5(
+                reject,
+                error.response,
+                "4XX",
+                "ErrorResponse"
+              )) {
+                return;
+              }
+              reject(error);
+            }
+          );
+        });
+      });
+    });
+  }
+  faxList(_0, _1) {
     return __async(this, arguments, function* (page, pageSize, options = { headers: {} }) {
       const localVarPath = this.basePath + "/fax/list";
       let localVarQueryParameters = {};
@@ -26910,16 +26884,6 @@ var FaxApi = class {
       }
       let localVarFormParams = {};
       let localVarBodyParams = void 0;
-      if (page === null || page === void 0) {
-        throw new Error(
-          "Required parameter page was null or undefined when calling listFaxes."
-        );
-      }
-      if (pageSize === null || pageSize === void 0) {
-        throw new Error(
-          "Required parameter pageSize was null or undefined when calling listFaxes."
-        );
-      }
       if (page !== void 0) {
         localVarQueryParameters["page"] = ObjectSerializer.serialize(
           page,
@@ -26998,7 +26962,7 @@ var FaxApi = class {
       });
     });
   }
-  sendFax(_0) {
+  faxSend(_0) {
     return __async(this, arguments, function* (faxSendRequest, options = { headers: {} }) {
       faxSendRequest = deserializeIfNeeded4(faxSendRequest, "FaxSendRequest");
       const localVarPath = this.basePath + "/fax/send";
@@ -27017,7 +26981,7 @@ var FaxApi = class {
       let localVarBodyParams = void 0;
       if (faxSendRequest === null || faxSendRequest === void 0) {
         throw new Error(
-          "Required parameter faxSendRequest was null or undefined when calling sendFax."
+          "Required parameter faxSendRequest was null or undefined when calling faxSend."
         );
       }
       Object.assign(localVarHeaderParams, options.headers);
@@ -27069,7 +27033,7 @@ var FaxApi = class {
                 resolve,
                 reject,
                 response,
-                "FaxResponse"
+                "FaxGetResponse"
               );
             },
             (error) => {
@@ -27081,7 +27045,7 @@ var FaxApi = class {
                 reject,
                 error.response,
                 200,
-                "FaxResponse"
+                "FaxGetResponse"
               )) {
                 return;
               }
@@ -33276,6 +33240,7 @@ var APIS = [
   EventCallbackRequestEvent,
   EventCallbackRequestEventMetadata,
   FaxApi,
+  FaxGetResponse,
   FaxLineAddUserRequest,
   FaxLineApi,
   FaxLineAreaCodeGetCountryEnum,
@@ -33290,8 +33255,7 @@ var APIS = [
   FaxLineResponseFaxLine,
   FaxListResponse,
   FaxResponse,
-  FaxResponseFax,
-  FaxResponseFaxTransmission,
+  FaxResponseTransmission,
   FaxSendRequest,
   FileResponse,
   FileResponseDataUri,
@@ -33345,7 +33309,6 @@ var APIS = [
   SubCustomField,
   SubEditorOptions,
   SubFieldOptions,
-  SubFile,
   SubFormFieldGroup,
   SubFormFieldRule,
   SubFormFieldRuleAction,

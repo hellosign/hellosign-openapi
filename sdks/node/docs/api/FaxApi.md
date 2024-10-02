@@ -4,17 +4,17 @@ All URIs are relative to https://api.hellosign.com/v3.
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**deleteFax()**](FaxApi.md#deleteFax) | **DELETE** /fax/{fax_id} | Delete Fax |
-| [**getFaxById()**](FaxApi.md#getFaxById) | **GET** /fax/{fax_id} | Get Fax |
-| [**getFaxFiles()**](FaxApi.md#getFaxFiles) | **GET** /fax/files/{fax_id} | List Fax Files |
-| [**listFaxes()**](FaxApi.md#listFaxes) | **GET** /fax/list | Lists Faxes |
-| [**sendFax()**](FaxApi.md#sendFax) | **POST** /fax/send | Send Fax |
+| [**faxDelete()**](FaxApi.md#faxDelete) | **DELETE** /fax/{fax_id} | Delete Fax |
+| [**faxFiles()**](FaxApi.md#faxFiles) | **GET** /fax/files/{fax_id} | List Fax Files |
+| [**faxGet()**](FaxApi.md#faxGet) | **GET** /fax/{fax_id} | Get Fax |
+| [**faxList()**](FaxApi.md#faxList) | **GET** /fax/list | Lists Faxes |
+| [**faxSend()**](FaxApi.md#faxSend) | **POST** /fax/send | Send Fax |
 
 
-## `deleteFax()`
+## `faxDelete()`
 
 ```typescript
-deleteFax(faxId: string)
+faxDelete(faxId: string)
 ```
 
 Delete Fax
@@ -50,7 +50,6 @@ const faxApi = new DropboxSign.FaxApi();
 // Configure HTTP basic authorization: api_key
 faxApi.username = "YOUR_API_KEY";
 
-
 const result = faxApi.deleteFax("[FAX_NUMBER]");
 
 result.catch(error => {
@@ -83,87 +82,10 @@ void (empty response body)
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `getFaxById()`
+## `faxFiles()`
 
 ```typescript
-getFaxById(faxId: string): FaxResponse
-```
-
-Get Fax
-
-Returns information about fax
-
-### TypeScript Example
-
-```typescript
-import * as DropboxSign from "@dropbox/sign";
-
-const faxApi = new DropboxSign.ApiAppApi();
-
-// Configure HTTP basic authorization: api_key
-faxApi.username = "YOUR_API_KEY";
-
-const faxId = "fa5c8a0b0f492d768749333ad6fcc214c111e967"
-
-const result = faxApi.getFaxById(faxId);
-result.then(response => {
-  console.log(response.body);
-}).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
-  console.log(error.body);
-});
-
-```
-
-### JavaScript Example
-
-```javascript
-import * as DropboxSign from "@dropbox/sign";
-
-const faxApi = new DropboxSign.FaxApi();
-
-// Configure HTTP basic authorization: api_key
-faxApi.username = "YOUR_API_KEY";
-
-const faxId = "fa5c8a0b0f492d768749333ad6fcc214c111e967"
-
-const result = faxApi.getFaxById(faxId);
-result.then(response => {
-  console.log(response.body);
-}).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
-  console.log(error.body);
-});
-
-```
-
-### Parameters
-
-|Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **faxId** | **string**| Fax ID | |
-
-### Return type
-
-[**FaxResponse**](../model/FaxResponse.md)
-
-### Authorization
-
-[api_key](../../README.md#api_key)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `getFaxFiles()`
-
-```typescript
-getFaxFiles(faxId: string): Buffer
+faxFiles(faxId: string): Buffer
 ```
 
 List Fax Files
@@ -237,10 +159,87 @@ result.then(response => {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `listFaxes()`
+## `faxGet()`
 
 ```typescript
-listFaxes(page: number, pageSize: number): FaxListResponse
+faxGet(faxId: string): FaxGetResponse
+```
+
+Get Fax
+
+Returns information about fax
+
+### TypeScript Example
+
+```typescript
+import * as DropboxSign from "@dropbox/sign";
+
+const faxApi = new DropboxSign.ApiAppApi();
+
+// Configure HTTP basic authorization: api_key
+faxApi.username = "YOUR_API_KEY";
+
+const faxId = "fa5c8a0b0f492d768749333ad6fcc214c111e967"
+
+const result = faxApi.getFaxById(faxId);
+result.then(response => {
+  console.log(response.body);
+}).catch(error => {
+  console.log("Exception when calling Dropbox Sign API:");
+  console.log(error.body);
+});
+
+```
+
+### JavaScript Example
+
+```javascript
+import * as DropboxSign from "@dropbox/sign";
+
+const faxApi = new DropboxSign.FaxApi();
+
+// Configure HTTP basic authorization: api_key
+faxApi.username = "YOUR_API_KEY";
+
+const faxId = "fa5c8a0b0f492d768749333ad6fcc214c111e967"
+
+const result = faxApi.getFaxById(faxId);
+result.then(response => {
+  console.log(response.body);
+}).catch(error => {
+  console.log("Exception when calling Dropbox Sign API:");
+  console.log(error.body);
+});
+
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **faxId** | **string**| Fax ID | |
+
+### Return type
+
+[**FaxGetResponse**](../model/FaxGetResponse.md)
+
+### Authorization
+
+[api_key](../../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `faxList()`
+
+```typescript
+faxList(page: number, pageSize: number): FaxListResponse
 ```
 
 Lists Faxes
@@ -297,8 +296,8 @@ result.then(response => {
 
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **page** | **number**| Page | |
-| **pageSize** | **number**| Page size | |
+| **page** | **number**| Page | [optional] [default to 1] |
+| **pageSize** | **number**| Page size | [optional] [default to 20] |
 
 ### Return type
 
@@ -317,10 +316,10 @@ result.then(response => {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `sendFax()`
+## `faxSend()`
 
 ```typescript
-sendFax(faxSendRequest: FaxSendRequest): FaxResponse
+faxSend(faxSendRequest: FaxSendRequest): FaxGetResponse
 ```
 
 Send Fax
@@ -385,7 +384,7 @@ result.then(response => {
 
 ### Return type
 
-[**FaxResponse**](../model/FaxResponse.md)
+[**FaxGetResponse**](../model/FaxGetResponse.md)
 
 ### Authorization
 
@@ -393,7 +392,7 @@ result.then(response => {
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json`
+- **Content-Type**: `application/json`, `multipart/form-data`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

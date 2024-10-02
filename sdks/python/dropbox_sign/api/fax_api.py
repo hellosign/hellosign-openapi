@@ -18,10 +18,10 @@ from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
 from pydantic import Field, StrictBytes, StrictStr
-from typing import Union
+from typing import Optional, Union
 from typing_extensions import Annotated
+from dropbox_sign.models.fax_get_response import FaxGetResponse
 from dropbox_sign.models.fax_list_response import FaxListResponse
-from dropbox_sign.models.fax_response import FaxResponse
 from dropbox_sign.models.fax_send_request import FaxSendRequest
 
 from dropbox_sign.api_client import ApiClient, RequestSerialized
@@ -43,7 +43,7 @@ class FaxApi:
         self.api_client = api_client
 
     @validate_call
-    def delete_fax(
+    def fax_delete(
         self,
         fax_id: Annotated[StrictStr, Field(description="Fax ID")],
         _request_timeout: Union[
@@ -86,7 +86,7 @@ class FaxApi:
         :return: Returns the result object.
         """  # noqa: E501
 
-        _param = self._delete_fax_serialize(
+        _param = self._fax_delete_serialize(
             fax_id=fax_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -95,7 +95,7 @@ class FaxApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": None,
+            "204": None,
             "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
@@ -108,7 +108,7 @@ class FaxApi:
         ).data
 
     @validate_call
-    def delete_fax_with_http_info(
+    def fax_delete_with_http_info(
         self,
         fax_id: Annotated[StrictStr, Field(description="Fax ID")],
         _request_timeout: Union[
@@ -151,7 +151,7 @@ class FaxApi:
         :return: Returns the result object.
         """  # noqa: E501
 
-        _param = self._delete_fax_serialize(
+        _param = self._fax_delete_serialize(
             fax_id=fax_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -160,7 +160,7 @@ class FaxApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": None,
+            "204": None,
             "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
@@ -173,7 +173,7 @@ class FaxApi:
         )
 
     @validate_call
-    def delete_fax_without_preload_content(
+    def fax_delete_without_preload_content(
         self,
         fax_id: Annotated[StrictStr, Field(description="Fax ID")],
         _request_timeout: Union[
@@ -216,7 +216,7 @@ class FaxApi:
         :return: Returns the result object.
         """  # noqa: E501
 
-        _param = self._delete_fax_serialize(
+        _param = self._fax_delete_serialize(
             fax_id=fax_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -225,7 +225,7 @@ class FaxApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": None,
+            "204": None,
             "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
@@ -233,7 +233,7 @@ class FaxApi:
         )
         return response_data.response
 
-    def _delete_fax_serialize(
+    def _fax_delete_serialize(
         self,
         fax_id,
         _request_auth,
@@ -286,250 +286,7 @@ class FaxApi:
         )
 
     @validate_call
-    def get_fax_by_id(
-        self,
-        fax_id: Annotated[StrictStr, Field(description="Fax ID")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> FaxResponse:
-        """Get Fax
-
-        Returns information about fax
-
-        :param fax_id: Fax ID (required)
-        :type fax_id: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """  # noqa: E501
-
-        _param = self._get_fax_by_id_serialize(
-            fax_id=fax_id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index,
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            "200": "FaxResponse",
-            "4XX": "ErrorResponse",
-        }
-        response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-    @validate_call
-    def get_fax_by_id_with_http_info(
-        self,
-        fax_id: Annotated[StrictStr, Field(description="Fax ID")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[FaxResponse]:
-        """Get Fax
-
-        Returns information about fax
-
-        :param fax_id: Fax ID (required)
-        :type fax_id: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """  # noqa: E501
-
-        _param = self._get_fax_by_id_serialize(
-            fax_id=fax_id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index,
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            "200": "FaxResponse",
-            "4XX": "ErrorResponse",
-        }
-        response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-    @validate_call
-    def get_fax_by_id_without_preload_content(
-        self,
-        fax_id: Annotated[StrictStr, Field(description="Fax ID")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
-            ],
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """Get Fax
-
-        Returns information about fax
-
-        :param fax_id: Fax ID (required)
-        :type fax_id: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """  # noqa: E501
-
-        _param = self._get_fax_by_id_serialize(
-            fax_id=fax_id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index,
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            "200": "FaxResponse",
-            "4XX": "ErrorResponse",
-        }
-        response_data = self.api_client.call_api(
-            *_param, _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-    def _get_fax_by_id_serialize(
-        self,
-        fax_id,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {}
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, Union[str, bytes]] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if fax_id is not None:
-            _path_params["fax_id"] = fax_id
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-        # set the HTTP header `Accept`
-        if "Accept" not in _header_params:
-            _header_params["Accept"] = self.api_client.select_header_accept(
-                ["application/json"]
-            )
-
-        # authentication setting
-        _auth_settings: List[str] = ["api_key"]
-
-        return self.api_client.param_serialize(
-            method="GET",
-            resource_path="/fax/{fax_id}",
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth,
-        )
-
-    @validate_call
-    def get_fax_files(
+    def fax_files(
         self,
         fax_id: Annotated[StrictStr, Field(description="Fax ID")],
         _request_timeout: Union[
@@ -572,7 +329,7 @@ class FaxApi:
         :return: Returns the result object.
         """  # noqa: E501
 
-        _param = self._get_fax_files_serialize(
+        _param = self._fax_files_serialize(
             fax_id=fax_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -594,7 +351,7 @@ class FaxApi:
         ).data
 
     @validate_call
-    def get_fax_files_with_http_info(
+    def fax_files_with_http_info(
         self,
         fax_id: Annotated[StrictStr, Field(description="Fax ID")],
         _request_timeout: Union[
@@ -637,7 +394,7 @@ class FaxApi:
         :return: Returns the result object.
         """  # noqa: E501
 
-        _param = self._get_fax_files_serialize(
+        _param = self._fax_files_serialize(
             fax_id=fax_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -659,7 +416,7 @@ class FaxApi:
         )
 
     @validate_call
-    def get_fax_files_without_preload_content(
+    def fax_files_without_preload_content(
         self,
         fax_id: Annotated[StrictStr, Field(description="Fax ID")],
         _request_timeout: Union[
@@ -702,7 +459,7 @@ class FaxApi:
         :return: Returns the result object.
         """  # noqa: E501
 
-        _param = self._get_fax_files_serialize(
+        _param = self._fax_files_serialize(
             fax_id=fax_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -719,7 +476,7 @@ class FaxApi:
         )
         return response_data.response
 
-    def _get_fax_files_serialize(
+    def _fax_files_serialize(
         self,
         fax_id,
         _request_auth,
@@ -772,12 +529,259 @@ class FaxApi:
         )
 
     @validate_call
-    def list_faxes(
+    def fax_get(
         self,
-        page: Annotated[int, Field(strict=True, ge=1, description="Page")],
+        fax_id: Annotated[StrictStr, Field(description="Fax ID")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> FaxGetResponse:
+        """Get Fax
+
+        Returns information about fax
+
+        :param fax_id: Fax ID (required)
+        :type fax_id: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """  # noqa: E501
+
+        _param = self._fax_get_serialize(
+            fax_id=fax_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index,
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            "200": "FaxGetResponse",
+            "4XX": "ErrorResponse",
+        }
+        response_data = self.api_client.call_api(
+            *_param, _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+    @validate_call
+    def fax_get_with_http_info(
+        self,
+        fax_id: Annotated[StrictStr, Field(description="Fax ID")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[FaxGetResponse]:
+        """Get Fax
+
+        Returns information about fax
+
+        :param fax_id: Fax ID (required)
+        :type fax_id: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """  # noqa: E501
+
+        _param = self._fax_get_serialize(
+            fax_id=fax_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index,
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            "200": "FaxGetResponse",
+            "4XX": "ErrorResponse",
+        }
+        response_data = self.api_client.call_api(
+            *_param, _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+    @validate_call
+    def fax_get_without_preload_content(
+        self,
+        fax_id: Annotated[StrictStr, Field(description="Fax ID")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)], Annotated[StrictFloat, Field(gt=0)]
+            ],
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Get Fax
+
+        Returns information about fax
+
+        :param fax_id: Fax ID (required)
+        :type fax_id: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """  # noqa: E501
+
+        _param = self._fax_get_serialize(
+            fax_id=fax_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index,
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            "200": "FaxGetResponse",
+            "4XX": "ErrorResponse",
+        }
+        response_data = self.api_client.call_api(
+            *_param, _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+    def _fax_get_serialize(
+        self,
+        fax_id,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {}
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, Union[str, bytes]] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if fax_id is not None:
+            _path_params["fax_id"] = fax_id
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+        # set the HTTP header `Accept`
+        if "Accept" not in _header_params:
+            _header_params["Accept"] = self.api_client.select_header_accept(
+                ["application/json"]
+            )
+
+        # authentication setting
+        _auth_settings: List[str] = ["api_key"]
+
+        return self.api_client.param_serialize(
+            method="GET",
+            resource_path="/fax/{fax_id}",
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth,
+        )
+
+    @validate_call
+    def fax_list(
+        self,
+        page: Annotated[
+            Optional[Annotated[int, Field(strict=True, ge=1)]],
+            Field(description="Page"),
+        ] = None,
         page_size: Annotated[
-            int, Field(le=100, strict=True, ge=1, description="Page size")
-        ],
+            Optional[Annotated[int, Field(le=100, strict=True, ge=1)]],
+            Field(description="Page size"),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -794,9 +798,9 @@ class FaxApi:
 
         Returns properties of multiple faxes
 
-        :param page: Page (required)
+        :param page: Page
         :type page: int
-        :param page_size: Page size (required)
+        :param page_size: Page size
         :type page_size: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -820,7 +824,7 @@ class FaxApi:
         :return: Returns the result object.
         """  # noqa: E501
 
-        _param = self._list_faxes_serialize(
+        _param = self._fax_list_serialize(
             page=page,
             page_size=page_size,
             _request_auth=_request_auth,
@@ -843,12 +847,16 @@ class FaxApi:
         ).data
 
     @validate_call
-    def list_faxes_with_http_info(
+    def fax_list_with_http_info(
         self,
-        page: Annotated[int, Field(strict=True, ge=1, description="Page")],
+        page: Annotated[
+            Optional[Annotated[int, Field(strict=True, ge=1)]],
+            Field(description="Page"),
+        ] = None,
         page_size: Annotated[
-            int, Field(le=100, strict=True, ge=1, description="Page size")
-        ],
+            Optional[Annotated[int, Field(le=100, strict=True, ge=1)]],
+            Field(description="Page size"),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -865,9 +873,9 @@ class FaxApi:
 
         Returns properties of multiple faxes
 
-        :param page: Page (required)
+        :param page: Page
         :type page: int
-        :param page_size: Page size (required)
+        :param page_size: Page size
         :type page_size: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -891,7 +899,7 @@ class FaxApi:
         :return: Returns the result object.
         """  # noqa: E501
 
-        _param = self._list_faxes_serialize(
+        _param = self._fax_list_serialize(
             page=page,
             page_size=page_size,
             _request_auth=_request_auth,
@@ -914,12 +922,16 @@ class FaxApi:
         )
 
     @validate_call
-    def list_faxes_without_preload_content(
+    def fax_list_without_preload_content(
         self,
-        page: Annotated[int, Field(strict=True, ge=1, description="Page")],
+        page: Annotated[
+            Optional[Annotated[int, Field(strict=True, ge=1)]],
+            Field(description="Page"),
+        ] = None,
         page_size: Annotated[
-            int, Field(le=100, strict=True, ge=1, description="Page size")
-        ],
+            Optional[Annotated[int, Field(le=100, strict=True, ge=1)]],
+            Field(description="Page size"),
+        ] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -936,9 +948,9 @@ class FaxApi:
 
         Returns properties of multiple faxes
 
-        :param page: Page (required)
+        :param page: Page
         :type page: int
-        :param page_size: Page size (required)
+        :param page_size: Page size
         :type page_size: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -962,7 +974,7 @@ class FaxApi:
         :return: Returns the result object.
         """  # noqa: E501
 
-        _param = self._list_faxes_serialize(
+        _param = self._fax_list_serialize(
             page=page,
             page_size=page_size,
             _request_auth=_request_auth,
@@ -980,7 +992,7 @@ class FaxApi:
         )
         return response_data.response
 
-    def _list_faxes_serialize(
+    def _fax_list_serialize(
         self,
         page,
         page_size,
@@ -1040,7 +1052,7 @@ class FaxApi:
         )
 
     @validate_call
-    def send_fax(
+    def fax_send(
         self,
         fax_send_request: FaxSendRequest,
         _request_timeout: Union[
@@ -1054,7 +1066,7 @@ class FaxApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> FaxResponse:
+    ) -> FaxGetResponse:
         """Send Fax
 
         Action to prepare and send a fax
@@ -1083,7 +1095,7 @@ class FaxApi:
         :return: Returns the result object.
         """  # noqa: E501
 
-        _param = self._send_fax_serialize(
+        _param = self._fax_send_serialize(
             fax_send_request=fax_send_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1092,7 +1104,7 @@ class FaxApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "FaxResponse",
+            "200": "FaxGetResponse",
             "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
@@ -1105,7 +1117,7 @@ class FaxApi:
         ).data
 
     @validate_call
-    def send_fax_with_http_info(
+    def fax_send_with_http_info(
         self,
         fax_send_request: FaxSendRequest,
         _request_timeout: Union[
@@ -1119,7 +1131,7 @@ class FaxApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[FaxResponse]:
+    ) -> ApiResponse[FaxGetResponse]:
         """Send Fax
 
         Action to prepare and send a fax
@@ -1148,7 +1160,7 @@ class FaxApi:
         :return: Returns the result object.
         """  # noqa: E501
 
-        _param = self._send_fax_serialize(
+        _param = self._fax_send_serialize(
             fax_send_request=fax_send_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1157,7 +1169,7 @@ class FaxApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "FaxResponse",
+            "200": "FaxGetResponse",
             "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
@@ -1170,7 +1182,7 @@ class FaxApi:
         )
 
     @validate_call
-    def send_fax_without_preload_content(
+    def fax_send_without_preload_content(
         self,
         fax_send_request: FaxSendRequest,
         _request_timeout: Union[
@@ -1213,7 +1225,7 @@ class FaxApi:
         :return: Returns the result object.
         """  # noqa: E501
 
-        _param = self._send_fax_serialize(
+        _param = self._fax_send_serialize(
             fax_send_request=fax_send_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1222,7 +1234,7 @@ class FaxApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            "200": "FaxResponse",
+            "200": "FaxGetResponse",
             "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
@@ -1230,7 +1242,7 @@ class FaxApi:
         )
         return response_data.response
 
-    def _send_fax_serialize(
+    def _fax_send_serialize(
         self,
         fax_send_request,
         _request_auth,
@@ -1291,7 +1303,7 @@ class FaxApi:
             _header_params["Content-Type"] = _content_type
         else:
             _default_content_type = self.api_client.select_header_content_type(
-                ["application/json"]
+                ["application/json", "multipart/form-data"]
             )
             if _default_content_type is not None:
                 _header_params["Content-Type"] = _default_content_type

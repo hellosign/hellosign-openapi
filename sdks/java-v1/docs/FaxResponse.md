@@ -8,8 +8,16 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-| `fax`<sup>*_required_</sup> | [```FaxResponseFax```](FaxResponseFax.md) |    |  |
-| `warnings` | [```List<WarningResponse>```](WarningResponse.md) |  A list of warnings.  |  |
+| `faxId` | ```String``` |  Fax ID  |  |
+| `title` | ```String``` |  Fax Title  |  |
+| `originalTitle` | ```String``` |  Fax Original Title  |  |
+| `subject` | ```String``` |  Fax Subject  |  |
+| `message` | ```String``` |  Fax Message  |  |
+| `metadata` | ```Object``` |  Fax Metadata  |  |
+| `createdAt` | ```Integer``` |  Fax Created At Timestamp  |  |
+| `from` | ```String``` |  Fax Sender Email  |  |
+| `transmissions` | [```List<FaxResponseTransmission>```](FaxResponseTransmission.md) |  Fax Transmissions List  |  |
+| `filesUrl` | ```String``` |  Fax Files URL  |  |
 
 
 

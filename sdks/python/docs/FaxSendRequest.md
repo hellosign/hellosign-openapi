@@ -5,12 +5,11 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-| `to` | ```str``` |  Fax Send To Recipient  |  |
+| `to`<sup>*_required_</sup> | ```str``` |  Fax Send To Recipient  |  |
 | `var_from` | ```str``` |  Fax Send From Sender (used only with fax number)  |  |
-| `file` | [```List[SubFile]```](SubFile.md) |  Fax File to Send  |  |
-| `file_url` | ```List[str]``` |  Fax File URL to Send  |  |
-| `file_url_names` | ```List[str]``` |  Fax File URL Names  |  |
-| `test_mode` | ```bool``` |  API Test Mode Setting  |  |
+| `files` | ```List[io.IOBase]``` |  Fax File to Send  |  |
+| `file_urls` | ```List[str]``` |  Fax File URL to Send  |  |
+| `test_mode` | ```bool``` |  API Test Mode Setting  |  [default to False] |
 | `cover_page_to` | ```str``` |  Fax Cover Page for Recipient  |  |
 | `cover_page_from` | ```str``` |  Fax Cover Page for Sender  |  |
 | `cover_page_message` | ```str``` |  Fax Cover Page Message  |  |

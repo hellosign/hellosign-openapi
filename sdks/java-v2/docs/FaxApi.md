@@ -4,17 +4,17 @@ All URIs are relative to *https://api.hellosign.com/v3*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-[**deleteFax**](FaxApi.md#deleteFax) | **DELETE** /fax/{fax_id} | Delete Fax
-[**getFaxById**](FaxApi.md#getFaxById) | **GET** /fax/{fax_id} | Get Fax
-[**getFaxFiles**](FaxApi.md#getFaxFiles) | **GET** /fax/files/{fax_id} | List Fax Files
-[**listFaxes**](FaxApi.md#listFaxes) | **GET** /fax/list | Lists Faxes
-[**sendFax**](FaxApi.md#sendFax) | **POST** /fax/send | Send Fax
+[**faxDelete**](FaxApi.md#faxDelete) | **DELETE** /fax/{fax_id} | Delete Fax
+[**faxFiles**](FaxApi.md#faxFiles) | **GET** /fax/files/{fax_id} | List Fax Files
+[**faxGet**](FaxApi.md#faxGet) | **GET** /fax/{fax_id} | Get Fax
+[**faxList**](FaxApi.md#faxList) | **GET** /fax/list | Lists Faxes
+[**faxSend**](FaxApi.md#faxSend) | **POST** /fax/send | Send Fax
 
 
 
-## deleteFax
+## faxDelete
 
-> deleteFax(faxId)
+> faxDelete(faxId)
 
 Delete Fax
 
@@ -36,10 +36,10 @@ public class Example {
         var apiClient = Configuration.getDefaultApiClient()
             .setApiKey("YOUR_API_KEY");
 
-        var faxAPi = new FaxApi(apiClient);
+        var faxApi = new FaxApi(apiClient);
 
         try {
-            faxAPi.deleteFax("[FAX_NUMBER]");
+            faxApi.deleteFax("[FAX_NUMBER]");
         } catch (ApiException e) {
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
@@ -74,81 +74,13 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
+| **204** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
 | **4XX** | failed_operation |  -  |
 
 
-## getFaxById
+## faxFiles
 
-> FaxResponse getFaxById(faxId)
-
-Get Fax
-
-Returns information about fax
-
-### Example
-
-```java
-import com.dropbox.sign.ApiException;
-import com.dropbox.sign.Configuration;
-import com.dropbox.sign.api.*;
-import com.dropbox.sign.auth.*;
-import com.dropbox.sign.model.*;
-
-public class Example {
-    public static void main(String[] args) {
-        var apiClient = Configuration.getDefaultApiClient()
-            .setApiKey("YOUR_API_KEY");
-
-        var faxApi = new FaxApi(apiClient);
-
-        var faxId = "fa5c8a0b0f492d768749333ad6fcc214c111e967";
-
-        try {
-            FaxGetResponse result = faxApi.getFaxById(faxId);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling AccountApi#accountCreate");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
- **faxId** | **String**| Fax ID |
-
-### Return type
-
-[**FaxResponse**](FaxResponse.md)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
-| **4XX** | failed_operation |  -  |
-
-
-## getFaxFiles
-
-> File getFaxFiles(faxId)
+> File faxFiles(faxId)
 
 List Fax Files
 
@@ -214,9 +146,77 @@ public class Example {
 | **4XX** | failed_operation |  -  |
 
 
-## listFaxes
+## faxGet
 
-> FaxListResponse listFaxes(page, pageSize)
+> FaxGetResponse faxGet(faxId)
+
+Get Fax
+
+Returns information about fax
+
+### Example
+
+```java
+import com.dropbox.sign.ApiException;
+import com.dropbox.sign.Configuration;
+import com.dropbox.sign.api.*;
+import com.dropbox.sign.auth.*;
+import com.dropbox.sign.model.*;
+
+public class Example {
+    public static void main(String[] args) {
+        var apiClient = Configuration.getDefaultApiClient()
+            .setApiKey("YOUR_API_KEY");
+
+        var faxApi = new FaxApi(apiClient);
+
+        var faxId = "fa5c8a0b0f492d768749333ad6fcc214c111e967";
+
+        try {
+            FaxGetResponse result = faxApi.getFaxById(faxId);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling AccountApi#accountCreate");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+ **faxId** | **String**| Fax ID |
+
+### Return type
+
+[**FaxGetResponse**](FaxGetResponse.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
+| **4XX** | failed_operation |  -  |
+
+
+## faxList
+
+> FaxListResponse faxList(page, pageSize)
 
 Lists Faxes
 
@@ -261,8 +261,8 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
- **page** | **Integer**| Page |
- **pageSize** | **Integer**| Page size |
+ **page** | **Integer**| Page | [optional] [default to 1]
+ **pageSize** | **Integer**| Page size | [optional] [default to 20]
 
 ### Return type
 
@@ -284,9 +284,9 @@ public class Example {
 | **4XX** | failed_operation |  -  |
 
 
-## sendFax
+## faxSend
 
-> FaxResponse sendFax(faxSendRequest)
+> FaxGetResponse faxSend(faxSendRequest)
 
 Send Fax
 
@@ -337,7 +337,7 @@ public class Example {
 
 ### Return type
 
-[**FaxResponse**](FaxResponse.md)
+[**FaxGetResponse**](FaxGetResponse.md)
 
 ### Authorization
 
@@ -345,7 +345,7 @@ public class Example {
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
+- **Content-Type**: application/json, multipart/form-data
 - **Accept**: application/json
 
 ### HTTP response details

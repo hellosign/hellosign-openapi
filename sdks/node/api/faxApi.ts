@@ -26,8 +26,8 @@ import axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from "axios";
 
 import {
   Authentication,
+  FaxGetResponse,
   FaxListResponse,
-  FaxResponse,
   FaxSendRequest,
   HttpBasicAuth,
   HttpBearerAuth,
@@ -124,7 +124,7 @@ export class FaxApi {
    * @param faxId Fax ID
    * @param options
    */
-  public async deleteFax(
+  public async faxDelete(
     faxId: string,
     options: optionsI = { headers: {} }
   ): Promise<returnTypeI> {
@@ -152,7 +152,7 @@ export class FaxApi {
     // verify required parameter 'faxId' is not null or undefined
     if (faxId === null || faxId === undefined) {
       throw new Error(
-        "Required parameter faxId was null or undefined when calling deleteFax."
+        "Required parameter faxId was null or undefined when calling faxDelete."
       );
     }
 
@@ -220,129 +220,12 @@ export class FaxApi {
     });
   }
   /**
-   * Returns information about fax
-   * @summary Get Fax
-   * @param faxId Fax ID
-   * @param options
-   */
-  public async getFaxById(
-    faxId: string,
-    options: optionsI = { headers: {} }
-  ): Promise<returnTypeT<FaxResponse>> {
-    const localVarPath =
-      this.basePath +
-      "/fax/{fax_id}".replace(
-        "{" + "fax_id" + "}",
-        encodeURIComponent(String(faxId))
-      );
-    let localVarQueryParameters: any = {};
-    let localVarHeaderParams: any = (<any>Object).assign(
-      {},
-      this._defaultHeaders
-    );
-    const produces = ["application/json"];
-    // give precedence to 'application/json'
-    if (produces.indexOf("application/json") >= 0) {
-      localVarHeaderParams["content-type"] = "application/json";
-    } else {
-      localVarHeaderParams["content-type"] = produces.join(",");
-    }
-    let localVarFormParams: any = {};
-    let localVarBodyParams: any = undefined;
-
-    // verify required parameter 'faxId' is not null or undefined
-    if (faxId === null || faxId === undefined) {
-      throw new Error(
-        "Required parameter faxId was null or undefined when calling getFaxById."
-      );
-    }
-
-    (<any>Object).assign(localVarHeaderParams, options.headers);
-
-    let localVarUseFormData = false;
-
-    let localVarRequestOptions: AxiosRequestConfig = {
-      method: "GET",
-      params: localVarQueryParameters,
-      headers: localVarHeaderParams,
-      url: localVarPath,
-      paramsSerializer: this._useQuerystring
-        ? queryParamsSerializer
-        : undefined,
-      maxContentLength: Infinity,
-      maxBodyLength: Infinity,
-      responseType: "json",
-    };
-
-    let authenticationPromise = Promise.resolve();
-    if (this.authentications.api_key.username) {
-      authenticationPromise = authenticationPromise.then(() =>
-        this.authentications.api_key.applyToRequest(localVarRequestOptions)
-      );
-    }
-    authenticationPromise = authenticationPromise.then(() =>
-      this.authentications.default.applyToRequest(localVarRequestOptions)
-    );
-
-    let interceptorPromise = authenticationPromise;
-    for (const interceptor of this.interceptors) {
-      interceptorPromise = interceptorPromise.then(() =>
-        interceptor(localVarRequestOptions)
-      );
-    }
-
-    return interceptorPromise.then(() => {
-      return new Promise<returnTypeT<FaxResponse>>((resolve, reject) => {
-        axios.request(localVarRequestOptions).then(
-          (response) => {
-            handleSuccessfulResponse<FaxResponse>(
-              resolve,
-              reject,
-              response,
-              "FaxResponse"
-            );
-          },
-          (error: AxiosError) => {
-            if (error.response == null) {
-              reject(error);
-              return;
-            }
-
-            if (
-              handleErrorCodeResponse(
-                reject,
-                error.response,
-                200,
-                "FaxResponse"
-              )
-            ) {
-              return;
-            }
-
-            if (
-              handleErrorRangeResponse(
-                reject,
-                error.response,
-                "4XX",
-                "ErrorResponse"
-              )
-            ) {
-              return;
-            }
-
-            reject(error);
-          }
-        );
-      });
-    });
-  }
-  /**
    * Returns list of fax files
    * @summary List Fax Files
    * @param faxId Fax ID
    * @param options
    */
-  public async getFaxFiles(
+  public async faxFiles(
     faxId: string,
     options: optionsI = { headers: {} }
   ): Promise<returnTypeT<Buffer>> {
@@ -370,7 +253,7 @@ export class FaxApi {
     // verify required parameter 'faxId' is not null or undefined
     if (faxId === null || faxId === undefined) {
       throw new Error(
-        "Required parameter faxId was null or undefined when calling getFaxFiles."
+        "Required parameter faxId was null or undefined when calling faxFiles."
       );
     }
 
@@ -454,15 +337,132 @@ export class FaxApi {
     });
   }
   /**
+   * Returns information about fax
+   * @summary Get Fax
+   * @param faxId Fax ID
+   * @param options
+   */
+  public async faxGet(
+    faxId: string,
+    options: optionsI = { headers: {} }
+  ): Promise<returnTypeT<FaxGetResponse>> {
+    const localVarPath =
+      this.basePath +
+      "/fax/{fax_id}".replace(
+        "{" + "fax_id" + "}",
+        encodeURIComponent(String(faxId))
+      );
+    let localVarQueryParameters: any = {};
+    let localVarHeaderParams: any = (<any>Object).assign(
+      {},
+      this._defaultHeaders
+    );
+    const produces = ["application/json"];
+    // give precedence to 'application/json'
+    if (produces.indexOf("application/json") >= 0) {
+      localVarHeaderParams["content-type"] = "application/json";
+    } else {
+      localVarHeaderParams["content-type"] = produces.join(",");
+    }
+    let localVarFormParams: any = {};
+    let localVarBodyParams: any = undefined;
+
+    // verify required parameter 'faxId' is not null or undefined
+    if (faxId === null || faxId === undefined) {
+      throw new Error(
+        "Required parameter faxId was null or undefined when calling faxGet."
+      );
+    }
+
+    (<any>Object).assign(localVarHeaderParams, options.headers);
+
+    let localVarUseFormData = false;
+
+    let localVarRequestOptions: AxiosRequestConfig = {
+      method: "GET",
+      params: localVarQueryParameters,
+      headers: localVarHeaderParams,
+      url: localVarPath,
+      paramsSerializer: this._useQuerystring
+        ? queryParamsSerializer
+        : undefined,
+      maxContentLength: Infinity,
+      maxBodyLength: Infinity,
+      responseType: "json",
+    };
+
+    let authenticationPromise = Promise.resolve();
+    if (this.authentications.api_key.username) {
+      authenticationPromise = authenticationPromise.then(() =>
+        this.authentications.api_key.applyToRequest(localVarRequestOptions)
+      );
+    }
+    authenticationPromise = authenticationPromise.then(() =>
+      this.authentications.default.applyToRequest(localVarRequestOptions)
+    );
+
+    let interceptorPromise = authenticationPromise;
+    for (const interceptor of this.interceptors) {
+      interceptorPromise = interceptorPromise.then(() =>
+        interceptor(localVarRequestOptions)
+      );
+    }
+
+    return interceptorPromise.then(() => {
+      return new Promise<returnTypeT<FaxGetResponse>>((resolve, reject) => {
+        axios.request(localVarRequestOptions).then(
+          (response) => {
+            handleSuccessfulResponse<FaxGetResponse>(
+              resolve,
+              reject,
+              response,
+              "FaxGetResponse"
+            );
+          },
+          (error: AxiosError) => {
+            if (error.response == null) {
+              reject(error);
+              return;
+            }
+
+            if (
+              handleErrorCodeResponse(
+                reject,
+                error.response,
+                200,
+                "FaxGetResponse"
+              )
+            ) {
+              return;
+            }
+
+            if (
+              handleErrorRangeResponse(
+                reject,
+                error.response,
+                "4XX",
+                "ErrorResponse"
+              )
+            ) {
+              return;
+            }
+
+            reject(error);
+          }
+        );
+      });
+    });
+  }
+  /**
    * Returns properties of multiple faxes
    * @summary Lists Faxes
    * @param page Page
    * @param pageSize Page size
    * @param options
    */
-  public async listFaxes(
-    page: number,
-    pageSize: number,
+  public async faxList(
+    page?: number,
+    pageSize?: number,
     options: optionsI = { headers: {} }
   ): Promise<returnTypeT<FaxListResponse>> {
     const localVarPath = this.basePath + "/fax/list";
@@ -480,20 +480,6 @@ export class FaxApi {
     }
     let localVarFormParams: any = {};
     let localVarBodyParams: any = undefined;
-
-    // verify required parameter 'page' is not null or undefined
-    if (page === null || page === undefined) {
-      throw new Error(
-        "Required parameter page was null or undefined when calling listFaxes."
-      );
-    }
-
-    // verify required parameter 'pageSize' is not null or undefined
-    if (pageSize === null || pageSize === undefined) {
-      throw new Error(
-        "Required parameter pageSize was null or undefined when calling listFaxes."
-      );
-    }
 
     if (page !== undefined) {
       localVarQueryParameters["page"] = ObjectSerializer.serialize(
@@ -594,10 +580,10 @@ export class FaxApi {
    * @param faxSendRequest
    * @param options
    */
-  public async sendFax(
+  public async faxSend(
     faxSendRequest: FaxSendRequest,
     options: optionsI = { headers: {} }
-  ): Promise<returnTypeT<FaxResponse>> {
+  ): Promise<returnTypeT<FaxGetResponse>> {
     faxSendRequest = deserializeIfNeeded(faxSendRequest, "FaxSendRequest");
     const localVarPath = this.basePath + "/fax/send";
     let localVarQueryParameters: any = {};
@@ -618,7 +604,7 @@ export class FaxApi {
     // verify required parameter 'faxSendRequest' is not null or undefined
     if (faxSendRequest === null || faxSendRequest === undefined) {
       throw new Error(
-        "Required parameter faxSendRequest was null or undefined when calling sendFax."
+        "Required parameter faxSendRequest was null or undefined when calling faxSend."
       );
     }
 
@@ -676,14 +662,14 @@ export class FaxApi {
     }
 
     return interceptorPromise.then(() => {
-      return new Promise<returnTypeT<FaxResponse>>((resolve, reject) => {
+      return new Promise<returnTypeT<FaxGetResponse>>((resolve, reject) => {
         axios.request(localVarRequestOptions).then(
           (response) => {
-            handleSuccessfulResponse<FaxResponse>(
+            handleSuccessfulResponse<FaxGetResponse>(
               resolve,
               reject,
               response,
-              "FaxResponse"
+              "FaxGetResponse"
             );
           },
           (error: AxiosError) => {
@@ -697,7 +683,7 @@ export class FaxApi {
                 reject,
                 error.response,
                 200,
-                "FaxResponse"
+                "FaxGetResponse"
               )
             ) {
               return;

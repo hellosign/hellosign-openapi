@@ -1,8 +1,8 @@
 import { AttributeTypeMap } from "./";
-import { FaxResponseFax } from "./faxResponseFax";
+import { FaxResponse } from "./faxResponse";
 import { ListInfoResponse } from "./listInfoResponse";
 export declare class FaxListResponse {
-    "faxes": Array<FaxResponseFax>;
+    "faxes": Array<FaxResponse>;
     "listInfo": ListInfoResponse;
     static discriminator: string | undefined;
     static attributeTypeMap: AttributeTypeMap;

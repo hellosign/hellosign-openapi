@@ -32,6 +32,7 @@ use Dropbox\Sign\ObjectSerializer;
 use InvalidArgumentException;
 use JsonSerializable;
 use ReturnTypeWillChange;
+use SplFileObject;
 
 /**
  * FaxSendRequest Class Doc Comment
@@ -59,9 +60,8 @@ class FaxSendRequest implements ModelInterface, ArrayAccess, JsonSerializable
     protected static $openAPITypes = [
         'to' => 'string',
         'from' => 'string',
-        'file' => '\Dropbox\Sign\Model\SubFile[]',
-        'file_url' => 'string[]',
-        'file_url_names' => 'string[]',
+        'files' => '\SplFileObject[]',
+        'file_urls' => 'string[]',
         'test_mode' => 'bool',
         'cover_page_to' => 'string',
         'cover_page_from' => 'string',
@@ -79,9 +79,8 @@ class FaxSendRequest implements ModelInterface, ArrayAccess, JsonSerializable
     protected static $openAPIFormats = [
         'to' => null,
         'from' => null,
-        'file' => null,
-        'file_url' => null,
-        'file_url_names' => null,
+        'files' => 'binary',
+        'file_urls' => null,
         'test_mode' => null,
         'cover_page_to' => null,
         'cover_page_from' => null,
@@ -96,15 +95,14 @@ class FaxSendRequest implements ModelInterface, ArrayAccess, JsonSerializable
      */
     protected static array $openAPINullables = [
         'to' => false,
-        'from' => true,
-        'file' => false,
-        'file_url' => false,
-        'file_url_names' => false,
+        'from' => false,
+        'files' => false,
+        'file_urls' => false,
         'test_mode' => false,
-        'cover_page_to' => true,
-        'cover_page_from' => true,
-        'cover_page_message' => true,
-        'title' => true,
+        'cover_page_to' => false,
+        'cover_page_from' => false,
+        'cover_page_message' => false,
+        'title' => false,
     ];
 
     /**
@@ -187,9 +185,8 @@ class FaxSendRequest implements ModelInterface, ArrayAccess, JsonSerializable
     protected static $attributeMap = [
         'to' => 'to',
         'from' => 'from',
-        'file' => 'file',
-        'file_url' => 'file_url',
-        'file_url_names' => 'file_url_names',
+        'files' => 'files',
+        'file_urls' => 'file_urls',
         'test_mode' => 'test_mode',
         'cover_page_to' => 'cover_page_to',
         'cover_page_from' => 'cover_page_from',
@@ -205,9 +202,8 @@ class FaxSendRequest implements ModelInterface, ArrayAccess, JsonSerializable
     protected static $setters = [
         'to' => 'setTo',
         'from' => 'setFrom',
-        'file' => 'setFile',
-        'file_url' => 'setFileUrl',
-        'file_url_names' => 'setFileUrlNames',
+        'files' => 'setFiles',
+        'file_urls' => 'setFileUrls',
         'test_mode' => 'setTestMode',
         'cover_page_to' => 'setCoverPageTo',
         'cover_page_from' => 'setCoverPageFrom',
@@ -223,9 +219,8 @@ class FaxSendRequest implements ModelInterface, ArrayAccess, JsonSerializable
     protected static $getters = [
         'to' => 'getTo',
         'from' => 'getFrom',
-        'file' => 'getFile',
-        'file_url' => 'getFileUrl',
-        'file_url_names' => 'getFileUrlNames',
+        'files' => 'getFiles',
+        'file_urls' => 'getFileUrls',
         'test_mode' => 'getTestMode',
         'cover_page_to' => 'getCoverPageTo',
         'cover_page_from' => 'getCoverPageFrom',
@@ -291,10 +286,9 @@ class FaxSendRequest implements ModelInterface, ArrayAccess, JsonSerializable
     {
         $this->setIfExists('to', $data ?? [], null);
         $this->setIfExists('from', $data ?? [], null);
-        $this->setIfExists('file', $data ?? [], null);
-        $this->setIfExists('file_url', $data ?? [], null);
-        $this->setIfExists('file_url_names', $data ?? [], null);
-        $this->setIfExists('test_mode', $data ?? [], null);
+        $this->setIfExists('files', $data ?? [], null);
+        $this->setIfExists('file_urls', $data ?? [], null);
+        $this->setIfExists('test_mode', $data ?? [], false);
         $this->setIfExists('cover_page_to', $data ?? [], null);
         $this->setIfExists('cover_page_from', $data ?? [], null);
         $this->setIfExists('cover_page_message', $data ?? [], null);
@@ -344,7 +338,12 @@ class FaxSendRequest implements ModelInterface, ArrayAccess, JsonSerializable
      */
     public function listInvalidProperties()
     {
-        return [];
+        $invalidProperties = [];
+
+        if ($this->container['to'] === null) {
+            $invalidProperties[] = "'to' can't be null";
+        }
+        return $invalidProperties;
     }
 
     /**
@@ -361,7 +360,7 @@ class FaxSendRequest implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets to
      *
-     * @return string|null
+     * @return string
      */
     public function getTo()
     {
@@ -371,11 +370,11 @@ class FaxSendRequest implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets to
      *
-     * @param string|null $to Fax Send To Recipient
+     * @param string $to Fax Send To Recipient
      *
      * @return self
      */
-    public function setTo(?string $to)
+    public function setTo(string $to)
     {
         if (is_null($to)) {
             throw new InvalidArgumentException('non-nullable to cannot be null');
@@ -405,14 +404,7 @@ class FaxSendRequest implements ModelInterface, ArrayAccess, JsonSerializable
     public function setFrom(?string $from)
     {
         if (is_null($from)) {
-            array_push($this->openAPINullablesSetToNull, 'from');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('from', $nullablesSetToNull);
-            if ($index !== false) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new InvalidArgumentException('non-nullable from cannot be null');
         }
         $this->container['from'] = $from;
 
@@ -420,82 +412,55 @@ class FaxSendRequest implements ModelInterface, ArrayAccess, JsonSerializable
     }
 
     /**
-     * Gets file
+     * Gets files
      *
-     * @return SubFile[]|null
+     * @return SplFileObject[]|null
      */
-    public function getFile()
+    public function getFiles()
     {
-        return $this->container['file'];
+        return $this->container['files'];
     }
 
     /**
-     * Sets file
+     * Sets files
      *
-     * @param SubFile[]|null $file Fax File to Send
+     * @param SplFileObject[]|null $files Fax File to Send
      *
      * @return self
      */
-    public function setFile(?array $file)
+    public function setFiles(?array $files)
     {
-        if (is_null($file)) {
-            throw new InvalidArgumentException('non-nullable file cannot be null');
+        if (is_null($files)) {
+            throw new InvalidArgumentException('non-nullable files cannot be null');
         }
-        $this->container['file'] = $file;
+        $this->container['files'] = $files;
 
         return $this;
     }
 
     /**
-     * Gets file_url
+     * Gets file_urls
      *
      * @return string[]|null
      */
-    public function getFileUrl()
+    public function getFileUrls()
     {
-        return $this->container['file_url'];
+        return $this->container['file_urls'];
     }
 
     /**
-     * Sets file_url
+     * Sets file_urls
      *
-     * @param string[]|null $file_url Fax File URL to Send
+     * @param string[]|null $file_urls Fax File URL to Send
      *
      * @return self
      */
-    public function setFileUrl(?array $file_url)
+    public function setFileUrls(?array $file_urls)
     {
-        if (is_null($file_url)) {
-            throw new InvalidArgumentException('non-nullable file_url cannot be null');
+        if (is_null($file_urls)) {
+            throw new InvalidArgumentException('non-nullable file_urls cannot be null');
         }
-        $this->container['file_url'] = $file_url;
-
-        return $this;
-    }
-
-    /**
-     * Gets file_url_names
-     *
-     * @return string[]|null
-     */
-    public function getFileUrlNames()
-    {
-        return $this->container['file_url_names'];
-    }
-
-    /**
-     * Sets file_url_names
-     *
-     * @param string[]|null $file_url_names Fax File URL Names
-     *
-     * @return self
-     */
-    public function setFileUrlNames(?array $file_url_names)
-    {
-        if (is_null($file_url_names)) {
-            throw new InvalidArgumentException('non-nullable file_url_names cannot be null');
-        }
-        $this->container['file_url_names'] = $file_url_names;
+        $this->container['file_urls'] = $file_urls;
 
         return $this;
     }
@@ -547,14 +512,7 @@ class FaxSendRequest implements ModelInterface, ArrayAccess, JsonSerializable
     public function setCoverPageTo(?string $cover_page_to)
     {
         if (is_null($cover_page_to)) {
-            array_push($this->openAPINullablesSetToNull, 'cover_page_to');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('cover_page_to', $nullablesSetToNull);
-            if ($index !== false) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new InvalidArgumentException('non-nullable cover_page_to cannot be null');
         }
         $this->container['cover_page_to'] = $cover_page_to;
 
@@ -581,14 +539,7 @@ class FaxSendRequest implements ModelInterface, ArrayAccess, JsonSerializable
     public function setCoverPageFrom(?string $cover_page_from)
     {
         if (is_null($cover_page_from)) {
-            array_push($this->openAPINullablesSetToNull, 'cover_page_from');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('cover_page_from', $nullablesSetToNull);
-            if ($index !== false) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new InvalidArgumentException('non-nullable cover_page_from cannot be null');
         }
         $this->container['cover_page_from'] = $cover_page_from;
 
@@ -615,14 +566,7 @@ class FaxSendRequest implements ModelInterface, ArrayAccess, JsonSerializable
     public function setCoverPageMessage(?string $cover_page_message)
     {
         if (is_null($cover_page_message)) {
-            array_push($this->openAPINullablesSetToNull, 'cover_page_message');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('cover_page_message', $nullablesSetToNull);
-            if ($index !== false) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new InvalidArgumentException('non-nullable cover_page_message cannot be null');
         }
         $this->container['cover_page_message'] = $cover_page_message;
 
@@ -649,14 +593,7 @@ class FaxSendRequest implements ModelInterface, ArrayAccess, JsonSerializable
     public function setTitle(?string $title)
     {
         if (is_null($title)) {
-            array_push($this->openAPINullablesSetToNull, 'title');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('title', $nullablesSetToNull);
-            if ($index !== false) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new InvalidArgumentException('non-nullable title cannot be null');
         }
         $this->container['title'] = $title;
 

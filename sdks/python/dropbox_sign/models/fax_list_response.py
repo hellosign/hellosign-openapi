@@ -20,7 +20,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List
-from dropbox_sign.models.fax_response_fax import FaxResponseFax
+from dropbox_sign.models.fax_response import FaxResponse
 from dropbox_sign.models.list_info_response import ListInfoResponse
 from typing import Optional, Set, Tuple
 from typing_extensions import Self
@@ -34,7 +34,7 @@ class FaxListResponse(BaseModel):
     FaxListResponse
     """  # noqa: E501
 
-    faxes: List[FaxResponseFax]
+    faxes: List[FaxResponse]
     list_info: ListInfoResponse
     __properties: ClassVar[List[str]] = ["faxes", "list_info"]
 
@@ -112,7 +112,7 @@ class FaxListResponse(BaseModel):
         _obj = cls.model_validate(
             {
                 "faxes": (
-                    [FaxResponseFax.from_dict(_item) for _item in obj["faxes"]]
+                    [FaxResponse.from_dict(_item) for _item in obj["faxes"]]
                     if obj.get("faxes") is not None
                     else None
                 ),
@@ -138,7 +138,7 @@ class FaxListResponse(BaseModel):
     @classmethod
     def openapi_types(cls) -> Dict[str, str]:
         return {
-            "faxes": "(List[FaxResponseFax],)",
+            "faxes": "(List[FaxResponse],)",
             "list_info": "(ListInfoResponse,)",
         }
 

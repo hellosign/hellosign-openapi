@@ -177,11 +177,11 @@ Class | Method | HTTP request | Description
 *BulkSendJobApi* | [**bulkSendJobList**](docs/BulkSendJobApi.md#bulkSendJobList) | **GET** /bulk_send_job/list | List Bulk Send Jobs
 *EmbeddedApi* | [**embeddedEditUrl**](docs/EmbeddedApi.md#embeddedEditUrl) | **POST** /embedded/edit_url/{template_id} | Get Embedded Template Edit URL
 *EmbeddedApi* | [**embeddedSignUrl**](docs/EmbeddedApi.md#embeddedSignUrl) | **GET** /embedded/sign_url/{signature_id} | Get Embedded Sign URL
-*FaxApi* | [**deleteFax**](docs/FaxApi.md#deleteFax) | **DELETE** /fax/{fax_id} | Delete Fax
-*FaxApi* | [**getFaxById**](docs/FaxApi.md#getFaxById) | **GET** /fax/{fax_id} | Get Fax
-*FaxApi* | [**getFaxFiles**](docs/FaxApi.md#getFaxFiles) | **GET** /fax/files/{fax_id} | List Fax Files
-*FaxApi* | [**listFaxes**](docs/FaxApi.md#listFaxes) | **GET** /fax/list | Lists Faxes
-*FaxApi* | [**sendFax**](docs/FaxApi.md#sendFax) | **POST** /fax/send | Send Fax
+*FaxApi* | [**faxDelete**](docs/FaxApi.md#faxDelete) | **DELETE** /fax/{fax_id} | Delete Fax
+*FaxApi* | [**faxFiles**](docs/FaxApi.md#faxFiles) | **GET** /fax/files/{fax_id} | List Fax Files
+*FaxApi* | [**faxGet**](docs/FaxApi.md#faxGet) | **GET** /fax/{fax_id} | Get Fax
+*FaxApi* | [**faxList**](docs/FaxApi.md#faxList) | **GET** /fax/list | Lists Faxes
+*FaxApi* | [**faxSend**](docs/FaxApi.md#faxSend) | **POST** /fax/send | Send Fax
 *FaxLineApi* | [**faxLineAddUser**](docs/FaxLineApi.md#faxLineAddUser) | **PUT** /fax_line/add_user | Add Fax Line User
 *FaxLineApi* | [**faxLineAreaCodeGet**](docs/FaxLineApi.md#faxLineAreaCodeGet) | **GET** /fax_line/area_codes | Get Available Fax Line Area Codes
 *FaxLineApi* | [**faxLineCreate**](docs/FaxLineApi.md#faxLineCreate) | **POST** /fax_line/create | Purchase Fax Line
@@ -271,6 +271,7 @@ Class | Method | HTTP request | Description
  - [EventCallbackRequest](docs/EventCallbackRequest.md)
  - [EventCallbackRequestEvent](docs/EventCallbackRequestEvent.md)
  - [EventCallbackRequestEventMetadata](docs/EventCallbackRequestEventMetadata.md)
+ - [FaxGetResponse](docs/FaxGetResponse.md)
  - [FaxLineAddUserRequest](docs/FaxLineAddUserRequest.md)
  - [FaxLineAreaCodeGetCountryEnum](docs/FaxLineAreaCodeGetCountryEnum.md)
  - [FaxLineAreaCodeGetProvinceEnum](docs/FaxLineAreaCodeGetProvinceEnum.md)
@@ -284,8 +285,7 @@ Class | Method | HTTP request | Description
  - [FaxLineResponseFaxLine](docs/FaxLineResponseFaxLine.md)
  - [FaxListResponse](docs/FaxListResponse.md)
  - [FaxResponse](docs/FaxResponse.md)
- - [FaxResponseFax](docs/FaxResponseFax.md)
- - [FaxResponseFaxTransmission](docs/FaxResponseFaxTransmission.md)
+ - [FaxResponseTransmission](docs/FaxResponseTransmission.md)
  - [FaxSendRequest](docs/FaxSendRequest.md)
  - [FileResponse](docs/FileResponse.md)
  - [FileResponseDataUri](docs/FileResponseDataUri.md)
@@ -331,7 +331,6 @@ Class | Method | HTTP request | Description
  - [SubCustomField](docs/SubCustomField.md)
  - [SubEditorOptions](docs/SubEditorOptions.md)
  - [SubFieldOptions](docs/SubFieldOptions.md)
- - [SubFile](docs/SubFile.md)
  - [SubFormFieldGroup](docs/SubFormFieldGroup.md)
  - [SubFormFieldRule](docs/SubFormFieldRule.md)
  - [SubFormFieldRuleAction](docs/SubFormFieldRuleAction.md)

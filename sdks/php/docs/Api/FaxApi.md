@@ -4,17 +4,17 @@ All URIs are relative to https://api.hellosign.com/v3.
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**deleteFax()**](FaxApi.md#deleteFax) | **DELETE** /fax/{fax_id} | Delete Fax |
-| [**getFaxById()**](FaxApi.md#getFaxById) | **GET** /fax/{fax_id} | Get Fax |
-| [**getFaxFiles()**](FaxApi.md#getFaxFiles) | **GET** /fax/files/{fax_id} | List Fax Files |
-| [**listFaxes()**](FaxApi.md#listFaxes) | **GET** /fax/list | Lists Faxes |
-| [**sendFax()**](FaxApi.md#sendFax) | **POST** /fax/send | Send Fax |
+| [**faxDelete()**](FaxApi.md#faxDelete) | **DELETE** /fax/{fax_id} | Delete Fax |
+| [**faxFiles()**](FaxApi.md#faxFiles) | **GET** /fax/files/{fax_id} | List Fax Files |
+| [**faxGet()**](FaxApi.md#faxGet) | **GET** /fax/{fax_id} | Get Fax |
+| [**faxList()**](FaxApi.md#faxList) | **GET** /fax/list | Lists Faxes |
+| [**faxSend()**](FaxApi.md#faxSend) | **POST** /fax/send | Send Fax |
 
 
-## `deleteFax()`
+## `faxDelete()`
 
 ```php
-deleteFax($fax_id)
+faxDelete($fax_id)
 ```
 Delete Fax
 
@@ -67,69 +67,10 @@ void (empty response body)
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `getFaxById()`
+## `faxFiles()`
 
 ```php
-getFaxById($fax_id): \Dropbox\Sign\Model\FaxResponse
-```
-Get Fax
-
-Returns information about fax
-
-### Example
-
-```php
-<?php
-
-require_once __DIR__ . "/vendor/autoload.php";
-
-$config = Dropbox\Sign\Configuration::getDefaultConfiguration();
-
-// Configure HTTP basic authorization: api_key
-$config->setUsername("YOUR_API_KEY");
-
-$faxApi = new Dropbox\Sign\Api\FaxApi($config);
-
-$faxId = "fa5c8a0b0f492d768749333ad6fcc214c111e967";
-
-try {
-    $result = $faxApi->getFaxById($faxId);
-    print_r($result);
-} catch (Dropbox\Sign\ApiException $e) {
-    $error = $e->getResponseObject();
-    echo "Exception when calling Dropbox Sign API: "
-        . print_r($error->getError());
-}
-
-```
-
-### Parameters
-
-|Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **fax_id** | **string**| Fax ID | |
-
-### Return type
-
-[**\Dropbox\Sign\Model\FaxResponse**](../Model/FaxResponse.md)
-
-### Authorization
-
-[api_key](../../README.md#api_key)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `getFaxFiles()`
-
-```php
-getFaxFiles($fax_id): \SplFileObject
+faxFiles($fax_id): \SplFileObject
 ```
 List Fax Files
 
@@ -184,10 +125,69 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `listFaxes()`
+## `faxGet()`
 
 ```php
-listFaxes($page, $page_size): \Dropbox\Sign\Model\FaxListResponse
+faxGet($fax_id): \Dropbox\Sign\Model\FaxGetResponse
+```
+Get Fax
+
+Returns information about fax
+
+### Example
+
+```php
+<?php
+
+require_once __DIR__ . "/vendor/autoload.php";
+
+$config = Dropbox\Sign\Configuration::getDefaultConfiguration();
+
+// Configure HTTP basic authorization: api_key
+$config->setUsername("YOUR_API_KEY");
+
+$faxApi = new Dropbox\Sign\Api\FaxApi($config);
+
+$faxId = "fa5c8a0b0f492d768749333ad6fcc214c111e967";
+
+try {
+    $result = $faxApi->getFaxById($faxId);
+    print_r($result);
+} catch (Dropbox\Sign\ApiException $e) {
+    $error = $e->getResponseObject();
+    echo "Exception when calling Dropbox Sign API: "
+        . print_r($error->getError());
+}
+
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **fax_id** | **string**| Fax ID | |
+
+### Return type
+
+[**\Dropbox\Sign\Model\FaxGetResponse**](../Model/FaxGetResponse.md)
+
+### Authorization
+
+[api_key](../../README.md#api_key)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `faxList()`
+
+```php
+faxList($page, $page_size): \Dropbox\Sign\Model\FaxListResponse
 ```
 Lists Faxes
 
@@ -225,8 +225,8 @@ try {
 
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **page** | **int**| Page | |
-| **page_size** | **int**| Page size | |
+| **page** | **int**| Page | [optional] [default to 1] |
+| **page_size** | **int**| Page size | [optional] [default to 20] |
 
 ### Return type
 
@@ -245,10 +245,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `sendFax()`
+## `faxSend()`
 
 ```php
-sendFax($fax_send_request): \Dropbox\Sign\Model\FaxResponse
+faxSend($fax_send_request): \Dropbox\Sign\Model\FaxGetResponse
 ```
 Send Fax
 
@@ -291,7 +291,7 @@ try {
 
 ### Return type
 
-[**\Dropbox\Sign\Model\FaxResponse**](../Model/FaxResponse.md)
+[**\Dropbox\Sign\Model\FaxGetResponse**](../Model/FaxGetResponse.md)
 
 ### Authorization
 
@@ -299,7 +299,7 @@ try {
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json`
+- **Content-Type**: `application/json`, `multipart/form-data`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

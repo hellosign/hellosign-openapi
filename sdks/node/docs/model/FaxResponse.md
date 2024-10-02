@@ -6,7 +6,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-| `fax`<sup>*_required_</sup> | [```FaxResponseFax```](FaxResponseFax.md) |    |  |
-| `warnings` | [```Array<WarningResponse>```](WarningResponse.md) |  A list of warnings.  |  |
+| `faxId` | ```string``` |  Fax ID  |  |
+| `title` | ```string``` |  Fax Title  |  |
+| `originalTitle` | ```string``` |  Fax Original Title  |  |
+| `subject` | ```string``` |  Fax Subject  |  |
+| `message` | ```string``` |  Fax Message  |  |
+| `metadata` | ```object``` |  Fax Metadata  |  |
+| `createdAt` | ```number``` |  Fax Created At Timestamp  |  |
+| `from` | ```string``` |  Fax Sender Email  |  |
+| `transmissions` | [```Array<FaxResponseTransmission>```](FaxResponseTransmission.md) |  Fax Transmissions List  |  |
+| `filesUrl` | ```string``` |  Fax Files URL  |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

@@ -18,9 +18,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
-from dropbox_sign.models.sub_file import SubFile
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictBytes, StrictStr
+from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing import Optional, Set, Tuple
 from typing_extensions import Self
 import io
@@ -33,21 +32,20 @@ class FaxSendRequest(BaseModel):
     FaxSendRequest
     """  # noqa: E501
 
-    to: Optional[StrictStr] = Field(default=None, description="Fax Send To Recipient")
+    to: StrictStr = Field(description="Fax Send To Recipient")
     var_from: Optional[StrictStr] = Field(
         default=None,
         description="Fax Send From Sender (used only with fax number)",
         alias="from",
     )
-    file: Optional[List[SubFile]] = Field(default=None, description="Fax File to Send")
-    file_url: Optional[List[StrictStr]] = Field(
+    files: Optional[List[Union[StrictBytes, StrictStr, io.IOBase]]] = Field(
+        default=None, description="Fax File to Send"
+    )
+    file_urls: Optional[List[StrictStr]] = Field(
         default=None, description="Fax File URL to Send"
     )
-    file_url_names: Optional[List[StrictStr]] = Field(
-        default=None, description="Fax File URL Names"
-    )
     test_mode: Optional[StrictBool] = Field(
-        default=None, description="API Test Mode Setting"
+        default=False, description="API Test Mode Setting"
     )
     cover_page_to: Optional[StrictStr] = Field(
         default=None, description="Fax Cover Page for Recipient"
@@ -62,9 +60,8 @@ class FaxSendRequest(BaseModel):
     __properties: ClassVar[List[str]] = [
         "to",
         "from",
-        "file",
-        "file_url",
-        "file_url_names",
+        "files",
+        "file_urls",
         "test_mode",
         "cover_page_to",
         "cover_page_from",
@@ -122,13 +119,6 @@ class FaxSendRequest(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of each item in file (list)
-        _items = []
-        if self.file:
-            for _item_file in self.file:
-                if _item_file:
-                    _items.append(_item_file.to_dict())
-            _dict["file"] = _items
         return _dict
 
     @classmethod
@@ -144,14 +134,11 @@ class FaxSendRequest(BaseModel):
             {
                 "to": obj.get("to"),
                 "from": obj.get("from"),
-                "file": (
-                    [SubFile.from_dict(_item) for _item in obj["file"]]
-                    if obj.get("file") is not None
-                    else None
+                "files": obj.get("files"),
+                "file_urls": obj.get("file_urls"),
+                "test_mode": (
+                    obj.get("test_mode") if obj.get("test_mode") is not None else False
                 ),
-                "file_url": obj.get("file_url"),
-                "file_url_names": obj.get("file_url_names"),
-                "test_mode": obj.get("test_mode"),
                 "cover_page_to": obj.get("cover_page_to"),
                 "cover_page_from": obj.get("cover_page_from"),
                 "cover_page_message": obj.get("cover_page_message"),
@@ -175,9 +162,8 @@ class FaxSendRequest(BaseModel):
         return {
             "to": "(str,)",
             "var_from": "(str,)",
-            "file": "(List[SubFile],)",
-            "file_url": "(List[str],)",
-            "file_url_names": "(List[str],)",
+            "files": "(List[io.IOBase],)",
+            "file_urls": "(List[str],)",
             "test_mode": "(bool,)",
             "cover_page_to": "(str,)",
             "cover_page_from": "(str,)",
@@ -188,7 +174,6 @@ class FaxSendRequest(BaseModel):
     @classmethod
     def openapi_type_is_array(cls, property_name: str) -> bool:
         return property_name in [
-            "file",
-            "file_url",
-            "file_url_names",
+            "files",
+            "file_urls",
         ]

@@ -63,6 +63,7 @@ from dropbox_sign.models.event_callback_request_event import EventCallbackReques
 from dropbox_sign.models.event_callback_request_event_metadata import (
     EventCallbackRequestEventMetadata,
 )
+from dropbox_sign.models.fax_get_response import FaxGetResponse
 from dropbox_sign.models.fax_line_add_user_request import FaxLineAddUserRequest
 from dropbox_sign.models.fax_line_area_code_get_country_enum import (
     FaxLineAreaCodeGetCountryEnum,
@@ -84,8 +85,7 @@ from dropbox_sign.models.fax_line_response import FaxLineResponse
 from dropbox_sign.models.fax_line_response_fax_line import FaxLineResponseFaxLine
 from dropbox_sign.models.fax_list_response import FaxListResponse
 from dropbox_sign.models.fax_response import FaxResponse
-from dropbox_sign.models.fax_response_fax import FaxResponseFax
-from dropbox_sign.models.fax_response_fax_transmission import FaxResponseFaxTransmission
+from dropbox_sign.models.fax_response_transmission import FaxResponseTransmission
 from dropbox_sign.models.fax_send_request import FaxSendRequest
 from dropbox_sign.models.file_response import FileResponse
 from dropbox_sign.models.file_response_data_uri import FileResponseDataUri
@@ -187,7 +187,6 @@ from dropbox_sign.models.sub_cc import SubCC
 from dropbox_sign.models.sub_custom_field import SubCustomField
 from dropbox_sign.models.sub_editor_options import SubEditorOptions
 from dropbox_sign.models.sub_field_options import SubFieldOptions
-from dropbox_sign.models.sub_file import SubFile
 from dropbox_sign.models.sub_form_field_group import SubFormFieldGroup
 from dropbox_sign.models.sub_form_field_rule import SubFormFieldRule
 from dropbox_sign.models.sub_form_field_rule_action import SubFormFieldRuleAction
