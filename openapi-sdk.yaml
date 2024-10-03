@@ -4617,7 +4617,7 @@ paths:
                 403_example:
                   $ref: '#/components/examples/Error403ResponseExample'
                 404_example:
-                  $ref: '#/components/examples/TeamDoesNotExistResponseExample'
+                  $ref: '#/components/examples/Error404ResponseExample'
                 4XX_example:
                   $ref: '#/components/examples/Error4XXResponseExample'
       security:
