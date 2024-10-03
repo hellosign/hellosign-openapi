@@ -4568,7 +4568,7 @@ paths:
                 403_example:
                   $ref: '#/components/examples/Error403ResponseExample'
                 404_example:
-                  $ref: '#/components/examples/TeamDoesNotExistResponseExample'
+                  $ref: '#/components/examples/Error404ResponseExample'
                 4XX_example:
                   $ref: '#/components/examples/Error4XXResponseExample'
       security:
@@ -10698,7 +10698,7 @@ components:
     TemplateResponseCCRole:
       properties:
         name:
-          description: '_t__TemplateResponseCCRole::TEMPLATES_LEFT'
+          description: '_t__TemplateResponseCCRole::NAME'
           type: string
       type: object
       x-internal-class: true

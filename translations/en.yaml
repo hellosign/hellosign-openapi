@@ -1486,7 +1486,7 @@
 "TemplateResponseAccountQuota::TEMPLATES_LEFT": API templates remaining.
 "TemplateResponseAccountQuota::SMS_VERIFICATIONS_LEFT": SMS verifications remaining.
 
-"TemplateResponseCCRole::TEMPLATES_LEFT": The name of the Role.
+"TemplateResponseCCRole::NAME": The name of the Role.
 
 "TemplateResponseDocument::INDEX": Document ordering, the lowest index is displayed first and the highest last (0-based indexing).
 "TemplateResponseDocument::NAME": Name of the associated file.
