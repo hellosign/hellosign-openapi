@@ -1,10 +1,10 @@
 {
-  "file": "<form-data file upload>",
-  "file_url[0]": "<link to file url>",
-  "file_url_names[0]": "File name for a file in URL",
-  "test_mode": "1",
-  "to": 16690000001,
-  "from": 16690000000,
+  "file_url": [
+    "https://api.hellosign.com/v3/fax/files/2b388914e3ae3b738bd4e2ee2850c677e6dc53d2"
+  ],
+  "test_mode": "true",
+  "to": "16690000001",
+  "from": "16690000000",
   "cover_page_to": "Jill Fax",
   "cover_page_message": "I'm sending you a fax!",
   "cover_page_from": "Faxer Faxerson",
