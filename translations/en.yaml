@@ -153,21 +153,21 @@
 "FaxSend::COVER_PAGE_FROM": Fax Cover Page for Sender
 "FaxSend::COVER_PAGE_MESSAGE": Fax Cover Page Message
 "FaxSend::TITLE": Fax Title
-"FaxResponseExample::SUMMARY": Fax Response
-"FaxResponseFax::FAX_ID": Fax ID
-"FaxResponseFax::TITLE": Fax Title
-"FaxResponseFax::ORIGINAL_TITLE": Fax Original Title
-"FaxResponseFax::SUBJECT": Fax Subject
-"FaxResponseFax::MESSAGE": Fax Message
-"FaxResponseFax::METADATA": Fax Metadata
-"FaxResponseFax::CREATED_AT": Fax Created At Timestamp
-"FaxResponseFax::FROM": Fax Sender Email
-"FaxResponseFax::TRANSMISSIONS": Fax Transmissions List
-"FaxResponseFax::FILES_URL": Fax Files URL
-"FaxResponseFaxTransmission::RECIPIENT": Fax Transmission Recipient
-"FaxResponseFaxTransmission::SENDER": Fax Transmission Sender
-"FaxResponseFaxTransmission::STATUS_CODE": Fax Transmission Status Code
-"FaxResponseFaxTransmission::SENT_AT": Fax Transmission Sent Timestamp
+"FaxGetResponseExample::SUMMARY": Fax Response
+"FaxResponse::FAX_ID": Fax ID
+"FaxResponse::TITLE": Fax Title
+"FaxResponse::ORIGINAL_TITLE": Fax Original Title
+"FaxResponse::SUBJECT": Fax Subject
+"FaxResponse::MESSAGE": Fax Message
+"FaxResponse::METADATA": Fax Metadata
+"FaxResponse::CREATED_AT": Fax Created At Timestamp
+"FaxResponse::FROM": Fax Sender Email
+"FaxResponse::TRANSMISSIONS": Fax Transmissions List
+"FaxResponse::FILES_URL": Fax Files URL
+"Sub::FaxResponseTransmission::RECIPIENT": Fax Transmission Recipient
+"Sub::FaxResponseTransmission::SENDER": Fax Transmission Sender
+"Sub::FaxResponseTransmission::STATUS_CODE": Fax Transmission Status Code
+"Sub::FaxResponseTransmission::SENT_AT": Fax Transmission Sent Timestamp
 "FaxListResponseExample::SUMMARY": Returns the properties and settings of multiple Faxes.
 "FaxLineAddUser::SUMMARY": Add Fax Line User
 "FaxLineAddUser::DESCRIPTION": Grants a user access to the specified Fax Line.
@@ -968,10 +968,6 @@
   Allows requester to specify the date format (see list of allowed [formats](/api/reference/constants/#date-formats))
 
   **NOTE:** Only available for Premium and higher.
-
-"Sub::File::DESCRIPTION": Actual uploaded physical file
-"Sub::File::NAME": Actual physical uploaded file name that is derived during upload. Not settable parameter.
-
 
 "Sub::FormFieldGroup::DESCRIPTION": Group information for fields defined in `form_fields_per_document`. String-indexed JSON array with `group_label` and `requirement` keys. `form_fields_per_document` must contain fields referencing a group defined in `form_field_groups`.
 "Sub::FormFieldGroup::GROUP_ID_LABEL": ID of group. Use this to reference a specific group from the `group` value in `form_fields_per_document`.
