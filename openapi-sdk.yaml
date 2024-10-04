@@ -1415,7 +1415,7 @@ paths:
         - Fax
       summary: 'Get Fax'
       description: 'Returns information about fax'
-      operationId: getFaxById
+      operationId: faxGet
       parameters:
         -
           name: fax_id
@@ -1438,10 +1438,10 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/FaxResponse'
+                $ref: '#/components/schemas/FaxGetResponse'
               examples:
                 default_example:
-                  $ref: '#/components/examples/FaxResponseExample'
+                  $ref: '#/components/examples/FaxGetResponseExample'
         4XX:
           description: failed_operation
           content:
@@ -1459,6 +1459,8 @@ paths:
                   $ref: '#/components/examples/Error403ResponseExample'
                 404_example:
                   $ref: '#/components/examples/Error404ResponseExample'
+                429_example:
+                  $ref: '#/components/examples/Error429ResponseExample'
                 4XX_example:
                   $ref: '#/components/examples/Error4XXResponseExample'
       security:
@@ -1514,7 +1516,7 @@ paths:
         - Fax
       summary: 'Delete Fax'
       description: 'Deletes the specified Fax from the system.'
-      operationId: deleteFax
+      operationId: faxDelete
       parameters:
         -
           name: fax_id
@@ -1525,7 +1527,7 @@ paths:
             type: string
           example: fa5c8a0b0f492d768749333ad6fcc214c111e967
       responses:
-        200:
+        204:
           description: 'successful operation'
           headers:
             X-RateLimit-Limit:
@@ -1534,8 +1536,6 @@ paths:
               $ref: '#/components/headers/X-RateLimit-Remaining'
             X-Ratelimit-Reset:
               $ref: '#/components/headers/X-Ratelimit-Reset'
-          content:
-            application/json: {}
         4XX:
           description: failed_operation
           content:
@@ -1553,6 +1553,8 @@ paths:
                   $ref: '#/components/examples/Error403ResponseExample'
                 404_example:
                   $ref: '#/components/examples/Error404ResponseExample'
+                429_example:
+                  $ref: '#/components/examples/Error429ResponseExample'
                 4XX_example:
                   $ref: '#/components/examples/Error4XXResponseExample'
       security:
@@ -1609,7 +1611,7 @@ paths:
         - Fax
       summary: 'List Fax Files'
       description: 'Returns list of fax files'
-      operationId: getFaxFiles
+      operationId: faxFiles
       parameters:
         -
           name: fax_id
@@ -1651,6 +1653,10 @@ paths:
                   $ref: '#/components/examples/Error403ResponseExample'
                 404_example:
                   $ref: '#/components/examples/Error404ResponseExample'
+                410_example:
+                  $ref: '#/components/examples/Error410ResponseExample'
+                429_example:
+                  $ref: '#/components/examples/Error429ResponseExample'
                 4XX_example:
                   $ref: '#/components/examples/Error4XXResponseExample'
       security:
@@ -2504,24 +2510,24 @@ paths:
         - Fax
       summary: 'Lists Faxes'
       description: 'Returns properties of multiple faxes'
-      operationId: listFaxes
+      operationId: faxList
       parameters:
         -
           name: page
           in: query
           description: Page
-          required: true
           schema:
             type: integer
+            default: 1
             minimum: 1
             example: 1
         -
           name: page_size
           in: query
           description: 'Page size'
-          required: true
           schema:
             type: integer
+            default: 20
             maximum: 100
             minimum: 1
             example: 20
@@ -2615,7 +2621,7 @@ paths:
         - Fax
       summary: 'Send Fax'
       description: 'Action to prepare and send a fax'
-      operationId: sendFax
+      operationId: faxSend
       requestBody:
         required: true
         content:
@@ -2625,6 +2631,9 @@ paths:
             examples:
               default_example:
                 $ref: '#/components/examples/FaxSendRequestExample'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/FaxSendRequest'
       responses:
         200:
           description: 'successful operation'
@@ -2638,10 +2647,10 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/FaxResponse'
+                $ref: '#/components/schemas/FaxGetResponse'
               examples:
                 default_example:
-                  $ref: '#/components/examples/FaxResponseExample'
+                  $ref: '#/components/examples/FaxGetResponseExample'
         4XX:
           description: failed_operation
           content:
@@ -2659,6 +2668,8 @@ paths:
                   $ref: '#/components/examples/Error403ResponseExample'
                 404_example:
                   $ref: '#/components/examples/Error404ResponseExample'
+                429_example:
+                  $ref: '#/components/examples/Error429ResponseExample'
                 4XX_example:
                   $ref: '#/components/examples/Error4XXResponseExample'
       security:
@@ -7849,6 +7860,8 @@ components:
           format: email
       type: object
     FaxSendRequest:
+      required:
+        - to
       properties:
         to:
           description: 'Fax Send To Recipient'
@@ -7858,46 +7871,37 @@ components:
           description: 'Fax Send From Sender (used only with fax number)'
           type: string
           example: sender@example.com
-          nullable: true
-        file:
+        files:
           description: 'Fax File to Send'
           type: array
           items:
-            $ref: '#/components/schemas/SubFile'
-        file_url:
-          description: 'Fax File URL to Send'
-          type: array
-          items:
             type: string
-        file_url_names:
-          description: 'Fax File URL Names'
+            format: binary
+        file_urls:
+          description: 'Fax File URL to Send'
           type: array
           items:
             type: string
         test_mode:
           description: 'API Test Mode Setting'
           type: boolean
-          example: false
+          default: false
         cover_page_to:
           description: 'Fax Cover Page for Recipient'
           type: string
           example: 'Recipient Name'
-          nullable: true
         cover_page_from:
           description: 'Fax Cover Page for Sender'
           type: string
           example: 'Sender Name'
-          nullable: true
         cover_page_message:
           description: 'Fax Cover Page Message'
           type: string
           example: 'Please find the attached documents.'
-          nullable: true
         title:
           description: 'Fax Title'
           type: string
           example: 'Fax Title'
-          nullable: true
       type: object
     OAuthTokenGenerateRequest:
       required:
@@ -8805,14 +8809,6 @@ components:
             - DD_MM_YYYY
             - YYYYMMDD
             - YYYY_MM_DD
-      type: object
-    SubFile:
-      description: 'Actual uploaded physical file'
-      properties:
-        name:
-          description: 'Actual physical uploaded file name that is derived during upload. Not settable parameter.'
-          type: string
-          default: ''
       type: object
     SubFormFieldGroup:
       required:
@@ -10773,12 +10769,12 @@ components:
         error:
           $ref: '#/components/schemas/ErrorResponseError'
       type: object
-    FaxResponse:
+    FaxGetResponse:
       required:
         - fax
       properties:
         fax:
-          $ref: '#/components/schemas/FaxResponseFax'
+          $ref: '#/components/schemas/FaxResponse'
         warnings:
           description: 'A list of warnings.'
           type: array
@@ -10829,7 +10825,7 @@ components:
         faxes:
           type: array
           items:
-            $ref: '#/components/schemas/FaxResponseFax'
+            $ref: '#/components/schemas/FaxResponse'
         list_info:
           $ref: '#/components/schemas/ListInfoResponse'
       type: object
@@ -11177,7 +11173,7 @@ components:
           description: 'Name of the error.'
           type: string
       type: object
-    FaxResponseFax:
+    FaxResponse:
       properties:
         fax_id:
           description: 'Fax ID'
@@ -11207,7 +11203,7 @@ components:
           description: 'Fax Transmissions List'
           type: array
           items:
-            $ref: '#/components/schemas/FaxResponseFaxTransmission'
+            $ref: '#/components/schemas/FaxResponseTransmission'
         files_url:
           description: 'Fax Files URL'
           type: string
@@ -11230,7 +11226,7 @@ components:
             $ref: '#/components/schemas/AccountResponse'
       type: object
       x-internal-class: true
-    FaxResponseFaxTransmission:
+    FaxResponseTransmission:
       properties:
         recipient:
           description: 'Fax Transmission Recipient'
@@ -13306,10 +13302,10 @@ components:
       summary: 'Error 4XX failed_operation'
       value:
         $ref: examples/json/Error4XXResponseExample.json
-    FaxResponseExample:
+    FaxGetResponseExample:
       summary: 'Fax Response'
       value:
-        $ref: examples/json/FaxResponseExample.json
+        $ref: examples/json/FaxGetResponseExample.json
     FaxLineResponseExample:
       summary: 'Sample Fax Line Response'
       value:
