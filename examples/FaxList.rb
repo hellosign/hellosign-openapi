@@ -11,7 +11,7 @@ page = 1
 page_size = 2
 
 begin
-  result = fax_api.list_faxes({ page: page, page_size: page_size })
+  result = fax_api.fax_list({ page: page, page_size: page_size })
   p result
 rescue Dropbox::Sign::ApiError => e
   puts "Exception when calling Dropbox Sign API: #{e}"

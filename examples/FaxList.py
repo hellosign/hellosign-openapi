@@ -14,7 +14,7 @@ with ApiClient(configuration) as api_client:
     page_size = 2
 
     try:
-        response = fax_api.list_faxes(
+        response = fax_api.fax_list(
             page=page,
             page_size=page_size,
         )

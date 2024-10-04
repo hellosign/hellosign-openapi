@@ -8,7 +8,7 @@ end
 fax_api = Dropbox::Sign::FaxApi.new
 
 begin
-  fax_api.delete_fax("[FAX_NUMBER]")
+  fax_api.fax_delete("fa5c8a0b0f492d768749333ad6fcc214c111e967")
 rescue Dropbox::Sign::ApiError => e
   puts "Exception when calling Dropbox Sign API: #{e}"
 end

@@ -10,8 +10,8 @@ fax_api = Dropbox::Sign::FaxApi.new
 faxId = "fa5c8a0b0f492d768749333ad6fcc214c111e967";
 
 begin
-  result = fax_api.get_fax_files(data)
-  p result
+    file_bin = fax_api.fax_files(data)
+    FileUtils.cp(file_bin.path, "path/to/file.pdf")
 rescue Dropbox::Sign::ApiError => e
   puts "Exception when calling Dropbox Sign API: #{e}"
 end

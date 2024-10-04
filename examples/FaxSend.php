@@ -9,12 +9,18 @@ $config->setUsername("YOUR_API_KEY");
 
 $faxApi = new Dropbox\Sign\Api\FaxApi($config);
 
-$data = new Dropbox\Sign\Model\FaxCreateRequest();
-$data->setAreaCode(209)
-    ->setCountry("US");
+$data = new Dropbox\Sign\Model\FaxSendRequest();
+$data->setFiles([new SplFileObject(__DIR__ . "/example_signature_request.pdf")])
+    ->setTestMode(true)
+    ->setTo("16690000001")
+    ->setFrom("16690000000")
+    ->setCoverPageTo("Jill Fax")
+    ->setCoverPageMessage("I'm sending you a fax!")
+    ->setCoverPageFrom("Faxer Faxerson")
+    ->setTitle("This is what the fax is about!");
 
 try {
-    $result = $faxApi->faxCreate($data);
+    $result = $faxApi->faxSend($data);
     print_r($result);
 } catch (Dropbox\Sign\ApiException $e) {
     $error = $e->getResponseObject();

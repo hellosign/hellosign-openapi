@@ -11,10 +11,10 @@ public class Example {
         var apiClient = Configuration.getDefaultApiClient()
             .setApiKey("YOUR_API_KEY");
 
-        var faxAPi = new FaxApi(apiClient);
+        var faxApi = new FaxApi(apiClient);
 
         try {
-            faxAPi.deleteFax("[FAX_NUMBER]");
+            faxApi.faxDelete("fa5c8a0b0f492d768749333ad6fcc214c111e967");
         } catch (ApiException e) {
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());

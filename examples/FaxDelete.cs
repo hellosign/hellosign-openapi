@@ -16,7 +16,7 @@ public class Example
 
         try
         {
-            faxApi.DeleteFax("[FAX_NUMBER]");
+            faxApi.FaxDelete("fa5c8a0b0f492d768749333ad6fcc214c111e967");
         }
         catch (ApiException e)
         {

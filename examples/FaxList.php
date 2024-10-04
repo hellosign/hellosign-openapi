@@ -13,7 +13,7 @@ $page = 1;
 $pageSize = 2;
 
 try {
-    $result = $faxApi->listFaxes($page, $pageSize);
+    $result = $faxApi->faxList($page, $pageSize);
     print_r($result);
 } catch (Dropbox\Sign\ApiException $e) {
     $error = $e->getResponseObject();

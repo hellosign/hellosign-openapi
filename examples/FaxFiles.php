@@ -12,7 +12,8 @@ $faxApi = new Dropbox\Sign\Api\FaxApi($config);
 $faxId = "fa5c8a0b0f492d768749333ad6fcc214c111e967";
 
 try {
-    $faxApi->getFaxFiles($faxId);
+    $result = $faxApi->faxFiles($faxId);
+    copy($result->getRealPath(), __DIR__ . '/file_response.pdf');
 } catch (Dropbox\Sign\ApiException $e) {
     $error = $e->getResponseObject();
     echo "Exception when calling Dropbox Sign API: "

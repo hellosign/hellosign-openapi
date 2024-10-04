@@ -18,7 +18,7 @@ public class Example
 
         try
         {
-            var result = faxApi.GetFaxById(faxId);
+            var result = faxApi.FaxGet(faxId);
             Console.WriteLine(result);
         }
         catch (ApiException e)

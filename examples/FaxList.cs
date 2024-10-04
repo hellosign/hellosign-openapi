@@ -19,7 +19,7 @@ public class Example
 
         try
         {
-            var result = faxApi.ListFaxes(page, pageSize);
+            var result = faxApi.FaxList(page, pageSize);
             Console.WriteLine(result);
         }
         catch (ApiException e)

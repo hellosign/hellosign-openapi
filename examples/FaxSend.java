@@ -13,12 +13,19 @@ public class Example {
 
         var faxApi = new FaxApi(apiClient);
 
-        var data = new FaxCreateRequest()
-            .areaCode(209)
-            .country("US");
+
+        var data = new FaxSendRequest()
+            .addFilesItem(new File("example_fax.pdf"))
+            .testMode(true)
+            .to("16690000001")
+            .from("16690000000")
+            .coverPageTo("Jill Fax")
+            .coverPageMessage("I'm sending you a fax!")
+            .coverPageFrom("Faxer Faxerson")
+            .title("This is what the fax is about!");
 
         try {
-            FaxCreateResponse result = faxApi.faxCreate(data);
+            FaxCreateResponse result = faxApi.faxSend(data);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Status code: " + e.getCode());

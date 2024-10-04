@@ -14,7 +14,7 @@ public class Example {
         var faxId = "fa5c8a0b0f492d768749333ad6fcc214c111e967";
 
         try {
-            FaxGetResponse result = faxApi.getFaxById(faxId);
+            FaxGetResponse result = faxApi.faxGet(faxId);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AccountApi#accountCreate");

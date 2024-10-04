@@ -7,7 +7,7 @@ faxApi.username = "YOUR_API_KEY";
 
 const faxId = "fa5c8a0b0f492d768749333ad6fcc214c111e967"
 
-const result = faxApi.getFaxById(faxId);
+const result = faxApi.faxGet(faxId);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {

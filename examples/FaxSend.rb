@@ -7,12 +7,18 @@ end
 
 fax_api = Dropbox::Sign::FaxApi.new
 
-data = Dropbox::Sign::FaxCreateRequest.new
-data.area_code = 209
-data.country = "US"
+data = Dropbox::Sign::FaxSendRequest.new
+data.files = [File.new("example_signature_request.pdf", "r")]
+data.test_mode = true
+data.to = "16690000001"
+data.from = "16690000000"
+data.cover_page_to = "Jill Fax"
+data.cover_page_message = "I'm sending you a fax!"
+data.cover_page_from = "Faxer Faxerson"
+data.title = "This is what the fax is about!"
 
 begin
-  result = fax_api.fax_create(data)
+  result = fax_api.fax_send(data)
   p result
 rescue Dropbox::Sign::ApiError => e
   puts "Exception when calling Dropbox Sign API: #{e}"

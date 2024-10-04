@@ -8,7 +8,7 @@ faxApi.username = "YOUR_API_KEY";
 const page = 1;
 const pageSize = 2;
 
-const result = faxApi.listFaxes(page, pageSize);
+const result = faxApi.faxList(page, pageSize);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {

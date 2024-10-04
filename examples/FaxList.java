@@ -15,7 +15,7 @@ public class Example {
         var pageSize = 2;
 
         try {
-            FaxListResponse result = faxApi.listFaxes(page, pageSize);
+            FaxListResponse result = faxApi.faxList(page, pageSize);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AccountApi#accountCreate");

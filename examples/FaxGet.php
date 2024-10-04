@@ -12,7 +12,7 @@ $faxApi = new Dropbox\Sign\Api\FaxApi($config);
 $faxId = "fa5c8a0b0f492d768749333ad6fcc214c111e967";
 
 try {
-    $result = $faxApi->getFaxById($faxId);
+    $result = $faxApi->faxGet($faxId);
     print_r($result);
 } catch (Dropbox\Sign\ApiException $e) {
     $error = $e->getResponseObject();
