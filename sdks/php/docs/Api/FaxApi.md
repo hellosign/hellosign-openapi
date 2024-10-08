@@ -32,10 +32,10 @@ $config = Dropbox\Sign\Configuration::getDefaultConfiguration();
 // Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
 
-$faxDelete = new Dropbox\Sign\Api\FaxApi($config);
+$faxApi = new Dropbox\Sign\Api\FaxApi($config);
 
 try {
-    $faxDelete->deleteFax("[FAX_NUMBER]");
+    $faxApi->faxDelete("fa5c8a0b0f492d768749333ad6fcc214c111e967");
 } catch (Dropbox\Sign\ApiException $e) {
     $error = $e->getResponseObject();
     echo "Exception when calling Dropbox Sign API: "
@@ -93,7 +93,8 @@ $faxApi = new Dropbox\Sign\Api\FaxApi($config);
 $faxId = "fa5c8a0b0f492d768749333ad6fcc214c111e967";
 
 try {
-    $faxApi->getFaxFiles($faxId);
+    $result = $faxApi->faxFiles($faxId);
+    copy($result->getRealPath(), __DIR__ . '/file_response.pdf');
 } catch (Dropbox\Sign\ApiException $e) {
     $error = $e->getResponseObject();
     echo "Exception when calling Dropbox Sign API: "
@@ -151,7 +152,7 @@ $faxApi = new Dropbox\Sign\Api\FaxApi($config);
 $faxId = "fa5c8a0b0f492d768749333ad6fcc214c111e967";
 
 try {
-    $result = $faxApi->getFaxById($faxId);
+    $result = $faxApi->faxGet($faxId);
     print_r($result);
 } catch (Dropbox\Sign\ApiException $e) {
     $error = $e->getResponseObject();
@@ -211,7 +212,7 @@ $page = 1;
 $pageSize = 2;
 
 try {
-    $result = $faxApi->listFaxes($page, $pageSize);
+    $result = $faxApi->faxList($page, $pageSize);
     print_r($result);
 } catch (Dropbox\Sign\ApiException $e) {
     $error = $e->getResponseObject();
@@ -268,12 +269,18 @@ $config->setUsername("YOUR_API_KEY");
 
 $faxApi = new Dropbox\Sign\Api\FaxApi($config);
 
-$data = new Dropbox\Sign\Model\FaxCreateRequest();
-$data->setAreaCode(209)
-    ->setCountry("US");
+$data = new Dropbox\Sign\Model\FaxSendRequest();
+$data->setFiles([new SplFileObject(__DIR__ . "/example_signature_request.pdf")])
+    ->setTestMode(true)
+    ->setTo("16690000001")
+    ->setFrom("16690000000")
+    ->setCoverPageTo("Jill Fax")
+    ->setCoverPageMessage("I'm sending you a fax!")
+    ->setCoverPageFrom("Faxer Faxerson")
+    ->setTitle("This is what the fax is about!");
 
 try {
-    $result = $faxApi->faxCreate($data);
+    $result = $faxApi->faxSend($data);
     print_r($result);
 } catch (Dropbox\Sign\ApiException $e) {
     $error = $e->getResponseObject();

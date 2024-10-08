@@ -36,7 +36,7 @@ with ApiClient(configuration) as api_client:
     fax_api = apis.FaxApi(api_client)
 
     try:
-        fax_api.delete_fax("[FAX_NUMBER]")
+        fax_api.fax_delete("fa5c8a0b0f492d768749333ad6fcc214c111e967")
     except ApiException as e:
         print("Exception when calling Dropbox Sign API: %s\n" % e)
 
@@ -97,7 +97,8 @@ with ApiClient(configuration) as api_client:
     fax_id = "fa5c8a0b0f492d768749333ad6fcc214c111e967"
 
     try:
-        fax_api.get_fax_files(fax_id)
+        response = fax_api.fax_files(fax_id)
+        open("file_response.pdf", "wb").write(response.read())
     except ApiException as e:
         print("Exception when calling Dropbox Sign API: %s\n" % e)
 
@@ -155,10 +156,10 @@ configuration = Configuration(
 with ApiClient(configuration) as api_client:
     fax_api = apis.FaxApi(api_client)
 
-    faxId = "fa5c8a0b0f492d768749333ad6fcc214c111e967"
+    fax_id = "fa5c8a0b0f492d768749333ad6fcc214c111e967"
 
     try:
-        response = fax_api.get_fax_by_id(client_id)
+        response = fax_api.fax_get(fax_id)
         pprint(response)
     except ApiException as e:
         print("Exception when calling Dropbox Sign API: %s\n" % e)
@@ -221,7 +222,7 @@ with ApiClient(configuration) as api_client:
     page_size = 2
 
     try:
-        response = fax_api.list_faxes(
+        response = fax_api.fax_list(
             page=page,
             page_size=page_size,
         )
@@ -284,13 +285,18 @@ configuration = Configuration(
 with ApiClient(configuration) as api_client:
     fax_api = apis.FaxApi(api_client)
 
-    data = models.FaxCreateRequest(
-        area_code=209,
-        country="US",
+    data = models.FaxSendRequest(
+        files=[open("example_signature_request.pdf", "rb")],
+        test_mode=True,
+        to="16690000001",
+        cover_page_to="Jill Fax",
+        cover_page_message="I'm sending you a fax!",
+        cover_page_from="Faxer Faxerson",
+        title="This is what the fax is about!",
     )
 
     try:
-        response = fax_api.fax_create(data)
+        response = fax_api.fax_send(data)
         pprint(response)
     except ApiException as e:
         print("Exception when calling Dropbox Sign API: %s\n" % e)

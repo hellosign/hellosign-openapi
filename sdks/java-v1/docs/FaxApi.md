@@ -39,7 +39,7 @@ public class Example {
         var faxApi = new FaxApi(apiClient);
 
         try {
-            faxApi.deleteFax("[FAX_NUMBER]");
+            faxApi.faxDelete("fa5c8a0b0f492d768749333ad6fcc214c111e967");
         } catch (ApiException e) {
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
@@ -95,7 +95,7 @@ import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
 import com.dropbox.sign.model.*;
 
-import java.util.List;
+import java.io.File;
 
 public class Example {
     public static void main(String[] args) {
@@ -107,7 +107,8 @@ public class Example {
         var faxId = "fa5c8a0b0f492d768749333ad6fcc214c111e967";
 
         try {
-            faxApi.getFaxFiles(faxId);
+            File result = faxApi.faxFiles(faxId);
+            result.renameTo(new File("file_response.pdf"));;
         } catch (ApiException e) {
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
@@ -173,7 +174,7 @@ public class Example {
         var faxId = "fa5c8a0b0f492d768749333ad6fcc214c111e967";
 
         try {
-            FaxGetResponse result = faxApi.getFaxById(faxId);
+            FaxGetResponse result = faxApi.faxGet(faxId);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AccountApi#accountCreate");
@@ -242,7 +243,7 @@ public class Example {
         var pageSize = 2;
 
         try {
-            FaxListResponse result = faxApi.listFaxes(page, pageSize);
+            FaxListResponse result = faxApi.faxList(page, pageSize);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AccountApi#accountCreate");
@@ -310,12 +311,19 @@ public class Example {
 
         var faxApi = new FaxApi(apiClient);
 
-        var data = new FaxCreateRequest()
-            .areaCode(209)
-            .country("US");
+
+        var data = new FaxSendRequest()
+            .addFilesItem(new File("example_fax.pdf"))
+            .testMode(true)
+            .to("16690000001")
+            .from("16690000000")
+            .coverPageTo("Jill Fax")
+            .coverPageMessage("I'm sending you a fax!")
+            .coverPageFrom("Faxer Faxerson")
+            .title("This is what the fax is about!");
 
         try {
-            FaxCreateResponse result = faxApi.faxCreate(data);
+            FaxCreateResponse result = faxApi.faxSend(data);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Status code: " + e.getCode());

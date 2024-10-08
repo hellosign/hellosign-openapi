@@ -32,7 +32,7 @@ end
 fax_api = Dropbox::Sign::FaxApi.new
 
 begin
-  fax_api.delete_fax("[FAX_NUMBER]")
+  fax_api.fax_delete("fa5c8a0b0f492d768749333ad6fcc214c111e967")
 rescue Dropbox::Sign::ApiError => e
   puts "Exception when calling Dropbox Sign API: #{e}"
 end
@@ -100,8 +100,8 @@ fax_api = Dropbox::Sign::FaxApi.new
 faxId = "fa5c8a0b0f492d768749333ad6fcc214c111e967"
 
 begin
-  result = fax_api.get_fax_files(data)
-  p result
+  file_bin = fax_api.fax_files(data)
+  FileUtils.cp(file_bin.path, "path/to/file.pdf")
 rescue Dropbox::Sign::ApiError => e
   puts "Exception when calling Dropbox Sign API: #{e}"
 end
@@ -169,7 +169,7 @@ fax_api = Dropbox::Sign::FaxApi.new
 fax_id = "fa5c8a0b0f492d768749333ad6fcc214c111e967"
 
 begin
-  result = fax_api.get_fax_by_id(fax_id)
+  result = fax_api.fax_get(fax_id)
   p result
 rescue Dropbox::Sign::ApiError => e
   puts "Exception when calling Dropbox Sign API: #{e}"
@@ -239,7 +239,7 @@ page = 1
 page_size = 2
 
 begin
-  result = fax_api.list_faxes({ page: page, page_size: page_size })
+  result = fax_api.fax_list({ page: page, page_size: page_size })
   p result
 rescue Dropbox::Sign::ApiError => e
   puts "Exception when calling Dropbox Sign API: #{e}"
@@ -306,12 +306,18 @@ end
 
 fax_api = Dropbox::Sign::FaxApi.new
 
-data = Dropbox::Sign::FaxCreateRequest.new
-data.area_code = 209
-data.country = "US"
+data = Dropbox::Sign::FaxSendRequest.new
+data.files = [File.new("example_signature_request.pdf", "r")]
+data.test_mode = true
+data.to = "16690000001"
+data.from = "16690000000"
+data.cover_page_to = "Jill Fax"
+data.cover_page_message = "I'm sending you a fax!"
+data.cover_page_from = "Faxer Faxerson"
+data.title = "This is what the fax is about!"
 
 begin
-  result = fax_api.fax_create(data)
+  result = fax_api.fax_send(data)
   p result
 rescue Dropbox::Sign::ApiError => e
   puts "Exception when calling Dropbox Sign API: #{e}"

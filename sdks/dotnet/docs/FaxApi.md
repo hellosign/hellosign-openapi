@@ -38,7 +38,7 @@ public class Example
 
         try
         {
-            faxApi.DeleteFax("[FAX_NUMBER]");
+            faxApi.FaxDelete("fa5c8a0b0f492d768749333ad6fcc214c111e967");
         }
         catch (ApiException e)
         {
@@ -126,7 +126,11 @@ public class Example
 
         try
         {
-            faxApi.GetFaxFiles(faxId);
+            var result = faxApi.FaxFiles(faxId);
+            var fileStream = File.Create("file_response.pdf");
+            result.Seek(0, SeekOrigin.Begin);
+            result.CopyTo(fileStream);
+            fileStream.Close();
         }
         catch (ApiException e)
         {
@@ -217,7 +221,7 @@ public class Example
 
         try
         {
-            var result = faxApi.GetFaxById(faxId);
+            var result = faxApi.FaxGet(faxId);
             Console.WriteLine(result);
         }
         catch (ApiException e)
@@ -310,7 +314,7 @@ public class Example
 
         try
         {
-            var result = faxApi.ListFaxes(page, pageSize);
+            var result = faxApi.FaxList(page, pageSize);
             Console.WriteLine(result);
         }
         catch (ApiException e)
@@ -399,20 +403,29 @@ public class Example
 
         var faxApi = new FaxApi(config);
 
-        var data = new FaxCreateRequest(
-            file: "<form-data file upload>",
-            test_mode: "1",
-            to: 16690000001,
-            from: 16690000000,
-            cover_page_to: "Jill Fax",
-            cover_page_message: "I'm sending you a fax!",
-            cover_page_from: "Faxer Faxerson",
-            title: "This is what the fax is about!"
+        var files = new List<Stream> {
+            new FileStream(
+                "./example_fax.pdf",
+                FileMode.Open,
+                FileAccess.Read,
+                FileShare.Read
+            )
+        };
+
+        var data = new FaxSendRequest(
+            files: files,
+            testMode: true,
+            to: "16690000001",
+            from: "16690000000",
+            coverPageTo: "Jill Fax",
+            coverPageMessage: "I'm sending you a fax!",
+            coverPageFrom: "Faxer Faxerson",
+            title: "This is what the fax is about!",
         );
 
         try
         {
-            var result = faxApi.FaxCreate(data);
+            var result = faxApi.FaxSend(data);
             Console.WriteLine(result);
         }
         catch (ApiException e)
