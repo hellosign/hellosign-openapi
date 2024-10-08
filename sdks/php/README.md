@@ -160,6 +160,11 @@ All URIs are relative to *https://api.hellosign.com/v3*
 | *BulkSendJobApi* | [**bulkSendJobList**](docs/Api/BulkSendJobApi.md#bulksendjoblist) | **GET** /bulk_send_job/list | List Bulk Send Jobs |
 | *EmbeddedApi* | [**embeddedEditUrl**](docs/Api/EmbeddedApi.md#embeddedediturl) | **POST** /embedded/edit_url/{template_id} | Get Embedded Template Edit URL |
 | *EmbeddedApi* | [**embeddedSignUrl**](docs/Api/EmbeddedApi.md#embeddedsignurl) | **GET** /embedded/sign_url/{signature_id} | Get Embedded Sign URL |
+| *FaxApi* | [**faxDelete**](docs/Api/FaxApi.md#faxdelete) | **DELETE** /fax/{fax_id} | Delete Fax |
+| *FaxApi* | [**faxFiles**](docs/Api/FaxApi.md#faxfiles) | **GET** /fax/files/{fax_id} | List Fax Files |
+| *FaxApi* | [**faxGet**](docs/Api/FaxApi.md#faxget) | **GET** /fax/{fax_id} | Get Fax |
+| *FaxApi* | [**faxList**](docs/Api/FaxApi.md#faxlist) | **GET** /fax/list | Lists Faxes |
+| *FaxApi* | [**faxSend**](docs/Api/FaxApi.md#faxsend) | **POST** /fax/send | Send Fax |
 | *FaxLineApi* | [**faxLineAddUser**](docs/Api/FaxLineApi.md#faxlineadduser) | **PUT** /fax_line/add_user | Add Fax Line User |
 | *FaxLineApi* | [**faxLineAreaCodeGet**](docs/Api/FaxLineApi.md#faxlineareacodeget) | **GET** /fax_line/area_codes | Get Available Fax Line Area Codes |
 | *FaxLineApi* | [**faxLineCreate**](docs/Api/FaxLineApi.md#faxlinecreate) | **POST** /fax_line/create | Purchase Fax Line |
@@ -249,6 +254,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 - [EventCallbackRequest](docs/Model/EventCallbackRequest.md)
 - [EventCallbackRequestEvent](docs/Model/EventCallbackRequestEvent.md)
 - [EventCallbackRequestEventMetadata](docs/Model/EventCallbackRequestEventMetadata.md)
+- [FaxGetResponse](docs/Model/FaxGetResponse.md)
 - [FaxLineAddUserRequest](docs/Model/FaxLineAddUserRequest.md)
 - [FaxLineAreaCodeGetCountryEnum](docs/Model/FaxLineAreaCodeGetCountryEnum.md)
 - [FaxLineAreaCodeGetProvinceEnum](docs/Model/FaxLineAreaCodeGetProvinceEnum.md)
@@ -260,6 +266,10 @@ All URIs are relative to *https://api.hellosign.com/v3*
 - [FaxLineRemoveUserRequest](docs/Model/FaxLineRemoveUserRequest.md)
 - [FaxLineResponse](docs/Model/FaxLineResponse.md)
 - [FaxLineResponseFaxLine](docs/Model/FaxLineResponseFaxLine.md)
+- [FaxListResponse](docs/Model/FaxListResponse.md)
+- [FaxResponse](docs/Model/FaxResponse.md)
+- [FaxResponseTransmission](docs/Model/FaxResponseTransmission.md)
+- [FaxSendRequest](docs/Model/FaxSendRequest.md)
 - [FileResponse](docs/Model/FileResponse.md)
 - [FileResponseDataUri](docs/Model/FileResponseDataUri.md)
 - [ListInfoResponse](docs/Model/ListInfoResponse.md)

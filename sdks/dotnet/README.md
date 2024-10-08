@@ -141,6 +141,11 @@ Class | Method | HTTP request | Description
 *BulkSendJobApi* | [**BulkSendJobList**](docs/BulkSendJobApi.md#bulksendjoblist) | **GET** /bulk_send_job/list | List Bulk Send Jobs
 *EmbeddedApi* | [**EmbeddedEditUrl**](docs/EmbeddedApi.md#embeddedediturl) | **POST** /embedded/edit_url/{template_id} | Get Embedded Template Edit URL
 *EmbeddedApi* | [**EmbeddedSignUrl**](docs/EmbeddedApi.md#embeddedsignurl) | **GET** /embedded/sign_url/{signature_id} | Get Embedded Sign URL
+*FaxApi* | [**FaxDelete**](docs/FaxApi.md#faxdelete) | **DELETE** /fax/{fax_id} | Delete Fax
+*FaxApi* | [**FaxFiles**](docs/FaxApi.md#faxfiles) | **GET** /fax/files/{fax_id} | List Fax Files
+*FaxApi* | [**FaxGet**](docs/FaxApi.md#faxget) | **GET** /fax/{fax_id} | Get Fax
+*FaxApi* | [**FaxList**](docs/FaxApi.md#faxlist) | **GET** /fax/list | Lists Faxes
+*FaxApi* | [**FaxSend**](docs/FaxApi.md#faxsend) | **POST** /fax/send | Send Fax
 *FaxLineApi* | [**FaxLineAddUser**](docs/FaxLineApi.md#faxlineadduser) | **PUT** /fax_line/add_user | Add Fax Line User
 *FaxLineApi* | [**FaxLineAreaCodeGet**](docs/FaxLineApi.md#faxlineareacodeget) | **GET** /fax_line/area_codes | Get Available Fax Line Area Codes
 *FaxLineApi* | [**FaxLineCreate**](docs/FaxLineApi.md#faxlinecreate) | **POST** /fax_line/create | Purchase Fax Line
@@ -231,6 +236,7 @@ Class | Method | HTTP request | Description
  - [Model.EventCallbackRequest](docs/EventCallbackRequest.md)
  - [Model.EventCallbackRequestEvent](docs/EventCallbackRequestEvent.md)
  - [Model.EventCallbackRequestEventMetadata](docs/EventCallbackRequestEventMetadata.md)
+ - [Model.FaxGetResponse](docs/FaxGetResponse.md)
  - [Model.FaxLineAddUserRequest](docs/FaxLineAddUserRequest.md)
  - [Model.FaxLineAreaCodeGetCountryEnum](docs/FaxLineAreaCodeGetCountryEnum.md)
  - [Model.FaxLineAreaCodeGetProvinceEnum](docs/FaxLineAreaCodeGetProvinceEnum.md)
@@ -242,6 +248,10 @@ Class | Method | HTTP request | Description
  - [Model.FaxLineRemoveUserRequest](docs/FaxLineRemoveUserRequest.md)
  - [Model.FaxLineResponse](docs/FaxLineResponse.md)
  - [Model.FaxLineResponseFaxLine](docs/FaxLineResponseFaxLine.md)
+ - [Model.FaxListResponse](docs/FaxListResponse.md)
+ - [Model.FaxResponse](docs/FaxResponse.md)
+ - [Model.FaxResponseTransmission](docs/FaxResponseTransmission.md)
+ - [Model.FaxSendRequest](docs/FaxSendRequest.md)
  - [Model.FileResponse](docs/FileResponse.md)
  - [Model.FileResponseDataUri](docs/FileResponseDataUri.md)
  - [Model.ListInfoResponse](docs/ListInfoResponse.md)

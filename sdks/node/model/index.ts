@@ -33,6 +33,7 @@ import { EventCallbackHelper } from "./eventCallbackHelper";
 import { EventCallbackRequest } from "./eventCallbackRequest";
 import { EventCallbackRequestEvent } from "./eventCallbackRequestEvent";
 import { EventCallbackRequestEventMetadata } from "./eventCallbackRequestEventMetadata";
+import { FaxGetResponse } from "./faxGetResponse";
 import { FaxLineAddUserRequest } from "./faxLineAddUserRequest";
 import { FaxLineAreaCodeGetCountryEnum } from "./faxLineAreaCodeGetCountryEnum";
 import { FaxLineAreaCodeGetProvinceEnum } from "./faxLineAreaCodeGetProvinceEnum";
@@ -44,6 +45,10 @@ import { FaxLineListResponse } from "./faxLineListResponse";
 import { FaxLineRemoveUserRequest } from "./faxLineRemoveUserRequest";
 import { FaxLineResponse } from "./faxLineResponse";
 import { FaxLineResponseFaxLine } from "./faxLineResponseFaxLine";
+import { FaxListResponse } from "./faxListResponse";
+import { FaxResponse } from "./faxResponse";
+import { FaxResponseTransmission } from "./faxResponseTransmission";
+import { FaxSendRequest } from "./faxSendRequest";
 import { FileResponse } from "./fileResponse";
 import { FileResponseDataUri } from "./fileResponseDataUri";
 import { ListInfoResponse } from "./listInfoResponse";
@@ -279,6 +284,7 @@ export let typeMap: { [index: string]: any } = {
   EventCallbackRequest: EventCallbackRequest,
   EventCallbackRequestEvent: EventCallbackRequestEvent,
   EventCallbackRequestEventMetadata: EventCallbackRequestEventMetadata,
+  FaxGetResponse: FaxGetResponse,
   FaxLineAddUserRequest: FaxLineAddUserRequest,
   FaxLineAreaCodeGetResponse: FaxLineAreaCodeGetResponse,
   FaxLineCreateRequest: FaxLineCreateRequest,
@@ -287,6 +293,10 @@ export let typeMap: { [index: string]: any } = {
   FaxLineRemoveUserRequest: FaxLineRemoveUserRequest,
   FaxLineResponse: FaxLineResponse,
   FaxLineResponseFaxLine: FaxLineResponseFaxLine,
+  FaxListResponse: FaxListResponse,
+  FaxResponse: FaxResponse,
+  FaxResponseTransmission: FaxResponseTransmission,
+  FaxSendRequest: FaxSendRequest,
   FileResponse: FileResponse,
   FileResponseDataUri: FileResponseDataUri,
   ListInfoResponse: ListInfoResponse,
@@ -499,6 +509,7 @@ export {
   EventCallbackRequest,
   EventCallbackRequestEvent,
   EventCallbackRequestEventMetadata,
+  FaxGetResponse,
   FaxLineAddUserRequest,
   FaxLineAreaCodeGetCountryEnum,
   FaxLineAreaCodeGetProvinceEnum,
@@ -510,6 +521,10 @@ export {
   FaxLineRemoveUserRequest,
   FaxLineResponse,
   FaxLineResponseFaxLine,
+  FaxListResponse,
+  FaxResponse,
+  FaxResponseTransmission,
+  FaxSendRequest,
   FileResponse,
   FileResponseDataUri,
   HttpBasicAuth,
