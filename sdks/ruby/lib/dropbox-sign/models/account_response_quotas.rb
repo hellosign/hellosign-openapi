@@ -126,26 +126,38 @@ module Dropbox::Sign
 
       if attributes.key?(:'api_signature_requests_left')
         self.api_signature_requests_left = attributes[:'api_signature_requests_left']
+      else
+        self.api_signature_requests_left = 0
       end
 
       if attributes.key?(:'documents_left')
         self.documents_left = attributes[:'documents_left']
+      else
+        self.documents_left = 0
       end
 
       if attributes.key?(:'templates_total')
         self.templates_total = attributes[:'templates_total']
+      else
+        self.templates_total = 0
       end
 
       if attributes.key?(:'templates_left')
         self.templates_left = attributes[:'templates_left']
+      else
+        self.templates_left = 0
       end
 
       if attributes.key?(:'sms_verifications_left')
         self.sms_verifications_left = attributes[:'sms_verifications_left']
+      else
+        self.sms_verifications_left = 0
       end
 
       if attributes.key?(:'num_fax_pages_left')
         self.num_fax_pages_left = attributes[:'num_fax_pages_left']
+      else
+        self.num_fax_pages_left = 0
       end
     end
 

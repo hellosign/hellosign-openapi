@@ -20,7 +20,7 @@ module Dropbox::Sign
   # Details concerning monthly usage
   class AccountResponseUsage
     # Number of fax pages sent
-    # @return [Integer, nil]
+    # @return [Integer]
     attr_accessor :fax_pages_sent
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -45,7 +45,6 @@ module Dropbox::Sign
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
-        :'fax_pages_sent'
       ])
     end
 
@@ -91,6 +90,8 @@ module Dropbox::Sign
 
       if attributes.key?(:'fax_pages_sent')
         self.fax_pages_sent = attributes[:'fax_pages_sent']
+      else
+        self.fax_pages_sent = 0
       end
     end
 
@@ -98,12 +99,17 @@ module Dropbox::Sign
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @fax_pages_sent.nil?
+        invalid_properties.push('invalid value for "fax_pages_sent", fax_pages_sent cannot be nil.')
+      end
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @fax_pages_sent.nil?
       true
     end
 

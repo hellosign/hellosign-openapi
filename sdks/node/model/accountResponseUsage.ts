@@ -31,7 +31,7 @@ export class AccountResponseUsage {
   /**
    * Number of fax pages sent
    */
-  "faxPagesSent"?: number | null;
+  "faxPagesSent": number = 0;
 
   static discriminator: string | undefined = undefined;
 

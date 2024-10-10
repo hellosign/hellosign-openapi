@@ -10314,6 +10314,12 @@ components:
       type: object
       x-internal-class: true
     AccountResponse:
+      required:
+        - account_id
+        - is_locked
+        - is_paid_hs
+        - is_paid_hf
+        - quotas
       properties:
         account_id:
           description: 'The ID of the Account'
@@ -10374,36 +10380,44 @@ components:
         api_signature_requests_left:
           description: 'API signature requests remaining. A value of `-1` means unlimited.'
           type: integer
+          default: 0
           nullable: true
         documents_left:
           description: 'Signature requests remaining. A value of `-1` means unlimited.'
           type: integer
+          default: 0
           nullable: true
         templates_total:
           description: 'Total API templates allowed. A value of `-1` means unlimited.'
           type: integer
+          default: 0
           nullable: true
         templates_left:
           description: 'API templates remaining. A value of `-1` means unlimited.'
           type: integer
+          default: 0
           nullable: true
         sms_verifications_left:
           description: 'SMS verifications remaining.'
           type: integer
+          default: 0
           nullable: true
         num_fax_pages_left:
           description: 'Number of fax pages left. A value of `-1` means unlimited.'
           type: integer
+          default: 0
           nullable: true
       type: object
       x-internal-class: true
     AccountResponseUsage:
       description: 'Details concerning monthly usage'
+      required:
+        - fax_pages_sent
       properties:
         fax_pages_sent:
           description: 'Number of fax pages sent'
           type: integer
-          nullable: true
+          default: 0
       type: object
       x-internal-class: true
     AccountVerifyResponseAccount:
