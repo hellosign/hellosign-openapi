@@ -66,51 +66,51 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SubWhiteLabelingOptions" /> class.
         /// </summary>
-        /// <param name="headerBackgroundColor">headerBackgroundColor (default to &quot;#1A1A1A&quot;).</param>
+        /// <param name="headerBackgroundColor">headerBackgroundColor (default to &quot;#1a1a1a&quot;).</param>
         /// <param name="legalVersion">legalVersion (default to LegalVersionEnum.Terms1).</param>
-        /// <param name="linkColor">linkColor (default to &quot;#00B3E6&quot;).</param>
-        /// <param name="pageBackgroundColor">pageBackgroundColor (default to &quot;#F7F8F9&quot;).</param>
-        /// <param name="primaryButtonColor">primaryButtonColor (default to &quot;#00B3E6&quot;).</param>
-        /// <param name="primaryButtonColorHover">primaryButtonColorHover (default to &quot;#00B3E6&quot;).</param>
-        /// <param name="primaryButtonTextColor">primaryButtonTextColor (default to &quot;#FFFFFF&quot;).</param>
-        /// <param name="primaryButtonTextColorHover">primaryButtonTextColorHover (default to &quot;#FFFFFF&quot;).</param>
-        /// <param name="secondaryButtonColor">secondaryButtonColor (default to &quot;#FFFFFF&quot;).</param>
-        /// <param name="secondaryButtonColorHover">secondaryButtonColorHover (default to &quot;#FFFFFF&quot;).</param>
-        /// <param name="secondaryButtonTextColor">secondaryButtonTextColor (default to &quot;#00B3E6&quot;).</param>
-        /// <param name="secondaryButtonTextColorHover">secondaryButtonTextColorHover (default to &quot;#00B3E6&quot;).</param>
+        /// <param name="linkColor">linkColor (default to &quot;#0061FE&quot;).</param>
+        /// <param name="pageBackgroundColor">pageBackgroundColor (default to &quot;#f7f8f9&quot;).</param>
+        /// <param name="primaryButtonColor">primaryButtonColor (default to &quot;#0061FE&quot;).</param>
+        /// <param name="primaryButtonColorHover">primaryButtonColorHover (default to &quot;#0061FE&quot;).</param>
+        /// <param name="primaryButtonTextColor">primaryButtonTextColor (default to &quot;#ffffff&quot;).</param>
+        /// <param name="primaryButtonTextColorHover">primaryButtonTextColorHover (default to &quot;#ffffff&quot;).</param>
+        /// <param name="secondaryButtonColor">secondaryButtonColor (default to &quot;#ffffff&quot;).</param>
+        /// <param name="secondaryButtonColorHover">secondaryButtonColorHover (default to &quot;#ffffff&quot;).</param>
+        /// <param name="secondaryButtonTextColor">secondaryButtonTextColor (default to &quot;#0061FE&quot;).</param>
+        /// <param name="secondaryButtonTextColorHover">secondaryButtonTextColorHover (default to &quot;#0061FE&quot;).</param>
         /// <param name="textColor1">textColor1 (default to &quot;#808080&quot;).</param>
-        /// <param name="textColor2">textColor2 (default to &quot;#FFFFFF&quot;).</param>
+        /// <param name="textColor2">textColor2 (default to &quot;#ffffff&quot;).</param>
         /// <param name="resetToDefault">Resets white labeling options to defaults. Only useful when updating an API App..</param>
-        public SubWhiteLabelingOptions(string headerBackgroundColor = @"#1A1A1A", LegalVersionEnum? legalVersion = LegalVersionEnum.Terms1, string linkColor = @"#00B3E6", string pageBackgroundColor = @"#F7F8F9", string primaryButtonColor = @"#00B3E6", string primaryButtonColorHover = @"#00B3E6", string primaryButtonTextColor = @"#FFFFFF", string primaryButtonTextColorHover = @"#FFFFFF", string secondaryButtonColor = @"#FFFFFF", string secondaryButtonColorHover = @"#FFFFFF", string secondaryButtonTextColor = @"#00B3E6", string secondaryButtonTextColorHover = @"#00B3E6", string textColor1 = @"#808080", string textColor2 = @"#FFFFFF", bool resetToDefault = default(bool))
+        public SubWhiteLabelingOptions(string headerBackgroundColor = @"#1a1a1a", LegalVersionEnum? legalVersion = LegalVersionEnum.Terms1, string linkColor = @"#0061FE", string pageBackgroundColor = @"#f7f8f9", string primaryButtonColor = @"#0061FE", string primaryButtonColorHover = @"#0061FE", string primaryButtonTextColor = @"#ffffff", string primaryButtonTextColorHover = @"#ffffff", string secondaryButtonColor = @"#ffffff", string secondaryButtonColorHover = @"#ffffff", string secondaryButtonTextColor = @"#0061FE", string secondaryButtonTextColorHover = @"#0061FE", string textColor1 = @"#808080", string textColor2 = @"#ffffff", bool resetToDefault = default(bool))
         {
 
             // use default value if no "headerBackgroundColor" provided
-            this.HeaderBackgroundColor = headerBackgroundColor ?? "#1A1A1A";
+            this.HeaderBackgroundColor = headerBackgroundColor ?? "#1a1a1a";
             this.LegalVersion = legalVersion;
             // use default value if no "linkColor" provided
-            this.LinkColor = linkColor ?? "#00B3E6";
+            this.LinkColor = linkColor ?? "#0061FE";
             // use default value if no "pageBackgroundColor" provided
-            this.PageBackgroundColor = pageBackgroundColor ?? "#F7F8F9";
+            this.PageBackgroundColor = pageBackgroundColor ?? "#f7f8f9";
             // use default value if no "primaryButtonColor" provided
-            this.PrimaryButtonColor = primaryButtonColor ?? "#00B3E6";
+            this.PrimaryButtonColor = primaryButtonColor ?? "#0061FE";
             // use default value if no "primaryButtonColorHover" provided
-            this.PrimaryButtonColorHover = primaryButtonColorHover ?? "#00B3E6";
+            this.PrimaryButtonColorHover = primaryButtonColorHover ?? "#0061FE";
             // use default value if no "primaryButtonTextColor" provided
-            this.PrimaryButtonTextColor = primaryButtonTextColor ?? "#FFFFFF";
+            this.PrimaryButtonTextColor = primaryButtonTextColor ?? "#ffffff";
             // use default value if no "primaryButtonTextColorHover" provided
-            this.PrimaryButtonTextColorHover = primaryButtonTextColorHover ?? "#FFFFFF";
+            this.PrimaryButtonTextColorHover = primaryButtonTextColorHover ?? "#ffffff";
             // use default value if no "secondaryButtonColor" provided
-            this.SecondaryButtonColor = secondaryButtonColor ?? "#FFFFFF";
+            this.SecondaryButtonColor = secondaryButtonColor ?? "#ffffff";
             // use default value if no "secondaryButtonColorHover" provided
-            this.SecondaryButtonColorHover = secondaryButtonColorHover ?? "#FFFFFF";
+            this.SecondaryButtonColorHover = secondaryButtonColorHover ?? "#ffffff";
             // use default value if no "secondaryButtonTextColor" provided
-            this.SecondaryButtonTextColor = secondaryButtonTextColor ?? "#00B3E6";
+            this.SecondaryButtonTextColor = secondaryButtonTextColor ?? "#0061FE";
             // use default value if no "secondaryButtonTextColorHover" provided
-            this.SecondaryButtonTextColorHover = secondaryButtonTextColorHover ?? "#00B3E6";
+            this.SecondaryButtonTextColorHover = secondaryButtonTextColorHover ?? "#0061FE";
             // use default value if no "textColor1" provided
             this.TextColor1 = textColor1 ?? "#808080";
             // use default value if no "textColor2" provided
-            this.TextColor2 = textColor2 ?? "#FFFFFF";
+            this.TextColor2 = textColor2 ?? "#ffffff";
             this.ResetToDefault = resetToDefault;
         }
 

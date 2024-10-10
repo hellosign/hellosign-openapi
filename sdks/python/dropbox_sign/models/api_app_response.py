@@ -40,36 +40,32 @@ class ApiAppResponse(BaseModel):
     Contains information about an API App.
     """  # noqa: E501
 
+    client_id: StrictStr = Field(description="The app's client id")
+    created_at: StrictInt = Field(description="The time that the app was created")
+    domains: List[StrictStr] = Field(
+        description="The domain name(s) associated with the app"
+    )
+    name: StrictStr = Field(description="The name of the app")
+    is_approved: StrictBool = Field(
+        description="Boolean to indicate if the app has been approved"
+    )
+    options: ApiAppResponseOptions
+    owner_account: ApiAppResponseOwnerAccount
     callback_url: Optional[StrictStr] = Field(
         default=None, description="The app's callback URL (for events)"
     )
-    client_id: Optional[StrictStr] = Field(
-        default=None, description="The app's client id"
-    )
-    created_at: Optional[StrictInt] = Field(
-        default=None, description="The time that the app was created"
-    )
-    domains: Optional[List[StrictStr]] = Field(
-        default=None, description="The domain name(s) associated with the app"
-    )
-    name: Optional[StrictStr] = Field(default=None, description="The name of the app")
-    is_approved: Optional[StrictBool] = Field(
-        default=None, description="Boolean to indicate if the app has been approved"
-    )
     oauth: Optional[ApiAppResponseOAuth] = None
-    options: Optional[ApiAppResponseOptions] = None
-    owner_account: Optional[ApiAppResponseOwnerAccount] = None
     white_labeling_options: Optional[ApiAppResponseWhiteLabelingOptions] = None
     __properties: ClassVar[List[str]] = [
-        "callback_url",
         "client_id",
         "created_at",
         "domains",
         "name",
         "is_approved",
-        "oauth",
         "options",
         "owner_account",
+        "callback_url",
+        "oauth",
         "white_labeling_options",
     ]
 
@@ -123,15 +119,15 @@ class ApiAppResponse(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of oauth
-        if self.oauth:
-            _dict["oauth"] = self.oauth.to_dict()
         # override the default output from pydantic by calling `to_dict()` of options
         if self.options:
             _dict["options"] = self.options.to_dict()
         # override the default output from pydantic by calling `to_dict()` of owner_account
         if self.owner_account:
             _dict["owner_account"] = self.owner_account.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of oauth
+        if self.oauth:
+            _dict["oauth"] = self.oauth.to_dict()
         # override the default output from pydantic by calling `to_dict()` of white_labeling_options
         if self.white_labeling_options:
             _dict["white_labeling_options"] = self.white_labeling_options.to_dict()
@@ -148,17 +144,11 @@ class ApiAppResponse(BaseModel):
 
         _obj = cls.model_validate(
             {
-                "callback_url": obj.get("callback_url"),
                 "client_id": obj.get("client_id"),
                 "created_at": obj.get("created_at"),
                 "domains": obj.get("domains"),
                 "name": obj.get("name"),
                 "is_approved": obj.get("is_approved"),
-                "oauth": (
-                    ApiAppResponseOAuth.from_dict(obj["oauth"])
-                    if obj.get("oauth") is not None
-                    else None
-                ),
                 "options": (
                     ApiAppResponseOptions.from_dict(obj["options"])
                     if obj.get("options") is not None
@@ -167,6 +157,12 @@ class ApiAppResponse(BaseModel):
                 "owner_account": (
                     ApiAppResponseOwnerAccount.from_dict(obj["owner_account"])
                     if obj.get("owner_account") is not None
+                    else None
+                ),
+                "callback_url": obj.get("callback_url"),
+                "oauth": (
+                    ApiAppResponseOAuth.from_dict(obj["oauth"])
+                    if obj.get("oauth") is not None
                     else None
                 ),
                 "white_labeling_options": (
@@ -193,15 +189,15 @@ class ApiAppResponse(BaseModel):
     @classmethod
     def openapi_types(cls) -> Dict[str, str]:
         return {
-            "callback_url": "(str,)",
             "client_id": "(str,)",
             "created_at": "(int,)",
             "domains": "(List[str],)",
             "name": "(str,)",
             "is_approved": "(bool,)",
-            "oauth": "(ApiAppResponseOAuth,)",
             "options": "(ApiAppResponseOptions,)",
             "owner_account": "(ApiAppResponseOwnerAccount,)",
+            "callback_url": "(str,)",
+            "oauth": "(ApiAppResponseOAuth,)",
             "white_labeling_options": "(ApiAppResponseWhiteLabelingOptions,)",
         }
 

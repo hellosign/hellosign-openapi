@@ -16785,11 +16785,6 @@ var ApiAppResponse = _ApiAppResponse;
 ApiAppResponse.discriminator = void 0;
 ApiAppResponse.attributeTypeMap = [
   {
-    name: "callbackUrl",
-    baseName: "callback_url",
-    type: "string"
-  },
-  {
     name: "clientId",
     baseName: "client_id",
     type: "string"
@@ -16815,11 +16810,6 @@ ApiAppResponse.attributeTypeMap = [
     type: "boolean"
   },
   {
-    name: "oauth",
-    baseName: "oauth",
-    type: "ApiAppResponseOAuth"
-  },
-  {
     name: "options",
     baseName: "options",
     type: "ApiAppResponseOptions"
@@ -16828,6 +16818,16 @@ ApiAppResponse.attributeTypeMap = [
     name: "ownerAccount",
     baseName: "owner_account",
     type: "ApiAppResponseOwnerAccount"
+  },
+  {
+    name: "callbackUrl",
+    baseName: "callback_url",
+    type: "string"
+  },
+  {
+    name: "oauth",
+    baseName: "oauth",
+    type: "ApiAppResponseOAuth"
   },
   {
     name: "whiteLabelingOptions",
@@ -16854,11 +16854,6 @@ ApiAppResponseOAuth.attributeTypeMap = [
     type: "string"
   },
   {
-    name: "secret",
-    baseName: "secret",
-    type: "string"
-  },
-  {
     name: "scopes",
     baseName: "scopes",
     type: "Array<string>"
@@ -16867,6 +16862,11 @@ ApiAppResponseOAuth.attributeTypeMap = [
     name: "chargesUsers",
     baseName: "charges_users",
     type: "boolean"
+  },
+  {
+    name: "secret",
+    baseName: "secret",
+    type: "string"
   }
 ];
 
@@ -21433,20 +21433,20 @@ SubUnclaimedDraftTemplateSigner.attributeTypeMap = [
 // model/subWhiteLabelingOptions.ts
 var _SubWhiteLabelingOptions = class {
   constructor() {
-    this["headerBackgroundColor"] = "#1A1A1A";
+    this["headerBackgroundColor"] = "#1a1a1a";
     this["legalVersion"] = _SubWhiteLabelingOptions.LegalVersionEnum.Terms1;
-    this["linkColor"] = "#00B3E6";
-    this["pageBackgroundColor"] = "#F7F8F9";
-    this["primaryButtonColor"] = "#00B3E6";
-    this["primaryButtonColorHover"] = "#00B3E6";
-    this["primaryButtonTextColor"] = "#FFFFFF";
-    this["primaryButtonTextColorHover"] = "#FFFFFF";
-    this["secondaryButtonColor"] = "#FFFFFF";
-    this["secondaryButtonColorHover"] = "#FFFFFF";
-    this["secondaryButtonTextColor"] = "#00B3E6";
-    this["secondaryButtonTextColorHover"] = "#00B3E6";
+    this["linkColor"] = "#0061FE";
+    this["pageBackgroundColor"] = "#f7f8f9";
+    this["primaryButtonColor"] = "#0061FE";
+    this["primaryButtonColorHover"] = "#0061FE";
+    this["primaryButtonTextColor"] = "#ffffff";
+    this["primaryButtonTextColorHover"] = "#ffffff";
+    this["secondaryButtonColor"] = "#ffffff";
+    this["secondaryButtonColorHover"] = "#ffffff";
+    this["secondaryButtonTextColor"] = "#0061FE";
+    this["secondaryButtonTextColorHover"] = "#0061FE";
     this["textColor1"] = "#808080";
-    this["textColor2"] = "#FFFFFF";
+    this["textColor2"] = "#ffffff";
   }
   static getAttributeTypeMap() {
     return _SubWhiteLabelingOptions.attributeTypeMap;

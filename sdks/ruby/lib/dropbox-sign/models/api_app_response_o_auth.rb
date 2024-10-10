@@ -23,10 +23,6 @@ module Dropbox::Sign
     # @return [String]
     attr_accessor :callback_url
 
-    # The app's OAuth secret, or null if the app does not belong to user.
-    # @return [String]
-    attr_accessor :secret
-
     # Array of OAuth scopes used by the app.
     # @return [Array<String>]
     attr_accessor :scopes
@@ -35,13 +31,17 @@ module Dropbox::Sign
     # @return [Boolean]
     attr_accessor :charges_users
 
+    # The app's OAuth secret, or null if the app does not belong to user.
+    # @return [String]
+    attr_accessor :secret
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'callback_url' => :'callback_url',
-        :'secret' => :'secret',
         :'scopes' => :'scopes',
-        :'charges_users' => :'charges_users'
+        :'charges_users' => :'charges_users',
+        :'secret' => :'secret'
       }
     end
 
@@ -54,9 +54,9 @@ module Dropbox::Sign
     def self.openapi_types
       {
         :'callback_url' => :'String',
-        :'secret' => :'String',
         :'scopes' => :'Array<String>',
-        :'charges_users' => :'Boolean'
+        :'charges_users' => :'Boolean',
+        :'secret' => :'String'
       }
     end
 
@@ -110,10 +110,6 @@ module Dropbox::Sign
         self.callback_url = attributes[:'callback_url']
       end
 
-      if attributes.key?(:'secret')
-        self.secret = attributes[:'secret']
-      end
-
       if attributes.key?(:'scopes')
         if (value = attributes[:'scopes']).is_a?(Array)
           self.scopes = value
@@ -123,18 +119,37 @@ module Dropbox::Sign
       if attributes.key?(:'charges_users')
         self.charges_users = attributes[:'charges_users']
       end
+
+      if attributes.key?(:'secret')
+        self.secret = attributes[:'secret']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @callback_url.nil?
+        invalid_properties.push('invalid value for "callback_url", callback_url cannot be nil.')
+      end
+
+      if @scopes.nil?
+        invalid_properties.push('invalid value for "scopes", scopes cannot be nil.')
+      end
+
+      if @charges_users.nil?
+        invalid_properties.push('invalid value for "charges_users", charges_users cannot be nil.')
+      end
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @callback_url.nil?
+      return false if @scopes.nil?
+      return false if @charges_users.nil?
       true
     end
 
@@ -144,9 +159,9 @@ module Dropbox::Sign
       return true if self.equal?(o)
       self.class == o.class &&
           callback_url == o.callback_url &&
-          secret == o.secret &&
           scopes == o.scopes &&
-          charges_users == o.charges_users
+          charges_users == o.charges_users &&
+          secret == o.secret
     end
 
     # @see the `==` method
@@ -158,7 +173,7 @@ module Dropbox::Sign
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [callback_url, secret, scopes, charges_users].hash
+      [callback_url, scopes, charges_users, secret].hash
     end
 
     # Builds the object from hash

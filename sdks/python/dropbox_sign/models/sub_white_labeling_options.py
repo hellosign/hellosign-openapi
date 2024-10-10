@@ -39,20 +39,20 @@ class SubWhiteLabelingOptions(BaseModel):
     An array of elements and values serialized to a string, to be used to customize the app's signer page. (Only applies to some API plans)  Take a look at our [white labeling guide](https://developers.hellosign.com/api/reference/premium-branding/) to learn more.
     """  # noqa: E501
 
-    header_background_color: Optional[StrictStr] = "#1A1A1A"
+    header_background_color: Optional[StrictStr] = "#1a1a1a"
     legal_version: Optional[StrictStr] = "terms1"
-    link_color: Optional[StrictStr] = "#00B3E6"
-    page_background_color: Optional[StrictStr] = "#F7F8F9"
-    primary_button_color: Optional[StrictStr] = "#00B3E6"
-    primary_button_color_hover: Optional[StrictStr] = "#00B3E6"
-    primary_button_text_color: Optional[StrictStr] = "#FFFFFF"
-    primary_button_text_color_hover: Optional[StrictStr] = "#FFFFFF"
-    secondary_button_color: Optional[StrictStr] = "#FFFFFF"
-    secondary_button_color_hover: Optional[StrictStr] = "#FFFFFF"
-    secondary_button_text_color: Optional[StrictStr] = "#00B3E6"
-    secondary_button_text_color_hover: Optional[StrictStr] = "#00B3E6"
+    link_color: Optional[StrictStr] = "#0061FE"
+    page_background_color: Optional[StrictStr] = "#f7f8f9"
+    primary_button_color: Optional[StrictStr] = "#0061FE"
+    primary_button_color_hover: Optional[StrictStr] = "#0061FE"
+    primary_button_text_color: Optional[StrictStr] = "#ffffff"
+    primary_button_text_color_hover: Optional[StrictStr] = "#ffffff"
+    secondary_button_color: Optional[StrictStr] = "#ffffff"
+    secondary_button_color_hover: Optional[StrictStr] = "#ffffff"
+    secondary_button_text_color: Optional[StrictStr] = "#0061FE"
+    secondary_button_text_color_hover: Optional[StrictStr] = "#0061FE"
     text_color1: Optional[StrictStr] = "#808080"
-    text_color2: Optional[StrictStr] = "#FFFFFF"
+    text_color2: Optional[StrictStr] = "#ffffff"
     reset_to_default: Optional[StrictBool] = Field(
         default=None,
         description="Resets white labeling options to defaults. Only useful when updating an API App.",
@@ -151,7 +151,7 @@ class SubWhiteLabelingOptions(BaseModel):
                 "header_background_color": (
                     obj.get("header_background_color")
                     if obj.get("header_background_color") is not None
-                    else "#1A1A1A"
+                    else "#1a1a1a"
                 ),
                 "legal_version": (
                     obj.get("legal_version")
@@ -161,52 +161,52 @@ class SubWhiteLabelingOptions(BaseModel):
                 "link_color": (
                     obj.get("link_color")
                     if obj.get("link_color") is not None
-                    else "#00B3E6"
+                    else "#0061FE"
                 ),
                 "page_background_color": (
                     obj.get("page_background_color")
                     if obj.get("page_background_color") is not None
-                    else "#F7F8F9"
+                    else "#f7f8f9"
                 ),
                 "primary_button_color": (
                     obj.get("primary_button_color")
                     if obj.get("primary_button_color") is not None
-                    else "#00B3E6"
+                    else "#0061FE"
                 ),
                 "primary_button_color_hover": (
                     obj.get("primary_button_color_hover")
                     if obj.get("primary_button_color_hover") is not None
-                    else "#00B3E6"
+                    else "#0061FE"
                 ),
                 "primary_button_text_color": (
                     obj.get("primary_button_text_color")
                     if obj.get("primary_button_text_color") is not None
-                    else "#FFFFFF"
+                    else "#ffffff"
                 ),
                 "primary_button_text_color_hover": (
                     obj.get("primary_button_text_color_hover")
                     if obj.get("primary_button_text_color_hover") is not None
-                    else "#FFFFFF"
+                    else "#ffffff"
                 ),
                 "secondary_button_color": (
                     obj.get("secondary_button_color")
                     if obj.get("secondary_button_color") is not None
-                    else "#FFFFFF"
+                    else "#ffffff"
                 ),
                 "secondary_button_color_hover": (
                     obj.get("secondary_button_color_hover")
                     if obj.get("secondary_button_color_hover") is not None
-                    else "#FFFFFF"
+                    else "#ffffff"
                 ),
                 "secondary_button_text_color": (
                     obj.get("secondary_button_text_color")
                     if obj.get("secondary_button_text_color") is not None
-                    else "#00B3E6"
+                    else "#0061FE"
                 ),
                 "secondary_button_text_color_hover": (
                     obj.get("secondary_button_text_color_hover")
                     if obj.get("secondary_button_text_color_hover") is not None
-                    else "#00B3E6"
+                    else "#0061FE"
                 ),
                 "text_color1": (
                     obj.get("text_color1")
@@ -216,7 +216,7 @@ class SubWhiteLabelingOptions(BaseModel):
                 "text_color2": (
                     obj.get("text_color2")
                     if obj.get("text_color2") is not None
-                    else "#FFFFFF"
+                    else "#ffffff"
                 ),
                 "reset_to_default": obj.get("reset_to_default"),
             }

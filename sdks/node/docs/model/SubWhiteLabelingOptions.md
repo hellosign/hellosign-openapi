@@ -8,20 +8,20 @@ Take a look at our [white labeling guide](https://developers.hellosign.com/api/r
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-| `headerBackgroundColor` | ```string``` |    |  [default to '#1A1A1A'] |
+| `headerBackgroundColor` | ```string``` |    |  [default to '#1a1a1a'] |
 | `legalVersion` | ```string``` |    |  [default to LegalVersionEnum.Terms1] |
-| `linkColor` | ```string``` |    |  [default to '#00B3E6'] |
-| `pageBackgroundColor` | ```string``` |    |  [default to '#F7F8F9'] |
-| `primaryButtonColor` | ```string``` |    |  [default to '#00B3E6'] |
-| `primaryButtonColorHover` | ```string``` |    |  [default to '#00B3E6'] |
-| `primaryButtonTextColor` | ```string``` |    |  [default to '#FFFFFF'] |
-| `primaryButtonTextColorHover` | ```string``` |    |  [default to '#FFFFFF'] |
-| `secondaryButtonColor` | ```string``` |    |  [default to '#FFFFFF'] |
-| `secondaryButtonColorHover` | ```string``` |    |  [default to '#FFFFFF'] |
-| `secondaryButtonTextColor` | ```string``` |    |  [default to '#00B3E6'] |
-| `secondaryButtonTextColorHover` | ```string``` |    |  [default to '#00B3E6'] |
+| `linkColor` | ```string``` |    |  [default to '#0061FE'] |
+| `pageBackgroundColor` | ```string``` |    |  [default to '#f7f8f9'] |
+| `primaryButtonColor` | ```string``` |    |  [default to '#0061FE'] |
+| `primaryButtonColorHover` | ```string``` |    |  [default to '#0061FE'] |
+| `primaryButtonTextColor` | ```string``` |    |  [default to '#ffffff'] |
+| `primaryButtonTextColorHover` | ```string``` |    |  [default to '#ffffff'] |
+| `secondaryButtonColor` | ```string``` |    |  [default to '#ffffff'] |
+| `secondaryButtonColorHover` | ```string``` |    |  [default to '#ffffff'] |
+| `secondaryButtonTextColor` | ```string``` |    |  [default to '#0061FE'] |
+| `secondaryButtonTextColorHover` | ```string``` |    |  [default to '#0061FE'] |
 | `textColor1` | ```string``` |    |  [default to '#808080'] |
-| `textColor2` | ```string``` |    |  [default to '#FFFFFF'] |
+| `textColor2` | ```string``` |    |  [default to '#ffffff'] |
 | `resetToDefault` | ```boolean``` |  Resets white labeling options to defaults. Only useful when updating an API App.  |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

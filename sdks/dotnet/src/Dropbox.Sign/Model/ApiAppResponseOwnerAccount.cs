@@ -41,12 +41,22 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiAppResponseOwnerAccount" /> class.
         /// </summary>
-        /// <param name="accountId">The owner account&#39;s ID.</param>
-        /// <param name="emailAddress">The owner account&#39;s email address.</param>
+        /// <param name="accountId">The owner account&#39;s ID (required).</param>
+        /// <param name="emailAddress">The owner account&#39;s email address (required).</param>
         public ApiAppResponseOwnerAccount(string accountId = default(string), string emailAddress = default(string))
         {
 
+            // to ensure "accountId" is required (not null)
+            if (accountId == null)
+            {
+                throw new ArgumentNullException("accountId is a required property for ApiAppResponseOwnerAccount and cannot be null");
+            }
             this.AccountId = accountId;
+            // to ensure "emailAddress" is required (not null)
+            if (emailAddress == null)
+            {
+                throw new ArgumentNullException("emailAddress is a required property for ApiAppResponseOwnerAccount and cannot be null");
+            }
             this.EmailAddress = emailAddress;
         }
 
@@ -70,14 +80,14 @@ namespace Dropbox.Sign.Model
         /// The owner account&#39;s ID
         /// </summary>
         /// <value>The owner account&#39;s ID</value>
-        [DataMember(Name = "account_id", EmitDefaultValue = true)]
+        [DataMember(Name = "account_id", IsRequired = true, EmitDefaultValue = true)]
         public string AccountId { get; set; }
 
         /// <summary>
         /// The owner account&#39;s email address
         /// </summary>
         /// <value>The owner account&#39;s email address</value>
-        [DataMember(Name = "email_address", EmitDefaultValue = true)]
+        [DataMember(Name = "email_address", IsRequired = true, EmitDefaultValue = true)]
         public string EmailAddress { get; set; }
 
         /// <summary>

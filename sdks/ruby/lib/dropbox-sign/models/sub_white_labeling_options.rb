@@ -183,7 +183,7 @@ module Dropbox::Sign
       if attributes.key?(:'header_background_color')
         self.header_background_color = attributes[:'header_background_color']
       else
-        self.header_background_color = '#1A1A1A'
+        self.header_background_color = '#1a1a1a'
       end
 
       if attributes.key?(:'legal_version')
@@ -195,61 +195,61 @@ module Dropbox::Sign
       if attributes.key?(:'link_color')
         self.link_color = attributes[:'link_color']
       else
-        self.link_color = '#00B3E6'
+        self.link_color = '#0061FE'
       end
 
       if attributes.key?(:'page_background_color')
         self.page_background_color = attributes[:'page_background_color']
       else
-        self.page_background_color = '#F7F8F9'
+        self.page_background_color = '#f7f8f9'
       end
 
       if attributes.key?(:'primary_button_color')
         self.primary_button_color = attributes[:'primary_button_color']
       else
-        self.primary_button_color = '#00B3E6'
+        self.primary_button_color = '#0061FE'
       end
 
       if attributes.key?(:'primary_button_color_hover')
         self.primary_button_color_hover = attributes[:'primary_button_color_hover']
       else
-        self.primary_button_color_hover = '#00B3E6'
+        self.primary_button_color_hover = '#0061FE'
       end
 
       if attributes.key?(:'primary_button_text_color')
         self.primary_button_text_color = attributes[:'primary_button_text_color']
       else
-        self.primary_button_text_color = '#FFFFFF'
+        self.primary_button_text_color = '#ffffff'
       end
 
       if attributes.key?(:'primary_button_text_color_hover')
         self.primary_button_text_color_hover = attributes[:'primary_button_text_color_hover']
       else
-        self.primary_button_text_color_hover = '#FFFFFF'
+        self.primary_button_text_color_hover = '#ffffff'
       end
 
       if attributes.key?(:'secondary_button_color')
         self.secondary_button_color = attributes[:'secondary_button_color']
       else
-        self.secondary_button_color = '#FFFFFF'
+        self.secondary_button_color = '#ffffff'
       end
 
       if attributes.key?(:'secondary_button_color_hover')
         self.secondary_button_color_hover = attributes[:'secondary_button_color_hover']
       else
-        self.secondary_button_color_hover = '#FFFFFF'
+        self.secondary_button_color_hover = '#ffffff'
       end
 
       if attributes.key?(:'secondary_button_text_color')
         self.secondary_button_text_color = attributes[:'secondary_button_text_color']
       else
-        self.secondary_button_text_color = '#00B3E6'
+        self.secondary_button_text_color = '#0061FE'
       end
 
       if attributes.key?(:'secondary_button_text_color_hover')
         self.secondary_button_text_color_hover = attributes[:'secondary_button_text_color_hover']
       else
-        self.secondary_button_text_color_hover = '#00B3E6'
+        self.secondary_button_text_color_hover = '#0061FE'
       end
 
       if attributes.key?(:'text_color1')
@@ -261,7 +261,7 @@ module Dropbox::Sign
       if attributes.key?(:'text_color2')
         self.text_color2 = attributes[:'text_color2']
       else
-        self.text_color2 = '#FFFFFF'
+        self.text_color2 = '#ffffff'
       end
 
       if attributes.key?(:'reset_to_default')

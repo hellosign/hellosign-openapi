@@ -336,20 +336,20 @@ class SubWhiteLabelingOptions implements ModelInterface, ArrayAccess, JsonSerial
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('header_background_color', $data ?? [], '#1A1A1A');
+        $this->setIfExists('header_background_color', $data ?? [], '#1a1a1a');
         $this->setIfExists('legal_version', $data ?? [], 'terms1');
-        $this->setIfExists('link_color', $data ?? [], '#00B3E6');
-        $this->setIfExists('page_background_color', $data ?? [], '#F7F8F9');
-        $this->setIfExists('primary_button_color', $data ?? [], '#00B3E6');
-        $this->setIfExists('primary_button_color_hover', $data ?? [], '#00B3E6');
-        $this->setIfExists('primary_button_text_color', $data ?? [], '#FFFFFF');
-        $this->setIfExists('primary_button_text_color_hover', $data ?? [], '#FFFFFF');
-        $this->setIfExists('secondary_button_color', $data ?? [], '#FFFFFF');
-        $this->setIfExists('secondary_button_color_hover', $data ?? [], '#FFFFFF');
-        $this->setIfExists('secondary_button_text_color', $data ?? [], '#00B3E6');
-        $this->setIfExists('secondary_button_text_color_hover', $data ?? [], '#00B3E6');
+        $this->setIfExists('link_color', $data ?? [], '#0061FE');
+        $this->setIfExists('page_background_color', $data ?? [], '#f7f8f9');
+        $this->setIfExists('primary_button_color', $data ?? [], '#0061FE');
+        $this->setIfExists('primary_button_color_hover', $data ?? [], '#0061FE');
+        $this->setIfExists('primary_button_text_color', $data ?? [], '#ffffff');
+        $this->setIfExists('primary_button_text_color_hover', $data ?? [], '#ffffff');
+        $this->setIfExists('secondary_button_color', $data ?? [], '#ffffff');
+        $this->setIfExists('secondary_button_color_hover', $data ?? [], '#ffffff');
+        $this->setIfExists('secondary_button_text_color', $data ?? [], '#0061FE');
+        $this->setIfExists('secondary_button_text_color_hover', $data ?? [], '#0061FE');
         $this->setIfExists('text_color1', $data ?? [], '#808080');
-        $this->setIfExists('text_color2', $data ?? [], '#FFFFFF');
+        $this->setIfExists('text_color2', $data ?? [], '#ffffff');
         $this->setIfExists('reset_to_default', $data ?? [], null);
     }
 

@@ -289,7 +289,15 @@ class ApiAppResponseOwnerAccount implements ModelInterface, ArrayAccess, JsonSer
      */
     public function listInvalidProperties()
     {
-        return [];
+        $invalidProperties = [];
+
+        if ($this->container['account_id'] === null) {
+            $invalidProperties[] = "'account_id' can't be null";
+        }
+        if ($this->container['email_address'] === null) {
+            $invalidProperties[] = "'email_address' can't be null";
+        }
+        return $invalidProperties;
     }
 
     /**
@@ -306,7 +314,7 @@ class ApiAppResponseOwnerAccount implements ModelInterface, ArrayAccess, JsonSer
     /**
      * Gets account_id
      *
-     * @return string|null
+     * @return string
      */
     public function getAccountId()
     {
@@ -316,11 +324,11 @@ class ApiAppResponseOwnerAccount implements ModelInterface, ArrayAccess, JsonSer
     /**
      * Sets account_id
      *
-     * @param string|null $account_id The owner account's ID
+     * @param string $account_id The owner account's ID
      *
      * @return self
      */
-    public function setAccountId(?string $account_id)
+    public function setAccountId(string $account_id)
     {
         if (is_null($account_id)) {
             throw new InvalidArgumentException('non-nullable account_id cannot be null');
@@ -333,7 +341,7 @@ class ApiAppResponseOwnerAccount implements ModelInterface, ArrayAccess, JsonSer
     /**
      * Gets email_address
      *
-     * @return string|null
+     * @return string
      */
     public function getEmailAddress()
     {
@@ -343,11 +351,11 @@ class ApiAppResponseOwnerAccount implements ModelInterface, ArrayAccess, JsonSer
     /**
      * Sets email_address
      *
-     * @param string|null $email_address The owner account's email address
+     * @param string $email_address The owner account's email address
      *
      * @return self
      */
-    public function setEmailAddress(?string $email_address)
+    public function setEmailAddress(string $email_address)
     {
         if (is_null($email_address)) {
             throw new InvalidArgumentException('non-nullable email_address cannot be null');

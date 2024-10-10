@@ -41,7 +41,7 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiAppResponseOptions" /> class.
         /// </summary>
-        /// <param name="canInsertEverywhere">Boolean denoting if signers can \&quot;Insert Everywhere\&quot; in one click while signing a document.</param>
+        /// <param name="canInsertEverywhere">Boolean denoting if signers can \&quot;Insert Everywhere\&quot; in one click while signing a document (required).</param>
         public ApiAppResponseOptions(bool canInsertEverywhere = default(bool))
         {
 
@@ -68,7 +68,7 @@ namespace Dropbox.Sign.Model
         /// Boolean denoting if signers can \&quot;Insert Everywhere\&quot; in one click while signing a document
         /// </summary>
         /// <value>Boolean denoting if signers can \&quot;Insert Everywhere\&quot; in one click while signing a document</value>
-        [DataMember(Name = "can_insert_everywhere", EmitDefaultValue = true)]
+        [DataMember(Name = "can_insert_everywhere", IsRequired = true, EmitDefaultValue = true)]
         public bool CanInsertEverywhere { get; set; }
 
         /// <summary>

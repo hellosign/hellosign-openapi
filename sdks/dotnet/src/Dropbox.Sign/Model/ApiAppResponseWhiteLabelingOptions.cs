@@ -41,36 +41,106 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiAppResponseWhiteLabelingOptions" /> class.
         /// </summary>
-        /// <param name="headerBackgroundColor">headerBackgroundColor.</param>
-        /// <param name="legalVersion">legalVersion.</param>
-        /// <param name="linkColor">linkColor.</param>
-        /// <param name="pageBackgroundColor">pageBackgroundColor.</param>
-        /// <param name="primaryButtonColor">primaryButtonColor.</param>
-        /// <param name="primaryButtonColorHover">primaryButtonColorHover.</param>
-        /// <param name="primaryButtonTextColor">primaryButtonTextColor.</param>
-        /// <param name="primaryButtonTextColorHover">primaryButtonTextColorHover.</param>
-        /// <param name="secondaryButtonColor">secondaryButtonColor.</param>
-        /// <param name="secondaryButtonColorHover">secondaryButtonColorHover.</param>
-        /// <param name="secondaryButtonTextColor">secondaryButtonTextColor.</param>
-        /// <param name="secondaryButtonTextColorHover">secondaryButtonTextColorHover.</param>
-        /// <param name="textColor1">textColor1.</param>
-        /// <param name="textColor2">textColor2.</param>
+        /// <param name="headerBackgroundColor">headerBackgroundColor (required).</param>
+        /// <param name="legalVersion">legalVersion (required).</param>
+        /// <param name="linkColor">linkColor (required).</param>
+        /// <param name="pageBackgroundColor">pageBackgroundColor (required).</param>
+        /// <param name="primaryButtonColor">primaryButtonColor (required).</param>
+        /// <param name="primaryButtonColorHover">primaryButtonColorHover (required).</param>
+        /// <param name="primaryButtonTextColor">primaryButtonTextColor (required).</param>
+        /// <param name="primaryButtonTextColorHover">primaryButtonTextColorHover (required).</param>
+        /// <param name="secondaryButtonColor">secondaryButtonColor (required).</param>
+        /// <param name="secondaryButtonColorHover">secondaryButtonColorHover (required).</param>
+        /// <param name="secondaryButtonTextColor">secondaryButtonTextColor (required).</param>
+        /// <param name="secondaryButtonTextColorHover">secondaryButtonTextColorHover (required).</param>
+        /// <param name="textColor1">textColor1 (required).</param>
+        /// <param name="textColor2">textColor2 (required).</param>
         public ApiAppResponseWhiteLabelingOptions(string headerBackgroundColor = default(string), string legalVersion = default(string), string linkColor = default(string), string pageBackgroundColor = default(string), string primaryButtonColor = default(string), string primaryButtonColorHover = default(string), string primaryButtonTextColor = default(string), string primaryButtonTextColorHover = default(string), string secondaryButtonColor = default(string), string secondaryButtonColorHover = default(string), string secondaryButtonTextColor = default(string), string secondaryButtonTextColorHover = default(string), string textColor1 = default(string), string textColor2 = default(string))
         {
 
+            // to ensure "headerBackgroundColor" is required (not null)
+            if (headerBackgroundColor == null)
+            {
+                throw new ArgumentNullException("headerBackgroundColor is a required property for ApiAppResponseWhiteLabelingOptions and cannot be null");
+            }
             this.HeaderBackgroundColor = headerBackgroundColor;
+            // to ensure "legalVersion" is required (not null)
+            if (legalVersion == null)
+            {
+                throw new ArgumentNullException("legalVersion is a required property for ApiAppResponseWhiteLabelingOptions and cannot be null");
+            }
             this.LegalVersion = legalVersion;
+            // to ensure "linkColor" is required (not null)
+            if (linkColor == null)
+            {
+                throw new ArgumentNullException("linkColor is a required property for ApiAppResponseWhiteLabelingOptions and cannot be null");
+            }
             this.LinkColor = linkColor;
+            // to ensure "pageBackgroundColor" is required (not null)
+            if (pageBackgroundColor == null)
+            {
+                throw new ArgumentNullException("pageBackgroundColor is a required property for ApiAppResponseWhiteLabelingOptions and cannot be null");
+            }
             this.PageBackgroundColor = pageBackgroundColor;
+            // to ensure "primaryButtonColor" is required (not null)
+            if (primaryButtonColor == null)
+            {
+                throw new ArgumentNullException("primaryButtonColor is a required property for ApiAppResponseWhiteLabelingOptions and cannot be null");
+            }
             this.PrimaryButtonColor = primaryButtonColor;
+            // to ensure "primaryButtonColorHover" is required (not null)
+            if (primaryButtonColorHover == null)
+            {
+                throw new ArgumentNullException("primaryButtonColorHover is a required property for ApiAppResponseWhiteLabelingOptions and cannot be null");
+            }
             this.PrimaryButtonColorHover = primaryButtonColorHover;
+            // to ensure "primaryButtonTextColor" is required (not null)
+            if (primaryButtonTextColor == null)
+            {
+                throw new ArgumentNullException("primaryButtonTextColor is a required property for ApiAppResponseWhiteLabelingOptions and cannot be null");
+            }
             this.PrimaryButtonTextColor = primaryButtonTextColor;
+            // to ensure "primaryButtonTextColorHover" is required (not null)
+            if (primaryButtonTextColorHover == null)
+            {
+                throw new ArgumentNullException("primaryButtonTextColorHover is a required property for ApiAppResponseWhiteLabelingOptions and cannot be null");
+            }
             this.PrimaryButtonTextColorHover = primaryButtonTextColorHover;
+            // to ensure "secondaryButtonColor" is required (not null)
+            if (secondaryButtonColor == null)
+            {
+                throw new ArgumentNullException("secondaryButtonColor is a required property for ApiAppResponseWhiteLabelingOptions and cannot be null");
+            }
             this.SecondaryButtonColor = secondaryButtonColor;
+            // to ensure "secondaryButtonColorHover" is required (not null)
+            if (secondaryButtonColorHover == null)
+            {
+                throw new ArgumentNullException("secondaryButtonColorHover is a required property for ApiAppResponseWhiteLabelingOptions and cannot be null");
+            }
             this.SecondaryButtonColorHover = secondaryButtonColorHover;
+            // to ensure "secondaryButtonTextColor" is required (not null)
+            if (secondaryButtonTextColor == null)
+            {
+                throw new ArgumentNullException("secondaryButtonTextColor is a required property for ApiAppResponseWhiteLabelingOptions and cannot be null");
+            }
             this.SecondaryButtonTextColor = secondaryButtonTextColor;
+            // to ensure "secondaryButtonTextColorHover" is required (not null)
+            if (secondaryButtonTextColorHover == null)
+            {
+                throw new ArgumentNullException("secondaryButtonTextColorHover is a required property for ApiAppResponseWhiteLabelingOptions and cannot be null");
+            }
             this.SecondaryButtonTextColorHover = secondaryButtonTextColorHover;
+            // to ensure "textColor1" is required (not null)
+            if (textColor1 == null)
+            {
+                throw new ArgumentNullException("textColor1 is a required property for ApiAppResponseWhiteLabelingOptions and cannot be null");
+            }
             this.TextColor1 = textColor1;
+            // to ensure "textColor2" is required (not null)
+            if (textColor2 == null)
+            {
+                throw new ArgumentNullException("textColor2 is a required property for ApiAppResponseWhiteLabelingOptions and cannot be null");
+            }
             this.TextColor2 = textColor2;
         }
 
@@ -93,85 +163,85 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Gets or Sets HeaderBackgroundColor
         /// </summary>
-        [DataMember(Name = "header_background_color", EmitDefaultValue = true)]
+        [DataMember(Name = "header_background_color", IsRequired = true, EmitDefaultValue = true)]
         public string HeaderBackgroundColor { get; set; }
 
         /// <summary>
         /// Gets or Sets LegalVersion
         /// </summary>
-        [DataMember(Name = "legal_version", EmitDefaultValue = true)]
+        [DataMember(Name = "legal_version", IsRequired = true, EmitDefaultValue = true)]
         public string LegalVersion { get; set; }
 
         /// <summary>
         /// Gets or Sets LinkColor
         /// </summary>
-        [DataMember(Name = "link_color", EmitDefaultValue = true)]
+        [DataMember(Name = "link_color", IsRequired = true, EmitDefaultValue = true)]
         public string LinkColor { get; set; }
 
         /// <summary>
         /// Gets or Sets PageBackgroundColor
         /// </summary>
-        [DataMember(Name = "page_background_color", EmitDefaultValue = true)]
+        [DataMember(Name = "page_background_color", IsRequired = true, EmitDefaultValue = true)]
         public string PageBackgroundColor { get; set; }
 
         /// <summary>
         /// Gets or Sets PrimaryButtonColor
         /// </summary>
-        [DataMember(Name = "primary_button_color", EmitDefaultValue = true)]
+        [DataMember(Name = "primary_button_color", IsRequired = true, EmitDefaultValue = true)]
         public string PrimaryButtonColor { get; set; }
 
         /// <summary>
         /// Gets or Sets PrimaryButtonColorHover
         /// </summary>
-        [DataMember(Name = "primary_button_color_hover", EmitDefaultValue = true)]
+        [DataMember(Name = "primary_button_color_hover", IsRequired = true, EmitDefaultValue = true)]
         public string PrimaryButtonColorHover { get; set; }
 
         /// <summary>
         /// Gets or Sets PrimaryButtonTextColor
         /// </summary>
-        [DataMember(Name = "primary_button_text_color", EmitDefaultValue = true)]
+        [DataMember(Name = "primary_button_text_color", IsRequired = true, EmitDefaultValue = true)]
         public string PrimaryButtonTextColor { get; set; }
 
         /// <summary>
         /// Gets or Sets PrimaryButtonTextColorHover
         /// </summary>
-        [DataMember(Name = "primary_button_text_color_hover", EmitDefaultValue = true)]
+        [DataMember(Name = "primary_button_text_color_hover", IsRequired = true, EmitDefaultValue = true)]
         public string PrimaryButtonTextColorHover { get; set; }
 
         /// <summary>
         /// Gets or Sets SecondaryButtonColor
         /// </summary>
-        [DataMember(Name = "secondary_button_color", EmitDefaultValue = true)]
+        [DataMember(Name = "secondary_button_color", IsRequired = true, EmitDefaultValue = true)]
         public string SecondaryButtonColor { get; set; }
 
         /// <summary>
         /// Gets or Sets SecondaryButtonColorHover
         /// </summary>
-        [DataMember(Name = "secondary_button_color_hover", EmitDefaultValue = true)]
+        [DataMember(Name = "secondary_button_color_hover", IsRequired = true, EmitDefaultValue = true)]
         public string SecondaryButtonColorHover { get; set; }
 
         /// <summary>
         /// Gets or Sets SecondaryButtonTextColor
         /// </summary>
-        [DataMember(Name = "secondary_button_text_color", EmitDefaultValue = true)]
+        [DataMember(Name = "secondary_button_text_color", IsRequired = true, EmitDefaultValue = true)]
         public string SecondaryButtonTextColor { get; set; }
 
         /// <summary>
         /// Gets or Sets SecondaryButtonTextColorHover
         /// </summary>
-        [DataMember(Name = "secondary_button_text_color_hover", EmitDefaultValue = true)]
+        [DataMember(Name = "secondary_button_text_color_hover", IsRequired = true, EmitDefaultValue = true)]
         public string SecondaryButtonTextColorHover { get; set; }
 
         /// <summary>
         /// Gets or Sets TextColor1
         /// </summary>
-        [DataMember(Name = "text_color1", EmitDefaultValue = true)]
+        [DataMember(Name = "text_color1", IsRequired = true, EmitDefaultValue = true)]
         public string TextColor1 { get; set; }
 
         /// <summary>
         /// Gets or Sets TextColor2
         /// </summary>
-        [DataMember(Name = "text_color2", EmitDefaultValue = true)]
+        [DataMember(Name = "text_color2", IsRequired = true, EmitDefaultValue = true)]
         public string TextColor2 { get; set; }
 
         /// <summary>

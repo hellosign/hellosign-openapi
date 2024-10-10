@@ -282,7 +282,12 @@ class ApiAppResponseOptions implements ModelInterface, ArrayAccess, JsonSerializ
      */
     public function listInvalidProperties()
     {
-        return [];
+        $invalidProperties = [];
+
+        if ($this->container['can_insert_everywhere'] === null) {
+            $invalidProperties[] = "'can_insert_everywhere' can't be null";
+        }
+        return $invalidProperties;
     }
 
     /**
@@ -299,7 +304,7 @@ class ApiAppResponseOptions implements ModelInterface, ArrayAccess, JsonSerializ
     /**
      * Gets can_insert_everywhere
      *
-     * @return bool|null
+     * @return bool
      */
     public function getCanInsertEverywhere()
     {
@@ -309,11 +314,11 @@ class ApiAppResponseOptions implements ModelInterface, ArrayAccess, JsonSerializ
     /**
      * Sets can_insert_everywhere
      *
-     * @param bool|null $can_insert_everywhere Boolean denoting if signers can \"Insert Everywhere\" in one click while signing a document
+     * @param bool $can_insert_everywhere Boolean denoting if signers can \"Insert Everywhere\" in one click while signing a document
      *
      * @return self
      */
-    public function setCanInsertEverywhere(?bool $can_insert_everywhere)
+    public function setCanInsertEverywhere(bool $can_insert_everywhere)
     {
         if (is_null($can_insert_everywhere)) {
             throw new InvalidArgumentException('non-nullable can_insert_everywhere cannot be null');

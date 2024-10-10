@@ -58,15 +58,15 @@ class ApiAppResponse implements ModelInterface, ArrayAccess, JsonSerializable
      * @var string[]
      */
     protected static $openAPITypes = [
-        'callback_url' => 'string',
         'client_id' => 'string',
         'created_at' => 'int',
         'domains' => 'string[]',
         'name' => 'string',
         'is_approved' => 'bool',
-        'oauth' => '\Dropbox\Sign\Model\ApiAppResponseOAuth',
         'options' => '\Dropbox\Sign\Model\ApiAppResponseOptions',
         'owner_account' => '\Dropbox\Sign\Model\ApiAppResponseOwnerAccount',
+        'callback_url' => 'string',
+        'oauth' => '\Dropbox\Sign\Model\ApiAppResponseOAuth',
         'white_labeling_options' => '\Dropbox\Sign\Model\ApiAppResponseWhiteLabelingOptions',
     ];
 
@@ -78,15 +78,15 @@ class ApiAppResponse implements ModelInterface, ArrayAccess, JsonSerializable
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        'callback_url' => null,
         'client_id' => null,
         'created_at' => null,
         'domains' => null,
         'name' => null,
         'is_approved' => null,
-        'oauth' => null,
         'options' => null,
         'owner_account' => null,
+        'callback_url' => null,
+        'oauth' => null,
         'white_labeling_options' => null,
     ];
 
@@ -96,15 +96,15 @@ class ApiAppResponse implements ModelInterface, ArrayAccess, JsonSerializable
      * @var bool[]
      */
     protected static array $openAPINullables = [
-        'callback_url' => true,
         'client_id' => false,
         'created_at' => false,
         'domains' => false,
         'name' => false,
         'is_approved' => false,
-        'oauth' => true,
-        'options' => true,
+        'options' => false,
         'owner_account' => false,
+        'callback_url' => true,
+        'oauth' => true,
         'white_labeling_options' => true,
     ];
 
@@ -186,15 +186,15 @@ class ApiAppResponse implements ModelInterface, ArrayAccess, JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'callback_url' => 'callback_url',
         'client_id' => 'client_id',
         'created_at' => 'created_at',
         'domains' => 'domains',
         'name' => 'name',
         'is_approved' => 'is_approved',
-        'oauth' => 'oauth',
         'options' => 'options',
         'owner_account' => 'owner_account',
+        'callback_url' => 'callback_url',
+        'oauth' => 'oauth',
         'white_labeling_options' => 'white_labeling_options',
     ];
 
@@ -204,15 +204,15 @@ class ApiAppResponse implements ModelInterface, ArrayAccess, JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'callback_url' => 'setCallbackUrl',
         'client_id' => 'setClientId',
         'created_at' => 'setCreatedAt',
         'domains' => 'setDomains',
         'name' => 'setName',
         'is_approved' => 'setIsApproved',
-        'oauth' => 'setOauth',
         'options' => 'setOptions',
         'owner_account' => 'setOwnerAccount',
+        'callback_url' => 'setCallbackUrl',
+        'oauth' => 'setOauth',
         'white_labeling_options' => 'setWhiteLabelingOptions',
     ];
 
@@ -222,15 +222,15 @@ class ApiAppResponse implements ModelInterface, ArrayAccess, JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'callback_url' => 'getCallbackUrl',
         'client_id' => 'getClientId',
         'created_at' => 'getCreatedAt',
         'domains' => 'getDomains',
         'name' => 'getName',
         'is_approved' => 'getIsApproved',
-        'oauth' => 'getOauth',
         'options' => 'getOptions',
         'owner_account' => 'getOwnerAccount',
+        'callback_url' => 'getCallbackUrl',
+        'oauth' => 'getOauth',
         'white_labeling_options' => 'getWhiteLabelingOptions',
     ];
 
@@ -290,15 +290,15 @@ class ApiAppResponse implements ModelInterface, ArrayAccess, JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('callback_url', $data ?? [], null);
         $this->setIfExists('client_id', $data ?? [], null);
         $this->setIfExists('created_at', $data ?? [], null);
         $this->setIfExists('domains', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('is_approved', $data ?? [], null);
-        $this->setIfExists('oauth', $data ?? [], null);
         $this->setIfExists('options', $data ?? [], null);
         $this->setIfExists('owner_account', $data ?? [], null);
+        $this->setIfExists('callback_url', $data ?? [], null);
+        $this->setIfExists('oauth', $data ?? [], null);
         $this->setIfExists('white_labeling_options', $data ?? [], null);
     }
 
@@ -345,7 +345,30 @@ class ApiAppResponse implements ModelInterface, ArrayAccess, JsonSerializable
      */
     public function listInvalidProperties()
     {
-        return [];
+        $invalidProperties = [];
+
+        if ($this->container['client_id'] === null) {
+            $invalidProperties[] = "'client_id' can't be null";
+        }
+        if ($this->container['created_at'] === null) {
+            $invalidProperties[] = "'created_at' can't be null";
+        }
+        if ($this->container['domains'] === null) {
+            $invalidProperties[] = "'domains' can't be null";
+        }
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
+        }
+        if ($this->container['is_approved'] === null) {
+            $invalidProperties[] = "'is_approved' can't be null";
+        }
+        if ($this->container['options'] === null) {
+            $invalidProperties[] = "'options' can't be null";
+        }
+        if ($this->container['owner_account'] === null) {
+            $invalidProperties[] = "'owner_account' can't be null";
+        }
+        return $invalidProperties;
     }
 
     /**
@@ -357,6 +380,195 @@ class ApiAppResponse implements ModelInterface, ArrayAccess, JsonSerializable
     public function valid()
     {
         return count($this->listInvalidProperties()) === 0;
+    }
+
+    /**
+     * Gets client_id
+     *
+     * @return string
+     */
+    public function getClientId()
+    {
+        return $this->container['client_id'];
+    }
+
+    /**
+     * Sets client_id
+     *
+     * @param string $client_id The app's client id
+     *
+     * @return self
+     */
+    public function setClientId(string $client_id)
+    {
+        if (is_null($client_id)) {
+            throw new InvalidArgumentException('non-nullable client_id cannot be null');
+        }
+        $this->container['client_id'] = $client_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets created_at
+     *
+     * @return int
+     */
+    public function getCreatedAt()
+    {
+        return $this->container['created_at'];
+    }
+
+    /**
+     * Sets created_at
+     *
+     * @param int $created_at The time that the app was created
+     *
+     * @return self
+     */
+    public function setCreatedAt(int $created_at)
+    {
+        if (is_null($created_at)) {
+            throw new InvalidArgumentException('non-nullable created_at cannot be null');
+        }
+        $this->container['created_at'] = $created_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets domains
+     *
+     * @return string[]
+     */
+    public function getDomains()
+    {
+        return $this->container['domains'];
+    }
+
+    /**
+     * Sets domains
+     *
+     * @param string[] $domains The domain name(s) associated with the app
+     *
+     * @return self
+     */
+    public function setDomains(array $domains)
+    {
+        if (is_null($domains)) {
+            throw new InvalidArgumentException('non-nullable domains cannot be null');
+        }
+        $this->container['domains'] = $domains;
+
+        return $this;
+    }
+
+    /**
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string $name The name of the app
+     *
+     * @return self
+     */
+    public function setName(string $name)
+    {
+        if (is_null($name)) {
+            throw new InvalidArgumentException('non-nullable name cannot be null');
+        }
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_approved
+     *
+     * @return bool
+     */
+    public function getIsApproved()
+    {
+        return $this->container['is_approved'];
+    }
+
+    /**
+     * Sets is_approved
+     *
+     * @param bool $is_approved Boolean to indicate if the app has been approved
+     *
+     * @return self
+     */
+    public function setIsApproved(bool $is_approved)
+    {
+        if (is_null($is_approved)) {
+            throw new InvalidArgumentException('non-nullable is_approved cannot be null');
+        }
+        $this->container['is_approved'] = $is_approved;
+
+        return $this;
+    }
+
+    /**
+     * Gets options
+     *
+     * @return ApiAppResponseOptions
+     */
+    public function getOptions()
+    {
+        return $this->container['options'];
+    }
+
+    /**
+     * Sets options
+     *
+     * @param ApiAppResponseOptions $options options
+     *
+     * @return self
+     */
+    public function setOptions(ApiAppResponseOptions $options)
+    {
+        if (is_null($options)) {
+            throw new InvalidArgumentException('non-nullable options cannot be null');
+        }
+        $this->container['options'] = $options;
+
+        return $this;
+    }
+
+    /**
+     * Gets owner_account
+     *
+     * @return ApiAppResponseOwnerAccount
+     */
+    public function getOwnerAccount()
+    {
+        return $this->container['owner_account'];
+    }
+
+    /**
+     * Sets owner_account
+     *
+     * @param ApiAppResponseOwnerAccount $owner_account owner_account
+     *
+     * @return self
+     */
+    public function setOwnerAccount(ApiAppResponseOwnerAccount $owner_account)
+    {
+        if (is_null($owner_account)) {
+            throw new InvalidArgumentException('non-nullable owner_account cannot be null');
+        }
+        $this->container['owner_account'] = $owner_account;
+
+        return $this;
     }
 
     /**
@@ -394,141 +606,6 @@ class ApiAppResponse implements ModelInterface, ArrayAccess, JsonSerializable
     }
 
     /**
-     * Gets client_id
-     *
-     * @return string|null
-     */
-    public function getClientId()
-    {
-        return $this->container['client_id'];
-    }
-
-    /**
-     * Sets client_id
-     *
-     * @param string|null $client_id The app's client id
-     *
-     * @return self
-     */
-    public function setClientId(?string $client_id)
-    {
-        if (is_null($client_id)) {
-            throw new InvalidArgumentException('non-nullable client_id cannot be null');
-        }
-        $this->container['client_id'] = $client_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets created_at
-     *
-     * @return int|null
-     */
-    public function getCreatedAt()
-    {
-        return $this->container['created_at'];
-    }
-
-    /**
-     * Sets created_at
-     *
-     * @param int|null $created_at The time that the app was created
-     *
-     * @return self
-     */
-    public function setCreatedAt(?int $created_at)
-    {
-        if (is_null($created_at)) {
-            throw new InvalidArgumentException('non-nullable created_at cannot be null');
-        }
-        $this->container['created_at'] = $created_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets domains
-     *
-     * @return string[]|null
-     */
-    public function getDomains()
-    {
-        return $this->container['domains'];
-    }
-
-    /**
-     * Sets domains
-     *
-     * @param string[]|null $domains The domain name(s) associated with the app
-     *
-     * @return self
-     */
-    public function setDomains(?array $domains)
-    {
-        if (is_null($domains)) {
-            throw new InvalidArgumentException('non-nullable domains cannot be null');
-        }
-        $this->container['domains'] = $domains;
-
-        return $this;
-    }
-
-    /**
-     * Gets name
-     *
-     * @return string|null
-     */
-    public function getName()
-    {
-        return $this->container['name'];
-    }
-
-    /**
-     * Sets name
-     *
-     * @param string|null $name The name of the app
-     *
-     * @return self
-     */
-    public function setName(?string $name)
-    {
-        if (is_null($name)) {
-            throw new InvalidArgumentException('non-nullable name cannot be null');
-        }
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets is_approved
-     *
-     * @return bool|null
-     */
-    public function getIsApproved()
-    {
-        return $this->container['is_approved'];
-    }
-
-    /**
-     * Sets is_approved
-     *
-     * @param bool|null $is_approved Boolean to indicate if the app has been approved
-     *
-     * @return self
-     */
-    public function setIsApproved(?bool $is_approved)
-    {
-        if (is_null($is_approved)) {
-            throw new InvalidArgumentException('non-nullable is_approved cannot be null');
-        }
-        $this->container['is_approved'] = $is_approved;
-
-        return $this;
-    }
-
-    /**
      * Gets oauth
      *
      * @return ApiAppResponseOAuth|null
@@ -558,67 +635,6 @@ class ApiAppResponse implements ModelInterface, ArrayAccess, JsonSerializable
             }
         }
         $this->container['oauth'] = $oauth;
-
-        return $this;
-    }
-
-    /**
-     * Gets options
-     *
-     * @return ApiAppResponseOptions|null
-     */
-    public function getOptions()
-    {
-        return $this->container['options'];
-    }
-
-    /**
-     * Sets options
-     *
-     * @param ApiAppResponseOptions|null $options options
-     *
-     * @return self
-     */
-    public function setOptions(?ApiAppResponseOptions $options)
-    {
-        if (is_null($options)) {
-            array_push($this->openAPINullablesSetToNull, 'options');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('options', $nullablesSetToNull);
-            if ($index !== false) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['options'] = $options;
-
-        return $this;
-    }
-
-    /**
-     * Gets owner_account
-     *
-     * @return ApiAppResponseOwnerAccount|null
-     */
-    public function getOwnerAccount()
-    {
-        return $this->container['owner_account'];
-    }
-
-    /**
-     * Sets owner_account
-     *
-     * @param ApiAppResponseOwnerAccount|null $owner_account owner_account
-     *
-     * @return self
-     */
-    public function setOwnerAccount(?ApiAppResponseOwnerAccount $owner_account)
-    {
-        if (is_null($owner_account)) {
-            throw new InvalidArgumentException('non-nullable owner_account cannot be null');
-        }
-        $this->container['owner_account'] = $owner_account;
 
         return $this;
     }

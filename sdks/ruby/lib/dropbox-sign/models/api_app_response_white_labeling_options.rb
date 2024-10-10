@@ -213,12 +213,82 @@ module Dropbox::Sign
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @header_background_color.nil?
+        invalid_properties.push('invalid value for "header_background_color", header_background_color cannot be nil.')
+      end
+
+      if @legal_version.nil?
+        invalid_properties.push('invalid value for "legal_version", legal_version cannot be nil.')
+      end
+
+      if @link_color.nil?
+        invalid_properties.push('invalid value for "link_color", link_color cannot be nil.')
+      end
+
+      if @page_background_color.nil?
+        invalid_properties.push('invalid value for "page_background_color", page_background_color cannot be nil.')
+      end
+
+      if @primary_button_color.nil?
+        invalid_properties.push('invalid value for "primary_button_color", primary_button_color cannot be nil.')
+      end
+
+      if @primary_button_color_hover.nil?
+        invalid_properties.push('invalid value for "primary_button_color_hover", primary_button_color_hover cannot be nil.')
+      end
+
+      if @primary_button_text_color.nil?
+        invalid_properties.push('invalid value for "primary_button_text_color", primary_button_text_color cannot be nil.')
+      end
+
+      if @primary_button_text_color_hover.nil?
+        invalid_properties.push('invalid value for "primary_button_text_color_hover", primary_button_text_color_hover cannot be nil.')
+      end
+
+      if @secondary_button_color.nil?
+        invalid_properties.push('invalid value for "secondary_button_color", secondary_button_color cannot be nil.')
+      end
+
+      if @secondary_button_color_hover.nil?
+        invalid_properties.push('invalid value for "secondary_button_color_hover", secondary_button_color_hover cannot be nil.')
+      end
+
+      if @secondary_button_text_color.nil?
+        invalid_properties.push('invalid value for "secondary_button_text_color", secondary_button_text_color cannot be nil.')
+      end
+
+      if @secondary_button_text_color_hover.nil?
+        invalid_properties.push('invalid value for "secondary_button_text_color_hover", secondary_button_text_color_hover cannot be nil.')
+      end
+
+      if @text_color1.nil?
+        invalid_properties.push('invalid value for "text_color1", text_color1 cannot be nil.')
+      end
+
+      if @text_color2.nil?
+        invalid_properties.push('invalid value for "text_color2", text_color2 cannot be nil.')
+      end
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @header_background_color.nil?
+      return false if @legal_version.nil?
+      return false if @link_color.nil?
+      return false if @page_background_color.nil?
+      return false if @primary_button_color.nil?
+      return false if @primary_button_color_hover.nil?
+      return false if @primary_button_text_color.nil?
+      return false if @primary_button_text_color_hover.nil?
+      return false if @secondary_button_color.nil?
+      return false if @secondary_button_color_hover.nil?
+      return false if @secondary_button_text_color.nil?
+      return false if @secondary_button_text_color_hover.nil?
+      return false if @text_color1.nil?
+      return false if @text_color2.nil?
       true
     end
 

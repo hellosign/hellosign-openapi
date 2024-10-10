@@ -42,27 +42,52 @@ namespace Dropbox.Sign.Model
         /// Initializes a new instance of the <see cref="ApiAppResponse" /> class.
         /// </summary>
         /// <param name="callbackUrl">The app&#39;s callback URL (for events).</param>
-        /// <param name="clientId">The app&#39;s client id.</param>
-        /// <param name="createdAt">The time that the app was created.</param>
-        /// <param name="domains">The domain name(s) associated with the app.</param>
-        /// <param name="name">The name of the app.</param>
-        /// <param name="isApproved">Boolean to indicate if the app has been approved.</param>
+        /// <param name="clientId">The app&#39;s client id (required).</param>
+        /// <param name="createdAt">The time that the app was created (required).</param>
+        /// <param name="domains">The domain name(s) associated with the app (required).</param>
+        /// <param name="name">The name of the app (required).</param>
+        /// <param name="isApproved">Boolean to indicate if the app has been approved (required).</param>
         /// <param name="oauth">oauth.</param>
-        /// <param name="options">options.</param>
-        /// <param name="ownerAccount">ownerAccount.</param>
+        /// <param name="options">options (required).</param>
+        /// <param name="ownerAccount">ownerAccount (required).</param>
         /// <param name="whiteLabelingOptions">whiteLabelingOptions.</param>
         public ApiAppResponse(string callbackUrl = default(string), string clientId = default(string), int createdAt = default(int), List<string> domains = default(List<string>), string name = default(string), bool isApproved = default(bool), ApiAppResponseOAuth oauth = default(ApiAppResponseOAuth), ApiAppResponseOptions options = default(ApiAppResponseOptions), ApiAppResponseOwnerAccount ownerAccount = default(ApiAppResponseOwnerAccount), ApiAppResponseWhiteLabelingOptions whiteLabelingOptions = default(ApiAppResponseWhiteLabelingOptions))
         {
 
-            this.CallbackUrl = callbackUrl;
+            // to ensure "clientId" is required (not null)
+            if (clientId == null)
+            {
+                throw new ArgumentNullException("clientId is a required property for ApiAppResponse and cannot be null");
+            }
             this.ClientId = clientId;
             this.CreatedAt = createdAt;
+            // to ensure "domains" is required (not null)
+            if (domains == null)
+            {
+                throw new ArgumentNullException("domains is a required property for ApiAppResponse and cannot be null");
+            }
             this.Domains = domains;
+            // to ensure "name" is required (not null)
+            if (name == null)
+            {
+                throw new ArgumentNullException("name is a required property for ApiAppResponse and cannot be null");
+            }
             this.Name = name;
             this.IsApproved = isApproved;
-            this.Oauth = oauth;
+            // to ensure "options" is required (not null)
+            if (options == null)
+            {
+                throw new ArgumentNullException("options is a required property for ApiAppResponse and cannot be null");
+            }
             this.Options = options;
+            // to ensure "ownerAccount" is required (not null)
+            if (ownerAccount == null)
+            {
+                throw new ArgumentNullException("ownerAccount is a required property for ApiAppResponse and cannot be null");
+            }
             this.OwnerAccount = ownerAccount;
+            this.CallbackUrl = callbackUrl;
+            this.Oauth = oauth;
             this.WhiteLabelingOptions = whiteLabelingOptions;
         }
 
@@ -83,6 +108,53 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
+        /// The app&#39;s client id
+        /// </summary>
+        /// <value>The app&#39;s client id</value>
+        [DataMember(Name = "client_id", IsRequired = true, EmitDefaultValue = true)]
+        public string ClientId { get; set; }
+
+        /// <summary>
+        /// The time that the app was created
+        /// </summary>
+        /// <value>The time that the app was created</value>
+        [DataMember(Name = "created_at", IsRequired = true, EmitDefaultValue = true)]
+        public int CreatedAt { get; set; }
+
+        /// <summary>
+        /// The domain name(s) associated with the app
+        /// </summary>
+        /// <value>The domain name(s) associated with the app</value>
+        [DataMember(Name = "domains", IsRequired = true, EmitDefaultValue = true)]
+        public List<string> Domains { get; set; }
+
+        /// <summary>
+        /// The name of the app
+        /// </summary>
+        /// <value>The name of the app</value>
+        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
+        public string Name { get; set; }
+
+        /// <summary>
+        /// Boolean to indicate if the app has been approved
+        /// </summary>
+        /// <value>Boolean to indicate if the app has been approved</value>
+        [DataMember(Name = "is_approved", IsRequired = true, EmitDefaultValue = true)]
+        public bool IsApproved { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Options
+        /// </summary>
+        [DataMember(Name = "options", IsRequired = true, EmitDefaultValue = true)]
+        public ApiAppResponseOptions Options { get; set; }
+
+        /// <summary>
+        /// Gets or Sets OwnerAccount
+        /// </summary>
+        [DataMember(Name = "owner_account", IsRequired = true, EmitDefaultValue = true)]
+        public ApiAppResponseOwnerAccount OwnerAccount { get; set; }
+
+        /// <summary>
         /// The app&#39;s callback URL (for events)
         /// </summary>
         /// <value>The app&#39;s callback URL (for events)</value>
@@ -90,57 +162,10 @@ namespace Dropbox.Sign.Model
         public string CallbackUrl { get; set; }
 
         /// <summary>
-        /// The app&#39;s client id
-        /// </summary>
-        /// <value>The app&#39;s client id</value>
-        [DataMember(Name = "client_id", EmitDefaultValue = true)]
-        public string ClientId { get; set; }
-
-        /// <summary>
-        /// The time that the app was created
-        /// </summary>
-        /// <value>The time that the app was created</value>
-        [DataMember(Name = "created_at", EmitDefaultValue = true)]
-        public int CreatedAt { get; set; }
-
-        /// <summary>
-        /// The domain name(s) associated with the app
-        /// </summary>
-        /// <value>The domain name(s) associated with the app</value>
-        [DataMember(Name = "domains", EmitDefaultValue = true)]
-        public List<string> Domains { get; set; }
-
-        /// <summary>
-        /// The name of the app
-        /// </summary>
-        /// <value>The name of the app</value>
-        [DataMember(Name = "name", EmitDefaultValue = true)]
-        public string Name { get; set; }
-
-        /// <summary>
-        /// Boolean to indicate if the app has been approved
-        /// </summary>
-        /// <value>Boolean to indicate if the app has been approved</value>
-        [DataMember(Name = "is_approved", EmitDefaultValue = true)]
-        public bool IsApproved { get; set; }
-
-        /// <summary>
         /// Gets or Sets Oauth
         /// </summary>
         [DataMember(Name = "oauth", EmitDefaultValue = true)]
         public ApiAppResponseOAuth Oauth { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Options
-        /// </summary>
-        [DataMember(Name = "options", EmitDefaultValue = true)]
-        public ApiAppResponseOptions Options { get; set; }
-
-        /// <summary>
-        /// Gets or Sets OwnerAccount
-        /// </summary>
-        [DataMember(Name = "owner_account", EmitDefaultValue = true)]
-        public ApiAppResponseOwnerAccount OwnerAccount { get; set; }
 
         /// <summary>
         /// Gets or Sets WhiteLabelingOptions
@@ -156,15 +181,15 @@ namespace Dropbox.Sign.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class ApiAppResponse {\n");
-            sb.Append("  CallbackUrl: ").Append(CallbackUrl).Append("\n");
             sb.Append("  ClientId: ").Append(ClientId).Append("\n");
             sb.Append("  CreatedAt: ").Append(CreatedAt).Append("\n");
             sb.Append("  Domains: ").Append(Domains).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  IsApproved: ").Append(IsApproved).Append("\n");
-            sb.Append("  Oauth: ").Append(Oauth).Append("\n");
             sb.Append("  Options: ").Append(Options).Append("\n");
             sb.Append("  OwnerAccount: ").Append(OwnerAccount).Append("\n");
+            sb.Append("  CallbackUrl: ").Append(CallbackUrl).Append("\n");
+            sb.Append("  Oauth: ").Append(Oauth).Append("\n");
             sb.Append("  WhiteLabelingOptions: ").Append(WhiteLabelingOptions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -202,11 +227,6 @@ namespace Dropbox.Sign.Model
             }
             return
                 (
-                    this.CallbackUrl == input.CallbackUrl ||
-                    (this.CallbackUrl != null &&
-                    this.CallbackUrl.Equals(input.CallbackUrl))
-                ) &&
-                (
                     this.ClientId == input.ClientId ||
                     (this.ClientId != null &&
                     this.ClientId.Equals(input.ClientId))
@@ -231,11 +251,6 @@ namespace Dropbox.Sign.Model
                     this.IsApproved.Equals(input.IsApproved)
                 ) &&
                 (
-                    this.Oauth == input.Oauth ||
-                    (this.Oauth != null &&
-                    this.Oauth.Equals(input.Oauth))
-                ) &&
-                (
                     this.Options == input.Options ||
                     (this.Options != null &&
                     this.Options.Equals(input.Options))
@@ -244,6 +259,16 @@ namespace Dropbox.Sign.Model
                     this.OwnerAccount == input.OwnerAccount ||
                     (this.OwnerAccount != null &&
                     this.OwnerAccount.Equals(input.OwnerAccount))
+                ) &&
+                (
+                    this.CallbackUrl == input.CallbackUrl ||
+                    (this.CallbackUrl != null &&
+                    this.CallbackUrl.Equals(input.CallbackUrl))
+                ) &&
+                (
+                    this.Oauth == input.Oauth ||
+                    (this.Oauth != null &&
+                    this.Oauth.Equals(input.Oauth))
                 ) &&
                 (
                     this.WhiteLabelingOptions == input.WhiteLabelingOptions ||
@@ -261,10 +286,6 @@ namespace Dropbox.Sign.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.CallbackUrl != null)
-                {
-                    hashCode = (hashCode * 59) + this.CallbackUrl.GetHashCode();
-                }
                 if (this.ClientId != null)
                 {
                     hashCode = (hashCode * 59) + this.ClientId.GetHashCode();
@@ -279,10 +300,6 @@ namespace Dropbox.Sign.Model
                     hashCode = (hashCode * 59) + this.Name.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.IsApproved.GetHashCode();
-                if (this.Oauth != null)
-                {
-                    hashCode = (hashCode * 59) + this.Oauth.GetHashCode();
-                }
                 if (this.Options != null)
                 {
                     hashCode = (hashCode * 59) + this.Options.GetHashCode();
@@ -290,6 +307,14 @@ namespace Dropbox.Sign.Model
                 if (this.OwnerAccount != null)
                 {
                     hashCode = (hashCode * 59) + this.OwnerAccount.GetHashCode();
+                }
+                if (this.CallbackUrl != null)
+                {
+                    hashCode = (hashCode * 59) + this.CallbackUrl.GetHashCode();
+                }
+                if (this.Oauth != null)
+                {
+                    hashCode = (hashCode * 59) + this.Oauth.GetHashCode();
                 }
                 if (this.WhiteLabelingOptions != null)
                 {
@@ -311,13 +336,6 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType()
-            {
-                Name = "callback_url",
-                Property = "CallbackUrl",
-                Type = "string",
-                Value = CallbackUrl,
-            });
             types.Add(new OpenApiType()
             {
                 Name = "client_id",
@@ -355,13 +373,6 @@ namespace Dropbox.Sign.Model
             });
             types.Add(new OpenApiType()
             {
-                Name = "oauth",
-                Property = "Oauth",
-                Type = "ApiAppResponseOAuth",
-                Value = Oauth,
-            });
-            types.Add(new OpenApiType()
-            {
                 Name = "options",
                 Property = "Options",
                 Type = "ApiAppResponseOptions",
@@ -373,6 +384,20 @@ namespace Dropbox.Sign.Model
                 Property = "OwnerAccount",
                 Type = "ApiAppResponseOwnerAccount",
                 Value = OwnerAccount,
+            });
+            types.Add(new OpenApiType()
+            {
+                Name = "callback_url",
+                Property = "CallbackUrl",
+                Type = "string",
+                Value = CallbackUrl,
+            });
+            types.Add(new OpenApiType()
+            {
+                Name = "oauth",
+                Property = "Oauth",
+                Type = "ApiAppResponseOAuth",
+                Value = Oauth,
             });
             types.Add(new OpenApiType()
             {
