@@ -372,7 +372,7 @@ class TemplateApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> TemplateCreateResponse:
-        """Create  Template
+        """Create Template
 
         Creates a template that can then be used.
 
@@ -437,7 +437,7 @@ class TemplateApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[TemplateCreateResponse]:
-        """Create  Template
+        """Create Template
 
         Creates a template that can then be used.
 
@@ -502,7 +502,7 @@ class TemplateApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Create  Template
+        """Create Template
 
         Creates a template that can then be used.
 

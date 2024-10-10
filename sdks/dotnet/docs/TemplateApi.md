@@ -5,7 +5,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
 | [**TemplateAddUser**](TemplateApi.md#templateadduser) | **POST** /template/add_user/{template_id} | Add User to Template |
-| [**TemplateCreate**](TemplateApi.md#templatecreate) | **POST** /template/create | Create  Template |
+| [**TemplateCreate**](TemplateApi.md#templatecreate) | **POST** /template/create | Create Template |
 | [**TemplateCreateEmbeddedDraft**](TemplateApi.md#templatecreateembeddeddraft) | **POST** /template/create_embedded_draft | Create Embedded Template Draft |
 | [**TemplateDelete**](TemplateApi.md#templatedelete) | **POST** /template/delete/{template_id} | Delete Template |
 | [**TemplateFiles**](TemplateApi.md#templatefiles) | **GET** /template/files/{template_id} | Get Template Files |
@@ -120,7 +120,7 @@ catch (ApiException e)
 # **TemplateCreate**
 > TemplateCreateResponse TemplateCreate (TemplateCreateRequest templateCreateRequest)
 
-Create  Template
+Create Template
 
 Creates a template that can then be used.
 
@@ -214,7 +214,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Create  Template
+    // Create Template
     ApiResponse<TemplateCreateResponse> response = apiInstance.TemplateCreateWithHttpInfo(templateCreateRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);

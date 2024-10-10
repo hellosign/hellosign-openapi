@@ -41,12 +41,12 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AccountResponseQuotas" /> class.
         /// </summary>
-        /// <param name="apiSignatureRequestsLeft">API signature requests remaining..</param>
-        /// <param name="documentsLeft">Signature requests remaining..</param>
-        /// <param name="templatesTotal">Total API templates allowed..</param>
-        /// <param name="templatesLeft">API templates remaining..</param>
-        /// <param name="smsVerificationsLeft">SMS verifications  remaining..</param>
-        /// <param name="numFaxPagesLeft">Number of fax pages left.</param>
+        /// <param name="apiSignatureRequestsLeft">API signature requests remaining. A value of &#x60;-1&#x60; means unlimited..</param>
+        /// <param name="documentsLeft">Signature requests remaining. A value of &#x60;-1&#x60; means unlimited..</param>
+        /// <param name="templatesTotal">Total API templates allowed. A value of &#x60;-1&#x60; means unlimited..</param>
+        /// <param name="templatesLeft">API templates remaining. A value of &#x60;-1&#x60; means unlimited..</param>
+        /// <param name="smsVerificationsLeft">SMS verifications remaining..</param>
+        /// <param name="numFaxPagesLeft">Number of fax pages left. A value of &#x60;-1&#x60; means unlimited..</param>
         public AccountResponseQuotas(int? apiSignatureRequestsLeft = default(int?), int? documentsLeft = default(int?), int? templatesTotal = default(int?), int? templatesLeft = default(int?), int? smsVerificationsLeft = default(int?), int? numFaxPagesLeft = default(int?))
         {
 
@@ -75,44 +75,44 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
-        /// API signature requests remaining.
+        /// API signature requests remaining. A value of &#x60;-1&#x60; means unlimited.
         /// </summary>
-        /// <value>API signature requests remaining.</value>
+        /// <value>API signature requests remaining. A value of &#x60;-1&#x60; means unlimited.</value>
         [DataMember(Name = "api_signature_requests_left", EmitDefaultValue = true)]
         public int? ApiSignatureRequestsLeft { get; set; }
 
         /// <summary>
-        /// Signature requests remaining.
+        /// Signature requests remaining. A value of &#x60;-1&#x60; means unlimited.
         /// </summary>
-        /// <value>Signature requests remaining.</value>
+        /// <value>Signature requests remaining. A value of &#x60;-1&#x60; means unlimited.</value>
         [DataMember(Name = "documents_left", EmitDefaultValue = true)]
         public int? DocumentsLeft { get; set; }
 
         /// <summary>
-        /// Total API templates allowed.
+        /// Total API templates allowed. A value of &#x60;-1&#x60; means unlimited.
         /// </summary>
-        /// <value>Total API templates allowed.</value>
+        /// <value>Total API templates allowed. A value of &#x60;-1&#x60; means unlimited.</value>
         [DataMember(Name = "templates_total", EmitDefaultValue = true)]
         public int? TemplatesTotal { get; set; }
 
         /// <summary>
-        /// API templates remaining.
+        /// API templates remaining. A value of &#x60;-1&#x60; means unlimited.
         /// </summary>
-        /// <value>API templates remaining.</value>
+        /// <value>API templates remaining. A value of &#x60;-1&#x60; means unlimited.</value>
         [DataMember(Name = "templates_left", EmitDefaultValue = true)]
         public int? TemplatesLeft { get; set; }
 
         /// <summary>
-        /// SMS verifications  remaining.
+        /// SMS verifications remaining.
         /// </summary>
-        /// <value>SMS verifications  remaining.</value>
+        /// <value>SMS verifications remaining.</value>
         [DataMember(Name = "sms_verifications_left", EmitDefaultValue = true)]
         public int? SmsVerificationsLeft { get; set; }
 
         /// <summary>
-        /// Number of fax pages left
+        /// Number of fax pages left. A value of &#x60;-1&#x60; means unlimited.
         /// </summary>
-        /// <value>Number of fax pages left</value>
+        /// <value>Number of fax pages left. A value of &#x60;-1&#x60; means unlimited.</value>
         [DataMember(Name = "num_fax_pages_left", EmitDefaultValue = true)]
         public int? NumFaxPagesLeft { get; set; }
 

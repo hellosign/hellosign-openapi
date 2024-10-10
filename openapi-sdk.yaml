@@ -2703,7 +2703,7 @@ paths:
 
         The request will be canceled and signers will no longer be able to sign. If they try to access the signature request they will receive a HTTP 410 status code indicating that the resource has been deleted. Cancelation is asynchronous and a successful call to this endpoint will return an empty 200 OK response if the signature request is eligible to be canceled and has been successfully queued.
 
-        This 200 OK response does not indicate a successful cancelation of the signature request itself. The cancelation is confirmed via the `signature_request_canceled` event. It is recommended that a  [callback handler](/api/reference/tag/Callbacks-and-Events) be implemented to listen for the `signature_request_canceled` event. This callback will be sent only when the cancelation has completed successfully. If a callback handler has been configured and the event has not been received within 60 minutes of making the call, check the status of the request in the [API Dashboard](https://app.hellosign.com/apidashboard) and retry the cancelation if necessary.
+        This 200 OK response does not indicate a successful cancelation of the signature request itself. The cancelation is confirmed via the `signature_request_canceled` event. It is recommended that a [callback handler](/api/reference/tag/Callbacks-and-Events) be implemented to listen for the `signature_request_canceled` event. This callback will be sent only when the cancelation has completed successfully. If a callback handler has been configured and the event has not been received within 60 minutes of making the call, check the status of the request in the [API Dashboard](https://app.hellosign.com/apidashboard) and retry the cancelation if necessary.
 
         To be eligible for cancelation, a signature request must have been sent successfully, must not yet have been signed by all signers, and you must either be the sender or own the API app under which it was sent. A partially signed signature request can be canceled.
 
@@ -5440,7 +5440,7 @@ paths:
     post:
       tags:
         - Template
-      summary: 'Create  Template'
+      summary: 'Create Template'
       description: 'Creates a template that can then be used.'
       operationId: templateCreate
       requestBody:
@@ -10372,27 +10372,27 @@ components:
       description: 'Details concerning remaining monthly quotas.'
       properties:
         api_signature_requests_left:
-          description: 'API signature requests remaining.'
+          description: 'API signature requests remaining. A value of `-1` means unlimited.'
           type: integer
           nullable: true
         documents_left:
-          description: 'Signature requests remaining.'
+          description: 'Signature requests remaining. A value of `-1` means unlimited.'
           type: integer
           nullable: true
         templates_total:
-          description: 'Total API templates allowed.'
+          description: 'Total API templates allowed. A value of `-1` means unlimited.'
           type: integer
           nullable: true
         templates_left:
-          description: 'API templates remaining.'
+          description: 'API templates remaining. A value of `-1` means unlimited.'
           type: integer
           nullable: true
         sms_verifications_left:
-          description: 'SMS verifications  remaining.'
+          description: 'SMS verifications remaining.'
           type: integer
           nullable: true
         num_fax_pages_left:
-          description: 'Number of fax pages left'
+          description: 'Number of fax pages left. A value of `-1` means unlimited.'
           type: integer
           nullable: true
       type: object

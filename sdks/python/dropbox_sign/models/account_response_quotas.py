@@ -33,22 +33,27 @@ class AccountResponseQuotas(BaseModel):
     """  # noqa: E501
 
     api_signature_requests_left: Optional[StrictInt] = Field(
-        default=None, description="API signature requests remaining."
+        default=None,
+        description="API signature requests remaining. A value of `-1` means unlimited.",
     )
     documents_left: Optional[StrictInt] = Field(
-        default=None, description="Signature requests remaining."
+        default=None,
+        description="Signature requests remaining. A value of `-1` means unlimited.",
     )
     templates_total: Optional[StrictInt] = Field(
-        default=None, description="Total API templates allowed."
+        default=None,
+        description="Total API templates allowed. A value of `-1` means unlimited.",
     )
     templates_left: Optional[StrictInt] = Field(
-        default=None, description="API templates remaining."
+        default=None,
+        description="API templates remaining. A value of `-1` means unlimited.",
     )
     sms_verifications_left: Optional[StrictInt] = Field(
-        default=None, description="SMS verifications  remaining."
+        default=None, description="SMS verifications remaining."
     )
     num_fax_pages_left: Optional[StrictInt] = Field(
-        default=None, description="Number of fax pages left"
+        default=None,
+        description="Number of fax pages left. A value of `-1` means unlimited.",
     )
     __properties: ClassVar[List[str]] = [
         "api_signature_requests_left",

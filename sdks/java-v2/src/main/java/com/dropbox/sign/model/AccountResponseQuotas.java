@@ -85,7 +85,7 @@ public class AccountResponseQuotas {
   }
 
   /**
-   * API signature requests remaining.
+   * API signature requests remaining. A value of &#x60;-1&#x60; means unlimited.
    * @return apiSignatureRequestsLeft
    */
   @jakarta.annotation.Nullable
@@ -110,7 +110,7 @@ public class AccountResponseQuotas {
   }
 
   /**
-   * Signature requests remaining.
+   * Signature requests remaining. A value of &#x60;-1&#x60; means unlimited.
    * @return documentsLeft
    */
   @jakarta.annotation.Nullable
@@ -135,7 +135,7 @@ public class AccountResponseQuotas {
   }
 
   /**
-   * Total API templates allowed.
+   * Total API templates allowed. A value of &#x60;-1&#x60; means unlimited.
    * @return templatesTotal
    */
   @jakarta.annotation.Nullable
@@ -160,7 +160,7 @@ public class AccountResponseQuotas {
   }
 
   /**
-   * API templates remaining.
+   * API templates remaining. A value of &#x60;-1&#x60; means unlimited.
    * @return templatesLeft
    */
   @jakarta.annotation.Nullable
@@ -185,7 +185,7 @@ public class AccountResponseQuotas {
   }
 
   /**
-   * SMS verifications  remaining.
+   * SMS verifications remaining.
    * @return smsVerificationsLeft
    */
   @jakarta.annotation.Nullable
@@ -210,7 +210,7 @@ public class AccountResponseQuotas {
   }
 
   /**
-   * Number of fax pages left
+   * Number of fax pages left. A value of &#x60;-1&#x60; means unlimited.
    * @return numFaxPagesLeft
    */
   @jakarta.annotation.Nullable

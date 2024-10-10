@@ -197,7 +197,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 | *TeamApi* | [**teamSubTeams**](docs/Api/TeamApi.md#teamsubteams) | **GET** /team/sub_teams/{team_id} | List Sub Teams |
 | *TeamApi* | [**teamUpdate**](docs/Api/TeamApi.md#teamupdate) | **PUT** /team | Update Team |
 | *TemplateApi* | [**templateAddUser**](docs/Api/TemplateApi.md#templateadduser) | **POST** /template/add_user/{template_id} | Add User to Template |
-| *TemplateApi* | [**templateCreate**](docs/Api/TemplateApi.md#templatecreate) | **POST** /template/create | Create  Template |
+| *TemplateApi* | [**templateCreate**](docs/Api/TemplateApi.md#templatecreate) | **POST** /template/create | Create Template |
 | *TemplateApi* | [**templateCreateEmbeddedDraft**](docs/Api/TemplateApi.md#templatecreateembeddeddraft) | **POST** /template/create_embedded_draft | Create Embedded Template Draft |
 | *TemplateApi* | [**templateDelete**](docs/Api/TemplateApi.md#templatedelete) | **POST** /template/delete/{template_id} | Delete Template |
 | *TemplateApi* | [**templateFiles**](docs/Api/TemplateApi.md#templatefiles) | **GET** /template/files/{template_id} | Get Template Files |

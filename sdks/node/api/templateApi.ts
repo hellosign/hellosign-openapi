@@ -291,7 +291,7 @@ export class TemplateApi {
   }
   /**
    * Creates a template that can then be used.
-   * @summary Create  Template
+   * @summary Create Template
    * @param templateCreateRequest
    * @param options
    */

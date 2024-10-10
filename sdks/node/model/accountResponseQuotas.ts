@@ -29,27 +29,27 @@ import { AttributeTypeMap, ObjectSerializer } from "./";
  */
 export class AccountResponseQuotas {
   /**
-   * API signature requests remaining.
+   * API signature requests remaining. A value of `-1` means unlimited.
    */
   "apiSignatureRequestsLeft"?: number | null;
   /**
-   * Signature requests remaining.
+   * Signature requests remaining. A value of `-1` means unlimited.
    */
   "documentsLeft"?: number | null;
   /**
-   * Total API templates allowed.
+   * Total API templates allowed. A value of `-1` means unlimited.
    */
   "templatesTotal"?: number | null;
   /**
-   * API templates remaining.
+   * API templates remaining. A value of `-1` means unlimited.
    */
   "templatesLeft"?: number | null;
   /**
-   * SMS verifications  remaining.
+   * SMS verifications remaining.
    */
   "smsVerificationsLeft"?: number | null;
   /**
-   * Number of fax pages left
+   * Number of fax pages left. A value of `-1` means unlimited.
    */
   "numFaxPagesLeft"?: number | null;
 
