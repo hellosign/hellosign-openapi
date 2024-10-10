@@ -5,7 +5,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
 [**templateAddUser**](TemplateApi.md#templateAddUser) | **POST** /template/add_user/{template_id} | Add User to Template
-[**templateCreate**](TemplateApi.md#templateCreate) | **POST** /template/create | Create  Template
+[**templateCreate**](TemplateApi.md#templateCreate) | **POST** /template/create | Create Template
 [**templateCreateEmbeddedDraft**](TemplateApi.md#templateCreateEmbeddedDraft) | **POST** /template/create_embedded_draft | Create Embedded Template Draft
 [**templateDelete**](TemplateApi.md#templateDelete) | **POST** /template/delete/{template_id} | Delete Template
 [**templateFiles**](TemplateApi.md#templateFiles) | **GET** /template/files/{template_id} | Get Template Files
@@ -100,7 +100,7 @@ public class Example {
 
 > TemplateCreateResponse templateCreate(templateCreateRequest)
 
-Create  Template
+Create Template
 
 Creates a template that can then be used.
 

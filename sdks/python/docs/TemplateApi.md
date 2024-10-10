@@ -5,7 +5,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 |[```template_add_user```](TemplateApi.md#template_add_user) | ```POST /template/add_user/{template_id}``` | Add User to Template|
-|[```template_create```](TemplateApi.md#template_create) | ```POST /template/create``` | Create  Template|
+|[```template_create```](TemplateApi.md#template_create) | ```POST /template/create``` | Create Template|
 |[```template_create_embedded_draft```](TemplateApi.md#template_create_embedded_draft) | ```POST /template/create_embedded_draft``` | Create Embedded Template Draft|
 |[```template_delete```](TemplateApi.md#template_delete) | ```POST /template/delete/{template_id}``` | Delete Template|
 |[```template_files```](TemplateApi.md#template_files) | ```GET /template/files/{template_id}``` | Get Template Files|
@@ -90,7 +90,7 @@ with ApiClient(configuration) as api_client:
 # ```template_create```
 > ```TemplateCreateResponse template_create(template_create_request)```
 
-Create  Template
+Create Template
 
 Creates a template that can then be used.
 

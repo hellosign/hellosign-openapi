@@ -16465,11 +16465,6 @@ AccountResponse.attributeTypeMap = [
     type: "string"
   },
   {
-    name: "emailAddress",
-    baseName: "email_address",
-    type: "string"
-  },
-  {
     name: "isLocked",
     baseName: "is_locked",
     type: "boolean"
@@ -16488,6 +16483,11 @@ AccountResponse.attributeTypeMap = [
     name: "quotas",
     baseName: "quotas",
     type: "AccountResponseQuotas"
+  },
+  {
+    name: "emailAddress",
+    baseName: "email_address",
+    type: "string"
   },
   {
     name: "callbackUrl",
@@ -16518,6 +16518,14 @@ AccountResponse.attributeTypeMap = [
 
 // model/accountResponseQuotas.ts
 var _AccountResponseQuotas = class {
+  constructor() {
+    this["apiSignatureRequestsLeft"] = 0;
+    this["documentsLeft"] = 0;
+    this["templatesTotal"] = 0;
+    this["templatesLeft"] = 0;
+    this["smsVerificationsLeft"] = 0;
+    this["numFaxPagesLeft"] = 0;
+  }
   static getAttributeTypeMap() {
     return _AccountResponseQuotas.attributeTypeMap;
   }
@@ -16562,6 +16570,9 @@ AccountResponseQuotas.attributeTypeMap = [
 
 // model/accountResponseUsage.ts
 var _AccountResponseUsage = class {
+  constructor() {
+    this["faxPagesSent"] = 0;
+  }
   static getAttributeTypeMap() {
     return _AccountResponseUsage.attributeTypeMap;
   }

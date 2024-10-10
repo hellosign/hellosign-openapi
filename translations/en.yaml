@@ -273,7 +273,7 @@
 
   The request will be canceled and signers will no longer be able to sign. If they try to access the signature request they will receive a HTTP 410 status code indicating that the resource has been deleted. Cancelation is asynchronous and a successful call to this endpoint will return an empty 200 OK response if the signature request is eligible to be canceled and has been successfully queued.
 
-  This 200 OK response does not indicate a successful cancelation of the signature request itself. The cancelation is confirmed via the `signature_request_canceled` event. It is recommended that a  [callback handler](/api/reference/tag/Callbacks-and-Events) be implemented to listen for the `signature_request_canceled` event. This callback will be sent only when the cancelation has completed successfully. If a callback handler has been configured and the event has not been received within 60 minutes of making the call, check the status of the request in the [API Dashboard](https://app.hellosign.com/apidashboard) and retry the cancelation if necessary.
+  This 200 OK response does not indicate a successful cancelation of the signature request itself. The cancelation is confirmed via the `signature_request_canceled` event. It is recommended that a [callback handler](/api/reference/tag/Callbacks-and-Events) be implemented to listen for the `signature_request_canceled` event. This callback will be sent only when the cancelation has completed successfully. If a callback handler has been configured and the event has not been received within 60 minutes of making the call, check the status of the request in the [API Dashboard](https://app.hellosign.com/apidashboard) and retry the cancelation if necessary.
 
   To be eligible for cancelation, a signature request must have been sent successfully, must not yet have been signed by all signers, and you must either be the sender or own the API app under which it was sent. A partially signed signature request can be canceled.
 
@@ -642,7 +642,7 @@
 "TemplateCreateEmbeddedDraft::USE_PREEXISTING_FIELDS": Enable the detection of predefined PDF fields by setting the `use_preexisting_fields` to `true` (defaults to disabled, or `false`).
 
 
-"TemplateCreate::SUMMARY": Create  Template
+"TemplateCreate::SUMMARY": Create Template
 "TemplateCreate::DESCRIPTION": Creates a template that can then be used.
 
 "TemplateCreate::ALLOW_CCS": This allows the requester to specify whether the user is allowed to provide email addresses to CC when creating a template.
@@ -766,7 +766,7 @@
 "UnclaimedDraftCreate::TYPE": The type of unclaimed draft to create. Use `send_document` to create a claimable file, and `request_signature` for a claimable signature request. If the type is `request_signature` then signers name and email_address are not optional.
 "UnclaimedDraftCreate::USE_PREEXISTING_FIELDS": Set `use_text_tags` to `true` to enable [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) parsing in your document (defaults to disabled, or `false`). Alternatively, if your PDF contains pre-defined fields, enable the detection of these fields by setting the `use_preexisting_fields` to `true` (defaults to disabled, or `false`). Currently we only support use of either `use_text_tags` or `use_preexisting_fields` parameter, not both.
 "UnclaimedDraftCreate::USE_TEXT_TAGS": Set `use_text_tags` to `true` to enable [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) parsing in your document (defaults to disabled, or `false`). Alternatively, if your PDF contains pre-defined fields, enable the detection of these fields by setting the `use_preexisting_fields` to `true` (defaults to disabled, or `false`). Currently we only support use of either `use_text_tags` or `use_preexisting_fields` parameter, not both.
-"UnclaimedDraftCreate::EXPIRES_AT":  |-
+"UnclaimedDraftCreate::EXPIRES_AT": |-
   When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.
 
   **NOTE:** This does not correspond to the **expires_at** returned in the response.
@@ -816,7 +816,7 @@
   Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer's information during signing.
 
   **NOTE:** Keep your signer's information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
-"UnclaimedDraftCreateEmbedded::EXPIRES_AT":  |-
+"UnclaimedDraftCreateEmbedded::EXPIRES_AT": |-
   When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.
 
   **NOTE:** This does not correspond to the **expires_at** returned in the response.
@@ -1195,12 +1195,12 @@
 "Account::LOCALE": The locale used in this Account. Check out the list of [supported locales](/api/reference/constants/#supported-locales) to learn more about the possible values.
 "Account::QUOTA": Details concerning remaining monthly quotas.
 "Account::USAGE": Details concerning monthly usage
-"AccountQuota::TEMPLATES_LEFT": API templates remaining.
-"AccountQuota::TEMPLATES_TOTAL": Total API templates allowed.
-"AccountQuota::API_SIGNATURE_REQUESTS_LEFT": API signature requests remaining.
-"AccountQuota::DOCUMENTS_LEFT": Signature requests remaining.
-"AccountQuota::SMS_VERIFICATIONS_LEFT": SMS verifications  remaining.
-"AccountQuota::NUM_FAX_PAGES_LEFT": Number of fax pages left
+"AccountQuota::TEMPLATES_LEFT": API templates remaining. A value of `-1` means unlimited.
+"AccountQuota::TEMPLATES_TOTAL": Total API templates allowed. A value of `-1` means unlimited.
+"AccountQuota::API_SIGNATURE_REQUESTS_LEFT": API signature requests remaining. A value of `-1` means unlimited.
+"AccountQuota::DOCUMENTS_LEFT": Signature requests remaining. A value of `-1` means unlimited.
+"AccountQuota::SMS_VERIFICATIONS_LEFT": SMS verifications remaining.
+"AccountQuota::NUM_FAX_PAGES_LEFT": Number of fax pages left. A value of `-1` means unlimited.
 "AccountUsage::FAX_PAGES_SENT": Number of fax pages sent
 
 "ApiAppCreateResponseExample::SUMMARY": API App
@@ -1256,7 +1256,7 @@
 
 "EmbeddedEditUrlResponseEmbedded::DESCRIPTION": An embedded template object.
 "EmbeddedEditUrlResponseEmbedded::EDIT_URL": A template url that can be opened in an iFrame.
-"EmbeddedEditUrlResponseEmbedded::EXPIRES_AT":  The specific time that the the `edit_url` link expires, in epoch.
+"EmbeddedEditUrlResponseEmbedded::EXPIRES_AT": The specific time that the the `edit_url` link expires, in epoch.
 
 "EventCallbackAccountRequest::DESCRIPTION": |-
   **Account Callback Payloads --**

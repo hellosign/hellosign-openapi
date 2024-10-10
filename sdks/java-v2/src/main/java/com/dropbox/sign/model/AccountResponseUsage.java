@@ -39,7 +39,7 @@ import com.dropbox.sign.ApiException;
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class AccountResponseUsage {
   public static final String JSON_PROPERTY_FAX_PAGES_SENT = "fax_pages_sent";
-  private Integer faxPagesSent;
+  private Integer faxPagesSent = 0;
 
   public AccountResponseUsage() { 
   }
@@ -68,9 +68,9 @@ public class AccountResponseUsage {
    * Number of fax pages sent
    * @return faxPagesSent
    */
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_FAX_PAGES_SENT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Integer getFaxPagesSent() {
     return faxPagesSent;
@@ -78,7 +78,7 @@ public class AccountResponseUsage {
 
 
   @JsonProperty(JSON_PROPERTY_FAX_PAGES_SENT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setFaxPagesSent(Integer faxPagesSent) {
     this.faxPagesSent = faxPagesSent;
   }

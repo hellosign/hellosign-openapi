@@ -6,12 +6,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-| `accountId` | ```string``` |  The ID of the Account  |  |
+| `accountId`<sup>*_required_</sup> | ```string``` |  The ID of the Account  |  |
+| `isLocked`<sup>*_required_</sup> | ```boolean``` |  Returns `true` if the user has been locked out of their account by a team admin.  |  |
+| `isPaidHs`<sup>*_required_</sup> | ```boolean``` |  Returns `true` if the user has a paid Dropbox Sign account.  |  |
+| `isPaidHf`<sup>*_required_</sup> | ```boolean``` |  Returns `true` if the user has a paid HelloFax account.  |  |
+| `quotas`<sup>*_required_</sup> | [```AccountResponseQuotas```](AccountResponseQuotas.md) |    |  |
 | `emailAddress` | ```string``` |  The email address associated with the Account.  |  |
-| `isLocked` | ```boolean``` |  Returns `true` if the user has been locked out of their account by a team admin.  |  |
-| `isPaidHs` | ```boolean``` |  Returns `true` if the user has a paid Dropbox Sign account.  |  |
-| `isPaidHf` | ```boolean``` |  Returns `true` if the user has a paid HelloFax account.  |  |
-| `quotas` | [```AccountResponseQuotas```](AccountResponseQuotas.md) |    |  |
 | `callbackUrl` | ```string``` |  The URL that Dropbox Sign events will `POST` to.  |  |
 | `roleCode` | ```string``` |  The membership role for the team.  |  |
 | `teamId` | ```string``` |  The id of the team account belongs to.  |  |
