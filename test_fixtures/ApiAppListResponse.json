@@ -8,13 +8,16 @@
         "is_approved": true,
         "name": "My Production App",
         "oauth": {
-          "callback_url": "http://example.com/oauth",
+          "callback_url": "https://example.com/oauth",
           "scopes": [
             "basic_account_info",
             "request_signature"
           ],
           "charges_users": false,
           "secret": "98891a1b59f312d04cd88e4e0c498d75"
+        },
+        "options": {
+          "can_insert_everywhere": true
         },
         "owner_account": {
           "account_id": "dc5deeb9e10b044c591ef2475aafad1d1d3bd888",
@@ -27,6 +30,9 @@
         "domains": ["example.com"],
         "is_approved": false,
         "name": "My Other App",
+        "options": {
+          "can_insert_everywhere": true
+        },
         "owner_account": {
           "account_id": "dc5deeb9e10b044c591ef2475aafad1d1d3bd888",
           "email_address": "john@example.com"

@@ -28,21 +28,21 @@ import { AttributeTypeMap, ObjectSerializer } from "./";
  * An array of elements and values serialized to a string, to be used to customize the app\'s signer page. (Only applies to some API plans)  Take a look at our [white labeling guide](https://developers.hellosign.com/api/reference/premium-branding/) to learn more.
  */
 export class SubWhiteLabelingOptions {
-  "headerBackgroundColor"?: string = "#1A1A1A";
+  "headerBackgroundColor"?: string = "#1a1a1a";
   "legalVersion"?: SubWhiteLabelingOptions.LegalVersionEnum =
     SubWhiteLabelingOptions.LegalVersionEnum.Terms1;
-  "linkColor"?: string = "#00B3E6";
-  "pageBackgroundColor"?: string = "#F7F8F9";
-  "primaryButtonColor"?: string = "#00B3E6";
-  "primaryButtonColorHover"?: string = "#00B3E6";
-  "primaryButtonTextColor"?: string = "#FFFFFF";
-  "primaryButtonTextColorHover"?: string = "#FFFFFF";
-  "secondaryButtonColor"?: string = "#FFFFFF";
-  "secondaryButtonColorHover"?: string = "#FFFFFF";
-  "secondaryButtonTextColor"?: string = "#00B3E6";
-  "secondaryButtonTextColorHover"?: string = "#00B3E6";
+  "linkColor"?: string = "#0061FE";
+  "pageBackgroundColor"?: string = "#f7f8f9";
+  "primaryButtonColor"?: string = "#0061FE";
+  "primaryButtonColorHover"?: string = "#0061FE";
+  "primaryButtonTextColor"?: string = "#ffffff";
+  "primaryButtonTextColorHover"?: string = "#ffffff";
+  "secondaryButtonColor"?: string = "#ffffff";
+  "secondaryButtonColorHover"?: string = "#ffffff";
+  "secondaryButtonTextColor"?: string = "#0061FE";
+  "secondaryButtonTextColorHover"?: string = "#0061FE";
   "textColor1"?: string = "#808080";
-  "textColor2"?: string = "#FFFFFF";
+  "textColor2"?: string = "#ffffff";
   /**
    * Resets white labeling options to defaults. Only useful when updating an API App.
    */

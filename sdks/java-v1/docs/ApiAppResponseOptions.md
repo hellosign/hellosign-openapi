@@ -8,7 +8,7 @@ An object with options that override account settings.
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-| `canInsertEverywhere` | ```Boolean``` |  Boolean denoting if signers can &quot;Insert Everywhere&quot; in one click while signing a document  |  |
+| `canInsertEverywhere`<sup>*_required_</sup> | ```Boolean``` |  Boolean denoting if signers can &quot;Insert Everywhere&quot; in one click while signing a document  |  |
 
 
 

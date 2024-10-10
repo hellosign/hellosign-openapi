@@ -53,7 +53,7 @@ import java.util.Objects;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class SubWhiteLabelingOptions {
     public static final String JSON_PROPERTY_HEADER_BACKGROUND_COLOR = "header_background_color";
-    private String headerBackgroundColor = "#1A1A1A";
+    private String headerBackgroundColor = "#1a1a1a";
 
     /** Gets or Sets legalVersion */
     public enum LegalVersionEnum {
@@ -92,46 +92,46 @@ public class SubWhiteLabelingOptions {
     private LegalVersionEnum legalVersion = LegalVersionEnum.TERMS1;
 
     public static final String JSON_PROPERTY_LINK_COLOR = "link_color";
-    private String linkColor = "#00B3E6";
+    private String linkColor = "#0061FE";
 
     public static final String JSON_PROPERTY_PAGE_BACKGROUND_COLOR = "page_background_color";
-    private String pageBackgroundColor = "#F7F8F9";
+    private String pageBackgroundColor = "#f7f8f9";
 
     public static final String JSON_PROPERTY_PRIMARY_BUTTON_COLOR = "primary_button_color";
-    private String primaryButtonColor = "#00B3E6";
+    private String primaryButtonColor = "#0061FE";
 
     public static final String JSON_PROPERTY_PRIMARY_BUTTON_COLOR_HOVER =
             "primary_button_color_hover";
-    private String primaryButtonColorHover = "#00B3E6";
+    private String primaryButtonColorHover = "#0061FE";
 
     public static final String JSON_PROPERTY_PRIMARY_BUTTON_TEXT_COLOR =
             "primary_button_text_color";
-    private String primaryButtonTextColor = "#FFFFFF";
+    private String primaryButtonTextColor = "#ffffff";
 
     public static final String JSON_PROPERTY_PRIMARY_BUTTON_TEXT_COLOR_HOVER =
             "primary_button_text_color_hover";
-    private String primaryButtonTextColorHover = "#FFFFFF";
+    private String primaryButtonTextColorHover = "#ffffff";
 
     public static final String JSON_PROPERTY_SECONDARY_BUTTON_COLOR = "secondary_button_color";
-    private String secondaryButtonColor = "#FFFFFF";
+    private String secondaryButtonColor = "#ffffff";
 
     public static final String JSON_PROPERTY_SECONDARY_BUTTON_COLOR_HOVER =
             "secondary_button_color_hover";
-    private String secondaryButtonColorHover = "#FFFFFF";
+    private String secondaryButtonColorHover = "#ffffff";
 
     public static final String JSON_PROPERTY_SECONDARY_BUTTON_TEXT_COLOR =
             "secondary_button_text_color";
-    private String secondaryButtonTextColor = "#00B3E6";
+    private String secondaryButtonTextColor = "#0061FE";
 
     public static final String JSON_PROPERTY_SECONDARY_BUTTON_TEXT_COLOR_HOVER =
             "secondary_button_text_color_hover";
-    private String secondaryButtonTextColorHover = "#00B3E6";
+    private String secondaryButtonTextColorHover = "#0061FE";
 
     public static final String JSON_PROPERTY_TEXT_COLOR1 = "text_color1";
     private String textColor1 = "#808080";
 
     public static final String JSON_PROPERTY_TEXT_COLOR2 = "text_color2";
-    private String textColor2 = "#FFFFFF";
+    private String textColor2 = "#ffffff";
 
     public static final String JSON_PROPERTY_RESET_TO_DEFAULT = "reset_to_default";
     private Boolean resetToDefault;
