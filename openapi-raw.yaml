@@ -9953,11 +9953,15 @@ components:
       x-internal-class: true
     BulkSendJobResponse:
       description: '_t__BulkSendJobResponse::DESCRIPTION'
+      required:
+        - bulk_send_job_id
+        - created_at
+        - is_creator
+        - total
       properties:
         bulk_send_job_id:
           description: '_t__BulkSendJobResponse::BULK_SEND_JOB_ID'
           type: string
-          nullable: true
         total:
           description: '_t__BulkSendJobResponse::TOTAL'
           type: integer
