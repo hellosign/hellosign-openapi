@@ -422,7 +422,7 @@ class ApiAppResponseOAuth implements ModelInterface, ArrayAccess, JsonSerializab
     /**
      * Sets secret
      *
-     * @param string|null $secret The app's OAuth secret. Will be an empty string if the app does not belong to user.
+     * @param string|null $secret the app's OAuth secret, or null if the app does not belong to user
      *
      * @return self
      */

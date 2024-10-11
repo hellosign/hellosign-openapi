@@ -41,7 +41,7 @@ class ApiAppResponseOAuth(BaseModel):
     )
     secret: Optional[StrictStr] = Field(
         default=None,
-        description="The app's OAuth secret. Will be an empty string if the app does not belong to user.",
+        description="The app's OAuth secret, or null if the app does not belong to user.",
     )
     __properties: ClassVar[List[str]] = [
         "callback_url",

@@ -152,7 +152,7 @@ public class ApiAppResponseOAuth {
     }
 
     /**
-     * The app&#39;s OAuth secret. Will be an empty string if the app does not belong to user.
+     * The app&#39;s OAuth secret, or null if the app does not belong to user.
      *
      * @return secret
      */
