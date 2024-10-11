@@ -9075,7 +9075,7 @@ components:
       properties:
         header_background_color:
           type: string
-          default: '#1A1A1A'
+          default: '#1a1a1a'
         legal_version:
           type: string
           default: terms1
@@ -9084,40 +9084,40 @@ components:
             - terms2
         link_color:
           type: string
-          default: '#00B3E6'
+          default: '#0061FE'
         page_background_color:
           type: string
-          default: '#F7F8F9'
+          default: '#f7f8f9'
         primary_button_color:
           type: string
-          default: '#00B3E6'
+          default: '#0061FE'
         primary_button_color_hover:
           type: string
-          default: '#00B3E6'
+          default: '#0061FE'
         primary_button_text_color:
           type: string
-          default: '#FFFFFF'
+          default: '#ffffff'
         primary_button_text_color_hover:
           type: string
-          default: '#FFFFFF'
+          default: '#ffffff'
         secondary_button_color:
           type: string
-          default: '#FFFFFF'
+          default: '#ffffff'
         secondary_button_color_hover:
           type: string
-          default: '#FFFFFF'
+          default: '#ffffff'
         secondary_button_text_color:
           type: string
-          default: '#00B3E6'
+          default: '#0061FE'
         secondary_button_text_color_hover:
           type: string
-          default: '#00B3E6'
+          default: '#0061FE'
         text_color1:
           type: string
           default: '#808080'
         text_color2:
           type: string
-          default: '#FFFFFF'
+          default: '#ffffff'
         reset_to_default:
           description: 'Resets white labeling options to defaults. Only useful when updating an API App.'
           type: boolean
@@ -10399,6 +10399,14 @@ components:
       x-internal-class: true
     ApiAppResponse:
       description: 'Contains information about an API App.'
+      required:
+        - client_id
+        - created_at
+        - domains
+        - is_approved
+        - name
+        - options
+        - owner_account
       properties:
         callback_url:
           description: 'The app''s callback URL (for events)'
@@ -10433,6 +10441,10 @@ components:
       x-internal-class: true
     ApiAppResponseOAuth:
       description: 'An object describing the app''s OAuth properties, or null if OAuth is not configured for the app.'
+      required:
+        - callback_url
+        - charges_users
+        - scopes
       properties:
         callback_url:
           description: 'The app''s OAuth callback URL.'
@@ -10440,6 +10452,7 @@ components:
         secret:
           description: 'The app''s OAuth secret, or null if the app does not belong to user.'
           type: string
+          nullable: true
         scopes:
           description: 'Array of OAuth scopes used by the app.'
           type: array
@@ -10453,15 +10466,19 @@ components:
       x-internal-class: true
     ApiAppResponseOptions:
       description: 'An object with options that override account settings.'
+      required:
+        - can_insert_everywhere
       properties:
         can_insert_everywhere:
           description: 'Boolean denoting if signers can "Insert Everywhere" in one click while signing a document'
           type: boolean
       type: object
-      nullable: true
       x-internal-class: true
     ApiAppResponseOwnerAccount:
       description: 'An object describing the app''s owner'
+      required:
+        - account_id
+        - email_address
       properties:
         account_id:
           description: 'The owner account''s ID'
@@ -10473,6 +10490,21 @@ components:
       x-internal-class: true
     ApiAppResponseWhiteLabelingOptions:
       description: 'An object with options to customize the app''s signer page'
+      required:
+        - header_background_color
+        - legal_version
+        - link_color
+        - page_background_color
+        - primary_button_color
+        - primary_button_color_hover
+        - primary_button_text_color
+        - primary_button_text_color_hover
+        - secondary_button_color
+        - secondary_button_color_hover
+        - secondary_button_text_color
+        - secondary_button_text_color_hover
+        - text_color1
+        - text_color2
       properties:
         header_background_color:
           type: string

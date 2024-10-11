@@ -8677,7 +8677,7 @@ components:
       properties:
         header_background_color:
           type: string
-          default: '#1A1A1A'
+          default: '#1a1a1a'
         legal_version:
           type: string
           default: terms1
@@ -8686,40 +8686,40 @@ components:
             - terms2
         link_color:
           type: string
-          default: '#00B3E6'
+          default: '#0061FE'
         page_background_color:
           type: string
-          default: '#F7F8F9'
+          default: '#f7f8f9'
         primary_button_color:
           type: string
-          default: '#00B3E6'
+          default: '#0061FE'
         primary_button_color_hover:
           type: string
-          default: '#00B3E6'
+          default: '#0061FE'
         primary_button_text_color:
           type: string
-          default: '#FFFFFF'
+          default: '#ffffff'
         primary_button_text_color_hover:
           type: string
-          default: '#FFFFFF'
+          default: '#ffffff'
         secondary_button_color:
           type: string
-          default: '#FFFFFF'
+          default: '#ffffff'
         secondary_button_color_hover:
           type: string
-          default: '#FFFFFF'
+          default: '#ffffff'
         secondary_button_text_color:
           type: string
-          default: '#00B3E6'
+          default: '#0061FE'
         secondary_button_text_color_hover:
           type: string
-          default: '#00B3E6'
+          default: '#0061FE'
         text_color1:
           type: string
           default: '#808080'
         text_color2:
           type: string
-          default: '#FFFFFF'
+          default: '#ffffff'
         reset_to_default:
           description: '_t__Sub::WhiteLabelingOptions::RESET_TO_DEFAULT'
           type: boolean
@@ -9813,6 +9813,14 @@ components:
       x-internal-class: true
     ApiAppResponse:
       description: '_t__ApiAppResponse::DESCRIPTION'
+      required:
+        - client_id
+        - created_at
+        - domains
+        - is_approved
+        - name
+        - options
+        - owner_account
       properties:
         callback_url:
           description: '_t__ApiAppResponse::CALLBACK_URL'
@@ -9847,6 +9855,10 @@ components:
       x-internal-class: true
     ApiAppResponseOAuth:
       description: '_t__ApiAppResponseOAuth::DESCRIPTION'
+      required:
+        - callback_url
+        - charges_users
+        - scopes
       properties:
         callback_url:
           description: '_t__ApiAppResponseOAuth::CALLBACK_URL'
@@ -9854,6 +9866,7 @@ components:
         secret:
           description: '_t__ApiAppResponseOAuth::SECRET'
           type: string
+          nullable: true
         scopes:
           description: '_t__ApiAppResponseOAuth::SCOPES'
           type: array
@@ -9867,15 +9880,19 @@ components:
       x-internal-class: true
     ApiAppResponseOptions:
       description: '_t__ApiAppResponseOptions::DESCRIPTION'
+      required:
+        - can_insert_everywhere
       properties:
         can_insert_everywhere:
           description: '_t__ApiAppResponseOptions::CAN_INSERT_EVERYWHERE'
           type: boolean
       type: object
-      nullable: true
       x-internal-class: true
     ApiAppResponseOwnerAccount:
       description: '_t__ApiAppResponseOwnerAccount::DESCRIPTION'
+      required:
+        - account_id
+        - email_address
       properties:
         account_id:
           description: '_t__ApiAppResponseOwnerAccount::ACCOUNT_ID'
@@ -9887,6 +9904,21 @@ components:
       x-internal-class: true
     ApiAppResponseWhiteLabelingOptions:
       description: '_t__ApiAppResponseWhiteLabelingOptions::DESCRIPTION'
+      required:
+        - header_background_color
+        - legal_version
+        - link_color
+        - page_background_color
+        - primary_button_color
+        - primary_button_color_hover
+        - primary_button_text_color
+        - primary_button_text_color_hover
+        - secondary_button_color
+        - secondary_button_color_hover
+        - secondary_button_text_color
+        - secondary_button_text_color_hover
+        - text_color1
+        - text_color2
       properties:
         header_background_color:
           type: string
