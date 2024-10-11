@@ -87,7 +87,7 @@ class ApiAppResponseOAuth implements ModelInterface, ArrayAccess, JsonSerializab
         'callback_url' => false,
         'scopes' => false,
         'charges_users' => false,
-        'secret' => false,
+        'secret' => true,
     ];
 
     /**
@@ -429,7 +429,14 @@ class ApiAppResponseOAuth implements ModelInterface, ArrayAccess, JsonSerializab
     public function setSecret(?string $secret)
     {
         if (is_null($secret)) {
-            throw new InvalidArgumentException('non-nullable secret cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'secret');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('secret', $nullablesSetToNull);
+            if ($index !== false) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['secret'] = $secret;
 

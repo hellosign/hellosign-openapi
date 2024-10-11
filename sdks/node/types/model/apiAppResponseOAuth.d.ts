@@ -3,7 +3,7 @@ export declare class ApiAppResponseOAuth {
     "callbackUrl": string;
     "scopes": Array<string>;
     "chargesUsers": boolean;
-    "secret"?: string;
+    "secret"?: string | null;
     static discriminator: string | undefined;
     static attributeTypeMap: AttributeTypeMap;
     static getAttributeTypeMap(): AttributeTypeMap;

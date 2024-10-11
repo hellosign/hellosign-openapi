@@ -10468,6 +10468,7 @@ components:
         secret:
           description: 'The app''s OAuth secret, or null if the app does not belong to user.'
           type: string
+          nullable: true
         scopes:
           description: 'Array of OAuth scopes used by the app.'
           type: array

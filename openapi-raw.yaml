@@ -9860,6 +9860,7 @@ components:
         secret:
           description: '_t__ApiAppResponseOAuth::SECRET'
           type: string
+          nullable: true
         scopes:
           description: '_t__ApiAppResponseOAuth::SCOPES'
           type: array
