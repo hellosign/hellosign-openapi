@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set, Tuple
 from typing_extensions import Self
 import io
@@ -32,12 +32,8 @@ class ApiAppResponseOwnerAccount(BaseModel):
     An object describing the app's owner
     """  # noqa: E501
 
-    account_id: Optional[StrictStr] = Field(
-        default=None, description="The owner account's ID"
-    )
-    email_address: Optional[StrictStr] = Field(
-        default=None, description="The owner account's email address"
-    )
+    account_id: StrictStr = Field(description="The owner account's ID")
+    email_address: StrictStr = Field(description="The owner account's email address")
     __properties: ClassVar[List[str]] = ["account_id", "email_address"]
 
     model_config = ConfigDict(

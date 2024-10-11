@@ -31,11 +31,11 @@ export class ApiAppResponseOwnerAccount {
   /**
    * The owner account\'s ID
    */
-  "accountId"?: string;
+  "accountId": string;
   /**
    * The owner account\'s email address
    */
-  "emailAddress"?: string;
+  "emailAddress": string;
 
   static discriminator: string | undefined = undefined;
 
