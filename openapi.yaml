@@ -10501,11 +10501,15 @@ components:
       x-internal-class: true
     BulkSendJobResponse:
       description: 'Contains information about the BulkSendJob such as when it was created and how many signature requests are queued.'
+      required:
+        - bulk_send_job_id
+        - created_at
+        - is_creator
+        - total
       properties:
         bulk_send_job_id:
           description: 'The id of the BulkSendJob.'
           type: string
-          nullable: true
         total:
           description: 'The total amount of Signature Requests queued for sending.'
           type: integer
