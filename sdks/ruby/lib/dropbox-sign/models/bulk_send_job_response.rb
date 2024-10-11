@@ -20,7 +20,7 @@ module Dropbox::Sign
   # Contains information about the BulkSendJob such as when it was created and how many signature requests are queued.
   class BulkSendJobResponse
     # The id of the BulkSendJob.
-    # @return [String, nil]
+    # @return [String]
     attr_accessor :bulk_send_job_id
 
     # The total amount of Signature Requests queued for sending.
@@ -63,7 +63,6 @@ module Dropbox::Sign
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
-        :'bulk_send_job_id',
       ])
     end
 
@@ -128,12 +127,32 @@ module Dropbox::Sign
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @bulk_send_job_id.nil?
+        invalid_properties.push('invalid value for "bulk_send_job_id", bulk_send_job_id cannot be nil.')
+      end
+
+      if @total.nil?
+        invalid_properties.push('invalid value for "total", total cannot be nil.')
+      end
+
+      if @is_creator.nil?
+        invalid_properties.push('invalid value for "is_creator", is_creator cannot be nil.')
+      end
+
+      if @created_at.nil?
+        invalid_properties.push('invalid value for "created_at", created_at cannot be nil.')
+      end
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @bulk_send_job_id.nil?
+      return false if @total.nil?
+      return false if @is_creator.nil?
+      return false if @created_at.nil?
       true
     end
 

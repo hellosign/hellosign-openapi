@@ -41,13 +41,18 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="BulkSendJobResponse" /> class.
         /// </summary>
-        /// <param name="bulkSendJobId">The id of the BulkSendJob..</param>
-        /// <param name="total">The total amount of Signature Requests queued for sending..</param>
-        /// <param name="isCreator">True if you are the owner of this BulkSendJob, false if it&#39;s been shared with you by a team member..</param>
-        /// <param name="createdAt">Time that the BulkSendJob was created..</param>
+        /// <param name="bulkSendJobId">The id of the BulkSendJob. (required).</param>
+        /// <param name="total">The total amount of Signature Requests queued for sending. (required).</param>
+        /// <param name="isCreator">True if you are the owner of this BulkSendJob, false if it&#39;s been shared with you by a team member. (required).</param>
+        /// <param name="createdAt">Time that the BulkSendJob was created. (required).</param>
         public BulkSendJobResponse(string bulkSendJobId = default(string), int total = default(int), bool isCreator = default(bool), int createdAt = default(int))
         {
 
+            // to ensure "bulkSendJobId" is required (not null)
+            if (bulkSendJobId == null)
+            {
+                throw new ArgumentNullException("bulkSendJobId is a required property for BulkSendJobResponse and cannot be null");
+            }
             this.BulkSendJobId = bulkSendJobId;
             this.Total = total;
             this.IsCreator = isCreator;
@@ -74,28 +79,28 @@ namespace Dropbox.Sign.Model
         /// The id of the BulkSendJob.
         /// </summary>
         /// <value>The id of the BulkSendJob.</value>
-        [DataMember(Name = "bulk_send_job_id", EmitDefaultValue = true)]
+        [DataMember(Name = "bulk_send_job_id", IsRequired = true, EmitDefaultValue = true)]
         public string BulkSendJobId { get; set; }
 
         /// <summary>
         /// The total amount of Signature Requests queued for sending.
         /// </summary>
         /// <value>The total amount of Signature Requests queued for sending.</value>
-        [DataMember(Name = "total", EmitDefaultValue = true)]
+        [DataMember(Name = "total", IsRequired = true, EmitDefaultValue = true)]
         public int Total { get; set; }
 
         /// <summary>
         /// True if you are the owner of this BulkSendJob, false if it&#39;s been shared with you by a team member.
         /// </summary>
         /// <value>True if you are the owner of this BulkSendJob, false if it&#39;s been shared with you by a team member.</value>
-        [DataMember(Name = "is_creator", EmitDefaultValue = true)]
+        [DataMember(Name = "is_creator", IsRequired = true, EmitDefaultValue = true)]
         public bool IsCreator { get; set; }
 
         /// <summary>
         /// Time that the BulkSendJob was created.
         /// </summary>
         /// <value>Time that the BulkSendJob was created.</value>
-        [DataMember(Name = "created_at", EmitDefaultValue = true)]
+        [DataMember(Name = "created_at", IsRequired = true, EmitDefaultValue = true)]
         public int CreatedAt { get; set; }
 
         /// <summary>
