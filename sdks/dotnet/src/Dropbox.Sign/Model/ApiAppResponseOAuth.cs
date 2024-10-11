@@ -42,7 +42,7 @@ namespace Dropbox.Sign.Model
         /// Initializes a new instance of the <see cref="ApiAppResponseOAuth" /> class.
         /// </summary>
         /// <param name="callbackUrl">The app&#39;s OAuth callback URL. (required).</param>
-        /// <param name="secret">The app&#39;s OAuth secret, or null if the app does not belong to user..</param>
+        /// <param name="secret">The app&#39;s OAuth secret. Will be an empty string if the app does not belong to user..</param>
         /// <param name="scopes">Array of OAuth scopes used by the app. (required).</param>
         /// <param name="chargesUsers">Boolean indicating whether the app owner or the account granting permission is billed for OAuth requests. (required).</param>
         public ApiAppResponseOAuth(string callbackUrl = default(string), string secret = default(string), List<string> scopes = default(List<string>), bool chargesUsers = default(bool))
@@ -102,9 +102,9 @@ namespace Dropbox.Sign.Model
         public bool ChargesUsers { get; set; }
 
         /// <summary>
-        /// The app&#39;s OAuth secret, or null if the app does not belong to user.
+        /// The app&#39;s OAuth secret. Will be an empty string if the app does not belong to user.
         /// </summary>
-        /// <value>The app&#39;s OAuth secret, or null if the app does not belong to user.</value>
+        /// <value>The app&#39;s OAuth secret. Will be an empty string if the app does not belong to user.</value>
         [DataMember(Name = "secret", EmitDefaultValue = true)]
         public string Secret { get; set; }
 

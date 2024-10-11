@@ -1220,7 +1220,7 @@
 "ApiAppResponseOAuth::DESCRIPTION": An object describing the app's OAuth properties, or null if OAuth is not configured for the app.
 "ApiAppResponseOAuth::CALLBACK_URL": The app's OAuth callback URL.
 "ApiAppResponseOAuth::CHARGES_USERS": Boolean indicating whether the app owner or the account granting permission is billed for OAuth requests.
-"ApiAppResponseOAuth::SECRET": The app's OAuth secret, or null if the app does not belong to user.
+"ApiAppResponseOAuth::SECRET": The app's OAuth secret. Will be an empty string if the app does not belong to user.
 "ApiAppResponseOAuth::SCOPES": Array of OAuth scopes used by the app.
 
 "ApiAppResponseOptions::DESCRIPTION": An object with options that override account settings.

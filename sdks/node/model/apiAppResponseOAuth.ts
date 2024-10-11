@@ -41,7 +41,7 @@ export class ApiAppResponseOAuth {
    */
   "chargesUsers": boolean;
   /**
-   * The app\'s OAuth secret, or null if the app does not belong to user.
+   * The app\'s OAuth secret. Will be an empty string if the app does not belong to user.
    */
   "secret"?: string;
 

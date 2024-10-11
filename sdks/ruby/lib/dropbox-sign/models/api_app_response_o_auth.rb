@@ -31,7 +31,7 @@ module Dropbox::Sign
     # @return [Boolean]
     attr_accessor :charges_users
 
-    # The app's OAuth secret, or null if the app does not belong to user.
+    # The app's OAuth secret. Will be an empty string if the app does not belong to user.
     # @return [String]
     attr_accessor :secret
 
