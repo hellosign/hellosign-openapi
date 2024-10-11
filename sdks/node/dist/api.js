@@ -18331,6 +18331,16 @@ OAuthTokenRefreshRequest.attributeTypeMap = [
     name: "refreshToken",
     baseName: "refresh_token",
     type: "string"
+  },
+  {
+    name: "clientId",
+    baseName: "client_id",
+    type: "string"
+  },
+  {
+    name: "clientSecret",
+    baseName: "client_secret",
+    type: "string"
   }
 ];
 

@@ -84,7 +84,7 @@ class BulkSendJobResponse implements ModelInterface, ArrayAccess, JsonSerializab
      * @var bool[]
      */
     protected static array $openAPINullables = [
-        'bulk_send_job_id' => false,
+        'bulk_send_job_id' => true,
         'total' => false,
         'is_creator' => false,
         'created_at' => false,
@@ -303,21 +303,7 @@ class BulkSendJobResponse implements ModelInterface, ArrayAccess, JsonSerializab
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = [];
-
-        if ($this->container['bulk_send_job_id'] === null) {
-            $invalidProperties[] = "'bulk_send_job_id' can't be null";
-        }
-        if ($this->container['total'] === null) {
-            $invalidProperties[] = "'total' can't be null";
-        }
-        if ($this->container['is_creator'] === null) {
-            $invalidProperties[] = "'is_creator' can't be null";
-        }
-        if ($this->container['created_at'] === null) {
-            $invalidProperties[] = "'created_at' can't be null";
-        }
-        return $invalidProperties;
+        return [];
     }
 
     /**
@@ -334,7 +320,7 @@ class BulkSendJobResponse implements ModelInterface, ArrayAccess, JsonSerializab
     /**
      * Gets bulk_send_job_id
      *
-     * @return string
+     * @return string|null
      */
     public function getBulkSendJobId()
     {
@@ -344,14 +330,21 @@ class BulkSendJobResponse implements ModelInterface, ArrayAccess, JsonSerializab
     /**
      * Sets bulk_send_job_id
      *
-     * @param string $bulk_send_job_id the id of the BulkSendJob
+     * @param string|null $bulk_send_job_id the id of the BulkSendJob
      *
      * @return self
      */
-    public function setBulkSendJobId(string $bulk_send_job_id)
+    public function setBulkSendJobId(?string $bulk_send_job_id)
     {
         if (is_null($bulk_send_job_id)) {
-            throw new InvalidArgumentException('non-nullable bulk_send_job_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'bulk_send_job_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('bulk_send_job_id', $nullablesSetToNull);
+            if ($index !== false) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['bulk_send_job_id'] = $bulk_send_job_id;
 
@@ -361,7 +354,7 @@ class BulkSendJobResponse implements ModelInterface, ArrayAccess, JsonSerializab
     /**
      * Gets total
      *
-     * @return int
+     * @return int|null
      */
     public function getTotal()
     {
@@ -371,11 +364,11 @@ class BulkSendJobResponse implements ModelInterface, ArrayAccess, JsonSerializab
     /**
      * Sets total
      *
-     * @param int $total the total amount of Signature Requests queued for sending
+     * @param int|null $total the total amount of Signature Requests queued for sending
      *
      * @return self
      */
-    public function setTotal(int $total)
+    public function setTotal(?int $total)
     {
         if (is_null($total)) {
             throw new InvalidArgumentException('non-nullable total cannot be null');
@@ -388,7 +381,7 @@ class BulkSendJobResponse implements ModelInterface, ArrayAccess, JsonSerializab
     /**
      * Gets is_creator
      *
-     * @return bool
+     * @return bool|null
      */
     public function getIsCreator()
     {
@@ -398,11 +391,11 @@ class BulkSendJobResponse implements ModelInterface, ArrayAccess, JsonSerializab
     /**
      * Sets is_creator
      *
-     * @param bool $is_creator true if you are the owner of this BulkSendJob, false if it's been shared with you by a team member
+     * @param bool|null $is_creator true if you are the owner of this BulkSendJob, false if it's been shared with you by a team member
      *
      * @return self
      */
-    public function setIsCreator(bool $is_creator)
+    public function setIsCreator(?bool $is_creator)
     {
         if (is_null($is_creator)) {
             throw new InvalidArgumentException('non-nullable is_creator cannot be null');
@@ -415,7 +408,7 @@ class BulkSendJobResponse implements ModelInterface, ArrayAccess, JsonSerializab
     /**
      * Gets created_at
      *
-     * @return int
+     * @return int|null
      */
     public function getCreatedAt()
     {
@@ -425,11 +418,11 @@ class BulkSendJobResponse implements ModelInterface, ArrayAccess, JsonSerializab
     /**
      * Sets created_at
      *
-     * @param int $created_at time that the BulkSendJob was created
+     * @param int|null $created_at time that the BulkSendJob was created
      *
      * @return self
      */
-    public function setCreatedAt(int $created_at)
+    public function setCreatedAt(?int $created_at)
     {
         if (is_null($created_at)) {
             throw new InvalidArgumentException('non-nullable created_at cannot be null');
