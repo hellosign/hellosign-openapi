@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List
 from dropbox_sign.models.account_response import AccountResponse
 from typing import Optional, Set, Tuple
 from typing_extensions import Self
@@ -33,10 +33,10 @@ class FaxLineResponseFaxLine(BaseModel):
     FaxLineResponseFaxLine
     """  # noqa: E501
 
-    number: Optional[StrictStr] = Field(default=None, description="Number")
-    created_at: Optional[StrictInt] = Field(default=None, description="Created at")
-    updated_at: Optional[StrictInt] = Field(default=None, description="Updated at")
-    accounts: Optional[List[AccountResponse]] = None
+    number: StrictStr = Field(description="Number")
+    created_at: StrictInt = Field(description="Created at")
+    updated_at: StrictInt = Field(description="Updated at")
+    accounts: List[AccountResponse]
     __properties: ClassVar[List[str]] = [
         "number",
         "created_at",

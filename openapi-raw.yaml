@@ -10018,6 +10018,11 @@ components:
           type: string
       type: object
     FaxLineResponseFaxLine:
+      required:
+        - accounts
+        - created_at
+        - number
+        - updated_at
       properties:
         number:
           description: '_t__FaxLineResponseFaxLine::NUMBER'

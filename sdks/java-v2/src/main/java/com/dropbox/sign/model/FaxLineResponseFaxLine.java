@@ -54,7 +54,7 @@ public class FaxLineResponseFaxLine {
   private Integer updatedAt;
 
   public static final String JSON_PROPERTY_ACCOUNTS = "accounts";
-  private List<AccountResponse> accounts = null;
+  private List<AccountResponse> accounts = new ArrayList<>();
 
   public FaxLineResponseFaxLine() { 
   }
@@ -83,9 +83,9 @@ public class FaxLineResponseFaxLine {
    * Number
    * @return number
    */
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_NUMBER)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getNumber() {
     return number;
@@ -93,7 +93,7 @@ public class FaxLineResponseFaxLine {
 
 
   @JsonProperty(JSON_PROPERTY_NUMBER)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setNumber(String number) {
     this.number = number;
   }
@@ -108,9 +108,9 @@ public class FaxLineResponseFaxLine {
    * Created at
    * @return createdAt
    */
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Integer getCreatedAt() {
     return createdAt;
@@ -118,7 +118,7 @@ public class FaxLineResponseFaxLine {
 
 
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setCreatedAt(Integer createdAt) {
     this.createdAt = createdAt;
   }
@@ -133,9 +133,9 @@ public class FaxLineResponseFaxLine {
    * Updated at
    * @return updatedAt
    */
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_UPDATED_AT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Integer getUpdatedAt() {
     return updatedAt;
@@ -143,7 +143,7 @@ public class FaxLineResponseFaxLine {
 
 
   @JsonProperty(JSON_PROPERTY_UPDATED_AT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setUpdatedAt(Integer updatedAt) {
     this.updatedAt = updatedAt;
   }
@@ -166,9 +166,9 @@ public class FaxLineResponseFaxLine {
    * Get accounts
    * @return accounts
    */
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_ACCOUNTS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public List<AccountResponse> getAccounts() {
     return accounts;
@@ -176,7 +176,7 @@ public class FaxLineResponseFaxLine {
 
 
   @JsonProperty(JSON_PROPERTY_ACCOUNTS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setAccounts(List<AccountResponse> accounts) {
     this.accounts = accounts;
   }
