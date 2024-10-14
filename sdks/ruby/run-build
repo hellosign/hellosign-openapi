@@ -7,7 +7,7 @@ set -e
 DIR=$(cd `dirname $0` && pwd)
 WORKING_DIR="/app/ruby"
 
-if [[ -z "$GITHUB_ACTIONS" ]]; then
+if [[ -n "$GITHUB_ACTIONS" ]]; then
   printf "\nLogging in to docker.com ...\n"
   echo "${DOCKER_TOKEN}" | docker login -u "${DOCKER_USERNAME}" --password-stdin
 fi
