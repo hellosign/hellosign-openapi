@@ -8,6 +8,7 @@ DIR=$(cd `dirname $0` && pwd)
 WORKING_DIR="/app/php"
 
 if [[ -z "$GITHUB_ACTIONS" ]]; then
+  printf "\nLogging in to docker.com ...\n"
   echo "${DOCKER_TOKEN}" | docker login -u "${DOCKER_USERNAME}" --password-stdin
 fi
 
