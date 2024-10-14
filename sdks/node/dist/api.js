@@ -27310,6 +27310,14 @@ var OAuthApi = class {
               )) {
                 return;
               }
+              if (handleErrorRangeResponse6(
+                reject,
+                error.response,
+                "4XX",
+                "ErrorResponse"
+              )) {
+                return;
+              }
               reject(error);
             }
           );
@@ -27405,6 +27413,14 @@ var OAuthApi = class {
               )) {
                 return;
               }
+              if (handleErrorRangeResponse6(
+                reject,
+                error.response,
+                "4XX",
+                "ErrorResponse"
+              )) {
+                return;
+              }
               reject(error);
             }
           );
@@ -27437,6 +27453,16 @@ function handleErrorCodeResponse6(reject, response, code, returnType) {
   const body = ObjectSerializer.deserialize(response.data, returnType);
   reject(new HttpError(response, body, response.status));
   return true;
+}
+function handleErrorRangeResponse6(reject, response, code, returnType) {
+  let rangeCodeLeft = Number(code[0] + "00");
+  let rangeCodeRight = Number(code[0] + "99");
+  if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
+    const body = ObjectSerializer.deserialize(response.data, returnType);
+    reject(new HttpError(response, body, response.status));
+    return true;
+  }
+  return false;
 }
 
 // api/reportApi.ts
@@ -27583,7 +27609,7 @@ var ReportApi = class {
                 )) {
                   return;
                 }
-                if (handleErrorRangeResponse6(
+                if (handleErrorRangeResponse7(
                   reject,
                   error.response,
                   "4XX",
@@ -27625,7 +27651,7 @@ function handleErrorCodeResponse7(reject, response, code, returnType) {
   reject(new HttpError(response, body, response.status));
   return true;
 }
-function handleErrorRangeResponse6(reject, response, code, returnType) {
+function handleErrorRangeResponse7(reject, response, code, returnType) {
   let rangeCodeLeft = Number(code[0] + "00");
   let rangeCodeRight = Number(code[0] + "99");
   if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
@@ -27780,7 +27806,7 @@ var SignatureRequestApi = class {
                 )) {
                   return;
                 }
-                if (handleErrorRangeResponse7(
+                if (handleErrorRangeResponse8(
                   reject,
                   error.response,
                   "4XX",
@@ -27895,7 +27921,7 @@ var SignatureRequestApi = class {
                 )) {
                   return;
                 }
-                if (handleErrorRangeResponse7(
+                if (handleErrorRangeResponse8(
                   reject,
                   error.response,
                   "4XX",
@@ -27978,7 +28004,7 @@ var SignatureRequestApi = class {
                 reject(error);
                 return;
               }
-              if (handleErrorRangeResponse7(
+              if (handleErrorRangeResponse8(
                 reject,
                 error.response,
                 "4XX",
@@ -28092,7 +28118,7 @@ var SignatureRequestApi = class {
                 )) {
                   return;
                 }
-                if (handleErrorRangeResponse7(
+                if (handleErrorRangeResponse8(
                   reject,
                   error.response,
                   "4XX",
@@ -28207,7 +28233,7 @@ var SignatureRequestApi = class {
                 )) {
                   return;
                 }
-                if (handleErrorRangeResponse7(
+                if (handleErrorRangeResponse8(
                   reject,
                   error.response,
                   "4XX",
@@ -28309,7 +28335,7 @@ var SignatureRequestApi = class {
               )) {
                 return;
               }
-              if (handleErrorRangeResponse7(
+              if (handleErrorRangeResponse8(
                 reject,
                 error.response,
                 "4XX",
@@ -28405,7 +28431,7 @@ var SignatureRequestApi = class {
                 )) {
                   return;
                 }
-                if (handleErrorRangeResponse7(
+                if (handleErrorRangeResponse8(
                   reject,
                   error.response,
                   "4XX",
@@ -28507,7 +28533,7 @@ var SignatureRequestApi = class {
               )) {
                 return;
               }
-              if (handleErrorRangeResponse7(
+              if (handleErrorRangeResponse8(
                 reject,
                 error.response,
                 "4XX",
@@ -28603,7 +28629,7 @@ var SignatureRequestApi = class {
                 )) {
                   return;
                 }
-                if (handleErrorRangeResponse7(
+                if (handleErrorRangeResponse8(
                   reject,
                   error.response,
                   "4XX",
@@ -28716,7 +28742,7 @@ var SignatureRequestApi = class {
                 )) {
                   return;
                 }
-                if (handleErrorRangeResponse7(
+                if (handleErrorRangeResponse8(
                   reject,
                   error.response,
                   "4XX",
@@ -28813,7 +28839,7 @@ var SignatureRequestApi = class {
                 )) {
                   return;
                 }
-                if (handleErrorRangeResponse7(
+                if (handleErrorRangeResponse8(
                   reject,
                   error.response,
                   "4XX",
@@ -28936,7 +28962,7 @@ var SignatureRequestApi = class {
                 )) {
                   return;
                 }
-                if (handleErrorRangeResponse7(
+                if (handleErrorRangeResponse8(
                   reject,
                   error.response,
                   "4XX",
@@ -29014,7 +29040,7 @@ var SignatureRequestApi = class {
                 reject(error);
                 return;
               }
-              if (handleErrorRangeResponse7(
+              if (handleErrorRangeResponse8(
                 reject,
                 error.response,
                 "4XX",
@@ -29128,7 +29154,7 @@ var SignatureRequestApi = class {
                 )) {
                   return;
                 }
-                if (handleErrorRangeResponse7(
+                if (handleErrorRangeResponse8(
                   reject,
                   error.response,
                   "4XX",
@@ -29243,7 +29269,7 @@ var SignatureRequestApi = class {
                 )) {
                   return;
                 }
-                if (handleErrorRangeResponse7(
+                if (handleErrorRangeResponse8(
                   reject,
                   error.response,
                   "4XX",
@@ -29366,7 +29392,7 @@ var SignatureRequestApi = class {
                 )) {
                   return;
                 }
-                if (handleErrorRangeResponse7(
+                if (handleErrorRangeResponse8(
                   reject,
                   error.response,
                   "4XX",
@@ -29408,7 +29434,7 @@ function handleErrorCodeResponse8(reject, response, code, returnType) {
   reject(new HttpError(response, body, response.status));
   return true;
 }
-function handleErrorRangeResponse7(reject, response, code, returnType) {
+function handleErrorRangeResponse8(reject, response, code, returnType) {
   let rangeCodeLeft = Number(code[0] + "00");
   let rangeCodeRight = Number(code[0] + "99");
   if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
@@ -29573,7 +29599,7 @@ var TeamApi = class {
               )) {
                 return;
               }
-              if (handleErrorRangeResponse8(
+              if (handleErrorRangeResponse9(
                 reject,
                 error.response,
                 "4XX",
@@ -29683,7 +29709,7 @@ var TeamApi = class {
               )) {
                 return;
               }
-              if (handleErrorRangeResponse8(
+              if (handleErrorRangeResponse9(
                 reject,
                 error.response,
                 "4XX",
@@ -29757,7 +29783,7 @@ var TeamApi = class {
                 reject(error);
                 return;
               }
-              if (handleErrorRangeResponse8(
+              if (handleErrorRangeResponse9(
                 reject,
                 error.response,
                 "4XX",
@@ -29844,7 +29870,7 @@ var TeamApi = class {
               )) {
                 return;
               }
-              if (handleErrorRangeResponse8(
+              if (handleErrorRangeResponse9(
                 reject,
                 error.response,
                 "4XX",
@@ -29938,7 +29964,7 @@ var TeamApi = class {
                 )) {
                   return;
                 }
-                if (handleErrorRangeResponse8(
+                if (handleErrorRangeResponse9(
                   reject,
                   error.response,
                   "4XX",
@@ -30033,7 +30059,7 @@ var TeamApi = class {
                 )) {
                   return;
                 }
-                if (handleErrorRangeResponse8(
+                if (handleErrorRangeResponse9(
                   reject,
                   error.response,
                   "4XX",
@@ -30142,7 +30168,7 @@ var TeamApi = class {
                 )) {
                   return;
                 }
-                if (handleErrorRangeResponse8(
+                if (handleErrorRangeResponse9(
                   reject,
                   error.response,
                   "4XX",
@@ -30256,7 +30282,7 @@ var TeamApi = class {
               )) {
                 return;
               }
-              if (handleErrorRangeResponse8(
+              if (handleErrorRangeResponse9(
                 reject,
                 error.response,
                 "4XX",
@@ -30364,7 +30390,7 @@ var TeamApi = class {
                 )) {
                   return;
                 }
-                if (handleErrorRangeResponse8(
+                if (handleErrorRangeResponse9(
                   reject,
                   error.response,
                   "4XX",
@@ -30475,7 +30501,7 @@ var TeamApi = class {
               )) {
                 return;
               }
-              if (handleErrorRangeResponse8(
+              if (handleErrorRangeResponse9(
                 reject,
                 error.response,
                 "4XX",
@@ -30516,7 +30542,7 @@ function handleErrorCodeResponse9(reject, response, code, returnType) {
   reject(new HttpError(response, body, response.status));
   return true;
 }
-function handleErrorRangeResponse8(reject, response, code, returnType) {
+function handleErrorRangeResponse9(reject, response, code, returnType) {
   let rangeCodeLeft = Number(code[0] + "00");
   let rangeCodeRight = Number(code[0] + "99");
   if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
@@ -30684,7 +30710,7 @@ var TemplateApi = class {
                 )) {
                   return;
                 }
-                if (handleErrorRangeResponse9(
+                if (handleErrorRangeResponse10(
                   reject,
                   error.response,
                   "4XX",
@@ -30799,7 +30825,7 @@ var TemplateApi = class {
                 )) {
                   return;
                 }
-                if (handleErrorRangeResponse9(
+                if (handleErrorRangeResponse10(
                   reject,
                   error.response,
                   "4XX",
@@ -30914,7 +30940,7 @@ var TemplateApi = class {
                 )) {
                   return;
                 }
-                if (handleErrorRangeResponse9(
+                if (handleErrorRangeResponse10(
                   reject,
                   error.response,
                   "4XX",
@@ -30997,7 +31023,7 @@ var TemplateApi = class {
                 reject(error);
                 return;
               }
-              if (handleErrorRangeResponse9(
+              if (handleErrorRangeResponse10(
                 reject,
                 error.response,
                 "4XX",
@@ -31098,7 +31124,7 @@ var TemplateApi = class {
               )) {
                 return;
               }
-              if (handleErrorRangeResponse9(
+              if (handleErrorRangeResponse10(
                 reject,
                 error.response,
                 "4XX",
@@ -31194,7 +31220,7 @@ var TemplateApi = class {
                 )) {
                   return;
                 }
-                if (handleErrorRangeResponse9(
+                if (handleErrorRangeResponse10(
                   reject,
                   error.response,
                   "4XX",
@@ -31296,7 +31322,7 @@ var TemplateApi = class {
               )) {
                 return;
               }
-              if (handleErrorRangeResponse9(
+              if (handleErrorRangeResponse10(
                 reject,
                 error.response,
                 "4XX",
@@ -31392,7 +31418,7 @@ var TemplateApi = class {
                 )) {
                   return;
                 }
-                if (handleErrorRangeResponse9(
+                if (handleErrorRangeResponse10(
                   reject,
                   error.response,
                   "4XX",
@@ -31505,7 +31531,7 @@ var TemplateApi = class {
                 )) {
                   return;
                 }
-                if (handleErrorRangeResponse9(
+                if (handleErrorRangeResponse10(
                   reject,
                   error.response,
                   "4XX",
@@ -31628,7 +31654,7 @@ var TemplateApi = class {
                 )) {
                   return;
                 }
-                if (handleErrorRangeResponse9(
+                if (handleErrorRangeResponse10(
                   reject,
                   error.response,
                   "4XX",
@@ -31751,7 +31777,7 @@ var TemplateApi = class {
                 )) {
                   return;
                 }
-                if (handleErrorRangeResponse9(
+                if (handleErrorRangeResponse10(
                   reject,
                   error.response,
                   "4XX",
@@ -31793,7 +31819,7 @@ function handleErrorCodeResponse10(reject, response, code, returnType) {
   reject(new HttpError(response, body, response.status));
   return true;
 }
-function handleErrorRangeResponse9(reject, response, code, returnType) {
+function handleErrorRangeResponse10(reject, response, code, returnType) {
   let rangeCodeLeft = Number(code[0] + "00");
   let rangeCodeRight = Number(code[0] + "99");
   if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
@@ -31953,7 +31979,7 @@ var UnclaimedDraftApi = class {
                 )) {
                   return;
                 }
-                if (handleErrorRangeResponse10(
+                if (handleErrorRangeResponse11(
                   reject,
                   error.response,
                   "4XX",
@@ -32068,7 +32094,7 @@ var UnclaimedDraftApi = class {
                 )) {
                   return;
                 }
-                if (handleErrorRangeResponse10(
+                if (handleErrorRangeResponse11(
                   reject,
                   error.response,
                   "4XX",
@@ -32183,7 +32209,7 @@ var UnclaimedDraftApi = class {
                 )) {
                   return;
                 }
-                if (handleErrorRangeResponse10(
+                if (handleErrorRangeResponse11(
                   reject,
                   error.response,
                   "4XX",
@@ -32306,7 +32332,7 @@ var UnclaimedDraftApi = class {
                 )) {
                   return;
                 }
-                if (handleErrorRangeResponse10(
+                if (handleErrorRangeResponse11(
                   reject,
                   error.response,
                   "4XX",
@@ -32348,7 +32374,7 @@ function handleErrorCodeResponse11(reject, response, code, returnType) {
   reject(new HttpError(response, body, response.status));
   return true;
 }
-function handleErrorRangeResponse10(reject, response, code, returnType) {
+function handleErrorRangeResponse11(reject, response, code, returnType) {
   let rangeCodeLeft = Number(code[0] + "00");
   let rangeCodeRight = Number(code[0] + "99");
   if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {

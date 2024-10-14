@@ -236,6 +236,17 @@ export class OAuthApi {
               return;
             }
 
+            if (
+              handleErrorRangeResponse(
+                reject,
+                error.response,
+                "4XX",
+                "ErrorResponse"
+              )
+            ) {
+              return;
+            }
+
             reject(error);
           }
         );
@@ -356,6 +367,17 @@ export class OAuthApi {
                 error.response,
                 200,
                 "OAuthTokenResponse"
+              )
+            ) {
+              return;
+            }
+
+            if (
+              handleErrorRangeResponse(
+                reject,
+                error.response,
+                "4XX",
+                "ErrorResponse"
               )
             ) {
               return;
