@@ -9,7 +9,7 @@ WORKING_DIR="/app/ruby"
 
 if [[ -n "$GITHUB_ACTIONS" ]]; then
   printf "\nLogging in to docker.com ...\n"
-  echo "${secrets.DOCKER_TOKEN}" | docker login -u "${secrets.DOCKER_USERNAME}" --password-stdin
+  echo "${DOCKER_TOKEN}" | docker login -u "${DOCKER_USERNAME}" --password-stdin
 fi
 
 docker run --rm \
