@@ -84,9 +84,9 @@ public class TemplateCreateEmbeddedDraftResponseTemplate {
    * The id of the Template.
    * @return templateId
    */
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_TEMPLATE_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getTemplateId() {
     return templateId;
@@ -94,7 +94,7 @@ public class TemplateCreateEmbeddedDraftResponseTemplate {
 
 
   @JsonProperty(JSON_PROPERTY_TEMPLATE_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setTemplateId(String templateId) {
     this.templateId = templateId;
   }
@@ -109,9 +109,9 @@ public class TemplateCreateEmbeddedDraftResponseTemplate {
    * Link to edit the template.
    * @return editUrl
    */
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_EDIT_URL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getEditUrl() {
     return editUrl;
@@ -119,7 +119,7 @@ public class TemplateCreateEmbeddedDraftResponseTemplate {
 
 
   @JsonProperty(JSON_PROPERTY_EDIT_URL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setEditUrl(String editUrl) {
     this.editUrl = editUrl;
   }
@@ -134,9 +134,9 @@ public class TemplateCreateEmbeddedDraftResponseTemplate {
    * When the link expires.
    * @return expiresAt
    */
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Integer getExpiresAt() {
     return expiresAt;
@@ -144,7 +144,7 @@ public class TemplateCreateEmbeddedDraftResponseTemplate {
 
 
   @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setExpiresAt(Integer expiresAt) {
     this.expiresAt = expiresAt;
   }

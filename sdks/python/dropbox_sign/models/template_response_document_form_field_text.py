@@ -48,42 +48,41 @@ class TemplateResponseDocumentFormFieldText(TemplateResponseDocumentFormFieldBas
     type: StrictStr = Field(
         description="The type of this form field. See [field types](/api/reference/constants/#field-types).  * Text Field uses `TemplateResponseDocumentFormFieldText` * Dropdown Field uses `TemplateResponseDocumentFormFieldDropdown` * Hyperlink Field uses `TemplateResponseDocumentFormFieldHyperlink` * Checkbox Field uses `TemplateResponseDocumentFormFieldCheckbox` * Radio Field uses `TemplateResponseDocumentFormFieldRadio` * Signature Field uses `TemplateResponseDocumentFormFieldSignature` * Date Signed Field uses `TemplateResponseDocumentFormFieldDateSigned` * Initials Field uses `TemplateResponseDocumentFormFieldInitials`"
     )
-    avg_text_length: Optional[TemplateResponseFieldAvgTextLength] = None
-    is_multiline: Optional[StrictBool] = Field(
-        default=None,
-        description="Whether this form field is multiline text.",
-        alias="isMultiline",
+    avg_text_length: TemplateResponseFieldAvgTextLength
+    is_multiline: StrictBool = Field(
+        description="Whether this form field is multiline text.", alias="isMultiline"
     )
-    original_font_size: Optional[StrictInt] = Field(
-        default=None,
+    original_font_size: StrictInt = Field(
         description="Original font size used in this form field's text.",
         alias="originalFontSize",
     )
-    font_family: Optional[StrictStr] = Field(
-        default=None,
-        description="Font family used in this form field's text.",
-        alias="fontFamily",
+    font_family: StrictStr = Field(
+        description="Font family used in this form field's text.", alias="fontFamily"
     )
     validation_type: Optional[StrictStr] = Field(
         default=None,
         description="Each text field may contain a `validation_type` parameter. Check out the list of [validation types](https://faq.hellosign.com/hc/en-us/articles/217115577) to learn more about the possible values.",
     )
+    group: Optional[StrictStr] = Field(
+        default=None,
+        description="The name of the group this field is in. If this field is not a group, this defaults to `null` except for Radio fields.",
+    )
     __properties: ClassVar[List[str]] = [
-        "type",
         "api_id",
         "name",
+        "type",
         "signer",
         "x",
         "y",
         "width",
         "height",
         "required",
-        "group",
         "avg_text_length",
         "isMultiline",
         "originalFontSize",
         "fontFamily",
         "validation_type",
+        "group",
     ]
 
     @field_validator("validation_type")
@@ -177,16 +176,15 @@ class TemplateResponseDocumentFormFieldText(TemplateResponseDocumentFormFieldBas
 
         _obj = cls.model_validate(
             {
-                "type": obj.get("type") if obj.get("type") is not None else "text",
                 "api_id": obj.get("api_id"),
                 "name": obj.get("name"),
+                "type": obj.get("type") if obj.get("type") is not None else "text",
                 "signer": obj.get("signer"),
                 "x": obj.get("x"),
                 "y": obj.get("y"),
                 "width": obj.get("width"),
                 "height": obj.get("height"),
                 "required": obj.get("required"),
-                "group": obj.get("group"),
                 "avg_text_length": (
                     TemplateResponseFieldAvgTextLength.from_dict(obj["avg_text_length"])
                     if obj.get("avg_text_length") is not None
@@ -196,6 +194,7 @@ class TemplateResponseDocumentFormFieldText(TemplateResponseDocumentFormFieldBas
                 "originalFontSize": obj.get("originalFontSize"),
                 "fontFamily": obj.get("fontFamily"),
                 "validation_type": obj.get("validation_type"),
+                "group": obj.get("group"),
             }
         )
         return _obj
@@ -218,7 +217,6 @@ class TemplateResponseDocumentFormFieldText(TemplateResponseDocumentFormFieldBas
             "is_multiline": "(bool,)",
             "original_font_size": "(int,)",
             "font_family": "(str,)",
-            "validation_type": "(str,)",
             "api_id": "(str,)",
             "name": "(str,)",
             "signer": "(int, str,)",
@@ -227,6 +225,7 @@ class TemplateResponseDocumentFormFieldText(TemplateResponseDocumentFormFieldBas
             "width": "(int,)",
             "height": "(int,)",
             "required": "(bool,)",
+            "validation_type": "(str,)",
             "group": "(str,)",
         }
 

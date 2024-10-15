@@ -33,15 +33,9 @@ class TemplateCreateEmbeddedDraftResponseTemplate(BaseModel):
     Template object with parameters: `template_id`, `edit_url`, `expires_at`.
     """  # noqa: E501
 
-    template_id: Optional[StrictStr] = Field(
-        default=None, description="The id of the Template."
-    )
-    edit_url: Optional[StrictStr] = Field(
-        default=None, description="Link to edit the template."
-    )
-    expires_at: Optional[StrictInt] = Field(
-        default=None, description="When the link expires."
-    )
+    template_id: StrictStr = Field(description="The id of the Template.")
+    edit_url: StrictStr = Field(description="Link to edit the template.")
+    expires_at: StrictInt = Field(description="When the link expires.")
     warnings: Optional[List[WarningResponse]] = Field(
         default=None, description="A list of warnings."
     )

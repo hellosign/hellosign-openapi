@@ -41,11 +41,16 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TemplateUpdateFilesResponseTemplate" /> class.
         /// </summary>
-        /// <param name="templateId">The id of the Template..</param>
+        /// <param name="templateId">The id of the Template. (required).</param>
         /// <param name="warnings">A list of warnings..</param>
         public TemplateUpdateFilesResponseTemplate(string templateId = default(string), List<WarningResponse> warnings = default(List<WarningResponse>))
         {
 
+            // to ensure "templateId" is required (not null)
+            if (templateId == null)
+            {
+                throw new ArgumentNullException("templateId is a required property for TemplateUpdateFilesResponseTemplate and cannot be null");
+            }
             this.TemplateId = templateId;
             this.Warnings = warnings;
         }
@@ -70,7 +75,7 @@ namespace Dropbox.Sign.Model
         /// The id of the Template.
         /// </summary>
         /// <value>The id of the Template.</value>
-        [DataMember(Name = "template_id", EmitDefaultValue = true)]
+        [DataMember(Name = "template_id", IsRequired = true, EmitDefaultValue = true)]
         public string TemplateId { get; set; }
 
         /// <summary>

@@ -32,15 +32,15 @@ export class TemplateCreateEmbeddedDraftResponseTemplate {
   /**
    * The id of the Template.
    */
-  "templateId"?: string;
+  "templateId": string;
   /**
    * Link to edit the template.
    */
-  "editUrl"?: string;
+  "editUrl": string;
   /**
    * When the link expires.
    */
-  "expiresAt"?: number;
+  "expiresAt": number;
   /**
    * A list of warnings.
    */

@@ -57,6 +57,7 @@ class TemplateResponseDocumentFormFieldSignature extends TemplateResponseDocumen
      */
     protected static $openAPITypes = [
         'type' => 'string',
+        'group' => 'string',
     ];
 
     /**
@@ -68,6 +69,7 @@ class TemplateResponseDocumentFormFieldSignature extends TemplateResponseDocumen
      */
     protected static $openAPIFormats = [
         'type' => null,
+        'group' => null,
     ];
 
     /**
@@ -77,6 +79,7 @@ class TemplateResponseDocumentFormFieldSignature extends TemplateResponseDocumen
      */
     protected static array $openAPINullables = [
         'type' => false,
+        'group' => true,
     ];
 
     /**
@@ -158,6 +161,7 @@ class TemplateResponseDocumentFormFieldSignature extends TemplateResponseDocumen
      */
     protected static $attributeMap = [
         'type' => 'type',
+        'group' => 'group',
     ];
 
     /**
@@ -167,6 +171,7 @@ class TemplateResponseDocumentFormFieldSignature extends TemplateResponseDocumen
      */
     protected static $setters = [
         'type' => 'setType',
+        'group' => 'setGroup',
     ];
 
     /**
@@ -176,6 +181,7 @@ class TemplateResponseDocumentFormFieldSignature extends TemplateResponseDocumen
      */
     protected static $getters = [
         'type' => 'getType',
+        'group' => 'getGroup',
     ];
 
     /**
@@ -230,6 +236,7 @@ class TemplateResponseDocumentFormFieldSignature extends TemplateResponseDocumen
         parent::__construct($data);
 
         $this->setIfExists('type', $data ?? [], 'signature');
+        $this->setIfExists('group', $data ?? [], null);
     }
 
     /**
@@ -317,6 +324,40 @@ class TemplateResponseDocumentFormFieldSignature extends TemplateResponseDocumen
             throw new InvalidArgumentException('non-nullable type cannot be null');
         }
         $this->container['type'] = $type;
+
+        return $this;
+    }
+
+    /**
+     * Gets group
+     *
+     * @return string|null
+     */
+    public function getGroup()
+    {
+        return $this->container['group'];
+    }
+
+    /**
+     * Sets group
+     *
+     * @param string|null $group The name of the group this field is in. If this field is not a group, this defaults to `null` except for Radio fields.
+     *
+     * @return self
+     */
+    public function setGroup(?string $group)
+    {
+        if (is_null($group)) {
+            array_push($this->openAPINullablesSetToNull, 'group');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('group', $nullablesSetToNull);
+            if ($index !== false) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['group'] = $group;
 
         return $this;
     }

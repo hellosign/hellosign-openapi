@@ -303,7 +303,18 @@ class TemplateCreateEmbeddedDraftResponseTemplate implements ModelInterface, Arr
      */
     public function listInvalidProperties()
     {
-        return [];
+        $invalidProperties = [];
+
+        if ($this->container['template_id'] === null) {
+            $invalidProperties[] = "'template_id' can't be null";
+        }
+        if ($this->container['edit_url'] === null) {
+            $invalidProperties[] = "'edit_url' can't be null";
+        }
+        if ($this->container['expires_at'] === null) {
+            $invalidProperties[] = "'expires_at' can't be null";
+        }
+        return $invalidProperties;
     }
 
     /**
@@ -320,7 +331,7 @@ class TemplateCreateEmbeddedDraftResponseTemplate implements ModelInterface, Arr
     /**
      * Gets template_id
      *
-     * @return string|null
+     * @return string
      */
     public function getTemplateId()
     {
@@ -330,11 +341,11 @@ class TemplateCreateEmbeddedDraftResponseTemplate implements ModelInterface, Arr
     /**
      * Sets template_id
      *
-     * @param string|null $template_id the id of the Template
+     * @param string $template_id the id of the Template
      *
      * @return self
      */
-    public function setTemplateId(?string $template_id)
+    public function setTemplateId(string $template_id)
     {
         if (is_null($template_id)) {
             throw new InvalidArgumentException('non-nullable template_id cannot be null');
@@ -347,7 +358,7 @@ class TemplateCreateEmbeddedDraftResponseTemplate implements ModelInterface, Arr
     /**
      * Gets edit_url
      *
-     * @return string|null
+     * @return string
      */
     public function getEditUrl()
     {
@@ -357,11 +368,11 @@ class TemplateCreateEmbeddedDraftResponseTemplate implements ModelInterface, Arr
     /**
      * Sets edit_url
      *
-     * @param string|null $edit_url link to edit the template
+     * @param string $edit_url link to edit the template
      *
      * @return self
      */
-    public function setEditUrl(?string $edit_url)
+    public function setEditUrl(string $edit_url)
     {
         if (is_null($edit_url)) {
             throw new InvalidArgumentException('non-nullable edit_url cannot be null');
@@ -374,7 +385,7 @@ class TemplateCreateEmbeddedDraftResponseTemplate implements ModelInterface, Arr
     /**
      * Gets expires_at
      *
-     * @return int|null
+     * @return int
      */
     public function getExpiresAt()
     {
@@ -384,11 +395,11 @@ class TemplateCreateEmbeddedDraftResponseTemplate implements ModelInterface, Arr
     /**
      * Sets expires_at
      *
-     * @param int|null $expires_at when the link expires
+     * @param int $expires_at when the link expires
      *
      * @return self
      */
-    public function setExpiresAt(?int $expires_at)
+    public function setExpiresAt(int $expires_at)
     {
         if (is_null($expires_at)) {
             throw new InvalidArgumentException('non-nullable expires_at cannot be null');

@@ -40,11 +40,11 @@ import com.dropbox.sign.ApiException;
  */
 @JsonPropertyOrder({
   TemplateResponseDocument.JSON_PROPERTY_NAME,
-  TemplateResponseDocument.JSON_PROPERTY_INDEX,
   TemplateResponseDocument.JSON_PROPERTY_FIELD_GROUPS,
   TemplateResponseDocument.JSON_PROPERTY_FORM_FIELDS,
   TemplateResponseDocument.JSON_PROPERTY_CUSTOM_FIELDS,
-  TemplateResponseDocument.JSON_PROPERTY_STATIC_FIELDS
+  TemplateResponseDocument.JSON_PROPERTY_STATIC_FIELDS,
+  TemplateResponseDocument.JSON_PROPERTY_INDEX
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
@@ -52,20 +52,20 @@ public class TemplateResponseDocument {
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
-  public static final String JSON_PROPERTY_INDEX = "index";
-  private Integer index;
-
   public static final String JSON_PROPERTY_FIELD_GROUPS = "field_groups";
-  private List<TemplateResponseDocumentFieldGroup> fieldGroups = null;
+  private List<TemplateResponseDocumentFieldGroup> fieldGroups = new ArrayList<>();
 
   public static final String JSON_PROPERTY_FORM_FIELDS = "form_fields";
-  private List<TemplateResponseDocumentFormFieldBase> formFields = null;
+  private List<TemplateResponseDocumentFormFieldBase> formFields = new ArrayList<>();
 
   public static final String JSON_PROPERTY_CUSTOM_FIELDS = "custom_fields";
-  private List<TemplateResponseDocumentCustomFieldBase> customFields = null;
+  private List<TemplateResponseDocumentCustomFieldBase> customFields = new ArrayList<>();
 
   public static final String JSON_PROPERTY_STATIC_FIELDS = "static_fields";
-  private List<TemplateResponseDocumentStaticFieldBase> staticFields = null;
+  private List<TemplateResponseDocumentStaticFieldBase> staticFields = new ArrayList<>();
+
+  public static final String JSON_PROPERTY_INDEX = "index";
+  private Integer index;
 
   public TemplateResponseDocument() { 
   }
@@ -94,9 +94,9 @@ public class TemplateResponseDocument {
    * Name of the associated file.
    * @return name
    */
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getName() {
     return name;
@@ -104,9 +104,141 @@ public class TemplateResponseDocument {
 
 
   @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setName(String name) {
     this.name = name;
+  }
+
+
+  public TemplateResponseDocument fieldGroups(List<TemplateResponseDocumentFieldGroup> fieldGroups) {
+    this.fieldGroups = fieldGroups;
+    return this;
+  }
+
+  public TemplateResponseDocument addFieldGroupsItem(TemplateResponseDocumentFieldGroup fieldGroupsItem) {
+    if (this.fieldGroups == null) {
+      this.fieldGroups = new ArrayList<>();
+    }
+    this.fieldGroups.add(fieldGroupsItem);
+    return this;
+  }
+
+  /**
+   * An array of Form Field Group objects.
+   * @return fieldGroups
+   */
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_FIELD_GROUPS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public List<TemplateResponseDocumentFieldGroup> getFieldGroups() {
+    return fieldGroups;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_FIELD_GROUPS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setFieldGroups(List<TemplateResponseDocumentFieldGroup> fieldGroups) {
+    this.fieldGroups = fieldGroups;
+  }
+
+
+  public TemplateResponseDocument formFields(List<TemplateResponseDocumentFormFieldBase> formFields) {
+    this.formFields = formFields;
+    return this;
+  }
+
+  public TemplateResponseDocument addFormFieldsItem(TemplateResponseDocumentFormFieldBase formFieldsItem) {
+    if (this.formFields == null) {
+      this.formFields = new ArrayList<>();
+    }
+    this.formFields.add(formFieldsItem);
+    return this;
+  }
+
+  /**
+   * An array of Form Field objects containing the name and type of each named field.
+   * @return formFields
+   */
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_FORM_FIELDS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public List<TemplateResponseDocumentFormFieldBase> getFormFields() {
+    return formFields;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_FORM_FIELDS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setFormFields(List<TemplateResponseDocumentFormFieldBase> formFields) {
+    this.formFields = formFields;
+  }
+
+
+  public TemplateResponseDocument customFields(List<TemplateResponseDocumentCustomFieldBase> customFields) {
+    this.customFields = customFields;
+    return this;
+  }
+
+  public TemplateResponseDocument addCustomFieldsItem(TemplateResponseDocumentCustomFieldBase customFieldsItem) {
+    if (this.customFields == null) {
+      this.customFields = new ArrayList<>();
+    }
+    this.customFields.add(customFieldsItem);
+    return this;
+  }
+
+  /**
+   * An array of Form Field objects containing the name and type of each named field.
+   * @return customFields
+   */
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_CUSTOM_FIELDS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public List<TemplateResponseDocumentCustomFieldBase> getCustomFields() {
+    return customFields;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_CUSTOM_FIELDS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setCustomFields(List<TemplateResponseDocumentCustomFieldBase> customFields) {
+    this.customFields = customFields;
+  }
+
+
+  public TemplateResponseDocument staticFields(List<TemplateResponseDocumentStaticFieldBase> staticFields) {
+    this.staticFields = staticFields;
+    return this;
+  }
+
+  public TemplateResponseDocument addStaticFieldsItem(TemplateResponseDocumentStaticFieldBase staticFieldsItem) {
+    if (this.staticFields == null) {
+      this.staticFields = new ArrayList<>();
+    }
+    this.staticFields.add(staticFieldsItem);
+    return this;
+  }
+
+  /**
+   * An array describing static overlay fields. **NOTE:** Only available for certain subscriptions.
+   * @return staticFields
+   */
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_STATIC_FIELDS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public List<TemplateResponseDocumentStaticFieldBase> getStaticFields() {
+    return staticFields;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_STATIC_FIELDS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setStaticFields(List<TemplateResponseDocumentStaticFieldBase> staticFields) {
+    this.staticFields = staticFields;
   }
 
 
@@ -135,138 +267,6 @@ public class TemplateResponseDocument {
   }
 
 
-  public TemplateResponseDocument fieldGroups(List<TemplateResponseDocumentFieldGroup> fieldGroups) {
-    this.fieldGroups = fieldGroups;
-    return this;
-  }
-
-  public TemplateResponseDocument addFieldGroupsItem(TemplateResponseDocumentFieldGroup fieldGroupsItem) {
-    if (this.fieldGroups == null) {
-      this.fieldGroups = new ArrayList<>();
-    }
-    this.fieldGroups.add(fieldGroupsItem);
-    return this;
-  }
-
-  /**
-   * An array of Form Field Group objects.
-   * @return fieldGroups
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FIELD_GROUPS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public List<TemplateResponseDocumentFieldGroup> getFieldGroups() {
-    return fieldGroups;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_FIELD_GROUPS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFieldGroups(List<TemplateResponseDocumentFieldGroup> fieldGroups) {
-    this.fieldGroups = fieldGroups;
-  }
-
-
-  public TemplateResponseDocument formFields(List<TemplateResponseDocumentFormFieldBase> formFields) {
-    this.formFields = formFields;
-    return this;
-  }
-
-  public TemplateResponseDocument addFormFieldsItem(TemplateResponseDocumentFormFieldBase formFieldsItem) {
-    if (this.formFields == null) {
-      this.formFields = new ArrayList<>();
-    }
-    this.formFields.add(formFieldsItem);
-    return this;
-  }
-
-  /**
-   * An array of Form Field objects containing the name and type of each named field.
-   * @return formFields
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FORM_FIELDS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public List<TemplateResponseDocumentFormFieldBase> getFormFields() {
-    return formFields;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_FORM_FIELDS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFormFields(List<TemplateResponseDocumentFormFieldBase> formFields) {
-    this.formFields = formFields;
-  }
-
-
-  public TemplateResponseDocument customFields(List<TemplateResponseDocumentCustomFieldBase> customFields) {
-    this.customFields = customFields;
-    return this;
-  }
-
-  public TemplateResponseDocument addCustomFieldsItem(TemplateResponseDocumentCustomFieldBase customFieldsItem) {
-    if (this.customFields == null) {
-      this.customFields = new ArrayList<>();
-    }
-    this.customFields.add(customFieldsItem);
-    return this;
-  }
-
-  /**
-   * An array of Form Field objects containing the name and type of each named field.
-   * @return customFields
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CUSTOM_FIELDS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public List<TemplateResponseDocumentCustomFieldBase> getCustomFields() {
-    return customFields;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_CUSTOM_FIELDS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCustomFields(List<TemplateResponseDocumentCustomFieldBase> customFields) {
-    this.customFields = customFields;
-  }
-
-
-  public TemplateResponseDocument staticFields(List<TemplateResponseDocumentStaticFieldBase> staticFields) {
-    this.staticFields = staticFields;
-    return this;
-  }
-
-  public TemplateResponseDocument addStaticFieldsItem(TemplateResponseDocumentStaticFieldBase staticFieldsItem) {
-    if (this.staticFields == null) {
-      this.staticFields = new ArrayList<>();
-    }
-    this.staticFields.add(staticFieldsItem);
-    return this;
-  }
-
-  /**
-   * An array describing static overlay fields. **NOTE:** Only available for certain subscriptions.
-   * @return staticFields
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_STATIC_FIELDS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public List<TemplateResponseDocumentStaticFieldBase> getStaticFields() {
-    return staticFields;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_STATIC_FIELDS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setStaticFields(List<TemplateResponseDocumentStaticFieldBase> staticFields) {
-    this.staticFields = staticFields;
-  }
-
-
   /**
    * Return true if this TemplateResponseDocument object is equal to o.
    */
@@ -280,16 +280,16 @@ public class TemplateResponseDocument {
     }
     TemplateResponseDocument templateResponseDocument = (TemplateResponseDocument) o;
     return Objects.equals(this.name, templateResponseDocument.name) &&
-        Objects.equals(this.index, templateResponseDocument.index) &&
         Objects.equals(this.fieldGroups, templateResponseDocument.fieldGroups) &&
         Objects.equals(this.formFields, templateResponseDocument.formFields) &&
         Objects.equals(this.customFields, templateResponseDocument.customFields) &&
-        Objects.equals(this.staticFields, templateResponseDocument.staticFields);
+        Objects.equals(this.staticFields, templateResponseDocument.staticFields) &&
+        Objects.equals(this.index, templateResponseDocument.index);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, index, fieldGroups, formFields, customFields, staticFields);
+    return Objects.hash(name, fieldGroups, formFields, customFields, staticFields, index);
   }
 
   @Override
@@ -297,11 +297,11 @@ public class TemplateResponseDocument {
     StringBuilder sb = new StringBuilder();
     sb.append("class TemplateResponseDocument {\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    index: ").append(toIndentedString(index)).append("\n");
     sb.append("    fieldGroups: ").append(toIndentedString(fieldGroups)).append("\n");
     sb.append("    formFields: ").append(toIndentedString(formFields)).append("\n");
     sb.append("    customFields: ").append(toIndentedString(customFields)).append("\n");
     sb.append("    staticFields: ").append(toIndentedString(staticFields)).append("\n");
+    sb.append("    index: ").append(toIndentedString(index)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -327,25 +327,6 @@ public class TemplateResponseDocument {
         }
         else {
             map.put("name", JSON.getDefault().getMapper().writeValueAsString(name));
-        }
-    }
-    if (index != null) {
-        if (isFileTypeOrListOfFiles(index)) {
-            fileTypeFound = true;
-        }
-
-        if (index.getClass().equals(java.io.File.class) ||
-            index.getClass().equals(Integer.class) ||
-            index.getClass().equals(String.class) ||
-            index.getClass().isEnum()) {
-            map.put("index", index);
-        } else if (isListOfFile(index)) {
-            for(int i = 0; i< getListSize(index); i++) {
-                map.put("index[" + i + "]", getFromList(index, i));
-            }
-        }
-        else {
-            map.put("index", JSON.getDefault().getMapper().writeValueAsString(index));
         }
     }
     if (fieldGroups != null) {
@@ -422,6 +403,25 @@ public class TemplateResponseDocument {
         }
         else {
             map.put("static_fields", JSON.getDefault().getMapper().writeValueAsString(staticFields));
+        }
+    }
+    if (index != null) {
+        if (isFileTypeOrListOfFiles(index)) {
+            fileTypeFound = true;
+        }
+
+        if (index.getClass().equals(java.io.File.class) ||
+            index.getClass().equals(Integer.class) ||
+            index.getClass().equals(String.class) ||
+            index.getClass().isEnum()) {
+            map.put("index", index);
+        } else if (isListOfFile(index)) {
+            for(int i = 0; i< getListSize(index); i++) {
+                map.put("index[" + i + "]", getFromList(index, i));
+            }
+        }
+        else {
+            map.put("index", JSON.getDefault().getMapper().writeValueAsString(index));
         }
     }
     } catch (Exception e) {

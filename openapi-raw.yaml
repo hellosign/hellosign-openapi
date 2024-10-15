@@ -2233,23 +2233,6 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/OAuthTokenGenerateResponseExample'
-        4XX:
-          description: failed_operation
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorResponse'
-              examples:
-                400_example:
-                  $ref: '#/components/examples/Error400ResponseExample'
-                401_example:
-                  $ref: '#/components/examples/Error401ResponseExample'
-                402_example:
-                  $ref: '#/components/examples/Error402ResponseExample'
-                403_example:
-                  $ref: '#/components/examples/Error403ResponseExample'
-                4XX_example:
-                  $ref: '#/components/examples/Error4XXResponseExample'
       security: []
       servers:
         -
@@ -2333,23 +2316,6 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/OAuthTokenRefreshResponseExample'
-        4XX:
-          description: failed_operation
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorResponse'
-              examples:
-                400_example:
-                  $ref: '#/components/examples/Error400ResponseExample'
-                401_example:
-                  $ref: '#/components/examples/Error401ResponseExample'
-                402_example:
-                  $ref: '#/components/examples/Error402ResponseExample'
-                403_example:
-                  $ref: '#/components/examples/Error403ResponseExample'
-                4XX_example:
-                  $ref: '#/components/examples/Error4XXResponseExample'
       security: []
       servers:
         -
@@ -7322,12 +7288,6 @@ components:
         refresh_token:
           description: '_t__OAuthTokenRefresh::REFRESH_TOKEN'
           type: string
-        client_id:
-          description: '_t__OAuthTokenRefresh::CLIENT_ID'
-          type: string
-        client_secret:
-          description: '_t__OAuthTokenRefresh::CLIENT_SECRET'
-          type: string
       type: object
     ReportCreateRequest:
       required:
@@ -10674,6 +10634,16 @@ components:
       x-internal-class: true
     TemplateResponse:
       description: '_t__TemplateResponse::DESCRIPTION'
+      required:
+        - accounts
+        - attachments
+        - can_edit
+        - documents
+        - is_creator
+        - is_locked
+        - message
+        - template_id
+        - title
       properties:
         template_id:
           description: '_t__TemplateResponse::TEMPLATE_ID'
@@ -10694,15 +10664,12 @@ components:
         is_creator:
           description: '_t__TemplateResponse::IS_CREATOR'
           type: boolean
-          nullable: true
         can_edit:
           description: '_t__TemplateResponse::CAN_EDIT'
           type: boolean
-          nullable: true
         is_locked:
           description: '_t__TemplateResponse::IS_LOCKED'
           type: boolean
-          nullable: true
         metadata:
           description: '_t__TemplateResponse::METADATA'
           type: object
@@ -10740,10 +10707,20 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/TemplateResponseAccount'
-          nullable: true
+        attachments:
+          description: '_t__SignatureRequestResponseAttachment::DESCRIPTION'
+          type: array
+          items:
+            $ref: '#/components/schemas/SignatureRequestResponseAttachment'
       type: object
       x-internal-class: true
     TemplateResponseAccount:
+      required:
+        - account_id
+        - is_locked
+        - is_paid_hf
+        - is_paid_hs
+        - quotas
       properties:
         account_id:
           description: '_t__TemplateResponseAccount::ACCOUNT_ID'
@@ -10766,6 +10743,11 @@ components:
       x-internal-class: true
     TemplateResponseAccountQuota:
       description: '_t__TemplateResponseAccountQuota::DESCRIPTION'
+      required:
+        - templates_left
+        - api_signature_requests_left
+        - documents_left
+        - sms_verifications_left
       properties:
         templates_left:
           description: '_t__TemplateResponseAccountQuota::TEMPLATES_LEFT'
@@ -10782,6 +10764,8 @@ components:
       type: object
       x-internal-class: true
     TemplateResponseCCRole:
+      required:
+        - name
       properties:
         name:
           description: '_t__TemplateResponseCCRole::NAME'
@@ -10790,6 +10774,10 @@ components:
       x-internal-class: true
     TemplateCreateEmbeddedDraftResponseTemplate:
       description: '_t__TemplateCreateEmbeddedDraftResponseTemplate::DESCRIPTION'
+      required:
+        - edit_url
+        - expires_at
+        - template_id
       properties:
         template_id:
           description: '_t__TemplateResponse::TEMPLATE_ID'
@@ -10810,6 +10798,8 @@ components:
       x-internal-class: true
     TemplateCreateResponseTemplate:
       description: '_t__TemplateCreateResponseTemplate::DESCRIPTION'
+      required:
+        - template_id
       properties:
         template_id:
           description: '_t__TemplateResponse::TEMPLATE_ID'
@@ -10817,6 +10807,12 @@ components:
       type: object
       x-internal-class: true
     TemplateResponseDocument:
+      required:
+        - custom_fields
+        - field_groups
+        - form_fields
+        - name
+        - static_fields
       properties:
         name:
           description: '_t__TemplateResponseDocument::NAME'
@@ -10844,13 +10840,19 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/TemplateResponseDocumentStaticFieldBase'
-          nullable: true
       type: object
       x-internal-class: true
     TemplateResponseDocumentCustomFieldBase:
       description: '_t__TemplateResponseDocumentCustomField::DESCRIPTION'
       required:
+        - api_id
+        - height
+        - name
+        - required
         - type
+        - width
+        - x
+        - 'y'
       properties:
         api_id:
           description: '_t__TemplateResponseDocumentCustomField::API_ID'
@@ -10909,6 +10911,10 @@ components:
     TemplateResponseDocumentCustomFieldText:
       description: '_t__TemplateResponseDocumentCustomField::DESCRIPTION_EXTENDS'
       required:
+        - avg_text_length
+        - fontFamily
+        - isMultiline
+        - originalFontSize
         - type
       allOf:
         -
@@ -10932,6 +10938,9 @@ components:
               type: string
           type: object
     TemplateResponseDocumentFieldGroup:
+      required:
+        - name
+        - rule
       properties:
         name:
           description: '_t__TemplateResponseDocumentFieldGroup::NAME'
@@ -10942,6 +10951,9 @@ components:
       x-internal-class: true
     TemplateResponseDocumentFieldGroupRule:
       description: '_t__TemplateResponseDocumentFieldGroup::RULE'
+      required:
+        - groupLabel
+        - requirement
       properties:
         requirement:
           description: '_t__TemplateResponseDocumentFieldGroupRule::REQUIREMENT'
@@ -10954,7 +10966,15 @@ components:
     TemplateResponseDocumentFormFieldBase:
       description: '_t__TemplateResponseDocumentFormField::DESCRIPTION'
       required:
+        - api_id
+        - height
+        - name
+        - required
+        - signer
         - type
+        - width
+        - x
+        - 'y'
       properties:
         api_id:
           description: '_t__TemplateResponseDocumentFormField::API_ID'
@@ -10983,10 +11003,6 @@ components:
         required:
           description: '_t__TemplateResponseDocumentFormField::REQUIRED'
           type: boolean
-        group:
-          description: '_t__TemplateResponseDocumentFormField::GROUP'
-          type: string
-          nullable: true
       type: object
       discriminator:
         propertyName: type
@@ -11003,17 +11019,21 @@ components:
       x-base-class: true
     TemplateResponseDocumentFormFieldCheckbox:
       description: '_t__TemplateResponseDocumentFormField::DESCRIPTION_EXTENDS'
+      required:
+        - type
       allOf:
         -
           $ref: '#/components/schemas/TemplateResponseDocumentFormFieldBase'
         -
-          required:
-            - type
           properties:
             type:
               description: '_t__TemplateResponseDocumentFormField::TYPE'
               type: string
               default: checkbox
+            group:
+              description: '_t__TemplateResponseDocumentFormField::GROUP'
+              type: string
+              nullable: true
           type: object
     TemplateResponseDocumentFormFieldDateSigned:
       description: '_t__TemplateResponseDocumentFormField::DESCRIPTION_EXTENDS'
@@ -11023,13 +11043,15 @@ components:
         -
           $ref: '#/components/schemas/TemplateResponseDocumentFormFieldBase'
         -
-          required:
-            - type
           properties:
             type:
               description: '_t__TemplateResponseDocumentFormField::TYPE'
               type: string
               default: date_signed
+            group:
+              description: '_t__TemplateResponseDocumentFormField::GROUP'
+              type: string
+              nullable: true
           type: object
     TemplateResponseDocumentFormFieldDropdown:
       description: '_t__TemplateResponseDocumentFormField::DESCRIPTION_EXTENDS'
@@ -11039,24 +11061,28 @@ components:
         -
           $ref: '#/components/schemas/TemplateResponseDocumentFormFieldBase'
         -
-          required:
-            - type
           properties:
             type:
               description: '_t__TemplateResponseDocumentFormField::TYPE'
               type: string
               default: dropdown
+            group:
+              description: '_t__TemplateResponseDocumentFormField::GROUP'
+              type: string
+              nullable: true
           type: object
     TemplateResponseDocumentFormFieldHyperlink:
       description: '_t__TemplateResponseDocumentFormField::DESCRIPTION_EXTENDS'
       required:
+        - avg_text_length
+        - fontFamily
+        - isMultiline
+        - originalFontSize
         - type
       allOf:
         -
           $ref: '#/components/schemas/TemplateResponseDocumentFormFieldBase'
         -
-          required:
-            - type
           properties:
             type:
               description: '_t__TemplateResponseDocumentFormField::TYPE'
@@ -11073,6 +11099,10 @@ components:
             fontFamily:
               description: '_t__TemplateResponseDocumentFormField::FONT_FAMILY'
               type: string
+            group:
+              description: '_t__TemplateResponseDocumentFormField::GROUP'
+              type: string
+              nullable: true
           type: object
     TemplateResponseDocumentFormFieldInitials:
       description: '_t__TemplateResponseDocumentFormField::DESCRIPTION_EXTENDS'
@@ -11082,13 +11112,15 @@ components:
         -
           $ref: '#/components/schemas/TemplateResponseDocumentFormFieldBase'
         -
-          required:
-            - type
           properties:
             type:
               description: '_t__TemplateResponseDocumentFormField::TYPE'
               type: string
               default: initials
+            group:
+              description: '_t__TemplateResponseDocumentFormField::GROUP'
+              type: string
+              nullable: true
           type: object
     TemplateResponseDocumentFormFieldRadio:
       description: '_t__TemplateResponseDocumentFormField::DESCRIPTION_EXTENDS'
@@ -11099,13 +11131,14 @@ components:
         -
           $ref: '#/components/schemas/TemplateResponseDocumentFormFieldBase'
         -
-          required:
-            - type
           properties:
             type:
               description: '_t__TemplateResponseDocumentFormField::TYPE'
               type: string
               default: radio
+            group:
+              description: '_t__TemplateResponseDocumentFormField::GROUP'
+              type: string
           type: object
     TemplateResponseDocumentFormFieldSignature:
       description: '_t__TemplateResponseDocumentFormField::DESCRIPTION_EXTENDS'
@@ -11115,24 +11148,28 @@ components:
         -
           $ref: '#/components/schemas/TemplateResponseDocumentFormFieldBase'
         -
-          required:
-            - type
           properties:
             type:
               description: '_t__TemplateResponseDocumentFormField::TYPE'
               type: string
               default: signature
+            group:
+              description: '_t__TemplateResponseDocumentFormField::GROUP'
+              type: string
+              nullable: true
           type: object
     TemplateResponseDocumentFormFieldText:
       description: '_t__TemplateResponseDocumentFormField::DESCRIPTION_EXTENDS'
       required:
+        - avg_text_length
+        - fontFamily
+        - isMultiline
+        - originalFontSize
         - type
       allOf:
         -
           $ref: '#/components/schemas/TemplateResponseDocumentFormFieldBase'
         -
-          required:
-            - type
           properties:
             type:
               description: '_t__TemplateResponseDocumentFormField::TYPE'
@@ -11164,11 +11201,23 @@ components:
                 - employer_identification_number
                 - custom_regex
               nullable: true
+            group:
+              description: '_t__TemplateResponseDocumentFormField::GROUP'
+              type: string
+              nullable: true
           type: object
     TemplateResponseDocumentStaticFieldBase:
       description: '_t__TemplateResponseDocumentStaticField::DESCRIPTION'
       required:
+        - api_id
+        - height
+        - name
+        - required
+        - signer
         - type
+        - width
+        - x
+        - 'y'
       properties:
         api_id:
           description: '_t__TemplateResponseDocumentStaticField::API_ID'
@@ -11223,8 +11272,6 @@ components:
         -
           $ref: '#/components/schemas/TemplateResponseDocumentStaticFieldBase'
         -
-          required:
-            - type
           properties:
             type:
               description: '_t__TemplateResponseDocumentStaticField::TYPE'
@@ -11239,8 +11286,6 @@ components:
         -
           $ref: '#/components/schemas/TemplateResponseDocumentStaticFieldBase'
         -
-          required:
-            - type
           properties:
             type:
               description: '_t__TemplateResponseDocumentStaticField::TYPE'
@@ -11255,8 +11300,6 @@ components:
         -
           $ref: '#/components/schemas/TemplateResponseDocumentStaticFieldBase'
         -
-          required:
-            - type
           properties:
             type:
               description: '_t__TemplateResponseDocumentStaticField::TYPE'
@@ -11271,8 +11314,6 @@ components:
         -
           $ref: '#/components/schemas/TemplateResponseDocumentStaticFieldBase'
         -
-          required:
-            - type
           properties:
             type:
               description: '_t__TemplateResponseDocumentStaticField::TYPE'
@@ -11287,8 +11328,6 @@ components:
         -
           $ref: '#/components/schemas/TemplateResponseDocumentStaticFieldBase'
         -
-          required:
-            - type
           properties:
             type:
               description: '_t__TemplateResponseDocumentStaticField::TYPE'
@@ -11303,8 +11342,6 @@ components:
         -
           $ref: '#/components/schemas/TemplateResponseDocumentStaticFieldBase'
         -
-          required:
-            - type
           properties:
             type:
               description: '_t__TemplateResponseDocumentStaticField::TYPE'
@@ -11319,8 +11356,6 @@ components:
         -
           $ref: '#/components/schemas/TemplateResponseDocumentStaticFieldBase'
         -
-          required:
-            - type
           properties:
             type:
               description: '_t__TemplateResponseDocumentStaticField::TYPE'
@@ -11335,8 +11370,6 @@ components:
         -
           $ref: '#/components/schemas/TemplateResponseDocumentStaticFieldBase'
         -
-          required:
-            - type
           properties:
             type:
               description: '_t__TemplateResponseDocumentStaticField::TYPE'
@@ -11345,6 +11378,9 @@ components:
           type: object
     TemplateResponseFieldAvgTextLength:
       description: '_t__TemplateResponseFieldAvgTextLength::DESCRIPTION'
+      required:
+        - num_lines
+        - num_chars_per_line
       properties:
         num_lines:
           description: '_t__TemplateResponseFieldAvgTextLength::NUM_LINES'
@@ -11355,6 +11391,8 @@ components:
       type: object
       x-internal-class: true
     TemplateResponseSignerRole:
+      required:
+        - name
       properties:
         name:
           description: '_t__TemplateResponseSignerRole::NAME'
@@ -11366,6 +11404,8 @@ components:
       x-internal-class: true
     TemplateUpdateFilesResponseTemplate:
       description: '_t__TemplateUpdateFilesResponseTemplate::DESCRIPTION'
+      required:
+        - template_id
       properties:
         template_id:
           description: '_t__TemplateResponse::TEMPLATE_ID'

@@ -33,7 +33,8 @@ import java.util.Objects;
     TemplateResponseDocumentFormFieldText.JSON_PROPERTY_IS_MULTILINE,
     TemplateResponseDocumentFormFieldText.JSON_PROPERTY_ORIGINAL_FONT_SIZE,
     TemplateResponseDocumentFormFieldText.JSON_PROPERTY_FONT_FAMILY,
-    TemplateResponseDocumentFormFieldText.JSON_PROPERTY_VALIDATION_TYPE
+    TemplateResponseDocumentFormFieldText.JSON_PROPERTY_VALIDATION_TYPE,
+    TemplateResponseDocumentFormFieldText.JSON_PROPERTY_GROUP
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
@@ -118,6 +119,9 @@ public class TemplateResponseDocumentFormFieldText extends TemplateResponseDocum
     public static final String JSON_PROPERTY_VALIDATION_TYPE = "validation_type";
     private ValidationTypeEnum validationType;
 
+    public static final String JSON_PROPERTY_GROUP = "group";
+    private String group;
+
     public TemplateResponseDocumentFormFieldText() {}
 
     /**
@@ -178,14 +182,15 @@ public class TemplateResponseDocumentFormFieldText extends TemplateResponseDocum
      *
      * @return avgTextLength
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_AVG_TEXT_LENGTH)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    @javax.annotation.Nonnull
+    @JsonProperty(JSON_PROPERTY_AVG_TEXT_LENGTH)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public TemplateResponseFieldAvgTextLength getAvgTextLength() {
         return avgTextLength;
     }
 
     @JsonProperty(JSON_PROPERTY_AVG_TEXT_LENGTH)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setAvgTextLength(TemplateResponseFieldAvgTextLength avgTextLength) {
         this.avgTextLength = avgTextLength;
     }
@@ -200,14 +205,15 @@ public class TemplateResponseDocumentFormFieldText extends TemplateResponseDocum
      *
      * @return isMultiline
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_IS_MULTILINE)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    @javax.annotation.Nonnull
+    @JsonProperty(JSON_PROPERTY_IS_MULTILINE)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public Boolean getIsMultiline() {
         return isMultiline;
     }
 
     @JsonProperty(JSON_PROPERTY_IS_MULTILINE)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setIsMultiline(Boolean isMultiline) {
         this.isMultiline = isMultiline;
     }
@@ -222,14 +228,15 @@ public class TemplateResponseDocumentFormFieldText extends TemplateResponseDocum
      *
      * @return originalFontSize
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_ORIGINAL_FONT_SIZE)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    @javax.annotation.Nonnull
+    @JsonProperty(JSON_PROPERTY_ORIGINAL_FONT_SIZE)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public Integer getOriginalFontSize() {
         return originalFontSize;
     }
 
     @JsonProperty(JSON_PROPERTY_ORIGINAL_FONT_SIZE)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setOriginalFontSize(Integer originalFontSize) {
         this.originalFontSize = originalFontSize;
     }
@@ -244,14 +251,15 @@ public class TemplateResponseDocumentFormFieldText extends TemplateResponseDocum
      *
      * @return fontFamily
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_FONT_FAMILY)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    @javax.annotation.Nonnull
+    @JsonProperty(JSON_PROPERTY_FONT_FAMILY)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public String getFontFamily() {
         return fontFamily;
     }
 
     @JsonProperty(JSON_PROPERTY_FONT_FAMILY)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setFontFamily(String fontFamily) {
         this.fontFamily = fontFamily;
     }
@@ -280,6 +288,29 @@ public class TemplateResponseDocumentFormFieldText extends TemplateResponseDocum
         this.validationType = validationType;
     }
 
+    public TemplateResponseDocumentFormFieldText group(String group) {
+        this.group = group;
+        return this;
+    }
+
+    /**
+     * The name of the group this field is in. If this field is not a group, this defaults to
+     * &#x60;null&#x60; except for Radio fields.
+     *
+     * @return group
+     */
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_GROUP)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public String getGroup() {
+        return group;
+    }
+
+    @JsonProperty(JSON_PROPERTY_GROUP)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public void setGroup(String group) {
+        this.group = group;
+    }
+
     /** Return true if this TemplateResponseDocumentFormFieldText object is equal to o. */
     @Override
     public boolean equals(Object o) {
@@ -302,6 +333,7 @@ public class TemplateResponseDocumentFormFieldText extends TemplateResponseDocum
                 && Objects.equals(this.fontFamily, templateResponseDocumentFormFieldText.fontFamily)
                 && Objects.equals(
                         this.validationType, templateResponseDocumentFormFieldText.validationType)
+                && Objects.equals(this.group, templateResponseDocumentFormFieldText.group)
                 && super.equals(o);
     }
 
@@ -314,6 +346,7 @@ public class TemplateResponseDocumentFormFieldText extends TemplateResponseDocum
                 originalFontSize,
                 fontFamily,
                 validationType,
+                group,
                 super.hashCode());
     }
 
@@ -328,6 +361,7 @@ public class TemplateResponseDocumentFormFieldText extends TemplateResponseDocum
         sb.append("    originalFontSize: ").append(toIndentedString(originalFontSize)).append("\n");
         sb.append("    fontFamily: ").append(toIndentedString(fontFamily)).append("\n");
         sb.append("    validationType: ").append(toIndentedString(validationType)).append("\n");
+        sb.append("    group: ").append(toIndentedString(group)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -453,6 +487,24 @@ public class TemplateResponseDocumentFormFieldText extends TemplateResponseDocum
                     map.put(
                             "validation_type",
                             JSON.getDefault().getMapper().writeValueAsString(validationType));
+                }
+            }
+            if (group != null) {
+                if (isFileTypeOrListOfFiles(group)) {
+                    fileTypeFound = true;
+                }
+
+                if (group.getClass().equals(java.io.File.class)
+                        || group.getClass().equals(Integer.class)
+                        || group.getClass().equals(String.class)
+                        || group.getClass().isEnum()) {
+                    map.put("group", group);
+                } else if (isListOfFile(group)) {
+                    for (int i = 0; i < getListSize(group); i++) {
+                        map.put("group[" + i + "]", getFromList(group, i));
+                    }
+                } else {
+                    map.put("group", JSON.getDefault().getMapper().writeValueAsString(group));
                 }
             }
         } catch (Exception e) {

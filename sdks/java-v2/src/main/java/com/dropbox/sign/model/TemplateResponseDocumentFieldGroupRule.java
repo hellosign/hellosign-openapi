@@ -72,9 +72,9 @@ public class TemplateResponseDocumentFieldGroupRule {
    * Examples: &#x60;require_0-1&#x60; &#x60;require_1&#x60; &#x60;require_1-ormore&#x60;  - Check out the list of [acceptable &#x60;requirement&#x60; checkbox type values](/api/reference/constants/#checkbox-field-grouping). - Check out the list of [acceptable &#x60;requirement&#x60; radio type fields](/api/reference/constants/#radio-field-grouping). - Radio groups require **at least** two fields per group.
    * @return requirement
    */
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_REQUIREMENT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getRequirement() {
     return requirement;
@@ -82,7 +82,7 @@ public class TemplateResponseDocumentFieldGroupRule {
 
 
   @JsonProperty(JSON_PROPERTY_REQUIREMENT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setRequirement(String requirement) {
     this.requirement = requirement;
   }
@@ -97,9 +97,9 @@ public class TemplateResponseDocumentFieldGroupRule {
    * Name of the group
    * @return groupLabel
    */
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_GROUP_LABEL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getGroupLabel() {
     return groupLabel;
@@ -107,7 +107,7 @@ public class TemplateResponseDocumentFieldGroupRule {
 
 
   @JsonProperty(JSON_PROPERTY_GROUP_LABEL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setGroupLabel(String groupLabel) {
     this.groupLabel = groupLabel;
   }

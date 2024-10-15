@@ -93,7 +93,6 @@ class OAuthApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             "200": "OAuthTokenResponse",
-            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
@@ -158,7 +157,6 @@ class OAuthApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             "200": "OAuthTokenResponse",
-            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
@@ -223,7 +221,6 @@ class OAuthApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             "200": "OAuthTokenResponse",
-            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
@@ -369,7 +366,6 @@ class OAuthApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             "200": "OAuthTokenResponse",
-            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
@@ -434,7 +430,6 @@ class OAuthApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             "200": "OAuthTokenResponse",
-            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout
@@ -499,7 +494,6 @@ class OAuthApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             "200": "OAuthTokenResponse",
-            "4XX": "ErrorResponse",
         }
         response_data = self.api_client.call_api(
             *_param, _request_timeout=_request_timeout

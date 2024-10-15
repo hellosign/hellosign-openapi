@@ -288,7 +288,15 @@ class TemplateResponseDocumentFieldGroup implements ModelInterface, ArrayAccess,
      */
     public function listInvalidProperties()
     {
-        return [];
+        $invalidProperties = [];
+
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
+        }
+        if ($this->container['rule'] === null) {
+            $invalidProperties[] = "'rule' can't be null";
+        }
+        return $invalidProperties;
     }
 
     /**
@@ -305,7 +313,7 @@ class TemplateResponseDocumentFieldGroup implements ModelInterface, ArrayAccess,
     /**
      * Gets name
      *
-     * @return string|null
+     * @return string
      */
     public function getName()
     {
@@ -315,11 +323,11 @@ class TemplateResponseDocumentFieldGroup implements ModelInterface, ArrayAccess,
     /**
      * Sets name
      *
-     * @param string|null $name the name of the form field group
+     * @param string $name the name of the form field group
      *
      * @return self
      */
-    public function setName(?string $name)
+    public function setName(string $name)
     {
         if (is_null($name)) {
             throw new InvalidArgumentException('non-nullable name cannot be null');
@@ -332,7 +340,7 @@ class TemplateResponseDocumentFieldGroup implements ModelInterface, ArrayAccess,
     /**
      * Gets rule
      *
-     * @return TemplateResponseDocumentFieldGroupRule|null
+     * @return TemplateResponseDocumentFieldGroupRule
      */
     public function getRule()
     {
@@ -342,11 +350,11 @@ class TemplateResponseDocumentFieldGroup implements ModelInterface, ArrayAccess,
     /**
      * Sets rule
      *
-     * @param TemplateResponseDocumentFieldGroupRule|null $rule rule
+     * @param TemplateResponseDocumentFieldGroupRule $rule rule
      *
      * @return self
      */
-    public function setRule(?TemplateResponseDocumentFieldGroupRule $rule)
+    public function setRule(TemplateResponseDocumentFieldGroupRule $rule)
     {
         if (is_null($rule)) {
             throw new InvalidArgumentException('non-nullable rule cannot be null');

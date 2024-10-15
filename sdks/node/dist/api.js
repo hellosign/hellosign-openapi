@@ -18331,16 +18331,6 @@ OAuthTokenRefreshRequest.attributeTypeMap = [
     name: "refreshToken",
     baseName: "refresh_token",
     type: "string"
-  },
-  {
-    name: "clientId",
-    baseName: "client_id",
-    type: "string"
-  },
-  {
-    name: "clientSecret",
-    baseName: "client_secret",
-    type: "string"
   }
 ];
 
@@ -22504,16 +22494,6 @@ TemplateResponse.attributeTypeMap = [
     type: "string"
   },
   {
-    name: "updatedAt",
-    baseName: "updated_at",
-    type: "number"
-  },
-  {
-    name: "isEmbedded",
-    baseName: "is_embedded",
-    type: "boolean"
-  },
-  {
     name: "isCreator",
     baseName: "is_creator",
     type: "boolean"
@@ -22526,6 +22506,31 @@ TemplateResponse.attributeTypeMap = [
   {
     name: "isLocked",
     baseName: "is_locked",
+    type: "boolean"
+  },
+  {
+    name: "documents",
+    baseName: "documents",
+    type: "Array<TemplateResponseDocument>"
+  },
+  {
+    name: "accounts",
+    baseName: "accounts",
+    type: "Array<TemplateResponseAccount>"
+  },
+  {
+    name: "attachments",
+    baseName: "attachments",
+    type: "Array<SignatureRequestResponseAttachment>"
+  },
+  {
+    name: "updatedAt",
+    baseName: "updated_at",
+    type: "number"
+  },
+  {
+    name: "isEmbedded",
+    baseName: "is_embedded",
     type: "boolean"
   },
   {
@@ -22544,11 +22549,6 @@ TemplateResponse.attributeTypeMap = [
     type: "Array<TemplateResponseCCRole>"
   },
   {
-    name: "documents",
-    baseName: "documents",
-    type: "Array<TemplateResponseDocument>"
-  },
-  {
     name: "customFields",
     baseName: "custom_fields",
     type: "Array<TemplateResponseDocumentCustomFieldBase>"
@@ -22557,11 +22557,6 @@ TemplateResponse.attributeTypeMap = [
     name: "namedFormFields",
     baseName: "named_form_fields",
     type: "Array<TemplateResponseDocumentFormFieldBase>"
-  },
-  {
-    name: "accounts",
-    baseName: "accounts",
-    type: "Array<TemplateResponseAccount>"
   }
 ];
 
@@ -22583,11 +22578,6 @@ TemplateResponseAccount.attributeTypeMap = [
     type: "string"
   },
   {
-    name: "emailAddress",
-    baseName: "email_address",
-    type: "string"
-  },
-  {
     name: "isLocked",
     baseName: "is_locked",
     type: "boolean"
@@ -22606,6 +22596,11 @@ TemplateResponseAccount.attributeTypeMap = [
     name: "quotas",
     baseName: "quotas",
     type: "TemplateResponseAccountQuota"
+  },
+  {
+    name: "emailAddress",
+    baseName: "email_address",
+    type: "string"
   }
 ];
 
@@ -22680,11 +22675,6 @@ TemplateResponseDocument.attributeTypeMap = [
     type: "string"
   },
   {
-    name: "index",
-    baseName: "index",
-    type: "number"
-  },
-  {
     name: "fieldGroups",
     baseName: "field_groups",
     type: "Array<TemplateResponseDocumentFieldGroup>"
@@ -22703,6 +22693,11 @@ TemplateResponseDocument.attributeTypeMap = [
     name: "staticFields",
     baseName: "static_fields",
     type: "Array<TemplateResponseDocumentStaticFieldBase>"
+  },
+  {
+    name: "index",
+    baseName: "index",
+    type: "number"
   }
 ];
 
@@ -22728,11 +22723,6 @@ var TemplateResponseDocumentCustomFieldBase = _TemplateResponseDocumentCustomFie
 TemplateResponseDocumentCustomFieldBase.discriminator = "type";
 TemplateResponseDocumentCustomFieldBase.attributeTypeMap = [
   {
-    name: "type",
-    baseName: "type",
-    type: "string"
-  },
-  {
     name: "apiId",
     baseName: "api_id",
     type: "string"
@@ -22743,8 +22733,8 @@ TemplateResponseDocumentCustomFieldBase.attributeTypeMap = [
     type: "string"
   },
   {
-    name: "signer",
-    baseName: "signer",
+    name: "type",
+    baseName: "type",
     type: "string"
   },
   {
@@ -22771,6 +22761,11 @@ TemplateResponseDocumentCustomFieldBase.attributeTypeMap = [
     name: "required",
     baseName: "required",
     type: "boolean"
+  },
+  {
+    name: "signer",
+    baseName: "signer",
+    type: "string"
   },
   {
     name: "group",
@@ -22945,11 +22940,6 @@ var TemplateResponseDocumentFormFieldBase = _TemplateResponseDocumentFormFieldBa
 TemplateResponseDocumentFormFieldBase.discriminator = "type";
 TemplateResponseDocumentFormFieldBase.attributeTypeMap = [
   {
-    name: "type",
-    baseName: "type",
-    type: "string"
-  },
-  {
     name: "apiId",
     baseName: "api_id",
     type: "string"
@@ -22957,6 +22947,11 @@ TemplateResponseDocumentFormFieldBase.attributeTypeMap = [
   {
     name: "name",
     baseName: "name",
+    type: "string"
+  },
+  {
+    name: "type",
+    baseName: "type",
     type: "string"
   },
   {
@@ -22988,11 +22983,6 @@ TemplateResponseDocumentFormFieldBase.attributeTypeMap = [
     name: "required",
     baseName: "required",
     type: "boolean"
-  },
-  {
-    name: "group",
-    baseName: "group",
-    type: "string"
   }
 ];
 
@@ -23018,6 +23008,11 @@ TemplateResponseDocumentFormFieldCheckbox.attributeTypeMap = [
   {
     name: "type",
     baseName: "type",
+    type: "string"
+  },
+  {
+    name: "group",
+    baseName: "group",
     type: "string"
   }
 ];
@@ -23045,6 +23040,11 @@ TemplateResponseDocumentFormFieldDateSigned.attributeTypeMap = [
     name: "type",
     baseName: "type",
     type: "string"
+  },
+  {
+    name: "group",
+    baseName: "group",
+    type: "string"
   }
 ];
 
@@ -23070,6 +23070,11 @@ TemplateResponseDocumentFormFieldDropdown.attributeTypeMap = [
   {
     name: "type",
     baseName: "type",
+    type: "string"
+  },
+  {
+    name: "group",
+    baseName: "group",
     type: "string"
   }
 ];
@@ -23117,6 +23122,11 @@ TemplateResponseDocumentFormFieldHyperlink.attributeTypeMap = [
     name: "fontFamily",
     baseName: "fontFamily",
     type: "string"
+  },
+  {
+    name: "group",
+    baseName: "group",
+    type: "string"
   }
 ];
 
@@ -23142,6 +23152,11 @@ TemplateResponseDocumentFormFieldInitials.attributeTypeMap = [
   {
     name: "type",
     baseName: "type",
+    type: "string"
+  },
+  {
+    name: "group",
+    baseName: "group",
     type: "string"
   }
 ];
@@ -23169,6 +23184,11 @@ TemplateResponseDocumentFormFieldRadio.attributeTypeMap = [
     name: "type",
     baseName: "type",
     type: "string"
+  },
+  {
+    name: "group",
+    baseName: "group",
+    type: "string"
   }
 ];
 
@@ -23194,6 +23214,11 @@ TemplateResponseDocumentFormFieldSignature.attributeTypeMap = [
   {
     name: "type",
     baseName: "type",
+    type: "string"
+  },
+  {
+    name: "group",
+    baseName: "group",
     type: "string"
   }
 ];
@@ -23246,6 +23271,11 @@ TemplateResponseDocumentFormFieldText.attributeTypeMap = [
     name: "validationType",
     baseName: "validation_type",
     type: "TemplateResponseDocumentFormFieldText.ValidationTypeEnum"
+  },
+  {
+    name: "group",
+    baseName: "group",
+    type: "string"
   }
 ];
 ((TemplateResponseDocumentFormFieldText2) => {
@@ -23307,11 +23337,6 @@ var TemplateResponseDocumentStaticFieldBase = _TemplateResponseDocumentStaticFie
 TemplateResponseDocumentStaticFieldBase.discriminator = "type";
 TemplateResponseDocumentStaticFieldBase.attributeTypeMap = [
   {
-    name: "type",
-    baseName: "type",
-    type: "string"
-  },
-  {
     name: "apiId",
     baseName: "api_id",
     type: "string"
@@ -23319,6 +23344,11 @@ TemplateResponseDocumentStaticFieldBase.attributeTypeMap = [
   {
     name: "name",
     baseName: "name",
+    type: "string"
+  },
+  {
+    name: "type",
+    baseName: "type",
     type: "string"
   },
   {
@@ -27310,14 +27340,6 @@ var OAuthApi = class {
               )) {
                 return;
               }
-              if (handleErrorRangeResponse6(
-                reject,
-                error.response,
-                "4XX",
-                "ErrorResponse"
-              )) {
-                return;
-              }
               reject(error);
             }
           );
@@ -27413,14 +27435,6 @@ var OAuthApi = class {
               )) {
                 return;
               }
-              if (handleErrorRangeResponse6(
-                reject,
-                error.response,
-                "4XX",
-                "ErrorResponse"
-              )) {
-                return;
-              }
               reject(error);
             }
           );
@@ -27453,16 +27467,6 @@ function handleErrorCodeResponse6(reject, response, code, returnType) {
   const body = ObjectSerializer.deserialize(response.data, returnType);
   reject(new HttpError(response, body, response.status));
   return true;
-}
-function handleErrorRangeResponse6(reject, response, code, returnType) {
-  let rangeCodeLeft = Number(code[0] + "00");
-  let rangeCodeRight = Number(code[0] + "99");
-  if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
-    const body = ObjectSerializer.deserialize(response.data, returnType);
-    reject(new HttpError(response, body, response.status));
-    return true;
-  }
-  return false;
 }
 
 // api/reportApi.ts
@@ -27609,7 +27613,7 @@ var ReportApi = class {
                 )) {
                   return;
                 }
-                if (handleErrorRangeResponse7(
+                if (handleErrorRangeResponse6(
                   reject,
                   error.response,
                   "4XX",
@@ -27651,7 +27655,7 @@ function handleErrorCodeResponse7(reject, response, code, returnType) {
   reject(new HttpError(response, body, response.status));
   return true;
 }
-function handleErrorRangeResponse7(reject, response, code, returnType) {
+function handleErrorRangeResponse6(reject, response, code, returnType) {
   let rangeCodeLeft = Number(code[0] + "00");
   let rangeCodeRight = Number(code[0] + "99");
   if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
@@ -27806,7 +27810,7 @@ var SignatureRequestApi = class {
                 )) {
                   return;
                 }
-                if (handleErrorRangeResponse8(
+                if (handleErrorRangeResponse7(
                   reject,
                   error.response,
                   "4XX",
@@ -27921,7 +27925,7 @@ var SignatureRequestApi = class {
                 )) {
                   return;
                 }
-                if (handleErrorRangeResponse8(
+                if (handleErrorRangeResponse7(
                   reject,
                   error.response,
                   "4XX",
@@ -28004,7 +28008,7 @@ var SignatureRequestApi = class {
                 reject(error);
                 return;
               }
-              if (handleErrorRangeResponse8(
+              if (handleErrorRangeResponse7(
                 reject,
                 error.response,
                 "4XX",
@@ -28118,7 +28122,7 @@ var SignatureRequestApi = class {
                 )) {
                   return;
                 }
-                if (handleErrorRangeResponse8(
+                if (handleErrorRangeResponse7(
                   reject,
                   error.response,
                   "4XX",
@@ -28233,7 +28237,7 @@ var SignatureRequestApi = class {
                 )) {
                   return;
                 }
-                if (handleErrorRangeResponse8(
+                if (handleErrorRangeResponse7(
                   reject,
                   error.response,
                   "4XX",
@@ -28335,7 +28339,7 @@ var SignatureRequestApi = class {
               )) {
                 return;
               }
-              if (handleErrorRangeResponse8(
+              if (handleErrorRangeResponse7(
                 reject,
                 error.response,
                 "4XX",
@@ -28431,7 +28435,7 @@ var SignatureRequestApi = class {
                 )) {
                   return;
                 }
-                if (handleErrorRangeResponse8(
+                if (handleErrorRangeResponse7(
                   reject,
                   error.response,
                   "4XX",
@@ -28533,7 +28537,7 @@ var SignatureRequestApi = class {
               )) {
                 return;
               }
-              if (handleErrorRangeResponse8(
+              if (handleErrorRangeResponse7(
                 reject,
                 error.response,
                 "4XX",
@@ -28629,7 +28633,7 @@ var SignatureRequestApi = class {
                 )) {
                   return;
                 }
-                if (handleErrorRangeResponse8(
+                if (handleErrorRangeResponse7(
                   reject,
                   error.response,
                   "4XX",
@@ -28742,7 +28746,7 @@ var SignatureRequestApi = class {
                 )) {
                   return;
                 }
-                if (handleErrorRangeResponse8(
+                if (handleErrorRangeResponse7(
                   reject,
                   error.response,
                   "4XX",
@@ -28839,7 +28843,7 @@ var SignatureRequestApi = class {
                 )) {
                   return;
                 }
-                if (handleErrorRangeResponse8(
+                if (handleErrorRangeResponse7(
                   reject,
                   error.response,
                   "4XX",
@@ -28962,7 +28966,7 @@ var SignatureRequestApi = class {
                 )) {
                   return;
                 }
-                if (handleErrorRangeResponse8(
+                if (handleErrorRangeResponse7(
                   reject,
                   error.response,
                   "4XX",
@@ -29040,7 +29044,7 @@ var SignatureRequestApi = class {
                 reject(error);
                 return;
               }
-              if (handleErrorRangeResponse8(
+              if (handleErrorRangeResponse7(
                 reject,
                 error.response,
                 "4XX",
@@ -29154,7 +29158,7 @@ var SignatureRequestApi = class {
                 )) {
                   return;
                 }
-                if (handleErrorRangeResponse8(
+                if (handleErrorRangeResponse7(
                   reject,
                   error.response,
                   "4XX",
@@ -29269,7 +29273,7 @@ var SignatureRequestApi = class {
                 )) {
                   return;
                 }
-                if (handleErrorRangeResponse8(
+                if (handleErrorRangeResponse7(
                   reject,
                   error.response,
                   "4XX",
@@ -29392,7 +29396,7 @@ var SignatureRequestApi = class {
                 )) {
                   return;
                 }
-                if (handleErrorRangeResponse8(
+                if (handleErrorRangeResponse7(
                   reject,
                   error.response,
                   "4XX",
@@ -29434,7 +29438,7 @@ function handleErrorCodeResponse8(reject, response, code, returnType) {
   reject(new HttpError(response, body, response.status));
   return true;
 }
-function handleErrorRangeResponse8(reject, response, code, returnType) {
+function handleErrorRangeResponse7(reject, response, code, returnType) {
   let rangeCodeLeft = Number(code[0] + "00");
   let rangeCodeRight = Number(code[0] + "99");
   if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
@@ -29599,7 +29603,7 @@ var TeamApi = class {
               )) {
                 return;
               }
-              if (handleErrorRangeResponse9(
+              if (handleErrorRangeResponse8(
                 reject,
                 error.response,
                 "4XX",
@@ -29709,7 +29713,7 @@ var TeamApi = class {
               )) {
                 return;
               }
-              if (handleErrorRangeResponse9(
+              if (handleErrorRangeResponse8(
                 reject,
                 error.response,
                 "4XX",
@@ -29783,7 +29787,7 @@ var TeamApi = class {
                 reject(error);
                 return;
               }
-              if (handleErrorRangeResponse9(
+              if (handleErrorRangeResponse8(
                 reject,
                 error.response,
                 "4XX",
@@ -29870,7 +29874,7 @@ var TeamApi = class {
               )) {
                 return;
               }
-              if (handleErrorRangeResponse9(
+              if (handleErrorRangeResponse8(
                 reject,
                 error.response,
                 "4XX",
@@ -29964,7 +29968,7 @@ var TeamApi = class {
                 )) {
                   return;
                 }
-                if (handleErrorRangeResponse9(
+                if (handleErrorRangeResponse8(
                   reject,
                   error.response,
                   "4XX",
@@ -30059,7 +30063,7 @@ var TeamApi = class {
                 )) {
                   return;
                 }
-                if (handleErrorRangeResponse9(
+                if (handleErrorRangeResponse8(
                   reject,
                   error.response,
                   "4XX",
@@ -30168,7 +30172,7 @@ var TeamApi = class {
                 )) {
                   return;
                 }
-                if (handleErrorRangeResponse9(
+                if (handleErrorRangeResponse8(
                   reject,
                   error.response,
                   "4XX",
@@ -30282,7 +30286,7 @@ var TeamApi = class {
               )) {
                 return;
               }
-              if (handleErrorRangeResponse9(
+              if (handleErrorRangeResponse8(
                 reject,
                 error.response,
                 "4XX",
@@ -30390,7 +30394,7 @@ var TeamApi = class {
                 )) {
                   return;
                 }
-                if (handleErrorRangeResponse9(
+                if (handleErrorRangeResponse8(
                   reject,
                   error.response,
                   "4XX",
@@ -30501,7 +30505,7 @@ var TeamApi = class {
               )) {
                 return;
               }
-              if (handleErrorRangeResponse9(
+              if (handleErrorRangeResponse8(
                 reject,
                 error.response,
                 "4XX",
@@ -30542,7 +30546,7 @@ function handleErrorCodeResponse9(reject, response, code, returnType) {
   reject(new HttpError(response, body, response.status));
   return true;
 }
-function handleErrorRangeResponse9(reject, response, code, returnType) {
+function handleErrorRangeResponse8(reject, response, code, returnType) {
   let rangeCodeLeft = Number(code[0] + "00");
   let rangeCodeRight = Number(code[0] + "99");
   if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
@@ -30710,7 +30714,7 @@ var TemplateApi = class {
                 )) {
                   return;
                 }
-                if (handleErrorRangeResponse10(
+                if (handleErrorRangeResponse9(
                   reject,
                   error.response,
                   "4XX",
@@ -30825,7 +30829,7 @@ var TemplateApi = class {
                 )) {
                   return;
                 }
-                if (handleErrorRangeResponse10(
+                if (handleErrorRangeResponse9(
                   reject,
                   error.response,
                   "4XX",
@@ -30940,7 +30944,7 @@ var TemplateApi = class {
                 )) {
                   return;
                 }
-                if (handleErrorRangeResponse10(
+                if (handleErrorRangeResponse9(
                   reject,
                   error.response,
                   "4XX",
@@ -31023,7 +31027,7 @@ var TemplateApi = class {
                 reject(error);
                 return;
               }
-              if (handleErrorRangeResponse10(
+              if (handleErrorRangeResponse9(
                 reject,
                 error.response,
                 "4XX",
@@ -31124,7 +31128,7 @@ var TemplateApi = class {
               )) {
                 return;
               }
-              if (handleErrorRangeResponse10(
+              if (handleErrorRangeResponse9(
                 reject,
                 error.response,
                 "4XX",
@@ -31220,7 +31224,7 @@ var TemplateApi = class {
                 )) {
                   return;
                 }
-                if (handleErrorRangeResponse10(
+                if (handleErrorRangeResponse9(
                   reject,
                   error.response,
                   "4XX",
@@ -31322,7 +31326,7 @@ var TemplateApi = class {
               )) {
                 return;
               }
-              if (handleErrorRangeResponse10(
+              if (handleErrorRangeResponse9(
                 reject,
                 error.response,
                 "4XX",
@@ -31418,7 +31422,7 @@ var TemplateApi = class {
                 )) {
                   return;
                 }
-                if (handleErrorRangeResponse10(
+                if (handleErrorRangeResponse9(
                   reject,
                   error.response,
                   "4XX",
@@ -31531,7 +31535,7 @@ var TemplateApi = class {
                 )) {
                   return;
                 }
-                if (handleErrorRangeResponse10(
+                if (handleErrorRangeResponse9(
                   reject,
                   error.response,
                   "4XX",
@@ -31654,7 +31658,7 @@ var TemplateApi = class {
                 )) {
                   return;
                 }
-                if (handleErrorRangeResponse10(
+                if (handleErrorRangeResponse9(
                   reject,
                   error.response,
                   "4XX",
@@ -31777,7 +31781,7 @@ var TemplateApi = class {
                 )) {
                   return;
                 }
-                if (handleErrorRangeResponse10(
+                if (handleErrorRangeResponse9(
                   reject,
                   error.response,
                   "4XX",
@@ -31819,7 +31823,7 @@ function handleErrorCodeResponse10(reject, response, code, returnType) {
   reject(new HttpError(response, body, response.status));
   return true;
 }
-function handleErrorRangeResponse10(reject, response, code, returnType) {
+function handleErrorRangeResponse9(reject, response, code, returnType) {
   let rangeCodeLeft = Number(code[0] + "00");
   let rangeCodeRight = Number(code[0] + "99");
   if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
@@ -31979,7 +31983,7 @@ var UnclaimedDraftApi = class {
                 )) {
                   return;
                 }
-                if (handleErrorRangeResponse11(
+                if (handleErrorRangeResponse10(
                   reject,
                   error.response,
                   "4XX",
@@ -32094,7 +32098,7 @@ var UnclaimedDraftApi = class {
                 )) {
                   return;
                 }
-                if (handleErrorRangeResponse11(
+                if (handleErrorRangeResponse10(
                   reject,
                   error.response,
                   "4XX",
@@ -32209,7 +32213,7 @@ var UnclaimedDraftApi = class {
                 )) {
                   return;
                 }
-                if (handleErrorRangeResponse11(
+                if (handleErrorRangeResponse10(
                   reject,
                   error.response,
                   "4XX",
@@ -32332,7 +32336,7 @@ var UnclaimedDraftApi = class {
                 )) {
                   return;
                 }
-                if (handleErrorRangeResponse11(
+                if (handleErrorRangeResponse10(
                   reject,
                   error.response,
                   "4XX",
@@ -32374,7 +32378,7 @@ function handleErrorCodeResponse11(reject, response, code, returnType) {
   reject(new HttpError(response, body, response.status));
   return true;
 }
-function handleErrorRangeResponse11(reject, response, code, returnType) {
+function handleErrorRangeResponse10(reject, response, code, returnType) {
   let rangeCodeLeft = Number(code[0] + "00");
   let rangeCodeRight = Number(code[0] + "99");
   if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {

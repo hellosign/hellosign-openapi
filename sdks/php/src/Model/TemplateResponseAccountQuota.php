@@ -303,7 +303,21 @@ class TemplateResponseAccountQuota implements ModelInterface, ArrayAccess, JsonS
      */
     public function listInvalidProperties()
     {
-        return [];
+        $invalidProperties = [];
+
+        if ($this->container['templates_left'] === null) {
+            $invalidProperties[] = "'templates_left' can't be null";
+        }
+        if ($this->container['api_signature_requests_left'] === null) {
+            $invalidProperties[] = "'api_signature_requests_left' can't be null";
+        }
+        if ($this->container['documents_left'] === null) {
+            $invalidProperties[] = "'documents_left' can't be null";
+        }
+        if ($this->container['sms_verifications_left'] === null) {
+            $invalidProperties[] = "'sms_verifications_left' can't be null";
+        }
+        return $invalidProperties;
     }
 
     /**
@@ -320,7 +334,7 @@ class TemplateResponseAccountQuota implements ModelInterface, ArrayAccess, JsonS
     /**
      * Gets templates_left
      *
-     * @return int|null
+     * @return int
      */
     public function getTemplatesLeft()
     {
@@ -330,11 +344,11 @@ class TemplateResponseAccountQuota implements ModelInterface, ArrayAccess, JsonS
     /**
      * Sets templates_left
      *
-     * @param int|null $templates_left API templates remaining
+     * @param int $templates_left API templates remaining
      *
      * @return self
      */
-    public function setTemplatesLeft(?int $templates_left)
+    public function setTemplatesLeft(int $templates_left)
     {
         if (is_null($templates_left)) {
             throw new InvalidArgumentException('non-nullable templates_left cannot be null');
@@ -347,7 +361,7 @@ class TemplateResponseAccountQuota implements ModelInterface, ArrayAccess, JsonS
     /**
      * Gets api_signature_requests_left
      *
-     * @return int|null
+     * @return int
      */
     public function getApiSignatureRequestsLeft()
     {
@@ -357,11 +371,11 @@ class TemplateResponseAccountQuota implements ModelInterface, ArrayAccess, JsonS
     /**
      * Sets api_signature_requests_left
      *
-     * @param int|null $api_signature_requests_left API signature requests remaining
+     * @param int $api_signature_requests_left API signature requests remaining
      *
      * @return self
      */
-    public function setApiSignatureRequestsLeft(?int $api_signature_requests_left)
+    public function setApiSignatureRequestsLeft(int $api_signature_requests_left)
     {
         if (is_null($api_signature_requests_left)) {
             throw new InvalidArgumentException('non-nullable api_signature_requests_left cannot be null');
@@ -374,7 +388,7 @@ class TemplateResponseAccountQuota implements ModelInterface, ArrayAccess, JsonS
     /**
      * Gets documents_left
      *
-     * @return int|null
+     * @return int
      */
     public function getDocumentsLeft()
     {
@@ -384,11 +398,11 @@ class TemplateResponseAccountQuota implements ModelInterface, ArrayAccess, JsonS
     /**
      * Sets documents_left
      *
-     * @param int|null $documents_left signature requests remaining
+     * @param int $documents_left signature requests remaining
      *
      * @return self
      */
-    public function setDocumentsLeft(?int $documents_left)
+    public function setDocumentsLeft(int $documents_left)
     {
         if (is_null($documents_left)) {
             throw new InvalidArgumentException('non-nullable documents_left cannot be null');
@@ -401,7 +415,7 @@ class TemplateResponseAccountQuota implements ModelInterface, ArrayAccess, JsonS
     /**
      * Gets sms_verifications_left
      *
-     * @return int|null
+     * @return int
      */
     public function getSmsVerificationsLeft()
     {
@@ -411,11 +425,11 @@ class TemplateResponseAccountQuota implements ModelInterface, ArrayAccess, JsonS
     /**
      * Sets sms_verifications_left
      *
-     * @param int|null $sms_verifications_left SMS verifications remaining
+     * @param int $sms_verifications_left SMS verifications remaining
      *
      * @return self
      */
-    public function setSmsVerificationsLeft(?int $sms_verifications_left)
+    public function setSmsVerificationsLeft(int $sms_verifications_left)
     {
         if (is_null($sms_verifications_left)) {
             throw new InvalidArgumentException('non-nullable sms_verifications_left cannot be null');

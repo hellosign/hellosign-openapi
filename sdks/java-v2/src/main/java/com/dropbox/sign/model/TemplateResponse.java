@@ -16,6 +16,7 @@ package com.dropbox.sign.model;
 import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
+import com.dropbox.sign.model.SignatureRequestResponseAttachment;
 import com.dropbox.sign.model.TemplateResponseAccount;
 import com.dropbox.sign.model.TemplateResponseCCRole;
 import com.dropbox.sign.model.TemplateResponseDocument;
@@ -44,18 +45,19 @@ import com.dropbox.sign.ApiException;
   TemplateResponse.JSON_PROPERTY_TEMPLATE_ID,
   TemplateResponse.JSON_PROPERTY_TITLE,
   TemplateResponse.JSON_PROPERTY_MESSAGE,
-  TemplateResponse.JSON_PROPERTY_UPDATED_AT,
-  TemplateResponse.JSON_PROPERTY_IS_EMBEDDED,
   TemplateResponse.JSON_PROPERTY_IS_CREATOR,
   TemplateResponse.JSON_PROPERTY_CAN_EDIT,
   TemplateResponse.JSON_PROPERTY_IS_LOCKED,
+  TemplateResponse.JSON_PROPERTY_DOCUMENTS,
+  TemplateResponse.JSON_PROPERTY_ACCOUNTS,
+  TemplateResponse.JSON_PROPERTY_ATTACHMENTS,
+  TemplateResponse.JSON_PROPERTY_UPDATED_AT,
+  TemplateResponse.JSON_PROPERTY_IS_EMBEDDED,
   TemplateResponse.JSON_PROPERTY_METADATA,
   TemplateResponse.JSON_PROPERTY_SIGNER_ROLES,
   TemplateResponse.JSON_PROPERTY_CC_ROLES,
-  TemplateResponse.JSON_PROPERTY_DOCUMENTS,
   TemplateResponse.JSON_PROPERTY_CUSTOM_FIELDS,
-  TemplateResponse.JSON_PROPERTY_NAMED_FORM_FIELDS,
-  TemplateResponse.JSON_PROPERTY_ACCOUNTS
+  TemplateResponse.JSON_PROPERTY_NAMED_FORM_FIELDS
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
@@ -69,12 +71,6 @@ public class TemplateResponse {
   public static final String JSON_PROPERTY_MESSAGE = "message";
   private String message;
 
-  public static final String JSON_PROPERTY_UPDATED_AT = "updated_at";
-  private Integer updatedAt;
-
-  public static final String JSON_PROPERTY_IS_EMBEDDED = "is_embedded";
-  private Boolean isEmbedded;
-
   public static final String JSON_PROPERTY_IS_CREATOR = "is_creator";
   private Boolean isCreator;
 
@@ -83,6 +79,21 @@ public class TemplateResponse {
 
   public static final String JSON_PROPERTY_IS_LOCKED = "is_locked";
   private Boolean isLocked;
+
+  public static final String JSON_PROPERTY_DOCUMENTS = "documents";
+  private List<TemplateResponseDocument> documents = new ArrayList<>();
+
+  public static final String JSON_PROPERTY_ACCOUNTS = "accounts";
+  private List<TemplateResponseAccount> accounts = new ArrayList<>();
+
+  public static final String JSON_PROPERTY_ATTACHMENTS = "attachments";
+  private List<SignatureRequestResponseAttachment> attachments = new ArrayList<>();
+
+  public static final String JSON_PROPERTY_UPDATED_AT = "updated_at";
+  private Integer updatedAt;
+
+  public static final String JSON_PROPERTY_IS_EMBEDDED = "is_embedded";
+  private Boolean isEmbedded;
 
   public static final String JSON_PROPERTY_METADATA = "metadata";
   private Object metadata;
@@ -93,9 +104,6 @@ public class TemplateResponse {
   public static final String JSON_PROPERTY_CC_ROLES = "cc_roles";
   private List<TemplateResponseCCRole> ccRoles = null;
 
-  public static final String JSON_PROPERTY_DOCUMENTS = "documents";
-  private List<TemplateResponseDocument> documents = null;
-
   public static final String JSON_PROPERTY_CUSTOM_FIELDS = "custom_fields";
   @Deprecated
   private List<TemplateResponseDocumentCustomFieldBase> customFields = null;
@@ -103,9 +111,6 @@ public class TemplateResponse {
   public static final String JSON_PROPERTY_NAMED_FORM_FIELDS = "named_form_fields";
   @Deprecated
   private List<TemplateResponseDocumentFormFieldBase> namedFormFields = null;
-
-  public static final String JSON_PROPERTY_ACCOUNTS = "accounts";
-  private List<TemplateResponseAccount> accounts = null;
 
   public TemplateResponse() { 
   }
@@ -134,9 +139,9 @@ public class TemplateResponse {
    * The id of the Template.
    * @return templateId
    */
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_TEMPLATE_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getTemplateId() {
     return templateId;
@@ -144,7 +149,7 @@ public class TemplateResponse {
 
 
   @JsonProperty(JSON_PROPERTY_TEMPLATE_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setTemplateId(String templateId) {
     this.templateId = templateId;
   }
@@ -159,9 +164,9 @@ public class TemplateResponse {
    * The title of the Template. This will also be the default subject of the message sent to signers when using this Template to send a SignatureRequest. This can be overridden when sending the SignatureRequest.
    * @return title
    */
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_TITLE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getTitle() {
     return title;
@@ -169,7 +174,7 @@ public class TemplateResponse {
 
 
   @JsonProperty(JSON_PROPERTY_TITLE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setTitle(String title) {
     this.title = title;
   }
@@ -184,9 +189,9 @@ public class TemplateResponse {
    * The default message that will be sent to signers when using this Template to send a SignatureRequest. This can be overridden when sending the SignatureRequest.
    * @return message
    */
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_MESSAGE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getMessage() {
     return message;
@@ -194,9 +199,183 @@ public class TemplateResponse {
 
 
   @JsonProperty(JSON_PROPERTY_MESSAGE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setMessage(String message) {
     this.message = message;
+  }
+
+
+  public TemplateResponse isCreator(Boolean isCreator) {
+    this.isCreator = isCreator;
+    return this;
+  }
+
+  /**
+   * &#x60;true&#x60; if you are the owner of this template, &#x60;false&#x60; if it&#39;s been shared with you by a team member.
+   * @return isCreator
+   */
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_IS_CREATOR)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public Boolean getIsCreator() {
+    return isCreator;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_IS_CREATOR)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setIsCreator(Boolean isCreator) {
+    this.isCreator = isCreator;
+  }
+
+
+  public TemplateResponse canEdit(Boolean canEdit) {
+    this.canEdit = canEdit;
+    return this;
+  }
+
+  /**
+   * Indicates whether edit rights have been granted to you by the owner (always &#x60;true&#x60; if that&#39;s you).
+   * @return canEdit
+   */
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_CAN_EDIT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public Boolean getCanEdit() {
+    return canEdit;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_CAN_EDIT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setCanEdit(Boolean canEdit) {
+    this.canEdit = canEdit;
+  }
+
+
+  public TemplateResponse isLocked(Boolean isLocked) {
+    this.isLocked = isLocked;
+    return this;
+  }
+
+  /**
+   * Indicates whether the template is locked. If &#x60;true&#x60;, then the template was created outside your quota and can only be used in &#x60;test_mode&#x60;. If &#x60;false&#x60;, then the template is within your quota and can be used to create signature requests.
+   * @return isLocked
+   */
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_IS_LOCKED)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public Boolean getIsLocked() {
+    return isLocked;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_IS_LOCKED)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setIsLocked(Boolean isLocked) {
+    this.isLocked = isLocked;
+  }
+
+
+  public TemplateResponse documents(List<TemplateResponseDocument> documents) {
+    this.documents = documents;
+    return this;
+  }
+
+  public TemplateResponse addDocumentsItem(TemplateResponseDocument documentsItem) {
+    if (this.documents == null) {
+      this.documents = new ArrayList<>();
+    }
+    this.documents.add(documentsItem);
+    return this;
+  }
+
+  /**
+   * An array describing each document associated with this Template. Includes form field data for each document.
+   * @return documents
+   */
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_DOCUMENTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public List<TemplateResponseDocument> getDocuments() {
+    return documents;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_DOCUMENTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setDocuments(List<TemplateResponseDocument> documents) {
+    this.documents = documents;
+  }
+
+
+  public TemplateResponse accounts(List<TemplateResponseAccount> accounts) {
+    this.accounts = accounts;
+    return this;
+  }
+
+  public TemplateResponse addAccountsItem(TemplateResponseAccount accountsItem) {
+    if (this.accounts == null) {
+      this.accounts = new ArrayList<>();
+    }
+    this.accounts.add(accountsItem);
+    return this;
+  }
+
+  /**
+   * An array of the Accounts that can use this Template.
+   * @return accounts
+   */
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_ACCOUNTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public List<TemplateResponseAccount> getAccounts() {
+    return accounts;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_ACCOUNTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setAccounts(List<TemplateResponseAccount> accounts) {
+    this.accounts = accounts;
+  }
+
+
+  public TemplateResponse attachments(List<SignatureRequestResponseAttachment> attachments) {
+    this.attachments = attachments;
+    return this;
+  }
+
+  public TemplateResponse addAttachmentsItem(SignatureRequestResponseAttachment attachmentsItem) {
+    if (this.attachments == null) {
+      this.attachments = new ArrayList<>();
+    }
+    this.attachments.add(attachmentsItem);
+    return this;
+  }
+
+  /**
+   * Signer attachments.
+   * @return attachments
+   */
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_ATTACHMENTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public List<SignatureRequestResponseAttachment> getAttachments() {
+    return attachments;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_ATTACHMENTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setAttachments(List<SignatureRequestResponseAttachment> attachments) {
+    this.attachments = attachments;
   }
 
 
@@ -247,81 +426,6 @@ public class TemplateResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIsEmbedded(Boolean isEmbedded) {
     this.isEmbedded = isEmbedded;
-  }
-
-
-  public TemplateResponse isCreator(Boolean isCreator) {
-    this.isCreator = isCreator;
-    return this;
-  }
-
-  /**
-   * &#x60;true&#x60; if you are the owner of this template, &#x60;false&#x60; if it&#39;s been shared with you by a team member.
-   * @return isCreator
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IS_CREATOR)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Boolean getIsCreator() {
-    return isCreator;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_IS_CREATOR)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setIsCreator(Boolean isCreator) {
-    this.isCreator = isCreator;
-  }
-
-
-  public TemplateResponse canEdit(Boolean canEdit) {
-    this.canEdit = canEdit;
-    return this;
-  }
-
-  /**
-   * Indicates whether edit rights have been granted to you by the owner (always &#x60;true&#x60; if that&#39;s you).
-   * @return canEdit
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CAN_EDIT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Boolean getCanEdit() {
-    return canEdit;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_CAN_EDIT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCanEdit(Boolean canEdit) {
-    this.canEdit = canEdit;
-  }
-
-
-  public TemplateResponse isLocked(Boolean isLocked) {
-    this.isLocked = isLocked;
-    return this;
-  }
-
-  /**
-   * Indicates whether the template is locked. If &#x60;true&#x60;, then the template was created outside your quota and can only be used in &#x60;test_mode&#x60;. If &#x60;false&#x60;, then the template is within your quota and can be used to create signature requests.
-   * @return isLocked
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IS_LOCKED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Boolean getIsLocked() {
-    return isLocked;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_IS_LOCKED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setIsLocked(Boolean isLocked) {
-    this.isLocked = isLocked;
   }
 
 
@@ -416,39 +520,6 @@ public class TemplateResponse {
   }
 
 
-  public TemplateResponse documents(List<TemplateResponseDocument> documents) {
-    this.documents = documents;
-    return this;
-  }
-
-  public TemplateResponse addDocumentsItem(TemplateResponseDocument documentsItem) {
-    if (this.documents == null) {
-      this.documents = new ArrayList<>();
-    }
-    this.documents.add(documentsItem);
-    return this;
-  }
-
-  /**
-   * An array describing each document associated with this Template. Includes form field data for each document.
-   * @return documents
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DOCUMENTS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public List<TemplateResponseDocument> getDocuments() {
-    return documents;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_DOCUMENTS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDocuments(List<TemplateResponseDocument> documents) {
-    this.documents = documents;
-  }
-
-
   @Deprecated
   public TemplateResponse customFields(List<TemplateResponseDocumentCustomFieldBase> customFields) {
     this.customFields = customFields;
@@ -523,39 +594,6 @@ public class TemplateResponse {
   }
 
 
-  public TemplateResponse accounts(List<TemplateResponseAccount> accounts) {
-    this.accounts = accounts;
-    return this;
-  }
-
-  public TemplateResponse addAccountsItem(TemplateResponseAccount accountsItem) {
-    if (this.accounts == null) {
-      this.accounts = new ArrayList<>();
-    }
-    this.accounts.add(accountsItem);
-    return this;
-  }
-
-  /**
-   * An array of the Accounts that can use this Template.
-   * @return accounts
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ACCOUNTS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public List<TemplateResponseAccount> getAccounts() {
-    return accounts;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_ACCOUNTS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAccounts(List<TemplateResponseAccount> accounts) {
-    this.accounts = accounts;
-  }
-
-
   /**
    * Return true if this TemplateResponse object is equal to o.
    */
@@ -571,23 +609,24 @@ public class TemplateResponse {
     return Objects.equals(this.templateId, templateResponse.templateId) &&
         Objects.equals(this.title, templateResponse.title) &&
         Objects.equals(this.message, templateResponse.message) &&
-        Objects.equals(this.updatedAt, templateResponse.updatedAt) &&
-        Objects.equals(this.isEmbedded, templateResponse.isEmbedded) &&
         Objects.equals(this.isCreator, templateResponse.isCreator) &&
         Objects.equals(this.canEdit, templateResponse.canEdit) &&
         Objects.equals(this.isLocked, templateResponse.isLocked) &&
+        Objects.equals(this.documents, templateResponse.documents) &&
+        Objects.equals(this.accounts, templateResponse.accounts) &&
+        Objects.equals(this.attachments, templateResponse.attachments) &&
+        Objects.equals(this.updatedAt, templateResponse.updatedAt) &&
+        Objects.equals(this.isEmbedded, templateResponse.isEmbedded) &&
         Objects.equals(this.metadata, templateResponse.metadata) &&
         Objects.equals(this.signerRoles, templateResponse.signerRoles) &&
         Objects.equals(this.ccRoles, templateResponse.ccRoles) &&
-        Objects.equals(this.documents, templateResponse.documents) &&
         Objects.equals(this.customFields, templateResponse.customFields) &&
-        Objects.equals(this.namedFormFields, templateResponse.namedFormFields) &&
-        Objects.equals(this.accounts, templateResponse.accounts);
+        Objects.equals(this.namedFormFields, templateResponse.namedFormFields);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(templateId, title, message, updatedAt, isEmbedded, isCreator, canEdit, isLocked, metadata, signerRoles, ccRoles, documents, customFields, namedFormFields, accounts);
+    return Objects.hash(templateId, title, message, isCreator, canEdit, isLocked, documents, accounts, attachments, updatedAt, isEmbedded, metadata, signerRoles, ccRoles, customFields, namedFormFields);
   }
 
   @Override
@@ -597,18 +636,19 @@ public class TemplateResponse {
     sb.append("    templateId: ").append(toIndentedString(templateId)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
-    sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
-    sb.append("    isEmbedded: ").append(toIndentedString(isEmbedded)).append("\n");
     sb.append("    isCreator: ").append(toIndentedString(isCreator)).append("\n");
     sb.append("    canEdit: ").append(toIndentedString(canEdit)).append("\n");
     sb.append("    isLocked: ").append(toIndentedString(isLocked)).append("\n");
+    sb.append("    documents: ").append(toIndentedString(documents)).append("\n");
+    sb.append("    accounts: ").append(toIndentedString(accounts)).append("\n");
+    sb.append("    attachments: ").append(toIndentedString(attachments)).append("\n");
+    sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
+    sb.append("    isEmbedded: ").append(toIndentedString(isEmbedded)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    signerRoles: ").append(toIndentedString(signerRoles)).append("\n");
     sb.append("    ccRoles: ").append(toIndentedString(ccRoles)).append("\n");
-    sb.append("    documents: ").append(toIndentedString(documents)).append("\n");
     sb.append("    customFields: ").append(toIndentedString(customFields)).append("\n");
     sb.append("    namedFormFields: ").append(toIndentedString(namedFormFields)).append("\n");
-    sb.append("    accounts: ").append(toIndentedString(accounts)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -674,44 +714,6 @@ public class TemplateResponse {
             map.put("message", JSON.getDefault().getMapper().writeValueAsString(message));
         }
     }
-    if (updatedAt != null) {
-        if (isFileTypeOrListOfFiles(updatedAt)) {
-            fileTypeFound = true;
-        }
-
-        if (updatedAt.getClass().equals(java.io.File.class) ||
-            updatedAt.getClass().equals(Integer.class) ||
-            updatedAt.getClass().equals(String.class) ||
-            updatedAt.getClass().isEnum()) {
-            map.put("updated_at", updatedAt);
-        } else if (isListOfFile(updatedAt)) {
-            for(int i = 0; i< getListSize(updatedAt); i++) {
-                map.put("updated_at[" + i + "]", getFromList(updatedAt, i));
-            }
-        }
-        else {
-            map.put("updated_at", JSON.getDefault().getMapper().writeValueAsString(updatedAt));
-        }
-    }
-    if (isEmbedded != null) {
-        if (isFileTypeOrListOfFiles(isEmbedded)) {
-            fileTypeFound = true;
-        }
-
-        if (isEmbedded.getClass().equals(java.io.File.class) ||
-            isEmbedded.getClass().equals(Integer.class) ||
-            isEmbedded.getClass().equals(String.class) ||
-            isEmbedded.getClass().isEnum()) {
-            map.put("is_embedded", isEmbedded);
-        } else if (isListOfFile(isEmbedded)) {
-            for(int i = 0; i< getListSize(isEmbedded); i++) {
-                map.put("is_embedded[" + i + "]", getFromList(isEmbedded, i));
-            }
-        }
-        else {
-            map.put("is_embedded", JSON.getDefault().getMapper().writeValueAsString(isEmbedded));
-        }
-    }
     if (isCreator != null) {
         if (isFileTypeOrListOfFiles(isCreator)) {
             fileTypeFound = true;
@@ -767,6 +769,101 @@ public class TemplateResponse {
         }
         else {
             map.put("is_locked", JSON.getDefault().getMapper().writeValueAsString(isLocked));
+        }
+    }
+    if (documents != null) {
+        if (isFileTypeOrListOfFiles(documents)) {
+            fileTypeFound = true;
+        }
+
+        if (documents.getClass().equals(java.io.File.class) ||
+            documents.getClass().equals(Integer.class) ||
+            documents.getClass().equals(String.class) ||
+            documents.getClass().isEnum()) {
+            map.put("documents", documents);
+        } else if (isListOfFile(documents)) {
+            for(int i = 0; i< getListSize(documents); i++) {
+                map.put("documents[" + i + "]", getFromList(documents, i));
+            }
+        }
+        else {
+            map.put("documents", JSON.getDefault().getMapper().writeValueAsString(documents));
+        }
+    }
+    if (accounts != null) {
+        if (isFileTypeOrListOfFiles(accounts)) {
+            fileTypeFound = true;
+        }
+
+        if (accounts.getClass().equals(java.io.File.class) ||
+            accounts.getClass().equals(Integer.class) ||
+            accounts.getClass().equals(String.class) ||
+            accounts.getClass().isEnum()) {
+            map.put("accounts", accounts);
+        } else if (isListOfFile(accounts)) {
+            for(int i = 0; i< getListSize(accounts); i++) {
+                map.put("accounts[" + i + "]", getFromList(accounts, i));
+            }
+        }
+        else {
+            map.put("accounts", JSON.getDefault().getMapper().writeValueAsString(accounts));
+        }
+    }
+    if (attachments != null) {
+        if (isFileTypeOrListOfFiles(attachments)) {
+            fileTypeFound = true;
+        }
+
+        if (attachments.getClass().equals(java.io.File.class) ||
+            attachments.getClass().equals(Integer.class) ||
+            attachments.getClass().equals(String.class) ||
+            attachments.getClass().isEnum()) {
+            map.put("attachments", attachments);
+        } else if (isListOfFile(attachments)) {
+            for(int i = 0; i< getListSize(attachments); i++) {
+                map.put("attachments[" + i + "]", getFromList(attachments, i));
+            }
+        }
+        else {
+            map.put("attachments", JSON.getDefault().getMapper().writeValueAsString(attachments));
+        }
+    }
+    if (updatedAt != null) {
+        if (isFileTypeOrListOfFiles(updatedAt)) {
+            fileTypeFound = true;
+        }
+
+        if (updatedAt.getClass().equals(java.io.File.class) ||
+            updatedAt.getClass().equals(Integer.class) ||
+            updatedAt.getClass().equals(String.class) ||
+            updatedAt.getClass().isEnum()) {
+            map.put("updated_at", updatedAt);
+        } else if (isListOfFile(updatedAt)) {
+            for(int i = 0; i< getListSize(updatedAt); i++) {
+                map.put("updated_at[" + i + "]", getFromList(updatedAt, i));
+            }
+        }
+        else {
+            map.put("updated_at", JSON.getDefault().getMapper().writeValueAsString(updatedAt));
+        }
+    }
+    if (isEmbedded != null) {
+        if (isFileTypeOrListOfFiles(isEmbedded)) {
+            fileTypeFound = true;
+        }
+
+        if (isEmbedded.getClass().equals(java.io.File.class) ||
+            isEmbedded.getClass().equals(Integer.class) ||
+            isEmbedded.getClass().equals(String.class) ||
+            isEmbedded.getClass().isEnum()) {
+            map.put("is_embedded", isEmbedded);
+        } else if (isListOfFile(isEmbedded)) {
+            for(int i = 0; i< getListSize(isEmbedded); i++) {
+                map.put("is_embedded[" + i + "]", getFromList(isEmbedded, i));
+            }
+        }
+        else {
+            map.put("is_embedded", JSON.getDefault().getMapper().writeValueAsString(isEmbedded));
         }
     }
     if (metadata != null) {
@@ -826,25 +923,6 @@ public class TemplateResponse {
             map.put("cc_roles", JSON.getDefault().getMapper().writeValueAsString(ccRoles));
         }
     }
-    if (documents != null) {
-        if (isFileTypeOrListOfFiles(documents)) {
-            fileTypeFound = true;
-        }
-
-        if (documents.getClass().equals(java.io.File.class) ||
-            documents.getClass().equals(Integer.class) ||
-            documents.getClass().equals(String.class) ||
-            documents.getClass().isEnum()) {
-            map.put("documents", documents);
-        } else if (isListOfFile(documents)) {
-            for(int i = 0; i< getListSize(documents); i++) {
-                map.put("documents[" + i + "]", getFromList(documents, i));
-            }
-        }
-        else {
-            map.put("documents", JSON.getDefault().getMapper().writeValueAsString(documents));
-        }
-    }
     if (customFields != null) {
         if (isFileTypeOrListOfFiles(customFields)) {
             fileTypeFound = true;
@@ -881,25 +959,6 @@ public class TemplateResponse {
         }
         else {
             map.put("named_form_fields", JSON.getDefault().getMapper().writeValueAsString(namedFormFields));
-        }
-    }
-    if (accounts != null) {
-        if (isFileTypeOrListOfFiles(accounts)) {
-            fileTypeFound = true;
-        }
-
-        if (accounts.getClass().equals(java.io.File.class) ||
-            accounts.getClass().equals(Integer.class) ||
-            accounts.getClass().equals(String.class) ||
-            accounts.getClass().isEnum()) {
-            map.put("accounts", accounts);
-        } else if (isListOfFile(accounts)) {
-            for(int i = 0; i< getListSize(accounts); i++) {
-                map.put("accounts[" + i + "]", getFromList(accounts, i));
-            }
-        }
-        else {
-            map.put("accounts", JSON.getDefault().getMapper().writeValueAsString(accounts));
         }
     }
     } catch (Exception e) {

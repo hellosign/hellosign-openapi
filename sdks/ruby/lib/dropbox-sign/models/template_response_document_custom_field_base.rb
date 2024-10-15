@@ -19,9 +19,6 @@ end
 module Dropbox::Sign
   # An array of Form Field objects containing the name and type of each named field.
   class TemplateResponseDocumentCustomFieldBase
-    # @return [String]
-    attr_accessor :type
-
     # The unique ID for this field.
     # @return [String]
     attr_accessor :api_id
@@ -30,9 +27,8 @@ module Dropbox::Sign
     # @return [String]
     attr_accessor :name
 
-    # The signer of the Custom Field. Can be `null` if field is a merge field (assigned to Sender).
-    # @return [Integer, String, nil]
-    attr_accessor :signer
+    # @return [String]
+    attr_accessor :type
 
     # The horizontal offset in pixels for this form field.
     # @return [Integer]
@@ -54,6 +50,10 @@ module Dropbox::Sign
     # @return [Boolean]
     attr_accessor :required
 
+    # The signer of the Custom Field. Can be `null` if field is a merge field (assigned to Sender).
+    # @return [Integer, String, nil]
+    attr_accessor :signer
+
     # The name of the group this field is in. If this field is not a group, this defaults to `null`.
     # @return [String, nil]
     attr_accessor :group
@@ -61,15 +61,15 @@ module Dropbox::Sign
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'type' => :'type',
         :'api_id' => :'api_id',
         :'name' => :'name',
-        :'signer' => :'signer',
+        :'type' => :'type',
         :'x' => :'x',
         :'y' => :'y',
         :'width' => :'width',
         :'height' => :'height',
         :'required' => :'required',
+        :'signer' => :'signer',
         :'group' => :'group'
       }
     end
@@ -82,15 +82,15 @@ module Dropbox::Sign
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'type' => :'String',
         :'api_id' => :'String',
         :'name' => :'String',
-        :'signer' => :'String',
+        :'type' => :'String',
         :'x' => :'Integer',
         :'y' => :'Integer',
         :'width' => :'Integer',
         :'height' => :'Integer',
         :'required' => :'Boolean',
+        :'signer' => :'String',
         :'group' => :'String'
       }
     end
@@ -151,10 +151,6 @@ module Dropbox::Sign
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'type')
-        self.type = attributes[:'type']
-      end
-
       if attributes.key?(:'api_id')
         self.api_id = attributes[:'api_id']
       end
@@ -163,8 +159,8 @@ module Dropbox::Sign
         self.name = attributes[:'name']
       end
 
-      if attributes.key?(:'signer')
-        self.signer = attributes[:'signer']
+      if attributes.key?(:'type')
+        self.type = attributes[:'type']
       end
 
       if attributes.key?(:'x')
@@ -187,6 +183,10 @@ module Dropbox::Sign
         self.required = attributes[:'required']
       end
 
+      if attributes.key?(:'signer')
+        self.signer = attributes[:'signer']
+      end
+
       if attributes.key?(:'group')
         self.group = attributes[:'group']
       end
@@ -196,8 +196,36 @@ module Dropbox::Sign
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @api_id.nil?
+        invalid_properties.push('invalid value for "api_id", api_id cannot be nil.')
+      end
+
+      if @name.nil?
+        invalid_properties.push('invalid value for "name", name cannot be nil.')
+      end
+
       if @type.nil?
         invalid_properties.push('invalid value for "type", type cannot be nil.')
+      end
+
+      if @x.nil?
+        invalid_properties.push('invalid value for "x", x cannot be nil.')
+      end
+
+      if @y.nil?
+        invalid_properties.push('invalid value for "y", y cannot be nil.')
+      end
+
+      if @width.nil?
+        invalid_properties.push('invalid value for "width", width cannot be nil.')
+      end
+
+      if @height.nil?
+        invalid_properties.push('invalid value for "height", height cannot be nil.')
+      end
+
+      if @required.nil?
+        invalid_properties.push('invalid value for "required", required cannot be nil.')
       end
 
       invalid_properties
@@ -206,7 +234,14 @@ module Dropbox::Sign
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @api_id.nil?
+      return false if @name.nil?
       return false if @type.nil?
+      return false if @x.nil?
+      return false if @y.nil?
+      return false if @width.nil?
+      return false if @height.nil?
+      return false if @required.nil?
       true
     end
 
@@ -215,15 +250,15 @@ module Dropbox::Sign
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          type == o.type &&
           api_id == o.api_id &&
           name == o.name &&
-          signer == o.signer &&
+          type == o.type &&
           x == o.x &&
           y == o.y &&
           width == o.width &&
           height == o.height &&
           required == o.required &&
+          signer == o.signer &&
           group == o.group
     end
 
@@ -236,7 +271,7 @@ module Dropbox::Sign
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [type, api_id, name, signer, x, y, width, height, required, group].hash
+      [api_id, name, type, x, y, width, height, required, signer, group].hash
     end
 
     # Builds the object from hash
