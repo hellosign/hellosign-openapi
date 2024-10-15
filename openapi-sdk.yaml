@@ -11148,6 +11148,11 @@ components:
       x-internal-class: true
     TeamResponse:
       description: 'Contains information about your team and its members'
+      required:
+        - name
+        - accounts
+        - invited_accounts
+        - invited_emails
       properties:
         name:
           description: 'The name of your Team'
