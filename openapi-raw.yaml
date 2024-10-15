@@ -10532,6 +10532,11 @@ components:
       x-internal-class: true
     TeamResponse:
       description: '_t__TeamResponse::DESCRIPTION'
+      required:
+        - name
+        - accounts
+        - invited_accounts
+        - invited_emails
       properties:
         name:
           description: '_t__Team::NAME'
