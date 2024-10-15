@@ -2239,6 +2239,23 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/OAuthTokenGenerateResponseExample'
+        4XX:
+          description: failed_operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                400_example:
+                  $ref: '#/components/examples/Error400ResponseExample'
+                401_example:
+                  $ref: '#/components/examples/Error401ResponseExample'
+                402_example:
+                  $ref: '#/components/examples/Error402ResponseExample'
+                403_example:
+                  $ref: '#/components/examples/Error403ResponseExample'
+                4XX_example:
+                  $ref: '#/components/examples/Error4XXResponseExample'
       security: []
       servers:
         -
@@ -2322,6 +2339,23 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/OAuthTokenRefreshResponseExample'
+        4XX:
+          description: failed_operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                400_example:
+                  $ref: '#/components/examples/Error400ResponseExample'
+                401_example:
+                  $ref: '#/components/examples/Error401ResponseExample'
+                402_example:
+                  $ref: '#/components/examples/Error402ResponseExample'
+                403_example:
+                  $ref: '#/components/examples/Error403ResponseExample'
+                4XX_example:
+                  $ref: '#/components/examples/Error4XXResponseExample'
       security: []
       servers:
         -
@@ -7381,6 +7415,12 @@ components:
           default: refresh_token
         refresh_token:
           description: 'The token provided when you got the expired access token.'
+          type: string
+        client_id:
+          description: 'The client ID for your API app. Mandatory from August 1st, 2025. Until then, required if the "Client Credentials Required" setting is enabled for token refresh; optional if disabled.'
+          type: string
+        client_secret:
+          description: 'The client secret for your API app. Mandatory from August 1st, 2025. Until then, required if the "Client Credentials Required" setting is enabled for token refresh; optional if disabled.'
           type: string
       type: object
     ReportCreateRequest:

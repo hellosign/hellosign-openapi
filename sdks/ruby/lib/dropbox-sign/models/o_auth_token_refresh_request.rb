@@ -26,11 +26,21 @@ module Dropbox::Sign
     # @return [String]
     attr_accessor :refresh_token
 
+    # The client ID for your API app. Mandatory from August 1st, 2025. Until then, required if the \"Client Credentials Required\" setting is enabled for token refresh; optional if disabled.
+    # @return [String]
+    attr_accessor :client_id
+
+    # The client secret for your API app. Mandatory from August 1st, 2025. Until then, required if the \"Client Credentials Required\" setting is enabled for token refresh; optional if disabled.
+    # @return [String]
+    attr_accessor :client_secret
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'grant_type' => :'grant_type',
-        :'refresh_token' => :'refresh_token'
+        :'refresh_token' => :'refresh_token',
+        :'client_id' => :'client_id',
+        :'client_secret' => :'client_secret'
       }
     end
 
@@ -43,7 +53,9 @@ module Dropbox::Sign
     def self.openapi_types
       {
         :'grant_type' => :'String',
-        :'refresh_token' => :'String'
+        :'refresh_token' => :'String',
+        :'client_id' => :'String',
+        :'client_secret' => :'String'
       }
     end
 
@@ -102,6 +114,14 @@ module Dropbox::Sign
       if attributes.key?(:'refresh_token')
         self.refresh_token = attributes[:'refresh_token']
       end
+
+      if attributes.key?(:'client_id')
+        self.client_id = attributes[:'client_id']
+      end
+
+      if attributes.key?(:'client_secret')
+        self.client_secret = attributes[:'client_secret']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -133,7 +153,9 @@ module Dropbox::Sign
       return true if self.equal?(o)
       self.class == o.class &&
           grant_type == o.grant_type &&
-          refresh_token == o.refresh_token
+          refresh_token == o.refresh_token &&
+          client_id == o.client_id &&
+          client_secret == o.client_secret
     end
 
     # @see the `==` method
@@ -145,7 +167,7 @@ module Dropbox::Sign
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [grant_type, refresh_token].hash
+      [grant_type, refresh_token, client_id, client_secret].hash
     end
 
     # Builds the object from hash

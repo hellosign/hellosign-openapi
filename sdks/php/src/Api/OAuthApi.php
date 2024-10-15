@@ -211,6 +211,15 @@ class OAuthApi
                 );
             }
 
+            $result = $this->handleRangeCodeResponse(
+                $response,
+                '4XX',
+                '\Dropbox\Sign\Model\ErrorResponse'
+            );
+            if ($result) {
+                return $result;
+            }
+
             switch ($statusCode) {
                 case 200:
                     if ('\Dropbox\Sign\Model\OAuthTokenResponse' === '\SplFileObject') {
@@ -269,6 +278,9 @@ class OAuthApi
                 $response->getHeaders(),
             ];
         } catch (ApiException $e) {
+            if ($this->handleRangeCodeException($e, '4XX', '\Dropbox\Sign\Model\ErrorResponse')) {
+                throw $e;
+            }
             switch ($e->getCode()) {
                 case 200:
                     $data = ObjectSerializer::deserialize(
@@ -582,6 +594,15 @@ class OAuthApi
                 );
             }
 
+            $result = $this->handleRangeCodeResponse(
+                $response,
+                '4XX',
+                '\Dropbox\Sign\Model\ErrorResponse'
+            );
+            if ($result) {
+                return $result;
+            }
+
             switch ($statusCode) {
                 case 200:
                     if ('\Dropbox\Sign\Model\OAuthTokenResponse' === '\SplFileObject') {
@@ -640,6 +661,9 @@ class OAuthApi
                 $response->getHeaders(),
             ];
         } catch (ApiException $e) {
+            if ($this->handleRangeCodeException($e, '4XX', '\Dropbox\Sign\Model\ErrorResponse')) {
+                throw $e;
+            }
             switch ($e->getCode()) {
                 case 200:
                     $data = ObjectSerializer::deserialize(
