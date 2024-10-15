@@ -43,6 +43,18 @@ module Dropbox::Sign
     # @return [Boolean]
     attr_accessor :is_locked
 
+    # The metadata attached to the template.
+    # @return [Object]
+    attr_accessor :metadata
+
+    # An array of the designated signer roles that must be specified when sending a SignatureRequest using this Template.
+    # @return [Array<TemplateResponseSignerRole>]
+    attr_accessor :signer_roles
+
+    # An array of the designated CC roles that must be specified when sending a SignatureRequest using this Template.
+    # @return [Array<TemplateResponseCCRole>]
+    attr_accessor :cc_roles
+
     # An array describing each document associated with this Template. Includes form field data for each document.
     # @return [Array<TemplateResponseDocument>]
     attr_accessor :documents
@@ -63,18 +75,6 @@ module Dropbox::Sign
     # @return [Boolean, nil]
     attr_accessor :is_embedded
 
-    # The metadata attached to the template.
-    # @return [Object]
-    attr_accessor :metadata
-
-    # An array of the designated signer roles that must be specified when sending a SignatureRequest using this Template.
-    # @return [Array<TemplateResponseSignerRole>]
-    attr_accessor :signer_roles
-
-    # An array of the designated CC roles that must be specified when sending a SignatureRequest using this Template.
-    # @return [Array<TemplateResponseCCRole>]
-    attr_accessor :cc_roles
-
     # Deprecated. Use `custom_fields` inside the [documents](https://developers.hellosign.com/api/reference/operation/templateGet/#!c=200&path=template/documents&t=response) array instead.
     # @return [Array<TemplateResponseDocumentCustomFieldBase>, nil]
     attr_accessor :custom_fields
@@ -92,14 +92,14 @@ module Dropbox::Sign
         :'is_creator' => :'is_creator',
         :'can_edit' => :'can_edit',
         :'is_locked' => :'is_locked',
+        :'metadata' => :'metadata',
+        :'signer_roles' => :'signer_roles',
+        :'cc_roles' => :'cc_roles',
         :'documents' => :'documents',
         :'accounts' => :'accounts',
         :'attachments' => :'attachments',
         :'updated_at' => :'updated_at',
         :'is_embedded' => :'is_embedded',
-        :'metadata' => :'metadata',
-        :'signer_roles' => :'signer_roles',
-        :'cc_roles' => :'cc_roles',
         :'custom_fields' => :'custom_fields',
         :'named_form_fields' => :'named_form_fields'
       }
@@ -119,14 +119,14 @@ module Dropbox::Sign
         :'is_creator' => :'Boolean',
         :'can_edit' => :'Boolean',
         :'is_locked' => :'Boolean',
+        :'metadata' => :'Object',
+        :'signer_roles' => :'Array<TemplateResponseSignerRole>',
+        :'cc_roles' => :'Array<TemplateResponseCCRole>',
         :'documents' => :'Array<TemplateResponseDocument>',
         :'accounts' => :'Array<TemplateResponseAccount>',
         :'attachments' => :'Array<SignatureRequestResponseAttachment>',
         :'updated_at' => :'Integer',
         :'is_embedded' => :'Boolean',
-        :'metadata' => :'Object',
-        :'signer_roles' => :'Array<TemplateResponseSignerRole>',
-        :'cc_roles' => :'Array<TemplateResponseCCRole>',
         :'custom_fields' => :'Array<TemplateResponseDocumentCustomFieldBase>',
         :'named_form_fields' => :'Array<TemplateResponseDocumentFormFieldBase>'
       }
@@ -205,6 +205,22 @@ module Dropbox::Sign
         self.is_locked = attributes[:'is_locked']
       end
 
+      if attributes.key?(:'metadata')
+        self.metadata = attributes[:'metadata']
+      end
+
+      if attributes.key?(:'signer_roles')
+        if (value = attributes[:'signer_roles']).is_a?(Array)
+          self.signer_roles = value
+        end
+      end
+
+      if attributes.key?(:'cc_roles')
+        if (value = attributes[:'cc_roles']).is_a?(Array)
+          self.cc_roles = value
+        end
+      end
+
       if attributes.key?(:'documents')
         if (value = attributes[:'documents']).is_a?(Array)
           self.documents = value
@@ -229,22 +245,6 @@ module Dropbox::Sign
 
       if attributes.key?(:'is_embedded')
         self.is_embedded = attributes[:'is_embedded']
-      end
-
-      if attributes.key?(:'metadata')
-        self.metadata = attributes[:'metadata']
-      end
-
-      if attributes.key?(:'signer_roles')
-        if (value = attributes[:'signer_roles']).is_a?(Array)
-          self.signer_roles = value
-        end
-      end
-
-      if attributes.key?(:'cc_roles')
-        if (value = attributes[:'cc_roles']).is_a?(Array)
-          self.cc_roles = value
-        end
       end
 
       if attributes.key?(:'custom_fields')
@@ -288,6 +288,18 @@ module Dropbox::Sign
         invalid_properties.push('invalid value for "is_locked", is_locked cannot be nil.')
       end
 
+      if @metadata.nil?
+        invalid_properties.push('invalid value for "metadata", metadata cannot be nil.')
+      end
+
+      if @signer_roles.nil?
+        invalid_properties.push('invalid value for "signer_roles", signer_roles cannot be nil.')
+      end
+
+      if @cc_roles.nil?
+        invalid_properties.push('invalid value for "cc_roles", cc_roles cannot be nil.')
+      end
+
       if @documents.nil?
         invalid_properties.push('invalid value for "documents", documents cannot be nil.')
       end
@@ -312,6 +324,9 @@ module Dropbox::Sign
       return false if @is_creator.nil?
       return false if @can_edit.nil?
       return false if @is_locked.nil?
+      return false if @metadata.nil?
+      return false if @signer_roles.nil?
+      return false if @cc_roles.nil?
       return false if @documents.nil?
       return false if @accounts.nil?
       return false if @attachments.nil?
@@ -329,14 +344,14 @@ module Dropbox::Sign
           is_creator == o.is_creator &&
           can_edit == o.can_edit &&
           is_locked == o.is_locked &&
+          metadata == o.metadata &&
+          signer_roles == o.signer_roles &&
+          cc_roles == o.cc_roles &&
           documents == o.documents &&
           accounts == o.accounts &&
           attachments == o.attachments &&
           updated_at == o.updated_at &&
           is_embedded == o.is_embedded &&
-          metadata == o.metadata &&
-          signer_roles == o.signer_roles &&
-          cc_roles == o.cc_roles &&
           custom_fields == o.custom_fields &&
           named_form_fields == o.named_form_fields
     end
@@ -350,7 +365,7 @@ module Dropbox::Sign
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [template_id, title, message, is_creator, can_edit, is_locked, documents, accounts, attachments, updated_at, is_embedded, metadata, signer_roles, cc_roles, custom_fields, named_form_fields].hash
+      [template_id, title, message, is_creator, can_edit, is_locked, metadata, signer_roles, cc_roles, documents, accounts, attachments, updated_at, is_embedded, custom_fields, named_form_fields].hash
     end
 
     # Builds the object from hash

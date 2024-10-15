@@ -33,14 +33,14 @@ import java.util.Objects;
     TemplateResponse.JSON_PROPERTY_IS_CREATOR,
     TemplateResponse.JSON_PROPERTY_CAN_EDIT,
     TemplateResponse.JSON_PROPERTY_IS_LOCKED,
+    TemplateResponse.JSON_PROPERTY_METADATA,
+    TemplateResponse.JSON_PROPERTY_SIGNER_ROLES,
+    TemplateResponse.JSON_PROPERTY_CC_ROLES,
     TemplateResponse.JSON_PROPERTY_DOCUMENTS,
     TemplateResponse.JSON_PROPERTY_ACCOUNTS,
     TemplateResponse.JSON_PROPERTY_ATTACHMENTS,
     TemplateResponse.JSON_PROPERTY_UPDATED_AT,
     TemplateResponse.JSON_PROPERTY_IS_EMBEDDED,
-    TemplateResponse.JSON_PROPERTY_METADATA,
-    TemplateResponse.JSON_PROPERTY_SIGNER_ROLES,
-    TemplateResponse.JSON_PROPERTY_CC_ROLES,
     TemplateResponse.JSON_PROPERTY_CUSTOM_FIELDS,
     TemplateResponse.JSON_PROPERTY_NAMED_FORM_FIELDS
 })
@@ -67,6 +67,15 @@ public class TemplateResponse {
     public static final String JSON_PROPERTY_IS_LOCKED = "is_locked";
     private Boolean isLocked;
 
+    public static final String JSON_PROPERTY_METADATA = "metadata";
+    private Object metadata;
+
+    public static final String JSON_PROPERTY_SIGNER_ROLES = "signer_roles";
+    private List<TemplateResponseSignerRole> signerRoles = new ArrayList<>();
+
+    public static final String JSON_PROPERTY_CC_ROLES = "cc_roles";
+    private List<TemplateResponseCCRole> ccRoles = new ArrayList<>();
+
     public static final String JSON_PROPERTY_DOCUMENTS = "documents";
     private List<TemplateResponseDocument> documents = new ArrayList<>();
 
@@ -81,15 +90,6 @@ public class TemplateResponse {
 
     public static final String JSON_PROPERTY_IS_EMBEDDED = "is_embedded";
     private Boolean isEmbedded;
-
-    public static final String JSON_PROPERTY_METADATA = "metadata";
-    private Object metadata;
-
-    public static final String JSON_PROPERTY_SIGNER_ROLES = "signer_roles";
-    private List<TemplateResponseSignerRole> signerRoles = null;
-
-    public static final String JSON_PROPERTY_CC_ROLES = "cc_roles";
-    private List<TemplateResponseCCRole> ccRoles = null;
 
     public static final String JSON_PROPERTY_CUSTOM_FIELDS = "custom_fields";
     @Deprecated private List<TemplateResponseDocumentCustomFieldBase> customFields = null;
@@ -258,6 +258,93 @@ public class TemplateResponse {
         this.isLocked = isLocked;
     }
 
+    public TemplateResponse metadata(Object metadata) {
+        this.metadata = metadata;
+        return this;
+    }
+
+    /**
+     * The metadata attached to the template.
+     *
+     * @return metadata
+     */
+    @javax.annotation.Nonnull
+    @JsonProperty(JSON_PROPERTY_METADATA)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    public Object getMetadata() {
+        return metadata;
+    }
+
+    @JsonProperty(JSON_PROPERTY_METADATA)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    public void setMetadata(Object metadata) {
+        this.metadata = metadata;
+    }
+
+    public TemplateResponse signerRoles(List<TemplateResponseSignerRole> signerRoles) {
+        this.signerRoles = signerRoles;
+        return this;
+    }
+
+    public TemplateResponse addSignerRolesItem(TemplateResponseSignerRole signerRolesItem) {
+        if (this.signerRoles == null) {
+            this.signerRoles = new ArrayList<>();
+        }
+        this.signerRoles.add(signerRolesItem);
+        return this;
+    }
+
+    /**
+     * An array of the designated signer roles that must be specified when sending a
+     * SignatureRequest using this Template.
+     *
+     * @return signerRoles
+     */
+    @javax.annotation.Nonnull
+    @JsonProperty(JSON_PROPERTY_SIGNER_ROLES)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    public List<TemplateResponseSignerRole> getSignerRoles() {
+        return signerRoles;
+    }
+
+    @JsonProperty(JSON_PROPERTY_SIGNER_ROLES)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    public void setSignerRoles(List<TemplateResponseSignerRole> signerRoles) {
+        this.signerRoles = signerRoles;
+    }
+
+    public TemplateResponse ccRoles(List<TemplateResponseCCRole> ccRoles) {
+        this.ccRoles = ccRoles;
+        return this;
+    }
+
+    public TemplateResponse addCcRolesItem(TemplateResponseCCRole ccRolesItem) {
+        if (this.ccRoles == null) {
+            this.ccRoles = new ArrayList<>();
+        }
+        this.ccRoles.add(ccRolesItem);
+        return this;
+    }
+
+    /**
+     * An array of the designated CC roles that must be specified when sending a SignatureRequest
+     * using this Template.
+     *
+     * @return ccRoles
+     */
+    @javax.annotation.Nonnull
+    @JsonProperty(JSON_PROPERTY_CC_ROLES)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    public List<TemplateResponseCCRole> getCcRoles() {
+        return ccRoles;
+    }
+
+    @JsonProperty(JSON_PROPERTY_CC_ROLES)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    public void setCcRoles(List<TemplateResponseCCRole> ccRoles) {
+        this.ccRoles = ccRoles;
+    }
+
     public TemplateResponse documents(List<TemplateResponseDocument> documents) {
         this.documents = documents;
         return this;
@@ -397,90 +484,6 @@ public class TemplateResponse {
         this.isEmbedded = isEmbedded;
     }
 
-    public TemplateResponse metadata(Object metadata) {
-        this.metadata = metadata;
-        return this;
-    }
-
-    /**
-     * The metadata attached to the template.
-     *
-     * @return metadata
-     */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_METADATA)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public Object getMetadata() {
-        return metadata;
-    }
-
-    @JsonProperty(JSON_PROPERTY_METADATA)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setMetadata(Object metadata) {
-        this.metadata = metadata;
-    }
-
-    public TemplateResponse signerRoles(List<TemplateResponseSignerRole> signerRoles) {
-        this.signerRoles = signerRoles;
-        return this;
-    }
-
-    public TemplateResponse addSignerRolesItem(TemplateResponseSignerRole signerRolesItem) {
-        if (this.signerRoles == null) {
-            this.signerRoles = new ArrayList<>();
-        }
-        this.signerRoles.add(signerRolesItem);
-        return this;
-    }
-
-    /**
-     * An array of the designated signer roles that must be specified when sending a
-     * SignatureRequest using this Template.
-     *
-     * @return signerRoles
-     */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_SIGNER_ROLES)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public List<TemplateResponseSignerRole> getSignerRoles() {
-        return signerRoles;
-    }
-
-    @JsonProperty(JSON_PROPERTY_SIGNER_ROLES)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setSignerRoles(List<TemplateResponseSignerRole> signerRoles) {
-        this.signerRoles = signerRoles;
-    }
-
-    public TemplateResponse ccRoles(List<TemplateResponseCCRole> ccRoles) {
-        this.ccRoles = ccRoles;
-        return this;
-    }
-
-    public TemplateResponse addCcRolesItem(TemplateResponseCCRole ccRolesItem) {
-        if (this.ccRoles == null) {
-            this.ccRoles = new ArrayList<>();
-        }
-        this.ccRoles.add(ccRolesItem);
-        return this;
-    }
-
-    /**
-     * An array of the designated CC roles that must be specified when sending a SignatureRequest
-     * using this Template.
-     *
-     * @return ccRoles
-     */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_CC_ROLES)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public List<TemplateResponseCCRole> getCcRoles() {
-        return ccRoles;
-    }
-
-    @JsonProperty(JSON_PROPERTY_CC_ROLES)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setCcRoles(List<TemplateResponseCCRole> ccRoles) {
-        this.ccRoles = ccRoles;
-    }
-
     @Deprecated
     public TemplateResponse customFields(
             List<TemplateResponseDocumentCustomFieldBase> customFields) {
@@ -573,14 +576,14 @@ public class TemplateResponse {
                 && Objects.equals(this.isCreator, templateResponse.isCreator)
                 && Objects.equals(this.canEdit, templateResponse.canEdit)
                 && Objects.equals(this.isLocked, templateResponse.isLocked)
+                && Objects.equals(this.metadata, templateResponse.metadata)
+                && Objects.equals(this.signerRoles, templateResponse.signerRoles)
+                && Objects.equals(this.ccRoles, templateResponse.ccRoles)
                 && Objects.equals(this.documents, templateResponse.documents)
                 && Objects.equals(this.accounts, templateResponse.accounts)
                 && Objects.equals(this.attachments, templateResponse.attachments)
                 && Objects.equals(this.updatedAt, templateResponse.updatedAt)
                 && Objects.equals(this.isEmbedded, templateResponse.isEmbedded)
-                && Objects.equals(this.metadata, templateResponse.metadata)
-                && Objects.equals(this.signerRoles, templateResponse.signerRoles)
-                && Objects.equals(this.ccRoles, templateResponse.ccRoles)
                 && Objects.equals(this.customFields, templateResponse.customFields)
                 && Objects.equals(this.namedFormFields, templateResponse.namedFormFields);
     }
@@ -594,14 +597,14 @@ public class TemplateResponse {
                 isCreator,
                 canEdit,
                 isLocked,
+                metadata,
+                signerRoles,
+                ccRoles,
                 documents,
                 accounts,
                 attachments,
                 updatedAt,
                 isEmbedded,
-                metadata,
-                signerRoles,
-                ccRoles,
                 customFields,
                 namedFormFields);
     }
@@ -616,14 +619,14 @@ public class TemplateResponse {
         sb.append("    isCreator: ").append(toIndentedString(isCreator)).append("\n");
         sb.append("    canEdit: ").append(toIndentedString(canEdit)).append("\n");
         sb.append("    isLocked: ").append(toIndentedString(isLocked)).append("\n");
+        sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
+        sb.append("    signerRoles: ").append(toIndentedString(signerRoles)).append("\n");
+        sb.append("    ccRoles: ").append(toIndentedString(ccRoles)).append("\n");
         sb.append("    documents: ").append(toIndentedString(documents)).append("\n");
         sb.append("    accounts: ").append(toIndentedString(accounts)).append("\n");
         sb.append("    attachments: ").append(toIndentedString(attachments)).append("\n");
         sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
         sb.append("    isEmbedded: ").append(toIndentedString(isEmbedded)).append("\n");
-        sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
-        sb.append("    signerRoles: ").append(toIndentedString(signerRoles)).append("\n");
-        sb.append("    ccRoles: ").append(toIndentedString(ccRoles)).append("\n");
         sb.append("    customFields: ").append(toIndentedString(customFields)).append("\n");
         sb.append("    namedFormFields: ").append(toIndentedString(namedFormFields)).append("\n");
         sb.append("}");
@@ -748,6 +751,62 @@ public class TemplateResponse {
                             JSON.getDefault().getMapper().writeValueAsString(isLocked));
                 }
             }
+            if (metadata != null) {
+                if (isFileTypeOrListOfFiles(metadata)) {
+                    fileTypeFound = true;
+                }
+
+                if (metadata.getClass().equals(java.io.File.class)
+                        || metadata.getClass().equals(Integer.class)
+                        || metadata.getClass().equals(String.class)
+                        || metadata.getClass().isEnum()) {
+                    map.put("metadata", metadata);
+                } else if (isListOfFile(metadata)) {
+                    for (int i = 0; i < getListSize(metadata); i++) {
+                        map.put("metadata[" + i + "]", getFromList(metadata, i));
+                    }
+                } else {
+                    map.put("metadata", JSON.getDefault().getMapper().writeValueAsString(metadata));
+                }
+            }
+            if (signerRoles != null) {
+                if (isFileTypeOrListOfFiles(signerRoles)) {
+                    fileTypeFound = true;
+                }
+
+                if (signerRoles.getClass().equals(java.io.File.class)
+                        || signerRoles.getClass().equals(Integer.class)
+                        || signerRoles.getClass().equals(String.class)
+                        || signerRoles.getClass().isEnum()) {
+                    map.put("signer_roles", signerRoles);
+                } else if (isListOfFile(signerRoles)) {
+                    for (int i = 0; i < getListSize(signerRoles); i++) {
+                        map.put("signer_roles[" + i + "]", getFromList(signerRoles, i));
+                    }
+                } else {
+                    map.put(
+                            "signer_roles",
+                            JSON.getDefault().getMapper().writeValueAsString(signerRoles));
+                }
+            }
+            if (ccRoles != null) {
+                if (isFileTypeOrListOfFiles(ccRoles)) {
+                    fileTypeFound = true;
+                }
+
+                if (ccRoles.getClass().equals(java.io.File.class)
+                        || ccRoles.getClass().equals(Integer.class)
+                        || ccRoles.getClass().equals(String.class)
+                        || ccRoles.getClass().isEnum()) {
+                    map.put("cc_roles", ccRoles);
+                } else if (isListOfFile(ccRoles)) {
+                    for (int i = 0; i < getListSize(ccRoles); i++) {
+                        map.put("cc_roles[" + i + "]", getFromList(ccRoles, i));
+                    }
+                } else {
+                    map.put("cc_roles", JSON.getDefault().getMapper().writeValueAsString(ccRoles));
+                }
+            }
             if (documents != null) {
                 if (isFileTypeOrListOfFiles(documents)) {
                     fileTypeFound = true;
@@ -844,62 +903,6 @@ public class TemplateResponse {
                     map.put(
                             "is_embedded",
                             JSON.getDefault().getMapper().writeValueAsString(isEmbedded));
-                }
-            }
-            if (metadata != null) {
-                if (isFileTypeOrListOfFiles(metadata)) {
-                    fileTypeFound = true;
-                }
-
-                if (metadata.getClass().equals(java.io.File.class)
-                        || metadata.getClass().equals(Integer.class)
-                        || metadata.getClass().equals(String.class)
-                        || metadata.getClass().isEnum()) {
-                    map.put("metadata", metadata);
-                } else if (isListOfFile(metadata)) {
-                    for (int i = 0; i < getListSize(metadata); i++) {
-                        map.put("metadata[" + i + "]", getFromList(metadata, i));
-                    }
-                } else {
-                    map.put("metadata", JSON.getDefault().getMapper().writeValueAsString(metadata));
-                }
-            }
-            if (signerRoles != null) {
-                if (isFileTypeOrListOfFiles(signerRoles)) {
-                    fileTypeFound = true;
-                }
-
-                if (signerRoles.getClass().equals(java.io.File.class)
-                        || signerRoles.getClass().equals(Integer.class)
-                        || signerRoles.getClass().equals(String.class)
-                        || signerRoles.getClass().isEnum()) {
-                    map.put("signer_roles", signerRoles);
-                } else if (isListOfFile(signerRoles)) {
-                    for (int i = 0; i < getListSize(signerRoles); i++) {
-                        map.put("signer_roles[" + i + "]", getFromList(signerRoles, i));
-                    }
-                } else {
-                    map.put(
-                            "signer_roles",
-                            JSON.getDefault().getMapper().writeValueAsString(signerRoles));
-                }
-            }
-            if (ccRoles != null) {
-                if (isFileTypeOrListOfFiles(ccRoles)) {
-                    fileTypeFound = true;
-                }
-
-                if (ccRoles.getClass().equals(java.io.File.class)
-                        || ccRoles.getClass().equals(Integer.class)
-                        || ccRoles.getClass().equals(String.class)
-                        || ccRoles.getClass().isEnum()) {
-                    map.put("cc_roles", ccRoles);
-                } else if (isListOfFile(ccRoles)) {
-                    for (int i = 0; i < getListSize(ccRoles); i++) {
-                        map.put("cc_roles[" + i + "]", getFromList(ccRoles, i));
-                    }
-                } else {
-                    map.put("cc_roles", JSON.getDefault().getMapper().writeValueAsString(ccRoles));
                 }
             }
             if (customFields != null) {

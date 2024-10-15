@@ -64,14 +64,14 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
         'is_creator' => 'bool',
         'can_edit' => 'bool',
         'is_locked' => 'bool',
+        'metadata' => 'array',
+        'signer_roles' => '\Dropbox\Sign\Model\TemplateResponseSignerRole[]',
+        'cc_roles' => '\Dropbox\Sign\Model\TemplateResponseCCRole[]',
         'documents' => '\Dropbox\Sign\Model\TemplateResponseDocument[]',
         'accounts' => '\Dropbox\Sign\Model\TemplateResponseAccount[]',
         'attachments' => '\Dropbox\Sign\Model\SignatureRequestResponseAttachment[]',
         'updated_at' => 'int',
         'is_embedded' => 'bool',
-        'metadata' => 'array',
-        'signer_roles' => '\Dropbox\Sign\Model\TemplateResponseSignerRole[]',
-        'cc_roles' => '\Dropbox\Sign\Model\TemplateResponseCCRole[]',
         'custom_fields' => '\Dropbox\Sign\Model\TemplateResponseDocumentCustomFieldBase[]',
         'named_form_fields' => '\Dropbox\Sign\Model\TemplateResponseDocumentFormFieldBase[]',
     ];
@@ -90,14 +90,14 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
         'is_creator' => null,
         'can_edit' => null,
         'is_locked' => null,
+        'metadata' => null,
+        'signer_roles' => null,
+        'cc_roles' => null,
         'documents' => null,
         'accounts' => null,
         'attachments' => null,
         'updated_at' => null,
         'is_embedded' => null,
-        'metadata' => null,
-        'signer_roles' => null,
-        'cc_roles' => null,
         'custom_fields' => null,
         'named_form_fields' => null,
     ];
@@ -114,14 +114,14 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
         'is_creator' => false,
         'can_edit' => false,
         'is_locked' => false,
+        'metadata' => false,
+        'signer_roles' => false,
+        'cc_roles' => false,
         'documents' => false,
         'accounts' => false,
         'attachments' => false,
         'updated_at' => false,
         'is_embedded' => true,
-        'metadata' => false,
-        'signer_roles' => false,
-        'cc_roles' => false,
         'custom_fields' => true,
         'named_form_fields' => true,
     ];
@@ -210,14 +210,14 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
         'is_creator' => 'is_creator',
         'can_edit' => 'can_edit',
         'is_locked' => 'is_locked',
+        'metadata' => 'metadata',
+        'signer_roles' => 'signer_roles',
+        'cc_roles' => 'cc_roles',
         'documents' => 'documents',
         'accounts' => 'accounts',
         'attachments' => 'attachments',
         'updated_at' => 'updated_at',
         'is_embedded' => 'is_embedded',
-        'metadata' => 'metadata',
-        'signer_roles' => 'signer_roles',
-        'cc_roles' => 'cc_roles',
         'custom_fields' => 'custom_fields',
         'named_form_fields' => 'named_form_fields',
     ];
@@ -234,14 +234,14 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
         'is_creator' => 'setIsCreator',
         'can_edit' => 'setCanEdit',
         'is_locked' => 'setIsLocked',
+        'metadata' => 'setMetadata',
+        'signer_roles' => 'setSignerRoles',
+        'cc_roles' => 'setCcRoles',
         'documents' => 'setDocuments',
         'accounts' => 'setAccounts',
         'attachments' => 'setAttachments',
         'updated_at' => 'setUpdatedAt',
         'is_embedded' => 'setIsEmbedded',
-        'metadata' => 'setMetadata',
-        'signer_roles' => 'setSignerRoles',
-        'cc_roles' => 'setCcRoles',
         'custom_fields' => 'setCustomFields',
         'named_form_fields' => 'setNamedFormFields',
     ];
@@ -258,14 +258,14 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
         'is_creator' => 'getIsCreator',
         'can_edit' => 'getCanEdit',
         'is_locked' => 'getIsLocked',
+        'metadata' => 'getMetadata',
+        'signer_roles' => 'getSignerRoles',
+        'cc_roles' => 'getCcRoles',
         'documents' => 'getDocuments',
         'accounts' => 'getAccounts',
         'attachments' => 'getAttachments',
         'updated_at' => 'getUpdatedAt',
         'is_embedded' => 'getIsEmbedded',
-        'metadata' => 'getMetadata',
-        'signer_roles' => 'getSignerRoles',
-        'cc_roles' => 'getCcRoles',
         'custom_fields' => 'getCustomFields',
         'named_form_fields' => 'getNamedFormFields',
     ];
@@ -332,14 +332,14 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
         $this->setIfExists('is_creator', $data ?? [], null);
         $this->setIfExists('can_edit', $data ?? [], null);
         $this->setIfExists('is_locked', $data ?? [], null);
+        $this->setIfExists('metadata', $data ?? [], null);
+        $this->setIfExists('signer_roles', $data ?? [], null);
+        $this->setIfExists('cc_roles', $data ?? [], null);
         $this->setIfExists('documents', $data ?? [], null);
         $this->setIfExists('accounts', $data ?? [], null);
         $this->setIfExists('attachments', $data ?? [], null);
         $this->setIfExists('updated_at', $data ?? [], null);
         $this->setIfExists('is_embedded', $data ?? [], null);
-        $this->setIfExists('metadata', $data ?? [], null);
-        $this->setIfExists('signer_roles', $data ?? [], null);
-        $this->setIfExists('cc_roles', $data ?? [], null);
         $this->setIfExists('custom_fields', $data ?? [], null);
         $this->setIfExists('named_form_fields', $data ?? [], null);
     }
@@ -406,6 +406,15 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
         }
         if ($this->container['is_locked'] === null) {
             $invalidProperties[] = "'is_locked' can't be null";
+        }
+        if ($this->container['metadata'] === null) {
+            $invalidProperties[] = "'metadata' can't be null";
+        }
+        if ($this->container['signer_roles'] === null) {
+            $invalidProperties[] = "'signer_roles' can't be null";
+        }
+        if ($this->container['cc_roles'] === null) {
+            $invalidProperties[] = "'cc_roles' can't be null";
         }
         if ($this->container['documents'] === null) {
             $invalidProperties[] = "'documents' can't be null";
@@ -593,6 +602,87 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
     }
 
     /**
+     * Gets metadata
+     *
+     * @return array
+     */
+    public function getMetadata()
+    {
+        return $this->container['metadata'];
+    }
+
+    /**
+     * Sets metadata
+     *
+     * @param array $metadata the metadata attached to the template
+     *
+     * @return self
+     */
+    public function setMetadata(array $metadata)
+    {
+        if (is_null($metadata)) {
+            throw new InvalidArgumentException('non-nullable metadata cannot be null');
+        }
+        $this->container['metadata'] = $metadata;
+
+        return $this;
+    }
+
+    /**
+     * Gets signer_roles
+     *
+     * @return TemplateResponseSignerRole[]
+     */
+    public function getSignerRoles()
+    {
+        return $this->container['signer_roles'];
+    }
+
+    /**
+     * Sets signer_roles
+     *
+     * @param TemplateResponseSignerRole[] $signer_roles an array of the designated signer roles that must be specified when sending a SignatureRequest using this Template
+     *
+     * @return self
+     */
+    public function setSignerRoles(array $signer_roles)
+    {
+        if (is_null($signer_roles)) {
+            throw new InvalidArgumentException('non-nullable signer_roles cannot be null');
+        }
+        $this->container['signer_roles'] = $signer_roles;
+
+        return $this;
+    }
+
+    /**
+     * Gets cc_roles
+     *
+     * @return TemplateResponseCCRole[]
+     */
+    public function getCcRoles()
+    {
+        return $this->container['cc_roles'];
+    }
+
+    /**
+     * Sets cc_roles
+     *
+     * @param TemplateResponseCCRole[] $cc_roles an array of the designated CC roles that must be specified when sending a SignatureRequest using this Template
+     *
+     * @return self
+     */
+    public function setCcRoles(array $cc_roles)
+    {
+        if (is_null($cc_roles)) {
+            throw new InvalidArgumentException('non-nullable cc_roles cannot be null');
+        }
+        $this->container['cc_roles'] = $cc_roles;
+
+        return $this;
+    }
+
+    /**
      * Gets documents
      *
      * @return TemplateResponseDocument[]
@@ -730,87 +820,6 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
             }
         }
         $this->container['is_embedded'] = $is_embedded;
-
-        return $this;
-    }
-
-    /**
-     * Gets metadata
-     *
-     * @return array|null
-     */
-    public function getMetadata()
-    {
-        return $this->container['metadata'];
-    }
-
-    /**
-     * Sets metadata
-     *
-     * @param array|null $metadata the metadata attached to the template
-     *
-     * @return self
-     */
-    public function setMetadata(?array $metadata)
-    {
-        if (is_null($metadata)) {
-            throw new InvalidArgumentException('non-nullable metadata cannot be null');
-        }
-        $this->container['metadata'] = $metadata;
-
-        return $this;
-    }
-
-    /**
-     * Gets signer_roles
-     *
-     * @return TemplateResponseSignerRole[]|null
-     */
-    public function getSignerRoles()
-    {
-        return $this->container['signer_roles'];
-    }
-
-    /**
-     * Sets signer_roles
-     *
-     * @param TemplateResponseSignerRole[]|null $signer_roles an array of the designated signer roles that must be specified when sending a SignatureRequest using this Template
-     *
-     * @return self
-     */
-    public function setSignerRoles(?array $signer_roles)
-    {
-        if (is_null($signer_roles)) {
-            throw new InvalidArgumentException('non-nullable signer_roles cannot be null');
-        }
-        $this->container['signer_roles'] = $signer_roles;
-
-        return $this;
-    }
-
-    /**
-     * Gets cc_roles
-     *
-     * @return TemplateResponseCCRole[]|null
-     */
-    public function getCcRoles()
-    {
-        return $this->container['cc_roles'];
-    }
-
-    /**
-     * Sets cc_roles
-     *
-     * @param TemplateResponseCCRole[]|null $cc_roles an array of the designated CC roles that must be specified when sending a SignatureRequest using this Template
-     *
-     * @return self
-     */
-    public function setCcRoles(?array $cc_roles)
-    {
-        if (is_null($cc_roles)) {
-            throw new InvalidArgumentException('non-nullable cc_roles cannot be null');
-        }
-        $this->container['cc_roles'] = $cc_roles;
 
         return $this;
     }

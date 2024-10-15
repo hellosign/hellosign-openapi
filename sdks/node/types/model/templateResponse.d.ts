@@ -13,14 +13,14 @@ export declare class TemplateResponse {
     "isCreator": boolean;
     "canEdit": boolean;
     "isLocked": boolean;
+    "metadata": object;
+    "signerRoles": Array<TemplateResponseSignerRole>;
+    "ccRoles": Array<TemplateResponseCCRole>;
     "documents": Array<TemplateResponseDocument>;
     "accounts": Array<TemplateResponseAccount>;
     "attachments": Array<SignatureRequestResponseAttachment>;
     "updatedAt"?: number;
     "isEmbedded"?: boolean | null;
-    "metadata"?: object;
-    "signerRoles"?: Array<TemplateResponseSignerRole>;
-    "ccRoles"?: Array<TemplateResponseCCRole>;
     "customFields"?: Array<TemplateResponseDocumentCustomFieldBase> | null;
     "namedFormFields"?: Array<TemplateResponseDocumentFormFieldBase> | null;
     static discriminator: string | undefined;

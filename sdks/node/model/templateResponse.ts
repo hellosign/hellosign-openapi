@@ -60,6 +60,18 @@ export class TemplateResponse {
    */
   "isLocked": boolean;
   /**
+   * The metadata attached to the template.
+   */
+  "metadata": object;
+  /**
+   * An array of the designated signer roles that must be specified when sending a SignatureRequest using this Template.
+   */
+  "signerRoles": Array<TemplateResponseSignerRole>;
+  /**
+   * An array of the designated CC roles that must be specified when sending a SignatureRequest using this Template.
+   */
+  "ccRoles": Array<TemplateResponseCCRole>;
+  /**
    * An array describing each document associated with this Template. Includes form field data for each document.
    */
   "documents": Array<TemplateResponseDocument>;
@@ -79,18 +91,6 @@ export class TemplateResponse {
    * `true` if this template was created using an embedded flow, `false` if it was created on our website.
    */
   "isEmbedded"?: boolean | null;
-  /**
-   * The metadata attached to the template.
-   */
-  "metadata"?: object;
-  /**
-   * An array of the designated signer roles that must be specified when sending a SignatureRequest using this Template.
-   */
-  "signerRoles"?: Array<TemplateResponseSignerRole>;
-  /**
-   * An array of the designated CC roles that must be specified when sending a SignatureRequest using this Template.
-   */
-  "ccRoles"?: Array<TemplateResponseCCRole>;
   /**
    * Deprecated. Use `custom_fields` inside the [documents](https://developers.hellosign.com/api/reference/operation/templateGet/#!c=200&path=template/documents&t=response) array instead.
    */
@@ -134,6 +134,21 @@ export class TemplateResponse {
       type: "boolean",
     },
     {
+      name: "metadata",
+      baseName: "metadata",
+      type: "object",
+    },
+    {
+      name: "signerRoles",
+      baseName: "signer_roles",
+      type: "Array<TemplateResponseSignerRole>",
+    },
+    {
+      name: "ccRoles",
+      baseName: "cc_roles",
+      type: "Array<TemplateResponseCCRole>",
+    },
+    {
       name: "documents",
       baseName: "documents",
       type: "Array<TemplateResponseDocument>",
@@ -157,21 +172,6 @@ export class TemplateResponse {
       name: "isEmbedded",
       baseName: "is_embedded",
       type: "boolean",
-    },
-    {
-      name: "metadata",
-      baseName: "metadata",
-      type: "object",
-    },
-    {
-      name: "signerRoles",
-      baseName: "signer_roles",
-      type: "Array<TemplateResponseSignerRole>",
-    },
-    {
-      name: "ccRoles",
-      baseName: "cc_roles",
-      type: "Array<TemplateResponseCCRole>",
     },
     {
       name: "customFields",

@@ -49,9 +49,9 @@ namespace Dropbox.Sign.Model
         /// <param name="isCreator">&#x60;true&#x60; if you are the owner of this template, &#x60;false&#x60; if it&#39;s been shared with you by a team member. (required).</param>
         /// <param name="canEdit">Indicates whether edit rights have been granted to you by the owner (always &#x60;true&#x60; if that&#39;s you). (required).</param>
         /// <param name="isLocked">Indicates whether the template is locked. If &#x60;true&#x60;, then the template was created outside your quota and can only be used in &#x60;test_mode&#x60;. If &#x60;false&#x60;, then the template is within your quota and can be used to create signature requests. (required).</param>
-        /// <param name="metadata">The metadata attached to the template..</param>
-        /// <param name="signerRoles">An array of the designated signer roles that must be specified when sending a SignatureRequest using this Template..</param>
-        /// <param name="ccRoles">An array of the designated CC roles that must be specified when sending a SignatureRequest using this Template..</param>
+        /// <param name="metadata">The metadata attached to the template. (required).</param>
+        /// <param name="signerRoles">An array of the designated signer roles that must be specified when sending a SignatureRequest using this Template. (required).</param>
+        /// <param name="ccRoles">An array of the designated CC roles that must be specified when sending a SignatureRequest using this Template. (required).</param>
         /// <param name="documents">An array describing each document associated with this Template. Includes form field data for each document. (required).</param>
         /// <param name="customFields">Deprecated. Use &#x60;custom_fields&#x60; inside the [documents](https://developers.hellosign.com/api/reference/operation/templateGet/#!c&#x3D;200&amp;path&#x3D;template/documents&amp;t&#x3D;response) array instead..</param>
         /// <param name="namedFormFields">Deprecated. Use &#x60;form_fields&#x60; inside the [documents](https://developers.hellosign.com/api/reference/operation/templateGet/#!c&#x3D;200&amp;path&#x3D;template/documents&amp;t&#x3D;response) array instead..</param>
@@ -81,6 +81,24 @@ namespace Dropbox.Sign.Model
             this.IsCreator = isCreator;
             this.CanEdit = canEdit;
             this.IsLocked = isLocked;
+            // to ensure "metadata" is required (not null)
+            if (metadata == null)
+            {
+                throw new ArgumentNullException("metadata is a required property for TemplateResponse and cannot be null");
+            }
+            this.Metadata = metadata;
+            // to ensure "signerRoles" is required (not null)
+            if (signerRoles == null)
+            {
+                throw new ArgumentNullException("signerRoles is a required property for TemplateResponse and cannot be null");
+            }
+            this.SignerRoles = signerRoles;
+            // to ensure "ccRoles" is required (not null)
+            if (ccRoles == null)
+            {
+                throw new ArgumentNullException("ccRoles is a required property for TemplateResponse and cannot be null");
+            }
+            this.CcRoles = ccRoles;
             // to ensure "documents" is required (not null)
             if (documents == null)
             {
@@ -101,9 +119,6 @@ namespace Dropbox.Sign.Model
             this.Attachments = attachments;
             this.UpdatedAt = updatedAt;
             this.IsEmbedded = isEmbedded;
-            this.Metadata = metadata;
-            this.SignerRoles = signerRoles;
-            this.CcRoles = ccRoles;
             this.CustomFields = customFields;
             this.NamedFormFields = namedFormFields;
         }
@@ -167,6 +182,27 @@ namespace Dropbox.Sign.Model
         public bool IsLocked { get; set; }
 
         /// <summary>
+        /// The metadata attached to the template.
+        /// </summary>
+        /// <value>The metadata attached to the template.</value>
+        [DataMember(Name = "metadata", IsRequired = true, EmitDefaultValue = true)]
+        public Object Metadata { get; set; }
+
+        /// <summary>
+        /// An array of the designated signer roles that must be specified when sending a SignatureRequest using this Template.
+        /// </summary>
+        /// <value>An array of the designated signer roles that must be specified when sending a SignatureRequest using this Template.</value>
+        [DataMember(Name = "signer_roles", IsRequired = true, EmitDefaultValue = true)]
+        public List<TemplateResponseSignerRole> SignerRoles { get; set; }
+
+        /// <summary>
+        /// An array of the designated CC roles that must be specified when sending a SignatureRequest using this Template.
+        /// </summary>
+        /// <value>An array of the designated CC roles that must be specified when sending a SignatureRequest using this Template.</value>
+        [DataMember(Name = "cc_roles", IsRequired = true, EmitDefaultValue = true)]
+        public List<TemplateResponseCCRole> CcRoles { get; set; }
+
+        /// <summary>
         /// An array describing each document associated with this Template. Includes form field data for each document.
         /// </summary>
         /// <value>An array describing each document associated with this Template. Includes form field data for each document.</value>
@@ -202,27 +238,6 @@ namespace Dropbox.Sign.Model
         public bool? IsEmbedded { get; set; }
 
         /// <summary>
-        /// The metadata attached to the template.
-        /// </summary>
-        /// <value>The metadata attached to the template.</value>
-        [DataMember(Name = "metadata", EmitDefaultValue = true)]
-        public Object Metadata { get; set; }
-
-        /// <summary>
-        /// An array of the designated signer roles that must be specified when sending a SignatureRequest using this Template.
-        /// </summary>
-        /// <value>An array of the designated signer roles that must be specified when sending a SignatureRequest using this Template.</value>
-        [DataMember(Name = "signer_roles", EmitDefaultValue = true)]
-        public List<TemplateResponseSignerRole> SignerRoles { get; set; }
-
-        /// <summary>
-        /// An array of the designated CC roles that must be specified when sending a SignatureRequest using this Template.
-        /// </summary>
-        /// <value>An array of the designated CC roles that must be specified when sending a SignatureRequest using this Template.</value>
-        [DataMember(Name = "cc_roles", EmitDefaultValue = true)]
-        public List<TemplateResponseCCRole> CcRoles { get; set; }
-
-        /// <summary>
         /// Deprecated. Use &#x60;custom_fields&#x60; inside the [documents](https://developers.hellosign.com/api/reference/operation/templateGet/#!c&#x3D;200&amp;path&#x3D;template/documents&amp;t&#x3D;response) array instead.
         /// </summary>
         /// <value>Deprecated. Use &#x60;custom_fields&#x60; inside the [documents](https://developers.hellosign.com/api/reference/operation/templateGet/#!c&#x3D;200&amp;path&#x3D;template/documents&amp;t&#x3D;response) array instead.</value>
@@ -252,14 +267,14 @@ namespace Dropbox.Sign.Model
             sb.Append("  IsCreator: ").Append(IsCreator).Append("\n");
             sb.Append("  CanEdit: ").Append(CanEdit).Append("\n");
             sb.Append("  IsLocked: ").Append(IsLocked).Append("\n");
+            sb.Append("  Metadata: ").Append(Metadata).Append("\n");
+            sb.Append("  SignerRoles: ").Append(SignerRoles).Append("\n");
+            sb.Append("  CcRoles: ").Append(CcRoles).Append("\n");
             sb.Append("  Documents: ").Append(Documents).Append("\n");
             sb.Append("  Accounts: ").Append(Accounts).Append("\n");
             sb.Append("  Attachments: ").Append(Attachments).Append("\n");
             sb.Append("  UpdatedAt: ").Append(UpdatedAt).Append("\n");
             sb.Append("  IsEmbedded: ").Append(IsEmbedded).Append("\n");
-            sb.Append("  Metadata: ").Append(Metadata).Append("\n");
-            sb.Append("  SignerRoles: ").Append(SignerRoles).Append("\n");
-            sb.Append("  CcRoles: ").Append(CcRoles).Append("\n");
             sb.Append("  CustomFields: ").Append(CustomFields).Append("\n");
             sb.Append("  NamedFormFields: ").Append(NamedFormFields).Append("\n");
             sb.Append("}\n");
@@ -325,6 +340,23 @@ namespace Dropbox.Sign.Model
                     this.IsLocked.Equals(input.IsLocked)
                 ) &&
                 (
+                    this.Metadata == input.Metadata ||
+                    (this.Metadata != null &&
+                    this.Metadata.Equals(input.Metadata))
+                ) &&
+                (
+                    this.SignerRoles == input.SignerRoles ||
+                    this.SignerRoles != null &&
+                    input.SignerRoles != null &&
+                    this.SignerRoles.SequenceEqual(input.SignerRoles)
+                ) &&
+                (
+                    this.CcRoles == input.CcRoles ||
+                    this.CcRoles != null &&
+                    input.CcRoles != null &&
+                    this.CcRoles.SequenceEqual(input.CcRoles)
+                ) &&
+                (
                     this.Documents == input.Documents ||
                     this.Documents != null &&
                     input.Documents != null &&
@@ -350,23 +382,6 @@ namespace Dropbox.Sign.Model
                     this.IsEmbedded == input.IsEmbedded ||
                     (this.IsEmbedded != null &&
                     this.IsEmbedded.Equals(input.IsEmbedded))
-                ) &&
-                (
-                    this.Metadata == input.Metadata ||
-                    (this.Metadata != null &&
-                    this.Metadata.Equals(input.Metadata))
-                ) &&
-                (
-                    this.SignerRoles == input.SignerRoles ||
-                    this.SignerRoles != null &&
-                    input.SignerRoles != null &&
-                    this.SignerRoles.SequenceEqual(input.SignerRoles)
-                ) &&
-                (
-                    this.CcRoles == input.CcRoles ||
-                    this.CcRoles != null &&
-                    input.CcRoles != null &&
-                    this.CcRoles.SequenceEqual(input.CcRoles)
                 ) &&
                 (
                     this.CustomFields == input.CustomFields ||
@@ -406,6 +421,18 @@ namespace Dropbox.Sign.Model
                 hashCode = (hashCode * 59) + this.IsCreator.GetHashCode();
                 hashCode = (hashCode * 59) + this.CanEdit.GetHashCode();
                 hashCode = (hashCode * 59) + this.IsLocked.GetHashCode();
+                if (this.Metadata != null)
+                {
+                    hashCode = (hashCode * 59) + this.Metadata.GetHashCode();
+                }
+                if (this.SignerRoles != null)
+                {
+                    hashCode = (hashCode * 59) + this.SignerRoles.GetHashCode();
+                }
+                if (this.CcRoles != null)
+                {
+                    hashCode = (hashCode * 59) + this.CcRoles.GetHashCode();
+                }
                 if (this.Documents != null)
                 {
                     hashCode = (hashCode * 59) + this.Documents.GetHashCode();
@@ -422,18 +449,6 @@ namespace Dropbox.Sign.Model
                 if (this.IsEmbedded != null)
                 {
                     hashCode = (hashCode * 59) + this.IsEmbedded.GetHashCode();
-                }
-                if (this.Metadata != null)
-                {
-                    hashCode = (hashCode * 59) + this.Metadata.GetHashCode();
-                }
-                if (this.SignerRoles != null)
-                {
-                    hashCode = (hashCode * 59) + this.SignerRoles.GetHashCode();
-                }
-                if (this.CcRoles != null)
-                {
-                    hashCode = (hashCode * 59) + this.CcRoles.GetHashCode();
                 }
                 if (this.CustomFields != null)
                 {
@@ -503,6 +518,27 @@ namespace Dropbox.Sign.Model
             });
             types.Add(new OpenApiType()
             {
+                Name = "metadata",
+                Property = "Metadata",
+                Type = "Object",
+                Value = Metadata,
+            });
+            types.Add(new OpenApiType()
+            {
+                Name = "signer_roles",
+                Property = "SignerRoles",
+                Type = "List<TemplateResponseSignerRole>",
+                Value = SignerRoles,
+            });
+            types.Add(new OpenApiType()
+            {
+                Name = "cc_roles",
+                Property = "CcRoles",
+                Type = "List<TemplateResponseCCRole>",
+                Value = CcRoles,
+            });
+            types.Add(new OpenApiType()
+            {
                 Name = "documents",
                 Property = "Documents",
                 Type = "List<TemplateResponseDocument>",
@@ -535,27 +571,6 @@ namespace Dropbox.Sign.Model
                 Property = "IsEmbedded",
                 Type = "bool?",
                 Value = IsEmbedded,
-            });
-            types.Add(new OpenApiType()
-            {
-                Name = "metadata",
-                Property = "Metadata",
-                Type = "Object",
-                Value = Metadata,
-            });
-            types.Add(new OpenApiType()
-            {
-                Name = "signer_roles",
-                Property = "SignerRoles",
-                Type = "List<TemplateResponseSignerRole>",
-                Value = SignerRoles,
-            });
-            types.Add(new OpenApiType()
-            {
-                Name = "cc_roles",
-                Property = "CcRoles",
-                Type = "List<TemplateResponseCCRole>",
-                Value = CcRoles,
             });
             types.Add(new OpenApiType()
             {

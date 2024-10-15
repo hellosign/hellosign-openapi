@@ -61,6 +61,15 @@ class TemplateResponse(BaseModel):
     is_locked: StrictBool = Field(
         description="Indicates whether the template is locked. If `true`, then the template was created outside your quota and can only be used in `test_mode`. If `false`, then the template is within your quota and can be used to create signature requests."
     )
+    metadata: Dict[str, Any] = Field(
+        description="The metadata attached to the template."
+    )
+    signer_roles: List[TemplateResponseSignerRole] = Field(
+        description="An array of the designated signer roles that must be specified when sending a SignatureRequest using this Template."
+    )
+    cc_roles: List[TemplateResponseCCRole] = Field(
+        description="An array of the designated CC roles that must be specified when sending a SignatureRequest using this Template."
+    )
     documents: List[TemplateResponseDocument] = Field(
         description="An array describing each document associated with this Template. Includes form field data for each document."
     )
@@ -77,17 +86,6 @@ class TemplateResponse(BaseModel):
         default=None,
         description="`true` if this template was created using an embedded flow, `false` if it was created on our website.",
     )
-    metadata: Optional[Dict[str, Any]] = Field(
-        default=None, description="The metadata attached to the template."
-    )
-    signer_roles: Optional[List[TemplateResponseSignerRole]] = Field(
-        default=None,
-        description="An array of the designated signer roles that must be specified when sending a SignatureRequest using this Template.",
-    )
-    cc_roles: Optional[List[TemplateResponseCCRole]] = Field(
-        default=None,
-        description="An array of the designated CC roles that must be specified when sending a SignatureRequest using this Template.",
-    )
     custom_fields: Optional[List[TemplateResponseDocumentCustomFieldBase]] = Field(
         default=None,
         description="Deprecated. Use `custom_fields` inside the [documents](https://developers.hellosign.com/api/reference/operation/templateGet/#!c=200&path=template/documents&t=response) array instead.",
@@ -103,14 +101,14 @@ class TemplateResponse(BaseModel):
         "is_creator",
         "can_edit",
         "is_locked",
+        "metadata",
+        "signer_roles",
+        "cc_roles",
         "documents",
         "accounts",
         "attachments",
         "updated_at",
         "is_embedded",
-        "metadata",
-        "signer_roles",
-        "cc_roles",
         "custom_fields",
         "named_form_fields",
     ]
@@ -165,6 +163,20 @@ class TemplateResponse(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of each item in signer_roles (list)
+        _items = []
+        if self.signer_roles:
+            for _item_signer_roles in self.signer_roles:
+                if _item_signer_roles:
+                    _items.append(_item_signer_roles.to_dict())
+            _dict["signer_roles"] = _items
+        # override the default output from pydantic by calling `to_dict()` of each item in cc_roles (list)
+        _items = []
+        if self.cc_roles:
+            for _item_cc_roles in self.cc_roles:
+                if _item_cc_roles:
+                    _items.append(_item_cc_roles.to_dict())
+            _dict["cc_roles"] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in documents (list)
         _items = []
         if self.documents:
@@ -186,20 +198,6 @@ class TemplateResponse(BaseModel):
                 if _item_attachments:
                     _items.append(_item_attachments.to_dict())
             _dict["attachments"] = _items
-        # override the default output from pydantic by calling `to_dict()` of each item in signer_roles (list)
-        _items = []
-        if self.signer_roles:
-            for _item_signer_roles in self.signer_roles:
-                if _item_signer_roles:
-                    _items.append(_item_signer_roles.to_dict())
-            _dict["signer_roles"] = _items
-        # override the default output from pydantic by calling `to_dict()` of each item in cc_roles (list)
-        _items = []
-        if self.cc_roles:
-            for _item_cc_roles in self.cc_roles:
-                if _item_cc_roles:
-                    _items.append(_item_cc_roles.to_dict())
-            _dict["cc_roles"] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in custom_fields (list)
         _items = []
         if self.custom_fields:
@@ -233,6 +231,23 @@ class TemplateResponse(BaseModel):
                 "is_creator": obj.get("is_creator"),
                 "can_edit": obj.get("can_edit"),
                 "is_locked": obj.get("is_locked"),
+                "metadata": obj.get("metadata"),
+                "signer_roles": (
+                    [
+                        TemplateResponseSignerRole.from_dict(_item)
+                        for _item in obj["signer_roles"]
+                    ]
+                    if obj.get("signer_roles") is not None
+                    else None
+                ),
+                "cc_roles": (
+                    [
+                        TemplateResponseCCRole.from_dict(_item)
+                        for _item in obj["cc_roles"]
+                    ]
+                    if obj.get("cc_roles") is not None
+                    else None
+                ),
                 "documents": (
                     [
                         TemplateResponseDocument.from_dict(_item)
@@ -259,23 +274,6 @@ class TemplateResponse(BaseModel):
                 ),
                 "updated_at": obj.get("updated_at"),
                 "is_embedded": obj.get("is_embedded"),
-                "metadata": obj.get("metadata"),
-                "signer_roles": (
-                    [
-                        TemplateResponseSignerRole.from_dict(_item)
-                        for _item in obj["signer_roles"]
-                    ]
-                    if obj.get("signer_roles") is not None
-                    else None
-                ),
-                "cc_roles": (
-                    [
-                        TemplateResponseCCRole.from_dict(_item)
-                        for _item in obj["cc_roles"]
-                    ]
-                    if obj.get("cc_roles") is not None
-                    else None
-                ),
                 "custom_fields": (
                     [
                         TemplateResponseDocumentCustomFieldBase.from_dict(_item)
@@ -315,14 +313,14 @@ class TemplateResponse(BaseModel):
             "is_creator": "(bool,)",
             "can_edit": "(bool,)",
             "is_locked": "(bool,)",
+            "metadata": "(object,)",
+            "signer_roles": "(List[TemplateResponseSignerRole],)",
+            "cc_roles": "(List[TemplateResponseCCRole],)",
             "documents": "(List[TemplateResponseDocument],)",
             "accounts": "(List[TemplateResponseAccount],)",
             "attachments": "(List[SignatureRequestResponseAttachment],)",
             "updated_at": "(int,)",
             "is_embedded": "(bool,)",
-            "metadata": "(object,)",
-            "signer_roles": "(List[TemplateResponseSignerRole],)",
-            "cc_roles": "(List[TemplateResponseCCRole],)",
             "custom_fields": "(List[TemplateResponseDocumentCustomFieldBase],)",
             "named_form_fields": "(List[TemplateResponseDocumentFormFieldBase],)",
         }
@@ -330,11 +328,11 @@ class TemplateResponse(BaseModel):
     @classmethod
     def openapi_type_is_array(cls, property_name: str) -> bool:
         return property_name in [
+            "signer_roles",
+            "cc_roles",
             "documents",
             "accounts",
             "attachments",
-            "signer_roles",
-            "cc_roles",
             "custom_fields",
             "named_form_fields",
         ]

@@ -22509,6 +22509,21 @@ TemplateResponse.attributeTypeMap = [
     type: "boolean"
   },
   {
+    name: "metadata",
+    baseName: "metadata",
+    type: "object"
+  },
+  {
+    name: "signerRoles",
+    baseName: "signer_roles",
+    type: "Array<TemplateResponseSignerRole>"
+  },
+  {
+    name: "ccRoles",
+    baseName: "cc_roles",
+    type: "Array<TemplateResponseCCRole>"
+  },
+  {
     name: "documents",
     baseName: "documents",
     type: "Array<TemplateResponseDocument>"
@@ -22532,21 +22547,6 @@ TemplateResponse.attributeTypeMap = [
     name: "isEmbedded",
     baseName: "is_embedded",
     type: "boolean"
-  },
-  {
-    name: "metadata",
-    baseName: "metadata",
-    type: "object"
-  },
-  {
-    name: "signerRoles",
-    baseName: "signer_roles",
-    type: "Array<TemplateResponseSignerRole>"
-  },
-  {
-    name: "ccRoles",
-    baseName: "cc_roles",
-    type: "Array<TemplateResponseCCRole>"
   },
   {
     name: "customFields",

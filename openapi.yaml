@@ -11232,10 +11232,13 @@ components:
         - accounts
         - attachments
         - can_edit
+        - cc_roles
         - documents
         - is_creator
         - is_locked
         - message
+        - metadata
+        - signer_roles
         - template_id
         - title
       properties:
