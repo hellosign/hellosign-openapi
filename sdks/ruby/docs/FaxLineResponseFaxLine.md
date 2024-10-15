@@ -6,8 +6,8 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| `number` | ```String``` |  Number  |  |
-| `created_at` | ```Integer``` |  Created at  |  |
-| `updated_at` | ```Integer``` |  Updated at  |  |
-| `accounts` | [```Array<AccountResponse>```](AccountResponse.md) |    |  |
+| `number`<sup>*_required_</sup> | ```String``` |  Number  |  |
+| `created_at`<sup>*_required_</sup> | ```Integer``` |  Created at  |  |
+| `updated_at`<sup>*_required_</sup> | ```Integer``` |  Updated at  |  |
+| `accounts`<sup>*_required_</sup> | [```Array<AccountResponse>```](AccountResponse.md) |    |  |
 
