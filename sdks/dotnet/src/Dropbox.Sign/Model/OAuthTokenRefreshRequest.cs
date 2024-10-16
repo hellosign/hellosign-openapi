@@ -43,7 +43,9 @@ namespace Dropbox.Sign.Model
         /// </summary>
         /// <param name="grantType">When refreshing an existing token use &#x60;refresh_token&#x60;. (required) (default to &quot;refresh_token&quot;).</param>
         /// <param name="refreshToken">The token provided when you got the expired access token. (required).</param>
-        public OAuthTokenRefreshRequest(string grantType = @"refresh_token", string refreshToken = default(string))
+        /// <param name="clientId">The client ID for your API app. Mandatory from August 1st, 2025. Until then, required if the \&quot;Client Credentials Required\&quot; setting is enabled for token refresh; optional if disabled..</param>
+        /// <param name="clientSecret">The client secret for your API app. Mandatory from August 1st, 2025. Until then, required if the \&quot;Client Credentials Required\&quot; setting is enabled for token refresh; optional if disabled..</param>
+        public OAuthTokenRefreshRequest(string grantType = @"refresh_token", string refreshToken = default(string), string clientId = default(string), string clientSecret = default(string))
         {
 
             // to ensure "grantType" is required (not null)
@@ -58,6 +60,8 @@ namespace Dropbox.Sign.Model
                 throw new ArgumentNullException("refreshToken is a required property for OAuthTokenRefreshRequest and cannot be null");
             }
             this.RefreshToken = refreshToken;
+            this.ClientId = clientId;
+            this.ClientSecret = clientSecret;
         }
 
         /// <summary>
@@ -91,6 +95,20 @@ namespace Dropbox.Sign.Model
         public string RefreshToken { get; set; }
 
         /// <summary>
+        /// The client ID for your API app. Mandatory from August 1st, 2025. Until then, required if the \&quot;Client Credentials Required\&quot; setting is enabled for token refresh; optional if disabled.
+        /// </summary>
+        /// <value>The client ID for your API app. Mandatory from August 1st, 2025. Until then, required if the \&quot;Client Credentials Required\&quot; setting is enabled for token refresh; optional if disabled.</value>
+        [DataMember(Name = "client_id", EmitDefaultValue = true)]
+        public string ClientId { get; set; }
+
+        /// <summary>
+        /// The client secret for your API app. Mandatory from August 1st, 2025. Until then, required if the \&quot;Client Credentials Required\&quot; setting is enabled for token refresh; optional if disabled.
+        /// </summary>
+        /// <value>The client secret for your API app. Mandatory from August 1st, 2025. Until then, required if the \&quot;Client Credentials Required\&quot; setting is enabled for token refresh; optional if disabled.</value>
+        [DataMember(Name = "client_secret", EmitDefaultValue = true)]
+        public string ClientSecret { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -100,6 +118,8 @@ namespace Dropbox.Sign.Model
             sb.Append("class OAuthTokenRefreshRequest {\n");
             sb.Append("  GrantType: ").Append(GrantType).Append("\n");
             sb.Append("  RefreshToken: ").Append(RefreshToken).Append("\n");
+            sb.Append("  ClientId: ").Append(ClientId).Append("\n");
+            sb.Append("  ClientSecret: ").Append(ClientSecret).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -144,6 +164,16 @@ namespace Dropbox.Sign.Model
                     this.RefreshToken == input.RefreshToken ||
                     (this.RefreshToken != null &&
                     this.RefreshToken.Equals(input.RefreshToken))
+                ) &&
+                (
+                    this.ClientId == input.ClientId ||
+                    (this.ClientId != null &&
+                    this.ClientId.Equals(input.ClientId))
+                ) &&
+                (
+                    this.ClientSecret == input.ClientSecret ||
+                    (this.ClientSecret != null &&
+                    this.ClientSecret.Equals(input.ClientSecret))
                 );
         }
 
@@ -163,6 +193,14 @@ namespace Dropbox.Sign.Model
                 if (this.RefreshToken != null)
                 {
                     hashCode = (hashCode * 59) + this.RefreshToken.GetHashCode();
+                }
+                if (this.ClientId != null)
+                {
+                    hashCode = (hashCode * 59) + this.ClientId.GetHashCode();
+                }
+                if (this.ClientSecret != null)
+                {
+                    hashCode = (hashCode * 59) + this.ClientSecret.GetHashCode();
                 }
                 return hashCode;
             }
@@ -193,6 +231,20 @@ namespace Dropbox.Sign.Model
                 Property = "RefreshToken",
                 Type = "string",
                 Value = RefreshToken,
+            });
+            types.Add(new OpenApiType()
+            {
+                Name = "client_id",
+                Property = "ClientId",
+                Type = "string",
+                Value = ClientId,
+            });
+            types.Add(new OpenApiType()
+            {
+                Name = "client_secret",
+                Property = "ClientSecret",
+                Type = "string",
+                Value = ClientSecret,
             });
 
             return types;

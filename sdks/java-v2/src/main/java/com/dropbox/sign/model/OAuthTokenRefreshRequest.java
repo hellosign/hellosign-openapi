@@ -34,7 +34,9 @@ import com.dropbox.sign.ApiException;
  */
 @JsonPropertyOrder({
   OAuthTokenRefreshRequest.JSON_PROPERTY_GRANT_TYPE,
-  OAuthTokenRefreshRequest.JSON_PROPERTY_REFRESH_TOKEN
+  OAuthTokenRefreshRequest.JSON_PROPERTY_REFRESH_TOKEN,
+  OAuthTokenRefreshRequest.JSON_PROPERTY_CLIENT_ID,
+  OAuthTokenRefreshRequest.JSON_PROPERTY_CLIENT_SECRET
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
@@ -44,6 +46,12 @@ public class OAuthTokenRefreshRequest {
 
   public static final String JSON_PROPERTY_REFRESH_TOKEN = "refresh_token";
   private String refreshToken;
+
+  public static final String JSON_PROPERTY_CLIENT_ID = "client_id";
+  private String clientId;
+
+  public static final String JSON_PROPERTY_CLIENT_SECRET = "client_secret";
+  private String clientSecret;
 
   public OAuthTokenRefreshRequest() { 
   }
@@ -113,6 +121,56 @@ public class OAuthTokenRefreshRequest {
   }
 
 
+  public OAuthTokenRefreshRequest clientId(String clientId) {
+    this.clientId = clientId;
+    return this;
+  }
+
+  /**
+   * The client ID for your API app. Mandatory from August 1st, 2025. Until then, required if the \&quot;Client Credentials Required\&quot; setting is enabled for token refresh; optional if disabled.
+   * @return clientId
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CLIENT_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getClientId() {
+    return clientId;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_CLIENT_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setClientId(String clientId) {
+    this.clientId = clientId;
+  }
+
+
+  public OAuthTokenRefreshRequest clientSecret(String clientSecret) {
+    this.clientSecret = clientSecret;
+    return this;
+  }
+
+  /**
+   * The client secret for your API app. Mandatory from August 1st, 2025. Until then, required if the \&quot;Client Credentials Required\&quot; setting is enabled for token refresh; optional if disabled.
+   * @return clientSecret
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CLIENT_SECRET)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getClientSecret() {
+    return clientSecret;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_CLIENT_SECRET)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setClientSecret(String clientSecret) {
+    this.clientSecret = clientSecret;
+  }
+
+
   /**
    * Return true if this OAuthTokenRefreshRequest object is equal to o.
    */
@@ -126,12 +184,14 @@ public class OAuthTokenRefreshRequest {
     }
     OAuthTokenRefreshRequest oauthTokenRefreshRequest = (OAuthTokenRefreshRequest) o;
     return Objects.equals(this.grantType, oauthTokenRefreshRequest.grantType) &&
-        Objects.equals(this.refreshToken, oauthTokenRefreshRequest.refreshToken);
+        Objects.equals(this.refreshToken, oauthTokenRefreshRequest.refreshToken) &&
+        Objects.equals(this.clientId, oauthTokenRefreshRequest.clientId) &&
+        Objects.equals(this.clientSecret, oauthTokenRefreshRequest.clientSecret);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(grantType, refreshToken);
+    return Objects.hash(grantType, refreshToken, clientId, clientSecret);
   }
 
   @Override
@@ -140,6 +200,8 @@ public class OAuthTokenRefreshRequest {
     sb.append("class OAuthTokenRefreshRequest {\n");
     sb.append("    grantType: ").append(toIndentedString(grantType)).append("\n");
     sb.append("    refreshToken: ").append(toIndentedString(refreshToken)).append("\n");
+    sb.append("    clientId: ").append(toIndentedString(clientId)).append("\n");
+    sb.append("    clientSecret: ").append(toIndentedString(clientSecret)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -184,6 +246,44 @@ public class OAuthTokenRefreshRequest {
         }
         else {
             map.put("refresh_token", JSON.getDefault().getMapper().writeValueAsString(refreshToken));
+        }
+    }
+    if (clientId != null) {
+        if (isFileTypeOrListOfFiles(clientId)) {
+            fileTypeFound = true;
+        }
+
+        if (clientId.getClass().equals(java.io.File.class) ||
+            clientId.getClass().equals(Integer.class) ||
+            clientId.getClass().equals(String.class) ||
+            clientId.getClass().isEnum()) {
+            map.put("client_id", clientId);
+        } else if (isListOfFile(clientId)) {
+            for(int i = 0; i< getListSize(clientId); i++) {
+                map.put("client_id[" + i + "]", getFromList(clientId, i));
+            }
+        }
+        else {
+            map.put("client_id", JSON.getDefault().getMapper().writeValueAsString(clientId));
+        }
+    }
+    if (clientSecret != null) {
+        if (isFileTypeOrListOfFiles(clientSecret)) {
+            fileTypeFound = true;
+        }
+
+        if (clientSecret.getClass().equals(java.io.File.class) ||
+            clientSecret.getClass().equals(Integer.class) ||
+            clientSecret.getClass().equals(String.class) ||
+            clientSecret.getClass().isEnum()) {
+            map.put("client_secret", clientSecret);
+        } else if (isListOfFile(clientSecret)) {
+            for(int i = 0; i< getListSize(clientSecret); i++) {
+                map.put("client_secret[" + i + "]", getFromList(clientSecret, i));
+            }
+        }
+        else {
+            map.put("client_secret", JSON.getDefault().getMapper().writeValueAsString(clientSecret));
         }
     }
     } catch (Exception e) {
