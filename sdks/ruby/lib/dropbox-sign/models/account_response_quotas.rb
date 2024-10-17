@@ -19,27 +19,27 @@ end
 module Dropbox::Sign
   # Details concerning remaining monthly quotas.
   class AccountResponseQuotas
-    # API signature requests remaining.
+    # API signature requests remaining. A value of `-1` means unlimited.
     # @return [Integer, nil]
     attr_accessor :api_signature_requests_left
 
-    # Signature requests remaining.
+    # Signature requests remaining. A value of `-1` means unlimited.
     # @return [Integer, nil]
     attr_accessor :documents_left
 
-    # Total API templates allowed.
+    # Total API templates allowed. A value of `-1` means unlimited.
     # @return [Integer, nil]
     attr_accessor :templates_total
 
-    # API templates remaining.
+    # API templates remaining. A value of `-1` means unlimited.
     # @return [Integer, nil]
     attr_accessor :templates_left
 
-    # SMS verifications  remaining.
+    # SMS verifications remaining.
     # @return [Integer, nil]
     attr_accessor :sms_verifications_left
 
-    # Number of fax pages left
+    # Number of fax pages left. A value of `-1` means unlimited.
     # @return [Integer, nil]
     attr_accessor :num_fax_pages_left
 
@@ -126,26 +126,38 @@ module Dropbox::Sign
 
       if attributes.key?(:'api_signature_requests_left')
         self.api_signature_requests_left = attributes[:'api_signature_requests_left']
+      else
+        self.api_signature_requests_left = 0
       end
 
       if attributes.key?(:'documents_left')
         self.documents_left = attributes[:'documents_left']
+      else
+        self.documents_left = 0
       end
 
       if attributes.key?(:'templates_total')
         self.templates_total = attributes[:'templates_total']
+      else
+        self.templates_total = 0
       end
 
       if attributes.key?(:'templates_left')
         self.templates_left = attributes[:'templates_left']
+      else
+        self.templates_left = 0
       end
 
       if attributes.key?(:'sms_verifications_left')
         self.sms_verifications_left = attributes[:'sms_verifications_left']
+      else
+        self.sms_verifications_left = 0
       end
 
       if attributes.key?(:'num_fax_pages_left')
         self.num_fax_pages_left = attributes[:'num_fax_pages_left']
+      else
+        self.num_fax_pages_left = 0
       end
     end
 

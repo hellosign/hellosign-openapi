@@ -130,7 +130,7 @@ public class TemplateApi {
     );
   }
   /**
-   * Create  Template.
+   * Create Template.
    * Creates a template that can then be used.
    * @param templateCreateRequest  (required)
    * @return TemplateCreateResponse
@@ -148,7 +148,7 @@ public class TemplateApi {
 
 
   /**
-   * Create  Template.
+   * Create Template.
    * Creates a template that can then be used.
    * @param templateCreateRequest  (required)
    * @return ApiResponse&lt;TemplateCreateResponse&gt;

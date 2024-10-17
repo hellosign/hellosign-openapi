@@ -178,7 +178,7 @@ Class | Method | HTTP request | Description
 *TeamApi* | [**TeamSubTeams**](docs/TeamApi.md#teamsubteams) | **GET** /team/sub_teams/{team_id} | List Sub Teams
 *TeamApi* | [**TeamUpdate**](docs/TeamApi.md#teamupdate) | **PUT** /team | Update Team
 *TemplateApi* | [**TemplateAddUser**](docs/TemplateApi.md#templateadduser) | **POST** /template/add_user/{template_id} | Add User to Template
-*TemplateApi* | [**TemplateCreate**](docs/TemplateApi.md#templatecreate) | **POST** /template/create | Create  Template
+*TemplateApi* | [**TemplateCreate**](docs/TemplateApi.md#templatecreate) | **POST** /template/create | Create Template
 *TemplateApi* | [**TemplateCreateEmbeddedDraft**](docs/TemplateApi.md#templatecreateembeddeddraft) | **POST** /template/create_embedded_draft | Create Embedded Template Draft
 *TemplateApi* | [**TemplateDelete**](docs/TemplateApi.md#templatedelete) | **POST** /template/delete/{template_id} | Delete Template
 *TemplateApi* | [**TemplateFiles**](docs/TemplateApi.md#templatefiles) | **GET** /template/files/{template_id} | Get Template Files

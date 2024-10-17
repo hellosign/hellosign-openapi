@@ -137,7 +137,7 @@ module Dropbox::Sign
       return data, status_code, headers
     end
 
-    # Create  Template
+    # Create Template
     # Creates a template that can then be used.
     # @param template_create_request [TemplateCreateRequest] 
     # @param [Hash] opts the optional parameters
@@ -147,7 +147,7 @@ module Dropbox::Sign
       data
     end
 
-    # Create  Template
+    # Create Template
     # Creates a template that can then be used.
     # @param template_create_request [TemplateCreateRequest] 
     # @param [Hash] opts the optional parameters
