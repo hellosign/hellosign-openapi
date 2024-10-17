@@ -501,7 +501,7 @@ public class TemplateResponse {
   }
 
   /**
-   * &#x60;true&#x60; if this template was created using an embedded flow, &#x60;false&#x60; if it was created on our website.
+   * &#x60;true&#x60; if this template was created using an embedded flow, &#x60;false&#x60; if it was created on our website. Will be &#x60;null&#x60; when you are not the creator of the Template.
    * @return isEmbedded
    */
   @jakarta.annotation.Nullable

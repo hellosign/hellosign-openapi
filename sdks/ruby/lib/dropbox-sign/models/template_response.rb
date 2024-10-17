@@ -71,7 +71,7 @@ module Dropbox::Sign
     # @return [Integer]
     attr_accessor :updated_at
 
-    # `true` if this template was created using an embedded flow, `false` if it was created on our website.
+    # `true` if this template was created using an embedded flow, `false` if it was created on our website. Will be `null` when you are not the creator of the Template.
     # @return [Boolean, nil]
     attr_accessor :is_embedded
 

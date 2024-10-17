@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 | `accounts`<sup>*_required_</sup> | [```\Dropbox\Sign\Model\TemplateResponseAccount[]```](TemplateResponseAccount.md) |  An array of the Accounts that can use this Template.  |  |
 | `attachments`<sup>*_required_</sup> | [```\Dropbox\Sign\Model\SignatureRequestResponseAttachment[]```](SignatureRequestResponseAttachment.md) |  Signer attachments.  |  |
 | `updated_at` | ```int``` |  Time the template was last updated.  |  |
-| `is_embedded` | ```bool``` |  `true` if this template was created using an embedded flow, `false` if it was created on our website.  |  |
+| `is_embedded` | ```bool``` |  `true` if this template was created using an embedded flow, `false` if it was created on our website. Will be `null` when you are not the creator of the Template.  |  |
 | `custom_fields` | [```\Dropbox\Sign\Model\TemplateResponseDocumentCustomFieldBase[]```](TemplateResponseDocumentCustomFieldBase.md) |  Deprecated. Use `custom_fields` inside the [documents](https://developers.hellosign.com/api/reference/operation/templateGet/#!c&#x3D;200&amp;path&#x3D;template/documents&amp;t&#x3D;response) array instead.  |  |
 | `named_form_fields` | [```\Dropbox\Sign\Model\TemplateResponseDocumentFormFieldBase[]```](TemplateResponseDocumentFormFieldBase.md) |  Deprecated. Use `form_fields` inside the [documents](https://developers.hellosign.com/api/reference/operation/templateGet/#!c&#x3D;200&amp;path&#x3D;template/documents&amp;t&#x3D;response) array instead.  |  |
 

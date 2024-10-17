@@ -803,7 +803,7 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets is_embedded
      *
-     * @param bool|null $is_embedded `true` if this template was created using an embedded flow, `false` if it was created on our website
+     * @param bool|null $is_embedded `true` if this template was created using an embedded flow, `false` if it was created on our website. Will be `null` when you are not the creator of the Template.
      *
      * @return self
      */

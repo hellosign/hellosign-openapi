@@ -88,7 +88,7 @@ export class TemplateResponse {
    */
   "updatedAt"?: number;
   /**
-   * `true` if this template was created using an embedded flow, `false` if it was created on our website.
+   * `true` if this template was created using an embedded flow, `false` if it was created on our website. Will be `null` when you are not the creator of the Template.
    */
   "isEmbedded"?: boolean | null;
   /**

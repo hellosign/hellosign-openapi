@@ -84,7 +84,7 @@ class TemplateResponse(BaseModel):
     )
     is_embedded: Optional[StrictBool] = Field(
         default=None,
-        description="`true` if this template was created using an embedded flow, `false` if it was created on our website.",
+        description="`true` if this template was created using an embedded flow, `false` if it was created on our website. Will be `null` when you are not the creator of the Template.",
     )
     custom_fields: Optional[List[TemplateResponseDocumentCustomFieldBase]] = Field(
         default=None,

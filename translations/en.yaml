@@ -1449,7 +1449,7 @@
 "TemplateResponse::TEMPLATE_ID": The id of the Template.
 "TemplateResponse::CAN_EDIT": Indicates whether edit rights have been granted to you by the owner (always `true` if that's you).
 "TemplateResponse::IS_CREATOR": "`true` if you are the owner of this template, `false` if it's been shared with you by a team member."
-"TemplateResponse::IS_EMBEDDED": "`true` if this template was created using an embedded flow, `false` if it was created on our website."
+"TemplateResponse::IS_EMBEDDED": "`true` if this template was created using an embedded flow, `false` if it was created on our website. Will be `null` when you are not the creator of the Template."
 "TemplateResponse::IS_LOCKED": |-
   Indicates whether the template is locked.
   If `true`, then the template was created outside your quota and can only be used in `test_mode`.

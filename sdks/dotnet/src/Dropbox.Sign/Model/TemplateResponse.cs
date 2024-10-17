@@ -45,7 +45,7 @@ namespace Dropbox.Sign.Model
         /// <param name="title">The title of the Template. This will also be the default subject of the message sent to signers when using this Template to send a SignatureRequest. This can be overridden when sending the SignatureRequest. (required).</param>
         /// <param name="message">The default message that will be sent to signers when using this Template to send a SignatureRequest. This can be overridden when sending the SignatureRequest. (required).</param>
         /// <param name="updatedAt">Time the template was last updated..</param>
-        /// <param name="isEmbedded">&#x60;true&#x60; if this template was created using an embedded flow, &#x60;false&#x60; if it was created on our website..</param>
+        /// <param name="isEmbedded">&#x60;true&#x60; if this template was created using an embedded flow, &#x60;false&#x60; if it was created on our website. Will be &#x60;null&#x60; when you are not the creator of the Template..</param>
         /// <param name="isCreator">&#x60;true&#x60; if you are the owner of this template, &#x60;false&#x60; if it&#39;s been shared with you by a team member. (required).</param>
         /// <param name="canEdit">Indicates whether edit rights have been granted to you by the owner (always &#x60;true&#x60; if that&#39;s you). (required).</param>
         /// <param name="isLocked">Indicates whether the template is locked. If &#x60;true&#x60;, then the template was created outside your quota and can only be used in &#x60;test_mode&#x60;. If &#x60;false&#x60;, then the template is within your quota and can be used to create signature requests. (required).</param>
@@ -231,9 +231,9 @@ namespace Dropbox.Sign.Model
         public int UpdatedAt { get; set; }
 
         /// <summary>
-        /// &#x60;true&#x60; if this template was created using an embedded flow, &#x60;false&#x60; if it was created on our website.
+        /// &#x60;true&#x60; if this template was created using an embedded flow, &#x60;false&#x60; if it was created on our website. Will be &#x60;null&#x60; when you are not the creator of the Template.
         /// </summary>
-        /// <value>&#x60;true&#x60; if this template was created using an embedded flow, &#x60;false&#x60; if it was created on our website.</value>
+        /// <value>&#x60;true&#x60; if this template was created using an embedded flow, &#x60;false&#x60; if it was created on our website. Will be &#x60;null&#x60; when you are not the creator of the Template.</value>
         [DataMember(Name = "is_embedded", EmitDefaultValue = true)]
         public bool? IsEmbedded { get; set; }
 
