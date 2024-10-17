@@ -58,9 +58,9 @@ class TemplateResponseDocumentStaticFieldBase implements ModelInterface, ArrayAc
      * @var string[]
      */
     protected static $openAPITypes = [
-        'type' => 'string',
         'api_id' => 'string',
         'name' => 'string',
+        'type' => 'string',
         'signer' => 'string',
         'x' => 'int',
         'y' => 'int',
@@ -78,9 +78,9 @@ class TemplateResponseDocumentStaticFieldBase implements ModelInterface, ArrayAc
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        'type' => null,
         'api_id' => null,
         'name' => null,
+        'type' => null,
         'signer' => null,
         'x' => null,
         'y' => null,
@@ -96,9 +96,9 @@ class TemplateResponseDocumentStaticFieldBase implements ModelInterface, ArrayAc
      * @var bool[]
      */
     protected static array $openAPINullables = [
-        'type' => false,
         'api_id' => false,
         'name' => false,
+        'type' => false,
         'signer' => false,
         'x' => false,
         'y' => false,
@@ -186,9 +186,9 @@ class TemplateResponseDocumentStaticFieldBase implements ModelInterface, ArrayAc
      * @var string[]
      */
     protected static $attributeMap = [
-        'type' => 'type',
         'api_id' => 'api_id',
         'name' => 'name',
+        'type' => 'type',
         'signer' => 'signer',
         'x' => 'x',
         'y' => 'y',
@@ -204,9 +204,9 @@ class TemplateResponseDocumentStaticFieldBase implements ModelInterface, ArrayAc
      * @var string[]
      */
     protected static $setters = [
-        'type' => 'setType',
         'api_id' => 'setApiId',
         'name' => 'setName',
+        'type' => 'setType',
         'signer' => 'setSigner',
         'x' => 'setX',
         'y' => 'setY',
@@ -222,9 +222,9 @@ class TemplateResponseDocumentStaticFieldBase implements ModelInterface, ArrayAc
      * @var string[]
      */
     protected static $getters = [
-        'type' => 'getType',
         'api_id' => 'getApiId',
         'name' => 'getName',
+        'type' => 'getType',
         'signer' => 'getSigner',
         'x' => 'getX',
         'y' => 'getY',
@@ -290,9 +290,9 @@ class TemplateResponseDocumentStaticFieldBase implements ModelInterface, ArrayAc
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('type', $data ?? [], null);
         $this->setIfExists('api_id', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
+        $this->setIfExists('type', $data ?? [], null);
         $this->setIfExists('signer', $data ?? [], 'me_now');
         $this->setIfExists('x', $data ?? [], null);
         $this->setIfExists('y', $data ?? [], null);
@@ -364,8 +364,32 @@ class TemplateResponseDocumentStaticFieldBase implements ModelInterface, ArrayAc
     {
         $invalidProperties = [];
 
+        if ($this->container['api_id'] === null) {
+            $invalidProperties[] = "'api_id' can't be null";
+        }
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
+        }
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
+        }
+        if ($this->container['signer'] === null) {
+            $invalidProperties[] = "'signer' can't be null";
+        }
+        if ($this->container['x'] === null) {
+            $invalidProperties[] = "'x' can't be null";
+        }
+        if ($this->container['y'] === null) {
+            $invalidProperties[] = "'y' can't be null";
+        }
+        if ($this->container['width'] === null) {
+            $invalidProperties[] = "'width' can't be null";
+        }
+        if ($this->container['height'] === null) {
+            $invalidProperties[] = "'height' can't be null";
+        }
+        if ($this->container['required'] === null) {
+            $invalidProperties[] = "'required' can't be null";
         }
         return $invalidProperties;
     }
@@ -379,6 +403,60 @@ class TemplateResponseDocumentStaticFieldBase implements ModelInterface, ArrayAc
     public function valid()
     {
         return count($this->listInvalidProperties()) === 0;
+    }
+
+    /**
+     * Gets api_id
+     *
+     * @return string
+     */
+    public function getApiId()
+    {
+        return $this->container['api_id'];
+    }
+
+    /**
+     * Sets api_id
+     *
+     * @param string $api_id a unique id for the static field
+     *
+     * @return self
+     */
+    public function setApiId(string $api_id)
+    {
+        if (is_null($api_id)) {
+            throw new InvalidArgumentException('non-nullable api_id cannot be null');
+        }
+        $this->container['api_id'] = $api_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string $name the name of the static field
+     *
+     * @return self
+     */
+    public function setName(string $name)
+    {
+        if (is_null($name)) {
+            throw new InvalidArgumentException('non-nullable name cannot be null');
+        }
+        $this->container['name'] = $name;
+
+        return $this;
     }
 
     /**
@@ -409,63 +487,9 @@ class TemplateResponseDocumentStaticFieldBase implements ModelInterface, ArrayAc
     }
 
     /**
-     * Gets api_id
-     *
-     * @return string|null
-     */
-    public function getApiId()
-    {
-        return $this->container['api_id'];
-    }
-
-    /**
-     * Sets api_id
-     *
-     * @param string|null $api_id a unique id for the static field
-     *
-     * @return self
-     */
-    public function setApiId(?string $api_id)
-    {
-        if (is_null($api_id)) {
-            throw new InvalidArgumentException('non-nullable api_id cannot be null');
-        }
-        $this->container['api_id'] = $api_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets name
-     *
-     * @return string|null
-     */
-    public function getName()
-    {
-        return $this->container['name'];
-    }
-
-    /**
-     * Sets name
-     *
-     * @param string|null $name the name of the static field
-     *
-     * @return self
-     */
-    public function setName(?string $name)
-    {
-        if (is_null($name)) {
-            throw new InvalidArgumentException('non-nullable name cannot be null');
-        }
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
      * Gets signer
      *
-     * @return string|null
+     * @return string
      */
     public function getSigner()
     {
@@ -475,11 +499,11 @@ class TemplateResponseDocumentStaticFieldBase implements ModelInterface, ArrayAc
     /**
      * Sets signer
      *
-     * @param string|null $signer the signer of the Static Field
+     * @param string $signer the signer of the Static Field
      *
      * @return self
      */
-    public function setSigner(?string $signer)
+    public function setSigner(string $signer)
     {
         if (is_null($signer)) {
             throw new InvalidArgumentException('non-nullable signer cannot be null');
@@ -492,7 +516,7 @@ class TemplateResponseDocumentStaticFieldBase implements ModelInterface, ArrayAc
     /**
      * Gets x
      *
-     * @return int|null
+     * @return int
      */
     public function getX()
     {
@@ -502,11 +526,11 @@ class TemplateResponseDocumentStaticFieldBase implements ModelInterface, ArrayAc
     /**
      * Sets x
      *
-     * @param int|null $x the horizontal offset in pixels for this static field
+     * @param int $x the horizontal offset in pixels for this static field
      *
      * @return self
      */
-    public function setX(?int $x)
+    public function setX(int $x)
     {
         if (is_null($x)) {
             throw new InvalidArgumentException('non-nullable x cannot be null');
@@ -519,7 +543,7 @@ class TemplateResponseDocumentStaticFieldBase implements ModelInterface, ArrayAc
     /**
      * Gets y
      *
-     * @return int|null
+     * @return int
      */
     public function getY()
     {
@@ -529,11 +553,11 @@ class TemplateResponseDocumentStaticFieldBase implements ModelInterface, ArrayAc
     /**
      * Sets y
      *
-     * @param int|null $y the vertical offset in pixels for this static field
+     * @param int $y the vertical offset in pixels for this static field
      *
      * @return self
      */
-    public function setY(?int $y)
+    public function setY(int $y)
     {
         if (is_null($y)) {
             throw new InvalidArgumentException('non-nullable y cannot be null');
@@ -546,7 +570,7 @@ class TemplateResponseDocumentStaticFieldBase implements ModelInterface, ArrayAc
     /**
      * Gets width
      *
-     * @return int|null
+     * @return int
      */
     public function getWidth()
     {
@@ -556,11 +580,11 @@ class TemplateResponseDocumentStaticFieldBase implements ModelInterface, ArrayAc
     /**
      * Sets width
      *
-     * @param int|null $width the width in pixels of this static field
+     * @param int $width the width in pixels of this static field
      *
      * @return self
      */
-    public function setWidth(?int $width)
+    public function setWidth(int $width)
     {
         if (is_null($width)) {
             throw new InvalidArgumentException('non-nullable width cannot be null');
@@ -573,7 +597,7 @@ class TemplateResponseDocumentStaticFieldBase implements ModelInterface, ArrayAc
     /**
      * Gets height
      *
-     * @return int|null
+     * @return int
      */
     public function getHeight()
     {
@@ -583,11 +607,11 @@ class TemplateResponseDocumentStaticFieldBase implements ModelInterface, ArrayAc
     /**
      * Sets height
      *
-     * @param int|null $height the height in pixels of this static field
+     * @param int $height the height in pixels of this static field
      *
      * @return self
      */
-    public function setHeight(?int $height)
+    public function setHeight(int $height)
     {
         if (is_null($height)) {
             throw new InvalidArgumentException('non-nullable height cannot be null');
@@ -600,7 +624,7 @@ class TemplateResponseDocumentStaticFieldBase implements ModelInterface, ArrayAc
     /**
      * Gets required
      *
-     * @return bool|null
+     * @return bool
      */
     public function getRequired()
     {
@@ -610,11 +634,11 @@ class TemplateResponseDocumentStaticFieldBase implements ModelInterface, ArrayAc
     /**
      * Sets required
      *
-     * @param bool|null $required boolean showing whether or not this field is required
+     * @param bool $required boolean showing whether or not this field is required
      *
      * @return self
      */
-    public function setRequired(?bool $required)
+    public function setRequired(bool $required)
     {
         if (is_null($required)) {
             throw new InvalidArgumentException('non-nullable required cannot be null');

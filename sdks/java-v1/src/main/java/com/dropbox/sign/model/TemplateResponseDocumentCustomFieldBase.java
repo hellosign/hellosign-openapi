@@ -27,15 +27,15 @@ import java.util.Objects;
 
 /** An array of Form Field objects containing the name and type of each named field. */
 @JsonPropertyOrder({
-    TemplateResponseDocumentCustomFieldBase.JSON_PROPERTY_TYPE,
     TemplateResponseDocumentCustomFieldBase.JSON_PROPERTY_API_ID,
     TemplateResponseDocumentCustomFieldBase.JSON_PROPERTY_NAME,
-    TemplateResponseDocumentCustomFieldBase.JSON_PROPERTY_SIGNER,
+    TemplateResponseDocumentCustomFieldBase.JSON_PROPERTY_TYPE,
     TemplateResponseDocumentCustomFieldBase.JSON_PROPERTY_X,
     TemplateResponseDocumentCustomFieldBase.JSON_PROPERTY_Y,
     TemplateResponseDocumentCustomFieldBase.JSON_PROPERTY_WIDTH,
     TemplateResponseDocumentCustomFieldBase.JSON_PROPERTY_HEIGHT,
     TemplateResponseDocumentCustomFieldBase.JSON_PROPERTY_REQUIRED,
+    TemplateResponseDocumentCustomFieldBase.JSON_PROPERTY_SIGNER,
     TemplateResponseDocumentCustomFieldBase.JSON_PROPERTY_GROUP
 })
 @javax.annotation.Generated(
@@ -56,17 +56,14 @@ import java.util.Objects;
     @JsonSubTypes.Type(value = TemplateResponseDocumentCustomFieldText.class, name = "text"),
 })
 public class TemplateResponseDocumentCustomFieldBase {
-    public static final String JSON_PROPERTY_TYPE = "type";
-    private String type;
-
     public static final String JSON_PROPERTY_API_ID = "api_id";
     private String apiId;
 
     public static final String JSON_PROPERTY_NAME = "name";
     private String name;
 
-    public static final String JSON_PROPERTY_SIGNER = "signer";
-    private String signer;
+    public static final String JSON_PROPERTY_TYPE = "type";
+    private String type;
 
     public static final String JSON_PROPERTY_X = "x";
     private Integer x;
@@ -82,6 +79,9 @@ public class TemplateResponseDocumentCustomFieldBase {
 
     public static final String JSON_PROPERTY_REQUIRED = "required";
     private Boolean required;
+
+    public static final String JSON_PROPERTY_SIGNER = "signer";
+    private String signer;
 
     public static final String JSON_PROPERTY_GROUP = "group";
     private String group;
@@ -103,6 +103,52 @@ public class TemplateResponseDocumentCustomFieldBase {
                 .readValue(
                         new ObjectMapper().writeValueAsString(data),
                         TemplateResponseDocumentCustomFieldBase.class);
+    }
+
+    public TemplateResponseDocumentCustomFieldBase apiId(String apiId) {
+        this.apiId = apiId;
+        return this;
+    }
+
+    /**
+     * The unique ID for this field.
+     *
+     * @return apiId
+     */
+    @javax.annotation.Nonnull
+    @JsonProperty(JSON_PROPERTY_API_ID)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    public String getApiId() {
+        return apiId;
+    }
+
+    @JsonProperty(JSON_PROPERTY_API_ID)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    public void setApiId(String apiId) {
+        this.apiId = apiId;
+    }
+
+    public TemplateResponseDocumentCustomFieldBase name(String name) {
+        this.name = name;
+        return this;
+    }
+
+    /**
+     * The name of the Custom Field.
+     *
+     * @return name
+     */
+    @javax.annotation.Nonnull
+    @JsonProperty(JSON_PROPERTY_NAME)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    public String getName() {
+        return name;
+    }
+
+    @JsonProperty(JSON_PROPERTY_NAME)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    public void setName(String name) {
+        this.name = name;
     }
 
     public TemplateResponseDocumentCustomFieldBase type(String type) {
@@ -128,48 +174,119 @@ public class TemplateResponseDocumentCustomFieldBase {
         this.type = type;
     }
 
-    public TemplateResponseDocumentCustomFieldBase apiId(String apiId) {
-        this.apiId = apiId;
+    public TemplateResponseDocumentCustomFieldBase x(Integer x) {
+        this.x = x;
         return this;
     }
 
     /**
-     * The unique ID for this field.
+     * The horizontal offset in pixels for this form field.
      *
-     * @return apiId
+     * @return x
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_API_ID)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public String getApiId() {
-        return apiId;
+    @javax.annotation.Nonnull
+    @JsonProperty(JSON_PROPERTY_X)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    public Integer getX() {
+        return x;
     }
 
-    @JsonProperty(JSON_PROPERTY_API_ID)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setApiId(String apiId) {
-        this.apiId = apiId;
+    @JsonProperty(JSON_PROPERTY_X)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    public void setX(Integer x) {
+        this.x = x;
     }
 
-    public TemplateResponseDocumentCustomFieldBase name(String name) {
-        this.name = name;
+    public TemplateResponseDocumentCustomFieldBase y(Integer y) {
+        this.y = y;
         return this;
     }
 
     /**
-     * The name of the Custom Field.
+     * The vertical offset in pixels for this form field.
      *
-     * @return name
+     * @return y
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_NAME)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public String getName() {
-        return name;
+    @javax.annotation.Nonnull
+    @JsonProperty(JSON_PROPERTY_Y)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    public Integer getY() {
+        return y;
     }
 
-    @JsonProperty(JSON_PROPERTY_NAME)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setName(String name) {
-        this.name = name;
+    @JsonProperty(JSON_PROPERTY_Y)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    public void setY(Integer y) {
+        this.y = y;
+    }
+
+    public TemplateResponseDocumentCustomFieldBase width(Integer width) {
+        this.width = width;
+        return this;
+    }
+
+    /**
+     * The width in pixels of this form field.
+     *
+     * @return width
+     */
+    @javax.annotation.Nonnull
+    @JsonProperty(JSON_PROPERTY_WIDTH)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    public Integer getWidth() {
+        return width;
+    }
+
+    @JsonProperty(JSON_PROPERTY_WIDTH)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    public void setWidth(Integer width) {
+        this.width = width;
+    }
+
+    public TemplateResponseDocumentCustomFieldBase height(Integer height) {
+        this.height = height;
+        return this;
+    }
+
+    /**
+     * The height in pixels of this form field.
+     *
+     * @return height
+     */
+    @javax.annotation.Nonnull
+    @JsonProperty(JSON_PROPERTY_HEIGHT)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    public Integer getHeight() {
+        return height;
+    }
+
+    @JsonProperty(JSON_PROPERTY_HEIGHT)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    public void setHeight(Integer height) {
+        this.height = height;
+    }
+
+    public TemplateResponseDocumentCustomFieldBase required(Boolean required) {
+        this.required = required;
+        return this;
+    }
+
+    /**
+     * Boolean showing whether or not this field is required.
+     *
+     * @return required
+     */
+    @javax.annotation.Nonnull
+    @JsonProperty(JSON_PROPERTY_REQUIRED)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    public Boolean getRequired() {
+        return required;
+    }
+
+    @JsonProperty(JSON_PROPERTY_REQUIRED)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    public void setRequired(Boolean required) {
+        this.required = required;
     }
 
     public TemplateResponseDocumentCustomFieldBase signer(String signer) {
@@ -202,116 +319,6 @@ public class TemplateResponseDocumentCustomFieldBase {
 
     public void setSigner(Integer signer) {
         this.signer = String.valueOf(signer);
-    }
-
-    public TemplateResponseDocumentCustomFieldBase x(Integer x) {
-        this.x = x;
-        return this;
-    }
-
-    /**
-     * The horizontal offset in pixels for this form field.
-     *
-     * @return x
-     */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_X)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public Integer getX() {
-        return x;
-    }
-
-    @JsonProperty(JSON_PROPERTY_X)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setX(Integer x) {
-        this.x = x;
-    }
-
-    public TemplateResponseDocumentCustomFieldBase y(Integer y) {
-        this.y = y;
-        return this;
-    }
-
-    /**
-     * The vertical offset in pixels for this form field.
-     *
-     * @return y
-     */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_Y)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public Integer getY() {
-        return y;
-    }
-
-    @JsonProperty(JSON_PROPERTY_Y)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setY(Integer y) {
-        this.y = y;
-    }
-
-    public TemplateResponseDocumentCustomFieldBase width(Integer width) {
-        this.width = width;
-        return this;
-    }
-
-    /**
-     * The width in pixels of this form field.
-     *
-     * @return width
-     */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_WIDTH)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public Integer getWidth() {
-        return width;
-    }
-
-    @JsonProperty(JSON_PROPERTY_WIDTH)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setWidth(Integer width) {
-        this.width = width;
-    }
-
-    public TemplateResponseDocumentCustomFieldBase height(Integer height) {
-        this.height = height;
-        return this;
-    }
-
-    /**
-     * The height in pixels of this form field.
-     *
-     * @return height
-     */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_HEIGHT)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public Integer getHeight() {
-        return height;
-    }
-
-    @JsonProperty(JSON_PROPERTY_HEIGHT)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setHeight(Integer height) {
-        this.height = height;
-    }
-
-    public TemplateResponseDocumentCustomFieldBase required(Boolean required) {
-        this.required = required;
-        return this;
-    }
-
-    /**
-     * Boolean showing whether or not this field is required.
-     *
-     * @return required
-     */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_REQUIRED)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public Boolean getRequired() {
-        return required;
-    }
-
-    @JsonProperty(JSON_PROPERTY_REQUIRED)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setRequired(Boolean required) {
-        this.required = required;
     }
 
     public TemplateResponseDocumentCustomFieldBase group(String group) {
@@ -348,36 +355,36 @@ public class TemplateResponseDocumentCustomFieldBase {
         }
         TemplateResponseDocumentCustomFieldBase templateResponseDocumentCustomFieldBase =
                 (TemplateResponseDocumentCustomFieldBase) o;
-        return Objects.equals(this.type, templateResponseDocumentCustomFieldBase.type)
-                && Objects.equals(this.apiId, templateResponseDocumentCustomFieldBase.apiId)
+        return Objects.equals(this.apiId, templateResponseDocumentCustomFieldBase.apiId)
                 && Objects.equals(this.name, templateResponseDocumentCustomFieldBase.name)
-                && Objects.equals(this.signer, templateResponseDocumentCustomFieldBase.signer)
+                && Objects.equals(this.type, templateResponseDocumentCustomFieldBase.type)
                 && Objects.equals(this.x, templateResponseDocumentCustomFieldBase.x)
                 && Objects.equals(this.y, templateResponseDocumentCustomFieldBase.y)
                 && Objects.equals(this.width, templateResponseDocumentCustomFieldBase.width)
                 && Objects.equals(this.height, templateResponseDocumentCustomFieldBase.height)
                 && Objects.equals(this.required, templateResponseDocumentCustomFieldBase.required)
+                && Objects.equals(this.signer, templateResponseDocumentCustomFieldBase.signer)
                 && Objects.equals(this.group, templateResponseDocumentCustomFieldBase.group);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(type, apiId, name, signer, x, y, width, height, required, group);
+        return Objects.hash(apiId, name, type, x, y, width, height, required, signer, group);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class TemplateResponseDocumentCustomFieldBase {\n");
-        sb.append("    type: ").append(toIndentedString(type)).append("\n");
         sb.append("    apiId: ").append(toIndentedString(apiId)).append("\n");
         sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("    signer: ").append(toIndentedString(signer)).append("\n");
+        sb.append("    type: ").append(toIndentedString(type)).append("\n");
         sb.append("    x: ").append(toIndentedString(x)).append("\n");
         sb.append("    y: ").append(toIndentedString(y)).append("\n");
         sb.append("    width: ").append(toIndentedString(width)).append("\n");
         sb.append("    height: ").append(toIndentedString(height)).append("\n");
         sb.append("    required: ").append(toIndentedString(required)).append("\n");
+        sb.append("    signer: ").append(toIndentedString(signer)).append("\n");
         sb.append("    group: ").append(toIndentedString(group)).append("\n");
         sb.append("}");
         return sb.toString();
@@ -387,24 +394,6 @@ public class TemplateResponseDocumentCustomFieldBase {
         Map<String, Object> map = new HashMap<>();
         boolean fileTypeFound = false;
         try {
-            if (type != null) {
-                if (isFileTypeOrListOfFiles(type)) {
-                    fileTypeFound = true;
-                }
-
-                if (type.getClass().equals(java.io.File.class)
-                        || type.getClass().equals(Integer.class)
-                        || type.getClass().equals(String.class)
-                        || type.getClass().isEnum()) {
-                    map.put("type", type);
-                } else if (isListOfFile(type)) {
-                    for (int i = 0; i < getListSize(type); i++) {
-                        map.put("type[" + i + "]", getFromList(type, i));
-                    }
-                } else {
-                    map.put("type", JSON.getDefault().getMapper().writeValueAsString(type));
-                }
-            }
             if (apiId != null) {
                 if (isFileTypeOrListOfFiles(apiId)) {
                     fileTypeFound = true;
@@ -441,22 +430,22 @@ public class TemplateResponseDocumentCustomFieldBase {
                     map.put("name", JSON.getDefault().getMapper().writeValueAsString(name));
                 }
             }
-            if (signer != null) {
-                if (isFileTypeOrListOfFiles(signer)) {
+            if (type != null) {
+                if (isFileTypeOrListOfFiles(type)) {
                     fileTypeFound = true;
                 }
 
-                if (signer.getClass().equals(java.io.File.class)
-                        || signer.getClass().equals(Integer.class)
-                        || signer.getClass().equals(String.class)
-                        || signer.getClass().isEnum()) {
-                    map.put("signer", signer);
-                } else if (isListOfFile(signer)) {
-                    for (int i = 0; i < getListSize(signer); i++) {
-                        map.put("signer[" + i + "]", getFromList(signer, i));
+                if (type.getClass().equals(java.io.File.class)
+                        || type.getClass().equals(Integer.class)
+                        || type.getClass().equals(String.class)
+                        || type.getClass().isEnum()) {
+                    map.put("type", type);
+                } else if (isListOfFile(type)) {
+                    for (int i = 0; i < getListSize(type); i++) {
+                        map.put("type[" + i + "]", getFromList(type, i));
                     }
                 } else {
-                    map.put("signer", JSON.getDefault().getMapper().writeValueAsString(signer));
+                    map.put("type", JSON.getDefault().getMapper().writeValueAsString(type));
                 }
             }
             if (x != null) {
@@ -547,6 +536,24 @@ public class TemplateResponseDocumentCustomFieldBase {
                     }
                 } else {
                     map.put("required", JSON.getDefault().getMapper().writeValueAsString(required));
+                }
+            }
+            if (signer != null) {
+                if (isFileTypeOrListOfFiles(signer)) {
+                    fileTypeFound = true;
+                }
+
+                if (signer.getClass().equals(java.io.File.class)
+                        || signer.getClass().equals(Integer.class)
+                        || signer.getClass().equals(String.class)
+                        || signer.getClass().isEnum()) {
+                    map.put("signer", signer);
+                } else if (isListOfFile(signer)) {
+                    for (int i = 0; i < getListSize(signer); i++) {
+                        map.put("signer[" + i + "]", getFromList(signer, i));
+                    }
+                } else {
+                    map.put("signer", JSON.getDefault().getMapper().writeValueAsString(signer));
                 }
             }
             if (group != null) {

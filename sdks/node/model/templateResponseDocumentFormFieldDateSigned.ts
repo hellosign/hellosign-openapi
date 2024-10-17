@@ -33,6 +33,10 @@ export class TemplateResponseDocumentFormFieldDateSigned extends TemplateRespons
    * The type of this form field. See [field types](/api/reference/constants/#field-types).  * Text Field uses `TemplateResponseDocumentFormFieldText` * Dropdown Field uses `TemplateResponseDocumentFormFieldDropdown` * Hyperlink Field uses `TemplateResponseDocumentFormFieldHyperlink` * Checkbox Field uses `TemplateResponseDocumentFormFieldCheckbox` * Radio Field uses `TemplateResponseDocumentFormFieldRadio` * Signature Field uses `TemplateResponseDocumentFormFieldSignature` * Date Signed Field uses `TemplateResponseDocumentFormFieldDateSigned` * Initials Field uses `TemplateResponseDocumentFormFieldInitials`
    */
   "type": string = "date_signed";
+  /**
+   * The name of the group this field is in. If this field is not a group, this defaults to `null` except for Radio fields.
+   */
+  "group"?: string | null;
 
   static discriminator: string | undefined = undefined;
 
@@ -40,6 +44,11 @@ export class TemplateResponseDocumentFormFieldDateSigned extends TemplateRespons
     {
       name: "type",
       baseName: "type",
+      type: "string",
+    },
+    {
+      name: "group",
+      baseName: "group",
       type: "string",
     },
   ];

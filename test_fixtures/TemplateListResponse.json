@@ -12,7 +12,10 @@
         "title": "Purchase order",
         "message": "",
         "updated_at": 1570471067,
+        "can_edit": true,
+        "is_creator": true,
         "is_embedded": false,
+        "is_locked": false,
         "metadata": {},
         "signer_roles": [
           {
@@ -49,7 +52,8 @@
                 "originalFontSize": 12,
                 "fontFamily": "arial"
               }
-            ]
+            ],
+            "static_fields": []
           }
         ],
         "accounts": [
@@ -58,7 +62,21 @@
             "email_address": "me@dropboxsign.com",
             "is_locked": false,
             "is_paid_hs": false,
-            "is_paid_hf": false
+            "is_paid_hf": false,
+            "quotas": {
+              "templates_left": 5,
+              "api_signature_requests_left": 5,
+              "documents_left": 5,
+              "sms_verifications_left": 0
+            }
+          }
+        ],
+        "attachments": [
+          {
+            "id": "attachment_1",
+            "signer": "Outside Vendor",
+            "name": "Attachment #1",
+            "required": true
           }
         ]
       },
@@ -67,7 +85,10 @@
         "title": "Mutual NDA",
         "message": "Please sign this NDA as soon as possible.",
         "updated_at": 1329478947,
+        "can_edit": true,
+        "is_creator": true,
         "is_embedded": false,
+        "is_locked": false,
         "metadata": {},
         "signer_roles": [
           {
@@ -564,7 +585,8 @@
                 "fontFamily": "arial",
                 "validation_type": "zip_code"
               }
-            ]
+            ],
+            "static_fields": []
           }
         ],
         "accounts": [
@@ -573,9 +595,16 @@
             "email_address": "me@dropboxsign.com",
             "is_locked": false,
             "is_paid_hs": false,
-            "is_paid_hf": false
+            "is_paid_hf": false,
+            "quotas": {
+              "templates_left": 5,
+              "api_signature_requests_left": 5,
+              "documents_left": 5,
+              "sms_verifications_left": 0
+            }
           }
-        ]
+        ],
+        "attachments": []
       }
     ]
   }

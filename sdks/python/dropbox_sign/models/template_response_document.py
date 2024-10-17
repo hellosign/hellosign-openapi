@@ -44,35 +44,30 @@ class TemplateResponseDocument(BaseModel):
     TemplateResponseDocument
     """  # noqa: E501
 
-    name: Optional[StrictStr] = Field(
-        default=None, description="Name of the associated file."
+    name: StrictStr = Field(description="Name of the associated file.")
+    field_groups: List[TemplateResponseDocumentFieldGroup] = Field(
+        description="An array of Form Field Group objects."
+    )
+    form_fields: List[TemplateResponseDocumentFormFieldBase] = Field(
+        description="An array of Form Field objects containing the name and type of each named field."
+    )
+    custom_fields: List[TemplateResponseDocumentCustomFieldBase] = Field(
+        description="An array of Form Field objects containing the name and type of each named field."
+    )
+    static_fields: List[TemplateResponseDocumentStaticFieldBase] = Field(
+        description="An array describing static overlay fields. **NOTE:** Only available for certain subscriptions."
     )
     index: Optional[StrictInt] = Field(
         default=None,
         description="Document ordering, the lowest index is displayed first and the highest last (0-based indexing).",
     )
-    field_groups: Optional[List[TemplateResponseDocumentFieldGroup]] = Field(
-        default=None, description="An array of Form Field Group objects."
-    )
-    form_fields: Optional[List[TemplateResponseDocumentFormFieldBase]] = Field(
-        default=None,
-        description="An array of Form Field objects containing the name and type of each named field.",
-    )
-    custom_fields: Optional[List[TemplateResponseDocumentCustomFieldBase]] = Field(
-        default=None,
-        description="An array of Form Field objects containing the name and type of each named field.",
-    )
-    static_fields: Optional[List[TemplateResponseDocumentStaticFieldBase]] = Field(
-        default=None,
-        description="An array describing static overlay fields. **NOTE:** Only available for certain subscriptions.",
-    )
     __properties: ClassVar[List[str]] = [
         "name",
-        "index",
         "field_groups",
         "form_fields",
         "custom_fields",
         "static_fields",
+        "index",
     ]
 
     model_config = ConfigDict(
@@ -167,7 +162,6 @@ class TemplateResponseDocument(BaseModel):
         _obj = cls.model_validate(
             {
                 "name": obj.get("name"),
-                "index": obj.get("index"),
                 "field_groups": (
                     [
                         TemplateResponseDocumentFieldGroup.from_dict(_item)
@@ -200,6 +194,7 @@ class TemplateResponseDocument(BaseModel):
                     if obj.get("static_fields") is not None
                     else None
                 ),
+                "index": obj.get("index"),
             }
         )
         return _obj
@@ -218,11 +213,11 @@ class TemplateResponseDocument(BaseModel):
     def openapi_types(cls) -> Dict[str, str]:
         return {
             "name": "(str,)",
-            "index": "(int,)",
             "field_groups": "(List[TemplateResponseDocumentFieldGroup],)",
             "form_fields": "(List[TemplateResponseDocumentFormFieldBase],)",
             "custom_fields": "(List[TemplateResponseDocumentCustomFieldBase],)",
             "static_fields": "(List[TemplateResponseDocumentStaticFieldBase],)",
+            "index": "(int,)",
         }
 
     @classmethod

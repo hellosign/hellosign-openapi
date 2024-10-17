@@ -33,9 +33,7 @@ class TemplateUpdateFilesResponseTemplate(BaseModel):
     Contains template id
     """  # noqa: E501
 
-    template_id: Optional[StrictStr] = Field(
-        default=None, description="The id of the Template."
-    )
+    template_id: StrictStr = Field(description="The id of the Template.")
     warnings: Optional[List[WarningResponse]] = Field(
         default=None, description="A list of warnings."
     )

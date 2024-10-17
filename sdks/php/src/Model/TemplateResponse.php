@@ -61,8 +61,6 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
         'template_id' => 'string',
         'title' => 'string',
         'message' => 'string',
-        'updated_at' => 'int',
-        'is_embedded' => 'bool',
         'is_creator' => 'bool',
         'can_edit' => 'bool',
         'is_locked' => 'bool',
@@ -70,9 +68,12 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
         'signer_roles' => '\Dropbox\Sign\Model\TemplateResponseSignerRole[]',
         'cc_roles' => '\Dropbox\Sign\Model\TemplateResponseCCRole[]',
         'documents' => '\Dropbox\Sign\Model\TemplateResponseDocument[]',
+        'accounts' => '\Dropbox\Sign\Model\TemplateResponseAccount[]',
+        'attachments' => '\Dropbox\Sign\Model\SignatureRequestResponseAttachment[]',
+        'updated_at' => 'int',
+        'is_embedded' => 'bool',
         'custom_fields' => '\Dropbox\Sign\Model\TemplateResponseDocumentCustomFieldBase[]',
         'named_form_fields' => '\Dropbox\Sign\Model\TemplateResponseDocumentFormFieldBase[]',
-        'accounts' => '\Dropbox\Sign\Model\TemplateResponseAccount[]',
     ];
 
     /**
@@ -86,8 +87,6 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
         'template_id' => null,
         'title' => null,
         'message' => null,
-        'updated_at' => null,
-        'is_embedded' => null,
         'is_creator' => null,
         'can_edit' => null,
         'is_locked' => null,
@@ -95,9 +94,12 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
         'signer_roles' => null,
         'cc_roles' => null,
         'documents' => null,
+        'accounts' => null,
+        'attachments' => null,
+        'updated_at' => null,
+        'is_embedded' => null,
         'custom_fields' => null,
         'named_form_fields' => null,
-        'accounts' => null,
     ];
 
     /**
@@ -109,18 +111,19 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
         'template_id' => false,
         'title' => false,
         'message' => false,
-        'updated_at' => false,
-        'is_embedded' => true,
-        'is_creator' => true,
-        'can_edit' => true,
-        'is_locked' => true,
+        'is_creator' => false,
+        'can_edit' => false,
+        'is_locked' => false,
         'metadata' => false,
         'signer_roles' => false,
         'cc_roles' => false,
         'documents' => false,
+        'accounts' => false,
+        'attachments' => false,
+        'updated_at' => false,
+        'is_embedded' => true,
         'custom_fields' => true,
         'named_form_fields' => true,
-        'accounts' => true,
     ];
 
     /**
@@ -204,8 +207,6 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
         'template_id' => 'template_id',
         'title' => 'title',
         'message' => 'message',
-        'updated_at' => 'updated_at',
-        'is_embedded' => 'is_embedded',
         'is_creator' => 'is_creator',
         'can_edit' => 'can_edit',
         'is_locked' => 'is_locked',
@@ -213,9 +214,12 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
         'signer_roles' => 'signer_roles',
         'cc_roles' => 'cc_roles',
         'documents' => 'documents',
+        'accounts' => 'accounts',
+        'attachments' => 'attachments',
+        'updated_at' => 'updated_at',
+        'is_embedded' => 'is_embedded',
         'custom_fields' => 'custom_fields',
         'named_form_fields' => 'named_form_fields',
-        'accounts' => 'accounts',
     ];
 
     /**
@@ -227,8 +231,6 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
         'template_id' => 'setTemplateId',
         'title' => 'setTitle',
         'message' => 'setMessage',
-        'updated_at' => 'setUpdatedAt',
-        'is_embedded' => 'setIsEmbedded',
         'is_creator' => 'setIsCreator',
         'can_edit' => 'setCanEdit',
         'is_locked' => 'setIsLocked',
@@ -236,9 +238,12 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
         'signer_roles' => 'setSignerRoles',
         'cc_roles' => 'setCcRoles',
         'documents' => 'setDocuments',
+        'accounts' => 'setAccounts',
+        'attachments' => 'setAttachments',
+        'updated_at' => 'setUpdatedAt',
+        'is_embedded' => 'setIsEmbedded',
         'custom_fields' => 'setCustomFields',
         'named_form_fields' => 'setNamedFormFields',
-        'accounts' => 'setAccounts',
     ];
 
     /**
@@ -250,8 +255,6 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
         'template_id' => 'getTemplateId',
         'title' => 'getTitle',
         'message' => 'getMessage',
-        'updated_at' => 'getUpdatedAt',
-        'is_embedded' => 'getIsEmbedded',
         'is_creator' => 'getIsCreator',
         'can_edit' => 'getCanEdit',
         'is_locked' => 'getIsLocked',
@@ -259,9 +262,12 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
         'signer_roles' => 'getSignerRoles',
         'cc_roles' => 'getCcRoles',
         'documents' => 'getDocuments',
+        'accounts' => 'getAccounts',
+        'attachments' => 'getAttachments',
+        'updated_at' => 'getUpdatedAt',
+        'is_embedded' => 'getIsEmbedded',
         'custom_fields' => 'getCustomFields',
         'named_form_fields' => 'getNamedFormFields',
-        'accounts' => 'getAccounts',
     ];
 
     /**
@@ -323,8 +329,6 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
         $this->setIfExists('template_id', $data ?? [], null);
         $this->setIfExists('title', $data ?? [], null);
         $this->setIfExists('message', $data ?? [], null);
-        $this->setIfExists('updated_at', $data ?? [], null);
-        $this->setIfExists('is_embedded', $data ?? [], null);
         $this->setIfExists('is_creator', $data ?? [], null);
         $this->setIfExists('can_edit', $data ?? [], null);
         $this->setIfExists('is_locked', $data ?? [], null);
@@ -332,9 +336,12 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
         $this->setIfExists('signer_roles', $data ?? [], null);
         $this->setIfExists('cc_roles', $data ?? [], null);
         $this->setIfExists('documents', $data ?? [], null);
+        $this->setIfExists('accounts', $data ?? [], null);
+        $this->setIfExists('attachments', $data ?? [], null);
+        $this->setIfExists('updated_at', $data ?? [], null);
+        $this->setIfExists('is_embedded', $data ?? [], null);
         $this->setIfExists('custom_fields', $data ?? [], null);
         $this->setIfExists('named_form_fields', $data ?? [], null);
-        $this->setIfExists('accounts', $data ?? [], null);
     }
 
     /**
@@ -380,7 +387,45 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
      */
     public function listInvalidProperties()
     {
-        return [];
+        $invalidProperties = [];
+
+        if ($this->container['template_id'] === null) {
+            $invalidProperties[] = "'template_id' can't be null";
+        }
+        if ($this->container['title'] === null) {
+            $invalidProperties[] = "'title' can't be null";
+        }
+        if ($this->container['message'] === null) {
+            $invalidProperties[] = "'message' can't be null";
+        }
+        if ($this->container['is_creator'] === null) {
+            $invalidProperties[] = "'is_creator' can't be null";
+        }
+        if ($this->container['can_edit'] === null) {
+            $invalidProperties[] = "'can_edit' can't be null";
+        }
+        if ($this->container['is_locked'] === null) {
+            $invalidProperties[] = "'is_locked' can't be null";
+        }
+        if ($this->container['metadata'] === null) {
+            $invalidProperties[] = "'metadata' can't be null";
+        }
+        if ($this->container['signer_roles'] === null) {
+            $invalidProperties[] = "'signer_roles' can't be null";
+        }
+        if ($this->container['cc_roles'] === null) {
+            $invalidProperties[] = "'cc_roles' can't be null";
+        }
+        if ($this->container['documents'] === null) {
+            $invalidProperties[] = "'documents' can't be null";
+        }
+        if ($this->container['accounts'] === null) {
+            $invalidProperties[] = "'accounts' can't be null";
+        }
+        if ($this->container['attachments'] === null) {
+            $invalidProperties[] = "'attachments' can't be null";
+        }
+        return $invalidProperties;
     }
 
     /**
@@ -397,7 +442,7 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets template_id
      *
-     * @return string|null
+     * @return string
      */
     public function getTemplateId()
     {
@@ -407,11 +452,11 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets template_id
      *
-     * @param string|null $template_id the id of the Template
+     * @param string $template_id the id of the Template
      *
      * @return self
      */
-    public function setTemplateId(?string $template_id)
+    public function setTemplateId(string $template_id)
     {
         if (is_null($template_id)) {
             throw new InvalidArgumentException('non-nullable template_id cannot be null');
@@ -424,7 +469,7 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets title
      *
-     * @return string|null
+     * @return string
      */
     public function getTitle()
     {
@@ -434,11 +479,11 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets title
      *
-     * @param string|null $title The title of the Template. This will also be the default subject of the message sent to signers when using this Template to send a SignatureRequest. This can be overridden when sending the SignatureRequest.
+     * @param string $title The title of the Template. This will also be the default subject of the message sent to signers when using this Template to send a SignatureRequest. This can be overridden when sending the SignatureRequest.
      *
      * @return self
      */
-    public function setTitle(?string $title)
+    public function setTitle(string $title)
     {
         if (is_null($title)) {
             throw new InvalidArgumentException('non-nullable title cannot be null');
@@ -451,7 +496,7 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets message
      *
-     * @return string|null
+     * @return string
      */
     public function getMessage()
     {
@@ -461,16 +506,259 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets message
      *
-     * @param string|null $message The default message that will be sent to signers when using this Template to send a SignatureRequest. This can be overridden when sending the SignatureRequest.
+     * @param string $message The default message that will be sent to signers when using this Template to send a SignatureRequest. This can be overridden when sending the SignatureRequest.
      *
      * @return self
      */
-    public function setMessage(?string $message)
+    public function setMessage(string $message)
     {
         if (is_null($message)) {
             throw new InvalidArgumentException('non-nullable message cannot be null');
         }
         $this->container['message'] = $message;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_creator
+     *
+     * @return bool
+     */
+    public function getIsCreator()
+    {
+        return $this->container['is_creator'];
+    }
+
+    /**
+     * Sets is_creator
+     *
+     * @param bool $is_creator `true` if you are the owner of this template, `false` if it's been shared with you by a team member
+     *
+     * @return self
+     */
+    public function setIsCreator(bool $is_creator)
+    {
+        if (is_null($is_creator)) {
+            throw new InvalidArgumentException('non-nullable is_creator cannot be null');
+        }
+        $this->container['is_creator'] = $is_creator;
+
+        return $this;
+    }
+
+    /**
+     * Gets can_edit
+     *
+     * @return bool
+     */
+    public function getCanEdit()
+    {
+        return $this->container['can_edit'];
+    }
+
+    /**
+     * Sets can_edit
+     *
+     * @param bool $can_edit indicates whether edit rights have been granted to you by the owner (always `true` if that's you)
+     *
+     * @return self
+     */
+    public function setCanEdit(bool $can_edit)
+    {
+        if (is_null($can_edit)) {
+            throw new InvalidArgumentException('non-nullable can_edit cannot be null');
+        }
+        $this->container['can_edit'] = $can_edit;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_locked
+     *
+     * @return bool
+     */
+    public function getIsLocked()
+    {
+        return $this->container['is_locked'];
+    }
+
+    /**
+     * Sets is_locked
+     *
+     * @param bool $is_locked Indicates whether the template is locked. If `true`, then the template was created outside your quota and can only be used in `test_mode`. If `false`, then the template is within your quota and can be used to create signature requests.
+     *
+     * @return self
+     */
+    public function setIsLocked(bool $is_locked)
+    {
+        if (is_null($is_locked)) {
+            throw new InvalidArgumentException('non-nullable is_locked cannot be null');
+        }
+        $this->container['is_locked'] = $is_locked;
+
+        return $this;
+    }
+
+    /**
+     * Gets metadata
+     *
+     * @return array
+     */
+    public function getMetadata()
+    {
+        return $this->container['metadata'];
+    }
+
+    /**
+     * Sets metadata
+     *
+     * @param array $metadata the metadata attached to the template
+     *
+     * @return self
+     */
+    public function setMetadata(array $metadata)
+    {
+        if (is_null($metadata)) {
+            throw new InvalidArgumentException('non-nullable metadata cannot be null');
+        }
+        $this->container['metadata'] = $metadata;
+
+        return $this;
+    }
+
+    /**
+     * Gets signer_roles
+     *
+     * @return TemplateResponseSignerRole[]
+     */
+    public function getSignerRoles()
+    {
+        return $this->container['signer_roles'];
+    }
+
+    /**
+     * Sets signer_roles
+     *
+     * @param TemplateResponseSignerRole[] $signer_roles an array of the designated signer roles that must be specified when sending a SignatureRequest using this Template
+     *
+     * @return self
+     */
+    public function setSignerRoles(array $signer_roles)
+    {
+        if (is_null($signer_roles)) {
+            throw new InvalidArgumentException('non-nullable signer_roles cannot be null');
+        }
+        $this->container['signer_roles'] = $signer_roles;
+
+        return $this;
+    }
+
+    /**
+     * Gets cc_roles
+     *
+     * @return TemplateResponseCCRole[]
+     */
+    public function getCcRoles()
+    {
+        return $this->container['cc_roles'];
+    }
+
+    /**
+     * Sets cc_roles
+     *
+     * @param TemplateResponseCCRole[] $cc_roles an array of the designated CC roles that must be specified when sending a SignatureRequest using this Template
+     *
+     * @return self
+     */
+    public function setCcRoles(array $cc_roles)
+    {
+        if (is_null($cc_roles)) {
+            throw new InvalidArgumentException('non-nullable cc_roles cannot be null');
+        }
+        $this->container['cc_roles'] = $cc_roles;
+
+        return $this;
+    }
+
+    /**
+     * Gets documents
+     *
+     * @return TemplateResponseDocument[]
+     */
+    public function getDocuments()
+    {
+        return $this->container['documents'];
+    }
+
+    /**
+     * Sets documents
+     *
+     * @param TemplateResponseDocument[] $documents An array describing each document associated with this Template. Includes form field data for each document.
+     *
+     * @return self
+     */
+    public function setDocuments(array $documents)
+    {
+        if (is_null($documents)) {
+            throw new InvalidArgumentException('non-nullable documents cannot be null');
+        }
+        $this->container['documents'] = $documents;
+
+        return $this;
+    }
+
+    /**
+     * Gets accounts
+     *
+     * @return TemplateResponseAccount[]
+     */
+    public function getAccounts()
+    {
+        return $this->container['accounts'];
+    }
+
+    /**
+     * Sets accounts
+     *
+     * @param TemplateResponseAccount[] $accounts an array of the Accounts that can use this Template
+     *
+     * @return self
+     */
+    public function setAccounts(array $accounts)
+    {
+        if (is_null($accounts)) {
+            throw new InvalidArgumentException('non-nullable accounts cannot be null');
+        }
+        $this->container['accounts'] = $accounts;
+
+        return $this;
+    }
+
+    /**
+     * Gets attachments
+     *
+     * @return SignatureRequestResponseAttachment[]
+     */
+    public function getAttachments()
+    {
+        return $this->container['attachments'];
+    }
+
+    /**
+     * Sets attachments
+     *
+     * @param SignatureRequestResponseAttachment[] $attachments signer attachments
+     *
+     * @return self
+     */
+    public function setAttachments(array $attachments)
+    {
+        if (is_null($attachments)) {
+            throw new InvalidArgumentException('non-nullable attachments cannot be null');
+        }
+        $this->container['attachments'] = $attachments;
 
         return $this;
     }
@@ -515,7 +803,7 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets is_embedded
      *
-     * @param bool|null $is_embedded `true` if this template was created using an embedded flow, `false` if it was created on our website
+     * @param bool|null $is_embedded `true` if this template was created using an embedded flow, `false` if it was created on our website. Will be `null` when you are not the creator of the Template.
      *
      * @return self
      */
@@ -532,216 +820,6 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
             }
         }
         $this->container['is_embedded'] = $is_embedded;
-
-        return $this;
-    }
-
-    /**
-     * Gets is_creator
-     *
-     * @return bool|null
-     */
-    public function getIsCreator()
-    {
-        return $this->container['is_creator'];
-    }
-
-    /**
-     * Sets is_creator
-     *
-     * @param bool|null $is_creator `true` if you are the owner of this template, `false` if it's been shared with you by a team member
-     *
-     * @return self
-     */
-    public function setIsCreator(?bool $is_creator)
-    {
-        if (is_null($is_creator)) {
-            array_push($this->openAPINullablesSetToNull, 'is_creator');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('is_creator', $nullablesSetToNull);
-            if ($index !== false) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['is_creator'] = $is_creator;
-
-        return $this;
-    }
-
-    /**
-     * Gets can_edit
-     *
-     * @return bool|null
-     */
-    public function getCanEdit()
-    {
-        return $this->container['can_edit'];
-    }
-
-    /**
-     * Sets can_edit
-     *
-     * @param bool|null $can_edit indicates whether edit rights have been granted to you by the owner (always `true` if that's you)
-     *
-     * @return self
-     */
-    public function setCanEdit(?bool $can_edit)
-    {
-        if (is_null($can_edit)) {
-            array_push($this->openAPINullablesSetToNull, 'can_edit');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('can_edit', $nullablesSetToNull);
-            if ($index !== false) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['can_edit'] = $can_edit;
-
-        return $this;
-    }
-
-    /**
-     * Gets is_locked
-     *
-     * @return bool|null
-     */
-    public function getIsLocked()
-    {
-        return $this->container['is_locked'];
-    }
-
-    /**
-     * Sets is_locked
-     *
-     * @param bool|null $is_locked Indicates whether the template is locked. If `true`, then the template was created outside your quota and can only be used in `test_mode`. If `false`, then the template is within your quota and can be used to create signature requests.
-     *
-     * @return self
-     */
-    public function setIsLocked(?bool $is_locked)
-    {
-        if (is_null($is_locked)) {
-            array_push($this->openAPINullablesSetToNull, 'is_locked');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('is_locked', $nullablesSetToNull);
-            if ($index !== false) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['is_locked'] = $is_locked;
-
-        return $this;
-    }
-
-    /**
-     * Gets metadata
-     *
-     * @return array|null
-     */
-    public function getMetadata()
-    {
-        return $this->container['metadata'];
-    }
-
-    /**
-     * Sets metadata
-     *
-     * @param array|null $metadata the metadata attached to the template
-     *
-     * @return self
-     */
-    public function setMetadata(?array $metadata)
-    {
-        if (is_null($metadata)) {
-            throw new InvalidArgumentException('non-nullable metadata cannot be null');
-        }
-        $this->container['metadata'] = $metadata;
-
-        return $this;
-    }
-
-    /**
-     * Gets signer_roles
-     *
-     * @return TemplateResponseSignerRole[]|null
-     */
-    public function getSignerRoles()
-    {
-        return $this->container['signer_roles'];
-    }
-
-    /**
-     * Sets signer_roles
-     *
-     * @param TemplateResponseSignerRole[]|null $signer_roles an array of the designated signer roles that must be specified when sending a SignatureRequest using this Template
-     *
-     * @return self
-     */
-    public function setSignerRoles(?array $signer_roles)
-    {
-        if (is_null($signer_roles)) {
-            throw new InvalidArgumentException('non-nullable signer_roles cannot be null');
-        }
-        $this->container['signer_roles'] = $signer_roles;
-
-        return $this;
-    }
-
-    /**
-     * Gets cc_roles
-     *
-     * @return TemplateResponseCCRole[]|null
-     */
-    public function getCcRoles()
-    {
-        return $this->container['cc_roles'];
-    }
-
-    /**
-     * Sets cc_roles
-     *
-     * @param TemplateResponseCCRole[]|null $cc_roles an array of the designated CC roles that must be specified when sending a SignatureRequest using this Template
-     *
-     * @return self
-     */
-    public function setCcRoles(?array $cc_roles)
-    {
-        if (is_null($cc_roles)) {
-            throw new InvalidArgumentException('non-nullable cc_roles cannot be null');
-        }
-        $this->container['cc_roles'] = $cc_roles;
-
-        return $this;
-    }
-
-    /**
-     * Gets documents
-     *
-     * @return TemplateResponseDocument[]|null
-     */
-    public function getDocuments()
-    {
-        return $this->container['documents'];
-    }
-
-    /**
-     * Sets documents
-     *
-     * @param TemplateResponseDocument[]|null $documents An array describing each document associated with this Template. Includes form field data for each document.
-     *
-     * @return self
-     */
-    public function setDocuments(?array $documents)
-    {
-        if (is_null($documents)) {
-            throw new InvalidArgumentException('non-nullable documents cannot be null');
-        }
-        $this->container['documents'] = $documents;
 
         return $this;
     }
@@ -814,40 +892,6 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
             }
         }
         $this->container['named_form_fields'] = $named_form_fields;
-
-        return $this;
-    }
-
-    /**
-     * Gets accounts
-     *
-     * @return TemplateResponseAccount[]|null
-     */
-    public function getAccounts()
-    {
-        return $this->container['accounts'];
-    }
-
-    /**
-     * Sets accounts
-     *
-     * @param TemplateResponseAccount[]|null $accounts an array of the Accounts that can use this Template
-     *
-     * @return self
-     */
-    public function setAccounts(?array $accounts)
-    {
-        if (is_null($accounts)) {
-            array_push($this->openAPINullablesSetToNull, 'accounts');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('accounts', $nullablesSetToNull);
-            if ($index !== false) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['accounts'] = $accounts;
 
         return $this;
     }

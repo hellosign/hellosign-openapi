@@ -31,24 +31,16 @@ module Dropbox::Sign
     # @return [String]
     attr_accessor :message
 
-    # Time the template was last updated.
-    # @return [Integer]
-    attr_accessor :updated_at
-
-    # `true` if this template was created using an embedded flow, `false` if it was created on our website.
-    # @return [Boolean, nil]
-    attr_accessor :is_embedded
-
     # `true` if you are the owner of this template, `false` if it's been shared with you by a team member.
-    # @return [Boolean, nil]
+    # @return [Boolean]
     attr_accessor :is_creator
 
     # Indicates whether edit rights have been granted to you by the owner (always `true` if that's you).
-    # @return [Boolean, nil]
+    # @return [Boolean]
     attr_accessor :can_edit
 
     # Indicates whether the template is locked. If `true`, then the template was created outside your quota and can only be used in `test_mode`. If `false`, then the template is within your quota and can be used to create signature requests.
-    # @return [Boolean, nil]
+    # @return [Boolean]
     attr_accessor :is_locked
 
     # The metadata attached to the template.
@@ -67,6 +59,22 @@ module Dropbox::Sign
     # @return [Array<TemplateResponseDocument>]
     attr_accessor :documents
 
+    # An array of the Accounts that can use this Template.
+    # @return [Array<TemplateResponseAccount>]
+    attr_accessor :accounts
+
+    # Signer attachments.
+    # @return [Array<SignatureRequestResponseAttachment>]
+    attr_accessor :attachments
+
+    # Time the template was last updated.
+    # @return [Integer]
+    attr_accessor :updated_at
+
+    # `true` if this template was created using an embedded flow, `false` if it was created on our website. Will be `null` when you are not the creator of the Template.
+    # @return [Boolean, nil]
+    attr_accessor :is_embedded
+
     # Deprecated. Use `custom_fields` inside the [documents](https://developers.hellosign.com/api/reference/operation/templateGet/#!c=200&path=template/documents&t=response) array instead.
     # @return [Array<TemplateResponseDocumentCustomFieldBase>, nil]
     attr_accessor :custom_fields
@@ -75,18 +83,12 @@ module Dropbox::Sign
     # @return [Array<TemplateResponseDocumentFormFieldBase>, nil]
     attr_accessor :named_form_fields
 
-    # An array of the Accounts that can use this Template.
-    # @return [Array<TemplateResponseAccount>, nil]
-    attr_accessor :accounts
-
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'template_id' => :'template_id',
         :'title' => :'title',
         :'message' => :'message',
-        :'updated_at' => :'updated_at',
-        :'is_embedded' => :'is_embedded',
         :'is_creator' => :'is_creator',
         :'can_edit' => :'can_edit',
         :'is_locked' => :'is_locked',
@@ -94,9 +96,12 @@ module Dropbox::Sign
         :'signer_roles' => :'signer_roles',
         :'cc_roles' => :'cc_roles',
         :'documents' => :'documents',
+        :'accounts' => :'accounts',
+        :'attachments' => :'attachments',
+        :'updated_at' => :'updated_at',
+        :'is_embedded' => :'is_embedded',
         :'custom_fields' => :'custom_fields',
-        :'named_form_fields' => :'named_form_fields',
-        :'accounts' => :'accounts'
+        :'named_form_fields' => :'named_form_fields'
       }
     end
 
@@ -111,8 +116,6 @@ module Dropbox::Sign
         :'template_id' => :'String',
         :'title' => :'String',
         :'message' => :'String',
-        :'updated_at' => :'Integer',
-        :'is_embedded' => :'Boolean',
         :'is_creator' => :'Boolean',
         :'can_edit' => :'Boolean',
         :'is_locked' => :'Boolean',
@@ -120,9 +123,12 @@ module Dropbox::Sign
         :'signer_roles' => :'Array<TemplateResponseSignerRole>',
         :'cc_roles' => :'Array<TemplateResponseCCRole>',
         :'documents' => :'Array<TemplateResponseDocument>',
+        :'accounts' => :'Array<TemplateResponseAccount>',
+        :'attachments' => :'Array<SignatureRequestResponseAttachment>',
+        :'updated_at' => :'Integer',
+        :'is_embedded' => :'Boolean',
         :'custom_fields' => :'Array<TemplateResponseDocumentCustomFieldBase>',
-        :'named_form_fields' => :'Array<TemplateResponseDocumentFormFieldBase>',
-        :'accounts' => :'Array<TemplateResponseAccount>'
+        :'named_form_fields' => :'Array<TemplateResponseDocumentFormFieldBase>'
       }
     end
 
@@ -130,12 +136,8 @@ module Dropbox::Sign
     def self.openapi_nullable
       Set.new([
         :'is_embedded',
-        :'is_creator',
-        :'can_edit',
-        :'is_locked',
         :'custom_fields',
-        :'named_form_fields',
-        :'accounts'
+        :'named_form_fields'
       ])
     end
 
@@ -191,14 +193,6 @@ module Dropbox::Sign
         self.message = attributes[:'message']
       end
 
-      if attributes.key?(:'updated_at')
-        self.updated_at = attributes[:'updated_at']
-      end
-
-      if attributes.key?(:'is_embedded')
-        self.is_embedded = attributes[:'is_embedded']
-      end
-
       if attributes.key?(:'is_creator')
         self.is_creator = attributes[:'is_creator']
       end
@@ -233,6 +227,26 @@ module Dropbox::Sign
         end
       end
 
+      if attributes.key?(:'accounts')
+        if (value = attributes[:'accounts']).is_a?(Array)
+          self.accounts = value
+        end
+      end
+
+      if attributes.key?(:'attachments')
+        if (value = attributes[:'attachments']).is_a?(Array)
+          self.attachments = value
+        end
+      end
+
+      if attributes.key?(:'updated_at')
+        self.updated_at = attributes[:'updated_at']
+      end
+
+      if attributes.key?(:'is_embedded')
+        self.is_embedded = attributes[:'is_embedded']
+      end
+
       if attributes.key?(:'custom_fields')
         if (value = attributes[:'custom_fields']).is_a?(Array)
           self.custom_fields = value
@@ -244,24 +258,78 @@ module Dropbox::Sign
           self.named_form_fields = value
         end
       end
-
-      if attributes.key?(:'accounts')
-        if (value = attributes[:'accounts']).is_a?(Array)
-          self.accounts = value
-        end
-      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @template_id.nil?
+        invalid_properties.push('invalid value for "template_id", template_id cannot be nil.')
+      end
+
+      if @title.nil?
+        invalid_properties.push('invalid value for "title", title cannot be nil.')
+      end
+
+      if @message.nil?
+        invalid_properties.push('invalid value for "message", message cannot be nil.')
+      end
+
+      if @is_creator.nil?
+        invalid_properties.push('invalid value for "is_creator", is_creator cannot be nil.')
+      end
+
+      if @can_edit.nil?
+        invalid_properties.push('invalid value for "can_edit", can_edit cannot be nil.')
+      end
+
+      if @is_locked.nil?
+        invalid_properties.push('invalid value for "is_locked", is_locked cannot be nil.')
+      end
+
+      if @metadata.nil?
+        invalid_properties.push('invalid value for "metadata", metadata cannot be nil.')
+      end
+
+      if @signer_roles.nil?
+        invalid_properties.push('invalid value for "signer_roles", signer_roles cannot be nil.')
+      end
+
+      if @cc_roles.nil?
+        invalid_properties.push('invalid value for "cc_roles", cc_roles cannot be nil.')
+      end
+
+      if @documents.nil?
+        invalid_properties.push('invalid value for "documents", documents cannot be nil.')
+      end
+
+      if @accounts.nil?
+        invalid_properties.push('invalid value for "accounts", accounts cannot be nil.')
+      end
+
+      if @attachments.nil?
+        invalid_properties.push('invalid value for "attachments", attachments cannot be nil.')
+      end
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @template_id.nil?
+      return false if @title.nil?
+      return false if @message.nil?
+      return false if @is_creator.nil?
+      return false if @can_edit.nil?
+      return false if @is_locked.nil?
+      return false if @metadata.nil?
+      return false if @signer_roles.nil?
+      return false if @cc_roles.nil?
+      return false if @documents.nil?
+      return false if @accounts.nil?
+      return false if @attachments.nil?
       true
     end
 
@@ -273,8 +341,6 @@ module Dropbox::Sign
           template_id == o.template_id &&
           title == o.title &&
           message == o.message &&
-          updated_at == o.updated_at &&
-          is_embedded == o.is_embedded &&
           is_creator == o.is_creator &&
           can_edit == o.can_edit &&
           is_locked == o.is_locked &&
@@ -282,9 +348,12 @@ module Dropbox::Sign
           signer_roles == o.signer_roles &&
           cc_roles == o.cc_roles &&
           documents == o.documents &&
+          accounts == o.accounts &&
+          attachments == o.attachments &&
+          updated_at == o.updated_at &&
+          is_embedded == o.is_embedded &&
           custom_fields == o.custom_fields &&
-          named_form_fields == o.named_form_fields &&
-          accounts == o.accounts
+          named_form_fields == o.named_form_fields
     end
 
     # @see the `==` method
@@ -296,7 +365,7 @@ module Dropbox::Sign
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [template_id, title, message, updated_at, is_embedded, is_creator, can_edit, is_locked, metadata, signer_roles, cc_roles, documents, custom_fields, named_form_fields, accounts].hash
+      [template_id, title, message, is_creator, can_edit, is_locked, metadata, signer_roles, cc_roles, documents, accounts, attachments, updated_at, is_embedded, custom_fields, named_form_fields].hash
     end
 
     # Builds the object from hash

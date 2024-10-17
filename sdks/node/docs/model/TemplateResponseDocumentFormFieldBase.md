@@ -6,15 +6,14 @@ An array of Form Field objects containing the name and type of each named field.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+| `apiId`<sup>*_required_</sup> | ```string``` |  A unique id for the form field.  |  |
+| `name`<sup>*_required_</sup> | ```string``` |  The name of the form field.  |  |
 | `type`<sup>*_required_</sup> | ```string``` |    |  |
-| `apiId` | ```string``` |  A unique id for the form field.  |  |
-| `name` | ```string``` |  The name of the form field.  |  |
-| `signer` | ```string``` |  The signer of the Form Field.  |  |
-| `x` | ```number``` |  The horizontal offset in pixels for this form field.  |  |
-| `y` | ```number``` |  The vertical offset in pixels for this form field.  |  |
-| `width` | ```number``` |  The width in pixels of this form field.  |  |
-| `height` | ```number``` |  The height in pixels of this form field.  |  |
-| `required` | ```boolean``` |  Boolean showing whether or not this field is required.  |  |
-| `group` | ```string``` |  The name of the group this field is in. If this field is not a group, this defaults to `null` except for Radio fields.  |  |
+| `signer`<sup>*_required_</sup> | ```string``` |  The signer of the Form Field.  |  |
+| `x`<sup>*_required_</sup> | ```number``` |  The horizontal offset in pixels for this form field.  |  |
+| `y`<sup>*_required_</sup> | ```number``` |  The vertical offset in pixels for this form field.  |  |
+| `width`<sup>*_required_</sup> | ```number``` |  The width in pixels of this form field.  |  |
+| `height`<sup>*_required_</sup> | ```number``` |  The height in pixels of this form field.  |  |
+| `required`<sup>*_required_</sup> | ```boolean``` |  Boolean showing whether or not this field is required.  |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

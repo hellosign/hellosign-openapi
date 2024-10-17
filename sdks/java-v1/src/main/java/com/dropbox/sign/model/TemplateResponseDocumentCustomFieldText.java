@@ -115,14 +115,15 @@ public class TemplateResponseDocumentCustomFieldText
      *
      * @return avgTextLength
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_AVG_TEXT_LENGTH)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    @javax.annotation.Nonnull
+    @JsonProperty(JSON_PROPERTY_AVG_TEXT_LENGTH)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public TemplateResponseFieldAvgTextLength getAvgTextLength() {
         return avgTextLength;
     }
 
     @JsonProperty(JSON_PROPERTY_AVG_TEXT_LENGTH)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setAvgTextLength(TemplateResponseFieldAvgTextLength avgTextLength) {
         this.avgTextLength = avgTextLength;
     }
@@ -137,14 +138,15 @@ public class TemplateResponseDocumentCustomFieldText
      *
      * @return isMultiline
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_IS_MULTILINE)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    @javax.annotation.Nonnull
+    @JsonProperty(JSON_PROPERTY_IS_MULTILINE)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public Boolean getIsMultiline() {
         return isMultiline;
     }
 
     @JsonProperty(JSON_PROPERTY_IS_MULTILINE)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setIsMultiline(Boolean isMultiline) {
         this.isMultiline = isMultiline;
     }
@@ -159,14 +161,15 @@ public class TemplateResponseDocumentCustomFieldText
      *
      * @return originalFontSize
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_ORIGINAL_FONT_SIZE)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    @javax.annotation.Nonnull
+    @JsonProperty(JSON_PROPERTY_ORIGINAL_FONT_SIZE)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public Integer getOriginalFontSize() {
         return originalFontSize;
     }
 
     @JsonProperty(JSON_PROPERTY_ORIGINAL_FONT_SIZE)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setOriginalFontSize(Integer originalFontSize) {
         this.originalFontSize = originalFontSize;
     }
@@ -181,14 +184,15 @@ public class TemplateResponseDocumentCustomFieldText
      *
      * @return fontFamily
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_FONT_FAMILY)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    @javax.annotation.Nonnull
+    @JsonProperty(JSON_PROPERTY_FONT_FAMILY)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public String getFontFamily() {
         return fontFamily;
     }
 
     @JsonProperty(JSON_PROPERTY_FONT_FAMILY)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setFontFamily(String fontFamily) {
         this.fontFamily = fontFamily;
     }

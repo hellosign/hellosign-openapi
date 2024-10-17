@@ -28,7 +28,7 @@ export class TemplateResponseSignerRole {
   /**
    * The name of the Role.
    */
-  "name"?: string;
+  "name": string;
   /**
    * If signer order is assigned this is the 0-based index for this role.
    */

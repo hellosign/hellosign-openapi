@@ -67,14 +67,15 @@ public class TemplateResponseDocumentFieldGroup {
      *
      * @return name
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_NAME)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    @javax.annotation.Nonnull
+    @JsonProperty(JSON_PROPERTY_NAME)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public String getName() {
         return name;
     }
 
     @JsonProperty(JSON_PROPERTY_NAME)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setName(String name) {
         this.name = name;
     }
@@ -89,14 +90,15 @@ public class TemplateResponseDocumentFieldGroup {
      *
      * @return rule
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_RULE)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    @javax.annotation.Nonnull
+    @JsonProperty(JSON_PROPERTY_RULE)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public TemplateResponseDocumentFieldGroupRule getRule() {
         return rule;
     }
 
     @JsonProperty(JSON_PROPERTY_RULE)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setRule(TemplateResponseDocumentFieldGroupRule rule) {
         this.rule = rule;
     }

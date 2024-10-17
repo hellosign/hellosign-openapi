@@ -1,6 +1,6 @@
 import { AttributeTypeMap } from "./";
 export declare class TemplateResponseSignerRole {
-    "name"?: string;
+    "name": string;
     "order"?: number;
     static discriminator: string | undefined;
     static attributeTypeMap: AttributeTypeMap;

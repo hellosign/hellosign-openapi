@@ -32,7 +32,7 @@ export class TemplateUpdateFilesResponseTemplate {
   /**
    * The id of the Template.
    */
-  "templateId"?: string;
+  "templateId": string;
   /**
    * A list of warnings.
    */
