@@ -2514,7 +2514,7 @@ paths:
             type: integer
             default: 1
             minimum: 1
-            example: 1
+          example: 1
         -
           name: page_size
           in: query
@@ -2524,7 +2524,7 @@ paths:
             default: 20
             maximum: 100
             minimum: 1
-            example: 20
+          example: 20
       responses:
         '200':
           description: 'successful operation'
@@ -2557,8 +2557,6 @@ paths:
                   $ref: '#/components/examples/Error402ResponseExample'
                 403_example:
                   $ref: '#/components/examples/Error403ResponseExample'
-                404_example:
-                  $ref: '#/components/examples/Error404ResponseExample'
                 4XX_example:
                   $ref: '#/components/examples/Error4XXResponseExample'
       security:
@@ -7767,14 +7765,14 @@ components:
       type: object
     FaxSendRequest:
       required:
-        - to
+        - recipient
       properties:
-        to:
-          description: '_t__FaxSend::TO'
+        recipient:
+          description: '_t__FaxSend::RECIPIENT'
           type: string
           example: recipient@example.com
-        from:
-          description: '_t__FaxSend::FROM'
+        sender:
+          description: '_t__FaxSend::SENDER'
           type: string
           example: sender@example.com
         files:
@@ -10566,6 +10564,17 @@ components:
           type: string
       type: object
     FaxResponse:
+      required:
+        - fax_id
+        - title
+        - original_title
+        - subject
+        - message
+        - metadata
+        - created_at
+        - from
+        - transmissions
+        - files_url
       properties:
         fax_id:
           description: '_t__FaxResponse::FAX_ID'
@@ -10585,6 +10594,7 @@ components:
         metadata:
           description: '_t__FaxResponse::METADATA'
           type: object
+          additionalProperties: {  }
         created_at:
           description: '_t__FaxResponse::CREATED_AT'
           type: integer
@@ -10629,6 +10639,15 @@ components:
         status_code:
           description: '_t__Sub::FaxResponseTransmission::STATUS_CODE'
           type: string
+          enum:
+            - success
+            - transmitting
+            - error_could_not_fax
+            - error_unknown
+            - error_busy
+            - error_no_answer
+            - error_disconnected
+            - error_bad_destination
         sent_at:
           description: '_t__Sub::FaxResponseTransmission::SENT_AT'
           type: integer

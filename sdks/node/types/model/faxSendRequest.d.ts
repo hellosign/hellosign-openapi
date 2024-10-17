@@ -1,7 +1,7 @@
 import { AttributeTypeMap, RequestFile } from "./";
 export declare class FaxSendRequest {
-    "to": string;
-    "from"?: string;
+    "recipient": string;
+    "sender"?: string;
     "files"?: Array<RequestFile>;
     "fileUrls"?: Array<string>;
     "testMode"?: boolean;

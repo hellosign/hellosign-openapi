@@ -41,28 +41,73 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FaxResponse" /> class.
         /// </summary>
-        /// <param name="faxId">Fax ID.</param>
-        /// <param name="title">Fax Title.</param>
-        /// <param name="originalTitle">Fax Original Title.</param>
-        /// <param name="subject">Fax Subject.</param>
-        /// <param name="message">Fax Message.</param>
-        /// <param name="metadata">Fax Metadata.</param>
-        /// <param name="createdAt">Fax Created At Timestamp.</param>
-        /// <param name="from">Fax Sender Email.</param>
-        /// <param name="transmissions">Fax Transmissions List.</param>
-        /// <param name="filesUrl">Fax Files URL.</param>
-        public FaxResponse(string faxId = default(string), string title = default(string), string originalTitle = default(string), string subject = default(string), string message = default(string), Object metadata = default(Object), int createdAt = default(int), string from = default(string), List<FaxResponseTransmission> transmissions = default(List<FaxResponseTransmission>), string filesUrl = default(string))
+        /// <param name="faxId">Fax ID (required).</param>
+        /// <param name="title">Fax Title (required).</param>
+        /// <param name="originalTitle">Fax Original Title (required).</param>
+        /// <param name="subject">Fax Subject (required).</param>
+        /// <param name="message">Fax Message (required).</param>
+        /// <param name="metadata">Fax Metadata (required).</param>
+        /// <param name="createdAt">Fax Created At Timestamp (required).</param>
+        /// <param name="from">Fax Sender Email (required).</param>
+        /// <param name="transmissions">Fax Transmissions List (required).</param>
+        /// <param name="filesUrl">Fax Files URL (required).</param>
+        public FaxResponse(string faxId = default(string), string title = default(string), string originalTitle = default(string), string subject = default(string), string message = default(string), Dictionary<string, Object> metadata = default(Dictionary<string, Object>), int createdAt = default(int), string from = default(string), List<FaxResponseTransmission> transmissions = default(List<FaxResponseTransmission>), string filesUrl = default(string))
         {
 
+            // to ensure "faxId" is required (not null)
+            if (faxId == null)
+            {
+                throw new ArgumentNullException("faxId is a required property for FaxResponse and cannot be null");
+            }
             this.FaxId = faxId;
+            // to ensure "title" is required (not null)
+            if (title == null)
+            {
+                throw new ArgumentNullException("title is a required property for FaxResponse and cannot be null");
+            }
             this.Title = title;
+            // to ensure "originalTitle" is required (not null)
+            if (originalTitle == null)
+            {
+                throw new ArgumentNullException("originalTitle is a required property for FaxResponse and cannot be null");
+            }
             this.OriginalTitle = originalTitle;
+            // to ensure "subject" is required (not null)
+            if (subject == null)
+            {
+                throw new ArgumentNullException("subject is a required property for FaxResponse and cannot be null");
+            }
             this.Subject = subject;
+            // to ensure "message" is required (not null)
+            if (message == null)
+            {
+                throw new ArgumentNullException("message is a required property for FaxResponse and cannot be null");
+            }
             this.Message = message;
+            // to ensure "metadata" is required (not null)
+            if (metadata == null)
+            {
+                throw new ArgumentNullException("metadata is a required property for FaxResponse and cannot be null");
+            }
             this.Metadata = metadata;
             this.CreatedAt = createdAt;
+            // to ensure "from" is required (not null)
+            if (from == null)
+            {
+                throw new ArgumentNullException("from is a required property for FaxResponse and cannot be null");
+            }
             this.From = from;
+            // to ensure "transmissions" is required (not null)
+            if (transmissions == null)
+            {
+                throw new ArgumentNullException("transmissions is a required property for FaxResponse and cannot be null");
+            }
             this.Transmissions = transmissions;
+            // to ensure "filesUrl" is required (not null)
+            if (filesUrl == null)
+            {
+                throw new ArgumentNullException("filesUrl is a required property for FaxResponse and cannot be null");
+            }
             this.FilesUrl = filesUrl;
         }
 
@@ -86,70 +131,70 @@ namespace Dropbox.Sign.Model
         /// Fax ID
         /// </summary>
         /// <value>Fax ID</value>
-        [DataMember(Name = "fax_id", EmitDefaultValue = true)]
+        [DataMember(Name = "fax_id", IsRequired = true, EmitDefaultValue = true)]
         public string FaxId { get; set; }
 
         /// <summary>
         /// Fax Title
         /// </summary>
         /// <value>Fax Title</value>
-        [DataMember(Name = "title", EmitDefaultValue = true)]
+        [DataMember(Name = "title", IsRequired = true, EmitDefaultValue = true)]
         public string Title { get; set; }
 
         /// <summary>
         /// Fax Original Title
         /// </summary>
         /// <value>Fax Original Title</value>
-        [DataMember(Name = "original_title", EmitDefaultValue = true)]
+        [DataMember(Name = "original_title", IsRequired = true, EmitDefaultValue = true)]
         public string OriginalTitle { get; set; }
 
         /// <summary>
         /// Fax Subject
         /// </summary>
         /// <value>Fax Subject</value>
-        [DataMember(Name = "subject", EmitDefaultValue = true)]
+        [DataMember(Name = "subject", IsRequired = true, EmitDefaultValue = true)]
         public string Subject { get; set; }
 
         /// <summary>
         /// Fax Message
         /// </summary>
         /// <value>Fax Message</value>
-        [DataMember(Name = "message", EmitDefaultValue = true)]
+        [DataMember(Name = "message", IsRequired = true, EmitDefaultValue = true)]
         public string Message { get; set; }
 
         /// <summary>
         /// Fax Metadata
         /// </summary>
         /// <value>Fax Metadata</value>
-        [DataMember(Name = "metadata", EmitDefaultValue = true)]
-        public Object Metadata { get; set; }
+        [DataMember(Name = "metadata", IsRequired = true, EmitDefaultValue = true)]
+        public Dictionary<string, Object> Metadata { get; set; }
 
         /// <summary>
         /// Fax Created At Timestamp
         /// </summary>
         /// <value>Fax Created At Timestamp</value>
-        [DataMember(Name = "created_at", EmitDefaultValue = true)]
+        [DataMember(Name = "created_at", IsRequired = true, EmitDefaultValue = true)]
         public int CreatedAt { get; set; }
 
         /// <summary>
         /// Fax Sender Email
         /// </summary>
         /// <value>Fax Sender Email</value>
-        [DataMember(Name = "from", EmitDefaultValue = true)]
+        [DataMember(Name = "from", IsRequired = true, EmitDefaultValue = true)]
         public string From { get; set; }
 
         /// <summary>
         /// Fax Transmissions List
         /// </summary>
         /// <value>Fax Transmissions List</value>
-        [DataMember(Name = "transmissions", EmitDefaultValue = true)]
+        [DataMember(Name = "transmissions", IsRequired = true, EmitDefaultValue = true)]
         public List<FaxResponseTransmission> Transmissions { get; set; }
 
         /// <summary>
         /// Fax Files URL
         /// </summary>
         /// <value>Fax Files URL</value>
-        [DataMember(Name = "files_url", EmitDefaultValue = true)]
+        [DataMember(Name = "files_url", IsRequired = true, EmitDefaultValue = true)]
         public string FilesUrl { get; set; }
 
         /// <summary>
@@ -232,8 +277,9 @@ namespace Dropbox.Sign.Model
                 ) &&
                 (
                     this.Metadata == input.Metadata ||
-                    (this.Metadata != null &&
-                    this.Metadata.Equals(input.Metadata))
+                    this.Metadata != null &&
+                    input.Metadata != null &&
+                    this.Metadata.SequenceEqual(input.Metadata)
                 ) &&
                 (
                     this.CreatedAt == input.CreatedAt ||
@@ -358,7 +404,7 @@ namespace Dropbox.Sign.Model
             {
                 Name = "metadata",
                 Property = "Metadata",
-                Type = "Object",
+                Type = "Dictionary<string, Object>",
                 Value = Metadata,
             });
             types.Add(new OpenApiType()

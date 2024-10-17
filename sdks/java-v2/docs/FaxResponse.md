@@ -8,16 +8,16 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-| `faxId` | ```String``` |  Fax ID  |  |
-| `title` | ```String``` |  Fax Title  |  |
-| `originalTitle` | ```String``` |  Fax Original Title  |  |
-| `subject` | ```String``` |  Fax Subject  |  |
-| `message` | ```String``` |  Fax Message  |  |
-| `metadata` | ```Object``` |  Fax Metadata  |  |
-| `createdAt` | ```Integer``` |  Fax Created At Timestamp  |  |
-| `from` | ```String``` |  Fax Sender Email  |  |
-| `transmissions` | [```List<FaxResponseTransmission>```](FaxResponseTransmission.md) |  Fax Transmissions List  |  |
-| `filesUrl` | ```String``` |  Fax Files URL  |  |
+| `faxId`<sup>*_required_</sup> | ```String``` |  Fax ID  |  |
+| `title`<sup>*_required_</sup> | ```String``` |  Fax Title  |  |
+| `originalTitle`<sup>*_required_</sup> | ```String``` |  Fax Original Title  |  |
+| `subject`<sup>*_required_</sup> | ```String``` |  Fax Subject  |  |
+| `message`<sup>*_required_</sup> | ```String``` |  Fax Message  |  |
+| `metadata`<sup>*_required_</sup> | ```Map<String, Object>``` |  Fax Metadata  |  |
+| `createdAt`<sup>*_required_</sup> | ```Integer``` |  Fax Created At Timestamp  |  |
+| `from`<sup>*_required_</sup> | ```String``` |  Fax Sender Email  |  |
+| `transmissions`<sup>*_required_</sup> | [```List<FaxResponseTransmission>```](FaxResponseTransmission.md) |  Fax Transmissions List  |  |
+| `filesUrl`<sup>*_required_</sup> | ```String``` |  Fax Files URL  |  |
 
 
 

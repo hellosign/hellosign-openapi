@@ -143,8 +143,8 @@
 "FaxList::PAGE_SIZE": Page size
 "FaxSend::SUMMARY": Send Fax
 "FaxSend::DESCRIPTION": Action to prepare and send a fax
-"FaxSend::TO": Fax Send To Recipient
-"FaxSend::FROM": Fax Send From Sender (used only with fax number)
+"FaxSend::RECIPIENT": Fax Send To Recipient
+"FaxSend::SENDER": Fax Send From Sender (used only with fax number)
 "FaxSend::FILE": Fax File to Send
 "FaxSend::FILE_URL": Fax File URL to Send
 "FaxSend::FILE_URL_NAMES": Fax File URL Names

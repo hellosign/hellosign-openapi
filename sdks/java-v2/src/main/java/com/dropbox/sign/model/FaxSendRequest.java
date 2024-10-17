@@ -36,8 +36,8 @@ import com.dropbox.sign.ApiException;
  * FaxSendRequest
  */
 @JsonPropertyOrder({
-  FaxSendRequest.JSON_PROPERTY_TO,
-  FaxSendRequest.JSON_PROPERTY_FROM,
+  FaxSendRequest.JSON_PROPERTY_RECIPIENT,
+  FaxSendRequest.JSON_PROPERTY_SENDER,
   FaxSendRequest.JSON_PROPERTY_FILES,
   FaxSendRequest.JSON_PROPERTY_FILE_URLS,
   FaxSendRequest.JSON_PROPERTY_TEST_MODE,
@@ -49,11 +49,11 @@ import com.dropbox.sign.ApiException;
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class FaxSendRequest {
-  public static final String JSON_PROPERTY_TO = "to";
-  private String to;
+  public static final String JSON_PROPERTY_RECIPIENT = "recipient";
+  private String recipient;
 
-  public static final String JSON_PROPERTY_FROM = "from";
-  private String from;
+  public static final String JSON_PROPERTY_SENDER = "sender";
+  private String sender;
 
   public static final String JSON_PROPERTY_FILES = "files";
   private List<File> files = null;
@@ -94,53 +94,53 @@ public class FaxSendRequest {
     );
   }
 
-  public FaxSendRequest to(String to) {
-    this.to = to;
+  public FaxSendRequest recipient(String recipient) {
+    this.recipient = recipient;
     return this;
   }
 
   /**
    * Fax Send To Recipient
-   * @return to
+   * @return recipient
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_TO)
+  @JsonProperty(JSON_PROPERTY_RECIPIENT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public String getTo() {
-    return to;
+  public String getRecipient() {
+    return recipient;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TO)
+  @JsonProperty(JSON_PROPERTY_RECIPIENT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTo(String to) {
-    this.to = to;
+  public void setRecipient(String recipient) {
+    this.recipient = recipient;
   }
 
 
-  public FaxSendRequest from(String from) {
-    this.from = from;
+  public FaxSendRequest sender(String sender) {
+    this.sender = sender;
     return this;
   }
 
   /**
    * Fax Send From Sender (used only with fax number)
-   * @return from
+   * @return sender
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FROM)
+  @JsonProperty(JSON_PROPERTY_SENDER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getFrom() {
-    return from;
+  public String getSender() {
+    return sender;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FROM)
+  @JsonProperty(JSON_PROPERTY_SENDER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFrom(String from) {
-    this.from = from;
+  public void setSender(String sender) {
+    this.sender = sender;
   }
 
 
@@ -347,8 +347,8 @@ public class FaxSendRequest {
       return false;
     }
     FaxSendRequest faxSendRequest = (FaxSendRequest) o;
-    return Objects.equals(this.to, faxSendRequest.to) &&
-        Objects.equals(this.from, faxSendRequest.from) &&
+    return Objects.equals(this.recipient, faxSendRequest.recipient) &&
+        Objects.equals(this.sender, faxSendRequest.sender) &&
         Objects.equals(this.files, faxSendRequest.files) &&
         Objects.equals(this.fileUrls, faxSendRequest.fileUrls) &&
         Objects.equals(this.testMode, faxSendRequest.testMode) &&
@@ -360,15 +360,15 @@ public class FaxSendRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(to, from, files, fileUrls, testMode, coverPageTo, coverPageFrom, coverPageMessage, title);
+    return Objects.hash(recipient, sender, files, fileUrls, testMode, coverPageTo, coverPageFrom, coverPageMessage, title);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class FaxSendRequest {\n");
-    sb.append("    to: ").append(toIndentedString(to)).append("\n");
-    sb.append("    from: ").append(toIndentedString(from)).append("\n");
+    sb.append("    recipient: ").append(toIndentedString(recipient)).append("\n");
+    sb.append("    sender: ").append(toIndentedString(sender)).append("\n");
     sb.append("    files: ").append(toIndentedString(files)).append("\n");
     sb.append("    fileUrls: ").append(toIndentedString(fileUrls)).append("\n");
     sb.append("    testMode: ").append(toIndentedString(testMode)).append("\n");
@@ -384,42 +384,42 @@ public class FaxSendRequest {
     Map<String, Object> map = new HashMap<>();
     boolean fileTypeFound = false;
     try {
-    if (to != null) {
-        if (isFileTypeOrListOfFiles(to)) {
+    if (recipient != null) {
+        if (isFileTypeOrListOfFiles(recipient)) {
             fileTypeFound = true;
         }
 
-        if (to.getClass().equals(java.io.File.class) ||
-            to.getClass().equals(Integer.class) ||
-            to.getClass().equals(String.class) ||
-            to.getClass().isEnum()) {
-            map.put("to", to);
-        } else if (isListOfFile(to)) {
-            for(int i = 0; i< getListSize(to); i++) {
-                map.put("to[" + i + "]", getFromList(to, i));
+        if (recipient.getClass().equals(java.io.File.class) ||
+            recipient.getClass().equals(Integer.class) ||
+            recipient.getClass().equals(String.class) ||
+            recipient.getClass().isEnum()) {
+            map.put("recipient", recipient);
+        } else if (isListOfFile(recipient)) {
+            for(int i = 0; i< getListSize(recipient); i++) {
+                map.put("recipient[" + i + "]", getFromList(recipient, i));
             }
         }
         else {
-            map.put("to", JSON.getDefault().getMapper().writeValueAsString(to));
+            map.put("recipient", JSON.getDefault().getMapper().writeValueAsString(recipient));
         }
     }
-    if (from != null) {
-        if (isFileTypeOrListOfFiles(from)) {
+    if (sender != null) {
+        if (isFileTypeOrListOfFiles(sender)) {
             fileTypeFound = true;
         }
 
-        if (from.getClass().equals(java.io.File.class) ||
-            from.getClass().equals(Integer.class) ||
-            from.getClass().equals(String.class) ||
-            from.getClass().isEnum()) {
-            map.put("from", from);
-        } else if (isListOfFile(from)) {
-            for(int i = 0; i< getListSize(from); i++) {
-                map.put("from[" + i + "]", getFromList(from, i));
+        if (sender.getClass().equals(java.io.File.class) ||
+            sender.getClass().equals(Integer.class) ||
+            sender.getClass().equals(String.class) ||
+            sender.getClass().isEnum()) {
+            map.put("sender", sender);
+        } else if (isListOfFile(sender)) {
+            for(int i = 0; i< getListSize(sender); i++) {
+                map.put("sender[" + i + "]", getFromList(sender, i));
             }
         }
         else {
-            map.put("from", JSON.getDefault().getMapper().writeValueAsString(from));
+            map.put("sender", JSON.getDefault().getMapper().writeValueAsString(sender));
         }
     }
     if (files != null) {

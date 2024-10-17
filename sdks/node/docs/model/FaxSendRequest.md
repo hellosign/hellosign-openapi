@@ -6,8 +6,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-| `to`<sup>*_required_</sup> | ```string``` |  Fax Send To Recipient  |  |
-| `from` | ```string``` |  Fax Send From Sender (used only with fax number)  |  |
+| `recipient`<sup>*_required_</sup> | ```string``` |  Fax Send To Recipient  |  |
+| `sender` | ```string``` |  Fax Send From Sender (used only with fax number)  |  |
 | `files` | ```Array<RequestFile>``` |  Fax File to Send  |  |
 | `fileUrls` | ```Array<string>``` |  Fax File URL to Send  |  |
 | `testMode` | ```boolean``` |  API Test Mode Setting  |  [default to false] |

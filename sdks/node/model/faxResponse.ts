@@ -29,43 +29,43 @@ export class FaxResponse {
   /**
    * Fax ID
    */
-  "faxId"?: string;
+  "faxId": string;
   /**
    * Fax Title
    */
-  "title"?: string;
+  "title": string;
   /**
    * Fax Original Title
    */
-  "originalTitle"?: string;
+  "originalTitle": string;
   /**
    * Fax Subject
    */
-  "subject"?: string;
+  "subject": string;
   /**
    * Fax Message
    */
-  "message"?: string;
+  "message": string;
   /**
    * Fax Metadata
    */
-  "metadata"?: object;
+  "metadata": { [key: string]: any };
   /**
    * Fax Created At Timestamp
    */
-  "createdAt"?: number;
+  "createdAt": number;
   /**
    * Fax Sender Email
    */
-  "from"?: string;
+  "from": string;
   /**
    * Fax Transmissions List
    */
-  "transmissions"?: Array<FaxResponseTransmission>;
+  "transmissions": Array<FaxResponseTransmission>;
   /**
    * Fax Files URL
    */
-  "filesUrl"?: string;
+  "filesUrl": string;
 
   static discriminator: string | undefined = undefined;
 
@@ -98,7 +98,7 @@ export class FaxResponse {
     {
       name: "metadata",
       baseName: "metadata",
-      type: "object",
+      type: "{ [key: string]: any; }",
     },
     {
       name: "createdAt",

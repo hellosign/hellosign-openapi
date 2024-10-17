@@ -5,8 +5,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-| `to`<sup>*_required_</sup> | ```str``` |  Fax Send To Recipient  |  |
-| `var_from` | ```str``` |  Fax Send From Sender (used only with fax number)  |  |
+| `recipient`<sup>*_required_</sup> | ```str``` |  Fax Send To Recipient  |  |
+| `sender` | ```str``` |  Fax Send From Sender (used only with fax number)  |  |
 | `files` | ```List[io.IOBase]``` |  Fax File to Send  |  |
 | `file_urls` | ```List[str]``` |  Fax File URL to Send  |  |
 | `test_mode` | ```bool``` |  API Test Mode Setting  |  [default to False] |

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**FaxId** | **string** |  Fax ID  | [optional] **Title** | **string** |  Fax Title  | [optional] **OriginalTitle** | **string** |  Fax Original Title  | [optional] **Subject** | **string** |  Fax Subject  | [optional] **Message** | **string** |  Fax Message  | [optional] **Metadata** | **Object** |  Fax Metadata  | [optional] **CreatedAt** | **int** |  Fax Created At Timestamp  | [optional] **From** | **string** |  Fax Sender Email  | [optional] **Transmissions** | [**List&lt;FaxResponseTransmission&gt;**](FaxResponseTransmission.md) |  Fax Transmissions List  | [optional] **FilesUrl** | **string** |  Fax Files URL  | [optional] 
+**FaxId** | **string** |  Fax ID  | **Title** | **string** |  Fax Title  | **OriginalTitle** | **string** |  Fax Original Title  | **Subject** | **string** |  Fax Subject  | **Message** | **string** |  Fax Message  | **Metadata** | **Dictionary&lt;string, Object&gt;** |  Fax Metadata  | **CreatedAt** | **int** |  Fax Created At Timestamp  | **From** | **string** |  Fax Sender Email  | **Transmissions** | [**List&lt;FaxResponseTransmission&gt;**](FaxResponseTransmission.md) |  Fax Transmissions List  | **FilesUrl** | **string** |  Fax Files URL  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

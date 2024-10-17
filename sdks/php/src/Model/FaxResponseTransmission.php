@@ -238,6 +238,34 @@ class FaxResponseTransmission implements ModelInterface, ArrayAccess, JsonSerial
         return self::$openAPIModelName;
     }
 
+    public const STATUS_CODE_SUCCESS = 'success';
+    public const STATUS_CODE_TRANSMITTING = 'transmitting';
+    public const STATUS_CODE_ERROR_COULD_NOT_FAX = 'error_could_not_fax';
+    public const STATUS_CODE_ERROR_UNKNOWN = 'error_unknown';
+    public const STATUS_CODE_ERROR_BUSY = 'error_busy';
+    public const STATUS_CODE_ERROR_NO_ANSWER = 'error_no_answer';
+    public const STATUS_CODE_ERROR_DISCONNECTED = 'error_disconnected';
+    public const STATUS_CODE_ERROR_BAD_DESTINATION = 'error_bad_destination';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getStatusCodeAllowableValues()
+    {
+        return [
+            self::STATUS_CODE_SUCCESS,
+            self::STATUS_CODE_TRANSMITTING,
+            self::STATUS_CODE_ERROR_COULD_NOT_FAX,
+            self::STATUS_CODE_ERROR_UNKNOWN,
+            self::STATUS_CODE_ERROR_BUSY,
+            self::STATUS_CODE_ERROR_NO_ANSWER,
+            self::STATUS_CODE_ERROR_DISCONNECTED,
+            self::STATUS_CODE_ERROR_BAD_DESTINATION,
+        ];
+    }
+
     /**
      * Associative array for storing property values
      *
@@ -302,7 +330,18 @@ class FaxResponseTransmission implements ModelInterface, ArrayAccess, JsonSerial
      */
     public function listInvalidProperties()
     {
-        return [];
+        $invalidProperties = [];
+
+        $allowedValues = $this->getStatusCodeAllowableValues();
+        if (!is_null($this->container['status_code']) && !in_array($this->container['status_code'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'status_code', must be one of '%s'",
+                $this->container['status_code'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        return $invalidProperties;
     }
 
     /**
@@ -391,6 +430,16 @@ class FaxResponseTransmission implements ModelInterface, ArrayAccess, JsonSerial
     {
         if (is_null($status_code)) {
             throw new InvalidArgumentException('non-nullable status_code cannot be null');
+        }
+        $allowedValues = $this->getStatusCodeAllowableValues();
+        if (!in_array($status_code, $allowedValues, true)) {
+            throw new InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'status_code', must be one of '%s'",
+                    $status_code,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['status_code'] = $status_code;
 

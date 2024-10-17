@@ -34,6 +34,69 @@ namespace Dropbox.Sign.Model
     public partial class FaxResponseTransmission : IEquatable<FaxResponseTransmission>, IValidatableObject
     {
         /// <summary>
+        /// Fax Transmission Status Code
+        /// </summary>
+        /// <value>Fax Transmission Status Code</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum StatusCodeEnum
+        {
+            /// <summary>
+            /// Enum Success for value: success
+            /// </summary>
+            [EnumMember(Value = "success")]
+            Success = 1,
+
+            /// <summary>
+            /// Enum Transmitting for value: transmitting
+            /// </summary>
+            [EnumMember(Value = "transmitting")]
+            Transmitting = 2,
+
+            /// <summary>
+            /// Enum ErrorCouldNotFax for value: error_could_not_fax
+            /// </summary>
+            [EnumMember(Value = "error_could_not_fax")]
+            ErrorCouldNotFax = 3,
+
+            /// <summary>
+            /// Enum ErrorUnknown for value: error_unknown
+            /// </summary>
+            [EnumMember(Value = "error_unknown")]
+            ErrorUnknown = 4,
+
+            /// <summary>
+            /// Enum ErrorBusy for value: error_busy
+            /// </summary>
+            [EnumMember(Value = "error_busy")]
+            ErrorBusy = 5,
+
+            /// <summary>
+            /// Enum ErrorNoAnswer for value: error_no_answer
+            /// </summary>
+            [EnumMember(Value = "error_no_answer")]
+            ErrorNoAnswer = 6,
+
+            /// <summary>
+            /// Enum ErrorDisconnected for value: error_disconnected
+            /// </summary>
+            [EnumMember(Value = "error_disconnected")]
+            ErrorDisconnected = 7,
+
+            /// <summary>
+            /// Enum ErrorBadDestination for value: error_bad_destination
+            /// </summary>
+            [EnumMember(Value = "error_bad_destination")]
+            ErrorBadDestination = 8
+        }
+
+
+        /// <summary>
+        /// Fax Transmission Status Code
+        /// </summary>
+        /// <value>Fax Transmission Status Code</value>
+        [DataMember(Name = "status_code", EmitDefaultValue = true)]
+        public StatusCodeEnum? StatusCode { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="FaxResponseTransmission" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -45,7 +108,7 @@ namespace Dropbox.Sign.Model
         /// <param name="sender">Fax Transmission Sender.</param>
         /// <param name="statusCode">Fax Transmission Status Code.</param>
         /// <param name="sentAt">Fax Transmission Sent Timestamp.</param>
-        public FaxResponseTransmission(string recipient = default(string), string sender = default(string), string statusCode = default(string), int sentAt = default(int))
+        public FaxResponseTransmission(string recipient = default(string), string sender = default(string), StatusCodeEnum? statusCode = default(StatusCodeEnum?), int sentAt = default(int))
         {
 
             this.Recipient = recipient;
@@ -83,13 +146,6 @@ namespace Dropbox.Sign.Model
         /// <value>Fax Transmission Sender</value>
         [DataMember(Name = "sender", EmitDefaultValue = true)]
         public string Sender { get; set; }
-
-        /// <summary>
-        /// Fax Transmission Status Code
-        /// </summary>
-        /// <value>Fax Transmission Status Code</value>
-        [DataMember(Name = "status_code", EmitDefaultValue = true)]
-        public string StatusCode { get; set; }
 
         /// <summary>
         /// Fax Transmission Sent Timestamp
@@ -157,8 +213,7 @@ namespace Dropbox.Sign.Model
                 ) &&
                 (
                     this.StatusCode == input.StatusCode ||
-                    (this.StatusCode != null &&
-                    this.StatusCode.Equals(input.StatusCode))
+                    this.StatusCode.Equals(input.StatusCode)
                 ) &&
                 (
                     this.SentAt == input.SentAt ||
@@ -183,10 +238,7 @@ namespace Dropbox.Sign.Model
                 {
                     hashCode = (hashCode * 59) + this.Sender.GetHashCode();
                 }
-                if (this.StatusCode != null)
-                {
-                    hashCode = (hashCode * 59) + this.StatusCode.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.StatusCode.GetHashCode();
                 hashCode = (hashCode * 59) + this.SentAt.GetHashCode();
                 return hashCode;
             }

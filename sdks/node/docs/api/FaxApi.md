@@ -363,8 +363,8 @@ const fileBufferAlt: DropboxSign.RequestDetailedFile = {
 const data: DropboxSign.FaxSendRequest = {
   files: [ file, fileBuffer, fileBufferAlt ],
   testMode: true,
-  to: "16690000001",
-  from: "16690000000",
+  recipient: "16690000001",
+  sender: "16690000000",
   coverPageTo: "Jill Fax",
   coverPageMessage: "I'm sending you a fax!",
   coverPageFrom: "Faxer Faxerson",
@@ -416,8 +416,8 @@ const fileBufferAlt = {
 const data = {
   files: [ file, fileBuffer, fileBufferAlt ],
   testMode: true,
-  to: "16690000001",
-  from: "16690000000",
+  recipient: "16690000001",
+  sender: "16690000000",
   coverPageTo: "Jill Fax",
   coverPageMessage: "I'm sending you a fax!",
   coverPageFrom: "Faxer Faxerson",

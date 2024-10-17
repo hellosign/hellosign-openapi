@@ -47,8 +47,55 @@ public class FaxResponseTransmission {
   public static final String JSON_PROPERTY_SENDER = "sender";
   private String sender;
 
+  /**
+   * Fax Transmission Status Code
+   */
+  public enum StatusCodeEnum {
+    SUCCESS("success"),
+    
+    TRANSMITTING("transmitting"),
+    
+    ERROR_COULD_NOT_FAX("error_could_not_fax"),
+    
+    ERROR_UNKNOWN("error_unknown"),
+    
+    ERROR_BUSY("error_busy"),
+    
+    ERROR_NO_ANSWER("error_no_answer"),
+    
+    ERROR_DISCONNECTED("error_disconnected"),
+    
+    ERROR_BAD_DESTINATION("error_bad_destination");
+
+    private String value;
+
+    StatusCodeEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static StatusCodeEnum fromValue(String value) {
+      for (StatusCodeEnum b : StatusCodeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+  }
+
   public static final String JSON_PROPERTY_STATUS_CODE = "status_code";
-  private String statusCode;
+  private StatusCodeEnum statusCode;
 
   public static final String JSON_PROPERTY_SENT_AT = "sent_at";
   private Integer sentAt;
@@ -121,7 +168,7 @@ public class FaxResponseTransmission {
   }
 
 
-  public FaxResponseTransmission statusCode(String statusCode) {
+  public FaxResponseTransmission statusCode(StatusCodeEnum statusCode) {
     this.statusCode = statusCode;
     return this;
   }
@@ -134,14 +181,14 @@ public class FaxResponseTransmission {
   @JsonProperty(JSON_PROPERTY_STATUS_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getStatusCode() {
+  public StatusCodeEnum getStatusCode() {
     return statusCode;
   }
 
 
   @JsonProperty(JSON_PROPERTY_STATUS_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setStatusCode(String statusCode) {
+  public void setStatusCode(StatusCodeEnum statusCode) {
     this.statusCode = statusCode;
   }
 

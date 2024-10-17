@@ -39,7 +39,7 @@ module Dropbox::Sign
     attr_accessor :message
 
     # Fax Metadata
-    # @return [Object]
+    # @return [Hash<String, Object>]
     attr_accessor :metadata
 
     # Fax Created At Timestamp
@@ -87,7 +87,7 @@ module Dropbox::Sign
         :'original_title' => :'String',
         :'subject' => :'String',
         :'message' => :'String',
-        :'metadata' => :'Object',
+        :'metadata' => :'Hash<String, Object>',
         :'created_at' => :'Integer',
         :'from' => :'String',
         :'transmissions' => :'Array<FaxResponseTransmission>',
@@ -162,7 +162,9 @@ module Dropbox::Sign
       end
 
       if attributes.key?(:'metadata')
-        self.metadata = attributes[:'metadata']
+        if (value = attributes[:'metadata']).is_a?(Hash)
+          self.metadata = value
+        end
       end
 
       if attributes.key?(:'created_at')
@@ -188,12 +190,62 @@ module Dropbox::Sign
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @fax_id.nil?
+        invalid_properties.push('invalid value for "fax_id", fax_id cannot be nil.')
+      end
+
+      if @title.nil?
+        invalid_properties.push('invalid value for "title", title cannot be nil.')
+      end
+
+      if @original_title.nil?
+        invalid_properties.push('invalid value for "original_title", original_title cannot be nil.')
+      end
+
+      if @subject.nil?
+        invalid_properties.push('invalid value for "subject", subject cannot be nil.')
+      end
+
+      if @message.nil?
+        invalid_properties.push('invalid value for "message", message cannot be nil.')
+      end
+
+      if @metadata.nil?
+        invalid_properties.push('invalid value for "metadata", metadata cannot be nil.')
+      end
+
+      if @created_at.nil?
+        invalid_properties.push('invalid value for "created_at", created_at cannot be nil.')
+      end
+
+      if @from.nil?
+        invalid_properties.push('invalid value for "from", from cannot be nil.')
+      end
+
+      if @transmissions.nil?
+        invalid_properties.push('invalid value for "transmissions", transmissions cannot be nil.')
+      end
+
+      if @files_url.nil?
+        invalid_properties.push('invalid value for "files_url", files_url cannot be nil.')
+      end
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @fax_id.nil?
+      return false if @title.nil?
+      return false if @original_title.nil?
+      return false if @subject.nil?
+      return false if @message.nil?
+      return false if @metadata.nil?
+      return false if @created_at.nil?
+      return false if @from.nil?
+      return false if @transmissions.nil?
+      return false if @files_url.nil?
       true
     end
 

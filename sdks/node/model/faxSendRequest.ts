@@ -28,11 +28,11 @@ export class FaxSendRequest {
   /**
    * Fax Send To Recipient
    */
-  "to": string;
+  "recipient": string;
   /**
    * Fax Send From Sender (used only with fax number)
    */
-  "from"?: string;
+  "sender"?: string;
   /**
    * Fax File to Send
    */
@@ -66,13 +66,13 @@ export class FaxSendRequest {
 
   static attributeTypeMap: AttributeTypeMap = [
     {
-      name: "to",
-      baseName: "to",
+      name: "recipient",
+      baseName: "recipient",
       type: "string",
     },
     {
-      name: "from",
-      baseName: "from",
+      name: "sender",
+      baseName: "sender",
       type: "string",
     },
     {

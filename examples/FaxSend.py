@@ -13,7 +13,8 @@ with ApiClient(configuration) as api_client:
     data = models.FaxSendRequest(
         files=[open("example_signature_request.pdf", "rb")],
         test_mode=True,
-        to="16690000001",
+        recipient="16690000001",
+        sender="16690000000",
         cover_page_to="Jill Fax",
         cover_page_message="I'm sending you a fax!",
         cover_page_from="Faxer Faxerson",

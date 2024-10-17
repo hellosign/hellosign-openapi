@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List
 from dropbox_sign.models.fax_response_transmission import FaxResponseTransmission
 from typing import Optional, Set, Tuple
 from typing_extensions import Self
@@ -33,24 +33,18 @@ class FaxResponse(BaseModel):
     FaxResponse
     """  # noqa: E501
 
-    fax_id: Optional[StrictStr] = Field(default=None, description="Fax ID")
-    title: Optional[StrictStr] = Field(default=None, description="Fax Title")
-    original_title: Optional[StrictStr] = Field(
-        default=None, description="Fax Original Title"
+    fax_id: StrictStr = Field(description="Fax ID")
+    title: StrictStr = Field(description="Fax Title")
+    original_title: StrictStr = Field(description="Fax Original Title")
+    subject: StrictStr = Field(description="Fax Subject")
+    message: StrictStr = Field(description="Fax Message")
+    metadata: Dict[str, Any] = Field(description="Fax Metadata")
+    created_at: StrictInt = Field(description="Fax Created At Timestamp")
+    var_from: StrictStr = Field(description="Fax Sender Email", alias="from")
+    transmissions: List[FaxResponseTransmission] = Field(
+        description="Fax Transmissions List"
     )
-    subject: Optional[StrictStr] = Field(default=None, description="Fax Subject")
-    message: Optional[StrictStr] = Field(default=None, description="Fax Message")
-    metadata: Optional[Dict[str, Any]] = Field(default=None, description="Fax Metadata")
-    created_at: Optional[StrictInt] = Field(
-        default=None, description="Fax Created At Timestamp"
-    )
-    var_from: Optional[StrictStr] = Field(
-        default=None, description="Fax Sender Email", alias="from"
-    )
-    transmissions: Optional[List[FaxResponseTransmission]] = Field(
-        default=None, description="Fax Transmissions List"
-    )
-    files_url: Optional[StrictStr] = Field(default=None, description="Fax Files URL")
+    files_url: StrictStr = Field(description="Fax Files URL")
     __properties: ClassVar[List[str]] = [
         "fax_id",
         "title",
@@ -173,7 +167,7 @@ class FaxResponse(BaseModel):
             "original_title": "(str,)",
             "subject": "(str,)",
             "message": "(str,)",
-            "metadata": "(object,)",
+            "metadata": "(Dict[str, object],)",
             "created_at": "(int,)",
             "var_from": "(str,)",
             "transmissions": "(List[FaxResponseTransmission],)",

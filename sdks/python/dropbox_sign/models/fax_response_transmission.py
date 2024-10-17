@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set, Tuple
 from typing_extensions import Self
@@ -50,6 +50,29 @@ class FaxResponseTransmission(BaseModel):
         "status_code",
         "sent_at",
     ]
+
+    @field_validator("status_code")
+    def status_code_validate_enum(cls, value):
+        """Validates the enum"""
+        if value is None:
+            return value
+
+        if value not in set(
+            [
+                "success",
+                "transmitting",
+                "error_could_not_fax",
+                "error_unknown",
+                "error_busy",
+                "error_no_answer",
+                "error_disconnected",
+                "error_bad_destination",
+            ]
+        ):
+            raise ValueError(
+                "must be one of enum values ('success', 'transmitting', 'error_could_not_fax', 'error_unknown', 'error_busy', 'error_no_answer', 'error_disconnected', 'error_bad_destination')"
+            )
+        return value
 
     model_config = ConfigDict(
         populate_by_name=True,

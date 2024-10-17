@@ -58,8 +58,8 @@ class FaxSendRequest implements ModelInterface, ArrayAccess, JsonSerializable
      * @var string[]
      */
     protected static $openAPITypes = [
-        'to' => 'string',
-        'from' => 'string',
+        'recipient' => 'string',
+        'sender' => 'string',
         'files' => '\SplFileObject[]',
         'file_urls' => 'string[]',
         'test_mode' => 'bool',
@@ -77,8 +77,8 @@ class FaxSendRequest implements ModelInterface, ArrayAccess, JsonSerializable
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        'to' => null,
-        'from' => null,
+        'recipient' => null,
+        'sender' => null,
         'files' => 'binary',
         'file_urls' => null,
         'test_mode' => null,
@@ -94,8 +94,8 @@ class FaxSendRequest implements ModelInterface, ArrayAccess, JsonSerializable
      * @var bool[]
      */
     protected static array $openAPINullables = [
-        'to' => false,
-        'from' => false,
+        'recipient' => false,
+        'sender' => false,
         'files' => false,
         'file_urls' => false,
         'test_mode' => false,
@@ -183,8 +183,8 @@ class FaxSendRequest implements ModelInterface, ArrayAccess, JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'to' => 'to',
-        'from' => 'from',
+        'recipient' => 'recipient',
+        'sender' => 'sender',
         'files' => 'files',
         'file_urls' => 'file_urls',
         'test_mode' => 'test_mode',
@@ -200,8 +200,8 @@ class FaxSendRequest implements ModelInterface, ArrayAccess, JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'to' => 'setTo',
-        'from' => 'setFrom',
+        'recipient' => 'setRecipient',
+        'sender' => 'setSender',
         'files' => 'setFiles',
         'file_urls' => 'setFileUrls',
         'test_mode' => 'setTestMode',
@@ -217,8 +217,8 @@ class FaxSendRequest implements ModelInterface, ArrayAccess, JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'to' => 'getTo',
-        'from' => 'getFrom',
+        'recipient' => 'getRecipient',
+        'sender' => 'getSender',
         'files' => 'getFiles',
         'file_urls' => 'getFileUrls',
         'test_mode' => 'getTestMode',
@@ -284,8 +284,8 @@ class FaxSendRequest implements ModelInterface, ArrayAccess, JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('to', $data ?? [], null);
-        $this->setIfExists('from', $data ?? [], null);
+        $this->setIfExists('recipient', $data ?? [], null);
+        $this->setIfExists('sender', $data ?? [], null);
         $this->setIfExists('files', $data ?? [], null);
         $this->setIfExists('file_urls', $data ?? [], null);
         $this->setIfExists('test_mode', $data ?? [], false);
@@ -340,8 +340,8 @@ class FaxSendRequest implements ModelInterface, ArrayAccess, JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['to'] === null) {
-            $invalidProperties[] = "'to' can't be null";
+        if ($this->container['recipient'] === null) {
+            $invalidProperties[] = "'recipient' can't be null";
         }
         return $invalidProperties;
     }
@@ -358,55 +358,55 @@ class FaxSendRequest implements ModelInterface, ArrayAccess, JsonSerializable
     }
 
     /**
-     * Gets to
+     * Gets recipient
      *
      * @return string
      */
-    public function getTo()
+    public function getRecipient()
     {
-        return $this->container['to'];
+        return $this->container['recipient'];
     }
 
     /**
-     * Sets to
+     * Sets recipient
      *
-     * @param string $to Fax Send To Recipient
+     * @param string $recipient Fax Send To Recipient
      *
      * @return self
      */
-    public function setTo(string $to)
+    public function setRecipient(string $recipient)
     {
-        if (is_null($to)) {
-            throw new InvalidArgumentException('non-nullable to cannot be null');
+        if (is_null($recipient)) {
+            throw new InvalidArgumentException('non-nullable recipient cannot be null');
         }
-        $this->container['to'] = $to;
+        $this->container['recipient'] = $recipient;
 
         return $this;
     }
 
     /**
-     * Gets from
+     * Gets sender
      *
      * @return string|null
      */
-    public function getFrom()
+    public function getSender()
     {
-        return $this->container['from'];
+        return $this->container['sender'];
     }
 
     /**
-     * Sets from
+     * Sets sender
      *
-     * @param string|null $from Fax Send From Sender (used only with fax number)
+     * @param string|null $sender Fax Send From Sender (used only with fax number)
      *
      * @return self
      */
-    public function setFrom(?string $from)
+    public function setSender(?string $sender)
     {
-        if (is_null($from)) {
-            throw new InvalidArgumentException('non-nullable from cannot be null');
+        if (is_null($sender)) {
+            throw new InvalidArgumentException('non-nullable sender cannot be null');
         }
-        $this->container['from'] = $from;
+        $this->container['sender'] = $sender;
 
         return $this;
     }

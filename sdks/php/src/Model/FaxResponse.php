@@ -62,7 +62,7 @@ class FaxResponse implements ModelInterface, ArrayAccess, JsonSerializable
         'original_title' => 'string',
         'subject' => 'string',
         'message' => 'string',
-        'metadata' => 'array',
+        'metadata' => 'array<string,mixed>',
         'created_at' => 'int',
         'from' => 'string',
         'transmissions' => '\Dropbox\Sign\Model\FaxResponseTransmission[]',
@@ -344,7 +344,39 @@ class FaxResponse implements ModelInterface, ArrayAccess, JsonSerializable
      */
     public function listInvalidProperties()
     {
-        return [];
+        $invalidProperties = [];
+
+        if ($this->container['fax_id'] === null) {
+            $invalidProperties[] = "'fax_id' can't be null";
+        }
+        if ($this->container['title'] === null) {
+            $invalidProperties[] = "'title' can't be null";
+        }
+        if ($this->container['original_title'] === null) {
+            $invalidProperties[] = "'original_title' can't be null";
+        }
+        if ($this->container['subject'] === null) {
+            $invalidProperties[] = "'subject' can't be null";
+        }
+        if ($this->container['message'] === null) {
+            $invalidProperties[] = "'message' can't be null";
+        }
+        if ($this->container['metadata'] === null) {
+            $invalidProperties[] = "'metadata' can't be null";
+        }
+        if ($this->container['created_at'] === null) {
+            $invalidProperties[] = "'created_at' can't be null";
+        }
+        if ($this->container['from'] === null) {
+            $invalidProperties[] = "'from' can't be null";
+        }
+        if ($this->container['transmissions'] === null) {
+            $invalidProperties[] = "'transmissions' can't be null";
+        }
+        if ($this->container['files_url'] === null) {
+            $invalidProperties[] = "'files_url' can't be null";
+        }
+        return $invalidProperties;
     }
 
     /**
@@ -361,7 +393,7 @@ class FaxResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets fax_id
      *
-     * @return string|null
+     * @return string
      */
     public function getFaxId()
     {
@@ -371,11 +403,11 @@ class FaxResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets fax_id
      *
-     * @param string|null $fax_id Fax ID
+     * @param string $fax_id Fax ID
      *
      * @return self
      */
-    public function setFaxId(?string $fax_id)
+    public function setFaxId(string $fax_id)
     {
         if (is_null($fax_id)) {
             throw new InvalidArgumentException('non-nullable fax_id cannot be null');
@@ -388,7 +420,7 @@ class FaxResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets title
      *
-     * @return string|null
+     * @return string
      */
     public function getTitle()
     {
@@ -398,11 +430,11 @@ class FaxResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets title
      *
-     * @param string|null $title Fax Title
+     * @param string $title Fax Title
      *
      * @return self
      */
-    public function setTitle(?string $title)
+    public function setTitle(string $title)
     {
         if (is_null($title)) {
             throw new InvalidArgumentException('non-nullable title cannot be null');
@@ -415,7 +447,7 @@ class FaxResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets original_title
      *
-     * @return string|null
+     * @return string
      */
     public function getOriginalTitle()
     {
@@ -425,11 +457,11 @@ class FaxResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets original_title
      *
-     * @param string|null $original_title Fax Original Title
+     * @param string $original_title Fax Original Title
      *
      * @return self
      */
-    public function setOriginalTitle(?string $original_title)
+    public function setOriginalTitle(string $original_title)
     {
         if (is_null($original_title)) {
             throw new InvalidArgumentException('non-nullable original_title cannot be null');
@@ -442,7 +474,7 @@ class FaxResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets subject
      *
-     * @return string|null
+     * @return string
      */
     public function getSubject()
     {
@@ -452,11 +484,11 @@ class FaxResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets subject
      *
-     * @param string|null $subject Fax Subject
+     * @param string $subject Fax Subject
      *
      * @return self
      */
-    public function setSubject(?string $subject)
+    public function setSubject(string $subject)
     {
         if (is_null($subject)) {
             throw new InvalidArgumentException('non-nullable subject cannot be null');
@@ -469,7 +501,7 @@ class FaxResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets message
      *
-     * @return string|null
+     * @return string
      */
     public function getMessage()
     {
@@ -479,11 +511,11 @@ class FaxResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets message
      *
-     * @param string|null $message Fax Message
+     * @param string $message Fax Message
      *
      * @return self
      */
-    public function setMessage(?string $message)
+    public function setMessage(string $message)
     {
         if (is_null($message)) {
             throw new InvalidArgumentException('non-nullable message cannot be null');
@@ -496,7 +528,7 @@ class FaxResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets metadata
      *
-     * @return array|null
+     * @return array<string,mixed>
      */
     public function getMetadata()
     {
@@ -506,11 +538,11 @@ class FaxResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets metadata
      *
-     * @param array|null $metadata Fax Metadata
+     * @param array<string,mixed> $metadata Fax Metadata
      *
      * @return self
      */
-    public function setMetadata(?array $metadata)
+    public function setMetadata(array $metadata)
     {
         if (is_null($metadata)) {
             throw new InvalidArgumentException('non-nullable metadata cannot be null');
@@ -523,7 +555,7 @@ class FaxResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets created_at
      *
-     * @return int|null
+     * @return int
      */
     public function getCreatedAt()
     {
@@ -533,11 +565,11 @@ class FaxResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets created_at
      *
-     * @param int|null $created_at Fax Created At Timestamp
+     * @param int $created_at Fax Created At Timestamp
      *
      * @return self
      */
-    public function setCreatedAt(?int $created_at)
+    public function setCreatedAt(int $created_at)
     {
         if (is_null($created_at)) {
             throw new InvalidArgumentException('non-nullable created_at cannot be null');
@@ -550,7 +582,7 @@ class FaxResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets from
      *
-     * @return string|null
+     * @return string
      */
     public function getFrom()
     {
@@ -560,11 +592,11 @@ class FaxResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets from
      *
-     * @param string|null $from Fax Sender Email
+     * @param string $from Fax Sender Email
      *
      * @return self
      */
-    public function setFrom(?string $from)
+    public function setFrom(string $from)
     {
         if (is_null($from)) {
             throw new InvalidArgumentException('non-nullable from cannot be null');
@@ -577,7 +609,7 @@ class FaxResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets transmissions
      *
-     * @return FaxResponseTransmission[]|null
+     * @return FaxResponseTransmission[]
      */
     public function getTransmissions()
     {
@@ -587,11 +619,11 @@ class FaxResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets transmissions
      *
-     * @param FaxResponseTransmission[]|null $transmissions Fax Transmissions List
+     * @param FaxResponseTransmission[] $transmissions Fax Transmissions List
      *
      * @return self
      */
-    public function setTransmissions(?array $transmissions)
+    public function setTransmissions(array $transmissions)
     {
         if (is_null($transmissions)) {
             throw new InvalidArgumentException('non-nullable transmissions cannot be null');
@@ -604,7 +636,7 @@ class FaxResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets files_url
      *
-     * @return string|null
+     * @return string
      */
     public function getFilesUrl()
     {
@@ -614,11 +646,11 @@ class FaxResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets files_url
      *
-     * @param string|null $files_url Fax Files URL
+     * @param string $files_url Fax Files URL
      *
      * @return self
      */
-    public function setFilesUrl(?string $files_url)
+    public function setFilesUrl(string $files_url)
     {
         if (is_null($files_url)) {
             throw new InvalidArgumentException('non-nullable files_url cannot be null');

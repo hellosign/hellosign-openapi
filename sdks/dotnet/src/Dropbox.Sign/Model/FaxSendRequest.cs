@@ -41,8 +41,8 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FaxSendRequest" /> class.
         /// </summary>
-        /// <param name="to">Fax Send To Recipient (required).</param>
-        /// <param name="from">Fax Send From Sender (used only with fax number).</param>
+        /// <param name="recipient">Fax Send To Recipient (required).</param>
+        /// <param name="sender">Fax Send From Sender (used only with fax number).</param>
         /// <param name="files">Fax File to Send.</param>
         /// <param name="fileUrls">Fax File URL to Send.</param>
         /// <param name="testMode">API Test Mode Setting (default to false).</param>
@@ -50,16 +50,16 @@ namespace Dropbox.Sign.Model
         /// <param name="coverPageFrom">Fax Cover Page for Sender.</param>
         /// <param name="coverPageMessage">Fax Cover Page Message.</param>
         /// <param name="title">Fax Title.</param>
-        public FaxSendRequest(string to = default(string), string from = default(string), List<System.IO.Stream> files = default(List<System.IO.Stream>), List<string> fileUrls = default(List<string>), bool testMode = false, string coverPageTo = default(string), string coverPageFrom = default(string), string coverPageMessage = default(string), string title = default(string))
+        public FaxSendRequest(string recipient = default(string), string sender = default(string), List<System.IO.Stream> files = default(List<System.IO.Stream>), List<string> fileUrls = default(List<string>), bool testMode = false, string coverPageTo = default(string), string coverPageFrom = default(string), string coverPageMessage = default(string), string title = default(string))
         {
 
-            // to ensure "to" is required (not null)
-            if (to == null)
+            // to ensure "recipient" is required (not null)
+            if (recipient == null)
             {
-                throw new ArgumentNullException("to is a required property for FaxSendRequest and cannot be null");
+                throw new ArgumentNullException("recipient is a required property for FaxSendRequest and cannot be null");
             }
-            this.To = to;
-            this.From = from;
+            this.Recipient = recipient;
+            this.Sender = sender;
             this.Files = files;
             this.FileUrls = fileUrls;
             this.TestMode = testMode;
@@ -90,16 +90,16 @@ namespace Dropbox.Sign.Model
         /// </summary>
         /// <value>Fax Send To Recipient</value>
         /// <example>recipient@example.com</example>
-        [DataMember(Name = "to", IsRequired = true, EmitDefaultValue = true)]
-        public string To { get; set; }
+        [DataMember(Name = "recipient", IsRequired = true, EmitDefaultValue = true)]
+        public string Recipient { get; set; }
 
         /// <summary>
         /// Fax Send From Sender (used only with fax number)
         /// </summary>
         /// <value>Fax Send From Sender (used only with fax number)</value>
         /// <example>sender@example.com</example>
-        [DataMember(Name = "from", EmitDefaultValue = true)]
-        public string From { get; set; }
+        [DataMember(Name = "sender", EmitDefaultValue = true)]
+        public string Sender { get; set; }
 
         /// <summary>
         /// Fax File to Send
@@ -162,8 +162,8 @@ namespace Dropbox.Sign.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class FaxSendRequest {\n");
-            sb.Append("  To: ").Append(To).Append("\n");
-            sb.Append("  From: ").Append(From).Append("\n");
+            sb.Append("  Recipient: ").Append(Recipient).Append("\n");
+            sb.Append("  Sender: ").Append(Sender).Append("\n");
             sb.Append("  Files: ").Append(Files).Append("\n");
             sb.Append("  FileUrls: ").Append(FileUrls).Append("\n");
             sb.Append("  TestMode: ").Append(TestMode).Append("\n");
@@ -207,14 +207,14 @@ namespace Dropbox.Sign.Model
             }
             return
                 (
-                    this.To == input.To ||
-                    (this.To != null &&
-                    this.To.Equals(input.To))
+                    this.Recipient == input.Recipient ||
+                    (this.Recipient != null &&
+                    this.Recipient.Equals(input.Recipient))
                 ) &&
                 (
-                    this.From == input.From ||
-                    (this.From != null &&
-                    this.From.Equals(input.From))
+                    this.Sender == input.Sender ||
+                    (this.Sender != null &&
+                    this.Sender.Equals(input.Sender))
                 ) &&
                 (
                     this.Files == input.Files ||
@@ -263,13 +263,13 @@ namespace Dropbox.Sign.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.To != null)
+                if (this.Recipient != null)
                 {
-                    hashCode = (hashCode * 59) + this.To.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Recipient.GetHashCode();
                 }
-                if (this.From != null)
+                if (this.Sender != null)
                 {
-                    hashCode = (hashCode * 59) + this.From.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Sender.GetHashCode();
                 }
                 if (this.Files != null)
                 {
@@ -314,17 +314,17 @@ namespace Dropbox.Sign.Model
             var types = new List<OpenApiType>();
             types.Add(new OpenApiType()
             {
-                Name = "to",
-                Property = "To",
+                Name = "recipient",
+                Property = "Recipient",
                 Type = "string",
-                Value = To,
+                Value = Recipient,
             });
             types.Add(new OpenApiType()
             {
-                Name = "from",
-                Property = "From",
+                Name = "sender",
+                Property = "Sender",
                 Type = "string",
-                Value = From,
+                Value = Sender,
             });
             types.Add(new OpenApiType()
             {

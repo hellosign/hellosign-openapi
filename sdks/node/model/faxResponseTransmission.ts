@@ -36,7 +36,7 @@ export class FaxResponseTransmission {
   /**
    * Fax Transmission Status Code
    */
-  "statusCode"?: string;
+  "statusCode"?: FaxResponseTransmission.StatusCodeEnum;
   /**
    * Fax Transmission Sent Timestamp
    */
@@ -58,7 +58,7 @@ export class FaxResponseTransmission {
     {
       name: "statusCode",
       baseName: "status_code",
-      type: "string",
+      type: "FaxResponseTransmission.StatusCodeEnum",
     },
     {
       name: "sentAt",
@@ -74,5 +74,18 @@ export class FaxResponseTransmission {
   /** Attempt to instantiate and hydrate a new instance of this class */
   static init(data: any): FaxResponseTransmission {
     return ObjectSerializer.deserialize(data, "FaxResponseTransmission");
+  }
+}
+
+export namespace FaxResponseTransmission {
+  export enum StatusCodeEnum {
+    Success = "success",
+    Transmitting = "transmitting",
+    ErrorCouldNotFax = "error_could_not_fax",
+    ErrorUnknown = "error_unknown",
+    ErrorBusy = "error_busy",
+    ErrorNoAnswer = "error_no_answer",
+    ErrorDisconnected = "error_disconnected",
+    ErrorBadDestination = "error_bad_destination",
   }
 }

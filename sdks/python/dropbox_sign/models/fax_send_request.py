@@ -32,11 +32,9 @@ class FaxSendRequest(BaseModel):
     FaxSendRequest
     """  # noqa: E501
 
-    to: StrictStr = Field(description="Fax Send To Recipient")
-    var_from: Optional[StrictStr] = Field(
-        default=None,
-        description="Fax Send From Sender (used only with fax number)",
-        alias="from",
+    recipient: StrictStr = Field(description="Fax Send To Recipient")
+    sender: Optional[StrictStr] = Field(
+        default=None, description="Fax Send From Sender (used only with fax number)"
     )
     files: Optional[List[Union[StrictBytes, StrictStr, io.IOBase]]] = Field(
         default=None, description="Fax File to Send"
@@ -58,8 +56,8 @@ class FaxSendRequest(BaseModel):
     )
     title: Optional[StrictStr] = Field(default=None, description="Fax Title")
     __properties: ClassVar[List[str]] = [
-        "to",
-        "from",
+        "recipient",
+        "sender",
         "files",
         "file_urls",
         "test_mode",
@@ -132,8 +130,8 @@ class FaxSendRequest(BaseModel):
 
         _obj = cls.model_validate(
             {
-                "to": obj.get("to"),
-                "from": obj.get("from"),
+                "recipient": obj.get("recipient"),
+                "sender": obj.get("sender"),
                 "files": obj.get("files"),
                 "file_urls": obj.get("file_urls"),
                 "test_mode": (
@@ -160,8 +158,8 @@ class FaxSendRequest(BaseModel):
     @classmethod
     def openapi_types(cls) -> Dict[str, str]:
         return {
-            "to": "(str,)",
-            "var_from": "(str,)",
+            "recipient": "(str,)",
+            "sender": "(str,)",
             "files": "(List[io.IOBase],)",
             "file_urls": "(List[str],)",
             "test_mode": "(bool,)",

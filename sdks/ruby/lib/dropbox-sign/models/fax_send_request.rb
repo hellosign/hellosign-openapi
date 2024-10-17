@@ -20,11 +20,11 @@ module Dropbox::Sign
   class FaxSendRequest
     # Fax Send To Recipient
     # @return [String]
-    attr_accessor :to
+    attr_accessor :recipient
 
     # Fax Send From Sender (used only with fax number)
     # @return [String]
-    attr_accessor :from
+    attr_accessor :sender
 
     # Fax File to Send
     # @return [Array<File>]
@@ -57,8 +57,8 @@ module Dropbox::Sign
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'to' => :'to',
-        :'from' => :'from',
+        :'recipient' => :'recipient',
+        :'sender' => :'sender',
         :'files' => :'files',
         :'file_urls' => :'file_urls',
         :'test_mode' => :'test_mode',
@@ -77,8 +77,8 @@ module Dropbox::Sign
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'to' => :'String',
-        :'from' => :'String',
+        :'recipient' => :'String',
+        :'sender' => :'String',
         :'files' => :'Array<File>',
         :'file_urls' => :'Array<String>',
         :'test_mode' => :'Boolean',
@@ -135,12 +135,12 @@ module Dropbox::Sign
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'to')
-        self.to = attributes[:'to']
+      if attributes.key?(:'recipient')
+        self.recipient = attributes[:'recipient']
       end
 
-      if attributes.key?(:'from')
-        self.from = attributes[:'from']
+      if attributes.key?(:'sender')
+        self.sender = attributes[:'sender']
       end
 
       if attributes.key?(:'files')
@@ -182,8 +182,8 @@ module Dropbox::Sign
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @to.nil?
-        invalid_properties.push('invalid value for "to", to cannot be nil.')
+      if @recipient.nil?
+        invalid_properties.push('invalid value for "recipient", recipient cannot be nil.')
       end
 
       invalid_properties
@@ -192,7 +192,7 @@ module Dropbox::Sign
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @to.nil?
+      return false if @recipient.nil?
       true
     end
 
@@ -201,8 +201,8 @@ module Dropbox::Sign
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          to == o.to &&
-          from == o.from &&
+          recipient == o.recipient &&
+          sender == o.sender &&
           files == o.files &&
           file_urls == o.file_urls &&
           test_mode == o.test_mode &&
@@ -221,7 +221,7 @@ module Dropbox::Sign
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [to, from, files, file_urls, test_mode, cover_page_to, cover_page_from, cover_page_message, title].hash
+      [recipient, sender, files, file_urls, test_mode, cover_page_to, cover_page_from, cover_page_message, title].hash
     end
 
     # Builds the object from hash

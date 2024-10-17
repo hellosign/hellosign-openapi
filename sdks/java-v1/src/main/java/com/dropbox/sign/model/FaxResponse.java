@@ -59,7 +59,7 @@ public class FaxResponse {
     private String message;
 
     public static final String JSON_PROPERTY_METADATA = "metadata";
-    private Object metadata;
+    private Map<String, Object> metadata = new HashMap<>();
 
     public static final String JSON_PROPERTY_CREATED_AT = "created_at";
     private Integer createdAt;
@@ -68,7 +68,7 @@ public class FaxResponse {
     private String from;
 
     public static final String JSON_PROPERTY_TRANSMISSIONS = "transmissions";
-    private List<FaxResponseTransmission> transmissions = null;
+    private List<FaxResponseTransmission> transmissions = new ArrayList<>();
 
     public static final String JSON_PROPERTY_FILES_URL = "files_url";
     private String filesUrl;
@@ -99,14 +99,15 @@ public class FaxResponse {
      *
      * @return faxId
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_FAX_ID)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    @javax.annotation.Nonnull
+    @JsonProperty(JSON_PROPERTY_FAX_ID)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public String getFaxId() {
         return faxId;
     }
 
     @JsonProperty(JSON_PROPERTY_FAX_ID)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setFaxId(String faxId) {
         this.faxId = faxId;
     }
@@ -121,14 +122,15 @@ public class FaxResponse {
      *
      * @return title
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_TITLE)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    @javax.annotation.Nonnull
+    @JsonProperty(JSON_PROPERTY_TITLE)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public String getTitle() {
         return title;
     }
 
     @JsonProperty(JSON_PROPERTY_TITLE)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setTitle(String title) {
         this.title = title;
     }
@@ -143,14 +145,15 @@ public class FaxResponse {
      *
      * @return originalTitle
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_ORIGINAL_TITLE)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    @javax.annotation.Nonnull
+    @JsonProperty(JSON_PROPERTY_ORIGINAL_TITLE)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public String getOriginalTitle() {
         return originalTitle;
     }
 
     @JsonProperty(JSON_PROPERTY_ORIGINAL_TITLE)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setOriginalTitle(String originalTitle) {
         this.originalTitle = originalTitle;
     }
@@ -165,14 +168,15 @@ public class FaxResponse {
      *
      * @return subject
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_SUBJECT)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    @javax.annotation.Nonnull
+    @JsonProperty(JSON_PROPERTY_SUBJECT)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public String getSubject() {
         return subject;
     }
 
     @JsonProperty(JSON_PROPERTY_SUBJECT)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setSubject(String subject) {
         this.subject = subject;
     }
@@ -187,20 +191,29 @@ public class FaxResponse {
      *
      * @return message
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_MESSAGE)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    @javax.annotation.Nonnull
+    @JsonProperty(JSON_PROPERTY_MESSAGE)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public String getMessage() {
         return message;
     }
 
     @JsonProperty(JSON_PROPERTY_MESSAGE)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setMessage(String message) {
         this.message = message;
     }
 
-    public FaxResponse metadata(Object metadata) {
+    public FaxResponse metadata(Map<String, Object> metadata) {
         this.metadata = metadata;
+        return this;
+    }
+
+    public FaxResponse putMetadataItem(String key, Object metadataItem) {
+        if (this.metadata == null) {
+            this.metadata = new HashMap<>();
+        }
+        this.metadata.put(key, metadataItem);
         return this;
     }
 
@@ -209,15 +222,16 @@ public class FaxResponse {
      *
      * @return metadata
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_METADATA)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public Object getMetadata() {
+    @javax.annotation.Nonnull
+    @JsonProperty(JSON_PROPERTY_METADATA)
+    @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.ALWAYS)
+    public Map<String, Object> getMetadata() {
         return metadata;
     }
 
     @JsonProperty(JSON_PROPERTY_METADATA)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setMetadata(Object metadata) {
+    @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.ALWAYS)
+    public void setMetadata(Map<String, Object> metadata) {
         this.metadata = metadata;
     }
 
@@ -231,14 +245,15 @@ public class FaxResponse {
      *
      * @return createdAt
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_CREATED_AT)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    @javax.annotation.Nonnull
+    @JsonProperty(JSON_PROPERTY_CREATED_AT)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public Integer getCreatedAt() {
         return createdAt;
     }
 
     @JsonProperty(JSON_PROPERTY_CREATED_AT)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setCreatedAt(Integer createdAt) {
         this.createdAt = createdAt;
     }
@@ -253,14 +268,15 @@ public class FaxResponse {
      *
      * @return from
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_FROM)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    @javax.annotation.Nonnull
+    @JsonProperty(JSON_PROPERTY_FROM)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public String getFrom() {
         return from;
     }
 
     @JsonProperty(JSON_PROPERTY_FROM)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setFrom(String from) {
         this.from = from;
     }
@@ -283,14 +299,15 @@ public class FaxResponse {
      *
      * @return transmissions
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_TRANSMISSIONS)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    @javax.annotation.Nonnull
+    @JsonProperty(JSON_PROPERTY_TRANSMISSIONS)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<FaxResponseTransmission> getTransmissions() {
         return transmissions;
     }
 
     @JsonProperty(JSON_PROPERTY_TRANSMISSIONS)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setTransmissions(List<FaxResponseTransmission> transmissions) {
         this.transmissions = transmissions;
     }
@@ -305,14 +322,15 @@ public class FaxResponse {
      *
      * @return filesUrl
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_FILES_URL)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    @javax.annotation.Nonnull
+    @JsonProperty(JSON_PROPERTY_FILES_URL)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public String getFilesUrl() {
         return filesUrl;
     }
 
     @JsonProperty(JSON_PROPERTY_FILES_URL)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setFilesUrl(String filesUrl) {
         this.filesUrl = filesUrl;
     }

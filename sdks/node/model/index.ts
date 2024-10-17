@@ -208,6 +208,8 @@ export let enumsMap: { [index: string]: any } = {
   FaxLineAreaCodeGetProvinceEnum: FaxLineAreaCodeGetProvinceEnum,
   FaxLineAreaCodeGetStateEnum: FaxLineAreaCodeGetStateEnum,
   "FaxLineCreateRequest.CountryEnum": FaxLineCreateRequest.CountryEnum,
+  "FaxResponseTransmission.StatusCodeEnum":
+    FaxResponseTransmission.StatusCodeEnum,
   "ReportCreateRequest.ReportTypeEnum": ReportCreateRequest.ReportTypeEnum,
   "ReportResponse.ReportTypeEnum": ReportResponse.ReportTypeEnum,
   SignatureRequestResponseCustomFieldTypeEnum:

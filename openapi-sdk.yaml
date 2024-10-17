@@ -2520,7 +2520,7 @@ paths:
             type: integer
             default: 1
             minimum: 1
-            example: 1
+          example: 1
         -
           name: page_size
           in: query
@@ -2530,7 +2530,7 @@ paths:
             default: 20
             maximum: 100
             minimum: 1
-            example: 20
+          example: 20
       responses:
         200:
           description: 'successful operation'
@@ -2563,8 +2563,6 @@ paths:
                   $ref: '#/components/examples/Error402ResponseExample'
                 403_example:
                   $ref: '#/components/examples/Error403ResponseExample'
-                404_example:
-                  $ref: '#/components/examples/Error404ResponseExample'
                 4XX_example:
                   $ref: '#/components/examples/Error4XXResponseExample'
       security:
@@ -7861,13 +7859,13 @@ components:
       type: object
     FaxSendRequest:
       required:
-        - to
+        - recipient
       properties:
-        to:
+        recipient:
           description: 'Fax Send To Recipient'
           type: string
           example: recipient@example.com
-        from:
+        sender:
           description: 'Fax Send From Sender (used only with fax number)'
           type: string
           example: sender@example.com
@@ -11174,6 +11172,17 @@ components:
           type: string
       type: object
     FaxResponse:
+      required:
+        - fax_id
+        - title
+        - original_title
+        - subject
+        - message
+        - metadata
+        - created_at
+        - from
+        - transmissions
+        - files_url
       properties:
         fax_id:
           description: 'Fax ID'
@@ -11193,6 +11202,7 @@ components:
         metadata:
           description: 'Fax Metadata'
           type: object
+          additionalProperties: {}
         created_at:
           description: 'Fax Created At Timestamp'
           type: integer
@@ -11237,6 +11247,15 @@ components:
         status_code:
           description: 'Fax Transmission Status Code'
           type: string
+          enum:
+            - success
+            - transmitting
+            - error_could_not_fax
+            - error_unknown
+            - error_busy
+            - error_no_answer
+            - error_disconnected
+            - error_bad_destination
         sent_at:
           description: 'Fax Transmission Sent Timestamp'
           type: integer

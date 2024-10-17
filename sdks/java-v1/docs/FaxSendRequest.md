@@ -8,8 +8,8 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-| `to`<sup>*_required_</sup> | ```String``` |  Fax Send To Recipient  |  |
-| `from` | ```String``` |  Fax Send From Sender (used only with fax number)  |  |
+| `recipient`<sup>*_required_</sup> | ```String``` |  Fax Send To Recipient  |  |
+| `sender` | ```String``` |  Fax Send From Sender (used only with fax number)  |  |
 | `files` | ```List<File>``` |  Fax File to Send  |  |
 | `fileUrls` | ```List<String>``` |  Fax File URL to Send  |  |
 | `testMode` | ```Boolean``` |  API Test Mode Setting  |  |

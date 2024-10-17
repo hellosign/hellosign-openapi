@@ -18093,7 +18093,7 @@ FaxResponse.attributeTypeMap = [
   {
     name: "metadata",
     baseName: "metadata",
-    type: "object"
+    type: "{ [key: string]: any; }"
   },
   {
     name: "createdAt",
@@ -18142,7 +18142,7 @@ FaxResponseTransmission.attributeTypeMap = [
   {
     name: "statusCode",
     baseName: "status_code",
-    type: "string"
+    type: "FaxResponseTransmission.StatusCodeEnum"
   },
   {
     name: "sentAt",
@@ -18150,6 +18150,19 @@ FaxResponseTransmission.attributeTypeMap = [
     type: "number"
   }
 ];
+((FaxResponseTransmission2) => {
+  let StatusCodeEnum;
+  ((StatusCodeEnum2) => {
+    StatusCodeEnum2["Success"] = "success";
+    StatusCodeEnum2["Transmitting"] = "transmitting";
+    StatusCodeEnum2["ErrorCouldNotFax"] = "error_could_not_fax";
+    StatusCodeEnum2["ErrorUnknown"] = "error_unknown";
+    StatusCodeEnum2["ErrorBusy"] = "error_busy";
+    StatusCodeEnum2["ErrorNoAnswer"] = "error_no_answer";
+    StatusCodeEnum2["ErrorDisconnected"] = "error_disconnected";
+    StatusCodeEnum2["ErrorBadDestination"] = "error_bad_destination";
+  })(StatusCodeEnum = FaxResponseTransmission2.StatusCodeEnum || (FaxResponseTransmission2.StatusCodeEnum = {}));
+})(FaxResponseTransmission || (FaxResponseTransmission = {}));
 
 // model/faxSendRequest.ts
 var _FaxSendRequest = class {
@@ -18167,13 +18180,13 @@ var FaxSendRequest = _FaxSendRequest;
 FaxSendRequest.discriminator = void 0;
 FaxSendRequest.attributeTypeMap = [
   {
-    name: "to",
-    baseName: "to",
+    name: "recipient",
+    baseName: "recipient",
     type: "string"
   },
   {
-    name: "from",
-    baseName: "from",
+    name: "sender",
+    baseName: "sender",
     type: "string"
   },
   {
@@ -24626,6 +24639,7 @@ var enumsMap = {
   FaxLineAreaCodeGetProvinceEnum,
   FaxLineAreaCodeGetStateEnum,
   "FaxLineCreateRequest.CountryEnum": FaxLineCreateRequest.CountryEnum,
+  "FaxResponseTransmission.StatusCodeEnum": FaxResponseTransmission.StatusCodeEnum,
   "ReportCreateRequest.ReportTypeEnum": ReportCreateRequest.ReportTypeEnum,
   "ReportResponse.ReportTypeEnum": ReportResponse.ReportTypeEnum,
   SignatureRequestResponseCustomFieldTypeEnum,
