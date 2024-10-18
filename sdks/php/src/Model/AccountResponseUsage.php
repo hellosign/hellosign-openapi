@@ -29,6 +29,7 @@ namespace Dropbox\Sign\Model;
 
 use ArrayAccess;
 use Dropbox\Sign\ObjectSerializer;
+use InvalidArgumentException;
 use JsonSerializable;
 use ReturnTypeWillChange;
 
@@ -77,7 +78,7 @@ class AccountResponseUsage implements ModelInterface, ArrayAccess, JsonSerializa
      * @var bool[]
      */
     protected static array $openAPINullables = [
-        'fax_pages_sent' => true,
+        'fax_pages_sent' => false,
     ];
 
     /**
@@ -235,7 +236,7 @@ class AccountResponseUsage implements ModelInterface, ArrayAccess, JsonSerializa
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('fax_pages_sent', $data ?? [], null);
+        $this->setIfExists('fax_pages_sent', $data ?? [], 0);
     }
 
     /**
@@ -315,14 +316,7 @@ class AccountResponseUsage implements ModelInterface, ArrayAccess, JsonSerializa
     public function setFaxPagesSent(?int $fax_pages_sent)
     {
         if (is_null($fax_pages_sent)) {
-            array_push($this->openAPINullablesSetToNull, 'fax_pages_sent');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('fax_pages_sent', $nullablesSetToNull);
-            if ($index !== false) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new InvalidArgumentException('non-nullable fax_pages_sent cannot be null');
         }
         $this->container['fax_pages_sent'] = $fax_pages_sent;
 

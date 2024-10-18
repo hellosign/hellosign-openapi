@@ -152,7 +152,7 @@ Class | Method | HTTP request | Description
 ```TeamApi``` | [```team_sub_teams```](docs/TeamApi.md#team_sub_teams) | ```GET /team/sub_teams/{team_id}``` | List Sub Teams|
 ```TeamApi``` | [```team_update```](docs/TeamApi.md#team_update) | ```PUT /team``` | Update Team|
 |```TemplateApi``` | [```template_add_user```](docs/TemplateApi.md#template_add_user) | ```POST /template/add_user/{template_id}``` | Add User to Template|
-```TemplateApi``` | [```template_create```](docs/TemplateApi.md#template_create) | ```POST /template/create``` | Create  Template|
+```TemplateApi``` | [```template_create```](docs/TemplateApi.md#template_create) | ```POST /template/create``` | Create Template|
 ```TemplateApi``` | [```template_create_embedded_draft```](docs/TemplateApi.md#template_create_embedded_draft) | ```POST /template/create_embedded_draft``` | Create Embedded Template Draft|
 ```TemplateApi``` | [```template_delete```](docs/TemplateApi.md#template_delete) | ```POST /template/delete/{template_id}``` | Delete Template|
 ```TemplateApi``` | [```template_files```](docs/TemplateApi.md#template_files) | ```GET /template/files/{template_id}``` | Get Template Files|

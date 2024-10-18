@@ -265,12 +265,12 @@ class AccountResponseQuotas implements ModelInterface, ArrayAccess, JsonSerializ
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('api_signature_requests_left', $data ?? [], null);
-        $this->setIfExists('documents_left', $data ?? [], null);
-        $this->setIfExists('templates_total', $data ?? [], null);
-        $this->setIfExists('templates_left', $data ?? [], null);
-        $this->setIfExists('sms_verifications_left', $data ?? [], null);
-        $this->setIfExists('num_fax_pages_left', $data ?? [], null);
+        $this->setIfExists('api_signature_requests_left', $data ?? [], 0);
+        $this->setIfExists('documents_left', $data ?? [], 0);
+        $this->setIfExists('templates_total', $data ?? [], 0);
+        $this->setIfExists('templates_left', $data ?? [], 0);
+        $this->setIfExists('sms_verifications_left', $data ?? [], 0);
+        $this->setIfExists('num_fax_pages_left', $data ?? [], 0);
     }
 
     /**
@@ -479,7 +479,7 @@ class AccountResponseQuotas implements ModelInterface, ArrayAccess, JsonSerializ
     /**
      * Sets sms_verifications_left
      *
-     * @param int|null $sms_verifications_left SMS verifications  remaining
+     * @param int|null $sms_verifications_left SMS verifications remaining
      *
      * @return self
      */

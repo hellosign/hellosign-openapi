@@ -16518,6 +16518,14 @@ AccountResponse.attributeTypeMap = [
 
 // model/accountResponseQuotas.ts
 var _AccountResponseQuotas = class {
+  constructor() {
+    this["apiSignatureRequestsLeft"] = 0;
+    this["documentsLeft"] = 0;
+    this["templatesTotal"] = 0;
+    this["templatesLeft"] = 0;
+    this["smsVerificationsLeft"] = 0;
+    this["numFaxPagesLeft"] = 0;
+  }
   static getAttributeTypeMap() {
     return _AccountResponseQuotas.attributeTypeMap;
   }
@@ -16562,6 +16570,9 @@ AccountResponseQuotas.attributeTypeMap = [
 
 // model/accountResponseUsage.ts
 var _AccountResponseUsage = class {
+  constructor() {
+    this["faxPagesSent"] = 0;
+  }
   static getAttributeTypeMap() {
     return _AccountResponseUsage.attributeTypeMap;
   }

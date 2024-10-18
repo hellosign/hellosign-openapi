@@ -31,7 +31,7 @@ import java.util.Objects;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class AccountResponseUsage {
     public static final String JSON_PROPERTY_FAX_PAGES_SENT = "fax_pages_sent";
-    private Integer faxPagesSent;
+    private Integer faxPagesSent = 0;
 
     public AccountResponseUsage() {}
 
