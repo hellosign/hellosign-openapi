@@ -343,7 +343,7 @@ class AccountResponseQuotas implements ModelInterface, ArrayAccess, JsonSerializ
     /**
      * Sets api_signature_requests_left
      *
-     * @param int|null $api_signature_requests_left API signature requests remaining. A value of `-1` means unlimited.
+     * @param int|null $api_signature_requests_left API signature requests remaining
      *
      * @return self
      */
@@ -377,7 +377,7 @@ class AccountResponseQuotas implements ModelInterface, ArrayAccess, JsonSerializ
     /**
      * Sets documents_left
      *
-     * @param int|null $documents_left Signature requests remaining. A value of `-1` means unlimited.
+     * @param int|null $documents_left signature requests remaining
      *
      * @return self
      */
@@ -411,7 +411,7 @@ class AccountResponseQuotas implements ModelInterface, ArrayAccess, JsonSerializ
     /**
      * Sets templates_total
      *
-     * @param int|null $templates_total Total API templates allowed. A value of `-1` means unlimited.
+     * @param int|null $templates_total total API templates allowed
      *
      * @return self
      */
@@ -445,7 +445,7 @@ class AccountResponseQuotas implements ModelInterface, ArrayAccess, JsonSerializ
     /**
      * Sets templates_left
      *
-     * @param int|null $templates_left API templates remaining. A value of `-1` means unlimited.
+     * @param int|null $templates_left API templates remaining
      *
      * @return self
      */
@@ -513,7 +513,7 @@ class AccountResponseQuotas implements ModelInterface, ArrayAccess, JsonSerializ
     /**
      * Sets num_fax_pages_left
      *
-     * @param int|null $num_fax_pages_left Number of fax pages left. A value of `-1` means unlimited.
+     * @param int|null $num_fax_pages_left Number of fax pages left
      *
      * @return self
      */

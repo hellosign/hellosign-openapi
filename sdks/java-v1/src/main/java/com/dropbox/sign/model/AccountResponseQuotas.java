@@ -79,7 +79,7 @@ public class AccountResponseQuotas {
     }
 
     /**
-     * API signature requests remaining. A value of &#x60;-1&#x60; means unlimited.
+     * API signature requests remaining.
      *
      * @return apiSignatureRequestsLeft
      */
@@ -101,7 +101,7 @@ public class AccountResponseQuotas {
     }
 
     /**
-     * Signature requests remaining. A value of &#x60;-1&#x60; means unlimited.
+     * Signature requests remaining.
      *
      * @return documentsLeft
      */
@@ -123,7 +123,7 @@ public class AccountResponseQuotas {
     }
 
     /**
-     * Total API templates allowed. A value of &#x60;-1&#x60; means unlimited.
+     * Total API templates allowed.
      *
      * @return templatesTotal
      */
@@ -145,7 +145,7 @@ public class AccountResponseQuotas {
     }
 
     /**
-     * API templates remaining. A value of &#x60;-1&#x60; means unlimited.
+     * API templates remaining.
      *
      * @return templatesLeft
      */
@@ -189,7 +189,7 @@ public class AccountResponseQuotas {
     }
 
     /**
-     * Number of fax pages left. A value of &#x60;-1&#x60; means unlimited.
+     * Number of fax pages left
      *
      * @return numFaxPagesLeft
      */

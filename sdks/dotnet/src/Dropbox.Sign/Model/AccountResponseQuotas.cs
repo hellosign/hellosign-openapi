@@ -41,12 +41,12 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AccountResponseQuotas" /> class.
         /// </summary>
-        /// <param name="apiSignatureRequestsLeft">API signature requests remaining. A value of &#x60;-1&#x60; means unlimited. (default to 0).</param>
-        /// <param name="documentsLeft">Signature requests remaining. A value of &#x60;-1&#x60; means unlimited. (default to 0).</param>
-        /// <param name="templatesTotal">Total API templates allowed. A value of &#x60;-1&#x60; means unlimited. (default to 0).</param>
-        /// <param name="templatesLeft">API templates remaining. A value of &#x60;-1&#x60; means unlimited. (default to 0).</param>
+        /// <param name="apiSignatureRequestsLeft">API signature requests remaining. (default to 0).</param>
+        /// <param name="documentsLeft">Signature requests remaining. (default to 0).</param>
+        /// <param name="templatesTotal">Total API templates allowed. (default to 0).</param>
+        /// <param name="templatesLeft">API templates remaining. (default to 0).</param>
         /// <param name="smsVerificationsLeft">SMS verifications remaining. (default to 0).</param>
-        /// <param name="numFaxPagesLeft">Number of fax pages left. A value of &#x60;-1&#x60; means unlimited. (default to 0).</param>
+        /// <param name="numFaxPagesLeft">Number of fax pages left (default to 0).</param>
         public AccountResponseQuotas(int? apiSignatureRequestsLeft = 0, int? documentsLeft = 0, int? templatesTotal = 0, int? templatesLeft = 0, int? smsVerificationsLeft = 0, int? numFaxPagesLeft = 0)
         {
 
@@ -81,30 +81,30 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
-        /// API signature requests remaining. A value of &#x60;-1&#x60; means unlimited.
+        /// API signature requests remaining.
         /// </summary>
-        /// <value>API signature requests remaining. A value of &#x60;-1&#x60; means unlimited.</value>
+        /// <value>API signature requests remaining.</value>
         [DataMember(Name = "api_signature_requests_left", EmitDefaultValue = true)]
         public int? ApiSignatureRequestsLeft { get; set; }
 
         /// <summary>
-        /// Signature requests remaining. A value of &#x60;-1&#x60; means unlimited.
+        /// Signature requests remaining.
         /// </summary>
-        /// <value>Signature requests remaining. A value of &#x60;-1&#x60; means unlimited.</value>
+        /// <value>Signature requests remaining.</value>
         [DataMember(Name = "documents_left", EmitDefaultValue = true)]
         public int? DocumentsLeft { get; set; }
 
         /// <summary>
-        /// Total API templates allowed. A value of &#x60;-1&#x60; means unlimited.
+        /// Total API templates allowed.
         /// </summary>
-        /// <value>Total API templates allowed. A value of &#x60;-1&#x60; means unlimited.</value>
+        /// <value>Total API templates allowed.</value>
         [DataMember(Name = "templates_total", EmitDefaultValue = true)]
         public int? TemplatesTotal { get; set; }
 
         /// <summary>
-        /// API templates remaining. A value of &#x60;-1&#x60; means unlimited.
+        /// API templates remaining.
         /// </summary>
-        /// <value>API templates remaining. A value of &#x60;-1&#x60; means unlimited.</value>
+        /// <value>API templates remaining.</value>
         [DataMember(Name = "templates_left", EmitDefaultValue = true)]
         public int? TemplatesLeft { get; set; }
 
@@ -116,9 +116,9 @@ namespace Dropbox.Sign.Model
         public int? SmsVerificationsLeft { get; set; }
 
         /// <summary>
-        /// Number of fax pages left. A value of &#x60;-1&#x60; means unlimited.
+        /// Number of fax pages left
         /// </summary>
-        /// <value>Number of fax pages left. A value of &#x60;-1&#x60; means unlimited.</value>
+        /// <value>Number of fax pages left</value>
         [DataMember(Name = "num_fax_pages_left", EmitDefaultValue = true)]
         public int? NumFaxPagesLeft { get; set; }
 

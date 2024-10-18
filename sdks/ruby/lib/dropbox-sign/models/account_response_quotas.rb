@@ -19,19 +19,19 @@ end
 module Dropbox::Sign
   # Details concerning remaining monthly quotas.
   class AccountResponseQuotas
-    # API signature requests remaining. A value of `-1` means unlimited.
+    # API signature requests remaining.
     # @return [Integer, nil]
     attr_accessor :api_signature_requests_left
 
-    # Signature requests remaining. A value of `-1` means unlimited.
+    # Signature requests remaining.
     # @return [Integer, nil]
     attr_accessor :documents_left
 
-    # Total API templates allowed. A value of `-1` means unlimited.
+    # Total API templates allowed.
     # @return [Integer, nil]
     attr_accessor :templates_total
 
-    # API templates remaining. A value of `-1` means unlimited.
+    # API templates remaining.
     # @return [Integer, nil]
     attr_accessor :templates_left
 
@@ -39,7 +39,7 @@ module Dropbox::Sign
     # @return [Integer, nil]
     attr_accessor :sms_verifications_left
 
-    # Number of fax pages left. A value of `-1` means unlimited.
+    # Number of fax pages left
     # @return [Integer, nil]
     attr_accessor :num_fax_pages_left
 
