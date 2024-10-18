@@ -41,37 +41,36 @@ class TemplateResponseDocumentFormFieldHyperlink(TemplateResponseDocumentFormFie
     type: StrictStr = Field(
         description="The type of this form field. See [field types](/api/reference/constants/#field-types).  * Text Field uses `TemplateResponseDocumentFormFieldText` * Dropdown Field uses `TemplateResponseDocumentFormFieldDropdown` * Hyperlink Field uses `TemplateResponseDocumentFormFieldHyperlink` * Checkbox Field uses `TemplateResponseDocumentFormFieldCheckbox` * Radio Field uses `TemplateResponseDocumentFormFieldRadio` * Signature Field uses `TemplateResponseDocumentFormFieldSignature` * Date Signed Field uses `TemplateResponseDocumentFormFieldDateSigned` * Initials Field uses `TemplateResponseDocumentFormFieldInitials`"
     )
-    avg_text_length: Optional[TemplateResponseFieldAvgTextLength] = None
-    is_multiline: Optional[StrictBool] = Field(
-        default=None,
-        description="Whether this form field is multiline text.",
-        alias="isMultiline",
+    avg_text_length: TemplateResponseFieldAvgTextLength
+    is_multiline: StrictBool = Field(
+        description="Whether this form field is multiline text.", alias="isMultiline"
     )
-    original_font_size: Optional[StrictInt] = Field(
-        default=None,
+    original_font_size: StrictInt = Field(
         description="Original font size used in this form field's text.",
         alias="originalFontSize",
     )
-    font_family: Optional[StrictStr] = Field(
+    font_family: StrictStr = Field(
+        description="Font family used in this form field's text.", alias="fontFamily"
+    )
+    group: Optional[StrictStr] = Field(
         default=None,
-        description="Font family used in this form field's text.",
-        alias="fontFamily",
+        description="The name of the group this field is in. If this field is not a group, this defaults to `null` except for Radio fields.",
     )
     __properties: ClassVar[List[str]] = [
-        "type",
         "api_id",
         "name",
+        "type",
         "signer",
         "x",
         "y",
         "width",
         "height",
         "required",
-        "group",
         "avg_text_length",
         "isMultiline",
         "originalFontSize",
         "fontFamily",
+        "group",
     ]
 
     model_config = ConfigDict(
@@ -140,16 +139,15 @@ class TemplateResponseDocumentFormFieldHyperlink(TemplateResponseDocumentFormFie
 
         _obj = cls.model_validate(
             {
-                "type": obj.get("type") if obj.get("type") is not None else "hyperlink",
                 "api_id": obj.get("api_id"),
                 "name": obj.get("name"),
+                "type": obj.get("type") if obj.get("type") is not None else "hyperlink",
                 "signer": obj.get("signer"),
                 "x": obj.get("x"),
                 "y": obj.get("y"),
                 "width": obj.get("width"),
                 "height": obj.get("height"),
                 "required": obj.get("required"),
-                "group": obj.get("group"),
                 "avg_text_length": (
                     TemplateResponseFieldAvgTextLength.from_dict(obj["avg_text_length"])
                     if obj.get("avg_text_length") is not None
@@ -158,6 +156,7 @@ class TemplateResponseDocumentFormFieldHyperlink(TemplateResponseDocumentFormFie
                 "isMultiline": obj.get("isMultiline"),
                 "originalFontSize": obj.get("originalFontSize"),
                 "fontFamily": obj.get("fontFamily"),
+                "group": obj.get("group"),
             }
         )
         return _obj

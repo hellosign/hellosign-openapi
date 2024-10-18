@@ -28,39 +28,39 @@ import { AttributeTypeMap } from "./";
  * An array of Form Field objects containing the name and type of each named field.
  */
 export abstract class TemplateResponseDocumentCustomFieldBase {
-  "type": string;
   /**
    * The unique ID for this field.
    */
-  "apiId"?: string;
+  "apiId": string;
   /**
    * The name of the Custom Field.
    */
-  "name"?: string;
+  "name": string;
+  "type": string;
+  /**
+   * The horizontal offset in pixels for this form field.
+   */
+  "x": number;
+  /**
+   * The vertical offset in pixels for this form field.
+   */
+  "y": number;
+  /**
+   * The width in pixels of this form field.
+   */
+  "width": number;
+  /**
+   * The height in pixels of this form field.
+   */
+  "height": number;
+  /**
+   * Boolean showing whether or not this field is required.
+   */
+  "required": boolean;
   /**
    * The signer of the Custom Field. Can be `null` if field is a merge field (assigned to Sender).
    */
   "signer"?: number | string | null;
-  /**
-   * The horizontal offset in pixels for this form field.
-   */
-  "x"?: number;
-  /**
-   * The vertical offset in pixels for this form field.
-   */
-  "y"?: number;
-  /**
-   * The width in pixels of this form field.
-   */
-  "width"?: number;
-  /**
-   * The height in pixels of this form field.
-   */
-  "height"?: number;
-  /**
-   * Boolean showing whether or not this field is required.
-   */
-  "required"?: boolean;
   /**
    * The name of the group this field is in. If this field is not a group, this defaults to `null`.
    */
@@ -69,11 +69,6 @@ export abstract class TemplateResponseDocumentCustomFieldBase {
   static discriminator: string | undefined = "type";
 
   static attributeTypeMap: AttributeTypeMap = [
-    {
-      name: "type",
-      baseName: "type",
-      type: "string",
-    },
     {
       name: "apiId",
       baseName: "api_id",
@@ -85,8 +80,8 @@ export abstract class TemplateResponseDocumentCustomFieldBase {
       type: "string",
     },
     {
-      name: "signer",
-      baseName: "signer",
+      name: "type",
+      baseName: "type",
       type: "string",
     },
     {
@@ -113,6 +108,11 @@ export abstract class TemplateResponseDocumentCustomFieldBase {
       name: "required",
       baseName: "required",
       type: "boolean",
+    },
+    {
+      name: "signer",
+      baseName: "signer",
+      type: "string",
     },
     {
       name: "group",

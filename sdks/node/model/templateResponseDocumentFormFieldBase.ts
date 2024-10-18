@@ -28,52 +28,43 @@ import { AttributeTypeMap } from "./";
  * An array of Form Field objects containing the name and type of each named field.
  */
 export abstract class TemplateResponseDocumentFormFieldBase {
-  "type": string;
   /**
    * A unique id for the form field.
    */
-  "apiId"?: string;
+  "apiId": string;
   /**
    * The name of the form field.
    */
-  "name"?: string;
+  "name": string;
+  "type": string;
   /**
    * The signer of the Form Field.
    */
-  "signer"?: number | string;
+  "signer": number | string;
   /**
    * The horizontal offset in pixels for this form field.
    */
-  "x"?: number;
+  "x": number;
   /**
    * The vertical offset in pixels for this form field.
    */
-  "y"?: number;
+  "y": number;
   /**
    * The width in pixels of this form field.
    */
-  "width"?: number;
+  "width": number;
   /**
    * The height in pixels of this form field.
    */
-  "height"?: number;
+  "height": number;
   /**
    * Boolean showing whether or not this field is required.
    */
-  "required"?: boolean;
-  /**
-   * The name of the group this field is in. If this field is not a group, this defaults to `null` except for Radio fields.
-   */
-  "group"?: string | null;
+  "required": boolean;
 
   static discriminator: string | undefined = "type";
 
   static attributeTypeMap: AttributeTypeMap = [
-    {
-      name: "type",
-      baseName: "type",
-      type: "string",
-    },
     {
       name: "apiId",
       baseName: "api_id",
@@ -82,6 +73,11 @@ export abstract class TemplateResponseDocumentFormFieldBase {
     {
       name: "name",
       baseName: "name",
+      type: "string",
+    },
+    {
+      name: "type",
+      baseName: "type",
       type: "string",
     },
     {
@@ -113,11 +109,6 @@ export abstract class TemplateResponseDocumentFormFieldBase {
       name: "required",
       baseName: "required",
       type: "boolean",
-    },
-    {
-      name: "group",
-      baseName: "group",
-      type: "string",
     },
   ];
 

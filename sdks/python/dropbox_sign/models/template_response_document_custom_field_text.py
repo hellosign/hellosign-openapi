@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import ConfigDict, Field, StrictBool, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List
 from dropbox_sign.models.template_response_document_custom_field_base import (
     TemplateResponseDocumentCustomFieldBase,
 )
@@ -41,37 +41,32 @@ class TemplateResponseDocumentCustomFieldText(TemplateResponseDocumentCustomFiel
     type: StrictStr = Field(
         description="The type of this Custom Field. Only `text` and `checkbox` are currently supported.  * Text uses `TemplateResponseDocumentCustomFieldText` * Checkbox uses `TemplateResponseDocumentCustomFieldCheckbox`"
     )
-    avg_text_length: Optional[TemplateResponseFieldAvgTextLength] = None
-    is_multiline: Optional[StrictBool] = Field(
-        default=None,
-        description="Whether this form field is multiline text.",
-        alias="isMultiline",
+    avg_text_length: TemplateResponseFieldAvgTextLength
+    is_multiline: StrictBool = Field(
+        description="Whether this form field is multiline text.", alias="isMultiline"
     )
-    original_font_size: Optional[StrictInt] = Field(
-        default=None,
+    original_font_size: StrictInt = Field(
         description="Original font size used in this form field's text.",
         alias="originalFontSize",
     )
-    font_family: Optional[StrictStr] = Field(
-        default=None,
-        description="Font family used in this form field's text.",
-        alias="fontFamily",
+    font_family: StrictStr = Field(
+        description="Font family used in this form field's text.", alias="fontFamily"
     )
     __properties: ClassVar[List[str]] = [
-        "type",
         "api_id",
         "name",
-        "signer",
+        "type",
         "x",
         "y",
         "width",
         "height",
         "required",
-        "group",
         "avg_text_length",
         "isMultiline",
         "originalFontSize",
         "fontFamily",
+        "signer",
+        "group",
     ]
 
     model_config = ConfigDict(
@@ -140,16 +135,14 @@ class TemplateResponseDocumentCustomFieldText(TemplateResponseDocumentCustomFiel
 
         _obj = cls.model_validate(
             {
-                "type": obj.get("type") if obj.get("type") is not None else "text",
                 "api_id": obj.get("api_id"),
                 "name": obj.get("name"),
-                "signer": obj.get("signer"),
+                "type": obj.get("type") if obj.get("type") is not None else "text",
                 "x": obj.get("x"),
                 "y": obj.get("y"),
                 "width": obj.get("width"),
                 "height": obj.get("height"),
                 "required": obj.get("required"),
-                "group": obj.get("group"),
                 "avg_text_length": (
                     TemplateResponseFieldAvgTextLength.from_dict(obj["avg_text_length"])
                     if obj.get("avg_text_length") is not None
@@ -158,6 +151,8 @@ class TemplateResponseDocumentCustomFieldText(TemplateResponseDocumentCustomFiel
                 "isMultiline": obj.get("isMultiline"),
                 "originalFontSize": obj.get("originalFontSize"),
                 "fontFamily": obj.get("fontFamily"),
+                "signer": obj.get("signer"),
+                "group": obj.get("group"),
             }
         )
         return _obj
@@ -182,12 +177,12 @@ class TemplateResponseDocumentCustomFieldText(TemplateResponseDocumentCustomFiel
             "font_family": "(str,)",
             "api_id": "(str,)",
             "name": "(str,)",
-            "signer": "(int, str,)",
             "x": "(int,)",
             "y": "(int,)",
             "width": "(int,)",
             "height": "(int,)",
             "required": "(bool,)",
+            "signer": "(int, str,)",
             "group": "(str,)",
         }
 

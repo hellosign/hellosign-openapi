@@ -29,24 +29,24 @@ export class TemplateResponseAccount {
   /**
    * The id of the Account.
    */
-  "accountId"?: string;
+  "accountId": string;
+  /**
+   * Returns `true` if the user has been locked out of their account by a team admin.
+   */
+  "isLocked": boolean;
+  /**
+   * Returns `true` if the user has a paid Dropbox Sign account.
+   */
+  "isPaidHs": boolean;
+  /**
+   * Returns `true` if the user has a paid HelloFax account.
+   */
+  "isPaidHf": boolean;
+  "quotas": TemplateResponseAccountQuota;
   /**
    * The email address associated with the Account.
    */
   "emailAddress"?: string;
-  /**
-   * Returns `true` if the user has been locked out of their account by a team admin.
-   */
-  "isLocked"?: boolean;
-  /**
-   * Returns `true` if the user has a paid Dropbox Sign account.
-   */
-  "isPaidHs"?: boolean;
-  /**
-   * Returns `true` if the user has a paid HelloFax account.
-   */
-  "isPaidHf"?: boolean;
-  "quotas"?: TemplateResponseAccountQuota;
 
   static discriminator: string | undefined = undefined;
 
@@ -54,11 +54,6 @@ export class TemplateResponseAccount {
     {
       name: "accountId",
       baseName: "account_id",
-      type: "string",
-    },
-    {
-      name: "emailAddress",
-      baseName: "email_address",
       type: "string",
     },
     {
@@ -80,6 +75,11 @@ export class TemplateResponseAccount {
       name: "quotas",
       baseName: "quotas",
       type: "TemplateResponseAccountQuota",
+    },
+    {
+      name: "emailAddress",
+      baseName: "email_address",
+      type: "string",
     },
   ];
 

@@ -41,14 +41,24 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TemplateCreateEmbeddedDraftResponseTemplate" /> class.
         /// </summary>
-        /// <param name="templateId">The id of the Template..</param>
-        /// <param name="editUrl">Link to edit the template..</param>
-        /// <param name="expiresAt">When the link expires..</param>
+        /// <param name="templateId">The id of the Template. (required).</param>
+        /// <param name="editUrl">Link to edit the template. (required).</param>
+        /// <param name="expiresAt">When the link expires. (required).</param>
         /// <param name="warnings">A list of warnings..</param>
         public TemplateCreateEmbeddedDraftResponseTemplate(string templateId = default(string), string editUrl = default(string), int expiresAt = default(int), List<WarningResponse> warnings = default(List<WarningResponse>))
         {
 
+            // to ensure "templateId" is required (not null)
+            if (templateId == null)
+            {
+                throw new ArgumentNullException("templateId is a required property for TemplateCreateEmbeddedDraftResponseTemplate and cannot be null");
+            }
             this.TemplateId = templateId;
+            // to ensure "editUrl" is required (not null)
+            if (editUrl == null)
+            {
+                throw new ArgumentNullException("editUrl is a required property for TemplateCreateEmbeddedDraftResponseTemplate and cannot be null");
+            }
             this.EditUrl = editUrl;
             this.ExpiresAt = expiresAt;
             this.Warnings = warnings;
@@ -74,21 +84,21 @@ namespace Dropbox.Sign.Model
         /// The id of the Template.
         /// </summary>
         /// <value>The id of the Template.</value>
-        [DataMember(Name = "template_id", EmitDefaultValue = true)]
+        [DataMember(Name = "template_id", IsRequired = true, EmitDefaultValue = true)]
         public string TemplateId { get; set; }
 
         /// <summary>
         /// Link to edit the template.
         /// </summary>
         /// <value>Link to edit the template.</value>
-        [DataMember(Name = "edit_url", EmitDefaultValue = true)]
+        [DataMember(Name = "edit_url", IsRequired = true, EmitDefaultValue = true)]
         public string EditUrl { get; set; }
 
         /// <summary>
         /// When the link expires.
         /// </summary>
         /// <value>When the link expires.</value>
-        [DataMember(Name = "expires_at", EmitDefaultValue = true)]
+        [DataMember(Name = "expires_at", IsRequired = true, EmitDefaultValue = true)]
         public int ExpiresAt { get; set; }
 
         /// <summary>

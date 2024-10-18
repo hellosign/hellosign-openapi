@@ -23,10 +23,15 @@ module Dropbox::Sign
     # @return [String]
     attr_accessor :type
 
+    # The name of the group this field is in. If this field is not a group, this defaults to `null` except for Radio fields.
+    # @return [String, nil]
+    attr_accessor :group
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'type' => :'type'
+        :'type' => :'type',
+        :'group' => :'group'
       }
     end
 
@@ -38,13 +43,15 @@ module Dropbox::Sign
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'type' => :'String'
+        :'type' => :'String',
+        :'group' => :'String'
       }
     end
 
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        :'group'
       ])
     end
 
@@ -96,6 +103,10 @@ module Dropbox::Sign
       else
         self.type = 'dropdown'
       end
+
+      if attributes.key?(:'group')
+        self.group = attributes[:'group']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -121,7 +132,8 @@ module Dropbox::Sign
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          type == o.type && super(o)
+          type == o.type &&
+          group == o.group && super(o)
     end
 
     # @see the `==` method
@@ -133,7 +145,7 @@ module Dropbox::Sign
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [type].hash
+      [type, group].hash
     end
 
     # Builds the object from hash

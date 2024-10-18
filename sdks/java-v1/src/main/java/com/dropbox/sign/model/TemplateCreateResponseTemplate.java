@@ -61,14 +61,15 @@ public class TemplateCreateResponseTemplate {
      *
      * @return templateId
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_TEMPLATE_ID)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    @javax.annotation.Nonnull
+    @JsonProperty(JSON_PROPERTY_TEMPLATE_ID)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public String getTemplateId() {
         return templateId;
     }
 
     @JsonProperty(JSON_PROPERTY_TEMPLATE_ID)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setTemplateId(String templateId) {
         this.templateId = templateId;
     }

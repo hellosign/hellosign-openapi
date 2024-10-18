@@ -67,14 +67,15 @@ public class TemplateResponseFieldAvgTextLength {
      *
      * @return numLines
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_NUM_LINES)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    @javax.annotation.Nonnull
+    @JsonProperty(JSON_PROPERTY_NUM_LINES)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public Integer getNumLines() {
         return numLines;
     }
 
     @JsonProperty(JSON_PROPERTY_NUM_LINES)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setNumLines(Integer numLines) {
         this.numLines = numLines;
     }
@@ -89,14 +90,15 @@ public class TemplateResponseFieldAvgTextLength {
      *
      * @return numCharsPerLine
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_NUM_CHARS_PER_LINE)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    @javax.annotation.Nonnull
+    @JsonProperty(JSON_PROPERTY_NUM_CHARS_PER_LINE)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public Integer getNumCharsPerLine() {
         return numCharsPerLine;
     }
 
     @JsonProperty(JSON_PROPERTY_NUM_CHARS_PER_LINE)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setNumCharsPerLine(Integer numCharsPerLine) {
         this.numCharsPerLine = numCharsPerLine;
     }

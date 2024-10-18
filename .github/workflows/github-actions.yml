@@ -8,6 +8,9 @@ jobs:
 
       - name: Build OpenAPI Spec
         run: ./build
+        env:
+          DOCKER_USERNAME: ${{secrets.DOCKER_USERNAME}}
+          DOCKER_TOKEN: ${{secrets.DOCKER_TOKEN}}
 
       - name: Ensure no changes in Generated Code
         run: ./bin/check-clean-git-status oas
@@ -20,9 +23,15 @@ jobs:
 
       - name: Build OpenAPI Spec
         run: ./build
+        env:
+          DOCKER_USERNAME: ${{secrets.DOCKER_USERNAME}}
+          DOCKER_TOKEN: ${{secrets.DOCKER_TOKEN}}
 
       - name: Build PHP SDK
         run: ./generate-sdks -t php
+        env:
+          DOCKER_USERNAME: ${{secrets.DOCKER_USERNAME}}
+          DOCKER_TOKEN: ${{secrets.DOCKER_TOKEN}}
 
       - name: Ensure no changes in Generated Code
         run: ./bin/check-clean-git-status php
@@ -35,9 +44,15 @@ jobs:
 
       - name: Build OpenAPI Spec
         run: ./build
+        env:
+          DOCKER_USERNAME: ${{secrets.DOCKER_USERNAME}}
+          DOCKER_TOKEN: ${{secrets.DOCKER_TOKEN}}
 
       - name: Build Python SDK
         run: ./generate-sdks -t python
+        env:
+          DOCKER_USERNAME: ${{secrets.DOCKER_USERNAME}}
+          DOCKER_TOKEN: ${{secrets.DOCKER_TOKEN}}
 
       - name: Ensure no changes in Generated Code
         run: ./bin/check-clean-git-status python
@@ -50,9 +65,15 @@ jobs:
 
       - name: Build OpenAPI Spec
         run: ./build
+        env:
+          DOCKER_USERNAME: ${{secrets.DOCKER_USERNAME}}
+          DOCKER_TOKEN: ${{secrets.DOCKER_TOKEN}}
 
       - name: Build Ruby SDK
         run: ./generate-sdks -t ruby
+        env:
+          DOCKER_USERNAME: ${{secrets.DOCKER_USERNAME}}
+          DOCKER_TOKEN: ${{secrets.DOCKER_TOKEN}}
 
       - name: Ensure no changes in Generated Code
         run: ./bin/check-clean-git-status ruby
@@ -65,9 +86,15 @@ jobs:
 
       - name: Build OpenAPI Spec
         run: ./build
+        env:
+          DOCKER_USERNAME: ${{secrets.DOCKER_USERNAME}}
+          DOCKER_TOKEN: ${{secrets.DOCKER_TOKEN}}
 
       - name: Build NodeJs SDK
         run: ./generate-sdks -t node
+        env:
+          DOCKER_USERNAME: ${{secrets.DOCKER_USERNAME}}
+          DOCKER_TOKEN: ${{secrets.DOCKER_TOKEN}}
 
       - name: Ensure no changes in Generated Code
         run: ./bin/check-clean-git-status node
@@ -80,9 +107,15 @@ jobs:
 
       - name: Build OpenAPI Spec
         run: ./build
+        env:
+          DOCKER_USERNAME: ${{secrets.DOCKER_USERNAME}}
+          DOCKER_TOKEN: ${{secrets.DOCKER_TOKEN}}
 
       - name: Build Java SDK
         run: ./generate-sdks -t java-v1
+        env:
+          DOCKER_USERNAME: ${{secrets.DOCKER_USERNAME}}
+          DOCKER_TOKEN: ${{secrets.DOCKER_TOKEN}}
 
       - name: Ensure no changes in Generated Code
         run: ./bin/check-clean-git-status java-v1
@@ -95,9 +128,15 @@ jobs:
 
       - name: Build OpenAPI Spec
         run: ./build
+        env:
+          DOCKER_USERNAME: ${{secrets.DOCKER_USERNAME}}
+          DOCKER_TOKEN: ${{secrets.DOCKER_TOKEN}}
 
       - name: Build Java SDK
         run: ./generate-sdks -t java-v2
+        env:
+          DOCKER_USERNAME: ${{secrets.DOCKER_USERNAME}}
+          DOCKER_TOKEN: ${{secrets.DOCKER_TOKEN}}
 
       - name: Ensure no changes in Generated Code
         run: ./bin/check-clean-git-status java-v2
@@ -110,9 +149,15 @@ jobs:
 
       - name: Build OpenAPI Spec
         run: ./build
+        env:
+          DOCKER_USERNAME: ${{secrets.DOCKER_USERNAME}}
+          DOCKER_TOKEN: ${{secrets.DOCKER_TOKEN}}
 
       - name: Build DotNet SDK
         run: ./generate-sdks -t dotnet
+        env:
+          DOCKER_USERNAME: ${{secrets.DOCKER_USERNAME}}
+          DOCKER_TOKEN: ${{secrets.DOCKER_TOKEN}}
 
       - name: Ensure no changes in Generated Code
         run: ./bin/check-clean-git-status dotnet

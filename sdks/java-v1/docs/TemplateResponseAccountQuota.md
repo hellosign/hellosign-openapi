@@ -8,10 +8,10 @@ An array of the designated CC roles that must be specified when sending a Signat
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-| `templatesLeft` | ```Integer``` |  API templates remaining.  |  |
-| `apiSignatureRequestsLeft` | ```Integer``` |  API signature requests remaining.  |  |
-| `documentsLeft` | ```Integer``` |  Signature requests remaining.  |  |
-| `smsVerificationsLeft` | ```Integer``` |  SMS verifications remaining.  |  |
+| `templatesLeft`<sup>*_required_</sup> | ```Integer``` |  API templates remaining.  |  |
+| `apiSignatureRequestsLeft`<sup>*_required_</sup> | ```Integer``` |  API signature requests remaining.  |  |
+| `documentsLeft`<sup>*_required_</sup> | ```Integer``` |  Signature requests remaining.  |  |
+| `smsVerificationsLeft`<sup>*_required_</sup> | ```Integer``` |  SMS verifications remaining.  |  |
 
 
 

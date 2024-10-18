@@ -31,7 +31,7 @@ export class ApiAppResponseOptions {
   /**
    * Boolean denoting if signers can \"Insert Everywhere\" in one click while signing a document
    */
-  "canInsertEverywhere"?: boolean;
+  "canInsertEverywhere": boolean;
 
   static discriminator: string | undefined = undefined;
 

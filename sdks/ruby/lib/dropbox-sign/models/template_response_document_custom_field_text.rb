@@ -145,6 +145,22 @@ module Dropbox::Sign
         invalid_properties.push('invalid value for "type", type cannot be nil.')
       end
 
+      if @avg_text_length.nil?
+        invalid_properties.push('invalid value for "avg_text_length", avg_text_length cannot be nil.')
+      end
+
+      if @is_multiline.nil?
+        invalid_properties.push('invalid value for "is_multiline", is_multiline cannot be nil.')
+      end
+
+      if @original_font_size.nil?
+        invalid_properties.push('invalid value for "original_font_size", original_font_size cannot be nil.')
+      end
+
+      if @font_family.nil?
+        invalid_properties.push('invalid value for "font_family", font_family cannot be nil.')
+      end
+
       invalid_properties
     end
 
@@ -152,6 +168,10 @@ module Dropbox::Sign
     # @return true if the model is valid
     def valid?
       return false if @type.nil?
+      return false if @avg_text_length.nil?
+      return false if @is_multiline.nil?
+      return false if @original_font_size.nil?
+      return false if @font_family.nil?
       true && super
     end
 

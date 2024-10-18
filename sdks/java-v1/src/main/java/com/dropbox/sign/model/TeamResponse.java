@@ -41,13 +41,13 @@ public class TeamResponse {
     private String name;
 
     public static final String JSON_PROPERTY_ACCOUNTS = "accounts";
-    private List<AccountResponse> accounts = null;
+    private List<AccountResponse> accounts = new ArrayList<>();
 
     public static final String JSON_PROPERTY_INVITED_ACCOUNTS = "invited_accounts";
-    private List<AccountResponse> invitedAccounts = null;
+    private List<AccountResponse> invitedAccounts = new ArrayList<>();
 
     public static final String JSON_PROPERTY_INVITED_EMAILS = "invited_emails";
-    private List<String> invitedEmails = null;
+    private List<String> invitedEmails = new ArrayList<>();
 
     public TeamResponse() {}
 
@@ -75,14 +75,15 @@ public class TeamResponse {
      *
      * @return name
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_NAME)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    @javax.annotation.Nonnull
+    @JsonProperty(JSON_PROPERTY_NAME)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public String getName() {
         return name;
     }
 
     @JsonProperty(JSON_PROPERTY_NAME)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setName(String name) {
         this.name = name;
     }
@@ -105,14 +106,15 @@ public class TeamResponse {
      *
      * @return accounts
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_ACCOUNTS)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    @javax.annotation.Nonnull
+    @JsonProperty(JSON_PROPERTY_ACCOUNTS)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<AccountResponse> getAccounts() {
         return accounts;
     }
 
     @JsonProperty(JSON_PROPERTY_ACCOUNTS)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setAccounts(List<AccountResponse> accounts) {
         this.accounts = accounts;
     }
@@ -136,14 +138,15 @@ public class TeamResponse {
      *
      * @return invitedAccounts
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_INVITED_ACCOUNTS)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    @javax.annotation.Nonnull
+    @JsonProperty(JSON_PROPERTY_INVITED_ACCOUNTS)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<AccountResponse> getInvitedAccounts() {
         return invitedAccounts;
     }
 
     @JsonProperty(JSON_PROPERTY_INVITED_ACCOUNTS)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setInvitedAccounts(List<AccountResponse> invitedAccounts) {
         this.invitedAccounts = invitedAccounts;
     }
@@ -167,14 +170,15 @@ public class TeamResponse {
      *
      * @return invitedEmails
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_INVITED_EMAILS)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    @javax.annotation.Nonnull
+    @JsonProperty(JSON_PROPERTY_INVITED_EMAILS)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public List<String> getInvitedEmails() {
         return invitedEmails;
     }
 
     @JsonProperty(JSON_PROPERTY_INVITED_EMAILS)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setInvitedEmails(List<String> invitedEmails) {
         this.invitedEmails = invitedEmails;
     }

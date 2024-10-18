@@ -1,7 +1,7 @@
 import { AttributeTypeMap } from "./";
 import { WarningResponse } from "./warningResponse";
 export declare class TemplateUpdateFilesResponseTemplate {
-    "templateId"?: string;
+    "templateId": string;
     "warnings"?: Array<WarningResponse>;
     static discriminator: string | undefined;
     static attributeTypeMap: AttributeTypeMap;

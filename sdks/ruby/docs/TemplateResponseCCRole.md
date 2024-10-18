@@ -6,5 +6,5 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| `name` | ```String``` |  The name of the Role.  |  |
+| `name`<sup>*_required_</sup> | ```String``` |  The name of the Role.  |  |
 

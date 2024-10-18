@@ -31,19 +31,19 @@ export class BulkSendJobResponse {
   /**
    * The id of the BulkSendJob.
    */
-  "bulkSendJobId"?: string | null;
+  "bulkSendJobId": string;
   /**
    * The total amount of Signature Requests queued for sending.
    */
-  "total"?: number;
+  "total": number;
   /**
    * True if you are the owner of this BulkSendJob, false if it\'s been shared with you by a team member.
    */
-  "isCreator"?: boolean;
+  "isCreator": boolean;
   /**
    * Time that the BulkSendJob was created.
    */
-  "createdAt"?: number;
+  "createdAt": number;
 
   static discriminator: string | undefined = undefined;
 

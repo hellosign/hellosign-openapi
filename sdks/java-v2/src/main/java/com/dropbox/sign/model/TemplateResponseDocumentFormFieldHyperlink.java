@@ -42,7 +42,8 @@ import com.dropbox.sign.ApiException;
   TemplateResponseDocumentFormFieldHyperlink.JSON_PROPERTY_AVG_TEXT_LENGTH,
   TemplateResponseDocumentFormFieldHyperlink.JSON_PROPERTY_IS_MULTILINE,
   TemplateResponseDocumentFormFieldHyperlink.JSON_PROPERTY_ORIGINAL_FONT_SIZE,
-  TemplateResponseDocumentFormFieldHyperlink.JSON_PROPERTY_FONT_FAMILY
+  TemplateResponseDocumentFormFieldHyperlink.JSON_PROPERTY_FONT_FAMILY,
+  TemplateResponseDocumentFormFieldHyperlink.JSON_PROPERTY_GROUP
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(
@@ -66,6 +67,9 @@ public class TemplateResponseDocumentFormFieldHyperlink extends TemplateResponse
 
   public static final String JSON_PROPERTY_FONT_FAMILY = "fontFamily";
   private String fontFamily;
+
+  public static final String JSON_PROPERTY_GROUP = "group";
+  private String group;
 
   public TemplateResponseDocumentFormFieldHyperlink() { 
   }
@@ -119,9 +123,9 @@ public class TemplateResponseDocumentFormFieldHyperlink extends TemplateResponse
    * Get avgTextLength
    * @return avgTextLength
    */
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_AVG_TEXT_LENGTH)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public TemplateResponseFieldAvgTextLength getAvgTextLength() {
     return avgTextLength;
@@ -129,7 +133,7 @@ public class TemplateResponseDocumentFormFieldHyperlink extends TemplateResponse
 
 
   @JsonProperty(JSON_PROPERTY_AVG_TEXT_LENGTH)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setAvgTextLength(TemplateResponseFieldAvgTextLength avgTextLength) {
     this.avgTextLength = avgTextLength;
   }
@@ -144,9 +148,9 @@ public class TemplateResponseDocumentFormFieldHyperlink extends TemplateResponse
    * Whether this form field is multiline text.
    * @return isMultiline
    */
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_IS_MULTILINE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Boolean getIsMultiline() {
     return isMultiline;
@@ -154,7 +158,7 @@ public class TemplateResponseDocumentFormFieldHyperlink extends TemplateResponse
 
 
   @JsonProperty(JSON_PROPERTY_IS_MULTILINE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setIsMultiline(Boolean isMultiline) {
     this.isMultiline = isMultiline;
   }
@@ -169,9 +173,9 @@ public class TemplateResponseDocumentFormFieldHyperlink extends TemplateResponse
    * Original font size used in this form field&#39;s text.
    * @return originalFontSize
    */
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_ORIGINAL_FONT_SIZE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Integer getOriginalFontSize() {
     return originalFontSize;
@@ -179,7 +183,7 @@ public class TemplateResponseDocumentFormFieldHyperlink extends TemplateResponse
 
 
   @JsonProperty(JSON_PROPERTY_ORIGINAL_FONT_SIZE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setOriginalFontSize(Integer originalFontSize) {
     this.originalFontSize = originalFontSize;
   }
@@ -194,9 +198,9 @@ public class TemplateResponseDocumentFormFieldHyperlink extends TemplateResponse
    * Font family used in this form field&#39;s text.
    * @return fontFamily
    */
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_FONT_FAMILY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getFontFamily() {
     return fontFamily;
@@ -204,9 +208,34 @@ public class TemplateResponseDocumentFormFieldHyperlink extends TemplateResponse
 
 
   @JsonProperty(JSON_PROPERTY_FONT_FAMILY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setFontFamily(String fontFamily) {
     this.fontFamily = fontFamily;
+  }
+
+
+  public TemplateResponseDocumentFormFieldHyperlink group(String group) {
+    this.group = group;
+    return this;
+  }
+
+  /**
+   * The name of the group this field is in. If this field is not a group, this defaults to &#x60;null&#x60; except for Radio fields.
+   * @return group
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_GROUP)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getGroup() {
+    return group;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_GROUP)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setGroup(String group) {
+    this.group = group;
   }
 
 
@@ -227,12 +256,13 @@ public class TemplateResponseDocumentFormFieldHyperlink extends TemplateResponse
         Objects.equals(this.isMultiline, templateResponseDocumentFormFieldHyperlink.isMultiline) &&
         Objects.equals(this.originalFontSize, templateResponseDocumentFormFieldHyperlink.originalFontSize) &&
         Objects.equals(this.fontFamily, templateResponseDocumentFormFieldHyperlink.fontFamily) &&
+        Objects.equals(this.group, templateResponseDocumentFormFieldHyperlink.group) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, avgTextLength, isMultiline, originalFontSize, fontFamily, super.hashCode());
+    return Objects.hash(type, avgTextLength, isMultiline, originalFontSize, fontFamily, group, super.hashCode());
   }
 
   @Override
@@ -245,6 +275,7 @@ public class TemplateResponseDocumentFormFieldHyperlink extends TemplateResponse
     sb.append("    isMultiline: ").append(toIndentedString(isMultiline)).append("\n");
     sb.append("    originalFontSize: ").append(toIndentedString(originalFontSize)).append("\n");
     sb.append("    fontFamily: ").append(toIndentedString(fontFamily)).append("\n");
+    sb.append("    group: ").append(toIndentedString(group)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -347,6 +378,25 @@ public class TemplateResponseDocumentFormFieldHyperlink extends TemplateResponse
         }
         else {
             map.put("fontFamily", JSON.getDefault().getMapper().writeValueAsString(fontFamily));
+        }
+    }
+    if (group != null) {
+        if (isFileTypeOrListOfFiles(group)) {
+            fileTypeFound = true;
+        }
+
+        if (group.getClass().equals(java.io.File.class) ||
+            group.getClass().equals(Integer.class) ||
+            group.getClass().equals(String.class) ||
+            group.getClass().isEnum()) {
+            map.put("group", group);
+        } else if (isListOfFile(group)) {
+            for(int i = 0; i< getListSize(group); i++) {
+                map.put("group[" + i + "]", getFromList(group, i));
+            }
+        }
+        else {
+            map.put("group", JSON.getDefault().getMapper().writeValueAsString(group));
         }
     }
     } catch (Exception e) {

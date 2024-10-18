@@ -41,11 +41,16 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TemplateResponseSignerRole" /> class.
         /// </summary>
-        /// <param name="name">The name of the Role..</param>
+        /// <param name="name">The name of the Role. (required).</param>
         /// <param name="order">If signer order is assigned this is the 0-based index for this role..</param>
         public TemplateResponseSignerRole(string name = default(string), int order = default(int))
         {
 
+            // to ensure "name" is required (not null)
+            if (name == null)
+            {
+                throw new ArgumentNullException("name is a required property for TemplateResponseSignerRole and cannot be null");
+            }
             this.Name = name;
             this.Order = order;
         }
@@ -70,7 +75,7 @@ namespace Dropbox.Sign.Model
         /// The name of the Role.
         /// </summary>
         /// <value>The name of the Role.</value>
-        [DataMember(Name = "name", EmitDefaultValue = true)]
+        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>

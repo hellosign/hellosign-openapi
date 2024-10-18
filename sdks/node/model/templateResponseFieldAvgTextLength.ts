@@ -31,11 +31,11 @@ export class TemplateResponseFieldAvgTextLength {
   /**
    * Number of lines.
    */
-  "numLines"?: number;
+  "numLines": number;
   /**
    * Number of characters per line.
    */
-  "numCharsPerLine"?: number;
+  "numCharsPerLine": number;
 
   static discriminator: string | undefined = undefined;
 

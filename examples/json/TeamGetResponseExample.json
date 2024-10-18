@@ -29,7 +29,24 @@
         "role_code": "m"
       }
     ],
-    "invited_accounts": [],
-    "invited_emails": []
+    "invited_accounts": [
+      {
+        "account_id": "8e239b5a50eac117fdd9a0e2359620aa57cb2463",
+        "email_address": "george@hellofax.com",
+        "is_locked": false,
+        "is_paid_hs": false,
+        "is_paid_hf": false,
+        "quotas": {
+          "templates_left": 0,
+          "documents_left": 3,
+          "api_signature_requests_left": 0
+        }
+      }
+    ],
+    "invited_emails": [
+      "invite_1@example.com",
+      "invite_2@example.com",
+      "invite_3@example.com"
+    ]
   }
 }

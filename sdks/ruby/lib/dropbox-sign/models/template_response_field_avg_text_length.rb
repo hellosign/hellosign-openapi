@@ -107,12 +107,22 @@ module Dropbox::Sign
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @num_lines.nil?
+        invalid_properties.push('invalid value for "num_lines", num_lines cannot be nil.')
+      end
+
+      if @num_chars_per_line.nil?
+        invalid_properties.push('invalid value for "num_chars_per_line", num_chars_per_line cannot be nil.')
+      end
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @num_lines.nil?
+      return false if @num_chars_per_line.nil?
       true
     end
 

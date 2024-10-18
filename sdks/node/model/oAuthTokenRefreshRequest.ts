@@ -33,6 +33,14 @@ export class OAuthTokenRefreshRequest {
    * The token provided when you got the expired access token.
    */
   "refreshToken": string;
+  /**
+   * The client ID for your API app. Mandatory from August 1st, 2025. Until then, required if the \"Client Credentials Required\" setting is enabled for token refresh; optional if disabled.
+   */
+  "clientId"?: string;
+  /**
+   * The client secret for your API app. Mandatory from August 1st, 2025. Until then, required if the \"Client Credentials Required\" setting is enabled for token refresh; optional if disabled.
+   */
+  "clientSecret"?: string;
 
   static discriminator: string | undefined = undefined;
 
@@ -45,6 +53,16 @@ export class OAuthTokenRefreshRequest {
     {
       name: "refreshToken",
       baseName: "refresh_token",
+      type: "string",
+    },
+    {
+      name: "clientId",
+      baseName: "client_id",
+      type: "string",
+    },
+    {
+      name: "clientSecret",
+      baseName: "client_secret",
       type: "string",
     },
   ];
