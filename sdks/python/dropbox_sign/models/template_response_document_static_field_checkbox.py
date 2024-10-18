@@ -41,9 +41,9 @@ class TemplateResponseDocumentStaticFieldCheckbox(
         description="The type of this static field. See [field types](/api/reference/constants/#field-types).  * Text Field uses `TemplateResponseDocumentStaticFieldText` * Dropdown Field uses `TemplateResponseDocumentStaticFieldDropdown` * Hyperlink Field uses `TemplateResponseDocumentStaticFieldHyperlink` * Checkbox Field uses `TemplateResponseDocumentStaticFieldCheckbox` * Radio Field uses `TemplateResponseDocumentStaticFieldRadio` * Signature Field uses `TemplateResponseDocumentStaticFieldSignature` * Date Signed Field uses `TemplateResponseDocumentStaticFieldDateSigned` * Initials Field uses `TemplateResponseDocumentStaticFieldInitials`"
     )
     __properties: ClassVar[List[str]] = [
+        "type",
         "api_id",
         "name",
-        "type",
         "signer",
         "x",
         "y",
@@ -116,9 +116,9 @@ class TemplateResponseDocumentStaticFieldCheckbox(
 
         _obj = cls.model_validate(
             {
+                "type": obj.get("type") if obj.get("type") is not None else "checkbox",
                 "api_id": obj.get("api_id"),
                 "name": obj.get("name"),
-                "type": obj.get("type") if obj.get("type") is not None else "checkbox",
                 "signer": (
                     obj.get("signer") if obj.get("signer") is not None else "me_now"
                 ),

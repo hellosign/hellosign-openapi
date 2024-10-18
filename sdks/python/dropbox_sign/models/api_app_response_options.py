@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBool
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set, Tuple
 from typing_extensions import Self
 import io
@@ -32,8 +32,9 @@ class ApiAppResponseOptions(BaseModel):
     An object with options that override account settings.
     """  # noqa: E501
 
-    can_insert_everywhere: StrictBool = Field(
-        description='Boolean denoting if signers can "Insert Everywhere" in one click while signing a document'
+    can_insert_everywhere: Optional[StrictBool] = Field(
+        default=None,
+        description='Boolean denoting if signers can "Insert Everywhere" in one click while signing a document',
     )
     __properties: ClassVar[List[str]] = ["can_insert_everywhere"]
 

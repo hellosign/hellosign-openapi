@@ -1,7 +1,7 @@
 import { AttributeTypeMap } from "./";
 export declare class TemplateResponseDocumentFieldGroupRule {
-    "requirement": string;
-    "groupLabel": string;
+    "requirement"?: string;
+    "groupLabel"?: string;
     static discriminator: string | undefined;
     static attributeTypeMap: AttributeTypeMap;
     static getAttributeTypeMap(): AttributeTypeMap;

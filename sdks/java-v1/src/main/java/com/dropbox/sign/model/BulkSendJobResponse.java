@@ -76,15 +76,14 @@ public class BulkSendJobResponse {
      *
      * @return bulkSendJobId
      */
-    @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_BULK_SEND_JOB_ID)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_BULK_SEND_JOB_ID)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getBulkSendJobId() {
         return bulkSendJobId;
     }
 
     @JsonProperty(JSON_PROPERTY_BULK_SEND_JOB_ID)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setBulkSendJobId(String bulkSendJobId) {
         this.bulkSendJobId = bulkSendJobId;
     }
@@ -99,15 +98,14 @@ public class BulkSendJobResponse {
      *
      * @return total
      */
-    @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_TOTAL)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_TOTAL)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public Integer getTotal() {
         return total;
     }
 
     @JsonProperty(JSON_PROPERTY_TOTAL)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setTotal(Integer total) {
         this.total = total;
     }
@@ -123,15 +121,14 @@ public class BulkSendJobResponse {
      *
      * @return isCreator
      */
-    @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_IS_CREATOR)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_IS_CREATOR)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public Boolean getIsCreator() {
         return isCreator;
     }
 
     @JsonProperty(JSON_PROPERTY_IS_CREATOR)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setIsCreator(Boolean isCreator) {
         this.isCreator = isCreator;
     }
@@ -146,15 +143,14 @@ public class BulkSendJobResponse {
      *
      * @return createdAt
      */
-    @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_CREATED_AT)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_CREATED_AT)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public Integer getCreatedAt() {
         return createdAt;
     }
 
     @JsonProperty(JSON_PROPERTY_CREATED_AT)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setCreatedAt(Integer createdAt) {
         this.createdAt = createdAt;
     }

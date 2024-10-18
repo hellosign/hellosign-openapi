@@ -42,14 +42,14 @@ namespace Dropbox.Sign.Model
         /// Initializes a new instance of the <see cref="TemplateResponseDocumentStaticFieldDateSigned" /> class.
         /// </summary>
         /// <param name="type">The type of this static field. See [field types](/api/reference/constants/#field-types).  * Text Field uses &#x60;TemplateResponseDocumentStaticFieldText&#x60; * Dropdown Field uses &#x60;TemplateResponseDocumentStaticFieldDropdown&#x60; * Hyperlink Field uses &#x60;TemplateResponseDocumentStaticFieldHyperlink&#x60; * Checkbox Field uses &#x60;TemplateResponseDocumentStaticFieldCheckbox&#x60; * Radio Field uses &#x60;TemplateResponseDocumentStaticFieldRadio&#x60; * Signature Field uses &#x60;TemplateResponseDocumentStaticFieldSignature&#x60; * Date Signed Field uses &#x60;TemplateResponseDocumentStaticFieldDateSigned&#x60; * Initials Field uses &#x60;TemplateResponseDocumentStaticFieldInitials&#x60; (required) (default to &quot;date_signed&quot;).</param>
-        /// <param name="apiId">A unique id for the static field. (required).</param>
-        /// <param name="name">The name of the static field. (required).</param>
-        /// <param name="signer">The signer of the Static Field. (required) (default to &quot;me_now&quot;).</param>
-        /// <param name="x">The horizontal offset in pixels for this static field. (required).</param>
-        /// <param name="y">The vertical offset in pixels for this static field. (required).</param>
-        /// <param name="width">The width in pixels of this static field. (required).</param>
-        /// <param name="height">The height in pixels of this static field. (required).</param>
-        /// <param name="required">Boolean showing whether or not this field is required. (required).</param>
+        /// <param name="apiId">A unique id for the static field..</param>
+        /// <param name="name">The name of the static field..</param>
+        /// <param name="signer">The signer of the Static Field. (default to &quot;me_now&quot;).</param>
+        /// <param name="x">The horizontal offset in pixels for this static field..</param>
+        /// <param name="y">The vertical offset in pixels for this static field..</param>
+        /// <param name="width">The width in pixels of this static field..</param>
+        /// <param name="height">The height in pixels of this static field..</param>
+        /// <param name="required">Boolean showing whether or not this field is required..</param>
         /// <param name="group">The name of the group this field is in. If this field is not a group, this defaults to &#x60;null&#x60;..</param>
         public TemplateResponseDocumentStaticFieldDateSigned(string type = @"date_signed", string apiId = default(string), string name = default(string), string signer = @"me_now", int x = default(int), int y = default(int), int width = default(int), int height = default(int), bool required = default(bool), string group = default(string))
         {

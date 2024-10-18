@@ -41,86 +41,41 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TemplateResponse" /> class.
         /// </summary>
-        /// <param name="templateId">The id of the Template. (required).</param>
-        /// <param name="title">The title of the Template. This will also be the default subject of the message sent to signers when using this Template to send a SignatureRequest. This can be overridden when sending the SignatureRequest. (required).</param>
-        /// <param name="message">The default message that will be sent to signers when using this Template to send a SignatureRequest. This can be overridden when sending the SignatureRequest. (required).</param>
+        /// <param name="templateId">The id of the Template..</param>
+        /// <param name="title">The title of the Template. This will also be the default subject of the message sent to signers when using this Template to send a SignatureRequest. This can be overridden when sending the SignatureRequest..</param>
+        /// <param name="message">The default message that will be sent to signers when using this Template to send a SignatureRequest. This can be overridden when sending the SignatureRequest..</param>
         /// <param name="updatedAt">Time the template was last updated..</param>
         /// <param name="isEmbedded">&#x60;true&#x60; if this template was created using an embedded flow, &#x60;false&#x60; if it was created on our website. Will be &#x60;null&#x60; when you are not the creator of the Template..</param>
-        /// <param name="isCreator">&#x60;true&#x60; if you are the owner of this template, &#x60;false&#x60; if it&#39;s been shared with you by a team member. (required).</param>
-        /// <param name="canEdit">Indicates whether edit rights have been granted to you by the owner (always &#x60;true&#x60; if that&#39;s you). (required).</param>
-        /// <param name="isLocked">Indicates whether the template is locked. If &#x60;true&#x60;, then the template was created outside your quota and can only be used in &#x60;test_mode&#x60;. If &#x60;false&#x60;, then the template is within your quota and can be used to create signature requests. (required).</param>
-        /// <param name="metadata">The metadata attached to the template. (required).</param>
-        /// <param name="signerRoles">An array of the designated signer roles that must be specified when sending a SignatureRequest using this Template. (required).</param>
-        /// <param name="ccRoles">An array of the designated CC roles that must be specified when sending a SignatureRequest using this Template. (required).</param>
-        /// <param name="documents">An array describing each document associated with this Template. Includes form field data for each document. (required).</param>
+        /// <param name="isCreator">&#x60;true&#x60; if you are the owner of this template, &#x60;false&#x60; if it&#39;s been shared with you by a team member..</param>
+        /// <param name="canEdit">Indicates whether edit rights have been granted to you by the owner (always &#x60;true&#x60; if that&#39;s you)..</param>
+        /// <param name="isLocked">Indicates whether the template is locked. If &#x60;true&#x60;, then the template was created outside your quota and can only be used in &#x60;test_mode&#x60;. If &#x60;false&#x60;, then the template is within your quota and can be used to create signature requests..</param>
+        /// <param name="metadata">The metadata attached to the template..</param>
+        /// <param name="signerRoles">An array of the designated signer roles that must be specified when sending a SignatureRequest using this Template..</param>
+        /// <param name="ccRoles">An array of the designated CC roles that must be specified when sending a SignatureRequest using this Template..</param>
+        /// <param name="documents">An array describing each document associated with this Template. Includes form field data for each document..</param>
         /// <param name="customFields">Deprecated. Use &#x60;custom_fields&#x60; inside the [documents](https://developers.hellosign.com/api/reference/operation/templateGet/#!c&#x3D;200&amp;path&#x3D;template/documents&amp;t&#x3D;response) array instead..</param>
         /// <param name="namedFormFields">Deprecated. Use &#x60;form_fields&#x60; inside the [documents](https://developers.hellosign.com/api/reference/operation/templateGet/#!c&#x3D;200&amp;path&#x3D;template/documents&amp;t&#x3D;response) array instead..</param>
-        /// <param name="accounts">An array of the Accounts that can use this Template. (required).</param>
-        /// <param name="attachments">Signer attachments. (required).</param>
+        /// <param name="accounts">An array of the Accounts that can use this Template..</param>
+        /// <param name="attachments">Signer attachments..</param>
         public TemplateResponse(string templateId = default(string), string title = default(string), string message = default(string), int updatedAt = default(int), bool? isEmbedded = default(bool?), bool isCreator = default(bool), bool canEdit = default(bool), bool isLocked = default(bool), Object metadata = default(Object), List<TemplateResponseSignerRole> signerRoles = default(List<TemplateResponseSignerRole>), List<TemplateResponseCCRole> ccRoles = default(List<TemplateResponseCCRole>), List<TemplateResponseDocument> documents = default(List<TemplateResponseDocument>), List<TemplateResponseDocumentCustomFieldBase> customFields = default(List<TemplateResponseDocumentCustomFieldBase>), List<TemplateResponseDocumentFormFieldBase> namedFormFields = default(List<TemplateResponseDocumentFormFieldBase>), List<TemplateResponseAccount> accounts = default(List<TemplateResponseAccount>), List<SignatureRequestResponseAttachment> attachments = default(List<SignatureRequestResponseAttachment>))
         {
 
-            // to ensure "templateId" is required (not null)
-            if (templateId == null)
-            {
-                throw new ArgumentNullException("templateId is a required property for TemplateResponse and cannot be null");
-            }
             this.TemplateId = templateId;
-            // to ensure "title" is required (not null)
-            if (title == null)
-            {
-                throw new ArgumentNullException("title is a required property for TemplateResponse and cannot be null");
-            }
             this.Title = title;
-            // to ensure "message" is required (not null)
-            if (message == null)
-            {
-                throw new ArgumentNullException("message is a required property for TemplateResponse and cannot be null");
-            }
             this.Message = message;
+            this.UpdatedAt = updatedAt;
+            this.IsEmbedded = isEmbedded;
             this.IsCreator = isCreator;
             this.CanEdit = canEdit;
             this.IsLocked = isLocked;
-            // to ensure "metadata" is required (not null)
-            if (metadata == null)
-            {
-                throw new ArgumentNullException("metadata is a required property for TemplateResponse and cannot be null");
-            }
             this.Metadata = metadata;
-            // to ensure "signerRoles" is required (not null)
-            if (signerRoles == null)
-            {
-                throw new ArgumentNullException("signerRoles is a required property for TemplateResponse and cannot be null");
-            }
             this.SignerRoles = signerRoles;
-            // to ensure "ccRoles" is required (not null)
-            if (ccRoles == null)
-            {
-                throw new ArgumentNullException("ccRoles is a required property for TemplateResponse and cannot be null");
-            }
             this.CcRoles = ccRoles;
-            // to ensure "documents" is required (not null)
-            if (documents == null)
-            {
-                throw new ArgumentNullException("documents is a required property for TemplateResponse and cannot be null");
-            }
             this.Documents = documents;
-            // to ensure "accounts" is required (not null)
-            if (accounts == null)
-            {
-                throw new ArgumentNullException("accounts is a required property for TemplateResponse and cannot be null");
-            }
-            this.Accounts = accounts;
-            // to ensure "attachments" is required (not null)
-            if (attachments == null)
-            {
-                throw new ArgumentNullException("attachments is a required property for TemplateResponse and cannot be null");
-            }
-            this.Attachments = attachments;
-            this.UpdatedAt = updatedAt;
-            this.IsEmbedded = isEmbedded;
             this.CustomFields = customFields;
             this.NamedFormFields = namedFormFields;
+            this.Accounts = accounts;
+            this.Attachments = attachments;
         }
 
         /// <summary>
@@ -143,85 +98,22 @@ namespace Dropbox.Sign.Model
         /// The id of the Template.
         /// </summary>
         /// <value>The id of the Template.</value>
-        [DataMember(Name = "template_id", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "template_id", EmitDefaultValue = true)]
         public string TemplateId { get; set; }
 
         /// <summary>
         /// The title of the Template. This will also be the default subject of the message sent to signers when using this Template to send a SignatureRequest. This can be overridden when sending the SignatureRequest.
         /// </summary>
         /// <value>The title of the Template. This will also be the default subject of the message sent to signers when using this Template to send a SignatureRequest. This can be overridden when sending the SignatureRequest.</value>
-        [DataMember(Name = "title", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "title", EmitDefaultValue = true)]
         public string Title { get; set; }
 
         /// <summary>
         /// The default message that will be sent to signers when using this Template to send a SignatureRequest. This can be overridden when sending the SignatureRequest.
         /// </summary>
         /// <value>The default message that will be sent to signers when using this Template to send a SignatureRequest. This can be overridden when sending the SignatureRequest.</value>
-        [DataMember(Name = "message", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "message", EmitDefaultValue = true)]
         public string Message { get; set; }
-
-        /// <summary>
-        /// &#x60;true&#x60; if you are the owner of this template, &#x60;false&#x60; if it&#39;s been shared with you by a team member.
-        /// </summary>
-        /// <value>&#x60;true&#x60; if you are the owner of this template, &#x60;false&#x60; if it&#39;s been shared with you by a team member.</value>
-        [DataMember(Name = "is_creator", IsRequired = true, EmitDefaultValue = true)]
-        public bool IsCreator { get; set; }
-
-        /// <summary>
-        /// Indicates whether edit rights have been granted to you by the owner (always &#x60;true&#x60; if that&#39;s you).
-        /// </summary>
-        /// <value>Indicates whether edit rights have been granted to you by the owner (always &#x60;true&#x60; if that&#39;s you).</value>
-        [DataMember(Name = "can_edit", IsRequired = true, EmitDefaultValue = true)]
-        public bool CanEdit { get; set; }
-
-        /// <summary>
-        /// Indicates whether the template is locked. If &#x60;true&#x60;, then the template was created outside your quota and can only be used in &#x60;test_mode&#x60;. If &#x60;false&#x60;, then the template is within your quota and can be used to create signature requests.
-        /// </summary>
-        /// <value>Indicates whether the template is locked. If &#x60;true&#x60;, then the template was created outside your quota and can only be used in &#x60;test_mode&#x60;. If &#x60;false&#x60;, then the template is within your quota and can be used to create signature requests.</value>
-        [DataMember(Name = "is_locked", IsRequired = true, EmitDefaultValue = true)]
-        public bool IsLocked { get; set; }
-
-        /// <summary>
-        /// The metadata attached to the template.
-        /// </summary>
-        /// <value>The metadata attached to the template.</value>
-        [DataMember(Name = "metadata", IsRequired = true, EmitDefaultValue = true)]
-        public Object Metadata { get; set; }
-
-        /// <summary>
-        /// An array of the designated signer roles that must be specified when sending a SignatureRequest using this Template.
-        /// </summary>
-        /// <value>An array of the designated signer roles that must be specified when sending a SignatureRequest using this Template.</value>
-        [DataMember(Name = "signer_roles", IsRequired = true, EmitDefaultValue = true)]
-        public List<TemplateResponseSignerRole> SignerRoles { get; set; }
-
-        /// <summary>
-        /// An array of the designated CC roles that must be specified when sending a SignatureRequest using this Template.
-        /// </summary>
-        /// <value>An array of the designated CC roles that must be specified when sending a SignatureRequest using this Template.</value>
-        [DataMember(Name = "cc_roles", IsRequired = true, EmitDefaultValue = true)]
-        public List<TemplateResponseCCRole> CcRoles { get; set; }
-
-        /// <summary>
-        /// An array describing each document associated with this Template. Includes form field data for each document.
-        /// </summary>
-        /// <value>An array describing each document associated with this Template. Includes form field data for each document.</value>
-        [DataMember(Name = "documents", IsRequired = true, EmitDefaultValue = true)]
-        public List<TemplateResponseDocument> Documents { get; set; }
-
-        /// <summary>
-        /// An array of the Accounts that can use this Template.
-        /// </summary>
-        /// <value>An array of the Accounts that can use this Template.</value>
-        [DataMember(Name = "accounts", IsRequired = true, EmitDefaultValue = true)]
-        public List<TemplateResponseAccount> Accounts { get; set; }
-
-        /// <summary>
-        /// Signer attachments.
-        /// </summary>
-        /// <value>Signer attachments.</value>
-        [DataMember(Name = "attachments", IsRequired = true, EmitDefaultValue = true)]
-        public List<SignatureRequestResponseAttachment> Attachments { get; set; }
 
         /// <summary>
         /// Time the template was last updated.
@@ -236,6 +128,55 @@ namespace Dropbox.Sign.Model
         /// <value>&#x60;true&#x60; if this template was created using an embedded flow, &#x60;false&#x60; if it was created on our website. Will be &#x60;null&#x60; when you are not the creator of the Template.</value>
         [DataMember(Name = "is_embedded", EmitDefaultValue = true)]
         public bool? IsEmbedded { get; set; }
+
+        /// <summary>
+        /// &#x60;true&#x60; if you are the owner of this template, &#x60;false&#x60; if it&#39;s been shared with you by a team member.
+        /// </summary>
+        /// <value>&#x60;true&#x60; if you are the owner of this template, &#x60;false&#x60; if it&#39;s been shared with you by a team member.</value>
+        [DataMember(Name = "is_creator", EmitDefaultValue = true)]
+        public bool IsCreator { get; set; }
+
+        /// <summary>
+        /// Indicates whether edit rights have been granted to you by the owner (always &#x60;true&#x60; if that&#39;s you).
+        /// </summary>
+        /// <value>Indicates whether edit rights have been granted to you by the owner (always &#x60;true&#x60; if that&#39;s you).</value>
+        [DataMember(Name = "can_edit", EmitDefaultValue = true)]
+        public bool CanEdit { get; set; }
+
+        /// <summary>
+        /// Indicates whether the template is locked. If &#x60;true&#x60;, then the template was created outside your quota and can only be used in &#x60;test_mode&#x60;. If &#x60;false&#x60;, then the template is within your quota and can be used to create signature requests.
+        /// </summary>
+        /// <value>Indicates whether the template is locked. If &#x60;true&#x60;, then the template was created outside your quota and can only be used in &#x60;test_mode&#x60;. If &#x60;false&#x60;, then the template is within your quota and can be used to create signature requests.</value>
+        [DataMember(Name = "is_locked", EmitDefaultValue = true)]
+        public bool IsLocked { get; set; }
+
+        /// <summary>
+        /// The metadata attached to the template.
+        /// </summary>
+        /// <value>The metadata attached to the template.</value>
+        [DataMember(Name = "metadata", EmitDefaultValue = true)]
+        public Object Metadata { get; set; }
+
+        /// <summary>
+        /// An array of the designated signer roles that must be specified when sending a SignatureRequest using this Template.
+        /// </summary>
+        /// <value>An array of the designated signer roles that must be specified when sending a SignatureRequest using this Template.</value>
+        [DataMember(Name = "signer_roles", EmitDefaultValue = true)]
+        public List<TemplateResponseSignerRole> SignerRoles { get; set; }
+
+        /// <summary>
+        /// An array of the designated CC roles that must be specified when sending a SignatureRequest using this Template.
+        /// </summary>
+        /// <value>An array of the designated CC roles that must be specified when sending a SignatureRequest using this Template.</value>
+        [DataMember(Name = "cc_roles", EmitDefaultValue = true)]
+        public List<TemplateResponseCCRole> CcRoles { get; set; }
+
+        /// <summary>
+        /// An array describing each document associated with this Template. Includes form field data for each document.
+        /// </summary>
+        /// <value>An array describing each document associated with this Template. Includes form field data for each document.</value>
+        [DataMember(Name = "documents", EmitDefaultValue = true)]
+        public List<TemplateResponseDocument> Documents { get; set; }
 
         /// <summary>
         /// Deprecated. Use &#x60;custom_fields&#x60; inside the [documents](https://developers.hellosign.com/api/reference/operation/templateGet/#!c&#x3D;200&amp;path&#x3D;template/documents&amp;t&#x3D;response) array instead.
@@ -254,6 +195,20 @@ namespace Dropbox.Sign.Model
         public List<TemplateResponseDocumentFormFieldBase> NamedFormFields { get; set; }
 
         /// <summary>
+        /// An array of the Accounts that can use this Template.
+        /// </summary>
+        /// <value>An array of the Accounts that can use this Template.</value>
+        [DataMember(Name = "accounts", EmitDefaultValue = true)]
+        public List<TemplateResponseAccount> Accounts { get; set; }
+
+        /// <summary>
+        /// Signer attachments.
+        /// </summary>
+        /// <value>Signer attachments.</value>
+        [DataMember(Name = "attachments", EmitDefaultValue = true)]
+        public List<SignatureRequestResponseAttachment> Attachments { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -264,6 +219,8 @@ namespace Dropbox.Sign.Model
             sb.Append("  TemplateId: ").Append(TemplateId).Append("\n");
             sb.Append("  Title: ").Append(Title).Append("\n");
             sb.Append("  Message: ").Append(Message).Append("\n");
+            sb.Append("  UpdatedAt: ").Append(UpdatedAt).Append("\n");
+            sb.Append("  IsEmbedded: ").Append(IsEmbedded).Append("\n");
             sb.Append("  IsCreator: ").Append(IsCreator).Append("\n");
             sb.Append("  CanEdit: ").Append(CanEdit).Append("\n");
             sb.Append("  IsLocked: ").Append(IsLocked).Append("\n");
@@ -271,12 +228,10 @@ namespace Dropbox.Sign.Model
             sb.Append("  SignerRoles: ").Append(SignerRoles).Append("\n");
             sb.Append("  CcRoles: ").Append(CcRoles).Append("\n");
             sb.Append("  Documents: ").Append(Documents).Append("\n");
-            sb.Append("  Accounts: ").Append(Accounts).Append("\n");
-            sb.Append("  Attachments: ").Append(Attachments).Append("\n");
-            sb.Append("  UpdatedAt: ").Append(UpdatedAt).Append("\n");
-            sb.Append("  IsEmbedded: ").Append(IsEmbedded).Append("\n");
             sb.Append("  CustomFields: ").Append(CustomFields).Append("\n");
             sb.Append("  NamedFormFields: ").Append(NamedFormFields).Append("\n");
+            sb.Append("  Accounts: ").Append(Accounts).Append("\n");
+            sb.Append("  Attachments: ").Append(Attachments).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -328,6 +283,15 @@ namespace Dropbox.Sign.Model
                     this.Message.Equals(input.Message))
                 ) &&
                 (
+                    this.UpdatedAt == input.UpdatedAt ||
+                    this.UpdatedAt.Equals(input.UpdatedAt)
+                ) &&
+                (
+                    this.IsEmbedded == input.IsEmbedded ||
+                    (this.IsEmbedded != null &&
+                    this.IsEmbedded.Equals(input.IsEmbedded))
+                ) &&
+                (
                     this.IsCreator == input.IsCreator ||
                     this.IsCreator.Equals(input.IsCreator)
                 ) &&
@@ -363,27 +327,6 @@ namespace Dropbox.Sign.Model
                     this.Documents.SequenceEqual(input.Documents)
                 ) &&
                 (
-                    this.Accounts == input.Accounts ||
-                    this.Accounts != null &&
-                    input.Accounts != null &&
-                    this.Accounts.SequenceEqual(input.Accounts)
-                ) &&
-                (
-                    this.Attachments == input.Attachments ||
-                    this.Attachments != null &&
-                    input.Attachments != null &&
-                    this.Attachments.SequenceEqual(input.Attachments)
-                ) &&
-                (
-                    this.UpdatedAt == input.UpdatedAt ||
-                    this.UpdatedAt.Equals(input.UpdatedAt)
-                ) &&
-                (
-                    this.IsEmbedded == input.IsEmbedded ||
-                    (this.IsEmbedded != null &&
-                    this.IsEmbedded.Equals(input.IsEmbedded))
-                ) &&
-                (
                     this.CustomFields == input.CustomFields ||
                     this.CustomFields != null &&
                     input.CustomFields != null &&
@@ -394,6 +337,18 @@ namespace Dropbox.Sign.Model
                     this.NamedFormFields != null &&
                     input.NamedFormFields != null &&
                     this.NamedFormFields.SequenceEqual(input.NamedFormFields)
+                ) &&
+                (
+                    this.Accounts == input.Accounts ||
+                    this.Accounts != null &&
+                    input.Accounts != null &&
+                    this.Accounts.SequenceEqual(input.Accounts)
+                ) &&
+                (
+                    this.Attachments == input.Attachments ||
+                    this.Attachments != null &&
+                    input.Attachments != null &&
+                    this.Attachments.SequenceEqual(input.Attachments)
                 );
         }
 
@@ -418,6 +373,11 @@ namespace Dropbox.Sign.Model
                 {
                     hashCode = (hashCode * 59) + this.Message.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.UpdatedAt.GetHashCode();
+                if (this.IsEmbedded != null)
+                {
+                    hashCode = (hashCode * 59) + this.IsEmbedded.GetHashCode();
+                }
                 hashCode = (hashCode * 59) + this.IsCreator.GetHashCode();
                 hashCode = (hashCode * 59) + this.CanEdit.GetHashCode();
                 hashCode = (hashCode * 59) + this.IsLocked.GetHashCode();
@@ -437,19 +397,6 @@ namespace Dropbox.Sign.Model
                 {
                     hashCode = (hashCode * 59) + this.Documents.GetHashCode();
                 }
-                if (this.Accounts != null)
-                {
-                    hashCode = (hashCode * 59) + this.Accounts.GetHashCode();
-                }
-                if (this.Attachments != null)
-                {
-                    hashCode = (hashCode * 59) + this.Attachments.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.UpdatedAt.GetHashCode();
-                if (this.IsEmbedded != null)
-                {
-                    hashCode = (hashCode * 59) + this.IsEmbedded.GetHashCode();
-                }
                 if (this.CustomFields != null)
                 {
                     hashCode = (hashCode * 59) + this.CustomFields.GetHashCode();
@@ -457,6 +404,14 @@ namespace Dropbox.Sign.Model
                 if (this.NamedFormFields != null)
                 {
                     hashCode = (hashCode * 59) + this.NamedFormFields.GetHashCode();
+                }
+                if (this.Accounts != null)
+                {
+                    hashCode = (hashCode * 59) + this.Accounts.GetHashCode();
+                }
+                if (this.Attachments != null)
+                {
+                    hashCode = (hashCode * 59) + this.Attachments.GetHashCode();
                 }
                 return hashCode;
             }
@@ -494,6 +449,20 @@ namespace Dropbox.Sign.Model
                 Property = "Message",
                 Type = "string",
                 Value = Message,
+            });
+            types.Add(new OpenApiType()
+            {
+                Name = "updated_at",
+                Property = "UpdatedAt",
+                Type = "int",
+                Value = UpdatedAt,
+            });
+            types.Add(new OpenApiType()
+            {
+                Name = "is_embedded",
+                Property = "IsEmbedded",
+                Type = "bool?",
+                Value = IsEmbedded,
             });
             types.Add(new OpenApiType()
             {
@@ -546,34 +515,6 @@ namespace Dropbox.Sign.Model
             });
             types.Add(new OpenApiType()
             {
-                Name = "accounts",
-                Property = "Accounts",
-                Type = "List<TemplateResponseAccount>",
-                Value = Accounts,
-            });
-            types.Add(new OpenApiType()
-            {
-                Name = "attachments",
-                Property = "Attachments",
-                Type = "List<SignatureRequestResponseAttachment>",
-                Value = Attachments,
-            });
-            types.Add(new OpenApiType()
-            {
-                Name = "updated_at",
-                Property = "UpdatedAt",
-                Type = "int",
-                Value = UpdatedAt,
-            });
-            types.Add(new OpenApiType()
-            {
-                Name = "is_embedded",
-                Property = "IsEmbedded",
-                Type = "bool?",
-                Value = IsEmbedded,
-            });
-            types.Add(new OpenApiType()
-            {
                 Name = "custom_fields",
                 Property = "CustomFields",
                 Type = "List<TemplateResponseDocumentCustomFieldBase>",
@@ -585,6 +526,20 @@ namespace Dropbox.Sign.Model
                 Property = "NamedFormFields",
                 Type = "List<TemplateResponseDocumentFormFieldBase>",
                 Value = NamedFormFields,
+            });
+            types.Add(new OpenApiType()
+            {
+                Name = "accounts",
+                Property = "Accounts",
+                Type = "List<TemplateResponseAccount>",
+                Value = Accounts,
+            });
+            types.Add(new OpenApiType()
+            {
+                Name = "attachments",
+                Property = "Attachments",
+                Type = "List<SignatureRequestResponseAttachment>",
+                Value = Attachments,
             });
 
             return types;

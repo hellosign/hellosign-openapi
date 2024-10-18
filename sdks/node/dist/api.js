@@ -16785,6 +16785,11 @@ var ApiAppResponse = _ApiAppResponse;
 ApiAppResponse.discriminator = void 0;
 ApiAppResponse.attributeTypeMap = [
   {
+    name: "callbackUrl",
+    baseName: "callback_url",
+    type: "string"
+  },
+  {
     name: "clientId",
     baseName: "client_id",
     type: "string"
@@ -16810,6 +16815,11 @@ ApiAppResponse.attributeTypeMap = [
     type: "boolean"
   },
   {
+    name: "oauth",
+    baseName: "oauth",
+    type: "ApiAppResponseOAuth"
+  },
+  {
     name: "options",
     baseName: "options",
     type: "ApiAppResponseOptions"
@@ -16818,16 +16828,6 @@ ApiAppResponse.attributeTypeMap = [
     name: "ownerAccount",
     baseName: "owner_account",
     type: "ApiAppResponseOwnerAccount"
-  },
-  {
-    name: "callbackUrl",
-    baseName: "callback_url",
-    type: "string"
-  },
-  {
-    name: "oauth",
-    baseName: "oauth",
-    type: "ApiAppResponseOAuth"
   },
   {
     name: "whiteLabelingOptions",
@@ -16854,6 +16854,11 @@ ApiAppResponseOAuth.attributeTypeMap = [
     type: "string"
   },
   {
+    name: "secret",
+    baseName: "secret",
+    type: "string"
+  },
+  {
     name: "scopes",
     baseName: "scopes",
     type: "Array<string>"
@@ -16862,11 +16867,6 @@ ApiAppResponseOAuth.attributeTypeMap = [
     name: "chargesUsers",
     baseName: "charges_users",
     type: "boolean"
-  },
-  {
-    name: "secret",
-    baseName: "secret",
-    type: "string"
   }
 ];
 
@@ -22504,6 +22504,16 @@ TemplateResponse.attributeTypeMap = [
     type: "string"
   },
   {
+    name: "updatedAt",
+    baseName: "updated_at",
+    type: "number"
+  },
+  {
+    name: "isEmbedded",
+    baseName: "is_embedded",
+    type: "boolean"
+  },
+  {
     name: "isCreator",
     baseName: "is_creator",
     type: "boolean"
@@ -22539,26 +22549,6 @@ TemplateResponse.attributeTypeMap = [
     type: "Array<TemplateResponseDocument>"
   },
   {
-    name: "accounts",
-    baseName: "accounts",
-    type: "Array<TemplateResponseAccount>"
-  },
-  {
-    name: "attachments",
-    baseName: "attachments",
-    type: "Array<SignatureRequestResponseAttachment>"
-  },
-  {
-    name: "updatedAt",
-    baseName: "updated_at",
-    type: "number"
-  },
-  {
-    name: "isEmbedded",
-    baseName: "is_embedded",
-    type: "boolean"
-  },
-  {
     name: "customFields",
     baseName: "custom_fields",
     type: "Array<TemplateResponseDocumentCustomFieldBase>"
@@ -22567,6 +22557,16 @@ TemplateResponse.attributeTypeMap = [
     name: "namedFormFields",
     baseName: "named_form_fields",
     type: "Array<TemplateResponseDocumentFormFieldBase>"
+  },
+  {
+    name: "accounts",
+    baseName: "accounts",
+    type: "Array<TemplateResponseAccount>"
+  },
+  {
+    name: "attachments",
+    baseName: "attachments",
+    type: "Array<SignatureRequestResponseAttachment>"
   }
 ];
 
@@ -22588,6 +22588,11 @@ TemplateResponseAccount.attributeTypeMap = [
     type: "string"
   },
   {
+    name: "emailAddress",
+    baseName: "email_address",
+    type: "string"
+  },
+  {
     name: "isLocked",
     baseName: "is_locked",
     type: "boolean"
@@ -22606,11 +22611,6 @@ TemplateResponseAccount.attributeTypeMap = [
     name: "quotas",
     baseName: "quotas",
     type: "TemplateResponseAccountQuota"
-  },
-  {
-    name: "emailAddress",
-    baseName: "email_address",
-    type: "string"
   }
 ];
 
@@ -22685,6 +22685,11 @@ TemplateResponseDocument.attributeTypeMap = [
     type: "string"
   },
   {
+    name: "index",
+    baseName: "index",
+    type: "number"
+  },
+  {
     name: "fieldGroups",
     baseName: "field_groups",
     type: "Array<TemplateResponseDocumentFieldGroup>"
@@ -22703,11 +22708,6 @@ TemplateResponseDocument.attributeTypeMap = [
     name: "staticFields",
     baseName: "static_fields",
     type: "Array<TemplateResponseDocumentStaticFieldBase>"
-  },
-  {
-    name: "index",
-    baseName: "index",
-    type: "number"
   }
 ];
 
@@ -22733,6 +22733,11 @@ var TemplateResponseDocumentCustomFieldBase = _TemplateResponseDocumentCustomFie
 TemplateResponseDocumentCustomFieldBase.discriminator = "type";
 TemplateResponseDocumentCustomFieldBase.attributeTypeMap = [
   {
+    name: "type",
+    baseName: "type",
+    type: "string"
+  },
+  {
     name: "apiId",
     baseName: "api_id",
     type: "string"
@@ -22743,8 +22748,8 @@ TemplateResponseDocumentCustomFieldBase.attributeTypeMap = [
     type: "string"
   },
   {
-    name: "type",
-    baseName: "type",
+    name: "signer",
+    baseName: "signer",
     type: "string"
   },
   {
@@ -22771,11 +22776,6 @@ TemplateResponseDocumentCustomFieldBase.attributeTypeMap = [
     name: "required",
     baseName: "required",
     type: "boolean"
-  },
-  {
-    name: "signer",
-    baseName: "signer",
-    type: "string"
   },
   {
     name: "group",
@@ -22950,6 +22950,11 @@ var TemplateResponseDocumentFormFieldBase = _TemplateResponseDocumentFormFieldBa
 TemplateResponseDocumentFormFieldBase.discriminator = "type";
 TemplateResponseDocumentFormFieldBase.attributeTypeMap = [
   {
+    name: "type",
+    baseName: "type",
+    type: "string"
+  },
+  {
     name: "apiId",
     baseName: "api_id",
     type: "string"
@@ -22957,11 +22962,6 @@ TemplateResponseDocumentFormFieldBase.attributeTypeMap = [
   {
     name: "name",
     baseName: "name",
-    type: "string"
-  },
-  {
-    name: "type",
-    baseName: "type",
     type: "string"
   },
   {
@@ -23347,6 +23347,11 @@ var TemplateResponseDocumentStaticFieldBase = _TemplateResponseDocumentStaticFie
 TemplateResponseDocumentStaticFieldBase.discriminator = "type";
 TemplateResponseDocumentStaticFieldBase.attributeTypeMap = [
   {
+    name: "type",
+    baseName: "type",
+    type: "string"
+  },
+  {
     name: "apiId",
     baseName: "api_id",
     type: "string"
@@ -23354,11 +23359,6 @@ TemplateResponseDocumentStaticFieldBase.attributeTypeMap = [
   {
     name: "name",
     baseName: "name",
-    type: "string"
-  },
-  {
-    name: "type",
-    baseName: "type",
     type: "string"
   },
   {

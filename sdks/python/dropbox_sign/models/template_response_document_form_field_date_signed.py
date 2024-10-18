@@ -45,9 +45,9 @@ class TemplateResponseDocumentFormFieldDateSigned(
         description="The name of the group this field is in. If this field is not a group, this defaults to `null` except for Radio fields.",
     )
     __properties: ClassVar[List[str]] = [
+        "type",
         "api_id",
         "name",
-        "type",
         "signer",
         "x",
         "y",
@@ -120,11 +120,11 @@ class TemplateResponseDocumentFormFieldDateSigned(
 
         _obj = cls.model_validate(
             {
-                "api_id": obj.get("api_id"),
-                "name": obj.get("name"),
                 "type": (
                     obj.get("type") if obj.get("type") is not None else "date_signed"
                 ),
+                "api_id": obj.get("api_id"),
+                "name": obj.get("name"),
                 "signer": obj.get("signer"),
                 "x": obj.get("x"),
                 "y": obj.get("y"),
@@ -150,6 +150,7 @@ class TemplateResponseDocumentFormFieldDateSigned(
     def openapi_types(cls) -> Dict[str, str]:
         return {
             "type": "(str,)",
+            "group": "(str,)",
             "api_id": "(str,)",
             "name": "(str,)",
             "signer": "(int, str,)",
@@ -158,7 +159,6 @@ class TemplateResponseDocumentFormFieldDateSigned(
             "width": "(int,)",
             "height": "(int,)",
             "required": "(bool,)",
-            "group": "(str,)",
         }
 
     @classmethod

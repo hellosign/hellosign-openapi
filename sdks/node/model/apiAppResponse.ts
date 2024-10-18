@@ -33,37 +33,42 @@ import { ApiAppResponseWhiteLabelingOptions } from "./apiAppResponseWhiteLabelin
  */
 export class ApiAppResponse {
   /**
-   * The app\'s client id
-   */
-  "clientId": string;
-  /**
-   * The time that the app was created
-   */
-  "createdAt": number;
-  /**
-   * The domain name(s) associated with the app
-   */
-  "domains": Array<string>;
-  /**
-   * The name of the app
-   */
-  "name": string;
-  /**
-   * Boolean to indicate if the app has been approved
-   */
-  "isApproved": boolean;
-  "options": ApiAppResponseOptions;
-  "ownerAccount": ApiAppResponseOwnerAccount;
-  /**
    * The app\'s callback URL (for events)
    */
   "callbackUrl"?: string | null;
+  /**
+   * The app\'s client id
+   */
+  "clientId"?: string;
+  /**
+   * The time that the app was created
+   */
+  "createdAt"?: number;
+  /**
+   * The domain name(s) associated with the app
+   */
+  "domains"?: Array<string>;
+  /**
+   * The name of the app
+   */
+  "name"?: string;
+  /**
+   * Boolean to indicate if the app has been approved
+   */
+  "isApproved"?: boolean;
   "oauth"?: ApiAppResponseOAuth | null;
+  "options"?: ApiAppResponseOptions | null;
+  "ownerAccount"?: ApiAppResponseOwnerAccount;
   "whiteLabelingOptions"?: ApiAppResponseWhiteLabelingOptions | null;
 
   static discriminator: string | undefined = undefined;
 
   static attributeTypeMap: AttributeTypeMap = [
+    {
+      name: "callbackUrl",
+      baseName: "callback_url",
+      type: "string",
+    },
     {
       name: "clientId",
       baseName: "client_id",
@@ -90,6 +95,11 @@ export class ApiAppResponse {
       type: "boolean",
     },
     {
+      name: "oauth",
+      baseName: "oauth",
+      type: "ApiAppResponseOAuth",
+    },
+    {
       name: "options",
       baseName: "options",
       type: "ApiAppResponseOptions",
@@ -98,16 +108,6 @@ export class ApiAppResponse {
       name: "ownerAccount",
       baseName: "owner_account",
       type: "ApiAppResponseOwnerAccount",
-    },
-    {
-      name: "callbackUrl",
-      baseName: "callback_url",
-      type: "string",
-    },
-    {
-      name: "oauth",
-      baseName: "oauth",
-      type: "ApiAppResponseOAuth",
     },
     {
       name: "whiteLabelingOptions",

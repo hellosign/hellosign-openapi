@@ -41,15 +41,10 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TemplateCreateResponseTemplate" /> class.
         /// </summary>
-        /// <param name="templateId">The id of the Template. (required).</param>
+        /// <param name="templateId">The id of the Template..</param>
         public TemplateCreateResponseTemplate(string templateId = default(string))
         {
 
-            // to ensure "templateId" is required (not null)
-            if (templateId == null)
-            {
-                throw new ArgumentNullException("templateId is a required property for TemplateCreateResponseTemplate and cannot be null");
-            }
             this.TemplateId = templateId;
         }
 
@@ -73,7 +68,7 @@ namespace Dropbox.Sign.Model
         /// The id of the Template.
         /// </summary>
         /// <value>The id of the Template.</value>
-        [DataMember(Name = "template_id", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "template_id", EmitDefaultValue = true)]
         public string TemplateId { get; set; }
 
         /// <summary>

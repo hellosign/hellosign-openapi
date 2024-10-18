@@ -82,15 +82,14 @@ public class TemplateCreateEmbeddedDraftResponseTemplate {
      *
      * @return templateId
      */
-    @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_TEMPLATE_ID)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_TEMPLATE_ID)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getTemplateId() {
         return templateId;
     }
 
     @JsonProperty(JSON_PROPERTY_TEMPLATE_ID)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setTemplateId(String templateId) {
         this.templateId = templateId;
     }
@@ -105,15 +104,14 @@ public class TemplateCreateEmbeddedDraftResponseTemplate {
      *
      * @return editUrl
      */
-    @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_EDIT_URL)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_EDIT_URL)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getEditUrl() {
         return editUrl;
     }
 
     @JsonProperty(JSON_PROPERTY_EDIT_URL)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setEditUrl(String editUrl) {
         this.editUrl = editUrl;
     }
@@ -128,15 +126,14 @@ public class TemplateCreateEmbeddedDraftResponseTemplate {
      *
      * @return expiresAt
      */
-    @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public Integer getExpiresAt() {
         return expiresAt;
     }
 
     @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setExpiresAt(Integer expiresAt) {
         this.expiresAt = expiresAt;
     }

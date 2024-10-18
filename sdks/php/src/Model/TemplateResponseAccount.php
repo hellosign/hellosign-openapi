@@ -58,11 +58,11 @@ class TemplateResponseAccount implements ModelInterface, ArrayAccess, JsonSerial
      */
     protected static $openAPITypes = [
         'account_id' => 'string',
+        'email_address' => 'string',
         'is_locked' => 'bool',
         'is_paid_hs' => 'bool',
         'is_paid_hf' => 'bool',
         'quotas' => '\Dropbox\Sign\Model\TemplateResponseAccountQuota',
-        'email_address' => 'string',
     ];
 
     /**
@@ -74,11 +74,11 @@ class TemplateResponseAccount implements ModelInterface, ArrayAccess, JsonSerial
      */
     protected static $openAPIFormats = [
         'account_id' => null,
+        'email_address' => null,
         'is_locked' => null,
         'is_paid_hs' => null,
         'is_paid_hf' => null,
         'quotas' => null,
-        'email_address' => null,
     ];
 
     /**
@@ -88,11 +88,11 @@ class TemplateResponseAccount implements ModelInterface, ArrayAccess, JsonSerial
      */
     protected static array $openAPINullables = [
         'account_id' => false,
+        'email_address' => false,
         'is_locked' => false,
         'is_paid_hs' => false,
         'is_paid_hf' => false,
         'quotas' => false,
-        'email_address' => false,
     ];
 
     /**
@@ -174,11 +174,11 @@ class TemplateResponseAccount implements ModelInterface, ArrayAccess, JsonSerial
      */
     protected static $attributeMap = [
         'account_id' => 'account_id',
+        'email_address' => 'email_address',
         'is_locked' => 'is_locked',
         'is_paid_hs' => 'is_paid_hs',
         'is_paid_hf' => 'is_paid_hf',
         'quotas' => 'quotas',
-        'email_address' => 'email_address',
     ];
 
     /**
@@ -188,11 +188,11 @@ class TemplateResponseAccount implements ModelInterface, ArrayAccess, JsonSerial
      */
     protected static $setters = [
         'account_id' => 'setAccountId',
+        'email_address' => 'setEmailAddress',
         'is_locked' => 'setIsLocked',
         'is_paid_hs' => 'setIsPaidHs',
         'is_paid_hf' => 'setIsPaidHf',
         'quotas' => 'setQuotas',
-        'email_address' => 'setEmailAddress',
     ];
 
     /**
@@ -202,11 +202,11 @@ class TemplateResponseAccount implements ModelInterface, ArrayAccess, JsonSerial
      */
     protected static $getters = [
         'account_id' => 'getAccountId',
+        'email_address' => 'getEmailAddress',
         'is_locked' => 'getIsLocked',
         'is_paid_hs' => 'getIsPaidHs',
         'is_paid_hf' => 'getIsPaidHf',
         'quotas' => 'getQuotas',
-        'email_address' => 'getEmailAddress',
     ];
 
     /**
@@ -266,11 +266,11 @@ class TemplateResponseAccount implements ModelInterface, ArrayAccess, JsonSerial
     public function __construct(array $data = null)
     {
         $this->setIfExists('account_id', $data ?? [], null);
+        $this->setIfExists('email_address', $data ?? [], null);
         $this->setIfExists('is_locked', $data ?? [], null);
         $this->setIfExists('is_paid_hs', $data ?? [], null);
         $this->setIfExists('is_paid_hf', $data ?? [], null);
         $this->setIfExists('quotas', $data ?? [], null);
-        $this->setIfExists('email_address', $data ?? [], null);
     }
 
     /**
@@ -316,24 +316,7 @@ class TemplateResponseAccount implements ModelInterface, ArrayAccess, JsonSerial
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = [];
-
-        if ($this->container['account_id'] === null) {
-            $invalidProperties[] = "'account_id' can't be null";
-        }
-        if ($this->container['is_locked'] === null) {
-            $invalidProperties[] = "'is_locked' can't be null";
-        }
-        if ($this->container['is_paid_hs'] === null) {
-            $invalidProperties[] = "'is_paid_hs' can't be null";
-        }
-        if ($this->container['is_paid_hf'] === null) {
-            $invalidProperties[] = "'is_paid_hf' can't be null";
-        }
-        if ($this->container['quotas'] === null) {
-            $invalidProperties[] = "'quotas' can't be null";
-        }
-        return $invalidProperties;
+        return [];
     }
 
     /**
@@ -350,7 +333,7 @@ class TemplateResponseAccount implements ModelInterface, ArrayAccess, JsonSerial
     /**
      * Gets account_id
      *
-     * @return string
+     * @return string|null
      */
     public function getAccountId()
     {
@@ -360,124 +343,16 @@ class TemplateResponseAccount implements ModelInterface, ArrayAccess, JsonSerial
     /**
      * Sets account_id
      *
-     * @param string $account_id the id of the Account
+     * @param string|null $account_id the id of the Account
      *
      * @return self
      */
-    public function setAccountId(string $account_id)
+    public function setAccountId(?string $account_id)
     {
         if (is_null($account_id)) {
             throw new InvalidArgumentException('non-nullable account_id cannot be null');
         }
         $this->container['account_id'] = $account_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets is_locked
-     *
-     * @return bool
-     */
-    public function getIsLocked()
-    {
-        return $this->container['is_locked'];
-    }
-
-    /**
-     * Sets is_locked
-     *
-     * @param bool $is_locked returns `true` if the user has been locked out of their account by a team admin
-     *
-     * @return self
-     */
-    public function setIsLocked(bool $is_locked)
-    {
-        if (is_null($is_locked)) {
-            throw new InvalidArgumentException('non-nullable is_locked cannot be null');
-        }
-        $this->container['is_locked'] = $is_locked;
-
-        return $this;
-    }
-
-    /**
-     * Gets is_paid_hs
-     *
-     * @return bool
-     */
-    public function getIsPaidHs()
-    {
-        return $this->container['is_paid_hs'];
-    }
-
-    /**
-     * Sets is_paid_hs
-     *
-     * @param bool $is_paid_hs returns `true` if the user has a paid Dropbox Sign account
-     *
-     * @return self
-     */
-    public function setIsPaidHs(bool $is_paid_hs)
-    {
-        if (is_null($is_paid_hs)) {
-            throw new InvalidArgumentException('non-nullable is_paid_hs cannot be null');
-        }
-        $this->container['is_paid_hs'] = $is_paid_hs;
-
-        return $this;
-    }
-
-    /**
-     * Gets is_paid_hf
-     *
-     * @return bool
-     */
-    public function getIsPaidHf()
-    {
-        return $this->container['is_paid_hf'];
-    }
-
-    /**
-     * Sets is_paid_hf
-     *
-     * @param bool $is_paid_hf returns `true` if the user has a paid HelloFax account
-     *
-     * @return self
-     */
-    public function setIsPaidHf(bool $is_paid_hf)
-    {
-        if (is_null($is_paid_hf)) {
-            throw new InvalidArgumentException('non-nullable is_paid_hf cannot be null');
-        }
-        $this->container['is_paid_hf'] = $is_paid_hf;
-
-        return $this;
-    }
-
-    /**
-     * Gets quotas
-     *
-     * @return TemplateResponseAccountQuota
-     */
-    public function getQuotas()
-    {
-        return $this->container['quotas'];
-    }
-
-    /**
-     * Sets quotas
-     *
-     * @param TemplateResponseAccountQuota $quotas quotas
-     *
-     * @return self
-     */
-    public function setQuotas(TemplateResponseAccountQuota $quotas)
-    {
-        if (is_null($quotas)) {
-            throw new InvalidArgumentException('non-nullable quotas cannot be null');
-        }
-        $this->container['quotas'] = $quotas;
 
         return $this;
     }
@@ -505,6 +380,114 @@ class TemplateResponseAccount implements ModelInterface, ArrayAccess, JsonSerial
             throw new InvalidArgumentException('non-nullable email_address cannot be null');
         }
         $this->container['email_address'] = $email_address;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_locked
+     *
+     * @return bool|null
+     */
+    public function getIsLocked()
+    {
+        return $this->container['is_locked'];
+    }
+
+    /**
+     * Sets is_locked
+     *
+     * @param bool|null $is_locked returns `true` if the user has been locked out of their account by a team admin
+     *
+     * @return self
+     */
+    public function setIsLocked(?bool $is_locked)
+    {
+        if (is_null($is_locked)) {
+            throw new InvalidArgumentException('non-nullable is_locked cannot be null');
+        }
+        $this->container['is_locked'] = $is_locked;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_paid_hs
+     *
+     * @return bool|null
+     */
+    public function getIsPaidHs()
+    {
+        return $this->container['is_paid_hs'];
+    }
+
+    /**
+     * Sets is_paid_hs
+     *
+     * @param bool|null $is_paid_hs returns `true` if the user has a paid Dropbox Sign account
+     *
+     * @return self
+     */
+    public function setIsPaidHs(?bool $is_paid_hs)
+    {
+        if (is_null($is_paid_hs)) {
+            throw new InvalidArgumentException('non-nullable is_paid_hs cannot be null');
+        }
+        $this->container['is_paid_hs'] = $is_paid_hs;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_paid_hf
+     *
+     * @return bool|null
+     */
+    public function getIsPaidHf()
+    {
+        return $this->container['is_paid_hf'];
+    }
+
+    /**
+     * Sets is_paid_hf
+     *
+     * @param bool|null $is_paid_hf returns `true` if the user has a paid HelloFax account
+     *
+     * @return self
+     */
+    public function setIsPaidHf(?bool $is_paid_hf)
+    {
+        if (is_null($is_paid_hf)) {
+            throw new InvalidArgumentException('non-nullable is_paid_hf cannot be null');
+        }
+        $this->container['is_paid_hf'] = $is_paid_hf;
+
+        return $this;
+    }
+
+    /**
+     * Gets quotas
+     *
+     * @return TemplateResponseAccountQuota|null
+     */
+    public function getQuotas()
+    {
+        return $this->container['quotas'];
+    }
+
+    /**
+     * Sets quotas
+     *
+     * @param TemplateResponseAccountQuota|null $quotas quotas
+     *
+     * @return self
+     */
+    public function setQuotas(?TemplateResponseAccountQuota $quotas)
+    {
+        if (is_null($quotas)) {
+            throw new InvalidArgumentException('non-nullable quotas cannot be null');
+        }
+        $this->container['quotas'] = $quotas;
 
         return $this;
     }

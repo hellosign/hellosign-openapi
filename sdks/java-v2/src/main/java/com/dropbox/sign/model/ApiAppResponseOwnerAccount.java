@@ -72,9 +72,9 @@ public class ApiAppResponseOwnerAccount {
    * The owner account&#39;s ID
    * @return accountId
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getAccountId() {
     return accountId;
@@ -82,7 +82,7 @@ public class ApiAppResponseOwnerAccount {
 
 
   @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountId(String accountId) {
     this.accountId = accountId;
   }
@@ -97,9 +97,9 @@ public class ApiAppResponseOwnerAccount {
    * The owner account&#39;s email address
    * @return emailAddress
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getEmailAddress() {
     return emailAddress;
@@ -107,7 +107,7 @@ public class ApiAppResponseOwnerAccount {
 
 
   @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEmailAddress(String emailAddress) {
     this.emailAddress = emailAddress;
   }

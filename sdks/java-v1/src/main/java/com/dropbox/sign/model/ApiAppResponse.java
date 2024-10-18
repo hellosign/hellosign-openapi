@@ -27,15 +27,15 @@ import java.util.Objects;
 
 /** Contains information about an API App. */
 @JsonPropertyOrder({
+    ApiAppResponse.JSON_PROPERTY_CALLBACK_URL,
     ApiAppResponse.JSON_PROPERTY_CLIENT_ID,
     ApiAppResponse.JSON_PROPERTY_CREATED_AT,
     ApiAppResponse.JSON_PROPERTY_DOMAINS,
     ApiAppResponse.JSON_PROPERTY_NAME,
     ApiAppResponse.JSON_PROPERTY_IS_APPROVED,
+    ApiAppResponse.JSON_PROPERTY_OAUTH,
     ApiAppResponse.JSON_PROPERTY_OPTIONS,
     ApiAppResponse.JSON_PROPERTY_OWNER_ACCOUNT,
-    ApiAppResponse.JSON_PROPERTY_CALLBACK_URL,
-    ApiAppResponse.JSON_PROPERTY_OAUTH,
     ApiAppResponse.JSON_PROPERTY_WHITE_LABELING_OPTIONS
 })
 @javax.annotation.Generated(
@@ -43,6 +43,9 @@ import java.util.Objects;
         comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ApiAppResponse {
+    public static final String JSON_PROPERTY_CALLBACK_URL = "callback_url";
+    private String callbackUrl;
+
     public static final String JSON_PROPERTY_CLIENT_ID = "client_id";
     private String clientId;
 
@@ -50,7 +53,7 @@ public class ApiAppResponse {
     private Integer createdAt;
 
     public static final String JSON_PROPERTY_DOMAINS = "domains";
-    private List<String> domains = new ArrayList<>();
+    private List<String> domains = null;
 
     public static final String JSON_PROPERTY_NAME = "name";
     private String name;
@@ -58,17 +61,14 @@ public class ApiAppResponse {
     public static final String JSON_PROPERTY_IS_APPROVED = "is_approved";
     private Boolean isApproved;
 
+    public static final String JSON_PROPERTY_OAUTH = "oauth";
+    private ApiAppResponseOAuth oauth;
+
     public static final String JSON_PROPERTY_OPTIONS = "options";
     private ApiAppResponseOptions options;
 
     public static final String JSON_PROPERTY_OWNER_ACCOUNT = "owner_account";
     private ApiAppResponseOwnerAccount ownerAccount;
-
-    public static final String JSON_PROPERTY_CALLBACK_URL = "callback_url";
-    private String callbackUrl;
-
-    public static final String JSON_PROPERTY_OAUTH = "oauth";
-    private ApiAppResponseOAuth oauth;
 
     public static final String JSON_PROPERTY_WHITE_LABELING_OPTIONS = "white_labeling_options";
     private ApiAppResponseWhiteLabelingOptions whiteLabelingOptions;
@@ -87,175 +87,6 @@ public class ApiAppResponse {
     public static ApiAppResponse init(HashMap data) throws Exception {
         return new ObjectMapper()
                 .readValue(new ObjectMapper().writeValueAsString(data), ApiAppResponse.class);
-    }
-
-    public ApiAppResponse clientId(String clientId) {
-        this.clientId = clientId;
-        return this;
-    }
-
-    /**
-     * The app&#39;s client id
-     *
-     * @return clientId
-     */
-    @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_CLIENT_ID)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public String getClientId() {
-        return clientId;
-    }
-
-    @JsonProperty(JSON_PROPERTY_CLIENT_ID)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setClientId(String clientId) {
-        this.clientId = clientId;
-    }
-
-    public ApiAppResponse createdAt(Integer createdAt) {
-        this.createdAt = createdAt;
-        return this;
-    }
-
-    /**
-     * The time that the app was created
-     *
-     * @return createdAt
-     */
-    @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_CREATED_AT)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public Integer getCreatedAt() {
-        return createdAt;
-    }
-
-    @JsonProperty(JSON_PROPERTY_CREATED_AT)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setCreatedAt(Integer createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public ApiAppResponse domains(List<String> domains) {
-        this.domains = domains;
-        return this;
-    }
-
-    public ApiAppResponse addDomainsItem(String domainsItem) {
-        if (this.domains == null) {
-            this.domains = new ArrayList<>();
-        }
-        this.domains.add(domainsItem);
-        return this;
-    }
-
-    /**
-     * The domain name(s) associated with the app
-     *
-     * @return domains
-     */
-    @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_DOMAINS)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public List<String> getDomains() {
-        return domains;
-    }
-
-    @JsonProperty(JSON_PROPERTY_DOMAINS)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setDomains(List<String> domains) {
-        this.domains = domains;
-    }
-
-    public ApiAppResponse name(String name) {
-        this.name = name;
-        return this;
-    }
-
-    /**
-     * The name of the app
-     *
-     * @return name
-     */
-    @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_NAME)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public String getName() {
-        return name;
-    }
-
-    @JsonProperty(JSON_PROPERTY_NAME)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public ApiAppResponse isApproved(Boolean isApproved) {
-        this.isApproved = isApproved;
-        return this;
-    }
-
-    /**
-     * Boolean to indicate if the app has been approved
-     *
-     * @return isApproved
-     */
-    @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_IS_APPROVED)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public Boolean getIsApproved() {
-        return isApproved;
-    }
-
-    @JsonProperty(JSON_PROPERTY_IS_APPROVED)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setIsApproved(Boolean isApproved) {
-        this.isApproved = isApproved;
-    }
-
-    public ApiAppResponse options(ApiAppResponseOptions options) {
-        this.options = options;
-        return this;
-    }
-
-    /**
-     * Get options
-     *
-     * @return options
-     */
-    @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_OPTIONS)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public ApiAppResponseOptions getOptions() {
-        return options;
-    }
-
-    @JsonProperty(JSON_PROPERTY_OPTIONS)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setOptions(ApiAppResponseOptions options) {
-        this.options = options;
-    }
-
-    public ApiAppResponse ownerAccount(ApiAppResponseOwnerAccount ownerAccount) {
-        this.ownerAccount = ownerAccount;
-        return this;
-    }
-
-    /**
-     * Get ownerAccount
-     *
-     * @return ownerAccount
-     */
-    @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_OWNER_ACCOUNT)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public ApiAppResponseOwnerAccount getOwnerAccount() {
-        return ownerAccount;
-    }
-
-    @JsonProperty(JSON_PROPERTY_OWNER_ACCOUNT)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setOwnerAccount(ApiAppResponseOwnerAccount ownerAccount) {
-        this.ownerAccount = ownerAccount;
     }
 
     public ApiAppResponse callbackUrl(String callbackUrl) {
@@ -280,6 +111,124 @@ public class ApiAppResponse {
         this.callbackUrl = callbackUrl;
     }
 
+    public ApiAppResponse clientId(String clientId) {
+        this.clientId = clientId;
+        return this;
+    }
+
+    /**
+     * The app&#39;s client id
+     *
+     * @return clientId
+     */
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_CLIENT_ID)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public String getClientId() {
+        return clientId;
+    }
+
+    @JsonProperty(JSON_PROPERTY_CLIENT_ID)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public void setClientId(String clientId) {
+        this.clientId = clientId;
+    }
+
+    public ApiAppResponse createdAt(Integer createdAt) {
+        this.createdAt = createdAt;
+        return this;
+    }
+
+    /**
+     * The time that the app was created
+     *
+     * @return createdAt
+     */
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_CREATED_AT)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public Integer getCreatedAt() {
+        return createdAt;
+    }
+
+    @JsonProperty(JSON_PROPERTY_CREATED_AT)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public void setCreatedAt(Integer createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public ApiAppResponse domains(List<String> domains) {
+        this.domains = domains;
+        return this;
+    }
+
+    public ApiAppResponse addDomainsItem(String domainsItem) {
+        if (this.domains == null) {
+            this.domains = new ArrayList<>();
+        }
+        this.domains.add(domainsItem);
+        return this;
+    }
+
+    /**
+     * The domain name(s) associated with the app
+     *
+     * @return domains
+     */
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_DOMAINS)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public List<String> getDomains() {
+        return domains;
+    }
+
+    @JsonProperty(JSON_PROPERTY_DOMAINS)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public void setDomains(List<String> domains) {
+        this.domains = domains;
+    }
+
+    public ApiAppResponse name(String name) {
+        this.name = name;
+        return this;
+    }
+
+    /**
+     * The name of the app
+     *
+     * @return name
+     */
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_NAME)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public String getName() {
+        return name;
+    }
+
+    @JsonProperty(JSON_PROPERTY_NAME)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public ApiAppResponse isApproved(Boolean isApproved) {
+        this.isApproved = isApproved;
+        return this;
+    }
+
+    /**
+     * Boolean to indicate if the app has been approved
+     *
+     * @return isApproved
+     */
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_IS_APPROVED)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public Boolean getIsApproved() {
+        return isApproved;
+    }
+
+    @JsonProperty(JSON_PROPERTY_IS_APPROVED)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public void setIsApproved(Boolean isApproved) {
+        this.isApproved = isApproved;
+    }
+
     public ApiAppResponse oauth(ApiAppResponseOAuth oauth) {
         this.oauth = oauth;
         return this;
@@ -300,6 +249,50 @@ public class ApiAppResponse {
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setOauth(ApiAppResponseOAuth oauth) {
         this.oauth = oauth;
+    }
+
+    public ApiAppResponse options(ApiAppResponseOptions options) {
+        this.options = options;
+        return this;
+    }
+
+    /**
+     * Get options
+     *
+     * @return options
+     */
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_OPTIONS)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public ApiAppResponseOptions getOptions() {
+        return options;
+    }
+
+    @JsonProperty(JSON_PROPERTY_OPTIONS)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public void setOptions(ApiAppResponseOptions options) {
+        this.options = options;
+    }
+
+    public ApiAppResponse ownerAccount(ApiAppResponseOwnerAccount ownerAccount) {
+        this.ownerAccount = ownerAccount;
+        return this;
+    }
+
+    /**
+     * Get ownerAccount
+     *
+     * @return ownerAccount
+     */
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_OWNER_ACCOUNT)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public ApiAppResponseOwnerAccount getOwnerAccount() {
+        return ownerAccount;
+    }
+
+    @JsonProperty(JSON_PROPERTY_OWNER_ACCOUNT)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public void setOwnerAccount(ApiAppResponseOwnerAccount ownerAccount) {
+        this.ownerAccount = ownerAccount;
     }
 
     public ApiAppResponse whiteLabelingOptions(
@@ -335,30 +328,30 @@ public class ApiAppResponse {
             return false;
         }
         ApiAppResponse apiAppResponse = (ApiAppResponse) o;
-        return Objects.equals(this.clientId, apiAppResponse.clientId)
+        return Objects.equals(this.callbackUrl, apiAppResponse.callbackUrl)
+                && Objects.equals(this.clientId, apiAppResponse.clientId)
                 && Objects.equals(this.createdAt, apiAppResponse.createdAt)
                 && Objects.equals(this.domains, apiAppResponse.domains)
                 && Objects.equals(this.name, apiAppResponse.name)
                 && Objects.equals(this.isApproved, apiAppResponse.isApproved)
+                && Objects.equals(this.oauth, apiAppResponse.oauth)
                 && Objects.equals(this.options, apiAppResponse.options)
                 && Objects.equals(this.ownerAccount, apiAppResponse.ownerAccount)
-                && Objects.equals(this.callbackUrl, apiAppResponse.callbackUrl)
-                && Objects.equals(this.oauth, apiAppResponse.oauth)
                 && Objects.equals(this.whiteLabelingOptions, apiAppResponse.whiteLabelingOptions);
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(
+                callbackUrl,
                 clientId,
                 createdAt,
                 domains,
                 name,
                 isApproved,
+                oauth,
                 options,
                 ownerAccount,
-                callbackUrl,
-                oauth,
                 whiteLabelingOptions);
     }
 
@@ -366,15 +359,15 @@ public class ApiAppResponse {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class ApiAppResponse {\n");
+        sb.append("    callbackUrl: ").append(toIndentedString(callbackUrl)).append("\n");
         sb.append("    clientId: ").append(toIndentedString(clientId)).append("\n");
         sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
         sb.append("    domains: ").append(toIndentedString(domains)).append("\n");
         sb.append("    name: ").append(toIndentedString(name)).append("\n");
         sb.append("    isApproved: ").append(toIndentedString(isApproved)).append("\n");
+        sb.append("    oauth: ").append(toIndentedString(oauth)).append("\n");
         sb.append("    options: ").append(toIndentedString(options)).append("\n");
         sb.append("    ownerAccount: ").append(toIndentedString(ownerAccount)).append("\n");
-        sb.append("    callbackUrl: ").append(toIndentedString(callbackUrl)).append("\n");
-        sb.append("    oauth: ").append(toIndentedString(oauth)).append("\n");
         sb.append("    whiteLabelingOptions: ")
                 .append(toIndentedString(whiteLabelingOptions))
                 .append("\n");
@@ -386,6 +379,26 @@ public class ApiAppResponse {
         Map<String, Object> map = new HashMap<>();
         boolean fileTypeFound = false;
         try {
+            if (callbackUrl != null) {
+                if (isFileTypeOrListOfFiles(callbackUrl)) {
+                    fileTypeFound = true;
+                }
+
+                if (callbackUrl.getClass().equals(java.io.File.class)
+                        || callbackUrl.getClass().equals(Integer.class)
+                        || callbackUrl.getClass().equals(String.class)
+                        || callbackUrl.getClass().isEnum()) {
+                    map.put("callback_url", callbackUrl);
+                } else if (isListOfFile(callbackUrl)) {
+                    for (int i = 0; i < getListSize(callbackUrl); i++) {
+                        map.put("callback_url[" + i + "]", getFromList(callbackUrl, i));
+                    }
+                } else {
+                    map.put(
+                            "callback_url",
+                            JSON.getDefault().getMapper().writeValueAsString(callbackUrl));
+                }
+            }
             if (clientId != null) {
                 if (isFileTypeOrListOfFiles(clientId)) {
                     fileTypeFound = true;
@@ -482,6 +495,24 @@ public class ApiAppResponse {
                             JSON.getDefault().getMapper().writeValueAsString(isApproved));
                 }
             }
+            if (oauth != null) {
+                if (isFileTypeOrListOfFiles(oauth)) {
+                    fileTypeFound = true;
+                }
+
+                if (oauth.getClass().equals(java.io.File.class)
+                        || oauth.getClass().equals(Integer.class)
+                        || oauth.getClass().equals(String.class)
+                        || oauth.getClass().isEnum()) {
+                    map.put("oauth", oauth);
+                } else if (isListOfFile(oauth)) {
+                    for (int i = 0; i < getListSize(oauth); i++) {
+                        map.put("oauth[" + i + "]", getFromList(oauth, i));
+                    }
+                } else {
+                    map.put("oauth", JSON.getDefault().getMapper().writeValueAsString(oauth));
+                }
+            }
             if (options != null) {
                 if (isFileTypeOrListOfFiles(options)) {
                     fileTypeFound = true;
@@ -518,44 +549,6 @@ public class ApiAppResponse {
                     map.put(
                             "owner_account",
                             JSON.getDefault().getMapper().writeValueAsString(ownerAccount));
-                }
-            }
-            if (callbackUrl != null) {
-                if (isFileTypeOrListOfFiles(callbackUrl)) {
-                    fileTypeFound = true;
-                }
-
-                if (callbackUrl.getClass().equals(java.io.File.class)
-                        || callbackUrl.getClass().equals(Integer.class)
-                        || callbackUrl.getClass().equals(String.class)
-                        || callbackUrl.getClass().isEnum()) {
-                    map.put("callback_url", callbackUrl);
-                } else if (isListOfFile(callbackUrl)) {
-                    for (int i = 0; i < getListSize(callbackUrl); i++) {
-                        map.put("callback_url[" + i + "]", getFromList(callbackUrl, i));
-                    }
-                } else {
-                    map.put(
-                            "callback_url",
-                            JSON.getDefault().getMapper().writeValueAsString(callbackUrl));
-                }
-            }
-            if (oauth != null) {
-                if (isFileTypeOrListOfFiles(oauth)) {
-                    fileTypeFound = true;
-                }
-
-                if (oauth.getClass().equals(java.io.File.class)
-                        || oauth.getClass().equals(Integer.class)
-                        || oauth.getClass().equals(String.class)
-                        || oauth.getClass().isEnum()) {
-                    map.put("oauth", oauth);
-                } else if (isListOfFile(oauth)) {
-                    for (int i = 0; i < getListSize(oauth); i++) {
-                        map.put("oauth[" + i + "]", getFromList(oauth, i));
-                    }
-                } else {
-                    map.put("oauth", JSON.getDefault().getMapper().writeValueAsString(oauth));
                 }
             }
             if (whiteLabelingOptions != null) {

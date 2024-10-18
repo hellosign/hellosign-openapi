@@ -28,7 +28,7 @@ export class TemplateResponseCCRole {
   /**
    * The name of the Role.
    */
-  "name": string;
+  "name"?: string;
 
   static discriminator: string | undefined = undefined;
 

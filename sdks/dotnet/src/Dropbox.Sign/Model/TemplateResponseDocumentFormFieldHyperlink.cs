@@ -42,19 +42,19 @@ namespace Dropbox.Sign.Model
         /// Initializes a new instance of the <see cref="TemplateResponseDocumentFormFieldHyperlink" /> class.
         /// </summary>
         /// <param name="type">The type of this form field. See [field types](/api/reference/constants/#field-types).  * Text Field uses &#x60;TemplateResponseDocumentFormFieldText&#x60; * Dropdown Field uses &#x60;TemplateResponseDocumentFormFieldDropdown&#x60; * Hyperlink Field uses &#x60;TemplateResponseDocumentFormFieldHyperlink&#x60; * Checkbox Field uses &#x60;TemplateResponseDocumentFormFieldCheckbox&#x60; * Radio Field uses &#x60;TemplateResponseDocumentFormFieldRadio&#x60; * Signature Field uses &#x60;TemplateResponseDocumentFormFieldSignature&#x60; * Date Signed Field uses &#x60;TemplateResponseDocumentFormFieldDateSigned&#x60; * Initials Field uses &#x60;TemplateResponseDocumentFormFieldInitials&#x60; (required) (default to &quot;hyperlink&quot;).</param>
-        /// <param name="avgTextLength">avgTextLength (required).</param>
-        /// <param name="isMultiline">Whether this form field is multiline text. (required).</param>
-        /// <param name="originalFontSize">Original font size used in this form field&#39;s text. (required).</param>
-        /// <param name="fontFamily">Font family used in this form field&#39;s text. (required).</param>
+        /// <param name="avgTextLength">avgTextLength.</param>
+        /// <param name="isMultiline">Whether this form field is multiline text..</param>
+        /// <param name="originalFontSize">Original font size used in this form field&#39;s text..</param>
+        /// <param name="fontFamily">Font family used in this form field&#39;s text..</param>
         /// <param name="group">The name of the group this field is in. If this field is not a group, this defaults to &#x60;null&#x60; except for Radio fields..</param>
-        /// <param name="apiId">A unique id for the form field. (required).</param>
-        /// <param name="name">The name of the form field. (required).</param>
-        /// <param name="signer">The signer of the Form Field. (required).</param>
-        /// <param name="x">The horizontal offset in pixels for this form field. (required).</param>
-        /// <param name="y">The vertical offset in pixels for this form field. (required).</param>
-        /// <param name="width">The width in pixels of this form field. (required).</param>
-        /// <param name="height">The height in pixels of this form field. (required).</param>
-        /// <param name="required">Boolean showing whether or not this field is required. (required).</param>
+        /// <param name="apiId">A unique id for the form field..</param>
+        /// <param name="name">The name of the form field..</param>
+        /// <param name="signer">The signer of the Form Field..</param>
+        /// <param name="x">The horizontal offset in pixels for this form field..</param>
+        /// <param name="y">The vertical offset in pixels for this form field..</param>
+        /// <param name="width">The width in pixels of this form field..</param>
+        /// <param name="height">The height in pixels of this form field..</param>
+        /// <param name="required">Boolean showing whether or not this field is required..</param>
         public TemplateResponseDocumentFormFieldHyperlink(string type = @"hyperlink", TemplateResponseFieldAvgTextLength avgTextLength = default(TemplateResponseFieldAvgTextLength), bool isMultiline = default(bool), int originalFontSize = default(int), string fontFamily = default(string), string group = default(string), string apiId = default(string), string name = default(string), Object signer = null, int x = default(int), int y = default(int), int width = default(int), int height = default(int), bool required = default(bool))
         {
             this.ApiId = apiId;
@@ -72,19 +72,9 @@ namespace Dropbox.Sign.Model
                 throw new ArgumentNullException("type is a required property for TemplateResponseDocumentFormFieldHyperlink and cannot be null");
             }
             this.Type = type;
-            // to ensure "avgTextLength" is required (not null)
-            if (avgTextLength == null)
-            {
-                throw new ArgumentNullException("avgTextLength is a required property for TemplateResponseDocumentFormFieldHyperlink and cannot be null");
-            }
             this.AvgTextLength = avgTextLength;
             this.IsMultiline = isMultiline;
             this.OriginalFontSize = originalFontSize;
-            // to ensure "fontFamily" is required (not null)
-            if (fontFamily == null)
-            {
-                throw new ArgumentNullException("fontFamily is a required property for TemplateResponseDocumentFormFieldHyperlink and cannot be null");
-            }
             this.FontFamily = fontFamily;
             this.Group = group;
         }
@@ -115,28 +105,28 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Gets or Sets AvgTextLength
         /// </summary>
-        [DataMember(Name = "avg_text_length", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "avg_text_length", EmitDefaultValue = true)]
         public TemplateResponseFieldAvgTextLength AvgTextLength { get; set; }
 
         /// <summary>
         /// Whether this form field is multiline text.
         /// </summary>
         /// <value>Whether this form field is multiline text.</value>
-        [DataMember(Name = "isMultiline", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "isMultiline", EmitDefaultValue = true)]
         public bool IsMultiline { get; set; }
 
         /// <summary>
         /// Original font size used in this form field&#39;s text.
         /// </summary>
         /// <value>Original font size used in this form field&#39;s text.</value>
-        [DataMember(Name = "originalFontSize", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "originalFontSize", EmitDefaultValue = true)]
         public int OriginalFontSize { get; set; }
 
         /// <summary>
         /// Font family used in this form field&#39;s text.
         /// </summary>
         /// <value>Font family used in this form field&#39;s text.</value>
-        [DataMember(Name = "fontFamily", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "fontFamily", EmitDefaultValue = true)]
         public string FontFamily { get; set; }
 
         /// <summary>

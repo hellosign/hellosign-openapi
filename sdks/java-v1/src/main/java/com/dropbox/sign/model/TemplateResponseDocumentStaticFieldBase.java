@@ -29,9 +29,9 @@ import java.util.Objects;
  * An array describing static overlay fields. **NOTE:** Only available for certain subscriptions.
  */
 @JsonPropertyOrder({
+    TemplateResponseDocumentStaticFieldBase.JSON_PROPERTY_TYPE,
     TemplateResponseDocumentStaticFieldBase.JSON_PROPERTY_API_ID,
     TemplateResponseDocumentStaticFieldBase.JSON_PROPERTY_NAME,
-    TemplateResponseDocumentStaticFieldBase.JSON_PROPERTY_TYPE,
     TemplateResponseDocumentStaticFieldBase.JSON_PROPERTY_SIGNER,
     TemplateResponseDocumentStaticFieldBase.JSON_PROPERTY_X,
     TemplateResponseDocumentStaticFieldBase.JSON_PROPERTY_Y,
@@ -74,14 +74,14 @@ import java.util.Objects;
     @JsonSubTypes.Type(value = TemplateResponseDocumentStaticFieldText.class, name = "text"),
 })
 public class TemplateResponseDocumentStaticFieldBase {
+    public static final String JSON_PROPERTY_TYPE = "type";
+    private String type;
+
     public static final String JSON_PROPERTY_API_ID = "api_id";
     private String apiId;
 
     public static final String JSON_PROPERTY_NAME = "name";
     private String name;
-
-    public static final String JSON_PROPERTY_TYPE = "type";
-    private String type;
 
     public static final String JSON_PROPERTY_SIGNER = "signer";
     private String signer = "me_now";
@@ -123,52 +123,6 @@ public class TemplateResponseDocumentStaticFieldBase {
                         TemplateResponseDocumentStaticFieldBase.class);
     }
 
-    public TemplateResponseDocumentStaticFieldBase apiId(String apiId) {
-        this.apiId = apiId;
-        return this;
-    }
-
-    /**
-     * A unique id for the static field.
-     *
-     * @return apiId
-     */
-    @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_API_ID)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public String getApiId() {
-        return apiId;
-    }
-
-    @JsonProperty(JSON_PROPERTY_API_ID)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setApiId(String apiId) {
-        this.apiId = apiId;
-    }
-
-    public TemplateResponseDocumentStaticFieldBase name(String name) {
-        this.name = name;
-        return this;
-    }
-
-    /**
-     * The name of the static field.
-     *
-     * @return name
-     */
-    @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_NAME)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public String getName() {
-        return name;
-    }
-
-    @JsonProperty(JSON_PROPERTY_NAME)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public TemplateResponseDocumentStaticFieldBase type(String type) {
         this.type = type;
         return this;
@@ -192,6 +146,50 @@ public class TemplateResponseDocumentStaticFieldBase {
         this.type = type;
     }
 
+    public TemplateResponseDocumentStaticFieldBase apiId(String apiId) {
+        this.apiId = apiId;
+        return this;
+    }
+
+    /**
+     * A unique id for the static field.
+     *
+     * @return apiId
+     */
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_API_ID)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public String getApiId() {
+        return apiId;
+    }
+
+    @JsonProperty(JSON_PROPERTY_API_ID)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public void setApiId(String apiId) {
+        this.apiId = apiId;
+    }
+
+    public TemplateResponseDocumentStaticFieldBase name(String name) {
+        this.name = name;
+        return this;
+    }
+
+    /**
+     * The name of the static field.
+     *
+     * @return name
+     */
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_NAME)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public String getName() {
+        return name;
+    }
+
+    @JsonProperty(JSON_PROPERTY_NAME)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public TemplateResponseDocumentStaticFieldBase signer(String signer) {
         this.signer = signer;
         return this;
@@ -202,15 +200,14 @@ public class TemplateResponseDocumentStaticFieldBase {
      *
      * @return signer
      */
-    @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_SIGNER)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_SIGNER)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getSigner() {
         return signer;
     }
 
     @JsonProperty(JSON_PROPERTY_SIGNER)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setSigner(String signer) {
         this.signer = signer;
     }
@@ -225,15 +222,14 @@ public class TemplateResponseDocumentStaticFieldBase {
      *
      * @return x
      */
-    @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_X)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_X)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public Integer getX() {
         return x;
     }
 
     @JsonProperty(JSON_PROPERTY_X)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setX(Integer x) {
         this.x = x;
     }
@@ -248,15 +244,14 @@ public class TemplateResponseDocumentStaticFieldBase {
      *
      * @return y
      */
-    @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_Y)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_Y)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public Integer getY() {
         return y;
     }
 
     @JsonProperty(JSON_PROPERTY_Y)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setY(Integer y) {
         this.y = y;
     }
@@ -271,15 +266,14 @@ public class TemplateResponseDocumentStaticFieldBase {
      *
      * @return width
      */
-    @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_WIDTH)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_WIDTH)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public Integer getWidth() {
         return width;
     }
 
     @JsonProperty(JSON_PROPERTY_WIDTH)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setWidth(Integer width) {
         this.width = width;
     }
@@ -294,15 +288,14 @@ public class TemplateResponseDocumentStaticFieldBase {
      *
      * @return height
      */
-    @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_HEIGHT)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_HEIGHT)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public Integer getHeight() {
         return height;
     }
 
     @JsonProperty(JSON_PROPERTY_HEIGHT)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setHeight(Integer height) {
         this.height = height;
     }
@@ -317,15 +310,14 @@ public class TemplateResponseDocumentStaticFieldBase {
      *
      * @return required
      */
-    @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_REQUIRED)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_REQUIRED)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public Boolean getRequired() {
         return required;
     }
 
     @JsonProperty(JSON_PROPERTY_REQUIRED)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setRequired(Boolean required) {
         this.required = required;
     }
@@ -364,9 +356,9 @@ public class TemplateResponseDocumentStaticFieldBase {
         }
         TemplateResponseDocumentStaticFieldBase templateResponseDocumentStaticFieldBase =
                 (TemplateResponseDocumentStaticFieldBase) o;
-        return Objects.equals(this.apiId, templateResponseDocumentStaticFieldBase.apiId)
+        return Objects.equals(this.type, templateResponseDocumentStaticFieldBase.type)
+                && Objects.equals(this.apiId, templateResponseDocumentStaticFieldBase.apiId)
                 && Objects.equals(this.name, templateResponseDocumentStaticFieldBase.name)
-                && Objects.equals(this.type, templateResponseDocumentStaticFieldBase.type)
                 && Objects.equals(this.signer, templateResponseDocumentStaticFieldBase.signer)
                 && Objects.equals(this.x, templateResponseDocumentStaticFieldBase.x)
                 && Objects.equals(this.y, templateResponseDocumentStaticFieldBase.y)
@@ -378,16 +370,16 @@ public class TemplateResponseDocumentStaticFieldBase {
 
     @Override
     public int hashCode() {
-        return Objects.hash(apiId, name, type, signer, x, y, width, height, required, group);
+        return Objects.hash(type, apiId, name, signer, x, y, width, height, required, group);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class TemplateResponseDocumentStaticFieldBase {\n");
+        sb.append("    type: ").append(toIndentedString(type)).append("\n");
         sb.append("    apiId: ").append(toIndentedString(apiId)).append("\n");
         sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("    type: ").append(toIndentedString(type)).append("\n");
         sb.append("    signer: ").append(toIndentedString(signer)).append("\n");
         sb.append("    x: ").append(toIndentedString(x)).append("\n");
         sb.append("    y: ").append(toIndentedString(y)).append("\n");
@@ -403,6 +395,24 @@ public class TemplateResponseDocumentStaticFieldBase {
         Map<String, Object> map = new HashMap<>();
         boolean fileTypeFound = false;
         try {
+            if (type != null) {
+                if (isFileTypeOrListOfFiles(type)) {
+                    fileTypeFound = true;
+                }
+
+                if (type.getClass().equals(java.io.File.class)
+                        || type.getClass().equals(Integer.class)
+                        || type.getClass().equals(String.class)
+                        || type.getClass().isEnum()) {
+                    map.put("type", type);
+                } else if (isListOfFile(type)) {
+                    for (int i = 0; i < getListSize(type); i++) {
+                        map.put("type[" + i + "]", getFromList(type, i));
+                    }
+                } else {
+                    map.put("type", JSON.getDefault().getMapper().writeValueAsString(type));
+                }
+            }
             if (apiId != null) {
                 if (isFileTypeOrListOfFiles(apiId)) {
                     fileTypeFound = true;
@@ -437,24 +447,6 @@ public class TemplateResponseDocumentStaticFieldBase {
                     }
                 } else {
                     map.put("name", JSON.getDefault().getMapper().writeValueAsString(name));
-                }
-            }
-            if (type != null) {
-                if (isFileTypeOrListOfFiles(type)) {
-                    fileTypeFound = true;
-                }
-
-                if (type.getClass().equals(java.io.File.class)
-                        || type.getClass().equals(Integer.class)
-                        || type.getClass().equals(String.class)
-                        || type.getClass().isEnum()) {
-                    map.put("type", type);
-                } else if (isListOfFile(type)) {
-                    for (int i = 0; i < getListSize(type); i++) {
-                        map.put("type[" + i + "]", getFromList(type, i));
-                    }
-                } else {
-                    map.put("type", JSON.getDefault().getMapper().writeValueAsString(type));
                 }
             }
             if (signer != null) {

@@ -29,8 +29,8 @@ export class TemplateResponseDocumentFieldGroup {
   /**
    * The name of the form field group.
    */
-  "name": string;
-  "rule": TemplateResponseDocumentFieldGroupRule;
+  "name"?: string;
+  "rule"?: TemplateResponseDocumentFieldGroupRule;
 
   static discriminator: string | undefined = undefined;
 

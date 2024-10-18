@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set, Tuple
 from typing_extensions import Self
 import io
@@ -32,8 +32,10 @@ class TemplateResponseFieldAvgTextLength(BaseModel):
     Average text length in this field.
     """  # noqa: E501
 
-    num_lines: StrictInt = Field(description="Number of lines.")
-    num_chars_per_line: StrictInt = Field(description="Number of characters per line.")
+    num_lines: Optional[StrictInt] = Field(default=None, description="Number of lines.")
+    num_chars_per_line: Optional[StrictInt] = Field(
+        default=None, description="Number of characters per line."
+    )
     __properties: ClassVar[List[str]] = ["num_lines", "num_chars_per_line"]
 
     model_config = ConfigDict(

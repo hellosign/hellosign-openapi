@@ -42,25 +42,25 @@ namespace Dropbox.Sign.Model
         /// Initializes a new instance of the <see cref="TemplateResponseDocumentCustomFieldCheckbox" /> class.
         /// </summary>
         /// <param name="type">The type of this Custom Field. Only &#x60;text&#x60; and &#x60;checkbox&#x60; are currently supported.  * Text uses &#x60;TemplateResponseDocumentCustomFieldText&#x60; * Checkbox uses &#x60;TemplateResponseDocumentCustomFieldCheckbox&#x60; (required) (default to &quot;checkbox&quot;).</param>
-        /// <param name="apiId">The unique ID for this field. (required).</param>
-        /// <param name="name">The name of the Custom Field. (required).</param>
+        /// <param name="apiId">The unique ID for this field..</param>
+        /// <param name="name">The name of the Custom Field..</param>
         /// <param name="signer">The signer of the Custom Field. Can be &#x60;null&#x60; if field is a merge field (assigned to Sender)..</param>
-        /// <param name="x">The horizontal offset in pixels for this form field. (required).</param>
-        /// <param name="y">The vertical offset in pixels for this form field. (required).</param>
-        /// <param name="width">The width in pixels of this form field. (required).</param>
-        /// <param name="height">The height in pixels of this form field. (required).</param>
-        /// <param name="required">Boolean showing whether or not this field is required. (required).</param>
+        /// <param name="x">The horizontal offset in pixels for this form field..</param>
+        /// <param name="y">The vertical offset in pixels for this form field..</param>
+        /// <param name="width">The width in pixels of this form field..</param>
+        /// <param name="height">The height in pixels of this form field..</param>
+        /// <param name="required">Boolean showing whether or not this field is required..</param>
         /// <param name="group">The name of the group this field is in. If this field is not a group, this defaults to &#x60;null&#x60;..</param>
         public TemplateResponseDocumentCustomFieldCheckbox(string type = @"checkbox", string apiId = default(string), string name = default(string), Object signer = null, int x = default(int), int y = default(int), int width = default(int), int height = default(int), bool required = default(bool), string group = default(string))
         {
             this.ApiId = apiId;
             this.Name = name;
+            this.Signer = Convert.ToString(signer);
             this.X = x;
             this.Y = y;
             this.Width = width;
             this.Height = height;
             this.Required = required;
-            this.Signer = Convert.ToString(signer);
             this.Group = group;
 
             // to ensure "type" is required (not null)

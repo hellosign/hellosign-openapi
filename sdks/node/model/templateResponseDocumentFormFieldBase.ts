@@ -28,43 +28,48 @@ import { AttributeTypeMap } from "./";
  * An array of Form Field objects containing the name and type of each named field.
  */
 export abstract class TemplateResponseDocumentFormFieldBase {
+  "type": string;
   /**
    * A unique id for the form field.
    */
-  "apiId": string;
+  "apiId"?: string;
   /**
    * The name of the form field.
    */
-  "name": string;
-  "type": string;
+  "name"?: string;
   /**
    * The signer of the Form Field.
    */
-  "signer": number | string;
+  "signer"?: number | string;
   /**
    * The horizontal offset in pixels for this form field.
    */
-  "x": number;
+  "x"?: number;
   /**
    * The vertical offset in pixels for this form field.
    */
-  "y": number;
+  "y"?: number;
   /**
    * The width in pixels of this form field.
    */
-  "width": number;
+  "width"?: number;
   /**
    * The height in pixels of this form field.
    */
-  "height": number;
+  "height"?: number;
   /**
    * Boolean showing whether or not this field is required.
    */
-  "required": boolean;
+  "required"?: boolean;
 
   static discriminator: string | undefined = "type";
 
   static attributeTypeMap: AttributeTypeMap = [
+    {
+      name: "type",
+      baseName: "type",
+      type: "string",
+    },
     {
       name: "apiId",
       baseName: "api_id",
@@ -73,11 +78,6 @@ export abstract class TemplateResponseDocumentFormFieldBase {
     {
       name: "name",
       baseName: "name",
-      type: "string",
-    },
-    {
-      name: "type",
-      baseName: "type",
       type: "string",
     },
     {

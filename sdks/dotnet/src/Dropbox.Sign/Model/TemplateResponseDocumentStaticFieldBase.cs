@@ -51,43 +51,29 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TemplateResponseDocumentStaticFieldBase" /> class.
         /// </summary>
-        /// <param name="apiId">A unique id for the static field. (required).</param>
-        /// <param name="name">The name of the static field. (required).</param>
+        /// <param name="apiId">A unique id for the static field..</param>
+        /// <param name="name">The name of the static field..</param>
         /// <param name="type">type (required).</param>
-        /// <param name="signer">The signer of the Static Field. (required) (default to &quot;me_now&quot;).</param>
-        /// <param name="x">The horizontal offset in pixels for this static field. (required).</param>
-        /// <param name="y">The vertical offset in pixels for this static field. (required).</param>
-        /// <param name="width">The width in pixels of this static field. (required).</param>
-        /// <param name="height">The height in pixels of this static field. (required).</param>
-        /// <param name="required">Boolean showing whether or not this field is required. (required).</param>
+        /// <param name="signer">The signer of the Static Field. (default to &quot;me_now&quot;).</param>
+        /// <param name="x">The horizontal offset in pixels for this static field..</param>
+        /// <param name="y">The vertical offset in pixels for this static field..</param>
+        /// <param name="width">The width in pixels of this static field..</param>
+        /// <param name="height">The height in pixels of this static field..</param>
+        /// <param name="required">Boolean showing whether or not this field is required..</param>
         /// <param name="group">The name of the group this field is in. If this field is not a group, this defaults to &#x60;null&#x60;..</param>
         public TemplateResponseDocumentStaticFieldBase(string apiId = default(string), string name = default(string), string type = default(string), string signer = @"me_now", int x = default(int), int y = default(int), int width = default(int), int height = default(int), bool required = default(bool), string group = default(string))
         {
 
-            // to ensure "apiId" is required (not null)
-            if (apiId == null)
-            {
-                throw new ArgumentNullException("apiId is a required property for TemplateResponseDocumentStaticFieldBase and cannot be null");
-            }
-            this.ApiId = apiId;
-            // to ensure "name" is required (not null)
-            if (name == null)
-            {
-                throw new ArgumentNullException("name is a required property for TemplateResponseDocumentStaticFieldBase and cannot be null");
-            }
-            this.Name = name;
             // to ensure "type" is required (not null)
             if (type == null)
             {
                 throw new ArgumentNullException("type is a required property for TemplateResponseDocumentStaticFieldBase and cannot be null");
             }
             this.Type = type;
-            // to ensure "signer" is required (not null)
-            if (signer == null)
-            {
-                throw new ArgumentNullException("signer is a required property for TemplateResponseDocumentStaticFieldBase and cannot be null");
-            }
-            this.Signer = signer;
+            this.ApiId = apiId;
+            this.Name = name;
+            // use default value if no "signer" provided
+            this.Signer = signer ?? "me_now";
             this.X = x;
             this.Y = y;
             this.Width = width;
@@ -113,65 +99,65 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
-        /// A unique id for the static field.
-        /// </summary>
-        /// <value>A unique id for the static field.</value>
-        [DataMember(Name = "api_id", IsRequired = true, EmitDefaultValue = true)]
-        public string ApiId { get; set; }
-
-        /// <summary>
-        /// The name of the static field.
-        /// </summary>
-        /// <value>The name of the static field.</value>
-        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
-        public string Name { get; set; }
-
-        /// <summary>
         /// Gets or Sets Type
         /// </summary>
         [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
         public string Type { get; set; }
 
         /// <summary>
+        /// A unique id for the static field.
+        /// </summary>
+        /// <value>A unique id for the static field.</value>
+        [DataMember(Name = "api_id", EmitDefaultValue = true)]
+        public string ApiId { get; set; }
+
+        /// <summary>
+        /// The name of the static field.
+        /// </summary>
+        /// <value>The name of the static field.</value>
+        [DataMember(Name = "name", EmitDefaultValue = true)]
+        public string Name { get; set; }
+
+        /// <summary>
         /// The signer of the Static Field.
         /// </summary>
         /// <value>The signer of the Static Field.</value>
-        [DataMember(Name = "signer", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "signer", EmitDefaultValue = true)]
         public string Signer { get; set; }
 
         /// <summary>
         /// The horizontal offset in pixels for this static field.
         /// </summary>
         /// <value>The horizontal offset in pixels for this static field.</value>
-        [DataMember(Name = "x", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "x", EmitDefaultValue = true)]
         public int X { get; set; }
 
         /// <summary>
         /// The vertical offset in pixels for this static field.
         /// </summary>
         /// <value>The vertical offset in pixels for this static field.</value>
-        [DataMember(Name = "y", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "y", EmitDefaultValue = true)]
         public int Y { get; set; }
 
         /// <summary>
         /// The width in pixels of this static field.
         /// </summary>
         /// <value>The width in pixels of this static field.</value>
-        [DataMember(Name = "width", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "width", EmitDefaultValue = true)]
         public int Width { get; set; }
 
         /// <summary>
         /// The height in pixels of this static field.
         /// </summary>
         /// <value>The height in pixels of this static field.</value>
-        [DataMember(Name = "height", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "height", EmitDefaultValue = true)]
         public int Height { get; set; }
 
         /// <summary>
         /// Boolean showing whether or not this field is required.
         /// </summary>
         /// <value>Boolean showing whether or not this field is required.</value>
-        [DataMember(Name = "required", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "required", EmitDefaultValue = true)]
         public bool Required { get; set; }
 
         /// <summary>
@@ -189,9 +175,9 @@ namespace Dropbox.Sign.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class TemplateResponseDocumentStaticFieldBase {\n");
+            sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  ApiId: ").Append(ApiId).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Signer: ").Append(Signer).Append("\n");
             sb.Append("  X: ").Append(X).Append("\n");
             sb.Append("  Y: ").Append(Y).Append("\n");
@@ -235,6 +221,11 @@ namespace Dropbox.Sign.Model
             }
             return
                 (
+                    this.Type == input.Type ||
+                    (this.Type != null &&
+                    this.Type.Equals(input.Type))
+                ) &&
+                (
                     this.ApiId == input.ApiId ||
                     (this.ApiId != null &&
                     this.ApiId.Equals(input.ApiId))
@@ -243,11 +234,6 @@ namespace Dropbox.Sign.Model
                     this.Name == input.Name ||
                     (this.Name != null &&
                     this.Name.Equals(input.Name))
-                ) &&
-                (
-                    this.Type == input.Type ||
-                    (this.Type != null &&
-                    this.Type.Equals(input.Type))
                 ) &&
                 (
                     this.Signer == input.Signer ||
@@ -290,6 +276,10 @@ namespace Dropbox.Sign.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.Type != null)
+                {
+                    hashCode = (hashCode * 59) + this.Type.GetHashCode();
+                }
                 if (this.ApiId != null)
                 {
                     hashCode = (hashCode * 59) + this.ApiId.GetHashCode();
@@ -297,10 +287,6 @@ namespace Dropbox.Sign.Model
                 if (this.Name != null)
                 {
                     hashCode = (hashCode * 59) + this.Name.GetHashCode();
-                }
-                if (this.Type != null)
-                {
-                    hashCode = (hashCode * 59) + this.Type.GetHashCode();
                 }
                 if (this.Signer != null)
                 {
@@ -343,6 +329,13 @@ namespace Dropbox.Sign.Model
             var types = new List<OpenApiType>();
             types.Add(new OpenApiType()
             {
+                Name = "type",
+                Property = "Type",
+                Type = "string",
+                Value = Type,
+            });
+            types.Add(new OpenApiType()
+            {
                 Name = "api_id",
                 Property = "ApiId",
                 Type = "string",
@@ -354,13 +347,6 @@ namespace Dropbox.Sign.Model
                 Property = "Name",
                 Type = "string",
                 Value = Name,
-            });
-            types.Add(new OpenApiType()
-            {
-                Name = "type",
-                Property = "Type",
-                Type = "string",
-                Value = Type,
             });
             types.Add(new OpenApiType()
             {

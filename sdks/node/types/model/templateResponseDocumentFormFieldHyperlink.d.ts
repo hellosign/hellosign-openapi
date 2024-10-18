@@ -3,10 +3,10 @@ import { TemplateResponseDocumentFormFieldBase } from "./templateResponseDocumen
 import { TemplateResponseFieldAvgTextLength } from "./templateResponseFieldAvgTextLength";
 export declare class TemplateResponseDocumentFormFieldHyperlink extends TemplateResponseDocumentFormFieldBase {
     "type": string;
-    "avgTextLength": TemplateResponseFieldAvgTextLength;
-    "isMultiline": boolean;
-    "originalFontSize": number;
-    "fontFamily": string;
+    "avgTextLength"?: TemplateResponseFieldAvgTextLength;
+    "isMultiline"?: boolean;
+    "originalFontSize"?: number;
+    "fontFamily"?: string;
     "group"?: string | null;
     static discriminator: string | undefined;
     static attributeTypeMap: AttributeTypeMap;

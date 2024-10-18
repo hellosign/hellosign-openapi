@@ -9847,14 +9847,6 @@ components:
       x-internal-class: true
     ApiAppResponse:
       description: '_t__ApiAppResponse::DESCRIPTION'
-      required:
-        - client_id
-        - created_at
-        - domains
-        - is_approved
-        - name
-        - options
-        - owner_account
       properties:
         callback_url:
           description: '_t__ApiAppResponse::CALLBACK_URL'
@@ -9889,10 +9881,6 @@ components:
       x-internal-class: true
     ApiAppResponseOAuth:
       description: '_t__ApiAppResponseOAuth::DESCRIPTION'
-      required:
-        - callback_url
-        - charges_users
-        - scopes
       properties:
         callback_url:
           description: '_t__ApiAppResponseOAuth::CALLBACK_URL'
@@ -9914,19 +9902,15 @@ components:
       x-internal-class: true
     ApiAppResponseOptions:
       description: '_t__ApiAppResponseOptions::DESCRIPTION'
-      required:
-        - can_insert_everywhere
       properties:
         can_insert_everywhere:
           description: '_t__ApiAppResponseOptions::CAN_INSERT_EVERYWHERE'
           type: boolean
       type: object
+      nullable: true
       x-internal-class: true
     ApiAppResponseOwnerAccount:
       description: '_t__ApiAppResponseOwnerAccount::DESCRIPTION'
-      required:
-        - account_id
-        - email_address
       properties:
         account_id:
           description: '_t__ApiAppResponseOwnerAccount::ACCOUNT_ID'
@@ -9938,21 +9922,6 @@ components:
       x-internal-class: true
     ApiAppResponseWhiteLabelingOptions:
       description: '_t__ApiAppResponseWhiteLabelingOptions::DESCRIPTION'
-      required:
-        - header_background_color
-        - legal_version
-        - link_color
-        - page_background_color
-        - primary_button_color
-        - primary_button_color_hover
-        - primary_button_text_color
-        - primary_button_text_color_hover
-        - secondary_button_color
-        - secondary_button_color_hover
-        - secondary_button_text_color
-        - secondary_button_text_color_hover
-        - text_color1
-        - text_color2
       properties:
         header_background_color:
           type: string
@@ -9987,15 +9956,11 @@ components:
       x-internal-class: true
     BulkSendJobResponse:
       description: '_t__BulkSendJobResponse::DESCRIPTION'
-      required:
-        - bulk_send_job_id
-        - created_at
-        - is_creator
-        - total
       properties:
         bulk_send_job_id:
           description: '_t__BulkSendJobResponse::BULK_SEND_JOB_ID'
           type: string
+          nullable: true
         total:
           description: '_t__BulkSendJobResponse::TOTAL'
           type: integer
@@ -10058,11 +10023,6 @@ components:
           type: string
       type: object
     FaxLineResponseFaxLine:
-      required:
-        - accounts
-        - created_at
-        - number
-        - updated_at
       properties:
         number:
           description: '_t__FaxLineResponseFaxLine::NUMBER'
@@ -10572,11 +10532,6 @@ components:
       x-internal-class: true
     TeamResponse:
       description: '_t__TeamResponse::DESCRIPTION'
-      required:
-        - name
-        - accounts
-        - invited_accounts
-        - invited_emails
       properties:
         name:
           description: '_t__Team::NAME'
@@ -10674,19 +10629,6 @@ components:
       x-internal-class: true
     TemplateResponse:
       description: '_t__TemplateResponse::DESCRIPTION'
-      required:
-        - accounts
-        - attachments
-        - can_edit
-        - cc_roles
-        - documents
-        - is_creator
-        - is_locked
-        - message
-        - metadata
-        - signer_roles
-        - template_id
-        - title
       properties:
         template_id:
           description: '_t__TemplateResponse::TEMPLATE_ID'
@@ -10758,12 +10700,6 @@ components:
       type: object
       x-internal-class: true
     TemplateResponseAccount:
-      required:
-        - account_id
-        - is_locked
-        - is_paid_hf
-        - is_paid_hs
-        - quotas
       properties:
         account_id:
           description: '_t__TemplateResponseAccount::ACCOUNT_ID'
@@ -10786,11 +10722,6 @@ components:
       x-internal-class: true
     TemplateResponseAccountQuota:
       description: '_t__TemplateResponseAccountQuota::DESCRIPTION'
-      required:
-        - templates_left
-        - api_signature_requests_left
-        - documents_left
-        - sms_verifications_left
       properties:
         templates_left:
           description: '_t__TemplateResponseAccountQuota::TEMPLATES_LEFT'
@@ -10807,8 +10738,6 @@ components:
       type: object
       x-internal-class: true
     TemplateResponseCCRole:
-      required:
-        - name
       properties:
         name:
           description: '_t__TemplateResponseCCRole::NAME'
@@ -10817,10 +10746,6 @@ components:
       x-internal-class: true
     TemplateCreateEmbeddedDraftResponseTemplate:
       description: '_t__TemplateCreateEmbeddedDraftResponseTemplate::DESCRIPTION'
-      required:
-        - edit_url
-        - expires_at
-        - template_id
       properties:
         template_id:
           description: '_t__TemplateResponse::TEMPLATE_ID'
@@ -10841,8 +10766,6 @@ components:
       x-internal-class: true
     TemplateCreateResponseTemplate:
       description: '_t__TemplateCreateResponseTemplate::DESCRIPTION'
-      required:
-        - template_id
       properties:
         template_id:
           description: '_t__TemplateResponse::TEMPLATE_ID'
@@ -10850,12 +10773,6 @@ components:
       type: object
       x-internal-class: true
     TemplateResponseDocument:
-      required:
-        - custom_fields
-        - field_groups
-        - form_fields
-        - name
-        - static_fields
       properties:
         name:
           description: '_t__TemplateResponseDocument::NAME'
@@ -10888,14 +10805,7 @@ components:
     TemplateResponseDocumentCustomFieldBase:
       description: '_t__TemplateResponseDocumentCustomField::DESCRIPTION'
       required:
-        - api_id
-        - height
-        - name
-        - required
         - type
-        - width
-        - x
-        - 'y'
       properties:
         api_id:
           description: '_t__TemplateResponseDocumentCustomField::API_ID'
@@ -10954,10 +10864,6 @@ components:
     TemplateResponseDocumentCustomFieldText:
       description: '_t__TemplateResponseDocumentCustomField::DESCRIPTION_EXTENDS'
       required:
-        - avg_text_length
-        - fontFamily
-        - isMultiline
-        - originalFontSize
         - type
       allOf:
         -
@@ -10981,9 +10887,6 @@ components:
               type: string
           type: object
     TemplateResponseDocumentFieldGroup:
-      required:
-        - name
-        - rule
       properties:
         name:
           description: '_t__TemplateResponseDocumentFieldGroup::NAME'
@@ -10994,9 +10897,6 @@ components:
       x-internal-class: true
     TemplateResponseDocumentFieldGroupRule:
       description: '_t__TemplateResponseDocumentFieldGroup::RULE'
-      required:
-        - groupLabel
-        - requirement
       properties:
         requirement:
           description: '_t__TemplateResponseDocumentFieldGroupRule::REQUIREMENT'
@@ -11009,15 +10909,7 @@ components:
     TemplateResponseDocumentFormFieldBase:
       description: '_t__TemplateResponseDocumentFormField::DESCRIPTION'
       required:
-        - api_id
-        - height
-        - name
-        - required
-        - signer
         - type
-        - width
-        - x
-        - 'y'
       properties:
         api_id:
           description: '_t__TemplateResponseDocumentFormField::API_ID'
@@ -11117,10 +11009,6 @@ components:
     TemplateResponseDocumentFormFieldHyperlink:
       description: '_t__TemplateResponseDocumentFormField::DESCRIPTION_EXTENDS'
       required:
-        - avg_text_length
-        - fontFamily
-        - isMultiline
-        - originalFontSize
         - type
       allOf:
         -
@@ -11204,10 +11092,6 @@ components:
     TemplateResponseDocumentFormFieldText:
       description: '_t__TemplateResponseDocumentFormField::DESCRIPTION_EXTENDS'
       required:
-        - avg_text_length
-        - fontFamily
-        - isMultiline
-        - originalFontSize
         - type
       allOf:
         -
@@ -11252,15 +11136,7 @@ components:
     TemplateResponseDocumentStaticFieldBase:
       description: '_t__TemplateResponseDocumentStaticField::DESCRIPTION'
       required:
-        - api_id
-        - height
-        - name
-        - required
-        - signer
         - type
-        - width
-        - x
-        - 'y'
       properties:
         api_id:
           description: '_t__TemplateResponseDocumentStaticField::API_ID'
@@ -11421,9 +11297,6 @@ components:
           type: object
     TemplateResponseFieldAvgTextLength:
       description: '_t__TemplateResponseFieldAvgTextLength::DESCRIPTION'
-      required:
-        - num_lines
-        - num_chars_per_line
       properties:
         num_lines:
           description: '_t__TemplateResponseFieldAvgTextLength::NUM_LINES'
@@ -11434,8 +11307,6 @@ components:
       type: object
       x-internal-class: true
     TemplateResponseSignerRole:
-      required:
-        - name
       properties:
         name:
           description: '_t__TemplateResponseSignerRole::NAME'
@@ -11447,8 +11318,6 @@ components:
       x-internal-class: true
     TemplateUpdateFilesResponseTemplate:
       description: '_t__TemplateUpdateFilesResponseTemplate::DESCRIPTION'
-      required:
-        - template_id
       properties:
         template_id:
           description: '_t__TemplateResponse::TEMPLATE_ID'

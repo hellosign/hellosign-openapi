@@ -43,37 +43,46 @@ class TemplateResponseDocumentCustomFieldBase(BaseModel):
     An array of Form Field objects containing the name and type of each named field.
     """  # noqa: E501
 
-    api_id: StrictStr = Field(description="The unique ID for this field.")
-    name: StrictStr = Field(description="The name of the Custom Field.")
     type: StrictStr
-    x: StrictInt = Field(
-        description="The horizontal offset in pixels for this form field."
+    api_id: Optional[StrictStr] = Field(
+        default=None, description="The unique ID for this field."
     )
-    y: StrictInt = Field(
-        description="The vertical offset in pixels for this form field."
-    )
-    width: StrictInt = Field(description="The width in pixels of this form field.")
-    height: StrictInt = Field(description="The height in pixels of this form field.")
-    required: StrictBool = Field(
-        description="Boolean showing whether or not this field is required."
+    name: Optional[StrictStr] = Field(
+        default=None, description="The name of the Custom Field."
     )
     signer: Union[StrictStr, StrictInt, None] = Field(
         description="The signer of the Custom Field. Can be `null` if field is a merge field (assigned to Sender)."
+    )
+    x: Optional[StrictInt] = Field(
+        default=None, description="The horizontal offset in pixels for this form field."
+    )
+    y: Optional[StrictInt] = Field(
+        default=None, description="The vertical offset in pixels for this form field."
+    )
+    width: Optional[StrictInt] = Field(
+        default=None, description="The width in pixels of this form field."
+    )
+    height: Optional[StrictInt] = Field(
+        default=None, description="The height in pixels of this form field."
+    )
+    required: Optional[StrictBool] = Field(
+        default=None,
+        description="Boolean showing whether or not this field is required.",
     )
     group: Optional[StrictStr] = Field(
         default=None,
         description="The name of the group this field is in. If this field is not a group, this defaults to `null`.",
     )
     __properties: ClassVar[List[str]] = [
+        "type",
         "api_id",
         "name",
-        "type",
+        "signer",
         "x",
         "y",
         "width",
         "height",
         "required",
-        "signer",
         "group",
     ]
 
@@ -183,15 +192,15 @@ class TemplateResponseDocumentCustomFieldBase(BaseModel):
     @classmethod
     def openapi_types(cls) -> Dict[str, str]:
         return {
+            "type": "(str,)",
             "api_id": "(str,)",
             "name": "(str,)",
-            "type": "(str,)",
+            "signer": "(int, str,)",
             "x": "(int,)",
             "y": "(int,)",
             "width": "(int,)",
             "height": "(int,)",
             "required": "(bool,)",
-            "signer": "(int, str,)",
             "group": "(str,)",
         }
 

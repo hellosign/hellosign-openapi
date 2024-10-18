@@ -61,15 +61,14 @@ public class ApiAppResponseOptions {
      *
      * @return canInsertEverywhere
      */
-    @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_CAN_INSERT_EVERYWHERE)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_CAN_INSERT_EVERYWHERE)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public Boolean getCanInsertEverywhere() {
         return canInsertEverywhere;
     }
 
     @JsonProperty(JSON_PROPERTY_CAN_INSERT_EVERYWHERE)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setCanInsertEverywhere(Boolean canInsertEverywhere) {
         this.canInsertEverywhere = canInsertEverywhere;
     }

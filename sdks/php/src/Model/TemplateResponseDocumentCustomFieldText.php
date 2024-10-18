@@ -308,18 +308,6 @@ class TemplateResponseDocumentCustomFieldText extends TemplateResponseDocumentCu
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
         }
-        if ($this->container['avg_text_length'] === null) {
-            $invalidProperties[] = "'avg_text_length' can't be null";
-        }
-        if ($this->container['is_multiline'] === null) {
-            $invalidProperties[] = "'is_multiline' can't be null";
-        }
-        if ($this->container['original_font_size'] === null) {
-            $invalidProperties[] = "'original_font_size' can't be null";
-        }
-        if ($this->container['font_family'] === null) {
-            $invalidProperties[] = "'font_family' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -364,7 +352,7 @@ class TemplateResponseDocumentCustomFieldText extends TemplateResponseDocumentCu
     /**
      * Gets avg_text_length
      *
-     * @return TemplateResponseFieldAvgTextLength
+     * @return TemplateResponseFieldAvgTextLength|null
      */
     public function getAvgTextLength()
     {
@@ -374,11 +362,11 @@ class TemplateResponseDocumentCustomFieldText extends TemplateResponseDocumentCu
     /**
      * Sets avg_text_length
      *
-     * @param TemplateResponseFieldAvgTextLength $avg_text_length avg_text_length
+     * @param TemplateResponseFieldAvgTextLength|null $avg_text_length avg_text_length
      *
      * @return self
      */
-    public function setAvgTextLength(TemplateResponseFieldAvgTextLength $avg_text_length)
+    public function setAvgTextLength(?TemplateResponseFieldAvgTextLength $avg_text_length)
     {
         if (is_null($avg_text_length)) {
             throw new InvalidArgumentException('non-nullable avg_text_length cannot be null');
@@ -391,7 +379,7 @@ class TemplateResponseDocumentCustomFieldText extends TemplateResponseDocumentCu
     /**
      * Gets is_multiline
      *
-     * @return bool
+     * @return bool|null
      */
     public function getIsMultiline()
     {
@@ -401,11 +389,11 @@ class TemplateResponseDocumentCustomFieldText extends TemplateResponseDocumentCu
     /**
      * Sets is_multiline
      *
-     * @param bool $is_multiline whether this form field is multiline text
+     * @param bool|null $is_multiline whether this form field is multiline text
      *
      * @return self
      */
-    public function setIsMultiline(bool $is_multiline)
+    public function setIsMultiline(?bool $is_multiline)
     {
         if (is_null($is_multiline)) {
             throw new InvalidArgumentException('non-nullable is_multiline cannot be null');
@@ -418,7 +406,7 @@ class TemplateResponseDocumentCustomFieldText extends TemplateResponseDocumentCu
     /**
      * Gets original_font_size
      *
-     * @return int
+     * @return int|null
      */
     public function getOriginalFontSize()
     {
@@ -428,11 +416,11 @@ class TemplateResponseDocumentCustomFieldText extends TemplateResponseDocumentCu
     /**
      * Sets original_font_size
      *
-     * @param int $original_font_size original font size used in this form field's text
+     * @param int|null $original_font_size original font size used in this form field's text
      *
      * @return self
      */
-    public function setOriginalFontSize(int $original_font_size)
+    public function setOriginalFontSize(?int $original_font_size)
     {
         if (is_null($original_font_size)) {
             throw new InvalidArgumentException('non-nullable original_font_size cannot be null');
@@ -445,7 +433,7 @@ class TemplateResponseDocumentCustomFieldText extends TemplateResponseDocumentCu
     /**
      * Gets font_family
      *
-     * @return string
+     * @return string|null
      */
     public function getFontFamily()
     {
@@ -455,11 +443,11 @@ class TemplateResponseDocumentCustomFieldText extends TemplateResponseDocumentCu
     /**
      * Sets font_family
      *
-     * @param string $font_family font family used in this form field's text
+     * @param string|null $font_family font family used in this form field's text
      *
      * @return self
      */
-    public function setFontFamily(string $font_family)
+    public function setFontFamily(?string $font_family)
     {
         if (is_null($font_family)) {
             throw new InvalidArgumentException('non-nullable font_family cannot be null');

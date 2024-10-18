@@ -120,9 +120,9 @@ public class ApiAppResponseWhiteLabelingOptions {
    * Get headerBackgroundColor
    * @return headerBackgroundColor
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_HEADER_BACKGROUND_COLOR)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getHeaderBackgroundColor() {
     return headerBackgroundColor;
@@ -130,7 +130,7 @@ public class ApiAppResponseWhiteLabelingOptions {
 
 
   @JsonProperty(JSON_PROPERTY_HEADER_BACKGROUND_COLOR)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHeaderBackgroundColor(String headerBackgroundColor) {
     this.headerBackgroundColor = headerBackgroundColor;
   }
@@ -145,9 +145,9 @@ public class ApiAppResponseWhiteLabelingOptions {
    * Get legalVersion
    * @return legalVersion
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LEGAL_VERSION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getLegalVersion() {
     return legalVersion;
@@ -155,7 +155,7 @@ public class ApiAppResponseWhiteLabelingOptions {
 
 
   @JsonProperty(JSON_PROPERTY_LEGAL_VERSION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLegalVersion(String legalVersion) {
     this.legalVersion = legalVersion;
   }
@@ -170,9 +170,9 @@ public class ApiAppResponseWhiteLabelingOptions {
    * Get linkColor
    * @return linkColor
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LINK_COLOR)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getLinkColor() {
     return linkColor;
@@ -180,7 +180,7 @@ public class ApiAppResponseWhiteLabelingOptions {
 
 
   @JsonProperty(JSON_PROPERTY_LINK_COLOR)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLinkColor(String linkColor) {
     this.linkColor = linkColor;
   }
@@ -195,9 +195,9 @@ public class ApiAppResponseWhiteLabelingOptions {
    * Get pageBackgroundColor
    * @return pageBackgroundColor
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PAGE_BACKGROUND_COLOR)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getPageBackgroundColor() {
     return pageBackgroundColor;
@@ -205,7 +205,7 @@ public class ApiAppResponseWhiteLabelingOptions {
 
 
   @JsonProperty(JSON_PROPERTY_PAGE_BACKGROUND_COLOR)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPageBackgroundColor(String pageBackgroundColor) {
     this.pageBackgroundColor = pageBackgroundColor;
   }
@@ -220,9 +220,9 @@ public class ApiAppResponseWhiteLabelingOptions {
    * Get primaryButtonColor
    * @return primaryButtonColor
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PRIMARY_BUTTON_COLOR)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getPrimaryButtonColor() {
     return primaryButtonColor;
@@ -230,7 +230,7 @@ public class ApiAppResponseWhiteLabelingOptions {
 
 
   @JsonProperty(JSON_PROPERTY_PRIMARY_BUTTON_COLOR)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPrimaryButtonColor(String primaryButtonColor) {
     this.primaryButtonColor = primaryButtonColor;
   }
@@ -245,9 +245,9 @@ public class ApiAppResponseWhiteLabelingOptions {
    * Get primaryButtonColorHover
    * @return primaryButtonColorHover
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PRIMARY_BUTTON_COLOR_HOVER)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getPrimaryButtonColorHover() {
     return primaryButtonColorHover;
@@ -255,7 +255,7 @@ public class ApiAppResponseWhiteLabelingOptions {
 
 
   @JsonProperty(JSON_PROPERTY_PRIMARY_BUTTON_COLOR_HOVER)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPrimaryButtonColorHover(String primaryButtonColorHover) {
     this.primaryButtonColorHover = primaryButtonColorHover;
   }
@@ -270,9 +270,9 @@ public class ApiAppResponseWhiteLabelingOptions {
    * Get primaryButtonTextColor
    * @return primaryButtonTextColor
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PRIMARY_BUTTON_TEXT_COLOR)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getPrimaryButtonTextColor() {
     return primaryButtonTextColor;
@@ -280,7 +280,7 @@ public class ApiAppResponseWhiteLabelingOptions {
 
 
   @JsonProperty(JSON_PROPERTY_PRIMARY_BUTTON_TEXT_COLOR)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPrimaryButtonTextColor(String primaryButtonTextColor) {
     this.primaryButtonTextColor = primaryButtonTextColor;
   }
@@ -295,9 +295,9 @@ public class ApiAppResponseWhiteLabelingOptions {
    * Get primaryButtonTextColorHover
    * @return primaryButtonTextColorHover
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PRIMARY_BUTTON_TEXT_COLOR_HOVER)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getPrimaryButtonTextColorHover() {
     return primaryButtonTextColorHover;
@@ -305,7 +305,7 @@ public class ApiAppResponseWhiteLabelingOptions {
 
 
   @JsonProperty(JSON_PROPERTY_PRIMARY_BUTTON_TEXT_COLOR_HOVER)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPrimaryButtonTextColorHover(String primaryButtonTextColorHover) {
     this.primaryButtonTextColorHover = primaryButtonTextColorHover;
   }
@@ -320,9 +320,9 @@ public class ApiAppResponseWhiteLabelingOptions {
    * Get secondaryButtonColor
    * @return secondaryButtonColor
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SECONDARY_BUTTON_COLOR)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getSecondaryButtonColor() {
     return secondaryButtonColor;
@@ -330,7 +330,7 @@ public class ApiAppResponseWhiteLabelingOptions {
 
 
   @JsonProperty(JSON_PROPERTY_SECONDARY_BUTTON_COLOR)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSecondaryButtonColor(String secondaryButtonColor) {
     this.secondaryButtonColor = secondaryButtonColor;
   }
@@ -345,9 +345,9 @@ public class ApiAppResponseWhiteLabelingOptions {
    * Get secondaryButtonColorHover
    * @return secondaryButtonColorHover
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SECONDARY_BUTTON_COLOR_HOVER)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getSecondaryButtonColorHover() {
     return secondaryButtonColorHover;
@@ -355,7 +355,7 @@ public class ApiAppResponseWhiteLabelingOptions {
 
 
   @JsonProperty(JSON_PROPERTY_SECONDARY_BUTTON_COLOR_HOVER)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSecondaryButtonColorHover(String secondaryButtonColorHover) {
     this.secondaryButtonColorHover = secondaryButtonColorHover;
   }
@@ -370,9 +370,9 @@ public class ApiAppResponseWhiteLabelingOptions {
    * Get secondaryButtonTextColor
    * @return secondaryButtonTextColor
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SECONDARY_BUTTON_TEXT_COLOR)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getSecondaryButtonTextColor() {
     return secondaryButtonTextColor;
@@ -380,7 +380,7 @@ public class ApiAppResponseWhiteLabelingOptions {
 
 
   @JsonProperty(JSON_PROPERTY_SECONDARY_BUTTON_TEXT_COLOR)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSecondaryButtonTextColor(String secondaryButtonTextColor) {
     this.secondaryButtonTextColor = secondaryButtonTextColor;
   }
@@ -395,9 +395,9 @@ public class ApiAppResponseWhiteLabelingOptions {
    * Get secondaryButtonTextColorHover
    * @return secondaryButtonTextColorHover
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SECONDARY_BUTTON_TEXT_COLOR_HOVER)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getSecondaryButtonTextColorHover() {
     return secondaryButtonTextColorHover;
@@ -405,7 +405,7 @@ public class ApiAppResponseWhiteLabelingOptions {
 
 
   @JsonProperty(JSON_PROPERTY_SECONDARY_BUTTON_TEXT_COLOR_HOVER)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSecondaryButtonTextColorHover(String secondaryButtonTextColorHover) {
     this.secondaryButtonTextColorHover = secondaryButtonTextColorHover;
   }
@@ -420,9 +420,9 @@ public class ApiAppResponseWhiteLabelingOptions {
    * Get textColor1
    * @return textColor1
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TEXT_COLOR1)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getTextColor1() {
     return textColor1;
@@ -430,7 +430,7 @@ public class ApiAppResponseWhiteLabelingOptions {
 
 
   @JsonProperty(JSON_PROPERTY_TEXT_COLOR1)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTextColor1(String textColor1) {
     this.textColor1 = textColor1;
   }
@@ -445,9 +445,9 @@ public class ApiAppResponseWhiteLabelingOptions {
    * Get textColor2
    * @return textColor2
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TEXT_COLOR2)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getTextColor2() {
     return textColor2;
@@ -455,7 +455,7 @@ public class ApiAppResponseWhiteLabelingOptions {
 
 
   @JsonProperty(JSON_PROPERTY_TEXT_COLOR2)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTextColor2(String textColor2) {
     this.textColor2 = textColor2;
   }

@@ -5,10 +5,10 @@ An array of the designated CC roles that must be specified when sending a Signat
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-| `templates_left`<sup>*_required_</sup> | ```int``` |  API templates remaining.  |  |
-| `api_signature_requests_left`<sup>*_required_</sup> | ```int``` |  API signature requests remaining.  |  |
-| `documents_left`<sup>*_required_</sup> | ```int``` |  Signature requests remaining.  |  |
-| `sms_verifications_left`<sup>*_required_</sup> | ```int``` |  SMS verifications remaining.  |  |
+| `templates_left` | ```int``` |  API templates remaining.  |  |
+| `api_signature_requests_left` | ```int``` |  API signature requests remaining.  |  |
+| `documents_left` | ```int``` |  Signature requests remaining.  |  |
+| `sms_verifications_left` | ```int``` |  SMS verifications remaining.  |  |
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

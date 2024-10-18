@@ -19,6 +19,9 @@ end
 module Dropbox::Sign
   # An array describing static overlay fields. **NOTE:** Only available for certain subscriptions.
   class TemplateResponseDocumentStaticFieldBase
+    # @return [String]
+    attr_accessor :type
+
     # A unique id for the static field.
     # @return [String]
     attr_accessor :api_id
@@ -26,9 +29,6 @@ module Dropbox::Sign
     # The name of the static field.
     # @return [String]
     attr_accessor :name
-
-    # @return [String]
-    attr_accessor :type
 
     # The signer of the Static Field.
     # @return [String]
@@ -61,9 +61,9 @@ module Dropbox::Sign
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'type' => :'type',
         :'api_id' => :'api_id',
         :'name' => :'name',
-        :'type' => :'type',
         :'signer' => :'signer',
         :'x' => :'x',
         :'y' => :'y',
@@ -82,9 +82,9 @@ module Dropbox::Sign
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'type' => :'String',
         :'api_id' => :'String',
         :'name' => :'String',
-        :'type' => :'String',
         :'signer' => :'String',
         :'x' => :'Integer',
         :'y' => :'Integer',
@@ -168,16 +168,16 @@ module Dropbox::Sign
         h[k.to_sym] = v
       }
 
+      if attributes.key?(:'type')
+        self.type = attributes[:'type']
+      end
+
       if attributes.key?(:'api_id')
         self.api_id = attributes[:'api_id']
       end
 
       if attributes.key?(:'name')
         self.name = attributes[:'name']
-      end
-
-      if attributes.key?(:'type')
-        self.type = attributes[:'type']
       end
 
       if attributes.key?(:'signer')
@@ -215,40 +215,8 @@ module Dropbox::Sign
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @api_id.nil?
-        invalid_properties.push('invalid value for "api_id", api_id cannot be nil.')
-      end
-
-      if @name.nil?
-        invalid_properties.push('invalid value for "name", name cannot be nil.')
-      end
-
       if @type.nil?
         invalid_properties.push('invalid value for "type", type cannot be nil.')
-      end
-
-      if @signer.nil?
-        invalid_properties.push('invalid value for "signer", signer cannot be nil.')
-      end
-
-      if @x.nil?
-        invalid_properties.push('invalid value for "x", x cannot be nil.')
-      end
-
-      if @y.nil?
-        invalid_properties.push('invalid value for "y", y cannot be nil.')
-      end
-
-      if @width.nil?
-        invalid_properties.push('invalid value for "width", width cannot be nil.')
-      end
-
-      if @height.nil?
-        invalid_properties.push('invalid value for "height", height cannot be nil.')
-      end
-
-      if @required.nil?
-        invalid_properties.push('invalid value for "required", required cannot be nil.')
       end
 
       invalid_properties
@@ -257,15 +225,7 @@ module Dropbox::Sign
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @api_id.nil?
-      return false if @name.nil?
       return false if @type.nil?
-      return false if @signer.nil?
-      return false if @x.nil?
-      return false if @y.nil?
-      return false if @width.nil?
-      return false if @height.nil?
-      return false if @required.nil?
       true
     end
 
@@ -274,9 +234,9 @@ module Dropbox::Sign
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          type == o.type &&
           api_id == o.api_id &&
           name == o.name &&
-          type == o.type &&
           signer == o.signer &&
           x == o.x &&
           y == o.y &&
@@ -295,7 +255,7 @@ module Dropbox::Sign
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [api_id, name, type, signer, x, y, width, height, required, group].hash
+      [type, api_id, name, signer, x, y, width, height, required, group].hash
     end
 
     # Builds the object from hash

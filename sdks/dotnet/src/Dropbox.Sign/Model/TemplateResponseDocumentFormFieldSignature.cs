@@ -43,14 +43,14 @@ namespace Dropbox.Sign.Model
         /// </summary>
         /// <param name="type">The type of this form field. See [field types](/api/reference/constants/#field-types).  * Text Field uses &#x60;TemplateResponseDocumentFormFieldText&#x60; * Dropdown Field uses &#x60;TemplateResponseDocumentFormFieldDropdown&#x60; * Hyperlink Field uses &#x60;TemplateResponseDocumentFormFieldHyperlink&#x60; * Checkbox Field uses &#x60;TemplateResponseDocumentFormFieldCheckbox&#x60; * Radio Field uses &#x60;TemplateResponseDocumentFormFieldRadio&#x60; * Signature Field uses &#x60;TemplateResponseDocumentFormFieldSignature&#x60; * Date Signed Field uses &#x60;TemplateResponseDocumentFormFieldDateSigned&#x60; * Initials Field uses &#x60;TemplateResponseDocumentFormFieldInitials&#x60; (required) (default to &quot;signature&quot;).</param>
         /// <param name="group">The name of the group this field is in. If this field is not a group, this defaults to &#x60;null&#x60; except for Radio fields..</param>
-        /// <param name="apiId">A unique id for the form field. (required).</param>
-        /// <param name="name">The name of the form field. (required).</param>
-        /// <param name="signer">The signer of the Form Field. (required).</param>
-        /// <param name="x">The horizontal offset in pixels for this form field. (required).</param>
-        /// <param name="y">The vertical offset in pixels for this form field. (required).</param>
-        /// <param name="width">The width in pixels of this form field. (required).</param>
-        /// <param name="height">The height in pixels of this form field. (required).</param>
-        /// <param name="required">Boolean showing whether or not this field is required. (required).</param>
+        /// <param name="apiId">A unique id for the form field..</param>
+        /// <param name="name">The name of the form field..</param>
+        /// <param name="signer">The signer of the Form Field..</param>
+        /// <param name="x">The horizontal offset in pixels for this form field..</param>
+        /// <param name="y">The vertical offset in pixels for this form field..</param>
+        /// <param name="width">The width in pixels of this form field..</param>
+        /// <param name="height">The height in pixels of this form field..</param>
+        /// <param name="required">Boolean showing whether or not this field is required..</param>
         public TemplateResponseDocumentFormFieldSignature(string type = @"signature", string group = default(string), string apiId = default(string), string name = default(string), Object signer = null, int x = default(int), int y = default(int), int width = default(int), int height = default(int), bool required = default(bool))
         {
             this.ApiId = apiId;

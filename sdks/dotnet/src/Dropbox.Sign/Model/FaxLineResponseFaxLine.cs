@@ -41,26 +41,16 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FaxLineResponseFaxLine" /> class.
         /// </summary>
-        /// <param name="number">Number (required).</param>
-        /// <param name="createdAt">Created at (required).</param>
-        /// <param name="updatedAt">Updated at (required).</param>
-        /// <param name="accounts">accounts (required).</param>
+        /// <param name="number">Number.</param>
+        /// <param name="createdAt">Created at.</param>
+        /// <param name="updatedAt">Updated at.</param>
+        /// <param name="accounts">accounts.</param>
         public FaxLineResponseFaxLine(string number = default(string), int createdAt = default(int), int updatedAt = default(int), List<AccountResponse> accounts = default(List<AccountResponse>))
         {
 
-            // to ensure "number" is required (not null)
-            if (number == null)
-            {
-                throw new ArgumentNullException("number is a required property for FaxLineResponseFaxLine and cannot be null");
-            }
             this.Number = number;
             this.CreatedAt = createdAt;
             this.UpdatedAt = updatedAt;
-            // to ensure "accounts" is required (not null)
-            if (accounts == null)
-            {
-                throw new ArgumentNullException("accounts is a required property for FaxLineResponseFaxLine and cannot be null");
-            }
             this.Accounts = accounts;
         }
 
@@ -84,27 +74,27 @@ namespace Dropbox.Sign.Model
         /// Number
         /// </summary>
         /// <value>Number</value>
-        [DataMember(Name = "number", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "number", EmitDefaultValue = true)]
         public string Number { get; set; }
 
         /// <summary>
         /// Created at
         /// </summary>
         /// <value>Created at</value>
-        [DataMember(Name = "created_at", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "created_at", EmitDefaultValue = true)]
         public int CreatedAt { get; set; }
 
         /// <summary>
         /// Updated at
         /// </summary>
         /// <value>Updated at</value>
-        [DataMember(Name = "updated_at", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "updated_at", EmitDefaultValue = true)]
         public int UpdatedAt { get; set; }
 
         /// <summary>
         /// Gets or Sets Accounts
         /// </summary>
-        [DataMember(Name = "accounts", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "accounts", EmitDefaultValue = true)]
         public List<AccountResponse> Accounts { get; set; }
 
         /// <summary>

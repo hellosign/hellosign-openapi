@@ -32,16 +32,16 @@ export class TeamResponse {
   /**
    * The name of your Team
    */
-  "name": string;
-  "accounts": Array<AccountResponse>;
+  "name"?: string;
+  "accounts"?: Array<AccountResponse>;
   /**
    * A list of all Accounts that have an outstanding invitation to join your Team. Note that this response is a subset of the response parameters found in `GET /account`.
    */
-  "invitedAccounts": Array<AccountResponse>;
+  "invitedAccounts"?: Array<AccountResponse>;
   /**
    * A list of email addresses that have an outstanding invitation to join your Team and do not yet have a Dropbox Sign account.
    */
-  "invitedEmails": Array<string>;
+  "invitedEmails"?: Array<string>;
 
   static discriminator: string | undefined = undefined;
 

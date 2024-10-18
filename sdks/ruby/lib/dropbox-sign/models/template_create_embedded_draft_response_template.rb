@@ -129,27 +129,12 @@ module Dropbox::Sign
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @template_id.nil?
-        invalid_properties.push('invalid value for "template_id", template_id cannot be nil.')
-      end
-
-      if @edit_url.nil?
-        invalid_properties.push('invalid value for "edit_url", edit_url cannot be nil.')
-      end
-
-      if @expires_at.nil?
-        invalid_properties.push('invalid value for "expires_at", expires_at cannot be nil.')
-      end
-
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @template_id.nil?
-      return false if @edit_url.nil?
-      return false if @expires_at.nil?
       true
     end
 

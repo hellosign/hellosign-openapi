@@ -35,17 +35,20 @@ import com.dropbox.sign.ApiException;
  */
 @JsonPropertyOrder({
   TemplateResponseAccount.JSON_PROPERTY_ACCOUNT_ID,
+  TemplateResponseAccount.JSON_PROPERTY_EMAIL_ADDRESS,
   TemplateResponseAccount.JSON_PROPERTY_IS_LOCKED,
   TemplateResponseAccount.JSON_PROPERTY_IS_PAID_HS,
   TemplateResponseAccount.JSON_PROPERTY_IS_PAID_HF,
-  TemplateResponseAccount.JSON_PROPERTY_QUOTAS,
-  TemplateResponseAccount.JSON_PROPERTY_EMAIL_ADDRESS
+  TemplateResponseAccount.JSON_PROPERTY_QUOTAS
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class TemplateResponseAccount {
   public static final String JSON_PROPERTY_ACCOUNT_ID = "account_id";
   private String accountId;
+
+  public static final String JSON_PROPERTY_EMAIL_ADDRESS = "email_address";
+  private String emailAddress;
 
   public static final String JSON_PROPERTY_IS_LOCKED = "is_locked";
   private Boolean isLocked;
@@ -58,9 +61,6 @@ public class TemplateResponseAccount {
 
   public static final String JSON_PROPERTY_QUOTAS = "quotas";
   private TemplateResponseAccountQuota quotas;
-
-  public static final String JSON_PROPERTY_EMAIL_ADDRESS = "email_address";
-  private String emailAddress;
 
   public TemplateResponseAccount() { 
   }
@@ -89,9 +89,9 @@ public class TemplateResponseAccount {
    * The id of the Account.
    * @return accountId
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getAccountId() {
     return accountId;
@@ -99,109 +99,9 @@ public class TemplateResponseAccount {
 
 
   @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAccountId(String accountId) {
     this.accountId = accountId;
-  }
-
-
-  public TemplateResponseAccount isLocked(Boolean isLocked) {
-    this.isLocked = isLocked;
-    return this;
-  }
-
-  /**
-   * Returns &#x60;true&#x60; if the user has been locked out of their account by a team admin.
-   * @return isLocked
-   */
-  @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_IS_LOCKED)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public Boolean getIsLocked() {
-    return isLocked;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_IS_LOCKED)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setIsLocked(Boolean isLocked) {
-    this.isLocked = isLocked;
-  }
-
-
-  public TemplateResponseAccount isPaidHs(Boolean isPaidHs) {
-    this.isPaidHs = isPaidHs;
-    return this;
-  }
-
-  /**
-   * Returns &#x60;true&#x60; if the user has a paid Dropbox Sign account.
-   * @return isPaidHs
-   */
-  @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_IS_PAID_HS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public Boolean getIsPaidHs() {
-    return isPaidHs;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_IS_PAID_HS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setIsPaidHs(Boolean isPaidHs) {
-    this.isPaidHs = isPaidHs;
-  }
-
-
-  public TemplateResponseAccount isPaidHf(Boolean isPaidHf) {
-    this.isPaidHf = isPaidHf;
-    return this;
-  }
-
-  /**
-   * Returns &#x60;true&#x60; if the user has a paid HelloFax account.
-   * @return isPaidHf
-   */
-  @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_IS_PAID_HF)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public Boolean getIsPaidHf() {
-    return isPaidHf;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_IS_PAID_HF)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setIsPaidHf(Boolean isPaidHf) {
-    this.isPaidHf = isPaidHf;
-  }
-
-
-  public TemplateResponseAccount quotas(TemplateResponseAccountQuota quotas) {
-    this.quotas = quotas;
-    return this;
-  }
-
-  /**
-   * Get quotas
-   * @return quotas
-   */
-  @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_QUOTAS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public TemplateResponseAccountQuota getQuotas() {
-    return quotas;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_QUOTAS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setQuotas(TemplateResponseAccountQuota quotas) {
-    this.quotas = quotas;
   }
 
 
@@ -230,6 +130,106 @@ public class TemplateResponseAccount {
   }
 
 
+  public TemplateResponseAccount isLocked(Boolean isLocked) {
+    this.isLocked = isLocked;
+    return this;
+  }
+
+  /**
+   * Returns &#x60;true&#x60; if the user has been locked out of their account by a team admin.
+   * @return isLocked
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_IS_LOCKED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getIsLocked() {
+    return isLocked;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_IS_LOCKED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setIsLocked(Boolean isLocked) {
+    this.isLocked = isLocked;
+  }
+
+
+  public TemplateResponseAccount isPaidHs(Boolean isPaidHs) {
+    this.isPaidHs = isPaidHs;
+    return this;
+  }
+
+  /**
+   * Returns &#x60;true&#x60; if the user has a paid Dropbox Sign account.
+   * @return isPaidHs
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_IS_PAID_HS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getIsPaidHs() {
+    return isPaidHs;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_IS_PAID_HS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setIsPaidHs(Boolean isPaidHs) {
+    this.isPaidHs = isPaidHs;
+  }
+
+
+  public TemplateResponseAccount isPaidHf(Boolean isPaidHf) {
+    this.isPaidHf = isPaidHf;
+    return this;
+  }
+
+  /**
+   * Returns &#x60;true&#x60; if the user has a paid HelloFax account.
+   * @return isPaidHf
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_IS_PAID_HF)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getIsPaidHf() {
+    return isPaidHf;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_IS_PAID_HF)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setIsPaidHf(Boolean isPaidHf) {
+    this.isPaidHf = isPaidHf;
+  }
+
+
+  public TemplateResponseAccount quotas(TemplateResponseAccountQuota quotas) {
+    this.quotas = quotas;
+    return this;
+  }
+
+  /**
+   * Get quotas
+   * @return quotas
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_QUOTAS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public TemplateResponseAccountQuota getQuotas() {
+    return quotas;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_QUOTAS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setQuotas(TemplateResponseAccountQuota quotas) {
+    this.quotas = quotas;
+  }
+
+
   /**
    * Return true if this TemplateResponseAccount object is equal to o.
    */
@@ -243,16 +243,16 @@ public class TemplateResponseAccount {
     }
     TemplateResponseAccount templateResponseAccount = (TemplateResponseAccount) o;
     return Objects.equals(this.accountId, templateResponseAccount.accountId) &&
+        Objects.equals(this.emailAddress, templateResponseAccount.emailAddress) &&
         Objects.equals(this.isLocked, templateResponseAccount.isLocked) &&
         Objects.equals(this.isPaidHs, templateResponseAccount.isPaidHs) &&
         Objects.equals(this.isPaidHf, templateResponseAccount.isPaidHf) &&
-        Objects.equals(this.quotas, templateResponseAccount.quotas) &&
-        Objects.equals(this.emailAddress, templateResponseAccount.emailAddress);
+        Objects.equals(this.quotas, templateResponseAccount.quotas);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, isLocked, isPaidHs, isPaidHf, quotas, emailAddress);
+    return Objects.hash(accountId, emailAddress, isLocked, isPaidHs, isPaidHf, quotas);
   }
 
   @Override
@@ -260,11 +260,11 @@ public class TemplateResponseAccount {
     StringBuilder sb = new StringBuilder();
     sb.append("class TemplateResponseAccount {\n");
     sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
+    sb.append("    emailAddress: ").append(toIndentedString(emailAddress)).append("\n");
     sb.append("    isLocked: ").append(toIndentedString(isLocked)).append("\n");
     sb.append("    isPaidHs: ").append(toIndentedString(isPaidHs)).append("\n");
     sb.append("    isPaidHf: ").append(toIndentedString(isPaidHf)).append("\n");
     sb.append("    quotas: ").append(toIndentedString(quotas)).append("\n");
-    sb.append("    emailAddress: ").append(toIndentedString(emailAddress)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -290,6 +290,25 @@ public class TemplateResponseAccount {
         }
         else {
             map.put("account_id", JSON.getDefault().getMapper().writeValueAsString(accountId));
+        }
+    }
+    if (emailAddress != null) {
+        if (isFileTypeOrListOfFiles(emailAddress)) {
+            fileTypeFound = true;
+        }
+
+        if (emailAddress.getClass().equals(java.io.File.class) ||
+            emailAddress.getClass().equals(Integer.class) ||
+            emailAddress.getClass().equals(String.class) ||
+            emailAddress.getClass().isEnum()) {
+            map.put("email_address", emailAddress);
+        } else if (isListOfFile(emailAddress)) {
+            for(int i = 0; i< getListSize(emailAddress); i++) {
+                map.put("email_address[" + i + "]", getFromList(emailAddress, i));
+            }
+        }
+        else {
+            map.put("email_address", JSON.getDefault().getMapper().writeValueAsString(emailAddress));
         }
     }
     if (isLocked != null) {
@@ -366,25 +385,6 @@ public class TemplateResponseAccount {
         }
         else {
             map.put("quotas", JSON.getDefault().getMapper().writeValueAsString(quotas));
-        }
-    }
-    if (emailAddress != null) {
-        if (isFileTypeOrListOfFiles(emailAddress)) {
-            fileTypeFound = true;
-        }
-
-        if (emailAddress.getClass().equals(java.io.File.class) ||
-            emailAddress.getClass().equals(Integer.class) ||
-            emailAddress.getClass().equals(String.class) ||
-            emailAddress.getClass().isEnum()) {
-            map.put("email_address", emailAddress);
-        } else if (isListOfFile(emailAddress)) {
-            for(int i = 0; i< getListSize(emailAddress); i++) {
-                map.put("email_address[" + i + "]", getFromList(emailAddress, i));
-            }
-        }
-        else {
-            map.put("email_address", JSON.getDefault().getMapper().writeValueAsString(emailAddress));
         }
     }
     } catch (Exception e) {

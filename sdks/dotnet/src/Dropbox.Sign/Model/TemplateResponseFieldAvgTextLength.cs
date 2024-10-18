@@ -41,8 +41,8 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TemplateResponseFieldAvgTextLength" /> class.
         /// </summary>
-        /// <param name="numLines">Number of lines. (required).</param>
-        /// <param name="numCharsPerLine">Number of characters per line. (required).</param>
+        /// <param name="numLines">Number of lines..</param>
+        /// <param name="numCharsPerLine">Number of characters per line..</param>
         public TemplateResponseFieldAvgTextLength(int numLines = default(int), int numCharsPerLine = default(int))
         {
 
@@ -70,14 +70,14 @@ namespace Dropbox.Sign.Model
         /// Number of lines.
         /// </summary>
         /// <value>Number of lines.</value>
-        [DataMember(Name = "num_lines", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "num_lines", EmitDefaultValue = true)]
         public int NumLines { get; set; }
 
         /// <summary>
         /// Number of characters per line.
         /// </summary>
         /// <value>Number of characters per line.</value>
-        [DataMember(Name = "num_chars_per_line", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "num_chars_per_line", EmitDefaultValue = true)]
         public int NumCharsPerLine { get; set; }
 
         /// <summary>

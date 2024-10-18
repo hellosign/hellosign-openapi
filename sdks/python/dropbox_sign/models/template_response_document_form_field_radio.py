@@ -42,16 +42,16 @@ class TemplateResponseDocumentFormFieldRadio(TemplateResponseDocumentFormFieldBa
         description="The name of the group this field is in. If this field is not a group, this defaults to `null` except for Radio fields."
     )
     __properties: ClassVar[List[str]] = [
+        "type",
+        "group",
         "api_id",
         "name",
-        "type",
         "signer",
         "x",
         "y",
         "width",
         "height",
         "required",
-        "group",
     ]
 
     model_config = ConfigDict(
@@ -117,16 +117,16 @@ class TemplateResponseDocumentFormFieldRadio(TemplateResponseDocumentFormFieldBa
 
         _obj = cls.model_validate(
             {
+                "type": obj.get("type") if obj.get("type") is not None else "radio",
+                "group": obj.get("group"),
                 "api_id": obj.get("api_id"),
                 "name": obj.get("name"),
-                "type": obj.get("type") if obj.get("type") is not None else "radio",
                 "signer": obj.get("signer"),
                 "x": obj.get("x"),
                 "y": obj.get("y"),
                 "width": obj.get("width"),
                 "height": obj.get("height"),
                 "required": obj.get("required"),
-                "group": obj.get("group"),
             }
         )
         return _obj

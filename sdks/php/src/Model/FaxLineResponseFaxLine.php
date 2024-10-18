@@ -302,21 +302,7 @@ class FaxLineResponseFaxLine implements ModelInterface, ArrayAccess, JsonSeriali
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = [];
-
-        if ($this->container['number'] === null) {
-            $invalidProperties[] = "'number' can't be null";
-        }
-        if ($this->container['created_at'] === null) {
-            $invalidProperties[] = "'created_at' can't be null";
-        }
-        if ($this->container['updated_at'] === null) {
-            $invalidProperties[] = "'updated_at' can't be null";
-        }
-        if ($this->container['accounts'] === null) {
-            $invalidProperties[] = "'accounts' can't be null";
-        }
-        return $invalidProperties;
+        return [];
     }
 
     /**
@@ -333,7 +319,7 @@ class FaxLineResponseFaxLine implements ModelInterface, ArrayAccess, JsonSeriali
     /**
      * Gets number
      *
-     * @return string
+     * @return string|null
      */
     public function getNumber()
     {
@@ -343,11 +329,11 @@ class FaxLineResponseFaxLine implements ModelInterface, ArrayAccess, JsonSeriali
     /**
      * Sets number
      *
-     * @param string $number Number
+     * @param string|null $number Number
      *
      * @return self
      */
-    public function setNumber(string $number)
+    public function setNumber(?string $number)
     {
         if (is_null($number)) {
             throw new InvalidArgumentException('non-nullable number cannot be null');
@@ -360,7 +346,7 @@ class FaxLineResponseFaxLine implements ModelInterface, ArrayAccess, JsonSeriali
     /**
      * Gets created_at
      *
-     * @return int
+     * @return int|null
      */
     public function getCreatedAt()
     {
@@ -370,11 +356,11 @@ class FaxLineResponseFaxLine implements ModelInterface, ArrayAccess, JsonSeriali
     /**
      * Sets created_at
      *
-     * @param int $created_at Created at
+     * @param int|null $created_at Created at
      *
      * @return self
      */
-    public function setCreatedAt(int $created_at)
+    public function setCreatedAt(?int $created_at)
     {
         if (is_null($created_at)) {
             throw new InvalidArgumentException('non-nullable created_at cannot be null');
@@ -387,7 +373,7 @@ class FaxLineResponseFaxLine implements ModelInterface, ArrayAccess, JsonSeriali
     /**
      * Gets updated_at
      *
-     * @return int
+     * @return int|null
      */
     public function getUpdatedAt()
     {
@@ -397,11 +383,11 @@ class FaxLineResponseFaxLine implements ModelInterface, ArrayAccess, JsonSeriali
     /**
      * Sets updated_at
      *
-     * @param int $updated_at Updated at
+     * @param int|null $updated_at Updated at
      *
      * @return self
      */
-    public function setUpdatedAt(int $updated_at)
+    public function setUpdatedAt(?int $updated_at)
     {
         if (is_null($updated_at)) {
             throw new InvalidArgumentException('non-nullable updated_at cannot be null');
@@ -414,7 +400,7 @@ class FaxLineResponseFaxLine implements ModelInterface, ArrayAccess, JsonSeriali
     /**
      * Gets accounts
      *
-     * @return AccountResponse[]
+     * @return AccountResponse[]|null
      */
     public function getAccounts()
     {
@@ -424,11 +410,11 @@ class FaxLineResponseFaxLine implements ModelInterface, ArrayAccess, JsonSeriali
     /**
      * Sets accounts
      *
-     * @param AccountResponse[] $accounts accounts
+     * @param AccountResponse[]|null $accounts accounts
      *
      * @return self
      */
-    public function setAccounts(array $accounts)
+    public function setAccounts(?array $accounts)
     {
         if (is_null($accounts)) {
             throw new InvalidArgumentException('non-nullable accounts cannot be null');

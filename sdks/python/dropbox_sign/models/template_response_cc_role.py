@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set, Tuple
 from typing_extensions import Self
 import io
@@ -32,7 +32,7 @@ class TemplateResponseCCRole(BaseModel):
     TemplateResponseCCRole
     """  # noqa: E501
 
-    name: StrictStr = Field(description="The name of the Role.")
+    name: Optional[StrictStr] = Field(default=None, description="The name of the Role.")
     __properties: ClassVar[List[str]] = ["name"]
 
     model_config = ConfigDict(

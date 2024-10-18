@@ -282,12 +282,7 @@ class TemplateCreateResponseTemplate implements ModelInterface, ArrayAccess, Jso
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = [];
-
-        if ($this->container['template_id'] === null) {
-            $invalidProperties[] = "'template_id' can't be null";
-        }
-        return $invalidProperties;
+        return [];
     }
 
     /**
@@ -304,7 +299,7 @@ class TemplateCreateResponseTemplate implements ModelInterface, ArrayAccess, Jso
     /**
      * Gets template_id
      *
-     * @return string
+     * @return string|null
      */
     public function getTemplateId()
     {
@@ -314,11 +309,11 @@ class TemplateCreateResponseTemplate implements ModelInterface, ArrayAccess, Jso
     /**
      * Sets template_id
      *
-     * @param string $template_id the id of the Template
+     * @param string|null $template_id the id of the Template
      *
      * @return self
      */
-    public function setTemplateId(string $template_id)
+    public function setTemplateId(?string $template_id)
     {
         if (is_null($template_id)) {
             throw new InvalidArgumentException('non-nullable template_id cannot be null');

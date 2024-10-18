@@ -34,19 +34,19 @@ export class TemplateResponseDocumentCustomFieldText extends TemplateResponseDoc
    * The type of this Custom Field. Only `text` and `checkbox` are currently supported.  * Text uses `TemplateResponseDocumentCustomFieldText` * Checkbox uses `TemplateResponseDocumentCustomFieldCheckbox`
    */
   "type": string = "text";
-  "avgTextLength": TemplateResponseFieldAvgTextLength;
+  "avgTextLength"?: TemplateResponseFieldAvgTextLength;
   /**
    * Whether this form field is multiline text.
    */
-  "isMultiline": boolean;
+  "isMultiline"?: boolean;
   /**
    * Original font size used in this form field\'s text.
    */
-  "originalFontSize": number;
+  "originalFontSize"?: number;
   /**
    * Font family used in this form field\'s text.
    */
-  "fontFamily": string;
+  "fontFamily"?: string;
 
   static discriminator: string | undefined = undefined;
 
