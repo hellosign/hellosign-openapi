@@ -28,15 +28,15 @@ export class FaxResponseTransmission {
   /**
    * Fax Transmission Recipient
    */
-  "recipient"?: string;
+  "recipient": string;
   /**
    * Fax Transmission Sender
    */
-  "sender"?: string;
+  "sender": string;
   /**
    * Fax Transmission Status Code
    */
-  "statusCode"?: FaxResponseTransmission.StatusCodeEnum;
+  "statusCode": FaxResponseTransmission.StatusCodeEnum;
   /**
    * Fax Transmission Sent Timestamp
    */

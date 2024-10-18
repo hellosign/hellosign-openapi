@@ -127,9 +127,9 @@ public class FaxResponseTransmission {
    * Fax Transmission Recipient
    * @return recipient
    */
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_RECIPIENT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getRecipient() {
     return recipient;
@@ -137,7 +137,7 @@ public class FaxResponseTransmission {
 
 
   @JsonProperty(JSON_PROPERTY_RECIPIENT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setRecipient(String recipient) {
     this.recipient = recipient;
   }
@@ -152,9 +152,9 @@ public class FaxResponseTransmission {
    * Fax Transmission Sender
    * @return sender
    */
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_SENDER)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getSender() {
     return sender;
@@ -162,7 +162,7 @@ public class FaxResponseTransmission {
 
 
   @JsonProperty(JSON_PROPERTY_SENDER)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setSender(String sender) {
     this.sender = sender;
   }
@@ -177,9 +177,9 @@ public class FaxResponseTransmission {
    * Fax Transmission Status Code
    * @return statusCode
    */
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_STATUS_CODE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public StatusCodeEnum getStatusCode() {
     return statusCode;
@@ -187,7 +187,7 @@ public class FaxResponseTransmission {
 
 
   @JsonProperty(JSON_PROPERTY_STATUS_CODE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setStatusCode(StatusCodeEnum statusCode) {
     this.statusCode = statusCode;
   }

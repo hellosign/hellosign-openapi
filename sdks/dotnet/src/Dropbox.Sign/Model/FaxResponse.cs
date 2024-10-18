@@ -48,10 +48,10 @@ namespace Dropbox.Sign.Model
         /// <param name="message">Fax Message (required).</param>
         /// <param name="metadata">Fax Metadata (required).</param>
         /// <param name="createdAt">Fax Created At Timestamp (required).</param>
-        /// <param name="from">Fax Sender Email (required).</param>
+        /// <param name="sender">Fax Sender Email (required).</param>
         /// <param name="transmissions">Fax Transmissions List (required).</param>
         /// <param name="filesUrl">Fax Files URL (required).</param>
-        public FaxResponse(string faxId = default(string), string title = default(string), string originalTitle = default(string), string subject = default(string), string message = default(string), Dictionary<string, Object> metadata = default(Dictionary<string, Object>), int createdAt = default(int), string from = default(string), List<FaxResponseTransmission> transmissions = default(List<FaxResponseTransmission>), string filesUrl = default(string))
+        public FaxResponse(string faxId = default(string), string title = default(string), string originalTitle = default(string), string subject = default(string), string message = default(string), Dictionary<string, Object> metadata = default(Dictionary<string, Object>), int createdAt = default(int), string sender = default(string), List<FaxResponseTransmission> transmissions = default(List<FaxResponseTransmission>), string filesUrl = default(string))
         {
 
             // to ensure "faxId" is required (not null)
@@ -91,12 +91,12 @@ namespace Dropbox.Sign.Model
             }
             this.Metadata = metadata;
             this.CreatedAt = createdAt;
-            // to ensure "from" is required (not null)
-            if (from == null)
+            // to ensure "sender" is required (not null)
+            if (sender == null)
             {
-                throw new ArgumentNullException("from is a required property for FaxResponse and cannot be null");
+                throw new ArgumentNullException("sender is a required property for FaxResponse and cannot be null");
             }
-            this.From = from;
+            this.Sender = sender;
             // to ensure "transmissions" is required (not null)
             if (transmissions == null)
             {
@@ -180,8 +180,8 @@ namespace Dropbox.Sign.Model
         /// Fax Sender Email
         /// </summary>
         /// <value>Fax Sender Email</value>
-        [DataMember(Name = "from", IsRequired = true, EmitDefaultValue = true)]
-        public string From { get; set; }
+        [DataMember(Name = "sender", IsRequired = true, EmitDefaultValue = true)]
+        public string Sender { get; set; }
 
         /// <summary>
         /// Fax Transmissions List
@@ -212,7 +212,7 @@ namespace Dropbox.Sign.Model
             sb.Append("  Message: ").Append(Message).Append("\n");
             sb.Append("  Metadata: ").Append(Metadata).Append("\n");
             sb.Append("  CreatedAt: ").Append(CreatedAt).Append("\n");
-            sb.Append("  From: ").Append(From).Append("\n");
+            sb.Append("  Sender: ").Append(Sender).Append("\n");
             sb.Append("  Transmissions: ").Append(Transmissions).Append("\n");
             sb.Append("  FilesUrl: ").Append(FilesUrl).Append("\n");
             sb.Append("}\n");
@@ -286,9 +286,9 @@ namespace Dropbox.Sign.Model
                     this.CreatedAt.Equals(input.CreatedAt)
                 ) &&
                 (
-                    this.From == input.From ||
-                    (this.From != null &&
-                    this.From.Equals(input.From))
+                    this.Sender == input.Sender ||
+                    (this.Sender != null &&
+                    this.Sender.Equals(input.Sender))
                 ) &&
                 (
                     this.Transmissions == input.Transmissions ||
@@ -337,9 +337,9 @@ namespace Dropbox.Sign.Model
                     hashCode = (hashCode * 59) + this.Metadata.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.CreatedAt.GetHashCode();
-                if (this.From != null)
+                if (this.Sender != null)
                 {
-                    hashCode = (hashCode * 59) + this.From.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Sender.GetHashCode();
                 }
                 if (this.Transmissions != null)
                 {
@@ -416,10 +416,10 @@ namespace Dropbox.Sign.Model
             });
             types.Add(new OpenApiType()
             {
-                Name = "from",
-                Property = "From",
+                Name = "sender",
+                Property = "Sender",
                 Type = "string",
-                Value = From,
+                Value = Sender,
             });
             types.Add(new OpenApiType()
             {

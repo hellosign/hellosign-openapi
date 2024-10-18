@@ -64,7 +64,7 @@ class FaxResponse implements ModelInterface, ArrayAccess, JsonSerializable
         'message' => 'string',
         'metadata' => 'array<string,mixed>',
         'created_at' => 'int',
-        'from' => 'string',
+        'sender' => 'string',
         'transmissions' => '\Dropbox\Sign\Model\FaxResponseTransmission[]',
         'files_url' => 'string',
     ];
@@ -84,7 +84,7 @@ class FaxResponse implements ModelInterface, ArrayAccess, JsonSerializable
         'message' => null,
         'metadata' => null,
         'created_at' => null,
-        'from' => null,
+        'sender' => null,
         'transmissions' => null,
         'files_url' => null,
     ];
@@ -102,7 +102,7 @@ class FaxResponse implements ModelInterface, ArrayAccess, JsonSerializable
         'message' => false,
         'metadata' => false,
         'created_at' => false,
-        'from' => false,
+        'sender' => false,
         'transmissions' => false,
         'files_url' => false,
     ];
@@ -192,7 +192,7 @@ class FaxResponse implements ModelInterface, ArrayAccess, JsonSerializable
         'message' => 'message',
         'metadata' => 'metadata',
         'created_at' => 'created_at',
-        'from' => 'from',
+        'sender' => 'sender',
         'transmissions' => 'transmissions',
         'files_url' => 'files_url',
     ];
@@ -210,7 +210,7 @@ class FaxResponse implements ModelInterface, ArrayAccess, JsonSerializable
         'message' => 'setMessage',
         'metadata' => 'setMetadata',
         'created_at' => 'setCreatedAt',
-        'from' => 'setFrom',
+        'sender' => 'setSender',
         'transmissions' => 'setTransmissions',
         'files_url' => 'setFilesUrl',
     ];
@@ -228,7 +228,7 @@ class FaxResponse implements ModelInterface, ArrayAccess, JsonSerializable
         'message' => 'getMessage',
         'metadata' => 'getMetadata',
         'created_at' => 'getCreatedAt',
-        'from' => 'getFrom',
+        'sender' => 'getSender',
         'transmissions' => 'getTransmissions',
         'files_url' => 'getFilesUrl',
     ];
@@ -296,7 +296,7 @@ class FaxResponse implements ModelInterface, ArrayAccess, JsonSerializable
         $this->setIfExists('message', $data ?? [], null);
         $this->setIfExists('metadata', $data ?? [], null);
         $this->setIfExists('created_at', $data ?? [], null);
-        $this->setIfExists('from', $data ?? [], null);
+        $this->setIfExists('sender', $data ?? [], null);
         $this->setIfExists('transmissions', $data ?? [], null);
         $this->setIfExists('files_url', $data ?? [], null);
     }
@@ -367,8 +367,8 @@ class FaxResponse implements ModelInterface, ArrayAccess, JsonSerializable
         if ($this->container['created_at'] === null) {
             $invalidProperties[] = "'created_at' can't be null";
         }
-        if ($this->container['from'] === null) {
-            $invalidProperties[] = "'from' can't be null";
+        if ($this->container['sender'] === null) {
+            $invalidProperties[] = "'sender' can't be null";
         }
         if ($this->container['transmissions'] === null) {
             $invalidProperties[] = "'transmissions' can't be null";
@@ -580,28 +580,28 @@ class FaxResponse implements ModelInterface, ArrayAccess, JsonSerializable
     }
 
     /**
-     * Gets from
+     * Gets sender
      *
      * @return string
      */
-    public function getFrom()
+    public function getSender()
     {
-        return $this->container['from'];
+        return $this->container['sender'];
     }
 
     /**
-     * Sets from
+     * Sets sender
      *
-     * @param string $from Fax Sender Email
+     * @param string $sender Fax Sender Email
      *
      * @return self
      */
-    public function setFrom(string $from)
+    public function setSender(string $sender)
     {
-        if (is_null($from)) {
-            throw new InvalidArgumentException('non-nullable from cannot be null');
+        if (is_null($sender)) {
+            throw new InvalidArgumentException('non-nullable sender cannot be null');
         }
-        $this->container['from'] = $from;
+        $this->container['sender'] = $sender;
 
         return $this;
     }

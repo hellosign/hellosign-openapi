@@ -11234,7 +11234,7 @@ components:
         - message
         - metadata
         - created_at
-        - from
+        - sender
         - transmissions
         - files_url
       properties:
@@ -11260,7 +11260,7 @@ components:
         created_at:
           description: 'Fax Created At Timestamp'
           type: integer
-        from:
+        sender:
           description: 'Fax Sender Email'
           type: string
         transmissions:
@@ -11296,6 +11296,10 @@ components:
       type: object
       x-internal-class: true
     FaxResponseTransmission:
+      required:
+        - recipient
+        - sender
+        - status_code
       properties:
         recipient:
           description: 'Fax Transmission Recipient'

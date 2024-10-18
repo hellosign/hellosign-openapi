@@ -10648,7 +10648,7 @@ components:
         - message
         - metadata
         - created_at
-        - from
+        - sender
         - transmissions
         - files_url
       properties:
@@ -10674,8 +10674,8 @@ components:
         created_at:
           description: '_t__FaxResponse::CREATED_AT'
           type: integer
-        from:
-          description: '_t__FaxResponse::FROM'
+        sender:
+          description: '_t__FaxResponse::SENDER'
           type: string
         transmissions:
           description: '_t__FaxResponse::TRANSMISSIONS'
@@ -10710,6 +10710,10 @@ components:
       type: object
       x-internal-class: true
     FaxResponseTransmission:
+      required:
+        - recipient
+        - sender
+        - status_code
       properties:
         recipient:
           description: '_t__Sub::FaxResponseTransmission::RECIPIENT'

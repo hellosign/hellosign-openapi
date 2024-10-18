@@ -15,7 +15,7 @@
 | `message`<sup>*_required_</sup> | ```String``` |  Fax Message  |  |
 | `metadata`<sup>*_required_</sup> | ```Map<String, Object>``` |  Fax Metadata  |  |
 | `createdAt`<sup>*_required_</sup> | ```Integer``` |  Fax Created At Timestamp  |  |
-| `from`<sup>*_required_</sup> | ```String``` |  Fax Sender Email  |  |
+| `sender`<sup>*_required_</sup> | ```String``` |  Fax Sender Email  |  |
 | `transmissions`<sup>*_required_</sup> | [```List<FaxResponseTransmission>```](FaxResponseTransmission.md) |  Fax Transmissions List  |  |
 | `filesUrl`<sup>*_required_</sup> | ```String``` |  Fax Files URL  |  |
 

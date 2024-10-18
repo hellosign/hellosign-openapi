@@ -94,8 +94,8 @@ namespace Dropbox.Sign.Model
         /// Fax Transmission Status Code
         /// </summary>
         /// <value>Fax Transmission Status Code</value>
-        [DataMember(Name = "status_code", EmitDefaultValue = true)]
-        public StatusCodeEnum? StatusCode { get; set; }
+        [DataMember(Name = "status_code", IsRequired = true, EmitDefaultValue = true)]
+        public StatusCodeEnum StatusCode { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="FaxResponseTransmission" /> class.
         /// </summary>
@@ -104,14 +104,24 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FaxResponseTransmission" /> class.
         /// </summary>
-        /// <param name="recipient">Fax Transmission Recipient.</param>
-        /// <param name="sender">Fax Transmission Sender.</param>
-        /// <param name="statusCode">Fax Transmission Status Code.</param>
+        /// <param name="recipient">Fax Transmission Recipient (required).</param>
+        /// <param name="sender">Fax Transmission Sender (required).</param>
+        /// <param name="statusCode">Fax Transmission Status Code (required).</param>
         /// <param name="sentAt">Fax Transmission Sent Timestamp.</param>
-        public FaxResponseTransmission(string recipient = default(string), string sender = default(string), StatusCodeEnum? statusCode = default(StatusCodeEnum?), int sentAt = default(int))
+        public FaxResponseTransmission(string recipient = default(string), string sender = default(string), StatusCodeEnum statusCode = default(StatusCodeEnum), int sentAt = default(int))
         {
 
+            // to ensure "recipient" is required (not null)
+            if (recipient == null)
+            {
+                throw new ArgumentNullException("recipient is a required property for FaxResponseTransmission and cannot be null");
+            }
             this.Recipient = recipient;
+            // to ensure "sender" is required (not null)
+            if (sender == null)
+            {
+                throw new ArgumentNullException("sender is a required property for FaxResponseTransmission and cannot be null");
+            }
             this.Sender = sender;
             this.StatusCode = statusCode;
             this.SentAt = sentAt;
@@ -137,14 +147,14 @@ namespace Dropbox.Sign.Model
         /// Fax Transmission Recipient
         /// </summary>
         /// <value>Fax Transmission Recipient</value>
-        [DataMember(Name = "recipient", EmitDefaultValue = true)]
+        [DataMember(Name = "recipient", IsRequired = true, EmitDefaultValue = true)]
         public string Recipient { get; set; }
 
         /// <summary>
         /// Fax Transmission Sender
         /// </summary>
         /// <value>Fax Transmission Sender</value>
-        [DataMember(Name = "sender", EmitDefaultValue = true)]
+        [DataMember(Name = "sender", IsRequired = true, EmitDefaultValue = true)]
         public string Sender { get; set; }
 
         /// <summary>

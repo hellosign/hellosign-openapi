@@ -332,6 +332,15 @@ class FaxResponseTransmission implements ModelInterface, ArrayAccess, JsonSerial
     {
         $invalidProperties = [];
 
+        if ($this->container['recipient'] === null) {
+            $invalidProperties[] = "'recipient' can't be null";
+        }
+        if ($this->container['sender'] === null) {
+            $invalidProperties[] = "'sender' can't be null";
+        }
+        if ($this->container['status_code'] === null) {
+            $invalidProperties[] = "'status_code' can't be null";
+        }
         $allowedValues = $this->getStatusCodeAllowableValues();
         if (!is_null($this->container['status_code']) && !in_array($this->container['status_code'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -358,7 +367,7 @@ class FaxResponseTransmission implements ModelInterface, ArrayAccess, JsonSerial
     /**
      * Gets recipient
      *
-     * @return string|null
+     * @return string
      */
     public function getRecipient()
     {
@@ -368,11 +377,11 @@ class FaxResponseTransmission implements ModelInterface, ArrayAccess, JsonSerial
     /**
      * Sets recipient
      *
-     * @param string|null $recipient Fax Transmission Recipient
+     * @param string $recipient Fax Transmission Recipient
      *
      * @return self
      */
-    public function setRecipient(?string $recipient)
+    public function setRecipient(string $recipient)
     {
         if (is_null($recipient)) {
             throw new InvalidArgumentException('non-nullable recipient cannot be null');
@@ -385,7 +394,7 @@ class FaxResponseTransmission implements ModelInterface, ArrayAccess, JsonSerial
     /**
      * Gets sender
      *
-     * @return string|null
+     * @return string
      */
     public function getSender()
     {
@@ -395,11 +404,11 @@ class FaxResponseTransmission implements ModelInterface, ArrayAccess, JsonSerial
     /**
      * Sets sender
      *
-     * @param string|null $sender Fax Transmission Sender
+     * @param string $sender Fax Transmission Sender
      *
      * @return self
      */
-    public function setSender(?string $sender)
+    public function setSender(string $sender)
     {
         if (is_null($sender)) {
             throw new InvalidArgumentException('non-nullable sender cannot be null');
@@ -412,7 +421,7 @@ class FaxResponseTransmission implements ModelInterface, ArrayAccess, JsonSerial
     /**
      * Gets status_code
      *
-     * @return string|null
+     * @return string
      */
     public function getStatusCode()
     {
@@ -422,11 +431,11 @@ class FaxResponseTransmission implements ModelInterface, ArrayAccess, JsonSerial
     /**
      * Sets status_code
      *
-     * @param string|null $status_code Fax Transmission Status Code
+     * @param string $status_code Fax Transmission Status Code
      *
      * @return self
      */
-    public function setStatusCode(?string $status_code)
+    public function setStatusCode(string $status_code)
     {
         if (is_null($status_code)) {
             throw new InvalidArgumentException('non-nullable status_code cannot be null');

@@ -1,8 +1,8 @@
 import { AttributeTypeMap } from "./";
 export declare class FaxResponseTransmission {
-    "recipient"?: string;
-    "sender"?: string;
-    "statusCode"?: FaxResponseTransmission.StatusCodeEnum;
+    "recipient": string;
+    "sender": string;
+    "statusCode": FaxResponseTransmission.StatusCodeEnum;
     "sentAt"?: number;
     static discriminator: string | undefined;
     static attributeTypeMap: AttributeTypeMap;

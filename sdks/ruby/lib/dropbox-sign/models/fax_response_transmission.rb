@@ -148,12 +148,27 @@ module Dropbox::Sign
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @recipient.nil?
+        invalid_properties.push('invalid value for "recipient", recipient cannot be nil.')
+      end
+
+      if @sender.nil?
+        invalid_properties.push('invalid value for "sender", sender cannot be nil.')
+      end
+
+      if @status_code.nil?
+        invalid_properties.push('invalid value for "status_code", status_code cannot be nil.')
+      end
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @recipient.nil?
+      return false if @sender.nil?
+      return false if @status_code.nil?
       status_code_validator = EnumAttributeValidator.new('String', ["success", "transmitting", "error_could_not_fax", "error_unknown", "error_busy", "error_no_answer", "error_disconnected", "error_bad_destination"])
       return false unless status_code_validator.valid?(@status_code)
       true

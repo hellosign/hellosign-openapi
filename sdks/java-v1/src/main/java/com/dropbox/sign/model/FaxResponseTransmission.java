@@ -121,14 +121,15 @@ public class FaxResponseTransmission {
      *
      * @return recipient
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_RECIPIENT)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    @javax.annotation.Nonnull
+    @JsonProperty(JSON_PROPERTY_RECIPIENT)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public String getRecipient() {
         return recipient;
     }
 
     @JsonProperty(JSON_PROPERTY_RECIPIENT)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setRecipient(String recipient) {
         this.recipient = recipient;
     }
@@ -143,14 +144,15 @@ public class FaxResponseTransmission {
      *
      * @return sender
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_SENDER)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    @javax.annotation.Nonnull
+    @JsonProperty(JSON_PROPERTY_SENDER)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public String getSender() {
         return sender;
     }
 
     @JsonProperty(JSON_PROPERTY_SENDER)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setSender(String sender) {
         this.sender = sender;
     }
@@ -165,14 +167,15 @@ public class FaxResponseTransmission {
      *
      * @return statusCode
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_STATUS_CODE)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    @javax.annotation.Nonnull
+    @JsonProperty(JSON_PROPERTY_STATUS_CODE)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public StatusCodeEnum getStatusCode() {
         return statusCode;
     }
 
     @JsonProperty(JSON_PROPERTY_STATUS_CODE)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
     public void setStatusCode(StatusCodeEnum statusCode) {
         this.statusCode = statusCode;
     }

@@ -48,7 +48,7 @@ module Dropbox::Sign
 
     # Fax Sender Email
     # @return [String]
-    attr_accessor :from
+    attr_accessor :sender
 
     # Fax Transmissions List
     # @return [Array<FaxResponseTransmission>]
@@ -68,7 +68,7 @@ module Dropbox::Sign
         :'message' => :'message',
         :'metadata' => :'metadata',
         :'created_at' => :'created_at',
-        :'from' => :'from',
+        :'sender' => :'sender',
         :'transmissions' => :'transmissions',
         :'files_url' => :'files_url'
       }
@@ -89,7 +89,7 @@ module Dropbox::Sign
         :'message' => :'String',
         :'metadata' => :'Hash<String, Object>',
         :'created_at' => :'Integer',
-        :'from' => :'String',
+        :'sender' => :'String',
         :'transmissions' => :'Array<FaxResponseTransmission>',
         :'files_url' => :'String'
       }
@@ -171,8 +171,8 @@ module Dropbox::Sign
         self.created_at = attributes[:'created_at']
       end
 
-      if attributes.key?(:'from')
-        self.from = attributes[:'from']
+      if attributes.key?(:'sender')
+        self.sender = attributes[:'sender']
       end
 
       if attributes.key?(:'transmissions')
@@ -218,8 +218,8 @@ module Dropbox::Sign
         invalid_properties.push('invalid value for "created_at", created_at cannot be nil.')
       end
 
-      if @from.nil?
-        invalid_properties.push('invalid value for "from", from cannot be nil.')
+      if @sender.nil?
+        invalid_properties.push('invalid value for "sender", sender cannot be nil.')
       end
 
       if @transmissions.nil?
@@ -243,7 +243,7 @@ module Dropbox::Sign
       return false if @message.nil?
       return false if @metadata.nil?
       return false if @created_at.nil?
-      return false if @from.nil?
+      return false if @sender.nil?
       return false if @transmissions.nil?
       return false if @files_url.nil?
       true
@@ -261,7 +261,7 @@ module Dropbox::Sign
           message == o.message &&
           metadata == o.metadata &&
           created_at == o.created_at &&
-          from == o.from &&
+          sender == o.sender &&
           transmissions == o.transmissions &&
           files_url == o.files_url
     end
@@ -275,7 +275,7 @@ module Dropbox::Sign
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [fax_id, title, original_title, subject, message, metadata, created_at, from, transmissions, files_url].hash
+      [fax_id, title, original_title, subject, message, metadata, created_at, sender, transmissions, files_url].hash
     end
 
     # Builds the object from hash

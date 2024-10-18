@@ -32,15 +32,9 @@ class FaxResponseTransmission(BaseModel):
     FaxResponseTransmission
     """  # noqa: E501
 
-    recipient: Optional[StrictStr] = Field(
-        default=None, description="Fax Transmission Recipient"
-    )
-    sender: Optional[StrictStr] = Field(
-        default=None, description="Fax Transmission Sender"
-    )
-    status_code: Optional[StrictStr] = Field(
-        default=None, description="Fax Transmission Status Code"
-    )
+    recipient: StrictStr = Field(description="Fax Transmission Recipient")
+    sender: StrictStr = Field(description="Fax Transmission Sender")
+    status_code: StrictStr = Field(description="Fax Transmission Status Code")
     sent_at: Optional[StrictInt] = Field(
         default=None, description="Fax Transmission Sent Timestamp"
     )
@@ -54,9 +48,6 @@ class FaxResponseTransmission(BaseModel):
     @field_validator("status_code")
     def status_code_validate_enum(cls, value):
         """Validates the enum"""
-        if value is None:
-            return value
-
         if value not in set(
             [
                 "success",

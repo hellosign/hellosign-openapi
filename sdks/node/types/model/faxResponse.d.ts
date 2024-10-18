@@ -10,7 +10,7 @@ export declare class FaxResponse {
         [key: string]: any;
     };
     "createdAt": number;
-    "from": string;
+    "sender": string;
     "transmissions": Array<FaxResponseTransmission>;
     "filesUrl": string;
     static discriminator: string | undefined;

@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 | `message`<sup>*_required_</sup> | ```string``` |  Fax Message  |  |
 | `metadata`<sup>*_required_</sup> | ```array<string,mixed>``` |  Fax Metadata  |  |
 | `created_at`<sup>*_required_</sup> | ```int``` |  Fax Created At Timestamp  |  |
-| `from`<sup>*_required_</sup> | ```string``` |  Fax Sender Email  |  |
+| `sender`<sup>*_required_</sup> | ```string``` |  Fax Sender Email  |  |
 | `transmissions`<sup>*_required_</sup> | [```\Dropbox\Sign\Model\FaxResponseTransmission[]```](FaxResponseTransmission.md) |  Fax Transmissions List  |  |
 | `files_url`<sup>*_required_</sup> | ```string``` |  Fax Files URL  |  |
 

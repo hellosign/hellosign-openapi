@@ -40,7 +40,7 @@ class FaxResponse(BaseModel):
     message: StrictStr = Field(description="Fax Message")
     metadata: Dict[str, Any] = Field(description="Fax Metadata")
     created_at: StrictInt = Field(description="Fax Created At Timestamp")
-    var_from: StrictStr = Field(description="Fax Sender Email", alias="from")
+    sender: StrictStr = Field(description="Fax Sender Email")
     transmissions: List[FaxResponseTransmission] = Field(
         description="Fax Transmissions List"
     )
@@ -53,7 +53,7 @@ class FaxResponse(BaseModel):
         "message",
         "metadata",
         "created_at",
-        "from",
+        "sender",
         "transmissions",
         "files_url",
     ]
@@ -135,7 +135,7 @@ class FaxResponse(BaseModel):
                 "message": obj.get("message"),
                 "metadata": obj.get("metadata"),
                 "created_at": obj.get("created_at"),
-                "from": obj.get("from"),
+                "sender": obj.get("sender"),
                 "transmissions": (
                     [
                         FaxResponseTransmission.from_dict(_item)
@@ -169,7 +169,7 @@ class FaxResponse(BaseModel):
             "message": "(str,)",
             "metadata": "(Dict[str, object],)",
             "created_at": "(int,)",
-            "var_from": "(str,)",
+            "sender": "(str,)",
             "transmissions": "(List[FaxResponseTransmission],)",
             "files_url": "(str,)",
         }

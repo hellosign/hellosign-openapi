@@ -57,7 +57,7 @@ export class FaxResponse {
   /**
    * Fax Sender Email
    */
-  "from": string;
+  "sender": string;
   /**
    * Fax Transmissions List
    */
@@ -106,8 +106,8 @@ export class FaxResponse {
       type: "number",
     },
     {
-      name: "from",
-      baseName: "from",
+      name: "sender",
+      baseName: "sender",
       type: "string",
     },
     {

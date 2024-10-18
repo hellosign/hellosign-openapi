@@ -45,7 +45,7 @@ import com.dropbox.sign.ApiException;
   FaxResponse.JSON_PROPERTY_MESSAGE,
   FaxResponse.JSON_PROPERTY_METADATA,
   FaxResponse.JSON_PROPERTY_CREATED_AT,
-  FaxResponse.JSON_PROPERTY_FROM,
+  FaxResponse.JSON_PROPERTY_SENDER,
   FaxResponse.JSON_PROPERTY_TRANSMISSIONS,
   FaxResponse.JSON_PROPERTY_FILES_URL
 })
@@ -73,8 +73,8 @@ public class FaxResponse {
   public static final String JSON_PROPERTY_CREATED_AT = "created_at";
   private Integer createdAt;
 
-  public static final String JSON_PROPERTY_FROM = "from";
-  private String from;
+  public static final String JSON_PROPERTY_SENDER = "sender";
+  private String sender;
 
   public static final String JSON_PROPERTY_TRANSMISSIONS = "transmissions";
   private List<FaxResponseTransmission> transmissions = new ArrayList<>();
@@ -283,28 +283,28 @@ public class FaxResponse {
   }
 
 
-  public FaxResponse from(String from) {
-    this.from = from;
+  public FaxResponse sender(String sender) {
+    this.sender = sender;
     return this;
   }
 
   /**
    * Fax Sender Email
-   * @return from
+   * @return sender
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_FROM)
+  @JsonProperty(JSON_PROPERTY_SENDER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public String getFrom() {
-    return from;
+  public String getSender() {
+    return sender;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FROM)
+  @JsonProperty(JSON_PROPERTY_SENDER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setFrom(String from) {
-    this.from = from;
+  public void setSender(String sender) {
+    this.sender = sender;
   }
 
 
@@ -385,14 +385,14 @@ public class FaxResponse {
         Objects.equals(this.message, faxResponse.message) &&
         Objects.equals(this.metadata, faxResponse.metadata) &&
         Objects.equals(this.createdAt, faxResponse.createdAt) &&
-        Objects.equals(this.from, faxResponse.from) &&
+        Objects.equals(this.sender, faxResponse.sender) &&
         Objects.equals(this.transmissions, faxResponse.transmissions) &&
         Objects.equals(this.filesUrl, faxResponse.filesUrl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(faxId, title, originalTitle, subject, message, metadata, createdAt, from, transmissions, filesUrl);
+    return Objects.hash(faxId, title, originalTitle, subject, message, metadata, createdAt, sender, transmissions, filesUrl);
   }
 
   @Override
@@ -406,7 +406,7 @@ public class FaxResponse {
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
-    sb.append("    from: ").append(toIndentedString(from)).append("\n");
+    sb.append("    sender: ").append(toIndentedString(sender)).append("\n");
     sb.append("    transmissions: ").append(toIndentedString(transmissions)).append("\n");
     sb.append("    filesUrl: ").append(toIndentedString(filesUrl)).append("\n");
     sb.append("}");
@@ -550,23 +550,23 @@ public class FaxResponse {
             map.put("created_at", JSON.getDefault().getMapper().writeValueAsString(createdAt));
         }
     }
-    if (from != null) {
-        if (isFileTypeOrListOfFiles(from)) {
+    if (sender != null) {
+        if (isFileTypeOrListOfFiles(sender)) {
             fileTypeFound = true;
         }
 
-        if (from.getClass().equals(java.io.File.class) ||
-            from.getClass().equals(Integer.class) ||
-            from.getClass().equals(String.class) ||
-            from.getClass().isEnum()) {
-            map.put("from", from);
-        } else if (isListOfFile(from)) {
-            for(int i = 0; i< getListSize(from); i++) {
-                map.put("from[" + i + "]", getFromList(from, i));
+        if (sender.getClass().equals(java.io.File.class) ||
+            sender.getClass().equals(Integer.class) ||
+            sender.getClass().equals(String.class) ||
+            sender.getClass().isEnum()) {
+            map.put("sender", sender);
+        } else if (isListOfFile(sender)) {
+            for(int i = 0; i< getListSize(sender); i++) {
+                map.put("sender[" + i + "]", getFromList(sender, i));
             }
         }
         else {
-            map.put("from", JSON.getDefault().getMapper().writeValueAsString(from));
+            map.put("sender", JSON.getDefault().getMapper().writeValueAsString(sender));
         }
     }
     if (transmissions != null) {

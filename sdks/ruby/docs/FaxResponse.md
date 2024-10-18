@@ -13,7 +13,7 @@
 | `message`<sup>*_required_</sup> | ```String``` |  Fax Message  |  |
 | `metadata`<sup>*_required_</sup> | ```Hash<String, Object>``` |  Fax Metadata  |  |
 | `created_at`<sup>*_required_</sup> | ```Integer``` |  Fax Created At Timestamp  |  |
-| `from`<sup>*_required_</sup> | ```String``` |  Fax Sender Email  |  |
+| `sender`<sup>*_required_</sup> | ```String``` |  Fax Sender Email  |  |
 | `transmissions`<sup>*_required_</sup> | [```Array<FaxResponseTransmission>```](FaxResponseTransmission.md) |  Fax Transmissions List  |  |
 | `files_url`<sup>*_required_</sup> | ```String``` |  Fax Files URL  |  |
 

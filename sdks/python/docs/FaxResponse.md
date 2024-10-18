@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 | `message`<sup>*_required_</sup> | ```str``` |  Fax Message  |  |
 | `metadata`<sup>*_required_</sup> | ```Dict[str, object]``` |  Fax Metadata  |  |
 | `created_at`<sup>*_required_</sup> | ```int``` |  Fax Created At Timestamp  |  |
-| `var_from`<sup>*_required_</sup> | ```str``` |  Fax Sender Email  |  |
+| `sender`<sup>*_required_</sup> | ```str``` |  Fax Sender Email  |  |
 | `transmissions`<sup>*_required_</sup> | [```List[FaxResponseTransmission]```](FaxResponseTransmission.md) |  Fax Transmissions List  |  |
 | `files_url`<sup>*_required_</sup> | ```str``` |  Fax Files URL  |  |
 
