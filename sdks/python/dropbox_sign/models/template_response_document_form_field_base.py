@@ -20,7 +20,7 @@ import json
 
 from importlib import import_module
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional, Union
+from typing import Any, ClassVar, Dict, List, Union
 from typing import Optional, Set, Tuple
 from typing_extensions import Self
 import io
@@ -61,47 +61,33 @@ class TemplateResponseDocumentFormFieldBase(BaseModel):
     An array of Form Field objects containing the name and type of each named field.
     """  # noqa: E501
 
+    api_id: StrictStr = Field(description="A unique id for the form field.")
+    name: StrictStr = Field(description="The name of the form field.")
     type: StrictStr
-    api_id: Optional[StrictStr] = Field(
-        default=None, description="A unique id for the form field."
-    )
-    name: Optional[StrictStr] = Field(
-        default=None, description="The name of the form field."
-    )
     signer: Union[StrictStr, StrictInt] = Field(
         description="The signer of the Form Field."
     )
-    x: Optional[StrictInt] = Field(
-        default=None, description="The horizontal offset in pixels for this form field."
+    x: StrictInt = Field(
+        description="The horizontal offset in pixels for this form field."
     )
-    y: Optional[StrictInt] = Field(
-        default=None, description="The vertical offset in pixels for this form field."
+    y: StrictInt = Field(
+        description="The vertical offset in pixels for this form field."
     )
-    width: Optional[StrictInt] = Field(
-        default=None, description="The width in pixels of this form field."
-    )
-    height: Optional[StrictInt] = Field(
-        default=None, description="The height in pixels of this form field."
-    )
-    required: Optional[StrictBool] = Field(
-        default=None,
-        description="Boolean showing whether or not this field is required.",
-    )
-    group: Optional[StrictStr] = Field(
-        default=None,
-        description="The name of the group this field is in. If this field is not a group, this defaults to `null` except for Radio fields.",
+    width: StrictInt = Field(description="The width in pixels of this form field.")
+    height: StrictInt = Field(description="The height in pixels of this form field.")
+    required: StrictBool = Field(
+        description="Boolean showing whether or not this field is required."
     )
     __properties: ClassVar[List[str]] = [
-        "type",
         "api_id",
         "name",
+        "type",
         "signer",
         "x",
         "y",
         "width",
         "height",
         "required",
-        "group",
     ]
 
     model_config = ConfigDict(
@@ -252,16 +238,15 @@ class TemplateResponseDocumentFormFieldBase(BaseModel):
     @classmethod
     def openapi_types(cls) -> Dict[str, str]:
         return {
-            "type": "(str,)",
             "api_id": "(str,)",
             "name": "(str,)",
+            "type": "(str,)",
             "signer": "(int, str,)",
             "x": "(int,)",
             "y": "(int,)",
             "width": "(int,)",
             "height": "(int,)",
             "required": "(bool,)",
-            "group": "(str,)",
         }
 
     @classmethod

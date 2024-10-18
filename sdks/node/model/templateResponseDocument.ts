@@ -32,27 +32,27 @@ export class TemplateResponseDocument {
   /**
    * Name of the associated file.
    */
-  "name"?: string;
+  "name": string;
+  /**
+   * An array of Form Field Group objects.
+   */
+  "fieldGroups": Array<TemplateResponseDocumentFieldGroup>;
+  /**
+   * An array of Form Field objects containing the name and type of each named field.
+   */
+  "formFields": Array<TemplateResponseDocumentFormFieldBase>;
+  /**
+   * An array of Form Field objects containing the name and type of each named field.
+   */
+  "customFields": Array<TemplateResponseDocumentCustomFieldBase>;
+  /**
+   * An array describing static overlay fields. **NOTE:** Only available for certain subscriptions.
+   */
+  "staticFields": Array<TemplateResponseDocumentStaticFieldBase>;
   /**
    * Document ordering, the lowest index is displayed first and the highest last (0-based indexing).
    */
   "index"?: number;
-  /**
-   * An array of Form Field Group objects.
-   */
-  "fieldGroups"?: Array<TemplateResponseDocumentFieldGroup>;
-  /**
-   * An array of Form Field objects containing the name and type of each named field.
-   */
-  "formFields"?: Array<TemplateResponseDocumentFormFieldBase>;
-  /**
-   * An array of Form Field objects containing the name and type of each named field.
-   */
-  "customFields"?: Array<TemplateResponseDocumentCustomFieldBase>;
-  /**
-   * An array describing static overlay fields. **NOTE:** Only available for certain subscriptions.
-   */
-  "staticFields"?: Array<TemplateResponseDocumentStaticFieldBase> | null;
 
   static discriminator: string | undefined = undefined;
 
@@ -61,11 +61,6 @@ export class TemplateResponseDocument {
       name: "name",
       baseName: "name",
       type: "string",
-    },
-    {
-      name: "index",
-      baseName: "index",
-      type: "number",
     },
     {
       name: "fieldGroups",
@@ -86,6 +81,11 @@ export class TemplateResponseDocument {
       name: "staticFields",
       baseName: "static_fields",
       type: "Array<TemplateResponseDocumentStaticFieldBase>",
+    },
+    {
+      name: "index",
+      baseName: "index",
+      type: "number",
     },
   ];
 

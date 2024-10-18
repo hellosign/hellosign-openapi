@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List
 from dropbox_sign.models.account_response import AccountResponse
 from typing import Optional, Set, Tuple
 from typing_extensions import Self
@@ -33,15 +33,13 @@ class TeamResponse(BaseModel):
     Contains information about your team and its members
     """  # noqa: E501
 
-    name: Optional[StrictStr] = Field(default=None, description="The name of your Team")
-    accounts: Optional[List[AccountResponse]] = None
-    invited_accounts: Optional[List[AccountResponse]] = Field(
-        default=None,
-        description="A list of all Accounts that have an outstanding invitation to join your Team. Note that this response is a subset of the response parameters found in `GET /account`.",
+    name: StrictStr = Field(description="The name of your Team")
+    accounts: List[AccountResponse]
+    invited_accounts: List[AccountResponse] = Field(
+        description="A list of all Accounts that have an outstanding invitation to join your Team. Note that this response is a subset of the response parameters found in `GET /account`."
     )
-    invited_emails: Optional[List[StrictStr]] = Field(
-        default=None,
-        description="A list of email addresses that have an outstanding invitation to join your Team and do not yet have a Dropbox Sign account.",
+    invited_emails: List[StrictStr] = Field(
+        description="A list of email addresses that have an outstanding invitation to join your Team and do not yet have a Dropbox Sign account."
     )
     __properties: ClassVar[List[str]] = [
         "name",

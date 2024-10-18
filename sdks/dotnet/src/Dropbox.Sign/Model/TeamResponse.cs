@@ -41,16 +41,36 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TeamResponse" /> class.
         /// </summary>
-        /// <param name="name">The name of your Team.</param>
-        /// <param name="accounts">accounts.</param>
-        /// <param name="invitedAccounts">A list of all Accounts that have an outstanding invitation to join your Team. Note that this response is a subset of the response parameters found in &#x60;GET /account&#x60;..</param>
-        /// <param name="invitedEmails">A list of email addresses that have an outstanding invitation to join your Team and do not yet have a Dropbox Sign account..</param>
+        /// <param name="name">The name of your Team (required).</param>
+        /// <param name="accounts">accounts (required).</param>
+        /// <param name="invitedAccounts">A list of all Accounts that have an outstanding invitation to join your Team. Note that this response is a subset of the response parameters found in &#x60;GET /account&#x60;. (required).</param>
+        /// <param name="invitedEmails">A list of email addresses that have an outstanding invitation to join your Team and do not yet have a Dropbox Sign account. (required).</param>
         public TeamResponse(string name = default(string), List<AccountResponse> accounts = default(List<AccountResponse>), List<AccountResponse> invitedAccounts = default(List<AccountResponse>), List<string> invitedEmails = default(List<string>))
         {
 
+            // to ensure "name" is required (not null)
+            if (name == null)
+            {
+                throw new ArgumentNullException("name is a required property for TeamResponse and cannot be null");
+            }
             this.Name = name;
+            // to ensure "accounts" is required (not null)
+            if (accounts == null)
+            {
+                throw new ArgumentNullException("accounts is a required property for TeamResponse and cannot be null");
+            }
             this.Accounts = accounts;
+            // to ensure "invitedAccounts" is required (not null)
+            if (invitedAccounts == null)
+            {
+                throw new ArgumentNullException("invitedAccounts is a required property for TeamResponse and cannot be null");
+            }
             this.InvitedAccounts = invitedAccounts;
+            // to ensure "invitedEmails" is required (not null)
+            if (invitedEmails == null)
+            {
+                throw new ArgumentNullException("invitedEmails is a required property for TeamResponse and cannot be null");
+            }
             this.InvitedEmails = invitedEmails;
         }
 
@@ -74,27 +94,27 @@ namespace Dropbox.Sign.Model
         /// The name of your Team
         /// </summary>
         /// <value>The name of your Team</value>
-        [DataMember(Name = "name", EmitDefaultValue = true)]
+        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
         /// Gets or Sets Accounts
         /// </summary>
-        [DataMember(Name = "accounts", EmitDefaultValue = true)]
+        [DataMember(Name = "accounts", IsRequired = true, EmitDefaultValue = true)]
         public List<AccountResponse> Accounts { get; set; }
 
         /// <summary>
         /// A list of all Accounts that have an outstanding invitation to join your Team. Note that this response is a subset of the response parameters found in &#x60;GET /account&#x60;.
         /// </summary>
         /// <value>A list of all Accounts that have an outstanding invitation to join your Team. Note that this response is a subset of the response parameters found in &#x60;GET /account&#x60;.</value>
-        [DataMember(Name = "invited_accounts", EmitDefaultValue = true)]
+        [DataMember(Name = "invited_accounts", IsRequired = true, EmitDefaultValue = true)]
         public List<AccountResponse> InvitedAccounts { get; set; }
 
         /// <summary>
         /// A list of email addresses that have an outstanding invitation to join your Team and do not yet have a Dropbox Sign account.
         /// </summary>
         /// <value>A list of email addresses that have an outstanding invitation to join your Team and do not yet have a Dropbox Sign account.</value>
-        [DataMember(Name = "invited_emails", EmitDefaultValue = true)]
+        [DataMember(Name = "invited_emails", IsRequired = true, EmitDefaultValue = true)]
         public List<string> InvitedEmails { get; set; }
 
         /// <summary>

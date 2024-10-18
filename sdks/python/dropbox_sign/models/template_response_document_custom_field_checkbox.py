@@ -41,15 +41,15 @@ class TemplateResponseDocumentCustomFieldCheckbox(
         description="The type of this Custom Field. Only `text` and `checkbox` are currently supported.  * Text uses `TemplateResponseDocumentCustomFieldText` * Checkbox uses `TemplateResponseDocumentCustomFieldCheckbox`"
     )
     __properties: ClassVar[List[str]] = [
-        "type",
         "api_id",
         "name",
-        "signer",
+        "type",
         "x",
         "y",
         "width",
         "height",
         "required",
+        "signer",
         "group",
     ]
 
@@ -116,15 +116,15 @@ class TemplateResponseDocumentCustomFieldCheckbox(
 
         _obj = cls.model_validate(
             {
-                "type": obj.get("type") if obj.get("type") is not None else "checkbox",
                 "api_id": obj.get("api_id"),
                 "name": obj.get("name"),
-                "signer": obj.get("signer"),
+                "type": obj.get("type") if obj.get("type") is not None else "checkbox",
                 "x": obj.get("x"),
                 "y": obj.get("y"),
                 "width": obj.get("width"),
                 "height": obj.get("height"),
                 "required": obj.get("required"),
+                "signer": obj.get("signer"),
                 "group": obj.get("group"),
             }
         )
@@ -146,12 +146,12 @@ class TemplateResponseDocumentCustomFieldCheckbox(
             "type": "(str,)",
             "api_id": "(str,)",
             "name": "(str,)",
-            "signer": "(int, str,)",
             "x": "(int,)",
             "y": "(int,)",
             "width": "(int,)",
             "height": "(int,)",
             "required": "(bool,)",
+            "signer": "(int, str,)",
             "group": "(str,)",
         }
 

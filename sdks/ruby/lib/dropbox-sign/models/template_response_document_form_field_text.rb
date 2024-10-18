@@ -42,6 +42,10 @@ module Dropbox::Sign
     # @return [String, nil]
     attr_accessor :validation_type
 
+    # The name of the group this field is in. If this field is not a group, this defaults to `null` except for Radio fields.
+    # @return [String, nil]
+    attr_accessor :group
+
     class EnumAttributeValidator
       attr_reader :datatype
       attr_reader :allowable_values
@@ -72,7 +76,8 @@ module Dropbox::Sign
         :'is_multiline' => :'isMultiline',
         :'original_font_size' => :'originalFontSize',
         :'font_family' => :'fontFamily',
-        :'validation_type' => :'validation_type'
+        :'validation_type' => :'validation_type',
+        :'group' => :'group'
       }
     end
 
@@ -89,14 +94,16 @@ module Dropbox::Sign
         :'is_multiline' => :'Boolean',
         :'original_font_size' => :'Integer',
         :'font_family' => :'String',
-        :'validation_type' => :'String'
+        :'validation_type' => :'String',
+        :'group' => :'String'
       }
     end
 
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
-        :'validation_type'
+        :'validation_type',
+        :'group'
       ])
     end
 
@@ -168,6 +175,10 @@ module Dropbox::Sign
       if attributes.key?(:'validation_type')
         self.validation_type = attributes[:'validation_type']
       end
+
+      if attributes.key?(:'group')
+        self.group = attributes[:'group']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -178,6 +189,22 @@ module Dropbox::Sign
         invalid_properties.push('invalid value for "type", type cannot be nil.')
       end
 
+      if @avg_text_length.nil?
+        invalid_properties.push('invalid value for "avg_text_length", avg_text_length cannot be nil.')
+      end
+
+      if @is_multiline.nil?
+        invalid_properties.push('invalid value for "is_multiline", is_multiline cannot be nil.')
+      end
+
+      if @original_font_size.nil?
+        invalid_properties.push('invalid value for "original_font_size", original_font_size cannot be nil.')
+      end
+
+      if @font_family.nil?
+        invalid_properties.push('invalid value for "font_family", font_family cannot be nil.')
+      end
+
       invalid_properties
     end
 
@@ -185,6 +212,10 @@ module Dropbox::Sign
     # @return true if the model is valid
     def valid?
       return false if @type.nil?
+      return false if @avg_text_length.nil?
+      return false if @is_multiline.nil?
+      return false if @original_font_size.nil?
+      return false if @font_family.nil?
       validation_type_validator = EnumAttributeValidator.new('String', ["numbers_only", "letters_only", "phone_number", "bank_routing_number", "bank_account_number", "email_address", "zip_code", "social_security_number", "employer_identification_number", "custom_regex"])
       return false unless validation_type_validator.valid?(@validation_type)
       true && super
@@ -210,7 +241,8 @@ module Dropbox::Sign
           is_multiline == o.is_multiline &&
           original_font_size == o.original_font_size &&
           font_family == o.font_family &&
-          validation_type == o.validation_type && super(o)
+          validation_type == o.validation_type &&
+          group == o.group && super(o)
     end
 
     # @see the `==` method
@@ -222,7 +254,7 @@ module Dropbox::Sign
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [type, avg_text_length, is_multiline, original_font_size, font_family, validation_type].hash
+      [type, avg_text_length, is_multiline, original_font_size, font_family, validation_type, group].hash
     end
 
     # Builds the object from hash

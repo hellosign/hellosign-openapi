@@ -1,9 +1,9 @@
 import { AttributeTypeMap } from "./";
 export declare class ApiAppResponseOAuth {
-    "callbackUrl"?: string;
-    "secret"?: string;
-    "scopes"?: Array<string>;
-    "chargesUsers"?: boolean;
+    "callbackUrl": string;
+    "scopes": Array<string>;
+    "chargesUsers": boolean;
+    "secret"?: string | null;
     static discriminator: string | undefined;
     static attributeTypeMap: AttributeTypeMap;
     static getAttributeTypeMap(): AttributeTypeMap;

@@ -41,12 +41,22 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TemplateResponseDocumentFieldGroup" /> class.
         /// </summary>
-        /// <param name="name">The name of the form field group..</param>
-        /// <param name="rule">rule.</param>
+        /// <param name="name">The name of the form field group. (required).</param>
+        /// <param name="rule">rule (required).</param>
         public TemplateResponseDocumentFieldGroup(string name = default(string), TemplateResponseDocumentFieldGroupRule rule = default(TemplateResponseDocumentFieldGroupRule))
         {
 
+            // to ensure "name" is required (not null)
+            if (name == null)
+            {
+                throw new ArgumentNullException("name is a required property for TemplateResponseDocumentFieldGroup and cannot be null");
+            }
             this.Name = name;
+            // to ensure "rule" is required (not null)
+            if (rule == null)
+            {
+                throw new ArgumentNullException("rule is a required property for TemplateResponseDocumentFieldGroup and cannot be null");
+            }
             this.Rule = rule;
         }
 
@@ -70,13 +80,13 @@ namespace Dropbox.Sign.Model
         /// The name of the form field group.
         /// </summary>
         /// <value>The name of the form field group.</value>
-        [DataMember(Name = "name", EmitDefaultValue = true)]
+        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
         /// Gets or Sets Rule
         /// </summary>
-        [DataMember(Name = "rule", EmitDefaultValue = true)]
+        [DataMember(Name = "rule", IsRequired = true, EmitDefaultValue = true)]
         public TemplateResponseDocumentFieldGroupRule Rule { get; set; }
 
         /// <summary>

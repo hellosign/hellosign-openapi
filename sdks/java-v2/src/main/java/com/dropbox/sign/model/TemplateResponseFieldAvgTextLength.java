@@ -72,9 +72,9 @@ public class TemplateResponseFieldAvgTextLength {
    * Number of lines.
    * @return numLines
    */
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_NUM_LINES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Integer getNumLines() {
     return numLines;
@@ -82,7 +82,7 @@ public class TemplateResponseFieldAvgTextLength {
 
 
   @JsonProperty(JSON_PROPERTY_NUM_LINES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setNumLines(Integer numLines) {
     this.numLines = numLines;
   }
@@ -97,9 +97,9 @@ public class TemplateResponseFieldAvgTextLength {
    * Number of characters per line.
    * @return numCharsPerLine
    */
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_NUM_CHARS_PER_LINE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Integer getNumCharsPerLine() {
     return numCharsPerLine;
@@ -107,7 +107,7 @@ public class TemplateResponseFieldAvgTextLength {
 
 
   @JsonProperty(JSON_PROPERTY_NUM_CHARS_PER_LINE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setNumCharsPerLine(Integer numCharsPerLine) {
     this.numCharsPerLine = numCharsPerLine;
   }

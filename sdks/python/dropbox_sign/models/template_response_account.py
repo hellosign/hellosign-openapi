@@ -35,32 +35,27 @@ class TemplateResponseAccount(BaseModel):
     TemplateResponseAccount
     """  # noqa: E501
 
-    account_id: Optional[StrictStr] = Field(
-        default=None, description="The id of the Account."
+    account_id: StrictStr = Field(description="The id of the Account.")
+    is_locked: StrictBool = Field(
+        description="Returns `true` if the user has been locked out of their account by a team admin."
     )
+    is_paid_hs: StrictBool = Field(
+        description="Returns `true` if the user has a paid Dropbox Sign account."
+    )
+    is_paid_hf: StrictBool = Field(
+        description="Returns `true` if the user has a paid HelloFax account."
+    )
+    quotas: TemplateResponseAccountQuota
     email_address: Optional[StrictStr] = Field(
         default=None, description="The email address associated with the Account."
     )
-    is_locked: Optional[StrictBool] = Field(
-        default=None,
-        description="Returns `true` if the user has been locked out of their account by a team admin.",
-    )
-    is_paid_hs: Optional[StrictBool] = Field(
-        default=None,
-        description="Returns `true` if the user has a paid Dropbox Sign account.",
-    )
-    is_paid_hf: Optional[StrictBool] = Field(
-        default=None,
-        description="Returns `true` if the user has a paid HelloFax account.",
-    )
-    quotas: Optional[TemplateResponseAccountQuota] = None
     __properties: ClassVar[List[str]] = [
         "account_id",
-        "email_address",
         "is_locked",
         "is_paid_hs",
         "is_paid_hf",
         "quotas",
+        "email_address",
     ]
 
     model_config = ConfigDict(
@@ -130,7 +125,6 @@ class TemplateResponseAccount(BaseModel):
         _obj = cls.model_validate(
             {
                 "account_id": obj.get("account_id"),
-                "email_address": obj.get("email_address"),
                 "is_locked": obj.get("is_locked"),
                 "is_paid_hs": obj.get("is_paid_hs"),
                 "is_paid_hf": obj.get("is_paid_hf"),
@@ -139,6 +133,7 @@ class TemplateResponseAccount(BaseModel):
                     if obj.get("quotas") is not None
                     else None
                 ),
+                "email_address": obj.get("email_address"),
             }
         )
         return _obj
@@ -157,11 +152,11 @@ class TemplateResponseAccount(BaseModel):
     def openapi_types(cls) -> Dict[str, str]:
         return {
             "account_id": "(str,)",
-            "email_address": "(str,)",
             "is_locked": "(bool,)",
             "is_paid_hs": "(bool,)",
             "is_paid_hf": "(bool,)",
             "quotas": "(TemplateResponseAccountQuota,)",
+            "email_address": "(str,)",
         }
 
     @classmethod

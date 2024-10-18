@@ -222,6 +222,8 @@
 "OAuthTokenRefresh::DESCRIPTION": Access tokens are only valid for a given period of time (typically one hour) for security reasons. Whenever acquiring an new access token its TTL is also given (see `expires_in`), along with a refresh token that can be used to acquire a new access token after the current one has expired.
 "OAuthTokenRefresh::GRANT_TYPE": When refreshing an existing token use `refresh_token`.
 "OAuthTokenRefresh::REFRESH_TOKEN": The token provided when you got the expired access token.
+"OAuthTokenRefresh::CLIENT_ID": The client ID for your API app. Mandatory from August 1st, 2025. Until then, required if the "Client Credentials Required" setting is enabled for token refresh; optional if disabled.
+"OAuthTokenRefresh::CLIENT_SECRET": The client secret for your API app. Mandatory from August 1st, 2025. Until then, required if the "Client Credentials Required" setting is enabled for token refresh; optional if disabled.
 
 "ReportCreate::SUMMARY": Create Report
 "ReportCreate::DESCRIPTION": |-
@@ -1486,7 +1488,7 @@
 "TemplateResponse::TEMPLATE_ID": The id of the Template.
 "TemplateResponse::CAN_EDIT": Indicates whether edit rights have been granted to you by the owner (always `true` if that's you).
 "TemplateResponse::IS_CREATOR": "`true` if you are the owner of this template, `false` if it's been shared with you by a team member."
-"TemplateResponse::IS_EMBEDDED": "`true` if this template was created using an embedded flow, `false` if it was created on our website."
+"TemplateResponse::IS_EMBEDDED": "`true` if this template was created using an embedded flow, `false` if it was created on our website. Will be `null` when you are not the creator of the Template."
 "TemplateResponse::IS_LOCKED": |-
   Indicates whether the template is locked.
   If `true`, then the template was created outside your quota and can only be used in `test_mode`.

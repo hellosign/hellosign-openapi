@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set, Tuple
 from typing_extensions import Self
 import io
@@ -38,7 +38,20 @@ class OAuthTokenRefreshRequest(BaseModel):
     refresh_token: StrictStr = Field(
         description="The token provided when you got the expired access token."
     )
-    __properties: ClassVar[List[str]] = ["grant_type", "refresh_token"]
+    client_id: Optional[StrictStr] = Field(
+        default=None,
+        description='The client ID for your API app. Mandatory from August 1st, 2025. Until then, required if the "Client Credentials Required" setting is enabled for token refresh; optional if disabled.',
+    )
+    client_secret: Optional[StrictStr] = Field(
+        default=None,
+        description='The client secret for your API app. Mandatory from August 1st, 2025. Until then, required if the "Client Credentials Required" setting is enabled for token refresh; optional if disabled.',
+    )
+    __properties: ClassVar[List[str]] = [
+        "grant_type",
+        "refresh_token",
+        "client_id",
+        "client_secret",
+    ]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -109,6 +122,8 @@ class OAuthTokenRefreshRequest(BaseModel):
                     else "refresh_token"
                 ),
                 "refresh_token": obj.get("refresh_token"),
+                "client_id": obj.get("client_id"),
+                "client_secret": obj.get("client_secret"),
             }
         )
         return _obj
@@ -128,6 +143,8 @@ class OAuthTokenRefreshRequest(BaseModel):
         return {
             "grant_type": "(str,)",
             "refresh_token": "(str,)",
+            "client_id": "(str,)",
+            "client_secret": "(str,)",
         }
 
     @classmethod

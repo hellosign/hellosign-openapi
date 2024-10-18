@@ -41,12 +41,22 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TemplateResponseDocumentFieldGroupRule" /> class.
         /// </summary>
-        /// <param name="requirement">Examples: &#x60;require_0-1&#x60; &#x60;require_1&#x60; &#x60;require_1-ormore&#x60;  - Check out the list of [acceptable &#x60;requirement&#x60; checkbox type values](/api/reference/constants/#checkbox-field-grouping). - Check out the list of [acceptable &#x60;requirement&#x60; radio type fields](/api/reference/constants/#radio-field-grouping). - Radio groups require **at least** two fields per group..</param>
-        /// <param name="groupLabel">Name of the group.</param>
+        /// <param name="requirement">Examples: &#x60;require_0-1&#x60; &#x60;require_1&#x60; &#x60;require_1-ormore&#x60;  - Check out the list of [acceptable &#x60;requirement&#x60; checkbox type values](/api/reference/constants/#checkbox-field-grouping). - Check out the list of [acceptable &#x60;requirement&#x60; radio type fields](/api/reference/constants/#radio-field-grouping). - Radio groups require **at least** two fields per group. (required).</param>
+        /// <param name="groupLabel">Name of the group (required).</param>
         public TemplateResponseDocumentFieldGroupRule(string requirement = default(string), string groupLabel = default(string))
         {
 
+            // to ensure "requirement" is required (not null)
+            if (requirement == null)
+            {
+                throw new ArgumentNullException("requirement is a required property for TemplateResponseDocumentFieldGroupRule and cannot be null");
+            }
             this.Requirement = requirement;
+            // to ensure "groupLabel" is required (not null)
+            if (groupLabel == null)
+            {
+                throw new ArgumentNullException("groupLabel is a required property for TemplateResponseDocumentFieldGroupRule and cannot be null");
+            }
             this.GroupLabel = groupLabel;
         }
 
@@ -70,14 +80,14 @@ namespace Dropbox.Sign.Model
         /// Examples: &#x60;require_0-1&#x60; &#x60;require_1&#x60; &#x60;require_1-ormore&#x60;  - Check out the list of [acceptable &#x60;requirement&#x60; checkbox type values](/api/reference/constants/#checkbox-field-grouping). - Check out the list of [acceptable &#x60;requirement&#x60; radio type fields](/api/reference/constants/#radio-field-grouping). - Radio groups require **at least** two fields per group.
         /// </summary>
         /// <value>Examples: &#x60;require_0-1&#x60; &#x60;require_1&#x60; &#x60;require_1-ormore&#x60;  - Check out the list of [acceptable &#x60;requirement&#x60; checkbox type values](/api/reference/constants/#checkbox-field-grouping). - Check out the list of [acceptable &#x60;requirement&#x60; radio type fields](/api/reference/constants/#radio-field-grouping). - Radio groups require **at least** two fields per group.</value>
-        [DataMember(Name = "requirement", EmitDefaultValue = true)]
+        [DataMember(Name = "requirement", IsRequired = true, EmitDefaultValue = true)]
         public string Requirement { get; set; }
 
         /// <summary>
         /// Name of the group
         /// </summary>
         /// <value>Name of the group</value>
-        [DataMember(Name = "groupLabel", EmitDefaultValue = true)]
+        [DataMember(Name = "groupLabel", IsRequired = true, EmitDefaultValue = true)]
         public string GroupLabel { get; set; }
 
         /// <summary>

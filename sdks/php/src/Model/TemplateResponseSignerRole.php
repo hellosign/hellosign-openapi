@@ -288,7 +288,12 @@ class TemplateResponseSignerRole implements ModelInterface, ArrayAccess, JsonSer
      */
     public function listInvalidProperties()
     {
-        return [];
+        $invalidProperties = [];
+
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
+        }
+        return $invalidProperties;
     }
 
     /**
@@ -305,7 +310,7 @@ class TemplateResponseSignerRole implements ModelInterface, ArrayAccess, JsonSer
     /**
      * Gets name
      *
-     * @return string|null
+     * @return string
      */
     public function getName()
     {
@@ -315,11 +320,11 @@ class TemplateResponseSignerRole implements ModelInterface, ArrayAccess, JsonSer
     /**
      * Sets name
      *
-     * @param string|null $name the name of the Role
+     * @param string $name the name of the Role
      *
      * @return self
      */
-    public function setName(?string $name)
+    public function setName(string $name)
     {
         if (is_null($name)) {
             throw new InvalidArgumentException('non-nullable name cannot be null');

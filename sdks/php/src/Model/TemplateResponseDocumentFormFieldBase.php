@@ -58,16 +58,15 @@ class TemplateResponseDocumentFormFieldBase implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $openAPITypes = [
-        'type' => 'string',
         'api_id' => 'string',
         'name' => 'string',
+        'type' => 'string',
         'signer' => 'string',
         'x' => 'int',
         'y' => 'int',
         'width' => 'int',
         'height' => 'int',
         'required' => 'bool',
-        'group' => 'string',
     ];
 
     /**
@@ -78,16 +77,15 @@ class TemplateResponseDocumentFormFieldBase implements ModelInterface, ArrayAcce
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        'type' => null,
         'api_id' => null,
         'name' => null,
+        'type' => null,
         'signer' => null,
         'x' => null,
         'y' => null,
         'width' => null,
         'height' => null,
         'required' => null,
-        'group' => null,
     ];
 
     /**
@@ -96,16 +94,15 @@ class TemplateResponseDocumentFormFieldBase implements ModelInterface, ArrayAcce
      * @var bool[]
      */
     protected static array $openAPINullables = [
-        'type' => false,
         'api_id' => false,
         'name' => false,
+        'type' => false,
         'signer' => false,
         'x' => false,
         'y' => false,
         'width' => false,
         'height' => false,
         'required' => false,
-        'group' => true,
     ];
 
     /**
@@ -186,16 +183,15 @@ class TemplateResponseDocumentFormFieldBase implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $attributeMap = [
-        'type' => 'type',
         'api_id' => 'api_id',
         'name' => 'name',
+        'type' => 'type',
         'signer' => 'signer',
         'x' => 'x',
         'y' => 'y',
         'width' => 'width',
         'height' => 'height',
         'required' => 'required',
-        'group' => 'group',
     ];
 
     /**
@@ -204,16 +200,15 @@ class TemplateResponseDocumentFormFieldBase implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $setters = [
-        'type' => 'setType',
         'api_id' => 'setApiId',
         'name' => 'setName',
+        'type' => 'setType',
         'signer' => 'setSigner',
         'x' => 'setX',
         'y' => 'setY',
         'width' => 'setWidth',
         'height' => 'setHeight',
         'required' => 'setRequired',
-        'group' => 'setGroup',
     ];
 
     /**
@@ -222,16 +217,15 @@ class TemplateResponseDocumentFormFieldBase implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $getters = [
-        'type' => 'getType',
         'api_id' => 'getApiId',
         'name' => 'getName',
+        'type' => 'getType',
         'signer' => 'getSigner',
         'x' => 'getX',
         'y' => 'getY',
         'width' => 'getWidth',
         'height' => 'getHeight',
         'required' => 'getRequired',
-        'group' => 'getGroup',
     ];
 
     /**
@@ -290,16 +284,15 @@ class TemplateResponseDocumentFormFieldBase implements ModelInterface, ArrayAcce
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('type', $data ?? [], null);
         $this->setIfExists('api_id', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
+        $this->setIfExists('type', $data ?? [], null);
         $this->setIfExists('signer', $data ?? [], null);
         $this->setIfExists('x', $data ?? [], null);
         $this->setIfExists('y', $data ?? [], null);
         $this->setIfExists('width', $data ?? [], null);
         $this->setIfExists('height', $data ?? [], null);
         $this->setIfExists('required', $data ?? [], null);
-        $this->setIfExists('group', $data ?? [], null);
 
         // Initialize discriminator property with the model name.
         $this->container['type'] = static::$openAPIModelName;
@@ -364,8 +357,32 @@ class TemplateResponseDocumentFormFieldBase implements ModelInterface, ArrayAcce
     {
         $invalidProperties = [];
 
+        if ($this->container['api_id'] === null) {
+            $invalidProperties[] = "'api_id' can't be null";
+        }
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
+        }
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
+        }
+        if ($this->container['signer'] === null) {
+            $invalidProperties[] = "'signer' can't be null";
+        }
+        if ($this->container['x'] === null) {
+            $invalidProperties[] = "'x' can't be null";
+        }
+        if ($this->container['y'] === null) {
+            $invalidProperties[] = "'y' can't be null";
+        }
+        if ($this->container['width'] === null) {
+            $invalidProperties[] = "'width' can't be null";
+        }
+        if ($this->container['height'] === null) {
+            $invalidProperties[] = "'height' can't be null";
+        }
+        if ($this->container['required'] === null) {
+            $invalidProperties[] = "'required' can't be null";
         }
         return $invalidProperties;
     }
@@ -379,6 +396,60 @@ class TemplateResponseDocumentFormFieldBase implements ModelInterface, ArrayAcce
     public function valid()
     {
         return count($this->listInvalidProperties()) === 0;
+    }
+
+    /**
+     * Gets api_id
+     *
+     * @return string
+     */
+    public function getApiId()
+    {
+        return $this->container['api_id'];
+    }
+
+    /**
+     * Sets api_id
+     *
+     * @param string $api_id a unique id for the form field
+     *
+     * @return self
+     */
+    public function setApiId(string $api_id)
+    {
+        if (is_null($api_id)) {
+            throw new InvalidArgumentException('non-nullable api_id cannot be null');
+        }
+        $this->container['api_id'] = $api_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string $name the name of the form field
+     *
+     * @return self
+     */
+    public function setName(string $name)
+    {
+        if (is_null($name)) {
+            throw new InvalidArgumentException('non-nullable name cannot be null');
+        }
+        $this->container['name'] = $name;
+
+        return $this;
     }
 
     /**
@@ -409,63 +480,9 @@ class TemplateResponseDocumentFormFieldBase implements ModelInterface, ArrayAcce
     }
 
     /**
-     * Gets api_id
-     *
-     * @return string|null
-     */
-    public function getApiId()
-    {
-        return $this->container['api_id'];
-    }
-
-    /**
-     * Sets api_id
-     *
-     * @param string|null $api_id a unique id for the form field
-     *
-     * @return self
-     */
-    public function setApiId(?string $api_id)
-    {
-        if (is_null($api_id)) {
-            throw new InvalidArgumentException('non-nullable api_id cannot be null');
-        }
-        $this->container['api_id'] = $api_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets name
-     *
-     * @return string|null
-     */
-    public function getName()
-    {
-        return $this->container['name'];
-    }
-
-    /**
-     * Sets name
-     *
-     * @param string|null $name the name of the form field
-     *
-     * @return self
-     */
-    public function setName(?string $name)
-    {
-        if (is_null($name)) {
-            throw new InvalidArgumentException('non-nullable name cannot be null');
-        }
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
      * Gets signer
      *
-     * @return string|null
+     * @return string
      */
     public function getSigner()
     {
@@ -475,11 +492,11 @@ class TemplateResponseDocumentFormFieldBase implements ModelInterface, ArrayAcce
     /**
      * Sets signer
      *
-     * @param string|null $signer the signer of the Form Field
+     * @param string $signer the signer of the Form Field
      *
      * @return self
      */
-    public function setSigner(?string $signer)
+    public function setSigner(string $signer)
     {
         if (is_null($signer)) {
             throw new InvalidArgumentException('non-nullable signer cannot be null');
@@ -492,7 +509,7 @@ class TemplateResponseDocumentFormFieldBase implements ModelInterface, ArrayAcce
     /**
      * Gets x
      *
-     * @return int|null
+     * @return int
      */
     public function getX()
     {
@@ -502,11 +519,11 @@ class TemplateResponseDocumentFormFieldBase implements ModelInterface, ArrayAcce
     /**
      * Sets x
      *
-     * @param int|null $x the horizontal offset in pixels for this form field
+     * @param int $x the horizontal offset in pixels for this form field
      *
      * @return self
      */
-    public function setX(?int $x)
+    public function setX(int $x)
     {
         if (is_null($x)) {
             throw new InvalidArgumentException('non-nullable x cannot be null');
@@ -519,7 +536,7 @@ class TemplateResponseDocumentFormFieldBase implements ModelInterface, ArrayAcce
     /**
      * Gets y
      *
-     * @return int|null
+     * @return int
      */
     public function getY()
     {
@@ -529,11 +546,11 @@ class TemplateResponseDocumentFormFieldBase implements ModelInterface, ArrayAcce
     /**
      * Sets y
      *
-     * @param int|null $y the vertical offset in pixels for this form field
+     * @param int $y the vertical offset in pixels for this form field
      *
      * @return self
      */
-    public function setY(?int $y)
+    public function setY(int $y)
     {
         if (is_null($y)) {
             throw new InvalidArgumentException('non-nullable y cannot be null');
@@ -546,7 +563,7 @@ class TemplateResponseDocumentFormFieldBase implements ModelInterface, ArrayAcce
     /**
      * Gets width
      *
-     * @return int|null
+     * @return int
      */
     public function getWidth()
     {
@@ -556,11 +573,11 @@ class TemplateResponseDocumentFormFieldBase implements ModelInterface, ArrayAcce
     /**
      * Sets width
      *
-     * @param int|null $width the width in pixels of this form field
+     * @param int $width the width in pixels of this form field
      *
      * @return self
      */
-    public function setWidth(?int $width)
+    public function setWidth(int $width)
     {
         if (is_null($width)) {
             throw new InvalidArgumentException('non-nullable width cannot be null');
@@ -573,7 +590,7 @@ class TemplateResponseDocumentFormFieldBase implements ModelInterface, ArrayAcce
     /**
      * Gets height
      *
-     * @return int|null
+     * @return int
      */
     public function getHeight()
     {
@@ -583,11 +600,11 @@ class TemplateResponseDocumentFormFieldBase implements ModelInterface, ArrayAcce
     /**
      * Sets height
      *
-     * @param int|null $height the height in pixels of this form field
+     * @param int $height the height in pixels of this form field
      *
      * @return self
      */
-    public function setHeight(?int $height)
+    public function setHeight(int $height)
     {
         if (is_null($height)) {
             throw new InvalidArgumentException('non-nullable height cannot be null');
@@ -600,7 +617,7 @@ class TemplateResponseDocumentFormFieldBase implements ModelInterface, ArrayAcce
     /**
      * Gets required
      *
-     * @return bool|null
+     * @return bool
      */
     public function getRequired()
     {
@@ -610,50 +627,16 @@ class TemplateResponseDocumentFormFieldBase implements ModelInterface, ArrayAcce
     /**
      * Sets required
      *
-     * @param bool|null $required boolean showing whether or not this field is required
+     * @param bool $required boolean showing whether or not this field is required
      *
      * @return self
      */
-    public function setRequired(?bool $required)
+    public function setRequired(bool $required)
     {
         if (is_null($required)) {
             throw new InvalidArgumentException('non-nullable required cannot be null');
         }
         $this->container['required'] = $required;
-
-        return $this;
-    }
-
-    /**
-     * Gets group
-     *
-     * @return string|null
-     */
-    public function getGroup()
-    {
-        return $this->container['group'];
-    }
-
-    /**
-     * Sets group
-     *
-     * @param string|null $group The name of the group this field is in. If this field is not a group, this defaults to `null` except for Radio fields.
-     *
-     * @return self
-     */
-    public function setGroup(?string $group)
-    {
-        if (is_null($group)) {
-            array_push($this->openAPINullablesSetToNull, 'group');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('group', $nullablesSetToNull);
-            if ($index !== false) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['group'] = $group;
 
         return $this;
     }

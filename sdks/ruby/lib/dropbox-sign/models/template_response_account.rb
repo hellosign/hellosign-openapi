@@ -22,10 +22,6 @@ module Dropbox::Sign
     # @return [String]
     attr_accessor :account_id
 
-    # The email address associated with the Account.
-    # @return [String]
-    attr_accessor :email_address
-
     # Returns `true` if the user has been locked out of their account by a team admin.
     # @return [Boolean]
     attr_accessor :is_locked
@@ -41,15 +37,19 @@ module Dropbox::Sign
     # @return [TemplateResponseAccountQuota]
     attr_accessor :quotas
 
+    # The email address associated with the Account.
+    # @return [String]
+    attr_accessor :email_address
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'account_id' => :'account_id',
-        :'email_address' => :'email_address',
         :'is_locked' => :'is_locked',
         :'is_paid_hs' => :'is_paid_hs',
         :'is_paid_hf' => :'is_paid_hf',
-        :'quotas' => :'quotas'
+        :'quotas' => :'quotas',
+        :'email_address' => :'email_address'
       }
     end
 
@@ -62,11 +62,11 @@ module Dropbox::Sign
     def self.openapi_types
       {
         :'account_id' => :'String',
-        :'email_address' => :'String',
         :'is_locked' => :'Boolean',
         :'is_paid_hs' => :'Boolean',
         :'is_paid_hf' => :'Boolean',
-        :'quotas' => :'TemplateResponseAccountQuota'
+        :'quotas' => :'TemplateResponseAccountQuota',
+        :'email_address' => :'String'
       }
     end
 
@@ -120,10 +120,6 @@ module Dropbox::Sign
         self.account_id = attributes[:'account_id']
       end
 
-      if attributes.key?(:'email_address')
-        self.email_address = attributes[:'email_address']
-      end
-
       if attributes.key?(:'is_locked')
         self.is_locked = attributes[:'is_locked']
       end
@@ -139,18 +135,47 @@ module Dropbox::Sign
       if attributes.key?(:'quotas')
         self.quotas = attributes[:'quotas']
       end
+
+      if attributes.key?(:'email_address')
+        self.email_address = attributes[:'email_address']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @account_id.nil?
+        invalid_properties.push('invalid value for "account_id", account_id cannot be nil.')
+      end
+
+      if @is_locked.nil?
+        invalid_properties.push('invalid value for "is_locked", is_locked cannot be nil.')
+      end
+
+      if @is_paid_hs.nil?
+        invalid_properties.push('invalid value for "is_paid_hs", is_paid_hs cannot be nil.')
+      end
+
+      if @is_paid_hf.nil?
+        invalid_properties.push('invalid value for "is_paid_hf", is_paid_hf cannot be nil.')
+      end
+
+      if @quotas.nil?
+        invalid_properties.push('invalid value for "quotas", quotas cannot be nil.')
+      end
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @account_id.nil?
+      return false if @is_locked.nil?
+      return false if @is_paid_hs.nil?
+      return false if @is_paid_hf.nil?
+      return false if @quotas.nil?
       true
     end
 
@@ -160,11 +185,11 @@ module Dropbox::Sign
       return true if self.equal?(o)
       self.class == o.class &&
           account_id == o.account_id &&
-          email_address == o.email_address &&
           is_locked == o.is_locked &&
           is_paid_hs == o.is_paid_hs &&
           is_paid_hf == o.is_paid_hf &&
-          quotas == o.quotas
+          quotas == o.quotas &&
+          email_address == o.email_address
     end
 
     # @see the `==` method
@@ -176,7 +201,7 @@ module Dropbox::Sign
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account_id, email_address, is_locked, is_paid_hs, is_paid_hf, quotas].hash
+      [account_id, is_locked, is_paid_hs, is_paid_hf, quotas, email_address].hash
     end
 
     # Builds the object from hash

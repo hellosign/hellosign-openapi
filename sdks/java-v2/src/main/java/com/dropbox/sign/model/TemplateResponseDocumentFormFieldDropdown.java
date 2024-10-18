@@ -37,7 +37,8 @@ import com.dropbox.sign.ApiException;
  * This class extends &#x60;TemplateResponseDocumentFormFieldBase&#x60;
  */
 @JsonPropertyOrder({
-  TemplateResponseDocumentFormFieldDropdown.JSON_PROPERTY_TYPE
+  TemplateResponseDocumentFormFieldDropdown.JSON_PROPERTY_TYPE,
+  TemplateResponseDocumentFormFieldDropdown.JSON_PROPERTY_GROUP
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(
@@ -49,6 +50,9 @@ import com.dropbox.sign.ApiException;
 public class TemplateResponseDocumentFormFieldDropdown extends TemplateResponseDocumentFormFieldBase {
   public static final String JSON_PROPERTY_TYPE = "type";
   private String type = "dropdown";
+
+  public static final String JSON_PROPERTY_GROUP = "group";
+  private String group;
 
   public TemplateResponseDocumentFormFieldDropdown() { 
   }
@@ -93,6 +97,31 @@ public class TemplateResponseDocumentFormFieldDropdown extends TemplateResponseD
   }
 
 
+  public TemplateResponseDocumentFormFieldDropdown group(String group) {
+    this.group = group;
+    return this;
+  }
+
+  /**
+   * The name of the group this field is in. If this field is not a group, this defaults to &#x60;null&#x60; except for Radio fields.
+   * @return group
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_GROUP)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getGroup() {
+    return group;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_GROUP)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setGroup(String group) {
+    this.group = group;
+  }
+
+
   /**
    * Return true if this TemplateResponseDocumentFormFieldDropdown object is equal to o.
    */
@@ -106,12 +135,13 @@ public class TemplateResponseDocumentFormFieldDropdown extends TemplateResponseD
     }
     TemplateResponseDocumentFormFieldDropdown templateResponseDocumentFormFieldDropdown = (TemplateResponseDocumentFormFieldDropdown) o;
     return Objects.equals(this.type, templateResponseDocumentFormFieldDropdown.type) &&
+        Objects.equals(this.group, templateResponseDocumentFormFieldDropdown.group) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, super.hashCode());
+    return Objects.hash(type, group, super.hashCode());
   }
 
   @Override
@@ -120,6 +150,7 @@ public class TemplateResponseDocumentFormFieldDropdown extends TemplateResponseD
     sb.append("class TemplateResponseDocumentFormFieldDropdown {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    group: ").append(toIndentedString(group)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -146,6 +177,25 @@ public class TemplateResponseDocumentFormFieldDropdown extends TemplateResponseD
         }
         else {
             map.put("type", JSON.getDefault().getMapper().writeValueAsString(type));
+        }
+    }
+    if (group != null) {
+        if (isFileTypeOrListOfFiles(group)) {
+            fileTypeFound = true;
+        }
+
+        if (group.getClass().equals(java.io.File.class) ||
+            group.getClass().equals(Integer.class) ||
+            group.getClass().equals(String.class) ||
+            group.getClass().isEnum()) {
+            map.put("group", group);
+        } else if (isListOfFile(group)) {
+            for(int i = 0; i< getListSize(group); i++) {
+                map.put("group[" + i + "]", getFromList(group, i));
+            }
+        }
+        else {
+            map.put("group", JSON.getDefault().getMapper().writeValueAsString(group));
         }
     }
     } catch (Exception e) {

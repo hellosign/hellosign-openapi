@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set, Tuple
 from typing_extensions import Self
 import io
@@ -32,9 +32,7 @@ class TemplateCreateResponseTemplate(BaseModel):
     Template object with parameters: `template_id`.
     """  # noqa: E501
 
-    template_id: Optional[StrictStr] = Field(
-        default=None, description="The id of the Template."
-    )
+    template_id: StrictStr = Field(description="The id of the Template.")
     __properties: ClassVar[List[str]] = ["template_id"]
 
     model_config = ConfigDict(

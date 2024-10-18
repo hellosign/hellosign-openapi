@@ -80,9 +80,9 @@ public class BulkSendJobResponse {
    * The id of the BulkSendJob.
    * @return bulkSendJobId
    */
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_BULK_SEND_JOB_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getBulkSendJobId() {
     return bulkSendJobId;
@@ -90,7 +90,7 @@ public class BulkSendJobResponse {
 
 
   @JsonProperty(JSON_PROPERTY_BULK_SEND_JOB_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setBulkSendJobId(String bulkSendJobId) {
     this.bulkSendJobId = bulkSendJobId;
   }
@@ -105,9 +105,9 @@ public class BulkSendJobResponse {
    * The total amount of Signature Requests queued for sending.
    * @return total
    */
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_TOTAL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Integer getTotal() {
     return total;
@@ -115,7 +115,7 @@ public class BulkSendJobResponse {
 
 
   @JsonProperty(JSON_PROPERTY_TOTAL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setTotal(Integer total) {
     this.total = total;
   }
@@ -130,9 +130,9 @@ public class BulkSendJobResponse {
    * True if you are the owner of this BulkSendJob, false if it&#39;s been shared with you by a team member.
    * @return isCreator
    */
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_IS_CREATOR)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Boolean getIsCreator() {
     return isCreator;
@@ -140,7 +140,7 @@ public class BulkSendJobResponse {
 
 
   @JsonProperty(JSON_PROPERTY_IS_CREATOR)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setIsCreator(Boolean isCreator) {
     this.isCreator = isCreator;
   }
@@ -155,9 +155,9 @@ public class BulkSendJobResponse {
    * Time that the BulkSendJob was created.
    * @return createdAt
    */
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Integer getCreatedAt() {
     return createdAt;
@@ -165,7 +165,7 @@ public class BulkSendJobResponse {
 
 
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setCreatedAt(Integer createdAt) {
     this.createdAt = createdAt;
   }

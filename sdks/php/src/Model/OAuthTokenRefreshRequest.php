@@ -59,6 +59,8 @@ class OAuthTokenRefreshRequest implements ModelInterface, ArrayAccess, JsonSeria
     protected static $openAPITypes = [
         'grant_type' => 'string',
         'refresh_token' => 'string',
+        'client_id' => 'string',
+        'client_secret' => 'string',
     ];
 
     /**
@@ -71,6 +73,8 @@ class OAuthTokenRefreshRequest implements ModelInterface, ArrayAccess, JsonSeria
     protected static $openAPIFormats = [
         'grant_type' => null,
         'refresh_token' => null,
+        'client_id' => null,
+        'client_secret' => null,
     ];
 
     /**
@@ -81,6 +85,8 @@ class OAuthTokenRefreshRequest implements ModelInterface, ArrayAccess, JsonSeria
     protected static array $openAPINullables = [
         'grant_type' => false,
         'refresh_token' => false,
+        'client_id' => false,
+        'client_secret' => false,
     ];
 
     /**
@@ -163,6 +169,8 @@ class OAuthTokenRefreshRequest implements ModelInterface, ArrayAccess, JsonSeria
     protected static $attributeMap = [
         'grant_type' => 'grant_type',
         'refresh_token' => 'refresh_token',
+        'client_id' => 'client_id',
+        'client_secret' => 'client_secret',
     ];
 
     /**
@@ -173,6 +181,8 @@ class OAuthTokenRefreshRequest implements ModelInterface, ArrayAccess, JsonSeria
     protected static $setters = [
         'grant_type' => 'setGrantType',
         'refresh_token' => 'setRefreshToken',
+        'client_id' => 'setClientId',
+        'client_secret' => 'setClientSecret',
     ];
 
     /**
@@ -183,6 +193,8 @@ class OAuthTokenRefreshRequest implements ModelInterface, ArrayAccess, JsonSeria
     protected static $getters = [
         'grant_type' => 'getGrantType',
         'refresh_token' => 'getRefreshToken',
+        'client_id' => 'getClientId',
+        'client_secret' => 'getClientSecret',
     ];
 
     /**
@@ -243,6 +255,8 @@ class OAuthTokenRefreshRequest implements ModelInterface, ArrayAccess, JsonSeria
     {
         $this->setIfExists('grant_type', $data ?? [], 'refresh_token');
         $this->setIfExists('refresh_token', $data ?? [], null);
+        $this->setIfExists('client_id', $data ?? [], null);
+        $this->setIfExists('client_secret', $data ?? [], null);
     }
 
     /**
@@ -360,6 +374,60 @@ class OAuthTokenRefreshRequest implements ModelInterface, ArrayAccess, JsonSeria
             throw new InvalidArgumentException('non-nullable refresh_token cannot be null');
         }
         $this->container['refresh_token'] = $refresh_token;
+
+        return $this;
+    }
+
+    /**
+     * Gets client_id
+     *
+     * @return string|null
+     */
+    public function getClientId()
+    {
+        return $this->container['client_id'];
+    }
+
+    /**
+     * Sets client_id
+     *
+     * @param string|null $client_id The client ID for your API app. Mandatory from August 1st, 2025. Until then, required if the \"Client Credentials Required\" setting is enabled for token refresh; optional if disabled.
+     *
+     * @return self
+     */
+    public function setClientId(?string $client_id)
+    {
+        if (is_null($client_id)) {
+            throw new InvalidArgumentException('non-nullable client_id cannot be null');
+        }
+        $this->container['client_id'] = $client_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets client_secret
+     *
+     * @return string|null
+     */
+    public function getClientSecret()
+    {
+        return $this->container['client_secret'];
+    }
+
+    /**
+     * Sets client_secret
+     *
+     * @param string|null $client_secret The client secret for your API app. Mandatory from August 1st, 2025. Until then, required if the \"Client Credentials Required\" setting is enabled for token refresh; optional if disabled.
+     *
+     * @return self
+     */
+    public function setClientSecret(?string $client_secret)
+    {
+        if (is_null($client_secret)) {
+            throw new InvalidArgumentException('non-nullable client_secret cannot be null');
+        }
+        $this->container['client_secret'] = $client_secret;
 
         return $this;
     }

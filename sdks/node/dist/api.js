@@ -16791,11 +16791,6 @@ var ApiAppResponse = _ApiAppResponse;
 ApiAppResponse.discriminator = void 0;
 ApiAppResponse.attributeTypeMap = [
   {
-    name: "callbackUrl",
-    baseName: "callback_url",
-    type: "string"
-  },
-  {
     name: "clientId",
     baseName: "client_id",
     type: "string"
@@ -16821,11 +16816,6 @@ ApiAppResponse.attributeTypeMap = [
     type: "boolean"
   },
   {
-    name: "oauth",
-    baseName: "oauth",
-    type: "ApiAppResponseOAuth"
-  },
-  {
     name: "options",
     baseName: "options",
     type: "ApiAppResponseOptions"
@@ -16834,6 +16824,16 @@ ApiAppResponse.attributeTypeMap = [
     name: "ownerAccount",
     baseName: "owner_account",
     type: "ApiAppResponseOwnerAccount"
+  },
+  {
+    name: "callbackUrl",
+    baseName: "callback_url",
+    type: "string"
+  },
+  {
+    name: "oauth",
+    baseName: "oauth",
+    type: "ApiAppResponseOAuth"
   },
   {
     name: "whiteLabelingOptions",
@@ -16860,11 +16860,6 @@ ApiAppResponseOAuth.attributeTypeMap = [
     type: "string"
   },
   {
-    name: "secret",
-    baseName: "secret",
-    type: "string"
-  },
-  {
     name: "scopes",
     baseName: "scopes",
     type: "Array<string>"
@@ -16873,6 +16868,11 @@ ApiAppResponseOAuth.attributeTypeMap = [
     name: "chargesUsers",
     baseName: "charges_users",
     type: "boolean"
+  },
+  {
+    name: "secret",
+    baseName: "secret",
+    type: "string"
   }
 ];
 
@@ -18557,6 +18557,16 @@ OAuthTokenRefreshRequest.attributeTypeMap = [
   {
     name: "refreshToken",
     baseName: "refresh_token",
+    type: "string"
+  },
+  {
+    name: "clientId",
+    baseName: "client_id",
+    type: "string"
+  },
+  {
+    name: "clientSecret",
+    baseName: "client_secret",
     type: "string"
   }
 ];
@@ -21660,20 +21670,20 @@ SubUnclaimedDraftTemplateSigner.attributeTypeMap = [
 // model/subWhiteLabelingOptions.ts
 var _SubWhiteLabelingOptions = class {
   constructor() {
-    this["headerBackgroundColor"] = "#1A1A1A";
+    this["headerBackgroundColor"] = "#1a1a1a";
     this["legalVersion"] = _SubWhiteLabelingOptions.LegalVersionEnum.Terms1;
-    this["linkColor"] = "#00B3E6";
-    this["pageBackgroundColor"] = "#F7F8F9";
-    this["primaryButtonColor"] = "#00B3E6";
-    this["primaryButtonColorHover"] = "#00B3E6";
-    this["primaryButtonTextColor"] = "#FFFFFF";
-    this["primaryButtonTextColorHover"] = "#FFFFFF";
-    this["secondaryButtonColor"] = "#FFFFFF";
-    this["secondaryButtonColorHover"] = "#FFFFFF";
-    this["secondaryButtonTextColor"] = "#00B3E6";
-    this["secondaryButtonTextColorHover"] = "#00B3E6";
+    this["linkColor"] = "#0061FE";
+    this["pageBackgroundColor"] = "#f7f8f9";
+    this["primaryButtonColor"] = "#0061FE";
+    this["primaryButtonColorHover"] = "#0061FE";
+    this["primaryButtonTextColor"] = "#ffffff";
+    this["primaryButtonTextColorHover"] = "#ffffff";
+    this["secondaryButtonColor"] = "#ffffff";
+    this["secondaryButtonColorHover"] = "#ffffff";
+    this["secondaryButtonTextColor"] = "#0061FE";
+    this["secondaryButtonTextColorHover"] = "#0061FE";
     this["textColor1"] = "#808080";
-    this["textColor2"] = "#FFFFFF";
+    this["textColor2"] = "#ffffff";
   }
   static getAttributeTypeMap() {
     return _SubWhiteLabelingOptions.attributeTypeMap;
@@ -22721,16 +22731,6 @@ TemplateResponse.attributeTypeMap = [
     type: "string"
   },
   {
-    name: "updatedAt",
-    baseName: "updated_at",
-    type: "number"
-  },
-  {
-    name: "isEmbedded",
-    baseName: "is_embedded",
-    type: "boolean"
-  },
-  {
     name: "isCreator",
     baseName: "is_creator",
     type: "boolean"
@@ -22766,6 +22766,26 @@ TemplateResponse.attributeTypeMap = [
     type: "Array<TemplateResponseDocument>"
   },
   {
+    name: "accounts",
+    baseName: "accounts",
+    type: "Array<TemplateResponseAccount>"
+  },
+  {
+    name: "attachments",
+    baseName: "attachments",
+    type: "Array<SignatureRequestResponseAttachment>"
+  },
+  {
+    name: "updatedAt",
+    baseName: "updated_at",
+    type: "number"
+  },
+  {
+    name: "isEmbedded",
+    baseName: "is_embedded",
+    type: "boolean"
+  },
+  {
     name: "customFields",
     baseName: "custom_fields",
     type: "Array<TemplateResponseDocumentCustomFieldBase>"
@@ -22774,11 +22794,6 @@ TemplateResponse.attributeTypeMap = [
     name: "namedFormFields",
     baseName: "named_form_fields",
     type: "Array<TemplateResponseDocumentFormFieldBase>"
-  },
-  {
-    name: "accounts",
-    baseName: "accounts",
-    type: "Array<TemplateResponseAccount>"
   }
 ];
 
@@ -22800,11 +22815,6 @@ TemplateResponseAccount.attributeTypeMap = [
     type: "string"
   },
   {
-    name: "emailAddress",
-    baseName: "email_address",
-    type: "string"
-  },
-  {
     name: "isLocked",
     baseName: "is_locked",
     type: "boolean"
@@ -22823,6 +22833,11 @@ TemplateResponseAccount.attributeTypeMap = [
     name: "quotas",
     baseName: "quotas",
     type: "TemplateResponseAccountQuota"
+  },
+  {
+    name: "emailAddress",
+    baseName: "email_address",
+    type: "string"
   }
 ];
 
@@ -22897,11 +22912,6 @@ TemplateResponseDocument.attributeTypeMap = [
     type: "string"
   },
   {
-    name: "index",
-    baseName: "index",
-    type: "number"
-  },
-  {
     name: "fieldGroups",
     baseName: "field_groups",
     type: "Array<TemplateResponseDocumentFieldGroup>"
@@ -22920,6 +22930,11 @@ TemplateResponseDocument.attributeTypeMap = [
     name: "staticFields",
     baseName: "static_fields",
     type: "Array<TemplateResponseDocumentStaticFieldBase>"
+  },
+  {
+    name: "index",
+    baseName: "index",
+    type: "number"
   }
 ];
 
@@ -22945,11 +22960,6 @@ var TemplateResponseDocumentCustomFieldBase = _TemplateResponseDocumentCustomFie
 TemplateResponseDocumentCustomFieldBase.discriminator = "type";
 TemplateResponseDocumentCustomFieldBase.attributeTypeMap = [
   {
-    name: "type",
-    baseName: "type",
-    type: "string"
-  },
-  {
     name: "apiId",
     baseName: "api_id",
     type: "string"
@@ -22960,8 +22970,8 @@ TemplateResponseDocumentCustomFieldBase.attributeTypeMap = [
     type: "string"
   },
   {
-    name: "signer",
-    baseName: "signer",
+    name: "type",
+    baseName: "type",
     type: "string"
   },
   {
@@ -22988,6 +22998,11 @@ TemplateResponseDocumentCustomFieldBase.attributeTypeMap = [
     name: "required",
     baseName: "required",
     type: "boolean"
+  },
+  {
+    name: "signer",
+    baseName: "signer",
+    type: "string"
   },
   {
     name: "group",
@@ -23162,11 +23177,6 @@ var TemplateResponseDocumentFormFieldBase = _TemplateResponseDocumentFormFieldBa
 TemplateResponseDocumentFormFieldBase.discriminator = "type";
 TemplateResponseDocumentFormFieldBase.attributeTypeMap = [
   {
-    name: "type",
-    baseName: "type",
-    type: "string"
-  },
-  {
     name: "apiId",
     baseName: "api_id",
     type: "string"
@@ -23174,6 +23184,11 @@ TemplateResponseDocumentFormFieldBase.attributeTypeMap = [
   {
     name: "name",
     baseName: "name",
+    type: "string"
+  },
+  {
+    name: "type",
+    baseName: "type",
     type: "string"
   },
   {
@@ -23205,11 +23220,6 @@ TemplateResponseDocumentFormFieldBase.attributeTypeMap = [
     name: "required",
     baseName: "required",
     type: "boolean"
-  },
-  {
-    name: "group",
-    baseName: "group",
-    type: "string"
   }
 ];
 
@@ -23235,6 +23245,11 @@ TemplateResponseDocumentFormFieldCheckbox.attributeTypeMap = [
   {
     name: "type",
     baseName: "type",
+    type: "string"
+  },
+  {
+    name: "group",
+    baseName: "group",
     type: "string"
   }
 ];
@@ -23262,6 +23277,11 @@ TemplateResponseDocumentFormFieldDateSigned.attributeTypeMap = [
     name: "type",
     baseName: "type",
     type: "string"
+  },
+  {
+    name: "group",
+    baseName: "group",
+    type: "string"
   }
 ];
 
@@ -23287,6 +23307,11 @@ TemplateResponseDocumentFormFieldDropdown.attributeTypeMap = [
   {
     name: "type",
     baseName: "type",
+    type: "string"
+  },
+  {
+    name: "group",
+    baseName: "group",
     type: "string"
   }
 ];
@@ -23334,6 +23359,11 @@ TemplateResponseDocumentFormFieldHyperlink.attributeTypeMap = [
     name: "fontFamily",
     baseName: "fontFamily",
     type: "string"
+  },
+  {
+    name: "group",
+    baseName: "group",
+    type: "string"
   }
 ];
 
@@ -23359,6 +23389,11 @@ TemplateResponseDocumentFormFieldInitials.attributeTypeMap = [
   {
     name: "type",
     baseName: "type",
+    type: "string"
+  },
+  {
+    name: "group",
+    baseName: "group",
     type: "string"
   }
 ];
@@ -23386,6 +23421,11 @@ TemplateResponseDocumentFormFieldRadio.attributeTypeMap = [
     name: "type",
     baseName: "type",
     type: "string"
+  },
+  {
+    name: "group",
+    baseName: "group",
+    type: "string"
   }
 ];
 
@@ -23411,6 +23451,11 @@ TemplateResponseDocumentFormFieldSignature.attributeTypeMap = [
   {
     name: "type",
     baseName: "type",
+    type: "string"
+  },
+  {
+    name: "group",
+    baseName: "group",
     type: "string"
   }
 ];
@@ -23463,6 +23508,11 @@ TemplateResponseDocumentFormFieldText.attributeTypeMap = [
     name: "validationType",
     baseName: "validation_type",
     type: "TemplateResponseDocumentFormFieldText.ValidationTypeEnum"
+  },
+  {
+    name: "group",
+    baseName: "group",
+    type: "string"
   }
 ];
 ((TemplateResponseDocumentFormFieldText2) => {
@@ -23524,11 +23574,6 @@ var TemplateResponseDocumentStaticFieldBase = _TemplateResponseDocumentStaticFie
 TemplateResponseDocumentStaticFieldBase.discriminator = "type";
 TemplateResponseDocumentStaticFieldBase.attributeTypeMap = [
   {
-    name: "type",
-    baseName: "type",
-    type: "string"
-  },
-  {
     name: "apiId",
     baseName: "api_id",
     type: "string"
@@ -23536,6 +23581,11 @@ TemplateResponseDocumentStaticFieldBase.attributeTypeMap = [
   {
     name: "name",
     baseName: "name",
+    type: "string"
+  },
+  {
+    name: "type",
+    baseName: "type",
     type: "string"
   },
   {
@@ -28073,6 +28123,14 @@ var OAuthApi = class {
               )) {
                 return;
               }
+              if (handleErrorRangeResponse6(
+                reject,
+                error.response,
+                "4XX",
+                "ErrorResponse"
+              )) {
+                return;
+              }
               reject(error);
             }
           );
@@ -28168,6 +28226,14 @@ var OAuthApi = class {
               )) {
                 return;
               }
+              if (handleErrorRangeResponse6(
+                reject,
+                error.response,
+                "4XX",
+                "ErrorResponse"
+              )) {
+                return;
+              }
               reject(error);
             }
           );
@@ -28200,6 +28266,16 @@ function handleErrorCodeResponse7(reject, response, code, returnType) {
   const body = ObjectSerializer.deserialize(response.data, returnType);
   reject(new HttpError(response, body, response.status));
   return true;
+}
+function handleErrorRangeResponse6(reject, response, code, returnType) {
+  let rangeCodeLeft = Number(code[0] + "00");
+  let rangeCodeRight = Number(code[0] + "99");
+  if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
+    const body = ObjectSerializer.deserialize(response.data, returnType);
+    reject(new HttpError(response, body, response.status));
+    return true;
+  }
+  return false;
 }
 
 // api/reportApi.ts

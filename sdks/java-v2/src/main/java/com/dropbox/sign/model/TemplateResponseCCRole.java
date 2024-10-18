@@ -68,9 +68,9 @@ public class TemplateResponseCCRole {
    * The name of the Role.
    * @return name
    */
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getName() {
     return name;
@@ -78,7 +78,7 @@ public class TemplateResponseCCRole {
 
 
   @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setName(String name) {
     this.name = name;
   }

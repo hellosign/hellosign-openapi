@@ -57,6 +57,7 @@ class TemplateResponseDocumentFormFieldRadio extends TemplateResponseDocumentFor
      */
     protected static $openAPITypes = [
         'type' => 'string',
+        'group' => 'string',
     ];
 
     /**
@@ -68,6 +69,7 @@ class TemplateResponseDocumentFormFieldRadio extends TemplateResponseDocumentFor
      */
     protected static $openAPIFormats = [
         'type' => null,
+        'group' => null,
     ];
 
     /**
@@ -77,6 +79,7 @@ class TemplateResponseDocumentFormFieldRadio extends TemplateResponseDocumentFor
      */
     protected static array $openAPINullables = [
         'type' => false,
+        'group' => false,
     ];
 
     /**
@@ -158,6 +161,7 @@ class TemplateResponseDocumentFormFieldRadio extends TemplateResponseDocumentFor
      */
     protected static $attributeMap = [
         'type' => 'type',
+        'group' => 'group',
     ];
 
     /**
@@ -167,6 +171,7 @@ class TemplateResponseDocumentFormFieldRadio extends TemplateResponseDocumentFor
      */
     protected static $setters = [
         'type' => 'setType',
+        'group' => 'setGroup',
     ];
 
     /**
@@ -176,6 +181,7 @@ class TemplateResponseDocumentFormFieldRadio extends TemplateResponseDocumentFor
      */
     protected static $getters = [
         'type' => 'getType',
+        'group' => 'getGroup',
     ];
 
     /**
@@ -230,6 +236,7 @@ class TemplateResponseDocumentFormFieldRadio extends TemplateResponseDocumentFor
         parent::__construct($data);
 
         $this->setIfExists('type', $data ?? [], 'radio');
+        $this->setIfExists('group', $data ?? [], null);
     }
 
     /**
@@ -280,6 +287,9 @@ class TemplateResponseDocumentFormFieldRadio extends TemplateResponseDocumentFor
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
         }
+        if ($this->container['group'] === null) {
+            $invalidProperties[] = "'group' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -317,6 +327,33 @@ class TemplateResponseDocumentFormFieldRadio extends TemplateResponseDocumentFor
             throw new InvalidArgumentException('non-nullable type cannot be null');
         }
         $this->container['type'] = $type;
+
+        return $this;
+    }
+
+    /**
+     * Gets group
+     *
+     * @return string
+     */
+    public function getGroup()
+    {
+        return $this->container['group'];
+    }
+
+    /**
+     * Sets group
+     *
+     * @param string $group The name of the group this field is in. If this field is not a group, this defaults to `null` except for Radio fields.
+     *
+     * @return self
+     */
+    public function setGroup(string $group)
+    {
+        if (is_null($group)) {
+            throw new InvalidArgumentException('non-nullable group cannot be null');
+        }
+        $this->container['group'] = $group;
 
         return $this;
     }

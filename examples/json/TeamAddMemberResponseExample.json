@@ -30,6 +30,10 @@
         }
       }
     ],
-    "invited_emails": []
+    "invited_emails": [
+      "invite_1@example.com",
+      "invite_2@example.com",
+      "invite_3@example.com"
+    ]
   }
 }

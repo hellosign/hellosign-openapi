@@ -2751,6 +2751,23 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/OAuthTokenGenerateResponseExample'
+        4XX:
+          description: failed_operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                400_example:
+                  $ref: '#/components/examples/Error400ResponseExample'
+                401_example:
+                  $ref: '#/components/examples/Error401ResponseExample'
+                402_example:
+                  $ref: '#/components/examples/Error402ResponseExample'
+                403_example:
+                  $ref: '#/components/examples/Error403ResponseExample'
+                4XX_example:
+                  $ref: '#/components/examples/Error4XXResponseExample'
       security: []
       servers:
         -
@@ -2834,6 +2851,23 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/OAuthTokenRefreshResponseExample'
+        4XX:
+          description: failed_operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                400_example:
+                  $ref: '#/components/examples/Error400ResponseExample'
+                401_example:
+                  $ref: '#/components/examples/Error401ResponseExample'
+                402_example:
+                  $ref: '#/components/examples/Error402ResponseExample'
+                403_example:
+                  $ref: '#/components/examples/Error403ResponseExample'
+                4XX_example:
+                  $ref: '#/components/examples/Error4XXResponseExample'
       security: []
       servers:
         -
@@ -7938,6 +7972,12 @@ components:
         refresh_token:
           description: 'The token provided when you got the expired access token.'
           type: string
+        client_id:
+          description: 'The client ID for your API app. Mandatory from August 1st, 2025. Until then, required if the "Client Credentials Required" setting is enabled for token refresh; optional if disabled.'
+          type: string
+        client_secret:
+          description: 'The client secret for your API app. Mandatory from August 1st, 2025. Until then, required if the "Client Credentials Required" setting is enabled for token refresh; optional if disabled.'
+          type: string
       type: object
     ReportCreateRequest:
       required:
@@ -9647,7 +9687,7 @@ components:
       properties:
         header_background_color:
           type: string
-          default: '#1A1A1A'
+          default: '#1a1a1a'
         legal_version:
           type: string
           default: terms1
@@ -9656,40 +9696,40 @@ components:
             - terms2
         link_color:
           type: string
-          default: '#00B3E6'
+          default: '#0061FE'
         page_background_color:
           type: string
-          default: '#F7F8F9'
+          default: '#f7f8f9'
         primary_button_color:
           type: string
-          default: '#00B3E6'
+          default: '#0061FE'
         primary_button_color_hover:
           type: string
-          default: '#00B3E6'
+          default: '#0061FE'
         primary_button_text_color:
           type: string
-          default: '#FFFFFF'
+          default: '#ffffff'
         primary_button_text_color_hover:
           type: string
-          default: '#FFFFFF'
+          default: '#ffffff'
         secondary_button_color:
           type: string
-          default: '#FFFFFF'
+          default: '#ffffff'
         secondary_button_color_hover:
           type: string
-          default: '#FFFFFF'
+          default: '#ffffff'
         secondary_button_text_color:
           type: string
-          default: '#00B3E6'
+          default: '#0061FE'
         secondary_button_text_color_hover:
           type: string
-          default: '#00B3E6'
+          default: '#0061FE'
         text_color1:
           type: string
           default: '#808080'
         text_color2:
           type: string
-          default: '#FFFFFF'
+          default: '#ffffff'
         reset_to_default:
           description: 'Resets white labeling options to defaults. Only useful when updating an API App.'
           type: boolean
@@ -10997,6 +11037,14 @@ components:
       x-internal-class: true
     ApiAppResponse:
       description: 'Contains information about an API App.'
+      required:
+        - client_id
+        - created_at
+        - domains
+        - is_approved
+        - name
+        - options
+        - owner_account
       properties:
         callback_url:
           description: 'The app''s callback URL (for events)'
@@ -11031,6 +11079,10 @@ components:
       x-internal-class: true
     ApiAppResponseOAuth:
       description: 'An object describing the app''s OAuth properties, or null if OAuth is not configured for the app.'
+      required:
+        - callback_url
+        - charges_users
+        - scopes
       properties:
         callback_url:
           description: 'The app''s OAuth callback URL.'
@@ -11038,6 +11090,7 @@ components:
         secret:
           description: 'The app''s OAuth secret, or null if the app does not belong to user.'
           type: string
+          nullable: true
         scopes:
           description: 'Array of OAuth scopes used by the app.'
           type: array
@@ -11051,15 +11104,19 @@ components:
       x-internal-class: true
     ApiAppResponseOptions:
       description: 'An object with options that override account settings.'
+      required:
+        - can_insert_everywhere
       properties:
         can_insert_everywhere:
           description: 'Boolean denoting if signers can "Insert Everywhere" in one click while signing a document'
           type: boolean
       type: object
-      nullable: true
       x-internal-class: true
     ApiAppResponseOwnerAccount:
       description: 'An object describing the app''s owner'
+      required:
+        - account_id
+        - email_address
       properties:
         account_id:
           description: 'The owner account''s ID'
@@ -11071,6 +11128,21 @@ components:
       x-internal-class: true
     ApiAppResponseWhiteLabelingOptions:
       description: 'An object with options to customize the app''s signer page'
+      required:
+        - header_background_color
+        - legal_version
+        - link_color
+        - page_background_color
+        - primary_button_color
+        - primary_button_color_hover
+        - primary_button_text_color
+        - primary_button_text_color_hover
+        - secondary_button_color
+        - secondary_button_color_hover
+        - secondary_button_text_color
+        - secondary_button_text_color_hover
+        - text_color1
+        - text_color2
       properties:
         header_background_color:
           type: string
@@ -11105,11 +11177,15 @@ components:
       x-internal-class: true
     BulkSendJobResponse:
       description: 'Contains information about the BulkSendJob such as when it was created and how many signature requests are queued.'
+      required:
+        - bulk_send_job_id
+        - created_at
+        - is_creator
+        - total
       properties:
         bulk_send_job_id:
           description: 'The id of the BulkSendJob.'
           type: string
-          nullable: true
         total:
           description: 'The total amount of Signature Requests queued for sending.'
           type: integer
@@ -11220,6 +11296,11 @@ components:
       type: object
       x-internal-class: true
     FaxLineResponseFaxLine:
+      required:
+        - accounts
+        - created_at
+        - number
+        - updated_at
       properties:
         number:
           description: Number
@@ -11762,6 +11843,11 @@ components:
       x-internal-class: true
     TeamResponse:
       description: 'Contains information about your team and its members'
+      required:
+        - name
+        - accounts
+        - invited_accounts
+        - invited_emails
       properties:
         name:
           description: 'The name of your Team'
@@ -11859,6 +11945,19 @@ components:
       x-internal-class: true
     TemplateResponse:
       description: 'Contains information about the templates you and your team have created.'
+      required:
+        - accounts
+        - attachments
+        - can_edit
+        - cc_roles
+        - documents
+        - is_creator
+        - is_locked
+        - message
+        - metadata
+        - signer_roles
+        - template_id
+        - title
       properties:
         template_id:
           description: 'The id of the Template.'
@@ -11873,24 +11972,21 @@ components:
           description: 'Time the template was last updated.'
           type: integer
         is_embedded:
-          description: '`true` if this template was created using an embedded flow, `false` if it was created on our website.'
+          description: '`true` if this template was created using an embedded flow, `false` if it was created on our website. Will be `null` when you are not the creator of the Template.'
           type: boolean
           nullable: true
         is_creator:
           description: '`true` if you are the owner of this template, `false` if it''s been shared with you by a team member.'
           type: boolean
-          nullable: true
         can_edit:
           description: 'Indicates whether edit rights have been granted to you by the owner (always `true` if that''s you).'
           type: boolean
-          nullable: true
         is_locked:
           description: |-
             Indicates whether the template is locked.
             If `true`, then the template was created outside your quota and can only be used in `test_mode`.
             If `false`, then the template is within your quota and can be used to create signature requests.
           type: boolean
-          nullable: true
         metadata:
           description: 'The metadata attached to the template.'
           type: object
@@ -11928,10 +12024,20 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/TemplateResponseAccount'
-          nullable: true
+        attachments:
+          description: 'Signer attachments.'
+          type: array
+          items:
+            $ref: '#/components/schemas/SignatureRequestResponseAttachment'
       type: object
       x-internal-class: true
     TemplateResponseAccount:
+      required:
+        - account_id
+        - is_locked
+        - is_paid_hf
+        - is_paid_hs
+        - quotas
       properties:
         account_id:
           description: 'The id of the Account.'
@@ -11954,6 +12060,11 @@ components:
       x-internal-class: true
     TemplateResponseAccountQuota:
       description: 'An array of the designated CC roles that must be specified when sending a SignatureRequest using this Template.'
+      required:
+        - templates_left
+        - api_signature_requests_left
+        - documents_left
+        - sms_verifications_left
       properties:
         templates_left:
           description: 'API templates remaining.'
@@ -11970,6 +12081,8 @@ components:
       type: object
       x-internal-class: true
     TemplateResponseCCRole:
+      required:
+        - name
       properties:
         name:
           description: 'The name of the Role.'
@@ -11978,6 +12091,10 @@ components:
       x-internal-class: true
     TemplateCreateEmbeddedDraftResponseTemplate:
       description: 'Template object with parameters: `template_id`, `edit_url`, `expires_at`.'
+      required:
+        - edit_url
+        - expires_at
+        - template_id
       properties:
         template_id:
           description: 'The id of the Template.'
@@ -11998,6 +12115,8 @@ components:
       x-internal-class: true
     TemplateCreateResponseTemplate:
       description: 'Template object with parameters: `template_id`.'
+      required:
+        - template_id
       properties:
         template_id:
           description: 'The id of the Template.'
@@ -12005,6 +12124,12 @@ components:
       type: object
       x-internal-class: true
     TemplateResponseDocument:
+      required:
+        - custom_fields
+        - field_groups
+        - form_fields
+        - name
+        - static_fields
       properties:
         name:
           description: 'Name of the associated file.'
@@ -12032,13 +12157,19 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/TemplateResponseDocumentStaticFieldBase'
-          nullable: true
       type: object
       x-internal-class: true
     TemplateResponseDocumentCustomFieldBase:
       description: 'An array of Form Field objects containing the name and type of each named field.'
       required:
+        - api_id
+        - height
+        - name
+        - required
         - type
+        - width
+        - x
+        - 'y'
       properties:
         api_id:
           description: 'The unique ID for this field.'
@@ -12101,6 +12232,10 @@ components:
     TemplateResponseDocumentCustomFieldText:
       description: 'This class extends `TemplateResponseDocumentCustomFieldBase`'
       required:
+        - avg_text_length
+        - fontFamily
+        - isMultiline
+        - originalFontSize
         - type
       allOf:
         -
@@ -12128,6 +12263,9 @@ components:
               type: string
           type: object
     TemplateResponseDocumentFieldGroup:
+      required:
+        - name
+        - rule
       properties:
         name:
           description: 'The name of the form field group.'
@@ -12138,6 +12276,9 @@ components:
       x-internal-class: true
     TemplateResponseDocumentFieldGroupRule:
       description: 'The rule used to validate checkboxes in the form field group. See [checkbox field grouping](/api/reference/constants/#checkbox-field-grouping).'
+      required:
+        - groupLabel
+        - requirement
       properties:
         requirement:
           description: |-
@@ -12155,7 +12296,15 @@ components:
     TemplateResponseDocumentFormFieldBase:
       description: 'An array of Form Field objects containing the name and type of each named field.'
       required:
+        - api_id
+        - height
+        - name
+        - required
+        - signer
         - type
+        - width
+        - x
+        - 'y'
       properties:
         api_id:
           description: 'A unique id for the form field.'
@@ -12184,10 +12333,6 @@ components:
         required:
           description: 'Boolean showing whether or not this field is required.'
           type: boolean
-        group:
-          description: 'The name of the group this field is in. If this field is not a group, this defaults to `null` except for Radio fields.'
-          type: string
-          nullable: true
       type: object
       discriminator:
         propertyName: type
@@ -12204,12 +12349,12 @@ components:
       x-base-class: true
     TemplateResponseDocumentFormFieldCheckbox:
       description: 'This class extends `TemplateResponseDocumentFormFieldBase`'
+      required:
+        - type
       allOf:
         -
           $ref: '#/components/schemas/TemplateResponseDocumentFormFieldBase'
         -
-          required:
-            - type
           properties:
             type:
               description: |-
@@ -12225,6 +12370,10 @@ components:
                 * Initials Field uses `TemplateResponseDocumentFormFieldInitials`
               type: string
               default: checkbox
+            group:
+              description: 'The name of the group this field is in. If this field is not a group, this defaults to `null` except for Radio fields.'
+              type: string
+              nullable: true
           type: object
     TemplateResponseDocumentFormFieldDateSigned:
       description: 'This class extends `TemplateResponseDocumentFormFieldBase`'
@@ -12234,8 +12383,6 @@ components:
         -
           $ref: '#/components/schemas/TemplateResponseDocumentFormFieldBase'
         -
-          required:
-            - type
           properties:
             type:
               description: |-
@@ -12251,6 +12398,10 @@ components:
                 * Initials Field uses `TemplateResponseDocumentFormFieldInitials`
               type: string
               default: date_signed
+            group:
+              description: 'The name of the group this field is in. If this field is not a group, this defaults to `null` except for Radio fields.'
+              type: string
+              nullable: true
           type: object
     TemplateResponseDocumentFormFieldDropdown:
       description: 'This class extends `TemplateResponseDocumentFormFieldBase`'
@@ -12260,8 +12411,6 @@ components:
         -
           $ref: '#/components/schemas/TemplateResponseDocumentFormFieldBase'
         -
-          required:
-            - type
           properties:
             type:
               description: |-
@@ -12277,17 +12426,23 @@ components:
                 * Initials Field uses `TemplateResponseDocumentFormFieldInitials`
               type: string
               default: dropdown
+            group:
+              description: 'The name of the group this field is in. If this field is not a group, this defaults to `null` except for Radio fields.'
+              type: string
+              nullable: true
           type: object
     TemplateResponseDocumentFormFieldHyperlink:
       description: 'This class extends `TemplateResponseDocumentFormFieldBase`'
       required:
+        - avg_text_length
+        - fontFamily
+        - isMultiline
+        - originalFontSize
         - type
       allOf:
         -
           $ref: '#/components/schemas/TemplateResponseDocumentFormFieldBase'
         -
-          required:
-            - type
           properties:
             type:
               description: |-
@@ -12314,6 +12469,10 @@ components:
             fontFamily:
               description: 'Font family used in this form field''s text.'
               type: string
+            group:
+              description: 'The name of the group this field is in. If this field is not a group, this defaults to `null` except for Radio fields.'
+              type: string
+              nullable: true
           type: object
     TemplateResponseDocumentFormFieldInitials:
       description: 'This class extends `TemplateResponseDocumentFormFieldBase`'
@@ -12323,8 +12482,6 @@ components:
         -
           $ref: '#/components/schemas/TemplateResponseDocumentFormFieldBase'
         -
-          required:
-            - type
           properties:
             type:
               description: |-
@@ -12340,6 +12497,10 @@ components:
                 * Initials Field uses `TemplateResponseDocumentFormFieldInitials`
               type: string
               default: initials
+            group:
+              description: 'The name of the group this field is in. If this field is not a group, this defaults to `null` except for Radio fields.'
+              type: string
+              nullable: true
           type: object
     TemplateResponseDocumentFormFieldRadio:
       description: 'This class extends `TemplateResponseDocumentFormFieldBase`'
@@ -12350,8 +12511,6 @@ components:
         -
           $ref: '#/components/schemas/TemplateResponseDocumentFormFieldBase'
         -
-          required:
-            - type
           properties:
             type:
               description: |-
@@ -12367,6 +12526,9 @@ components:
                 * Initials Field uses `TemplateResponseDocumentFormFieldInitials`
               type: string
               default: radio
+            group:
+              description: 'The name of the group this field is in. If this field is not a group, this defaults to `null` except for Radio fields.'
+              type: string
           type: object
     TemplateResponseDocumentFormFieldSignature:
       description: 'This class extends `TemplateResponseDocumentFormFieldBase`'
@@ -12376,8 +12538,6 @@ components:
         -
           $ref: '#/components/schemas/TemplateResponseDocumentFormFieldBase'
         -
-          required:
-            - type
           properties:
             type:
               description: |-
@@ -12393,17 +12553,23 @@ components:
                 * Initials Field uses `TemplateResponseDocumentFormFieldInitials`
               type: string
               default: signature
+            group:
+              description: 'The name of the group this field is in. If this field is not a group, this defaults to `null` except for Radio fields.'
+              type: string
+              nullable: true
           type: object
     TemplateResponseDocumentFormFieldText:
       description: 'This class extends `TemplateResponseDocumentFormFieldBase`'
       required:
+        - avg_text_length
+        - fontFamily
+        - isMultiline
+        - originalFontSize
         - type
       allOf:
         -
           $ref: '#/components/schemas/TemplateResponseDocumentFormFieldBase'
         -
-          required:
-            - type
           properties:
             type:
               description: |-
@@ -12445,11 +12611,23 @@ components:
                 - employer_identification_number
                 - custom_regex
               nullable: true
+            group:
+              description: 'The name of the group this field is in. If this field is not a group, this defaults to `null` except for Radio fields.'
+              type: string
+              nullable: true
           type: object
     TemplateResponseDocumentStaticFieldBase:
       description: 'An array describing static overlay fields. **NOTE:** Only available for certain subscriptions.'
       required:
+        - api_id
+        - height
+        - name
+        - required
+        - signer
         - type
+        - width
+        - x
+        - 'y'
       properties:
         api_id:
           description: 'A unique id for the static field.'
@@ -12504,8 +12682,6 @@ components:
         -
           $ref: '#/components/schemas/TemplateResponseDocumentStaticFieldBase'
         -
-          required:
-            - type
           properties:
             type:
               description: |-
@@ -12530,8 +12706,6 @@ components:
         -
           $ref: '#/components/schemas/TemplateResponseDocumentStaticFieldBase'
         -
-          required:
-            - type
           properties:
             type:
               description: |-
@@ -12556,8 +12730,6 @@ components:
         -
           $ref: '#/components/schemas/TemplateResponseDocumentStaticFieldBase'
         -
-          required:
-            - type
           properties:
             type:
               description: |-
@@ -12582,8 +12754,6 @@ components:
         -
           $ref: '#/components/schemas/TemplateResponseDocumentStaticFieldBase'
         -
-          required:
-            - type
           properties:
             type:
               description: |-
@@ -12608,8 +12778,6 @@ components:
         -
           $ref: '#/components/schemas/TemplateResponseDocumentStaticFieldBase'
         -
-          required:
-            - type
           properties:
             type:
               description: |-
@@ -12634,8 +12802,6 @@ components:
         -
           $ref: '#/components/schemas/TemplateResponseDocumentStaticFieldBase'
         -
-          required:
-            - type
           properties:
             type:
               description: |-
@@ -12660,8 +12826,6 @@ components:
         -
           $ref: '#/components/schemas/TemplateResponseDocumentStaticFieldBase'
         -
-          required:
-            - type
           properties:
             type:
               description: |-
@@ -12686,8 +12850,6 @@ components:
         -
           $ref: '#/components/schemas/TemplateResponseDocumentStaticFieldBase'
         -
-          required:
-            - type
           properties:
             type:
               description: |-
@@ -12706,6 +12868,9 @@ components:
           type: object
     TemplateResponseFieldAvgTextLength:
       description: 'Average text length in this field.'
+      required:
+        - num_lines
+        - num_chars_per_line
       properties:
         num_lines:
           description: 'Number of lines.'
@@ -12716,6 +12881,8 @@ components:
       type: object
       x-internal-class: true
     TemplateResponseSignerRole:
+      required:
+        - name
       properties:
         name:
           description: 'The name of the Role.'
@@ -12727,6 +12894,8 @@ components:
       x-internal-class: true
     TemplateUpdateFilesResponseTemplate:
       description: 'Contains template id'
+      required:
+        - template_id
       properties:
         template_id:
           description: 'The id of the Template.'
