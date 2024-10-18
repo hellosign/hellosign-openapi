@@ -73,9 +73,9 @@ public class TemplateResponseDocumentFieldGroup {
    * The name of the form field group.
    * @return name
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getName() {
     return name;
@@ -83,7 +83,7 @@ public class TemplateResponseDocumentFieldGroup {
 
 
   @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(String name) {
     this.name = name;
   }
@@ -98,9 +98,9 @@ public class TemplateResponseDocumentFieldGroup {
    * Get rule
    * @return rule
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RULE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public TemplateResponseDocumentFieldGroupRule getRule() {
     return rule;
@@ -108,7 +108,7 @@ public class TemplateResponseDocumentFieldGroup {
 
 
   @JsonProperty(JSON_PROPERTY_RULE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRule(TemplateResponseDocumentFieldGroupRule rule) {
     this.rule = rule;
   }

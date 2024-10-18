@@ -97,17 +97,12 @@ module Dropbox::Sign
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @can_insert_everywhere.nil?
-        invalid_properties.push('invalid value for "can_insert_everywhere", can_insert_everywhere cannot be nil.')
-      end
-
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @can_insert_everywhere.nil?
       true
     end
 

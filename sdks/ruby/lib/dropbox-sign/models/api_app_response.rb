@@ -19,6 +19,10 @@ end
 module Dropbox::Sign
   # Contains information about an API App.
   class ApiAppResponse
+    # The app's callback URL (for events)
+    # @return [String, nil]
+    attr_accessor :callback_url
+
     # The app's client id
     # @return [String]
     attr_accessor :client_id
@@ -39,18 +43,14 @@ module Dropbox::Sign
     # @return [Boolean]
     attr_accessor :is_approved
 
-    # @return [ApiAppResponseOptions]
+    # @return [ApiAppResponseOAuth, nil]
+    attr_accessor :oauth
+
+    # @return [ApiAppResponseOptions, nil]
     attr_accessor :options
 
     # @return [ApiAppResponseOwnerAccount]
     attr_accessor :owner_account
-
-    # The app's callback URL (for events)
-    # @return [String, nil]
-    attr_accessor :callback_url
-
-    # @return [ApiAppResponseOAuth, nil]
-    attr_accessor :oauth
 
     # @return [ApiAppResponseWhiteLabelingOptions, nil]
     attr_accessor :white_labeling_options
@@ -58,15 +58,15 @@ module Dropbox::Sign
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'callback_url' => :'callback_url',
         :'client_id' => :'client_id',
         :'created_at' => :'created_at',
         :'domains' => :'domains',
         :'name' => :'name',
         :'is_approved' => :'is_approved',
+        :'oauth' => :'oauth',
         :'options' => :'options',
         :'owner_account' => :'owner_account',
-        :'callback_url' => :'callback_url',
-        :'oauth' => :'oauth',
         :'white_labeling_options' => :'white_labeling_options'
       }
     end
@@ -79,15 +79,15 @@ module Dropbox::Sign
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'callback_url' => :'String',
         :'client_id' => :'String',
         :'created_at' => :'Integer',
         :'domains' => :'Array<String>',
         :'name' => :'String',
         :'is_approved' => :'Boolean',
+        :'oauth' => :'ApiAppResponseOAuth',
         :'options' => :'ApiAppResponseOptions',
         :'owner_account' => :'ApiAppResponseOwnerAccount',
-        :'callback_url' => :'String',
-        :'oauth' => :'ApiAppResponseOAuth',
         :'white_labeling_options' => :'ApiAppResponseWhiteLabelingOptions'
       }
     end
@@ -97,6 +97,7 @@ module Dropbox::Sign
       Set.new([
         :'callback_url',
         :'oauth',
+        :'options',
         :'white_labeling_options'
       ])
     end
@@ -141,6 +142,10 @@ module Dropbox::Sign
         h[k.to_sym] = v
       }
 
+      if attributes.key?(:'callback_url')
+        self.callback_url = attributes[:'callback_url']
+      end
+
       if attributes.key?(:'client_id')
         self.client_id = attributes[:'client_id']
       end
@@ -163,20 +168,16 @@ module Dropbox::Sign
         self.is_approved = attributes[:'is_approved']
       end
 
+      if attributes.key?(:'oauth')
+        self.oauth = attributes[:'oauth']
+      end
+
       if attributes.key?(:'options')
         self.options = attributes[:'options']
       end
 
       if attributes.key?(:'owner_account')
         self.owner_account = attributes[:'owner_account']
-      end
-
-      if attributes.key?(:'callback_url')
-        self.callback_url = attributes[:'callback_url']
-      end
-
-      if attributes.key?(:'oauth')
-        self.oauth = attributes[:'oauth']
       end
 
       if attributes.key?(:'white_labeling_options')
@@ -188,47 +189,12 @@ module Dropbox::Sign
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @client_id.nil?
-        invalid_properties.push('invalid value for "client_id", client_id cannot be nil.')
-      end
-
-      if @created_at.nil?
-        invalid_properties.push('invalid value for "created_at", created_at cannot be nil.')
-      end
-
-      if @domains.nil?
-        invalid_properties.push('invalid value for "domains", domains cannot be nil.')
-      end
-
-      if @name.nil?
-        invalid_properties.push('invalid value for "name", name cannot be nil.')
-      end
-
-      if @is_approved.nil?
-        invalid_properties.push('invalid value for "is_approved", is_approved cannot be nil.')
-      end
-
-      if @options.nil?
-        invalid_properties.push('invalid value for "options", options cannot be nil.')
-      end
-
-      if @owner_account.nil?
-        invalid_properties.push('invalid value for "owner_account", owner_account cannot be nil.')
-      end
-
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @client_id.nil?
-      return false if @created_at.nil?
-      return false if @domains.nil?
-      return false if @name.nil?
-      return false if @is_approved.nil?
-      return false if @options.nil?
-      return false if @owner_account.nil?
       true
     end
 
@@ -237,15 +203,15 @@ module Dropbox::Sign
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          callback_url == o.callback_url &&
           client_id == o.client_id &&
           created_at == o.created_at &&
           domains == o.domains &&
           name == o.name &&
           is_approved == o.is_approved &&
+          oauth == o.oauth &&
           options == o.options &&
           owner_account == o.owner_account &&
-          callback_url == o.callback_url &&
-          oauth == o.oauth &&
           white_labeling_options == o.white_labeling_options
     end
 
@@ -258,7 +224,7 @@ module Dropbox::Sign
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [client_id, created_at, domains, name, is_approved, options, owner_account, callback_url, oauth, white_labeling_options].hash
+      [callback_url, client_id, created_at, domains, name, is_approved, oauth, options, owner_account, white_labeling_options].hash
     end
 
     # Builds the object from hash

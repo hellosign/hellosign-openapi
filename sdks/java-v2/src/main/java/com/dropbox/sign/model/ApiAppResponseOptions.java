@@ -68,9 +68,9 @@ public class ApiAppResponseOptions {
    * Boolean denoting if signers can \&quot;Insert Everywhere\&quot; in one click while signing a document
    * @return canInsertEverywhere
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CAN_INSERT_EVERYWHERE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getCanInsertEverywhere() {
     return canInsertEverywhere;
@@ -78,7 +78,7 @@ public class ApiAppResponseOptions {
 
 
   @JsonProperty(JSON_PROPERTY_CAN_INSERT_EVERYWHERE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCanInsertEverywhere(Boolean canInsertEverywhere) {
     this.canInsertEverywhere = canInsertEverywhere;
   }

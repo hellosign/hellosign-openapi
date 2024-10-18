@@ -41,27 +41,17 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiAppResponseOAuth" /> class.
         /// </summary>
-        /// <param name="callbackUrl">The app&#39;s OAuth callback URL. (required).</param>
+        /// <param name="callbackUrl">The app&#39;s OAuth callback URL..</param>
         /// <param name="secret">The app&#39;s OAuth secret, or null if the app does not belong to user..</param>
-        /// <param name="scopes">Array of OAuth scopes used by the app. (required).</param>
-        /// <param name="chargesUsers">Boolean indicating whether the app owner or the account granting permission is billed for OAuth requests. (required).</param>
+        /// <param name="scopes">Array of OAuth scopes used by the app..</param>
+        /// <param name="chargesUsers">Boolean indicating whether the app owner or the account granting permission is billed for OAuth requests..</param>
         public ApiAppResponseOAuth(string callbackUrl = default(string), string secret = default(string), List<string> scopes = default(List<string>), bool chargesUsers = default(bool))
         {
 
-            // to ensure "callbackUrl" is required (not null)
-            if (callbackUrl == null)
-            {
-                throw new ArgumentNullException("callbackUrl is a required property for ApiAppResponseOAuth and cannot be null");
-            }
             this.CallbackUrl = callbackUrl;
-            // to ensure "scopes" is required (not null)
-            if (scopes == null)
-            {
-                throw new ArgumentNullException("scopes is a required property for ApiAppResponseOAuth and cannot be null");
-            }
+            this.Secret = secret;
             this.Scopes = scopes;
             this.ChargesUsers = chargesUsers;
-            this.Secret = secret;
         }
 
         /// <summary>
@@ -84,22 +74,8 @@ namespace Dropbox.Sign.Model
         /// The app&#39;s OAuth callback URL.
         /// </summary>
         /// <value>The app&#39;s OAuth callback URL.</value>
-        [DataMember(Name = "callback_url", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "callback_url", EmitDefaultValue = true)]
         public string CallbackUrl { get; set; }
-
-        /// <summary>
-        /// Array of OAuth scopes used by the app.
-        /// </summary>
-        /// <value>Array of OAuth scopes used by the app.</value>
-        [DataMember(Name = "scopes", IsRequired = true, EmitDefaultValue = true)]
-        public List<string> Scopes { get; set; }
-
-        /// <summary>
-        /// Boolean indicating whether the app owner or the account granting permission is billed for OAuth requests.
-        /// </summary>
-        /// <value>Boolean indicating whether the app owner or the account granting permission is billed for OAuth requests.</value>
-        [DataMember(Name = "charges_users", IsRequired = true, EmitDefaultValue = true)]
-        public bool ChargesUsers { get; set; }
 
         /// <summary>
         /// The app&#39;s OAuth secret, or null if the app does not belong to user.
@@ -107,6 +83,20 @@ namespace Dropbox.Sign.Model
         /// <value>The app&#39;s OAuth secret, or null if the app does not belong to user.</value>
         [DataMember(Name = "secret", EmitDefaultValue = true)]
         public string Secret { get; set; }
+
+        /// <summary>
+        /// Array of OAuth scopes used by the app.
+        /// </summary>
+        /// <value>Array of OAuth scopes used by the app.</value>
+        [DataMember(Name = "scopes", EmitDefaultValue = true)]
+        public List<string> Scopes { get; set; }
+
+        /// <summary>
+        /// Boolean indicating whether the app owner or the account granting permission is billed for OAuth requests.
+        /// </summary>
+        /// <value>Boolean indicating whether the app owner or the account granting permission is billed for OAuth requests.</value>
+        [DataMember(Name = "charges_users", EmitDefaultValue = true)]
+        public bool ChargesUsers { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -117,9 +107,9 @@ namespace Dropbox.Sign.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class ApiAppResponseOAuth {\n");
             sb.Append("  CallbackUrl: ").Append(CallbackUrl).Append("\n");
+            sb.Append("  Secret: ").Append(Secret).Append("\n");
             sb.Append("  Scopes: ").Append(Scopes).Append("\n");
             sb.Append("  ChargesUsers: ").Append(ChargesUsers).Append("\n");
-            sb.Append("  Secret: ").Append(Secret).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -161,6 +151,11 @@ namespace Dropbox.Sign.Model
                     this.CallbackUrl.Equals(input.CallbackUrl))
                 ) &&
                 (
+                    this.Secret == input.Secret ||
+                    (this.Secret != null &&
+                    this.Secret.Equals(input.Secret))
+                ) &&
+                (
                     this.Scopes == input.Scopes ||
                     this.Scopes != null &&
                     input.Scopes != null &&
@@ -169,11 +164,6 @@ namespace Dropbox.Sign.Model
                 (
                     this.ChargesUsers == input.ChargesUsers ||
                     this.ChargesUsers.Equals(input.ChargesUsers)
-                ) &&
-                (
-                    this.Secret == input.Secret ||
-                    (this.Secret != null &&
-                    this.Secret.Equals(input.Secret))
                 );
         }
 
@@ -190,15 +180,15 @@ namespace Dropbox.Sign.Model
                 {
                     hashCode = (hashCode * 59) + this.CallbackUrl.GetHashCode();
                 }
+                if (this.Secret != null)
+                {
+                    hashCode = (hashCode * 59) + this.Secret.GetHashCode();
+                }
                 if (this.Scopes != null)
                 {
                     hashCode = (hashCode * 59) + this.Scopes.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.ChargesUsers.GetHashCode();
-                if (this.Secret != null)
-                {
-                    hashCode = (hashCode * 59) + this.Secret.GetHashCode();
-                }
                 return hashCode;
             }
         }
@@ -224,6 +214,13 @@ namespace Dropbox.Sign.Model
             });
             types.Add(new OpenApiType()
             {
+                Name = "secret",
+                Property = "Secret",
+                Type = "string",
+                Value = Secret,
+            });
+            types.Add(new OpenApiType()
+            {
                 Name = "scopes",
                 Property = "Scopes",
                 Type = "List<string>",
@@ -235,13 +232,6 @@ namespace Dropbox.Sign.Model
                 Property = "ChargesUsers",
                 Type = "bool",
                 Value = ChargesUsers,
-            });
-            types.Add(new OpenApiType()
-            {
-                Name = "secret",
-                Property = "Secret",
-                Type = "string",
-                Value = Secret,
             });
 
             return types;

@@ -22,6 +22,10 @@ module Dropbox::Sign
     # @return [String]
     attr_accessor :name
 
+    # Document ordering, the lowest index is displayed first and the highest last (0-based indexing).
+    # @return [Integer]
+    attr_accessor :index
+
     # An array of Form Field Group objects.
     # @return [Array<TemplateResponseDocumentFieldGroup>]
     attr_accessor :field_groups
@@ -38,19 +42,15 @@ module Dropbox::Sign
     # @return [Array<TemplateResponseDocumentStaticFieldBase>]
     attr_accessor :static_fields
 
-    # Document ordering, the lowest index is displayed first and the highest last (0-based indexing).
-    # @return [Integer]
-    attr_accessor :index
-
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'name' => :'name',
+        :'index' => :'index',
         :'field_groups' => :'field_groups',
         :'form_fields' => :'form_fields',
         :'custom_fields' => :'custom_fields',
-        :'static_fields' => :'static_fields',
-        :'index' => :'index'
+        :'static_fields' => :'static_fields'
       }
     end
 
@@ -63,11 +63,11 @@ module Dropbox::Sign
     def self.openapi_types
       {
         :'name' => :'String',
+        :'index' => :'Integer',
         :'field_groups' => :'Array<TemplateResponseDocumentFieldGroup>',
         :'form_fields' => :'Array<TemplateResponseDocumentFormFieldBase>',
         :'custom_fields' => :'Array<TemplateResponseDocumentCustomFieldBase>',
-        :'static_fields' => :'Array<TemplateResponseDocumentStaticFieldBase>',
-        :'index' => :'Integer'
+        :'static_fields' => :'Array<TemplateResponseDocumentStaticFieldBase>'
       }
     end
 
@@ -121,6 +121,10 @@ module Dropbox::Sign
         self.name = attributes[:'name']
       end
 
+      if attributes.key?(:'index')
+        self.index = attributes[:'index']
+      end
+
       if attributes.key?(:'field_groups')
         if (value = attributes[:'field_groups']).is_a?(Array)
           self.field_groups = value
@@ -144,47 +148,18 @@ module Dropbox::Sign
           self.static_fields = value
         end
       end
-
-      if attributes.key?(:'index')
-        self.index = attributes[:'index']
-      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @name.nil?
-        invalid_properties.push('invalid value for "name", name cannot be nil.')
-      end
-
-      if @field_groups.nil?
-        invalid_properties.push('invalid value for "field_groups", field_groups cannot be nil.')
-      end
-
-      if @form_fields.nil?
-        invalid_properties.push('invalid value for "form_fields", form_fields cannot be nil.')
-      end
-
-      if @custom_fields.nil?
-        invalid_properties.push('invalid value for "custom_fields", custom_fields cannot be nil.')
-      end
-
-      if @static_fields.nil?
-        invalid_properties.push('invalid value for "static_fields", static_fields cannot be nil.')
-      end
-
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @name.nil?
-      return false if @field_groups.nil?
-      return false if @form_fields.nil?
-      return false if @custom_fields.nil?
-      return false if @static_fields.nil?
       true
     end
 
@@ -194,11 +169,11 @@ module Dropbox::Sign
       return true if self.equal?(o)
       self.class == o.class &&
           name == o.name &&
+          index == o.index &&
           field_groups == o.field_groups &&
           form_fields == o.form_fields &&
           custom_fields == o.custom_fields &&
-          static_fields == o.static_fields &&
-          index == o.index
+          static_fields == o.static_fields
     end
 
     # @see the `==` method
@@ -210,7 +185,7 @@ module Dropbox::Sign
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [name, field_groups, form_fields, custom_fields, static_fields, index].hash
+      [name, index, field_groups, form_fields, custom_fields, static_fields].hash
     end
 
     # Builds the object from hash

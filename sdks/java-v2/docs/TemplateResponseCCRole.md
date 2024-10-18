@@ -8,7 +8,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-| `name`<sup>*_required_</sup> | ```String``` |  The name of the Role.  |  |
+| `name` | ```String``` |  The name of the Role.  |  |
 
 
 

@@ -3,10 +3,10 @@ import { TemplateResponseDocumentCustomFieldBase } from "./templateResponseDocum
 import { TemplateResponseFieldAvgTextLength } from "./templateResponseFieldAvgTextLength";
 export declare class TemplateResponseDocumentCustomFieldText extends TemplateResponseDocumentCustomFieldBase {
     "type": string;
-    "avgTextLength": TemplateResponseFieldAvgTextLength;
-    "isMultiline": boolean;
-    "originalFontSize": number;
-    "fontFamily": string;
+    "avgTextLength"?: TemplateResponseFieldAvgTextLength;
+    "isMultiline"?: boolean;
+    "originalFontSize"?: number;
+    "fontFamily"?: string;
     static discriminator: string | undefined;
     static attributeTypeMap: AttributeTypeMap;
     static getAttributeTypeMap(): AttributeTypeMap;

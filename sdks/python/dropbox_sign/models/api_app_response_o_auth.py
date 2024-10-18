@@ -32,22 +32,25 @@ class ApiAppResponseOAuth(BaseModel):
     An object describing the app's OAuth properties, or null if OAuth is not configured for the app.
     """  # noqa: E501
 
-    callback_url: StrictStr = Field(description="The app's OAuth callback URL.")
-    scopes: List[StrictStr] = Field(
-        description="Array of OAuth scopes used by the app."
-    )
-    charges_users: StrictBool = Field(
-        description="Boolean indicating whether the app owner or the account granting permission is billed for OAuth requests."
+    callback_url: Optional[StrictStr] = Field(
+        default=None, description="The app's OAuth callback URL."
     )
     secret: Optional[StrictStr] = Field(
         default=None,
         description="The app's OAuth secret, or null if the app does not belong to user.",
     )
+    scopes: Optional[List[StrictStr]] = Field(
+        default=None, description="Array of OAuth scopes used by the app."
+    )
+    charges_users: Optional[StrictBool] = Field(
+        default=None,
+        description="Boolean indicating whether the app owner or the account granting permission is billed for OAuth requests.",
+    )
     __properties: ClassVar[List[str]] = [
         "callback_url",
+        "secret",
         "scopes",
         "charges_users",
-        "secret",
     ]
 
     model_config = ConfigDict(
@@ -114,9 +117,9 @@ class ApiAppResponseOAuth(BaseModel):
         _obj = cls.model_validate(
             {
                 "callback_url": obj.get("callback_url"),
+                "secret": obj.get("secret"),
                 "scopes": obj.get("scopes"),
                 "charges_users": obj.get("charges_users"),
-                "secret": obj.get("secret"),
             }
         )
         return _obj
@@ -135,9 +138,9 @@ class ApiAppResponseOAuth(BaseModel):
     def openapi_types(cls) -> Dict[str, str]:
         return {
             "callback_url": "(str,)",
+            "secret": "(str,)",
             "scopes": "(List[str],)",
             "charges_users": "(bool,)",
-            "secret": "(str,)",
         }
 
     @classmethod

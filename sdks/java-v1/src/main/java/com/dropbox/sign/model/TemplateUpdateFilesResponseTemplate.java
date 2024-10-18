@@ -69,15 +69,14 @@ public class TemplateUpdateFilesResponseTemplate {
      *
      * @return templateId
      */
-    @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_TEMPLATE_ID)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_TEMPLATE_ID)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getTemplateId() {
         return templateId;
     }
 
     @JsonProperty(JSON_PROPERTY_TEMPLATE_ID)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setTemplateId(String templateId) {
         this.templateId = templateId;
     }

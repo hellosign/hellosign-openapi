@@ -289,15 +289,7 @@ class TemplateResponseDocumentFieldGroupRule implements ModelInterface, ArrayAcc
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = [];
-
-        if ($this->container['requirement'] === null) {
-            $invalidProperties[] = "'requirement' can't be null";
-        }
-        if ($this->container['group_label'] === null) {
-            $invalidProperties[] = "'group_label' can't be null";
-        }
-        return $invalidProperties;
+        return [];
     }
 
     /**
@@ -314,7 +306,7 @@ class TemplateResponseDocumentFieldGroupRule implements ModelInterface, ArrayAcc
     /**
      * Gets requirement
      *
-     * @return string
+     * @return string|null
      */
     public function getRequirement()
     {
@@ -324,11 +316,11 @@ class TemplateResponseDocumentFieldGroupRule implements ModelInterface, ArrayAcc
     /**
      * Sets requirement
      *
-     * @param string $requirement Examples: `require_0-1` `require_1` `require_1-ormore`  - Check out the list of [acceptable `requirement` checkbox type values](/api/reference/constants/#checkbox-field-grouping). - Check out the list of [acceptable `requirement` radio type fields](/api/reference/constants/#radio-field-grouping). - Radio groups require **at least** two fields per group.
+     * @param string|null $requirement Examples: `require_0-1` `require_1` `require_1-ormore`  - Check out the list of [acceptable `requirement` checkbox type values](/api/reference/constants/#checkbox-field-grouping). - Check out the list of [acceptable `requirement` radio type fields](/api/reference/constants/#radio-field-grouping). - Radio groups require **at least** two fields per group.
      *
      * @return self
      */
-    public function setRequirement(string $requirement)
+    public function setRequirement(?string $requirement)
     {
         if (is_null($requirement)) {
             throw new InvalidArgumentException('non-nullable requirement cannot be null');
@@ -341,7 +333,7 @@ class TemplateResponseDocumentFieldGroupRule implements ModelInterface, ArrayAcc
     /**
      * Gets group_label
      *
-     * @return string
+     * @return string|null
      */
     public function getGroupLabel()
     {
@@ -351,11 +343,11 @@ class TemplateResponseDocumentFieldGroupRule implements ModelInterface, ArrayAcc
     /**
      * Sets group_label
      *
-     * @param string $group_label Name of the group
+     * @param string|null $group_label Name of the group
      *
      * @return self
      */
-    public function setGroupLabel(string $group_label)
+    public function setGroupLabel(?string $group_label)
     {
         if (is_null($group_label)) {
             throw new InvalidArgumentException('non-nullable group_label cannot be null');

@@ -373,51 +373,7 @@ class ApiAppResponseWhiteLabelingOptions implements ModelInterface, ArrayAccess,
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = [];
-
-        if ($this->container['header_background_color'] === null) {
-            $invalidProperties[] = "'header_background_color' can't be null";
-        }
-        if ($this->container['legal_version'] === null) {
-            $invalidProperties[] = "'legal_version' can't be null";
-        }
-        if ($this->container['link_color'] === null) {
-            $invalidProperties[] = "'link_color' can't be null";
-        }
-        if ($this->container['page_background_color'] === null) {
-            $invalidProperties[] = "'page_background_color' can't be null";
-        }
-        if ($this->container['primary_button_color'] === null) {
-            $invalidProperties[] = "'primary_button_color' can't be null";
-        }
-        if ($this->container['primary_button_color_hover'] === null) {
-            $invalidProperties[] = "'primary_button_color_hover' can't be null";
-        }
-        if ($this->container['primary_button_text_color'] === null) {
-            $invalidProperties[] = "'primary_button_text_color' can't be null";
-        }
-        if ($this->container['primary_button_text_color_hover'] === null) {
-            $invalidProperties[] = "'primary_button_text_color_hover' can't be null";
-        }
-        if ($this->container['secondary_button_color'] === null) {
-            $invalidProperties[] = "'secondary_button_color' can't be null";
-        }
-        if ($this->container['secondary_button_color_hover'] === null) {
-            $invalidProperties[] = "'secondary_button_color_hover' can't be null";
-        }
-        if ($this->container['secondary_button_text_color'] === null) {
-            $invalidProperties[] = "'secondary_button_text_color' can't be null";
-        }
-        if ($this->container['secondary_button_text_color_hover'] === null) {
-            $invalidProperties[] = "'secondary_button_text_color_hover' can't be null";
-        }
-        if ($this->container['text_color1'] === null) {
-            $invalidProperties[] = "'text_color1' can't be null";
-        }
-        if ($this->container['text_color2'] === null) {
-            $invalidProperties[] = "'text_color2' can't be null";
-        }
-        return $invalidProperties;
+        return [];
     }
 
     /**
@@ -434,7 +390,7 @@ class ApiAppResponseWhiteLabelingOptions implements ModelInterface, ArrayAccess,
     /**
      * Gets header_background_color
      *
-     * @return string
+     * @return string|null
      */
     public function getHeaderBackgroundColor()
     {
@@ -444,11 +400,11 @@ class ApiAppResponseWhiteLabelingOptions implements ModelInterface, ArrayAccess,
     /**
      * Sets header_background_color
      *
-     * @param string $header_background_color header_background_color
+     * @param string|null $header_background_color header_background_color
      *
      * @return self
      */
-    public function setHeaderBackgroundColor(string $header_background_color)
+    public function setHeaderBackgroundColor(?string $header_background_color)
     {
         if (is_null($header_background_color)) {
             throw new InvalidArgumentException('non-nullable header_background_color cannot be null');
@@ -461,7 +417,7 @@ class ApiAppResponseWhiteLabelingOptions implements ModelInterface, ArrayAccess,
     /**
      * Gets legal_version
      *
-     * @return string
+     * @return string|null
      */
     public function getLegalVersion()
     {
@@ -471,11 +427,11 @@ class ApiAppResponseWhiteLabelingOptions implements ModelInterface, ArrayAccess,
     /**
      * Sets legal_version
      *
-     * @param string $legal_version legal_version
+     * @param string|null $legal_version legal_version
      *
      * @return self
      */
-    public function setLegalVersion(string $legal_version)
+    public function setLegalVersion(?string $legal_version)
     {
         if (is_null($legal_version)) {
             throw new InvalidArgumentException('non-nullable legal_version cannot be null');
@@ -488,7 +444,7 @@ class ApiAppResponseWhiteLabelingOptions implements ModelInterface, ArrayAccess,
     /**
      * Gets link_color
      *
-     * @return string
+     * @return string|null
      */
     public function getLinkColor()
     {
@@ -498,11 +454,11 @@ class ApiAppResponseWhiteLabelingOptions implements ModelInterface, ArrayAccess,
     /**
      * Sets link_color
      *
-     * @param string $link_color link_color
+     * @param string|null $link_color link_color
      *
      * @return self
      */
-    public function setLinkColor(string $link_color)
+    public function setLinkColor(?string $link_color)
     {
         if (is_null($link_color)) {
             throw new InvalidArgumentException('non-nullable link_color cannot be null');
@@ -515,7 +471,7 @@ class ApiAppResponseWhiteLabelingOptions implements ModelInterface, ArrayAccess,
     /**
      * Gets page_background_color
      *
-     * @return string
+     * @return string|null
      */
     public function getPageBackgroundColor()
     {
@@ -525,11 +481,11 @@ class ApiAppResponseWhiteLabelingOptions implements ModelInterface, ArrayAccess,
     /**
      * Sets page_background_color
      *
-     * @param string $page_background_color page_background_color
+     * @param string|null $page_background_color page_background_color
      *
      * @return self
      */
-    public function setPageBackgroundColor(string $page_background_color)
+    public function setPageBackgroundColor(?string $page_background_color)
     {
         if (is_null($page_background_color)) {
             throw new InvalidArgumentException('non-nullable page_background_color cannot be null');
@@ -542,7 +498,7 @@ class ApiAppResponseWhiteLabelingOptions implements ModelInterface, ArrayAccess,
     /**
      * Gets primary_button_color
      *
-     * @return string
+     * @return string|null
      */
     public function getPrimaryButtonColor()
     {
@@ -552,11 +508,11 @@ class ApiAppResponseWhiteLabelingOptions implements ModelInterface, ArrayAccess,
     /**
      * Sets primary_button_color
      *
-     * @param string $primary_button_color primary_button_color
+     * @param string|null $primary_button_color primary_button_color
      *
      * @return self
      */
-    public function setPrimaryButtonColor(string $primary_button_color)
+    public function setPrimaryButtonColor(?string $primary_button_color)
     {
         if (is_null($primary_button_color)) {
             throw new InvalidArgumentException('non-nullable primary_button_color cannot be null');
@@ -569,7 +525,7 @@ class ApiAppResponseWhiteLabelingOptions implements ModelInterface, ArrayAccess,
     /**
      * Gets primary_button_color_hover
      *
-     * @return string
+     * @return string|null
      */
     public function getPrimaryButtonColorHover()
     {
@@ -579,11 +535,11 @@ class ApiAppResponseWhiteLabelingOptions implements ModelInterface, ArrayAccess,
     /**
      * Sets primary_button_color_hover
      *
-     * @param string $primary_button_color_hover primary_button_color_hover
+     * @param string|null $primary_button_color_hover primary_button_color_hover
      *
      * @return self
      */
-    public function setPrimaryButtonColorHover(string $primary_button_color_hover)
+    public function setPrimaryButtonColorHover(?string $primary_button_color_hover)
     {
         if (is_null($primary_button_color_hover)) {
             throw new InvalidArgumentException('non-nullable primary_button_color_hover cannot be null');
@@ -596,7 +552,7 @@ class ApiAppResponseWhiteLabelingOptions implements ModelInterface, ArrayAccess,
     /**
      * Gets primary_button_text_color
      *
-     * @return string
+     * @return string|null
      */
     public function getPrimaryButtonTextColor()
     {
@@ -606,11 +562,11 @@ class ApiAppResponseWhiteLabelingOptions implements ModelInterface, ArrayAccess,
     /**
      * Sets primary_button_text_color
      *
-     * @param string $primary_button_text_color primary_button_text_color
+     * @param string|null $primary_button_text_color primary_button_text_color
      *
      * @return self
      */
-    public function setPrimaryButtonTextColor(string $primary_button_text_color)
+    public function setPrimaryButtonTextColor(?string $primary_button_text_color)
     {
         if (is_null($primary_button_text_color)) {
             throw new InvalidArgumentException('non-nullable primary_button_text_color cannot be null');
@@ -623,7 +579,7 @@ class ApiAppResponseWhiteLabelingOptions implements ModelInterface, ArrayAccess,
     /**
      * Gets primary_button_text_color_hover
      *
-     * @return string
+     * @return string|null
      */
     public function getPrimaryButtonTextColorHover()
     {
@@ -633,11 +589,11 @@ class ApiAppResponseWhiteLabelingOptions implements ModelInterface, ArrayAccess,
     /**
      * Sets primary_button_text_color_hover
      *
-     * @param string $primary_button_text_color_hover primary_button_text_color_hover
+     * @param string|null $primary_button_text_color_hover primary_button_text_color_hover
      *
      * @return self
      */
-    public function setPrimaryButtonTextColorHover(string $primary_button_text_color_hover)
+    public function setPrimaryButtonTextColorHover(?string $primary_button_text_color_hover)
     {
         if (is_null($primary_button_text_color_hover)) {
             throw new InvalidArgumentException('non-nullable primary_button_text_color_hover cannot be null');
@@ -650,7 +606,7 @@ class ApiAppResponseWhiteLabelingOptions implements ModelInterface, ArrayAccess,
     /**
      * Gets secondary_button_color
      *
-     * @return string
+     * @return string|null
      */
     public function getSecondaryButtonColor()
     {
@@ -660,11 +616,11 @@ class ApiAppResponseWhiteLabelingOptions implements ModelInterface, ArrayAccess,
     /**
      * Sets secondary_button_color
      *
-     * @param string $secondary_button_color secondary_button_color
+     * @param string|null $secondary_button_color secondary_button_color
      *
      * @return self
      */
-    public function setSecondaryButtonColor(string $secondary_button_color)
+    public function setSecondaryButtonColor(?string $secondary_button_color)
     {
         if (is_null($secondary_button_color)) {
             throw new InvalidArgumentException('non-nullable secondary_button_color cannot be null');
@@ -677,7 +633,7 @@ class ApiAppResponseWhiteLabelingOptions implements ModelInterface, ArrayAccess,
     /**
      * Gets secondary_button_color_hover
      *
-     * @return string
+     * @return string|null
      */
     public function getSecondaryButtonColorHover()
     {
@@ -687,11 +643,11 @@ class ApiAppResponseWhiteLabelingOptions implements ModelInterface, ArrayAccess,
     /**
      * Sets secondary_button_color_hover
      *
-     * @param string $secondary_button_color_hover secondary_button_color_hover
+     * @param string|null $secondary_button_color_hover secondary_button_color_hover
      *
      * @return self
      */
-    public function setSecondaryButtonColorHover(string $secondary_button_color_hover)
+    public function setSecondaryButtonColorHover(?string $secondary_button_color_hover)
     {
         if (is_null($secondary_button_color_hover)) {
             throw new InvalidArgumentException('non-nullable secondary_button_color_hover cannot be null');
@@ -704,7 +660,7 @@ class ApiAppResponseWhiteLabelingOptions implements ModelInterface, ArrayAccess,
     /**
      * Gets secondary_button_text_color
      *
-     * @return string
+     * @return string|null
      */
     public function getSecondaryButtonTextColor()
     {
@@ -714,11 +670,11 @@ class ApiAppResponseWhiteLabelingOptions implements ModelInterface, ArrayAccess,
     /**
      * Sets secondary_button_text_color
      *
-     * @param string $secondary_button_text_color secondary_button_text_color
+     * @param string|null $secondary_button_text_color secondary_button_text_color
      *
      * @return self
      */
-    public function setSecondaryButtonTextColor(string $secondary_button_text_color)
+    public function setSecondaryButtonTextColor(?string $secondary_button_text_color)
     {
         if (is_null($secondary_button_text_color)) {
             throw new InvalidArgumentException('non-nullable secondary_button_text_color cannot be null');
@@ -731,7 +687,7 @@ class ApiAppResponseWhiteLabelingOptions implements ModelInterface, ArrayAccess,
     /**
      * Gets secondary_button_text_color_hover
      *
-     * @return string
+     * @return string|null
      */
     public function getSecondaryButtonTextColorHover()
     {
@@ -741,11 +697,11 @@ class ApiAppResponseWhiteLabelingOptions implements ModelInterface, ArrayAccess,
     /**
      * Sets secondary_button_text_color_hover
      *
-     * @param string $secondary_button_text_color_hover secondary_button_text_color_hover
+     * @param string|null $secondary_button_text_color_hover secondary_button_text_color_hover
      *
      * @return self
      */
-    public function setSecondaryButtonTextColorHover(string $secondary_button_text_color_hover)
+    public function setSecondaryButtonTextColorHover(?string $secondary_button_text_color_hover)
     {
         if (is_null($secondary_button_text_color_hover)) {
             throw new InvalidArgumentException('non-nullable secondary_button_text_color_hover cannot be null');
@@ -758,7 +714,7 @@ class ApiAppResponseWhiteLabelingOptions implements ModelInterface, ArrayAccess,
     /**
      * Gets text_color1
      *
-     * @return string
+     * @return string|null
      */
     public function getTextColor1()
     {
@@ -768,11 +724,11 @@ class ApiAppResponseWhiteLabelingOptions implements ModelInterface, ArrayAccess,
     /**
      * Sets text_color1
      *
-     * @param string $text_color1 text_color1
+     * @param string|null $text_color1 text_color1
      *
      * @return self
      */
-    public function setTextColor1(string $text_color1)
+    public function setTextColor1(?string $text_color1)
     {
         if (is_null($text_color1)) {
             throw new InvalidArgumentException('non-nullable text_color1 cannot be null');
@@ -785,7 +741,7 @@ class ApiAppResponseWhiteLabelingOptions implements ModelInterface, ArrayAccess,
     /**
      * Gets text_color2
      *
-     * @return string
+     * @return string|null
      */
     public function getTextColor2()
     {
@@ -795,11 +751,11 @@ class ApiAppResponseWhiteLabelingOptions implements ModelInterface, ArrayAccess,
     /**
      * Sets text_color2
      *
-     * @param string $text_color2 text_color2
+     * @param string|null $text_color2 text_color2
      *
      * @return self
      */
-    public function setTextColor2(string $text_color2)
+    public function setTextColor2(?string $text_color2)
     {
         if (is_null($text_color2)) {
             throw new InvalidArgumentException('non-nullable text_color2 cannot be null');

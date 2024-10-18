@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from dropbox_sign.models.template_response_document_field_group_rule import (
     TemplateResponseDocumentFieldGroupRule,
 )
@@ -35,8 +35,10 @@ class TemplateResponseDocumentFieldGroup(BaseModel):
     TemplateResponseDocumentFieldGroup
     """  # noqa: E501
 
-    name: StrictStr = Field(description="The name of the form field group.")
-    rule: TemplateResponseDocumentFieldGroupRule
+    name: Optional[StrictStr] = Field(
+        default=None, description="The name of the form field group."
+    )
+    rule: Optional[TemplateResponseDocumentFieldGroupRule] = None
     __properties: ClassVar[List[str]] = ["name", "rule"]
 
     model_config = ConfigDict(

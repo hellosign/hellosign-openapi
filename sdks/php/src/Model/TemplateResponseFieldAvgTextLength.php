@@ -289,15 +289,7 @@ class TemplateResponseFieldAvgTextLength implements ModelInterface, ArrayAccess,
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = [];
-
-        if ($this->container['num_lines'] === null) {
-            $invalidProperties[] = "'num_lines' can't be null";
-        }
-        if ($this->container['num_chars_per_line'] === null) {
-            $invalidProperties[] = "'num_chars_per_line' can't be null";
-        }
-        return $invalidProperties;
+        return [];
     }
 
     /**
@@ -314,7 +306,7 @@ class TemplateResponseFieldAvgTextLength implements ModelInterface, ArrayAccess,
     /**
      * Gets num_lines
      *
-     * @return int
+     * @return int|null
      */
     public function getNumLines()
     {
@@ -324,11 +316,11 @@ class TemplateResponseFieldAvgTextLength implements ModelInterface, ArrayAccess,
     /**
      * Sets num_lines
      *
-     * @param int $num_lines number of lines
+     * @param int|null $num_lines number of lines
      *
      * @return self
      */
-    public function setNumLines(int $num_lines)
+    public function setNumLines(?int $num_lines)
     {
         if (is_null($num_lines)) {
             throw new InvalidArgumentException('non-nullable num_lines cannot be null');
@@ -341,7 +333,7 @@ class TemplateResponseFieldAvgTextLength implements ModelInterface, ArrayAccess,
     /**
      * Gets num_chars_per_line
      *
-     * @return int
+     * @return int|null
      */
     public function getNumCharsPerLine()
     {
@@ -351,11 +343,11 @@ class TemplateResponseFieldAvgTextLength implements ModelInterface, ArrayAccess,
     /**
      * Sets num_chars_per_line
      *
-     * @param int $num_chars_per_line number of characters per line
+     * @param int|null $num_chars_per_line number of characters per line
      *
      * @return self
      */
-    public function setNumCharsPerLine(int $num_chars_per_line)
+    public function setNumCharsPerLine(?int $num_chars_per_line)
     {
         if (is_null($num_chars_per_line)) {
             throw new InvalidArgumentException('non-nullable num_chars_per_line cannot be null');

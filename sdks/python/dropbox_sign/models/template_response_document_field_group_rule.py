@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set, Tuple
 from typing_extensions import Self
 import io
@@ -32,10 +32,13 @@ class TemplateResponseDocumentFieldGroupRule(BaseModel):
     The rule used to validate checkboxes in the form field group. See [checkbox field grouping](/api/reference/constants/#checkbox-field-grouping).
     """  # noqa: E501
 
-    requirement: StrictStr = Field(
-        description="Examples: `require_0-1` `require_1` `require_1-ormore`  - Check out the list of [acceptable `requirement` checkbox type values](/api/reference/constants/#checkbox-field-grouping). - Check out the list of [acceptable `requirement` radio type fields](/api/reference/constants/#radio-field-grouping). - Radio groups require **at least** two fields per group."
+    requirement: Optional[StrictStr] = Field(
+        default=None,
+        description="Examples: `require_0-1` `require_1` `require_1-ormore`  - Check out the list of [acceptable `requirement` checkbox type values](/api/reference/constants/#checkbox-field-grouping). - Check out the list of [acceptable `requirement` radio type fields](/api/reference/constants/#radio-field-grouping). - Radio groups require **at least** two fields per group.",
     )
-    group_label: StrictStr = Field(description="Name of the group", alias="groupLabel")
+    group_label: Optional[StrictStr] = Field(
+        default=None, description="Name of the group", alias="groupLabel"
+    )
     __properties: ClassVar[List[str]] = ["requirement", "groupLabel"]
 
     model_config = ConfigDict(

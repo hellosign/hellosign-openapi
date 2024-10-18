@@ -303,21 +303,7 @@ class TeamResponse implements ModelInterface, ArrayAccess, JsonSerializable
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = [];
-
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
-        }
-        if ($this->container['accounts'] === null) {
-            $invalidProperties[] = "'accounts' can't be null";
-        }
-        if ($this->container['invited_accounts'] === null) {
-            $invalidProperties[] = "'invited_accounts' can't be null";
-        }
-        if ($this->container['invited_emails'] === null) {
-            $invalidProperties[] = "'invited_emails' can't be null";
-        }
-        return $invalidProperties;
+        return [];
     }
 
     /**
@@ -334,7 +320,7 @@ class TeamResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets name
      *
-     * @return string
+     * @return string|null
      */
     public function getName()
     {
@@ -344,11 +330,11 @@ class TeamResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets name
      *
-     * @param string $name The name of your Team
+     * @param string|null $name The name of your Team
      *
      * @return self
      */
-    public function setName(string $name)
+    public function setName(?string $name)
     {
         if (is_null($name)) {
             throw new InvalidArgumentException('non-nullable name cannot be null');
@@ -361,7 +347,7 @@ class TeamResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets accounts
      *
-     * @return AccountResponse[]
+     * @return AccountResponse[]|null
      */
     public function getAccounts()
     {
@@ -371,11 +357,11 @@ class TeamResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets accounts
      *
-     * @param AccountResponse[] $accounts accounts
+     * @param AccountResponse[]|null $accounts accounts
      *
      * @return self
      */
-    public function setAccounts(array $accounts)
+    public function setAccounts(?array $accounts)
     {
         if (is_null($accounts)) {
             throw new InvalidArgumentException('non-nullable accounts cannot be null');
@@ -388,7 +374,7 @@ class TeamResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets invited_accounts
      *
-     * @return AccountResponse[]
+     * @return AccountResponse[]|null
      */
     public function getInvitedAccounts()
     {
@@ -398,11 +384,11 @@ class TeamResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets invited_accounts
      *
-     * @param AccountResponse[] $invited_accounts A list of all Accounts that have an outstanding invitation to join your Team. Note that this response is a subset of the response parameters found in `GET /account`.
+     * @param AccountResponse[]|null $invited_accounts A list of all Accounts that have an outstanding invitation to join your Team. Note that this response is a subset of the response parameters found in `GET /account`.
      *
      * @return self
      */
-    public function setInvitedAccounts(array $invited_accounts)
+    public function setInvitedAccounts(?array $invited_accounts)
     {
         if (is_null($invited_accounts)) {
             throw new InvalidArgumentException('non-nullable invited_accounts cannot be null');
@@ -415,7 +401,7 @@ class TeamResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets invited_emails
      *
-     * @return string[]
+     * @return string[]|null
      */
     public function getInvitedEmails()
     {
@@ -425,11 +411,11 @@ class TeamResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets invited_emails
      *
-     * @param string[] $invited_emails a list of email addresses that have an outstanding invitation to join your Team and do not yet have a Dropbox Sign account
+     * @param string[]|null $invited_emails a list of email addresses that have an outstanding invitation to join your Team and do not yet have a Dropbox Sign account
      *
      * @return self
      */
-    public function setInvitedEmails(array $invited_emails)
+    public function setInvitedEmails(?array $invited_emails)
     {
         if (is_null($invited_emails)) {
             throw new InvalidArgumentException('non-nullable invited_emails cannot be null');

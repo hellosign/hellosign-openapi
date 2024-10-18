@@ -31,9 +31,9 @@ import java.util.Objects;
  */
 @JsonPropertyOrder({
     ApiAppResponseOAuth.JSON_PROPERTY_CALLBACK_URL,
+    ApiAppResponseOAuth.JSON_PROPERTY_SECRET,
     ApiAppResponseOAuth.JSON_PROPERTY_SCOPES,
-    ApiAppResponseOAuth.JSON_PROPERTY_CHARGES_USERS,
-    ApiAppResponseOAuth.JSON_PROPERTY_SECRET
+    ApiAppResponseOAuth.JSON_PROPERTY_CHARGES_USERS
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
@@ -43,14 +43,14 @@ public class ApiAppResponseOAuth {
     public static final String JSON_PROPERTY_CALLBACK_URL = "callback_url";
     private String callbackUrl;
 
+    public static final String JSON_PROPERTY_SECRET = "secret";
+    private String secret;
+
     public static final String JSON_PROPERTY_SCOPES = "scopes";
-    private List<String> scopes = new ArrayList<>();
+    private List<String> scopes = null;
 
     public static final String JSON_PROPERTY_CHARGES_USERS = "charges_users";
     private Boolean chargesUsers;
-
-    public static final String JSON_PROPERTY_SECRET = "secret";
-    private String secret;
 
     public ApiAppResponseOAuth() {}
 
@@ -78,72 +78,16 @@ public class ApiAppResponseOAuth {
      *
      * @return callbackUrl
      */
-    @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_CALLBACK_URL)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_CALLBACK_URL)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getCallbackUrl() {
         return callbackUrl;
     }
 
     @JsonProperty(JSON_PROPERTY_CALLBACK_URL)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setCallbackUrl(String callbackUrl) {
         this.callbackUrl = callbackUrl;
-    }
-
-    public ApiAppResponseOAuth scopes(List<String> scopes) {
-        this.scopes = scopes;
-        return this;
-    }
-
-    public ApiAppResponseOAuth addScopesItem(String scopesItem) {
-        if (this.scopes == null) {
-            this.scopes = new ArrayList<>();
-        }
-        this.scopes.add(scopesItem);
-        return this;
-    }
-
-    /**
-     * Array of OAuth scopes used by the app.
-     *
-     * @return scopes
-     */
-    @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_SCOPES)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public List<String> getScopes() {
-        return scopes;
-    }
-
-    @JsonProperty(JSON_PROPERTY_SCOPES)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setScopes(List<String> scopes) {
-        this.scopes = scopes;
-    }
-
-    public ApiAppResponseOAuth chargesUsers(Boolean chargesUsers) {
-        this.chargesUsers = chargesUsers;
-        return this;
-    }
-
-    /**
-     * Boolean indicating whether the app owner or the account granting permission is billed for
-     * OAuth requests.
-     *
-     * @return chargesUsers
-     */
-    @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_CHARGES_USERS)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public Boolean getChargesUsers() {
-        return chargesUsers;
-    }
-
-    @JsonProperty(JSON_PROPERTY_CHARGES_USERS)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public void setChargesUsers(Boolean chargesUsers) {
-        this.chargesUsers = chargesUsers;
     }
 
     public ApiAppResponseOAuth secret(String secret) {
@@ -168,6 +112,59 @@ public class ApiAppResponseOAuth {
         this.secret = secret;
     }
 
+    public ApiAppResponseOAuth scopes(List<String> scopes) {
+        this.scopes = scopes;
+        return this;
+    }
+
+    public ApiAppResponseOAuth addScopesItem(String scopesItem) {
+        if (this.scopes == null) {
+            this.scopes = new ArrayList<>();
+        }
+        this.scopes.add(scopesItem);
+        return this;
+    }
+
+    /**
+     * Array of OAuth scopes used by the app.
+     *
+     * @return scopes
+     */
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_SCOPES)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public List<String> getScopes() {
+        return scopes;
+    }
+
+    @JsonProperty(JSON_PROPERTY_SCOPES)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public void setScopes(List<String> scopes) {
+        this.scopes = scopes;
+    }
+
+    public ApiAppResponseOAuth chargesUsers(Boolean chargesUsers) {
+        this.chargesUsers = chargesUsers;
+        return this;
+    }
+
+    /**
+     * Boolean indicating whether the app owner or the account granting permission is billed for
+     * OAuth requests.
+     *
+     * @return chargesUsers
+     */
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_CHARGES_USERS)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public Boolean getChargesUsers() {
+        return chargesUsers;
+    }
+
+    @JsonProperty(JSON_PROPERTY_CHARGES_USERS)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public void setChargesUsers(Boolean chargesUsers) {
+        this.chargesUsers = chargesUsers;
+    }
+
     /** Return true if this ApiAppResponseOAuth object is equal to o. */
     @Override
     public boolean equals(Object o) {
@@ -179,14 +176,14 @@ public class ApiAppResponseOAuth {
         }
         ApiAppResponseOAuth apiAppResponseOAuth = (ApiAppResponseOAuth) o;
         return Objects.equals(this.callbackUrl, apiAppResponseOAuth.callbackUrl)
+                && Objects.equals(this.secret, apiAppResponseOAuth.secret)
                 && Objects.equals(this.scopes, apiAppResponseOAuth.scopes)
-                && Objects.equals(this.chargesUsers, apiAppResponseOAuth.chargesUsers)
-                && Objects.equals(this.secret, apiAppResponseOAuth.secret);
+                && Objects.equals(this.chargesUsers, apiAppResponseOAuth.chargesUsers);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(callbackUrl, scopes, chargesUsers, secret);
+        return Objects.hash(callbackUrl, secret, scopes, chargesUsers);
     }
 
     @Override
@@ -194,9 +191,9 @@ public class ApiAppResponseOAuth {
         StringBuilder sb = new StringBuilder();
         sb.append("class ApiAppResponseOAuth {\n");
         sb.append("    callbackUrl: ").append(toIndentedString(callbackUrl)).append("\n");
+        sb.append("    secret: ").append(toIndentedString(secret)).append("\n");
         sb.append("    scopes: ").append(toIndentedString(scopes)).append("\n");
         sb.append("    chargesUsers: ").append(toIndentedString(chargesUsers)).append("\n");
-        sb.append("    secret: ").append(toIndentedString(secret)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -223,6 +220,24 @@ public class ApiAppResponseOAuth {
                     map.put(
                             "callback_url",
                             JSON.getDefault().getMapper().writeValueAsString(callbackUrl));
+                }
+            }
+            if (secret != null) {
+                if (isFileTypeOrListOfFiles(secret)) {
+                    fileTypeFound = true;
+                }
+
+                if (secret.getClass().equals(java.io.File.class)
+                        || secret.getClass().equals(Integer.class)
+                        || secret.getClass().equals(String.class)
+                        || secret.getClass().isEnum()) {
+                    map.put("secret", secret);
+                } else if (isListOfFile(secret)) {
+                    for (int i = 0; i < getListSize(secret); i++) {
+                        map.put("secret[" + i + "]", getFromList(secret, i));
+                    }
+                } else {
+                    map.put("secret", JSON.getDefault().getMapper().writeValueAsString(secret));
                 }
             }
             if (scopes != null) {
@@ -261,24 +276,6 @@ public class ApiAppResponseOAuth {
                     map.put(
                             "charges_users",
                             JSON.getDefault().getMapper().writeValueAsString(chargesUsers));
-                }
-            }
-            if (secret != null) {
-                if (isFileTypeOrListOfFiles(secret)) {
-                    fileTypeFound = true;
-                }
-
-                if (secret.getClass().equals(java.io.File.class)
-                        || secret.getClass().equals(Integer.class)
-                        || secret.getClass().equals(String.class)
-                        || secret.getClass().isEnum()) {
-                    map.put("secret", secret);
-                } else if (isListOfFile(secret)) {
-                    for (int i = 0; i < getListSize(secret); i++) {
-                        map.put("secret[" + i + "]", getFromList(secret, i));
-                    }
-                } else {
-                    map.put("secret", JSON.getDefault().getMapper().writeValueAsString(secret));
                 }
             }
         } catch (Exception e) {

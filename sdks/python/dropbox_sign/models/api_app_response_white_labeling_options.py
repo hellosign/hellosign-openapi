@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set, Tuple
 from typing_extensions import Self
 import io
@@ -32,20 +32,20 @@ class ApiAppResponseWhiteLabelingOptions(BaseModel):
     An object with options to customize the app's signer page
     """  # noqa: E501
 
-    header_background_color: StrictStr
-    legal_version: StrictStr
-    link_color: StrictStr
-    page_background_color: StrictStr
-    primary_button_color: StrictStr
-    primary_button_color_hover: StrictStr
-    primary_button_text_color: StrictStr
-    primary_button_text_color_hover: StrictStr
-    secondary_button_color: StrictStr
-    secondary_button_color_hover: StrictStr
-    secondary_button_text_color: StrictStr
-    secondary_button_text_color_hover: StrictStr
-    text_color1: StrictStr
-    text_color2: StrictStr
+    header_background_color: Optional[StrictStr] = None
+    legal_version: Optional[StrictStr] = None
+    link_color: Optional[StrictStr] = None
+    page_background_color: Optional[StrictStr] = None
+    primary_button_color: Optional[StrictStr] = None
+    primary_button_color_hover: Optional[StrictStr] = None
+    primary_button_text_color: Optional[StrictStr] = None
+    primary_button_text_color_hover: Optional[StrictStr] = None
+    secondary_button_color: Optional[StrictStr] = None
+    secondary_button_color_hover: Optional[StrictStr] = None
+    secondary_button_text_color: Optional[StrictStr] = None
+    secondary_button_text_color_hover: Optional[StrictStr] = None
+    text_color1: Optional[StrictStr] = None
+    text_color2: Optional[StrictStr] = None
     __properties: ClassVar[List[str]] = [
         "header_background_color",
         "legal_version",

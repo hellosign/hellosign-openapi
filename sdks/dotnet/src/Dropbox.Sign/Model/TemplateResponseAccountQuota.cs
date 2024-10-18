@@ -41,10 +41,10 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TemplateResponseAccountQuota" /> class.
         /// </summary>
-        /// <param name="templatesLeft">API templates remaining. (required).</param>
-        /// <param name="apiSignatureRequestsLeft">API signature requests remaining. (required).</param>
-        /// <param name="documentsLeft">Signature requests remaining. (required).</param>
-        /// <param name="smsVerificationsLeft">SMS verifications remaining. (required).</param>
+        /// <param name="templatesLeft">API templates remaining..</param>
+        /// <param name="apiSignatureRequestsLeft">API signature requests remaining..</param>
+        /// <param name="documentsLeft">Signature requests remaining..</param>
+        /// <param name="smsVerificationsLeft">SMS verifications remaining..</param>
         public TemplateResponseAccountQuota(int templatesLeft = default(int), int apiSignatureRequestsLeft = default(int), int documentsLeft = default(int), int smsVerificationsLeft = default(int))
         {
 
@@ -74,28 +74,28 @@ namespace Dropbox.Sign.Model
         /// API templates remaining.
         /// </summary>
         /// <value>API templates remaining.</value>
-        [DataMember(Name = "templates_left", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "templates_left", EmitDefaultValue = true)]
         public int TemplatesLeft { get; set; }
 
         /// <summary>
         /// API signature requests remaining.
         /// </summary>
         /// <value>API signature requests remaining.</value>
-        [DataMember(Name = "api_signature_requests_left", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "api_signature_requests_left", EmitDefaultValue = true)]
         public int ApiSignatureRequestsLeft { get; set; }
 
         /// <summary>
         /// Signature requests remaining.
         /// </summary>
         /// <value>Signature requests remaining.</value>
-        [DataMember(Name = "documents_left", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "documents_left", EmitDefaultValue = true)]
         public int DocumentsLeft { get; set; }
 
         /// <summary>
         /// SMS verifications remaining.
         /// </summary>
         /// <value>SMS verifications remaining.</value>
-        [DataMember(Name = "sms_verifications_left", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "sms_verifications_left", EmitDefaultValue = true)]
         public int SmsVerificationsLeft { get; set; }
 
         /// <summary>

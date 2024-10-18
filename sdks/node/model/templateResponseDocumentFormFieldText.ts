@@ -34,19 +34,19 @@ export class TemplateResponseDocumentFormFieldText extends TemplateResponseDocum
    * The type of this form field. See [field types](/api/reference/constants/#field-types).  * Text Field uses `TemplateResponseDocumentFormFieldText` * Dropdown Field uses `TemplateResponseDocumentFormFieldDropdown` * Hyperlink Field uses `TemplateResponseDocumentFormFieldHyperlink` * Checkbox Field uses `TemplateResponseDocumentFormFieldCheckbox` * Radio Field uses `TemplateResponseDocumentFormFieldRadio` * Signature Field uses `TemplateResponseDocumentFormFieldSignature` * Date Signed Field uses `TemplateResponseDocumentFormFieldDateSigned` * Initials Field uses `TemplateResponseDocumentFormFieldInitials`
    */
   "type": string = "text";
-  "avgTextLength": TemplateResponseFieldAvgTextLength;
+  "avgTextLength"?: TemplateResponseFieldAvgTextLength;
   /**
    * Whether this form field is multiline text.
    */
-  "isMultiline": boolean;
+  "isMultiline"?: boolean;
   /**
    * Original font size used in this form field\'s text.
    */
-  "originalFontSize": number;
+  "originalFontSize"?: number;
   /**
    * Font family used in this form field\'s text.
    */
-  "fontFamily": string;
+  "fontFamily"?: string;
   /**
    * Each text field may contain a `validation_type` parameter. Check out the list of [validation types](https://faq.hellosign.com/hc/en-us/articles/217115577) to learn more about the possible values.
    */

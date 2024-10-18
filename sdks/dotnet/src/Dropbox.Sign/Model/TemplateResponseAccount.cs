@@ -41,31 +41,21 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TemplateResponseAccount" /> class.
         /// </summary>
-        /// <param name="accountId">The id of the Account. (required).</param>
+        /// <param name="accountId">The id of the Account..</param>
         /// <param name="emailAddress">The email address associated with the Account..</param>
-        /// <param name="isLocked">Returns &#x60;true&#x60; if the user has been locked out of their account by a team admin. (required).</param>
-        /// <param name="isPaidHs">Returns &#x60;true&#x60; if the user has a paid Dropbox Sign account. (required).</param>
-        /// <param name="isPaidHf">Returns &#x60;true&#x60; if the user has a paid HelloFax account. (required).</param>
-        /// <param name="quotas">quotas (required).</param>
+        /// <param name="isLocked">Returns &#x60;true&#x60; if the user has been locked out of their account by a team admin..</param>
+        /// <param name="isPaidHs">Returns &#x60;true&#x60; if the user has a paid Dropbox Sign account..</param>
+        /// <param name="isPaidHf">Returns &#x60;true&#x60; if the user has a paid HelloFax account..</param>
+        /// <param name="quotas">quotas.</param>
         public TemplateResponseAccount(string accountId = default(string), string emailAddress = default(string), bool isLocked = default(bool), bool isPaidHs = default(bool), bool isPaidHf = default(bool), TemplateResponseAccountQuota quotas = default(TemplateResponseAccountQuota))
         {
 
-            // to ensure "accountId" is required (not null)
-            if (accountId == null)
-            {
-                throw new ArgumentNullException("accountId is a required property for TemplateResponseAccount and cannot be null");
-            }
             this.AccountId = accountId;
+            this.EmailAddress = emailAddress;
             this.IsLocked = isLocked;
             this.IsPaidHs = isPaidHs;
             this.IsPaidHf = isPaidHf;
-            // to ensure "quotas" is required (not null)
-            if (quotas == null)
-            {
-                throw new ArgumentNullException("quotas is a required property for TemplateResponseAccount and cannot be null");
-            }
             this.Quotas = quotas;
-            this.EmailAddress = emailAddress;
         }
 
         /// <summary>
@@ -88,35 +78,8 @@ namespace Dropbox.Sign.Model
         /// The id of the Account.
         /// </summary>
         /// <value>The id of the Account.</value>
-        [DataMember(Name = "account_id", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "account_id", EmitDefaultValue = true)]
         public string AccountId { get; set; }
-
-        /// <summary>
-        /// Returns &#x60;true&#x60; if the user has been locked out of their account by a team admin.
-        /// </summary>
-        /// <value>Returns &#x60;true&#x60; if the user has been locked out of their account by a team admin.</value>
-        [DataMember(Name = "is_locked", IsRequired = true, EmitDefaultValue = true)]
-        public bool IsLocked { get; set; }
-
-        /// <summary>
-        /// Returns &#x60;true&#x60; if the user has a paid Dropbox Sign account.
-        /// </summary>
-        /// <value>Returns &#x60;true&#x60; if the user has a paid Dropbox Sign account.</value>
-        [DataMember(Name = "is_paid_hs", IsRequired = true, EmitDefaultValue = true)]
-        public bool IsPaidHs { get; set; }
-
-        /// <summary>
-        /// Returns &#x60;true&#x60; if the user has a paid HelloFax account.
-        /// </summary>
-        /// <value>Returns &#x60;true&#x60; if the user has a paid HelloFax account.</value>
-        [DataMember(Name = "is_paid_hf", IsRequired = true, EmitDefaultValue = true)]
-        public bool IsPaidHf { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Quotas
-        /// </summary>
-        [DataMember(Name = "quotas", IsRequired = true, EmitDefaultValue = true)]
-        public TemplateResponseAccountQuota Quotas { get; set; }
 
         /// <summary>
         /// The email address associated with the Account.
@@ -124,6 +87,33 @@ namespace Dropbox.Sign.Model
         /// <value>The email address associated with the Account.</value>
         [DataMember(Name = "email_address", EmitDefaultValue = true)]
         public string EmailAddress { get; set; }
+
+        /// <summary>
+        /// Returns &#x60;true&#x60; if the user has been locked out of their account by a team admin.
+        /// </summary>
+        /// <value>Returns &#x60;true&#x60; if the user has been locked out of their account by a team admin.</value>
+        [DataMember(Name = "is_locked", EmitDefaultValue = true)]
+        public bool IsLocked { get; set; }
+
+        /// <summary>
+        /// Returns &#x60;true&#x60; if the user has a paid Dropbox Sign account.
+        /// </summary>
+        /// <value>Returns &#x60;true&#x60; if the user has a paid Dropbox Sign account.</value>
+        [DataMember(Name = "is_paid_hs", EmitDefaultValue = true)]
+        public bool IsPaidHs { get; set; }
+
+        /// <summary>
+        /// Returns &#x60;true&#x60; if the user has a paid HelloFax account.
+        /// </summary>
+        /// <value>Returns &#x60;true&#x60; if the user has a paid HelloFax account.</value>
+        [DataMember(Name = "is_paid_hf", EmitDefaultValue = true)]
+        public bool IsPaidHf { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Quotas
+        /// </summary>
+        [DataMember(Name = "quotas", EmitDefaultValue = true)]
+        public TemplateResponseAccountQuota Quotas { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -134,11 +124,11 @@ namespace Dropbox.Sign.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class TemplateResponseAccount {\n");
             sb.Append("  AccountId: ").Append(AccountId).Append("\n");
+            sb.Append("  EmailAddress: ").Append(EmailAddress).Append("\n");
             sb.Append("  IsLocked: ").Append(IsLocked).Append("\n");
             sb.Append("  IsPaidHs: ").Append(IsPaidHs).Append("\n");
             sb.Append("  IsPaidHf: ").Append(IsPaidHf).Append("\n");
             sb.Append("  Quotas: ").Append(Quotas).Append("\n");
-            sb.Append("  EmailAddress: ").Append(EmailAddress).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -180,6 +170,11 @@ namespace Dropbox.Sign.Model
                     this.AccountId.Equals(input.AccountId))
                 ) &&
                 (
+                    this.EmailAddress == input.EmailAddress ||
+                    (this.EmailAddress != null &&
+                    this.EmailAddress.Equals(input.EmailAddress))
+                ) &&
+                (
                     this.IsLocked == input.IsLocked ||
                     this.IsLocked.Equals(input.IsLocked)
                 ) &&
@@ -195,11 +190,6 @@ namespace Dropbox.Sign.Model
                     this.Quotas == input.Quotas ||
                     (this.Quotas != null &&
                     this.Quotas.Equals(input.Quotas))
-                ) &&
-                (
-                    this.EmailAddress == input.EmailAddress ||
-                    (this.EmailAddress != null &&
-                    this.EmailAddress.Equals(input.EmailAddress))
                 );
         }
 
@@ -216,16 +206,16 @@ namespace Dropbox.Sign.Model
                 {
                     hashCode = (hashCode * 59) + this.AccountId.GetHashCode();
                 }
+                if (this.EmailAddress != null)
+                {
+                    hashCode = (hashCode * 59) + this.EmailAddress.GetHashCode();
+                }
                 hashCode = (hashCode * 59) + this.IsLocked.GetHashCode();
                 hashCode = (hashCode * 59) + this.IsPaidHs.GetHashCode();
                 hashCode = (hashCode * 59) + this.IsPaidHf.GetHashCode();
                 if (this.Quotas != null)
                 {
                     hashCode = (hashCode * 59) + this.Quotas.GetHashCode();
-                }
-                if (this.EmailAddress != null)
-                {
-                    hashCode = (hashCode * 59) + this.EmailAddress.GetHashCode();
                 }
                 return hashCode;
             }
@@ -249,6 +239,13 @@ namespace Dropbox.Sign.Model
                 Property = "AccountId",
                 Type = "string",
                 Value = AccountId,
+            });
+            types.Add(new OpenApiType()
+            {
+                Name = "email_address",
+                Property = "EmailAddress",
+                Type = "string",
+                Value = EmailAddress,
             });
             types.Add(new OpenApiType()
             {
@@ -277,13 +274,6 @@ namespace Dropbox.Sign.Model
                 Property = "Quotas",
                 Type = "TemplateResponseAccountQuota",
                 Value = Quotas,
-            });
-            types.Add(new OpenApiType()
-            {
-                Name = "email_address",
-                Property = "EmailAddress",
-                Type = "string",
-                Value = EmailAddress,
             });
 
             return types;

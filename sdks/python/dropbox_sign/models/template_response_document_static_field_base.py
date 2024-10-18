@@ -61,29 +61,41 @@ class TemplateResponseDocumentStaticFieldBase(BaseModel):
     An array describing static overlay fields. **NOTE:** Only available for certain subscriptions.
     """  # noqa: E501
 
-    api_id: StrictStr = Field(description="A unique id for the static field.")
-    name: StrictStr = Field(description="The name of the static field.")
     type: StrictStr
-    signer: StrictStr = Field(description="The signer of the Static Field.")
-    x: StrictInt = Field(
-        description="The horizontal offset in pixels for this static field."
+    api_id: Optional[StrictStr] = Field(
+        default=None, description="A unique id for the static field."
     )
-    y: StrictInt = Field(
-        description="The vertical offset in pixels for this static field."
+    name: Optional[StrictStr] = Field(
+        default=None, description="The name of the static field."
     )
-    width: StrictInt = Field(description="The width in pixels of this static field.")
-    height: StrictInt = Field(description="The height in pixels of this static field.")
-    required: StrictBool = Field(
-        description="Boolean showing whether or not this field is required."
+    signer: Optional[StrictStr] = Field(
+        default="me_now", description="The signer of the Static Field."
+    )
+    x: Optional[StrictInt] = Field(
+        default=None,
+        description="The horizontal offset in pixels for this static field.",
+    )
+    y: Optional[StrictInt] = Field(
+        default=None, description="The vertical offset in pixels for this static field."
+    )
+    width: Optional[StrictInt] = Field(
+        default=None, description="The width in pixels of this static field."
+    )
+    height: Optional[StrictInt] = Field(
+        default=None, description="The height in pixels of this static field."
+    )
+    required: Optional[StrictBool] = Field(
+        default=None,
+        description="Boolean showing whether or not this field is required.",
     )
     group: Optional[StrictStr] = Field(
         default=None,
         description="The name of the group this field is in. If this field is not a group, this defaults to `null`.",
     )
     __properties: ClassVar[List[str]] = [
+        "type",
         "api_id",
         "name",
-        "type",
         "signer",
         "x",
         "y",
@@ -241,9 +253,9 @@ class TemplateResponseDocumentStaticFieldBase(BaseModel):
     @classmethod
     def openapi_types(cls) -> Dict[str, str]:
         return {
+            "type": "(str,)",
             "api_id": "(str,)",
             "name": "(str,)",
-            "type": "(str,)",
             "signer": "(str,)",
             "x": "(int,)",
             "y": "(int,)",

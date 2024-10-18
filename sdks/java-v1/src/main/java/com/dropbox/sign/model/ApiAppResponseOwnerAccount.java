@@ -67,15 +67,14 @@ public class ApiAppResponseOwnerAccount {
      *
      * @return accountId
      */
-    @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getAccountId() {
         return accountId;
     }
 
     @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setAccountId(String accountId) {
         this.accountId = accountId;
     }
@@ -90,15 +89,14 @@ public class ApiAppResponseOwnerAccount {
      *
      * @return emailAddress
      */
-    @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getEmailAddress() {
         return emailAddress;
     }
 
     @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setEmailAddress(String emailAddress) {
         this.emailAddress = emailAddress;
     }

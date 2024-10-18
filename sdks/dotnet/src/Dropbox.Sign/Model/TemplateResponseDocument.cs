@@ -41,46 +41,21 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TemplateResponseDocument" /> class.
         /// </summary>
-        /// <param name="name">Name of the associated file. (required).</param>
+        /// <param name="name">Name of the associated file..</param>
         /// <param name="index">Document ordering, the lowest index is displayed first and the highest last (0-based indexing)..</param>
-        /// <param name="fieldGroups">An array of Form Field Group objects. (required).</param>
-        /// <param name="formFields">An array of Form Field objects containing the name and type of each named field. (required).</param>
-        /// <param name="customFields">An array of Form Field objects containing the name and type of each named field. (required).</param>
-        /// <param name="staticFields">An array describing static overlay fields. **NOTE:** Only available for certain subscriptions. (required).</param>
+        /// <param name="fieldGroups">An array of Form Field Group objects..</param>
+        /// <param name="formFields">An array of Form Field objects containing the name and type of each named field..</param>
+        /// <param name="customFields">An array of Form Field objects containing the name and type of each named field..</param>
+        /// <param name="staticFields">An array describing static overlay fields. **NOTE:** Only available for certain subscriptions..</param>
         public TemplateResponseDocument(string name = default(string), int index = default(int), List<TemplateResponseDocumentFieldGroup> fieldGroups = default(List<TemplateResponseDocumentFieldGroup>), List<TemplateResponseDocumentFormFieldBase> formFields = default(List<TemplateResponseDocumentFormFieldBase>), List<TemplateResponseDocumentCustomFieldBase> customFields = default(List<TemplateResponseDocumentCustomFieldBase>), List<TemplateResponseDocumentStaticFieldBase> staticFields = default(List<TemplateResponseDocumentStaticFieldBase>))
         {
 
-            // to ensure "name" is required (not null)
-            if (name == null)
-            {
-                throw new ArgumentNullException("name is a required property for TemplateResponseDocument and cannot be null");
-            }
             this.Name = name;
-            // to ensure "fieldGroups" is required (not null)
-            if (fieldGroups == null)
-            {
-                throw new ArgumentNullException("fieldGroups is a required property for TemplateResponseDocument and cannot be null");
-            }
-            this.FieldGroups = fieldGroups;
-            // to ensure "formFields" is required (not null)
-            if (formFields == null)
-            {
-                throw new ArgumentNullException("formFields is a required property for TemplateResponseDocument and cannot be null");
-            }
-            this.FormFields = formFields;
-            // to ensure "customFields" is required (not null)
-            if (customFields == null)
-            {
-                throw new ArgumentNullException("customFields is a required property for TemplateResponseDocument and cannot be null");
-            }
-            this.CustomFields = customFields;
-            // to ensure "staticFields" is required (not null)
-            if (staticFields == null)
-            {
-                throw new ArgumentNullException("staticFields is a required property for TemplateResponseDocument and cannot be null");
-            }
-            this.StaticFields = staticFields;
             this.Index = index;
+            this.FieldGroups = fieldGroups;
+            this.FormFields = formFields;
+            this.CustomFields = customFields;
+            this.StaticFields = staticFields;
         }
 
         /// <summary>
@@ -103,36 +78,8 @@ namespace Dropbox.Sign.Model
         /// Name of the associated file.
         /// </summary>
         /// <value>Name of the associated file.</value>
-        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
-
-        /// <summary>
-        /// An array of Form Field Group objects.
-        /// </summary>
-        /// <value>An array of Form Field Group objects.</value>
-        [DataMember(Name = "field_groups", IsRequired = true, EmitDefaultValue = true)]
-        public List<TemplateResponseDocumentFieldGroup> FieldGroups { get; set; }
-
-        /// <summary>
-        /// An array of Form Field objects containing the name and type of each named field.
-        /// </summary>
-        /// <value>An array of Form Field objects containing the name and type of each named field.</value>
-        [DataMember(Name = "form_fields", IsRequired = true, EmitDefaultValue = true)]
-        public List<TemplateResponseDocumentFormFieldBase> FormFields { get; set; }
-
-        /// <summary>
-        /// An array of Form Field objects containing the name and type of each named field.
-        /// </summary>
-        /// <value>An array of Form Field objects containing the name and type of each named field.</value>
-        [DataMember(Name = "custom_fields", IsRequired = true, EmitDefaultValue = true)]
-        public List<TemplateResponseDocumentCustomFieldBase> CustomFields { get; set; }
-
-        /// <summary>
-        /// An array describing static overlay fields. **NOTE:** Only available for certain subscriptions.
-        /// </summary>
-        /// <value>An array describing static overlay fields. **NOTE:** Only available for certain subscriptions.</value>
-        [DataMember(Name = "static_fields", IsRequired = true, EmitDefaultValue = true)]
-        public List<TemplateResponseDocumentStaticFieldBase> StaticFields { get; set; }
 
         /// <summary>
         /// Document ordering, the lowest index is displayed first and the highest last (0-based indexing).
@@ -140,6 +87,34 @@ namespace Dropbox.Sign.Model
         /// <value>Document ordering, the lowest index is displayed first and the highest last (0-based indexing).</value>
         [DataMember(Name = "index", EmitDefaultValue = true)]
         public int Index { get; set; }
+
+        /// <summary>
+        /// An array of Form Field Group objects.
+        /// </summary>
+        /// <value>An array of Form Field Group objects.</value>
+        [DataMember(Name = "field_groups", EmitDefaultValue = true)]
+        public List<TemplateResponseDocumentFieldGroup> FieldGroups { get; set; }
+
+        /// <summary>
+        /// An array of Form Field objects containing the name and type of each named field.
+        /// </summary>
+        /// <value>An array of Form Field objects containing the name and type of each named field.</value>
+        [DataMember(Name = "form_fields", EmitDefaultValue = true)]
+        public List<TemplateResponseDocumentFormFieldBase> FormFields { get; set; }
+
+        /// <summary>
+        /// An array of Form Field objects containing the name and type of each named field.
+        /// </summary>
+        /// <value>An array of Form Field objects containing the name and type of each named field.</value>
+        [DataMember(Name = "custom_fields", EmitDefaultValue = true)]
+        public List<TemplateResponseDocumentCustomFieldBase> CustomFields { get; set; }
+
+        /// <summary>
+        /// An array describing static overlay fields. **NOTE:** Only available for certain subscriptions.
+        /// </summary>
+        /// <value>An array describing static overlay fields. **NOTE:** Only available for certain subscriptions.</value>
+        [DataMember(Name = "static_fields", EmitDefaultValue = true)]
+        public List<TemplateResponseDocumentStaticFieldBase> StaticFields { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -150,11 +125,11 @@ namespace Dropbox.Sign.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class TemplateResponseDocument {\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  Index: ").Append(Index).Append("\n");
             sb.Append("  FieldGroups: ").Append(FieldGroups).Append("\n");
             sb.Append("  FormFields: ").Append(FormFields).Append("\n");
             sb.Append("  CustomFields: ").Append(CustomFields).Append("\n");
             sb.Append("  StaticFields: ").Append(StaticFields).Append("\n");
-            sb.Append("  Index: ").Append(Index).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -196,6 +171,10 @@ namespace Dropbox.Sign.Model
                     this.Name.Equals(input.Name))
                 ) &&
                 (
+                    this.Index == input.Index ||
+                    this.Index.Equals(input.Index)
+                ) &&
+                (
                     this.FieldGroups == input.FieldGroups ||
                     this.FieldGroups != null &&
                     input.FieldGroups != null &&
@@ -218,10 +197,6 @@ namespace Dropbox.Sign.Model
                     this.StaticFields != null &&
                     input.StaticFields != null &&
                     this.StaticFields.SequenceEqual(input.StaticFields)
-                ) &&
-                (
-                    this.Index == input.Index ||
-                    this.Index.Equals(input.Index)
                 );
         }
 
@@ -238,6 +213,7 @@ namespace Dropbox.Sign.Model
                 {
                     hashCode = (hashCode * 59) + this.Name.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.Index.GetHashCode();
                 if (this.FieldGroups != null)
                 {
                     hashCode = (hashCode * 59) + this.FieldGroups.GetHashCode();
@@ -254,7 +230,6 @@ namespace Dropbox.Sign.Model
                 {
                     hashCode = (hashCode * 59) + this.StaticFields.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.Index.GetHashCode();
                 return hashCode;
             }
         }
@@ -277,6 +252,13 @@ namespace Dropbox.Sign.Model
                 Property = "Name",
                 Type = "string",
                 Value = Name,
+            });
+            types.Add(new OpenApiType()
+            {
+                Name = "index",
+                Property = "Index",
+                Type = "int",
+                Value = Index,
             });
             types.Add(new OpenApiType()
             {
@@ -305,13 +287,6 @@ namespace Dropbox.Sign.Model
                 Property = "StaticFields",
                 Type = "List<TemplateResponseDocumentStaticFieldBase>",
                 Value = StaticFields,
-            });
-            types.Add(new OpenApiType()
-            {
-                Name = "index",
-                Property = "Index",
-                Type = "int",
-                Value = Index,
             });
 
             return types;

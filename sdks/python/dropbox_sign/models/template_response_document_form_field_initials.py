@@ -43,9 +43,9 @@ class TemplateResponseDocumentFormFieldInitials(TemplateResponseDocumentFormFiel
         description="The name of the group this field is in. If this field is not a group, this defaults to `null` except for Radio fields.",
     )
     __properties: ClassVar[List[str]] = [
+        "type",
         "api_id",
         "name",
-        "type",
         "signer",
         "x",
         "y",
@@ -118,9 +118,9 @@ class TemplateResponseDocumentFormFieldInitials(TemplateResponseDocumentFormFiel
 
         _obj = cls.model_validate(
             {
+                "type": obj.get("type") if obj.get("type") is not None else "initials",
                 "api_id": obj.get("api_id"),
                 "name": obj.get("name"),
-                "type": obj.get("type") if obj.get("type") is not None else "initials",
                 "signer": obj.get("signer"),
                 "x": obj.get("x"),
                 "y": obj.get("y"),
@@ -146,6 +146,7 @@ class TemplateResponseDocumentFormFieldInitials(TemplateResponseDocumentFormFiel
     def openapi_types(cls) -> Dict[str, str]:
         return {
             "type": "(str,)",
+            "group": "(str,)",
             "api_id": "(str,)",
             "name": "(str,)",
             "signer": "(int, str,)",
@@ -154,7 +155,6 @@ class TemplateResponseDocumentFormFieldInitials(TemplateResponseDocumentFormFiel
             "width": "(int,)",
             "height": "(int,)",
             "required": "(bool,)",
-            "group": "(str,)",
         }
 
     @classmethod

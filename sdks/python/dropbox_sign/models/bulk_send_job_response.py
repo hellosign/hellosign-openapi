@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set, Tuple
 from typing_extensions import Self
 import io
@@ -32,14 +32,20 @@ class BulkSendJobResponse(BaseModel):
     Contains information about the BulkSendJob such as when it was created and how many signature requests are queued.
     """  # noqa: E501
 
-    bulk_send_job_id: StrictStr = Field(description="The id of the BulkSendJob.")
-    total: StrictInt = Field(
-        description="The total amount of Signature Requests queued for sending."
+    bulk_send_job_id: Optional[StrictStr] = Field(
+        default=None, description="The id of the BulkSendJob."
     )
-    is_creator: StrictBool = Field(
-        description="True if you are the owner of this BulkSendJob, false if it's been shared with you by a team member."
+    total: Optional[StrictInt] = Field(
+        default=None,
+        description="The total amount of Signature Requests queued for sending.",
     )
-    created_at: StrictInt = Field(description="Time that the BulkSendJob was created.")
+    is_creator: Optional[StrictBool] = Field(
+        default=None,
+        description="True if you are the owner of this BulkSendJob, false if it's been shared with you by a team member.",
+    )
+    created_at: Optional[StrictInt] = Field(
+        default=None, description="Time that the BulkSendJob was created."
+    )
     __properties: ClassVar[List[str]] = [
         "bulk_send_job_id",
         "total",

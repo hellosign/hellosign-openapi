@@ -75,15 +75,14 @@ public class TemplateResponseDocumentFieldGroupRule {
      *
      * @return requirement
      */
-    @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_REQUIREMENT)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_REQUIREMENT)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getRequirement() {
         return requirement;
     }
 
     @JsonProperty(JSON_PROPERTY_REQUIREMENT)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setRequirement(String requirement) {
         this.requirement = requirement;
     }
@@ -98,15 +97,14 @@ public class TemplateResponseDocumentFieldGroupRule {
      *
      * @return groupLabel
      */
-    @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_GROUP_LABEL)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_GROUP_LABEL)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public String getGroupLabel() {
         return groupLabel;
     }
 
     @JsonProperty(JSON_PROPERTY_GROUP_LABEL)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setGroupLabel(String groupLabel) {
         this.groupLabel = groupLabel;
     }

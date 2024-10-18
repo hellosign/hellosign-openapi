@@ -28,39 +28,39 @@ import { AttributeTypeMap } from "./";
  * An array describing static overlay fields. **NOTE:** Only available for certain subscriptions.
  */
 export abstract class TemplateResponseDocumentStaticFieldBase {
+  "type": string;
   /**
    * A unique id for the static field.
    */
-  "apiId": string;
+  "apiId"?: string;
   /**
    * The name of the static field.
    */
-  "name": string;
-  "type": string;
+  "name"?: string;
   /**
    * The signer of the Static Field.
    */
-  "signer": string = "me_now";
+  "signer"?: string = "me_now";
   /**
    * The horizontal offset in pixels for this static field.
    */
-  "x": number;
+  "x"?: number;
   /**
    * The vertical offset in pixels for this static field.
    */
-  "y": number;
+  "y"?: number;
   /**
    * The width in pixels of this static field.
    */
-  "width": number;
+  "width"?: number;
   /**
    * The height in pixels of this static field.
    */
-  "height": number;
+  "height"?: number;
   /**
    * Boolean showing whether or not this field is required.
    */
-  "required": boolean;
+  "required"?: boolean;
   /**
    * The name of the group this field is in. If this field is not a group, this defaults to `null`.
    */
@@ -70,6 +70,11 @@ export abstract class TemplateResponseDocumentStaticFieldBase {
 
   static attributeTypeMap: AttributeTypeMap = [
     {
+      name: "type",
+      baseName: "type",
+      type: "string",
+    },
+    {
       name: "apiId",
       baseName: "api_id",
       type: "string",
@@ -77,11 +82,6 @@ export abstract class TemplateResponseDocumentStaticFieldBase {
     {
       name: "name",
       baseName: "name",
-      type: "string",
-    },
-    {
-      name: "type",
-      baseName: "type",
       type: "string",
     },
     {

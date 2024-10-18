@@ -4,12 +4,12 @@ import { TemplateResponseDocumentFieldGroup } from "./templateResponseDocumentFi
 import { TemplateResponseDocumentFormFieldBase } from "./templateResponseDocumentFormFieldBase";
 import { TemplateResponseDocumentStaticFieldBase } from "./templateResponseDocumentStaticFieldBase";
 export declare class TemplateResponseDocument {
-    "name": string;
-    "fieldGroups": Array<TemplateResponseDocumentFieldGroup>;
-    "formFields": Array<TemplateResponseDocumentFormFieldBase>;
-    "customFields": Array<TemplateResponseDocumentCustomFieldBase>;
-    "staticFields": Array<TemplateResponseDocumentStaticFieldBase>;
+    "name"?: string;
     "index"?: number;
+    "fieldGroups"?: Array<TemplateResponseDocumentFieldGroup>;
+    "formFields"?: Array<TemplateResponseDocumentFormFieldBase>;
+    "customFields"?: Array<TemplateResponseDocumentCustomFieldBase>;
+    "staticFields"?: Array<TemplateResponseDocumentStaticFieldBase>;
     static discriminator: string | undefined;
     static attributeTypeMap: AttributeTypeMap;
     static getAttributeTypeMap(): AttributeTypeMap;

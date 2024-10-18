@@ -59,9 +59,9 @@ class ApiAppResponseOAuth implements ModelInterface, ArrayAccess, JsonSerializab
      */
     protected static $openAPITypes = [
         'callback_url' => 'string',
+        'secret' => 'string',
         'scopes' => 'string[]',
         'charges_users' => 'bool',
-        'secret' => 'string',
     ];
 
     /**
@@ -73,9 +73,9 @@ class ApiAppResponseOAuth implements ModelInterface, ArrayAccess, JsonSerializab
      */
     protected static $openAPIFormats = [
         'callback_url' => null,
+        'secret' => null,
         'scopes' => null,
         'charges_users' => null,
-        'secret' => null,
     ];
 
     /**
@@ -85,9 +85,9 @@ class ApiAppResponseOAuth implements ModelInterface, ArrayAccess, JsonSerializab
      */
     protected static array $openAPINullables = [
         'callback_url' => false,
+        'secret' => true,
         'scopes' => false,
         'charges_users' => false,
-        'secret' => true,
     ];
 
     /**
@@ -169,9 +169,9 @@ class ApiAppResponseOAuth implements ModelInterface, ArrayAccess, JsonSerializab
      */
     protected static $attributeMap = [
         'callback_url' => 'callback_url',
+        'secret' => 'secret',
         'scopes' => 'scopes',
         'charges_users' => 'charges_users',
-        'secret' => 'secret',
     ];
 
     /**
@@ -181,9 +181,9 @@ class ApiAppResponseOAuth implements ModelInterface, ArrayAccess, JsonSerializab
      */
     protected static $setters = [
         'callback_url' => 'setCallbackUrl',
+        'secret' => 'setSecret',
         'scopes' => 'setScopes',
         'charges_users' => 'setChargesUsers',
-        'secret' => 'setSecret',
     ];
 
     /**
@@ -193,9 +193,9 @@ class ApiAppResponseOAuth implements ModelInterface, ArrayAccess, JsonSerializab
      */
     protected static $getters = [
         'callback_url' => 'getCallbackUrl',
+        'secret' => 'getSecret',
         'scopes' => 'getScopes',
         'charges_users' => 'getChargesUsers',
-        'secret' => 'getSecret',
     ];
 
     /**
@@ -255,9 +255,9 @@ class ApiAppResponseOAuth implements ModelInterface, ArrayAccess, JsonSerializab
     public function __construct(array $data = null)
     {
         $this->setIfExists('callback_url', $data ?? [], null);
+        $this->setIfExists('secret', $data ?? [], null);
         $this->setIfExists('scopes', $data ?? [], null);
         $this->setIfExists('charges_users', $data ?? [], null);
-        $this->setIfExists('secret', $data ?? [], null);
     }
 
     /**
@@ -303,18 +303,7 @@ class ApiAppResponseOAuth implements ModelInterface, ArrayAccess, JsonSerializab
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = [];
-
-        if ($this->container['callback_url'] === null) {
-            $invalidProperties[] = "'callback_url' can't be null";
-        }
-        if ($this->container['scopes'] === null) {
-            $invalidProperties[] = "'scopes' can't be null";
-        }
-        if ($this->container['charges_users'] === null) {
-            $invalidProperties[] = "'charges_users' can't be null";
-        }
-        return $invalidProperties;
+        return [];
     }
 
     /**
@@ -331,7 +320,7 @@ class ApiAppResponseOAuth implements ModelInterface, ArrayAccess, JsonSerializab
     /**
      * Gets callback_url
      *
-     * @return string
+     * @return string|null
      */
     public function getCallbackUrl()
     {
@@ -341,70 +330,16 @@ class ApiAppResponseOAuth implements ModelInterface, ArrayAccess, JsonSerializab
     /**
      * Sets callback_url
      *
-     * @param string $callback_url the app's OAuth callback URL
+     * @param string|null $callback_url the app's OAuth callback URL
      *
      * @return self
      */
-    public function setCallbackUrl(string $callback_url)
+    public function setCallbackUrl(?string $callback_url)
     {
         if (is_null($callback_url)) {
             throw new InvalidArgumentException('non-nullable callback_url cannot be null');
         }
         $this->container['callback_url'] = $callback_url;
-
-        return $this;
-    }
-
-    /**
-     * Gets scopes
-     *
-     * @return string[]
-     */
-    public function getScopes()
-    {
-        return $this->container['scopes'];
-    }
-
-    /**
-     * Sets scopes
-     *
-     * @param string[] $scopes array of OAuth scopes used by the app
-     *
-     * @return self
-     */
-    public function setScopes(array $scopes)
-    {
-        if (is_null($scopes)) {
-            throw new InvalidArgumentException('non-nullable scopes cannot be null');
-        }
-        $this->container['scopes'] = $scopes;
-
-        return $this;
-    }
-
-    /**
-     * Gets charges_users
-     *
-     * @return bool
-     */
-    public function getChargesUsers()
-    {
-        return $this->container['charges_users'];
-    }
-
-    /**
-     * Sets charges_users
-     *
-     * @param bool $charges_users boolean indicating whether the app owner or the account granting permission is billed for OAuth requests
-     *
-     * @return self
-     */
-    public function setChargesUsers(bool $charges_users)
-    {
-        if (is_null($charges_users)) {
-            throw new InvalidArgumentException('non-nullable charges_users cannot be null');
-        }
-        $this->container['charges_users'] = $charges_users;
 
         return $this;
     }
@@ -439,6 +374,60 @@ class ApiAppResponseOAuth implements ModelInterface, ArrayAccess, JsonSerializab
             }
         }
         $this->container['secret'] = $secret;
+
+        return $this;
+    }
+
+    /**
+     * Gets scopes
+     *
+     * @return string[]|null
+     */
+    public function getScopes()
+    {
+        return $this->container['scopes'];
+    }
+
+    /**
+     * Sets scopes
+     *
+     * @param string[]|null $scopes array of OAuth scopes used by the app
+     *
+     * @return self
+     */
+    public function setScopes(?array $scopes)
+    {
+        if (is_null($scopes)) {
+            throw new InvalidArgumentException('non-nullable scopes cannot be null');
+        }
+        $this->container['scopes'] = $scopes;
+
+        return $this;
+    }
+
+    /**
+     * Gets charges_users
+     *
+     * @return bool|null
+     */
+    public function getChargesUsers()
+    {
+        return $this->container['charges_users'];
+    }
+
+    /**
+     * Sets charges_users
+     *
+     * @param bool|null $charges_users boolean indicating whether the app owner or the account granting permission is billed for OAuth requests
+     *
+     * @return self
+     */
+    public function setChargesUsers(?bool $charges_users)
+    {
+        if (is_null($charges_users)) {
+            throw new InvalidArgumentException('non-nullable charges_users cannot be null');
+        }
+        $this->container['charges_users'] = $charges_users;
 
         return $this;
     }

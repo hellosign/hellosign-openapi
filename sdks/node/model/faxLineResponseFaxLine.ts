@@ -29,16 +29,16 @@ export class FaxLineResponseFaxLine {
   /**
    * Number
    */
-  "number": string;
+  "number"?: string;
   /**
    * Created at
    */
-  "createdAt": number;
+  "createdAt"?: number;
   /**
    * Updated at
    */
-  "updatedAt": number;
-  "accounts": Array<AccountResponse>;
+  "updatedAt"?: number;
+  "accounts"?: Array<AccountResponse>;
 
   static discriminator: string | undefined = undefined;
 

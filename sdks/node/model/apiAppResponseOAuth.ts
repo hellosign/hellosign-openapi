@@ -31,19 +31,19 @@ export class ApiAppResponseOAuth {
   /**
    * The app\'s OAuth callback URL.
    */
-  "callbackUrl": string;
-  /**
-   * Array of OAuth scopes used by the app.
-   */
-  "scopes": Array<string>;
-  /**
-   * Boolean indicating whether the app owner or the account granting permission is billed for OAuth requests.
-   */
-  "chargesUsers": boolean;
+  "callbackUrl"?: string;
   /**
    * The app\'s OAuth secret, or null if the app does not belong to user.
    */
   "secret"?: string | null;
+  /**
+   * Array of OAuth scopes used by the app.
+   */
+  "scopes"?: Array<string>;
+  /**
+   * Boolean indicating whether the app owner or the account granting permission is billed for OAuth requests.
+   */
+  "chargesUsers"?: boolean;
 
   static discriminator: string | undefined = undefined;
 
@@ -51,6 +51,11 @@ export class ApiAppResponseOAuth {
     {
       name: "callbackUrl",
       baseName: "callback_url",
+      type: "string",
+    },
+    {
+      name: "secret",
+      baseName: "secret",
       type: "string",
     },
     {
@@ -62,11 +67,6 @@ export class ApiAppResponseOAuth {
       name: "chargesUsers",
       baseName: "charges_users",
       type: "boolean",
-    },
-    {
-      name: "secret",
-      baseName: "secret",
-      type: "string",
     },
   ];
 

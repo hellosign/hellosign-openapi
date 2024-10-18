@@ -31,19 +31,19 @@ export class TemplateResponseAccountQuota {
   /**
    * API templates remaining.
    */
-  "templatesLeft": number;
+  "templatesLeft"?: number;
   /**
    * API signature requests remaining.
    */
-  "apiSignatureRequestsLeft": number;
+  "apiSignatureRequestsLeft"?: number;
   /**
    * Signature requests remaining.
    */
-  "documentsLeft": number;
+  "documentsLeft"?: number;
   /**
    * SMS verifications remaining.
    */
-  "smsVerificationsLeft": number;
+  "smsVerificationsLeft"?: number;
 
   static discriminator: string | undefined = undefined;
 

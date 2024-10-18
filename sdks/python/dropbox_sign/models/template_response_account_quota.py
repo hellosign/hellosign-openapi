@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set, Tuple
 from typing_extensions import Self
 import io
@@ -32,13 +32,17 @@ class TemplateResponseAccountQuota(BaseModel):
     An array of the designated CC roles that must be specified when sending a SignatureRequest using this Template.
     """  # noqa: E501
 
-    templates_left: StrictInt = Field(description="API templates remaining.")
-    api_signature_requests_left: StrictInt = Field(
-        description="API signature requests remaining."
+    templates_left: Optional[StrictInt] = Field(
+        default=None, description="API templates remaining."
     )
-    documents_left: StrictInt = Field(description="Signature requests remaining.")
-    sms_verifications_left: StrictInt = Field(
-        description="SMS verifications remaining."
+    api_signature_requests_left: Optional[StrictInt] = Field(
+        default=None, description="API signature requests remaining."
+    )
+    documents_left: Optional[StrictInt] = Field(
+        default=None, description="Signature requests remaining."
+    )
+    sms_verifications_left: Optional[StrictInt] = Field(
+        default=None, description="SMS verifications remaining."
     )
     __properties: ClassVar[List[str]] = [
         "templates_left",

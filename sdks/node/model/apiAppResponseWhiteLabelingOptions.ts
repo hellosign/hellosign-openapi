@@ -28,20 +28,20 @@ import { AttributeTypeMap, ObjectSerializer } from "./";
  * An object with options to customize the app\'s signer page
  */
 export class ApiAppResponseWhiteLabelingOptions {
-  "headerBackgroundColor": string;
-  "legalVersion": string;
-  "linkColor": string;
-  "pageBackgroundColor": string;
-  "primaryButtonColor": string;
-  "primaryButtonColorHover": string;
-  "primaryButtonTextColor": string;
-  "primaryButtonTextColorHover": string;
-  "secondaryButtonColor": string;
-  "secondaryButtonColorHover": string;
-  "secondaryButtonTextColor": string;
-  "secondaryButtonTextColorHover": string;
-  "textColor1": string;
-  "textColor2": string;
+  "headerBackgroundColor"?: string;
+  "legalVersion"?: string;
+  "linkColor"?: string;
+  "pageBackgroundColor"?: string;
+  "primaryButtonColor"?: string;
+  "primaryButtonColorHover"?: string;
+  "primaryButtonTextColor"?: string;
+  "primaryButtonTextColorHover"?: string;
+  "secondaryButtonColor"?: string;
+  "secondaryButtonColorHover"?: string;
+  "secondaryButtonTextColor"?: string;
+  "secondaryButtonTextColorHover"?: string;
+  "textColor1"?: string;
+  "textColor2"?: string;
 
   static discriminator: string | undefined = undefined;
 
