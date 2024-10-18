@@ -43,7 +43,7 @@ export class SignatureRequestResponseSignatures {
   /**
    * The name of the signer.
    */
-  "signerName"?: string | null;
+  "signerName"?: string;
   /**
    * The role of the signer.
    */
@@ -79,11 +79,11 @@ export class SignatureRequestResponseSignatures {
   /**
    * Boolean to indicate whether this signature has SMS authentication enabled.
    */
-  "hasSmsAuth"?: boolean | null;
+  "hasSmsAuth"?: boolean;
   /**
    * Boolean to indicate whether this signature has SMS delivery enabled.
    */
-  "hasSmsDelivery"?: boolean | null;
+  "hasSmsDelivery"?: boolean;
   /**
    * The SMS phone number used for authentication or signature request delivery.
    */

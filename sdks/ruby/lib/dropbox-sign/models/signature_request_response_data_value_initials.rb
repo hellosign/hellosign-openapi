@@ -23,7 +23,7 @@ module Dropbox::Sign
     attr_accessor :type
 
     # The value of the form field.
-    # @return [String]
+    # @return [String, nil]
     attr_accessor :value
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -50,6 +50,7 @@ module Dropbox::Sign
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        :'value'
       ])
     end
 

@@ -3,7 +3,7 @@ export declare class SignatureRequestResponseSignatures {
     "signatureId"?: string;
     "signerGroupGuid"?: string | null;
     "signerEmailAddress"?: string;
-    "signerName"?: string | null;
+    "signerName"?: string;
     "signerRole"?: string | null;
     "order"?: number | null;
     "statusCode"?: string;
@@ -12,8 +12,8 @@ export declare class SignatureRequestResponseSignatures {
     "lastViewedAt"?: number | null;
     "lastRemindedAt"?: number | null;
     "hasPin"?: boolean;
-    "hasSmsAuth"?: boolean | null;
-    "hasSmsDelivery"?: boolean | null;
+    "hasSmsAuth"?: boolean;
+    "hasSmsDelivery"?: boolean;
     "smsPhoneNumber"?: string | null;
     "reassignedBy"?: string | null;
     "reassignmentReason"?: string | null;

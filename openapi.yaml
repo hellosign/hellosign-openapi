@@ -10671,13 +10671,13 @@ components:
           description: 'Whether this is a test signature request. Test requests have no legal value. Defaults to `false`.'
           type: boolean
           default: false
-          nullable: true
         signature_request_id:
           description: 'The id of the SignatureRequest.'
           type: string
         requester_email_address:
           description: 'The email address of the initiator of the SignatureRequest.'
           type: string
+          nullable: true
         title:
           description: 'The title the specified Account uses for the SignatureRequest.'
           type: string
@@ -10687,11 +10687,9 @@ components:
         subject:
           description: 'The subject in the email that was initially sent to the signers.'
           type: string
-          nullable: true
         message:
           description: 'The custom message in the email that was initially sent to the signers.'
           type: string
-          nullable: true
         metadata:
           description: 'The metadata attached to the signature request.'
           type: object
@@ -10701,6 +10699,7 @@ components:
         expires_at:
           description: 'The time when the signature request will expire unsigned signatures. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.'
           type: integer
+          nullable: true
         is_complete:
           description: 'Whether or not the SignatureRequest has been fully executed by all signers.'
           type: boolean
@@ -10748,19 +10747,16 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/SignatureRequestResponseCustomFieldBase'
-          nullable: true
         attachments:
           description: 'Signer attachments.'
           type: array
           items:
             $ref: '#/components/schemas/SignatureRequestResponseAttachment'
-          nullable: true
         response_data:
           description: 'An array of form field objects containing the name, value, and type of each textbox or checkmark field filled in by the signers.'
           type: array
           items:
             $ref: '#/components/schemas/SignatureRequestResponseDataBase'
-          nullable: true
         signatures:
           description: 'An array of signature objects, 1 for each signer.'
           type: array
@@ -10838,13 +10834,13 @@ components:
       x-base-class: true
     SignatureRequestResponseCustomFieldCheckbox:
       description: 'This class extends `SignatureRequestResponseCustomFieldBase`.'
+      required:
+        - name
+        - type
       allOf:
         -
           $ref: '#/components/schemas/SignatureRequestResponseCustomFieldBase'
         -
-          required:
-            - name
-            - type
           properties:
             type:
               description: 'The type of this Custom Field. Only ''text'' and ''checkbox'' are currently supported.'
@@ -10856,13 +10852,13 @@ components:
           type: object
     SignatureRequestResponseCustomFieldText:
       description: 'This class extends `SignatureRequestResponseCustomFieldBase`.'
+      required:
+        - name
+        - type
       allOf:
         -
           $ref: '#/components/schemas/SignatureRequestResponseCustomFieldBase'
         -
-          required:
-            - name
-            - type
           properties:
             type:
               description: 'The type of this Custom Field. Only ''text'' and ''checkbox'' are currently supported.'
@@ -10990,6 +10986,7 @@ components:
             value:
               description: 'The value of the form field.'
               type: string
+              nullable: true
           type: object
     SignatureRequestResponseDataValueRadio:
       allOf:
@@ -11018,6 +11015,7 @@ components:
             value:
               description: 'The value of the form field.'
               type: string
+              nullable: true
           type: object
     SignatureRequestResponseDataValueText:
       allOf:
@@ -11063,7 +11061,6 @@ components:
         signer_name:
           description: 'The name of the signer.'
           type: string
-          nullable: true
         signer_role:
           description: 'The role of the signer.'
           type: string
@@ -11097,11 +11094,9 @@ components:
         has_sms_auth:
           description: 'Boolean to indicate whether this signature has SMS authentication enabled.'
           type: boolean
-          nullable: true
         has_sms_delivery:
           description: 'Boolean to indicate whether this signature has SMS delivery enabled.'
           type: boolean
-          nullable: true
         sms_phone_number:
           description: 'The SMS phone number used for authentication or signature request delivery.'
           type: string

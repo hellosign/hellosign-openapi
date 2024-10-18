@@ -10085,13 +10085,13 @@ components:
           description: '_t__SignatureRequestResponse::TEST_MODE'
           type: boolean
           default: false
-          nullable: true
         signature_request_id:
           description: '_t__SignatureRequestResponse::SIGNATURE_REQUEST_ID'
           type: string
         requester_email_address:
           description: '_t__SignatureRequestResponse::REQUESTER_EMAIL_ADDRESS'
           type: string
+          nullable: true
         title:
           description: '_t__SignatureRequestResponse::TITLE'
           type: string
@@ -10101,11 +10101,9 @@ components:
         subject:
           description: '_t__SignatureRequestResponse::SUBJECT'
           type: string
-          nullable: true
         message:
           description: '_t__SignatureRequestResponse::MESSAGE'
           type: string
-          nullable: true
         metadata:
           description: '_t__SignatureRequestResponse::METADATA'
           type: object
@@ -10115,6 +10113,7 @@ components:
         expires_at:
           description: '_t__SignatureRequestResponse::EXPIRES_AT'
           type: integer
+          nullable: true
         is_complete:
           description: '_t__SignatureRequestResponse::IS_COMPLETE'
           type: boolean
@@ -10158,19 +10157,16 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/SignatureRequestResponseCustomFieldBase'
-          nullable: true
         attachments:
           description: '_t__SignatureRequestResponseAttachment::DESCRIPTION'
           type: array
           items:
             $ref: '#/components/schemas/SignatureRequestResponseAttachment'
-          nullable: true
         response_data:
           description: '_t__SignatureRequestResponseData::DESCRIPTION'
           type: array
           items:
             $ref: '#/components/schemas/SignatureRequestResponseDataBase'
-          nullable: true
         signatures:
           description: '_t__SignatureRequestResponseSignatures::DESCRIPTION'
           type: array
@@ -10244,13 +10240,13 @@ components:
       x-base-class: true
     SignatureRequestResponseCustomFieldCheckbox:
       description: '_t__SignatureRequestResponseCustomField::DESCRIPTION_EXTENDS'
+      required:
+        - name
+        - type
       allOf:
         -
           $ref: '#/components/schemas/SignatureRequestResponseCustomFieldBase'
         -
-          required:
-            - name
-            - type
           properties:
             type:
               description: '_t__SignatureRequestResponseCustomField::TYPE'
@@ -10262,13 +10258,13 @@ components:
           type: object
     SignatureRequestResponseCustomFieldText:
       description: '_t__SignatureRequestResponseCustomField::DESCRIPTION_EXTENDS'
+      required:
+        - name
+        - type
       allOf:
         -
           $ref: '#/components/schemas/SignatureRequestResponseCustomFieldBase'
         -
-          required:
-            - name
-            - type
           properties:
             type:
               description: '_t__SignatureRequestResponseCustomField::TYPE'
@@ -10396,6 +10392,7 @@ components:
             value:
               description: '_t__SignatureRequestResponseDataValue::VALUE'
               type: string
+              nullable: true
           type: object
     SignatureRequestResponseDataValueRadio:
       allOf:
@@ -10424,6 +10421,7 @@ components:
             value:
               description: '_t__SignatureRequestResponseDataValue::VALUE'
               type: string
+              nullable: true
           type: object
     SignatureRequestResponseDataValueText:
       allOf:
@@ -10469,7 +10467,6 @@ components:
         signer_name:
           description: '_t__SignatureRequestResponseSignatures::SIGNER_NAME'
           type: string
-          nullable: true
         signer_role:
           description: '_t__SignatureRequestResponseSignatures::SIGNER_ROLE'
           type: string
@@ -10503,11 +10500,9 @@ components:
         has_sms_auth:
           description: '_t__SignatureRequestResponseSignatures::HAS_SMS_AUTH'
           type: boolean
-          nullable: true
         has_sms_delivery:
           description: '_t__SignatureRequestResponseSignatures::HAS_SMS_DELIVERY'
           type: boolean
-          nullable: true
         sms_phone_number:
           description: '_t__SignatureRequestResponseSignatures::SMS_PHONE_NUMBER'
           type: string

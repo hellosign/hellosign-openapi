@@ -117,7 +117,7 @@ class SignatureRequestResponseSignatures implements ModelInterface, ArrayAccess,
         'signature_id' => false,
         'signer_group_guid' => true,
         'signer_email_address' => false,
-        'signer_name' => true,
+        'signer_name' => false,
         'signer_role' => true,
         'order' => true,
         'status_code' => false,
@@ -126,8 +126,8 @@ class SignatureRequestResponseSignatures implements ModelInterface, ArrayAccess,
         'last_viewed_at' => true,
         'last_reminded_at' => true,
         'has_pin' => false,
-        'has_sms_auth' => true,
-        'has_sms_delivery' => true,
+        'has_sms_auth' => false,
+        'has_sms_delivery' => false,
         'sms_phone_number' => true,
         'reassigned_by' => true,
         'reassignment_reason' => true,
@@ -530,14 +530,7 @@ class SignatureRequestResponseSignatures implements ModelInterface, ArrayAccess,
     public function setSignerName(?string $signer_name)
     {
         if (is_null($signer_name)) {
-            array_push($this->openAPINullablesSetToNull, 'signer_name');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('signer_name', $nullablesSetToNull);
-            if ($index !== false) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new InvalidArgumentException('non-nullable signer_name cannot be null');
         }
         $this->container['signer_name'] = $signer_name;
 
@@ -822,14 +815,7 @@ class SignatureRequestResponseSignatures implements ModelInterface, ArrayAccess,
     public function setHasSmsAuth(?bool $has_sms_auth)
     {
         if (is_null($has_sms_auth)) {
-            array_push($this->openAPINullablesSetToNull, 'has_sms_auth');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('has_sms_auth', $nullablesSetToNull);
-            if ($index !== false) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new InvalidArgumentException('non-nullable has_sms_auth cannot be null');
         }
         $this->container['has_sms_auth'] = $has_sms_auth;
 
@@ -856,14 +842,7 @@ class SignatureRequestResponseSignatures implements ModelInterface, ArrayAccess,
     public function setHasSmsDelivery(?bool $has_sms_delivery)
     {
         if (is_null($has_sms_delivery)) {
-            array_push($this->openAPINullablesSetToNull, 'has_sms_delivery');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('has_sms_delivery', $nullablesSetToNull);
-            if ($index !== false) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new InvalidArgumentException('non-nullable has_sms_delivery cannot be null');
         }
         $this->container['has_sms_delivery'] = $has_sms_delivery;
 
