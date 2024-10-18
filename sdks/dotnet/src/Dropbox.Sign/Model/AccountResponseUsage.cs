@@ -41,7 +41,7 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AccountResponseUsage" /> class.
         /// </summary>
-        /// <param name="faxPagesSent">Number of fax pages sent (required) (default to 0).</param>
+        /// <param name="faxPagesSent">Number of fax pages sent (default to 0).</param>
         public AccountResponseUsage(int faxPagesSent = 0)
         {
 
@@ -68,7 +68,7 @@ namespace Dropbox.Sign.Model
         /// Number of fax pages sent
         /// </summary>
         /// <value>Number of fax pages sent</value>
-        [DataMember(Name = "fax_pages_sent", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "fax_pages_sent", EmitDefaultValue = true)]
         public int FaxPagesSent { get; set; }
 
         /// <summary>

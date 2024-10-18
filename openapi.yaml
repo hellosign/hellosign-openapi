@@ -10332,12 +10332,6 @@ components:
       type: object
       x-internal-class: true
     AccountResponse:
-      required:
-        - account_id
-        - is_locked
-        - is_paid_hs
-        - is_paid_hf
-        - quotas
       properties:
         account_id:
           description: 'The ID of the Account'
@@ -10429,8 +10423,6 @@ components:
       x-internal-class: true
     AccountResponseUsage:
       description: 'Details concerning monthly usage'
-      required:
-        - fax_pages_sent
       properties:
         fax_pages_sent:
           description: 'Number of fax pages sent'

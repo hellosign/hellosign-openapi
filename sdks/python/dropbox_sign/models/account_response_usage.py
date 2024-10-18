@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set, Tuple
 from typing_extensions import Self
 import io
@@ -32,7 +32,9 @@ class AccountResponseUsage(BaseModel):
     Details concerning monthly usage
     """  # noqa: E501
 
-    fax_pages_sent: StrictInt = Field(description="Number of fax pages sent")
+    fax_pages_sent: Optional[StrictInt] = Field(
+        default=0, description="Number of fax pages sent"
+    )
     __properties: ClassVar[List[str]] = ["fax_pages_sent"]
 
     model_config = ConfigDict(

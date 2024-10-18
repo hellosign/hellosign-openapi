@@ -9746,12 +9746,6 @@ components:
       type: object
       x-internal-class: true
     AccountResponse:
-      required:
-        - account_id
-        - is_locked
-        - is_paid_hs
-        - is_paid_hf
-        - quotas
       properties:
         account_id:
           description: '_t__Account::ACCOUNT_ID'
@@ -9843,8 +9837,6 @@ components:
       x-internal-class: true
     AccountResponseUsage:
       description: '_t__Account::USAGE'
-      required:
-        - fax_pages_sent
       properties:
         fax_pages_sent:
           description: '_t__AccountUsage::FAX_PAGES_SENT'

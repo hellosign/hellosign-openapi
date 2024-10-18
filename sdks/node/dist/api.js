@@ -16465,6 +16465,11 @@ AccountResponse.attributeTypeMap = [
     type: "string"
   },
   {
+    name: "emailAddress",
+    baseName: "email_address",
+    type: "string"
+  },
+  {
     name: "isLocked",
     baseName: "is_locked",
     type: "boolean"
@@ -16483,11 +16488,6 @@ AccountResponse.attributeTypeMap = [
     name: "quotas",
     baseName: "quotas",
     type: "AccountResponseQuotas"
-  },
-  {
-    name: "emailAddress",
-    baseName: "email_address",
-    type: "string"
   },
   {
     name: "callbackUrl",

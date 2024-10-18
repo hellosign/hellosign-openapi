@@ -30,24 +30,24 @@ export class AccountResponse {
   /**
    * The ID of the Account
    */
-  "accountId": string;
-  /**
-   * Returns `true` if the user has been locked out of their account by a team admin.
-   */
-  "isLocked": boolean;
-  /**
-   * Returns `true` if the user has a paid Dropbox Sign account.
-   */
-  "isPaidHs": boolean;
-  /**
-   * Returns `true` if the user has a paid HelloFax account.
-   */
-  "isPaidHf": boolean;
-  "quotas": AccountResponseQuotas;
+  "accountId"?: string;
   /**
    * The email address associated with the Account.
    */
   "emailAddress"?: string;
+  /**
+   * Returns `true` if the user has been locked out of their account by a team admin.
+   */
+  "isLocked"?: boolean;
+  /**
+   * Returns `true` if the user has a paid Dropbox Sign account.
+   */
+  "isPaidHs"?: boolean;
+  /**
+   * Returns `true` if the user has a paid HelloFax account.
+   */
+  "isPaidHf"?: boolean;
+  "quotas"?: AccountResponseQuotas;
   /**
    * The URL that Dropbox Sign events will `POST` to.
    */
@@ -75,6 +75,11 @@ export class AccountResponse {
       type: "string",
     },
     {
+      name: "emailAddress",
+      baseName: "email_address",
+      type: "string",
+    },
+    {
       name: "isLocked",
       baseName: "is_locked",
       type: "boolean",
@@ -93,11 +98,6 @@ export class AccountResponse {
       name: "quotas",
       baseName: "quotas",
       type: "AccountResponseQuotas",
-    },
-    {
-      name: "emailAddress",
-      baseName: "email_address",
-      type: "string",
     },
     {
       name: "callbackUrl",

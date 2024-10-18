@@ -34,20 +34,25 @@ class AccountResponse(BaseModel):
     AccountResponse
     """  # noqa: E501
 
-    account_id: StrictStr = Field(description="The ID of the Account")
-    is_locked: StrictBool = Field(
-        description="Returns `true` if the user has been locked out of their account by a team admin."
+    account_id: Optional[StrictStr] = Field(
+        default=None, description="The ID of the Account"
     )
-    is_paid_hs: StrictBool = Field(
-        description="Returns `true` if the user has a paid Dropbox Sign account."
-    )
-    is_paid_hf: StrictBool = Field(
-        description="Returns `true` if the user has a paid HelloFax account."
-    )
-    quotas: AccountResponseQuotas
     email_address: Optional[StrictStr] = Field(
         default=None, description="The email address associated with the Account."
     )
+    is_locked: Optional[StrictBool] = Field(
+        default=None,
+        description="Returns `true` if the user has been locked out of their account by a team admin.",
+    )
+    is_paid_hs: Optional[StrictBool] = Field(
+        default=None,
+        description="Returns `true` if the user has a paid Dropbox Sign account.",
+    )
+    is_paid_hf: Optional[StrictBool] = Field(
+        default=None,
+        description="Returns `true` if the user has a paid HelloFax account.",
+    )
+    quotas: Optional[AccountResponseQuotas] = None
     callback_url: Optional[StrictStr] = Field(
         default=None, description="The URL that Dropbox Sign events will `POST` to."
     )
@@ -64,11 +69,11 @@ class AccountResponse(BaseModel):
     usage: Optional[AccountResponseUsage] = None
     __properties: ClassVar[List[str]] = [
         "account_id",
+        "email_address",
         "is_locked",
         "is_paid_hs",
         "is_paid_hf",
         "quotas",
-        "email_address",
         "callback_url",
         "role_code",
         "team_id",
@@ -146,6 +151,7 @@ class AccountResponse(BaseModel):
         _obj = cls.model_validate(
             {
                 "account_id": obj.get("account_id"),
+                "email_address": obj.get("email_address"),
                 "is_locked": obj.get("is_locked"),
                 "is_paid_hs": obj.get("is_paid_hs"),
                 "is_paid_hf": obj.get("is_paid_hf"),
@@ -154,7 +160,6 @@ class AccountResponse(BaseModel):
                     if obj.get("quotas") is not None
                     else None
                 ),
-                "email_address": obj.get("email_address"),
                 "callback_url": obj.get("callback_url"),
                 "role_code": obj.get("role_code"),
                 "team_id": obj.get("team_id"),
@@ -182,11 +187,11 @@ class AccountResponse(BaseModel):
     def openapi_types(cls) -> Dict[str, str]:
         return {
             "account_id": "(str,)",
+            "email_address": "(str,)",
             "is_locked": "(bool,)",
             "is_paid_hs": "(bool,)",
             "is_paid_hf": "(bool,)",
             "quotas": "(AccountResponseQuotas,)",
-            "email_address": "(str,)",
             "callback_url": "(str,)",
             "role_code": "(str,)",
             "team_id": "(str,)",

@@ -6,6 +6,6 @@ Details concerning monthly usage
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-| `faxPagesSent`<sup>*_required_</sup> | ```number``` |  Number of fax pages sent  |  [default to 0] |
+| `faxPagesSent` | ```number``` |  Number of fax pages sent  |  [default to 0] |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

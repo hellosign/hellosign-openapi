@@ -8,7 +8,7 @@ Details concerning monthly usage
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-| `faxPagesSent`<sup>*_required_</sup> | ```Integer``` |  Number of fax pages sent  |  |
+| `faxPagesSent` | ```Integer``` |  Number of fax pages sent  |  |
 
 
 

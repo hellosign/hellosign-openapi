@@ -59,15 +59,14 @@ public class AccountResponseUsage {
      *
      * @return faxPagesSent
      */
-    @javax.annotation.Nonnull
-    @JsonProperty(JSON_PROPERTY_FAX_PAGES_SENT)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_FAX_PAGES_SENT)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public Integer getFaxPagesSent() {
         return faxPagesSent;
     }
 
     @JsonProperty(JSON_PROPERTY_FAX_PAGES_SENT)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
     public void setFaxPagesSent(Integer faxPagesSent) {
         this.faxPagesSent = faxPagesSent;
     }

@@ -282,12 +282,7 @@ class AccountResponseUsage implements ModelInterface, ArrayAccess, JsonSerializa
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = [];
-
-        if ($this->container['fax_pages_sent'] === null) {
-            $invalidProperties[] = "'fax_pages_sent' can't be null";
-        }
-        return $invalidProperties;
+        return [];
     }
 
     /**
@@ -304,7 +299,7 @@ class AccountResponseUsage implements ModelInterface, ArrayAccess, JsonSerializa
     /**
      * Gets fax_pages_sent
      *
-     * @return int
+     * @return int|null
      */
     public function getFaxPagesSent()
     {
@@ -314,11 +309,11 @@ class AccountResponseUsage implements ModelInterface, ArrayAccess, JsonSerializa
     /**
      * Sets fax_pages_sent
      *
-     * @param int $fax_pages_sent Number of fax pages sent
+     * @param int|null $fax_pages_sent Number of fax pages sent
      *
      * @return self
      */
-    public function setFaxPagesSent(int $fax_pages_sent)
+    public function setFaxPagesSent(?int $fax_pages_sent)
     {
         if (is_null($fax_pages_sent)) {
             throw new InvalidArgumentException('non-nullable fax_pages_sent cannot be null');
