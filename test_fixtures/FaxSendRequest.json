@@ -1,0 +1,14 @@
+{
+  "default": {
+    "file_url": [
+      "https://api.hellosign.com/v3/fax/files/2b388914e3ae3b738bd4e2ee2850c677e6dc53d2"
+    ],
+    "test_mode": "true",
+    "recipient": "16690000001",
+    "sender": "16690000000",
+    "cover_page_to": "Jill Fax",
+    "cover_page_message": "I'm sending you a fax!",
+    "cover_page_from": "Faxer Faxerson",
+    "title": "This is what the fax is about!"
+  }
+}
