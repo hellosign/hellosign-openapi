@@ -15,7 +15,7 @@
         "message": "example message",
         "metadata": [],
         "created_at": 1726774555,
-        "from": "me@dropboxsign.com",
+        "sender": "me@dropboxsign.com",
         "transmissions": [
           {
             "recipient": "recipient@dropboxsign.com",

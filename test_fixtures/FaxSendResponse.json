@@ -8,7 +8,7 @@
       "message": "example message",
       "metadata": [ ],
       "created_at": 1726774555,
-      "from": "me@dropboxsign.com",
+      "sender": "me@dropboxsign.com",
       "transmissions": [],
       "files_url": "https://api.hellosign.com/v3/fax/files/2b388914e3ae3b738bd4e2ee2850c677e6dc53d2"
     }

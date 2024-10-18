@@ -161,7 +161,7 @@
 "FaxResponse::MESSAGE": Fax Message
 "FaxResponse::METADATA": Fax Metadata
 "FaxResponse::CREATED_AT": Fax Created At Timestamp
-"FaxResponse::FROM": Fax Sender Email
+"FaxResponse::SENDER": Fax Sender Email
 "FaxResponse::TRANSMISSIONS": Fax Transmissions List
 "FaxResponse::FILES_URL": Fax Files URL
 "Sub::FaxResponseTransmission::RECIPIENT": Fax Transmission Recipient
