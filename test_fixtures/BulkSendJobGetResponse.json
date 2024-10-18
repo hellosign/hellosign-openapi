@@ -60,7 +60,9 @@
             "status_code": "signed",
             "signed_at": 1346521550,
             "last_viewed_at": 1346521483,
-            "has_pin": false
+            "has_pin": false,
+            "has_sms_auth": false,
+            "has_sms_delivery": false
           }
         ],
         "cc_email_addresses": [],

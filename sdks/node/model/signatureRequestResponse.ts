@@ -35,7 +35,7 @@ export class SignatureRequestResponse {
   /**
    * Whether this is a test signature request. Test requests have no legal value. Defaults to `false`.
    */
-  "testMode"?: boolean | null = false;
+  "testMode"?: boolean = false;
   /**
    * The id of the SignatureRequest.
    */
@@ -43,7 +43,7 @@ export class SignatureRequestResponse {
   /**
    * The email address of the initiator of the SignatureRequest.
    */
-  "requesterEmailAddress"?: string;
+  "requesterEmailAddress"?: string | null;
   /**
    * The title the specified Account uses for the SignatureRequest.
    */
@@ -55,11 +55,11 @@ export class SignatureRequestResponse {
   /**
    * The subject in the email that was initially sent to the signers.
    */
-  "subject"?: string | null;
+  "subject"?: string;
   /**
    * The custom message in the email that was initially sent to the signers.
    */
-  "message"?: string | null;
+  "message"?: string;
   /**
    * The metadata attached to the signature request.
    */
@@ -71,7 +71,7 @@ export class SignatureRequestResponse {
   /**
    * The time when the signature request will expire unsigned signatures. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.
    */
-  "expiresAt"?: number;
+  "expiresAt"?: number | null;
   /**
    * Whether or not the SignatureRequest has been fully executed by all signers.
    */
@@ -115,15 +115,15 @@ export class SignatureRequestResponse {
   /**
    * An array of Custom Field objects containing the name and type of each custom field.  * Text Field uses `SignatureRequestResponseCustomFieldText` * Checkbox Field uses `SignatureRequestResponseCustomFieldCheckbox`
    */
-  "customFields"?: Array<SignatureRequestResponseCustomFieldBase> | null;
+  "customFields"?: Array<SignatureRequestResponseCustomFieldBase>;
   /**
    * Signer attachments.
    */
-  "attachments"?: Array<SignatureRequestResponseAttachment> | null;
+  "attachments"?: Array<SignatureRequestResponseAttachment>;
   /**
    * An array of form field objects containing the name, value, and type of each textbox or checkmark field filled in by the signers.
    */
-  "responseData"?: Array<SignatureRequestResponseDataBase> | null;
+  "responseData"?: Array<SignatureRequestResponseDataBase>;
   /**
    * An array of signature objects, 1 for each signer.
    */

@@ -33,7 +33,7 @@ export class SignatureRequestResponseDataValueInitials extends SignatureRequestR
   /**
    * The value of the form field.
    */
-  "value"?: string;
+  "value"?: string | null;
 
   static discriminator: string | undefined = undefined;
 
