@@ -41,8 +41,8 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AccountResponseUsage" /> class.
         /// </summary>
-        /// <param name="faxPagesSent">Number of fax pages sent.</param>
-        public AccountResponseUsage(int? faxPagesSent = default(int?))
+        /// <param name="faxPagesSent">Number of fax pages sent (default to 0).</param>
+        public AccountResponseUsage(int faxPagesSent = 0)
         {
 
             this.FaxPagesSent = faxPagesSent;
@@ -69,7 +69,7 @@ namespace Dropbox.Sign.Model
         /// </summary>
         /// <value>Number of fax pages sent</value>
         [DataMember(Name = "fax_pages_sent", EmitDefaultValue = true)]
-        public int? FaxPagesSent { get; set; }
+        public int FaxPagesSent { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -117,8 +117,7 @@ namespace Dropbox.Sign.Model
             return
                 (
                     this.FaxPagesSent == input.FaxPagesSent ||
-                    (this.FaxPagesSent != null &&
-                    this.FaxPagesSent.Equals(input.FaxPagesSent))
+                    this.FaxPagesSent.Equals(input.FaxPagesSent)
                 );
         }
 
@@ -131,10 +130,7 @@ namespace Dropbox.Sign.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.FaxPagesSent != null)
-                {
-                    hashCode = (hashCode * 59) + this.FaxPagesSent.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.FaxPagesSent.GetHashCode();
                 return hashCode;
             }
         }
@@ -155,7 +151,7 @@ namespace Dropbox.Sign.Model
             {
                 Name = "fax_pages_sent",
                 Property = "FaxPagesSent",
-                Type = "int?",
+                Type = "int",
                 Value = FaxPagesSent,
             });
 

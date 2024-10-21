@@ -44,22 +44,22 @@ import com.dropbox.sign.ApiException;
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class AccountResponseQuotas {
   public static final String JSON_PROPERTY_API_SIGNATURE_REQUESTS_LEFT = "api_signature_requests_left";
-  private Integer apiSignatureRequestsLeft;
+  private Integer apiSignatureRequestsLeft = 0;
 
   public static final String JSON_PROPERTY_DOCUMENTS_LEFT = "documents_left";
-  private Integer documentsLeft;
+  private Integer documentsLeft = 0;
 
   public static final String JSON_PROPERTY_TEMPLATES_TOTAL = "templates_total";
-  private Integer templatesTotal;
+  private Integer templatesTotal = 0;
 
   public static final String JSON_PROPERTY_TEMPLATES_LEFT = "templates_left";
-  private Integer templatesLeft;
+  private Integer templatesLeft = 0;
 
   public static final String JSON_PROPERTY_SMS_VERIFICATIONS_LEFT = "sms_verifications_left";
-  private Integer smsVerificationsLeft;
+  private Integer smsVerificationsLeft = 0;
 
   public static final String JSON_PROPERTY_NUM_FAX_PAGES_LEFT = "num_fax_pages_left";
-  private Integer numFaxPagesLeft;
+  private Integer numFaxPagesLeft = 0;
 
   public AccountResponseQuotas() { 
   }
@@ -185,7 +185,7 @@ public class AccountResponseQuotas {
   }
 
   /**
-   * SMS verifications  remaining.
+   * SMS verifications remaining.
    * @return smsVerificationsLeft
    */
   @jakarta.annotation.Nullable

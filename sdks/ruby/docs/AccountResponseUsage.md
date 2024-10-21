@@ -6,5 +6,5 @@ Details concerning monthly usage
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| `fax_pages_sent` | ```Integer``` |  Number of fax pages sent  |  |
+| `fax_pages_sent` | ```Integer``` |  Number of fax pages sent  |  [default to 0] |
 

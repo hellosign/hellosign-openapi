@@ -41,21 +41,27 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AccountResponseQuotas" /> class.
         /// </summary>
-        /// <param name="apiSignatureRequestsLeft">API signature requests remaining..</param>
-        /// <param name="documentsLeft">Signature requests remaining..</param>
-        /// <param name="templatesTotal">Total API templates allowed..</param>
-        /// <param name="templatesLeft">API templates remaining..</param>
-        /// <param name="smsVerificationsLeft">SMS verifications  remaining..</param>
-        /// <param name="numFaxPagesLeft">Number of fax pages left.</param>
-        public AccountResponseQuotas(int? apiSignatureRequestsLeft = default(int?), int? documentsLeft = default(int?), int? templatesTotal = default(int?), int? templatesLeft = default(int?), int? smsVerificationsLeft = default(int?), int? numFaxPagesLeft = default(int?))
+        /// <param name="apiSignatureRequestsLeft">API signature requests remaining. (default to 0).</param>
+        /// <param name="documentsLeft">Signature requests remaining. (default to 0).</param>
+        /// <param name="templatesTotal">Total API templates allowed. (default to 0).</param>
+        /// <param name="templatesLeft">API templates remaining. (default to 0).</param>
+        /// <param name="smsVerificationsLeft">SMS verifications remaining. (default to 0).</param>
+        /// <param name="numFaxPagesLeft">Number of fax pages left (default to 0).</param>
+        public AccountResponseQuotas(int? apiSignatureRequestsLeft = 0, int? documentsLeft = 0, int? templatesTotal = 0, int? templatesLeft = 0, int? smsVerificationsLeft = 0, int? numFaxPagesLeft = 0)
         {
 
-            this.ApiSignatureRequestsLeft = apiSignatureRequestsLeft;
-            this.DocumentsLeft = documentsLeft;
-            this.TemplatesTotal = templatesTotal;
-            this.TemplatesLeft = templatesLeft;
-            this.SmsVerificationsLeft = smsVerificationsLeft;
-            this.NumFaxPagesLeft = numFaxPagesLeft;
+            // use default value if no "apiSignatureRequestsLeft" provided
+            this.ApiSignatureRequestsLeft = apiSignatureRequestsLeft ?? 0;
+            // use default value if no "documentsLeft" provided
+            this.DocumentsLeft = documentsLeft ?? 0;
+            // use default value if no "templatesTotal" provided
+            this.TemplatesTotal = templatesTotal ?? 0;
+            // use default value if no "templatesLeft" provided
+            this.TemplatesLeft = templatesLeft ?? 0;
+            // use default value if no "smsVerificationsLeft" provided
+            this.SmsVerificationsLeft = smsVerificationsLeft ?? 0;
+            // use default value if no "numFaxPagesLeft" provided
+            this.NumFaxPagesLeft = numFaxPagesLeft ?? 0;
         }
 
         /// <summary>
@@ -103,9 +109,9 @@ namespace Dropbox.Sign.Model
         public int? TemplatesLeft { get; set; }
 
         /// <summary>
-        /// SMS verifications  remaining.
+        /// SMS verifications remaining.
         /// </summary>
-        /// <value>SMS verifications  remaining.</value>
+        /// <value>SMS verifications remaining.</value>
         [DataMember(Name = "sms_verifications_left", EmitDefaultValue = true)]
         public int? SmsVerificationsLeft { get; set; }
 

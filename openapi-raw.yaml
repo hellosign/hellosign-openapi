@@ -9806,26 +9806,32 @@ components:
         api_signature_requests_left:
           description: '_t__AccountQuota::API_SIGNATURE_REQUESTS_LEFT'
           type: integer
+          default: 0
           nullable: true
         documents_left:
           description: '_t__AccountQuota::DOCUMENTS_LEFT'
           type: integer
+          default: 0
           nullable: true
         templates_total:
           description: '_t__AccountQuota::TEMPLATES_TOTAL'
           type: integer
+          default: 0
           nullable: true
         templates_left:
           description: '_t__AccountQuota::TEMPLATES_LEFT'
           type: integer
+          default: 0
           nullable: true
         sms_verifications_left:
           description: '_t__AccountQuota::SMS_VERIFICATIONS_LEFT'
           type: integer
+          default: 0
           nullable: true
         num_fax_pages_left:
           description: '_t__AccountQuota::NUM_FAX_PAGES_LEFT'
           type: integer
+          default: 0
           nullable: true
       type: object
       x-internal-class: true
@@ -9835,7 +9841,7 @@ components:
         fax_pages_sent:
           description: '_t__AccountUsage::FAX_PAGES_SENT'
           type: integer
-          nullable: true
+          default: 0
       type: object
       x-internal-class: true
     AccountVerifyResponseAccount:
