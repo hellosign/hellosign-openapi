@@ -60,7 +60,7 @@ namespace Dropbox.Sign.Model
         /// <param name="reassignmentReason">Reason provided by original signer who reassigned to this signer..</param>
         /// <param name="reassignedFrom">Previous signature identifier..</param>
         /// <param name="error">Error message pertaining to this signer, or null..</param>
-        public SignatureRequestResponseSignatures(string signatureId = default(string), string signerGroupGuid = default(string), string signerEmailAddress = default(string), string signerName = default(string), string signerRole = default(string), int? order = default(int?), string statusCode = default(string), string declineReason = default(string), int? signedAt = default(int?), int? lastViewedAt = default(int?), int? lastRemindedAt = default(int?), bool hasPin = default(bool), bool? hasSmsAuth = default(bool?), bool? hasSmsDelivery = default(bool?), string smsPhoneNumber = default(string), string reassignedBy = default(string), string reassignmentReason = default(string), string reassignedFrom = default(string), string error = default(string))
+        public SignatureRequestResponseSignatures(string signatureId = default(string), string signerGroupGuid = default(string), string signerEmailAddress = default(string), string signerName = default(string), string signerRole = default(string), int? order = default(int?), string statusCode = default(string), string declineReason = default(string), int? signedAt = default(int?), int? lastViewedAt = default(int?), int? lastRemindedAt = default(int?), bool hasPin = default(bool), bool hasSmsAuth = default(bool), bool hasSmsDelivery = default(bool), string smsPhoneNumber = default(string), string reassignedBy = default(string), string reassignmentReason = default(string), string reassignedFrom = default(string), string error = default(string))
         {
 
             this.SignatureId = signatureId;
@@ -189,14 +189,14 @@ namespace Dropbox.Sign.Model
         /// </summary>
         /// <value>Boolean to indicate whether this signature has SMS authentication enabled.</value>
         [DataMember(Name = "has_sms_auth", EmitDefaultValue = true)]
-        public bool? HasSmsAuth { get; set; }
+        public bool HasSmsAuth { get; set; }
 
         /// <summary>
         /// Boolean to indicate whether this signature has SMS delivery enabled.
         /// </summary>
         /// <value>Boolean to indicate whether this signature has SMS delivery enabled.</value>
         [DataMember(Name = "has_sms_delivery", EmitDefaultValue = true)]
-        public bool? HasSmsDelivery { get; set; }
+        public bool HasSmsDelivery { get; set; }
 
         /// <summary>
         /// The SMS phone number used for authentication or signature request delivery.
@@ -356,13 +356,11 @@ namespace Dropbox.Sign.Model
                 ) &&
                 (
                     this.HasSmsAuth == input.HasSmsAuth ||
-                    (this.HasSmsAuth != null &&
-                    this.HasSmsAuth.Equals(input.HasSmsAuth))
+                    this.HasSmsAuth.Equals(input.HasSmsAuth)
                 ) &&
                 (
                     this.HasSmsDelivery == input.HasSmsDelivery ||
-                    (this.HasSmsDelivery != null &&
-                    this.HasSmsDelivery.Equals(input.HasSmsDelivery))
+                    this.HasSmsDelivery.Equals(input.HasSmsDelivery)
                 ) &&
                 (
                     this.SmsPhoneNumber == input.SmsPhoneNumber ||
@@ -445,14 +443,8 @@ namespace Dropbox.Sign.Model
                     hashCode = (hashCode * 59) + this.LastRemindedAt.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.HasPin.GetHashCode();
-                if (this.HasSmsAuth != null)
-                {
-                    hashCode = (hashCode * 59) + this.HasSmsAuth.GetHashCode();
-                }
-                if (this.HasSmsDelivery != null)
-                {
-                    hashCode = (hashCode * 59) + this.HasSmsDelivery.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.HasSmsAuth.GetHashCode();
+                hashCode = (hashCode * 59) + this.HasSmsDelivery.GetHashCode();
                 if (this.SmsPhoneNumber != null)
                 {
                     hashCode = (hashCode * 59) + this.SmsPhoneNumber.GetHashCode();
@@ -577,14 +569,14 @@ namespace Dropbox.Sign.Model
             {
                 Name = "has_sms_auth",
                 Property = "HasSmsAuth",
-                Type = "bool?",
+                Type = "bool",
                 Value = HasSmsAuth,
             });
             types.Add(new OpenApiType()
             {
                 Name = "has_sms_delivery",
                 Property = "HasSmsDelivery",
-                Type = "bool?",
+                Type = "bool",
                 Value = HasSmsDelivery,
             });
             types.Add(new OpenApiType()

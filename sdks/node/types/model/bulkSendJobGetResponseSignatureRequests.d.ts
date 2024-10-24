@@ -4,16 +4,16 @@ import { SignatureRequestResponseCustomFieldBase } from "./signatureRequestRespo
 import { SignatureRequestResponseDataBase } from "./signatureRequestResponseDataBase";
 import { SignatureRequestResponseSignatures } from "./signatureRequestResponseSignatures";
 export declare class BulkSendJobGetResponseSignatureRequests {
-    "testMode"?: boolean | null;
+    "testMode"?: boolean;
     "signatureRequestId"?: string;
-    "requesterEmailAddress"?: string;
+    "requesterEmailAddress"?: string | null;
     "title"?: string;
     "originalTitle"?: string;
-    "subject"?: string | null;
-    "message"?: string | null;
+    "subject"?: string;
+    "message"?: string;
     "metadata"?: object;
     "createdAt"?: number;
-    "expiresAt"?: number;
+    "expiresAt"?: number | null;
     "isComplete"?: boolean;
     "isDeclined"?: boolean;
     "hasError"?: boolean;
@@ -24,9 +24,9 @@ export declare class BulkSendJobGetResponseSignatureRequests {
     "signingRedirectUrl"?: string | null;
     "finalCopyUri"?: string | null;
     "templateIds"?: Array<string> | null;
-    "customFields"?: Array<SignatureRequestResponseCustomFieldBase> | null;
-    "attachments"?: Array<SignatureRequestResponseAttachment> | null;
-    "responseData"?: Array<SignatureRequestResponseDataBase> | null;
+    "customFields"?: Array<SignatureRequestResponseCustomFieldBase>;
+    "attachments"?: Array<SignatureRequestResponseAttachment>;
+    "responseData"?: Array<SignatureRequestResponseDataBase>;
     "signatures"?: Array<SignatureRequestResponseSignatures>;
     "bulkSendJobId"?: string;
     static discriminator: string | undefined;

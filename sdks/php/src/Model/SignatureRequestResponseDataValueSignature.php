@@ -78,7 +78,7 @@ class SignatureRequestResponseDataValueSignature extends SignatureRequestRespons
      */
     protected static array $openAPINullables = [
         'type' => false,
-        'value' => false,
+        'value' => true,
     ];
 
     /**
@@ -342,7 +342,14 @@ class SignatureRequestResponseDataValueSignature extends SignatureRequestRespons
     public function setValue(?string $value)
     {
         if (is_null($value)) {
-            throw new InvalidArgumentException('non-nullable value cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'value');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('value', $nullablesSetToNull);
+            if ($index !== false) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['value'] = $value;
 

@@ -19,7 +19,7 @@ end
 module Dropbox::Sign
   class BulkSendJobGetResponseSignatureRequests
     # Whether this is a test signature request. Test requests have no legal value. Defaults to `false`.
-    # @return [Boolean, nil]
+    # @return [Boolean]
     attr_accessor :test_mode
 
     # The id of the SignatureRequest.
@@ -27,7 +27,7 @@ module Dropbox::Sign
     attr_accessor :signature_request_id
 
     # The email address of the initiator of the SignatureRequest.
-    # @return [String]
+    # @return [String, nil]
     attr_accessor :requester_email_address
 
     # The title the specified Account uses for the SignatureRequest.
@@ -39,11 +39,11 @@ module Dropbox::Sign
     attr_accessor :original_title
 
     # The subject in the email that was initially sent to the signers.
-    # @return [String, nil]
+    # @return [String]
     attr_accessor :subject
 
     # The custom message in the email that was initially sent to the signers.
-    # @return [String, nil]
+    # @return [String]
     attr_accessor :message
 
     # The metadata attached to the signature request.
@@ -55,7 +55,7 @@ module Dropbox::Sign
     attr_accessor :created_at
 
     # The time when the signature request will expire unsigned signatures. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.
-    # @return [Integer]
+    # @return [Integer, nil]
     attr_accessor :expires_at
 
     # Whether or not the SignatureRequest has been fully executed by all signers.
@@ -99,15 +99,15 @@ module Dropbox::Sign
     attr_accessor :template_ids
 
     # An array of Custom Field objects containing the name and type of each custom field.  * Text Field uses `SignatureRequestResponseCustomFieldText` * Checkbox Field uses `SignatureRequestResponseCustomFieldCheckbox`
-    # @return [Array<SignatureRequestResponseCustomFieldBase>, nil]
+    # @return [Array<SignatureRequestResponseCustomFieldBase>]
     attr_accessor :custom_fields
 
     # Signer attachments.
-    # @return [Array<SignatureRequestResponseAttachment>, nil]
+    # @return [Array<SignatureRequestResponseAttachment>]
     attr_accessor :attachments
 
     # An array of form field objects containing the name, value, and type of each textbox or checkmark field filled in by the signers.
-    # @return [Array<SignatureRequestResponseDataBase>, nil]
+    # @return [Array<SignatureRequestResponseDataBase>]
     attr_accessor :response_data
 
     # An array of signature objects, 1 for each signer.
@@ -188,16 +188,12 @@ module Dropbox::Sign
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
-        :'test_mode',
-        :'subject',
-        :'message',
+        :'requester_email_address',
+        :'expires_at',
         :'signing_url',
         :'signing_redirect_url',
         :'final_copy_uri',
         :'template_ids',
-        :'custom_fields',
-        :'attachments',
-        :'response_data',
       ])
     end
 

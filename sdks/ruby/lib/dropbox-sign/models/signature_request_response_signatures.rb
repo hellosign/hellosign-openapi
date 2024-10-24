@@ -32,7 +32,7 @@ module Dropbox::Sign
     attr_accessor :signer_email_address
 
     # The name of the signer.
-    # @return [String, nil]
+    # @return [String]
     attr_accessor :signer_name
 
     # The role of the signer.
@@ -68,11 +68,11 @@ module Dropbox::Sign
     attr_accessor :has_pin
 
     # Boolean to indicate whether this signature has SMS authentication enabled.
-    # @return [Boolean, nil]
+    # @return [Boolean]
     attr_accessor :has_sms_auth
 
     # Boolean to indicate whether this signature has SMS delivery enabled.
-    # @return [Boolean, nil]
+    # @return [Boolean]
     attr_accessor :has_sms_delivery
 
     # The SMS phone number used for authentication or signature request delivery.
@@ -154,15 +154,12 @@ module Dropbox::Sign
     def self.openapi_nullable
       Set.new([
         :'signer_group_guid',
-        :'signer_name',
         :'signer_role',
         :'order',
         :'decline_reason',
         :'signed_at',
         :'last_viewed_at',
         :'last_reminded_at',
-        :'has_sms_auth',
-        :'has_sms_delivery',
         :'sms_phone_number',
         :'reassigned_by',
         :'reassignment_reason',
