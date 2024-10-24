@@ -115,6 +115,11 @@ Class | Method | HTTP request | Description
 ```BulkSendJobApi``` | [```bulk_send_job_list```](docs/BulkSendJobApi.md#bulk_send_job_list) | ```GET /bulk_send_job/list``` | List Bulk Send Jobs|
 |```EmbeddedApi``` | [```embedded_edit_url```](docs/EmbeddedApi.md#embedded_edit_url) | ```POST /embedded/edit_url/{template_id}``` | Get Embedded Template Edit URL|
 ```EmbeddedApi``` | [```embedded_sign_url```](docs/EmbeddedApi.md#embedded_sign_url) | ```GET /embedded/sign_url/{signature_id}``` | Get Embedded Sign URL|
+|```FaxApi``` | [```fax_delete```](docs/FaxApi.md#fax_delete) | ```DELETE /fax/{fax_id}``` | Delete Fax|
+```FaxApi``` | [```fax_files```](docs/FaxApi.md#fax_files) | ```GET /fax/files/{fax_id}``` | List Fax Files|
+```FaxApi``` | [```fax_get```](docs/FaxApi.md#fax_get) | ```GET /fax/{fax_id}``` | Get Fax|
+```FaxApi``` | [```fax_list```](docs/FaxApi.md#fax_list) | ```GET /fax/list``` | Lists Faxes|
+```FaxApi``` | [```fax_send```](docs/FaxApi.md#fax_send) | ```POST /fax/send``` | Send Fax|
 |```FaxLineApi``` | [```fax_line_add_user```](docs/FaxLineApi.md#fax_line_add_user) | ```PUT /fax_line/add_user``` | Add Fax Line User|
 ```FaxLineApi``` | [```fax_line_area_code_get```](docs/FaxLineApi.md#fax_line_area_code_get) | ```GET /fax_line/area_codes``` | Get Available Fax Line Area Codes|
 ```FaxLineApi``` | [```fax_line_create```](docs/FaxLineApi.md#fax_line_create) | ```POST /fax_line/create``` | Purchase Fax Line|
@@ -204,6 +209,7 @@ Class | Method | HTTP request | Description
  - [EventCallbackRequest](docs/EventCallbackRequest.md)
  - [EventCallbackRequestEvent](docs/EventCallbackRequestEvent.md)
  - [EventCallbackRequestEventMetadata](docs/EventCallbackRequestEventMetadata.md)
+ - [FaxGetResponse](docs/FaxGetResponse.md)
  - [FaxLineAddUserRequest](docs/FaxLineAddUserRequest.md)
  - [FaxLineAreaCodeGetCountryEnum](docs/FaxLineAreaCodeGetCountryEnum.md)
  - [FaxLineAreaCodeGetProvinceEnum](docs/FaxLineAreaCodeGetProvinceEnum.md)
@@ -215,6 +221,10 @@ Class | Method | HTTP request | Description
  - [FaxLineRemoveUserRequest](docs/FaxLineRemoveUserRequest.md)
  - [FaxLineResponse](docs/FaxLineResponse.md)
  - [FaxLineResponseFaxLine](docs/FaxLineResponseFaxLine.md)
+ - [FaxListResponse](docs/FaxListResponse.md)
+ - [FaxResponse](docs/FaxResponse.md)
+ - [FaxResponseTransmission](docs/FaxResponseTransmission.md)
+ - [FaxSendRequest](docs/FaxSendRequest.md)
  - [FileResponse](docs/FileResponse.md)
  - [FileResponseDataUri](docs/FileResponseDataUri.md)
  - [ListInfoResponse](docs/ListInfoResponse.md)
