@@ -9,7 +9,7 @@ additionalProperties:
   gemName: dropbox-sign
   gemRequiredRubyVersion: '>= 2.7'
   moduleName: "Dropbox::Sign"
-  gemVersion: 1.6-dev
+  gemVersion: 1.7-dev
   sortModelPropertiesByRequiredFlag: true
   legacyDiscriminatorBehavior: true
   gitUserId: hellosign

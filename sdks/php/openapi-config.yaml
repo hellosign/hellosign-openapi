@@ -3,8 +3,8 @@ typeMappings:
   "object": "array"
 additionalProperties:
   packageName: dropbox/sign
-  packageVersion: "^1.3.0"
-  artifactVersion: 1.6-dev
+  packageVersion: "^1.7.0"
+  artifactVersion: 1.7-dev
   invokerPackage: "Dropbox\\Sign"
   sortModelPropertiesByRequiredFlag: true
   srcBasePath: src

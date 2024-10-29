@@ -23,7 +23,7 @@ export interface returnTypeI {
     body?: any;
 }
 export declare const queryParamsSerializer: (params: any) => string;
-export declare const USER_AGENT = "OpenAPI-Generator/1.6-dev/node";
+export declare const USER_AGENT = "OpenAPI-Generator/1.7-dev/node";
 export declare const generateFormData: (obj: any, typemap: AttributeTypeMap) => {
     localVarUseFormData: boolean;
     data: object;
