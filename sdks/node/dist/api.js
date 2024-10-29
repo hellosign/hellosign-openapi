@@ -16568,9 +16568,6 @@ AccountResponseQuotas.attributeTypeMap = [
 
 // model/accountResponseUsage.ts
 var _AccountResponseUsage = class {
-  constructor() {
-    this["faxPagesSent"] = 0;
-  }
   static getAttributeTypeMap() {
     return _AccountResponseUsage.attributeTypeMap;
   }

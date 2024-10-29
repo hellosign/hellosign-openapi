@@ -11025,7 +11025,7 @@ components:
         fax_pages_sent:
           description: 'Number of fax pages sent'
           type: integer
-          default: 0
+          nullable: true
       type: object
       x-internal-class: true
     AccountVerifyResponseAccount:
