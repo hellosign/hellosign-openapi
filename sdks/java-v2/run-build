@@ -12,6 +12,10 @@ if [[ -n "$GITHUB_ACTIONS" ]]; then
   echo "${DOCKER_TOKEN}" | docker login -u "${DOCKER_USERNAME}" --password-stdin
 fi
 
+# cleanup
+rm -f "${DIR}/src/main/java/com/dropbox/sign/api/"*.java
+rm -f "${DIR}/src/main/java/com/dropbox/sign/model/"*.java
+
 docker run --rm \
   -v "${DIR}/:/local" \
   openapitools/openapi-generator-cli:v7.8.0 generate \
