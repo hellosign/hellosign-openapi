@@ -39,22 +39,22 @@ import java.util.Objects;
 public class AccountResponseQuotas {
     public static final String JSON_PROPERTY_API_SIGNATURE_REQUESTS_LEFT =
             "api_signature_requests_left";
-    private Integer apiSignatureRequestsLeft = 0;
+    private Integer apiSignatureRequestsLeft;
 
     public static final String JSON_PROPERTY_DOCUMENTS_LEFT = "documents_left";
-    private Integer documentsLeft = 0;
+    private Integer documentsLeft;
 
     public static final String JSON_PROPERTY_TEMPLATES_TOTAL = "templates_total";
-    private Integer templatesTotal = 0;
+    private Integer templatesTotal;
 
     public static final String JSON_PROPERTY_TEMPLATES_LEFT = "templates_left";
-    private Integer templatesLeft = 0;
+    private Integer templatesLeft;
 
     public static final String JSON_PROPERTY_SMS_VERIFICATIONS_LEFT = "sms_verifications_left";
-    private Integer smsVerificationsLeft = 0;
+    private Integer smsVerificationsLeft;
 
     public static final String JSON_PROPERTY_NUM_FAX_PAGES_LEFT = "num_fax_pages_left";
-    private Integer numFaxPagesLeft = 0;
+    private Integer numFaxPagesLeft;
 
     public AccountResponseQuotas() {}
 
