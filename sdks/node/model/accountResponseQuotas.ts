@@ -45,7 +45,7 @@ export class AccountResponseQuotas {
    */
   "templatesLeft"?: number | null;
   /**
-   * SMS verifications  remaining.
+   * SMS verifications remaining.
    */
   "smsVerificationsLeft"?: number | null;
   /**

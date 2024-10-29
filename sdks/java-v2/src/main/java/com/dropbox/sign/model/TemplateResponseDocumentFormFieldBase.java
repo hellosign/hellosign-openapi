@@ -44,8 +44,7 @@ import com.dropbox.sign.ApiException;
   TemplateResponseDocumentFormFieldBase.JSON_PROPERTY_Y,
   TemplateResponseDocumentFormFieldBase.JSON_PROPERTY_WIDTH,
   TemplateResponseDocumentFormFieldBase.JSON_PROPERTY_HEIGHT,
-  TemplateResponseDocumentFormFieldBase.JSON_PROPERTY_REQUIRED,
-  TemplateResponseDocumentFormFieldBase.JSON_PROPERTY_GROUP
+  TemplateResponseDocumentFormFieldBase.JSON_PROPERTY_REQUIRED
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(
@@ -91,9 +90,6 @@ public class TemplateResponseDocumentFormFieldBase {
 
   public static final String JSON_PROPERTY_REQUIRED = "required";
   private Boolean required;
-
-  public static final String JSON_PROPERTY_GROUP = "group";
-  private String group;
 
   public TemplateResponseDocumentFormFieldBase() { 
   }
@@ -346,31 +342,6 @@ public class TemplateResponseDocumentFormFieldBase {
   }
 
 
-  public TemplateResponseDocumentFormFieldBase group(String group) {
-    this.group = group;
-    return this;
-  }
-
-  /**
-   * The name of the group this field is in. If this field is not a group, this defaults to &#x60;null&#x60; except for Radio fields.
-   * @return group
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_GROUP)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getGroup() {
-    return group;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_GROUP)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setGroup(String group) {
-    this.group = group;
-  }
-
-
   /**
    * Return true if this TemplateResponseDocumentFormFieldBase object is equal to o.
    */
@@ -391,13 +362,12 @@ public class TemplateResponseDocumentFormFieldBase {
         Objects.equals(this.y, templateResponseDocumentFormFieldBase.y) &&
         Objects.equals(this.width, templateResponseDocumentFormFieldBase.width) &&
         Objects.equals(this.height, templateResponseDocumentFormFieldBase.height) &&
-        Objects.equals(this.required, templateResponseDocumentFormFieldBase.required) &&
-        Objects.equals(this.group, templateResponseDocumentFormFieldBase.group);
+        Objects.equals(this.required, templateResponseDocumentFormFieldBase.required);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, apiId, name, signer, x, y, width, height, required, group);
+    return Objects.hash(type, apiId, name, signer, x, y, width, height, required);
   }
 
   @Override
@@ -413,7 +383,6 @@ public class TemplateResponseDocumentFormFieldBase {
     sb.append("    width: ").append(toIndentedString(width)).append("\n");
     sb.append("    height: ").append(toIndentedString(height)).append("\n");
     sb.append("    required: ").append(toIndentedString(required)).append("\n");
-    sb.append("    group: ").append(toIndentedString(group)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -591,25 +560,6 @@ public class TemplateResponseDocumentFormFieldBase {
         }
         else {
             map.put("required", JSON.getDefault().getMapper().writeValueAsString(required));
-        }
-    }
-    if (group != null) {
-        if (isFileTypeOrListOfFiles(group)) {
-            fileTypeFound = true;
-        }
-
-        if (group.getClass().equals(java.io.File.class) ||
-            group.getClass().equals(Integer.class) ||
-            group.getClass().equals(String.class) ||
-            group.getClass().isEnum()) {
-            map.put("group", group);
-        } else if (isListOfFile(group)) {
-            for(int i = 0; i< getListSize(group); i++) {
-                map.put("group[" + i + "]", getFromList(group, i));
-            }
-        }
-        else {
-            map.put("group", JSON.getDefault().getMapper().writeValueAsString(group));
         }
     }
     } catch (Exception e) {

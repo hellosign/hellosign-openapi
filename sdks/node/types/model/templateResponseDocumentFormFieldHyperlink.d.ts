@@ -7,6 +7,7 @@ export declare class TemplateResponseDocumentFormFieldHyperlink extends Template
     "isMultiline"?: boolean;
     "originalFontSize"?: number;
     "fontFamily"?: string;
+    "group"?: string | null;
     static discriminator: string | undefined;
     static attributeTypeMap: AttributeTypeMap;
     static getAttributeTypeMap(): AttributeTypeMap;

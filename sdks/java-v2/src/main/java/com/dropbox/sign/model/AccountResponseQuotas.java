@@ -185,7 +185,7 @@ public class AccountResponseQuotas {
   }
 
   /**
-   * SMS verifications  remaining.
+   * SMS verifications remaining.
    * @return smsVerificationsLeft
    */
   @jakarta.annotation.Nullable

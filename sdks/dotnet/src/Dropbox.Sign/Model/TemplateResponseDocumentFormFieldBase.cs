@@ -60,8 +60,7 @@ namespace Dropbox.Sign.Model
         /// <param name="width">The width in pixels of this form field..</param>
         /// <param name="height">The height in pixels of this form field..</param>
         /// <param name="required">Boolean showing whether or not this field is required..</param>
-        /// <param name="group">The name of the group this field is in. If this field is not a group, this defaults to &#x60;null&#x60; except for Radio fields..</param>
-        public TemplateResponseDocumentFormFieldBase(string apiId = default(string), string name = default(string), string type = default(string), Object signer = null, int x = default(int), int y = default(int), int width = default(int), int height = default(int), bool required = default(bool), string group = default(string))
+        public TemplateResponseDocumentFormFieldBase(string apiId = default(string), string name = default(string), string type = default(string), Object signer = null, int x = default(int), int y = default(int), int width = default(int), int height = default(int), bool required = default(bool))
         {
 
             // to ensure "type" is required (not null)
@@ -78,7 +77,6 @@ namespace Dropbox.Sign.Model
             this.Width = width;
             this.Height = height;
             this.Required = required;
-            this.Group = group;
         }
 
         /// <summary>
@@ -165,13 +163,6 @@ namespace Dropbox.Sign.Model
         public bool Required { get; set; }
 
         /// <summary>
-        /// The name of the group this field is in. If this field is not a group, this defaults to &#x60;null&#x60; except for Radio fields.
-        /// </summary>
-        /// <value>The name of the group this field is in. If this field is not a group, this defaults to &#x60;null&#x60; except for Radio fields.</value>
-        [DataMember(Name = "group", EmitDefaultValue = true)]
-        public string Group { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -188,7 +179,6 @@ namespace Dropbox.Sign.Model
             sb.Append("  Width: ").Append(Width).Append("\n");
             sb.Append("  Height: ").Append(Height).Append("\n");
             sb.Append("  Required: ").Append(Required).Append("\n");
-            sb.Append("  Group: ").Append(Group).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -263,11 +253,6 @@ namespace Dropbox.Sign.Model
                 (
                     this.Required == input.Required ||
                     this.Required.Equals(input.Required)
-                ) &&
-                (
-                    this.Group == input.Group ||
-                    (this.Group != null &&
-                    this.Group.Equals(input.Group))
                 );
         }
 
@@ -301,10 +286,6 @@ namespace Dropbox.Sign.Model
                 hashCode = (hashCode * 59) + this.Width.GetHashCode();
                 hashCode = (hashCode * 59) + this.Height.GetHashCode();
                 hashCode = (hashCode * 59) + this.Required.GetHashCode();
-                if (this.Group != null)
-                {
-                    hashCode = (hashCode * 59) + this.Group.GetHashCode();
-                }
                 return hashCode;
             }
         }
@@ -393,13 +374,6 @@ namespace Dropbox.Sign.Model
                 Property = "Required",
                 Type = "bool",
                 Value = Required,
-            });
-            types.Add(new OpenApiType()
-            {
-                Name = "group",
-                Property = "Group",
-                Type = "string",
-                Value = Group,
             });
 
             return types;

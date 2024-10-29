@@ -7,6 +7,15 @@ set -e
 DIR=$(cd `dirname $0` && pwd)
 WORKING_DIR="/app/dotnet"
 
+if [[ -n "$GITHUB_ACTIONS" ]]; then
+  printf "\nLogging in to docker.com ...\n"
+  echo "${DOCKER_TOKEN}" | docker login -u "${DOCKER_USERNAME}" --password-stdin
+fi
+
+# cleanup
+rm -f "${DIR}/src/Dropbox.Sign/Api/"*.cs
+rm -f "${DIR}/src/Dropbox.Sign/Model/"*.cs
+
 docker run --rm \
   -v "${DIR}/:/local" \
   openapitools/openapi-generator-cli:v7.8.0 generate \

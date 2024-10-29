@@ -87,10 +87,6 @@ class TemplateResponseDocumentFormFieldBase(BaseModel):
         default=None,
         description="Boolean showing whether or not this field is required.",
     )
-    group: Optional[StrictStr] = Field(
-        default=None,
-        description="The name of the group this field is in. If this field is not a group, this defaults to `null` except for Radio fields.",
-    )
     __properties: ClassVar[List[str]] = [
         "type",
         "api_id",
@@ -101,7 +97,6 @@ class TemplateResponseDocumentFormFieldBase(BaseModel):
         "width",
         "height",
         "required",
-        "group",
     ]
 
     model_config = ConfigDict(
@@ -261,7 +256,6 @@ class TemplateResponseDocumentFormFieldBase(BaseModel):
             "width": "(int,)",
             "height": "(int,)",
             "required": "(bool,)",
-            "group": "(str,)",
         }
 
     @classmethod

@@ -12,5 +12,6 @@ Name | Type | Description | Notes
 | `original_font_size` | ```int``` |  Original font size used in this form field&#39;s text.  |  |
 | `font_family` | ```string``` |  Font family used in this form field&#39;s text.  |  |
 | `validation_type` | ```string``` |  Each text field may contain a `validation_type` parameter. Check out the list of [validation types](https://faq.hellosign.com/hc/en-us/articles/217115577) to learn more about the possible values.  |  |
+| `group` | ```string``` |  The name of the group this field is in. If this field is not a group, this defaults to `null` except for Radio fields.  |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

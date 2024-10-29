@@ -47,6 +47,10 @@ export class TemplateResponseDocumentFormFieldHyperlink extends TemplateResponse
    * Font family used in this form field\'s text.
    */
   "fontFamily"?: string;
+  /**
+   * The name of the group this field is in. If this field is not a group, this defaults to `null` except for Radio fields.
+   */
+  "group"?: string | null;
 
   static discriminator: string | undefined = undefined;
 
@@ -74,6 +78,11 @@ export class TemplateResponseDocumentFormFieldHyperlink extends TemplateResponse
     {
       name: "fontFamily",
       baseName: "fontFamily",
+      type: "string",
+    },
+    {
+      name: "group",
+      baseName: "group",
       type: "string",
     },
   ];

@@ -35,7 +35,7 @@ export class ApiAppResponseOAuth {
   /**
    * The app\'s OAuth secret, or null if the app does not belong to user.
    */
-  "secret"?: string;
+  "secret"?: string | null;
   /**
    * Array of OAuth scopes used by the app.
    */

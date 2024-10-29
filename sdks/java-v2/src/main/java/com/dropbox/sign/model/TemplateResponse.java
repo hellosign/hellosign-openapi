@@ -16,6 +16,7 @@ package com.dropbox.sign.model;
 import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
+import com.dropbox.sign.model.SignatureRequestResponseAttachment;
 import com.dropbox.sign.model.TemplateResponseAccount;
 import com.dropbox.sign.model.TemplateResponseCCRole;
 import com.dropbox.sign.model.TemplateResponseDocument;
@@ -55,7 +56,8 @@ import com.dropbox.sign.ApiException;
   TemplateResponse.JSON_PROPERTY_DOCUMENTS,
   TemplateResponse.JSON_PROPERTY_CUSTOM_FIELDS,
   TemplateResponse.JSON_PROPERTY_NAMED_FORM_FIELDS,
-  TemplateResponse.JSON_PROPERTY_ACCOUNTS
+  TemplateResponse.JSON_PROPERTY_ACCOUNTS,
+  TemplateResponse.JSON_PROPERTY_ATTACHMENTS
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
@@ -106,6 +108,9 @@ public class TemplateResponse {
 
   public static final String JSON_PROPERTY_ACCOUNTS = "accounts";
   private List<TemplateResponseAccount> accounts = null;
+
+  public static final String JSON_PROPERTY_ATTACHMENTS = "attachments";
+  private List<SignatureRequestResponseAttachment> attachments = null;
 
   public TemplateResponse() { 
   }
@@ -231,7 +236,7 @@ public class TemplateResponse {
   }
 
   /**
-   * &#x60;true&#x60; if this template was created using an embedded flow, &#x60;false&#x60; if it was created on our website.
+   * &#x60;true&#x60; if this template was created using an embedded flow, &#x60;false&#x60; if it was created on our website. Will be &#x60;null&#x60; when you are not the creator of the Template.
    * @return isEmbedded
    */
   @jakarta.annotation.Nullable
@@ -556,6 +561,39 @@ public class TemplateResponse {
   }
 
 
+  public TemplateResponse attachments(List<SignatureRequestResponseAttachment> attachments) {
+    this.attachments = attachments;
+    return this;
+  }
+
+  public TemplateResponse addAttachmentsItem(SignatureRequestResponseAttachment attachmentsItem) {
+    if (this.attachments == null) {
+      this.attachments = new ArrayList<>();
+    }
+    this.attachments.add(attachmentsItem);
+    return this;
+  }
+
+  /**
+   * Signer attachments.
+   * @return attachments
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ATTACHMENTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<SignatureRequestResponseAttachment> getAttachments() {
+    return attachments;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_ATTACHMENTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAttachments(List<SignatureRequestResponseAttachment> attachments) {
+    this.attachments = attachments;
+  }
+
+
   /**
    * Return true if this TemplateResponse object is equal to o.
    */
@@ -582,12 +620,13 @@ public class TemplateResponse {
         Objects.equals(this.documents, templateResponse.documents) &&
         Objects.equals(this.customFields, templateResponse.customFields) &&
         Objects.equals(this.namedFormFields, templateResponse.namedFormFields) &&
-        Objects.equals(this.accounts, templateResponse.accounts);
+        Objects.equals(this.accounts, templateResponse.accounts) &&
+        Objects.equals(this.attachments, templateResponse.attachments);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(templateId, title, message, updatedAt, isEmbedded, isCreator, canEdit, isLocked, metadata, signerRoles, ccRoles, documents, customFields, namedFormFields, accounts);
+    return Objects.hash(templateId, title, message, updatedAt, isEmbedded, isCreator, canEdit, isLocked, metadata, signerRoles, ccRoles, documents, customFields, namedFormFields, accounts, attachments);
   }
 
   @Override
@@ -609,6 +648,7 @@ public class TemplateResponse {
     sb.append("    customFields: ").append(toIndentedString(customFields)).append("\n");
     sb.append("    namedFormFields: ").append(toIndentedString(namedFormFields)).append("\n");
     sb.append("    accounts: ").append(toIndentedString(accounts)).append("\n");
+    sb.append("    attachments: ").append(toIndentedString(attachments)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -900,6 +940,25 @@ public class TemplateResponse {
         }
         else {
             map.put("accounts", JSON.getDefault().getMapper().writeValueAsString(accounts));
+        }
+    }
+    if (attachments != null) {
+        if (isFileTypeOrListOfFiles(attachments)) {
+            fileTypeFound = true;
+        }
+
+        if (attachments.getClass().equals(java.io.File.class) ||
+            attachments.getClass().equals(Integer.class) ||
+            attachments.getClass().equals(String.class) ||
+            attachments.getClass().isEnum()) {
+            map.put("attachments", attachments);
+        } else if (isListOfFile(attachments)) {
+            for(int i = 0; i< getListSize(attachments); i++) {
+                map.put("attachments[" + i + "]", getFromList(attachments, i));
+            }
+        }
+        else {
+            map.put("attachments", JSON.getDefault().getMapper().writeValueAsString(attachments));
         }
     }
     } catch (Exception e) {

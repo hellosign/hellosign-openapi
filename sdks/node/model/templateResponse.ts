@@ -23,6 +23,7 @@
  */
 
 import { AttributeTypeMap, ObjectSerializer } from "./";
+import { SignatureRequestResponseAttachment } from "./signatureRequestResponseAttachment";
 import { TemplateResponseAccount } from "./templateResponseAccount";
 import { TemplateResponseCCRole } from "./templateResponseCCRole";
 import { TemplateResponseDocument } from "./templateResponseDocument";
@@ -51,21 +52,21 @@ export class TemplateResponse {
    */
   "updatedAt"?: number;
   /**
-   * `true` if this template was created using an embedded flow, `false` if it was created on our website.
+   * `true` if this template was created using an embedded flow, `false` if it was created on our website. Will be `null` when you are not the creator of the Template.
    */
   "isEmbedded"?: boolean | null;
   /**
    * `true` if you are the owner of this template, `false` if it\'s been shared with you by a team member.
    */
-  "isCreator"?: boolean | null;
+  "isCreator"?: boolean;
   /**
    * Indicates whether edit rights have been granted to you by the owner (always `true` if that\'s you).
    */
-  "canEdit"?: boolean | null;
+  "canEdit"?: boolean;
   /**
    * Indicates whether the template is locked. If `true`, then the template was created outside your quota and can only be used in `test_mode`. If `false`, then the template is within your quota and can be used to create signature requests.
    */
-  "isLocked"?: boolean | null;
+  "isLocked"?: boolean;
   /**
    * The metadata attached to the template.
    */
@@ -93,7 +94,11 @@ export class TemplateResponse {
   /**
    * An array of the Accounts that can use this Template.
    */
-  "accounts"?: Array<TemplateResponseAccount> | null;
+  "accounts"?: Array<TemplateResponseAccount>;
+  /**
+   * Signer attachments.
+   */
+  "attachments"?: Array<SignatureRequestResponseAttachment>;
 
   static discriminator: string | undefined = undefined;
 
@@ -172,6 +177,11 @@ export class TemplateResponse {
       name: "accounts",
       baseName: "accounts",
       type: "Array<TemplateResponseAccount>",
+    },
+    {
+      name: "attachments",
+      baseName: "attachments",
+      type: "Array<SignatureRequestResponseAttachment>",
     },
   ];
 

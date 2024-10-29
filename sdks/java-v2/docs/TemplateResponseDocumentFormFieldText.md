@@ -14,6 +14,7 @@ This class extends `TemplateResponseDocumentFormFieldBase`
 | `originalFontSize` | ```Integer``` |  Original font size used in this form field&#39;s text.  |  |
 | `fontFamily` | ```String``` |  Font family used in this form field&#39;s text.  |  |
 | `validationType` | [```ValidationTypeEnum```](#ValidationTypeEnum) |  Each text field may contain a `validation_type` parameter. Check out the list of [validation types](https://faq.hellosign.com/hc/en-us/articles/217115577) to learn more about the possible values.  |  |
+| `group` | ```String``` |  The name of the group this field is in. If this field is not a group, this defaults to `null` except for Radio fields.  |  |
 
 
 

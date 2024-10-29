@@ -20,6 +20,9 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from dropbox_sign.models.signature_request_response_attachment import (
+    SignatureRequestResponseAttachment,
+)
 from dropbox_sign.models.template_response_account import TemplateResponseAccount
 from dropbox_sign.models.template_response_cc_role import TemplateResponseCCRole
 from dropbox_sign.models.template_response_document import TemplateResponseDocument
@@ -58,7 +61,7 @@ class TemplateResponse(BaseModel):
     )
     is_embedded: Optional[StrictBool] = Field(
         default=None,
-        description="`true` if this template was created using an embedded flow, `false` if it was created on our website.",
+        description="`true` if this template was created using an embedded flow, `false` if it was created on our website. Will be `null` when you are not the creator of the Template.",
     )
     is_creator: Optional[StrictBool] = Field(
         default=None,
@@ -98,6 +101,9 @@ class TemplateResponse(BaseModel):
     accounts: Optional[List[TemplateResponseAccount]] = Field(
         default=None, description="An array of the Accounts that can use this Template."
     )
+    attachments: Optional[List[SignatureRequestResponseAttachment]] = Field(
+        default=None, description="Signer attachments."
+    )
     __properties: ClassVar[List[str]] = [
         "template_id",
         "title",
@@ -114,6 +120,7 @@ class TemplateResponse(BaseModel):
         "custom_fields",
         "named_form_fields",
         "accounts",
+        "attachments",
     ]
 
     model_config = ConfigDict(
@@ -208,6 +215,13 @@ class TemplateResponse(BaseModel):
                 if _item_accounts:
                     _items.append(_item_accounts.to_dict())
             _dict["accounts"] = _items
+        # override the default output from pydantic by calling `to_dict()` of each item in attachments (list)
+        _items = []
+        if self.attachments:
+            for _item_attachments in self.attachments:
+                if _item_attachments:
+                    _items.append(_item_attachments.to_dict())
+            _dict["attachments"] = _items
         return _dict
 
     @classmethod
@@ -278,6 +292,14 @@ class TemplateResponse(BaseModel):
                     if obj.get("accounts") is not None
                     else None
                 ),
+                "attachments": (
+                    [
+                        SignatureRequestResponseAttachment.from_dict(_item)
+                        for _item in obj["attachments"]
+                    ]
+                    if obj.get("attachments") is not None
+                    else None
+                ),
             }
         )
         return _obj
@@ -310,6 +332,7 @@ class TemplateResponse(BaseModel):
             "custom_fields": "(List[TemplateResponseDocumentCustomFieldBase],)",
             "named_form_fields": "(List[TemplateResponseDocumentFormFieldBase],)",
             "accounts": "(List[TemplateResponseAccount],)",
+            "attachments": "(List[SignatureRequestResponseAttachment],)",
         }
 
     @classmethod
@@ -321,4 +344,5 @@ class TemplateResponse(BaseModel):
             "custom_fields",
             "named_form_fields",
             "accounts",
+            "attachments",
         ]

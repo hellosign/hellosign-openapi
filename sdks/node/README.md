@@ -120,6 +120,11 @@ All URIs are relative to *https://api.hellosign.com/v3*
 | *BulkSendJobApi* | [**bulkSendJobList**](./docs/api/BulkSendJobApi.md#bulksendjoblist) | **GET** /bulk_send_job/list | List Bulk Send Jobs |
 | *EmbeddedApi* | [**embeddedEditUrl**](./docs/api/EmbeddedApi.md#embeddedediturl) | **POST** /embedded/edit_url/{template_id} | Get Embedded Template Edit URL |
 | *EmbeddedApi* | [**embeddedSignUrl**](./docs/api/EmbeddedApi.md#embeddedsignurl) | **GET** /embedded/sign_url/{signature_id} | Get Embedded Sign URL |
+| *FaxApi* | [**faxDelete**](./docs/api/FaxApi.md#faxdelete) | **DELETE** /fax/{fax_id} | Delete Fax |
+| *FaxApi* | [**faxFiles**](./docs/api/FaxApi.md#faxfiles) | **GET** /fax/files/{fax_id} | List Fax Files |
+| *FaxApi* | [**faxGet**](./docs/api/FaxApi.md#faxget) | **GET** /fax/{fax_id} | Get Fax |
+| *FaxApi* | [**faxList**](./docs/api/FaxApi.md#faxlist) | **GET** /fax/list | Lists Faxes |
+| *FaxApi* | [**faxSend**](./docs/api/FaxApi.md#faxsend) | **POST** /fax/send | Send Fax |
 | *FaxLineApi* | [**faxLineAddUser**](./docs/api/FaxLineApi.md#faxlineadduser) | **PUT** /fax_line/add_user | Add Fax Line User |
 | *FaxLineApi* | [**faxLineAreaCodeGet**](./docs/api/FaxLineApi.md#faxlineareacodeget) | **GET** /fax_line/area_codes | Get Available Fax Line Area Codes |
 | *FaxLineApi* | [**faxLineCreate**](./docs/api/FaxLineApi.md#faxlinecreate) | **POST** /fax_line/create | Purchase Fax Line |
@@ -157,7 +162,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 | *TeamApi* | [**teamSubTeams**](./docs/api/TeamApi.md#teamsubteams) | **GET** /team/sub_teams/{team_id} | List Sub Teams |
 | *TeamApi* | [**teamUpdate**](./docs/api/TeamApi.md#teamupdate) | **PUT** /team | Update Team |
 | *TemplateApi* | [**templateAddUser**](./docs/api/TemplateApi.md#templateadduser) | **POST** /template/add_user/{template_id} | Add User to Template |
-| *TemplateApi* | [**templateCreate**](./docs/api/TemplateApi.md#templatecreate) | **POST** /template/create | Create  Template |
+| *TemplateApi* | [**templateCreate**](./docs/api/TemplateApi.md#templatecreate) | **POST** /template/create | Create Template |
 | *TemplateApi* | [**templateCreateEmbeddedDraft**](./docs/api/TemplateApi.md#templatecreateembeddeddraft) | **POST** /template/create_embedded_draft | Create Embedded Template Draft |
 | *TemplateApi* | [**templateDelete**](./docs/api/TemplateApi.md#templatedelete) | **POST** /template/delete/{template_id} | Delete Template |
 | *TemplateApi* | [**templateFiles**](./docs/api/TemplateApi.md#templatefiles) | **GET** /template/files/{template_id} | Get Template Files |
@@ -208,6 +213,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 - [EventCallbackRequest](./docs/model/EventCallbackRequest.md)
 - [EventCallbackRequestEvent](./docs/model/EventCallbackRequestEvent.md)
 - [EventCallbackRequestEventMetadata](./docs/model/EventCallbackRequestEventMetadata.md)
+- [FaxGetResponse](./docs/model/FaxGetResponse.md)
 - [FaxLineAddUserRequest](./docs/model/FaxLineAddUserRequest.md)
 - [FaxLineAreaCodeGetCountryEnum](./docs/model/FaxLineAreaCodeGetCountryEnum.md)
 - [FaxLineAreaCodeGetProvinceEnum](./docs/model/FaxLineAreaCodeGetProvinceEnum.md)
@@ -219,6 +225,10 @@ All URIs are relative to *https://api.hellosign.com/v3*
 - [FaxLineRemoveUserRequest](./docs/model/FaxLineRemoveUserRequest.md)
 - [FaxLineResponse](./docs/model/FaxLineResponse.md)
 - [FaxLineResponseFaxLine](./docs/model/FaxLineResponseFaxLine.md)
+- [FaxListResponse](./docs/model/FaxListResponse.md)
+- [FaxResponse](./docs/model/FaxResponse.md)
+- [FaxResponseTransmission](./docs/model/FaxResponseTransmission.md)
+- [FaxSendRequest](./docs/model/FaxSendRequest.md)
 - [FileResponse](./docs/model/FileResponse.md)
 - [FileResponseDataUri](./docs/model/FileResponseDataUri.md)
 - [ListInfoResponse](./docs/model/ListInfoResponse.md)

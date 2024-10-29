@@ -51,6 +51,10 @@ export class TemplateResponseDocumentFormFieldText extends TemplateResponseDocum
    * Each text field may contain a `validation_type` parameter. Check out the list of [validation types](https://faq.hellosign.com/hc/en-us/articles/217115577) to learn more about the possible values.
    */
   "validationType"?: TemplateResponseDocumentFormFieldText.ValidationTypeEnum;
+  /**
+   * The name of the group this field is in. If this field is not a group, this defaults to `null` except for Radio fields.
+   */
+  "group"?: string | null;
 
   static discriminator: string | undefined = undefined;
 
@@ -84,6 +88,11 @@ export class TemplateResponseDocumentFormFieldText extends TemplateResponseDocum
       name: "validationType",
       baseName: "validation_type",
       type: "TemplateResponseDocumentFormFieldText.ValidationTypeEnum",
+    },
+    {
+      name: "group",
+      baseName: "group",
+      type: "string",
     },
   ];
 

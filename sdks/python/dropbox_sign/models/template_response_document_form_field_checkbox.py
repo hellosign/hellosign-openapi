@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from dropbox_sign.models.template_response_document_form_field_base import (
     TemplateResponseDocumentFormFieldBase,
 )
@@ -37,6 +37,10 @@ class TemplateResponseDocumentFormFieldCheckbox(TemplateResponseDocumentFormFiel
 
     type: StrictStr = Field(
         description="The type of this form field. See [field types](/api/reference/constants/#field-types).  * Text Field uses `TemplateResponseDocumentFormFieldText` * Dropdown Field uses `TemplateResponseDocumentFormFieldDropdown` * Hyperlink Field uses `TemplateResponseDocumentFormFieldHyperlink` * Checkbox Field uses `TemplateResponseDocumentFormFieldCheckbox` * Radio Field uses `TemplateResponseDocumentFormFieldRadio` * Signature Field uses `TemplateResponseDocumentFormFieldSignature` * Date Signed Field uses `TemplateResponseDocumentFormFieldDateSigned` * Initials Field uses `TemplateResponseDocumentFormFieldInitials`"
+    )
+    group: Optional[StrictStr] = Field(
+        default=None,
+        description="The name of the group this field is in. If this field is not a group, this defaults to `null` except for Radio fields.",
     )
     __properties: ClassVar[List[str]] = [
         "type",
@@ -142,6 +146,7 @@ class TemplateResponseDocumentFormFieldCheckbox(TemplateResponseDocumentFormFiel
     def openapi_types(cls) -> Dict[str, str]:
         return {
             "type": "(str,)",
+            "group": "(str,)",
             "api_id": "(str,)",
             "name": "(str,)",
             "signer": "(int, str,)",
@@ -150,7 +155,6 @@ class TemplateResponseDocumentFormFieldCheckbox(TemplateResponseDocumentFormFiel
             "width": "(int,)",
             "height": "(int,)",
             "required": "(bool,)",
-            "group": "(str,)",
         }
 
     @classmethod

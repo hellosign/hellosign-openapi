@@ -9,7 +9,7 @@ export declare class TemplateResponseDocument {
     "fieldGroups"?: Array<TemplateResponseDocumentFieldGroup>;
     "formFields"?: Array<TemplateResponseDocumentFormFieldBase>;
     "customFields"?: Array<TemplateResponseDocumentCustomFieldBase>;
-    "staticFields"?: Array<TemplateResponseDocumentStaticFieldBase> | null;
+    "staticFields"?: Array<TemplateResponseDocumentStaticFieldBase>;
     static discriminator: string | undefined;
     static attributeTypeMap: AttributeTypeMap;
     static getAttributeTypeMap(): AttributeTypeMap;

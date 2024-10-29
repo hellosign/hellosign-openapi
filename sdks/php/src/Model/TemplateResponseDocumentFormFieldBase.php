@@ -67,7 +67,6 @@ class TemplateResponseDocumentFormFieldBase implements ModelInterface, ArrayAcce
         'width' => 'int',
         'height' => 'int',
         'required' => 'bool',
-        'group' => 'string',
     ];
 
     /**
@@ -87,7 +86,6 @@ class TemplateResponseDocumentFormFieldBase implements ModelInterface, ArrayAcce
         'width' => null,
         'height' => null,
         'required' => null,
-        'group' => null,
     ];
 
     /**
@@ -105,7 +103,6 @@ class TemplateResponseDocumentFormFieldBase implements ModelInterface, ArrayAcce
         'width' => false,
         'height' => false,
         'required' => false,
-        'group' => true,
     ];
 
     /**
@@ -195,7 +192,6 @@ class TemplateResponseDocumentFormFieldBase implements ModelInterface, ArrayAcce
         'width' => 'width',
         'height' => 'height',
         'required' => 'required',
-        'group' => 'group',
     ];
 
     /**
@@ -213,7 +209,6 @@ class TemplateResponseDocumentFormFieldBase implements ModelInterface, ArrayAcce
         'width' => 'setWidth',
         'height' => 'setHeight',
         'required' => 'setRequired',
-        'group' => 'setGroup',
     ];
 
     /**
@@ -231,7 +226,6 @@ class TemplateResponseDocumentFormFieldBase implements ModelInterface, ArrayAcce
         'width' => 'getWidth',
         'height' => 'getHeight',
         'required' => 'getRequired',
-        'group' => 'getGroup',
     ];
 
     /**
@@ -299,7 +293,6 @@ class TemplateResponseDocumentFormFieldBase implements ModelInterface, ArrayAcce
         $this->setIfExists('width', $data ?? [], null);
         $this->setIfExists('height', $data ?? [], null);
         $this->setIfExists('required', $data ?? [], null);
-        $this->setIfExists('group', $data ?? [], null);
 
         // Initialize discriminator property with the model name.
         $this->container['type'] = static::$openAPIModelName;
@@ -620,40 +613,6 @@ class TemplateResponseDocumentFormFieldBase implements ModelInterface, ArrayAcce
             throw new InvalidArgumentException('non-nullable required cannot be null');
         }
         $this->container['required'] = $required;
-
-        return $this;
-    }
-
-    /**
-     * Gets group
-     *
-     * @return string|null
-     */
-    public function getGroup()
-    {
-        return $this->container['group'];
-    }
-
-    /**
-     * Sets group
-     *
-     * @param string|null $group The name of the group this field is in. If this field is not a group, this defaults to `null` except for Radio fields.
-     *
-     * @return self
-     */
-    public function setGroup(?string $group)
-    {
-        if (is_null($group)) {
-            array_push($this->openAPINullablesSetToNull, 'group');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('group', $nullablesSetToNull);
-            if ($index !== false) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['group'] = $group;
 
         return $this;
     }

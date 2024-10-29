@@ -35,7 +35,7 @@ module Dropbox::Sign
     # @return [Integer, nil]
     attr_accessor :templates_left
 
-    # SMS verifications  remaining.
+    # SMS verifications remaining.
     # @return [Integer, nil]
     attr_accessor :sms_verifications_left
 

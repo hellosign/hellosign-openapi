@@ -24,7 +24,7 @@ module Dropbox::Sign
     attr_accessor :callback_url
 
     # The app's OAuth secret, or null if the app does not belong to user.
-    # @return [String]
+    # @return [String, nil]
     attr_accessor :secret
 
     # Array of OAuth scopes used by the app.
@@ -63,6 +63,7 @@ module Dropbox::Sign
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        :'secret',
       ])
     end
 

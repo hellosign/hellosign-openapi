@@ -45,7 +45,7 @@ namespace Dropbox.Sign.Model
         /// <param name="documentsLeft">Signature requests remaining..</param>
         /// <param name="templatesTotal">Total API templates allowed..</param>
         /// <param name="templatesLeft">API templates remaining..</param>
-        /// <param name="smsVerificationsLeft">SMS verifications  remaining..</param>
+        /// <param name="smsVerificationsLeft">SMS verifications remaining..</param>
         /// <param name="numFaxPagesLeft">Number of fax pages left.</param>
         public AccountResponseQuotas(int? apiSignatureRequestsLeft = default(int?), int? documentsLeft = default(int?), int? templatesTotal = default(int?), int? templatesLeft = default(int?), int? smsVerificationsLeft = default(int?), int? numFaxPagesLeft = default(int?))
         {
@@ -103,9 +103,9 @@ namespace Dropbox.Sign.Model
         public int? TemplatesLeft { get; set; }
 
         /// <summary>
-        /// SMS verifications  remaining.
+        /// SMS verifications remaining.
         /// </summary>
-        /// <value>SMS verifications  remaining.</value>
+        /// <value>SMS verifications remaining.</value>
         [DataMember(Name = "sms_verifications_left", EmitDefaultValue = true)]
         public int? SmsVerificationsLeft { get; set; }
 

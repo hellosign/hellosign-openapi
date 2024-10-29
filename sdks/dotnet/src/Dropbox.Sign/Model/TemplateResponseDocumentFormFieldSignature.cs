@@ -42,6 +42,7 @@ namespace Dropbox.Sign.Model
         /// Initializes a new instance of the <see cref="TemplateResponseDocumentFormFieldSignature" /> class.
         /// </summary>
         /// <param name="type">The type of this form field. See [field types](/api/reference/constants/#field-types).  * Text Field uses &#x60;TemplateResponseDocumentFormFieldText&#x60; * Dropdown Field uses &#x60;TemplateResponseDocumentFormFieldDropdown&#x60; * Hyperlink Field uses &#x60;TemplateResponseDocumentFormFieldHyperlink&#x60; * Checkbox Field uses &#x60;TemplateResponseDocumentFormFieldCheckbox&#x60; * Radio Field uses &#x60;TemplateResponseDocumentFormFieldRadio&#x60; * Signature Field uses &#x60;TemplateResponseDocumentFormFieldSignature&#x60; * Date Signed Field uses &#x60;TemplateResponseDocumentFormFieldDateSigned&#x60; * Initials Field uses &#x60;TemplateResponseDocumentFormFieldInitials&#x60; (required) (default to &quot;signature&quot;).</param>
+        /// <param name="group">The name of the group this field is in. If this field is not a group, this defaults to &#x60;null&#x60; except for Radio fields..</param>
         /// <param name="apiId">A unique id for the form field..</param>
         /// <param name="name">The name of the form field..</param>
         /// <param name="signer">The signer of the Form Field..</param>
@@ -50,8 +51,7 @@ namespace Dropbox.Sign.Model
         /// <param name="width">The width in pixels of this form field..</param>
         /// <param name="height">The height in pixels of this form field..</param>
         /// <param name="required">Boolean showing whether or not this field is required..</param>
-        /// <param name="group">The name of the group this field is in. If this field is not a group, this defaults to &#x60;null&#x60; except for Radio fields..</param>
-        public TemplateResponseDocumentFormFieldSignature(string type = @"signature", string apiId = default(string), string name = default(string), Object signer = null, int x = default(int), int y = default(int), int width = default(int), int height = default(int), bool required = default(bool), string group = default(string))
+        public TemplateResponseDocumentFormFieldSignature(string type = @"signature", string group = default(string), string apiId = default(string), string name = default(string), Object signer = null, int x = default(int), int y = default(int), int width = default(int), int height = default(int), bool required = default(bool))
         {
             this.ApiId = apiId;
             this.Name = name;
@@ -61,7 +61,6 @@ namespace Dropbox.Sign.Model
             this.Width = width;
             this.Height = height;
             this.Required = required;
-            this.Group = group;
 
             // to ensure "type" is required (not null)
             if (type == null)
@@ -69,6 +68,7 @@ namespace Dropbox.Sign.Model
                 throw new ArgumentNullException("type is a required property for TemplateResponseDocumentFormFieldSignature and cannot be null");
             }
             this.Type = type;
+            this.Group = group;
         }
 
         /// <summary>
@@ -95,6 +95,13 @@ namespace Dropbox.Sign.Model
         public string Type { get; set; }
 
         /// <summary>
+        /// The name of the group this field is in. If this field is not a group, this defaults to &#x60;null&#x60; except for Radio fields.
+        /// </summary>
+        /// <value>The name of the group this field is in. If this field is not a group, this defaults to &#x60;null&#x60; except for Radio fields.</value>
+        [DataMember(Name = "group", EmitDefaultValue = true)]
+        public string Group { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -104,6 +111,7 @@ namespace Dropbox.Sign.Model
             sb.Append("class TemplateResponseDocumentFormFieldSignature {\n");
             sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
+            sb.Append("  Group: ").Append(Group).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -143,6 +151,11 @@ namespace Dropbox.Sign.Model
                     this.Type == input.Type ||
                     (this.Type != null &&
                     this.Type.Equals(input.Type))
+                ) && base.Equals(input) &&
+                (
+                    this.Group == input.Group ||
+                    (this.Group != null &&
+                    this.Group.Equals(input.Group))
                 );
         }
 
@@ -158,6 +171,10 @@ namespace Dropbox.Sign.Model
                 if (this.Type != null)
                 {
                     hashCode = (hashCode * 59) + this.Type.GetHashCode();
+                }
+                if (this.Group != null)
+                {
+                    hashCode = (hashCode * 59) + this.Group.GetHashCode();
                 }
                 return hashCode;
             }
@@ -195,6 +212,13 @@ namespace Dropbox.Sign.Model
                 Property = "Type",
                 Type = "string",
                 Value = Type,
+            });
+            types.Add(new OpenApiType()
+            {
+                Name = "group",
+                Property = "Group",
+                Type = "string",
+                Value = Group,
             });
 
             return types;

@@ -1,0 +1,16 @@
+{
+  "default": {
+    "fax": {
+      "fax_id": "c2e9691c85d9d6fa6ae773842e3680b2b8650f1d",
+      "title": "example title",
+      "original_title": "example original title",
+      "subject": "example subject",
+      "message": "example message",
+      "metadata": [ ],
+      "created_at": 1726774555,
+      "sender": "me@dropboxsign.com",
+      "transmissions": [],
+      "files_url": "https://api.hellosign.com/v3/fax/files/2b388914e3ae3b738bd4e2ee2850c677e6dc53d2"
+    }
+  }
+}

@@ -130,6 +130,45 @@
 "EmbeddedSignUrl::DESCRIPTION": Retrieves an embedded object containing a signature url that can be opened in an iFrame. Note that templates created via the embedded template process will only be accessible through the API.
 "EmbeddedSignUrl::SIGNATURE_ID": The id of the signature to get a signature url for.
 
+"FaxGet::SUMMARY": Get Fax
+"FaxGet::DESCRIPTION": Returns information about fax
+"FaxParam::FAX_ID": Fax ID
+"FaxDelete::SUMMARY": Delete Fax
+"FaxDelete::DESCRIPTION": Deletes the specified Fax from the system.
+"FaxFiles::SUMMARY": List Fax Files
+"FaxFiles::DESCRIPTION": Returns list of fax files
+"FaxList::SUMMARY": Lists Faxes
+"FaxList::DESCRIPTION": Returns properties of multiple faxes
+"FaxList::PAGE": Page
+"FaxList::PAGE_SIZE": Page size
+"FaxSend::SUMMARY": Send Fax
+"FaxSend::DESCRIPTION": Action to prepare and send a fax
+"FaxSend::RECIPIENT": Fax Send To Recipient
+"FaxSend::SENDER": Fax Send From Sender (used only with fax number)
+"FaxSend::FILE": Fax File to Send
+"FaxSend::FILE_URL": Fax File URL to Send
+"FaxSend::FILE_URL_NAMES": Fax File URL Names
+"FaxSend::TEST_MODE": API Test Mode Setting
+"FaxSend::COVER_PAGE_TO": Fax Cover Page for Recipient
+"FaxSend::COVER_PAGE_FROM": Fax Cover Page for Sender
+"FaxSend::COVER_PAGE_MESSAGE": Fax Cover Page Message
+"FaxSend::TITLE": Fax Title
+"FaxGetResponseExample::SUMMARY": Fax Response
+"FaxResponse::FAX_ID": Fax ID
+"FaxResponse::TITLE": Fax Title
+"FaxResponse::ORIGINAL_TITLE": Fax Original Title
+"FaxResponse::SUBJECT": Fax Subject
+"FaxResponse::MESSAGE": Fax Message
+"FaxResponse::METADATA": Fax Metadata
+"FaxResponse::CREATED_AT": Fax Created At Timestamp
+"FaxResponse::SENDER": Fax Sender Email
+"FaxResponse::TRANSMISSIONS": Fax Transmissions List
+"FaxResponse::FILES_URL": Fax Files URL
+"Sub::FaxResponseTransmission::RECIPIENT": Fax Transmission Recipient
+"Sub::FaxResponseTransmission::SENDER": Fax Transmission Sender
+"Sub::FaxResponseTransmission::STATUS_CODE": Fax Transmission Status Code
+"Sub::FaxResponseTransmission::SENT_AT": Fax Transmission Sent Timestamp
+"FaxListResponseExample::SUMMARY": Returns the properties and settings of multiple Faxes.
 "FaxLineAddUser::SUMMARY": Add Fax Line User
 "FaxLineAddUser::DESCRIPTION": Grants a user access to the specified Fax Line.
 "FaxLineAddUser::NUMBER": The Fax Line number.
@@ -183,6 +222,8 @@
 "OAuthTokenRefresh::DESCRIPTION": Access tokens are only valid for a given period of time (typically one hour) for security reasons. Whenever acquiring an new access token its TTL is also given (see `expires_in`), along with a refresh token that can be used to acquire a new access token after the current one has expired.
 "OAuthTokenRefresh::GRANT_TYPE": When refreshing an existing token use `refresh_token`.
 "OAuthTokenRefresh::REFRESH_TOKEN": The token provided when you got the expired access token.
+"OAuthTokenRefresh::CLIENT_ID": The client ID for your API app. Mandatory from August 1st, 2025. Until then, required if the "Client Credentials Required" setting is enabled for token refresh; optional if disabled.
+"OAuthTokenRefresh::CLIENT_SECRET": The client secret for your API app. Mandatory from August 1st, 2025. Until then, required if the "Client Credentials Required" setting is enabled for token refresh; optional if disabled.
 
 "ReportCreate::SUMMARY": Create Report
 "ReportCreate::DESCRIPTION": |-
@@ -273,7 +314,7 @@
 
   The request will be canceled and signers will no longer be able to sign. If they try to access the signature request they will receive a HTTP 410 status code indicating that the resource has been deleted. Cancelation is asynchronous and a successful call to this endpoint will return an empty 200 OK response if the signature request is eligible to be canceled and has been successfully queued.
 
-  This 200 OK response does not indicate a successful cancelation of the signature request itself. The cancelation is confirmed via the `signature_request_canceled` event. It is recommended that a  [callback handler](/api/reference/tag/Callbacks-and-Events) be implemented to listen for the `signature_request_canceled` event. This callback will be sent only when the cancelation has completed successfully. If a callback handler has been configured and the event has not been received within 60 minutes of making the call, check the status of the request in the [API Dashboard](https://app.hellosign.com/apidashboard) and retry the cancelation if necessary.
+  This 200 OK response does not indicate a successful cancelation of the signature request itself. The cancelation is confirmed via the `signature_request_canceled` event. It is recommended that a [callback handler](/api/reference/tag/Callbacks-and-Events) be implemented to listen for the `signature_request_canceled` event. This callback will be sent only when the cancelation has completed successfully. If a callback handler has been configured and the event has not been received within 60 minutes of making the call, check the status of the request in the [API Dashboard](https://app.hellosign.com/apidashboard) and retry the cancelation if necessary.
 
   To be eligible for cancelation, a signature request must have been sent successfully, must not yet have been signed by all signers, and you must either be the sender or own the API app under which it was sent. A partially signed signature request can be canceled.
 
@@ -642,7 +683,7 @@
 "TemplateCreateEmbeddedDraft::USE_PREEXISTING_FIELDS": Enable the detection of predefined PDF fields by setting the `use_preexisting_fields` to `true` (defaults to disabled, or `false`).
 
 
-"TemplateCreate::SUMMARY": Create  Template
+"TemplateCreate::SUMMARY": Create Template
 "TemplateCreate::DESCRIPTION": Creates a template that can then be used.
 
 "TemplateCreate::ALLOW_CCS": This allows the requester to specify whether the user is allowed to provide email addresses to CC when creating a template.
@@ -766,7 +807,7 @@
 "UnclaimedDraftCreate::TYPE": The type of unclaimed draft to create. Use `send_document` to create a claimable file, and `request_signature` for a claimable signature request. If the type is `request_signature` then signers name and email_address are not optional.
 "UnclaimedDraftCreate::USE_PREEXISTING_FIELDS": Set `use_text_tags` to `true` to enable [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) parsing in your document (defaults to disabled, or `false`). Alternatively, if your PDF contains pre-defined fields, enable the detection of these fields by setting the `use_preexisting_fields` to `true` (defaults to disabled, or `false`). Currently we only support use of either `use_text_tags` or `use_preexisting_fields` parameter, not both.
 "UnclaimedDraftCreate::USE_TEXT_TAGS": Set `use_text_tags` to `true` to enable [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) parsing in your document (defaults to disabled, or `false`). Alternatively, if your PDF contains pre-defined fields, enable the detection of these fields by setting the `use_preexisting_fields` to `true` (defaults to disabled, or `false`). Currently we only support use of either `use_text_tags` or `use_preexisting_fields` parameter, not both.
-"UnclaimedDraftCreate::EXPIRES_AT":  |-
+"UnclaimedDraftCreate::EXPIRES_AT": |-
   When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.
 
   **NOTE:** This does not correspond to the **expires_at** returned in the response.
@@ -816,7 +857,7 @@
   Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer's information during signing.
 
   **NOTE:** Keep your signer's information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
-"UnclaimedDraftCreateEmbedded::EXPIRES_AT":  |-
+"UnclaimedDraftCreateEmbedded::EXPIRES_AT": |-
   When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.
 
   **NOTE:** This does not correspond to the **expires_at** returned in the response.
@@ -1199,7 +1240,7 @@
 "AccountQuota::TEMPLATES_TOTAL": Total API templates allowed.
 "AccountQuota::API_SIGNATURE_REQUESTS_LEFT": API signature requests remaining.
 "AccountQuota::DOCUMENTS_LEFT": Signature requests remaining.
-"AccountQuota::SMS_VERIFICATIONS_LEFT": SMS verifications  remaining.
+"AccountQuota::SMS_VERIFICATIONS_LEFT": SMS verifications remaining.
 "AccountQuota::NUM_FAX_PAGES_LEFT": Number of fax pages left
 "AccountUsage::FAX_PAGES_SENT": Number of fax pages sent
 
@@ -1256,7 +1297,7 @@
 
 "EmbeddedEditUrlResponseEmbedded::DESCRIPTION": An embedded template object.
 "EmbeddedEditUrlResponseEmbedded::EDIT_URL": A template url that can be opened in an iFrame.
-"EmbeddedEditUrlResponseEmbedded::EXPIRES_AT":  The specific time that the the `edit_url` link expires, in epoch.
+"EmbeddedEditUrlResponseEmbedded::EXPIRES_AT": The specific time that the the `edit_url` link expires, in epoch.
 
 "EventCallbackAccountRequest::DESCRIPTION": |-
   **Account Callback Payloads --**
@@ -1447,7 +1488,7 @@
 "TemplateResponse::TEMPLATE_ID": The id of the Template.
 "TemplateResponse::CAN_EDIT": Indicates whether edit rights have been granted to you by the owner (always `true` if that's you).
 "TemplateResponse::IS_CREATOR": "`true` if you are the owner of this template, `false` if it's been shared with you by a team member."
-"TemplateResponse::IS_EMBEDDED": "`true` if this template was created using an embedded flow, `false` if it was created on our website."
+"TemplateResponse::IS_EMBEDDED": "`true` if this template was created using an embedded flow, `false` if it was created on our website. Will be `null` when you are not the creator of the Template."
 "TemplateResponse::IS_LOCKED": |-
   Indicates whether the template is locked.
   If `true`, then the template was created outside your quota and can only be used in `test_mode`.
@@ -1486,7 +1527,7 @@
 "TemplateResponseAccountQuota::TEMPLATES_LEFT": API templates remaining.
 "TemplateResponseAccountQuota::SMS_VERIFICATIONS_LEFT": SMS verifications remaining.
 
-"TemplateResponseCCRole::TEMPLATES_LEFT": The name of the Role.
+"TemplateResponseCCRole::NAME": The name of the Role.
 
 "TemplateResponseDocument::INDEX": Document ordering, the lowest index is displayed first and the highest last (0-based indexing).
 "TemplateResponseDocument::NAME": Name of the associated file.
@@ -1659,6 +1700,16 @@
 "EmbeddedEditUrl::SEO::DESCRIPTION": "The Dropbox Sign API allows you to build custom integrations. To find out how to retrieve an embedded iFrame object containing a template url, click here."
 "EmbeddedSignUrl::SEO::TITLE": "Get Embedded Sign URL | iFrame | Dropbox Sign for Developers"
 "EmbeddedSignUrl::SEO::DESCRIPTION": "The Dropbox Sign API allows you to build custom integrations. To find out how to retrieve an embedded iFrame object containing a signature url, click here."
+"FaxGet::SEO::TITLE": "Get Fax | API Documentation | Dropbox Fax for Developers"
+"FaxGet::SEO::DESCRIPTION": "The Dropbox Fax API allows you to build custom integrations. To find out how to retrieve a fax, click here."
+"FaxDelete::SEO::TITLE": "Delete Fax | API Documentation | Dropbox Fax for Developers"
+"FaxDelete::SEO::DESCRIPTION": "The Dropbox Fax API allows you to build custom integrations. To find out how to delete a fax, click here."
+"FaxFiles::SEO::TITLE": "Fax Files | API Documentation | Dropbox Fax for Developers"
+"FaxFiles::SEO::DESCRIPTION": "The Dropbox Fax API allows you to build custom integrations. To find out how to list fax files, click here."
+"FaxList::SEO::TITLE": "List Faxes | API Documentation | Dropbox Fax for Developers"
+"FaxList::SEO::DESCRIPTION": "The Dropbox Fax API allows you to build custom integrations. To find out how to list your faxes, click here."
+"FaxSend::SEO::TITLE": "Send Fax| API Documentation | Dropbox Fax for Developers"
+"FaxSend::SEO::DESCRIPTION": "The Dropbox Fax API allows you to build custom integrations. To find out how to send a fax, click here."
 "FaxLineAddUser::SEO::TITLE": "Fax Line Add User | API Documentation | Dropbox Fax for Developers"
 "FaxLineAddUser::SEO::DESCRIPTION": "The Dropbox Fax API allows you to build custom integrations. To find out how to add a user to an existing fax line, click here."
 "FaxLineAreaCodeGet::SEO::TITLE": "Fax Line Get Area Codes | API Documentation | Dropbox Fax for Developers"

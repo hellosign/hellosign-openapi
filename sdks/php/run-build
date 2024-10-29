@@ -7,6 +7,15 @@ set -e
 DIR=$(cd `dirname $0` && pwd)
 WORKING_DIR="/app/php"
 
+if [[ -n "$GITHUB_ACTIONS" ]]; then
+  printf "\nLogging in to docker.com ...\n"
+  echo "${DOCKER_TOKEN}" | docker login -u "${DOCKER_USERNAME}" --password-stdin
+fi
+
+# cleanup
+rm -f "${DIR}/src/Api/"*.php
+rm -f "${DIR}/src/Model/"*.php
+
 docker run --rm \
   -v "${DIR}/:/local" \
   -v "${DIR}/openapi-sdk.yaml:/local/openapi-sdk.yaml" \

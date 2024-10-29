@@ -73,6 +73,7 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
         'custom_fields' => '\Dropbox\Sign\Model\TemplateResponseDocumentCustomFieldBase[]',
         'named_form_fields' => '\Dropbox\Sign\Model\TemplateResponseDocumentFormFieldBase[]',
         'accounts' => '\Dropbox\Sign\Model\TemplateResponseAccount[]',
+        'attachments' => '\Dropbox\Sign\Model\SignatureRequestResponseAttachment[]',
     ];
 
     /**
@@ -98,6 +99,7 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
         'custom_fields' => null,
         'named_form_fields' => null,
         'accounts' => null,
+        'attachments' => null,
     ];
 
     /**
@@ -111,16 +113,17 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
         'message' => false,
         'updated_at' => false,
         'is_embedded' => true,
-        'is_creator' => true,
-        'can_edit' => true,
-        'is_locked' => true,
+        'is_creator' => false,
+        'can_edit' => false,
+        'is_locked' => false,
         'metadata' => false,
         'signer_roles' => false,
         'cc_roles' => false,
         'documents' => false,
         'custom_fields' => true,
         'named_form_fields' => true,
-        'accounts' => true,
+        'accounts' => false,
+        'attachments' => false,
     ];
 
     /**
@@ -216,6 +219,7 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
         'custom_fields' => 'custom_fields',
         'named_form_fields' => 'named_form_fields',
         'accounts' => 'accounts',
+        'attachments' => 'attachments',
     ];
 
     /**
@@ -239,6 +243,7 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
         'custom_fields' => 'setCustomFields',
         'named_form_fields' => 'setNamedFormFields',
         'accounts' => 'setAccounts',
+        'attachments' => 'setAttachments',
     ];
 
     /**
@@ -262,6 +267,7 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
         'custom_fields' => 'getCustomFields',
         'named_form_fields' => 'getNamedFormFields',
         'accounts' => 'getAccounts',
+        'attachments' => 'getAttachments',
     ];
 
     /**
@@ -335,6 +341,7 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
         $this->setIfExists('custom_fields', $data ?? [], null);
         $this->setIfExists('named_form_fields', $data ?? [], null);
         $this->setIfExists('accounts', $data ?? [], null);
+        $this->setIfExists('attachments', $data ?? [], null);
     }
 
     /**
@@ -515,7 +522,7 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets is_embedded
      *
-     * @param bool|null $is_embedded `true` if this template was created using an embedded flow, `false` if it was created on our website
+     * @param bool|null $is_embedded `true` if this template was created using an embedded flow, `false` if it was created on our website. Will be `null` when you are not the creator of the Template.
      *
      * @return self
      */
@@ -556,14 +563,7 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
     public function setIsCreator(?bool $is_creator)
     {
         if (is_null($is_creator)) {
-            array_push($this->openAPINullablesSetToNull, 'is_creator');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('is_creator', $nullablesSetToNull);
-            if ($index !== false) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new InvalidArgumentException('non-nullable is_creator cannot be null');
         }
         $this->container['is_creator'] = $is_creator;
 
@@ -590,14 +590,7 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
     public function setCanEdit(?bool $can_edit)
     {
         if (is_null($can_edit)) {
-            array_push($this->openAPINullablesSetToNull, 'can_edit');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('can_edit', $nullablesSetToNull);
-            if ($index !== false) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new InvalidArgumentException('non-nullable can_edit cannot be null');
         }
         $this->container['can_edit'] = $can_edit;
 
@@ -624,14 +617,7 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
     public function setIsLocked(?bool $is_locked)
     {
         if (is_null($is_locked)) {
-            array_push($this->openAPINullablesSetToNull, 'is_locked');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('is_locked', $nullablesSetToNull);
-            if ($index !== false) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new InvalidArgumentException('non-nullable is_locked cannot be null');
         }
         $this->container['is_locked'] = $is_locked;
 
@@ -838,16 +824,36 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
     public function setAccounts(?array $accounts)
     {
         if (is_null($accounts)) {
-            array_push($this->openAPINullablesSetToNull, 'accounts');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('accounts', $nullablesSetToNull);
-            if ($index !== false) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new InvalidArgumentException('non-nullable accounts cannot be null');
         }
         $this->container['accounts'] = $accounts;
+
+        return $this;
+    }
+
+    /**
+     * Gets attachments
+     *
+     * @return SignatureRequestResponseAttachment[]|null
+     */
+    public function getAttachments()
+    {
+        return $this->container['attachments'];
+    }
+
+    /**
+     * Sets attachments
+     *
+     * @param SignatureRequestResponseAttachment[]|null $attachments signer attachments
+     *
+     * @return self
+     */
+    public function setAttachments(?array $attachments)
+    {
+        if (is_null($attachments)) {
+            throw new InvalidArgumentException('non-nullable attachments cannot be null');
+        }
+        $this->container['attachments'] = $attachments;
 
         return $this;
     }

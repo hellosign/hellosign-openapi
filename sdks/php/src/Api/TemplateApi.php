@@ -525,7 +525,7 @@ class TemplateApi
     /**
      * Operation templateCreate
      *
-     * Create  Template
+     * Create Template
      *
      * @param Model\TemplateCreateRequest $template_create_request template_create_request (required)
      *
@@ -542,7 +542,7 @@ class TemplateApi
     /**
      * Operation templateCreateWithHttpInfo
      *
-     * Create  Template
+     * Create Template
      *
      * @param Model\TemplateCreateRequest $template_create_request (required)
      * @param string                      $contentType             The value for the Content-Type header. Check self::contentTypes['templateCreate'] to see the possible values for this operation
@@ -679,7 +679,7 @@ class TemplateApi
     /**
      * Operation templateCreateAsync
      *
-     * Create  Template
+     * Create Template
      *
      * @param Model\TemplateCreateRequest $template_create_request (required)
      * @param string                      $contentType             The value for the Content-Type header. Check self::contentTypes['templateCreate'] to see the possible values for this operation
@@ -701,7 +701,7 @@ class TemplateApi
     /**
      * Operation templateCreateAsyncWithHttpInfo
      *
-     * Create  Template
+     * Create Template
      *
      * @param Model\TemplateCreateRequest $template_create_request (required)
      * @param string                      $contentType             The value for the Content-Type header. Check self::contentTypes['templateCreate'] to see the possible values for this operation

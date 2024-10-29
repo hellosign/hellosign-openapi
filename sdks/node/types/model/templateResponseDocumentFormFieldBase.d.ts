@@ -9,7 +9,6 @@ export declare abstract class TemplateResponseDocumentFormFieldBase {
     "width"?: number;
     "height"?: number;
     "required"?: boolean;
-    "group"?: string | null;
     static discriminator: string | undefined;
     static attributeTypeMap: AttributeTypeMap;
     static getAttributeTypeMap(): AttributeTypeMap;

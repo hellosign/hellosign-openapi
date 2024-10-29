@@ -122,6 +122,7 @@ namespace Dropbox.Sign.Model
         /// <param name="originalFontSize">Original font size used in this form field&#39;s text..</param>
         /// <param name="fontFamily">Font family used in this form field&#39;s text..</param>
         /// <param name="validationType">Each text field may contain a &#x60;validation_type&#x60; parameter. Check out the list of [validation types](https://faq.hellosign.com/hc/en-us/articles/217115577) to learn more about the possible values..</param>
+        /// <param name="group">The name of the group this field is in. If this field is not a group, this defaults to &#x60;null&#x60; except for Radio fields..</param>
         /// <param name="apiId">A unique id for the form field..</param>
         /// <param name="name">The name of the form field..</param>
         /// <param name="signer">The signer of the Form Field..</param>
@@ -130,8 +131,7 @@ namespace Dropbox.Sign.Model
         /// <param name="width">The width in pixels of this form field..</param>
         /// <param name="height">The height in pixels of this form field..</param>
         /// <param name="required">Boolean showing whether or not this field is required..</param>
-        /// <param name="group">The name of the group this field is in. If this field is not a group, this defaults to &#x60;null&#x60; except for Radio fields..</param>
-        public TemplateResponseDocumentFormFieldText(string type = @"text", TemplateResponseFieldAvgTextLength avgTextLength = default(TemplateResponseFieldAvgTextLength), bool isMultiline = default(bool), int originalFontSize = default(int), string fontFamily = default(string), ValidationTypeEnum? validationType = default(ValidationTypeEnum?), string apiId = default(string), string name = default(string), Object signer = null, int x = default(int), int y = default(int), int width = default(int), int height = default(int), bool required = default(bool), string group = default(string))
+        public TemplateResponseDocumentFormFieldText(string type = @"text", TemplateResponseFieldAvgTextLength avgTextLength = default(TemplateResponseFieldAvgTextLength), bool isMultiline = default(bool), int originalFontSize = default(int), string fontFamily = default(string), ValidationTypeEnum? validationType = default(ValidationTypeEnum?), string group = default(string), string apiId = default(string), string name = default(string), Object signer = null, int x = default(int), int y = default(int), int width = default(int), int height = default(int), bool required = default(bool))
         {
             this.ApiId = apiId;
             this.Name = name;
@@ -141,7 +141,6 @@ namespace Dropbox.Sign.Model
             this.Width = width;
             this.Height = height;
             this.Required = required;
-            this.Group = group;
 
             // to ensure "type" is required (not null)
             if (type == null)
@@ -154,6 +153,7 @@ namespace Dropbox.Sign.Model
             this.OriginalFontSize = originalFontSize;
             this.FontFamily = fontFamily;
             this.ValidationType = validationType;
+            this.Group = group;
         }
 
         /// <summary>
@@ -207,6 +207,13 @@ namespace Dropbox.Sign.Model
         public string FontFamily { get; set; }
 
         /// <summary>
+        /// The name of the group this field is in. If this field is not a group, this defaults to &#x60;null&#x60; except for Radio fields.
+        /// </summary>
+        /// <value>The name of the group this field is in. If this field is not a group, this defaults to &#x60;null&#x60; except for Radio fields.</value>
+        [DataMember(Name = "group", EmitDefaultValue = true)]
+        public string Group { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -221,6 +228,7 @@ namespace Dropbox.Sign.Model
             sb.Append("  OriginalFontSize: ").Append(OriginalFontSize).Append("\n");
             sb.Append("  FontFamily: ").Append(FontFamily).Append("\n");
             sb.Append("  ValidationType: ").Append(ValidationType).Append("\n");
+            sb.Append("  Group: ").Append(Group).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -282,6 +290,11 @@ namespace Dropbox.Sign.Model
                 (
                     this.ValidationType == input.ValidationType ||
                     this.ValidationType.Equals(input.ValidationType)
+                ) && base.Equals(input) &&
+                (
+                    this.Group == input.Group ||
+                    (this.Group != null &&
+                    this.Group.Equals(input.Group))
                 );
         }
 
@@ -309,6 +322,10 @@ namespace Dropbox.Sign.Model
                     hashCode = (hashCode * 59) + this.FontFamily.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.ValidationType.GetHashCode();
+                if (this.Group != null)
+                {
+                    hashCode = (hashCode * 59) + this.Group.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -380,6 +397,13 @@ namespace Dropbox.Sign.Model
                 Property = "ValidationType",
                 Type = "string",
                 Value = ValidationType,
+            });
+            types.Add(new OpenApiType()
+            {
+                Name = "group",
+                Property = "Group",
+                Type = "string",
+                Value = Group,
             });
 
             return types;

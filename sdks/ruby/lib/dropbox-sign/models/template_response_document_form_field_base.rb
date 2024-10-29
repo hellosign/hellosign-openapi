@@ -54,10 +54,6 @@ module Dropbox::Sign
     # @return [Boolean]
     attr_accessor :required
 
-    # The name of the group this field is in. If this field is not a group, this defaults to `null` except for Radio fields.
-    # @return [String, nil]
-    attr_accessor :group
-
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -69,8 +65,7 @@ module Dropbox::Sign
         :'y' => :'y',
         :'width' => :'width',
         :'height' => :'height',
-        :'required' => :'required',
-        :'group' => :'group'
+        :'required' => :'required'
       }
     end
 
@@ -90,15 +85,13 @@ module Dropbox::Sign
         :'y' => :'Integer',
         :'width' => :'Integer',
         :'height' => :'Integer',
-        :'required' => :'Boolean',
-        :'group' => :'String'
+        :'required' => :'Boolean'
       }
     end
 
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
-        :'group'
       ])
     end
 
@@ -203,10 +196,6 @@ module Dropbox::Sign
       if attributes.key?(:'required')
         self.required = attributes[:'required']
       end
-
-      if attributes.key?(:'group')
-        self.group = attributes[:'group']
-      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -240,8 +229,7 @@ module Dropbox::Sign
           y == o.y &&
           width == o.width &&
           height == o.height &&
-          required == o.required &&
-          group == o.group
+          required == o.required
     end
 
     # @see the `==` method
@@ -253,7 +241,7 @@ module Dropbox::Sign
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [type, api_id, name, signer, x, y, width, height, required, group].hash
+      [type, api_id, name, signer, x, y, width, height, required].hash
     end
 
     # Builds the object from hash

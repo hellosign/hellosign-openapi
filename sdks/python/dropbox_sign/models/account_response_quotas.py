@@ -45,7 +45,7 @@ class AccountResponseQuotas(BaseModel):
         default=None, description="API templates remaining."
     )
     sms_verifications_left: Optional[StrictInt] = Field(
-        default=None, description="SMS verifications  remaining."
+        default=None, description="SMS verifications remaining."
     )
     num_fax_pages_left: Optional[StrictInt] = Field(
         default=None, description="Number of fax pages left"

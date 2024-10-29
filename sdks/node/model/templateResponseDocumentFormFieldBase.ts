@@ -61,10 +61,6 @@ export abstract class TemplateResponseDocumentFormFieldBase {
    * Boolean showing whether or not this field is required.
    */
   "required"?: boolean;
-  /**
-   * The name of the group this field is in. If this field is not a group, this defaults to `null` except for Radio fields.
-   */
-  "group"?: string | null;
 
   static discriminator: string | undefined = "type";
 
@@ -113,11 +109,6 @@ export abstract class TemplateResponseDocumentFormFieldBase {
       name: "required",
       baseName: "required",
       type: "boolean",
-    },
-    {
-      name: "group",
-      baseName: "group",
-      type: "string",
     },
   ];
 

@@ -38,6 +38,10 @@ module Dropbox::Sign
     # @return [String]
     attr_accessor :font_family
 
+    # The name of the group this field is in. If this field is not a group, this defaults to `null` except for Radio fields.
+    # @return [String, nil]
+    attr_accessor :group
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -45,7 +49,8 @@ module Dropbox::Sign
         :'avg_text_length' => :'avg_text_length',
         :'is_multiline' => :'isMultiline',
         :'original_font_size' => :'originalFontSize',
-        :'font_family' => :'fontFamily'
+        :'font_family' => :'fontFamily',
+        :'group' => :'group'
       }
     end
 
@@ -61,13 +66,15 @@ module Dropbox::Sign
         :'avg_text_length' => :'TemplateResponseFieldAvgTextLength',
         :'is_multiline' => :'Boolean',
         :'original_font_size' => :'Integer',
-        :'font_family' => :'String'
+        :'font_family' => :'String',
+        :'group' => :'String'
       }
     end
 
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        :'group'
       ])
     end
 
@@ -135,6 +142,10 @@ module Dropbox::Sign
       if attributes.key?(:'font_family')
         self.font_family = attributes[:'font_family']
       end
+
+      if attributes.key?(:'group')
+        self.group = attributes[:'group']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -164,7 +175,8 @@ module Dropbox::Sign
           avg_text_length == o.avg_text_length &&
           is_multiline == o.is_multiline &&
           original_font_size == o.original_font_size &&
-          font_family == o.font_family && super(o)
+          font_family == o.font_family &&
+          group == o.group && super(o)
     end
 
     # @see the `==` method
@@ -176,7 +188,7 @@ module Dropbox::Sign
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [type, avg_text_length, is_multiline, original_font_size, font_family].hash
+      [type, avg_text_length, is_multiline, original_font_size, font_family, group].hash
     end
 
     # Builds the object from hash

@@ -62,6 +62,7 @@ class TemplateResponseDocumentFormFieldText extends TemplateResponseDocumentForm
         'original_font_size' => 'int',
         'font_family' => 'string',
         'validation_type' => 'string',
+        'group' => 'string',
     ];
 
     /**
@@ -78,6 +79,7 @@ class TemplateResponseDocumentFormFieldText extends TemplateResponseDocumentForm
         'original_font_size' => null,
         'font_family' => null,
         'validation_type' => null,
+        'group' => null,
     ];
 
     /**
@@ -92,6 +94,7 @@ class TemplateResponseDocumentFormFieldText extends TemplateResponseDocumentForm
         'original_font_size' => false,
         'font_family' => false,
         'validation_type' => true,
+        'group' => true,
     ];
 
     /**
@@ -178,6 +181,7 @@ class TemplateResponseDocumentFormFieldText extends TemplateResponseDocumentForm
         'original_font_size' => 'originalFontSize',
         'font_family' => 'fontFamily',
         'validation_type' => 'validation_type',
+        'group' => 'group',
     ];
 
     /**
@@ -192,6 +196,7 @@ class TemplateResponseDocumentFormFieldText extends TemplateResponseDocumentForm
         'original_font_size' => 'setOriginalFontSize',
         'font_family' => 'setFontFamily',
         'validation_type' => 'setValidationType',
+        'group' => 'setGroup',
     ];
 
     /**
@@ -206,6 +211,7 @@ class TemplateResponseDocumentFormFieldText extends TemplateResponseDocumentForm
         'original_font_size' => 'getOriginalFontSize',
         'font_family' => 'getFontFamily',
         'validation_type' => 'getValidationType',
+        'group' => 'getGroup',
     ];
 
     /**
@@ -297,6 +303,7 @@ class TemplateResponseDocumentFormFieldText extends TemplateResponseDocumentForm
         $this->setIfExists('original_font_size', $data ?? [], null);
         $this->setIfExists('font_family', $data ?? [], null);
         $this->setIfExists('validation_type', $data ?? [], null);
+        $this->setIfExists('group', $data ?? [], null);
     }
 
     /**
@@ -545,6 +552,40 @@ class TemplateResponseDocumentFormFieldText extends TemplateResponseDocumentForm
             );
         }
         $this->container['validation_type'] = $validation_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets group
+     *
+     * @return string|null
+     */
+    public function getGroup()
+    {
+        return $this->container['group'];
+    }
+
+    /**
+     * Sets group
+     *
+     * @param string|null $group The name of the group this field is in. If this field is not a group, this defaults to `null` except for Radio fields.
+     *
+     * @return self
+     */
+    public function setGroup(?string $group)
+    {
+        if (is_null($group)) {
+            array_push($this->openAPINullablesSetToNull, 'group');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('group', $nullablesSetToNull);
+            if ($index !== false) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['group'] = $group;
 
         return $this;
     }

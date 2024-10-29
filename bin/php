@@ -8,6 +8,11 @@ DIR=$(cd `dirname $0` && pwd)
 ROOT_DIR="${DIR}/.."
 WORKING_DIR="/app/openapi"
 
+if [[ -n "$GITHUB_ACTIONS" ]]; then
+  printf "\nLogging in to docker.com ...\n"
+  echo "${DOCKER_TOKEN}" | docker login -u "${DOCKER_USERNAME}" --password-stdin
+fi
+
 docker run --rm \
   -v "${ROOT_DIR}:${WORKING_DIR}" \
   -v "dropbox-sign-sdk-composer-cache:/.composer" \

@@ -479,7 +479,7 @@ class AccountResponseQuotas implements ModelInterface, ArrayAccess, JsonSerializ
     /**
      * Sets sms_verifications_left
      *
-     * @param int|null $sms_verifications_left SMS verifications  remaining
+     * @param int|null $sms_verifications_left SMS verifications remaining
      *
      * @return self
      */

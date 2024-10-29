@@ -1409,6 +1409,304 @@ paths:
         seo:
           title: 'Get Embedded Sign URL | iFrame | Dropbox Sign for Developers'
           description: 'The Dropbox Sign API allows you to build custom integrations. To find out how to retrieve an embedded iFrame object containing a signature url, click here.'
+  '/fax/{fax_id}':
+    get:
+      tags:
+        - Fax
+      summary: 'Get Fax'
+      description: 'Returns information about fax'
+      operationId: faxGet
+      parameters:
+        -
+          name: fax_id
+          in: path
+          description: 'Fax ID'
+          required: true
+          schema:
+            type: string
+          example: fa5c8a0b0f492d768749333ad6fcc214c111e967
+      responses:
+        200:
+          description: 'successful operation'
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-Ratelimit-Reset:
+              $ref: '#/components/headers/X-Ratelimit-Reset'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FaxGetResponse'
+              examples:
+                default_example:
+                  $ref: '#/components/examples/FaxGetResponseExample'
+        4XX:
+          description: failed_operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                400_example:
+                  $ref: '#/components/examples/Error400ResponseExample'
+                401_example:
+                  $ref: '#/components/examples/Error401ResponseExample'
+                402_example:
+                  $ref: '#/components/examples/Error402ResponseExample'
+                403_example:
+                  $ref: '#/components/examples/Error403ResponseExample'
+                404_example:
+                  $ref: '#/components/examples/Error404ResponseExample'
+                429_example:
+                  $ref: '#/components/examples/Error429ResponseExample'
+                4XX_example:
+                  $ref: '#/components/examples/Error4XXResponseExample'
+      security:
+        -
+          api_key: []
+      x-codeSamples:
+        -
+          lang: PHP
+          label: PHP
+          source:
+            $ref: examples/FaxGet.php
+        -
+          lang: 'C#'
+          label: 'C#'
+          source:
+            $ref: examples/FaxGet.cs
+        -
+          lang: JavaScript
+          label: JavaScript
+          source:
+            $ref: examples/FaxGet.js
+        -
+          lang: TypeScript
+          label: TypeScript
+          source:
+            $ref: examples/FaxGet.ts
+        -
+          lang: Java
+          label: Java
+          source:
+            $ref: examples/FaxGet.java
+        -
+          lang: Ruby
+          label: Ruby
+          source:
+            $ref: examples/FaxGet.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/FaxGet.py
+        -
+          lang: cURL
+          label: cURL
+          source:
+            $ref: examples/FaxGet.sh
+      x-meta:
+        seo:
+          title: 'Get Fax | API Documentation | Dropbox Fax for Developers'
+          description: 'The Dropbox Fax API allows you to build custom integrations. To find out how to retrieve a fax, click here.'
+    delete:
+      tags:
+        - Fax
+      summary: 'Delete Fax'
+      description: 'Deletes the specified Fax from the system.'
+      operationId: faxDelete
+      parameters:
+        -
+          name: fax_id
+          in: path
+          description: 'Fax ID'
+          required: true
+          schema:
+            type: string
+          example: fa5c8a0b0f492d768749333ad6fcc214c111e967
+      responses:
+        204:
+          description: 'successful operation'
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-Ratelimit-Reset:
+              $ref: '#/components/headers/X-Ratelimit-Reset'
+        4XX:
+          description: failed_operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                400_example:
+                  $ref: '#/components/examples/Error400ResponseExample'
+                401_example:
+                  $ref: '#/components/examples/Error401ResponseExample'
+                402_example:
+                  $ref: '#/components/examples/Error402ResponseExample'
+                403_example:
+                  $ref: '#/components/examples/Error403ResponseExample'
+                404_example:
+                  $ref: '#/components/examples/Error404ResponseExample'
+                429_example:
+                  $ref: '#/components/examples/Error429ResponseExample'
+                4XX_example:
+                  $ref: '#/components/examples/Error4XXResponseExample'
+      security:
+        -
+          api_key: []
+      x-codeSamples:
+        -
+          lang: PHP
+          label: PHP
+          source:
+            $ref: examples/FaxDelete.php
+        -
+          lang: 'C#'
+          label: 'C#'
+          source:
+            $ref: examples/FaxDelete.cs
+        -
+          lang: JavaScript
+          label: JavaScript
+          source:
+            $ref: examples/FaxDelete.js
+        -
+          lang: TypeScript
+          label: TypeScript
+          source:
+            $ref: examples/FaxDelete.ts
+        -
+          lang: Java
+          label: Java
+          source:
+            $ref: examples/FaxDelete.java
+        -
+          lang: Ruby
+          label: Ruby
+          source:
+            $ref: examples/FaxDelete.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/FaxDelete.py
+        -
+          lang: cURL
+          label: cURL
+          source:
+            $ref: examples/FaxDelete.sh
+      x-meta:
+        seo:
+          title: 'Delete Fax | API Documentation | Dropbox Fax for Developers'
+          description: 'The Dropbox Fax API allows you to build custom integrations. To find out how to delete a fax, click here.'
+  '/fax/files/{fax_id}':
+    get:
+      tags:
+        - Fax
+      summary: 'List Fax Files'
+      description: 'Returns list of fax files'
+      operationId: faxFiles
+      parameters:
+        -
+          name: fax_id
+          in: path
+          description: 'Fax ID'
+          required: true
+          schema:
+            type: string
+          example: fa5c8a0b0f492d768749333ad6fcc214c111e967
+      responses:
+        200:
+          description: 'successful operation'
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-Ratelimit-Reset:
+              $ref: '#/components/headers/X-Ratelimit-Reset'
+          content:
+            application/pdf:
+              schema:
+                type: string
+                format: binary
+        4XX:
+          description: failed_operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                400_example:
+                  $ref: '#/components/examples/Error400ResponseExample'
+                401_example:
+                  $ref: '#/components/examples/Error401ResponseExample'
+                402_example:
+                  $ref: '#/components/examples/Error402ResponseExample'
+                403_example:
+                  $ref: '#/components/examples/Error403ResponseExample'
+                404_example:
+                  $ref: '#/components/examples/Error404ResponseExample'
+                410_example:
+                  $ref: '#/components/examples/Error410ResponseExample'
+                429_example:
+                  $ref: '#/components/examples/Error429ResponseExample'
+                4XX_example:
+                  $ref: '#/components/examples/Error4XXResponseExample'
+      security:
+        -
+          api_key: []
+      x-codeSamples:
+        -
+          lang: PHP
+          label: PHP
+          source:
+            $ref: examples/FaxFiles.php
+        -
+          lang: 'C#'
+          label: 'C#'
+          source:
+            $ref: examples/FaxFiles.cs
+        -
+          lang: JavaScript
+          label: JavaScript
+          source:
+            $ref: examples/FaxFiles.js
+        -
+          lang: TypeScript
+          label: TypeScript
+          source:
+            $ref: examples/FaxFiles.ts
+        -
+          lang: Java
+          label: Java
+          source:
+            $ref: examples/FaxFiles.java
+        -
+          lang: Ruby
+          label: Ruby
+          source:
+            $ref: examples/FaxFiles.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/FaxFiles.py
+        -
+          lang: cURL
+          label: cURL
+          source:
+            $ref: examples/FaxFiles.sh
+      x-meta:
+        seo:
+          title: 'Fax Files | API Documentation | Dropbox Fax for Developers'
+          description: 'The Dropbox Fax API allows you to build custom integrations. To find out how to list fax files, click here.'
   /fax_line/add_user:
     put:
       tags:
@@ -2206,6 +2504,220 @@ paths:
         seo:
           title: 'Fax Line Remove User | API Documentation | Dropbox Fax for Developers'
           description: 'The Dropbox Fax API allows you to build custom integrations. To find out how to remove a user from an existing fax line, click here.'
+  /fax/list:
+    get:
+      tags:
+        - Fax
+      summary: 'Lists Faxes'
+      description: 'Returns properties of multiple faxes'
+      operationId: faxList
+      parameters:
+        -
+          name: page
+          in: query
+          description: Page
+          schema:
+            type: integer
+            default: 1
+            minimum: 1
+          example: 1
+        -
+          name: page_size
+          in: query
+          description: 'Page size'
+          schema:
+            type: integer
+            default: 20
+            maximum: 100
+            minimum: 1
+          example: 20
+      responses:
+        200:
+          description: 'successful operation'
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-Ratelimit-Reset:
+              $ref: '#/components/headers/X-Ratelimit-Reset'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FaxListResponse'
+              examples:
+                default_example:
+                  $ref: '#/components/examples/FaxListResponseExample'
+        4XX:
+          description: failed_operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                400_example:
+                  $ref: '#/components/examples/Error400ResponseExample'
+                401_example:
+                  $ref: '#/components/examples/Error401ResponseExample'
+                402_example:
+                  $ref: '#/components/examples/Error402ResponseExample'
+                403_example:
+                  $ref: '#/components/examples/Error403ResponseExample'
+                4XX_example:
+                  $ref: '#/components/examples/Error4XXResponseExample'
+      security:
+        -
+          api_key: []
+      x-codeSamples:
+        -
+          lang: PHP
+          label: PHP
+          source:
+            $ref: examples/FaxList.php
+        -
+          lang: 'C#'
+          label: 'C#'
+          source:
+            $ref: examples/FaxList.cs
+        -
+          lang: JavaScript
+          label: JavaScript
+          source:
+            $ref: examples/FaxList.js
+        -
+          lang: TypeScript
+          label: TypeScript
+          source:
+            $ref: examples/FaxList.ts
+        -
+          lang: Java
+          label: Java
+          source:
+            $ref: examples/FaxList.java
+        -
+          lang: Ruby
+          label: Ruby
+          source:
+            $ref: examples/FaxList.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/FaxList.py
+        -
+          lang: cURL
+          label: cURL
+          source:
+            $ref: examples/FaxList.sh
+      x-meta:
+        seo:
+          title: 'List Faxes | API Documentation | Dropbox Fax for Developers'
+          description: 'The Dropbox Fax API allows you to build custom integrations. To find out how to list your faxes, click here.'
+  /fax/send:
+    post:
+      tags:
+        - Fax
+      summary: 'Send Fax'
+      description: 'Action to prepare and send a fax'
+      operationId: faxSend
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FaxSendRequest'
+            examples:
+              default_example:
+                $ref: '#/components/examples/FaxSendRequestExample'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/FaxSendRequest'
+      responses:
+        200:
+          description: 'successful operation'
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-Ratelimit-Reset:
+              $ref: '#/components/headers/X-Ratelimit-Reset'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FaxGetResponse'
+              examples:
+                default_example:
+                  $ref: '#/components/examples/FaxGetResponseExample'
+        4XX:
+          description: failed_operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                400_example:
+                  $ref: '#/components/examples/Error400ResponseExample'
+                401_example:
+                  $ref: '#/components/examples/Error401ResponseExample'
+                402_example:
+                  $ref: '#/components/examples/Error402ResponseExample'
+                403_example:
+                  $ref: '#/components/examples/Error403ResponseExample'
+                404_example:
+                  $ref: '#/components/examples/Error404ResponseExample'
+                429_example:
+                  $ref: '#/components/examples/Error429ResponseExample'
+                4XX_example:
+                  $ref: '#/components/examples/Error4XXResponseExample'
+      security:
+        -
+          api_key: []
+      x-codeSamples:
+        -
+          lang: PHP
+          label: PHP
+          source:
+            $ref: examples/FaxSend.php
+        -
+          lang: 'C#'
+          label: 'C#'
+          source:
+            $ref: examples/FaxSend.cs
+        -
+          lang: JavaScript
+          label: JavaScript
+          source:
+            $ref: examples/FaxSend.js
+        -
+          lang: TypeScript
+          label: TypeScript
+          source:
+            $ref: examples/FaxSend.ts
+        -
+          lang: Java
+          label: Java
+          source:
+            $ref: examples/FaxSend.java
+        -
+          lang: Ruby
+          label: Ruby
+          source:
+            $ref: examples/FaxSend.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/FaxSend.py
+        -
+          lang: cURL
+          label: cURL
+          source:
+            $ref: examples/FaxSend.sh
+      x-meta:
+        seo:
+          title: 'Send Fax| API Documentation | Dropbox Fax for Developers'
+          description: 'The Dropbox Fax API allows you to build custom integrations. To find out how to send a fax, click here.'
   /oauth/token:
     post:
       tags:
@@ -2239,6 +2751,23 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/OAuthTokenGenerateResponseExample'
+        4XX:
+          description: failed_operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                400_example:
+                  $ref: '#/components/examples/Error400ResponseExample'
+                401_example:
+                  $ref: '#/components/examples/Error401ResponseExample'
+                402_example:
+                  $ref: '#/components/examples/Error402ResponseExample'
+                403_example:
+                  $ref: '#/components/examples/Error403ResponseExample'
+                4XX_example:
+                  $ref: '#/components/examples/Error4XXResponseExample'
       security: []
       servers:
         -
@@ -2322,6 +2851,23 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/OAuthTokenRefreshResponseExample'
+        4XX:
+          description: failed_operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                400_example:
+                  $ref: '#/components/examples/Error400ResponseExample'
+                401_example:
+                  $ref: '#/components/examples/Error401ResponseExample'
+                402_example:
+                  $ref: '#/components/examples/Error402ResponseExample'
+                403_example:
+                  $ref: '#/components/examples/Error403ResponseExample'
+                4XX_example:
+                  $ref: '#/components/examples/Error4XXResponseExample'
       security: []
       servers:
         -
@@ -2703,7 +3249,7 @@ paths:
 
         The request will be canceled and signers will no longer be able to sign. If they try to access the signature request they will receive a HTTP 410 status code indicating that the resource has been deleted. Cancelation is asynchronous and a successful call to this endpoint will return an empty 200 OK response if the signature request is eligible to be canceled and has been successfully queued.
 
-        This 200 OK response does not indicate a successful cancelation of the signature request itself. The cancelation is confirmed via the `signature_request_canceled` event. It is recommended that a  [callback handler](/api/reference/tag/Callbacks-and-Events) be implemented to listen for the `signature_request_canceled` event. This callback will be sent only when the cancelation has completed successfully. If a callback handler has been configured and the event has not been received within 60 minutes of making the call, check the status of the request in the [API Dashboard](https://app.hellosign.com/apidashboard) and retry the cancelation if necessary.
+        This 200 OK response does not indicate a successful cancelation of the signature request itself. The cancelation is confirmed via the `signature_request_canceled` event. It is recommended that a [callback handler](/api/reference/tag/Callbacks-and-Events) be implemented to listen for the `signature_request_canceled` event. This callback will be sent only when the cancelation has completed successfully. If a callback handler has been configured and the event has not been received within 60 minutes of making the call, check the status of the request in the [API Dashboard](https://app.hellosign.com/apidashboard) and retry the cancelation if necessary.
 
         To be eligible for cancelation, a signature request must have been sent successfully, must not yet have been signed by all signers, and you must either be the sender or own the API app under which it was sent. A partially signed signature request can be canceled.
 
@@ -4617,7 +5163,7 @@ paths:
                 403_example:
                   $ref: '#/components/examples/Error403ResponseExample'
                 404_example:
-                  $ref: '#/components/examples/TeamDoesNotExistResponseExample'
+                  $ref: '#/components/examples/Error404ResponseExample'
                 4XX_example:
                   $ref: '#/components/examples/Error4XXResponseExample'
       security:
@@ -5440,7 +5986,7 @@ paths:
     post:
       tags:
         - Template
-      summary: 'Create  Template'
+      summary: 'Create Template'
       description: 'Creates a template that can then be used.'
       operationId: templateCreate
       requestBody:
@@ -7345,6 +7891,50 @@ components:
           type: string
           format: email
       type: object
+    FaxSendRequest:
+      required:
+        - recipient
+      properties:
+        recipient:
+          description: 'Fax Send To Recipient'
+          type: string
+          example: recipient@example.com
+        sender:
+          description: 'Fax Send From Sender (used only with fax number)'
+          type: string
+          example: sender@example.com
+        files:
+          description: 'Fax File to Send'
+          type: array
+          items:
+            type: string
+            format: binary
+        file_urls:
+          description: 'Fax File URL to Send'
+          type: array
+          items:
+            type: string
+        test_mode:
+          description: 'API Test Mode Setting'
+          type: boolean
+          default: false
+        cover_page_to:
+          description: 'Fax Cover Page for Recipient'
+          type: string
+          example: 'Recipient Name'
+        cover_page_from:
+          description: 'Fax Cover Page for Sender'
+          type: string
+          example: 'Sender Name'
+        cover_page_message:
+          description: 'Fax Cover Page Message'
+          type: string
+          example: 'Please find the attached documents.'
+        title:
+          description: 'Fax Title'
+          type: string
+          example: 'Fax Title'
+      type: object
     OAuthTokenGenerateRequest:
       required:
         - client_id
@@ -7381,6 +7971,12 @@ components:
           default: refresh_token
         refresh_token:
           description: 'The token provided when you got the expired access token.'
+          type: string
+        client_id:
+          description: 'The client ID for your API app. Mandatory from August 1st, 2025. Until then, required if the "Client Credentials Required" setting is enabled for token refresh; optional if disabled.'
+          type: string
+        client_secret:
+          description: 'The client secret for your API app. Mandatory from August 1st, 2025. Until then, required if the "Client Credentials Required" setting is enabled for token refresh; optional if disabled.'
           type: string
       type: object
     ReportCreateRequest:
@@ -9091,7 +9687,7 @@ components:
       properties:
         header_background_color:
           type: string
-          default: '#1A1A1A'
+          default: '#1a1a1a'
         legal_version:
           type: string
           default: terms1
@@ -9100,40 +9696,40 @@ components:
             - terms2
         link_color:
           type: string
-          default: '#00B3E6'
+          default: '#0061FE'
         page_background_color:
           type: string
-          default: '#F7F8F9'
+          default: '#f7f8f9'
         primary_button_color:
           type: string
-          default: '#00B3E6'
+          default: '#0061FE'
         primary_button_color_hover:
           type: string
-          default: '#00B3E6'
+          default: '#0061FE'
         primary_button_text_color:
           type: string
-          default: '#FFFFFF'
+          default: '#ffffff'
         primary_button_text_color_hover:
           type: string
-          default: '#FFFFFF'
+          default: '#ffffff'
         secondary_button_color:
           type: string
-          default: '#FFFFFF'
+          default: '#ffffff'
         secondary_button_color_hover:
           type: string
-          default: '#FFFFFF'
+          default: '#ffffff'
         secondary_button_text_color:
           type: string
-          default: '#00B3E6'
+          default: '#0061FE'
         secondary_button_text_color_hover:
           type: string
-          default: '#00B3E6'
+          default: '#0061FE'
         text_color1:
           type: string
           default: '#808080'
         text_color2:
           type: string
-          default: '#FFFFFF'
+          default: '#ffffff'
         reset_to_default:
           description: 'Resets white labeling options to defaults. Only useful when updating an API App.'
           type: boolean
@@ -10211,6 +10807,19 @@ components:
         error:
           $ref: '#/components/schemas/ErrorResponseError'
       type: object
+    FaxGetResponse:
+      required:
+        - fax
+      properties:
+        fax:
+          $ref: '#/components/schemas/FaxResponse'
+        warnings:
+          description: 'A list of warnings.'
+          type: array
+          items:
+            $ref: '#/components/schemas/WarningResponse'
+      type: object
+      x-internal-class: true
     FaxLineResponse:
       required:
         - fax_line
@@ -10244,6 +10853,19 @@ components:
             $ref: '#/components/schemas/FaxLineResponseFaxLine'
         warnings:
           $ref: '#/components/schemas/WarningResponse'
+      type: object
+      x-internal-class: true
+    FaxListResponse:
+      required:
+        - faxes
+        - list_info
+      properties:
+        faxes:
+          type: array
+          items:
+            $ref: '#/components/schemas/FaxResponse'
+        list_info:
+          $ref: '#/components/schemas/ListInfoResponse'
       type: object
       x-internal-class: true
     FileResponse:
@@ -10388,7 +11010,7 @@ components:
           type: integer
           nullable: true
         sms_verifications_left:
-          description: 'SMS verifications  remaining.'
+          description: 'SMS verifications remaining.'
           type: integer
           nullable: true
         num_fax_pages_left:
@@ -10456,6 +11078,7 @@ components:
         secret:
           description: 'The app''s OAuth secret, or null if the app does not belong to user.'
           type: string
+          nullable: true
         scopes:
           description: 'Array of OAuth scopes used by the app.'
           type: array
@@ -10589,6 +11212,54 @@ components:
           description: 'Name of the error.'
           type: string
       type: object
+    FaxResponse:
+      required:
+        - fax_id
+        - title
+        - original_title
+        - subject
+        - message
+        - metadata
+        - created_at
+        - sender
+        - transmissions
+        - files_url
+      properties:
+        fax_id:
+          description: 'Fax ID'
+          type: string
+        title:
+          description: 'Fax Title'
+          type: string
+        original_title:
+          description: 'Fax Original Title'
+          type: string
+        subject:
+          description: 'Fax Subject'
+          type: string
+        message:
+          description: 'Fax Message'
+          type: string
+        metadata:
+          description: 'Fax Metadata'
+          type: object
+          additionalProperties: {}
+        created_at:
+          description: 'Fax Created At Timestamp'
+          type: integer
+        sender:
+          description: 'Fax Sender Email'
+          type: string
+        transmissions:
+          description: 'Fax Transmissions List'
+          type: array
+          items:
+            $ref: '#/components/schemas/FaxResponseTransmission'
+        files_url:
+          description: 'Fax Files URL'
+          type: string
+      type: object
+      x-internal-class: true
     FaxLineResponseFaxLine:
       properties:
         number:
@@ -10604,6 +11275,35 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/AccountResponse'
+      type: object
+      x-internal-class: true
+    FaxResponseTransmission:
+      required:
+        - recipient
+        - sender
+        - status_code
+      properties:
+        recipient:
+          description: 'Fax Transmission Recipient'
+          type: string
+        sender:
+          description: 'Fax Transmission Sender'
+          type: string
+        status_code:
+          description: 'Fax Transmission Status Code'
+          type: string
+          enum:
+            - success
+            - transmitting
+            - error_could_not_fax
+            - error_unknown
+            - error_busy
+            - error_no_answer
+            - error_disconnected
+            - error_bad_destination
+        sent_at:
+          description: 'Fax Transmission Sent Timestamp'
+          type: integer
       type: object
       x-internal-class: true
     ListInfoResponse:
@@ -11218,24 +11918,21 @@ components:
           description: 'Time the template was last updated.'
           type: integer
         is_embedded:
-          description: '`true` if this template was created using an embedded flow, `false` if it was created on our website.'
+          description: '`true` if this template was created using an embedded flow, `false` if it was created on our website. Will be `null` when you are not the creator of the Template.'
           type: boolean
           nullable: true
         is_creator:
           description: '`true` if you are the owner of this template, `false` if it''s been shared with you by a team member.'
           type: boolean
-          nullable: true
         can_edit:
           description: 'Indicates whether edit rights have been granted to you by the owner (always `true` if that''s you).'
           type: boolean
-          nullable: true
         is_locked:
           description: |-
             Indicates whether the template is locked.
             If `true`, then the template was created outside your quota and can only be used in `test_mode`.
             If `false`, then the template is within your quota and can be used to create signature requests.
           type: boolean
-          nullable: true
         metadata:
           description: 'The metadata attached to the template.'
           type: object
@@ -11273,7 +11970,11 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/TemplateResponseAccount'
-          nullable: true
+        attachments:
+          description: 'Signer attachments.'
+          type: array
+          items:
+            $ref: '#/components/schemas/SignatureRequestResponseAttachment'
       type: object
       x-internal-class: true
     TemplateResponseAccount:
@@ -11377,7 +12078,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/TemplateResponseDocumentStaticFieldBase'
-          nullable: true
       type: object
       x-internal-class: true
     TemplateResponseDocumentCustomFieldBase:
@@ -11529,10 +12229,6 @@ components:
         required:
           description: 'Boolean showing whether or not this field is required.'
           type: boolean
-        group:
-          description: 'The name of the group this field is in. If this field is not a group, this defaults to `null` except for Radio fields.'
-          type: string
-          nullable: true
       type: object
       discriminator:
         propertyName: type
@@ -11549,12 +12245,12 @@ components:
       x-base-class: true
     TemplateResponseDocumentFormFieldCheckbox:
       description: 'This class extends `TemplateResponseDocumentFormFieldBase`'
+      required:
+        - type
       allOf:
         -
           $ref: '#/components/schemas/TemplateResponseDocumentFormFieldBase'
         -
-          required:
-            - type
           properties:
             type:
               description: |-
@@ -11570,6 +12266,10 @@ components:
                 * Initials Field uses `TemplateResponseDocumentFormFieldInitials`
               type: string
               default: checkbox
+            group:
+              description: 'The name of the group this field is in. If this field is not a group, this defaults to `null` except for Radio fields.'
+              type: string
+              nullable: true
           type: object
     TemplateResponseDocumentFormFieldDateSigned:
       description: 'This class extends `TemplateResponseDocumentFormFieldBase`'
@@ -11579,8 +12279,6 @@ components:
         -
           $ref: '#/components/schemas/TemplateResponseDocumentFormFieldBase'
         -
-          required:
-            - type
           properties:
             type:
               description: |-
@@ -11596,6 +12294,10 @@ components:
                 * Initials Field uses `TemplateResponseDocumentFormFieldInitials`
               type: string
               default: date_signed
+            group:
+              description: 'The name of the group this field is in. If this field is not a group, this defaults to `null` except for Radio fields.'
+              type: string
+              nullable: true
           type: object
     TemplateResponseDocumentFormFieldDropdown:
       description: 'This class extends `TemplateResponseDocumentFormFieldBase`'
@@ -11605,8 +12307,6 @@ components:
         -
           $ref: '#/components/schemas/TemplateResponseDocumentFormFieldBase'
         -
-          required:
-            - type
           properties:
             type:
               description: |-
@@ -11622,6 +12322,10 @@ components:
                 * Initials Field uses `TemplateResponseDocumentFormFieldInitials`
               type: string
               default: dropdown
+            group:
+              description: 'The name of the group this field is in. If this field is not a group, this defaults to `null` except for Radio fields.'
+              type: string
+              nullable: true
           type: object
     TemplateResponseDocumentFormFieldHyperlink:
       description: 'This class extends `TemplateResponseDocumentFormFieldBase`'
@@ -11631,8 +12335,6 @@ components:
         -
           $ref: '#/components/schemas/TemplateResponseDocumentFormFieldBase'
         -
-          required:
-            - type
           properties:
             type:
               description: |-
@@ -11659,6 +12361,10 @@ components:
             fontFamily:
               description: 'Font family used in this form field''s text.'
               type: string
+            group:
+              description: 'The name of the group this field is in. If this field is not a group, this defaults to `null` except for Radio fields.'
+              type: string
+              nullable: true
           type: object
     TemplateResponseDocumentFormFieldInitials:
       description: 'This class extends `TemplateResponseDocumentFormFieldBase`'
@@ -11668,8 +12374,6 @@ components:
         -
           $ref: '#/components/schemas/TemplateResponseDocumentFormFieldBase'
         -
-          required:
-            - type
           properties:
             type:
               description: |-
@@ -11685,6 +12389,10 @@ components:
                 * Initials Field uses `TemplateResponseDocumentFormFieldInitials`
               type: string
               default: initials
+            group:
+              description: 'The name of the group this field is in. If this field is not a group, this defaults to `null` except for Radio fields.'
+              type: string
+              nullable: true
           type: object
     TemplateResponseDocumentFormFieldRadio:
       description: 'This class extends `TemplateResponseDocumentFormFieldBase`'
@@ -11695,8 +12403,6 @@ components:
         -
           $ref: '#/components/schemas/TemplateResponseDocumentFormFieldBase'
         -
-          required:
-            - type
           properties:
             type:
               description: |-
@@ -11712,6 +12418,9 @@ components:
                 * Initials Field uses `TemplateResponseDocumentFormFieldInitials`
               type: string
               default: radio
+            group:
+              description: 'The name of the group this field is in. If this field is not a group, this defaults to `null` except for Radio fields.'
+              type: string
           type: object
     TemplateResponseDocumentFormFieldSignature:
       description: 'This class extends `TemplateResponseDocumentFormFieldBase`'
@@ -11721,8 +12430,6 @@ components:
         -
           $ref: '#/components/schemas/TemplateResponseDocumentFormFieldBase'
         -
-          required:
-            - type
           properties:
             type:
               description: |-
@@ -11738,6 +12445,10 @@ components:
                 * Initials Field uses `TemplateResponseDocumentFormFieldInitials`
               type: string
               default: signature
+            group:
+              description: 'The name of the group this field is in. If this field is not a group, this defaults to `null` except for Radio fields.'
+              type: string
+              nullable: true
           type: object
     TemplateResponseDocumentFormFieldText:
       description: 'This class extends `TemplateResponseDocumentFormFieldBase`'
@@ -11747,8 +12458,6 @@ components:
         -
           $ref: '#/components/schemas/TemplateResponseDocumentFormFieldBase'
         -
-          required:
-            - type
           properties:
             type:
               description: |-
@@ -11789,6 +12498,10 @@ components:
                 - social_security_number
                 - employer_identification_number
                 - custom_regex
+              nullable: true
+            group:
+              description: 'The name of the group this field is in. If this field is not a group, this defaults to `null` except for Radio fields.'
+              type: string
               nullable: true
           type: object
     TemplateResponseDocumentStaticFieldBase:
@@ -11849,8 +12562,6 @@ components:
         -
           $ref: '#/components/schemas/TemplateResponseDocumentStaticFieldBase'
         -
-          required:
-            - type
           properties:
             type:
               description: |-
@@ -11875,8 +12586,6 @@ components:
         -
           $ref: '#/components/schemas/TemplateResponseDocumentStaticFieldBase'
         -
-          required:
-            - type
           properties:
             type:
               description: |-
@@ -11901,8 +12610,6 @@ components:
         -
           $ref: '#/components/schemas/TemplateResponseDocumentStaticFieldBase'
         -
-          required:
-            - type
           properties:
             type:
               description: |-
@@ -11927,8 +12634,6 @@ components:
         -
           $ref: '#/components/schemas/TemplateResponseDocumentStaticFieldBase'
         -
-          required:
-            - type
           properties:
             type:
               description: |-
@@ -11953,8 +12658,6 @@ components:
         -
           $ref: '#/components/schemas/TemplateResponseDocumentStaticFieldBase'
         -
-          required:
-            - type
           properties:
             type:
               description: |-
@@ -11979,8 +12682,6 @@ components:
         -
           $ref: '#/components/schemas/TemplateResponseDocumentStaticFieldBase'
         -
-          required:
-            - type
           properties:
             type:
               description: |-
@@ -12005,8 +12706,6 @@ components:
         -
           $ref: '#/components/schemas/TemplateResponseDocumentStaticFieldBase'
         -
-          required:
-            - type
           properties:
             type:
               description: |-
@@ -12031,8 +12730,6 @@ components:
         -
           $ref: '#/components/schemas/TemplateResponseDocumentStaticFieldBase'
         -
-          required:
-            - type
           properties:
             type:
               description: |-
@@ -12418,6 +13115,10 @@ components:
       summary: 'Default Example'
       value:
         $ref: examples/json/FaxLineRemoveUserRequestExample.json
+    FaxSendRequestExample:
+      summary: 'Default Example'
+      value:
+        $ref: examples/json/FaxSendRequestExample.json
     OAuthTokenGenerateRequestExample:
       summary: 'OAuth Token Generate Example'
       value:
@@ -12662,6 +13363,10 @@ components:
       summary: 'Error 4XX failed_operation'
       value:
         $ref: examples/json/Error4XXResponseExample.json
+    FaxGetResponseExample:
+      summary: 'Fax Response'
+      value:
+        $ref: examples/json/FaxGetResponseExample.json
     FaxLineResponseExample:
       summary: 'Sample Fax Line Response'
       value:
@@ -12674,6 +13379,10 @@ components:
       summary: 'Sample Fax Line List Response'
       value:
         $ref: examples/json/FaxLineListResponseExample.json
+    FaxListResponseExample:
+      summary: 'Returns the properties and settings of multiple Faxes.'
+      value:
+        $ref: examples/json/FaxListResponseExample.json
     ReportCreateResponseExample:
       summary: Report
       value:

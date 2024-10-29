@@ -12,7 +12,7 @@ Details concerning remaining monthly quotas.
 | `documentsLeft` | ```Integer``` |  Signature requests remaining.  |  |
 | `templatesTotal` | ```Integer``` |  Total API templates allowed.  |  |
 | `templatesLeft` | ```Integer``` |  API templates remaining.  |  |
-| `smsVerificationsLeft` | ```Integer``` |  SMS verifications  remaining.  |  |
+| `smsVerificationsLeft` | ```Integer``` |  SMS verifications remaining.  |  |
 | `numFaxPagesLeft` | ```Integer``` |  Number of fax pages left  |  |
 
 

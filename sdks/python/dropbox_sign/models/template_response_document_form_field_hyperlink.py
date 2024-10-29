@@ -57,6 +57,10 @@ class TemplateResponseDocumentFormFieldHyperlink(TemplateResponseDocumentFormFie
         description="Font family used in this form field's text.",
         alias="fontFamily",
     )
+    group: Optional[StrictStr] = Field(
+        default=None,
+        description="The name of the group this field is in. If this field is not a group, this defaults to `null` except for Radio fields.",
+    )
     __properties: ClassVar[List[str]] = [
         "type",
         "api_id",
@@ -67,11 +71,11 @@ class TemplateResponseDocumentFormFieldHyperlink(TemplateResponseDocumentFormFie
         "width",
         "height",
         "required",
-        "group",
         "avg_text_length",
         "isMultiline",
         "originalFontSize",
         "fontFamily",
+        "group",
     ]
 
     model_config = ConfigDict(
@@ -149,7 +153,6 @@ class TemplateResponseDocumentFormFieldHyperlink(TemplateResponseDocumentFormFie
                 "width": obj.get("width"),
                 "height": obj.get("height"),
                 "required": obj.get("required"),
-                "group": obj.get("group"),
                 "avg_text_length": (
                     TemplateResponseFieldAvgTextLength.from_dict(obj["avg_text_length"])
                     if obj.get("avg_text_length") is not None
@@ -158,6 +161,7 @@ class TemplateResponseDocumentFormFieldHyperlink(TemplateResponseDocumentFormFie
                 "isMultiline": obj.get("isMultiline"),
                 "originalFontSize": obj.get("originalFontSize"),
                 "fontFamily": obj.get("fontFamily"),
+                "group": obj.get("group"),
             }
         )
         return _obj
@@ -180,6 +184,7 @@ class TemplateResponseDocumentFormFieldHyperlink(TemplateResponseDocumentFormFie
             "is_multiline": "(bool,)",
             "original_font_size": "(int,)",
             "font_family": "(str,)",
+            "group": "(str,)",
             "api_id": "(str,)",
             "name": "(str,)",
             "signer": "(int, str,)",
@@ -188,7 +193,6 @@ class TemplateResponseDocumentFormFieldHyperlink(TemplateResponseDocumentFormFie
             "width": "(int,)",
             "height": "(int,)",
             "required": "(bool,)",
-            "group": "(str,)",
         }
 
     @classmethod

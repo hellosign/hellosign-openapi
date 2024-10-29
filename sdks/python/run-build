@@ -7,6 +7,15 @@ set -e
 DIR=$(cd `dirname $0` && pwd)
 WORKING_DIR="/app/python"
 
+if [[ -n "$GITHUB_ACTIONS" ]]; then
+  printf "\nLogging in to docker.com ...\n"
+  echo "${DOCKER_TOKEN}" | docker login -u "${DOCKER_USERNAME}" --password-stdin
+fi
+
+# cleanup
+rm -f "${DIR}/dropbox_sign/api/"*.py
+rm -f "${DIR}/dropbox_sign/models/"*.py
+
 docker run --rm \
   -v "${DIR}/:/local" \
   openapitools/openapi-generator-cli:v7.8.0 generate \

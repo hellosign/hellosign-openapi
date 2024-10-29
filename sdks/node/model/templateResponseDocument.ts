@@ -52,7 +52,7 @@ export class TemplateResponseDocument {
   /**
    * An array describing static overlay fields. **NOTE:** Only available for certain subscriptions.
    */
-  "staticFields"?: Array<TemplateResponseDocumentStaticFieldBase> | null;
+  "staticFields"?: Array<TemplateResponseDocumentStaticFieldBase>;
 
   static discriminator: string | undefined = undefined;
 

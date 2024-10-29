@@ -53,7 +53,7 @@ namespace Dropbox.Sign.Api
         /// <returns>ApiResponse of TemplateGetResponse</returns>
         ApiResponse<TemplateGetResponse> TemplateAddUserWithHttpInfo(string templateId, TemplateAddUserRequest templateAddUserRequest, int operationIndex = 0);
         /// <summary>
-        /// Create  Template
+        /// Create Template
         /// </summary>
         /// <remarks>
         /// Creates a template that can then be used.
@@ -65,7 +65,7 @@ namespace Dropbox.Sign.Api
         TemplateCreateResponse TemplateCreate(TemplateCreateRequest templateCreateRequest, int operationIndex = 0);
 
         /// <summary>
-        /// Create  Template
+        /// Create Template
         /// </summary>
         /// <remarks>
         /// Creates a template that can then be used.
@@ -333,7 +333,7 @@ namespace Dropbox.Sign.Api
         /// <returns>Task of ApiResponse (TemplateGetResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<TemplateGetResponse>> TemplateAddUserWithHttpInfoAsync(string templateId, TemplateAddUserRequest templateAddUserRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
-        /// Create  Template
+        /// Create Template
         /// </summary>
         /// <remarks>
         /// Creates a template that can then be used.
@@ -346,7 +346,7 @@ namespace Dropbox.Sign.Api
         System.Threading.Tasks.Task<TemplateCreateResponse> TemplateCreateAsync(TemplateCreateRequest templateCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
-        /// Create  Template
+        /// Create Template
         /// </summary>
         /// <remarks>
         /// Creates a template that can then be used.
@@ -919,7 +919,7 @@ namespace Dropbox.Sign.Api
         }
 
         /// <summary>
-        /// Create  Template Creates a template that can then be used.
+        /// Create Template Creates a template that can then be used.
         /// </summary>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateCreateRequest"></param>
@@ -932,7 +932,7 @@ namespace Dropbox.Sign.Api
         }
 
         /// <summary>
-        /// Create  Template Creates a template that can then be used.
+        /// Create Template Creates a template that can then be used.
         /// </summary>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateCreateRequest"></param>
@@ -1009,7 +1009,7 @@ namespace Dropbox.Sign.Api
         }
 
         /// <summary>
-        /// Create  Template Creates a template that can then be used.
+        /// Create Template Creates a template that can then be used.
         /// </summary>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateCreateRequest"></param>
@@ -1023,7 +1023,7 @@ namespace Dropbox.Sign.Api
         }
 
         /// <summary>
-        /// Create  Template Creates a template that can then be used.
+        /// Create Template Creates a template that can then be used.
         /// </summary>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateCreateRequest"></param>

@@ -11,5 +11,6 @@ Name | Type | Description | Notes
 | `is_multiline` | ```bool``` |  Whether this form field is multiline text.  |  |
 | `original_font_size` | ```int``` |  Original font size used in this form field&#39;s text.  |  |
 | `font_family` | ```string``` |  Font family used in this form field&#39;s text.  |  |
+| `group` | ```string``` |  The name of the group this field is in. If this field is not a group, this defaults to `null` except for Radio fields.  |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

@@ -61,6 +61,7 @@ class TemplateResponseDocumentFormFieldHyperlink extends TemplateResponseDocumen
         'is_multiline' => 'bool',
         'original_font_size' => 'int',
         'font_family' => 'string',
+        'group' => 'string',
     ];
 
     /**
@@ -76,6 +77,7 @@ class TemplateResponseDocumentFormFieldHyperlink extends TemplateResponseDocumen
         'is_multiline' => null,
         'original_font_size' => null,
         'font_family' => null,
+        'group' => null,
     ];
 
     /**
@@ -89,6 +91,7 @@ class TemplateResponseDocumentFormFieldHyperlink extends TemplateResponseDocumen
         'is_multiline' => false,
         'original_font_size' => false,
         'font_family' => false,
+        'group' => true,
     ];
 
     /**
@@ -174,6 +177,7 @@ class TemplateResponseDocumentFormFieldHyperlink extends TemplateResponseDocumen
         'is_multiline' => 'isMultiline',
         'original_font_size' => 'originalFontSize',
         'font_family' => 'fontFamily',
+        'group' => 'group',
     ];
 
     /**
@@ -187,6 +191,7 @@ class TemplateResponseDocumentFormFieldHyperlink extends TemplateResponseDocumen
         'is_multiline' => 'setIsMultiline',
         'original_font_size' => 'setOriginalFontSize',
         'font_family' => 'setFontFamily',
+        'group' => 'setGroup',
     ];
 
     /**
@@ -200,6 +205,7 @@ class TemplateResponseDocumentFormFieldHyperlink extends TemplateResponseDocumen
         'is_multiline' => 'getIsMultiline',
         'original_font_size' => 'getOriginalFontSize',
         'font_family' => 'getFontFamily',
+        'group' => 'getGroup',
     ];
 
     /**
@@ -258,6 +264,7 @@ class TemplateResponseDocumentFormFieldHyperlink extends TemplateResponseDocumen
         $this->setIfExists('is_multiline', $data ?? [], null);
         $this->setIfExists('original_font_size', $data ?? [], null);
         $this->setIfExists('font_family', $data ?? [], null);
+        $this->setIfExists('group', $data ?? [], null);
     }
 
     /**
@@ -453,6 +460,40 @@ class TemplateResponseDocumentFormFieldHyperlink extends TemplateResponseDocumen
             throw new InvalidArgumentException('non-nullable font_family cannot be null');
         }
         $this->container['font_family'] = $font_family;
+
+        return $this;
+    }
+
+    /**
+     * Gets group
+     *
+     * @return string|null
+     */
+    public function getGroup()
+    {
+        return $this->container['group'];
+    }
+
+    /**
+     * Sets group
+     *
+     * @param string|null $group The name of the group this field is in. If this field is not a group, this defaults to `null` except for Radio fields.
+     *
+     * @return self
+     */
+    public function setGroup(?string $group)
+    {
+        if (is_null($group)) {
+            array_push($this->openAPINullablesSetToNull, 'group');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('group', $nullablesSetToNull);
+            if ($index !== false) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['group'] = $group;
 
         return $this;
     }

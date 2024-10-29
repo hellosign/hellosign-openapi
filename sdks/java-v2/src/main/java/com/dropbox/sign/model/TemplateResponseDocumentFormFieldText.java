@@ -43,7 +43,8 @@ import com.dropbox.sign.ApiException;
   TemplateResponseDocumentFormFieldText.JSON_PROPERTY_IS_MULTILINE,
   TemplateResponseDocumentFormFieldText.JSON_PROPERTY_ORIGINAL_FONT_SIZE,
   TemplateResponseDocumentFormFieldText.JSON_PROPERTY_FONT_FAMILY,
-  TemplateResponseDocumentFormFieldText.JSON_PROPERTY_VALIDATION_TYPE
+  TemplateResponseDocumentFormFieldText.JSON_PROPERTY_VALIDATION_TYPE,
+  TemplateResponseDocumentFormFieldText.JSON_PROPERTY_GROUP
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(
@@ -121,6 +122,9 @@ public class TemplateResponseDocumentFormFieldText extends TemplateResponseDocum
 
   public static final String JSON_PROPERTY_VALIDATION_TYPE = "validation_type";
   private ValidationTypeEnum validationType;
+
+  public static final String JSON_PROPERTY_GROUP = "group";
+  private String group;
 
   public TemplateResponseDocumentFormFieldText() { 
   }
@@ -290,6 +294,31 @@ public class TemplateResponseDocumentFormFieldText extends TemplateResponseDocum
   }
 
 
+  public TemplateResponseDocumentFormFieldText group(String group) {
+    this.group = group;
+    return this;
+  }
+
+  /**
+   * The name of the group this field is in. If this field is not a group, this defaults to &#x60;null&#x60; except for Radio fields.
+   * @return group
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_GROUP)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getGroup() {
+    return group;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_GROUP)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setGroup(String group) {
+    this.group = group;
+  }
+
+
   /**
    * Return true if this TemplateResponseDocumentFormFieldText object is equal to o.
    */
@@ -308,12 +337,13 @@ public class TemplateResponseDocumentFormFieldText extends TemplateResponseDocum
         Objects.equals(this.originalFontSize, templateResponseDocumentFormFieldText.originalFontSize) &&
         Objects.equals(this.fontFamily, templateResponseDocumentFormFieldText.fontFamily) &&
         Objects.equals(this.validationType, templateResponseDocumentFormFieldText.validationType) &&
+        Objects.equals(this.group, templateResponseDocumentFormFieldText.group) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, avgTextLength, isMultiline, originalFontSize, fontFamily, validationType, super.hashCode());
+    return Objects.hash(type, avgTextLength, isMultiline, originalFontSize, fontFamily, validationType, group, super.hashCode());
   }
 
   @Override
@@ -327,6 +357,7 @@ public class TemplateResponseDocumentFormFieldText extends TemplateResponseDocum
     sb.append("    originalFontSize: ").append(toIndentedString(originalFontSize)).append("\n");
     sb.append("    fontFamily: ").append(toIndentedString(fontFamily)).append("\n");
     sb.append("    validationType: ").append(toIndentedString(validationType)).append("\n");
+    sb.append("    group: ").append(toIndentedString(group)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -448,6 +479,25 @@ public class TemplateResponseDocumentFormFieldText extends TemplateResponseDocum
         }
         else {
             map.put("validation_type", JSON.getDefault().getMapper().writeValueAsString(validationType));
+        }
+    }
+    if (group != null) {
+        if (isFileTypeOrListOfFiles(group)) {
+            fileTypeFound = true;
+        }
+
+        if (group.getClass().equals(java.io.File.class) ||
+            group.getClass().equals(Integer.class) ||
+            group.getClass().equals(String.class) ||
+            group.getClass().isEnum()) {
+            map.put("group", group);
+        } else if (isListOfFile(group)) {
+            for(int i = 0; i< getListSize(group); i++) {
+                map.put("group[" + i + "]", getFromList(group, i));
+            }
+        }
+        else {
+            map.put("group", JSON.getDefault().getMapper().writeValueAsString(group));
         }
     }
     } catch (Exception e) {

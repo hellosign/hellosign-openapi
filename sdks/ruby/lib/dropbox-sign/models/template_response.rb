@@ -35,20 +35,20 @@ module Dropbox::Sign
     # @return [Integer]
     attr_accessor :updated_at
 
-    # `true` if this template was created using an embedded flow, `false` if it was created on our website.
+    # `true` if this template was created using an embedded flow, `false` if it was created on our website. Will be `null` when you are not the creator of the Template.
     # @return [Boolean, nil]
     attr_accessor :is_embedded
 
     # `true` if you are the owner of this template, `false` if it's been shared with you by a team member.
-    # @return [Boolean, nil]
+    # @return [Boolean]
     attr_accessor :is_creator
 
     # Indicates whether edit rights have been granted to you by the owner (always `true` if that's you).
-    # @return [Boolean, nil]
+    # @return [Boolean]
     attr_accessor :can_edit
 
     # Indicates whether the template is locked. If `true`, then the template was created outside your quota and can only be used in `test_mode`. If `false`, then the template is within your quota and can be used to create signature requests.
-    # @return [Boolean, nil]
+    # @return [Boolean]
     attr_accessor :is_locked
 
     # The metadata attached to the template.
@@ -76,8 +76,12 @@ module Dropbox::Sign
     attr_accessor :named_form_fields
 
     # An array of the Accounts that can use this Template.
-    # @return [Array<TemplateResponseAccount>, nil]
+    # @return [Array<TemplateResponseAccount>]
     attr_accessor :accounts
+
+    # Signer attachments.
+    # @return [Array<SignatureRequestResponseAttachment>]
+    attr_accessor :attachments
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
@@ -96,7 +100,8 @@ module Dropbox::Sign
         :'documents' => :'documents',
         :'custom_fields' => :'custom_fields',
         :'named_form_fields' => :'named_form_fields',
-        :'accounts' => :'accounts'
+        :'accounts' => :'accounts',
+        :'attachments' => :'attachments'
       }
     end
 
@@ -122,7 +127,8 @@ module Dropbox::Sign
         :'documents' => :'Array<TemplateResponseDocument>',
         :'custom_fields' => :'Array<TemplateResponseDocumentCustomFieldBase>',
         :'named_form_fields' => :'Array<TemplateResponseDocumentFormFieldBase>',
-        :'accounts' => :'Array<TemplateResponseAccount>'
+        :'accounts' => :'Array<TemplateResponseAccount>',
+        :'attachments' => :'Array<SignatureRequestResponseAttachment>'
       }
     end
 
@@ -130,12 +136,8 @@ module Dropbox::Sign
     def self.openapi_nullable
       Set.new([
         :'is_embedded',
-        :'is_creator',
-        :'can_edit',
-        :'is_locked',
         :'custom_fields',
         :'named_form_fields',
-        :'accounts'
       ])
     end
 
@@ -250,6 +252,12 @@ module Dropbox::Sign
           self.accounts = value
         end
       end
+
+      if attributes.key?(:'attachments')
+        if (value = attributes[:'attachments']).is_a?(Array)
+          self.attachments = value
+        end
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -284,7 +292,8 @@ module Dropbox::Sign
           documents == o.documents &&
           custom_fields == o.custom_fields &&
           named_form_fields == o.named_form_fields &&
-          accounts == o.accounts
+          accounts == o.accounts &&
+          attachments == o.attachments
     end
 
     # @see the `==` method
@@ -296,7 +305,7 @@ module Dropbox::Sign
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [template_id, title, message, updated_at, is_embedded, is_creator, can_edit, is_locked, metadata, signer_roles, cc_roles, documents, custom_fields, named_form_fields, accounts].hash
+      [template_id, title, message, updated_at, is_embedded, is_creator, can_edit, is_locked, metadata, signer_roles, cc_roles, documents, custom_fields, named_form_fields, accounts, attachments].hash
     end
 
     # Builds the object from hash

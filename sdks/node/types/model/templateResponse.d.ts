@@ -1,4 +1,5 @@
 import { AttributeTypeMap } from "./";
+import { SignatureRequestResponseAttachment } from "./signatureRequestResponseAttachment";
 import { TemplateResponseAccount } from "./templateResponseAccount";
 import { TemplateResponseCCRole } from "./templateResponseCCRole";
 import { TemplateResponseDocument } from "./templateResponseDocument";
@@ -11,16 +12,17 @@ export declare class TemplateResponse {
     "message"?: string;
     "updatedAt"?: number;
     "isEmbedded"?: boolean | null;
-    "isCreator"?: boolean | null;
-    "canEdit"?: boolean | null;
-    "isLocked"?: boolean | null;
+    "isCreator"?: boolean;
+    "canEdit"?: boolean;
+    "isLocked"?: boolean;
     "metadata"?: object;
     "signerRoles"?: Array<TemplateResponseSignerRole>;
     "ccRoles"?: Array<TemplateResponseCCRole>;
     "documents"?: Array<TemplateResponseDocument>;
     "customFields"?: Array<TemplateResponseDocumentCustomFieldBase> | null;
     "namedFormFields"?: Array<TemplateResponseDocumentFormFieldBase> | null;
-    "accounts"?: Array<TemplateResponseAccount> | null;
+    "accounts"?: Array<TemplateResponseAccount>;
+    "attachments"?: Array<SignatureRequestResponseAttachment>;
     static discriminator: string | undefined;
     static attributeTypeMap: AttributeTypeMap;
     static getAttributeTypeMap(): AttributeTypeMap;

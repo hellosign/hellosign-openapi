@@ -92,7 +92,7 @@ class TemplateResponseDocument implements ModelInterface, ArrayAccess, JsonSeria
         'field_groups' => false,
         'form_fields' => false,
         'custom_fields' => false,
-        'static_fields' => true,
+        'static_fields' => false,
     ];
 
     /**
@@ -485,14 +485,7 @@ class TemplateResponseDocument implements ModelInterface, ArrayAccess, JsonSeria
     public function setStaticFields(?array $static_fields)
     {
         if (is_null($static_fields)) {
-            array_push($this->openAPINullablesSetToNull, 'static_fields');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('static_fields', $nullablesSetToNull);
-            if ($index !== false) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new InvalidArgumentException('non-nullable static_fields cannot be null');
         }
         $this->container['static_fields'] = $static_fields;
 
