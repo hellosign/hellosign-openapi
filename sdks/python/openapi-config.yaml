@@ -5,7 +5,7 @@ additionalProperties:
   generatorLanguageVersion: ">=3.7"
   packageName: dropbox_sign
   projectName: dropbox-sign
-  packageVersion: 1.6-dev
+  packageVersion: 1.7-dev
   sortModelPropertiesByRequiredFlag: true
   legacyDiscriminatorBehavior: true
   packageAuthor: Dropbox Sign API Team
