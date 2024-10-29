@@ -21,6 +21,9 @@ jobs:
 
       - name: Build SDK
         run: ./run-build
+        env:
+          DOCKER_USERNAME: ${{secrets.DOCKER_USERNAME}}
+          DOCKER_TOKEN: ${{secrets.DOCKER_TOKEN}}
 
       - name: Ensure no changes in Generated Code
         run: ./bin/check-clean-git-status
@@ -91,4 +94,3 @@ jobs:
               ref: "refs/tags/" + process.env.PACKAGE_VERSION,
               sha: context.sha
             })
-
