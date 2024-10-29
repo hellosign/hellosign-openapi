@@ -39,7 +39,7 @@ import com.dropbox.sign.ApiException;
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class AccountResponseUsage {
   public static final String JSON_PROPERTY_FAX_PAGES_SENT = "fax_pages_sent";
-  private Integer faxPagesSent = 0;
+  private Integer faxPagesSent;
 
   public AccountResponseUsage() { 
   }

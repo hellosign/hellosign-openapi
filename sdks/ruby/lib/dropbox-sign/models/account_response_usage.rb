@@ -20,7 +20,7 @@ module Dropbox::Sign
   # Details concerning monthly usage
   class AccountResponseUsage
     # Number of fax pages sent
-    # @return [Integer]
+    # @return [Integer, nil]
     attr_accessor :fax_pages_sent
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -45,6 +45,7 @@ module Dropbox::Sign
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        :'fax_pages_sent'
       ])
     end
 
@@ -90,8 +91,6 @@ module Dropbox::Sign
 
       if attributes.key?(:'fax_pages_sent')
         self.fax_pages_sent = attributes[:'fax_pages_sent']
-      else
-        self.fax_pages_sent = 0
       end
     end
 

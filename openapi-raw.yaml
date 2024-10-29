@@ -10417,7 +10417,7 @@ components:
         fax_pages_sent:
           description: '_t__AccountUsage::FAX_PAGES_SENT'
           type: integer
-          default: 0
+          nullable: true
       type: object
       x-internal-class: true
     AccountVerifyResponseAccount:
