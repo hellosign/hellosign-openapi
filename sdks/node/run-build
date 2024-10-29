@@ -12,6 +12,12 @@ if [[ -n "$GITHUB_ACTIONS" ]]; then
   echo "${DOCKER_TOKEN}" | docker login -u "${DOCKER_USERNAME}" --password-stdin
 fi
 
+# cleanup
+rm -f "${DIR}/api/"*.ts
+rm -f "${DIR}/model/"*.ts
+rm -f "${DIR}/types/api/"*.ts
+rm -f "${DIR}/types/model/"*.ts
+
 # Generate code
 docker run --rm \
   -v "${DIR}/:/local" \
