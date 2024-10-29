@@ -10974,32 +10974,26 @@ components:
         api_signature_requests_left:
           description: 'API signature requests remaining.'
           type: integer
-          default: 0
           nullable: true
         documents_left:
           description: 'Signature requests remaining.'
           type: integer
-          default: 0
           nullable: true
         templates_total:
           description: 'Total API templates allowed.'
           type: integer
-          default: 0
           nullable: true
         templates_left:
           description: 'API templates remaining.'
           type: integer
-          default: 0
           nullable: true
         sms_verifications_left:
           description: 'SMS verifications remaining.'
           type: integer
-          default: 0
           nullable: true
         num_fax_pages_left:
           description: 'Number of fax pages left'
           type: integer
-          default: 0
           nullable: true
       type: object
       x-internal-class: true

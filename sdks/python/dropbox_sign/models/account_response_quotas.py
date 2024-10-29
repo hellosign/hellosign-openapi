@@ -33,22 +33,22 @@ class AccountResponseQuotas(BaseModel):
     """  # noqa: E501
 
     api_signature_requests_left: Optional[StrictInt] = Field(
-        default=0, description="API signature requests remaining."
+        default=None, description="API signature requests remaining."
     )
     documents_left: Optional[StrictInt] = Field(
-        default=0, description="Signature requests remaining."
+        default=None, description="Signature requests remaining."
     )
     templates_total: Optional[StrictInt] = Field(
-        default=0, description="Total API templates allowed."
+        default=None, description="Total API templates allowed."
     )
     templates_left: Optional[StrictInt] = Field(
-        default=0, description="API templates remaining."
+        default=None, description="API templates remaining."
     )
     sms_verifications_left: Optional[StrictInt] = Field(
-        default=0, description="SMS verifications remaining."
+        default=None, description="SMS verifications remaining."
     )
     num_fax_pages_left: Optional[StrictInt] = Field(
-        default=0, description="Number of fax pages left"
+        default=None, description="Number of fax pages left"
     )
     __properties: ClassVar[List[str]] = [
         "api_signature_requests_left",
@@ -122,36 +122,12 @@ class AccountResponseQuotas(BaseModel):
 
         _obj = cls.model_validate(
             {
-                "api_signature_requests_left": (
-                    obj.get("api_signature_requests_left")
-                    if obj.get("api_signature_requests_left") is not None
-                    else 0
-                ),
-                "documents_left": (
-                    obj.get("documents_left")
-                    if obj.get("documents_left") is not None
-                    else 0
-                ),
-                "templates_total": (
-                    obj.get("templates_total")
-                    if obj.get("templates_total") is not None
-                    else 0
-                ),
-                "templates_left": (
-                    obj.get("templates_left")
-                    if obj.get("templates_left") is not None
-                    else 0
-                ),
-                "sms_verifications_left": (
-                    obj.get("sms_verifications_left")
-                    if obj.get("sms_verifications_left") is not None
-                    else 0
-                ),
-                "num_fax_pages_left": (
-                    obj.get("num_fax_pages_left")
-                    if obj.get("num_fax_pages_left") is not None
-                    else 0
-                ),
+                "api_signature_requests_left": obj.get("api_signature_requests_left"),
+                "documents_left": obj.get("documents_left"),
+                "templates_total": obj.get("templates_total"),
+                "templates_left": obj.get("templates_left"),
+                "sms_verifications_left": obj.get("sms_verifications_left"),
+                "num_fax_pages_left": obj.get("num_fax_pages_left"),
             }
         )
         return _obj

@@ -31,27 +31,27 @@ export class AccountResponseQuotas {
   /**
    * API signature requests remaining.
    */
-  "apiSignatureRequestsLeft"?: number | null = 0;
+  "apiSignatureRequestsLeft"?: number | null;
   /**
    * Signature requests remaining.
    */
-  "documentsLeft"?: number | null = 0;
+  "documentsLeft"?: number | null;
   /**
    * Total API templates allowed.
    */
-  "templatesTotal"?: number | null = 0;
+  "templatesTotal"?: number | null;
   /**
    * API templates remaining.
    */
-  "templatesLeft"?: number | null = 0;
+  "templatesLeft"?: number | null;
   /**
    * SMS verifications remaining.
    */
-  "smsVerificationsLeft"?: number | null = 0;
+  "smsVerificationsLeft"?: number | null;
   /**
    * Number of fax pages left
    */
-  "numFaxPagesLeft"?: number | null = 0;
+  "numFaxPagesLeft"?: number | null;
 
   static discriminator: string | undefined = undefined;
 
