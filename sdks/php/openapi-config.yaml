@@ -1,6 +1,4 @@
 generatorName: php
-typeMappings:
-  "object": "array"
 additionalProperties:
   packageName: dropbox/sign
   packageVersion: "^1.7.0"

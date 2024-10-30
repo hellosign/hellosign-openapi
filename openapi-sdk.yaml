@@ -11937,6 +11937,7 @@ components:
         metadata:
           description: 'The metadata attached to the template.'
           type: object
+          additionalProperties: {}
         signer_roles:
           description: 'An array of the designated signer roles that must be specified when sending a SignatureRequest using this Template.'
           type: array

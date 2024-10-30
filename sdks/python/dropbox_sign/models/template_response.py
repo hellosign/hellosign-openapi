@@ -325,7 +325,7 @@ class TemplateResponse(BaseModel):
             "is_creator": "(bool,)",
             "can_edit": "(bool,)",
             "is_locked": "(bool,)",
-            "metadata": "(object,)",
+            "metadata": "(Dict[str, object],)",
             "signer_roles": "(List[TemplateResponseSignerRole],)",
             "cc_roles": "(List[TemplateResponseCCRole],)",
             "documents": "(List[TemplateResponseDocument],)",

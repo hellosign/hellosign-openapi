@@ -22758,7 +22758,7 @@ TemplateResponse.attributeTypeMap = [
   {
     name: "metadata",
     baseName: "metadata",
-    type: "object"
+    type: "{ [key: string]: any; }"
   },
   {
     name: "signerRoles",

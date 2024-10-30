@@ -11318,6 +11318,7 @@ components:
         metadata:
           description: '_t__TemplateResponse::METADATA'
           type: object
+          additionalProperties: {  }
         signer_roles:
           description: '_t__TemplateResponse::SIGNER_ROLES'
           type: array

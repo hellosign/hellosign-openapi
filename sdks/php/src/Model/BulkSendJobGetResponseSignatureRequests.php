@@ -64,7 +64,7 @@ class BulkSendJobGetResponseSignatureRequests implements ModelInterface, ArrayAc
         'original_title' => 'string',
         'subject' => 'string',
         'message' => 'string',
-        'metadata' => 'array<string,array>',
+        'metadata' => 'array<string,mixed>',
         'created_at' => 'int',
         'expires_at' => 'int',
         'is_complete' => 'bool',
@@ -676,7 +676,7 @@ class BulkSendJobGetResponseSignatureRequests implements ModelInterface, ArrayAc
     /**
      * Gets metadata
      *
-     * @return array<string,array>|null
+     * @return array<string,mixed>|null
      */
     public function getMetadata()
     {
@@ -686,7 +686,7 @@ class BulkSendJobGetResponseSignatureRequests implements ModelInterface, ArrayAc
     /**
      * Sets metadata
      *
-     * @param array<string,array>|null $metadata the metadata attached to the signature request
+     * @param array<string,mixed>|null $metadata the metadata attached to the signature request
      *
      * @return self
      */
