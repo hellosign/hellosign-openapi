@@ -357,7 +357,7 @@ public class BulkSendJobGetResponseSignatureRequests {
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_METADATA)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
 
   public Map<String, Object> getMetadata() {
     return metadata;
@@ -365,7 +365,7 @@ public class BulkSendJobGetResponseSignatureRequests {
 
 
   @JsonProperty(JSON_PROPERTY_METADATA)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
   public void setMetadata(Map<String, Object> metadata) {
     this.metadata = metadata;
   }

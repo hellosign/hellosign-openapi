@@ -13,7 +13,15 @@
         "original_title": "FHA",
         "subject": "FHA",
         "message": "Let me know if you two have any questions.",
-        "metadata": {},
+        "metadata": {
+          "metadata_name_1": "metadata_value_1",
+          "metadata_name_2": {
+            "metadata_name_2_a": "metadata_value_2_a"
+          },
+          "metadata_name_3": "metadata_value_3",
+          "custom_id": 1234,
+          "custom_text": "NDA #9"
+        },
         "created_at": 1570471067,
         "expires_at": 0,
         "is_complete": false,

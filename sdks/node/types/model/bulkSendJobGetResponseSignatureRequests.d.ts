@@ -12,7 +12,7 @@ export declare class BulkSendJobGetResponseSignatureRequests {
     "subject"?: string | null;
     "message"?: string | null;
     "metadata"?: {
-        [key: string]: object;
+        [key: string]: any;
     };
     "createdAt"?: number;
     "expiresAt"?: number | null;

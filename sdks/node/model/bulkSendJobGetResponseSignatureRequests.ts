@@ -60,7 +60,7 @@ export class BulkSendJobGetResponseSignatureRequests {
   /**
    * The metadata attached to the signature request.
    */
-  "metadata"?: { [key: string]: object };
+  "metadata"?: { [key: string]: any };
   /**
    * Time the signature request was created.
    */
@@ -171,7 +171,7 @@ export class BulkSendJobGetResponseSignatureRequests {
     {
       name: "metadata",
       baseName: "metadata",
-      type: "{ [key: string]: object; }",
+      type: "{ [key: string]: any; }",
     },
     {
       name: "createdAt",

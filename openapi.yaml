@@ -11151,6 +11151,10 @@ components:
             bulk_send_job_id:
               description: 'The id of the BulkSendJob.'
               type: string
+            metadata:
+              description: 'The metadata attached to the signature request.'
+              type: object
+              additionalProperties: {}
       x-internal-class: true
     EmbeddedEditUrlResponseEmbedded:
       description: 'An embedded template object.'

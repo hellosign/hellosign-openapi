@@ -20,12 +20,4 @@ perl -pi -e 's#@return Model\\(.*)\|Model\\ErrorResponse#@return Model\\$1#g' \
   "${ROOT_DIR}/src/Api/"*.php
 perl -pi -e 's#@return SplFileObject\|Model\\ErrorResponse#@return SplFileObject#g' \
   "${ROOT_DIR}/src/Api/"*.php
-perl -pi -e 's#array<string,object>#array<string,mixed>#g' \
-  "${ROOT_DIR}/src/Api/"*.php
-perl -pi -e 's#array<string,object>#array<string,mixed>#g' \
-  "${ROOT_DIR}/src/Model/"*.php
-perl -pi -e 's#array<string,object>#array<string,mixed>#g' \
-  "${ROOT_DIR}/docs/Api/"*.md
-perl -pi -e 's#array<string,object>#array<string,mixed>#g' \
-  "${ROOT_DIR}/docs/Model/"*.md
 printf "\n"

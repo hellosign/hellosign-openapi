@@ -10565,6 +10565,10 @@ components:
             bulk_send_job_id:
               description: '_t__BulkSendJobGetResponseSignatureRequests::BULK_SEND_JOB_ID'
               type: string
+            metadata:
+              description: '_t__SignatureRequestResponse::METADATA'
+              type: object
+              additionalProperties: {  }
       x-internal-class: true
     EmbeddedEditUrlResponseEmbedded:
       description: '_t__EmbeddedEditUrlResponseEmbedded::DESCRIPTION'

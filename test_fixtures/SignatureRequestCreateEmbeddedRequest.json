@@ -90,7 +90,13 @@
     "hide_text_tags": false,
     "message": "Please sign this NDA and then we can discuss more. Let me know if you have any questions.",
     "metadata": {
-      "field1": "value1"
+      "metadata_name_1": "metadata_value_1",
+      "metadata_name_2": {
+        "metadata_name_2_a": "metadata_value_2_a"
+      },
+      "metadata_name_3": "metadata_value_3",
+      "custom_id": 1234,
+      "custom_text": "NDA #9"
     },
     "populate_auto_fill_fields": false,
     "signers": [

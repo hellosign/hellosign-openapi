@@ -17145,7 +17145,7 @@ BulkSendJobGetResponseSignatureRequests.attributeTypeMap = [
   {
     name: "metadata",
     baseName: "metadata",
-    type: "{ [key: string]: object; }"
+    type: "{ [key: string]: any; }"
   },
   {
     name: "createdAt",
