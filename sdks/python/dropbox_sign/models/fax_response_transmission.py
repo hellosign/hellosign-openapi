@@ -33,17 +33,11 @@ class FaxResponseTransmission(BaseModel):
     """  # noqa: E501
 
     recipient: StrictStr = Field(description="Fax Transmission Recipient")
-    sender: StrictStr = Field(description="Fax Transmission Sender")
     status_code: StrictStr = Field(description="Fax Transmission Status Code")
     sent_at: Optional[StrictInt] = Field(
         default=None, description="Fax Transmission Sent Timestamp"
     )
-    __properties: ClassVar[List[str]] = [
-        "recipient",
-        "sender",
-        "status_code",
-        "sent_at",
-    ]
+    __properties: ClassVar[List[str]] = ["recipient", "status_code", "sent_at"]
 
     @field_validator("status_code")
     def status_code_validate_enum(cls, value):
@@ -129,7 +123,6 @@ class FaxResponseTransmission(BaseModel):
         _obj = cls.model_validate(
             {
                 "recipient": obj.get("recipient"),
-                "sender": obj.get("sender"),
                 "status_code": obj.get("status_code"),
                 "sent_at": obj.get("sent_at"),
             }
@@ -150,7 +143,6 @@ class FaxResponseTransmission(BaseModel):
     def openapi_types(cls) -> Dict[str, str]:
         return {
             "recipient": "(str,)",
-            "sender": "(str,)",
             "status_code": "(str,)",
             "sent_at": "(int,)",
         }

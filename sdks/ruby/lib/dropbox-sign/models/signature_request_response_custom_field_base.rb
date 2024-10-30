@@ -36,7 +36,7 @@ module Dropbox::Sign
     attr_accessor :api_id
 
     # The name of the Role that is able to edit this field.
-    # @return [String]
+    # @return [String, nil]
     attr_accessor :editor
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -69,6 +69,7 @@ module Dropbox::Sign
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        :'editor'
       ])
     end
 

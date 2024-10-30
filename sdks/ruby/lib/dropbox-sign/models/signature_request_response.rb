@@ -20,7 +20,7 @@ module Dropbox::Sign
   # Contains information about a signature request.
   class SignatureRequestResponse
     # Whether this is a test signature request. Test requests have no legal value. Defaults to `false`.
-    # @return [Boolean, nil]
+    # @return [Boolean]
     attr_accessor :test_mode
 
     # The id of the SignatureRequest.
@@ -28,7 +28,7 @@ module Dropbox::Sign
     attr_accessor :signature_request_id
 
     # The email address of the initiator of the SignatureRequest.
-    # @return [String]
+    # @return [String, nil]
     attr_accessor :requester_email_address
 
     # The title the specified Account uses for the SignatureRequest.
@@ -48,7 +48,7 @@ module Dropbox::Sign
     attr_accessor :message
 
     # The metadata attached to the signature request.
-    # @return [Object]
+    # @return [Hash<String, Object>]
     attr_accessor :metadata
 
     # Time the signature request was created.
@@ -56,7 +56,7 @@ module Dropbox::Sign
     attr_accessor :created_at
 
     # The time when the signature request will expire unsigned signatures. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.
-    # @return [Integer]
+    # @return [Integer, nil]
     attr_accessor :expires_at
 
     # Whether or not the SignatureRequest has been fully executed by all signers.
@@ -165,7 +165,7 @@ module Dropbox::Sign
         :'original_title' => :'String',
         :'subject' => :'String',
         :'message' => :'String',
-        :'metadata' => :'Object',
+        :'metadata' => :'Hash<String, Object>',
         :'created_at' => :'Integer',
         :'expires_at' => :'Integer',
         :'is_complete' => :'Boolean',
@@ -189,9 +189,10 @@ module Dropbox::Sign
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
-        :'test_mode',
+        :'requester_email_address',
         :'subject',
         :'message',
+        :'expires_at',
         :'signing_url',
         :'signing_redirect_url',
         :'final_copy_uri',
@@ -274,7 +275,9 @@ module Dropbox::Sign
       end
 
       if attributes.key?(:'metadata')
-        self.metadata = attributes[:'metadata']
+        if (value = attributes[:'metadata']).is_a?(Hash)
+          self.metadata = value
+        end
       end
 
       if attributes.key?(:'created_at')

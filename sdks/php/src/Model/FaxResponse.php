@@ -60,13 +60,14 @@ class FaxResponse implements ModelInterface, ArrayAccess, JsonSerializable
         'fax_id' => 'string',
         'title' => 'string',
         'original_title' => 'string',
-        'subject' => 'string',
-        'message' => 'string',
         'metadata' => 'array<string,mixed>',
         'created_at' => 'int',
         'sender' => 'string',
-        'transmissions' => '\Dropbox\Sign\Model\FaxResponseTransmission[]',
         'files_url' => 'string',
+        'transmissions' => '\Dropbox\Sign\Model\FaxResponseTransmission[]',
+        'subject' => 'string',
+        'message' => 'string',
+        'final_copy_uri' => 'string',
     ];
 
     /**
@@ -80,13 +81,14 @@ class FaxResponse implements ModelInterface, ArrayAccess, JsonSerializable
         'fax_id' => null,
         'title' => null,
         'original_title' => null,
-        'subject' => null,
-        'message' => null,
         'metadata' => null,
         'created_at' => null,
         'sender' => null,
-        'transmissions' => null,
         'files_url' => null,
+        'transmissions' => null,
+        'subject' => null,
+        'message' => null,
+        'final_copy_uri' => null,
     ];
 
     /**
@@ -98,13 +100,14 @@ class FaxResponse implements ModelInterface, ArrayAccess, JsonSerializable
         'fax_id' => false,
         'title' => false,
         'original_title' => false,
-        'subject' => false,
-        'message' => false,
         'metadata' => false,
         'created_at' => false,
         'sender' => false,
-        'transmissions' => false,
         'files_url' => false,
+        'transmissions' => false,
+        'subject' => true,
+        'message' => true,
+        'final_copy_uri' => true,
     ];
 
     /**
@@ -188,13 +191,14 @@ class FaxResponse implements ModelInterface, ArrayAccess, JsonSerializable
         'fax_id' => 'fax_id',
         'title' => 'title',
         'original_title' => 'original_title',
-        'subject' => 'subject',
-        'message' => 'message',
         'metadata' => 'metadata',
         'created_at' => 'created_at',
         'sender' => 'sender',
-        'transmissions' => 'transmissions',
         'files_url' => 'files_url',
+        'transmissions' => 'transmissions',
+        'subject' => 'subject',
+        'message' => 'message',
+        'final_copy_uri' => 'final_copy_uri',
     ];
 
     /**
@@ -206,13 +210,14 @@ class FaxResponse implements ModelInterface, ArrayAccess, JsonSerializable
         'fax_id' => 'setFaxId',
         'title' => 'setTitle',
         'original_title' => 'setOriginalTitle',
-        'subject' => 'setSubject',
-        'message' => 'setMessage',
         'metadata' => 'setMetadata',
         'created_at' => 'setCreatedAt',
         'sender' => 'setSender',
-        'transmissions' => 'setTransmissions',
         'files_url' => 'setFilesUrl',
+        'transmissions' => 'setTransmissions',
+        'subject' => 'setSubject',
+        'message' => 'setMessage',
+        'final_copy_uri' => 'setFinalCopyUri',
     ];
 
     /**
@@ -224,13 +229,14 @@ class FaxResponse implements ModelInterface, ArrayAccess, JsonSerializable
         'fax_id' => 'getFaxId',
         'title' => 'getTitle',
         'original_title' => 'getOriginalTitle',
-        'subject' => 'getSubject',
-        'message' => 'getMessage',
         'metadata' => 'getMetadata',
         'created_at' => 'getCreatedAt',
         'sender' => 'getSender',
-        'transmissions' => 'getTransmissions',
         'files_url' => 'getFilesUrl',
+        'transmissions' => 'getTransmissions',
+        'subject' => 'getSubject',
+        'message' => 'getMessage',
+        'final_copy_uri' => 'getFinalCopyUri',
     ];
 
     /**
@@ -292,13 +298,14 @@ class FaxResponse implements ModelInterface, ArrayAccess, JsonSerializable
         $this->setIfExists('fax_id', $data ?? [], null);
         $this->setIfExists('title', $data ?? [], null);
         $this->setIfExists('original_title', $data ?? [], null);
-        $this->setIfExists('subject', $data ?? [], null);
-        $this->setIfExists('message', $data ?? [], null);
         $this->setIfExists('metadata', $data ?? [], null);
         $this->setIfExists('created_at', $data ?? [], null);
         $this->setIfExists('sender', $data ?? [], null);
-        $this->setIfExists('transmissions', $data ?? [], null);
         $this->setIfExists('files_url', $data ?? [], null);
+        $this->setIfExists('transmissions', $data ?? [], null);
+        $this->setIfExists('subject', $data ?? [], null);
+        $this->setIfExists('message', $data ?? [], null);
+        $this->setIfExists('final_copy_uri', $data ?? [], null);
     }
 
     /**
@@ -355,12 +362,6 @@ class FaxResponse implements ModelInterface, ArrayAccess, JsonSerializable
         if ($this->container['original_title'] === null) {
             $invalidProperties[] = "'original_title' can't be null";
         }
-        if ($this->container['subject'] === null) {
-            $invalidProperties[] = "'subject' can't be null";
-        }
-        if ($this->container['message'] === null) {
-            $invalidProperties[] = "'message' can't be null";
-        }
         if ($this->container['metadata'] === null) {
             $invalidProperties[] = "'metadata' can't be null";
         }
@@ -370,11 +371,11 @@ class FaxResponse implements ModelInterface, ArrayAccess, JsonSerializable
         if ($this->container['sender'] === null) {
             $invalidProperties[] = "'sender' can't be null";
         }
-        if ($this->container['transmissions'] === null) {
-            $invalidProperties[] = "'transmissions' can't be null";
-        }
         if ($this->container['files_url'] === null) {
             $invalidProperties[] = "'files_url' can't be null";
+        }
+        if ($this->container['transmissions'] === null) {
+            $invalidProperties[] = "'transmissions' can't be null";
         }
         return $invalidProperties;
     }
@@ -472,60 +473,6 @@ class FaxResponse implements ModelInterface, ArrayAccess, JsonSerializable
     }
 
     /**
-     * Gets subject
-     *
-     * @return string
-     */
-    public function getSubject()
-    {
-        return $this->container['subject'];
-    }
-
-    /**
-     * Sets subject
-     *
-     * @param string $subject Fax Subject
-     *
-     * @return self
-     */
-    public function setSubject(string $subject)
-    {
-        if (is_null($subject)) {
-            throw new InvalidArgumentException('non-nullable subject cannot be null');
-        }
-        $this->container['subject'] = $subject;
-
-        return $this;
-    }
-
-    /**
-     * Gets message
-     *
-     * @return string
-     */
-    public function getMessage()
-    {
-        return $this->container['message'];
-    }
-
-    /**
-     * Sets message
-     *
-     * @param string $message Fax Message
-     *
-     * @return self
-     */
-    public function setMessage(string $message)
-    {
-        if (is_null($message)) {
-            throw new InvalidArgumentException('non-nullable message cannot be null');
-        }
-        $this->container['message'] = $message;
-
-        return $this;
-    }
-
-    /**
      * Gets metadata
      *
      * @return array<string,mixed>
@@ -607,6 +554,33 @@ class FaxResponse implements ModelInterface, ArrayAccess, JsonSerializable
     }
 
     /**
+     * Gets files_url
+     *
+     * @return string
+     */
+    public function getFilesUrl()
+    {
+        return $this->container['files_url'];
+    }
+
+    /**
+     * Sets files_url
+     *
+     * @param string $files_url Fax Files URL
+     *
+     * @return self
+     */
+    public function setFilesUrl(string $files_url)
+    {
+        if (is_null($files_url)) {
+            throw new InvalidArgumentException('non-nullable files_url cannot be null');
+        }
+        $this->container['files_url'] = $files_url;
+
+        return $this;
+    }
+
+    /**
      * Gets transmissions
      *
      * @return FaxResponseTransmission[]
@@ -634,28 +608,103 @@ class FaxResponse implements ModelInterface, ArrayAccess, JsonSerializable
     }
 
     /**
-     * Gets files_url
+     * Gets subject
      *
-     * @return string
+     * @return string|null
      */
-    public function getFilesUrl()
+    public function getSubject()
     {
-        return $this->container['files_url'];
+        return $this->container['subject'];
     }
 
     /**
-     * Sets files_url
+     * Sets subject
      *
-     * @param string $files_url Fax Files URL
+     * @param string|null $subject Fax Subject
      *
      * @return self
      */
-    public function setFilesUrl(string $files_url)
+    public function setSubject(?string $subject)
     {
-        if (is_null($files_url)) {
-            throw new InvalidArgumentException('non-nullable files_url cannot be null');
+        if (is_null($subject)) {
+            array_push($this->openAPINullablesSetToNull, 'subject');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('subject', $nullablesSetToNull);
+            if ($index !== false) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        $this->container['files_url'] = $files_url;
+        $this->container['subject'] = $subject;
+
+        return $this;
+    }
+
+    /**
+     * Gets message
+     *
+     * @return string|null
+     */
+    public function getMessage()
+    {
+        return $this->container['message'];
+    }
+
+    /**
+     * Sets message
+     *
+     * @param string|null $message Fax Message
+     *
+     * @return self
+     */
+    public function setMessage(?string $message)
+    {
+        if (is_null($message)) {
+            array_push($this->openAPINullablesSetToNull, 'message');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('message', $nullablesSetToNull);
+            if ($index !== false) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['message'] = $message;
+
+        return $this;
+    }
+
+    /**
+     * Gets final_copy_uri
+     *
+     * @return string|null
+     */
+    public function getFinalCopyUri()
+    {
+        return $this->container['final_copy_uri'];
+    }
+
+    /**
+     * Sets final_copy_uri
+     *
+     * @param string|null $final_copy_uri The path where the completed document can be downloaded
+     *
+     * @return self
+     */
+    public function setFinalCopyUri(?string $final_copy_uri)
+    {
+        if (is_null($final_copy_uri)) {
+            array_push($this->openAPINullablesSetToNull, 'final_copy_uri');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('final_copy_uri', $nullablesSetToNull);
+            if ($index !== false) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['final_copy_uri'] = $final_copy_uri;
 
         return $this;
     }

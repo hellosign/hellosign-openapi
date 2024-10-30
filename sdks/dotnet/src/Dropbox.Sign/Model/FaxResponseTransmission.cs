@@ -105,10 +105,9 @@ namespace Dropbox.Sign.Model
         /// Initializes a new instance of the <see cref="FaxResponseTransmission" /> class.
         /// </summary>
         /// <param name="recipient">Fax Transmission Recipient (required).</param>
-        /// <param name="sender">Fax Transmission Sender (required).</param>
         /// <param name="statusCode">Fax Transmission Status Code (required).</param>
         /// <param name="sentAt">Fax Transmission Sent Timestamp.</param>
-        public FaxResponseTransmission(string recipient = default(string), string sender = default(string), StatusCodeEnum statusCode = default(StatusCodeEnum), int sentAt = default(int))
+        public FaxResponseTransmission(string recipient = default(string), StatusCodeEnum statusCode = default(StatusCodeEnum), int sentAt = default(int))
         {
 
             // to ensure "recipient" is required (not null)
@@ -117,12 +116,6 @@ namespace Dropbox.Sign.Model
                 throw new ArgumentNullException("recipient is a required property for FaxResponseTransmission and cannot be null");
             }
             this.Recipient = recipient;
-            // to ensure "sender" is required (not null)
-            if (sender == null)
-            {
-                throw new ArgumentNullException("sender is a required property for FaxResponseTransmission and cannot be null");
-            }
-            this.Sender = sender;
             this.StatusCode = statusCode;
             this.SentAt = sentAt;
         }
@@ -151,13 +144,6 @@ namespace Dropbox.Sign.Model
         public string Recipient { get; set; }
 
         /// <summary>
-        /// Fax Transmission Sender
-        /// </summary>
-        /// <value>Fax Transmission Sender</value>
-        [DataMember(Name = "sender", IsRequired = true, EmitDefaultValue = true)]
-        public string Sender { get; set; }
-
-        /// <summary>
         /// Fax Transmission Sent Timestamp
         /// </summary>
         /// <value>Fax Transmission Sent Timestamp</value>
@@ -173,7 +159,6 @@ namespace Dropbox.Sign.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class FaxResponseTransmission {\n");
             sb.Append("  Recipient: ").Append(Recipient).Append("\n");
-            sb.Append("  Sender: ").Append(Sender).Append("\n");
             sb.Append("  StatusCode: ").Append(StatusCode).Append("\n");
             sb.Append("  SentAt: ").Append(SentAt).Append("\n");
             sb.Append("}\n");
@@ -217,11 +202,6 @@ namespace Dropbox.Sign.Model
                     this.Recipient.Equals(input.Recipient))
                 ) &&
                 (
-                    this.Sender == input.Sender ||
-                    (this.Sender != null &&
-                    this.Sender.Equals(input.Sender))
-                ) &&
-                (
                     this.StatusCode == input.StatusCode ||
                     this.StatusCode.Equals(input.StatusCode)
                 ) &&
@@ -243,10 +223,6 @@ namespace Dropbox.Sign.Model
                 if (this.Recipient != null)
                 {
                     hashCode = (hashCode * 59) + this.Recipient.GetHashCode();
-                }
-                if (this.Sender != null)
-                {
-                    hashCode = (hashCode * 59) + this.Sender.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.StatusCode.GetHashCode();
                 hashCode = (hashCode * 59) + this.SentAt.GetHashCode();
@@ -272,13 +248,6 @@ namespace Dropbox.Sign.Model
                 Property = "Recipient",
                 Type = "string",
                 Value = Recipient,
-            });
-            types.Add(new OpenApiType()
-            {
-                Name = "sender",
-                Property = "Sender",
-                Type = "string",
-                Value = Sender,
             });
             types.Add(new OpenApiType()
             {

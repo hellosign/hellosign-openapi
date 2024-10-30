@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 | `originalTitle` | ```string``` |  Default Label for account.  |  |
 | `subject` | ```string``` |  The subject in the email that was initially sent to the signers.  |  |
 | `message` | ```string``` |  The custom message in the email that was initially sent to the signers.  |  |
-| `metadata` | ```object``` |  The metadata attached to the signature request.  |  |
+| `metadata` | ```{ [key: string]: any; }``` |  The metadata attached to the signature request.  |  |
 | `createdAt` | ```number``` |  Time the signature request was created.  |  |
 | `expiresAt` | ```number``` |  The time when the signature request will expire unsigned signatures. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.  |  |
 | `isComplete` | ```boolean``` |  Whether or not the SignatureRequest has been fully executed by all signers.  |  |

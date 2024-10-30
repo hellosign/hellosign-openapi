@@ -30,14 +30,6 @@ module Dropbox::Sign
     # @return [String]
     attr_accessor :original_title
 
-    # Fax Subject
-    # @return [String]
-    attr_accessor :subject
-
-    # Fax Message
-    # @return [String]
-    attr_accessor :message
-
     # Fax Metadata
     # @return [Hash<String, Object>]
     attr_accessor :metadata
@@ -50,13 +42,25 @@ module Dropbox::Sign
     # @return [String]
     attr_accessor :sender
 
+    # Fax Files URL
+    # @return [String]
+    attr_accessor :files_url
+
     # Fax Transmissions List
     # @return [Array<FaxResponseTransmission>]
     attr_accessor :transmissions
 
-    # Fax Files URL
-    # @return [String]
-    attr_accessor :files_url
+    # Fax Subject
+    # @return [String, nil]
+    attr_accessor :subject
+
+    # Fax Message
+    # @return [String, nil]
+    attr_accessor :message
+
+    # The path where the completed document can be downloaded
+    # @return [String, nil]
+    attr_accessor :final_copy_uri
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
@@ -64,13 +68,14 @@ module Dropbox::Sign
         :'fax_id' => :'fax_id',
         :'title' => :'title',
         :'original_title' => :'original_title',
-        :'subject' => :'subject',
-        :'message' => :'message',
         :'metadata' => :'metadata',
         :'created_at' => :'created_at',
         :'sender' => :'sender',
+        :'files_url' => :'files_url',
         :'transmissions' => :'transmissions',
-        :'files_url' => :'files_url'
+        :'subject' => :'subject',
+        :'message' => :'message',
+        :'final_copy_uri' => :'final_copy_uri'
       }
     end
 
@@ -85,19 +90,23 @@ module Dropbox::Sign
         :'fax_id' => :'String',
         :'title' => :'String',
         :'original_title' => :'String',
-        :'subject' => :'String',
-        :'message' => :'String',
         :'metadata' => :'Hash<String, Object>',
         :'created_at' => :'Integer',
         :'sender' => :'String',
+        :'files_url' => :'String',
         :'transmissions' => :'Array<FaxResponseTransmission>',
-        :'files_url' => :'String'
+        :'subject' => :'String',
+        :'message' => :'String',
+        :'final_copy_uri' => :'String'
       }
     end
 
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        :'subject',
+        :'message',
+        :'final_copy_uri'
       ])
     end
 
@@ -153,14 +162,6 @@ module Dropbox::Sign
         self.original_title = attributes[:'original_title']
       end
 
-      if attributes.key?(:'subject')
-        self.subject = attributes[:'subject']
-      end
-
-      if attributes.key?(:'message')
-        self.message = attributes[:'message']
-      end
-
       if attributes.key?(:'metadata')
         if (value = attributes[:'metadata']).is_a?(Hash)
           self.metadata = value
@@ -175,14 +176,26 @@ module Dropbox::Sign
         self.sender = attributes[:'sender']
       end
 
+      if attributes.key?(:'files_url')
+        self.files_url = attributes[:'files_url']
+      end
+
       if attributes.key?(:'transmissions')
         if (value = attributes[:'transmissions']).is_a?(Array)
           self.transmissions = value
         end
       end
 
-      if attributes.key?(:'files_url')
-        self.files_url = attributes[:'files_url']
+      if attributes.key?(:'subject')
+        self.subject = attributes[:'subject']
+      end
+
+      if attributes.key?(:'message')
+        self.message = attributes[:'message']
+      end
+
+      if attributes.key?(:'final_copy_uri')
+        self.final_copy_uri = attributes[:'final_copy_uri']
       end
     end
 
@@ -202,14 +215,6 @@ module Dropbox::Sign
         invalid_properties.push('invalid value for "original_title", original_title cannot be nil.')
       end
 
-      if @subject.nil?
-        invalid_properties.push('invalid value for "subject", subject cannot be nil.')
-      end
-
-      if @message.nil?
-        invalid_properties.push('invalid value for "message", message cannot be nil.')
-      end
-
       if @metadata.nil?
         invalid_properties.push('invalid value for "metadata", metadata cannot be nil.')
       end
@@ -222,12 +227,12 @@ module Dropbox::Sign
         invalid_properties.push('invalid value for "sender", sender cannot be nil.')
       end
 
-      if @transmissions.nil?
-        invalid_properties.push('invalid value for "transmissions", transmissions cannot be nil.')
-      end
-
       if @files_url.nil?
         invalid_properties.push('invalid value for "files_url", files_url cannot be nil.')
+      end
+
+      if @transmissions.nil?
+        invalid_properties.push('invalid value for "transmissions", transmissions cannot be nil.')
       end
 
       invalid_properties
@@ -239,13 +244,11 @@ module Dropbox::Sign
       return false if @fax_id.nil?
       return false if @title.nil?
       return false if @original_title.nil?
-      return false if @subject.nil?
-      return false if @message.nil?
       return false if @metadata.nil?
       return false if @created_at.nil?
       return false if @sender.nil?
-      return false if @transmissions.nil?
       return false if @files_url.nil?
+      return false if @transmissions.nil?
       true
     end
 
@@ -257,13 +260,14 @@ module Dropbox::Sign
           fax_id == o.fax_id &&
           title == o.title &&
           original_title == o.original_title &&
-          subject == o.subject &&
-          message == o.message &&
           metadata == o.metadata &&
           created_at == o.created_at &&
           sender == o.sender &&
+          files_url == o.files_url &&
           transmissions == o.transmissions &&
-          files_url == o.files_url
+          subject == o.subject &&
+          message == o.message &&
+          final_copy_uri == o.final_copy_uri
     end
 
     # @see the `==` method
@@ -275,7 +279,7 @@ module Dropbox::Sign
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [fax_id, title, original_title, subject, message, metadata, created_at, sender, transmissions, files_url].hash
+      [fax_id, title, original_title, metadata, created_at, sender, files_url, transmissions, subject, message, final_copy_uri].hash
     end
 
     # Builds the object from hash

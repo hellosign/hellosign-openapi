@@ -336,7 +336,7 @@ class SignatureRequestResponse(BaseModel):
             "original_title": "(str,)",
             "subject": "(str,)",
             "message": "(str,)",
-            "metadata": "(object,)",
+            "metadata": "(Dict[str, object],)",
             "created_at": "(int,)",
             "expires_at": "(int,)",
             "is_complete": "(bool,)",

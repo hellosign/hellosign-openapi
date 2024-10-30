@@ -70,7 +70,7 @@ class BulkSendJobGetResponseSignatureRequests(BaseModel):
         default=None,
         description="The custom message in the email that was initially sent to the signers.",
     )
-    metadata: Optional[Dict[str, Any]] = Field(
+    metadata: Optional[Dict[str, Dict[str, Any]]] = Field(
         default=None, description="The metadata attached to the signature request."
     )
     created_at: Optional[StrictInt] = Field(
@@ -335,7 +335,7 @@ class BulkSendJobGetResponseSignatureRequests(BaseModel):
             "original_title": "(str,)",
             "subject": "(str,)",
             "message": "(str,)",
-            "metadata": "(object,)",
+            "metadata": "(Dict[str, object],)",
             "created_at": "(int,)",
             "expires_at": "(int,)",
             "is_complete": "(bool,)",

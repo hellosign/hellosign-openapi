@@ -164,8 +164,8 @@
 "FaxResponse::SENDER": Fax Sender Email
 "FaxResponse::TRANSMISSIONS": Fax Transmissions List
 "FaxResponse::FILES_URL": Fax Files URL
+"FaxResponse::FINAL_COPY_URI": The path where the completed document can be downloaded
 "Sub::FaxResponseTransmission::RECIPIENT": Fax Transmission Recipient
-"Sub::FaxResponseTransmission::SENDER": Fax Transmission Sender
 "Sub::FaxResponseTransmission::STATUS_CODE": Fax Transmission Status Code
 "Sub::FaxResponseTransmission::SENT_AT": Fax Transmission Sent Timestamp
 "FaxListResponseExample::SUMMARY": Returns the properties and settings of multiple Faxes.
