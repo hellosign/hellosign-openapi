@@ -20,17 +20,17 @@ namespace Dropbox.Sign.Test.Model
                 metadata,
                 "metadata_name_1"
             );
-            
+
             dynamic metadataObjectLegacyValue = getMetadataValueObjectLegacy(
                 metadata,
                 "metadata_name_2"
             );
-            
+
             var metadataStringNewValue = getMetadataValueStringNew(
                 metadata,
                 "metadata_name_1"
             );
-            
+
             dynamic metadataObjectNewValue = getMetadataValueObjectNew(
                 metadata,
                 "metadata_name_2"
@@ -38,10 +38,10 @@ namespace Dropbox.Sign.Test.Model
 
             string expectedValue1 = "metadata_value_1";
             string expectedValue2 = "metadata_value_2_a";
-            
+
             Assert.Equal(expectedValue1, metadataStringLegacyValue);
             Assert.Equal(expectedValue2, metadataObjectLegacyValue["metadata_name_2_a"].ToString());
-            
+
             Assert.Equal(expectedValue1, metadataStringNewValue);
             Assert.Equal(expectedValue2, metadataObjectNewValue["metadata_name_2_a"].ToString());
         }
