@@ -47,7 +47,7 @@ export abstract class SignatureRequestResponseCustomFieldBase {
   /**
    * The name of the Role that is able to edit this field.
    */
-  "editor"?: string;
+  "editor"?: string | null;
 
   static discriminator: string | undefined = "type";
 

@@ -90,7 +90,7 @@ class SignatureRequestResponseCustomFieldBase implements ModelInterface, ArrayAc
         'name' => false,
         'required' => false,
         'api_id' => false,
-        'editor' => false,
+        'editor' => true,
     ];
 
     /**
@@ -459,7 +459,14 @@ class SignatureRequestResponseCustomFieldBase implements ModelInterface, ArrayAc
     public function setEditor(?string $editor)
     {
         if (is_null($editor)) {
-            throw new InvalidArgumentException('non-nullable editor cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'editor');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('editor', $nullablesSetToNull);
+            if ($index !== false) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['editor'] = $editor;
 

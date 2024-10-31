@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from dropbox_sign.models.fax_response_transmission import FaxResponseTransmission
 from typing import Optional, Set, Tuple
 from typing_extensions import Self
@@ -36,26 +36,31 @@ class FaxResponse(BaseModel):
     fax_id: StrictStr = Field(description="Fax ID")
     title: StrictStr = Field(description="Fax Title")
     original_title: StrictStr = Field(description="Fax Original Title")
-    subject: StrictStr = Field(description="Fax Subject")
-    message: StrictStr = Field(description="Fax Message")
     metadata: Dict[str, Any] = Field(description="Fax Metadata")
     created_at: StrictInt = Field(description="Fax Created At Timestamp")
     sender: StrictStr = Field(description="Fax Sender Email")
+    files_url: StrictStr = Field(description="Fax Files URL")
     transmissions: List[FaxResponseTransmission] = Field(
         description="Fax Transmissions List"
     )
-    files_url: StrictStr = Field(description="Fax Files URL")
+    subject: Optional[StrictStr] = Field(default=None, description="Fax Subject")
+    message: Optional[StrictStr] = Field(default=None, description="Fax Message")
+    final_copy_uri: Optional[StrictStr] = Field(
+        default=None,
+        description="The path where the completed document can be downloaded",
+    )
     __properties: ClassVar[List[str]] = [
         "fax_id",
         "title",
         "original_title",
-        "subject",
-        "message",
         "metadata",
         "created_at",
         "sender",
-        "transmissions",
         "files_url",
+        "transmissions",
+        "subject",
+        "message",
+        "final_copy_uri",
     ]
 
     model_config = ConfigDict(
@@ -131,11 +136,10 @@ class FaxResponse(BaseModel):
                 "fax_id": obj.get("fax_id"),
                 "title": obj.get("title"),
                 "original_title": obj.get("original_title"),
-                "subject": obj.get("subject"),
-                "message": obj.get("message"),
                 "metadata": obj.get("metadata"),
                 "created_at": obj.get("created_at"),
                 "sender": obj.get("sender"),
+                "files_url": obj.get("files_url"),
                 "transmissions": (
                     [
                         FaxResponseTransmission.from_dict(_item)
@@ -144,7 +148,9 @@ class FaxResponse(BaseModel):
                     if obj.get("transmissions") is not None
                     else None
                 ),
-                "files_url": obj.get("files_url"),
+                "subject": obj.get("subject"),
+                "message": obj.get("message"),
+                "final_copy_uri": obj.get("final_copy_uri"),
             }
         )
         return _obj
@@ -165,13 +171,14 @@ class FaxResponse(BaseModel):
             "fax_id": "(str,)",
             "title": "(str,)",
             "original_title": "(str,)",
-            "subject": "(str,)",
-            "message": "(str,)",
             "metadata": "(Dict[str, object],)",
             "created_at": "(int,)",
             "sender": "(str,)",
-            "transmissions": "(List[FaxResponseTransmission],)",
             "files_url": "(str,)",
+            "transmissions": "(List[FaxResponseTransmission],)",
+            "subject": "(str,)",
+            "message": "(str,)",
+            "final_copy_uri": "(str,)",
         }
 
     @classmethod

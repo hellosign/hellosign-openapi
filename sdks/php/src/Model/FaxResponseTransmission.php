@@ -58,7 +58,6 @@ class FaxResponseTransmission implements ModelInterface, ArrayAccess, JsonSerial
      */
     protected static $openAPITypes = [
         'recipient' => 'string',
-        'sender' => 'string',
         'status_code' => 'string',
         'sent_at' => 'int',
     ];
@@ -72,7 +71,6 @@ class FaxResponseTransmission implements ModelInterface, ArrayAccess, JsonSerial
      */
     protected static $openAPIFormats = [
         'recipient' => null,
-        'sender' => null,
         'status_code' => null,
         'sent_at' => null,
     ];
@@ -84,7 +82,6 @@ class FaxResponseTransmission implements ModelInterface, ArrayAccess, JsonSerial
      */
     protected static array $openAPINullables = [
         'recipient' => false,
-        'sender' => false,
         'status_code' => false,
         'sent_at' => false,
     ];
@@ -168,7 +165,6 @@ class FaxResponseTransmission implements ModelInterface, ArrayAccess, JsonSerial
      */
     protected static $attributeMap = [
         'recipient' => 'recipient',
-        'sender' => 'sender',
         'status_code' => 'status_code',
         'sent_at' => 'sent_at',
     ];
@@ -180,7 +176,6 @@ class FaxResponseTransmission implements ModelInterface, ArrayAccess, JsonSerial
      */
     protected static $setters = [
         'recipient' => 'setRecipient',
-        'sender' => 'setSender',
         'status_code' => 'setStatusCode',
         'sent_at' => 'setSentAt',
     ];
@@ -192,7 +187,6 @@ class FaxResponseTransmission implements ModelInterface, ArrayAccess, JsonSerial
      */
     protected static $getters = [
         'recipient' => 'getRecipient',
-        'sender' => 'getSender',
         'status_code' => 'getStatusCode',
         'sent_at' => 'getSentAt',
     ];
@@ -282,7 +276,6 @@ class FaxResponseTransmission implements ModelInterface, ArrayAccess, JsonSerial
     public function __construct(array $data = null)
     {
         $this->setIfExists('recipient', $data ?? [], null);
-        $this->setIfExists('sender', $data ?? [], null);
         $this->setIfExists('status_code', $data ?? [], null);
         $this->setIfExists('sent_at', $data ?? [], null);
     }
@@ -335,9 +328,6 @@ class FaxResponseTransmission implements ModelInterface, ArrayAccess, JsonSerial
         if ($this->container['recipient'] === null) {
             $invalidProperties[] = "'recipient' can't be null";
         }
-        if ($this->container['sender'] === null) {
-            $invalidProperties[] = "'sender' can't be null";
-        }
         if ($this->container['status_code'] === null) {
             $invalidProperties[] = "'status_code' can't be null";
         }
@@ -387,33 +377,6 @@ class FaxResponseTransmission implements ModelInterface, ArrayAccess, JsonSerial
             throw new InvalidArgumentException('non-nullable recipient cannot be null');
         }
         $this->container['recipient'] = $recipient;
-
-        return $this;
-    }
-
-    /**
-     * Gets sender
-     *
-     * @return string
-     */
-    public function getSender()
-    {
-        return $this->container['sender'];
-    }
-
-    /**
-     * Sets sender
-     *
-     * @param string $sender Fax Transmission Sender
-     *
-     * @return self
-     */
-    public function setSender(string $sender)
-    {
-        if (is_null($sender)) {
-            throw new InvalidArgumentException('non-nullable sender cannot be null');
-        }
-        $this->container['sender'] = $sender;
 
         return $this;
     }

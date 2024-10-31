@@ -70,7 +70,7 @@ export class TemplateResponse {
   /**
    * The metadata attached to the template.
    */
-  "metadata"?: object;
+  "metadata"?: { [key: string]: any };
   /**
    * An array of the designated signer roles that must be specified when sending a SignatureRequest using this Template.
    */
@@ -146,7 +146,7 @@ export class TemplateResponse {
     {
       name: "metadata",
       baseName: "metadata",
-      type: "object",
+      type: "{ [key: string]: any; }",
     },
     {
       name: "signerRoles",

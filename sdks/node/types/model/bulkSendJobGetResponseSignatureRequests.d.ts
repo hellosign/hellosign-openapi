@@ -4,16 +4,18 @@ import { SignatureRequestResponseCustomFieldBase } from "./signatureRequestRespo
 import { SignatureRequestResponseDataBase } from "./signatureRequestResponseDataBase";
 import { SignatureRequestResponseSignatures } from "./signatureRequestResponseSignatures";
 export declare class BulkSendJobGetResponseSignatureRequests {
-    "testMode"?: boolean | null;
+    "testMode"?: boolean;
     "signatureRequestId"?: string;
-    "requesterEmailAddress"?: string;
+    "requesterEmailAddress"?: string | null;
     "title"?: string;
     "originalTitle"?: string;
     "subject"?: string | null;
     "message"?: string | null;
-    "metadata"?: object;
+    "metadata"?: {
+        [key: string]: any;
+    };
     "createdAt"?: number;
-    "expiresAt"?: number;
+    "expiresAt"?: number | null;
     "isComplete"?: boolean;
     "isDeclined"?: boolean;
     "hasError"?: boolean;

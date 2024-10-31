@@ -74,7 +74,7 @@ public class TemplateResponse {
     private Boolean isLocked;
 
     public static final String JSON_PROPERTY_METADATA = "metadata";
-    private Object metadata;
+    private Map<String, Object> metadata = null;
 
     public static final String JSON_PROPERTY_SIGNER_ROLES = "signer_roles";
     private List<TemplateResponseSignerRole> signerRoles = null;
@@ -298,8 +298,16 @@ public class TemplateResponse {
         this.isLocked = isLocked;
     }
 
-    public TemplateResponse metadata(Object metadata) {
+    public TemplateResponse metadata(Map<String, Object> metadata) {
         this.metadata = metadata;
+        return this;
+    }
+
+    public TemplateResponse putMetadataItem(String key, Object metadataItem) {
+        if (this.metadata == null) {
+            this.metadata = new HashMap<>();
+        }
+        this.metadata.put(key, metadataItem);
         return this;
     }
 
@@ -309,14 +317,14 @@ public class TemplateResponse {
      * @return metadata
      */
     @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_METADATA)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public Object getMetadata() {
+    @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
+    public Map<String, Object> getMetadata() {
         return metadata;
     }
 
     @JsonProperty(JSON_PROPERTY_METADATA)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setMetadata(Object metadata) {
+    @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
+    public void setMetadata(Map<String, Object> metadata) {
         this.metadata = metadata;
     }
 

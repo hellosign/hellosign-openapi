@@ -9,7 +9,6 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 | `recipient`<sup>*_required_</sup> | ```String``` |  Fax Transmission Recipient  |  |
-| `sender`<sup>*_required_</sup> | ```String``` |  Fax Transmission Sender  |  |
 | `statusCode`<sup>*_required_</sup> | [```StatusCodeEnum```](#StatusCodeEnum) |  Fax Transmission Status Code  |  |
 | `sentAt` | ```Integer``` |  Fax Transmission Sent Timestamp  |  |
 

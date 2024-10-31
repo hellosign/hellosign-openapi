@@ -30,7 +30,9 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.dropbox.sign.JSON;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -87,7 +89,7 @@ public class TemplateResponse {
   private Boolean isLocked;
 
   public static final String JSON_PROPERTY_METADATA = "metadata";
-  private Object metadata;
+  private Map<String, Object> metadata = null;
 
   public static final String JSON_PROPERTY_SIGNER_ROLES = "signer_roles";
   private List<TemplateResponseSignerRole> signerRoles = null;
@@ -330,8 +332,16 @@ public class TemplateResponse {
   }
 
 
-  public TemplateResponse metadata(Object metadata) {
+  public TemplateResponse metadata(Map<String, Object> metadata) {
     this.metadata = metadata;
+    return this;
+  }
+
+  public TemplateResponse putMetadataItem(String key, Object metadataItem) {
+    if (this.metadata == null) {
+      this.metadata = new HashMap<>();
+    }
+    this.metadata.put(key, metadataItem);
     return this;
   }
 
@@ -341,16 +351,16 @@ public class TemplateResponse {
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_METADATA)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Object getMetadata() {
+  public Map<String, Object> getMetadata() {
     return metadata;
   }
 
 
   @JsonProperty(JSON_PROPERTY_METADATA)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMetadata(Object metadata) {
+  @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
+  public void setMetadata(Map<String, Object> metadata) {
     this.metadata = metadata;
   }
 

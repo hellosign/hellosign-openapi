@@ -17145,7 +17145,7 @@ BulkSendJobGetResponseSignatureRequests.attributeTypeMap = [
   {
     name: "metadata",
     baseName: "metadata",
-    type: "object"
+    type: "{ [key: string]: any; }"
   },
   {
     name: "createdAt",
@@ -18081,16 +18081,6 @@ FaxResponse.attributeTypeMap = [
     type: "string"
   },
   {
-    name: "subject",
-    baseName: "subject",
-    type: "string"
-  },
-  {
-    name: "message",
-    baseName: "message",
-    type: "string"
-  },
-  {
     name: "metadata",
     baseName: "metadata",
     type: "{ [key: string]: any; }"
@@ -18106,13 +18096,28 @@ FaxResponse.attributeTypeMap = [
     type: "string"
   },
   {
+    name: "filesUrl",
+    baseName: "files_url",
+    type: "string"
+  },
+  {
     name: "transmissions",
     baseName: "transmissions",
     type: "Array<FaxResponseTransmission>"
   },
   {
-    name: "filesUrl",
-    baseName: "files_url",
+    name: "subject",
+    baseName: "subject",
+    type: "string"
+  },
+  {
+    name: "message",
+    baseName: "message",
+    type: "string"
+  },
+  {
+    name: "finalCopyUri",
+    baseName: "final_copy_uri",
     type: "string"
   }
 ];
@@ -18132,11 +18137,6 @@ FaxResponseTransmission.attributeTypeMap = [
   {
     name: "recipient",
     baseName: "recipient",
-    type: "string"
-  },
-  {
-    name: "sender",
-    baseName: "sender",
     type: "string"
   },
   {
@@ -19255,7 +19255,7 @@ SignatureRequestResponse.attributeTypeMap = [
   {
     name: "metadata",
     baseName: "metadata",
-    type: "object"
+    type: "{ [key: string]: any; }"
   },
   {
     name: "createdAt",
@@ -22758,7 +22758,7 @@ TemplateResponse.attributeTypeMap = [
   {
     name: "metadata",
     baseName: "metadata",
-    type: "object"
+    type: "{ [key: string]: any; }"
   },
   {
     name: "signerRoles",

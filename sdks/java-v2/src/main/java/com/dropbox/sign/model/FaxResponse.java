@@ -41,13 +41,14 @@ import com.dropbox.sign.ApiException;
   FaxResponse.JSON_PROPERTY_FAX_ID,
   FaxResponse.JSON_PROPERTY_TITLE,
   FaxResponse.JSON_PROPERTY_ORIGINAL_TITLE,
-  FaxResponse.JSON_PROPERTY_SUBJECT,
-  FaxResponse.JSON_PROPERTY_MESSAGE,
   FaxResponse.JSON_PROPERTY_METADATA,
   FaxResponse.JSON_PROPERTY_CREATED_AT,
   FaxResponse.JSON_PROPERTY_SENDER,
+  FaxResponse.JSON_PROPERTY_FILES_URL,
   FaxResponse.JSON_PROPERTY_TRANSMISSIONS,
-  FaxResponse.JSON_PROPERTY_FILES_URL
+  FaxResponse.JSON_PROPERTY_SUBJECT,
+  FaxResponse.JSON_PROPERTY_MESSAGE,
+  FaxResponse.JSON_PROPERTY_FINAL_COPY_URI
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(ignoreUnknown=true)
@@ -61,12 +62,6 @@ public class FaxResponse {
   public static final String JSON_PROPERTY_ORIGINAL_TITLE = "original_title";
   private String originalTitle;
 
-  public static final String JSON_PROPERTY_SUBJECT = "subject";
-  private String subject;
-
-  public static final String JSON_PROPERTY_MESSAGE = "message";
-  private String message;
-
   public static final String JSON_PROPERTY_METADATA = "metadata";
   private Map<String, Object> metadata = new HashMap<>();
 
@@ -76,11 +71,20 @@ public class FaxResponse {
   public static final String JSON_PROPERTY_SENDER = "sender";
   private String sender;
 
+  public static final String JSON_PROPERTY_FILES_URL = "files_url";
+  private String filesUrl;
+
   public static final String JSON_PROPERTY_TRANSMISSIONS = "transmissions";
   private List<FaxResponseTransmission> transmissions = new ArrayList<>();
 
-  public static final String JSON_PROPERTY_FILES_URL = "files_url";
-  private String filesUrl;
+  public static final String JSON_PROPERTY_SUBJECT = "subject";
+  private String subject;
+
+  public static final String JSON_PROPERTY_MESSAGE = "message";
+  private String message;
+
+  public static final String JSON_PROPERTY_FINAL_COPY_URI = "final_copy_uri";
+  private String finalCopyUri;
 
   public FaxResponse() { 
   }
@@ -175,56 +179,6 @@ public class FaxResponse {
   }
 
 
-  public FaxResponse subject(String subject) {
-    this.subject = subject;
-    return this;
-  }
-
-  /**
-   * Fax Subject
-   * @return subject
-   */
-  @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_SUBJECT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public String getSubject() {
-    return subject;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_SUBJECT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setSubject(String subject) {
-    this.subject = subject;
-  }
-
-
-  public FaxResponse message(String message) {
-    this.message = message;
-    return this;
-  }
-
-  /**
-   * Fax Message
-   * @return message
-   */
-  @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_MESSAGE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public String getMessage() {
-    return message;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_MESSAGE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setMessage(String message) {
-    this.message = message;
-  }
-
-
   public FaxResponse metadata(Map<String, Object> metadata) {
     this.metadata = metadata;
     return this;
@@ -308,6 +262,31 @@ public class FaxResponse {
   }
 
 
+  public FaxResponse filesUrl(String filesUrl) {
+    this.filesUrl = filesUrl;
+    return this;
+  }
+
+  /**
+   * Fax Files URL
+   * @return filesUrl
+   */
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_FILES_URL)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public String getFilesUrl() {
+    return filesUrl;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_FILES_URL)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setFilesUrl(String filesUrl) {
+    this.filesUrl = filesUrl;
+  }
+
+
   public FaxResponse transmissions(List<FaxResponseTransmission> transmissions) {
     this.transmissions = transmissions;
     return this;
@@ -341,28 +320,78 @@ public class FaxResponse {
   }
 
 
-  public FaxResponse filesUrl(String filesUrl) {
-    this.filesUrl = filesUrl;
+  public FaxResponse subject(String subject) {
+    this.subject = subject;
     return this;
   }
 
   /**
-   * Fax Files URL
-   * @return filesUrl
+   * Fax Subject
+   * @return subject
    */
-  @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_FILES_URL)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SUBJECT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getFilesUrl() {
-    return filesUrl;
+  public String getSubject() {
+    return subject;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FILES_URL)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setFilesUrl(String filesUrl) {
-    this.filesUrl = filesUrl;
+  @JsonProperty(JSON_PROPERTY_SUBJECT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSubject(String subject) {
+    this.subject = subject;
+  }
+
+
+  public FaxResponse message(String message) {
+    this.message = message;
+    return this;
+  }
+
+  /**
+   * Fax Message
+   * @return message
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_MESSAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getMessage() {
+    return message;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_MESSAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setMessage(String message) {
+    this.message = message;
+  }
+
+
+  public FaxResponse finalCopyUri(String finalCopyUri) {
+    this.finalCopyUri = finalCopyUri;
+    return this;
+  }
+
+  /**
+   * The path where the completed document can be downloaded
+   * @return finalCopyUri
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FINAL_COPY_URI)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getFinalCopyUri() {
+    return finalCopyUri;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_FINAL_COPY_URI)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setFinalCopyUri(String finalCopyUri) {
+    this.finalCopyUri = finalCopyUri;
   }
 
 
@@ -381,18 +410,19 @@ public class FaxResponse {
     return Objects.equals(this.faxId, faxResponse.faxId) &&
         Objects.equals(this.title, faxResponse.title) &&
         Objects.equals(this.originalTitle, faxResponse.originalTitle) &&
-        Objects.equals(this.subject, faxResponse.subject) &&
-        Objects.equals(this.message, faxResponse.message) &&
         Objects.equals(this.metadata, faxResponse.metadata) &&
         Objects.equals(this.createdAt, faxResponse.createdAt) &&
         Objects.equals(this.sender, faxResponse.sender) &&
+        Objects.equals(this.filesUrl, faxResponse.filesUrl) &&
         Objects.equals(this.transmissions, faxResponse.transmissions) &&
-        Objects.equals(this.filesUrl, faxResponse.filesUrl);
+        Objects.equals(this.subject, faxResponse.subject) &&
+        Objects.equals(this.message, faxResponse.message) &&
+        Objects.equals(this.finalCopyUri, faxResponse.finalCopyUri);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(faxId, title, originalTitle, subject, message, metadata, createdAt, sender, transmissions, filesUrl);
+    return Objects.hash(faxId, title, originalTitle, metadata, createdAt, sender, filesUrl, transmissions, subject, message, finalCopyUri);
   }
 
   @Override
@@ -402,13 +432,14 @@ public class FaxResponse {
     sb.append("    faxId: ").append(toIndentedString(faxId)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    originalTitle: ").append(toIndentedString(originalTitle)).append("\n");
-    sb.append("    subject: ").append(toIndentedString(subject)).append("\n");
-    sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    sender: ").append(toIndentedString(sender)).append("\n");
-    sb.append("    transmissions: ").append(toIndentedString(transmissions)).append("\n");
     sb.append("    filesUrl: ").append(toIndentedString(filesUrl)).append("\n");
+    sb.append("    transmissions: ").append(toIndentedString(transmissions)).append("\n");
+    sb.append("    subject: ").append(toIndentedString(subject)).append("\n");
+    sb.append("    message: ").append(toIndentedString(message)).append("\n");
+    sb.append("    finalCopyUri: ").append(toIndentedString(finalCopyUri)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -474,44 +505,6 @@ public class FaxResponse {
             map.put("original_title", JSON.getDefault().getMapper().writeValueAsString(originalTitle));
         }
     }
-    if (subject != null) {
-        if (isFileTypeOrListOfFiles(subject)) {
-            fileTypeFound = true;
-        }
-
-        if (subject.getClass().equals(java.io.File.class) ||
-            subject.getClass().equals(Integer.class) ||
-            subject.getClass().equals(String.class) ||
-            subject.getClass().isEnum()) {
-            map.put("subject", subject);
-        } else if (isListOfFile(subject)) {
-            for(int i = 0; i< getListSize(subject); i++) {
-                map.put("subject[" + i + "]", getFromList(subject, i));
-            }
-        }
-        else {
-            map.put("subject", JSON.getDefault().getMapper().writeValueAsString(subject));
-        }
-    }
-    if (message != null) {
-        if (isFileTypeOrListOfFiles(message)) {
-            fileTypeFound = true;
-        }
-
-        if (message.getClass().equals(java.io.File.class) ||
-            message.getClass().equals(Integer.class) ||
-            message.getClass().equals(String.class) ||
-            message.getClass().isEnum()) {
-            map.put("message", message);
-        } else if (isListOfFile(message)) {
-            for(int i = 0; i< getListSize(message); i++) {
-                map.put("message[" + i + "]", getFromList(message, i));
-            }
-        }
-        else {
-            map.put("message", JSON.getDefault().getMapper().writeValueAsString(message));
-        }
-    }
     if (metadata != null) {
         if (isFileTypeOrListOfFiles(metadata)) {
             fileTypeFound = true;
@@ -569,6 +562,25 @@ public class FaxResponse {
             map.put("sender", JSON.getDefault().getMapper().writeValueAsString(sender));
         }
     }
+    if (filesUrl != null) {
+        if (isFileTypeOrListOfFiles(filesUrl)) {
+            fileTypeFound = true;
+        }
+
+        if (filesUrl.getClass().equals(java.io.File.class) ||
+            filesUrl.getClass().equals(Integer.class) ||
+            filesUrl.getClass().equals(String.class) ||
+            filesUrl.getClass().isEnum()) {
+            map.put("files_url", filesUrl);
+        } else if (isListOfFile(filesUrl)) {
+            for(int i = 0; i< getListSize(filesUrl); i++) {
+                map.put("files_url[" + i + "]", getFromList(filesUrl, i));
+            }
+        }
+        else {
+            map.put("files_url", JSON.getDefault().getMapper().writeValueAsString(filesUrl));
+        }
+    }
     if (transmissions != null) {
         if (isFileTypeOrListOfFiles(transmissions)) {
             fileTypeFound = true;
@@ -588,23 +600,61 @@ public class FaxResponse {
             map.put("transmissions", JSON.getDefault().getMapper().writeValueAsString(transmissions));
         }
     }
-    if (filesUrl != null) {
-        if (isFileTypeOrListOfFiles(filesUrl)) {
+    if (subject != null) {
+        if (isFileTypeOrListOfFiles(subject)) {
             fileTypeFound = true;
         }
 
-        if (filesUrl.getClass().equals(java.io.File.class) ||
-            filesUrl.getClass().equals(Integer.class) ||
-            filesUrl.getClass().equals(String.class) ||
-            filesUrl.getClass().isEnum()) {
-            map.put("files_url", filesUrl);
-        } else if (isListOfFile(filesUrl)) {
-            for(int i = 0; i< getListSize(filesUrl); i++) {
-                map.put("files_url[" + i + "]", getFromList(filesUrl, i));
+        if (subject.getClass().equals(java.io.File.class) ||
+            subject.getClass().equals(Integer.class) ||
+            subject.getClass().equals(String.class) ||
+            subject.getClass().isEnum()) {
+            map.put("subject", subject);
+        } else if (isListOfFile(subject)) {
+            for(int i = 0; i< getListSize(subject); i++) {
+                map.put("subject[" + i + "]", getFromList(subject, i));
             }
         }
         else {
-            map.put("files_url", JSON.getDefault().getMapper().writeValueAsString(filesUrl));
+            map.put("subject", JSON.getDefault().getMapper().writeValueAsString(subject));
+        }
+    }
+    if (message != null) {
+        if (isFileTypeOrListOfFiles(message)) {
+            fileTypeFound = true;
+        }
+
+        if (message.getClass().equals(java.io.File.class) ||
+            message.getClass().equals(Integer.class) ||
+            message.getClass().equals(String.class) ||
+            message.getClass().isEnum()) {
+            map.put("message", message);
+        } else if (isListOfFile(message)) {
+            for(int i = 0; i< getListSize(message); i++) {
+                map.put("message[" + i + "]", getFromList(message, i));
+            }
+        }
+        else {
+            map.put("message", JSON.getDefault().getMapper().writeValueAsString(message));
+        }
+    }
+    if (finalCopyUri != null) {
+        if (isFileTypeOrListOfFiles(finalCopyUri)) {
+            fileTypeFound = true;
+        }
+
+        if (finalCopyUri.getClass().equals(java.io.File.class) ||
+            finalCopyUri.getClass().equals(Integer.class) ||
+            finalCopyUri.getClass().equals(String.class) ||
+            finalCopyUri.getClass().isEnum()) {
+            map.put("final_copy_uri", finalCopyUri);
+        } else if (isListOfFile(finalCopyUri)) {
+            for(int i = 0; i< getListSize(finalCopyUri); i++) {
+                map.put("final_copy_uri[" + i + "]", getFromList(finalCopyUri, i));
+            }
+        }
+        else {
+            map.put("final_copy_uri", JSON.getDefault().getMapper().writeValueAsString(finalCopyUri));
         }
     }
     } catch (Exception e) {

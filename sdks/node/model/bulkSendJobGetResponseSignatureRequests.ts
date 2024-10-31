@@ -32,7 +32,7 @@ export class BulkSendJobGetResponseSignatureRequests {
   /**
    * Whether this is a test signature request. Test requests have no legal value. Defaults to `false`.
    */
-  "testMode"?: boolean | null = false;
+  "testMode"?: boolean = false;
   /**
    * The id of the SignatureRequest.
    */
@@ -40,7 +40,7 @@ export class BulkSendJobGetResponseSignatureRequests {
   /**
    * The email address of the initiator of the SignatureRequest.
    */
-  "requesterEmailAddress"?: string;
+  "requesterEmailAddress"?: string | null;
   /**
    * The title the specified Account uses for the SignatureRequest.
    */
@@ -60,7 +60,7 @@ export class BulkSendJobGetResponseSignatureRequests {
   /**
    * The metadata attached to the signature request.
    */
-  "metadata"?: object;
+  "metadata"?: { [key: string]: any };
   /**
    * Time the signature request was created.
    */
@@ -68,7 +68,7 @@ export class BulkSendJobGetResponseSignatureRequests {
   /**
    * The time when the signature request will expire unsigned signatures. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.
    */
-  "expiresAt"?: number;
+  "expiresAt"?: number | null;
   /**
    * Whether or not the SignatureRequest has been fully executed by all signers.
    */
@@ -171,7 +171,7 @@ export class BulkSendJobGetResponseSignatureRequests {
     {
       name: "metadata",
       baseName: "metadata",
-      type: "object",
+      type: "{ [key: string]: any; }",
     },
     {
       name: "createdAt",

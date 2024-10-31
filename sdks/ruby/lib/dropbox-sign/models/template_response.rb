@@ -52,7 +52,7 @@ module Dropbox::Sign
     attr_accessor :is_locked
 
     # The metadata attached to the template.
-    # @return [Object]
+    # @return [Hash<String, Object>]
     attr_accessor :metadata
 
     # An array of the designated signer roles that must be specified when sending a SignatureRequest using this Template.
@@ -121,7 +121,7 @@ module Dropbox::Sign
         :'is_creator' => :'Boolean',
         :'can_edit' => :'Boolean',
         :'is_locked' => :'Boolean',
-        :'metadata' => :'Object',
+        :'metadata' => :'Hash<String, Object>',
         :'signer_roles' => :'Array<TemplateResponseSignerRole>',
         :'cc_roles' => :'Array<TemplateResponseCCRole>',
         :'documents' => :'Array<TemplateResponseDocument>',
@@ -214,7 +214,9 @@ module Dropbox::Sign
       end
 
       if attributes.key?(:'metadata')
-        self.metadata = attributes[:'metadata']
+        if (value = attributes[:'metadata']).is_a?(Hash)
+          self.metadata = value
+        end
       end
 
       if attributes.key?(:'signer_roles')

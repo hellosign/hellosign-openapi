@@ -66,7 +66,7 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
         'is_creator' => 'bool',
         'can_edit' => 'bool',
         'is_locked' => 'bool',
-        'metadata' => 'array',
+        'metadata' => 'array<string,mixed>',
         'signer_roles' => '\Dropbox\Sign\Model\TemplateResponseSignerRole[]',
         'cc_roles' => '\Dropbox\Sign\Model\TemplateResponseCCRole[]',
         'documents' => '\Dropbox\Sign\Model\TemplateResponseDocument[]',
@@ -627,7 +627,7 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets metadata
      *
-     * @return array|null
+     * @return array<string,mixed>|null
      */
     public function getMetadata()
     {
@@ -637,7 +637,7 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets metadata
      *
-     * @param array|null $metadata the metadata attached to the template
+     * @param array<string,mixed>|null $metadata the metadata attached to the template
      *
      * @return self
      */

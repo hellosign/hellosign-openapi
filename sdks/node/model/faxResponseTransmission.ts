@@ -30,10 +30,6 @@ export class FaxResponseTransmission {
    */
   "recipient": string;
   /**
-   * Fax Transmission Sender
-   */
-  "sender": string;
-  /**
    * Fax Transmission Status Code
    */
   "statusCode": FaxResponseTransmission.StatusCodeEnum;
@@ -48,11 +44,6 @@ export class FaxResponseTransmission {
     {
       name: "recipient",
       baseName: "recipient",
-      type: "string",
-    },
-    {
-      name: "sender",
-      baseName: "sender",
       type: "string",
     },
     {
