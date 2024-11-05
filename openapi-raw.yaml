@@ -7881,9 +7881,11 @@ components:
         client_id:
           description: '_t__OAuthTokenRefresh::CLIENT_ID'
           type: string
+          x-hideOn: doc
         client_secret:
           description: '_t__OAuthTokenRefresh::CLIENT_SECRET'
           type: string
+          x-hideOn: doc
       type: object
     ReportCreateRequest:
       required:
