@@ -11065,6 +11065,7 @@ components:
             signed_at:
               description: '_t__SignatureRequestResponseDataValue::SIGNED_AT'
               type: integer
+              nullable: true
           type: object
     SignatureRequestResponseDataValueRadio:
       allOf:
@@ -11096,6 +11097,7 @@ components:
             signed_at:
               description: '_t__SignatureRequestResponseDataValue::SIGNED_AT'
               type: integer
+              nullable: true
           type: object
     SignatureRequestResponseDataValueText:
       allOf:

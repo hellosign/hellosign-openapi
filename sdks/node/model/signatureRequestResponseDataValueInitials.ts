@@ -37,7 +37,7 @@ export class SignatureRequestResponseDataValueInitials extends SignatureRequestR
   /**
    * This field contains the signed at timestamp when the type is either signature or initial.
    */
-  "signedAt"?: number;
+  "signedAt"?: number | null;
 
   static discriminator: string | undefined = undefined;
 

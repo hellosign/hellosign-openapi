@@ -48,7 +48,7 @@ namespace Dropbox.Sign.Model
         /// <param name="signatureId">The ID of the signature to which this response is linked..</param>
         /// <param name="name">The name of the form field..</param>
         /// <param name="required">A boolean value denoting if this field is required..</param>
-        public SignatureRequestResponseDataValueInitials(string type = @"initials", string value = default(string), int signedAt = default(int), string apiId = default(string), string signatureId = default(string), string name = default(string), bool required = default(bool))
+        public SignatureRequestResponseDataValueInitials(string type = @"initials", string value = default(string), int? signedAt = default(int?), string apiId = default(string), string signatureId = default(string), string name = default(string), bool required = default(bool))
         {
             this.ApiId = apiId;
             this.SignatureId = signatureId;
@@ -96,7 +96,7 @@ namespace Dropbox.Sign.Model
         /// </summary>
         /// <value>This field contains the signed at timestamp when the type is either signature or initial.</value>
         [DataMember(Name = "signed_at", EmitDefaultValue = true)]
-        public int SignedAt { get; set; }
+        public int? SignedAt { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -157,7 +157,8 @@ namespace Dropbox.Sign.Model
                 ) && base.Equals(input) &&
                 (
                     this.SignedAt == input.SignedAt ||
-                    this.SignedAt.Equals(input.SignedAt)
+                    (this.SignedAt != null &&
+                    this.SignedAt.Equals(input.SignedAt))
                 );
         }
 
@@ -178,7 +179,10 @@ namespace Dropbox.Sign.Model
                 {
                     hashCode = (hashCode * 59) + this.Value.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.SignedAt.GetHashCode();
+                if (this.SignedAt != null)
+                {
+                    hashCode = (hashCode * 59) + this.SignedAt.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -227,7 +231,7 @@ namespace Dropbox.Sign.Model
             {
                 Name = "signed_at",
                 Property = "SignedAt",
-                Type = "int",
+                Type = "int?",
                 Value = SignedAt,
             });
 

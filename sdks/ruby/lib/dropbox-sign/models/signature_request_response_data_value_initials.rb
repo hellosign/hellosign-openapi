@@ -27,7 +27,7 @@ module Dropbox::Sign
     attr_accessor :value
 
     # This field contains the signed at timestamp when the type is either signature or initial.
-    # @return [Integer]
+    # @return [Integer, nil]
     attr_accessor :signed_at
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -56,6 +56,7 @@ module Dropbox::Sign
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        :'signed_at'
       ])
     end
 

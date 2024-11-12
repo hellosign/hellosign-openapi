@@ -81,7 +81,7 @@ class SignatureRequestResponseDataValueInitials extends SignatureRequestResponse
     protected static array $openAPINullables = [
         'type' => false,
         'value' => false,
-        'signed_at' => false,
+        'signed_at' => true,
     ];
 
     /**
@@ -376,7 +376,14 @@ class SignatureRequestResponseDataValueInitials extends SignatureRequestResponse
     public function setSignedAt(?int $signed_at)
     {
         if (is_null($signed_at)) {
-            throw new InvalidArgumentException('non-nullable signed_at cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'signed_at');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('signed_at', $nullablesSetToNull);
+            if ($index !== false) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['signed_at'] = $signed_at;
 
