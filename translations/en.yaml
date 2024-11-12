@@ -1433,6 +1433,7 @@
 "SignatureRequestResponseDataValue::TEXTMERGE_TYPE": A text field that has default text set by the api
 "SignatureRequestResponseDataValue::CHECKBOXMERGE_TYPE": A checkbox field that has default value set by the api
 "SignatureRequestResponseDataValue::VALUE": The value of the form field.
+"SignatureRequestResponseDataValue::SIGNED_AT": This field contains the signed at timestamp when the type is either signature or initial.
 
 "SignatureRequestResponseSignatures::DESCRIPTION": An array of signature objects, 1 for each signer.
 "SignatureRequestResponseSignatures::DECLINE_REASON": The reason provided by the signer for declining the request.

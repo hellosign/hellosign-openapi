@@ -11678,6 +11678,9 @@ components:
             value:
               description: 'The value of the form field.'
               type: string
+            signed_at:
+              description: 'This field contains the signed at timestamp when the type is either signature or initial.'
+              type: integer
           type: object
     SignatureRequestResponseDataValueRadio:
       allOf:
@@ -11706,6 +11709,9 @@ components:
             value:
               description: 'The value of the form field.'
               type: string
+            signed_at:
+              description: 'This field contains the signed at timestamp when the type is either signature or initial.'
+              type: integer
           type: object
     SignatureRequestResponseDataValueText:
       allOf:

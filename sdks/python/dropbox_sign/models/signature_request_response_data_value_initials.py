@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import ConfigDict, Field, StrictStr
+from pydantic import ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from dropbox_sign.models.signature_request_response_data_base import (
     SignatureRequestResponseDataBase,
@@ -41,6 +41,10 @@ class SignatureRequestResponseDataValueInitials(SignatureRequestResponseDataBase
     value: Optional[StrictStr] = Field(
         default=None, description="The value of the form field."
     )
+    signed_at: Optional[StrictInt] = Field(
+        default=None,
+        description="This field contains the signed at timestamp when the type is either signature or initial.",
+    )
     __properties: ClassVar[List[str]] = [
         "api_id",
         "signature_id",
@@ -48,6 +52,7 @@ class SignatureRequestResponseDataValueInitials(SignatureRequestResponseDataBase
         "required",
         "type",
         "value",
+        "signed_at",
     ]
 
     model_config = ConfigDict(
@@ -119,6 +124,7 @@ class SignatureRequestResponseDataValueInitials(SignatureRequestResponseDataBase
                 "required": obj.get("required"),
                 "type": obj.get("type") if obj.get("type") is not None else "initials",
                 "value": obj.get("value"),
+                "signed_at": obj.get("signed_at"),
             }
         )
         return _obj
@@ -138,6 +144,7 @@ class SignatureRequestResponseDataValueInitials(SignatureRequestResponseDataBase
         return {
             "type": "(str,)",
             "value": "(str,)",
+            "signed_at": "(int,)",
             "api_id": "(str,)",
             "signature_id": "(str,)",
             "name": "(str,)",

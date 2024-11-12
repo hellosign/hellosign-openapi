@@ -38,7 +38,8 @@ import com.dropbox.sign.ApiException;
  */
 @JsonPropertyOrder({
   SignatureRequestResponseDataValueInitials.JSON_PROPERTY_TYPE,
-  SignatureRequestResponseDataValueInitials.JSON_PROPERTY_VALUE
+  SignatureRequestResponseDataValueInitials.JSON_PROPERTY_VALUE,
+  SignatureRequestResponseDataValueInitials.JSON_PROPERTY_SIGNED_AT
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 @JsonIgnoreProperties(
@@ -53,6 +54,9 @@ public class SignatureRequestResponseDataValueInitials extends SignatureRequestR
 
   public static final String JSON_PROPERTY_VALUE = "value";
   private String value;
+
+  public static final String JSON_PROPERTY_SIGNED_AT = "signed_at";
+  private Integer signedAt;
 
   public SignatureRequestResponseDataValueInitials() { 
   }
@@ -122,6 +126,31 @@ public class SignatureRequestResponseDataValueInitials extends SignatureRequestR
   }
 
 
+  public SignatureRequestResponseDataValueInitials signedAt(Integer signedAt) {
+    this.signedAt = signedAt;
+    return this;
+  }
+
+  /**
+   * This field contains the signed at timestamp when the type is either signature or initial.
+   * @return signedAt
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SIGNED_AT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Integer getSignedAt() {
+    return signedAt;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_SIGNED_AT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSignedAt(Integer signedAt) {
+    this.signedAt = signedAt;
+  }
+
+
   /**
    * Return true if this SignatureRequestResponseDataValueInitials object is equal to o.
    */
@@ -136,12 +165,13 @@ public class SignatureRequestResponseDataValueInitials extends SignatureRequestR
     SignatureRequestResponseDataValueInitials signatureRequestResponseDataValueInitials = (SignatureRequestResponseDataValueInitials) o;
     return Objects.equals(this.type, signatureRequestResponseDataValueInitials.type) &&
         Objects.equals(this.value, signatureRequestResponseDataValueInitials.value) &&
+        Objects.equals(this.signedAt, signatureRequestResponseDataValueInitials.signedAt) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, value, super.hashCode());
+    return Objects.hash(type, value, signedAt, super.hashCode());
   }
 
   @Override
@@ -151,6 +181,7 @@ public class SignatureRequestResponseDataValueInitials extends SignatureRequestR
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
+    sb.append("    signedAt: ").append(toIndentedString(signedAt)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -196,6 +227,25 @@ public class SignatureRequestResponseDataValueInitials extends SignatureRequestR
         }
         else {
             map.put("value", JSON.getDefault().getMapper().writeValueAsString(value));
+        }
+    }
+    if (signedAt != null) {
+        if (isFileTypeOrListOfFiles(signedAt)) {
+            fileTypeFound = true;
+        }
+
+        if (signedAt.getClass().equals(java.io.File.class) ||
+            signedAt.getClass().equals(Integer.class) ||
+            signedAt.getClass().equals(String.class) ||
+            signedAt.getClass().isEnum()) {
+            map.put("signed_at", signedAt);
+        } else if (isListOfFile(signedAt)) {
+            for(int i = 0; i< getListSize(signedAt); i++) {
+                map.put("signed_at[" + i + "]", getFromList(signedAt, i));
+            }
+        }
+        else {
+            map.put("signed_at", JSON.getDefault().getMapper().writeValueAsString(signedAt));
         }
     }
     } catch (Exception e) {

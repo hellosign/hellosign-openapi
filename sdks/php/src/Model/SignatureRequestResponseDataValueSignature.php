@@ -57,6 +57,7 @@ class SignatureRequestResponseDataValueSignature extends SignatureRequestRespons
     protected static $openAPITypes = [
         'type' => 'string',
         'value' => 'string',
+        'signed_at' => 'int',
     ];
 
     /**
@@ -69,6 +70,7 @@ class SignatureRequestResponseDataValueSignature extends SignatureRequestRespons
     protected static $openAPIFormats = [
         'type' => null,
         'value' => null,
+        'signed_at' => null,
     ];
 
     /**
@@ -79,6 +81,7 @@ class SignatureRequestResponseDataValueSignature extends SignatureRequestRespons
     protected static array $openAPINullables = [
         'type' => false,
         'value' => false,
+        'signed_at' => false,
     ];
 
     /**
@@ -161,6 +164,7 @@ class SignatureRequestResponseDataValueSignature extends SignatureRequestRespons
     protected static $attributeMap = [
         'type' => 'type',
         'value' => 'value',
+        'signed_at' => 'signed_at',
     ];
 
     /**
@@ -171,6 +175,7 @@ class SignatureRequestResponseDataValueSignature extends SignatureRequestRespons
     protected static $setters = [
         'type' => 'setType',
         'value' => 'setValue',
+        'signed_at' => 'setSignedAt',
     ];
 
     /**
@@ -181,6 +186,7 @@ class SignatureRequestResponseDataValueSignature extends SignatureRequestRespons
     protected static $getters = [
         'type' => 'getType',
         'value' => 'getValue',
+        'signed_at' => 'getSignedAt',
     ];
 
     /**
@@ -236,6 +242,7 @@ class SignatureRequestResponseDataValueSignature extends SignatureRequestRespons
 
         $this->setIfExists('type', $data ?? [], 'signature');
         $this->setIfExists('value', $data ?? [], null);
+        $this->setIfExists('signed_at', $data ?? [], null);
     }
 
     /**
@@ -345,6 +352,33 @@ class SignatureRequestResponseDataValueSignature extends SignatureRequestRespons
             throw new InvalidArgumentException('non-nullable value cannot be null');
         }
         $this->container['value'] = $value;
+
+        return $this;
+    }
+
+    /**
+     * Gets signed_at
+     *
+     * @return int|null
+     */
+    public function getSignedAt()
+    {
+        return $this->container['signed_at'];
+    }
+
+    /**
+     * Sets signed_at
+     *
+     * @param int|null $signed_at this field contains the signed at timestamp when the type is either signature or initial
+     *
+     * @return self
+     */
+    public function setSignedAt(?int $signed_at)
+    {
+        if (is_null($signed_at)) {
+            throw new InvalidArgumentException('non-nullable signed_at cannot be null');
+        }
+        $this->container['signed_at'] = $signed_at;
 
         return $this;
     }

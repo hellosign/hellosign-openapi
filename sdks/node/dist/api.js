@@ -19743,6 +19743,11 @@ SignatureRequestResponseDataValueInitials.attributeTypeMap = [
     name: "value",
     baseName: "value",
     type: "string"
+  },
+  {
+    name: "signedAt",
+    baseName: "signed_at",
+    type: "number"
   }
 ];
 
@@ -19805,6 +19810,11 @@ SignatureRequestResponseDataValueSignature.attributeTypeMap = [
     name: "value",
     baseName: "value",
     type: "string"
+  },
+  {
+    name: "signedAt",
+    baseName: "signed_at",
+    type: "number"
   }
 ];
 

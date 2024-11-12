@@ -43,11 +43,12 @@ namespace Dropbox.Sign.Model
         /// </summary>
         /// <param name="type">A signature input field (default to &quot;signature&quot;).</param>
         /// <param name="value">The value of the form field..</param>
+        /// <param name="signedAt">This field contains the signed at timestamp when the type is either signature or initial..</param>
         /// <param name="apiId">The unique ID for this field..</param>
         /// <param name="signatureId">The ID of the signature to which this response is linked..</param>
         /// <param name="name">The name of the form field..</param>
         /// <param name="required">A boolean value denoting if this field is required..</param>
-        public SignatureRequestResponseDataValueSignature(string type = @"signature", string value = default(string), string apiId = default(string), string signatureId = default(string), string name = default(string), bool required = default(bool))
+        public SignatureRequestResponseDataValueSignature(string type = @"signature", string value = default(string), int signedAt = default(int), string apiId = default(string), string signatureId = default(string), string name = default(string), bool required = default(bool))
         {
             this.ApiId = apiId;
             this.SignatureId = signatureId;
@@ -57,6 +58,7 @@ namespace Dropbox.Sign.Model
             // use default value if no "type" provided
             this.Type = type ?? "signature";
             this.Value = value;
+            this.SignedAt = signedAt;
         }
 
         /// <summary>
@@ -90,6 +92,13 @@ namespace Dropbox.Sign.Model
         public string Value { get; set; }
 
         /// <summary>
+        /// This field contains the signed at timestamp when the type is either signature or initial.
+        /// </summary>
+        /// <value>This field contains the signed at timestamp when the type is either signature or initial.</value>
+        [DataMember(Name = "signed_at", EmitDefaultValue = true)]
+        public int SignedAt { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -100,6 +109,7 @@ namespace Dropbox.Sign.Model
             sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Value: ").Append(Value).Append("\n");
+            sb.Append("  SignedAt: ").Append(SignedAt).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -144,6 +154,10 @@ namespace Dropbox.Sign.Model
                     this.Value == input.Value ||
                     (this.Value != null &&
                     this.Value.Equals(input.Value))
+                ) && base.Equals(input) &&
+                (
+                    this.SignedAt == input.SignedAt ||
+                    this.SignedAt.Equals(input.SignedAt)
                 );
         }
 
@@ -164,6 +178,7 @@ namespace Dropbox.Sign.Model
                 {
                     hashCode = (hashCode * 59) + this.Value.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.SignedAt.GetHashCode();
                 return hashCode;
             }
         }
@@ -207,6 +222,13 @@ namespace Dropbox.Sign.Model
                 Property = "Value",
                 Type = "string",
                 Value = Value,
+            });
+            types.Add(new OpenApiType()
+            {
+                Name = "signed_at",
+                Property = "SignedAt",
+                Type = "int",
+                Value = SignedAt,
             });
 
             return types;

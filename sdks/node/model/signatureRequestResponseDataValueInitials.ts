@@ -34,6 +34,10 @@ export class SignatureRequestResponseDataValueInitials extends SignatureRequestR
    * The value of the form field.
    */
   "value"?: string;
+  /**
+   * This field contains the signed at timestamp when the type is either signature or initial.
+   */
+  "signedAt"?: number;
 
   static discriminator: string | undefined = undefined;
 
@@ -47,6 +51,11 @@ export class SignatureRequestResponseDataValueInitials extends SignatureRequestR
       name: "value",
       baseName: "value",
       type: "string",
+    },
+    {
+      name: "signedAt",
+      baseName: "signed_at",
+      type: "number",
     },
   ];
 
