@@ -26,16 +26,16 @@ module Dropbox::Sign
     # @return [String]
     attr_accessor :value
 
-    # This field contains the signed at timestamp when the type is either signature or initial.
-    # @return [Integer, nil]
-    attr_accessor :signed_at
+    # This field contains the boolean true if the field is signed.
+    # @return [Boolean, nil]
+    attr_accessor :is_signed
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'type' => :'type',
         :'value' => :'value',
-        :'signed_at' => :'signed_at'
+        :'is_signed' => :'is_signed'
       }
     end
 
@@ -49,14 +49,14 @@ module Dropbox::Sign
       {
         :'type' => :'String',
         :'value' => :'String',
-        :'signed_at' => :'Integer'
+        :'is_signed' => :'Boolean'
       }
     end
 
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
-        :'signed_at'
+        :'is_signed'
       ])
     end
 
@@ -113,8 +113,8 @@ module Dropbox::Sign
         self.value = attributes[:'value']
       end
 
-      if attributes.key?(:'signed_at')
-        self.signed_at = attributes[:'signed_at']
+      if attributes.key?(:'is_signed')
+        self.is_signed = attributes[:'is_signed']
       end
     end
 
@@ -138,7 +138,7 @@ module Dropbox::Sign
       self.class == o.class &&
           type == o.type &&
           value == o.value &&
-          signed_at == o.signed_at && super(o)
+          is_signed == o.is_signed && super(o)
     end
 
     # @see the `==` method
@@ -150,7 +150,7 @@ module Dropbox::Sign
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [type, value, signed_at].hash
+      [type, value, is_signed].hash
     end
 
     # Builds the object from hash

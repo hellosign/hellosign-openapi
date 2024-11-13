@@ -11062,9 +11062,9 @@ components:
             value:
               description: '_t__SignatureRequestResponseDataValue::VALUE'
               type: string
-            signed_at:
-              description: '_t__SignatureRequestResponseDataValue::SIGNED_AT'
-              type: integer
+            is_signed:
+              description: '_t__SignatureRequestResponseDataValue::IS_SIGNED'
+              type: boolean
               nullable: true
           type: object
     SignatureRequestResponseDataValueRadio:
@@ -11094,9 +11094,9 @@ components:
             value:
               description: '_t__SignatureRequestResponseDataValue::VALUE'
               type: string
-            signed_at:
-              description: '_t__SignatureRequestResponseDataValue::SIGNED_AT'
-              type: integer
+            is_signed:
+              description: '_t__SignatureRequestResponseDataValue::IS_SIGNED'
+              type: boolean
               nullable: true
           type: object
     SignatureRequestResponseDataValueText:

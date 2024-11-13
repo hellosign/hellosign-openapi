@@ -57,7 +57,7 @@ class SignatureRequestResponseDataValueInitials extends SignatureRequestResponse
     protected static $openAPITypes = [
         'type' => 'string',
         'value' => 'string',
-        'signed_at' => 'int',
+        'is_signed' => 'bool',
     ];
 
     /**
@@ -70,7 +70,7 @@ class SignatureRequestResponseDataValueInitials extends SignatureRequestResponse
     protected static $openAPIFormats = [
         'type' => null,
         'value' => null,
-        'signed_at' => null,
+        'is_signed' => null,
     ];
 
     /**
@@ -81,7 +81,7 @@ class SignatureRequestResponseDataValueInitials extends SignatureRequestResponse
     protected static array $openAPINullables = [
         'type' => false,
         'value' => false,
-        'signed_at' => true,
+        'is_signed' => true,
     ];
 
     /**
@@ -164,7 +164,7 @@ class SignatureRequestResponseDataValueInitials extends SignatureRequestResponse
     protected static $attributeMap = [
         'type' => 'type',
         'value' => 'value',
-        'signed_at' => 'signed_at',
+        'is_signed' => 'is_signed',
     ];
 
     /**
@@ -175,7 +175,7 @@ class SignatureRequestResponseDataValueInitials extends SignatureRequestResponse
     protected static $setters = [
         'type' => 'setType',
         'value' => 'setValue',
-        'signed_at' => 'setSignedAt',
+        'is_signed' => 'setIsSigned',
     ];
 
     /**
@@ -186,7 +186,7 @@ class SignatureRequestResponseDataValueInitials extends SignatureRequestResponse
     protected static $getters = [
         'type' => 'getType',
         'value' => 'getValue',
-        'signed_at' => 'getSignedAt',
+        'is_signed' => 'getIsSigned',
     ];
 
     /**
@@ -242,7 +242,7 @@ class SignatureRequestResponseDataValueInitials extends SignatureRequestResponse
 
         $this->setIfExists('type', $data ?? [], 'initials');
         $this->setIfExists('value', $data ?? [], null);
-        $this->setIfExists('signed_at', $data ?? [], null);
+        $this->setIfExists('is_signed', $data ?? [], null);
     }
 
     /**
@@ -357,35 +357,35 @@ class SignatureRequestResponseDataValueInitials extends SignatureRequestResponse
     }
 
     /**
-     * Gets signed_at
+     * Gets is_signed
      *
-     * @return int|null
+     * @return bool|null
      */
-    public function getSignedAt()
+    public function getIsSigned()
     {
-        return $this->container['signed_at'];
+        return $this->container['is_signed'];
     }
 
     /**
-     * Sets signed_at
+     * Sets is_signed
      *
-     * @param int|null $signed_at this field contains the signed at timestamp when the type is either signature or initial
+     * @param bool|null $is_signed this field contains the boolean true if the field is signed
      *
      * @return self
      */
-    public function setSignedAt(?int $signed_at)
+    public function setIsSigned(?bool $is_signed)
     {
-        if (is_null($signed_at)) {
-            array_push($this->openAPINullablesSetToNull, 'signed_at');
+        if (is_null($is_signed)) {
+            array_push($this->openAPINullablesSetToNull, 'is_signed');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('signed_at', $nullablesSetToNull);
+            $index = array_search('is_signed', $nullablesSetToNull);
             if ($index !== false) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['signed_at'] = $signed_at;
+        $this->container['is_signed'] = $is_signed;
 
         return $this;
     }

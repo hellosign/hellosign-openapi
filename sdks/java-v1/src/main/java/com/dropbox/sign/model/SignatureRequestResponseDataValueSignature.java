@@ -28,7 +28,7 @@ import java.util.Objects;
 @JsonPropertyOrder({
     SignatureRequestResponseDataValueSignature.JSON_PROPERTY_TYPE,
     SignatureRequestResponseDataValueSignature.JSON_PROPERTY_VALUE,
-    SignatureRequestResponseDataValueSignature.JSON_PROPERTY_SIGNED_AT
+    SignatureRequestResponseDataValueSignature.JSON_PROPERTY_IS_SIGNED
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
@@ -48,8 +48,8 @@ public class SignatureRequestResponseDataValueSignature extends SignatureRequest
     public static final String JSON_PROPERTY_VALUE = "value";
     private String value;
 
-    public static final String JSON_PROPERTY_SIGNED_AT = "signed_at";
-    private Integer signedAt;
+    public static final String JSON_PROPERTY_IS_SIGNED = "is_signed";
+    private Boolean isSigned;
 
     public SignatureRequestResponseDataValueSignature() {}
 
@@ -115,26 +115,26 @@ public class SignatureRequestResponseDataValueSignature extends SignatureRequest
         this.value = value;
     }
 
-    public SignatureRequestResponseDataValueSignature signedAt(Integer signedAt) {
-        this.signedAt = signedAt;
+    public SignatureRequestResponseDataValueSignature isSigned(Boolean isSigned) {
+        this.isSigned = isSigned;
         return this;
     }
 
     /**
-     * This field contains the signed at timestamp when the type is either signature or initial.
+     * This field contains the boolean true if the field is signed.
      *
-     * @return signedAt
+     * @return isSigned
      */
-    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_SIGNED_AT)
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_IS_SIGNED)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public Integer getSignedAt() {
-        return signedAt;
+    public Boolean getIsSigned() {
+        return isSigned;
     }
 
-    @JsonProperty(JSON_PROPERTY_SIGNED_AT)
+    @JsonProperty(JSON_PROPERTY_IS_SIGNED)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setSignedAt(Integer signedAt) {
-        this.signedAt = signedAt;
+    public void setIsSigned(Boolean isSigned) {
+        this.isSigned = isSigned;
     }
 
     /** Return true if this SignatureRequestResponseDataValueSignature object is equal to o. */
@@ -151,13 +151,13 @@ public class SignatureRequestResponseDataValueSignature extends SignatureRequest
         return Objects.equals(this.type, signatureRequestResponseDataValueSignature.type)
                 && Objects.equals(this.value, signatureRequestResponseDataValueSignature.value)
                 && Objects.equals(
-                        this.signedAt, signatureRequestResponseDataValueSignature.signedAt)
+                        this.isSigned, signatureRequestResponseDataValueSignature.isSigned)
                 && super.equals(o);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(type, value, signedAt, super.hashCode());
+        return Objects.hash(type, value, isSigned, super.hashCode());
     }
 
     @Override
@@ -167,7 +167,7 @@ public class SignatureRequestResponseDataValueSignature extends SignatureRequest
         sb.append("    ").append(toIndentedString(super.toString())).append("\n");
         sb.append("    type: ").append(toIndentedString(type)).append("\n");
         sb.append("    value: ").append(toIndentedString(value)).append("\n");
-        sb.append("    signedAt: ").append(toIndentedString(signedAt)).append("\n");
+        sb.append("    isSigned: ").append(toIndentedString(isSigned)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -213,24 +213,24 @@ public class SignatureRequestResponseDataValueSignature extends SignatureRequest
                     map.put("value", JSON.getDefault().getMapper().writeValueAsString(value));
                 }
             }
-            if (signedAt != null) {
-                if (isFileTypeOrListOfFiles(signedAt)) {
+            if (isSigned != null) {
+                if (isFileTypeOrListOfFiles(isSigned)) {
                     fileTypeFound = true;
                 }
 
-                if (signedAt.getClass().equals(java.io.File.class)
-                        || signedAt.getClass().equals(Integer.class)
-                        || signedAt.getClass().equals(String.class)
-                        || signedAt.getClass().isEnum()) {
-                    map.put("signed_at", signedAt);
-                } else if (isListOfFile(signedAt)) {
-                    for (int i = 0; i < getListSize(signedAt); i++) {
-                        map.put("signed_at[" + i + "]", getFromList(signedAt, i));
+                if (isSigned.getClass().equals(java.io.File.class)
+                        || isSigned.getClass().equals(Integer.class)
+                        || isSigned.getClass().equals(String.class)
+                        || isSigned.getClass().isEnum()) {
+                    map.put("is_signed", isSigned);
+                } else if (isListOfFile(isSigned)) {
+                    for (int i = 0; i < getListSize(isSigned); i++) {
+                        map.put("is_signed[" + i + "]", getFromList(isSigned, i));
                     }
                 } else {
                     map.put(
-                            "signed_at",
-                            JSON.getDefault().getMapper().writeValueAsString(signedAt));
+                            "is_signed",
+                            JSON.getDefault().getMapper().writeValueAsString(isSigned));
                 }
             }
         } catch (Exception e) {

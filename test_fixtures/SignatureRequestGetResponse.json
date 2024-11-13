@@ -99,7 +99,7 @@
           "required": true,
           "api_id": "initial__1",
           "value": "YM",
-          "signed_at": 1570471067,
+          "is_signed": true,
           "signature_id": "a9f4825edef25f47e7b4c14ce8100d81d1693160"
         },
         {
@@ -116,7 +116,7 @@
           "required": true,
           "api_id": "signature__1",
           "value": "John Doe",
-          "signed_at": 1570471067,
+          "is_signed": true,
           "signature_id": "a9f4825edef25f47e7b4c14ce8100d81d1693160"
         }
       ],

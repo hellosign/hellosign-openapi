@@ -35,9 +35,9 @@ export class SignatureRequestResponseDataValueInitials extends SignatureRequestR
    */
   "value"?: string;
   /**
-   * This field contains the signed at timestamp when the type is either signature or initial.
+   * This field contains the boolean true if the field is signed.
    */
-  "signedAt"?: number | null;
+  "isSigned"?: boolean | null;
 
   static discriminator: string | undefined = undefined;
 
@@ -53,9 +53,9 @@ export class SignatureRequestResponseDataValueInitials extends SignatureRequestR
       type: "string",
     },
     {
-      name: "signedAt",
-      baseName: "signed_at",
-      type: "number",
+      name: "isSigned",
+      baseName: "is_signed",
+      type: "boolean",
     },
   ];
 

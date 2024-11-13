@@ -11648,9 +11648,9 @@ components:
             value:
               description: 'The value of the form field.'
               type: string
-            signed_at:
-              description: 'This field contains the signed at timestamp when the type is either signature or initial.'
-              type: integer
+            is_signed:
+              description: 'This field contains the boolean true if the field is signed.'
+              type: boolean
               nullable: true
           type: object
     SignatureRequestResponseDataValueRadio:
@@ -11680,9 +11680,9 @@ components:
             value:
               description: 'The value of the form field.'
               type: string
-            signed_at:
-              description: 'This field contains the signed at timestamp when the type is either signature or initial.'
-              type: integer
+            is_signed:
+              description: 'This field contains the boolean true if the field is signed.'
+              type: boolean
               nullable: true
           type: object
     SignatureRequestResponseDataValueText:
