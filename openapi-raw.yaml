@@ -7881,11 +7881,9 @@ components:
         client_id:
           description: '_t__OAuthTokenRefresh::CLIENT_ID'
           type: string
-          x-hideOn: doc
         client_secret:
           description: '_t__OAuthTokenRefresh::CLIENT_SECRET'
           type: string
-          x-hideOn: doc
       type: object
     ReportCreateRequest:
       required:
@@ -11062,6 +11060,10 @@ components:
             value:
               description: '_t__SignatureRequestResponseDataValue::VALUE'
               type: string
+            is_signed:
+              description: '_t__SignatureRequestResponseDataValue::IS_SIGNED'
+              type: boolean
+              nullable: true
           type: object
     SignatureRequestResponseDataValueRadio:
       allOf:
@@ -11090,6 +11092,10 @@ components:
             value:
               description: '_t__SignatureRequestResponseDataValue::VALUE'
               type: string
+            is_signed:
+              description: '_t__SignatureRequestResponseDataValue::IS_SIGNED'
+              type: boolean
+              nullable: true
           type: object
     SignatureRequestResponseDataValueText:
       allOf:

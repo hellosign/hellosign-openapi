@@ -7975,11 +7975,9 @@ components:
         client_id:
           description: 'The client ID for your API app. Mandatory from August 1st, 2025. Until then, required if the "Client Credentials Required" setting is enabled for token refresh; optional if disabled.'
           type: string
-          x-hideOn: doc
         client_secret:
           description: 'The client secret for your API app. Mandatory from August 1st, 2025. Until then, required if the "Client Credentials Required" setting is enabled for token refresh; optional if disabled.'
           type: string
-          x-hideOn: doc
       type: object
     ReportCreateRequest:
       required:
@@ -11678,6 +11676,10 @@ components:
             value:
               description: 'The value of the form field.'
               type: string
+            is_signed:
+              description: '_t__SignatureRequestResponseDataValue::IS_SIGNED'
+              type: boolean
+              nullable: true
           type: object
     SignatureRequestResponseDataValueRadio:
       allOf:
@@ -11706,6 +11708,10 @@ components:
             value:
               description: 'The value of the form field.'
               type: string
+            is_signed:
+              description: '_t__SignatureRequestResponseDataValue::IS_SIGNED'
+              type: boolean
+              nullable: true
           type: object
     SignatureRequestResponseDataValueText:
       allOf:
