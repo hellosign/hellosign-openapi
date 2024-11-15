@@ -34,6 +34,10 @@ export class SignatureRequestResponseDataValueInitials extends SignatureRequestR
    * The value of the form field.
    */
   "value"?: string;
+  /**
+   * _t__SignatureRequestResponseDataValue::IS_SIGNED
+   */
+  "isSigned"?: boolean | null;
 
   static discriminator: string | undefined = undefined;
 
@@ -47,6 +51,11 @@ export class SignatureRequestResponseDataValueInitials extends SignatureRequestR
       name: "value",
       baseName: "value",
       type: "string",
+    },
+    {
+      name: "isSigned",
+      baseName: "is_signed",
+      type: "boolean",
     },
   ];
 
