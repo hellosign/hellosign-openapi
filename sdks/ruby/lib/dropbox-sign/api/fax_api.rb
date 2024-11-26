@@ -89,8 +89,8 @@ module Dropbox::Sign
       return data, status_code, headers
     end
 
-    # List Fax Files
-    # Returns list of fax files
+    # Download Fax Files
+    # Downloads fax files
     # @param fax_id [String] Fax ID
     # @param [Hash] opts the optional parameters
     # @return [File]
@@ -99,8 +99,8 @@ module Dropbox::Sign
       data
     end
 
-    # List Fax Files
-    # Returns list of fax files
+    # Download Fax Files
+    # Downloads fax files
     # @param fax_id [String] Fax ID
     # @param [Hash] opts the optional parameters
     # @return [Array<(File, Integer, Hash)>] File data, response status code and response headers

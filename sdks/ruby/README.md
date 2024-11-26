@@ -122,7 +122,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 |*Dropbox::Sign::EmbeddedApi* | [**embedded_edit_url**](docs/EmbeddedApi.md#embedded_edit_url) | **POST** /embedded/edit_url/{template_id} | Get Embedded Template Edit URL |
 |*Dropbox::Sign::EmbeddedApi* | [**embedded_sign_url**](docs/EmbeddedApi.md#embedded_sign_url) | **GET** /embedded/sign_url/{signature_id} | Get Embedded Sign URL |
 |*Dropbox::Sign::FaxApi* | [**fax_delete**](docs/FaxApi.md#fax_delete) | **DELETE** /fax/{fax_id} | Delete Fax |
-|*Dropbox::Sign::FaxApi* | [**fax_files**](docs/FaxApi.md#fax_files) | **GET** /fax/files/{fax_id} | List Fax Files |
+|*Dropbox::Sign::FaxApi* | [**fax_files**](docs/FaxApi.md#fax_files) | **GET** /fax/files/{fax_id} | Download Fax Files |
 |*Dropbox::Sign::FaxApi* | [**fax_get**](docs/FaxApi.md#fax_get) | **GET** /fax/{fax_id} | Get Fax |
 |*Dropbox::Sign::FaxApi* | [**fax_list**](docs/FaxApi.md#fax_list) | **GET** /fax/list | Lists Faxes |
 |*Dropbox::Sign::FaxApi* | [**fax_send**](docs/FaxApi.md#fax_send) | **POST** /fax/send | Send Fax |

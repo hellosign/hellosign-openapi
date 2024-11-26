@@ -5,7 +5,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 |[```fax_delete```](FaxApi.md#fax_delete) | ```DELETE /fax/{fax_id}``` | Delete Fax|
-|[```fax_files```](FaxApi.md#fax_files) | ```GET /fax/files/{fax_id}``` | List Fax Files|
+|[```fax_files```](FaxApi.md#fax_files) | ```GET /fax/files/{fax_id}``` | Download Fax Files|
 |[```fax_get```](FaxApi.md#fax_get) | ```GET /fax/{fax_id}``` | Get Fax|
 |[```fax_list```](FaxApi.md#fax_list) | ```GET /fax/list``` | Lists Faxes|
 |[```fax_send```](FaxApi.md#fax_send) | ```POST /fax/send``` | Send Fax|
@@ -73,9 +73,9 @@ void (empty response body)
 # ```fax_files```
 > ```io.IOBase fax_files(fax_id)```
 
-List Fax Files
+Download Fax Files
 
-Returns list of fax files
+Downloads fax files
 
 ### Example
 

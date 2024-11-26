@@ -132,7 +132,7 @@ module Dropbox::Sign
     end
 
     # Get Available Fax Line Area Codes
-    # Returns a response with the area codes available for a given state/provice and city.
+    # Returns a response with the area codes available for a given state/province and city.
     # @param country [String] Filter area codes by country.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :state Filter area codes by state.
@@ -145,7 +145,7 @@ module Dropbox::Sign
     end
 
     # Get Available Fax Line Area Codes
-    # Returns a response with the area codes available for a given state/provice and city.
+    # Returns a response with the area codes available for a given state/province and city.
     # @param country [String] Filter area codes by country.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :state Filter area codes by state.
