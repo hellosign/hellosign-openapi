@@ -121,7 +121,7 @@ public class FaxLineApi {
 
     /**
      * Get Available Fax Line Area Codes. Returns a response with the area codes available for a
-     * given state/provice and city.
+     * given state/province and city.
      *
      * @param country Filter area codes by country. (required)
      * @param state Filter area codes by state. (optional)
@@ -208,7 +208,7 @@ public class FaxLineApi {
 
     /**
      * Get Available Fax Line Area Codes. Returns a response with the area codes available for a
-     * given state/provice and city.
+     * given state/province and city.
      *
      * @param country Filter area codes by country. (required)
      * @param state Filter area codes by state. (optional)

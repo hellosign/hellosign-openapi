@@ -5,7 +5,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
 | [**FaxDelete**](FaxApi.md#faxdelete) | **DELETE** /fax/{fax_id} | Delete Fax |
-| [**FaxFiles**](FaxApi.md#faxfiles) | **GET** /fax/files/{fax_id} | List Fax Files |
+| [**FaxFiles**](FaxApi.md#faxfiles) | **GET** /fax/files/{fax_id} | Download Fax Files |
 | [**FaxGet**](FaxApi.md#faxget) | **GET** /fax/{fax_id} | Get Fax |
 | [**FaxList**](FaxApi.md#faxlist) | **GET** /fax/list | Lists Faxes |
 | [**FaxSend**](FaxApi.md#faxsend) | **POST** /fax/send | Send Fax |
@@ -100,9 +100,9 @@ void (empty response body)
 # **FaxFiles**
 > System.IO.Stream FaxFiles (string faxId)
 
-List Fax Files
+Download Fax Files
 
-Returns list of fax files
+Downloads fax files
 
 ### Example
 ```csharp
@@ -149,7 +149,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // List Fax Files
+    // Download Fax Files
     ApiResponse<System.IO.Stream> response = apiInstance.FaxFilesWithHttpInfo(faxId);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);

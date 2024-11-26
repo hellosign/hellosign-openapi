@@ -220,8 +220,8 @@ export class FaxApi {
     });
   }
   /**
-   * Returns list of fax files
-   * @summary List Fax Files
+   * Downloads fax files
+   * @summary Download Fax Files
    * @param faxId Fax ID
    * @param options
    */

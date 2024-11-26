@@ -1609,8 +1609,8 @@ paths:
     get:
       tags:
         - Fax
-      summary: 'List Fax Files'
-      description: 'Returns list of fax files'
+      summary: 'Download Fax Files'
+      description: 'Downloads fax files'
       operationId: faxFiles
       parameters:
         -
@@ -1812,7 +1812,7 @@ paths:
       tags:
         - 'Fax Line'
       summary: 'Get Available Fax Line Area Codes'
-      description: 'Returns a response with the area codes available for a given state/provice and city.'
+      description: 'Returns a response with the area codes available for a given state/province and city.'
       operationId: faxLineAreaCodeGet
       parameters:
         -
