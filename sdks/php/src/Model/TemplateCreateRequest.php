@@ -446,7 +446,7 @@ class TemplateCreateRequest implements ModelInterface, ArrayAccess, JsonSerializ
      *
      * @param SubFormFieldsPerDocumentBase[] $form_fields_per_document The fields that should appear on the document, expressed as an array of objects. (For more details you can read about it here: [Using Form Fields per Document](/docs/openapi/form-fields-per-document).)  **NOTE:** Fields like **text**, **dropdown**, **checkbox**, **radio**, and **hyperlink** have additional required and optional parameters. Check out the list of [additional parameters](/api/reference/constants/#form-fields-per-document) for these field types.  * Text Field use `SubFormFieldsPerDocumentText` * Dropdown Field use `SubFormFieldsPerDocumentDropdown` * Hyperlink Field use `SubFormFieldsPerDocumentHyperlink` * Checkbox Field use `SubFormFieldsPerDocumentCheckbox` * Radio Field use `SubFormFieldsPerDocumentRadio` * Signature Field use `SubFormFieldsPerDocumentSignature` * Date Signed Field use `SubFormFieldsPerDocumentDateSigned` * Initials Field use `SubFormFieldsPerDocumentInitials` * Text Merge Field use `SubFormFieldsPerDocumentTextMerge` * Checkbox Merge Field use `SubFormFieldsPerDocumentCheckboxMerge`
      *
-     * @return self
+     * @return static
      */
     public function setFormFieldsPerDocument(array $form_fields_per_document)
     {
@@ -473,7 +473,7 @@ class TemplateCreateRequest implements ModelInterface, ArrayAccess, JsonSerializ
      *
      * @param SubTemplateRole[] $signer_roles an array of the designated signer roles that must be specified when sending a SignatureRequest using this Template
      *
-     * @return self
+     * @return static
      */
     public function setSignerRoles(array $signer_roles)
     {
@@ -500,7 +500,7 @@ class TemplateCreateRequest implements ModelInterface, ArrayAccess, JsonSerializ
      *
      * @param SplFileObject[]|null $files Use `files[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.
      *
-     * @return self
+     * @return static
      */
     public function setFiles(?array $files)
     {
@@ -527,7 +527,7 @@ class TemplateCreateRequest implements ModelInterface, ArrayAccess, JsonSerializ
      *
      * @param string[]|null $file_urls Use `file_urls[]` to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.
      *
-     * @return self
+     * @return static
      */
     public function setFileUrls(?array $file_urls)
     {
@@ -554,7 +554,7 @@ class TemplateCreateRequest implements ModelInterface, ArrayAccess, JsonSerializ
      *
      * @param bool|null $allow_reassign Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.  **NOTE:** Only available for Premium plan and higher.
      *
-     * @return self
+     * @return static
      */
     public function setAllowReassign(?bool $allow_reassign)
     {
@@ -581,7 +581,7 @@ class TemplateCreateRequest implements ModelInterface, ArrayAccess, JsonSerializ
      *
      * @param SubAttachment[]|null $attachments A list describing the attachments
      *
-     * @return self
+     * @return static
      */
     public function setAttachments(?array $attachments)
     {
@@ -608,7 +608,7 @@ class TemplateCreateRequest implements ModelInterface, ArrayAccess, JsonSerializ
      *
      * @param string[]|null $cc_roles The CC roles that must be assigned when using the template to send a signature request
      *
-     * @return self
+     * @return static
      */
     public function setCcRoles(?array $cc_roles)
     {
@@ -635,7 +635,7 @@ class TemplateCreateRequest implements ModelInterface, ArrayAccess, JsonSerializ
      *
      * @param string|null $client_id Client id of the app you're using to create this draft. Used to apply the branding and callback url defined for the app.
      *
-     * @return self
+     * @return static
      */
     public function setClientId(?string $client_id)
     {
@@ -662,7 +662,7 @@ class TemplateCreateRequest implements ModelInterface, ArrayAccess, JsonSerializ
      *
      * @param SubFieldOptions|null $field_options field_options
      *
-     * @return self
+     * @return static
      */
     public function setFieldOptions(?SubFieldOptions $field_options)
     {
@@ -689,7 +689,7 @@ class TemplateCreateRequest implements ModelInterface, ArrayAccess, JsonSerializ
      *
      * @param SubFormFieldGroup[]|null $form_field_groups Group information for fields defined in `form_fields_per_document`. String-indexed JSON array with `group_label` and `requirement` keys. `form_fields_per_document` must contain fields referencing a group defined in `form_field_groups`.
      *
-     * @return self
+     * @return static
      */
     public function setFormFieldGroups(?array $form_field_groups)
     {
@@ -716,7 +716,7 @@ class TemplateCreateRequest implements ModelInterface, ArrayAccess, JsonSerializ
      *
      * @param SubFormFieldRule[]|null $form_field_rules conditional Logic rules for fields defined in `form_fields_per_document`
      *
-     * @return self
+     * @return static
      */
     public function setFormFieldRules(?array $form_field_rules)
     {
@@ -743,7 +743,7 @@ class TemplateCreateRequest implements ModelInterface, ArrayAccess, JsonSerializ
      *
      * @param SubMergeField[]|null $merge_fields Add merge fields to the template. Merge fields are placed by the user creating the template and used to pre-fill data by passing values into signature requests with the `custom_fields` parameter. If the signature request using that template *does not* pass a value into a merge field, then an empty field remains in the document.
      *
-     * @return self
+     * @return static
      */
     public function setMergeFields(?array $merge_fields)
     {
@@ -770,7 +770,7 @@ class TemplateCreateRequest implements ModelInterface, ArrayAccess, JsonSerializ
      *
      * @param string|null $message the default template email message
      *
-     * @return self
+     * @return static
      */
     public function setMessage(?string $message)
     {
@@ -801,7 +801,7 @@ class TemplateCreateRequest implements ModelInterface, ArrayAccess, JsonSerializ
      *
      * @param array<string,mixed>|null $metadata Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.  Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.
      *
-     * @return self
+     * @return static
      */
     public function setMetadata(?array $metadata)
     {
@@ -829,7 +829,7 @@ class TemplateCreateRequest implements ModelInterface, ArrayAccess, JsonSerializ
      *
      * @param string|null $subject the template title (alias)
      *
-     * @return self
+     * @return static
      */
     public function setSubject(?string $subject)
     {
@@ -860,7 +860,7 @@ class TemplateCreateRequest implements ModelInterface, ArrayAccess, JsonSerializ
      *
      * @param bool|null $test_mode Whether this is a test, the signature request created from this draft will not be legally binding if set to `true`. Defaults to `false`.
      *
-     * @return self
+     * @return static
      */
     public function setTestMode(?bool $test_mode)
     {
@@ -887,7 +887,7 @@ class TemplateCreateRequest implements ModelInterface, ArrayAccess, JsonSerializ
      *
      * @param string|null $title the title you want to assign to the SignatureRequest
      *
-     * @return self
+     * @return static
      */
     public function setTitle(?string $title)
     {
@@ -914,7 +914,7 @@ class TemplateCreateRequest implements ModelInterface, ArrayAccess, JsonSerializ
      *
      * @param bool|null $use_preexisting_fields enable the detection of predefined PDF fields by setting the `use_preexisting_fields` to `true` (defaults to disabled, or `false`)
      *
-     * @return self
+     * @return static
      */
     public function setUsePreexistingFields(?bool $use_preexisting_fields)
     {

@@ -329,7 +329,7 @@ class AccountCreateResponse implements ModelInterface, ArrayAccess, JsonSerializ
      *
      * @param AccountResponse $account account
      *
-     * @return self
+     * @return static
      */
     public function setAccount(AccountResponse $account)
     {
@@ -356,7 +356,7 @@ class AccountCreateResponse implements ModelInterface, ArrayAccess, JsonSerializ
      *
      * @param OAuthTokenResponse|null $oauth_data oauth_data
      *
-     * @return self
+     * @return static
      */
     public function setOauthData(?OAuthTokenResponse $oauth_data)
     {
@@ -383,7 +383,7 @@ class AccountCreateResponse implements ModelInterface, ArrayAccess, JsonSerializ
      *
      * @param WarningResponse[]|null $warnings a list of warnings
      *
-     * @return self
+     * @return static
      */
     public function setWarnings(?array $warnings)
     {

@@ -324,7 +324,7 @@ class TemplateAddUserRequest implements ModelInterface, ArrayAccess, JsonSeriali
      *
      * @param string|null $account_id The id of the Account to give access to the Template. **NOTE:** The account id prevails if email address is also provided.
      *
-     * @return self
+     * @return static
      */
     public function setAccountId(?string $account_id)
     {
@@ -351,7 +351,7 @@ class TemplateAddUserRequest implements ModelInterface, ArrayAccess, JsonSeriali
      *
      * @param string|null $email_address The email address of the Account to give access to the Template. **NOTE:** The account id prevails if it is also provided.
      *
-     * @return self
+     * @return static
      */
     public function setEmailAddress(?string $email_address)
     {
@@ -378,7 +378,7 @@ class TemplateAddUserRequest implements ModelInterface, ArrayAccess, JsonSeriali
      *
      * @param bool|null $skip_notification If set to `true`, the user does not receive an email notification when a template has been shared with them. Defaults to `false`.
      *
-     * @return self
+     * @return static
      */
     public function setSkipNotification(?bool $skip_notification)
     {

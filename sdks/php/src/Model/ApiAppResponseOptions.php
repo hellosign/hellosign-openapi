@@ -311,7 +311,7 @@ class ApiAppResponseOptions implements ModelInterface, ArrayAccess, JsonSerializ
      *
      * @param bool|null $can_insert_everywhere Boolean denoting if signers can \"Insert Everywhere\" in one click while signing a document
      *
-     * @return self
+     * @return static
      */
     public function setCanInsertEverywhere(?bool $can_insert_everywhere)
     {

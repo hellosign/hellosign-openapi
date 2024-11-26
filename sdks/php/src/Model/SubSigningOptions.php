@@ -373,7 +373,7 @@ class SubSigningOptions implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param string $default_type The default type shown (limited to the listed types)
      *
-     * @return self
+     * @return static
      */
     public function setDefaultType(string $default_type)
     {
@@ -410,7 +410,7 @@ class SubSigningOptions implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param bool|null $draw Allows drawing the signature
      *
-     * @return self
+     * @return static
      */
     public function setDraw(?bool $draw)
     {
@@ -437,7 +437,7 @@ class SubSigningOptions implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param bool|null $phone Allows using a smartphone to email the signature
      *
-     * @return self
+     * @return static
      */
     public function setPhone(?bool $phone)
     {
@@ -464,7 +464,7 @@ class SubSigningOptions implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param bool|null $type Allows typing the signature
      *
-     * @return self
+     * @return static
      */
     public function setType(?bool $type)
     {
@@ -491,7 +491,7 @@ class SubSigningOptions implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param bool|null $upload Allows uploading the signature
      *
-     * @return self
+     * @return static
      */
     public function setUpload(?bool $upload)
     {

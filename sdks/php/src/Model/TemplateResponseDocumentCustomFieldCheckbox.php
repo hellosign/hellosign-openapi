@@ -309,7 +309,7 @@ class TemplateResponseDocumentCustomFieldCheckbox extends TemplateResponseDocume
      *
      * @param string $type The type of this Custom Field. Only `text` and `checkbox` are currently supported.  * Text uses `TemplateResponseDocumentCustomFieldText` * Checkbox uses `TemplateResponseDocumentCustomFieldCheckbox`
      *
-     * @return self
+     * @return static
      */
     public function setType(string $type)
     {

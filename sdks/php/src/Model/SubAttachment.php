@@ -339,7 +339,7 @@ class SubAttachment implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param string $name the name of attachment
      *
-     * @return self
+     * @return static
      */
     public function setName(string $name)
     {
@@ -366,7 +366,7 @@ class SubAttachment implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param int $signer_index The signer's index in the `signers` parameter (0-based indexing).  **NOTE:** Only one signer can be assigned per attachment.
      *
-     * @return self
+     * @return static
      */
     public function setSignerIndex(int $signer_index)
     {
@@ -393,7 +393,7 @@ class SubAttachment implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param string|null $instructions the instructions for uploading the attachment
      *
-     * @return self
+     * @return static
      */
     public function setInstructions(?string $instructions)
     {
@@ -420,7 +420,7 @@ class SubAttachment implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param bool|null $required determines if the attachment must be uploaded
      *
-     * @return self
+     * @return static
      */
     public function setRequired(?bool $required)
     {

@@ -332,7 +332,7 @@ class TemplateCreateEmbeddedDraftResponseTemplate implements ModelInterface, Arr
      *
      * @param string|null $template_id the id of the Template
      *
-     * @return self
+     * @return static
      */
     public function setTemplateId(?string $template_id)
     {
@@ -359,7 +359,7 @@ class TemplateCreateEmbeddedDraftResponseTemplate implements ModelInterface, Arr
      *
      * @param string|null $edit_url link to edit the template
      *
-     * @return self
+     * @return static
      */
     public function setEditUrl(?string $edit_url)
     {
@@ -386,7 +386,7 @@ class TemplateCreateEmbeddedDraftResponseTemplate implements ModelInterface, Arr
      *
      * @param int|null $expires_at when the link expires
      *
-     * @return self
+     * @return static
      */
     public function setExpiresAt(?int $expires_at)
     {
@@ -414,7 +414,7 @@ class TemplateCreateEmbeddedDraftResponseTemplate implements ModelInterface, Arr
      *
      * @param WarningResponse[]|null $warnings a list of warnings
      *
-     * @return self
+     * @return static
      * @deprecated
      */
     public function setWarnings(?array $warnings)

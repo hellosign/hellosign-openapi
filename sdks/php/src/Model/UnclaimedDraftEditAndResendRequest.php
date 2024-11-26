@@ -364,7 +364,7 @@ class UnclaimedDraftEditAndResendRequest implements ModelInterface, ArrayAccess,
      *
      * @param string $client_id Client id of the app used to create the draft. Used to apply the branding and callback url defined for the app.
      *
-     * @return self
+     * @return static
      */
     public function setClientId(string $client_id)
     {
@@ -391,7 +391,7 @@ class UnclaimedDraftEditAndResendRequest implements ModelInterface, ArrayAccess,
      *
      * @param SubEditorOptions|null $editor_options editor_options
      *
-     * @return self
+     * @return static
      */
     public function setEditorOptions(?SubEditorOptions $editor_options)
     {
@@ -418,7 +418,7 @@ class UnclaimedDraftEditAndResendRequest implements ModelInterface, ArrayAccess,
      *
      * @param bool|null $is_for_embedded_signing the request created from this draft will also be signable in embedded mode if set to `true`
      *
-     * @return self
+     * @return static
      */
     public function setIsForEmbeddedSigning(?bool $is_for_embedded_signing)
     {
@@ -445,7 +445,7 @@ class UnclaimedDraftEditAndResendRequest implements ModelInterface, ArrayAccess,
      *
      * @param string|null $requester_email_address The email address of the user that should be designated as the requester of this draft. If not set, original requester's email address will be used.
      *
-     * @return self
+     * @return static
      */
     public function setRequesterEmailAddress(?string $requester_email_address)
     {
@@ -472,7 +472,7 @@ class UnclaimedDraftEditAndResendRequest implements ModelInterface, ArrayAccess,
      *
      * @param string|null $requesting_redirect_url the URL you want signers redirected to after they successfully request a signature
      *
-     * @return self
+     * @return static
      */
     public function setRequestingRedirectUrl(?string $requesting_redirect_url)
     {
@@ -499,7 +499,7 @@ class UnclaimedDraftEditAndResendRequest implements ModelInterface, ArrayAccess,
      *
      * @param bool|null $show_progress_stepper when only one step remains in the signature request process and this parameter is set to `false` then the progress stepper will be hidden
      *
-     * @return self
+     * @return static
      */
     public function setShowProgressStepper(?bool $show_progress_stepper)
     {
@@ -526,7 +526,7 @@ class UnclaimedDraftEditAndResendRequest implements ModelInterface, ArrayAccess,
      *
      * @param string|null $signing_redirect_url the URL you want signers redirected to after they successfully sign
      *
-     * @return self
+     * @return static
      */
     public function setSigningRedirectUrl(?string $signing_redirect_url)
     {
@@ -553,7 +553,7 @@ class UnclaimedDraftEditAndResendRequest implements ModelInterface, ArrayAccess,
      *
      * @param bool|null $test_mode Whether this is a test, the signature request created from this draft will not be legally binding if set to `true`. Defaults to `false`.
      *
-     * @return self
+     * @return static
      */
     public function setTestMode(?bool $test_mode)
     {

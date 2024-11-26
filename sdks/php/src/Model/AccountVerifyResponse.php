@@ -317,7 +317,7 @@ class AccountVerifyResponse implements ModelInterface, ArrayAccess, JsonSerializ
      *
      * @param AccountVerifyResponseAccount|null $account account
      *
-     * @return self
+     * @return static
      */
     public function setAccount(?AccountVerifyResponseAccount $account)
     {
@@ -344,7 +344,7 @@ class AccountVerifyResponse implements ModelInterface, ArrayAccess, JsonSerializ
      *
      * @param WarningResponse[]|null $warnings a list of warnings
      *
-     * @return self
+     * @return static
      */
     public function setWarnings(?array $warnings)
     {

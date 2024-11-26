@@ -309,7 +309,7 @@ class SubFormFieldsPerDocumentCheckboxMerge extends SubFormFieldsPerDocumentBase
      *
      * @param string $type A checkbox field that has default value set using pre-filled data. Use the `SubFormFieldsPerDocumentCheckboxMerge` class.
      *
-     * @return self
+     * @return static
      */
     public function setType(string $type)
     {

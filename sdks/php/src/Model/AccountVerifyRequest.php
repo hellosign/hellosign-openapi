@@ -315,7 +315,7 @@ class AccountVerifyRequest implements ModelInterface, ArrayAccess, JsonSerializa
      *
      * @param string $email_address email address to run the verification for
      *
-     * @return self
+     * @return static
      */
     public function setEmailAddress(string $email_address)
     {

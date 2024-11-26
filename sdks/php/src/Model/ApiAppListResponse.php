@@ -332,7 +332,7 @@ class ApiAppListResponse implements ModelInterface, ArrayAccess, JsonSerializabl
      *
      * @param ApiAppResponse[] $api_apps contains information about API Apps
      *
-     * @return self
+     * @return static
      */
     public function setApiApps(array $api_apps)
     {
@@ -359,7 +359,7 @@ class ApiAppListResponse implements ModelInterface, ArrayAccess, JsonSerializabl
      *
      * @param ListInfoResponse $list_info list_info
      *
-     * @return self
+     * @return static
      */
     public function setListInfo(ListInfoResponse $list_info)
     {
@@ -386,7 +386,7 @@ class ApiAppListResponse implements ModelInterface, ArrayAccess, JsonSerializabl
      *
      * @param WarningResponse[]|null $warnings a list of warnings
      *
-     * @return self
+     * @return static
      */
     public function setWarnings(?array $warnings)
     {

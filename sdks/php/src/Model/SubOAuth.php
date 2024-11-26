@@ -346,7 +346,7 @@ class SubOAuth implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param string|null $callback_url The callback URL to be used for OAuth flows. (Required if `oauth[scopes]` is provided)
      *
-     * @return self
+     * @return static
      */
     public function setCallbackUrl(?string $callback_url)
     {
@@ -373,7 +373,7 @@ class SubOAuth implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param string[]|null $scopes A list of [OAuth scopes](/api/reference/tag/OAuth) to be granted to the app. (Required if `oauth[callback_url]` is provided).
      *
-     * @return self
+     * @return static
      */
     public function setScopes(?array $scopes)
     {

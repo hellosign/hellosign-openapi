@@ -360,7 +360,7 @@ class SignatureRequestResponseAttachment implements ModelInterface, ArrayAccess,
      *
      * @param string $id the unique ID for this attachment
      *
-     * @return self
+     * @return static
      */
     public function setId(string $id)
     {
@@ -387,7 +387,7 @@ class SignatureRequestResponseAttachment implements ModelInterface, ArrayAccess,
      *
      * @param string $signer the Signer this attachment is assigned to
      *
-     * @return self
+     * @return static
      */
     public function setSigner(string $signer)
     {
@@ -414,7 +414,7 @@ class SignatureRequestResponseAttachment implements ModelInterface, ArrayAccess,
      *
      * @param string $name the name of this attachment
      *
-     * @return self
+     * @return static
      */
     public function setName(string $name)
     {
@@ -441,7 +441,7 @@ class SignatureRequestResponseAttachment implements ModelInterface, ArrayAccess,
      *
      * @param bool $required a boolean value denoting if this attachment is required
      *
-     * @return self
+     * @return static
      */
     public function setRequired(bool $required)
     {
@@ -468,7 +468,7 @@ class SignatureRequestResponseAttachment implements ModelInterface, ArrayAccess,
      *
      * @param string|null $instructions instructions for Signer
      *
-     * @return self
+     * @return static
      */
     public function setInstructions(?string $instructions)
     {
@@ -502,7 +502,7 @@ class SignatureRequestResponseAttachment implements ModelInterface, ArrayAccess,
      *
      * @param int|null $uploaded_at timestamp when attachment was uploaded by Signer
      *
-     * @return self
+     * @return static
      */
     public function setUploadedAt(?int $uploaded_at)
     {

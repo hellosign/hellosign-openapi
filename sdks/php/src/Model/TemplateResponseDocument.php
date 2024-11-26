@@ -345,7 +345,7 @@ class TemplateResponseDocument implements ModelInterface, ArrayAccess, JsonSeria
      *
      * @param string|null $name name of the associated file
      *
-     * @return self
+     * @return static
      */
     public function setName(?string $name)
     {
@@ -372,7 +372,7 @@ class TemplateResponseDocument implements ModelInterface, ArrayAccess, JsonSeria
      *
      * @param int|null $index document ordering, the lowest index is displayed first and the highest last (0-based indexing)
      *
-     * @return self
+     * @return static
      */
     public function setIndex(?int $index)
     {
@@ -399,7 +399,7 @@ class TemplateResponseDocument implements ModelInterface, ArrayAccess, JsonSeria
      *
      * @param TemplateResponseDocumentFieldGroup[]|null $field_groups an array of Form Field Group objects
      *
-     * @return self
+     * @return static
      */
     public function setFieldGroups(?array $field_groups)
     {
@@ -426,7 +426,7 @@ class TemplateResponseDocument implements ModelInterface, ArrayAccess, JsonSeria
      *
      * @param TemplateResponseDocumentFormFieldBase[]|null $form_fields an array of Form Field objects containing the name and type of each named field
      *
-     * @return self
+     * @return static
      */
     public function setFormFields(?array $form_fields)
     {
@@ -453,7 +453,7 @@ class TemplateResponseDocument implements ModelInterface, ArrayAccess, JsonSeria
      *
      * @param TemplateResponseDocumentCustomFieldBase[]|null $custom_fields an array of Form Field objects containing the name and type of each named field
      *
-     * @return self
+     * @return static
      */
     public function setCustomFields(?array $custom_fields)
     {
@@ -480,7 +480,7 @@ class TemplateResponseDocument implements ModelInterface, ArrayAccess, JsonSeria
      *
      * @param TemplateResponseDocumentStaticFieldBase[]|null $static_fields An array describing static overlay fields. **NOTE:** Only available for certain subscriptions.
      *
-     * @return self
+     * @return static
      */
     public function setStaticFields(?array $static_fields)
     {

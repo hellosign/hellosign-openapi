@@ -318,7 +318,7 @@ class TemplateResponseFieldAvgTextLength implements ModelInterface, ArrayAccess,
      *
      * @param int|null $num_lines number of lines
      *
-     * @return self
+     * @return static
      */
     public function setNumLines(?int $num_lines)
     {
@@ -345,7 +345,7 @@ class TemplateResponseFieldAvgTextLength implements ModelInterface, ArrayAccess,
      *
      * @param int|null $num_chars_per_line number of characters per line
      *
-     * @return self
+     * @return static
      */
     public function setNumCharsPerLine(?int $num_chars_per_line)
     {

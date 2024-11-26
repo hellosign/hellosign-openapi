@@ -322,7 +322,7 @@ class EmbeddedSignUrlResponse implements ModelInterface, ArrayAccess, JsonSerial
      *
      * @param EmbeddedSignUrlResponseEmbedded $embedded embedded
      *
-     * @return self
+     * @return static
      */
     public function setEmbedded(EmbeddedSignUrlResponseEmbedded $embedded)
     {
@@ -349,7 +349,7 @@ class EmbeddedSignUrlResponse implements ModelInterface, ArrayAccess, JsonSerial
      *
      * @param WarningResponse[]|null $warnings a list of warnings
      *
-     * @return self
+     * @return static
      */
     public function setWarnings(?array $warnings)
     {

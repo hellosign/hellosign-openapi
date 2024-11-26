@@ -318,7 +318,7 @@ class TeamParentResponse implements ModelInterface, ArrayAccess, JsonSerializabl
      *
      * @param string|null $team_id The id of a team
      *
-     * @return self
+     * @return static
      */
     public function setTeamId(?string $team_id)
     {
@@ -345,7 +345,7 @@ class TeamParentResponse implements ModelInterface, ArrayAccess, JsonSerializabl
      *
      * @param string|null $name The name of a team
      *
-     * @return self
+     * @return static
      */
     public function setName(?string $name)
     {

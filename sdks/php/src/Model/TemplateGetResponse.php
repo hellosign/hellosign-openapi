@@ -322,7 +322,7 @@ class TemplateGetResponse implements ModelInterface, ArrayAccess, JsonSerializab
      *
      * @param TemplateResponse $template template
      *
-     * @return self
+     * @return static
      */
     public function setTemplate(TemplateResponse $template)
     {
@@ -349,7 +349,7 @@ class TemplateGetResponse implements ModelInterface, ArrayAccess, JsonSerializab
      *
      * @param WarningResponse[]|null $warnings a list of warnings
      *
-     * @return self
+     * @return static
      */
     public function setWarnings(?array $warnings)
     {

@@ -317,7 +317,7 @@ class SubTemplateRole implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param string|null $name the role name of the signer that will be displayed when the template is used to create a signature request
      *
-     * @return self
+     * @return static
      */
     public function setName(?string $name)
     {
@@ -344,7 +344,7 @@ class SubTemplateRole implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param int|null $order the order in which this signer role is required to sign
      *
-     * @return self
+     * @return static
      */
     public function setOrder(?int $order)
     {

@@ -416,7 +416,7 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param string|null $template_id the id of the Template
      *
-     * @return self
+     * @return static
      */
     public function setTemplateId(?string $template_id)
     {
@@ -443,7 +443,7 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param string|null $title The title of the Template. This will also be the default subject of the message sent to signers when using this Template to send a SignatureRequest. This can be overridden when sending the SignatureRequest.
      *
-     * @return self
+     * @return static
      */
     public function setTitle(?string $title)
     {
@@ -470,7 +470,7 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param string|null $message The default message that will be sent to signers when using this Template to send a SignatureRequest. This can be overridden when sending the SignatureRequest.
      *
-     * @return self
+     * @return static
      */
     public function setMessage(?string $message)
     {
@@ -497,7 +497,7 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param int|null $updated_at time the template was last updated
      *
-     * @return self
+     * @return static
      */
     public function setUpdatedAt(?int $updated_at)
     {
@@ -524,7 +524,7 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param bool|null $is_embedded `true` if this template was created using an embedded flow, `false` if it was created on our website. Will be `null` when you are not the creator of the Template.
      *
-     * @return self
+     * @return static
      */
     public function setIsEmbedded(?bool $is_embedded)
     {
@@ -558,7 +558,7 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param bool|null $is_creator `true` if you are the owner of this template, `false` if it's been shared with you by a team member
      *
-     * @return self
+     * @return static
      */
     public function setIsCreator(?bool $is_creator)
     {
@@ -585,7 +585,7 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param bool|null $can_edit indicates whether edit rights have been granted to you by the owner (always `true` if that's you)
      *
-     * @return self
+     * @return static
      */
     public function setCanEdit(?bool $can_edit)
     {
@@ -612,7 +612,7 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param bool|null $is_locked Indicates whether the template is locked. If `true`, then the template was created outside your quota and can only be used in `test_mode`. If `false`, then the template is within your quota and can be used to create signature requests.
      *
-     * @return self
+     * @return static
      */
     public function setIsLocked(?bool $is_locked)
     {
@@ -639,7 +639,7 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param array<string,mixed>|null $metadata the metadata attached to the template
      *
-     * @return self
+     * @return static
      */
     public function setMetadata(?array $metadata)
     {
@@ -666,7 +666,7 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param TemplateResponseSignerRole[]|null $signer_roles an array of the designated signer roles that must be specified when sending a SignatureRequest using this Template
      *
-     * @return self
+     * @return static
      */
     public function setSignerRoles(?array $signer_roles)
     {
@@ -693,7 +693,7 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param TemplateResponseCCRole[]|null $cc_roles an array of the designated CC roles that must be specified when sending a SignatureRequest using this Template
      *
-     * @return self
+     * @return static
      */
     public function setCcRoles(?array $cc_roles)
     {
@@ -720,7 +720,7 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param TemplateResponseDocument[]|null $documents An array describing each document associated with this Template. Includes form field data for each document.
      *
-     * @return self
+     * @return static
      */
     public function setDocuments(?array $documents)
     {
@@ -748,7 +748,7 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param TemplateResponseDocumentCustomFieldBase[]|null $custom_fields Deprecated. Use `custom_fields` inside the [documents](https://developers.hellosign.com/api/reference/operation/templateGet/#!c=200&path=template/documents&t=response) array instead.
      *
-     * @return self
+     * @return static
      * @deprecated
      */
     public function setCustomFields(?array $custom_fields)
@@ -784,7 +784,7 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param TemplateResponseDocumentFormFieldBase[]|null $named_form_fields Deprecated. Use `form_fields` inside the [documents](https://developers.hellosign.com/api/reference/operation/templateGet/#!c=200&path=template/documents&t=response) array instead.
      *
-     * @return self
+     * @return static
      * @deprecated
      */
     public function setNamedFormFields(?array $named_form_fields)
@@ -819,7 +819,7 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param TemplateResponseAccount[]|null $accounts an array of the Accounts that can use this Template
      *
-     * @return self
+     * @return static
      */
     public function setAccounts(?array $accounts)
     {
@@ -846,7 +846,7 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param SignatureRequestResponseAttachment[]|null $attachments signer attachments
      *
-     * @return self
+     * @return static
      */
     public function setAttachments(?array $attachments)
     {

@@ -396,7 +396,7 @@ class TemplateResponseDocumentStaticFieldBase implements ModelInterface, ArrayAc
      *
      * @param string $type type
      *
-     * @return self
+     * @return static
      */
     public function setType(string $type)
     {
@@ -423,7 +423,7 @@ class TemplateResponseDocumentStaticFieldBase implements ModelInterface, ArrayAc
      *
      * @param string|null $api_id a unique id for the static field
      *
-     * @return self
+     * @return static
      */
     public function setApiId(?string $api_id)
     {
@@ -450,7 +450,7 @@ class TemplateResponseDocumentStaticFieldBase implements ModelInterface, ArrayAc
      *
      * @param string|null $name the name of the static field
      *
-     * @return self
+     * @return static
      */
     public function setName(?string $name)
     {
@@ -477,7 +477,7 @@ class TemplateResponseDocumentStaticFieldBase implements ModelInterface, ArrayAc
      *
      * @param string|null $signer the signer of the Static Field
      *
-     * @return self
+     * @return static
      */
     public function setSigner(?string $signer)
     {
@@ -504,7 +504,7 @@ class TemplateResponseDocumentStaticFieldBase implements ModelInterface, ArrayAc
      *
      * @param int|null $x the horizontal offset in pixels for this static field
      *
-     * @return self
+     * @return static
      */
     public function setX(?int $x)
     {
@@ -531,7 +531,7 @@ class TemplateResponseDocumentStaticFieldBase implements ModelInterface, ArrayAc
      *
      * @param int|null $y the vertical offset in pixels for this static field
      *
-     * @return self
+     * @return static
      */
     public function setY(?int $y)
     {
@@ -558,7 +558,7 @@ class TemplateResponseDocumentStaticFieldBase implements ModelInterface, ArrayAc
      *
      * @param int|null $width the width in pixels of this static field
      *
-     * @return self
+     * @return static
      */
     public function setWidth(?int $width)
     {
@@ -585,7 +585,7 @@ class TemplateResponseDocumentStaticFieldBase implements ModelInterface, ArrayAc
      *
      * @param int|null $height the height in pixels of this static field
      *
-     * @return self
+     * @return static
      */
     public function setHeight(?int $height)
     {
@@ -612,7 +612,7 @@ class TemplateResponseDocumentStaticFieldBase implements ModelInterface, ArrayAc
      *
      * @param bool|null $required boolean showing whether or not this field is required
      *
-     * @return self
+     * @return static
      */
     public function setRequired(?bool $required)
     {
@@ -639,7 +639,7 @@ class TemplateResponseDocumentStaticFieldBase implements ModelInterface, ArrayAc
      *
      * @param string|null $group The name of the group this field is in. If this field is not a group, this defaults to `null`.
      *
-     * @return self
+     * @return static
      */
     public function setGroup(?string $group)
     {

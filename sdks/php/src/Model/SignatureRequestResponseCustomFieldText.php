@@ -316,7 +316,7 @@ class SignatureRequestResponseCustomFieldText extends SignatureRequestResponseCu
      *
      * @param string $type The type of this Custom Field. Only 'text' and 'checkbox' are currently supported.
      *
-     * @return self
+     * @return static
      */
     public function setType(string $type)
     {
@@ -343,7 +343,7 @@ class SignatureRequestResponseCustomFieldText extends SignatureRequestResponseCu
      *
      * @param string|null $value A text string for text fields
      *
-     * @return self
+     * @return static
      */
     public function setValue(?string $value)
     {

@@ -410,7 +410,7 @@ class EventCallbackRequestEvent implements ModelInterface, ArrayAccess, JsonSeri
      *
      * @param string $event_time time the event was created (using Unix time)
      *
-     * @return self
+     * @return static
      */
     public function setEventTime(string $event_time)
     {
@@ -437,7 +437,7 @@ class EventCallbackRequestEvent implements ModelInterface, ArrayAccess, JsonSeri
      *
      * @param string $event_type type of callback event that was triggered
      *
-     * @return self
+     * @return static
      */
     public function setEventType(string $event_type)
     {
@@ -474,7 +474,7 @@ class EventCallbackRequestEvent implements ModelInterface, ArrayAccess, JsonSeri
      *
      * @param string $event_hash generated hash used to verify source of event data
      *
-     * @return self
+     * @return static
      */
     public function setEventHash(string $event_hash)
     {
@@ -501,7 +501,7 @@ class EventCallbackRequestEvent implements ModelInterface, ArrayAccess, JsonSeri
      *
      * @param EventCallbackRequestEventMetadata|null $event_metadata event_metadata
      *
-     * @return self
+     * @return static
      */
     public function setEventMetadata(?EventCallbackRequestEventMetadata $event_metadata)
     {

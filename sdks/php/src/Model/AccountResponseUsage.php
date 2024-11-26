@@ -310,7 +310,7 @@ class AccountResponseUsage implements ModelInterface, ArrayAccess, JsonSerializa
      *
      * @param int|null $fax_pages_sent Number of fax pages sent
      *
-     * @return self
+     * @return static
      */
     public function setFaxPagesSent(?int $fax_pages_sent)
     {

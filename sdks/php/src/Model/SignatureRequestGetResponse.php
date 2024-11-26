@@ -322,7 +322,7 @@ class SignatureRequestGetResponse implements ModelInterface, ArrayAccess, JsonSe
      *
      * @param SignatureRequestResponse $signature_request signature_request
      *
-     * @return self
+     * @return static
      */
     public function setSignatureRequest(SignatureRequestResponse $signature_request)
     {
@@ -349,7 +349,7 @@ class SignatureRequestGetResponse implements ModelInterface, ArrayAccess, JsonSe
      *
      * @param WarningResponse[]|null $warnings a list of warnings
      *
-     * @return self
+     * @return static
      */
     public function setWarnings(?array $warnings)
     {

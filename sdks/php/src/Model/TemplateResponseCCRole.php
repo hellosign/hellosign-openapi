@@ -310,7 +310,7 @@ class TemplateResponseCCRole implements ModelInterface, ArrayAccess, JsonSeriali
      *
      * @param string|null $name the name of the Role
      *
-     * @return self
+     * @return static
      */
     public function setName(?string $name)
     {

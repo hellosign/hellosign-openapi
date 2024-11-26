@@ -310,7 +310,7 @@ class SignatureRequestResponseDataValueSignature extends SignatureRequestRespons
      *
      * @param string|null $type A signature input field
      *
-     * @return self
+     * @return static
      */
     public function setType(?string $type)
     {
@@ -337,7 +337,7 @@ class SignatureRequestResponseDataValueSignature extends SignatureRequestRespons
      *
      * @param string|null $value the value of the form field
      *
-     * @return self
+     * @return static
      */
     public function setValue(?string $value)
     {

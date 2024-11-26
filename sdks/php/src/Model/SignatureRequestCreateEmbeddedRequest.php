@@ -489,7 +489,7 @@ class SignatureRequestCreateEmbeddedRequest implements ModelInterface, ArrayAcce
      *
      * @param string $client_id Client id of the app you're using to create this embedded signature request. Used for security purposes.
      *
-     * @return self
+     * @return static
      */
     public function setClientId(string $client_id)
     {
@@ -516,7 +516,7 @@ class SignatureRequestCreateEmbeddedRequest implements ModelInterface, ArrayAcce
      *
      * @param SplFileObject[]|null $files Use `files[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.
      *
-     * @return self
+     * @return static
      */
     public function setFiles(?array $files)
     {
@@ -543,7 +543,7 @@ class SignatureRequestCreateEmbeddedRequest implements ModelInterface, ArrayAcce
      *
      * @param string[]|null $file_urls Use `file_urls[]` to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.
      *
-     * @return self
+     * @return static
      */
     public function setFileUrls(?array $file_urls)
     {
@@ -570,7 +570,7 @@ class SignatureRequestCreateEmbeddedRequest implements ModelInterface, ArrayAcce
      *
      * @param SubSignatureRequestSigner[]|null $signers Add Signers to your Signature Request.  This endpoint requires either **signers** or **grouped_signers**, but not both.
      *
-     * @return self
+     * @return static
      */
     public function setSigners(?array $signers)
     {
@@ -597,7 +597,7 @@ class SignatureRequestCreateEmbeddedRequest implements ModelInterface, ArrayAcce
      *
      * @param SubSignatureRequestGroupedSigners[]|null $grouped_signers Add Grouped Signers to your Signature Request.  This endpoint requires either **signers** or **grouped_signers**, but not both.
      *
-     * @return self
+     * @return static
      */
     public function setGroupedSigners(?array $grouped_signers)
     {
@@ -624,7 +624,7 @@ class SignatureRequestCreateEmbeddedRequest implements ModelInterface, ArrayAcce
      *
      * @param bool|null $allow_decline Allows signers to decline to sign a document if `true`. Defaults to `false`.
      *
-     * @return self
+     * @return static
      */
     public function setAllowDecline(?bool $allow_decline)
     {
@@ -651,7 +651,7 @@ class SignatureRequestCreateEmbeddedRequest implements ModelInterface, ArrayAcce
      *
      * @param bool|null $allow_reassign Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.  **NOTE:** Only available for Premium plan.
      *
-     * @return self
+     * @return static
      */
     public function setAllowReassign(?bool $allow_reassign)
     {
@@ -678,7 +678,7 @@ class SignatureRequestCreateEmbeddedRequest implements ModelInterface, ArrayAcce
      *
      * @param SubAttachment[]|null $attachments A list describing the attachments
      *
-     * @return self
+     * @return static
      */
     public function setAttachments(?array $attachments)
     {
@@ -705,7 +705,7 @@ class SignatureRequestCreateEmbeddedRequest implements ModelInterface, ArrayAcce
      *
      * @param string[]|null $cc_email_addresses the email addresses that should be CCed
      *
-     * @return self
+     * @return static
      */
     public function setCcEmailAddresses(?array $cc_email_addresses)
     {
@@ -732,7 +732,7 @@ class SignatureRequestCreateEmbeddedRequest implements ModelInterface, ArrayAcce
      *
      * @param SubCustomField[]|null $custom_fields When used together with merge fields, `custom_fields` allows users to add pre-filled data to their signature requests.  Pre-filled data can be used with \"send-once\" signature requests by adding merge fields with `form_fields_per_document` or [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) while passing values back with `custom_fields` together in one API call.  For using pre-filled on repeatable signature requests, merge fields are added to templates in the Dropbox Sign UI or by calling [/template/create_embedded_draft](/api/reference/operation/templateCreateEmbeddedDraft) and then passing `custom_fields` on subsequent signature requests referencing that template.
      *
-     * @return self
+     * @return static
      */
     public function setCustomFields(?array $custom_fields)
     {
@@ -759,7 +759,7 @@ class SignatureRequestCreateEmbeddedRequest implements ModelInterface, ArrayAcce
      *
      * @param SubFieldOptions|null $field_options field_options
      *
-     * @return self
+     * @return static
      */
     public function setFieldOptions(?SubFieldOptions $field_options)
     {
@@ -786,7 +786,7 @@ class SignatureRequestCreateEmbeddedRequest implements ModelInterface, ArrayAcce
      *
      * @param SubFormFieldGroup[]|null $form_field_groups Group information for fields defined in `form_fields_per_document`. String-indexed JSON array with `group_label` and `requirement` keys. `form_fields_per_document` must contain fields referencing a group defined in `form_field_groups`.
      *
-     * @return self
+     * @return static
      */
     public function setFormFieldGroups(?array $form_field_groups)
     {
@@ -813,7 +813,7 @@ class SignatureRequestCreateEmbeddedRequest implements ModelInterface, ArrayAcce
      *
      * @param SubFormFieldRule[]|null $form_field_rules conditional Logic rules for fields defined in `form_fields_per_document`
      *
-     * @return self
+     * @return static
      */
     public function setFormFieldRules(?array $form_field_rules)
     {
@@ -840,7 +840,7 @@ class SignatureRequestCreateEmbeddedRequest implements ModelInterface, ArrayAcce
      *
      * @param SubFormFieldsPerDocumentBase[]|null $form_fields_per_document The fields that should appear on the document, expressed as an array of objects. (For more details you can read about it here: [Using Form Fields per Document](/docs/openapi/form-fields-per-document).)  **NOTE:** Fields like **text**, **dropdown**, **checkbox**, **radio**, and **hyperlink** have additional required and optional parameters. Check out the list of [additional parameters](/api/reference/constants/#form-fields-per-document) for these field types.  * Text Field use `SubFormFieldsPerDocumentText` * Dropdown Field use `SubFormFieldsPerDocumentDropdown` * Hyperlink Field use `SubFormFieldsPerDocumentHyperlink` * Checkbox Field use `SubFormFieldsPerDocumentCheckbox` * Radio Field use `SubFormFieldsPerDocumentRadio` * Signature Field use `SubFormFieldsPerDocumentSignature` * Date Signed Field use `SubFormFieldsPerDocumentDateSigned` * Initials Field use `SubFormFieldsPerDocumentInitials` * Text Merge Field use `SubFormFieldsPerDocumentTextMerge` * Checkbox Merge Field use `SubFormFieldsPerDocumentCheckboxMerge`
      *
-     * @return self
+     * @return static
      */
     public function setFormFieldsPerDocument(?array $form_fields_per_document)
     {
@@ -867,7 +867,7 @@ class SignatureRequestCreateEmbeddedRequest implements ModelInterface, ArrayAcce
      *
      * @param bool|null $hide_text_tags Enables automatic Text Tag removal when set to true.  **NOTE:** Removing text tags this way can cause unwanted clipping. We recommend leaving this setting on `false` and instead hiding your text tags using white text or a similar approach. See the [Text Tags Walkthrough](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) for more information.
      *
-     * @return self
+     * @return static
      */
     public function setHideTextTags(?bool $hide_text_tags)
     {
@@ -894,7 +894,7 @@ class SignatureRequestCreateEmbeddedRequest implements ModelInterface, ArrayAcce
      *
      * @param string|null $message the custom message in the email that will be sent to the signers
      *
-     * @return self
+     * @return static
      */
     public function setMessage(?string $message)
     {
@@ -925,7 +925,7 @@ class SignatureRequestCreateEmbeddedRequest implements ModelInterface, ArrayAcce
      *
      * @param array<string,mixed>|null $metadata Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.  Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.
      *
-     * @return self
+     * @return static
      */
     public function setMetadata(?array $metadata)
     {
@@ -953,7 +953,7 @@ class SignatureRequestCreateEmbeddedRequest implements ModelInterface, ArrayAcce
      *
      * @param SubSigningOptions|null $signing_options signing_options
      *
-     * @return self
+     * @return static
      */
     public function setSigningOptions(?SubSigningOptions $signing_options)
     {
@@ -980,7 +980,7 @@ class SignatureRequestCreateEmbeddedRequest implements ModelInterface, ArrayAcce
      *
      * @param string|null $subject the subject in the email that will be sent to the signers
      *
-     * @return self
+     * @return static
      */
     public function setSubject(?string $subject)
     {
@@ -1011,7 +1011,7 @@ class SignatureRequestCreateEmbeddedRequest implements ModelInterface, ArrayAcce
      *
      * @param bool|null $test_mode Whether this is a test, the signature request will not be legally binding if set to `true`. Defaults to `false`.
      *
-     * @return self
+     * @return static
      */
     public function setTestMode(?bool $test_mode)
     {
@@ -1038,7 +1038,7 @@ class SignatureRequestCreateEmbeddedRequest implements ModelInterface, ArrayAcce
      *
      * @param string|null $title the title you want to assign to the SignatureRequest
      *
-     * @return self
+     * @return static
      */
     public function setTitle(?string $title)
     {
@@ -1069,7 +1069,7 @@ class SignatureRequestCreateEmbeddedRequest implements ModelInterface, ArrayAcce
      *
      * @param bool|null $use_text_tags Send with a value of `true` if you wish to enable [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) parsing in your document. Defaults to disabled, or `false`.
      *
-     * @return self
+     * @return static
      */
     public function setUseTextTags(?bool $use_text_tags)
     {
@@ -1096,7 +1096,7 @@ class SignatureRequestCreateEmbeddedRequest implements ModelInterface, ArrayAcce
      *
      * @param bool|null $populate_auto_fill_fields Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer's information during signing.  **NOTE:** Keep your signer's information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
      *
-     * @return self
+     * @return static
      */
     public function setPopulateAutoFillFields(?bool $populate_auto_fill_fields)
     {
@@ -1123,7 +1123,7 @@ class SignatureRequestCreateEmbeddedRequest implements ModelInterface, ArrayAcce
      *
      * @param int|null $expires_at When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.
      *
-     * @return self
+     * @return static
      */
     public function setExpiresAt(?int $expires_at)
     {

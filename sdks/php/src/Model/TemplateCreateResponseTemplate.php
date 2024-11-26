@@ -311,7 +311,7 @@ class TemplateCreateResponseTemplate implements ModelInterface, ArrayAccess, Jso
      *
      * @param string|null $template_id the id of the Template
      *
-     * @return self
+     * @return static
      */
     public function setTemplateId(?string $template_id)
     {

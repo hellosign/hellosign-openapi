@@ -372,7 +372,7 @@ class FaxSendRequest implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param string $recipient Fax Send To Recipient
      *
-     * @return self
+     * @return static
      */
     public function setRecipient(string $recipient)
     {
@@ -399,7 +399,7 @@ class FaxSendRequest implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param string|null $sender Fax Send From Sender (used only with fax number)
      *
-     * @return self
+     * @return static
      */
     public function setSender(?string $sender)
     {
@@ -426,7 +426,7 @@ class FaxSendRequest implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param SplFileObject[]|null $files Fax File to Send
      *
-     * @return self
+     * @return static
      */
     public function setFiles(?array $files)
     {
@@ -453,7 +453,7 @@ class FaxSendRequest implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param string[]|null $file_urls Fax File URL to Send
      *
-     * @return self
+     * @return static
      */
     public function setFileUrls(?array $file_urls)
     {
@@ -480,7 +480,7 @@ class FaxSendRequest implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param bool|null $test_mode API Test Mode Setting
      *
-     * @return self
+     * @return static
      */
     public function setTestMode(?bool $test_mode)
     {
@@ -507,7 +507,7 @@ class FaxSendRequest implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param string|null $cover_page_to Fax Cover Page for Recipient
      *
-     * @return self
+     * @return static
      */
     public function setCoverPageTo(?string $cover_page_to)
     {
@@ -534,7 +534,7 @@ class FaxSendRequest implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param string|null $cover_page_from Fax Cover Page for Sender
      *
-     * @return self
+     * @return static
      */
     public function setCoverPageFrom(?string $cover_page_from)
     {
@@ -561,7 +561,7 @@ class FaxSendRequest implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param string|null $cover_page_message Fax Cover Page Message
      *
-     * @return self
+     * @return static
      */
     public function setCoverPageMessage(?string $cover_page_message)
     {
@@ -588,7 +588,7 @@ class FaxSendRequest implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param string|null $title Fax Title
      *
-     * @return self
+     * @return static
      */
     public function setTitle(?string $title)
     {

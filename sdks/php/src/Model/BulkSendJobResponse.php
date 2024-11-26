@@ -332,7 +332,7 @@ class BulkSendJobResponse implements ModelInterface, ArrayAccess, JsonSerializab
      *
      * @param string|null $bulk_send_job_id the id of the BulkSendJob
      *
-     * @return self
+     * @return static
      */
     public function setBulkSendJobId(?string $bulk_send_job_id)
     {
@@ -366,7 +366,7 @@ class BulkSendJobResponse implements ModelInterface, ArrayAccess, JsonSerializab
      *
      * @param int|null $total the total amount of Signature Requests queued for sending
      *
-     * @return self
+     * @return static
      */
     public function setTotal(?int $total)
     {
@@ -393,7 +393,7 @@ class BulkSendJobResponse implements ModelInterface, ArrayAccess, JsonSerializab
      *
      * @param bool|null $is_creator true if you are the owner of this BulkSendJob, false if it's been shared with you by a team member
      *
-     * @return self
+     * @return static
      */
     public function setIsCreator(?bool $is_creator)
     {
@@ -420,7 +420,7 @@ class BulkSendJobResponse implements ModelInterface, ArrayAccess, JsonSerializab
      *
      * @param int|null $created_at time that the BulkSendJob was created
      *
-     * @return self
+     * @return static
      */
     public function setCreatedAt(?int $created_at)
     {

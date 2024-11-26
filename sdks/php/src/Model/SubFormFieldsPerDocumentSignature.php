@@ -309,7 +309,7 @@ class SubFormFieldsPerDocumentSignature extends SubFormFieldsPerDocumentBase
      *
      * @param string $type A signature input field. Use the `SubFormFieldsPerDocumentSignature` class.
      *
-     * @return self
+     * @return static
      */
     public function setType(string $type)
     {

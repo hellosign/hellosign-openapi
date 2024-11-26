@@ -598,7 +598,7 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
      *
      * @param string $client_id Client id of the app used to create the draft. Used to apply the branding and callback url defined for the app.
      *
-     * @return self
+     * @return static
      */
     public function setClientId(string $client_id)
     {
@@ -625,7 +625,7 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
      *
      * @param string $requester_email_address the email address of the user that should be designated as the requester of this draft, if the draft type is `request_signature`
      *
-     * @return self
+     * @return static
      */
     public function setRequesterEmailAddress(string $requester_email_address)
     {
@@ -652,7 +652,7 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
      *
      * @param SplFileObject[]|null $files Use `files[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.
      *
-     * @return self
+     * @return static
      */
     public function setFiles(?array $files)
     {
@@ -679,7 +679,7 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
      *
      * @param string[]|null $file_urls Use `file_urls[]` to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.
      *
-     * @return self
+     * @return static
      */
     public function setFileUrls(?array $file_urls)
     {
@@ -706,7 +706,7 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
      *
      * @param bool|null $allow_ccs this allows the requester to specify whether the user is allowed to provide email addresses to CC when claiming the draft
      *
-     * @return self
+     * @return static
      */
     public function setAllowCcs(?bool $allow_ccs)
     {
@@ -733,7 +733,7 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
      *
      * @param bool|null $allow_decline Allows signers to decline to sign a document if `true`. Defaults to `false`.
      *
-     * @return self
+     * @return static
      */
     public function setAllowDecline(?bool $allow_decline)
     {
@@ -760,7 +760,7 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
      *
      * @param bool|null $allow_reassign Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.  **NOTE:** Only available for Premium plan and higher.
      *
-     * @return self
+     * @return static
      */
     public function setAllowReassign(?bool $allow_reassign)
     {
@@ -787,7 +787,7 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
      *
      * @param SubAttachment[]|null $attachments A list describing the attachments
      *
-     * @return self
+     * @return static
      */
     public function setAttachments(?array $attachments)
     {
@@ -814,7 +814,7 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
      *
      * @param string[]|null $cc_email_addresses the email addresses that should be CCed
      *
-     * @return self
+     * @return static
      */
     public function setCcEmailAddresses(?array $cc_email_addresses)
     {
@@ -841,7 +841,7 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
      *
      * @param SubCustomField[]|null $custom_fields When used together with merge fields, `custom_fields` allows users to add pre-filled data to their signature requests.  Pre-filled data can be used with \"send-once\" signature requests by adding merge fields with `form_fields_per_document` or [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) while passing values back with `custom_fields` together in one API call.  For using pre-filled on repeatable signature requests, merge fields are added to templates in the Dropbox Sign UI or by calling [/template/create_embedded_draft](/api/reference/operation/templateCreateEmbeddedDraft) and then passing `custom_fields` on subsequent signature requests referencing that template.
      *
-     * @return self
+     * @return static
      */
     public function setCustomFields(?array $custom_fields)
     {
@@ -868,7 +868,7 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
      *
      * @param SubEditorOptions|null $editor_options editor_options
      *
-     * @return self
+     * @return static
      */
     public function setEditorOptions(?SubEditorOptions $editor_options)
     {
@@ -895,7 +895,7 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
      *
      * @param SubFieldOptions|null $field_options field_options
      *
-     * @return self
+     * @return static
      */
     public function setFieldOptions(?SubFieldOptions $field_options)
     {
@@ -922,7 +922,7 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
      *
      * @param bool|null $force_signer_page provide users the ability to review/edit the signers
      *
-     * @return self
+     * @return static
      */
     public function setForceSignerPage(?bool $force_signer_page)
     {
@@ -949,7 +949,7 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
      *
      * @param bool|null $force_subject_message provide users the ability to review/edit the subject and message
      *
-     * @return self
+     * @return static
      */
     public function setForceSubjectMessage(?bool $force_subject_message)
     {
@@ -976,7 +976,7 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
      *
      * @param SubFormFieldGroup[]|null $form_field_groups Group information for fields defined in `form_fields_per_document`. String-indexed JSON array with `group_label` and `requirement` keys. `form_fields_per_document` must contain fields referencing a group defined in `form_field_groups`.
      *
-     * @return self
+     * @return static
      */
     public function setFormFieldGroups(?array $form_field_groups)
     {
@@ -1003,7 +1003,7 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
      *
      * @param SubFormFieldRule[]|null $form_field_rules conditional Logic rules for fields defined in `form_fields_per_document`
      *
-     * @return self
+     * @return static
      */
     public function setFormFieldRules(?array $form_field_rules)
     {
@@ -1030,7 +1030,7 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
      *
      * @param SubFormFieldsPerDocumentBase[]|null $form_fields_per_document The fields that should appear on the document, expressed as an array of objects. (For more details you can read about it here: [Using Form Fields per Document](/docs/openapi/form-fields-per-document).)  **NOTE:** Fields like **text**, **dropdown**, **checkbox**, **radio**, and **hyperlink** have additional required and optional parameters. Check out the list of [additional parameters](/api/reference/constants/#form-fields-per-document) for these field types.  * Text Field use `SubFormFieldsPerDocumentText` * Dropdown Field use `SubFormFieldsPerDocumentDropdown` * Hyperlink Field use `SubFormFieldsPerDocumentHyperlink` * Checkbox Field use `SubFormFieldsPerDocumentCheckbox` * Radio Field use `SubFormFieldsPerDocumentRadio` * Signature Field use `SubFormFieldsPerDocumentSignature` * Date Signed Field use `SubFormFieldsPerDocumentDateSigned` * Initials Field use `SubFormFieldsPerDocumentInitials` * Text Merge Field use `SubFormFieldsPerDocumentTextMerge` * Checkbox Merge Field use `SubFormFieldsPerDocumentCheckboxMerge`
      *
-     * @return self
+     * @return static
      */
     public function setFormFieldsPerDocument(?array $form_fields_per_document)
     {
@@ -1057,7 +1057,7 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
      *
      * @param bool|null $hide_text_tags Send with a value of `true` if you wish to enable automatic Text Tag removal. Defaults to `false`. When using Text Tags it is preferred that you set this to `false` and hide your tags with white text or something similar because the automatic removal system can cause unwanted clipping. See the [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) walkthrough for more details.
      *
-     * @return self
+     * @return static
      */
     public function setHideTextTags(?bool $hide_text_tags)
     {
@@ -1084,7 +1084,7 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
      *
      * @param bool|null $hold_request The request from this draft will not automatically send to signers post-claim if set to `true`. Requester must [release](/api/reference/operation/signatureRequestReleaseHold/) the request from hold when ready to send. Defaults to `false`.
      *
-     * @return self
+     * @return static
      */
     public function setHoldRequest(?bool $hold_request)
     {
@@ -1111,7 +1111,7 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
      *
      * @param bool|null $is_for_embedded_signing The request created from this draft will also be signable in embedded mode if set to `true`. Defaults to `false`.
      *
-     * @return self
+     * @return static
      */
     public function setIsForEmbeddedSigning(?bool $is_for_embedded_signing)
     {
@@ -1138,7 +1138,7 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
      *
      * @param string|null $message the custom message in the email that will be sent to the signers
      *
-     * @return self
+     * @return static
      */
     public function setMessage(?string $message)
     {
@@ -1169,7 +1169,7 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
      *
      * @param array<string,mixed>|null $metadata Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.  Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.
      *
-     * @return self
+     * @return static
      */
     public function setMetadata(?array $metadata)
     {
@@ -1197,7 +1197,7 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
      *
      * @param string|null $requesting_redirect_url the URL you want signers redirected to after they successfully request a signature
      *
-     * @return self
+     * @return static
      */
     public function setRequestingRedirectUrl(?string $requesting_redirect_url)
     {
@@ -1224,7 +1224,7 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
      *
      * @param bool|null $show_preview This allows the requester to enable the editor/preview experience.  - `show_preview=true`: Allows requesters to enable the editor/preview experience. - `show_preview=false`: Allows requesters to disable the editor/preview experience.
      *
-     * @return self
+     * @return static
      */
     public function setShowPreview(?bool $show_preview)
     {
@@ -1251,7 +1251,7 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
      *
      * @param bool|null $show_progress_stepper when only one step remains in the signature request process and this parameter is set to `false` then the progress stepper will be hidden
      *
-     * @return self
+     * @return static
      */
     public function setShowProgressStepper(?bool $show_progress_stepper)
     {
@@ -1278,7 +1278,7 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
      *
      * @param SubUnclaimedDraftSigner[]|null $signers add Signers to your Unclaimed Draft Signature Request
      *
-     * @return self
+     * @return static
      */
     public function setSigners(?array $signers)
     {
@@ -1305,7 +1305,7 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
      *
      * @param SubSigningOptions|null $signing_options signing_options
      *
-     * @return self
+     * @return static
      */
     public function setSigningOptions(?SubSigningOptions $signing_options)
     {
@@ -1332,7 +1332,7 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
      *
      * @param string|null $signing_redirect_url the URL you want signers redirected to after they successfully sign
      *
-     * @return self
+     * @return static
      */
     public function setSigningRedirectUrl(?string $signing_redirect_url)
     {
@@ -1359,7 +1359,7 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
      *
      * @param bool|null $skip_me_now Disables the \"Me (Now)\" option for the person preparing the document. Does not work with type `send_document`. Defaults to `false`.
      *
-     * @return self
+     * @return static
      */
     public function setSkipMeNow(?bool $skip_me_now)
     {
@@ -1386,7 +1386,7 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
      *
      * @param string|null $subject the subject in the email that will be sent to the signers
      *
-     * @return self
+     * @return static
      */
     public function setSubject(?string $subject)
     {
@@ -1417,7 +1417,7 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
      *
      * @param bool|null $test_mode Whether this is a test, the signature request created from this draft will not be legally binding if set to `true`. Defaults to `false`.
      *
-     * @return self
+     * @return static
      */
     public function setTestMode(?bool $test_mode)
     {
@@ -1444,7 +1444,7 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
      *
      * @param string|null $type The type of the draft. By default this is `request_signature`, but you can set it to `send_document` if you want to self sign a document and download it.
      *
-     * @return self
+     * @return static
      */
     public function setType(?string $type)
     {
@@ -1481,7 +1481,7 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
      *
      * @param bool|null $use_preexisting_fields Set `use_text_tags` to `true` to enable [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) parsing in your document (defaults to disabled, or `false`). Alternatively, if your PDF contains pre-defined fields, enable the detection of these fields by setting the `use_preexisting_fields` to `true` (defaults to disabled, or `false`). Currently we only support use of either `use_text_tags` or `use_preexisting_fields` parameter, not both.
      *
-     * @return self
+     * @return static
      */
     public function setUsePreexistingFields(?bool $use_preexisting_fields)
     {
@@ -1508,7 +1508,7 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
      *
      * @param bool|null $use_text_tags Set `use_text_tags` to `true` to enable [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) parsing in your document (defaults to disabled, or `false`). Alternatively, if your PDF contains pre-defined fields, enable the detection of these fields by setting the `use_preexisting_fields` to `true` (defaults to disabled, or `false`). Currently we only support use of either `use_text_tags` or `use_preexisting_fields` parameter, not both.
      *
-     * @return self
+     * @return static
      */
     public function setUseTextTags(?bool $use_text_tags)
     {
@@ -1535,7 +1535,7 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
      *
      * @param bool|null $populate_auto_fill_fields Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer's information during signing.  **NOTE:** Keep your signer's information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
      *
-     * @return self
+     * @return static
      */
     public function setPopulateAutoFillFields(?bool $populate_auto_fill_fields)
     {
@@ -1562,7 +1562,7 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
      *
      * @param int|null $expires_at When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.  **NOTE:** This does not correspond to the **expires_at** returned in the response.
      *
-     * @return self
+     * @return static
      */
     public function setExpiresAt(?int $expires_at)
     {

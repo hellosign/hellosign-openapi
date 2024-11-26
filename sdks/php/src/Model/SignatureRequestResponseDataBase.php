@@ -359,7 +359,7 @@ class SignatureRequestResponseDataBase implements ModelInterface, ArrayAccess, J
      *
      * @param string|null $api_id the unique ID for this field
      *
-     * @return self
+     * @return static
      */
     public function setApiId(?string $api_id)
     {
@@ -386,7 +386,7 @@ class SignatureRequestResponseDataBase implements ModelInterface, ArrayAccess, J
      *
      * @param string|null $signature_id the ID of the signature to which this response is linked
      *
-     * @return self
+     * @return static
      */
     public function setSignatureId(?string $signature_id)
     {
@@ -413,7 +413,7 @@ class SignatureRequestResponseDataBase implements ModelInterface, ArrayAccess, J
      *
      * @param string|null $name the name of the form field
      *
-     * @return self
+     * @return static
      */
     public function setName(?string $name)
     {
@@ -440,7 +440,7 @@ class SignatureRequestResponseDataBase implements ModelInterface, ArrayAccess, J
      *
      * @param bool|null $required a boolean value denoting if this field is required
      *
-     * @return self
+     * @return static
      */
     public function setRequired(?bool $required)
     {
@@ -467,7 +467,7 @@ class SignatureRequestResponseDataBase implements ModelInterface, ArrayAccess, J
      *
      * @param string|null $type type
      *
-     * @return self
+     * @return static
      */
     public function setType(?string $type)
     {

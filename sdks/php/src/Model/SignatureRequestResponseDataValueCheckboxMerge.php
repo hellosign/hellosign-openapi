@@ -310,7 +310,7 @@ class SignatureRequestResponseDataValueCheckboxMerge extends SignatureRequestRes
      *
      * @param string|null $type A checkbox field that has default value set by the api
      *
-     * @return self
+     * @return static
      */
     public function setType(?string $type)
     {
@@ -337,7 +337,7 @@ class SignatureRequestResponseDataValueCheckboxMerge extends SignatureRequestRes
      *
      * @param string|null $value the value of the form field
      *
-     * @return self
+     * @return static
      */
     public function setValue(?string $value)
     {

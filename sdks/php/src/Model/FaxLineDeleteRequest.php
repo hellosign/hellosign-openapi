@@ -315,7 +315,7 @@ class FaxLineDeleteRequest implements ModelInterface, ArrayAccess, JsonSerializa
      *
      * @param string $number the Fax Line number
      *
-     * @return self
+     * @return static
      */
     public function setNumber(string $number)
     {

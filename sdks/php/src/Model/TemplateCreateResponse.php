@@ -322,7 +322,7 @@ class TemplateCreateResponse implements ModelInterface, ArrayAccess, JsonSeriali
      *
      * @param TemplateCreateResponseTemplate $template template
      *
-     * @return self
+     * @return static
      */
     public function setTemplate(TemplateCreateResponseTemplate $template)
     {
@@ -349,7 +349,7 @@ class TemplateCreateResponse implements ModelInterface, ArrayAccess, JsonSeriali
      *
      * @param WarningResponse[]|null $warnings a list of warnings
      *
-     * @return self
+     * @return static
      */
     public function setWarnings(?array $warnings)
     {

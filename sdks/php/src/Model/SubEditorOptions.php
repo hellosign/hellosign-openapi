@@ -318,7 +318,7 @@ class SubEditorOptions implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param bool|null $allow_edit_signers Allows requesters to edit the list of signers
      *
-     * @return self
+     * @return static
      */
     public function setAllowEditSigners(?bool $allow_edit_signers)
     {
@@ -345,7 +345,7 @@ class SubEditorOptions implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param bool|null $allow_edit_documents Allows requesters to edit documents, including delete and add
      *
-     * @return self
+     * @return static
      */
     public function setAllowEditDocuments(?bool $allow_edit_documents)
     {

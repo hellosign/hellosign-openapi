@@ -332,7 +332,7 @@ class SignatureRequestListResponse implements ModelInterface, ArrayAccess, JsonS
      *
      * @param SignatureRequestResponse[] $signature_requests contains information about signature requests
      *
-     * @return self
+     * @return static
      */
     public function setSignatureRequests(array $signature_requests)
     {
@@ -359,7 +359,7 @@ class SignatureRequestListResponse implements ModelInterface, ArrayAccess, JsonS
      *
      * @param ListInfoResponse $list_info list_info
      *
-     * @return self
+     * @return static
      */
     public function setListInfo(ListInfoResponse $list_info)
     {
@@ -386,7 +386,7 @@ class SignatureRequestListResponse implements ModelInterface, ArrayAccess, JsonS
      *
      * @param WarningResponse[]|null $warnings a list of warnings
      *
-     * @return self
+     * @return static
      */
     public function setWarnings(?array $warnings)
     {

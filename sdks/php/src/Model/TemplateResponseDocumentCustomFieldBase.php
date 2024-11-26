@@ -378,7 +378,7 @@ class TemplateResponseDocumentCustomFieldBase implements ModelInterface, ArrayAc
      *
      * @param string $type type
      *
-     * @return self
+     * @return static
      */
     public function setType(string $type)
     {
@@ -405,7 +405,7 @@ class TemplateResponseDocumentCustomFieldBase implements ModelInterface, ArrayAc
      *
      * @param string|null $api_id the unique ID for this field
      *
-     * @return self
+     * @return static
      */
     public function setApiId(?string $api_id)
     {
@@ -432,7 +432,7 @@ class TemplateResponseDocumentCustomFieldBase implements ModelInterface, ArrayAc
      *
      * @param string|null $name the name of the Custom Field
      *
-     * @return self
+     * @return static
      */
     public function setName(?string $name)
     {
@@ -459,7 +459,7 @@ class TemplateResponseDocumentCustomFieldBase implements ModelInterface, ArrayAc
      *
      * @param string|null $signer The signer of the Custom Field. Can be `null` if field is a merge field (assigned to Sender).
      *
-     * @return self
+     * @return static
      */
     public function setSigner(?string $signer)
     {
@@ -493,7 +493,7 @@ class TemplateResponseDocumentCustomFieldBase implements ModelInterface, ArrayAc
      *
      * @param int|null $x the horizontal offset in pixels for this form field
      *
-     * @return self
+     * @return static
      */
     public function setX(?int $x)
     {
@@ -520,7 +520,7 @@ class TemplateResponseDocumentCustomFieldBase implements ModelInterface, ArrayAc
      *
      * @param int|null $y the vertical offset in pixels for this form field
      *
-     * @return self
+     * @return static
      */
     public function setY(?int $y)
     {
@@ -547,7 +547,7 @@ class TemplateResponseDocumentCustomFieldBase implements ModelInterface, ArrayAc
      *
      * @param int|null $width the width in pixels of this form field
      *
-     * @return self
+     * @return static
      */
     public function setWidth(?int $width)
     {
@@ -574,7 +574,7 @@ class TemplateResponseDocumentCustomFieldBase implements ModelInterface, ArrayAc
      *
      * @param int|null $height the height in pixels of this form field
      *
-     * @return self
+     * @return static
      */
     public function setHeight(?int $height)
     {
@@ -601,7 +601,7 @@ class TemplateResponseDocumentCustomFieldBase implements ModelInterface, ArrayAc
      *
      * @param bool|null $required boolean showing whether or not this field is required
      *
-     * @return self
+     * @return static
      */
     public function setRequired(?bool $required)
     {
@@ -628,7 +628,7 @@ class TemplateResponseDocumentCustomFieldBase implements ModelInterface, ArrayAc
      *
      * @param string|null $group The name of the group this field is in. If this field is not a group, this defaults to `null`.
      *
-     * @return self
+     * @return static
      */
     public function setGroup(?string $group)
     {

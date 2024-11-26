@@ -315,7 +315,7 @@ class FileResponseDataUri implements ModelInterface, ArrayAccess, JsonSerializab
      *
      * @param string $data_uri file as base64 encoded string
      *
-     * @return self
+     * @return static
      */
     public function setDataUri(string $data_uri)
     {

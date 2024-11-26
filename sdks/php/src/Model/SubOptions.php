@@ -311,7 +311,7 @@ class SubOptions implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param bool|null $can_insert_everywhere determines if signers can use \"Insert Everywhere\" when signing a document
      *
-     * @return self
+     * @return static
      */
     public function setCanInsertEverywhere(?bool $can_insert_everywhere)
     {

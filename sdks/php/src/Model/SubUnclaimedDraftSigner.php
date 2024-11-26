@@ -332,7 +332,7 @@ class SubUnclaimedDraftSigner implements ModelInterface, ArrayAccess, JsonSerial
      *
      * @param string $email_address the email address of the signer
      *
-     * @return self
+     * @return static
      */
     public function setEmailAddress(string $email_address)
     {
@@ -359,7 +359,7 @@ class SubUnclaimedDraftSigner implements ModelInterface, ArrayAccess, JsonSerial
      *
      * @param string $name the name of the signer
      *
-     * @return self
+     * @return static
      */
     public function setName(string $name)
     {
@@ -386,7 +386,7 @@ class SubUnclaimedDraftSigner implements ModelInterface, ArrayAccess, JsonSerial
      *
      * @param int|null $order the order the signer is required to sign in
      *
-     * @return self
+     * @return static
      */
     public function setOrder(?int $order)
     {

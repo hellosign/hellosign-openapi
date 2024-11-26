@@ -310,7 +310,7 @@ class SignatureRequestResponseDataValueCheckbox extends SignatureRequestResponse
      *
      * @param string|null $type A yes/no checkbox
      *
-     * @return self
+     * @return static
      */
     public function setType(?string $type)
     {
@@ -337,7 +337,7 @@ class SignatureRequestResponseDataValueCheckbox extends SignatureRequestResponse
      *
      * @param bool|null $value the value of the form field
      *
-     * @return self
+     * @return static
      */
     public function setValue(?bool $value)
     {

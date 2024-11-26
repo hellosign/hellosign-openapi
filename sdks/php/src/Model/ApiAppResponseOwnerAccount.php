@@ -318,7 +318,7 @@ class ApiAppResponseOwnerAccount implements ModelInterface, ArrayAccess, JsonSer
      *
      * @param string|null $account_id The owner account's ID
      *
-     * @return self
+     * @return static
      */
     public function setAccountId(?string $account_id)
     {
@@ -345,7 +345,7 @@ class ApiAppResponseOwnerAccount implements ModelInterface, ArrayAccess, JsonSer
      *
      * @param string|null $email_address The owner account's email address
      *
-     * @return self
+     * @return static
      */
     public function setEmailAddress(?string $email_address)
     {

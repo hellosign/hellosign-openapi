@@ -537,7 +537,7 @@ class UnclaimedDraftCreateEmbeddedWithTemplateRequest implements ModelInterface,
      *
      * @param string $client_id Client id of the app used to create the draft. Used to apply the branding and callback url defined for the app.
      *
-     * @return self
+     * @return static
      */
     public function setClientId(string $client_id)
     {
@@ -564,7 +564,7 @@ class UnclaimedDraftCreateEmbeddedWithTemplateRequest implements ModelInterface,
      *
      * @param string $requester_email_address the email address of the user that should be designated as the requester of this draft
      *
-     * @return self
+     * @return static
      */
     public function setRequesterEmailAddress(string $requester_email_address)
     {
@@ -591,7 +591,7 @@ class UnclaimedDraftCreateEmbeddedWithTemplateRequest implements ModelInterface,
      *
      * @param string[] $template_ids use `template_ids` to create a SignatureRequest from one or more templates, in the order in which the templates will be used
      *
-     * @return self
+     * @return static
      */
     public function setTemplateIds(array $template_ids)
     {
@@ -618,7 +618,7 @@ class UnclaimedDraftCreateEmbeddedWithTemplateRequest implements ModelInterface,
      *
      * @param bool|null $allow_decline Allows signers to decline to sign a document if `true`. Defaults to `false`.
      *
-     * @return self
+     * @return static
      */
     public function setAllowDecline(?bool $allow_decline)
     {
@@ -645,7 +645,7 @@ class UnclaimedDraftCreateEmbeddedWithTemplateRequest implements ModelInterface,
      *
      * @param bool|null $allow_reassign Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.  **NOTE:** Only available for Premium plan and higher.
      *
-     * @return self
+     * @return static
      */
     public function setAllowReassign(?bool $allow_reassign)
     {
@@ -672,7 +672,7 @@ class UnclaimedDraftCreateEmbeddedWithTemplateRequest implements ModelInterface,
      *
      * @param SubCC[]|null $ccs Add CC email recipients. Required when a CC role exists for the Template.
      *
-     * @return self
+     * @return static
      */
     public function setCcs(?array $ccs)
     {
@@ -699,7 +699,7 @@ class UnclaimedDraftCreateEmbeddedWithTemplateRequest implements ModelInterface,
      *
      * @param SubCustomField[]|null $custom_fields An array defining values and options for custom fields. Required when a custom field exists in the Template.
      *
-     * @return self
+     * @return static
      */
     public function setCustomFields(?array $custom_fields)
     {
@@ -726,7 +726,7 @@ class UnclaimedDraftCreateEmbeddedWithTemplateRequest implements ModelInterface,
      *
      * @param SubEditorOptions|null $editor_options editor_options
      *
-     * @return self
+     * @return static
      */
     public function setEditorOptions(?SubEditorOptions $editor_options)
     {
@@ -753,7 +753,7 @@ class UnclaimedDraftCreateEmbeddedWithTemplateRequest implements ModelInterface,
      *
      * @param SubFieldOptions|null $field_options field_options
      *
-     * @return self
+     * @return static
      */
     public function setFieldOptions(?SubFieldOptions $field_options)
     {
@@ -780,7 +780,7 @@ class UnclaimedDraftCreateEmbeddedWithTemplateRequest implements ModelInterface,
      *
      * @param SplFileObject[]|null $files Use `files[]` to append additional files to the signature request being created from the template. Dropbox Sign will parse the files for [text tags](https://app.hellosign.com/api/textTagsWalkthrough) and append it to the signature request. Text tags for signers not on the template(s) will be ignored.  **files** or **file_urls[]** is required, but not both.
      *
-     * @return self
+     * @return static
      */
     public function setFiles(?array $files)
     {
@@ -807,7 +807,7 @@ class UnclaimedDraftCreateEmbeddedWithTemplateRequest implements ModelInterface,
      *
      * @param string[]|null $file_urls Use file_urls[] to append additional files to the signature request being created from the template. Dropbox Sign will download the file, then parse it for [text tags](https://app.hellosign.com/api/textTagsWalkthrough), and append to the signature request. Text tags for signers not on the template(s) will be ignored.  **files** or **file_urls[]** is required, but not both.
      *
-     * @return self
+     * @return static
      */
     public function setFileUrls(?array $file_urls)
     {
@@ -834,7 +834,7 @@ class UnclaimedDraftCreateEmbeddedWithTemplateRequest implements ModelInterface,
      *
      * @param bool|null $force_signer_roles provide users the ability to review/edit the template signer roles
      *
-     * @return self
+     * @return static
      */
     public function setForceSignerRoles(?bool $force_signer_roles)
     {
@@ -861,7 +861,7 @@ class UnclaimedDraftCreateEmbeddedWithTemplateRequest implements ModelInterface,
      *
      * @param bool|null $force_subject_message provide users the ability to review/edit the template subject and message
      *
-     * @return self
+     * @return static
      */
     public function setForceSubjectMessage(?bool $force_subject_message)
     {
@@ -888,7 +888,7 @@ class UnclaimedDraftCreateEmbeddedWithTemplateRequest implements ModelInterface,
      *
      * @param bool|null $hold_request The request from this draft will not automatically send to signers post-claim if set to 1. Requester must [release](/api/reference/operation/signatureRequestReleaseHold/) the request from hold when ready to send. Defaults to `false`.
      *
-     * @return self
+     * @return static
      */
     public function setHoldRequest(?bool $hold_request)
     {
@@ -915,7 +915,7 @@ class UnclaimedDraftCreateEmbeddedWithTemplateRequest implements ModelInterface,
      *
      * @param bool|null $is_for_embedded_signing The request created from this draft will also be signable in embedded mode if set to `true`. Defaults to `false`.
      *
-     * @return self
+     * @return static
      */
     public function setIsForEmbeddedSigning(?bool $is_for_embedded_signing)
     {
@@ -942,7 +942,7 @@ class UnclaimedDraftCreateEmbeddedWithTemplateRequest implements ModelInterface,
      *
      * @param string|null $message the custom message in the email that will be sent to the signers
      *
-     * @return self
+     * @return static
      */
     public function setMessage(?string $message)
     {
@@ -973,7 +973,7 @@ class UnclaimedDraftCreateEmbeddedWithTemplateRequest implements ModelInterface,
      *
      * @param array<string,mixed>|null $metadata Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.  Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.
      *
-     * @return self
+     * @return static
      */
     public function setMetadata(?array $metadata)
     {
@@ -1001,7 +1001,7 @@ class UnclaimedDraftCreateEmbeddedWithTemplateRequest implements ModelInterface,
      *
      * @param bool|null $preview_only This allows the requester to enable the preview experience (i.e. does not allow the requester's end user to add any additional fields via the editor).  - `preview_only=true`: Allows requesters to enable the preview only experience. - `preview_only=false`: Allows requesters to disable the preview only experience.  **NOTE:** This parameter overwrites `show_preview=1` (if set).
      *
-     * @return self
+     * @return static
      */
     public function setPreviewOnly(?bool $preview_only)
     {
@@ -1028,7 +1028,7 @@ class UnclaimedDraftCreateEmbeddedWithTemplateRequest implements ModelInterface,
      *
      * @param string|null $requesting_redirect_url the URL you want signers redirected to after they successfully request a signature
      *
-     * @return self
+     * @return static
      */
     public function setRequestingRedirectUrl(?string $requesting_redirect_url)
     {
@@ -1055,7 +1055,7 @@ class UnclaimedDraftCreateEmbeddedWithTemplateRequest implements ModelInterface,
      *
      * @param bool|null $show_preview This allows the requester to enable the editor/preview experience.  - `show_preview=true`: Allows requesters to enable the editor/preview experience. - `show_preview=false`: Allows requesters to disable the editor/preview experience.
      *
-     * @return self
+     * @return static
      */
     public function setShowPreview(?bool $show_preview)
     {
@@ -1082,7 +1082,7 @@ class UnclaimedDraftCreateEmbeddedWithTemplateRequest implements ModelInterface,
      *
      * @param bool|null $show_progress_stepper when only one step remains in the signature request process and this parameter is set to `false` then the progress stepper will be hidden
      *
-     * @return self
+     * @return static
      */
     public function setShowProgressStepper(?bool $show_progress_stepper)
     {
@@ -1109,7 +1109,7 @@ class UnclaimedDraftCreateEmbeddedWithTemplateRequest implements ModelInterface,
      *
      * @param SubUnclaimedDraftTemplateSigner[]|null $signers add Signers to your Templated-based Signature Request
      *
-     * @return self
+     * @return static
      */
     public function setSigners(?array $signers)
     {
@@ -1136,7 +1136,7 @@ class UnclaimedDraftCreateEmbeddedWithTemplateRequest implements ModelInterface,
      *
      * @param SubSigningOptions|null $signing_options signing_options
      *
-     * @return self
+     * @return static
      */
     public function setSigningOptions(?SubSigningOptions $signing_options)
     {
@@ -1163,7 +1163,7 @@ class UnclaimedDraftCreateEmbeddedWithTemplateRequest implements ModelInterface,
      *
      * @param string|null $signing_redirect_url the URL you want signers redirected to after they successfully sign
      *
-     * @return self
+     * @return static
      */
     public function setSigningRedirectUrl(?string $signing_redirect_url)
     {
@@ -1190,7 +1190,7 @@ class UnclaimedDraftCreateEmbeddedWithTemplateRequest implements ModelInterface,
      *
      * @param bool|null $skip_me_now Disables the \"Me (Now)\" option for the person preparing the document. Does not work with type `send_document`. Defaults to `false`.
      *
-     * @return self
+     * @return static
      */
     public function setSkipMeNow(?bool $skip_me_now)
     {
@@ -1217,7 +1217,7 @@ class UnclaimedDraftCreateEmbeddedWithTemplateRequest implements ModelInterface,
      *
      * @param string|null $subject the subject in the email that will be sent to the signers
      *
-     * @return self
+     * @return static
      */
     public function setSubject(?string $subject)
     {
@@ -1248,7 +1248,7 @@ class UnclaimedDraftCreateEmbeddedWithTemplateRequest implements ModelInterface,
      *
      * @param bool|null $test_mode Whether this is a test, the signature request created from this draft will not be legally binding if set to `true`. Defaults to `false`.
      *
-     * @return self
+     * @return static
      */
     public function setTestMode(?bool $test_mode)
     {
@@ -1275,7 +1275,7 @@ class UnclaimedDraftCreateEmbeddedWithTemplateRequest implements ModelInterface,
      *
      * @param string|null $title the title you want to assign to the SignatureRequest
      *
-     * @return self
+     * @return static
      */
     public function setTitle(?string $title)
     {
@@ -1306,7 +1306,7 @@ class UnclaimedDraftCreateEmbeddedWithTemplateRequest implements ModelInterface,
      *
      * @param bool|null $populate_auto_fill_fields Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer's information during signing.  **NOTE:** Keep your signer's information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
      *
-     * @return self
+     * @return static
      */
     public function setPopulateAutoFillFields(?bool $populate_auto_fill_fields)
     {
@@ -1333,7 +1333,7 @@ class UnclaimedDraftCreateEmbeddedWithTemplateRequest implements ModelInterface,
      *
      * @param bool|null $allow_ccs this allows the requester to specify whether the user is allowed to provide email addresses to CC when claiming the draft
      *
-     * @return self
+     * @return static
      */
     public function setAllowCcs(?bool $allow_ccs)
     {

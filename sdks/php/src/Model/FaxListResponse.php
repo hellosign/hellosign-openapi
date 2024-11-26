@@ -325,7 +325,7 @@ class FaxListResponse implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param FaxResponse[] $faxes faxes
      *
-     * @return self
+     * @return static
      */
     public function setFaxes(array $faxes)
     {
@@ -352,7 +352,7 @@ class FaxListResponse implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param ListInfoResponse $list_info list_info
      *
-     * @return self
+     * @return static
      */
     public function setListInfo(ListInfoResponse $list_info)
     {

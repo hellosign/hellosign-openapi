@@ -332,7 +332,7 @@ class TeamSubTeamsResponse implements ModelInterface, ArrayAccess, JsonSerializa
      *
      * @param SubTeamResponse[] $sub_teams contains a list with sub teams
      *
-     * @return self
+     * @return static
      */
     public function setSubTeams(array $sub_teams)
     {
@@ -359,7 +359,7 @@ class TeamSubTeamsResponse implements ModelInterface, ArrayAccess, JsonSerializa
      *
      * @param ListInfoResponse $list_info list_info
      *
-     * @return self
+     * @return static
      */
     public function setListInfo(ListInfoResponse $list_info)
     {
@@ -386,7 +386,7 @@ class TeamSubTeamsResponse implements ModelInterface, ArrayAccess, JsonSerializa
      *
      * @param WarningResponse[]|null $warnings warnings
      *
-     * @return self
+     * @return static
      */
     public function setWarnings(?array $warnings)
     {

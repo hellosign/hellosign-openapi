@@ -324,7 +324,7 @@ class AccountUpdateRequest implements ModelInterface, ArrayAccess, JsonSerializa
      *
      * @param string|null $account_id The ID of the Account
      *
-     * @return self
+     * @return static
      */
     public function setAccountId(?string $account_id)
     {
@@ -358,7 +358,7 @@ class AccountUpdateRequest implements ModelInterface, ArrayAccess, JsonSerializa
      *
      * @param string|null $callback_url the URL that Dropbox Sign should POST events to
      *
-     * @return self
+     * @return static
      */
     public function setCallbackUrl(?string $callback_url)
     {
@@ -385,7 +385,7 @@ class AccountUpdateRequest implements ModelInterface, ArrayAccess, JsonSerializa
      *
      * @param string|null $locale The locale used in this Account. Check out the list of [supported locales](/api/reference/constants/#supported-locales) to learn more about the possible values.
      *
-     * @return self
+     * @return static
      */
     public function setLocale(?string $locale)
     {

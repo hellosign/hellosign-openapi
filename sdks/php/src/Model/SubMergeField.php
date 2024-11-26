@@ -350,7 +350,7 @@ class SubMergeField implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param string $name The name of the merge field. Must be unique.
      *
-     * @return self
+     * @return static
      */
     public function setName(string $name)
     {
@@ -377,7 +377,7 @@ class SubMergeField implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param string $type the type of merge field
      *
-     * @return self
+     * @return static
      */
     public function setType(string $type)
     {

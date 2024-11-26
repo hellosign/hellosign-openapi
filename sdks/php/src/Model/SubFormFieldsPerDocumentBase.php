@@ -433,7 +433,7 @@ class SubFormFieldsPerDocumentBase implements ModelInterface, ArrayAccess, JsonS
      *
      * @param int $document_index represents the integer index of the `file` or `file_url` document the field should be attached to
      *
-     * @return self
+     * @return static
      */
     public function setDocumentIndex(int $document_index)
     {
@@ -460,7 +460,7 @@ class SubFormFieldsPerDocumentBase implements ModelInterface, ArrayAccess, JsonS
      *
      * @param string $api_id an identifier for the field that is unique across all documents in the request
      *
-     * @return self
+     * @return static
      */
     public function setApiId(string $api_id)
     {
@@ -487,7 +487,7 @@ class SubFormFieldsPerDocumentBase implements ModelInterface, ArrayAccess, JsonS
      *
      * @param int $height size of the field in pixels
      *
-     * @return self
+     * @return static
      */
     public function setHeight(int $height)
     {
@@ -514,7 +514,7 @@ class SubFormFieldsPerDocumentBase implements ModelInterface, ArrayAccess, JsonS
      *
      * @param bool $required whether this field is required
      *
-     * @return self
+     * @return static
      */
     public function setRequired(bool $required)
     {
@@ -541,7 +541,7 @@ class SubFormFieldsPerDocumentBase implements ModelInterface, ArrayAccess, JsonS
      *
      * @param string $signer Signer index identified by the offset in the signers parameter (0-based indexing), indicating which signer should fill out the field.  **NOTE:** To set the value of the field as the preparer you must set this to `me_now`  **NOTE:** If type is `text-merge` or `checkbox-merge`, you must set this to sender in order to use pre-filled data.
      *
-     * @return self
+     * @return static
      */
     public function setSigner(string $signer)
     {
@@ -568,7 +568,7 @@ class SubFormFieldsPerDocumentBase implements ModelInterface, ArrayAccess, JsonS
      *
      * @param string $type type
      *
-     * @return self
+     * @return static
      */
     public function setType(string $type)
     {
@@ -595,7 +595,7 @@ class SubFormFieldsPerDocumentBase implements ModelInterface, ArrayAccess, JsonS
      *
      * @param int $width size of the field in pixels
      *
-     * @return self
+     * @return static
      */
     public function setWidth(int $width)
     {
@@ -622,7 +622,7 @@ class SubFormFieldsPerDocumentBase implements ModelInterface, ArrayAccess, JsonS
      *
      * @param int $x location coordinates of the field in pixels
      *
-     * @return self
+     * @return static
      */
     public function setX(int $x)
     {
@@ -649,7 +649,7 @@ class SubFormFieldsPerDocumentBase implements ModelInterface, ArrayAccess, JsonS
      *
      * @param int $y location coordinates of the field in pixels
      *
-     * @return self
+     * @return static
      */
     public function setY(int $y)
     {
@@ -676,7 +676,7 @@ class SubFormFieldsPerDocumentBase implements ModelInterface, ArrayAccess, JsonS
      *
      * @param string|null $name display name for the field
      *
-     * @return self
+     * @return static
      */
     public function setName(?string $name)
     {
@@ -703,7 +703,7 @@ class SubFormFieldsPerDocumentBase implements ModelInterface, ArrayAccess, JsonS
      *
      * @param int|null $page Page in the document where the field should be placed (requires documents be PDF files).  - When the page number parameter is supplied, the API will use the new coordinate system. - Check out the differences between both [coordinate systems](https://faq.hellosign.com/hc/en-us/articles/217115577) and how to use them.
      *
-     * @return self
+     * @return static
      */
     public function setPage(?int $page)
     {

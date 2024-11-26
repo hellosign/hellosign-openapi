@@ -322,7 +322,7 @@ class AccountGetResponse implements ModelInterface, ArrayAccess, JsonSerializabl
      *
      * @param AccountResponse $account account
      *
-     * @return self
+     * @return static
      */
     public function setAccount(AccountResponse $account)
     {
@@ -349,7 +349,7 @@ class AccountGetResponse implements ModelInterface, ArrayAccess, JsonSerializabl
      *
      * @param WarningResponse[]|null $warnings a list of warnings
      *
-     * @return self
+     * @return static
      */
     public function setWarnings(?array $warnings)
     {

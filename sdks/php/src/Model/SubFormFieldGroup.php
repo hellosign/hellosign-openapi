@@ -335,7 +335,7 @@ class SubFormFieldGroup implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param string $group_id ID of group. Use this to reference a specific group from the `group` value in `form_fields_per_document`.
      *
-     * @return self
+     * @return static
      */
     public function setGroupId(string $group_id)
     {
@@ -362,7 +362,7 @@ class SubFormFieldGroup implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param string $group_label Name of the group
      *
-     * @return self
+     * @return static
      */
     public function setGroupLabel(string $group_label)
     {
@@ -389,7 +389,7 @@ class SubFormFieldGroup implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param string $requirement Examples: `require_0-1` `require_1` `require_1-ormore`  - Check out the list of [acceptable `requirement` checkbox type values](/api/reference/constants/#checkbox-field-grouping). - Check out the list of [acceptable `requirement` radio type fields](/api/reference/constants/#radio-field-grouping). - Radio groups require **at least** two fields per group.
      *
-     * @return self
+     * @return static
      */
     public function setRequirement(string $requirement)
     {

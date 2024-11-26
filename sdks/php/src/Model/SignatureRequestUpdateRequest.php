@@ -336,7 +336,7 @@ class SignatureRequestUpdateRequest implements ModelInterface, ArrayAccess, Json
      *
      * @param string $signature_id the signature ID for the recipient
      *
-     * @return self
+     * @return static
      */
     public function setSignatureId(string $signature_id)
     {
@@ -363,7 +363,7 @@ class SignatureRequestUpdateRequest implements ModelInterface, ArrayAccess, Json
      *
      * @param string|null $email_address The new email address for the recipient.  This will generate a new `signature_id` value.  **NOTE:** Optional if `name` is provided.
      *
-     * @return self
+     * @return static
      */
     public function setEmailAddress(?string $email_address)
     {
@@ -390,7 +390,7 @@ class SignatureRequestUpdateRequest implements ModelInterface, ArrayAccess, Json
      *
      * @param string|null $name The new name for the recipient.  **NOTE:** Optional if `email_address` is provided.
      *
-     * @return self
+     * @return static
      */
     public function setName(?string $name)
     {
@@ -417,7 +417,7 @@ class SignatureRequestUpdateRequest implements ModelInterface, ArrayAccess, Json
      *
      * @param int|null $expires_at The new time when the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.
      *
-     * @return self
+     * @return static
      */
     public function setExpiresAt(?int $expires_at)
     {

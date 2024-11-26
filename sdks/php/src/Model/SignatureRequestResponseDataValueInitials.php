@@ -310,7 +310,7 @@ class SignatureRequestResponseDataValueInitials extends SignatureRequestResponse
      *
      * @param string|null $type An input field for initials
      *
-     * @return self
+     * @return static
      */
     public function setType(?string $type)
     {
@@ -337,7 +337,7 @@ class SignatureRequestResponseDataValueInitials extends SignatureRequestResponse
      *
      * @param string|null $value the value of the form field
      *
-     * @return self
+     * @return static
      */
     public function setValue(?string $value)
     {

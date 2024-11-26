@@ -332,7 +332,7 @@ class TeamMembersResponse implements ModelInterface, ArrayAccess, JsonSerializab
      *
      * @param TeamMemberResponse[] $team_members contains a list of team members and their roles for a specific team
      *
-     * @return self
+     * @return static
      */
     public function setTeamMembers(array $team_members)
     {
@@ -359,7 +359,7 @@ class TeamMembersResponse implements ModelInterface, ArrayAccess, JsonSerializab
      *
      * @param ListInfoResponse $list_info list_info
      *
-     * @return self
+     * @return static
      */
     public function setListInfo(ListInfoResponse $list_info)
     {
@@ -386,7 +386,7 @@ class TeamMembersResponse implements ModelInterface, ArrayAccess, JsonSerializab
      *
      * @param WarningResponse[]|null $warnings warnings
      *
-     * @return self
+     * @return static
      */
     public function setWarnings(?array $warnings)
     {

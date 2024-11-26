@@ -324,7 +324,7 @@ class TeamMemberResponse implements ModelInterface, ArrayAccess, JsonSerializabl
      *
      * @param string|null $account_id account id of the team member
      *
-     * @return self
+     * @return static
      */
     public function setAccountId(?string $account_id)
     {
@@ -351,7 +351,7 @@ class TeamMemberResponse implements ModelInterface, ArrayAccess, JsonSerializabl
      *
      * @param string|null $email_address email address of the team member
      *
-     * @return self
+     * @return static
      */
     public function setEmailAddress(?string $email_address)
     {
@@ -378,7 +378,7 @@ class TeamMemberResponse implements ModelInterface, ArrayAccess, JsonSerializabl
      *
      * @param string|null $role the specific role a member has on the team
      *
-     * @return self
+     * @return static
      */
     public function setRole(?string $role)
     {

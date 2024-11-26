@@ -424,7 +424,12 @@ class {{classname}} {{#parentSchema}}extends {{{parent}}}{{/parentSchema}}{{^par
      *
      * @param {{{dataType}}}{{^required}}|null{{/required}} ${{name}}{{#description}} {{{.}}}{{/description}}{{^description}} {{{name}}}{{/description}}
      *
+{{^useCustomTemplateCode}}
      * @return self
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
+     * @return static
+{{/useCustomTemplateCode}}
     {{#deprecated}}
      * @deprecated
     {{/deprecated}}

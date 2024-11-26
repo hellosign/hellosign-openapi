@@ -336,7 +336,7 @@ class EventCallbackRequest implements ModelInterface, ArrayAccess, JsonSerializa
      *
      * @param EventCallbackRequestEvent $event event
      *
-     * @return self
+     * @return static
      */
     public function setEvent(EventCallbackRequestEvent $event)
     {
@@ -363,7 +363,7 @@ class EventCallbackRequest implements ModelInterface, ArrayAccess, JsonSerializa
      *
      * @param AccountResponse|null $account account
      *
-     * @return self
+     * @return static
      */
     public function setAccount(?AccountResponse $account)
     {
@@ -390,7 +390,7 @@ class EventCallbackRequest implements ModelInterface, ArrayAccess, JsonSerializa
      *
      * @param SignatureRequestResponse|null $signature_request signature_request
      *
-     * @return self
+     * @return static
      */
     public function setSignatureRequest(?SignatureRequestResponse $signature_request)
     {
@@ -417,7 +417,7 @@ class EventCallbackRequest implements ModelInterface, ArrayAccess, JsonSerializa
      *
      * @param TemplateResponse|null $template template
      *
-     * @return self
+     * @return static
      */
     public function setTemplate(?TemplateResponse $template)
     {

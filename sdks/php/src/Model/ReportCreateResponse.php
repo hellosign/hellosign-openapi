@@ -322,7 +322,7 @@ class ReportCreateResponse implements ModelInterface, ArrayAccess, JsonSerializa
      *
      * @param ReportResponse $report report
      *
-     * @return self
+     * @return static
      */
     public function setReport(ReportResponse $report)
     {
@@ -349,7 +349,7 @@ class ReportCreateResponse implements ModelInterface, ArrayAccess, JsonSerializa
      *
      * @param WarningResponse[]|null $warnings a list of warnings
      *
-     * @return self
+     * @return static
      */
     public function setWarnings(?array $warnings)
     {

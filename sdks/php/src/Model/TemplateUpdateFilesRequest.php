@@ -356,7 +356,7 @@ class TemplateUpdateFilesRequest implements ModelInterface, ArrayAccess, JsonSer
      *
      * @param string|null $client_id client id of the app you're using to update this template
      *
-     * @return self
+     * @return static
      */
     public function setClientId(?string $client_id)
     {
@@ -383,7 +383,7 @@ class TemplateUpdateFilesRequest implements ModelInterface, ArrayAccess, JsonSer
      *
      * @param SplFileObject[]|null $files Use `files[]` to indicate the uploaded file(s) to use for the template.  This endpoint requires either **files** or **file_urls[]**, but not both.
      *
-     * @return self
+     * @return static
      */
     public function setFiles(?array $files)
     {
@@ -410,7 +410,7 @@ class TemplateUpdateFilesRequest implements ModelInterface, ArrayAccess, JsonSer
      *
      * @param string[]|null $file_urls Use `file_urls[]` to have Dropbox Sign download the file(s) to use for the template.  This endpoint requires either **files** or **file_urls[]**, but not both.
      *
-     * @return self
+     * @return static
      */
     public function setFileUrls(?array $file_urls)
     {
@@ -437,7 +437,7 @@ class TemplateUpdateFilesRequest implements ModelInterface, ArrayAccess, JsonSer
      *
      * @param string|null $message the new default template email message
      *
-     * @return self
+     * @return static
      */
     public function setMessage(?string $message)
     {
@@ -468,7 +468,7 @@ class TemplateUpdateFilesRequest implements ModelInterface, ArrayAccess, JsonSer
      *
      * @param string|null $subject the new default template email subject
      *
-     * @return self
+     * @return static
      */
     public function setSubject(?string $subject)
     {
@@ -499,7 +499,7 @@ class TemplateUpdateFilesRequest implements ModelInterface, ArrayAccess, JsonSer
      *
      * @param bool|null $test_mode Whether this is a test, the signature request created from this draft will not be legally binding if set to `true`. Defaults to `false`.
      *
-     * @return self
+     * @return static
      */
     public function setTestMode(?bool $test_mode)
     {

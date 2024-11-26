@@ -322,7 +322,7 @@ class TemplateCreateEmbeddedDraftResponse implements ModelInterface, ArrayAccess
      *
      * @param TemplateCreateEmbeddedDraftResponseTemplate $template template
      *
-     * @return self
+     * @return static
      */
     public function setTemplate(TemplateCreateEmbeddedDraftResponseTemplate $template)
     {
@@ -349,7 +349,7 @@ class TemplateCreateEmbeddedDraftResponse implements ModelInterface, ArrayAccess
      *
      * @param WarningResponse[]|null $warnings a list of warnings
      *
-     * @return self
+     * @return static
      */
     public function setWarnings(?array $warnings)
     {

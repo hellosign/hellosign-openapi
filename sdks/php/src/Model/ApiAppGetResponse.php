@@ -322,7 +322,7 @@ class ApiAppGetResponse implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param ApiAppResponse $api_app api_app
      *
-     * @return self
+     * @return static
      */
     public function setApiApp(ApiAppResponse $api_app)
     {
@@ -349,7 +349,7 @@ class ApiAppGetResponse implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param WarningResponse[]|null $warnings a list of warnings
      *
-     * @return self
+     * @return static
      */
     public function setWarnings(?array $warnings)
     {

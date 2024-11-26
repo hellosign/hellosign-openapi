@@ -444,7 +444,7 @@ class SignatureRequestSendWithTemplateRequest implements ModelInterface, ArrayAc
      *
      * @param string[] $template_ids use `template_ids` to create a SignatureRequest from one or more templates, in the order in which the template will be used
      *
-     * @return self
+     * @return static
      */
     public function setTemplateIds(array $template_ids)
     {
@@ -471,7 +471,7 @@ class SignatureRequestSendWithTemplateRequest implements ModelInterface, ArrayAc
      *
      * @param SubSignatureRequestTemplateSigner[] $signers add Signers to your Templated-based Signature Request
      *
-     * @return self
+     * @return static
      */
     public function setSigners(array $signers)
     {
@@ -498,7 +498,7 @@ class SignatureRequestSendWithTemplateRequest implements ModelInterface, ArrayAc
      *
      * @param bool|null $allow_decline Allows signers to decline to sign a document if `true`. Defaults to `false`.
      *
-     * @return self
+     * @return static
      */
     public function setAllowDecline(?bool $allow_decline)
     {
@@ -525,7 +525,7 @@ class SignatureRequestSendWithTemplateRequest implements ModelInterface, ArrayAc
      *
      * @param SubCC[]|null $ccs Add CC email recipients. Required when a CC role exists for the Template.
      *
-     * @return self
+     * @return static
      */
     public function setCcs(?array $ccs)
     {
@@ -552,7 +552,7 @@ class SignatureRequestSendWithTemplateRequest implements ModelInterface, ArrayAc
      *
      * @param string|null $client_id Client id of the app to associate with the signature request. Used to apply the branding and callback url defined for the app.
      *
-     * @return self
+     * @return static
      */
     public function setClientId(?string $client_id)
     {
@@ -579,7 +579,7 @@ class SignatureRequestSendWithTemplateRequest implements ModelInterface, ArrayAc
      *
      * @param SubCustomField[]|null $custom_fields An array defining values and options for custom fields. Required when a custom field exists in the Template.
      *
-     * @return self
+     * @return static
      */
     public function setCustomFields(?array $custom_fields)
     {
@@ -606,7 +606,7 @@ class SignatureRequestSendWithTemplateRequest implements ModelInterface, ArrayAc
      *
      * @param SplFileObject[]|null $files Use `files[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.
      *
-     * @return self
+     * @return static
      */
     public function setFiles(?array $files)
     {
@@ -633,7 +633,7 @@ class SignatureRequestSendWithTemplateRequest implements ModelInterface, ArrayAc
      *
      * @param string[]|null $file_urls Use `file_urls[]` to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.
      *
-     * @return self
+     * @return static
      */
     public function setFileUrls(?array $file_urls)
     {
@@ -661,7 +661,7 @@ class SignatureRequestSendWithTemplateRequest implements ModelInterface, ArrayAc
      *
      * @param bool|null $is_qualified_signature Send with a value of `true` if you wish to enable [Qualified Electronic Signatures](https://www.hellosign.com/features/qualified-electronic-signatures) (QES), which requires a face-to-face call to verify the signer's identity.<br> **NOTE:** QES is only available on the Premium API plan as an add-on purchase. Cannot be used in `test_mode`. Only works on requests with one signer.
      *
-     * @return self
+     * @return static
      * @deprecated
      */
     public function setIsQualifiedSignature(?bool $is_qualified_signature)
@@ -689,7 +689,7 @@ class SignatureRequestSendWithTemplateRequest implements ModelInterface, ArrayAc
      *
      * @param bool|null $is_eid Send with a value of `true` if you wish to enable [electronic identification (eID)](https://www.hellosign.com/features/electronic-id), which requires the signer to verify their identity with an eID provider to sign a document.<br> **NOTE:** eID is only available on the Premium API plan. Cannot be used in `test_mode`. Only works on requests with one signer.
      *
-     * @return self
+     * @return static
      */
     public function setIsEid(?bool $is_eid)
     {
@@ -716,7 +716,7 @@ class SignatureRequestSendWithTemplateRequest implements ModelInterface, ArrayAc
      *
      * @param string|null $message the custom message in the email that will be sent to the signers
      *
-     * @return self
+     * @return static
      */
     public function setMessage(?string $message)
     {
@@ -747,7 +747,7 @@ class SignatureRequestSendWithTemplateRequest implements ModelInterface, ArrayAc
      *
      * @param array<string,mixed>|null $metadata Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.  Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.
      *
-     * @return self
+     * @return static
      */
     public function setMetadata(?array $metadata)
     {
@@ -775,7 +775,7 @@ class SignatureRequestSendWithTemplateRequest implements ModelInterface, ArrayAc
      *
      * @param SubSigningOptions|null $signing_options signing_options
      *
-     * @return self
+     * @return static
      */
     public function setSigningOptions(?SubSigningOptions $signing_options)
     {
@@ -802,7 +802,7 @@ class SignatureRequestSendWithTemplateRequest implements ModelInterface, ArrayAc
      *
      * @param string|null $signing_redirect_url the URL you want signers redirected to after they successfully sign
      *
-     * @return self
+     * @return static
      */
     public function setSigningRedirectUrl(?string $signing_redirect_url)
     {
@@ -829,7 +829,7 @@ class SignatureRequestSendWithTemplateRequest implements ModelInterface, ArrayAc
      *
      * @param string|null $subject the subject in the email that will be sent to the signers
      *
-     * @return self
+     * @return static
      */
     public function setSubject(?string $subject)
     {
@@ -860,7 +860,7 @@ class SignatureRequestSendWithTemplateRequest implements ModelInterface, ArrayAc
      *
      * @param bool|null $test_mode Whether this is a test, the signature request will not be legally binding if set to `true`. Defaults to `false`.
      *
-     * @return self
+     * @return static
      */
     public function setTestMode(?bool $test_mode)
     {
@@ -887,7 +887,7 @@ class SignatureRequestSendWithTemplateRequest implements ModelInterface, ArrayAc
      *
      * @param string|null $title the title you want to assign to the SignatureRequest
      *
-     * @return self
+     * @return static
      */
     public function setTitle(?string $title)
     {

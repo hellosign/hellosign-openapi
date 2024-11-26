@@ -366,7 +366,7 @@ class FaxLineCreateRequest implements ModelInterface, ArrayAccess, JsonSerializa
      *
      * @param int $area_code Area code
      *
-     * @return self
+     * @return static
      */
     public function setAreaCode(int $area_code)
     {
@@ -393,7 +393,7 @@ class FaxLineCreateRequest implements ModelInterface, ArrayAccess, JsonSerializa
      *
      * @param string $country Country
      *
-     * @return self
+     * @return static
      */
     public function setCountry(string $country)
     {
@@ -430,7 +430,7 @@ class FaxLineCreateRequest implements ModelInterface, ArrayAccess, JsonSerializa
      *
      * @param string|null $city City
      *
-     * @return self
+     * @return static
      */
     public function setCity(?string $city)
     {
@@ -457,7 +457,7 @@ class FaxLineCreateRequest implements ModelInterface, ArrayAccess, JsonSerializa
      *
      * @param string|null $account_id Account ID
      *
-     * @return self
+     * @return static
      */
     public function setAccountId(?string $account_id)
     {

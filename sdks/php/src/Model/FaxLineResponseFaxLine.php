@@ -331,7 +331,7 @@ class FaxLineResponseFaxLine implements ModelInterface, ArrayAccess, JsonSeriali
      *
      * @param string|null $number Number
      *
-     * @return self
+     * @return static
      */
     public function setNumber(?string $number)
     {
@@ -358,7 +358,7 @@ class FaxLineResponseFaxLine implements ModelInterface, ArrayAccess, JsonSeriali
      *
      * @param int|null $created_at Created at
      *
-     * @return self
+     * @return static
      */
     public function setCreatedAt(?int $created_at)
     {
@@ -385,7 +385,7 @@ class FaxLineResponseFaxLine implements ModelInterface, ArrayAccess, JsonSeriali
      *
      * @param int|null $updated_at Updated at
      *
-     * @return self
+     * @return static
      */
     public function setUpdatedAt(?int $updated_at)
     {
@@ -412,7 +412,7 @@ class FaxLineResponseFaxLine implements ModelInterface, ArrayAccess, JsonSeriali
      *
      * @param AccountResponse[]|null $accounts accounts
      *
-     * @return self
+     * @return static
      */
     public function setAccounts(?array $accounts)
     {

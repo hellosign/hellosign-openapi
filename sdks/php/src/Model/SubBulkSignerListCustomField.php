@@ -325,7 +325,7 @@ class SubBulkSignerListCustomField implements ModelInterface, ArrayAccess, JsonS
      *
      * @param string $name The name of the custom field. Must be the field's `name` or `api_id`.
      *
-     * @return self
+     * @return static
      */
     public function setName(string $name)
     {
@@ -352,7 +352,7 @@ class SubBulkSignerListCustomField implements ModelInterface, ArrayAccess, JsonS
      *
      * @param string $value the value of the custom field
      *
-     * @return self
+     * @return static
      */
     public function setValue(string $value)
     {

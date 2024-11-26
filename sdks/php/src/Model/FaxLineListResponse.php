@@ -332,7 +332,7 @@ class FaxLineListResponse implements ModelInterface, ArrayAccess, JsonSerializab
      *
      * @param ListInfoResponse $list_info list_info
      *
-     * @return self
+     * @return static
      */
     public function setListInfo(ListInfoResponse $list_info)
     {
@@ -359,7 +359,7 @@ class FaxLineListResponse implements ModelInterface, ArrayAccess, JsonSerializab
      *
      * @param FaxLineResponseFaxLine[] $fax_lines fax_lines
      *
-     * @return self
+     * @return static
      */
     public function setFaxLines(array $fax_lines)
     {
@@ -386,7 +386,7 @@ class FaxLineListResponse implements ModelInterface, ArrayAccess, JsonSerializab
      *
      * @param WarningResponse|null $warnings warnings
      *
-     * @return self
+     * @return static
      */
     public function setWarnings(?WarningResponse $warnings)
     {

@@ -345,7 +345,7 @@ class TemplateResponseAccount implements ModelInterface, ArrayAccess, JsonSerial
      *
      * @param string|null $account_id the id of the Account
      *
-     * @return self
+     * @return static
      */
     public function setAccountId(?string $account_id)
     {
@@ -372,7 +372,7 @@ class TemplateResponseAccount implements ModelInterface, ArrayAccess, JsonSerial
      *
      * @param string|null $email_address the email address associated with the Account
      *
-     * @return self
+     * @return static
      */
     public function setEmailAddress(?string $email_address)
     {
@@ -399,7 +399,7 @@ class TemplateResponseAccount implements ModelInterface, ArrayAccess, JsonSerial
      *
      * @param bool|null $is_locked returns `true` if the user has been locked out of their account by a team admin
      *
-     * @return self
+     * @return static
      */
     public function setIsLocked(?bool $is_locked)
     {
@@ -426,7 +426,7 @@ class TemplateResponseAccount implements ModelInterface, ArrayAccess, JsonSerial
      *
      * @param bool|null $is_paid_hs returns `true` if the user has a paid Dropbox Sign account
      *
-     * @return self
+     * @return static
      */
     public function setIsPaidHs(?bool $is_paid_hs)
     {
@@ -453,7 +453,7 @@ class TemplateResponseAccount implements ModelInterface, ArrayAccess, JsonSerial
      *
      * @param bool|null $is_paid_hf returns `true` if the user has a paid HelloFax account
      *
-     * @return self
+     * @return static
      */
     public function setIsPaidHf(?bool $is_paid_hf)
     {
@@ -480,7 +480,7 @@ class TemplateResponseAccount implements ModelInterface, ArrayAccess, JsonSerial
      *
      * @param TemplateResponseAccountQuota|null $quotas quotas
      *
-     * @return self
+     * @return static
      */
     public function setQuotas(?TemplateResponseAccountQuota $quotas)
     {

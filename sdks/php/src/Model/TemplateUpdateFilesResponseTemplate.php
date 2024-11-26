@@ -318,7 +318,7 @@ class TemplateUpdateFilesResponseTemplate implements ModelInterface, ArrayAccess
      *
      * @param string|null $template_id the id of the Template
      *
-     * @return self
+     * @return static
      */
     public function setTemplateId(?string $template_id)
     {
@@ -346,7 +346,7 @@ class TemplateUpdateFilesResponseTemplate implements ModelInterface, ArrayAccess
      *
      * @param WarningResponse[]|null $warnings a list of warnings
      *
-     * @return self
+     * @return static
      * @deprecated
      */
     public function setWarnings(?array $warnings)

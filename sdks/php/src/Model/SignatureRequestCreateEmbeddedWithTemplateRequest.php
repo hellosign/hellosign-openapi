@@ -432,7 +432,7 @@ class SignatureRequestCreateEmbeddedWithTemplateRequest implements ModelInterfac
      *
      * @param string[] $template_ids use `template_ids` to create a SignatureRequest from one or more templates, in the order in which the template will be used
      *
-     * @return self
+     * @return static
      */
     public function setTemplateIds(array $template_ids)
     {
@@ -459,7 +459,7 @@ class SignatureRequestCreateEmbeddedWithTemplateRequest implements ModelInterfac
      *
      * @param string $client_id Client id of the app you're using to create this embedded signature request. Used for security purposes.
      *
-     * @return self
+     * @return static
      */
     public function setClientId(string $client_id)
     {
@@ -486,7 +486,7 @@ class SignatureRequestCreateEmbeddedWithTemplateRequest implements ModelInterfac
      *
      * @param SubSignatureRequestTemplateSigner[] $signers add Signers to your Templated-based Signature Request
      *
-     * @return self
+     * @return static
      */
     public function setSigners(array $signers)
     {
@@ -513,7 +513,7 @@ class SignatureRequestCreateEmbeddedWithTemplateRequest implements ModelInterfac
      *
      * @param bool|null $allow_decline Allows signers to decline to sign a document if `true`. Defaults to `false`.
      *
-     * @return self
+     * @return static
      */
     public function setAllowDecline(?bool $allow_decline)
     {
@@ -540,7 +540,7 @@ class SignatureRequestCreateEmbeddedWithTemplateRequest implements ModelInterfac
      *
      * @param SubCC[]|null $ccs Add CC email recipients. Required when a CC role exists for the Template.
      *
-     * @return self
+     * @return static
      */
     public function setCcs(?array $ccs)
     {
@@ -567,7 +567,7 @@ class SignatureRequestCreateEmbeddedWithTemplateRequest implements ModelInterfac
      *
      * @param SubCustomField[]|null $custom_fields An array defining values and options for custom fields. Required when a custom field exists in the Template.
      *
-     * @return self
+     * @return static
      */
     public function setCustomFields(?array $custom_fields)
     {
@@ -594,7 +594,7 @@ class SignatureRequestCreateEmbeddedWithTemplateRequest implements ModelInterfac
      *
      * @param SplFileObject[]|null $files Use `files[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.
      *
-     * @return self
+     * @return static
      */
     public function setFiles(?array $files)
     {
@@ -621,7 +621,7 @@ class SignatureRequestCreateEmbeddedWithTemplateRequest implements ModelInterfac
      *
      * @param string[]|null $file_urls Use `file_urls[]` to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.
      *
-     * @return self
+     * @return static
      */
     public function setFileUrls(?array $file_urls)
     {
@@ -648,7 +648,7 @@ class SignatureRequestCreateEmbeddedWithTemplateRequest implements ModelInterfac
      *
      * @param string|null $message the custom message in the email that will be sent to the signers
      *
-     * @return self
+     * @return static
      */
     public function setMessage(?string $message)
     {
@@ -679,7 +679,7 @@ class SignatureRequestCreateEmbeddedWithTemplateRequest implements ModelInterfac
      *
      * @param array<string,mixed>|null $metadata Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.  Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.
      *
-     * @return self
+     * @return static
      */
     public function setMetadata(?array $metadata)
     {
@@ -707,7 +707,7 @@ class SignatureRequestCreateEmbeddedWithTemplateRequest implements ModelInterfac
      *
      * @param SubSigningOptions|null $signing_options signing_options
      *
-     * @return self
+     * @return static
      */
     public function setSigningOptions(?SubSigningOptions $signing_options)
     {
@@ -734,7 +734,7 @@ class SignatureRequestCreateEmbeddedWithTemplateRequest implements ModelInterfac
      *
      * @param string|null $subject the subject in the email that will be sent to the signers
      *
-     * @return self
+     * @return static
      */
     public function setSubject(?string $subject)
     {
@@ -765,7 +765,7 @@ class SignatureRequestCreateEmbeddedWithTemplateRequest implements ModelInterfac
      *
      * @param bool|null $test_mode Whether this is a test, the signature request will not be legally binding if set to `true`. Defaults to `false`.
      *
-     * @return self
+     * @return static
      */
     public function setTestMode(?bool $test_mode)
     {
@@ -792,7 +792,7 @@ class SignatureRequestCreateEmbeddedWithTemplateRequest implements ModelInterfac
      *
      * @param string|null $title the title you want to assign to the SignatureRequest
      *
-     * @return self
+     * @return static
      */
     public function setTitle(?string $title)
     {
@@ -823,7 +823,7 @@ class SignatureRequestCreateEmbeddedWithTemplateRequest implements ModelInterfac
      *
      * @param bool|null $populate_auto_fill_fields Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer's information during signing.  **NOTE:** Keep your signer's information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
      *
-     * @return self
+     * @return static
      */
     public function setPopulateAutoFillFields(?bool $populate_auto_fill_fields)
     {

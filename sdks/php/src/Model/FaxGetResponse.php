@@ -322,7 +322,7 @@ class FaxGetResponse implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param FaxResponse $fax fax
      *
-     * @return self
+     * @return static
      */
     public function setFax(FaxResponse $fax)
     {
@@ -349,7 +349,7 @@ class FaxGetResponse implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param WarningResponse[]|null $warnings a list of warnings
      *
-     * @return self
+     * @return static
      */
     public function setWarnings(?array $warnings)
     {

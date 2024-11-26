@@ -355,7 +355,7 @@ class TeamAddMemberRequest implements ModelInterface, ArrayAccess, JsonSerializa
      *
      * @param string|null $account_id `account_id` or `email_address` is required. If both are provided, the account id prevails.  Account id of the user to invite to your Team.
      *
-     * @return self
+     * @return static
      */
     public function setAccountId(?string $account_id)
     {
@@ -382,7 +382,7 @@ class TeamAddMemberRequest implements ModelInterface, ArrayAccess, JsonSerializa
      *
      * @param string|null $email_address `account_id` or `email_address` is required, If both are provided, the account id prevails.  Email address of the user to invite to your Team.
      *
-     * @return self
+     * @return static
      */
     public function setEmailAddress(?string $email_address)
     {
@@ -409,7 +409,7 @@ class TeamAddMemberRequest implements ModelInterface, ArrayAccess, JsonSerializa
      *
      * @param string|null $role A role member will take in a new Team.  **NOTE:** This parameter is used only if `team_id` is provided.
      *
-     * @return self
+     * @return static
      */
     public function setRole(?string $role)
     {
