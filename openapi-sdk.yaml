@@ -11173,6 +11173,10 @@ components:
             bulk_send_job_id:
               description: 'The id of the BulkSendJob.'
               type: string
+            metadata:
+              description: 'The metadata attached to the signature request.'
+              type: object
+              additionalProperties: {}
       x-internal-class: true
     EmbeddedEditUrlResponseEmbedded:
       description: 'An embedded template object.'
@@ -11217,13 +11221,11 @@ components:
         - fax_id
         - title
         - original_title
-        - subject
-        - message
         - metadata
         - created_at
         - sender
-        - transmissions
         - files_url
+        - transmissions
       properties:
         fax_id:
           description: 'Fax ID'
@@ -11237,9 +11239,11 @@ components:
         subject:
           description: 'Fax Subject'
           type: string
+          nullable: true
         message:
           description: 'Fax Message'
           type: string
+          nullable: true
         metadata:
           description: 'Fax Metadata'
           type: object
@@ -11250,14 +11254,18 @@ components:
         sender:
           description: 'Fax Sender Email'
           type: string
+        files_url:
+          description: 'Fax Files URL'
+          type: string
+        final_copy_uri:
+          description: 'The path where the completed document can be downloaded'
+          type: string
+          nullable: true
         transmissions:
           description: 'Fax Transmissions List'
           type: array
           items:
             $ref: '#/components/schemas/FaxResponseTransmission'
-        files_url:
-          description: 'Fax Files URL'
-          type: string
       type: object
       x-internal-class: true
     FaxLineResponseFaxLine:
@@ -11280,14 +11288,10 @@ components:
     FaxResponseTransmission:
       required:
         - recipient
-        - sender
         - status_code
       properties:
         recipient:
           description: 'Fax Transmission Recipient'
-          type: string
-        sender:
-          description: 'Fax Transmission Sender'
           type: string
         status_code:
           description: 'Fax Transmission Status Code'
@@ -11352,13 +11356,13 @@ components:
           description: 'Whether this is a test signature request. Test requests have no legal value. Defaults to `false`.'
           type: boolean
           default: false
-          nullable: true
         signature_request_id:
           description: 'The id of the SignatureRequest.'
           type: string
         requester_email_address:
           description: 'The email address of the initiator of the SignatureRequest.'
           type: string
+          nullable: true
         title:
           description: 'The title the specified Account uses for the SignatureRequest.'
           type: string
@@ -11376,12 +11380,14 @@ components:
         metadata:
           description: 'The metadata attached to the signature request.'
           type: object
+          additionalProperties: {}
         created_at:
           description: 'Time the signature request was created.'
           type: integer
         expires_at:
           description: 'The time when the signature request will expire unsigned signatures. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.'
           type: integer
+          nullable: true
         is_complete:
           description: 'Whether or not the SignatureRequest has been fully executed by all signers.'
           type: boolean
@@ -11509,6 +11515,7 @@ components:
         editor:
           description: 'The name of the Role that is able to edit this field.'
           type: string
+          nullable: true
       type: object
       discriminator:
         propertyName: type
@@ -11519,13 +11526,12 @@ components:
       x-base-class: true
     SignatureRequestResponseCustomFieldCheckbox:
       description: 'This class extends `SignatureRequestResponseCustomFieldBase`.'
+      required:
+        - type
       allOf:
         -
           $ref: '#/components/schemas/SignatureRequestResponseCustomFieldBase'
         -
-          required:
-            - name
-            - type
           properties:
             type:
               description: 'The type of this Custom Field. Only ''text'' and ''checkbox'' are currently supported.'
@@ -11537,13 +11543,12 @@ components:
           type: object
     SignatureRequestResponseCustomFieldText:
       description: 'This class extends `SignatureRequestResponseCustomFieldBase`.'
+      required:
+        - type
       allOf:
         -
           $ref: '#/components/schemas/SignatureRequestResponseCustomFieldBase'
         -
-          required:
-            - name
-            - type
           properties:
             type:
               description: 'The type of this Custom Field. Only ''text'' and ''checkbox'' are currently supported.'
@@ -11671,6 +11676,10 @@ components:
             value:
               description: 'The value of the form field.'
               type: string
+            is_signed:
+              description: 'This field contains the boolean true if the field is signed.'
+              type: boolean
+              nullable: true
           type: object
     SignatureRequestResponseDataValueRadio:
       allOf:
@@ -11699,6 +11708,10 @@ components:
             value:
               description: 'The value of the form field.'
               type: string
+            is_signed:
+              description: 'This field contains the boolean true if the field is signed.'
+              type: boolean
+              nullable: true
           type: object
     SignatureRequestResponseDataValueText:
       allOf:
@@ -11936,6 +11949,7 @@ components:
         metadata:
           description: 'The metadata attached to the template.'
           type: object
+          additionalProperties: {}
         signer_roles:
           description: 'An array of the designated signer roles that must be specified when sending a SignatureRequest using this Template.'
           type: array

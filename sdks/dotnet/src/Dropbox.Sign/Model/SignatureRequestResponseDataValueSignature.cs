@@ -43,11 +43,12 @@ namespace Dropbox.Sign.Model
         /// </summary>
         /// <param name="type">A signature input field (default to &quot;signature&quot;).</param>
         /// <param name="value">The value of the form field..</param>
+        /// <param name="isSigned">This field contains the boolean true if the field is signed..</param>
         /// <param name="apiId">The unique ID for this field..</param>
         /// <param name="signatureId">The ID of the signature to which this response is linked..</param>
         /// <param name="name">The name of the form field..</param>
         /// <param name="required">A boolean value denoting if this field is required..</param>
-        public SignatureRequestResponseDataValueSignature(string type = @"signature", string value = default(string), string apiId = default(string), string signatureId = default(string), string name = default(string), bool required = default(bool))
+        public SignatureRequestResponseDataValueSignature(string type = @"signature", string value = default(string), bool? isSigned = default(bool?), string apiId = default(string), string signatureId = default(string), string name = default(string), bool required = default(bool))
         {
             this.ApiId = apiId;
             this.SignatureId = signatureId;
@@ -57,6 +58,7 @@ namespace Dropbox.Sign.Model
             // use default value if no "type" provided
             this.Type = type ?? "signature";
             this.Value = value;
+            this.IsSigned = isSigned;
         }
 
         /// <summary>
@@ -90,6 +92,13 @@ namespace Dropbox.Sign.Model
         public string Value { get; set; }
 
         /// <summary>
+        /// This field contains the boolean true if the field is signed.
+        /// </summary>
+        /// <value>This field contains the boolean true if the field is signed.</value>
+        [DataMember(Name = "is_signed", EmitDefaultValue = true)]
+        public bool? IsSigned { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -100,6 +109,7 @@ namespace Dropbox.Sign.Model
             sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Value: ").Append(Value).Append("\n");
+            sb.Append("  IsSigned: ").Append(IsSigned).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -144,6 +154,11 @@ namespace Dropbox.Sign.Model
                     this.Value == input.Value ||
                     (this.Value != null &&
                     this.Value.Equals(input.Value))
+                ) && base.Equals(input) &&
+                (
+                    this.IsSigned == input.IsSigned ||
+                    (this.IsSigned != null &&
+                    this.IsSigned.Equals(input.IsSigned))
                 );
         }
 
@@ -163,6 +178,10 @@ namespace Dropbox.Sign.Model
                 if (this.Value != null)
                 {
                     hashCode = (hashCode * 59) + this.Value.GetHashCode();
+                }
+                if (this.IsSigned != null)
+                {
+                    hashCode = (hashCode * 59) + this.IsSigned.GetHashCode();
                 }
                 return hashCode;
             }
@@ -207,6 +226,13 @@ namespace Dropbox.Sign.Model
                 Property = "Value",
                 Type = "string",
                 Value = Value,
+            });
+            types.Add(new OpenApiType()
+            {
+                Name = "is_signed",
+                Property = "IsSigned",
+                Type = "bool?",
+                Value = IsSigned,
             });
 
             return types;

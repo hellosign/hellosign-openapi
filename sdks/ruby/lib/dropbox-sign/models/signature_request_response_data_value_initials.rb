@@ -26,11 +26,16 @@ module Dropbox::Sign
     # @return [String]
     attr_accessor :value
 
+    # This field contains the boolean true if the field is signed.
+    # @return [Boolean, nil]
+    attr_accessor :is_signed
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'type' => :'type',
-        :'value' => :'value'
+        :'value' => :'value',
+        :'is_signed' => :'is_signed'
       }
     end
 
@@ -43,13 +48,15 @@ module Dropbox::Sign
     def self.openapi_types
       {
         :'type' => :'String',
-        :'value' => :'String'
+        :'value' => :'String',
+        :'is_signed' => :'Boolean'
       }
     end
 
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        :'is_signed'
       ])
     end
 
@@ -105,6 +112,10 @@ module Dropbox::Sign
       if attributes.key?(:'value')
         self.value = attributes[:'value']
       end
+
+      if attributes.key?(:'is_signed')
+        self.is_signed = attributes[:'is_signed']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -126,7 +137,8 @@ module Dropbox::Sign
       return true if self.equal?(o)
       self.class == o.class &&
           type == o.type &&
-          value == o.value && super(o)
+          value == o.value &&
+          is_signed == o.is_signed && super(o)
     end
 
     # @see the `==` method
@@ -138,7 +150,7 @@ module Dropbox::Sign
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [type, value].hash
+      [type, value, is_signed].hash
     end
 
     # Builds the object from hash

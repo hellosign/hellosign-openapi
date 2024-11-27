@@ -164,8 +164,8 @@
 "FaxResponse::SENDER": Fax Sender Email
 "FaxResponse::TRANSMISSIONS": Fax Transmissions List
 "FaxResponse::FILES_URL": Fax Files URL
+"FaxResponse::FINAL_COPY_URI": The path where the completed document can be downloaded
 "Sub::FaxResponseTransmission::RECIPIENT": Fax Transmission Recipient
-"Sub::FaxResponseTransmission::SENDER": Fax Transmission Sender
 "Sub::FaxResponseTransmission::STATUS_CODE": Fax Transmission Status Code
 "Sub::FaxResponseTransmission::SENT_AT": Fax Transmission Sent Timestamp
 "FaxListResponseExample::SUMMARY": Returns the properties and settings of multiple Faxes.
@@ -1433,6 +1433,7 @@
 "SignatureRequestResponseDataValue::TEXTMERGE_TYPE": A text field that has default text set by the api
 "SignatureRequestResponseDataValue::CHECKBOXMERGE_TYPE": A checkbox field that has default value set by the api
 "SignatureRequestResponseDataValue::VALUE": The value of the form field.
+"SignatureRequestResponseDataValue::IS_SIGNED": This field contains the boolean true if the field is signed.
 
 "SignatureRequestResponseSignatures::DESCRIPTION": An array of signature objects, 1 for each signer.
 "SignatureRequestResponseSignatures::DECLINE_REASON": The reason provided by the signer for declining the request.

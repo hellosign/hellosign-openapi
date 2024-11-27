@@ -39,14 +39,6 @@ export class FaxResponse {
    */
   "originalTitle": string;
   /**
-   * Fax Subject
-   */
-  "subject": string;
-  /**
-   * Fax Message
-   */
-  "message": string;
-  /**
    * Fax Metadata
    */
   "metadata": { [key: string]: any };
@@ -59,13 +51,25 @@ export class FaxResponse {
    */
   "sender": string;
   /**
+   * Fax Files URL
+   */
+  "filesUrl": string;
+  /**
    * Fax Transmissions List
    */
   "transmissions": Array<FaxResponseTransmission>;
   /**
-   * Fax Files URL
+   * Fax Subject
    */
-  "filesUrl": string;
+  "subject"?: string | null;
+  /**
+   * Fax Message
+   */
+  "message"?: string | null;
+  /**
+   * The path where the completed document can be downloaded
+   */
+  "finalCopyUri"?: string | null;
 
   static discriminator: string | undefined = undefined;
 
@@ -86,16 +90,6 @@ export class FaxResponse {
       type: "string",
     },
     {
-      name: "subject",
-      baseName: "subject",
-      type: "string",
-    },
-    {
-      name: "message",
-      baseName: "message",
-      type: "string",
-    },
-    {
       name: "metadata",
       baseName: "metadata",
       type: "{ [key: string]: any; }",
@@ -111,13 +105,28 @@ export class FaxResponse {
       type: "string",
     },
     {
+      name: "filesUrl",
+      baseName: "files_url",
+      type: "string",
+    },
+    {
       name: "transmissions",
       baseName: "transmissions",
       type: "Array<FaxResponseTransmission>",
     },
     {
-      name: "filesUrl",
-      baseName: "files_url",
+      name: "subject",
+      baseName: "subject",
+      type: "string",
+    },
+    {
+      name: "message",
+      baseName: "message",
+      type: "string",
+    },
+    {
+      name: "finalCopyUri",
+      baseName: "final_copy_uri",
       type: "string",
     },
   ];

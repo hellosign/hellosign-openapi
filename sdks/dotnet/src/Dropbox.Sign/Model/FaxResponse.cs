@@ -44,14 +44,15 @@ namespace Dropbox.Sign.Model
         /// <param name="faxId">Fax ID (required).</param>
         /// <param name="title">Fax Title (required).</param>
         /// <param name="originalTitle">Fax Original Title (required).</param>
-        /// <param name="subject">Fax Subject (required).</param>
-        /// <param name="message">Fax Message (required).</param>
+        /// <param name="subject">Fax Subject.</param>
+        /// <param name="message">Fax Message.</param>
         /// <param name="metadata">Fax Metadata (required).</param>
         /// <param name="createdAt">Fax Created At Timestamp (required).</param>
         /// <param name="sender">Fax Sender Email (required).</param>
-        /// <param name="transmissions">Fax Transmissions List (required).</param>
         /// <param name="filesUrl">Fax Files URL (required).</param>
-        public FaxResponse(string faxId = default(string), string title = default(string), string originalTitle = default(string), string subject = default(string), string message = default(string), Dictionary<string, Object> metadata = default(Dictionary<string, Object>), int createdAt = default(int), string sender = default(string), List<FaxResponseTransmission> transmissions = default(List<FaxResponseTransmission>), string filesUrl = default(string))
+        /// <param name="finalCopyUri">The path where the completed document can be downloaded.</param>
+        /// <param name="transmissions">Fax Transmissions List (required).</param>
+        public FaxResponse(string faxId = default(string), string title = default(string), string originalTitle = default(string), string subject = default(string), string message = default(string), Dictionary<string, Object> metadata = default(Dictionary<string, Object>), int createdAt = default(int), string sender = default(string), string filesUrl = default(string), string finalCopyUri = default(string), List<FaxResponseTransmission> transmissions = default(List<FaxResponseTransmission>))
         {
 
             // to ensure "faxId" is required (not null)
@@ -72,18 +73,6 @@ namespace Dropbox.Sign.Model
                 throw new ArgumentNullException("originalTitle is a required property for FaxResponse and cannot be null");
             }
             this.OriginalTitle = originalTitle;
-            // to ensure "subject" is required (not null)
-            if (subject == null)
-            {
-                throw new ArgumentNullException("subject is a required property for FaxResponse and cannot be null");
-            }
-            this.Subject = subject;
-            // to ensure "message" is required (not null)
-            if (message == null)
-            {
-                throw new ArgumentNullException("message is a required property for FaxResponse and cannot be null");
-            }
-            this.Message = message;
             // to ensure "metadata" is required (not null)
             if (metadata == null)
             {
@@ -97,18 +86,21 @@ namespace Dropbox.Sign.Model
                 throw new ArgumentNullException("sender is a required property for FaxResponse and cannot be null");
             }
             this.Sender = sender;
-            // to ensure "transmissions" is required (not null)
-            if (transmissions == null)
-            {
-                throw new ArgumentNullException("transmissions is a required property for FaxResponse and cannot be null");
-            }
-            this.Transmissions = transmissions;
             // to ensure "filesUrl" is required (not null)
             if (filesUrl == null)
             {
                 throw new ArgumentNullException("filesUrl is a required property for FaxResponse and cannot be null");
             }
             this.FilesUrl = filesUrl;
+            // to ensure "transmissions" is required (not null)
+            if (transmissions == null)
+            {
+                throw new ArgumentNullException("transmissions is a required property for FaxResponse and cannot be null");
+            }
+            this.Transmissions = transmissions;
+            this.Subject = subject;
+            this.Message = message;
+            this.FinalCopyUri = finalCopyUri;
         }
 
         /// <summary>
@@ -149,20 +141,6 @@ namespace Dropbox.Sign.Model
         public string OriginalTitle { get; set; }
 
         /// <summary>
-        /// Fax Subject
-        /// </summary>
-        /// <value>Fax Subject</value>
-        [DataMember(Name = "subject", IsRequired = true, EmitDefaultValue = true)]
-        public string Subject { get; set; }
-
-        /// <summary>
-        /// Fax Message
-        /// </summary>
-        /// <value>Fax Message</value>
-        [DataMember(Name = "message", IsRequired = true, EmitDefaultValue = true)]
-        public string Message { get; set; }
-
-        /// <summary>
         /// Fax Metadata
         /// </summary>
         /// <value>Fax Metadata</value>
@@ -184,6 +162,13 @@ namespace Dropbox.Sign.Model
         public string Sender { get; set; }
 
         /// <summary>
+        /// Fax Files URL
+        /// </summary>
+        /// <value>Fax Files URL</value>
+        [DataMember(Name = "files_url", IsRequired = true, EmitDefaultValue = true)]
+        public string FilesUrl { get; set; }
+
+        /// <summary>
         /// Fax Transmissions List
         /// </summary>
         /// <value>Fax Transmissions List</value>
@@ -191,11 +176,25 @@ namespace Dropbox.Sign.Model
         public List<FaxResponseTransmission> Transmissions { get; set; }
 
         /// <summary>
-        /// Fax Files URL
+        /// Fax Subject
         /// </summary>
-        /// <value>Fax Files URL</value>
-        [DataMember(Name = "files_url", IsRequired = true, EmitDefaultValue = true)]
-        public string FilesUrl { get; set; }
+        /// <value>Fax Subject</value>
+        [DataMember(Name = "subject", EmitDefaultValue = true)]
+        public string Subject { get; set; }
+
+        /// <summary>
+        /// Fax Message
+        /// </summary>
+        /// <value>Fax Message</value>
+        [DataMember(Name = "message", EmitDefaultValue = true)]
+        public string Message { get; set; }
+
+        /// <summary>
+        /// The path where the completed document can be downloaded
+        /// </summary>
+        /// <value>The path where the completed document can be downloaded</value>
+        [DataMember(Name = "final_copy_uri", EmitDefaultValue = true)]
+        public string FinalCopyUri { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -208,13 +207,14 @@ namespace Dropbox.Sign.Model
             sb.Append("  FaxId: ").Append(FaxId).Append("\n");
             sb.Append("  Title: ").Append(Title).Append("\n");
             sb.Append("  OriginalTitle: ").Append(OriginalTitle).Append("\n");
-            sb.Append("  Subject: ").Append(Subject).Append("\n");
-            sb.Append("  Message: ").Append(Message).Append("\n");
             sb.Append("  Metadata: ").Append(Metadata).Append("\n");
             sb.Append("  CreatedAt: ").Append(CreatedAt).Append("\n");
             sb.Append("  Sender: ").Append(Sender).Append("\n");
-            sb.Append("  Transmissions: ").Append(Transmissions).Append("\n");
             sb.Append("  FilesUrl: ").Append(FilesUrl).Append("\n");
+            sb.Append("  Transmissions: ").Append(Transmissions).Append("\n");
+            sb.Append("  Subject: ").Append(Subject).Append("\n");
+            sb.Append("  Message: ").Append(Message).Append("\n");
+            sb.Append("  FinalCopyUri: ").Append(FinalCopyUri).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -266,16 +266,6 @@ namespace Dropbox.Sign.Model
                     this.OriginalTitle.Equals(input.OriginalTitle))
                 ) &&
                 (
-                    this.Subject == input.Subject ||
-                    (this.Subject != null &&
-                    this.Subject.Equals(input.Subject))
-                ) &&
-                (
-                    this.Message == input.Message ||
-                    (this.Message != null &&
-                    this.Message.Equals(input.Message))
-                ) &&
-                (
                     this.Metadata == input.Metadata ||
                     this.Metadata != null &&
                     input.Metadata != null &&
@@ -291,15 +281,30 @@ namespace Dropbox.Sign.Model
                     this.Sender.Equals(input.Sender))
                 ) &&
                 (
+                    this.FilesUrl == input.FilesUrl ||
+                    (this.FilesUrl != null &&
+                    this.FilesUrl.Equals(input.FilesUrl))
+                ) &&
+                (
                     this.Transmissions == input.Transmissions ||
                     this.Transmissions != null &&
                     input.Transmissions != null &&
                     this.Transmissions.SequenceEqual(input.Transmissions)
                 ) &&
                 (
-                    this.FilesUrl == input.FilesUrl ||
-                    (this.FilesUrl != null &&
-                    this.FilesUrl.Equals(input.FilesUrl))
+                    this.Subject == input.Subject ||
+                    (this.Subject != null &&
+                    this.Subject.Equals(input.Subject))
+                ) &&
+                (
+                    this.Message == input.Message ||
+                    (this.Message != null &&
+                    this.Message.Equals(input.Message))
+                ) &&
+                (
+                    this.FinalCopyUri == input.FinalCopyUri ||
+                    (this.FinalCopyUri != null &&
+                    this.FinalCopyUri.Equals(input.FinalCopyUri))
                 );
         }
 
@@ -324,14 +329,6 @@ namespace Dropbox.Sign.Model
                 {
                     hashCode = (hashCode * 59) + this.OriginalTitle.GetHashCode();
                 }
-                if (this.Subject != null)
-                {
-                    hashCode = (hashCode * 59) + this.Subject.GetHashCode();
-                }
-                if (this.Message != null)
-                {
-                    hashCode = (hashCode * 59) + this.Message.GetHashCode();
-                }
                 if (this.Metadata != null)
                 {
                     hashCode = (hashCode * 59) + this.Metadata.GetHashCode();
@@ -341,13 +338,25 @@ namespace Dropbox.Sign.Model
                 {
                     hashCode = (hashCode * 59) + this.Sender.GetHashCode();
                 }
+                if (this.FilesUrl != null)
+                {
+                    hashCode = (hashCode * 59) + this.FilesUrl.GetHashCode();
+                }
                 if (this.Transmissions != null)
                 {
                     hashCode = (hashCode * 59) + this.Transmissions.GetHashCode();
                 }
-                if (this.FilesUrl != null)
+                if (this.Subject != null)
                 {
-                    hashCode = (hashCode * 59) + this.FilesUrl.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Subject.GetHashCode();
+                }
+                if (this.Message != null)
+                {
+                    hashCode = (hashCode * 59) + this.Message.GetHashCode();
+                }
+                if (this.FinalCopyUri != null)
+                {
+                    hashCode = (hashCode * 59) + this.FinalCopyUri.GetHashCode();
                 }
                 return hashCode;
             }
@@ -388,20 +397,6 @@ namespace Dropbox.Sign.Model
             });
             types.Add(new OpenApiType()
             {
-                Name = "subject",
-                Property = "Subject",
-                Type = "string",
-                Value = Subject,
-            });
-            types.Add(new OpenApiType()
-            {
-                Name = "message",
-                Property = "Message",
-                Type = "string",
-                Value = Message,
-            });
-            types.Add(new OpenApiType()
-            {
                 Name = "metadata",
                 Property = "Metadata",
                 Type = "Dictionary<string, Object>",
@@ -423,6 +418,13 @@ namespace Dropbox.Sign.Model
             });
             types.Add(new OpenApiType()
             {
+                Name = "files_url",
+                Property = "FilesUrl",
+                Type = "string",
+                Value = FilesUrl,
+            });
+            types.Add(new OpenApiType()
+            {
                 Name = "transmissions",
                 Property = "Transmissions",
                 Type = "List<FaxResponseTransmission>",
@@ -430,10 +432,24 @@ namespace Dropbox.Sign.Model
             });
             types.Add(new OpenApiType()
             {
-                Name = "files_url",
-                Property = "FilesUrl",
+                Name = "subject",
+                Property = "Subject",
                 Type = "string",
-                Value = FilesUrl,
+                Value = Subject,
+            });
+            types.Add(new OpenApiType()
+            {
+                Name = "message",
+                Property = "Message",
+                Type = "string",
+                Value = Message,
+            });
+            types.Add(new OpenApiType()
+            {
+                Name = "final_copy_uri",
+                Property = "FinalCopyUri",
+                Type = "string",
+                Value = FinalCopyUri,
             });
 
             return types;

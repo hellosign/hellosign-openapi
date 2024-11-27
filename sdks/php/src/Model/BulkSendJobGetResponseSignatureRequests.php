@@ -64,7 +64,7 @@ class BulkSendJobGetResponseSignatureRequests implements ModelInterface, ArrayAc
         'original_title' => 'string',
         'subject' => 'string',
         'message' => 'string',
-        'metadata' => 'array',
+        'metadata' => 'array<string,mixed>',
         'created_at' => 'int',
         'expires_at' => 'int',
         'is_complete' => 'bool',
@@ -125,16 +125,16 @@ class BulkSendJobGetResponseSignatureRequests implements ModelInterface, ArrayAc
      * @var bool[]
      */
     protected static array $openAPINullables = [
-        'test_mode' => true,
+        'test_mode' => false,
         'signature_request_id' => false,
-        'requester_email_address' => false,
+        'requester_email_address' => true,
         'title' => false,
         'original_title' => false,
         'subject' => true,
         'message' => true,
         'metadata' => false,
         'created_at' => false,
-        'expires_at' => false,
+        'expires_at' => true,
         'is_complete' => false,
         'is_declined' => false,
         'has_error' => false,
@@ -483,14 +483,7 @@ class BulkSendJobGetResponseSignatureRequests implements ModelInterface, ArrayAc
     public function setTestMode(?bool $test_mode)
     {
         if (is_null($test_mode)) {
-            array_push($this->openAPINullablesSetToNull, 'test_mode');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('test_mode', $nullablesSetToNull);
-            if ($index !== false) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new InvalidArgumentException('non-nullable test_mode cannot be null');
         }
         $this->container['test_mode'] = $test_mode;
 
@@ -544,7 +537,14 @@ class BulkSendJobGetResponseSignatureRequests implements ModelInterface, ArrayAc
     public function setRequesterEmailAddress(?string $requester_email_address)
     {
         if (is_null($requester_email_address)) {
-            throw new InvalidArgumentException('non-nullable requester_email_address cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'requester_email_address');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('requester_email_address', $nullablesSetToNull);
+            if ($index !== false) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['requester_email_address'] = $requester_email_address;
 
@@ -676,7 +676,7 @@ class BulkSendJobGetResponseSignatureRequests implements ModelInterface, ArrayAc
     /**
      * Gets metadata
      *
-     * @return array|null
+     * @return array<string,mixed>|null
      */
     public function getMetadata()
     {
@@ -686,7 +686,7 @@ class BulkSendJobGetResponseSignatureRequests implements ModelInterface, ArrayAc
     /**
      * Sets metadata
      *
-     * @param array|null $metadata the metadata attached to the signature request
+     * @param array<string,mixed>|null $metadata the metadata attached to the signature request
      *
      * @return self
      */
@@ -747,7 +747,14 @@ class BulkSendJobGetResponseSignatureRequests implements ModelInterface, ArrayAc
     public function setExpiresAt(?int $expires_at)
     {
         if (is_null($expires_at)) {
-            throw new InvalidArgumentException('non-nullable expires_at cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'expires_at');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('expires_at', $nullablesSetToNull);
+            if ($index !== false) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['expires_at'] = $expires_at;
 

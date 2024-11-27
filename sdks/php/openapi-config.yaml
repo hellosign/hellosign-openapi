@@ -1,10 +1,8 @@
 generatorName: php
-typeMappings:
-  "object": "array"
 additionalProperties:
   packageName: dropbox/sign
-  packageVersion: "^1.7.0"
-  artifactVersion: 1.7-dev
+  packageVersion: "^1.8.0"
+  artifactVersion: 1.8-dev
   invokerPackage: "Dropbox\\Sign"
   sortModelPropertiesByRequiredFlag: true
   srcBasePath: src

@@ -34,6 +34,10 @@ export class SignatureRequestResponseDataValueSignature extends SignatureRequest
    * The value of the form field.
    */
   "value"?: string;
+  /**
+   * This field contains the boolean true if the field is signed.
+   */
+  "isSigned"?: boolean | null;
 
   static discriminator: string | undefined = undefined;
 
@@ -47,6 +51,11 @@ export class SignatureRequestResponseDataValueSignature extends SignatureRequest
       name: "value",
       baseName: "value",
       type: "string",
+    },
+    {
+      name: "isSigned",
+      baseName: "is_signed",
+      type: "boolean",
     },
   ];
 

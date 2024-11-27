@@ -6,7 +6,15 @@
       "original_title": "The NDA we talked about",
       "subject": "The NDA we talked about",
       "message": "Please sign this NDA and then we can discuss more. Let me know if you have any questions.",
-      "metadata": {},
+      "metadata": {
+        "metadata_name_1": "metadata_value_1",
+        "metadata_name_2": {
+          "metadata_name_2_a": "metadata_value_2_a"
+        },
+        "metadata_name_3": "metadata_value_3",
+        "custom_id": 1234,
+        "custom_text": "NDA #9"
+      },
       "created_at": 1570471067,
       "is_complete": false,
       "is_declined": false,
@@ -91,6 +99,7 @@
           "required": true,
           "api_id": "initial__1",
           "value": "YM",
+          "is_signed": true,
           "signature_id": "a9f4825edef25f47e7b4c14ce8100d81d1693160"
         },
         {
@@ -107,6 +116,7 @@
           "required": true,
           "api_id": "signature__1",
           "value": "John Doe",
+          "is_signed": true,
           "signature_id": "a9f4825edef25f47e7b4c14ce8100d81d1693160"
         }
       ],

@@ -57,7 +57,7 @@ namespace Dropbox.Sign.Model
         /// <param name="namedFormFields">Deprecated. Use &#x60;form_fields&#x60; inside the [documents](https://developers.hellosign.com/api/reference/operation/templateGet/#!c&#x3D;200&amp;path&#x3D;template/documents&amp;t&#x3D;response) array instead..</param>
         /// <param name="accounts">An array of the Accounts that can use this Template..</param>
         /// <param name="attachments">Signer attachments..</param>
-        public TemplateResponse(string templateId = default(string), string title = default(string), string message = default(string), int updatedAt = default(int), bool? isEmbedded = default(bool?), bool isCreator = default(bool), bool canEdit = default(bool), bool isLocked = default(bool), Object metadata = default(Object), List<TemplateResponseSignerRole> signerRoles = default(List<TemplateResponseSignerRole>), List<TemplateResponseCCRole> ccRoles = default(List<TemplateResponseCCRole>), List<TemplateResponseDocument> documents = default(List<TemplateResponseDocument>), List<TemplateResponseDocumentCustomFieldBase> customFields = default(List<TemplateResponseDocumentCustomFieldBase>), List<TemplateResponseDocumentFormFieldBase> namedFormFields = default(List<TemplateResponseDocumentFormFieldBase>), List<TemplateResponseAccount> accounts = default(List<TemplateResponseAccount>), List<SignatureRequestResponseAttachment> attachments = default(List<SignatureRequestResponseAttachment>))
+        public TemplateResponse(string templateId = default(string), string title = default(string), string message = default(string), int updatedAt = default(int), bool? isEmbedded = default(bool?), bool isCreator = default(bool), bool canEdit = default(bool), bool isLocked = default(bool), Dictionary<string, Object> metadata = default(Dictionary<string, Object>), List<TemplateResponseSignerRole> signerRoles = default(List<TemplateResponseSignerRole>), List<TemplateResponseCCRole> ccRoles = default(List<TemplateResponseCCRole>), List<TemplateResponseDocument> documents = default(List<TemplateResponseDocument>), List<TemplateResponseDocumentCustomFieldBase> customFields = default(List<TemplateResponseDocumentCustomFieldBase>), List<TemplateResponseDocumentFormFieldBase> namedFormFields = default(List<TemplateResponseDocumentFormFieldBase>), List<TemplateResponseAccount> accounts = default(List<TemplateResponseAccount>), List<SignatureRequestResponseAttachment> attachments = default(List<SignatureRequestResponseAttachment>))
         {
 
             this.TemplateId = templateId;
@@ -155,7 +155,7 @@ namespace Dropbox.Sign.Model
         /// </summary>
         /// <value>The metadata attached to the template.</value>
         [DataMember(Name = "metadata", EmitDefaultValue = true)]
-        public Object Metadata { get; set; }
+        public Dictionary<string, Object> Metadata { get; set; }
 
         /// <summary>
         /// An array of the designated signer roles that must be specified when sending a SignatureRequest using this Template.
@@ -305,8 +305,9 @@ namespace Dropbox.Sign.Model
                 ) &&
                 (
                     this.Metadata == input.Metadata ||
-                    (this.Metadata != null &&
-                    this.Metadata.Equals(input.Metadata))
+                    this.Metadata != null &&
+                    input.Metadata != null &&
+                    this.Metadata.SequenceEqual(input.Metadata)
                 ) &&
                 (
                     this.SignerRoles == input.SignerRoles ||
@@ -489,7 +490,7 @@ namespace Dropbox.Sign.Model
             {
                 Name = "metadata",
                 Property = "Metadata",
-                Type = "Object",
+                Type = "Dictionary<string, Object>",
                 Value = Metadata,
             });
             types.Add(new OpenApiType()

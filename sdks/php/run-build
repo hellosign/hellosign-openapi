@@ -58,7 +58,7 @@ if [[ -z "$GITHUB_ACTIONS" ]]; then
 fi
 
 printf "Running unit tests ...\n"
-bash "${DIR}/bin/php" ./vendor/bin/phpunit
+PHP_USE_NATIVE=0 bash "${DIR}/bin/php" ./vendor/bin/phpunit
 printf "\n\n"
 
 printf "Success!\n"

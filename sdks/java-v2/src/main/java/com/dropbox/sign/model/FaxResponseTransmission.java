@@ -34,7 +34,6 @@ import com.dropbox.sign.ApiException;
  */
 @JsonPropertyOrder({
   FaxResponseTransmission.JSON_PROPERTY_RECIPIENT,
-  FaxResponseTransmission.JSON_PROPERTY_SENDER,
   FaxResponseTransmission.JSON_PROPERTY_STATUS_CODE,
   FaxResponseTransmission.JSON_PROPERTY_SENT_AT
 })
@@ -43,9 +42,6 @@ import com.dropbox.sign.ApiException;
 public class FaxResponseTransmission {
   public static final String JSON_PROPERTY_RECIPIENT = "recipient";
   private String recipient;
-
-  public static final String JSON_PROPERTY_SENDER = "sender";
-  private String sender;
 
   /**
    * Fax Transmission Status Code
@@ -143,31 +139,6 @@ public class FaxResponseTransmission {
   }
 
 
-  public FaxResponseTransmission sender(String sender) {
-    this.sender = sender;
-    return this;
-  }
-
-  /**
-   * Fax Transmission Sender
-   * @return sender
-   */
-  @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_SENDER)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public String getSender() {
-    return sender;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_SENDER)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setSender(String sender) {
-    this.sender = sender;
-  }
-
-
   public FaxResponseTransmission statusCode(StatusCodeEnum statusCode) {
     this.statusCode = statusCode;
     return this;
@@ -231,14 +202,13 @@ public class FaxResponseTransmission {
     }
     FaxResponseTransmission faxResponseTransmission = (FaxResponseTransmission) o;
     return Objects.equals(this.recipient, faxResponseTransmission.recipient) &&
-        Objects.equals(this.sender, faxResponseTransmission.sender) &&
         Objects.equals(this.statusCode, faxResponseTransmission.statusCode) &&
         Objects.equals(this.sentAt, faxResponseTransmission.sentAt);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(recipient, sender, statusCode, sentAt);
+    return Objects.hash(recipient, statusCode, sentAt);
   }
 
   @Override
@@ -246,7 +216,6 @@ public class FaxResponseTransmission {
     StringBuilder sb = new StringBuilder();
     sb.append("class FaxResponseTransmission {\n");
     sb.append("    recipient: ").append(toIndentedString(recipient)).append("\n");
-    sb.append("    sender: ").append(toIndentedString(sender)).append("\n");
     sb.append("    statusCode: ").append(toIndentedString(statusCode)).append("\n");
     sb.append("    sentAt: ").append(toIndentedString(sentAt)).append("\n");
     sb.append("}");
@@ -274,25 +243,6 @@ public class FaxResponseTransmission {
         }
         else {
             map.put("recipient", JSON.getDefault().getMapper().writeValueAsString(recipient));
-        }
-    }
-    if (sender != null) {
-        if (isFileTypeOrListOfFiles(sender)) {
-            fileTypeFound = true;
-        }
-
-        if (sender.getClass().equals(java.io.File.class) ||
-            sender.getClass().equals(Integer.class) ||
-            sender.getClass().equals(String.class) ||
-            sender.getClass().isEnum()) {
-            map.put("sender", sender);
-        } else if (isListOfFile(sender)) {
-            for(int i = 0; i< getListSize(sender); i++) {
-                map.put("sender[" + i + "]", getFromList(sender, i));
-            }
-        }
-        else {
-            map.put("sender", JSON.getDefault().getMapper().writeValueAsString(sender));
         }
     }
     if (statusCode != null) {

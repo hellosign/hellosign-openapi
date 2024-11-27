@@ -66,11 +66,10 @@ namespace Dropbox.Sign.Model
         /// <param name="responseData">An array of form field objects containing the name, value, and type of each textbox or checkmark field filled in by the signers..</param>
         /// <param name="signatures">An array of signature objects, 1 for each signer..</param>
         /// <param name="bulkSendJobId">The ID of the Bulk Send job which sent the signature request, if applicable..</param>
-        public SignatureRequestResponse(bool? testMode = false, string signatureRequestId = default(string), string requesterEmailAddress = default(string), string title = default(string), string originalTitle = default(string), string subject = default(string), string message = default(string), Object metadata = default(Object), int createdAt = default(int), int expiresAt = default(int), bool isComplete = default(bool), bool isDeclined = default(bool), bool hasError = default(bool), string filesUrl = default(string), string signingUrl = default(string), string detailsUrl = default(string), List<string> ccEmailAddresses = default(List<string>), string signingRedirectUrl = default(string), string finalCopyUri = default(string), List<string> templateIds = default(List<string>), List<SignatureRequestResponseCustomFieldBase> customFields = default(List<SignatureRequestResponseCustomFieldBase>), List<SignatureRequestResponseAttachment> attachments = default(List<SignatureRequestResponseAttachment>), List<SignatureRequestResponseDataBase> responseData = default(List<SignatureRequestResponseDataBase>), List<SignatureRequestResponseSignatures> signatures = default(List<SignatureRequestResponseSignatures>), string bulkSendJobId = default(string))
+        public SignatureRequestResponse(bool testMode = false, string signatureRequestId = default(string), string requesterEmailAddress = default(string), string title = default(string), string originalTitle = default(string), string subject = default(string), string message = default(string), Dictionary<string, Object> metadata = default(Dictionary<string, Object>), int createdAt = default(int), int? expiresAt = default(int?), bool isComplete = default(bool), bool isDeclined = default(bool), bool hasError = default(bool), string filesUrl = default(string), string signingUrl = default(string), string detailsUrl = default(string), List<string> ccEmailAddresses = default(List<string>), string signingRedirectUrl = default(string), string finalCopyUri = default(string), List<string> templateIds = default(List<string>), List<SignatureRequestResponseCustomFieldBase> customFields = default(List<SignatureRequestResponseCustomFieldBase>), List<SignatureRequestResponseAttachment> attachments = default(List<SignatureRequestResponseAttachment>), List<SignatureRequestResponseDataBase> responseData = default(List<SignatureRequestResponseDataBase>), List<SignatureRequestResponseSignatures> signatures = default(List<SignatureRequestResponseSignatures>), string bulkSendJobId = default(string))
         {
 
-            // use default value if no "testMode" provided
-            this.TestMode = testMode ?? false;
+            this.TestMode = testMode;
             this.SignatureRequestId = signatureRequestId;
             this.RequesterEmailAddress = requesterEmailAddress;
             this.Title = title;
@@ -118,7 +117,7 @@ namespace Dropbox.Sign.Model
         /// </summary>
         /// <value>Whether this is a test signature request. Test requests have no legal value. Defaults to &#x60;false&#x60;.</value>
         [DataMember(Name = "test_mode", EmitDefaultValue = true)]
-        public bool? TestMode { get; set; }
+        public bool TestMode { get; set; }
 
         /// <summary>
         /// The id of the SignatureRequest.
@@ -167,7 +166,7 @@ namespace Dropbox.Sign.Model
         /// </summary>
         /// <value>The metadata attached to the signature request.</value>
         [DataMember(Name = "metadata", EmitDefaultValue = true)]
-        public Object Metadata { get; set; }
+        public Dictionary<string, Object> Metadata { get; set; }
 
         /// <summary>
         /// Time the signature request was created.
@@ -181,7 +180,7 @@ namespace Dropbox.Sign.Model
         /// </summary>
         /// <value>The time when the signature request will expire unsigned signatures. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.</value>
         [DataMember(Name = "expires_at", EmitDefaultValue = true)]
-        public int ExpiresAt { get; set; }
+        public int? ExpiresAt { get; set; }
 
         /// <summary>
         /// Whether or not the SignatureRequest has been fully executed by all signers.
@@ -358,8 +357,7 @@ namespace Dropbox.Sign.Model
             return
                 (
                     this.TestMode == input.TestMode ||
-                    (this.TestMode != null &&
-                    this.TestMode.Equals(input.TestMode))
+                    this.TestMode.Equals(input.TestMode)
                 ) &&
                 (
                     this.SignatureRequestId == input.SignatureRequestId ||
@@ -393,8 +391,9 @@ namespace Dropbox.Sign.Model
                 ) &&
                 (
                     this.Metadata == input.Metadata ||
-                    (this.Metadata != null &&
-                    this.Metadata.Equals(input.Metadata))
+                    this.Metadata != null &&
+                    input.Metadata != null &&
+                    this.Metadata.SequenceEqual(input.Metadata)
                 ) &&
                 (
                     this.CreatedAt == input.CreatedAt ||
@@ -402,7 +401,8 @@ namespace Dropbox.Sign.Model
                 ) &&
                 (
                     this.ExpiresAt == input.ExpiresAt ||
-                    this.ExpiresAt.Equals(input.ExpiresAt)
+                    (this.ExpiresAt != null &&
+                    this.ExpiresAt.Equals(input.ExpiresAt))
                 ) &&
                 (
                     this.IsComplete == input.IsComplete ||
@@ -493,10 +493,7 @@ namespace Dropbox.Sign.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.TestMode != null)
-                {
-                    hashCode = (hashCode * 59) + this.TestMode.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.TestMode.GetHashCode();
                 if (this.SignatureRequestId != null)
                 {
                     hashCode = (hashCode * 59) + this.SignatureRequestId.GetHashCode();
@@ -526,7 +523,10 @@ namespace Dropbox.Sign.Model
                     hashCode = (hashCode * 59) + this.Metadata.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.CreatedAt.GetHashCode();
-                hashCode = (hashCode * 59) + this.ExpiresAt.GetHashCode();
+                if (this.ExpiresAt != null)
+                {
+                    hashCode = (hashCode * 59) + this.ExpiresAt.GetHashCode();
+                }
                 hashCode = (hashCode * 59) + this.IsComplete.GetHashCode();
                 hashCode = (hashCode * 59) + this.IsDeclined.GetHashCode();
                 hashCode = (hashCode * 59) + this.HasError.GetHashCode();
@@ -598,7 +598,7 @@ namespace Dropbox.Sign.Model
             {
                 Name = "test_mode",
                 Property = "TestMode",
-                Type = "bool?",
+                Type = "bool",
                 Value = TestMode,
             });
             types.Add(new OpenApiType()
@@ -647,7 +647,7 @@ namespace Dropbox.Sign.Model
             {
                 Name = "metadata",
                 Property = "Metadata",
-                Type = "Object",
+                Type = "Dictionary<string, Object>",
                 Value = Metadata,
             });
             types.Add(new OpenApiType()
@@ -661,7 +661,7 @@ namespace Dropbox.Sign.Model
             {
                 Name = "expires_at",
                 Property = "ExpiresAt",
-                Type = "int",
+                Type = "int?",
                 Value = ExpiresAt,
             });
             types.Add(new OpenApiType()

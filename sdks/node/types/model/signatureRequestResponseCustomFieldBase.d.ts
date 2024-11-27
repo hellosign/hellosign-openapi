@@ -4,7 +4,7 @@ export declare abstract class SignatureRequestResponseCustomFieldBase {
     "name": string;
     "required"?: boolean;
     "apiId"?: string;
-    "editor"?: string;
+    "editor"?: string | null;
     static discriminator: string | undefined;
     static attributeTypeMap: AttributeTypeMap;
     static getAttributeTypeMap(): AttributeTypeMap;

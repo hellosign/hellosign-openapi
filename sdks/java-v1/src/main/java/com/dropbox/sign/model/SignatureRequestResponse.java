@@ -80,7 +80,7 @@ public class SignatureRequestResponse {
     private String message;
 
     public static final String JSON_PROPERTY_METADATA = "metadata";
-    private Object metadata;
+    private Map<String, Object> metadata = null;
 
     public static final String JSON_PROPERTY_CREATED_AT = "created_at";
     private Integer createdAt;
@@ -306,8 +306,16 @@ public class SignatureRequestResponse {
         this.message = message;
     }
 
-    public SignatureRequestResponse metadata(Object metadata) {
+    public SignatureRequestResponse metadata(Map<String, Object> metadata) {
         this.metadata = metadata;
+        return this;
+    }
+
+    public SignatureRequestResponse putMetadataItem(String key, Object metadataItem) {
+        if (this.metadata == null) {
+            this.metadata = new HashMap<>();
+        }
+        this.metadata.put(key, metadataItem);
         return this;
     }
 
@@ -317,14 +325,14 @@ public class SignatureRequestResponse {
      * @return metadata
      */
     @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_METADATA)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public Object getMetadata() {
+    @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
+    public Map<String, Object> getMetadata() {
         return metadata;
     }
 
     @JsonProperty(JSON_PROPERTY_METADATA)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setMetadata(Object metadata) {
+    @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
+    public void setMetadata(Map<String, Object> metadata) {
         this.metadata = metadata;
     }
 

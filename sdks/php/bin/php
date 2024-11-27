@@ -8,7 +8,7 @@ DIR=$(cd `dirname $0` && pwd)
 ROOT_DIR="${DIR}/.."
 WORKING_DIR="/app/php"
 
-if [[ -z "$PHP_USE_NATIVE" ]]; then
+if [[ "$PHP_USE_NATIVE" -ne 1 ]]; then
   docker run --rm \
     -v "${ROOT_DIR}:${WORKING_DIR}" \
     -v "dropbox-sign-sdk-composer-cache:/.composer" \

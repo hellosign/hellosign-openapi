@@ -22,10 +22,6 @@ module Dropbox::Sign
     # @return [String]
     attr_accessor :recipient
 
-    # Fax Transmission Sender
-    # @return [String]
-    attr_accessor :sender
-
     # Fax Transmission Status Code
     # @return [String]
     attr_accessor :status_code
@@ -60,7 +56,6 @@ module Dropbox::Sign
     def self.attribute_map
       {
         :'recipient' => :'recipient',
-        :'sender' => :'sender',
         :'status_code' => :'status_code',
         :'sent_at' => :'sent_at'
       }
@@ -75,7 +70,6 @@ module Dropbox::Sign
     def self.openapi_types
       {
         :'recipient' => :'String',
-        :'sender' => :'String',
         :'status_code' => :'String',
         :'sent_at' => :'Integer'
       }
@@ -131,10 +125,6 @@ module Dropbox::Sign
         self.recipient = attributes[:'recipient']
       end
 
-      if attributes.key?(:'sender')
-        self.sender = attributes[:'sender']
-      end
-
       if attributes.key?(:'status_code')
         self.status_code = attributes[:'status_code']
       end
@@ -152,10 +142,6 @@ module Dropbox::Sign
         invalid_properties.push('invalid value for "recipient", recipient cannot be nil.')
       end
 
-      if @sender.nil?
-        invalid_properties.push('invalid value for "sender", sender cannot be nil.')
-      end
-
       if @status_code.nil?
         invalid_properties.push('invalid value for "status_code", status_code cannot be nil.')
       end
@@ -167,7 +153,6 @@ module Dropbox::Sign
     # @return true if the model is valid
     def valid?
       return false if @recipient.nil?
-      return false if @sender.nil?
       return false if @status_code.nil?
       status_code_validator = EnumAttributeValidator.new('String', ["success", "transmitting", "error_could_not_fax", "error_unknown", "error_busy", "error_no_answer", "error_disconnected", "error_bad_destination"])
       return false unless status_code_validator.valid?(@status_code)
@@ -190,7 +175,6 @@ module Dropbox::Sign
       return true if self.equal?(o)
       self.class == o.class &&
           recipient == o.recipient &&
-          sender == o.sender &&
           status_code == o.status_code &&
           sent_at == o.sent_at
     end
@@ -204,7 +188,7 @@ module Dropbox::Sign
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [recipient, sender, status_code, sent_at].hash
+      [recipient, status_code, sent_at].hash
     end
 
     # Builds the object from hash

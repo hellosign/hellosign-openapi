@@ -10565,6 +10565,10 @@ components:
             bulk_send_job_id:
               description: '_t__BulkSendJobGetResponseSignatureRequests::BULK_SEND_JOB_ID'
               type: string
+            metadata:
+              description: '_t__SignatureRequestResponse::METADATA'
+              type: object
+              additionalProperties: {  }
       x-internal-class: true
     EmbeddedEditUrlResponseEmbedded:
       description: '_t__EmbeddedEditUrlResponseEmbedded::DESCRIPTION'
@@ -10609,13 +10613,11 @@ components:
         - fax_id
         - title
         - original_title
-        - subject
-        - message
         - metadata
         - created_at
         - sender
-        - transmissions
         - files_url
+        - transmissions
       properties:
         fax_id:
           description: '_t__FaxResponse::FAX_ID'
@@ -10629,9 +10631,11 @@ components:
         subject:
           description: '_t__FaxResponse::SUBJECT'
           type: string
+          nullable: true
         message:
           description: '_t__FaxResponse::MESSAGE'
           type: string
+          nullable: true
         metadata:
           description: '_t__FaxResponse::METADATA'
           type: object
@@ -10642,14 +10646,18 @@ components:
         sender:
           description: '_t__FaxResponse::SENDER'
           type: string
+        files_url:
+          description: '_t__FaxResponse::FILES_URL'
+          type: string
+        final_copy_uri:
+          description: '_t__FaxResponse::FINAL_COPY_URI'
+          type: string
+          nullable: true
         transmissions:
           description: '_t__FaxResponse::TRANSMISSIONS'
           type: array
           items:
             $ref: '#/components/schemas/FaxResponseTransmission'
-        files_url:
-          description: '_t__FaxResponse::FILES_URL'
-          type: string
       type: object
       x-internal-class: true
     FaxLineResponseFaxLine:
@@ -10672,14 +10680,10 @@ components:
     FaxResponseTransmission:
       required:
         - recipient
-        - sender
         - status_code
       properties:
         recipient:
           description: '_t__Sub::FaxResponseTransmission::RECIPIENT'
-          type: string
-        sender:
-          description: '_t__Sub::FaxResponseTransmission::SENDER'
           type: string
         status_code:
           description: '_t__Sub::FaxResponseTransmission::STATUS_CODE'
@@ -10744,13 +10748,13 @@ components:
           description: '_t__SignatureRequestResponse::TEST_MODE'
           type: boolean
           default: false
-          nullable: true
         signature_request_id:
           description: '_t__SignatureRequestResponse::SIGNATURE_REQUEST_ID'
           type: string
         requester_email_address:
           description: '_t__SignatureRequestResponse::REQUESTER_EMAIL_ADDRESS'
           type: string
+          nullable: true
         title:
           description: '_t__SignatureRequestResponse::TITLE'
           type: string
@@ -10768,12 +10772,14 @@ components:
         metadata:
           description: '_t__SignatureRequestResponse::METADATA'
           type: object
+          additionalProperties: {  }
         created_at:
           description: '_t__SignatureRequestResponse::CREATED_AT'
           type: integer
         expires_at:
           description: '_t__SignatureRequestResponse::EXPIRES_AT'
           type: integer
+          nullable: true
         is_complete:
           description: '_t__SignatureRequestResponse::IS_COMPLETE'
           type: boolean
@@ -10893,6 +10899,7 @@ components:
         editor:
           description: '_t__SignatureRequestResponseCustomField::EDITOR'
           type: string
+          nullable: true
       type: object
       discriminator:
         propertyName: type
@@ -10903,13 +10910,12 @@ components:
       x-base-class: true
     SignatureRequestResponseCustomFieldCheckbox:
       description: '_t__SignatureRequestResponseCustomField::DESCRIPTION_EXTENDS'
+      required:
+        - type
       allOf:
         -
           $ref: '#/components/schemas/SignatureRequestResponseCustomFieldBase'
         -
-          required:
-            - name
-            - type
           properties:
             type:
               description: '_t__SignatureRequestResponseCustomField::TYPE'
@@ -10921,13 +10927,12 @@ components:
           type: object
     SignatureRequestResponseCustomFieldText:
       description: '_t__SignatureRequestResponseCustomField::DESCRIPTION_EXTENDS'
+      required:
+        - type
       allOf:
         -
           $ref: '#/components/schemas/SignatureRequestResponseCustomFieldBase'
         -
-          required:
-            - name
-            - type
           properties:
             type:
               description: '_t__SignatureRequestResponseCustomField::TYPE'
@@ -11055,6 +11060,10 @@ components:
             value:
               description: '_t__SignatureRequestResponseDataValue::VALUE'
               type: string
+            is_signed:
+              description: '_t__SignatureRequestResponseDataValue::IS_SIGNED'
+              type: boolean
+              nullable: true
           type: object
     SignatureRequestResponseDataValueRadio:
       allOf:
@@ -11083,6 +11092,10 @@ components:
             value:
               description: '_t__SignatureRequestResponseDataValue::VALUE'
               type: string
+            is_signed:
+              description: '_t__SignatureRequestResponseDataValue::IS_SIGNED'
+              type: boolean
+              nullable: true
           type: object
     SignatureRequestResponseDataValueText:
       allOf:
@@ -11317,6 +11330,7 @@ components:
         metadata:
           description: '_t__TemplateResponse::METADATA'
           type: object
+          additionalProperties: {  }
         signer_roles:
           description: '_t__TemplateResponse::SIGNER_ROLES'
           type: array

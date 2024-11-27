@@ -15,7 +15,9 @@ export declare class TemplateResponse {
     "isCreator"?: boolean;
     "canEdit"?: boolean;
     "isLocked"?: boolean;
-    "metadata"?: object;
+    "metadata"?: {
+        [key: string]: any;
+    };
     "signerRoles"?: Array<TemplateResponseSignerRole>;
     "ccRoles"?: Array<TemplateResponseCCRole>;
     "documents"?: Array<TemplateResponseDocument>;
