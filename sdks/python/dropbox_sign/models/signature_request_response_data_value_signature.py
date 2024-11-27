@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import ConfigDict, Field, StrictStr
+from pydantic import ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from dropbox_sign.models.signature_request_response_data_base import (
     SignatureRequestResponseDataBase,
@@ -41,6 +41,10 @@ class SignatureRequestResponseDataValueSignature(SignatureRequestResponseDataBas
     value: Optional[StrictStr] = Field(
         default=None, description="The value of the form field."
     )
+    is_signed: Optional[StrictBool] = Field(
+        default=None,
+        description="This field contains the boolean true if the field is signed.",
+    )
     __properties: ClassVar[List[str]] = [
         "api_id",
         "signature_id",
@@ -48,6 +52,7 @@ class SignatureRequestResponseDataValueSignature(SignatureRequestResponseDataBas
         "required",
         "type",
         "value",
+        "is_signed",
     ]
 
     model_config = ConfigDict(
@@ -119,6 +124,7 @@ class SignatureRequestResponseDataValueSignature(SignatureRequestResponseDataBas
                 "required": obj.get("required"),
                 "type": obj.get("type") if obj.get("type") is not None else "signature",
                 "value": obj.get("value"),
+                "is_signed": obj.get("is_signed"),
             }
         )
         return _obj
@@ -138,6 +144,7 @@ class SignatureRequestResponseDataValueSignature(SignatureRequestResponseDataBas
         return {
             "type": "(str,)",
             "value": "(str,)",
+            "is_signed": "(bool,)",
             "api_id": "(str,)",
             "signature_id": "(str,)",
             "name": "(str,)",

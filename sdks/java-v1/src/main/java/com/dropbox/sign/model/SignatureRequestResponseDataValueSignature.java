@@ -27,7 +27,8 @@ import java.util.Objects;
 /** SignatureRequestResponseDataValueSignature */
 @JsonPropertyOrder({
     SignatureRequestResponseDataValueSignature.JSON_PROPERTY_TYPE,
-    SignatureRequestResponseDataValueSignature.JSON_PROPERTY_VALUE
+    SignatureRequestResponseDataValueSignature.JSON_PROPERTY_VALUE,
+    SignatureRequestResponseDataValueSignature.JSON_PROPERTY_IS_SIGNED
 })
 @javax.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
@@ -46,6 +47,9 @@ public class SignatureRequestResponseDataValueSignature extends SignatureRequest
 
     public static final String JSON_PROPERTY_VALUE = "value";
     private String value;
+
+    public static final String JSON_PROPERTY_IS_SIGNED = "is_signed";
+    private Boolean isSigned;
 
     public SignatureRequestResponseDataValueSignature() {}
 
@@ -111,6 +115,28 @@ public class SignatureRequestResponseDataValueSignature extends SignatureRequest
         this.value = value;
     }
 
+    public SignatureRequestResponseDataValueSignature isSigned(Boolean isSigned) {
+        this.isSigned = isSigned;
+        return this;
+    }
+
+    /**
+     * This field contains the boolean true if the field is signed.
+     *
+     * @return isSigned
+     */
+    @javax.annotation.Nullable @JsonProperty(JSON_PROPERTY_IS_SIGNED)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public Boolean getIsSigned() {
+        return isSigned;
+    }
+
+    @JsonProperty(JSON_PROPERTY_IS_SIGNED)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public void setIsSigned(Boolean isSigned) {
+        this.isSigned = isSigned;
+    }
+
     /** Return true if this SignatureRequestResponseDataValueSignature object is equal to o. */
     @Override
     public boolean equals(Object o) {
@@ -124,12 +150,14 @@ public class SignatureRequestResponseDataValueSignature extends SignatureRequest
                 (SignatureRequestResponseDataValueSignature) o;
         return Objects.equals(this.type, signatureRequestResponseDataValueSignature.type)
                 && Objects.equals(this.value, signatureRequestResponseDataValueSignature.value)
+                && Objects.equals(
+                        this.isSigned, signatureRequestResponseDataValueSignature.isSigned)
                 && super.equals(o);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(type, value, super.hashCode());
+        return Objects.hash(type, value, isSigned, super.hashCode());
     }
 
     @Override
@@ -139,6 +167,7 @@ public class SignatureRequestResponseDataValueSignature extends SignatureRequest
         sb.append("    ").append(toIndentedString(super.toString())).append("\n");
         sb.append("    type: ").append(toIndentedString(type)).append("\n");
         sb.append("    value: ").append(toIndentedString(value)).append("\n");
+        sb.append("    isSigned: ").append(toIndentedString(isSigned)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -182,6 +211,26 @@ public class SignatureRequestResponseDataValueSignature extends SignatureRequest
                     }
                 } else {
                     map.put("value", JSON.getDefault().getMapper().writeValueAsString(value));
+                }
+            }
+            if (isSigned != null) {
+                if (isFileTypeOrListOfFiles(isSigned)) {
+                    fileTypeFound = true;
+                }
+
+                if (isSigned.getClass().equals(java.io.File.class)
+                        || isSigned.getClass().equals(Integer.class)
+                        || isSigned.getClass().equals(String.class)
+                        || isSigned.getClass().isEnum()) {
+                    map.put("is_signed", isSigned);
+                } else if (isListOfFile(isSigned)) {
+                    for (int i = 0; i < getListSize(isSigned); i++) {
+                        map.put("is_signed[" + i + "]", getFromList(isSigned, i));
+                    }
+                } else {
+                    map.put(
+                            "is_signed",
+                            JSON.getDefault().getMapper().writeValueAsString(isSigned));
                 }
             }
         } catch (Exception e) {

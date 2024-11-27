@@ -11654,6 +11654,10 @@ components:
             value:
               description: 'The value of the form field.'
               type: string
+            is_signed:
+              description: 'This field contains the boolean true if the field is signed.'
+              type: boolean
+              nullable: true
           type: object
     SignatureRequestResponseDataValueRadio:
       allOf:
@@ -11682,6 +11686,10 @@ components:
             value:
               description: 'The value of the form field.'
               type: string
+            is_signed:
+              description: 'This field contains the boolean true if the field is signed.'
+              type: boolean
+              nullable: true
           type: object
     SignatureRequestResponseDataValueText:
       allOf:

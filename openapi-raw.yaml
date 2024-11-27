@@ -11060,6 +11060,10 @@ components:
             value:
               description: '_t__SignatureRequestResponseDataValue::VALUE'
               type: string
+            is_signed:
+              description: '_t__SignatureRequestResponseDataValue::IS_SIGNED'
+              type: boolean
+              nullable: true
           type: object
     SignatureRequestResponseDataValueRadio:
       allOf:
@@ -11088,6 +11092,10 @@ components:
             value:
               description: '_t__SignatureRequestResponseDataValue::VALUE'
               type: string
+            is_signed:
+              description: '_t__SignatureRequestResponseDataValue::IS_SIGNED'
+              type: boolean
+              nullable: true
           type: object
     SignatureRequestResponseDataValueText:
       allOf:
