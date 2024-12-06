@@ -113,7 +113,7 @@ public class FaxApi {
     }
 
     /**
-     * List Fax Files. Returns list of fax files
+     * Download Fax Files. Downloads fax files
      *
      * @param faxId Fax ID (required)
      * @return File
@@ -130,7 +130,7 @@ public class FaxApi {
     }
 
     /**
-     * List Fax Files. Returns list of fax files
+     * Download Fax Files. Downloads fax files
      *
      * @param faxId Fax ID (required)
      * @return ApiResponse&lt;File&gt;

@@ -261,7 +261,7 @@ export class FaxLineApi {
     });
   }
   /**
-   * Returns a response with the area codes available for a given state/provice and city.
+   * Returns a response with the area codes available for a given state/province and city.
    * @summary Get Available Fax Line Area Codes
    * @param country Filter area codes by country.
    * @param state Filter area codes by state.

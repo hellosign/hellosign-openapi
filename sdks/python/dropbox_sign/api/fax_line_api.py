@@ -352,7 +352,7 @@ class FaxLineApi:
     ) -> FaxLineAreaCodeGetResponse:
         """Get Available Fax Line Area Codes
 
-        Returns a response with the area codes available for a given state/provice and city.
+        Returns a response with the area codes available for a given state/province and city.
 
         :param country: Filter area codes by country. (required)
         :type country: str
@@ -437,7 +437,7 @@ class FaxLineApi:
     ) -> ApiResponse[FaxLineAreaCodeGetResponse]:
         """Get Available Fax Line Area Codes
 
-        Returns a response with the area codes available for a given state/provice and city.
+        Returns a response with the area codes available for a given state/province and city.
 
         :param country: Filter area codes by country. (required)
         :type country: str
@@ -522,7 +522,7 @@ class FaxLineApi:
     ) -> RESTResponseType:
         """Get Available Fax Line Area Codes
 
-        Returns a response with the area codes available for a given state/provice and city.
+        Returns a response with the area codes available for a given state/province and city.
 
         :param country: Filter area codes by country. (required)
         :type country: str

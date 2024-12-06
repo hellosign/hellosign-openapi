@@ -51,10 +51,10 @@ namespace Dropbox.Sign.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> FaxDeleteWithHttpInfo(string faxId, int operationIndex = 0);
         /// <summary>
-        /// List Fax Files
+        /// Download Fax Files
         /// </summary>
         /// <remarks>
-        /// Returns list of fax files
+        /// Downloads fax files
         /// </remarks>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxId">Fax ID</param>
@@ -63,10 +63,10 @@ namespace Dropbox.Sign.Api
         System.IO.Stream FaxFiles(string faxId, int operationIndex = 0);
 
         /// <summary>
-        /// List Fax Files
+        /// Download Fax Files
         /// </summary>
         /// <remarks>
-        /// Returns list of fax files
+        /// Downloads fax files
         /// </remarks>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxId">Fax ID</param>
@@ -179,10 +179,10 @@ namespace Dropbox.Sign.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> FaxDeleteWithHttpInfoAsync(string faxId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
-        /// List Fax Files
+        /// Download Fax Files
         /// </summary>
         /// <remarks>
-        /// Returns list of fax files
+        /// Downloads fax files
         /// </remarks>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxId">Fax ID</param>
@@ -192,10 +192,10 @@ namespace Dropbox.Sign.Api
         System.Threading.Tasks.Task<System.IO.Stream> FaxFilesAsync(string faxId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
-        /// List Fax Files
+        /// Download Fax Files
         /// </summary>
         /// <remarks>
-        /// Returns list of fax files
+        /// Downloads fax files
         /// </remarks>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxId">Fax ID</param>
@@ -555,7 +555,7 @@ namespace Dropbox.Sign.Api
         }
 
         /// <summary>
-        /// List Fax Files Returns list of fax files
+        /// Download Fax Files Downloads fax files
         /// </summary>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxId">Fax ID</param>
@@ -568,7 +568,7 @@ namespace Dropbox.Sign.Api
         }
 
         /// <summary>
-        /// List Fax Files Returns list of fax files
+        /// Download Fax Files Downloads fax files
         /// </summary>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxId">Fax ID</param>
@@ -632,7 +632,7 @@ namespace Dropbox.Sign.Api
         }
 
         /// <summary>
-        /// List Fax Files Returns list of fax files
+        /// Download Fax Files Downloads fax files
         /// </summary>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxId">Fax ID</param>
@@ -646,7 +646,7 @@ namespace Dropbox.Sign.Api
         }
 
         /// <summary>
-        /// List Fax Files Returns list of fax files
+        /// Download Fax Files Downloads fax files
         /// </summary>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="faxId">Fax ID</param>

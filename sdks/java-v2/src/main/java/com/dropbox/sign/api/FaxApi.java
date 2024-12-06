@@ -114,8 +114,8 @@ public class FaxApi {
     );
   }
   /**
-   * List Fax Files.
-   * Returns list of fax files
+   * Download Fax Files.
+   * Downloads fax files
    * @param faxId Fax ID (required)
    * @return File
    * @throws ApiException if fails to make API call
@@ -132,8 +132,8 @@ public class FaxApi {
 
 
   /**
-   * List Fax Files.
-   * Returns list of fax files
+   * Download Fax Files.
+   * Downloads fax files
    * @param faxId Fax ID (required)
    * @return ApiResponse&lt;File&gt;
    * @throws ApiException if fails to make API call

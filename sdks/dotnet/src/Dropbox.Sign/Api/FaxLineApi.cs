@@ -54,7 +54,7 @@ namespace Dropbox.Sign.Api
         /// Get Available Fax Line Area Codes
         /// </summary>
         /// <remarks>
-        /// Returns a response with the area codes available for a given state/provice and city.
+        /// Returns a response with the area codes available for a given state/province and city.
         /// </remarks>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="country">Filter area codes by country.</param>
@@ -69,7 +69,7 @@ namespace Dropbox.Sign.Api
         /// Get Available Fax Line Area Codes
         /// </summary>
         /// <remarks>
-        /// Returns a response with the area codes available for a given state/provice and city.
+        /// Returns a response with the area codes available for a given state/province and city.
         /// </remarks>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="country">Filter area codes by country.</param>
@@ -238,7 +238,7 @@ namespace Dropbox.Sign.Api
         /// Get Available Fax Line Area Codes
         /// </summary>
         /// <remarks>
-        /// Returns a response with the area codes available for a given state/provice and city.
+        /// Returns a response with the area codes available for a given state/province and city.
         /// </remarks>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="country">Filter area codes by country.</param>
@@ -254,7 +254,7 @@ namespace Dropbox.Sign.Api
         /// Get Available Fax Line Area Codes
         /// </summary>
         /// <remarks>
-        /// Returns a response with the area codes available for a given state/provice and city.
+        /// Returns a response with the area codes available for a given state/province and city.
         /// </remarks>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="country">Filter area codes by country.</param>
@@ -689,7 +689,7 @@ namespace Dropbox.Sign.Api
         }
 
         /// <summary>
-        /// Get Available Fax Line Area Codes Returns a response with the area codes available for a given state/provice and city.
+        /// Get Available Fax Line Area Codes Returns a response with the area codes available for a given state/province and city.
         /// </summary>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="country">Filter area codes by country.</param>
@@ -705,7 +705,7 @@ namespace Dropbox.Sign.Api
         }
 
         /// <summary>
-        /// Get Available Fax Line Area Codes Returns a response with the area codes available for a given state/provice and city.
+        /// Get Available Fax Line Area Codes Returns a response with the area codes available for a given state/province and city.
         /// </summary>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="country">Filter area codes by country.</param>
@@ -783,7 +783,7 @@ namespace Dropbox.Sign.Api
         }
 
         /// <summary>
-        /// Get Available Fax Line Area Codes Returns a response with the area codes available for a given state/provice and city.
+        /// Get Available Fax Line Area Codes Returns a response with the area codes available for a given state/province and city.
         /// </summary>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="country">Filter area codes by country.</param>
@@ -800,7 +800,7 @@ namespace Dropbox.Sign.Api
         }
 
         /// <summary>
-        /// Get Available Fax Line Area Codes Returns a response with the area codes available for a given state/provice and city.
+        /// Get Available Fax Line Area Codes Returns a response with the area codes available for a given state/province and city.
         /// </summary>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="country">Filter area codes by country.</param>

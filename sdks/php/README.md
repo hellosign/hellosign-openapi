@@ -161,7 +161,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 | *EmbeddedApi* | [**embeddedEditUrl**](docs/Api/EmbeddedApi.md#embeddedediturl) | **POST** /embedded/edit_url/{template_id} | Get Embedded Template Edit URL |
 | *EmbeddedApi* | [**embeddedSignUrl**](docs/Api/EmbeddedApi.md#embeddedsignurl) | **GET** /embedded/sign_url/{signature_id} | Get Embedded Sign URL |
 | *FaxApi* | [**faxDelete**](docs/Api/FaxApi.md#faxdelete) | **DELETE** /fax/{fax_id} | Delete Fax |
-| *FaxApi* | [**faxFiles**](docs/Api/FaxApi.md#faxfiles) | **GET** /fax/files/{fax_id} | List Fax Files |
+| *FaxApi* | [**faxFiles**](docs/Api/FaxApi.md#faxfiles) | **GET** /fax/files/{fax_id} | Download Fax Files |
 | *FaxApi* | [**faxGet**](docs/Api/FaxApi.md#faxget) | **GET** /fax/{fax_id} | Get Fax |
 | *FaxApi* | [**faxList**](docs/Api/FaxApi.md#faxlist) | **GET** /fax/list | Lists Faxes |
 | *FaxApi* | [**faxSend**](docs/Api/FaxApi.md#faxsend) | **POST** /fax/send | Send Fax |

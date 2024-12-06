@@ -104,7 +104,7 @@ faxLineAreaCodeGet(country: 'CA' | 'US' | 'UK', state: 'AK' | 'AL' | 'AR' | 'AZ'
 
 Get Available Fax Line Area Codes
 
-Returns a response with the area codes available for a given state/provice and city.
+Returns a response with the area codes available for a given state/province and city.
 
 ### TypeScript Example
 

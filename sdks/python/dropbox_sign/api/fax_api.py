@@ -301,9 +301,9 @@ class FaxApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> io.IOBase:
-        """List Fax Files
+        """Download Fax Files
 
-        Returns list of fax files
+        Downloads fax files
 
         :param fax_id: Fax ID (required)
         :type fax_id: str
@@ -366,9 +366,9 @@ class FaxApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[io.IOBase]:
-        """List Fax Files
+        """Download Fax Files
 
-        Returns list of fax files
+        Downloads fax files
 
         :param fax_id: Fax ID (required)
         :type fax_id: str
@@ -431,9 +431,9 @@ class FaxApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """List Fax Files
+        """Download Fax Files
 
-        Returns list of fax files
+        Downloads fax files
 
         :param fax_id: Fax ID (required)
         :type fax_id: str

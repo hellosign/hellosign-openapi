@@ -135,8 +135,8 @@
 "FaxParam::FAX_ID": Fax ID
 "FaxDelete::SUMMARY": Delete Fax
 "FaxDelete::DESCRIPTION": Deletes the specified Fax from the system.
-"FaxFiles::SUMMARY": List Fax Files
-"FaxFiles::DESCRIPTION": Returns list of fax files
+"FaxFiles::SUMMARY": Download Fax Files
+"FaxFiles::DESCRIPTION": Downloads fax files
 "FaxList::SUMMARY": Lists Faxes
 "FaxList::DESCRIPTION": Returns properties of multiple faxes
 "FaxList::PAGE": Page
@@ -175,7 +175,7 @@
 "FaxLineAddUser::ACCOUNT_ID": Account ID
 "FaxLineAddUser::EMAIL_ADDRESS": Email address
 "FaxLineAreaCodeGet::SUMMARY": Get Available Fax Line Area Codes
-"FaxLineAreaCodeGet::DESCRIPTION": Returns a response with the area codes available for a given state/provice and city.
+"FaxLineAreaCodeGet::DESCRIPTION": Returns a response with the area codes available for a given state/province and city.
 "FaxLineAreaCodeGet::CITY": Filter area codes by city.
 "FaxLineAreaCodeGet::STATE": Filter area codes by state.
 "FaxLineAreaCodeGet::PROVINCE": Filter area codes by province.

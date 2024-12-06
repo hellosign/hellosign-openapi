@@ -385,7 +385,7 @@ class FaxApi
     /**
      * Operation faxFiles
      *
-     * List Fax Files
+     * Download Fax Files
      *
      * @param string $fax_id Fax ID (required)
      *
@@ -402,7 +402,7 @@ class FaxApi
     /**
      * Operation faxFilesWithHttpInfo
      *
-     * List Fax Files
+     * Download Fax Files
      *
      * @param string $fax_id      Fax ID (required)
      * @param string $contentType The value for the Content-Type header. Check self::contentTypes['faxFiles'] to see the possible values for this operation
@@ -539,7 +539,7 @@ class FaxApi
     /**
      * Operation faxFilesAsync
      *
-     * List Fax Files
+     * Download Fax Files
      *
      * @param string $fax_id      Fax ID (required)
      * @param string $contentType The value for the Content-Type header. Check self::contentTypes['faxFiles'] to see the possible values for this operation
@@ -561,7 +561,7 @@ class FaxApi
     /**
      * Operation faxFilesAsyncWithHttpInfo
      *
-     * List Fax Files
+     * Download Fax Files
      *
      * @param string $fax_id      Fax ID (required)
      * @param string $contentType The value for the Content-Type header. Check self::contentTypes['faxFiles'] to see the possible values for this operation
