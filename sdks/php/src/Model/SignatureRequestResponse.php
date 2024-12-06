@@ -479,7 +479,7 @@ class SignatureRequestResponse implements ModelInterface, ArrayAccess, JsonSeria
      *
      * @param bool|null $test_mode Whether this is a test signature request. Test requests have no legal value. Defaults to `false`.
      *
-     * @return self
+     * @return static
      */
     public function setTestMode(?bool $test_mode)
     {
@@ -506,7 +506,7 @@ class SignatureRequestResponse implements ModelInterface, ArrayAccess, JsonSeria
      *
      * @param string|null $signature_request_id the id of the SignatureRequest
      *
-     * @return self
+     * @return static
      */
     public function setSignatureRequestId(?string $signature_request_id)
     {
@@ -533,7 +533,7 @@ class SignatureRequestResponse implements ModelInterface, ArrayAccess, JsonSeria
      *
      * @param string|null $requester_email_address the email address of the initiator of the SignatureRequest
      *
-     * @return self
+     * @return static
      */
     public function setRequesterEmailAddress(?string $requester_email_address)
     {
@@ -567,7 +567,7 @@ class SignatureRequestResponse implements ModelInterface, ArrayAccess, JsonSeria
      *
      * @param string|null $title the title the specified Account uses for the SignatureRequest
      *
-     * @return self
+     * @return static
      */
     public function setTitle(?string $title)
     {
@@ -594,7 +594,7 @@ class SignatureRequestResponse implements ModelInterface, ArrayAccess, JsonSeria
      *
      * @param string|null $original_title default Label for account
      *
-     * @return self
+     * @return static
      */
     public function setOriginalTitle(?string $original_title)
     {
@@ -621,7 +621,7 @@ class SignatureRequestResponse implements ModelInterface, ArrayAccess, JsonSeria
      *
      * @param string|null $subject the subject in the email that was initially sent to the signers
      *
-     * @return self
+     * @return static
      */
     public function setSubject(?string $subject)
     {
@@ -655,7 +655,7 @@ class SignatureRequestResponse implements ModelInterface, ArrayAccess, JsonSeria
      *
      * @param string|null $message the custom message in the email that was initially sent to the signers
      *
-     * @return self
+     * @return static
      */
     public function setMessage(?string $message)
     {
@@ -689,7 +689,7 @@ class SignatureRequestResponse implements ModelInterface, ArrayAccess, JsonSeria
      *
      * @param array<string,mixed>|null $metadata the metadata attached to the signature request
      *
-     * @return self
+     * @return static
      */
     public function setMetadata(?array $metadata)
     {
@@ -716,7 +716,7 @@ class SignatureRequestResponse implements ModelInterface, ArrayAccess, JsonSeria
      *
      * @param int|null $created_at time the signature request was created
      *
-     * @return self
+     * @return static
      */
     public function setCreatedAt(?int $created_at)
     {
@@ -743,7 +743,7 @@ class SignatureRequestResponse implements ModelInterface, ArrayAccess, JsonSeria
      *
      * @param int|null $expires_at The time when the signature request will expire unsigned signatures. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.
      *
-     * @return self
+     * @return static
      */
     public function setExpiresAt(?int $expires_at)
     {
@@ -777,7 +777,7 @@ class SignatureRequestResponse implements ModelInterface, ArrayAccess, JsonSeria
      *
      * @param bool|null $is_complete whether or not the SignatureRequest has been fully executed by all signers
      *
-     * @return self
+     * @return static
      */
     public function setIsComplete(?bool $is_complete)
     {
@@ -804,7 +804,7 @@ class SignatureRequestResponse implements ModelInterface, ArrayAccess, JsonSeria
      *
      * @param bool|null $is_declined whether or not the SignatureRequest has been declined by a signer
      *
-     * @return self
+     * @return static
      */
     public function setIsDeclined(?bool $is_declined)
     {
@@ -831,7 +831,7 @@ class SignatureRequestResponse implements ModelInterface, ArrayAccess, JsonSeria
      *
      * @param bool|null $has_error whether or not an error occurred (either during the creation of the SignatureRequest or during one of the signings)
      *
-     * @return self
+     * @return static
      */
     public function setHasError(?bool $has_error)
     {
@@ -858,7 +858,7 @@ class SignatureRequestResponse implements ModelInterface, ArrayAccess, JsonSeria
      *
      * @param string|null $files_url the URL where a copy of the request's documents can be downloaded
      *
-     * @return self
+     * @return static
      */
     public function setFilesUrl(?string $files_url)
     {
@@ -885,7 +885,7 @@ class SignatureRequestResponse implements ModelInterface, ArrayAccess, JsonSeria
      *
      * @param string|null $signing_url The URL where a signer, after authenticating, can sign the documents. This should only be used by users with existing Dropbox Sign accounts as they will be required to log in before signing.
      *
-     * @return self
+     * @return static
      */
     public function setSigningUrl(?string $signing_url)
     {
@@ -919,7 +919,7 @@ class SignatureRequestResponse implements ModelInterface, ArrayAccess, JsonSeria
      *
      * @param string|null $details_url the URL where the requester and the signers can view the current status of the SignatureRequest
      *
-     * @return self
+     * @return static
      */
     public function setDetailsUrl(?string $details_url)
     {
@@ -946,7 +946,7 @@ class SignatureRequestResponse implements ModelInterface, ArrayAccess, JsonSeria
      *
      * @param string[]|null $cc_email_addresses A list of email addresses that were CCed on the SignatureRequest. They will receive a copy of the final PDF once all the signers have signed.
      *
-     * @return self
+     * @return static
      */
     public function setCcEmailAddresses(?array $cc_email_addresses)
     {
@@ -973,7 +973,7 @@ class SignatureRequestResponse implements ModelInterface, ArrayAccess, JsonSeria
      *
      * @param string|null $signing_redirect_url the URL you want the signer redirected to after they successfully sign
      *
-     * @return self
+     * @return static
      */
     public function setSigningRedirectUrl(?string $signing_redirect_url)
     {
@@ -1007,7 +1007,7 @@ class SignatureRequestResponse implements ModelInterface, ArrayAccess, JsonSeria
      *
      * @param string|null $final_copy_uri The path where the completed document can be downloaded
      *
-     * @return self
+     * @return static
      */
     public function setFinalCopyUri(?string $final_copy_uri)
     {
@@ -1041,7 +1041,7 @@ class SignatureRequestResponse implements ModelInterface, ArrayAccess, JsonSeria
      *
      * @param string[]|null $template_ids templates IDs used in this SignatureRequest (if any)
      *
-     * @return self
+     * @return static
      */
     public function setTemplateIds(?array $template_ids)
     {
@@ -1075,7 +1075,7 @@ class SignatureRequestResponse implements ModelInterface, ArrayAccess, JsonSeria
      *
      * @param SignatureRequestResponseCustomFieldBase[]|null $custom_fields An array of Custom Field objects containing the name and type of each custom field.  * Text Field uses `SignatureRequestResponseCustomFieldText` * Checkbox Field uses `SignatureRequestResponseCustomFieldCheckbox`
      *
-     * @return self
+     * @return static
      */
     public function setCustomFields(?array $custom_fields)
     {
@@ -1109,7 +1109,7 @@ class SignatureRequestResponse implements ModelInterface, ArrayAccess, JsonSeria
      *
      * @param SignatureRequestResponseAttachment[]|null $attachments signer attachments
      *
-     * @return self
+     * @return static
      */
     public function setAttachments(?array $attachments)
     {
@@ -1143,7 +1143,7 @@ class SignatureRequestResponse implements ModelInterface, ArrayAccess, JsonSeria
      *
      * @param SignatureRequestResponseDataBase[]|null $response_data an array of form field objects containing the name, value, and type of each textbox or checkmark field filled in by the signers
      *
-     * @return self
+     * @return static
      */
     public function setResponseData(?array $response_data)
     {
@@ -1177,7 +1177,7 @@ class SignatureRequestResponse implements ModelInterface, ArrayAccess, JsonSeria
      *
      * @param SignatureRequestResponseSignatures[]|null $signatures an array of signature objects, 1 for each signer
      *
-     * @return self
+     * @return static
      */
     public function setSignatures(?array $signatures)
     {
@@ -1204,7 +1204,7 @@ class SignatureRequestResponse implements ModelInterface, ArrayAccess, JsonSeria
      *
      * @param string|null $bulk_send_job_id the ID of the Bulk Send job which sent the signature request, if applicable
      *
-     * @return self
+     * @return static
      */
     public function setBulkSendJobId(?string $bulk_send_job_id)
     {

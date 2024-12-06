@@ -317,7 +317,7 @@ class TemplateResponseDocumentFieldGroup implements ModelInterface, ArrayAccess,
      *
      * @param string|null $name the name of the form field group
      *
-     * @return self
+     * @return static
      */
     public function setName(?string $name)
     {
@@ -344,7 +344,7 @@ class TemplateResponseDocumentFieldGroup implements ModelInterface, ArrayAccess,
      *
      * @param TemplateResponseDocumentFieldGroupRule|null $rule rule
      *
-     * @return self
+     * @return static
      */
     public function setRule(?TemplateResponseDocumentFieldGroupRule $rule)
     {

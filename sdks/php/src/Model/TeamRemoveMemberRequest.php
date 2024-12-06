@@ -369,7 +369,7 @@ class TeamRemoveMemberRequest implements ModelInterface, ArrayAccess, JsonSerial
      *
      * @param string|null $account_id **account_id** or **email_address** is required. If both are provided, the account id prevails.  Account id to remove from your Team.
      *
-     * @return self
+     * @return static
      */
     public function setAccountId(?string $account_id)
     {
@@ -396,7 +396,7 @@ class TeamRemoveMemberRequest implements ModelInterface, ArrayAccess, JsonSerial
      *
      * @param string|null $email_address **account_id** or **email_address** is required. If both are provided, the account id prevails.  Email address of the Account to remove from your Team.
      *
-     * @return self
+     * @return static
      */
     public function setEmailAddress(?string $email_address)
     {
@@ -423,7 +423,7 @@ class TeamRemoveMemberRequest implements ModelInterface, ArrayAccess, JsonSerial
      *
      * @param string|null $new_owner_email_address The email address of an Account on this Team to receive all documents, templates, and API apps (if applicable) from the removed Account. If not provided, and on an Enterprise plan, this data will remain with the removed Account.  **NOTE:** Only available for Enterprise plans.
      *
-     * @return self
+     * @return static
      */
     public function setNewOwnerEmailAddress(?string $new_owner_email_address)
     {
@@ -450,7 +450,7 @@ class TeamRemoveMemberRequest implements ModelInterface, ArrayAccess, JsonSerial
      *
      * @param string|null $new_team_id id of the new Team
      *
-     * @return self
+     * @return static
      */
     public function setNewTeamId(?string $new_team_id)
     {
@@ -477,7 +477,7 @@ class TeamRemoveMemberRequest implements ModelInterface, ArrayAccess, JsonSerial
      *
      * @param string|null $new_role A new role member will take in a new Team.  **NOTE:** This parameter is used only if `new_team_id` is provided.
      *
-     * @return self
+     * @return static
      */
     public function setNewRole(?string $new_role)
     {

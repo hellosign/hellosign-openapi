@@ -318,7 +318,7 @@ class EmbeddedSignUrlResponseEmbedded implements ModelInterface, ArrayAccess, Js
      *
      * @param string|null $sign_url a signature url that can be opened in an iFrame
      *
-     * @return self
+     * @return static
      */
     public function setSignUrl(?string $sign_url)
     {
@@ -345,7 +345,7 @@ class EmbeddedSignUrlResponseEmbedded implements ModelInterface, ArrayAccess, Js
      *
      * @param int|null $expires_at the specific time that the the `sign_url` link expires, in epoch
      *
-     * @return self
+     * @return static
      */
     public function setExpiresAt(?int $expires_at)
     {

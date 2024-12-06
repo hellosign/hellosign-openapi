@@ -318,7 +318,7 @@ class EmbeddedEditUrlResponseEmbedded implements ModelInterface, ArrayAccess, Js
      *
      * @param string|null $edit_url a template url that can be opened in an iFrame
      *
-     * @return self
+     * @return static
      */
     public function setEditUrl(?string $edit_url)
     {
@@ -345,7 +345,7 @@ class EmbeddedEditUrlResponseEmbedded implements ModelInterface, ArrayAccess, Js
      *
      * @param int|null $expires_at the specific time that the the `edit_url` link expires, in epoch
      *
-     * @return self
+     * @return static
      */
     public function setExpiresAt(?int $expires_at)
     {

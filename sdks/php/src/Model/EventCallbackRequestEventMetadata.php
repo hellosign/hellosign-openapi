@@ -331,7 +331,7 @@ class EventCallbackRequestEventMetadata implements ModelInterface, ArrayAccess, 
      *
      * @param string|null $related_signature_id Signature ID for a specific signer. Applicable to `signature_request_signed` and `signature_request_viewed` events.
      *
-     * @return self
+     * @return static
      */
     public function setRelatedSignatureId(?string $related_signature_id)
     {
@@ -365,7 +365,7 @@ class EventCallbackRequestEventMetadata implements ModelInterface, ArrayAccess, 
      *
      * @param string|null $reported_for_account_id account ID the event was reported for
      *
-     * @return self
+     * @return static
      */
     public function setReportedForAccountId(?string $reported_for_account_id)
     {
@@ -399,7 +399,7 @@ class EventCallbackRequestEventMetadata implements ModelInterface, ArrayAccess, 
      *
      * @param string|null $reported_for_app_id app ID the event was reported for
      *
-     * @return self
+     * @return static
      */
     public function setReportedForAppId(?string $reported_for_app_id)
     {
@@ -433,7 +433,7 @@ class EventCallbackRequestEventMetadata implements ModelInterface, ArrayAccess, 
      *
      * @param string|null $event_message message about a declined or failed (due to error) signature flow
      *
-     * @return self
+     * @return static
      */
     public function setEventMessage(?string $event_message)
     {

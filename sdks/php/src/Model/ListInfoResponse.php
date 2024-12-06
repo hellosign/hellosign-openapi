@@ -332,7 +332,7 @@ class ListInfoResponse implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param int|null $num_pages total number of pages available
      *
-     * @return self
+     * @return static
      */
     public function setNumPages(?int $num_pages)
     {
@@ -359,7 +359,7 @@ class ListInfoResponse implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param int|null $num_results total number of objects available
      *
-     * @return self
+     * @return static
      */
     public function setNumResults(?int $num_results)
     {
@@ -393,7 +393,7 @@ class ListInfoResponse implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param int|null $page number of the page being returned
      *
-     * @return self
+     * @return static
      */
     public function setPage(?int $page)
     {
@@ -420,7 +420,7 @@ class ListInfoResponse implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param int|null $page_size objects returned per page
      *
-     * @return self
+     * @return static
      */
     public function setPageSize(?int $page_size)
     {

@@ -315,7 +315,7 @@ class ErrorResponse implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param ErrorResponseError $error error
      *
-     * @return self
+     * @return static
      */
     public function setError(ErrorResponseError $error)
     {

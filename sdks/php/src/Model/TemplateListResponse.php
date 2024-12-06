@@ -332,7 +332,7 @@ class TemplateListResponse implements ModelInterface, ArrayAccess, JsonSerializa
      *
      * @param TemplateResponse[] $templates list of templates that the API caller has access to
      *
-     * @return self
+     * @return static
      */
     public function setTemplates(array $templates)
     {
@@ -359,7 +359,7 @@ class TemplateListResponse implements ModelInterface, ArrayAccess, JsonSerializa
      *
      * @param ListInfoResponse $list_info list_info
      *
-     * @return self
+     * @return static
      */
     public function setListInfo(ListInfoResponse $list_info)
     {
@@ -386,7 +386,7 @@ class TemplateListResponse implements ModelInterface, ArrayAccess, JsonSerializa
      *
      * @param WarningResponse[]|null $warnings a list of warnings
      *
-     * @return self
+     * @return static
      */
     public function setWarnings(?array $warnings)
     {

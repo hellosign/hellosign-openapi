@@ -359,7 +359,7 @@ class ApiAppUpdateRequest implements ModelInterface, ArrayAccess, JsonSerializab
      *
      * @param string|null $callback_url the URL at which the API App should receive event callbacks
      *
-     * @return self
+     * @return static
      */
     public function setCallbackUrl(?string $callback_url)
     {
@@ -386,7 +386,7 @@ class ApiAppUpdateRequest implements ModelInterface, ArrayAccess, JsonSerializab
      *
      * @param SplFileObject|null $custom_logo_file An image file to use as a custom logo in embedded contexts. (Only applies to some API plans)
      *
-     * @return self
+     * @return static
      */
     public function setCustomLogoFile(?SplFileObject $custom_logo_file)
     {
@@ -413,7 +413,7 @@ class ApiAppUpdateRequest implements ModelInterface, ArrayAccess, JsonSerializab
      *
      * @param string[]|null $domains the domain names the ApiApp will be associated with
      *
-     * @return self
+     * @return static
      */
     public function setDomains(?array $domains)
     {
@@ -444,7 +444,7 @@ class ApiAppUpdateRequest implements ModelInterface, ArrayAccess, JsonSerializab
      *
      * @param string|null $name the name you want to assign to the ApiApp
      *
-     * @return self
+     * @return static
      */
     public function setName(?string $name)
     {
@@ -471,7 +471,7 @@ class ApiAppUpdateRequest implements ModelInterface, ArrayAccess, JsonSerializab
      *
      * @param SubOAuth|null $oauth oauth
      *
-     * @return self
+     * @return static
      */
     public function setOauth(?SubOAuth $oauth)
     {
@@ -498,7 +498,7 @@ class ApiAppUpdateRequest implements ModelInterface, ArrayAccess, JsonSerializab
      *
      * @param SubOptions|null $options options
      *
-     * @return self
+     * @return static
      */
     public function setOptions(?SubOptions $options)
     {
@@ -525,7 +525,7 @@ class ApiAppUpdateRequest implements ModelInterface, ArrayAccess, JsonSerializab
      *
      * @param SubWhiteLabelingOptions|null $white_labeling_options white_labeling_options
      *
-     * @return self
+     * @return static
      */
     public function setWhiteLabelingOptions(?SubWhiteLabelingOptions $white_labeling_options)
     {

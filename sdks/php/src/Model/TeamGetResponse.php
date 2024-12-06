@@ -322,7 +322,7 @@ class TeamGetResponse implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param TeamResponse $team team
      *
-     * @return self
+     * @return static
      */
     public function setTeam(TeamResponse $team)
     {
@@ -349,7 +349,7 @@ class TeamGetResponse implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param WarningResponse[]|null $warnings a list of warnings
      *
-     * @return self
+     * @return static
      */
     public function setWarnings(?array $warnings)
     {

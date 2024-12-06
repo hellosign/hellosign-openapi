@@ -346,7 +346,7 @@ class UnclaimedDraftResponse implements ModelInterface, ArrayAccess, JsonSeriali
      *
      * @param string|null $signature_request_id the ID of the signature request that is represented by this UnclaimedDraft
      *
-     * @return self
+     * @return static
      */
     public function setSignatureRequestId(?string $signature_request_id)
     {
@@ -380,7 +380,7 @@ class UnclaimedDraftResponse implements ModelInterface, ArrayAccess, JsonSeriali
      *
      * @param string|null $claim_url the URL to be used to claim this UnclaimedDraft
      *
-     * @return self
+     * @return static
      */
     public function setClaimUrl(?string $claim_url)
     {
@@ -407,7 +407,7 @@ class UnclaimedDraftResponse implements ModelInterface, ArrayAccess, JsonSeriali
      *
      * @param string|null $signing_redirect_url the URL you want signers redirected to after they successfully sign
      *
-     * @return self
+     * @return static
      */
     public function setSigningRedirectUrl(?string $signing_redirect_url)
     {
@@ -441,7 +441,7 @@ class UnclaimedDraftResponse implements ModelInterface, ArrayAccess, JsonSeriali
      *
      * @param string|null $requesting_redirect_url The URL you want signers redirected to after they successfully request a signature (Will only be returned in the response if it is applicable to the request.).
      *
-     * @return self
+     * @return static
      */
     public function setRequestingRedirectUrl(?string $requesting_redirect_url)
     {
@@ -475,7 +475,7 @@ class UnclaimedDraftResponse implements ModelInterface, ArrayAccess, JsonSeriali
      *
      * @param int|null $expires_at when the link expires
      *
-     * @return self
+     * @return static
      */
     public function setExpiresAt(?int $expires_at)
     {
@@ -509,7 +509,7 @@ class UnclaimedDraftResponse implements ModelInterface, ArrayAccess, JsonSeriali
      *
      * @param bool|null $test_mode Whether this is a test draft. Signature requests made from test drafts have no legal value.
      *
-     * @return self
+     * @return static
      */
     public function setTestMode(?bool $test_mode)
     {

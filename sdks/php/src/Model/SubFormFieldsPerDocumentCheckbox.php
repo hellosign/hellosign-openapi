@@ -326,7 +326,7 @@ class SubFormFieldsPerDocumentCheckbox extends SubFormFieldsPerDocumentBase
      *
      * @param string $type A yes/no checkbox. Use the `SubFormFieldsPerDocumentCheckbox` class.
      *
-     * @return self
+     * @return static
      */
     public function setType(string $type)
     {
@@ -353,7 +353,7 @@ class SubFormFieldsPerDocumentCheckbox extends SubFormFieldsPerDocumentBase
      *
      * @param bool $is_checked `true` for checking the checkbox field by default, otherwise `false`
      *
-     * @return self
+     * @return static
      */
     public function setIsChecked(bool $is_checked)
     {
@@ -380,7 +380,7 @@ class SubFormFieldsPerDocumentCheckbox extends SubFormFieldsPerDocumentBase
      *
      * @param string|null $group string referencing group defined in `form_field_groups` parameter
      *
-     * @return self
+     * @return static
      */
     public function setGroup(?string $group)
     {

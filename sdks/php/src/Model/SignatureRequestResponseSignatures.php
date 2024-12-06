@@ -437,7 +437,7 @@ class SignatureRequestResponseSignatures implements ModelInterface, ArrayAccess,
      *
      * @param string|null $signature_id signature identifier
      *
-     * @return self
+     * @return static
      */
     public function setSignatureId(?string $signature_id)
     {
@@ -464,7 +464,7 @@ class SignatureRequestResponseSignatures implements ModelInterface, ArrayAccess,
      *
      * @param string|null $signer_group_guid Signer Group GUID
      *
-     * @return self
+     * @return static
      */
     public function setSignerGroupGuid(?string $signer_group_guid)
     {
@@ -498,7 +498,7 @@ class SignatureRequestResponseSignatures implements ModelInterface, ArrayAccess,
      *
      * @param string|null $signer_email_address the email address of the signer
      *
-     * @return self
+     * @return static
      */
     public function setSignerEmailAddress(?string $signer_email_address)
     {
@@ -525,7 +525,7 @@ class SignatureRequestResponseSignatures implements ModelInterface, ArrayAccess,
      *
      * @param string|null $signer_name the name of the signer
      *
-     * @return self
+     * @return static
      */
     public function setSignerName(?string $signer_name)
     {
@@ -559,7 +559,7 @@ class SignatureRequestResponseSignatures implements ModelInterface, ArrayAccess,
      *
      * @param string|null $signer_role the role of the signer
      *
-     * @return self
+     * @return static
      */
     public function setSignerRole(?string $signer_role)
     {
@@ -593,7 +593,7 @@ class SignatureRequestResponseSignatures implements ModelInterface, ArrayAccess,
      *
      * @param int|null $order if signer order is assigned this is the 0-based index for this signer
      *
-     * @return self
+     * @return static
      */
     public function setOrder(?int $order)
     {
@@ -627,7 +627,7 @@ class SignatureRequestResponseSignatures implements ModelInterface, ArrayAccess,
      *
      * @param string|null $status_code The current status of the signature. eg: awaiting_signature, signed, declined.
      *
-     * @return self
+     * @return static
      */
     public function setStatusCode(?string $status_code)
     {
@@ -654,7 +654,7 @@ class SignatureRequestResponseSignatures implements ModelInterface, ArrayAccess,
      *
      * @param string|null $decline_reason the reason provided by the signer for declining the request
      *
-     * @return self
+     * @return static
      */
     public function setDeclineReason(?string $decline_reason)
     {
@@ -688,7 +688,7 @@ class SignatureRequestResponseSignatures implements ModelInterface, ArrayAccess,
      *
      * @param int|null $signed_at time that the document was signed or null
      *
-     * @return self
+     * @return static
      */
     public function setSignedAt(?int $signed_at)
     {
@@ -722,7 +722,7 @@ class SignatureRequestResponseSignatures implements ModelInterface, ArrayAccess,
      *
      * @param int|null $last_viewed_at the time that the document was last viewed by this signer or null
      *
-     * @return self
+     * @return static
      */
     public function setLastViewedAt(?int $last_viewed_at)
     {
@@ -756,7 +756,7 @@ class SignatureRequestResponseSignatures implements ModelInterface, ArrayAccess,
      *
      * @param int|null $last_reminded_at the time the last reminder email was sent to the signer or null
      *
-     * @return self
+     * @return static
      */
     public function setLastRemindedAt(?int $last_reminded_at)
     {
@@ -790,7 +790,7 @@ class SignatureRequestResponseSignatures implements ModelInterface, ArrayAccess,
      *
      * @param bool|null $has_pin boolean to indicate whether this signature requires a PIN to access
      *
-     * @return self
+     * @return static
      */
     public function setHasPin(?bool $has_pin)
     {
@@ -817,7 +817,7 @@ class SignatureRequestResponseSignatures implements ModelInterface, ArrayAccess,
      *
      * @param bool|null $has_sms_auth boolean to indicate whether this signature has SMS authentication enabled
      *
-     * @return self
+     * @return static
      */
     public function setHasSmsAuth(?bool $has_sms_auth)
     {
@@ -851,7 +851,7 @@ class SignatureRequestResponseSignatures implements ModelInterface, ArrayAccess,
      *
      * @param bool|null $has_sms_delivery boolean to indicate whether this signature has SMS delivery enabled
      *
-     * @return self
+     * @return static
      */
     public function setHasSmsDelivery(?bool $has_sms_delivery)
     {
@@ -885,7 +885,7 @@ class SignatureRequestResponseSignatures implements ModelInterface, ArrayAccess,
      *
      * @param string|null $sms_phone_number the SMS phone number used for authentication or signature request delivery
      *
-     * @return self
+     * @return static
      */
     public function setSmsPhoneNumber(?string $sms_phone_number)
     {
@@ -919,7 +919,7 @@ class SignatureRequestResponseSignatures implements ModelInterface, ArrayAccess,
      *
      * @param string|null $reassigned_by email address of original signer who reassigned to this signer
      *
-     * @return self
+     * @return static
      */
     public function setReassignedBy(?string $reassigned_by)
     {
@@ -953,7 +953,7 @@ class SignatureRequestResponseSignatures implements ModelInterface, ArrayAccess,
      *
      * @param string|null $reassignment_reason reason provided by original signer who reassigned to this signer
      *
-     * @return self
+     * @return static
      */
     public function setReassignmentReason(?string $reassignment_reason)
     {
@@ -987,7 +987,7 @@ class SignatureRequestResponseSignatures implements ModelInterface, ArrayAccess,
      *
      * @param string|null $reassigned_from previous signature identifier
      *
-     * @return self
+     * @return static
      */
     public function setReassignedFrom(?string $reassigned_from)
     {
@@ -1021,7 +1021,7 @@ class SignatureRequestResponseSignatures implements ModelInterface, ArrayAccess,
      *
      * @param string|null $error error message pertaining to this signer, or null
      *
-     * @return self
+     * @return static
      */
     public function setError(?string $error)
     {

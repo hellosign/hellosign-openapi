@@ -380,7 +380,7 @@ class AccountResponse implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param string|null $account_id The ID of the Account
      *
-     * @return self
+     * @return static
      */
     public function setAccountId(?string $account_id)
     {
@@ -407,7 +407,7 @@ class AccountResponse implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param string|null $email_address the email address associated with the Account
      *
-     * @return self
+     * @return static
      */
     public function setEmailAddress(?string $email_address)
     {
@@ -434,7 +434,7 @@ class AccountResponse implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param bool|null $is_locked returns `true` if the user has been locked out of their account by a team admin
      *
-     * @return self
+     * @return static
      */
     public function setIsLocked(?bool $is_locked)
     {
@@ -461,7 +461,7 @@ class AccountResponse implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param bool|null $is_paid_hs returns `true` if the user has a paid Dropbox Sign account
      *
-     * @return self
+     * @return static
      */
     public function setIsPaidHs(?bool $is_paid_hs)
     {
@@ -488,7 +488,7 @@ class AccountResponse implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param bool|null $is_paid_hf returns `true` if the user has a paid HelloFax account
      *
-     * @return self
+     * @return static
      */
     public function setIsPaidHf(?bool $is_paid_hf)
     {
@@ -515,7 +515,7 @@ class AccountResponse implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param AccountResponseQuotas|null $quotas quotas
      *
-     * @return self
+     * @return static
      */
     public function setQuotas(?AccountResponseQuotas $quotas)
     {
@@ -542,7 +542,7 @@ class AccountResponse implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param string|null $callback_url the URL that Dropbox Sign events will `POST` to
      *
-     * @return self
+     * @return static
      */
     public function setCallbackUrl(?string $callback_url)
     {
@@ -576,7 +576,7 @@ class AccountResponse implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param string|null $role_code the membership role for the team
      *
-     * @return self
+     * @return static
      */
     public function setRoleCode(?string $role_code)
     {
@@ -610,7 +610,7 @@ class AccountResponse implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param string|null $team_id the id of the team account belongs to
      *
-     * @return self
+     * @return static
      */
     public function setTeamId(?string $team_id)
     {
@@ -644,7 +644,7 @@ class AccountResponse implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param string|null $locale The locale used in this Account. Check out the list of [supported locales](/api/reference/constants/#supported-locales) to learn more about the possible values.
      *
-     * @return self
+     * @return static
      */
     public function setLocale(?string $locale)
     {
@@ -678,7 +678,7 @@ class AccountResponse implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param AccountResponseUsage|null $usage usage
      *
-     * @return self
+     * @return static
      */
     public function setUsage(?AccountResponseUsage $usage)
     {

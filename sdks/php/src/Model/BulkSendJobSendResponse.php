@@ -322,7 +322,7 @@ class BulkSendJobSendResponse implements ModelInterface, ArrayAccess, JsonSerial
      *
      * @param BulkSendJobResponse $bulk_send_job bulk_send_job
      *
-     * @return self
+     * @return static
      */
     public function setBulkSendJob(BulkSendJobResponse $bulk_send_job)
     {
@@ -349,7 +349,7 @@ class BulkSendJobSendResponse implements ModelInterface, ArrayAccess, JsonSerial
      *
      * @param WarningResponse[]|null $warnings a list of warnings
      *
-     * @return self
+     * @return static
      */
     public function setWarnings(?array $warnings)
     {

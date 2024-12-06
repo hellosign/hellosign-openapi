@@ -318,7 +318,7 @@ class TemplateResponseDocumentFieldGroupRule implements ModelInterface, ArrayAcc
      *
      * @param string|null $requirement Examples: `require_0-1` `require_1` `require_1-ormore`  - Check out the list of [acceptable `requirement` checkbox type values](/api/reference/constants/#checkbox-field-grouping). - Check out the list of [acceptable `requirement` radio type fields](/api/reference/constants/#radio-field-grouping). - Radio groups require **at least** two fields per group.
      *
-     * @return self
+     * @return static
      */
     public function setRequirement(?string $requirement)
     {
@@ -345,7 +345,7 @@ class TemplateResponseDocumentFieldGroupRule implements ModelInterface, ArrayAcc
      *
      * @param string|null $group_label Name of the group
      *
-     * @return self
+     * @return static
      */
     public function setGroupLabel(?string $group_label)
     {

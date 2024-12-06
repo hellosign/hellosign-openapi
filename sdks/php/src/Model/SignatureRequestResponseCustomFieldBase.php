@@ -346,7 +346,7 @@ class SignatureRequestResponseCustomFieldBase implements ModelInterface, ArrayAc
      *
      * @param string $type The type of this Custom Field. Only 'text' and 'checkbox' are currently supported.
      *
-     * @return self
+     * @return static
      */
     public function setType(string $type)
     {
@@ -373,7 +373,7 @@ class SignatureRequestResponseCustomFieldBase implements ModelInterface, ArrayAc
      *
      * @param string $name the name of the Custom Field
      *
-     * @return self
+     * @return static
      */
     public function setName(string $name)
     {
@@ -400,7 +400,7 @@ class SignatureRequestResponseCustomFieldBase implements ModelInterface, ArrayAc
      *
      * @param bool|null $required a boolean value denoting if this field is required
      *
-     * @return self
+     * @return static
      */
     public function setRequired(?bool $required)
     {
@@ -427,7 +427,7 @@ class SignatureRequestResponseCustomFieldBase implements ModelInterface, ArrayAc
      *
      * @param string|null $api_id the unique ID for this field
      *
-     * @return self
+     * @return static
      */
     public function setApiId(?string $api_id)
     {
@@ -454,7 +454,7 @@ class SignatureRequestResponseCustomFieldBase implements ModelInterface, ArrayAc
      *
      * @param string|null $editor the name of the Role that is able to edit this field
      *
-     * @return self
+     * @return static
      */
     public function setEditor(?string $editor)
     {

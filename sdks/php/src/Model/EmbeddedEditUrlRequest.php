@@ -373,7 +373,7 @@ class EmbeddedEditUrlRequest implements ModelInterface, ArrayAccess, JsonSeriali
      *
      * @param bool|null $allow_edit_ccs this allows the requester to enable/disable to add or change CC roles when editing the template
      *
-     * @return self
+     * @return static
      */
     public function setAllowEditCcs(?bool $allow_edit_ccs)
     {
@@ -400,7 +400,7 @@ class EmbeddedEditUrlRequest implements ModelInterface, ArrayAccess, JsonSeriali
      *
      * @param string[]|null $cc_roles The CC roles that must be assigned when using the template to send a signature request. To remove all CC roles, pass in a single role with no name. For use in a POST request.
      *
-     * @return self
+     * @return static
      */
     public function setCcRoles(?array $cc_roles)
     {
@@ -427,7 +427,7 @@ class EmbeddedEditUrlRequest implements ModelInterface, ArrayAccess, JsonSeriali
      *
      * @param SubEditorOptions|null $editor_options editor_options
      *
-     * @return self
+     * @return static
      */
     public function setEditorOptions(?SubEditorOptions $editor_options)
     {
@@ -454,7 +454,7 @@ class EmbeddedEditUrlRequest implements ModelInterface, ArrayAccess, JsonSeriali
      *
      * @param bool|null $force_signer_roles provide users the ability to review/edit the template signer roles
      *
-     * @return self
+     * @return static
      */
     public function setForceSignerRoles(?bool $force_signer_roles)
     {
@@ -481,7 +481,7 @@ class EmbeddedEditUrlRequest implements ModelInterface, ArrayAccess, JsonSeriali
      *
      * @param bool|null $force_subject_message provide users the ability to review/edit the template subject and message
      *
-     * @return self
+     * @return static
      */
     public function setForceSubjectMessage(?bool $force_subject_message)
     {
@@ -508,7 +508,7 @@ class EmbeddedEditUrlRequest implements ModelInterface, ArrayAccess, JsonSeriali
      *
      * @param SubMergeField[]|null $merge_fields Add additional merge fields to the template, which can be used used to pre-fill data by passing values into signature requests made with that template.  Remove all merge fields on the template by passing an empty array `[]`.
      *
-     * @return self
+     * @return static
      */
     public function setMergeFields(?array $merge_fields)
     {
@@ -535,7 +535,7 @@ class EmbeddedEditUrlRequest implements ModelInterface, ArrayAccess, JsonSeriali
      *
      * @param bool|null $preview_only This allows the requester to enable the preview experience (i.e. does not allow the requester's end user to add any additional fields via the editor).  **NOTE:** This parameter overwrites `show_preview=true` (if set).
      *
-     * @return self
+     * @return static
      */
     public function setPreviewOnly(?bool $preview_only)
     {
@@ -562,7 +562,7 @@ class EmbeddedEditUrlRequest implements ModelInterface, ArrayAccess, JsonSeriali
      *
      * @param bool|null $show_preview this allows the requester to enable the editor/preview experience
      *
-     * @return self
+     * @return static
      */
     public function setShowPreview(?bool $show_preview)
     {
@@ -589,7 +589,7 @@ class EmbeddedEditUrlRequest implements ModelInterface, ArrayAccess, JsonSeriali
      *
      * @param bool|null $show_progress_stepper when only one step remains in the signature request process and this parameter is set to `false` then the progress stepper will be hidden
      *
-     * @return self
+     * @return static
      */
     public function setShowProgressStepper(?bool $show_progress_stepper)
     {
@@ -616,7 +616,7 @@ class EmbeddedEditUrlRequest implements ModelInterface, ArrayAccess, JsonSeriali
      *
      * @param bool|null $test_mode Whether this is a test, locked templates will only be available for editing if this is set to `true`. Defaults to `false`.
      *
-     * @return self
+     * @return static
      */
     public function setTestMode(?bool $test_mode)
     {

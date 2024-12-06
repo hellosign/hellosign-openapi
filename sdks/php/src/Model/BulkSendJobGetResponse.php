@@ -342,7 +342,7 @@ class BulkSendJobGetResponse implements ModelInterface, ArrayAccess, JsonSeriali
      *
      * @param BulkSendJobResponse $bulk_send_job bulk_send_job
      *
-     * @return self
+     * @return static
      */
     public function setBulkSendJob(BulkSendJobResponse $bulk_send_job)
     {
@@ -369,7 +369,7 @@ class BulkSendJobGetResponse implements ModelInterface, ArrayAccess, JsonSeriali
      *
      * @param ListInfoResponse $list_info list_info
      *
-     * @return self
+     * @return static
      */
     public function setListInfo(ListInfoResponse $list_info)
     {
@@ -396,7 +396,7 @@ class BulkSendJobGetResponse implements ModelInterface, ArrayAccess, JsonSeriali
      *
      * @param BulkSendJobGetResponseSignatureRequests[] $signature_requests contains information about the Signature Requests sent in bulk
      *
-     * @return self
+     * @return static
      */
     public function setSignatureRequests(array $signature_requests)
     {
@@ -423,7 +423,7 @@ class BulkSendJobGetResponse implements ModelInterface, ArrayAccess, JsonSeriali
      *
      * @param WarningResponse[]|null $warnings a list of warnings
      *
-     * @return self
+     * @return static
      */
     public function setWarnings(?array $warnings)
     {

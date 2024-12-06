@@ -310,7 +310,7 @@ class SignatureRequestResponseDataValueRadio extends SignatureRequestResponseDat
      *
      * @param string|null $type An input field for radios
      *
-     * @return self
+     * @return static
      */
     public function setType(?string $type)
     {
@@ -337,7 +337,7 @@ class SignatureRequestResponseDataValueRadio extends SignatureRequestResponseDat
      *
      * @param bool|null $value the value of the form field
      *
-     * @return self
+     * @return static
      */
     public function setValue(?bool $value)
     {

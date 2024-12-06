@@ -329,7 +329,7 @@ class SubFormFieldsPerDocumentRadio extends SubFormFieldsPerDocumentBase
      *
      * @param string $type An input field for radios. Use the `SubFormFieldsPerDocumentRadio` class.
      *
-     * @return self
+     * @return static
      */
     public function setType(string $type)
     {
@@ -356,7 +356,7 @@ class SubFormFieldsPerDocumentRadio extends SubFormFieldsPerDocumentBase
      *
      * @param string $group string referencing group defined in `form_field_groups` parameter
      *
-     * @return self
+     * @return static
      */
     public function setGroup(string $group)
     {
@@ -383,7 +383,7 @@ class SubFormFieldsPerDocumentRadio extends SubFormFieldsPerDocumentBase
      *
      * @param bool $is_checked `true` for checking the radio field by default, otherwise `false`. Only one radio field per group can be `true`.
      *
-     * @return self
+     * @return static
      */
     public function setIsChecked(bool $is_checked)
     {
