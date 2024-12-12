@@ -355,7 +355,7 @@ class OAuthTokenGenerateRequest implements ModelInterface, ArrayAccess, JsonSeri
      *
      * @param string $client_id the client id of the app requesting authorization
      *
-     * @return self
+     * @return static
      */
     public function setClientId(string $client_id)
     {
@@ -382,7 +382,7 @@ class OAuthTokenGenerateRequest implements ModelInterface, ArrayAccess, JsonSeri
      *
      * @param string $client_secret the secret token of your app
      *
-     * @return self
+     * @return static
      */
     public function setClientSecret(string $client_secret)
     {
@@ -409,7 +409,7 @@ class OAuthTokenGenerateRequest implements ModelInterface, ArrayAccess, JsonSeri
      *
      * @param string $code the code passed to your callback when the user granted access
      *
-     * @return self
+     * @return static
      */
     public function setCode(string $code)
     {
@@ -436,7 +436,7 @@ class OAuthTokenGenerateRequest implements ModelInterface, ArrayAccess, JsonSeri
      *
      * @param string $grant_type when generating a new token use `authorization_code`
      *
-     * @return self
+     * @return static
      */
     public function setGrantType(string $grant_type)
     {
@@ -463,7 +463,7 @@ class OAuthTokenGenerateRequest implements ModelInterface, ArrayAccess, JsonSeri
      *
      * @param string $state same as the state you specified earlier
      *
-     * @return self
+     * @return static
      */
     public function setState(string $state)
     {

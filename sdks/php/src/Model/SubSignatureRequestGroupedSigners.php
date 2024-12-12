@@ -332,7 +332,7 @@ class SubSignatureRequestGroupedSigners implements ModelInterface, ArrayAccess, 
      *
      * @param string $group the name of the group
      *
-     * @return self
+     * @return static
      */
     public function setGroup(string $group)
     {
@@ -359,7 +359,7 @@ class SubSignatureRequestGroupedSigners implements ModelInterface, ArrayAccess, 
      *
      * @param SubSignatureRequestSigner[] $signers Signers belonging to this Group.  **NOTE:** Only `name`, `email_address`, and `pin` are available to Grouped Signers. We will ignore all other properties, even though they are listed below.
      *
-     * @return self
+     * @return static
      */
     public function setSigners(array $signers)
     {
@@ -386,7 +386,7 @@ class SubSignatureRequestGroupedSigners implements ModelInterface, ArrayAccess, 
      *
      * @param int|null $order The order the group is required to sign in. Use this instead of Signer-level `order`.
      *
-     * @return self
+     * @return static
      */
     public function setOrder(?int $order)
     {

@@ -322,7 +322,7 @@ class UnclaimedDraftCreateResponse implements ModelInterface, ArrayAccess, JsonS
      *
      * @param UnclaimedDraftResponse $unclaimed_draft unclaimed_draft
      *
-     * @return self
+     * @return static
      */
     public function setUnclaimedDraft(UnclaimedDraftResponse $unclaimed_draft)
     {
@@ -349,7 +349,7 @@ class UnclaimedDraftCreateResponse implements ModelInterface, ArrayAccess, JsonS
      *
      * @param WarningResponse[]|null $warnings a list of warnings
      *
-     * @return self
+     * @return static
      */
     public function setWarnings(?array $warnings)
     {

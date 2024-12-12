@@ -322,7 +322,7 @@ class SignatureRequestRemindRequest implements ModelInterface, ArrayAccess, Json
      *
      * @param string $email_address the email address of the signer to send a reminder to
      *
-     * @return self
+     * @return static
      */
     public function setEmailAddress(string $email_address)
     {
@@ -349,7 +349,7 @@ class SignatureRequestRemindRequest implements ModelInterface, ArrayAccess, Json
      *
      * @param string|null $name The name of the signer to send a reminder to. Include if two or more signers share an email address.
      *
-     * @return self
+     * @return static
      */
     public function setName(?string $name)
     {

@@ -392,7 +392,7 @@ class TemplateResponseDocumentFormFieldText extends TemplateResponseDocumentForm
      *
      * @param string $type The type of this form field. See [field types](/api/reference/constants/#field-types).  * Text Field uses `TemplateResponseDocumentFormFieldText` * Dropdown Field uses `TemplateResponseDocumentFormFieldDropdown` * Hyperlink Field uses `TemplateResponseDocumentFormFieldHyperlink` * Checkbox Field uses `TemplateResponseDocumentFormFieldCheckbox` * Radio Field uses `TemplateResponseDocumentFormFieldRadio` * Signature Field uses `TemplateResponseDocumentFormFieldSignature` * Date Signed Field uses `TemplateResponseDocumentFormFieldDateSigned` * Initials Field uses `TemplateResponseDocumentFormFieldInitials`
      *
-     * @return self
+     * @return static
      */
     public function setType(string $type)
     {
@@ -419,7 +419,7 @@ class TemplateResponseDocumentFormFieldText extends TemplateResponseDocumentForm
      *
      * @param TemplateResponseFieldAvgTextLength|null $avg_text_length avg_text_length
      *
-     * @return self
+     * @return static
      */
     public function setAvgTextLength(?TemplateResponseFieldAvgTextLength $avg_text_length)
     {
@@ -446,7 +446,7 @@ class TemplateResponseDocumentFormFieldText extends TemplateResponseDocumentForm
      *
      * @param bool|null $is_multiline whether this form field is multiline text
      *
-     * @return self
+     * @return static
      */
     public function setIsMultiline(?bool $is_multiline)
     {
@@ -473,7 +473,7 @@ class TemplateResponseDocumentFormFieldText extends TemplateResponseDocumentForm
      *
      * @param int|null $original_font_size original font size used in this form field's text
      *
-     * @return self
+     * @return static
      */
     public function setOriginalFontSize(?int $original_font_size)
     {
@@ -500,7 +500,7 @@ class TemplateResponseDocumentFormFieldText extends TemplateResponseDocumentForm
      *
      * @param string|null $font_family font family used in this form field's text
      *
-     * @return self
+     * @return static
      */
     public function setFontFamily(?string $font_family)
     {
@@ -527,7 +527,7 @@ class TemplateResponseDocumentFormFieldText extends TemplateResponseDocumentForm
      *
      * @param string|null $validation_type Each text field may contain a `validation_type` parameter. Check out the list of [validation types](https://faq.hellosign.com/hc/en-us/articles/217115577) to learn more about the possible values.
      *
-     * @return self
+     * @return static
      */
     public function setValidationType(?string $validation_type)
     {
@@ -571,7 +571,7 @@ class TemplateResponseDocumentFormFieldText extends TemplateResponseDocumentForm
      *
      * @param string|null $group The name of the group this field is in. If this field is not a group, this defaults to `null` except for Radio fields.
      *
-     * @return self
+     * @return static
      */
     public function setGroup(?string $group)
     {

@@ -317,7 +317,7 @@ class TemplateResponseSignerRole implements ModelInterface, ArrayAccess, JsonSer
      *
      * @param string|null $name the name of the Role
      *
-     * @return self
+     * @return static
      */
     public function setName(?string $name)
     {
@@ -344,7 +344,7 @@ class TemplateResponseSignerRole implements ModelInterface, ArrayAccess, JsonSer
      *
      * @param int|null $order if signer order is assigned this is the 0-based index for this role
      *
-     * @return self
+     * @return static
      */
     public function setOrder(?int $order)
     {

@@ -322,7 +322,7 @@ class EmbeddedEditUrlResponse implements ModelInterface, ArrayAccess, JsonSerial
      *
      * @param EmbeddedEditUrlResponseEmbedded $embedded embedded
      *
-     * @return self
+     * @return static
      */
     public function setEmbedded(EmbeddedEditUrlResponseEmbedded $embedded)
     {
@@ -349,7 +349,7 @@ class EmbeddedEditUrlResponse implements ModelInterface, ArrayAccess, JsonSerial
      *
      * @param WarningResponse[]|null $warnings a list of warnings
      *
-     * @return self
+     * @return static
      */
     public function setWarnings(?array $warnings)
     {

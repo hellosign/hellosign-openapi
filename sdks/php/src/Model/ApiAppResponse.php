@@ -374,7 +374,7 @@ class ApiAppResponse implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param string|null $callback_url The app's callback URL (for events)
      *
-     * @return self
+     * @return static
      */
     public function setCallbackUrl(?string $callback_url)
     {
@@ -408,7 +408,7 @@ class ApiAppResponse implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param string|null $client_id The app's client id
      *
-     * @return self
+     * @return static
      */
     public function setClientId(?string $client_id)
     {
@@ -435,7 +435,7 @@ class ApiAppResponse implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param int|null $created_at The time that the app was created
      *
-     * @return self
+     * @return static
      */
     public function setCreatedAt(?int $created_at)
     {
@@ -462,7 +462,7 @@ class ApiAppResponse implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param string[]|null $domains The domain name(s) associated with the app
      *
-     * @return self
+     * @return static
      */
     public function setDomains(?array $domains)
     {
@@ -489,7 +489,7 @@ class ApiAppResponse implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param string|null $name The name of the app
      *
-     * @return self
+     * @return static
      */
     public function setName(?string $name)
     {
@@ -516,7 +516,7 @@ class ApiAppResponse implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param bool|null $is_approved Boolean to indicate if the app has been approved
      *
-     * @return self
+     * @return static
      */
     public function setIsApproved(?bool $is_approved)
     {
@@ -543,7 +543,7 @@ class ApiAppResponse implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param ApiAppResponseOAuth|null $oauth oauth
      *
-     * @return self
+     * @return static
      */
     public function setOauth(?ApiAppResponseOAuth $oauth)
     {
@@ -577,7 +577,7 @@ class ApiAppResponse implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param ApiAppResponseOptions|null $options options
      *
-     * @return self
+     * @return static
      */
     public function setOptions(?ApiAppResponseOptions $options)
     {
@@ -611,7 +611,7 @@ class ApiAppResponse implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param ApiAppResponseOwnerAccount|null $owner_account owner_account
      *
-     * @return self
+     * @return static
      */
     public function setOwnerAccount(?ApiAppResponseOwnerAccount $owner_account)
     {
@@ -638,7 +638,7 @@ class ApiAppResponse implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param ApiAppResponseWhiteLabelingOptions|null $white_labeling_options white_labeling_options
      *
-     * @return self
+     * @return static
      */
     public function setWhiteLabelingOptions(?ApiAppResponseWhiteLabelingOptions $white_labeling_options)
     {

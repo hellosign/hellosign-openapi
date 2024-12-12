@@ -364,7 +364,7 @@ class SubFormFieldRuleAction implements ModelInterface, ArrayAccess, JsonSeriali
      *
      * @param bool $hidden `true` to hide the target field when rule is satisfied, otherwise `false`
      *
-     * @return self
+     * @return static
      */
     public function setHidden(bool $hidden)
     {
@@ -391,7 +391,7 @@ class SubFormFieldRuleAction implements ModelInterface, ArrayAccess, JsonSeriali
      *
      * @param string $type type
      *
-     * @return self
+     * @return static
      */
     public function setType(string $type)
     {
@@ -428,7 +428,7 @@ class SubFormFieldRuleAction implements ModelInterface, ArrayAccess, JsonSeriali
      *
      * @param string|null $field_id **field_id** or **group_id** is required, but not both.  Must reference the `api_id` of an existing field defined within `form_fields_per_document`.  Cannot use with `group_id`. Trigger and action fields must belong to the same signer.
      *
-     * @return self
+     * @return static
      */
     public function setFieldId(?string $field_id)
     {
@@ -455,7 +455,7 @@ class SubFormFieldRuleAction implements ModelInterface, ArrayAccess, JsonSeriali
      *
      * @param string|null $group_id **group_id** or **field_id** is required, but not both.  Must reference the ID of an existing group defined within `form_field_groups`.  Cannot use with `field_id`. Trigger and action fields and groups must belong to the same signer.
      *
-     * @return self
+     * @return static
      */
     public function setGroupId(?string $group_id)
     {

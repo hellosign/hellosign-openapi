@@ -310,7 +310,7 @@ class TeamUpdateRequest implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param string|null $name the name of your Team
      *
-     * @return self
+     * @return static
      */
     public function setName(?string $name)
     {

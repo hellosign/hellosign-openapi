@@ -326,7 +326,7 @@ class WarningResponse implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param string $warning_msg Warning message
      *
-     * @return self
+     * @return static
      */
     public function setWarningMsg(string $warning_msg)
     {
@@ -353,7 +353,7 @@ class WarningResponse implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param string $warning_name Warning name
      *
-     * @return self
+     * @return static
      */
     public function setWarningName(string $warning_name)
     {

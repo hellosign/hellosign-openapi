@@ -345,7 +345,7 @@ class AccountResponseQuotas implements ModelInterface, ArrayAccess, JsonSerializ
      *
      * @param int|null $api_signature_requests_left API signature requests remaining
      *
-     * @return self
+     * @return static
      */
     public function setApiSignatureRequestsLeft(?int $api_signature_requests_left)
     {
@@ -379,7 +379,7 @@ class AccountResponseQuotas implements ModelInterface, ArrayAccess, JsonSerializ
      *
      * @param int|null $documents_left signature requests remaining
      *
-     * @return self
+     * @return static
      */
     public function setDocumentsLeft(?int $documents_left)
     {
@@ -413,7 +413,7 @@ class AccountResponseQuotas implements ModelInterface, ArrayAccess, JsonSerializ
      *
      * @param int|null $templates_total total API templates allowed
      *
-     * @return self
+     * @return static
      */
     public function setTemplatesTotal(?int $templates_total)
     {
@@ -447,7 +447,7 @@ class AccountResponseQuotas implements ModelInterface, ArrayAccess, JsonSerializ
      *
      * @param int|null $templates_left API templates remaining
      *
-     * @return self
+     * @return static
      */
     public function setTemplatesLeft(?int $templates_left)
     {
@@ -481,7 +481,7 @@ class AccountResponseQuotas implements ModelInterface, ArrayAccess, JsonSerializ
      *
      * @param int|null $sms_verifications_left SMS verifications remaining
      *
-     * @return self
+     * @return static
      */
     public function setSmsVerificationsLeft(?int $sms_verifications_left)
     {
@@ -515,7 +515,7 @@ class AccountResponseQuotas implements ModelInterface, ArrayAccess, JsonSerializ
      *
      * @param int|null $num_fax_pages_left Number of fax pages left
      *
-     * @return self
+     * @return static
      */
     public function setNumFaxPagesLeft(?int $num_fax_pages_left)
     {

@@ -333,7 +333,7 @@ class ErrorResponseError implements ModelInterface, ArrayAccess, JsonSerializabl
      *
      * @param string $error_msg message describing an error
      *
-     * @return self
+     * @return static
      */
     public function setErrorMsg(string $error_msg)
     {
@@ -360,7 +360,7 @@ class ErrorResponseError implements ModelInterface, ArrayAccess, JsonSerializabl
      *
      * @param string $error_name name of the error
      *
-     * @return self
+     * @return static
      */
     public function setErrorName(string $error_name)
     {
@@ -387,7 +387,7 @@ class ErrorResponseError implements ModelInterface, ArrayAccess, JsonSerializabl
      *
      * @param string|null $error_path path at which an error occurred
      *
-     * @return self
+     * @return static
      */
     public function setErrorPath(?string $error_path)
     {

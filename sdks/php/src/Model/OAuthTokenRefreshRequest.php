@@ -339,7 +339,7 @@ class OAuthTokenRefreshRequest implements ModelInterface, ArrayAccess, JsonSeria
      *
      * @param string $grant_type when refreshing an existing token use `refresh_token`
      *
-     * @return self
+     * @return static
      */
     public function setGrantType(string $grant_type)
     {
@@ -366,7 +366,7 @@ class OAuthTokenRefreshRequest implements ModelInterface, ArrayAccess, JsonSeria
      *
      * @param string $refresh_token the token provided when you got the expired access token
      *
-     * @return self
+     * @return static
      */
     public function setRefreshToken(string $refresh_token)
     {
@@ -393,7 +393,7 @@ class OAuthTokenRefreshRequest implements ModelInterface, ArrayAccess, JsonSeria
      *
      * @param string|null $client_id The client ID for your API app. Mandatory from August 1st, 2025. Until then, required if the \"Client Credentials Required\" setting is enabled for token refresh; optional if disabled.
      *
-     * @return self
+     * @return static
      */
     public function setClientId(?string $client_id)
     {
@@ -420,7 +420,7 @@ class OAuthTokenRefreshRequest implements ModelInterface, ArrayAccess, JsonSeria
      *
      * @param string|null $client_secret The client secret for your API app. Mandatory from August 1st, 2025. Until then, required if the \"Client Credentials Required\" setting is enabled for token refresh; optional if disabled.
      *
-     * @return self
+     * @return static
      */
     public function setClientSecret(?string $client_secret)
     {

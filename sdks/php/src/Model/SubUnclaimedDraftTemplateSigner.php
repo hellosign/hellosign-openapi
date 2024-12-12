@@ -335,7 +335,7 @@ class SubUnclaimedDraftTemplateSigner implements ModelInterface, ArrayAccess, Js
      *
      * @param string $role must match an existing role in chosen Template(s)
      *
-     * @return self
+     * @return static
      */
     public function setRole(string $role)
     {
@@ -362,7 +362,7 @@ class SubUnclaimedDraftTemplateSigner implements ModelInterface, ArrayAccess, Js
      *
      * @param string $name the name of the signer filling the role of `role`
      *
-     * @return self
+     * @return static
      */
     public function setName(string $name)
     {
@@ -389,7 +389,7 @@ class SubUnclaimedDraftTemplateSigner implements ModelInterface, ArrayAccess, Js
      *
      * @param string $email_address the email address of the signer filling the role of `role`
      *
-     * @return self
+     * @return static
      */
     public function setEmailAddress(string $email_address)
     {

@@ -337,7 +337,7 @@ class TemplateResponseDocumentCustomFieldText extends TemplateResponseDocumentCu
      *
      * @param string $type The type of this Custom Field. Only `text` and `checkbox` are currently supported.  * Text uses `TemplateResponseDocumentCustomFieldText` * Checkbox uses `TemplateResponseDocumentCustomFieldCheckbox`
      *
-     * @return self
+     * @return static
      */
     public function setType(string $type)
     {
@@ -364,7 +364,7 @@ class TemplateResponseDocumentCustomFieldText extends TemplateResponseDocumentCu
      *
      * @param TemplateResponseFieldAvgTextLength|null $avg_text_length avg_text_length
      *
-     * @return self
+     * @return static
      */
     public function setAvgTextLength(?TemplateResponseFieldAvgTextLength $avg_text_length)
     {
@@ -391,7 +391,7 @@ class TemplateResponseDocumentCustomFieldText extends TemplateResponseDocumentCu
      *
      * @param bool|null $is_multiline whether this form field is multiline text
      *
-     * @return self
+     * @return static
      */
     public function setIsMultiline(?bool $is_multiline)
     {
@@ -418,7 +418,7 @@ class TemplateResponseDocumentCustomFieldText extends TemplateResponseDocumentCu
      *
      * @param int|null $original_font_size original font size used in this form field's text
      *
-     * @return self
+     * @return static
      */
     public function setOriginalFontSize(?int $original_font_size)
     {
@@ -445,7 +445,7 @@ class TemplateResponseDocumentCustomFieldText extends TemplateResponseDocumentCu
      *
      * @param string|null $font_family font family used in this form field's text
      *
-     * @return self
+     * @return static
      */
     public function setFontFamily(?string $font_family)
     {

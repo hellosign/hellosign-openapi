@@ -322,7 +322,7 @@ class FaxLineResponse implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param FaxLineResponseFaxLine $fax_line fax_line
      *
-     * @return self
+     * @return static
      */
     public function setFaxLine(FaxLineResponseFaxLine $fax_line)
     {
@@ -349,7 +349,7 @@ class FaxLineResponse implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param WarningResponse|null $warnings warnings
      *
-     * @return self
+     * @return static
      */
     public function setWarnings(?WarningResponse $warnings)
     {

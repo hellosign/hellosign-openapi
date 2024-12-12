@@ -472,7 +472,7 @@ class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase
      *
      * @param string $type A text input field. Use the `SubFormFieldsPerDocumentText` class.
      *
-     * @return self
+     * @return static
      */
     public function setType(string $type)
     {
@@ -499,7 +499,7 @@ class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase
      *
      * @param string|null $placeholder placeholder value for text field
      *
-     * @return self
+     * @return static
      */
     public function setPlaceholder(?string $placeholder)
     {
@@ -526,7 +526,7 @@ class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase
      *
      * @param string|null $auto_fill_type Auto fill type for populating fields automatically. Check out the list of [auto fill types](/api/reference/constants/#auto-fill-types) to learn more about the possible values.
      *
-     * @return self
+     * @return static
      */
     public function setAutoFillType(?string $auto_fill_type)
     {
@@ -553,7 +553,7 @@ class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase
      *
      * @param string|null $link_id Link two or more text fields. Enter data into one linked text field, which automatically fill all other linked text fields.
      *
-     * @return self
+     * @return static
      */
     public function setLinkId(?string $link_id)
     {
@@ -580,7 +580,7 @@ class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase
      *
      * @param bool|null $masked Masks entered data. For more information see [Masking sensitive information](https://faq.hellosign.com/hc/en-us/articles/360040742811-Masking-sensitive-information). `true` for masking the data in a text field, otherwise `false`.
      *
-     * @return self
+     * @return static
      */
     public function setMasked(?bool $masked)
     {
@@ -607,7 +607,7 @@ class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase
      *
      * @param string|null $validation_type Each text field may contain a `validation_type` parameter. Check out the list of [validation types](https://faq.hellosign.com/hc/en-us/articles/217115577) to learn more about the possible values.  **NOTE:** When using `custom_regex` you are required to pass a second parameter `validation_custom_regex` and you can optionally provide `validation_custom_regex_format_label` for the error message the user will see in case of an invalid value.
      *
-     * @return self
+     * @return static
      */
     public function setValidationType(?string $validation_type)
     {
@@ -644,7 +644,7 @@ class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase
      *
      * @param string|null $validation_custom_regex validation_custom_regex
      *
-     * @return self
+     * @return static
      */
     public function setValidationCustomRegex(?string $validation_custom_regex)
     {
@@ -671,7 +671,7 @@ class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase
      *
      * @param string|null $validation_custom_regex_format_label validation_custom_regex_format_label
      *
-     * @return self
+     * @return static
      */
     public function setValidationCustomRegexFormatLabel(?string $validation_custom_regex_format_label)
     {
@@ -698,7 +698,7 @@ class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase
      *
      * @param string|null $content Content of a `me_now` text field
      *
-     * @return self
+     * @return static
      */
     public function setContent(?string $content)
     {
@@ -725,7 +725,7 @@ class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase
      *
      * @param string|null $font_family font family for the field
      *
-     * @return self
+     * @return static
      */
     public function setFontFamily(?string $font_family)
     {
@@ -762,7 +762,7 @@ class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase
      *
      * @param int|null $font_size The initial px font size for the field contents. Can be any integer value between `7` and `49`.  **NOTE:** Font size may be reduced during processing in order to fit the contents within the dimensions of the field.
      *
-     * @return self
+     * @return static
      */
     public function setFontSize(?int $font_size)
     {

@@ -317,7 +317,7 @@ class SubBulkSignerList implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param SubBulkSignerListCustomField[]|null $custom_fields an array of custom field values
      *
-     * @return self
+     * @return static
      */
     public function setCustomFields(?array $custom_fields)
     {
@@ -344,7 +344,7 @@ class SubBulkSignerList implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param SubSignatureRequestTemplateSigner[]|null $signers Add Signers to your Templated-based Signature Request. Allows the requester to specify editor options when a preparing a document.  Currently only templates with a single role are supported. All signers must have the same `role` value.
      *
-     * @return self
+     * @return static
      */
     public function setSigners(?array $signers)
     {

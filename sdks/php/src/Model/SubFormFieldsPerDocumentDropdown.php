@@ -397,7 +397,7 @@ class SubFormFieldsPerDocumentDropdown extends SubFormFieldsPerDocumentBase
      *
      * @param string $type An input field for dropdowns. Use the `SubFormFieldsPerDocumentDropdown` class.
      *
-     * @return self
+     * @return static
      */
     public function setType(string $type)
     {
@@ -424,7 +424,7 @@ class SubFormFieldsPerDocumentDropdown extends SubFormFieldsPerDocumentBase
      *
      * @param string[] $options array of string values representing dropdown values
      *
-     * @return self
+     * @return static
      */
     public function setOptions(array $options)
     {
@@ -455,7 +455,7 @@ class SubFormFieldsPerDocumentDropdown extends SubFormFieldsPerDocumentBase
      *
      * @param string|null $content Selected value in `options` array. Value must exist in array.
      *
-     * @return self
+     * @return static
      */
     public function setContent(?string $content)
     {
@@ -482,7 +482,7 @@ class SubFormFieldsPerDocumentDropdown extends SubFormFieldsPerDocumentBase
      *
      * @param string|null $font_family font family for the field
      *
-     * @return self
+     * @return static
      */
     public function setFontFamily(?string $font_family)
     {
@@ -519,7 +519,7 @@ class SubFormFieldsPerDocumentDropdown extends SubFormFieldsPerDocumentBase
      *
      * @param int|null $font_size The initial px font size for the field contents. Can be any integer value between `7` and `49`.  **NOTE:** Font size may be reduced during processing in order to fit the contents within the dimensions of the field.
      *
-     * @return self
+     * @return static
      */
     public function setFontSize(?int $font_size)
     {

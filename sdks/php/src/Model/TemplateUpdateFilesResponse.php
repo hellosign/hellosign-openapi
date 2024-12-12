@@ -315,7 +315,7 @@ class TemplateUpdateFilesResponse implements ModelInterface, ArrayAccess, JsonSe
      *
      * @param TemplateUpdateFilesResponseTemplate $template template
      *
-     * @return self
+     * @return static
      */
     public function setTemplate(TemplateUpdateFilesResponseTemplate $template)
     {

@@ -338,7 +338,7 @@ class OAuthTokenResponse implements ModelInterface, ArrayAccess, JsonSerializabl
      *
      * @param string|null $access_token access_token
      *
-     * @return self
+     * @return static
      */
     public function setAccessToken(?string $access_token)
     {
@@ -365,7 +365,7 @@ class OAuthTokenResponse implements ModelInterface, ArrayAccess, JsonSerializabl
      *
      * @param string|null $token_type token_type
      *
-     * @return self
+     * @return static
      */
     public function setTokenType(?string $token_type)
     {
@@ -392,7 +392,7 @@ class OAuthTokenResponse implements ModelInterface, ArrayAccess, JsonSerializabl
      *
      * @param string|null $refresh_token refresh_token
      *
-     * @return self
+     * @return static
      */
     public function setRefreshToken(?string $refresh_token)
     {
@@ -419,7 +419,7 @@ class OAuthTokenResponse implements ModelInterface, ArrayAccess, JsonSerializabl
      *
      * @param int|null $expires_in Number of seconds until the `access_token` expires. Uses epoch time.
      *
-     * @return self
+     * @return static
      */
     public function setExpiresIn(?int $expires_in)
     {
@@ -446,7 +446,7 @@ class OAuthTokenResponse implements ModelInterface, ArrayAccess, JsonSerializabl
      *
      * @param string|null $state state
      *
-     * @return self
+     * @return static
      */
     public function setState(?string $state)
     {
