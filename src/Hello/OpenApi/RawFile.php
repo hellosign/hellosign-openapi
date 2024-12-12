@@ -98,6 +98,20 @@ class RawFile
 
     public function saveFile(string $targetFile): void
     {
+        foreach ($this->openapi['paths'] as $path => $path_item) {
+            foreach ($path_item as $method => $operation) {
+                if (empty($operation['responses'])) {
+                    continue;
+                }
+
+                foreach ($operation['responses'] as $code => $response) {
+                    unset($this->openapi['paths'][$path][$method]['responses'][$code]);
+                    $new_code = "{$code}_response_code_remove_me";
+                    $this->openapi['paths'][$path][$method]['responses'][$new_code] = $response;
+                }
+            }
+        }
+
         $yaml = Yaml::dump(
             $this->openapi,
             10,
@@ -112,6 +126,7 @@ class RawFile
         $yaml = str_replace('metadata: []', 'metadata: {}', $yaml);
         $yaml = str_replace('additionalProperties: []', 'additionalProperties: {}', $yaml);
         $yaml = str_replace('application/json: []', 'application/json: {}', $yaml);
+        $yaml = preg_replace('/([0-9x]+)_response_code_remove_me:/i', '\'${1}\':', $yaml);
 
         file_put_contents($targetFile, $yaml);
     }
