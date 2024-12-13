@@ -1826,6 +1826,7 @@ paths:
               - CA
               - US
               - UK
+          example: US
         -
           name: state
           in: query
@@ -2107,6 +2108,7 @@ paths:
           required: true
           schema:
             type: string
+          example: '[FAX_NUMBER]'
       responses:
         '200':
           description: 'successful operation'
@@ -7859,6 +7861,11 @@ components:
             - CA
             - US
             - UK
+          x-enum-varnames-override:
+            typescript-node:
+              - Ca
+              - Us
+              - Uk
         city:
           description: City
           type: string
@@ -8904,6 +8911,16 @@ components:
           enum:
             - change-field-visibility
             - change-group-visibility
+          x-enum-varnames-override:
+            csharp:
+              - FieldVisibility
+              - GroupVisibility
+            php:
+              - TYPE_FIELD_VISIBILITY
+              - TYPE_GROUP_VISIBILITY
+            typescript-node:
+              - FieldVisibility
+              - GroupVisibility
       type: object
     SubFormFieldRuleTrigger:
       required:

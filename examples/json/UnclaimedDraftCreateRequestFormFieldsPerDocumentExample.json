@@ -32,5 +32,6 @@
       "page": 1
     }
   ],
+  "type": "request_signature",
   "test_mode": false
 }
