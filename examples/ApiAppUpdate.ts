@@ -16,7 +16,7 @@ const whiteLabelingOptions: DropboxSign.SubWhiteLabelingOptions = {
 
 const data: DropboxSign.ApiAppUpdateRequest = {
   name: "New Name",
-  callbackUrl: "http://example.com/dropboxsign",
+  callbackUrl: "https://example.com/dropboxsign",
   customLogoFile: fs.createReadStream("CustomLogoFile.png"),
   whiteLabelingOptions,
 };

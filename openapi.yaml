@@ -7861,6 +7861,11 @@ components:
             - CA
             - US
             - UK
+          x-enum-varnames-override:
+            typescript-node:
+              - Ca
+              - Us
+              - Uk
         city:
           description: City
           type: string
@@ -8908,6 +8913,12 @@ components:
             - change-group-visibility
           x-enum-varnames-override:
             csharp:
+              - FieldVisibility
+              - GroupVisibility
+            php:
+              - TYPE_FIELD_VISIBILITY
+              - TYPE_GROUP_VISIBILITY
+            typescript-node:
               - FieldVisibility
               - GroupVisibility
       type: object
