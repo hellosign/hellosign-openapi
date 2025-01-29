@@ -51,5 +51,6 @@
       ]
     }
   ],
+  "type": "request_signature",
   "test_mode": false
 }

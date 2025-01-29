@@ -312,7 +312,7 @@ $customLogoFile = new SplFileObject(__DIR__ . "/CustomLogoFile.png");
 
 $data = new Dropbox\Sign\Model\ApiAppUpdateRequest();
 $data->setName("New Name")
-    ->setCallbackUrl("http://example.com/dropboxsign")
+    ->setCallbackUrl("https://example.com/dropboxsign")
     ->setWhiteLabelingOptions($whiteLabelingOptions)
     ->setCustomLogoFile($customLogoFile);
 

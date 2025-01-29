@@ -7,7 +7,7 @@
     "is_approved": false,
     "name": "My Production App",
     "oauth": {
-      "callback_url": "http://example.com/oauth",
+      "callback_url": "https://example.com/oauth",
       "scopes": [
         "basic_account_info",
         "request_signature"

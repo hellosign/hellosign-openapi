@@ -21,7 +21,7 @@ with ApiClient(configuration) as api_client:
 
     data = models.ApiAppUpdateRequest(
         name="New Name",
-        callback_url="http://example.com/dropboxsign",
+        callback_url="https://example.com/dropboxsign",
         white_labeling_options=white_labeling_options,
         custom_logo_file=custom_logo_file,
     )

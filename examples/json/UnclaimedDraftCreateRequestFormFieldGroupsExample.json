@@ -41,5 +41,6 @@
       "requirement": "require_0-1"
     }
   ],
+  "type": "request_signature",
   "test_mode": false
 }

@@ -347,7 +347,7 @@ custom_logo_file = File.new('./CustomLogoFile.png')
 
 data = Dropbox::Sign::ApiAppUpdateRequest.new
 data.name = "New Name"
-data.callback_url = "http://example.com/dropboxsign"
+data.callback_url = "https://example.com/dropboxsign"
 data.white_labeling_options = white_labeling_options
 data.custom_logo_file = custom_logo_file
 
