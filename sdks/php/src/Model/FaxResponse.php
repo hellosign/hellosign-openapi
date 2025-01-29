@@ -406,7 +406,7 @@ class FaxResponse implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param string $fax_id Fax ID
      *
-     * @return self
+     * @return static
      */
     public function setFaxId(string $fax_id)
     {
@@ -433,7 +433,7 @@ class FaxResponse implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param string $title Fax Title
      *
-     * @return self
+     * @return static
      */
     public function setTitle(string $title)
     {
@@ -460,7 +460,7 @@ class FaxResponse implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param string $original_title Fax Original Title
      *
-     * @return self
+     * @return static
      */
     public function setOriginalTitle(string $original_title)
     {
@@ -487,7 +487,7 @@ class FaxResponse implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param array<string,mixed> $metadata Fax Metadata
      *
-     * @return self
+     * @return static
      */
     public function setMetadata(array $metadata)
     {
@@ -514,7 +514,7 @@ class FaxResponse implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param int $created_at Fax Created At Timestamp
      *
-     * @return self
+     * @return static
      */
     public function setCreatedAt(int $created_at)
     {
@@ -541,7 +541,7 @@ class FaxResponse implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param string $sender Fax Sender Email
      *
-     * @return self
+     * @return static
      */
     public function setSender(string $sender)
     {
@@ -568,7 +568,7 @@ class FaxResponse implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param string $files_url Fax Files URL
      *
-     * @return self
+     * @return static
      */
     public function setFilesUrl(string $files_url)
     {
@@ -595,7 +595,7 @@ class FaxResponse implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param FaxResponseTransmission[] $transmissions Fax Transmissions List
      *
-     * @return self
+     * @return static
      */
     public function setTransmissions(array $transmissions)
     {
@@ -622,7 +622,7 @@ class FaxResponse implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param string|null $subject Fax Subject
      *
-     * @return self
+     * @return static
      */
     public function setSubject(?string $subject)
     {
@@ -656,7 +656,7 @@ class FaxResponse implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param string|null $message Fax Message
      *
-     * @return self
+     * @return static
      */
     public function setMessage(?string $message)
     {
@@ -690,7 +690,7 @@ class FaxResponse implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param string|null $final_copy_uri The path where the completed document can be downloaded
      *
-     * @return self
+     * @return static
      */
     public function setFinalCopyUri(?string $final_copy_uri)
     {

@@ -325,7 +325,7 @@ class SubCC implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param string $role Must match an existing CC role in chosen Template(s). Multiple CC recipients cannot share the same CC role.
      *
-     * @return self
+     * @return static
      */
     public function setRole(string $role)
     {
@@ -352,7 +352,7 @@ class SubCC implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param string $email_address the email address of the CC recipient
      *
-     * @return self
+     * @return static
      */
     public function setEmailAddress(string $email_address)
     {

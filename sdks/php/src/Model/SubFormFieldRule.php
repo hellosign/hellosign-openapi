@@ -357,7 +357,7 @@ class SubFormFieldRule implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param string $id must be unique across all defined rules
      *
-     * @return self
+     * @return static
      */
     public function setId(string $id)
     {
@@ -384,7 +384,7 @@ class SubFormFieldRule implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param string $trigger_operator Currently only `AND` is supported. Support for `OR` is being worked on.
      *
-     * @return self
+     * @return static
      */
     public function setTriggerOperator(string $trigger_operator)
     {
@@ -411,7 +411,7 @@ class SubFormFieldRule implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param SubFormFieldRuleTrigger[] $triggers An array of trigger definitions, the \"if this\" part of \"**if this**, then that\". Currently only a single trigger per rule is allowed.
      *
-     * @return self
+     * @return static
      */
     public function setTriggers(array $triggers)
     {
@@ -445,7 +445,7 @@ class SubFormFieldRule implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param SubFormFieldRuleAction[] $actions An array of action definitions, the \"then that\" part of \"if this, **then that**\". Any number of actions may be attached to a single rule.
      *
-     * @return self
+     * @return static
      */
     public function setActions(array $actions)
     {

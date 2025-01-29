@@ -436,7 +436,7 @@ class SubWhiteLabelingOptions implements ModelInterface, ArrayAccess, JsonSerial
      *
      * @param string|null $header_background_color header_background_color
      *
-     * @return self
+     * @return static
      */
     public function setHeaderBackgroundColor(?string $header_background_color)
     {
@@ -463,7 +463,7 @@ class SubWhiteLabelingOptions implements ModelInterface, ArrayAccess, JsonSerial
      *
      * @param string|null $legal_version legal_version
      *
-     * @return self
+     * @return static
      */
     public function setLegalVersion(?string $legal_version)
     {
@@ -500,7 +500,7 @@ class SubWhiteLabelingOptions implements ModelInterface, ArrayAccess, JsonSerial
      *
      * @param string|null $link_color link_color
      *
-     * @return self
+     * @return static
      */
     public function setLinkColor(?string $link_color)
     {
@@ -527,7 +527,7 @@ class SubWhiteLabelingOptions implements ModelInterface, ArrayAccess, JsonSerial
      *
      * @param string|null $page_background_color page_background_color
      *
-     * @return self
+     * @return static
      */
     public function setPageBackgroundColor(?string $page_background_color)
     {
@@ -554,7 +554,7 @@ class SubWhiteLabelingOptions implements ModelInterface, ArrayAccess, JsonSerial
      *
      * @param string|null $primary_button_color primary_button_color
      *
-     * @return self
+     * @return static
      */
     public function setPrimaryButtonColor(?string $primary_button_color)
     {
@@ -581,7 +581,7 @@ class SubWhiteLabelingOptions implements ModelInterface, ArrayAccess, JsonSerial
      *
      * @param string|null $primary_button_color_hover primary_button_color_hover
      *
-     * @return self
+     * @return static
      */
     public function setPrimaryButtonColorHover(?string $primary_button_color_hover)
     {
@@ -608,7 +608,7 @@ class SubWhiteLabelingOptions implements ModelInterface, ArrayAccess, JsonSerial
      *
      * @param string|null $primary_button_text_color primary_button_text_color
      *
-     * @return self
+     * @return static
      */
     public function setPrimaryButtonTextColor(?string $primary_button_text_color)
     {
@@ -635,7 +635,7 @@ class SubWhiteLabelingOptions implements ModelInterface, ArrayAccess, JsonSerial
      *
      * @param string|null $primary_button_text_color_hover primary_button_text_color_hover
      *
-     * @return self
+     * @return static
      */
     public function setPrimaryButtonTextColorHover(?string $primary_button_text_color_hover)
     {
@@ -662,7 +662,7 @@ class SubWhiteLabelingOptions implements ModelInterface, ArrayAccess, JsonSerial
      *
      * @param string|null $secondary_button_color secondary_button_color
      *
-     * @return self
+     * @return static
      */
     public function setSecondaryButtonColor(?string $secondary_button_color)
     {
@@ -689,7 +689,7 @@ class SubWhiteLabelingOptions implements ModelInterface, ArrayAccess, JsonSerial
      *
      * @param string|null $secondary_button_color_hover secondary_button_color_hover
      *
-     * @return self
+     * @return static
      */
     public function setSecondaryButtonColorHover(?string $secondary_button_color_hover)
     {
@@ -716,7 +716,7 @@ class SubWhiteLabelingOptions implements ModelInterface, ArrayAccess, JsonSerial
      *
      * @param string|null $secondary_button_text_color secondary_button_text_color
      *
-     * @return self
+     * @return static
      */
     public function setSecondaryButtonTextColor(?string $secondary_button_text_color)
     {
@@ -743,7 +743,7 @@ class SubWhiteLabelingOptions implements ModelInterface, ArrayAccess, JsonSerial
      *
      * @param string|null $secondary_button_text_color_hover secondary_button_text_color_hover
      *
-     * @return self
+     * @return static
      */
     public function setSecondaryButtonTextColorHover(?string $secondary_button_text_color_hover)
     {
@@ -770,7 +770,7 @@ class SubWhiteLabelingOptions implements ModelInterface, ArrayAccess, JsonSerial
      *
      * @param string|null $text_color1 text_color1
      *
-     * @return self
+     * @return static
      */
     public function setTextColor1(?string $text_color1)
     {
@@ -797,7 +797,7 @@ class SubWhiteLabelingOptions implements ModelInterface, ArrayAccess, JsonSerial
      *
      * @param string|null $text_color2 text_color2
      *
-     * @return self
+     * @return static
      */
     public function setTextColor2(?string $text_color2)
     {
@@ -824,7 +824,7 @@ class SubWhiteLabelingOptions implements ModelInterface, ArrayAccess, JsonSerial
      *
      * @param bool|null $reset_to_default Resets white labeling options to defaults. Only useful when updating an API App.
      *
-     * @return self
+     * @return static
      */
     public function setResetToDefault(?bool $reset_to_default)
     {

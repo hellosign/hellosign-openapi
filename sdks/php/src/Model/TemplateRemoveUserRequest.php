@@ -317,7 +317,7 @@ class TemplateRemoveUserRequest implements ModelInterface, ArrayAccess, JsonSeri
      *
      * @param string|null $account_id The id or email address of the Account to remove access to the Template. The account id prevails if both are provided.
      *
-     * @return self
+     * @return static
      */
     public function setAccountId(?string $account_id)
     {
@@ -344,7 +344,7 @@ class TemplateRemoveUserRequest implements ModelInterface, ArrayAccess, JsonSeri
      *
      * @param string|null $email_address The id or email address of the Account to remove access to the Template. The account id prevails if both are provided.
      *
-     * @return self
+     * @return static
      */
     public function setEmailAddress(?string $email_address)
     {

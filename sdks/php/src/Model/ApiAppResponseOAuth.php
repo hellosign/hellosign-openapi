@@ -332,7 +332,7 @@ class ApiAppResponseOAuth implements ModelInterface, ArrayAccess, JsonSerializab
      *
      * @param string|null $callback_url the app's OAuth callback URL
      *
-     * @return self
+     * @return static
      */
     public function setCallbackUrl(?string $callback_url)
     {
@@ -359,7 +359,7 @@ class ApiAppResponseOAuth implements ModelInterface, ArrayAccess, JsonSerializab
      *
      * @param string|null $secret the app's OAuth secret, or null if the app does not belong to user
      *
-     * @return self
+     * @return static
      */
     public function setSecret(?string $secret)
     {
@@ -393,7 +393,7 @@ class ApiAppResponseOAuth implements ModelInterface, ArrayAccess, JsonSerializab
      *
      * @param string[]|null $scopes array of OAuth scopes used by the app
      *
-     * @return self
+     * @return static
      */
     public function setScopes(?array $scopes)
     {
@@ -420,7 +420,7 @@ class ApiAppResponseOAuth implements ModelInterface, ArrayAccess, JsonSerializab
      *
      * @param bool|null $charges_users boolean indicating whether the app owner or the account granting permission is billed for OAuth requests
      *
-     * @return self
+     * @return static
      */
     public function setChargesUsers(?bool $charges_users)
     {

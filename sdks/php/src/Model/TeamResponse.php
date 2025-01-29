@@ -332,7 +332,7 @@ class TeamResponse implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param string|null $name The name of your Team
      *
-     * @return self
+     * @return static
      */
     public function setName(?string $name)
     {
@@ -359,7 +359,7 @@ class TeamResponse implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param AccountResponse[]|null $accounts accounts
      *
-     * @return self
+     * @return static
      */
     public function setAccounts(?array $accounts)
     {
@@ -386,7 +386,7 @@ class TeamResponse implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param AccountResponse[]|null $invited_accounts A list of all Accounts that have an outstanding invitation to join your Team. Note that this response is a subset of the response parameters found in `GET /account`.
      *
-     * @return self
+     * @return static
      */
     public function setInvitedAccounts(?array $invited_accounts)
     {
@@ -413,7 +413,7 @@ class TeamResponse implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param string[]|null $invited_emails a list of email addresses that have an outstanding invitation to join your Team and do not yet have a Dropbox Sign account
      *
-     * @return self
+     * @return static
      */
     public function setInvitedEmails(?array $invited_emails)
     {

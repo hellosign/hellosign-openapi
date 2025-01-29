@@ -396,7 +396,7 @@ class SubFormFieldsPerDocumentHyperlink extends SubFormFieldsPerDocumentBase
      *
      * @param string $type A hyperlink field. Use the `SubFormFieldsPerDocumentHyperlink` class.
      *
-     * @return self
+     * @return static
      */
     public function setType(string $type)
     {
@@ -423,7 +423,7 @@ class SubFormFieldsPerDocumentHyperlink extends SubFormFieldsPerDocumentBase
      *
      * @param string $content link Text
      *
-     * @return self
+     * @return static
      */
     public function setContent(string $content)
     {
@@ -450,7 +450,7 @@ class SubFormFieldsPerDocumentHyperlink extends SubFormFieldsPerDocumentBase
      *
      * @param string $content_url link URL
      *
-     * @return self
+     * @return static
      */
     public function setContentUrl(string $content_url)
     {
@@ -477,7 +477,7 @@ class SubFormFieldsPerDocumentHyperlink extends SubFormFieldsPerDocumentBase
      *
      * @param string|null $font_family font family for the field
      *
-     * @return self
+     * @return static
      */
     public function setFontFamily(?string $font_family)
     {
@@ -514,7 +514,7 @@ class SubFormFieldsPerDocumentHyperlink extends SubFormFieldsPerDocumentBase
      *
      * @param int|null $font_size The initial px font size for the field contents. Can be any integer value between `7` and `49`.  **NOTE:** Font size may be reduced during processing in order to fit the contents within the dimensions of the field.
      *
-     * @return self
+     * @return static
      */
     public function setFontSize(?int $font_size)
     {

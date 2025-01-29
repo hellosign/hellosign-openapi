@@ -349,7 +349,7 @@ class SubFieldOptions implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param string $date_format allows requester to specify the date format (see list of allowed [formats](/api/reference/constants/#date-formats))  **NOTE:** Only available for Premium and higher
      *
-     * @return self
+     * @return static
      */
     public function setDateFormat(string $date_format)
     {

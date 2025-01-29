@@ -336,7 +336,7 @@ class AccountCreateRequest implements ModelInterface, ArrayAccess, JsonSerializa
      *
      * @param string $email_address the email address which will be associated with the new Account
      *
-     * @return self
+     * @return static
      */
     public function setEmailAddress(string $email_address)
     {
@@ -363,7 +363,7 @@ class AccountCreateRequest implements ModelInterface, ArrayAccess, JsonSerializa
      *
      * @param string|null $client_id Used when creating a new account with OAuth authorization.  See [OAuth 2.0 Authorization](https://app.hellosign.com/api/oauthWalkthrough#OAuthAuthorization)
      *
-     * @return self
+     * @return static
      */
     public function setClientId(?string $client_id)
     {
@@ -390,7 +390,7 @@ class AccountCreateRequest implements ModelInterface, ArrayAccess, JsonSerializa
      *
      * @param string|null $client_secret Used when creating a new account with OAuth authorization.  See [OAuth 2.0 Authorization](https://app.hellosign.com/api/oauthWalkthrough#OAuthAuthorization)
      *
-     * @return self
+     * @return static
      */
     public function setClientSecret(?string $client_secret)
     {
@@ -417,7 +417,7 @@ class AccountCreateRequest implements ModelInterface, ArrayAccess, JsonSerializa
      *
      * @param string|null $locale The locale used in this Account. Check out the list of [supported locales](/api/reference/constants/#supported-locales) to learn more about the possible values.
      *
-     * @return self
+     * @return static
      */
     public function setLocale(?string $locale)
     {

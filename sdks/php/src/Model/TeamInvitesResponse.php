@@ -322,7 +322,7 @@ class TeamInvitesResponse implements ModelInterface, ArrayAccess, JsonSerializab
      *
      * @param TeamInviteResponse[] $team_invites contains a list of team invites and their roles
      *
-     * @return self
+     * @return static
      */
     public function setTeamInvites(array $team_invites)
     {
@@ -349,7 +349,7 @@ class TeamInvitesResponse implements ModelInterface, ArrayAccess, JsonSerializab
      *
      * @param WarningResponse[]|null $warnings warnings
      *
-     * @return self
+     * @return static
      */
     public function setWarnings(?array $warnings)
     {

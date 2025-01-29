@@ -310,7 +310,7 @@ class AccountVerifyResponseAccount implements ModelInterface, ArrayAccess, JsonS
      *
      * @param string|null $email_address the email address associated with the Account
      *
-     * @return self
+     * @return static
      */
     public function setEmailAddress(?string $email_address)
     {

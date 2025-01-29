@@ -345,7 +345,7 @@ class TeamInviteResponse implements ModelInterface, ArrayAccess, JsonSerializabl
      *
      * @param string|null $email_address email address of the user invited to this team
      *
-     * @return self
+     * @return static
      */
     public function setEmailAddress(?string $email_address)
     {
@@ -372,7 +372,7 @@ class TeamInviteResponse implements ModelInterface, ArrayAccess, JsonSerializabl
      *
      * @param string|null $team_id id of the team
      *
-     * @return self
+     * @return static
      */
     public function setTeamId(?string $team_id)
     {
@@ -399,7 +399,7 @@ class TeamInviteResponse implements ModelInterface, ArrayAccess, JsonSerializabl
      *
      * @param string|null $role role of the user invited to this team
      *
-     * @return self
+     * @return static
      */
     public function setRole(?string $role)
     {
@@ -426,7 +426,7 @@ class TeamInviteResponse implements ModelInterface, ArrayAccess, JsonSerializabl
      *
      * @param int|null $sent_at timestamp when the invitation was sent
      *
-     * @return self
+     * @return static
      */
     public function setSentAt(?int $sent_at)
     {
@@ -453,7 +453,7 @@ class TeamInviteResponse implements ModelInterface, ArrayAccess, JsonSerializabl
      *
      * @param int|null $redeemed_at timestamp when the invitation was redeemed
      *
-     * @return self
+     * @return static
      */
     public function setRedeemedAt(?int $redeemed_at)
     {
@@ -480,7 +480,7 @@ class TeamInviteResponse implements ModelInterface, ArrayAccess, JsonSerializabl
      *
      * @param int|null $expires_at timestamp when the invitation is expiring
      *
-     * @return self
+     * @return static
      */
     public function setExpiresAt(?int $expires_at)
     {

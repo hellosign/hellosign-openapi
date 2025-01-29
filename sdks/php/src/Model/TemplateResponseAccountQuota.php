@@ -332,7 +332,7 @@ class TemplateResponseAccountQuota implements ModelInterface, ArrayAccess, JsonS
      *
      * @param int|null $templates_left API templates remaining
      *
-     * @return self
+     * @return static
      */
     public function setTemplatesLeft(?int $templates_left)
     {
@@ -359,7 +359,7 @@ class TemplateResponseAccountQuota implements ModelInterface, ArrayAccess, JsonS
      *
      * @param int|null $api_signature_requests_left API signature requests remaining
      *
-     * @return self
+     * @return static
      */
     public function setApiSignatureRequestsLeft(?int $api_signature_requests_left)
     {
@@ -386,7 +386,7 @@ class TemplateResponseAccountQuota implements ModelInterface, ArrayAccess, JsonS
      *
      * @param int|null $documents_left signature requests remaining
      *
-     * @return self
+     * @return static
      */
     public function setDocumentsLeft(?int $documents_left)
     {
@@ -413,7 +413,7 @@ class TemplateResponseAccountQuota implements ModelInterface, ArrayAccess, JsonS
      *
      * @param int|null $sms_verifications_left SMS verifications remaining
      *
-     * @return self
+     * @return static
      */
     public function setSmsVerificationsLeft(?int $sms_verifications_left)
     {

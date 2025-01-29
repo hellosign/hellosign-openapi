@@ -309,7 +309,7 @@ class SubFormFieldsPerDocumentInitials extends SubFormFieldsPerDocumentBase
      *
      * @param string $type An input field for initials. Use the `SubFormFieldsPerDocumentInitials` class.
      *
-     * @return self
+     * @return static
      */
     public function setType(string $type)
     {

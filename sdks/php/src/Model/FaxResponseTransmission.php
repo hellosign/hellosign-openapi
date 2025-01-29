@@ -369,7 +369,7 @@ class FaxResponseTransmission implements ModelInterface, ArrayAccess, JsonSerial
      *
      * @param string $recipient Fax Transmission Recipient
      *
-     * @return self
+     * @return static
      */
     public function setRecipient(string $recipient)
     {
@@ -396,7 +396,7 @@ class FaxResponseTransmission implements ModelInterface, ArrayAccess, JsonSerial
      *
      * @param string $status_code Fax Transmission Status Code
      *
-     * @return self
+     * @return static
      */
     public function setStatusCode(string $status_code)
     {
@@ -433,7 +433,7 @@ class FaxResponseTransmission implements ModelInterface, ArrayAccess, JsonSerial
      *
      * @param int|null $sent_at Fax Transmission Sent Timestamp
      *
-     * @return self
+     * @return static
      */
     public function setSentAt(?int $sent_at)
     {

@@ -315,7 +315,7 @@ class FaxLineAreaCodeGetResponse implements ModelInterface, ArrayAccess, JsonSer
      *
      * @param int[] $area_codes area_codes
      *
-     * @return self
+     * @return static
      */
     public function setAreaCodes(array $area_codes)
     {

@@ -338,7 +338,7 @@ class TeamInfoResponse implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param string|null $team_id The id of a team
      *
-     * @return self
+     * @return static
      */
     public function setTeamId(?string $team_id)
     {
@@ -365,7 +365,7 @@ class TeamInfoResponse implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param TeamParentResponse|null $team_parent team_parent
      *
-     * @return self
+     * @return static
      */
     public function setTeamParent(?TeamParentResponse $team_parent)
     {
@@ -399,7 +399,7 @@ class TeamInfoResponse implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param string|null $name The name of a team
      *
-     * @return self
+     * @return static
      */
     public function setName(?string $name)
     {
@@ -426,7 +426,7 @@ class TeamInfoResponse implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param int|null $num_members Number of members within a team
      *
-     * @return self
+     * @return static
      */
     public function setNumMembers(?int $num_members)
     {
@@ -453,7 +453,7 @@ class TeamInfoResponse implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param int|null $num_sub_teams Number of sub teams within a team
      *
-     * @return self
+     * @return static
      */
     public function setNumSubTeams(?int $num_sub_teams)
     {

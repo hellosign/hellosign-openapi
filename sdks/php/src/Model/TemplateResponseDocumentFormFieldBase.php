@@ -389,7 +389,7 @@ class TemplateResponseDocumentFormFieldBase implements ModelInterface, ArrayAcce
      *
      * @param string $type type
      *
-     * @return self
+     * @return static
      */
     public function setType(string $type)
     {
@@ -416,7 +416,7 @@ class TemplateResponseDocumentFormFieldBase implements ModelInterface, ArrayAcce
      *
      * @param string|null $api_id a unique id for the form field
      *
-     * @return self
+     * @return static
      */
     public function setApiId(?string $api_id)
     {
@@ -443,7 +443,7 @@ class TemplateResponseDocumentFormFieldBase implements ModelInterface, ArrayAcce
      *
      * @param string|null $name the name of the form field
      *
-     * @return self
+     * @return static
      */
     public function setName(?string $name)
     {
@@ -470,7 +470,7 @@ class TemplateResponseDocumentFormFieldBase implements ModelInterface, ArrayAcce
      *
      * @param string|null $signer the signer of the Form Field
      *
-     * @return self
+     * @return static
      */
     public function setSigner(?string $signer)
     {
@@ -497,7 +497,7 @@ class TemplateResponseDocumentFormFieldBase implements ModelInterface, ArrayAcce
      *
      * @param int|null $x the horizontal offset in pixels for this form field
      *
-     * @return self
+     * @return static
      */
     public function setX(?int $x)
     {
@@ -524,7 +524,7 @@ class TemplateResponseDocumentFormFieldBase implements ModelInterface, ArrayAcce
      *
      * @param int|null $y the vertical offset in pixels for this form field
      *
-     * @return self
+     * @return static
      */
     public function setY(?int $y)
     {
@@ -551,7 +551,7 @@ class TemplateResponseDocumentFormFieldBase implements ModelInterface, ArrayAcce
      *
      * @param int|null $width the width in pixels of this form field
      *
-     * @return self
+     * @return static
      */
     public function setWidth(?int $width)
     {
@@ -578,7 +578,7 @@ class TemplateResponseDocumentFormFieldBase implements ModelInterface, ArrayAcce
      *
      * @param int|null $height the height in pixels of this form field
      *
-     * @return self
+     * @return static
      */
     public function setHeight(?int $height)
     {
@@ -605,7 +605,7 @@ class TemplateResponseDocumentFormFieldBase implements ModelInterface, ArrayAcce
      *
      * @param bool|null $required boolean showing whether or not this field is required
      *
-     * @return self
+     * @return static
      */
     public function setRequired(?bool $required)
     {

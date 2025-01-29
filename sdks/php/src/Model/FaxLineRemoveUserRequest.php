@@ -329,7 +329,7 @@ class FaxLineRemoveUserRequest implements ModelInterface, ArrayAccess, JsonSeria
      *
      * @param string $number the Fax Line number
      *
-     * @return self
+     * @return static
      */
     public function setNumber(string $number)
     {
@@ -356,7 +356,7 @@ class FaxLineRemoveUserRequest implements ModelInterface, ArrayAccess, JsonSeria
      *
      * @param string|null $account_id Account ID
      *
-     * @return self
+     * @return static
      */
     public function setAccountId(?string $account_id)
     {
@@ -383,7 +383,7 @@ class FaxLineRemoveUserRequest implements ModelInterface, ArrayAccess, JsonSeria
      *
      * @param string|null $email_address Email address
      *
-     * @return self
+     * @return static
      */
     public function setEmailAddress(?string $email_address)
     {
