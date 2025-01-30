@@ -125,6 +125,18 @@ from dropbox_sign.models.signature_request_create_embedded_request import (
 from dropbox_sign.models.signature_request_create_embedded_with_template_request import (
     SignatureRequestCreateEmbeddedWithTemplateRequest,
 )
+from dropbox_sign.models.signature_request_edit_embedded_request import (
+    SignatureRequestEditEmbeddedRequest,
+)
+from dropbox_sign.models.signature_request_edit_embedded_with_template_request import (
+    SignatureRequestEditEmbeddedWithTemplateRequest,
+)
+from dropbox_sign.models.signature_request_edit_request import (
+    SignatureRequestEditRequest,
+)
+from dropbox_sign.models.signature_request_edit_with_template_request import (
+    SignatureRequestEditWithTemplateRequest,
+)
 from dropbox_sign.models.signature_request_get_response import (
     SignatureRequestGetResponse,
 )

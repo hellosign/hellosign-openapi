@@ -75,6 +75,10 @@ import { SignatureRequestBulkCreateEmbeddedWithTemplateRequest } from "./signatu
 import { SignatureRequestBulkSendWithTemplateRequest } from "./signatureRequestBulkSendWithTemplateRequest";
 import { SignatureRequestCreateEmbeddedRequest } from "./signatureRequestCreateEmbeddedRequest";
 import { SignatureRequestCreateEmbeddedWithTemplateRequest } from "./signatureRequestCreateEmbeddedWithTemplateRequest";
+import { SignatureRequestEditEmbeddedRequest } from "./signatureRequestEditEmbeddedRequest";
+import { SignatureRequestEditEmbeddedWithTemplateRequest } from "./signatureRequestEditEmbeddedWithTemplateRequest";
+import { SignatureRequestEditRequest } from "./signatureRequestEditRequest";
+import { SignatureRequestEditWithTemplateRequest } from "./signatureRequestEditWithTemplateRequest";
 import { SignatureRequestGetResponse } from "./signatureRequestGetResponse";
 import { SignatureRequestListResponse } from "./signatureRequestListResponse";
 import { SignatureRequestRemindRequest } from "./signatureRequestRemindRequest";
@@ -315,6 +319,12 @@ export let typeMap: { [index: string]: any } = {
   SignatureRequestCreateEmbeddedRequest: SignatureRequestCreateEmbeddedRequest,
   SignatureRequestCreateEmbeddedWithTemplateRequest:
     SignatureRequestCreateEmbeddedWithTemplateRequest,
+  SignatureRequestEditEmbeddedRequest: SignatureRequestEditEmbeddedRequest,
+  SignatureRequestEditEmbeddedWithTemplateRequest:
+    SignatureRequestEditEmbeddedWithTemplateRequest,
+  SignatureRequestEditRequest: SignatureRequestEditRequest,
+  SignatureRequestEditWithTemplateRequest:
+    SignatureRequestEditWithTemplateRequest,
   SignatureRequestGetResponse: SignatureRequestGetResponse,
   SignatureRequestListResponse: SignatureRequestListResponse,
   SignatureRequestRemindRequest: SignatureRequestRemindRequest,
@@ -547,6 +557,10 @@ export {
   SignatureRequestBulkSendWithTemplateRequest,
   SignatureRequestCreateEmbeddedRequest,
   SignatureRequestCreateEmbeddedWithTemplateRequest,
+  SignatureRequestEditEmbeddedRequest,
+  SignatureRequestEditEmbeddedWithTemplateRequest,
+  SignatureRequestEditRequest,
+  SignatureRequestEditWithTemplateRequest,
   SignatureRequestGetResponse,
   SignatureRequestListResponse,
   SignatureRequestRemindRequest,
