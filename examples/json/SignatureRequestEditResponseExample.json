@@ -1,0 +1,76 @@
+{
+  "signature_request": {
+    "signature_request_id": "2b388914e3ae3b738bd4e2ee2850c677e6dc53d2",
+    "title": "NDA with Acme Co.",
+    "original_title": "The NDA we talked about",
+    "subject": "The NDA we talked about",
+    "message": "Please sign this NDA and then we can discuss more. Let me know if you have any questions.",
+    "test_mode": true,
+    "metadata": {
+      "custom_id": "1234",
+      "custom_text": "NDA #9"
+    },
+    "created_at": 1570471067,
+    "is_complete": false,
+    "is_declined": false,
+    "has_error": false,
+    "custom_fields": [],
+    "response_data": [],
+    "signing_url": "https://app.hellosign.com/sign/2b388914e3ae3b738bd4e2ee2850c677e6dc53d2",
+    "signing_redirect_url": null,
+    "files_url": "https://api.hellosign.com/v3/signature_request/files/2b388914e3ae3b738bd4e2ee2850c677e6dc53d2",
+    "details_url": "https://app.hellosign.com/home/manage?guid=2b388914e3ae3b738bd4e2ee2850c677e6dc53d2",
+    "requester_email_address": "me@dropboxsign.com",
+    "signatures": [
+      {
+        "signature_id": "78caf2a1d01cd39cea2bc1cbb340dac3",
+        "signer_email_address": "jack@example.com",
+        "signer_name": "Jack",
+        "signer_role": null,
+        "order": 0,
+        "status_code": "awaiting_signature",
+        "signed_at": null,
+        "last_viewed_at": null,
+        "last_reminded_at": null,
+        "has_pin": false,
+        "has_sms_auth": false
+      },
+      {
+        "signature_id": "616629ed37f8588d28600be17ab5d6b7",
+        "signer_email_address": "jill@example.com",
+        "signer_name": "Jill",
+        "signer_role": null,
+        "order": 1,
+        "status_code": "awaiting_signature",
+        "signed_at": null,
+        "last_viewed_at": null,
+        "last_reminded_at": null,
+        "has_pin": false,
+        "has_sms_auth": false
+      }
+    ],
+    "cc_email_addresses": [
+      "lawyer1@dropboxsign.com",
+      "lawyer2@example.com"
+    ],
+    "attachments": [
+      {
+        "id": "id_1",
+        "signer": "1",
+        "name": "Attachment #1",
+        "required": true,
+        "instructions": "Instructions #1",
+        "uploaded_at": 1650398513
+      },
+      {
+        "id": "id_2",
+        "signer": "2",
+        "name": "Attachment #2",
+        "required": true,
+        "instructions": null,
+        "uploaded_at": null
+      }
+    ],
+    "template_ids": null
+  }
+}

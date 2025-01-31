@@ -17,6 +17,10 @@ import com.dropbox.sign.model.SignatureRequestBulkCreateEmbeddedWithTemplateRequ
 import com.dropbox.sign.model.SignatureRequestBulkSendWithTemplateRequest;
 import com.dropbox.sign.model.SignatureRequestCreateEmbeddedRequest;
 import com.dropbox.sign.model.SignatureRequestCreateEmbeddedWithTemplateRequest;
+import com.dropbox.sign.model.SignatureRequestEditEmbeddedRequest;
+import com.dropbox.sign.model.SignatureRequestEditEmbeddedWithTemplateRequest;
+import com.dropbox.sign.model.SignatureRequestEditRequest;
+import com.dropbox.sign.model.SignatureRequestEditWithTemplateRequest;
 import com.dropbox.sign.model.SignatureRequestGetResponse;
 import com.dropbox.sign.model.SignatureRequestListResponse;
 import com.dropbox.sign.model.SignatureRequestRemindRequest;
@@ -357,6 +361,286 @@ public class SignatureRequestApi {
         "POST",
         new ArrayList<>(),
         isFileTypeFound ? null : signatureRequestCreateEmbeddedWithTemplateRequest,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false
+    );
+  }
+  /**
+   * Edit Signature Request.
+   * Edits and sends a SignatureRequest with the submitted documents. If &#x60;form_fields_per_document&#x60; is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents.  **NOTE:** Edit and resend will not deduct your signature request quota.
+   * @param signatureRequestId The id of the SignatureRequest to edit. (required)
+   * @param signatureRequestEditRequest  (required)
+   * @return SignatureRequestGetResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+       <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
+     </table>
+   */
+  public SignatureRequestGetResponse signatureRequestEdit(String signatureRequestId, SignatureRequestEditRequest signatureRequestEditRequest) throws ApiException {
+    return signatureRequestEditWithHttpInfo(signatureRequestId, signatureRequestEditRequest).getData();
+  }
+
+
+  /**
+   * Edit Signature Request.
+   * Edits and sends a SignatureRequest with the submitted documents. If &#x60;form_fields_per_document&#x60; is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents.  **NOTE:** Edit and resend will not deduct your signature request quota.
+   * @param signatureRequestId The id of the SignatureRequest to edit. (required)
+   * @param signatureRequestEditRequest  (required)
+   * @return ApiResponse&lt;SignatureRequestGetResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+       <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<SignatureRequestGetResponse> signatureRequestEditWithHttpInfo(String signatureRequestId, SignatureRequestEditRequest signatureRequestEditRequest) throws ApiException {
+    
+    // Check required parameters
+    if (signatureRequestId == null) {
+      throw new ApiException(400, "Missing the required parameter 'signatureRequestId' when calling signatureRequestEdit");
+    }
+    if (signatureRequestEditRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'signatureRequestEditRequest' when calling signatureRequestEdit");
+    }
+
+    // Path parameters
+    String localVarPath = "/signature_request/edit/{signature_request_id}"
+            .replaceAll("\\{signature_request_id}", apiClient.escapeString(signatureRequestId.toString()));
+
+    String localVarAccept = apiClient.selectHeaderAccept("application/json");
+    Map<String, Object> localVarFormParams = new LinkedHashMap<>();
+    localVarFormParams = signatureRequestEditRequest.createFormData();
+    boolean isFileTypeFound = !localVarFormParams.isEmpty();
+    String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType("application/json", "multipart/form-data");
+    String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
+    GenericType<SignatureRequestGetResponse> localVarReturnType = new GenericType<SignatureRequestGetResponse>() {};
+    return apiClient.invokeAPI(
+        "SignatureRequestApi.signatureRequestEdit",
+        localVarPath,
+        "PUT",
+        new ArrayList<>(),
+        isFileTypeFound ? null : signatureRequestEditRequest,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false
+    );
+  }
+  /**
+   * Edit Embedded Signature Request.
+   * Edits a SignatureRequest with the submitted documents to be signed in an embedded iFrame. If form_fields_per_document is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents. Note that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
+   * @param signatureRequestId The id of the SignatureRequest to edit. (required)
+   * @param signatureRequestEditEmbeddedRequest  (required)
+   * @return SignatureRequestGetResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+       <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
+     </table>
+   */
+  public SignatureRequestGetResponse signatureRequestEditEmbedded(String signatureRequestId, SignatureRequestEditEmbeddedRequest signatureRequestEditEmbeddedRequest) throws ApiException {
+    return signatureRequestEditEmbeddedWithHttpInfo(signatureRequestId, signatureRequestEditEmbeddedRequest).getData();
+  }
+
+
+  /**
+   * Edit Embedded Signature Request.
+   * Edits a SignatureRequest with the submitted documents to be signed in an embedded iFrame. If form_fields_per_document is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents. Note that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
+   * @param signatureRequestId The id of the SignatureRequest to edit. (required)
+   * @param signatureRequestEditEmbeddedRequest  (required)
+   * @return ApiResponse&lt;SignatureRequestGetResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+       <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<SignatureRequestGetResponse> signatureRequestEditEmbeddedWithHttpInfo(String signatureRequestId, SignatureRequestEditEmbeddedRequest signatureRequestEditEmbeddedRequest) throws ApiException {
+    
+    // Check required parameters
+    if (signatureRequestId == null) {
+      throw new ApiException(400, "Missing the required parameter 'signatureRequestId' when calling signatureRequestEditEmbedded");
+    }
+    if (signatureRequestEditEmbeddedRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'signatureRequestEditEmbeddedRequest' when calling signatureRequestEditEmbedded");
+    }
+
+    // Path parameters
+    String localVarPath = "/signature_request/edit_embedded/{signature_request_id}"
+            .replaceAll("\\{signature_request_id}", apiClient.escapeString(signatureRequestId.toString()));
+
+    String localVarAccept = apiClient.selectHeaderAccept("application/json");
+    Map<String, Object> localVarFormParams = new LinkedHashMap<>();
+    localVarFormParams = signatureRequestEditEmbeddedRequest.createFormData();
+    boolean isFileTypeFound = !localVarFormParams.isEmpty();
+    String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType("application/json", "multipart/form-data");
+    String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
+    GenericType<SignatureRequestGetResponse> localVarReturnType = new GenericType<SignatureRequestGetResponse>() {};
+    return apiClient.invokeAPI(
+        "SignatureRequestApi.signatureRequestEditEmbedded",
+        localVarPath,
+        "PUT",
+        new ArrayList<>(),
+        isFileTypeFound ? null : signatureRequestEditEmbeddedRequest,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false
+    );
+  }
+  /**
+   * Edit Embedded Signature Request with Template.
+   * Edits a SignatureRequest based on the given Template(s) to be signed in an embedded iFrame. Note that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
+   * @param signatureRequestId The id of the SignatureRequest to edit. (required)
+   * @param signatureRequestEditEmbeddedWithTemplateRequest  (required)
+   * @return SignatureRequestGetResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+       <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
+     </table>
+   */
+  public SignatureRequestGetResponse signatureRequestEditEmbeddedWithTemplate(String signatureRequestId, SignatureRequestEditEmbeddedWithTemplateRequest signatureRequestEditEmbeddedWithTemplateRequest) throws ApiException {
+    return signatureRequestEditEmbeddedWithTemplateWithHttpInfo(signatureRequestId, signatureRequestEditEmbeddedWithTemplateRequest).getData();
+  }
+
+
+  /**
+   * Edit Embedded Signature Request with Template.
+   * Edits a SignatureRequest based on the given Template(s) to be signed in an embedded iFrame. Note that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
+   * @param signatureRequestId The id of the SignatureRequest to edit. (required)
+   * @param signatureRequestEditEmbeddedWithTemplateRequest  (required)
+   * @return ApiResponse&lt;SignatureRequestGetResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+       <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<SignatureRequestGetResponse> signatureRequestEditEmbeddedWithTemplateWithHttpInfo(String signatureRequestId, SignatureRequestEditEmbeddedWithTemplateRequest signatureRequestEditEmbeddedWithTemplateRequest) throws ApiException {
+    
+    // Check required parameters
+    if (signatureRequestId == null) {
+      throw new ApiException(400, "Missing the required parameter 'signatureRequestId' when calling signatureRequestEditEmbeddedWithTemplate");
+    }
+    if (signatureRequestEditEmbeddedWithTemplateRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'signatureRequestEditEmbeddedWithTemplateRequest' when calling signatureRequestEditEmbeddedWithTemplate");
+    }
+
+    // Path parameters
+    String localVarPath = "/signature_request/edit_embedded_with_template/{signature_request_id}"
+            .replaceAll("\\{signature_request_id}", apiClient.escapeString(signatureRequestId.toString()));
+
+    String localVarAccept = apiClient.selectHeaderAccept("application/json");
+    Map<String, Object> localVarFormParams = new LinkedHashMap<>();
+    localVarFormParams = signatureRequestEditEmbeddedWithTemplateRequest.createFormData();
+    boolean isFileTypeFound = !localVarFormParams.isEmpty();
+    String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType("application/json", "multipart/form-data");
+    String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
+    GenericType<SignatureRequestGetResponse> localVarReturnType = new GenericType<SignatureRequestGetResponse>() {};
+    return apiClient.invokeAPI(
+        "SignatureRequestApi.signatureRequestEditEmbeddedWithTemplate",
+        localVarPath,
+        "PUT",
+        new ArrayList<>(),
+        isFileTypeFound ? null : signatureRequestEditEmbeddedWithTemplateRequest,
+        new LinkedHashMap<>(),
+        new LinkedHashMap<>(),
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false
+    );
+  }
+  /**
+   * Edit Signature Request With Template.
+   * Edits and sends a SignatureRequest based off of the Template(s) specified with the template_ids parameter.  **NOTE:** Edit and resend will not deduct your signature request quota.
+   * @param signatureRequestId The id of the SignatureRequest to edit. (required)
+   * @param signatureRequestEditWithTemplateRequest  (required)
+   * @return SignatureRequestGetResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+       <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
+     </table>
+   */
+  public SignatureRequestGetResponse signatureRequestEditWithTemplate(String signatureRequestId, SignatureRequestEditWithTemplateRequest signatureRequestEditWithTemplateRequest) throws ApiException {
+    return signatureRequestEditWithTemplateWithHttpInfo(signatureRequestId, signatureRequestEditWithTemplateRequest).getData();
+  }
+
+
+  /**
+   * Edit Signature Request With Template.
+   * Edits and sends a SignatureRequest based off of the Template(s) specified with the template_ids parameter.  **NOTE:** Edit and resend will not deduct your signature request quota.
+   * @param signatureRequestId The id of the SignatureRequest to edit. (required)
+   * @param signatureRequestEditWithTemplateRequest  (required)
+   * @return ApiResponse&lt;SignatureRequestGetResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+       <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<SignatureRequestGetResponse> signatureRequestEditWithTemplateWithHttpInfo(String signatureRequestId, SignatureRequestEditWithTemplateRequest signatureRequestEditWithTemplateRequest) throws ApiException {
+    
+    // Check required parameters
+    if (signatureRequestId == null) {
+      throw new ApiException(400, "Missing the required parameter 'signatureRequestId' when calling signatureRequestEditWithTemplate");
+    }
+    if (signatureRequestEditWithTemplateRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'signatureRequestEditWithTemplateRequest' when calling signatureRequestEditWithTemplate");
+    }
+
+    // Path parameters
+    String localVarPath = "/signature_request/edit_with_template/{signature_request_id}"
+            .replaceAll("\\{signature_request_id}", apiClient.escapeString(signatureRequestId.toString()));
+
+    String localVarAccept = apiClient.selectHeaderAccept("application/json");
+    Map<String, Object> localVarFormParams = new LinkedHashMap<>();
+    localVarFormParams = signatureRequestEditWithTemplateRequest.createFormData();
+    boolean isFileTypeFound = !localVarFormParams.isEmpty();
+    String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType("application/json", "multipart/form-data");
+    String[] localVarAuthNames = new String[] {"api_key", "oauth2"};
+    GenericType<SignatureRequestGetResponse> localVarReturnType = new GenericType<SignatureRequestGetResponse>() {};
+    return apiClient.invokeAPI(
+        "SignatureRequestApi.signatureRequestEditWithTemplate",
+        localVarPath,
+        "PUT",
+        new ArrayList<>(),
+        isFileTypeFound ? null : signatureRequestEditWithTemplateRequest,
         new LinkedHashMap<>(),
         new LinkedHashMap<>(),
         localVarFormParams,
