@@ -9481,6 +9481,9 @@ components:
             csharp:
               - FieldVisibility
               - GroupVisibility
+            java:
+              - FIELD_VISIBILITY
+              - GROUP_VISIBILITY
             php:
               - TYPE_FIELD_VISIBILITY
               - TYPE_GROUP_VISIBILITY
