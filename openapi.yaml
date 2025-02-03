@@ -1826,6 +1826,7 @@ paths:
               - CA
               - US
               - UK
+            example: US
         -
           name: state
           in: query
@@ -2107,6 +2108,7 @@ paths:
           required: true
           schema:
             type: string
+          example: '[FAX_NUMBER]'
       responses:
         '200':
           description: 'successful operation'

@@ -1,0 +1,41 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+
+using Dropbox.Sign.Api;
+using Dropbox.Sign.Client;
+using Dropbox.Sign.Model;
+
+namespace Dropbox.SignSandbox;
+
+public class UnclaimedDraftCreateEmbeddedDefaultExample
+{
+    public static void Run()
+    {
+        var config = new Configuration();
+
+        var unclaimedDraftCreateEmbeddedRequest = new UnclaimedDraftCreateEmbeddedRequest(
+            clientId: "b6b8e7deaf8f0b95c029dca049356d4a2cf9710a",
+            requesterEmailAddress: "jack@dropboxsign.com",
+            testMode: true,
+            fileUrls: [
+                "https://www.dropbox.com/s/ad9qnhbrjjn64tu/mutual-NDA-example.pdf?dl=1",
+            ]
+        );
+
+        try
+        {
+            var response = new UnclaimedDraftApi(config).UnclaimedDraftCreateEmbedded(
+                unclaimedDraftCreateEmbeddedRequest: unclaimedDraftCreateEmbeddedRequest
+            );
+
+            Console.WriteLine(response);
+        }
+        catch (ApiException e)
+        {
+            Console.WriteLine("Exception when calling UnclaimedDraft#UnclaimedDraftCreateEmbedded: " + e.Message);
+            Console.WriteLine("Status Code: " + e.ErrorCode);
+            Console.WriteLine(e.StackTrace);
+        }
+    }
+}

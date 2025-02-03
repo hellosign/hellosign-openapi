@@ -1,0 +1,44 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+
+using Dropbox.Sign.Api;
+using Dropbox.Sign.Client;
+using Dropbox.Sign.Model;
+
+namespace Dropbox.SignSandbox;
+
+public class ApiAppUpdateDefaultExample
+{
+    public static void Run()
+    {
+        var config = new Configuration();
+
+        var whiteLabelingOptions = new SubWhiteLabelingOptions(
+            primaryButtonColor: "#00b3e6",
+            primaryButtonTextColor: "#ffffff"
+        );
+
+        var apiAppUpdateRequest = new ApiAppUpdateRequest(
+            callbackUrl: "https://example.com/dropboxsign",
+            name: "New Name",
+            whiteLabelingOptions: whiteLabelingOptions
+        );
+
+        try
+        {
+            var response = new ApiAppApi(config).ApiAppUpdate(
+                clientId: "0dd3b823a682527788c4e40cb7b6f7e9",
+                apiAppUpdateRequest: apiAppUpdateRequest
+            );
+
+            Console.WriteLine(response);
+        }
+        catch (ApiException e)
+        {
+            Console.WriteLine("Exception when calling ApiApp#ApiAppUpdate: " + e.Message);
+            Console.WriteLine("Status Code: " + e.ErrorCode);
+            Console.WriteLine(e.StackTrace);
+        }
+    }
+}
