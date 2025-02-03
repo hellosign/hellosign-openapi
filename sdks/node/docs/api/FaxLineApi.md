@@ -104,7 +104,7 @@ faxLineAreaCodeGet(country: 'CA' | 'US' | 'UK', state: 'AK' | 'AL' | 'AR' | 'AZ'
 
 Get Available Fax Line Area Codes
 
-Returns a response with the area codes available for a given state/province and city.
+Returns a list of available area codes for a given state/province and city
 
 ### TypeScript Example
 
@@ -150,10 +150,10 @@ result.then(response => {
 
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **country** | **'CA' | 'US' | 'UK'**| Filter area codes by country. | |
-| **state** | **'AK' | 'AL' | 'AR' | 'AZ' | 'CA' | 'CO' | 'CT' | 'DC' | 'DE' | 'FL' | 'GA' | 'HI' | 'IA' | 'ID' | 'IL' | 'IN' | 'KS' | 'KY' | 'LA' | 'MA' | 'MD' | 'ME' | 'MI' | 'MN' | 'MO' | 'MS' | 'MT' | 'NC' | 'ND' | 'NE' | 'NH' | 'NJ' | 'NM' | 'NV' | 'NY' | 'OH' | 'OK' | 'OR' | 'PA' | 'RI' | 'SC' | 'SD' | 'TN' | 'TX' | 'UT' | 'VA' | 'VT' | 'WA' | 'WI' | 'WV' | 'WY'**| Filter area codes by state. | [optional] |
-| **province** | **'AB' | 'BC' | 'MB' | 'NB' | 'NL' | 'NT' | 'NS' | 'NU' | 'ON' | 'PE' | 'QC' | 'SK' | 'YT'**| Filter area codes by province. | [optional] |
-| **city** | **string**| Filter area codes by city. | [optional] |
+| **country** | **'CA' | 'US' | 'UK'**| Filter area codes by country | |
+| **state** | **'AK' | 'AL' | 'AR' | 'AZ' | 'CA' | 'CO' | 'CT' | 'DC' | 'DE' | 'FL' | 'GA' | 'HI' | 'IA' | 'ID' | 'IL' | 'IN' | 'KS' | 'KY' | 'LA' | 'MA' | 'MD' | 'ME' | 'MI' | 'MN' | 'MO' | 'MS' | 'MT' | 'NC' | 'ND' | 'NE' | 'NH' | 'NJ' | 'NM' | 'NV' | 'NY' | 'OH' | 'OK' | 'OR' | 'PA' | 'RI' | 'SC' | 'SD' | 'TN' | 'TX' | 'UT' | 'VA' | 'VT' | 'WA' | 'WI' | 'WV' | 'WY'**| Filter area codes by state | [optional] |
+| **province** | **'AB' | 'BC' | 'MB' | 'NB' | 'NL' | 'NT' | 'NS' | 'NU' | 'ON' | 'PE' | 'QC' | 'SK' | 'YT'**| Filter area codes by province | [optional] |
+| **city** | **string**| Filter area codes by city | [optional] |
 
 ### Return type
 
@@ -180,7 +180,7 @@ faxLineCreate(faxLineCreateRequest: FaxLineCreateRequest): FaxLineResponse
 
 Purchase Fax Line
 
-Purchases a new Fax Line.
+Purchases a new Fax Line
 
 ### TypeScript Example
 
@@ -388,7 +388,7 @@ result.then(response => {
 
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **number** | **string**| The Fax Line number. | |
+| **number** | **string**| The Fax Line number | |
 
 ### Return type
 
@@ -462,9 +462,9 @@ result.then(response => {
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **accountId** | **string**| Account ID | [optional] |
-| **page** | **number**| Page | [optional] [default to 1] |
-| **pageSize** | **number**| Page size | [optional] [default to 20] |
-| **showTeamLines** | **boolean**| Show team lines | [optional] |
+| **page** | **number**| Which page number of the Fax Line List to return. Defaults to `1`. | [optional] [default to 1] |
+| **pageSize** | **number**| Number of objects to be returned per page. Must be between `1` and `100`. Default is `20`. | [optional] [default to 20] |
+| **showTeamLines** | **boolean**| Include Fax Lines belonging to team members in the list | [optional] |
 
 ### Return type
 
@@ -491,7 +491,7 @@ faxLineRemoveUser(faxLineRemoveUserRequest: FaxLineRemoveUserRequest): FaxLineRe
 
 Remove Fax Line Access
 
-Removes a user\'s access to the specified Fax Line.
+Removes a user\'s access to the specified Fax Line
 
 ### TypeScript Example
 

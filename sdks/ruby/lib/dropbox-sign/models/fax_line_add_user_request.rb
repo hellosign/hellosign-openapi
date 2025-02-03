@@ -18,7 +18,7 @@ end
 
 module Dropbox::Sign
   class FaxLineAddUserRequest
-    # The Fax Line number.
+    # The Fax Line number
     # @return [String]
     attr_accessor :number
 

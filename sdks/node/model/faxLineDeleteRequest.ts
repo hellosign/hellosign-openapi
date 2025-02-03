@@ -26,7 +26,7 @@ import { AttributeTypeMap, ObjectSerializer } from "./";
 
 export class FaxLineDeleteRequest {
   /**
-   * The Fax Line number.
+   * The Fax Line number
    */
   "number": string;
 

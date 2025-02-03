@@ -83,7 +83,7 @@ with ApiClient(configuration) as api_client:
 
 Get Available Fax Line Area Codes
 
-Returns a response with the area codes available for a given state/province and city.
+Returns a list of available area codes for a given state/province and city
 
 ### Example
 
@@ -114,10 +114,10 @@ with ApiClient(configuration) as api_client:
 ### Parameters
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| `country` | **str** | Filter area codes by country. |  |
-| `state` | **str** | Filter area codes by state. | [optional] |
-| `province` | **str** | Filter area codes by province. | [optional] |
-| `city` | **str** | Filter area codes by city. | [optional] |
+| `country` | **str** | Filter area codes by country |  |
+| `state` | **str** | Filter area codes by state | [optional] |
+| `province` | **str** | Filter area codes by province | [optional] |
+| `city` | **str** | Filter area codes by city | [optional] |
 
 ### Return type
 
@@ -146,7 +146,7 @@ with ApiClient(configuration) as api_client:
 
 Purchase Fax Line
 
-Purchases a new Fax Line.
+Purchases a new Fax Line
 
 ### Example
 
@@ -305,7 +305,7 @@ with ApiClient(configuration) as api_client:
 ### Parameters
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| `number` | **str** | The Fax Line number. |  |
+| `number` | **str** | The Fax Line number |  |
 
 ### Return type
 
@@ -366,9 +366,9 @@ with ApiClient(configuration) as api_client:
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `account_id` | **str** | Account ID | [optional] |
-| `page` | **int** | Page | [optional][default to 1] |
-| `page_size` | **int** | Page size | [optional][default to 20] |
-| `show_team_lines` | **bool** | Show team lines | [optional] |
+| `page` | **int** | Which page number of the Fax Line List to return. Defaults to `1`. | [optional][default to 1] |
+| `page_size` | **int** | Number of objects to be returned per page. Must be between `1` and `100`. Default is `20`. | [optional][default to 20] |
+| `show_team_lines` | **bool** | Include Fax Lines belonging to team members in the list | [optional] |
 
 ### Return type
 
@@ -397,7 +397,7 @@ with ApiClient(configuration) as api_client:
 
 Remove Fax Line Access
 
-Removes a user's access to the specified Fax Line.
+Removes a user's access to the specified Fax Line
 
 ### Example
 

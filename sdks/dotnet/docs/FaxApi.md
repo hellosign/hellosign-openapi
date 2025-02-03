@@ -16,7 +16,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 
 Delete Fax
 
-Deletes the specified Fax from the system.
+Deletes the specified Fax from the system
 
 ### Example
 ```csharp
@@ -102,7 +102,7 @@ void (empty response body)
 
 Download Fax Files
 
-Downloads fax files
+Downloads files associated with a Fax
 
 ### Example
 ```csharp
@@ -197,7 +197,7 @@ catch (ApiException e)
 
 Get Fax
 
-Returns information about fax
+Returns information about a Fax
 
 ### Example
 ```csharp
@@ -289,7 +289,7 @@ catch (ApiException e)
 
 Lists Faxes
 
-Returns properties of multiple faxes
+Returns properties of multiple Faxes
 
 ### Example
 ```csharp
@@ -352,8 +352,8 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **page** | **int?** | Page | [optional] [default to 1] |
-| **pageSize** | **int?** | Page size | [optional] [default to 20] |
+| **page** | **int?** | Which page number of the Fax List to return. Defaults to `1`. | [optional] [default to 1] |
+| **pageSize** | **int?** | Number of objects to be returned per page. Must be between `1` and `100`. Default is `20`. | [optional] [default to 20] |
 
 ### Return type
 
@@ -383,7 +383,7 @@ catch (ApiException e)
 
 Send Fax
 
-Action to prepare and send a fax
+Creates and sends a new Fax with the submitted file(s)
 
 ### Example
 ```csharp

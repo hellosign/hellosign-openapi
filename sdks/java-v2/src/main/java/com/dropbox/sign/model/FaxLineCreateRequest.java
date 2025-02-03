@@ -45,7 +45,7 @@ public class FaxLineCreateRequest {
   private Integer areaCode;
 
   /**
-   * Country
+   * Country of the area code
    */
   public enum CountryEnum {
     CA("CA"),
@@ -114,7 +114,7 @@ public class FaxLineCreateRequest {
   }
 
   /**
-   * Area code
+   * Area code of the new Fax Line
    * @return areaCode
    */
   @jakarta.annotation.Nonnull
@@ -139,7 +139,7 @@ public class FaxLineCreateRequest {
   }
 
   /**
-   * Country
+   * Country of the area code
    * @return country
    */
   @jakarta.annotation.Nonnull
@@ -164,7 +164,7 @@ public class FaxLineCreateRequest {
   }
 
   /**
-   * City
+   * City of the area code
    * @return city
    */
   @jakarta.annotation.Nullable
@@ -189,7 +189,7 @@ public class FaxLineCreateRequest {
   }
 
   /**
-   * Account ID
+   * Account ID of the account that will be assigned this new Fax Line
    * @return accountId
    */
   @jakarta.annotation.Nullable

@@ -26,7 +26,7 @@ import { AttributeTypeMap, ObjectSerializer } from "./";
 
 export class FaxLineAddUserRequest {
   /**
-   * The Fax Line number.
+   * The Fax Line number
    */
   "number": string;
   /**

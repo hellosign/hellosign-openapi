@@ -131,26 +131,34 @@
 "EmbeddedSignUrl::SIGNATURE_ID": The id of the signature to get a signature url for.
 
 "FaxGet::SUMMARY": Get Fax
-"FaxGet::DESCRIPTION": Returns information about fax
+"FaxGet::DESCRIPTION": Returns information about a Fax
 "FaxParam::FAX_ID": Fax ID
 "FaxDelete::SUMMARY": Delete Fax
-"FaxDelete::DESCRIPTION": Deletes the specified Fax from the system.
+"FaxDelete::DESCRIPTION": Deletes the specified Fax from the system
 "FaxFiles::SUMMARY": Download Fax Files
-"FaxFiles::DESCRIPTION": Downloads fax files
+"FaxFiles::DESCRIPTION": Downloads files associated with a Fax
 "FaxList::SUMMARY": Lists Faxes
-"FaxList::DESCRIPTION": Returns properties of multiple faxes
-"FaxList::PAGE": Page
-"FaxList::PAGE_SIZE": Page size
+"FaxList::DESCRIPTION": Returns properties of multiple Faxes
+"FaxList::PAGE": Which page number of the Fax List to return. Defaults to `1`.
+"FaxList::PAGE_SIZE": Number of objects to be returned per page. Must be between `1` and `100`. Default is `20`.
 "FaxSend::SUMMARY": Send Fax
-"FaxSend::DESCRIPTION": Action to prepare and send a fax
-"FaxSend::RECIPIENT": Fax Send To Recipient
+"FaxSend::DESCRIPTION": Creates and sends a new Fax with the submitted file(s)
+"FaxSend::RECIPIENT": |-
+  Recipient of the fax 
+  Can be a phone number in E.164 format or email address
 "FaxSend::SENDER": Fax Send From Sender (used only with fax number)
-"FaxSend::FILE": Fax File to Send
-"FaxSend::FILE_URL": Fax File URL to Send
+"FaxSend::FILE": |-
+  Use `files[]` to indicate the uploaded file(s) to fax
+
+  This endpoint requires either **files** or **file_urls[]**, but not both.
+"FaxSend::FILE_URL": |-
+  Use `file_urls[]` to have Dropbox Fax download the file(s) to fax
+
+  This endpoint requires either **files** or **file_urls[]**, but not both.
 "FaxSend::FILE_URL_NAMES": Fax File URL Names
 "FaxSend::TEST_MODE": API Test Mode Setting
-"FaxSend::COVER_PAGE_TO": Fax Cover Page for Recipient
-"FaxSend::COVER_PAGE_FROM": Fax Cover Page for Sender
+"FaxSend::COVER_PAGE_TO": Fax cover page recipient information
+"FaxSend::COVER_PAGE_FROM": Fax cover page sender information
 "FaxSend::COVER_PAGE_MESSAGE": Fax Cover Page Message
 "FaxSend::TITLE": Fax Title
 "FaxGetResponseExample::SUMMARY": Fax Response
@@ -168,41 +176,41 @@
 "Sub::FaxResponseTransmission::RECIPIENT": Fax Transmission Recipient
 "Sub::FaxResponseTransmission::STATUS_CODE": Fax Transmission Status Code
 "Sub::FaxResponseTransmission::SENT_AT": Fax Transmission Sent Timestamp
-"FaxListResponseExample::SUMMARY": Returns the properties and settings of multiple Faxes.
+"FaxListResponseExample::SUMMARY": Returns the properties and settings of multiple Faxes
 "FaxLineAddUser::SUMMARY": Add Fax Line User
 "FaxLineAddUser::DESCRIPTION": Grants a user access to the specified Fax Line.
-"FaxLineAddUser::NUMBER": The Fax Line number.
+"FaxLineAddUser::NUMBER": The Fax Line number
 "FaxLineAddUser::ACCOUNT_ID": Account ID
 "FaxLineAddUser::EMAIL_ADDRESS": Email address
 "FaxLineAreaCodeGet::SUMMARY": Get Available Fax Line Area Codes
-"FaxLineAreaCodeGet::DESCRIPTION": Returns a response with the area codes available for a given state/province and city.
-"FaxLineAreaCodeGet::CITY": Filter area codes by city.
-"FaxLineAreaCodeGet::STATE": Filter area codes by state.
-"FaxLineAreaCodeGet::PROVINCE": Filter area codes by province.
-"FaxLineAreaCodeGet::COUNTRY": Filter area codes by country.
+"FaxLineAreaCodeGet::DESCRIPTION": Returns a list of available area codes for a given state/province and city
+"FaxLineAreaCodeGet::CITY": Filter area codes by city
+"FaxLineAreaCodeGet::STATE": Filter area codes by state
+"FaxLineAreaCodeGet::PROVINCE": Filter area codes by province
+"FaxLineAreaCodeGet::COUNTRY": Filter area codes by country
 "FaxLineCreate::SUMMARY": Purchase Fax Line
-"FaxLineCreate::DESCRIPTION": Purchases a new Fax Line.
+"FaxLineCreate::DESCRIPTION": Purchases a new Fax Line
 "FaxLineDelete::SUMMARY": Delete Fax Line
 "FaxLineDelete::DESCRIPTION": Deletes the specified Fax Line from the subscription.
 "FaxLineGet::SUMMARY": Get Fax Line
 "FaxLineGet::DESCRIPTION": Returns the properties and settings of a Fax Line.
-"FaxLineGet::NUMBER": The Fax Line number.
+"FaxLineGet::NUMBER": The Fax Line number
 "FaxLineList::SUMMARY": List Fax Lines
 "FaxLineList::DESCRIPTION": Returns the properties and settings of multiple Fax Lines.
 "FaxLineList::ACCOUNT_ID": Account ID
-"FaxLineList::PAGE": Page
-"FaxLineList::PAGE_SIZE": Page size
-"FaxLineList::SHOW_TEAM_LINES": Show team lines
+"FaxLineList::PAGE": Which page number of the Fax Line List to return. Defaults to `1`.
+"FaxLineList::PAGE_SIZE": Number of objects to be returned per page. Must be between `1` and `100`. Default is `20`.
+"FaxLineList::SHOW_TEAM_LINES": Include Fax Lines belonging to team members in the list
 "FaxLineRemoveUser::SUMMARY": Remove Fax Line Access
-"FaxLineRemoveUser::DESCRIPTION": Removes a user's access to the specified Fax Line.
-"FaxLineRemoveUser::NUMBER": The Fax Line number.
-"FaxLineRemoveUser::ACCOUNT_ID": Account ID
-"FaxLineRemoveUser::EMAIL_ADDRESS": Email address
-"FaxLineCreate::AREA_CODE": Area code
-"FaxLineCreate::CITY": City
-"FaxLineCreate::COUNTRY": Country
-"FaxLineCreate::ACCOUNT_ID": Account ID
-"FaxLineDelete::NUMBER": The Fax Line number.
+"FaxLineRemoveUser::DESCRIPTION": Removes a user's access to the specified Fax Line
+"FaxLineRemoveUser::NUMBER": The Fax Line number
+"FaxLineRemoveUser::ACCOUNT_ID": Account ID of the user to remove access
+"FaxLineRemoveUser::EMAIL_ADDRESS": Email address of the user to remove access
+"FaxLineCreate::AREA_CODE": Area code of the new Fax Line
+"FaxLineCreate::CITY": City of the area code
+"FaxLineCreate::COUNTRY": Country of the area code
+"FaxLineCreate::ACCOUNT_ID": Account ID of the account that will be assigned this new Fax Line
+"FaxLineDelete::NUMBER": The Fax Line number
 "FaxLineResponseExample::SUMMARY": Sample Fax Line Response
 "FaxLineAreaCodeGetResponseExample::SUMMARY": Sample Area Code Response
 "FaxLineListResponseExample::SUMMARY": Sample Fax Line List Response
@@ -1702,25 +1710,25 @@
 "EmbeddedSignUrl::SEO::TITLE": "Get Embedded Sign URL | iFrame | Dropbox Sign for Developers"
 "EmbeddedSignUrl::SEO::DESCRIPTION": "The Dropbox Sign API allows you to build custom integrations. To find out how to retrieve an embedded iFrame object containing a signature url, click here."
 "FaxGet::SEO::TITLE": "Get Fax | API Documentation | Dropbox Fax for Developers"
-"FaxGet::SEO::DESCRIPTION": "The Dropbox Fax API allows you to build custom integrations. To find out how to retrieve a fax, click here."
+"FaxGet::SEO::DESCRIPTION": "The Dropbox Fax API allows you to build custom integrations. To find out how to retrieve properties of a fax, click here."
 "FaxDelete::SEO::TITLE": "Delete Fax | API Documentation | Dropbox Fax for Developers"
 "FaxDelete::SEO::DESCRIPTION": "The Dropbox Fax API allows you to build custom integrations. To find out how to delete a fax, click here."
 "FaxFiles::SEO::TITLE": "Fax Files | API Documentation | Dropbox Fax for Developers"
-"FaxFiles::SEO::DESCRIPTION": "The Dropbox Fax API allows you to build custom integrations. To find out how to list fax files, click here."
+"FaxFiles::SEO::DESCRIPTION": "The Dropbox Fax API allows you to build custom integrations. To find out how to list the files of a fax, click here."
 "FaxList::SEO::TITLE": "List Faxes | API Documentation | Dropbox Fax for Developers"
 "FaxList::SEO::DESCRIPTION": "The Dropbox Fax API allows you to build custom integrations. To find out how to list your faxes, click here."
-"FaxSend::SEO::TITLE": "Send Fax| API Documentation | Dropbox Fax for Developers"
+"FaxSend::SEO::TITLE": "Send Fax | API Documentation | Dropbox Fax for Developers"
 "FaxSend::SEO::DESCRIPTION": "The Dropbox Fax API allows you to build custom integrations. To find out how to send a fax, click here."
 "FaxLineAddUser::SEO::TITLE": "Fax Line Add User | API Documentation | Dropbox Fax for Developers"
 "FaxLineAddUser::SEO::DESCRIPTION": "The Dropbox Fax API allows you to build custom integrations. To find out how to add a user to an existing fax line, click here."
 "FaxLineAreaCodeGet::SEO::TITLE": "Fax Line Get Area Codes | API Documentation | Dropbox Fax for Developers"
-"FaxLineAreaCodeGet::SEO::DESCRIPTION": "The Dropbox Fax API allows you to build custom integrations. To find out how to purchase a new fax line, click here."
+"FaxLineAreaCodeGet::SEO::DESCRIPTION": "The Dropbox Fax API allows you to build custom integrations. To find out what area codes are available, click here."
 "FaxLineCreate::SEO::TITLE": "Purchase Fax Line | API Documentation | Dropbox Fax for Developers"
 "FaxLineCreate::SEO::DESCRIPTION": "The Dropbox Fax API allows you to build custom integrations. To find out how to purchase a new fax line, click here."
 "FaxLineDelete::SEO::TITLE": "Delete Fax Line | API Documentation | Dropbox Fax for Developers"
 "FaxLineDelete::SEO::DESCRIPTION": "The Dropbox Fax API allows you to build custom integrations. To find out how to delete a fax line, click here."
 "FaxLineGet::SEO::TITLE": "Get Fax Line | API Documentation | Dropbox Fax for Developers"
-"FaxLineGet::SEO::DESCRIPTION": "The Dropbox Fax API allows you to build custom integrations. To find out how to retrieve a fax line, click here."
+"FaxLineGet::SEO::DESCRIPTION": "The Dropbox Fax API allows you to build custom integrations. To find out how to retrieve the properties of a fax line, click here."
 "FaxLineList::SEO::TITLE": "List Fax Lines | API Documentation | Dropbox Fax for Developers"
 "FaxLineList::SEO::DESCRIPTION": "The Dropbox Fax API allows you to build custom integrations. To find out how to list your fax lines, click here."
 "FaxLineRemoveUser::SEO::TITLE": "Fax Line Remove User | API Documentation | Dropbox Fax for Developers"

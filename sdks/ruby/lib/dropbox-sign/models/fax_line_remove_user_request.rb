@@ -18,15 +18,15 @@ end
 
 module Dropbox::Sign
   class FaxLineRemoveUserRequest
-    # The Fax Line number.
+    # The Fax Line number
     # @return [String]
     attr_accessor :number
 
-    # Account ID
+    # Account ID of the user to remove access
     # @return [String]
     attr_accessor :account_id
 
-    # Email address
+    # Email address of the user to remove access
     # @return [String]
     attr_accessor :email_address
 

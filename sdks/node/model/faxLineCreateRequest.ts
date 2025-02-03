@@ -26,19 +26,19 @@ import { AttributeTypeMap, ObjectSerializer } from "./";
 
 export class FaxLineCreateRequest {
   /**
-   * Area code
+   * Area code of the new Fax Line
    */
   "areaCode": number;
   /**
-   * Country
+   * Country of the area code
    */
   "country": FaxLineCreateRequest.CountryEnum;
   /**
-   * City
+   * City of the area code
    */
   "city"?: string;
   /**
-   * Account ID
+   * Account ID of the account that will be assigned this new Fax Line
    */
   "accountId"?: string;
 

@@ -32,10 +32,12 @@ class FaxLineRemoveUserRequest(BaseModel):
     FaxLineRemoveUserRequest
     """  # noqa: E501
 
-    number: StrictStr = Field(description="The Fax Line number.")
-    account_id: Optional[StrictStr] = Field(default=None, description="Account ID")
+    number: StrictStr = Field(description="The Fax Line number")
+    account_id: Optional[StrictStr] = Field(
+        default=None, description="Account ID of the user to remove access"
+    )
     email_address: Optional[StrictStr] = Field(
-        default=None, description="Email address"
+        default=None, description="Email address of the user to remove access"
     )
     __properties: ClassVar[List[str]] = ["number", "account_id", "email_address"]
 

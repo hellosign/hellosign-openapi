@@ -6,7 +6,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-| `number`<sup>*_required_</sup> | ```string``` |  The Fax Line number.  |  |
+| `number`<sup>*_required_</sup> | ```string``` |  The Fax Line number  |  |
 | `accountId` | ```string``` |  Account ID  |  |
 | `emailAddress` | ```string``` |  Email address  |  |
 

@@ -8,10 +8,10 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-| `areaCode`<sup>*_required_</sup> | ```Integer``` |  Area code  |  |
-| `country`<sup>*_required_</sup> | [```CountryEnum```](#CountryEnum) |  Country  |  |
-| `city` | ```String``` |  City  |  |
-| `accountId` | ```String``` |  Account ID  |  |
+| `areaCode`<sup>*_required_</sup> | ```Integer``` |  Area code of the new Fax Line  |  |
+| `country`<sup>*_required_</sup> | [```CountryEnum```](#CountryEnum) |  Country of the area code  |  |
+| `city` | ```String``` |  City of the area code  |  |
+| `accountId` | ```String``` |  Account ID of the account that will be assigned this new Fax Line  |  |
 
 
 

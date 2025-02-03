@@ -41,7 +41,7 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FaxLineDeleteRequest" /> class.
         /// </summary>
-        /// <param name="number">The Fax Line number. (required).</param>
+        /// <param name="number">The Fax Line number (required).</param>
         public FaxLineDeleteRequest(string number = default(string))
         {
 
@@ -70,9 +70,9 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
-        /// The Fax Line number.
+        /// The Fax Line number
         /// </summary>
-        /// <value>The Fax Line number.</value>
+        /// <value>The Fax Line number</value>
         [DataMember(Name = "number", IsRequired = true, EmitDefaultValue = true)]
         public string Number { get; set; }
 

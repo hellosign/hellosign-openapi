@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 Delete Fax
 
-Deletes the specified Fax from the system.
+Deletes the specified Fax from the system
 
 ### Example
 
@@ -75,7 +75,7 @@ void (empty response body)
 
 Download Fax Files
 
-Downloads fax files
+Downloads files associated with a Fax
 
 ### Example
 
@@ -137,7 +137,7 @@ with ApiClient(configuration) as api_client:
 
 Get Fax
 
-Returns information about fax
+Returns information about a Fax
 
 ### Example
 
@@ -199,7 +199,7 @@ with ApiClient(configuration) as api_client:
 
 Lists Faxes
 
-Returns properties of multiple faxes
+Returns properties of multiple Faxes
 
 ### Example
 
@@ -236,8 +236,8 @@ with ApiClient(configuration) as api_client:
 ### Parameters
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| `page` | **int** | Page | [optional][default to 1] |
-| `page_size` | **int** | Page size | [optional][default to 20] |
+| `page` | **int** | Which page number of the Fax List to return. Defaults to `1`. | [optional][default to 1] |
+| `page_size` | **int** | Number of objects to be returned per page. Must be between `1` and `100`. Default is `20`. | [optional][default to 20] |
 
 ### Return type
 
@@ -266,7 +266,7 @@ with ApiClient(configuration) as api_client:
 
 Send Fax
 
-Action to prepare and send a fax
+Creates and sends a new Fax with the submitted file(s)
 
 ### Example
 

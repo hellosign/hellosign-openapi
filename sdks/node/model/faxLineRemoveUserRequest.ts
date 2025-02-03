@@ -26,15 +26,15 @@ import { AttributeTypeMap, ObjectSerializer } from "./";
 
 export class FaxLineRemoveUserRequest {
   /**
-   * The Fax Line number.
+   * The Fax Line number
    */
   "number": string;
   /**
-   * Account ID
+   * Account ID of the user to remove access
    */
   "accountId"?: string;
   /**
-   * Email address
+   * Email address of the user to remove access
    */
   "emailAddress"?: string;
 

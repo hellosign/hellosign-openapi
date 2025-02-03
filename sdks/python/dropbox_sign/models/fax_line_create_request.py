@@ -32,10 +32,13 @@ class FaxLineCreateRequest(BaseModel):
     FaxLineCreateRequest
     """  # noqa: E501
 
-    area_code: StrictInt = Field(description="Area code")
-    country: StrictStr = Field(description="Country")
-    city: Optional[StrictStr] = Field(default=None, description="City")
-    account_id: Optional[StrictStr] = Field(default=None, description="Account ID")
+    area_code: StrictInt = Field(description="Area code of the new Fax Line")
+    country: StrictStr = Field(description="Country of the area code")
+    city: Optional[StrictStr] = Field(default=None, description="City of the area code")
+    account_id: Optional[StrictStr] = Field(
+        default=None,
+        description="Account ID of the account that will be assigned this new Fax Line",
+    )
     __properties: ClassVar[List[str]] = ["area_code", "country", "city", "account_id"]
 
     @field_validator("country")

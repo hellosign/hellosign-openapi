@@ -41,9 +41,9 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FaxLineRemoveUserRequest" /> class.
         /// </summary>
-        /// <param name="number">The Fax Line number. (required).</param>
-        /// <param name="accountId">Account ID.</param>
-        /// <param name="emailAddress">Email address.</param>
+        /// <param name="number">The Fax Line number (required).</param>
+        /// <param name="accountId">Account ID of the user to remove access.</param>
+        /// <param name="emailAddress">Email address of the user to remove access.</param>
         public FaxLineRemoveUserRequest(string number = default(string), string accountId = default(string), string emailAddress = default(string))
         {
 
@@ -74,24 +74,24 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
-        /// The Fax Line number.
+        /// The Fax Line number
         /// </summary>
-        /// <value>The Fax Line number.</value>
+        /// <value>The Fax Line number</value>
         [DataMember(Name = "number", IsRequired = true, EmitDefaultValue = true)]
         public string Number { get; set; }
 
         /// <summary>
-        /// Account ID
+        /// Account ID of the user to remove access
         /// </summary>
-        /// <value>Account ID</value>
+        /// <value>Account ID of the user to remove access</value>
         /// <example>ab55cd14a97219e36b5ff5fe23f2f9329b0c1e97</example>
         [DataMember(Name = "account_id", EmitDefaultValue = true)]
         public string AccountId { get; set; }
 
         /// <summary>
-        /// Email address
+        /// Email address of the user to remove access
         /// </summary>
-        /// <value>Email address</value>
+        /// <value>Email address of the user to remove access</value>
         [DataMember(Name = "email_address", EmitDefaultValue = true)]
         public string EmailAddress { get; set; }
 

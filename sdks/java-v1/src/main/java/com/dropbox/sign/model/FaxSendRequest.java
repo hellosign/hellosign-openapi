@@ -92,7 +92,7 @@ public class FaxSendRequest {
     }
 
     /**
-     * Fax Send To Recipient
+     * Recipient of the fax Can be a phone number in E.164 format or email address
      *
      * @return recipient
      */
@@ -145,7 +145,8 @@ public class FaxSendRequest {
     }
 
     /**
-     * Fax File to Send
+     * Use &#x60;files[]&#x60; to indicate the uploaded file(s) to fax This endpoint requires either
+     * **files** or **file_urls[]**, but not both.
      *
      * @return files
      */
@@ -175,7 +176,8 @@ public class FaxSendRequest {
     }
 
     /**
-     * Fax File URL to Send
+     * Use &#x60;file_urls[]&#x60; to have Dropbox Fax download the file(s) to fax This endpoint
+     * requires either **files** or **file_urls[]**, but not both.
      *
      * @return fileUrls
      */
@@ -219,7 +221,7 @@ public class FaxSendRequest {
     }
 
     /**
-     * Fax Cover Page for Recipient
+     * Fax cover page recipient information
      *
      * @return coverPageTo
      */
@@ -241,7 +243,7 @@ public class FaxSendRequest {
     }
 
     /**
-     * Fax Cover Page for Sender
+     * Fax cover page sender information
      *
      * @return coverPageFrom
      */

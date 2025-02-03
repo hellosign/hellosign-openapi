@@ -1414,7 +1414,7 @@ paths:
       tags:
         - Fax
       summary: 'Get Fax'
-      description: 'Returns information about fax'
+      description: 'Returns information about a Fax'
       operationId: faxGet
       parameters:
         -
@@ -1510,12 +1510,12 @@ paths:
       x-meta:
         seo:
           title: 'Get Fax | API Documentation | Dropbox Fax for Developers'
-          description: 'The Dropbox Fax API allows you to build custom integrations. To find out how to retrieve a fax, click here.'
+          description: 'The Dropbox Fax API allows you to build custom integrations. To find out how to retrieve properties of a fax, click here.'
     delete:
       tags:
         - Fax
       summary: 'Delete Fax'
-      description: 'Deletes the specified Fax from the system.'
+      description: 'Deletes the specified Fax from the system'
       operationId: faxDelete
       parameters:
         -
@@ -1610,7 +1610,7 @@ paths:
       tags:
         - Fax
       summary: 'Download Fax Files'
-      description: 'Downloads fax files'
+      description: 'Downloads files associated with a Fax'
       operationId: faxFiles
       parameters:
         -
@@ -1706,7 +1706,7 @@ paths:
       x-meta:
         seo:
           title: 'Fax Files | API Documentation | Dropbox Fax for Developers'
-          description: 'The Dropbox Fax API allows you to build custom integrations. To find out how to list fax files, click here.'
+          description: 'The Dropbox Fax API allows you to build custom integrations. To find out how to list the files of a fax, click here.'
   /fax_line/add_user:
     put:
       tags:
@@ -1812,13 +1812,13 @@ paths:
       tags:
         - 'Fax Line'
       summary: 'Get Available Fax Line Area Codes'
-      description: 'Returns a response with the area codes available for a given state/province and city.'
+      description: 'Returns a list of available area codes for a given state/province and city'
       operationId: faxLineAreaCodeGet
       parameters:
         -
           name: country
           in: query
-          description: 'Filter area codes by country.'
+          description: 'Filter area codes by country'
           required: true
           schema:
             type: string
@@ -1830,7 +1830,7 @@ paths:
         -
           name: state
           in: query
-          description: 'Filter area codes by state.'
+          description: 'Filter area codes by state'
           schema:
             type: string
             enum:
@@ -1888,7 +1888,7 @@ paths:
         -
           name: province
           in: query
-          description: 'Filter area codes by province.'
+          description: 'Filter area codes by province'
           schema:
             type: string
             enum:
@@ -1908,7 +1908,7 @@ paths:
         -
           name: city
           in: query
-          description: 'Filter area codes by city.'
+          description: 'Filter area codes by city'
           schema:
             type: string
       responses:
@@ -1992,13 +1992,13 @@ paths:
       x-meta:
         seo:
           title: 'Fax Line Get Area Codes | API Documentation | Dropbox Fax for Developers'
-          description: 'The Dropbox Fax API allows you to build custom integrations. To find out how to purchase a new fax line, click here.'
+          description: 'The Dropbox Fax API allows you to build custom integrations. To find out what area codes are available, click here.'
   /fax_line/create:
     post:
       tags:
         - 'Fax Line'
       summary: 'Purchase Fax Line'
-      description: 'Purchases a new Fax Line.'
+      description: 'Purchases a new Fax Line'
       operationId: faxLineCreate
       requestBody:
         required: true
@@ -2104,7 +2104,7 @@ paths:
         -
           name: number
           in: query
-          description: 'The Fax Line number.'
+          description: 'The Fax Line number'
           required: true
           schema:
             type: string
@@ -2192,7 +2192,7 @@ paths:
       x-meta:
         seo:
           title: 'Get Fax Line | API Documentation | Dropbox Fax for Developers'
-          description: 'The Dropbox Fax API allows you to build custom integrations. To find out how to retrieve a fax line, click here.'
+          description: 'The Dropbox Fax API allows you to build custom integrations. To find out how to retrieve the properties of a fax line, click here.'
     delete:
       tags:
         - 'Fax Line'
@@ -2305,7 +2305,7 @@ paths:
         -
           name: page
           in: query
-          description: Page
+          description: 'Which page number of the Fax Line List to return. Defaults to `1`.'
           schema:
             type: integer
             default: 1
@@ -2313,7 +2313,7 @@ paths:
         -
           name: page_size
           in: query
-          description: 'Page size'
+          description: 'Number of objects to be returned per page. Must be between `1` and `100`. Default is `20`.'
           schema:
             type: integer
             default: 20
@@ -2321,7 +2321,7 @@ paths:
         -
           name: show_team_lines
           in: query
-          description: 'Show team lines'
+          description: 'Include Fax Lines belonging to team members in the list'
           schema:
             type: boolean
       responses:
@@ -2411,7 +2411,7 @@ paths:
       tags:
         - 'Fax Line'
       summary: 'Remove Fax Line Access'
-      description: 'Removes a user''s access to the specified Fax Line.'
+      description: 'Removes a user''s access to the specified Fax Line'
       operationId: faxLineRemoveUser
       requestBody:
         required: true
@@ -2511,13 +2511,13 @@ paths:
       tags:
         - Fax
       summary: 'Lists Faxes'
-      description: 'Returns properties of multiple faxes'
+      description: 'Returns properties of multiple Faxes'
       operationId: faxList
       parameters:
         -
           name: page
           in: query
-          description: Page
+          description: 'Which page number of the Fax List to return. Defaults to `1`.'
           schema:
             type: integer
             default: 1
@@ -2526,7 +2526,7 @@ paths:
         -
           name: page_size
           in: query
-          description: 'Page size'
+          description: 'Number of objects to be returned per page. Must be between `1` and `100`. Default is `20`.'
           schema:
             type: integer
             default: 20
@@ -2620,7 +2620,7 @@ paths:
       tags:
         - Fax
       summary: 'Send Fax'
-      description: 'Action to prepare and send a fax'
+      description: 'Creates and sends a new Fax with the submitted file(s)'
       operationId: faxSend
       requestBody:
         required: true
@@ -2718,7 +2718,7 @@ paths:
             $ref: examples/FaxSend.sh
       x-meta:
         seo:
-          title: 'Send Fax| API Documentation | Dropbox Fax for Developers'
+          title: 'Send Fax | API Documentation | Dropbox Fax for Developers'
           description: 'The Dropbox Fax API allows you to build custom integrations. To find out how to send a fax, click here.'
   /oauth/token:
     post:
@@ -7759,7 +7759,7 @@ components:
         - number
       properties:
         number:
-          description: 'The Fax Line number.'
+          description: 'The Fax Line number'
           type: string
         account_id:
           description: 'Account ID'
@@ -7852,10 +7852,10 @@ components:
         - country
       properties:
         area_code:
-          description: 'Area code'
+          description: 'Area code of the new Fax Line'
           type: integer
         country:
-          description: Country
+          description: 'Country of the area code'
           type: string
           enum:
             - CA
@@ -7867,10 +7867,10 @@ components:
               - Us
               - Uk
         city:
-          description: City
+          description: 'City of the area code'
           type: string
         account_id:
-          description: 'Account ID'
+          description: 'Account ID of the account that will be assigned this new Fax Line'
           type: string
           example: ab55cd14a97219e36b5ff5fe23f2f9329b0c1e97
       type: object
@@ -7879,7 +7879,7 @@ components:
         - number
       properties:
         number:
-          description: 'The Fax Line number.'
+          description: 'The Fax Line number'
           type: string
       type: object
     FaxLineRemoveUserRequest:
@@ -7887,14 +7887,14 @@ components:
         - number
       properties:
         number:
-          description: 'The Fax Line number.'
+          description: 'The Fax Line number'
           type: string
         account_id:
-          description: 'Account ID'
+          description: 'Account ID of the user to remove access'
           type: string
           example: ab55cd14a97219e36b5ff5fe23f2f9329b0c1e97
         email_address:
-          description: 'Email address'
+          description: 'Email address of the user to remove access'
           type: string
           format: email
       type: object
@@ -7903,7 +7903,9 @@ components:
         - recipient
       properties:
         recipient:
-          description: 'Fax Send To Recipient'
+          description: |-
+            Recipient of the fax 
+            Can be a phone number in E.164 format or email address
           type: string
           example: recipient@example.com
         sender:
@@ -7911,13 +7913,19 @@ components:
           type: string
           example: sender@example.com
         files:
-          description: 'Fax File to Send'
+          description: |-
+            Use `files[]` to indicate the uploaded file(s) to fax
+
+            This endpoint requires either **files** or **file_urls[]**, but not both.
           type: array
           items:
             type: string
             format: binary
         file_urls:
-          description: 'Fax File URL to Send'
+          description: |-
+            Use `file_urls[]` to have Dropbox Fax download the file(s) to fax
+
+            This endpoint requires either **files** or **file_urls[]**, but not both.
           type: array
           items:
             type: string
@@ -7926,11 +7934,11 @@ components:
           type: boolean
           default: false
         cover_page_to:
-          description: 'Fax Cover Page for Recipient'
+          description: 'Fax cover page recipient information'
           type: string
           example: 'Recipient Name'
         cover_page_from:
-          description: 'Fax Cover Page for Sender'
+          description: 'Fax cover page sender information'
           type: string
           example: 'Sender Name'
         cover_page_message:
@@ -13389,7 +13397,7 @@ components:
       value:
         $ref: examples/json/FaxLineListResponseExample.json
     FaxListResponseExample:
-      summary: 'Returns the properties and settings of multiple Faxes.'
+      summary: 'Returns the properties and settings of multiple Faxes'
       value:
         $ref: examples/json/FaxListResponseExample.json
     ReportCreateResponseExample:

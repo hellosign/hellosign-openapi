@@ -486,10 +486,10 @@ class FaxLineApi
      *
      * Get Available Fax Line Area Codes
      *
-     * @param string $country  Filter area codes by country. (required)
-     * @param string $state    Filter area codes by state. (optional)
-     * @param string $province Filter area codes by province. (optional)
-     * @param string $city     Filter area codes by city. (optional)
+     * @param string $country  Filter area codes by country (required)
+     * @param string $state    Filter area codes by state (optional)
+     * @param string $province Filter area codes by province (optional)
+     * @param string $city     Filter area codes by city (optional)
      *
      * @return Model\FaxLineAreaCodeGetResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
@@ -506,10 +506,10 @@ class FaxLineApi
      *
      * Get Available Fax Line Area Codes
      *
-     * @param string $country     Filter area codes by country. (required)
-     * @param string $state       Filter area codes by state. (optional)
-     * @param string $province    Filter area codes by province. (optional)
-     * @param string $city        Filter area codes by city. (optional)
+     * @param string $country     Filter area codes by country (required)
+     * @param string $state       Filter area codes by state (optional)
+     * @param string $province    Filter area codes by province (optional)
+     * @param string $city        Filter area codes by city (optional)
      * @param string $contentType The value for the Content-Type header. Check self::contentTypes['faxLineAreaCodeGet'] to see the possible values for this operation
      *
      * @return array of Model\FaxLineAreaCodeGetResponse, HTTP status code, HTTP response headers (array of strings)
@@ -646,10 +646,10 @@ class FaxLineApi
      *
      * Get Available Fax Line Area Codes
      *
-     * @param string $country     Filter area codes by country. (required)
-     * @param string $state       Filter area codes by state. (optional)
-     * @param string $province    Filter area codes by province. (optional)
-     * @param string $city        Filter area codes by city. (optional)
+     * @param string $country     Filter area codes by country (required)
+     * @param string $state       Filter area codes by state (optional)
+     * @param string $province    Filter area codes by province (optional)
+     * @param string $city        Filter area codes by city (optional)
      * @param string $contentType The value for the Content-Type header. Check self::contentTypes['faxLineAreaCodeGet'] to see the possible values for this operation
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -671,10 +671,10 @@ class FaxLineApi
      *
      * Get Available Fax Line Area Codes
      *
-     * @param string $country     Filter area codes by country. (required)
-     * @param string $state       Filter area codes by state. (optional)
-     * @param string $province    Filter area codes by province. (optional)
-     * @param string $city        Filter area codes by city. (optional)
+     * @param string $country     Filter area codes by country (required)
+     * @param string $state       Filter area codes by state (optional)
+     * @param string $province    Filter area codes by province (optional)
+     * @param string $city        Filter area codes by city (optional)
      * @param string $contentType The value for the Content-Type header. Check self::contentTypes['faxLineAreaCodeGet'] to see the possible values for this operation
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -725,10 +725,10 @@ class FaxLineApi
     /**
      * Create request for operation 'faxLineAreaCodeGet'
      *
-     * @param string $country     Filter area codes by country. (required)
-     * @param string $state       Filter area codes by state. (optional)
-     * @param string $province    Filter area codes by province. (optional)
-     * @param string $city        Filter area codes by city. (optional)
+     * @param string $country     Filter area codes by country (required)
+     * @param string $state       Filter area codes by state (optional)
+     * @param string $province    Filter area codes by province (optional)
+     * @param string $city        Filter area codes by city (optional)
      * @param string $contentType The value for the Content-Type header. Check self::contentTypes['faxLineAreaCodeGet'] to see the possible values for this operation
      *
      * @return Request
@@ -1439,7 +1439,7 @@ class FaxLineApi
      *
      * Get Fax Line
      *
-     * @param string $number The Fax Line number. (required)
+     * @param string $number The Fax Line number (required)
      *
      * @return Model\FaxLineResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
@@ -1456,7 +1456,7 @@ class FaxLineApi
      *
      * Get Fax Line
      *
-     * @param string $number      The Fax Line number. (required)
+     * @param string $number      The Fax Line number (required)
      * @param string $contentType The value for the Content-Type header. Check self::contentTypes['faxLineGet'] to see the possible values for this operation
      *
      * @return array of Model\FaxLineResponse, HTTP status code, HTTP response headers (array of strings)
@@ -1593,7 +1593,7 @@ class FaxLineApi
      *
      * Get Fax Line
      *
-     * @param string $number      The Fax Line number. (required)
+     * @param string $number      The Fax Line number (required)
      * @param string $contentType The value for the Content-Type header. Check self::contentTypes['faxLineGet'] to see the possible values for this operation
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1615,7 +1615,7 @@ class FaxLineApi
      *
      * Get Fax Line
      *
-     * @param string $number      The Fax Line number. (required)
+     * @param string $number      The Fax Line number (required)
      * @param string $contentType The value for the Content-Type header. Check self::contentTypes['faxLineGet'] to see the possible values for this operation
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1666,7 +1666,7 @@ class FaxLineApi
     /**
      * Create request for operation 'faxLineGet'
      *
-     * @param string $number      The Fax Line number. (required)
+     * @param string $number      The Fax Line number (required)
      * @param string $contentType The value for the Content-Type header. Check self::contentTypes['faxLineGet'] to see the possible values for this operation
      *
      * @return Request
@@ -1769,9 +1769,9 @@ class FaxLineApi
      * List Fax Lines
      *
      * @param string $account_id      Account ID (optional)
-     * @param int    $page            Page (optional, default to 1)
-     * @param int    $page_size       Page size (optional, default to 20)
-     * @param bool   $show_team_lines Show team lines (optional)
+     * @param int    $page            Which page number of the Fax Line List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
+     * @param int    $page_size       Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
+     * @param bool   $show_team_lines Include Fax Lines belonging to team members in the list (optional)
      *
      * @return Model\FaxLineListResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
@@ -1789,9 +1789,9 @@ class FaxLineApi
      * List Fax Lines
      *
      * @param string $account_id      Account ID (optional)
-     * @param int    $page            Page (optional, default to 1)
-     * @param int    $page_size       Page size (optional, default to 20)
-     * @param bool   $show_team_lines Show team lines (optional)
+     * @param int    $page            Which page number of the Fax Line List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
+     * @param int    $page_size       Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
+     * @param bool   $show_team_lines Include Fax Lines belonging to team members in the list (optional)
      * @param string $contentType     The value for the Content-Type header. Check self::contentTypes['faxLineList'] to see the possible values for this operation
      *
      * @return array of Model\FaxLineListResponse, HTTP status code, HTTP response headers (array of strings)
@@ -1929,9 +1929,9 @@ class FaxLineApi
      * List Fax Lines
      *
      * @param string $account_id      Account ID (optional)
-     * @param int    $page            Page (optional, default to 1)
-     * @param int    $page_size       Page size (optional, default to 20)
-     * @param bool   $show_team_lines Show team lines (optional)
+     * @param int    $page            Which page number of the Fax Line List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
+     * @param int    $page_size       Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
+     * @param bool   $show_team_lines Include Fax Lines belonging to team members in the list (optional)
      * @param string $contentType     The value for the Content-Type header. Check self::contentTypes['faxLineList'] to see the possible values for this operation
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1954,9 +1954,9 @@ class FaxLineApi
      * List Fax Lines
      *
      * @param string $account_id      Account ID (optional)
-     * @param int    $page            Page (optional, default to 1)
-     * @param int    $page_size       Page size (optional, default to 20)
-     * @param bool   $show_team_lines Show team lines (optional)
+     * @param int    $page            Which page number of the Fax Line List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
+     * @param int    $page_size       Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
+     * @param bool   $show_team_lines Include Fax Lines belonging to team members in the list (optional)
      * @param string $contentType     The value for the Content-Type header. Check self::contentTypes['faxLineList'] to see the possible values for this operation
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2008,9 +2008,9 @@ class FaxLineApi
      * Create request for operation 'faxLineList'
      *
      * @param string $account_id      Account ID (optional)
-     * @param int    $page            Page (optional, default to 1)
-     * @param int    $page_size       Page size (optional, default to 20)
-     * @param bool   $show_team_lines Show team lines (optional)
+     * @param int    $page            Which page number of the Fax Line List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
+     * @param int    $page_size       Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
+     * @param bool   $show_team_lines Include Fax Lines belonging to team members in the list (optional)
      * @param string $contentType     The value for the Content-Type header. Check self::contentTypes['faxLineList'] to see the possible values for this operation
      *
      * @return Request

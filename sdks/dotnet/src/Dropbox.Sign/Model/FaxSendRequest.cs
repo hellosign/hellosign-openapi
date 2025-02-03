@@ -41,13 +41,13 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FaxSendRequest" /> class.
         /// </summary>
-        /// <param name="recipient">Fax Send To Recipient (required).</param>
+        /// <param name="recipient">Recipient of the fax  Can be a phone number in E.164 format or email address (required).</param>
         /// <param name="sender">Fax Send From Sender (used only with fax number).</param>
-        /// <param name="files">Fax File to Send.</param>
-        /// <param name="fileUrls">Fax File URL to Send.</param>
+        /// <param name="files">Use &#x60;files[]&#x60; to indicate the uploaded file(s) to fax  This endpoint requires either **files** or **file_urls[]**, but not both..</param>
+        /// <param name="fileUrls">Use &#x60;file_urls[]&#x60; to have Dropbox Fax download the file(s) to fax  This endpoint requires either **files** or **file_urls[]**, but not both..</param>
         /// <param name="testMode">API Test Mode Setting (default to false).</param>
-        /// <param name="coverPageTo">Fax Cover Page for Recipient.</param>
-        /// <param name="coverPageFrom">Fax Cover Page for Sender.</param>
+        /// <param name="coverPageTo">Fax cover page recipient information.</param>
+        /// <param name="coverPageFrom">Fax cover page sender information.</param>
         /// <param name="coverPageMessage">Fax Cover Page Message.</param>
         /// <param name="title">Fax Title.</param>
         public FaxSendRequest(string recipient = default(string), string sender = default(string), List<System.IO.Stream> files = default(List<System.IO.Stream>), List<string> fileUrls = default(List<string>), bool testMode = false, string coverPageTo = default(string), string coverPageFrom = default(string), string coverPageMessage = default(string), string title = default(string))
@@ -86,9 +86,9 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
-        /// Fax Send To Recipient
+        /// Recipient of the fax  Can be a phone number in E.164 format or email address
         /// </summary>
-        /// <value>Fax Send To Recipient</value>
+        /// <value>Recipient of the fax  Can be a phone number in E.164 format or email address</value>
         /// <example>recipient@example.com</example>
         [DataMember(Name = "recipient", IsRequired = true, EmitDefaultValue = true)]
         public string Recipient { get; set; }
@@ -102,16 +102,16 @@ namespace Dropbox.Sign.Model
         public string Sender { get; set; }
 
         /// <summary>
-        /// Fax File to Send
+        /// Use &#x60;files[]&#x60; to indicate the uploaded file(s) to fax  This endpoint requires either **files** or **file_urls[]**, but not both.
         /// </summary>
-        /// <value>Fax File to Send</value>
+        /// <value>Use &#x60;files[]&#x60; to indicate the uploaded file(s) to fax  This endpoint requires either **files** or **file_urls[]**, but not both.</value>
         [DataMember(Name = "files", EmitDefaultValue = true)]
         public List<System.IO.Stream> Files { get; set; }
 
         /// <summary>
-        /// Fax File URL to Send
+        /// Use &#x60;file_urls[]&#x60; to have Dropbox Fax download the file(s) to fax  This endpoint requires either **files** or **file_urls[]**, but not both.
         /// </summary>
-        /// <value>Fax File URL to Send</value>
+        /// <value>Use &#x60;file_urls[]&#x60; to have Dropbox Fax download the file(s) to fax  This endpoint requires either **files** or **file_urls[]**, but not both.</value>
         [DataMember(Name = "file_urls", EmitDefaultValue = true)]
         public List<string> FileUrls { get; set; }
 
@@ -123,17 +123,17 @@ namespace Dropbox.Sign.Model
         public bool TestMode { get; set; }
 
         /// <summary>
-        /// Fax Cover Page for Recipient
+        /// Fax cover page recipient information
         /// </summary>
-        /// <value>Fax Cover Page for Recipient</value>
+        /// <value>Fax cover page recipient information</value>
         /// <example>Recipient Name</example>
         [DataMember(Name = "cover_page_to", EmitDefaultValue = true)]
         public string CoverPageTo { get; set; }
 
         /// <summary>
-        /// Fax Cover Page for Sender
+        /// Fax cover page sender information
         /// </summary>
-        /// <value>Fax Cover Page for Sender</value>
+        /// <value>Fax cover page sender information</value>
         /// <example>Sender Name</example>
         [DataMember(Name = "cover_page_from", EmitDefaultValue = true)]
         public string CoverPageFrom { get; set; }

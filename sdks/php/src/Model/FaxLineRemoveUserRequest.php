@@ -327,7 +327,7 @@ class FaxLineRemoveUserRequest implements ModelInterface, ArrayAccess, JsonSeria
     /**
      * Sets number
      *
-     * @param string $number the Fax Line number
+     * @param string $number The Fax Line number
      *
      * @return self
      */
@@ -354,7 +354,7 @@ class FaxLineRemoveUserRequest implements ModelInterface, ArrayAccess, JsonSeria
     /**
      * Sets account_id
      *
-     * @param string|null $account_id Account ID
+     * @param string|null $account_id Account ID of the user to remove access
      *
      * @return self
      */
@@ -381,7 +381,7 @@ class FaxLineRemoveUserRequest implements ModelInterface, ArrayAccess, JsonSeria
     /**
      * Sets email_address
      *
-     * @param string|null $email_address Email address
+     * @param string|null $email_address Email address of the user to remove access
      *
      * @return self
      */

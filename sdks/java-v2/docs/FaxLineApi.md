@@ -91,7 +91,7 @@ public class Example {
 
 Get Available Fax Line Area Codes
 
-Returns a response with the area codes available for a given state/province and city.
+Returns a list of available area codes for a given state/province and city
 
 ### Example
 
@@ -130,10 +130,10 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
- **country** | **String**| Filter area codes by country. | [enum: CA, US, UK]
- **state** | **String**| Filter area codes by state. | [optional] [enum: AK, AL, AR, AZ, CA, CO, CT, DC, DE, FL, GA, HI, IA, ID, IL, IN, KS, KY, LA, MA, MD, ME, MI, MN, MO, MS, MT, NC, ND, NE, NH, NJ, NM, NV, NY, OH, OK, OR, PA, RI, SC, SD, TN, TX, UT, VA, VT, WA, WI, WV, WY]
- **province** | **String**| Filter area codes by province. | [optional] [enum: AB, BC, MB, NB, NL, NT, NS, NU, ON, PE, QC, SK, YT]
- **city** | **String**| Filter area codes by city. | [optional]
+ **country** | **String**| Filter area codes by country | [enum: CA, US, UK]
+ **state** | **String**| Filter area codes by state | [optional] [enum: AK, AL, AR, AZ, CA, CO, CT, DC, DE, FL, GA, HI, IA, ID, IL, IN, KS, KY, LA, MA, MD, ME, MI, MN, MO, MS, MT, NC, ND, NE, NH, NJ, NM, NV, NY, OH, OK, OR, PA, RI, SC, SD, TN, TX, UT, VA, VT, WA, WI, WV, WY]
+ **province** | **String**| Filter area codes by province | [optional] [enum: AB, BC, MB, NB, NL, NT, NS, NU, ON, PE, QC, SK, YT]
+ **city** | **String**| Filter area codes by city | [optional]
 
 ### Return type
 
@@ -161,7 +161,7 @@ public class Example {
 
 Purchase Fax Line
 
-Purchases a new Fax Line.
+Purchases a new Fax Line
 
 ### Example
 
@@ -340,7 +340,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
- **number** | **String**| The Fax Line number. |
+ **number** | **String**| The Fax Line number |
 
 ### Return type
 
@@ -408,9 +408,9 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
  **accountId** | **String**| Account ID | [optional]
- **page** | **Integer**| Page | [optional] [default to 1]
- **pageSize** | **Integer**| Page size | [optional] [default to 20]
- **showTeamLines** | **Boolean**| Show team lines | [optional]
+ **page** | **Integer**| Which page number of the Fax Line List to return. Defaults to `1`. | [optional] [default to 1]
+ **pageSize** | **Integer**| Number of objects to be returned per page. Must be between `1` and `100`. Default is `20`. | [optional] [default to 20]
+ **showTeamLines** | **Boolean**| Include Fax Lines belonging to team members in the list | [optional]
 
 ### Return type
 
@@ -438,7 +438,7 @@ public class Example {
 
 Remove Fax Line Access
 
-Removes a user's access to the specified Fax Line.
+Removes a user's access to the specified Fax Line
 
 ### Example
 
