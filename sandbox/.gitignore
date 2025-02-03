@@ -1,7 +1,1 @@
 **/artifacts/
-
-ruby/*
-!ruby/Example.rb
-!ruby/Gemfile
-!ruby/spec
-!ruby/test_fixtures

@@ -1,0 +1,17 @@
+require "dropbox-sign"
+
+Dropbox::Sign.configure do |config|
+end
+
+team_update_request = Dropbox::Sign::TeamUpdateRequest.new
+team_update_request.name = "New Team Name"
+
+begin
+    response = Dropbox::Sign::TeamApi.new.team_update(
+        team_update_request,
+    )
+
+    p response
+rescue Dropbox::Sign::ApiError => e
+    puts "Exception when calling Team#team_update: #{e}"
+end

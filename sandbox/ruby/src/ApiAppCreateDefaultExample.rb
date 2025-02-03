@@ -1,0 +1,33 @@
+require "dropbox-sign"
+
+Dropbox::Sign.configure do |config|
+end
+
+oauth = Dropbox::Sign::SubOAuth.new
+oauth.callback_url = "https://example.com/oauth"
+oauth.scopes = [
+    "basic_account_info",
+    "request_signature",
+]
+
+white_labeling_options = Dropbox::Sign::SubWhiteLabelingOptions.new
+white_labeling_options.primary_button_color = "#00b3e6"
+white_labeling_options.primary_button_text_color = "#ffffff"
+
+api_app_create_request = Dropbox::Sign::ApiAppCreateRequest.new
+api_app_create_request.name = "My Production App"
+api_app_create_request.domains = [
+    "example.com",
+]
+api_app_create_request.oauth = oauth
+api_app_create_request.white_labeling_options = white_labeling_options
+
+begin
+    response = Dropbox::Sign::ApiAppApi.new.api_app_create(
+        api_app_create_request,
+    )
+
+    p response
+rescue Dropbox::Sign::ApiError => e
+    puts "Exception when calling ApiApp#api_app_create: #{e}"
+end

@@ -1,0 +1,15 @@
+require "dropbox-sign"
+
+Dropbox::Sign.configure do |config|
+end
+
+fax_line_delete_request = Dropbox::Sign::FaxLineDeleteRequest.new
+fax_line_delete_request.number = "[FAX_NUMBER]"
+
+begin
+    Dropbox::Sign::FaxLineApi.new.fax_line_delete(
+        fax_line_delete_request,
+    )
+rescue Dropbox::Sign::ApiError => e
+    puts "Exception when calling FaxLine#fax_line_delete: #{e}"
+end

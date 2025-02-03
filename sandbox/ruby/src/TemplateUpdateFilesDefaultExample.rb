@@ -1,0 +1,20 @@
+require "dropbox-sign"
+
+Dropbox::Sign.configure do |config|
+end
+
+template_update_files_request = Dropbox::Sign::TemplateUpdateFilesRequest.new
+template_update_files_request.file_urls = [
+    "https://www.dropbox.com/s/ad9qnhbrjjn64tu/mutual-NDA-example.pdf?dl=1",
+]
+
+begin
+    response = Dropbox::Sign::TemplateApi.new.template_update_files(
+        "f57db65d3f933b5316d398057a36176831451a35",
+        template_update_files_request,
+    )
+
+    p response
+rescue Dropbox::Sign::ApiError => e
+    puts "Exception when calling Template#template_update_files: #{e}"
+end
