@@ -1,19 +1,5 @@
 **/artifacts/
 
-java-v1/*
-!java-v1/pom.xml
-!java-v1/src
-java-v1/src/main/java/com/dropbox/sign_sandbox/*
-!java-v1/src/main/java/com/dropbox/sign_sandbox/Main.java
-!java-v1/test_fixtures
-
-java-v2/*
-!java-v2/pom.xml
-!java-v2/src
-java-v2/src/main/java/com/dropbox/sign_sandbox/*
-!java-v2/src/main/java/com/dropbox/sign_sandbox/Main.java
-!java-v2/test_fixtures
-
 node/*
 !node/Example.ts
 !node/package.json
