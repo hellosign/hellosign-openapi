@@ -1,0 +1,18 @@
+import * as fs from 'fs';
+import api from "@dropbox/sign"
+import models from "@dropbox/sign"
+
+const apiCaller = new api.AccountApi();
+
+const accountUpdateRequest = new models.AccountUpdateRequest();
+accountUpdateRequest.callbackUrl = "https://www.example.com/callback";
+accountUpdateRequest.locale = "en-US";
+
+apiCaller.accountUpdate(
+    accountUpdateRequest,
+).then(response => {
+  console.log(response.body);
+}).catch(error => {
+  console.log("Exception when calling Account#accountUpdate:");
+  console.log(error.body);
+});

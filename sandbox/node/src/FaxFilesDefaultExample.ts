@@ -1,0 +1,16 @@
+import * as fs from 'fs';
+import api from "@dropbox/sign"
+import models from "@dropbox/sign"
+
+const apiCaller = new api.FaxApi();
+
+const faxId = "fa5c8a0b0f492d768749333ad6fcc214c111e967";
+
+apiCaller.faxFiles(
+    faxId,
+).then(response => {
+  fs.createWriteStream('file_response.zip').write(response.body);
+}).catch(error => {
+  console.log("Exception when calling Fax#faxFiles:");
+  console.log(error.body);
+});

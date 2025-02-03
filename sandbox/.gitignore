@@ -1,11 +1,5 @@
 **/artifacts/
 
-node/*
-!node/Example.ts
-!node/package.json
-!node/tests
-!node/test_fixtures
-
 php/*
 !php/composer.json
 !php/Example.php
