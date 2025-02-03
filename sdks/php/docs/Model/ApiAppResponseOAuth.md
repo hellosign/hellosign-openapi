@@ -6,9 +6,9 @@ An object describing the app&#39;s OAuth properties, or null if OAuth is not con
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-| `callback_url` | ```string``` | REPLACE_ME_WITH_DESCRIPTION_BEGIN The app&#39;s OAuth callback URL. REPLACE_ME_WITH_DESCRIPTION_END |  |
-| `secret` | ```string``` | REPLACE_ME_WITH_DESCRIPTION_BEGIN The app&#39;s OAuth secret, or null if the app does not belong to user. REPLACE_ME_WITH_DESCRIPTION_END |  |
-| `scopes` | ```string[]``` | REPLACE_ME_WITH_DESCRIPTION_BEGIN Array of OAuth scopes used by the app. REPLACE_ME_WITH_DESCRIPTION_END |  |
-| `charges_users` | ```bool``` | REPLACE_ME_WITH_DESCRIPTION_BEGIN Boolean indicating whether the app owner or the account granting permission is billed for OAuth requests. REPLACE_ME_WITH_DESCRIPTION_END |  |
+| `callback_url` | ```string``` |  The app&#39;s OAuth callback URL.  |  |
+| `secret` | ```string``` |  The app&#39;s OAuth secret, or null if the app does not belong to user.  |  |
+| `scopes` | ```string[]``` |  Array of OAuth scopes used by the app.  |  |
+| `charges_users` | ```bool``` |  Boolean indicating whether the app owner or the account granting permission is billed for OAuth requests.  |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

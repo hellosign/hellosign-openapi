@@ -22,7 +22,32 @@ Creates a new Dropbox Sign Account that is associated with the specified `email_
 ### Example
 
 ```php
-REPLACE_ME_WITH_EXAMPLE_FOR__accountCreate_PHP_CODE
+<?php
+
+require_once __DIR__ . "/vendor/autoload.php";
+
+$config = Dropbox\Sign\Configuration::getDefaultConfiguration();
+
+// Configure HTTP basic authorization: api_key
+$config->setUsername("YOUR_API_KEY");
+
+// or, configure Bearer (JWT) authorization: oauth2
+// $config->setAccessToken("YOUR_ACCESS_TOKEN");
+
+$accountApi = new Dropbox\Sign\Api\AccountApi($config);
+
+$data = new Dropbox\Sign\Model\AccountCreateRequest();
+$data->setEmailAddress("newuser@dropboxsign.com");
+
+try {
+    $result = $accountApi->accountCreate($data);
+    print_r($result);
+} catch (Dropbox\Sign\ApiException $e) {
+    $error = $e->getResponseObject();
+    echo "Exception when calling Dropbox Sign API: "
+        . print_r($error->getError());
+}
+
 ```
 
 ### Parameters
@@ -60,15 +85,37 @@ Returns the properties and settings of your Account.
 ### Example
 
 ```php
-REPLACE_ME_WITH_EXAMPLE_FOR__accountGet_PHP_CODE
+<?php
+
+require_once __DIR__ . "/vendor/autoload.php";
+
+$config = Dropbox\Sign\Configuration::getDefaultConfiguration();
+
+// Configure HTTP basic authorization: api_key
+$config->setUsername("YOUR_API_KEY");
+
+// or, configure Bearer (JWT) authorization: oauth2
+// $config->setAccessToken("YOUR_ACCESS_TOKEN");
+
+$accountApi = new Dropbox\Sign\Api\AccountApi($config);
+
+try {
+    $result = $accountApi->accountGet(null, 'jack@example.com');
+    print_r($result);
+} catch (Dropbox\Sign\ApiException $e) {
+    $error = $e->getResponseObject();
+    echo "Exception when calling Dropbox Sign API: "
+        . print_r($error->getError());
+}
+
 ```
 
 ### Parameters
 
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **account_id** | **string**| &#x60;account_id&#x60; or &#x60;email_address&#x60; is required. If both are provided, the account id prevails.  The ID of the Account. | [optional] |
-| **email_address** | **string**| &#x60;account_id&#x60; or &#x60;email_address&#x60; is required, If both are provided, the account id prevails.  The email address of the Account. | [optional] |
+| **account_id** | **string**| `account_id` or `email_address` is required. If both are provided, the account id prevails.  The ID of the Account. | [optional] |
+| **email_address** | **string**| `account_id` or `email_address` is required, If both are provided, the account id prevails.  The email address of the Account. | [optional] |
 
 ### Return type
 
@@ -99,7 +146,32 @@ Updates the properties and settings of your Account. Currently only allows for u
 ### Example
 
 ```php
-REPLACE_ME_WITH_EXAMPLE_FOR__accountUpdate_PHP_CODE
+<?php
+
+require_once __DIR__ . "/vendor/autoload.php";
+
+$config = Dropbox\Sign\Configuration::getDefaultConfiguration();
+
+// Configure HTTP basic authorization: api_key
+$config->setUsername("YOUR_API_KEY");
+
+// or, configure Bearer (JWT) authorization: oauth2
+// $config->setAccessToken("YOUR_ACCESS_TOKEN");
+
+$accountApi = new Dropbox\Sign\Api\AccountApi($config);
+
+$data = new Dropbox\Sign\Model\AccountUpdateRequest();
+$data->setCallbackUrl("https://www.example.com/callback");
+
+try {
+    $result = $accountApi->accountUpdate($data);
+    print_r($result);
+} catch (Dropbox\Sign\ApiException $e) {
+    $error = $e->getResponseObject();
+    echo "Exception when calling Dropbox Sign API: "
+        . print_r($error->getError());
+}
+
 ```
 
 ### Parameters
@@ -137,7 +209,32 @@ Verifies whether an Dropbox Sign Account exists for the given email address.
 ### Example
 
 ```php
-REPLACE_ME_WITH_EXAMPLE_FOR__accountVerify_PHP_CODE
+<?php
+
+require_once __DIR__ . "/vendor/autoload.php";
+
+$config = Dropbox\Sign\Configuration::getDefaultConfiguration();
+
+// Configure HTTP basic authorization: api_key
+$config->setUsername("YOUR_API_KEY");
+
+// or, configure Bearer (JWT) authorization: oauth2
+// $config->setAccessToken("YOUR_ACCESS_TOKEN");
+
+$accountApi = new Dropbox\Sign\Api\AccountApi($config);
+
+$data = new Dropbox\Sign\Model\AccountVerifyRequest();
+$data->setEmailAddress("some_user@dropboxsign.com");
+
+try {
+    $result = $accountApi->accountVerify($data);
+    print_r($result);
+} catch (Dropbox\Sign\ApiException $e) {
+    $error = $e->getResponseObject();
+    echo "Exception when calling Dropbox Sign API: "
+        . print_r($error->getError());
+}
+
 ```
 
 ### Parameters

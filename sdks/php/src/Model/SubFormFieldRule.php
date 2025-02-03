@@ -5,9 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  Dropbox\Sign
- * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ * @see     https://openapi-generator.tech
  */
 
 /**
@@ -29,72 +27,73 @@
 
 namespace Dropbox\Sign\Model;
 
-use \ArrayAccess;
-use \Dropbox\Sign\ObjectSerializer;
+use ArrayAccess;
+use Dropbox\Sign\ObjectSerializer;
+use InvalidArgumentException;
+use JsonSerializable;
+use ReturnTypeWillChange;
 
 /**
  * SubFormFieldRule Class Doc Comment
  *
  * @category Class
- * @package  Dropbox\Sign
- * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ * @see     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class SubFormFieldRule implements ModelInterface, ArrayAccess, \JsonSerializable
+class SubFormFieldRule implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
     /**
-      * The original name of the model.
-      *
-      * @var string
-      */
+     * The original name of the model.
+     *
+     * @var string
+     */
     protected static $openAPIModelName = 'SubFormFieldRule';
 
     /**
-      * Array of property to type mappings. Used for (de)serialization
-      *
-      * @var string[]
-      */
+     * Array of property to type mappings. Used for (de)serialization
+     *
+     * @var string[]
+     */
     protected static $openAPITypes = [
         'id' => 'string',
         'trigger_operator' => 'string',
         'triggers' => '\Dropbox\Sign\Model\SubFormFieldRuleTrigger[]',
-        'actions' => '\Dropbox\Sign\Model\SubFormFieldRuleAction[]'
+        'actions' => '\Dropbox\Sign\Model\SubFormFieldRuleAction[]',
     ];
 
     /**
-      * Array of property to format mappings. Used for (de)serialization
-      *
-      * @var string[]
-      * @phpstan-var array<string, string|null>
-      * @psalm-var array<string, string|null>
-      */
+     * Array of property to format mappings. Used for (de)serialization
+     *
+     * @var string[]
+     * @phpstan-var array<string, string|null>
+     * @psalm-var array<string, string|null>
+     */
     protected static $openAPIFormats = [
         'id' => null,
         'trigger_operator' => null,
         'triggers' => null,
-        'actions' => null
+        'actions' => null,
     ];
 
     /**
-      * Array of nullable properties. Used for (de)serialization
-      *
-      * @var boolean[]
-      */
+     * Array of nullable properties. Used for (de)serialization
+     *
+     * @var bool[]
+     */
     protected static array $openAPINullables = [
         'id' => false,
         'trigger_operator' => false,
         'triggers' => false,
-        'actions' => false
+        'actions' => false,
     ];
 
     /**
-      * If a nullable field gets set to null, insert it here
-      *
-      * @var boolean[]
-      */
+     * If a nullable field gets set to null, insert it here
+     *
+     * @var bool[]
+     */
     protected array $openAPINullablesSetToNull = [];
 
     /**
@@ -119,8 +118,6 @@ class SubFormFieldRule implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of nullable properties
-     *
-     * @return array
      */
     protected static function openAPINullables(): array
     {
@@ -130,7 +127,7 @@ class SubFormFieldRule implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Array of nullable field names deliberately set to null
      *
-     * @return boolean[]
+     * @return bool[]
      */
     private function getOpenAPINullablesSetToNull(): array
     {
@@ -140,7 +137,7 @@ class SubFormFieldRule implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Setter - Array of nullable field names deliberately set to null
      *
-     * @param boolean[] $openAPINullablesSetToNull
+     * @param bool[] $openAPINullablesSetToNull
      */
     private function setOpenAPINullablesSetToNull(array $openAPINullablesSetToNull): void
     {
@@ -149,9 +146,6 @@ class SubFormFieldRule implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Checks if a property is nullable
-     *
-     * @param string $property
-     * @return bool
      */
     public static function isNullable(string $property): bool
     {
@@ -160,9 +154,6 @@ class SubFormFieldRule implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Checks if a nullable property is set to null.
-     *
-     * @param string $property
-     * @return bool
      */
     public function isNullableSetToNull(string $property): bool
     {
@@ -179,7 +170,7 @@ class SubFormFieldRule implements ModelInterface, ArrayAccess, \JsonSerializable
         'id' => 'id',
         'trigger_operator' => 'trigger_operator',
         'triggers' => 'triggers',
-        'actions' => 'actions'
+        'actions' => 'actions',
     ];
 
     /**
@@ -191,7 +182,7 @@ class SubFormFieldRule implements ModelInterface, ArrayAccess, \JsonSerializable
         'id' => 'setId',
         'trigger_operator' => 'setTriggerOperator',
         'triggers' => 'setTriggers',
-        'actions' => 'setActions'
+        'actions' => 'setActions',
     ];
 
     /**
@@ -203,7 +194,7 @@ class SubFormFieldRule implements ModelInterface, ArrayAccess, \JsonSerializable
         'id' => 'getId',
         'trigger_operator' => 'getTriggerOperator',
         'triggers' => 'getTriggers',
-        'actions' => 'getActions'
+        'actions' => 'getActions',
     ];
 
     /**
@@ -247,7 +238,6 @@ class SubFormFieldRule implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
-
     /**
      * Associative array for storing property values
      *
@@ -269,34 +259,33 @@ class SubFormFieldRule implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('actions', $data ?? [], null);
     }
 
-    /** @deprecated use ::init() */
+    /**
+     * @deprecated use ::init()
+     */
     public static function fromArray(array $data): SubFormFieldRule
     {
         return self::init($data);
     }
 
-    /** Attempt to instantiate and hydrate a new instance of this class */
+    /**
+     * Attempt to instantiate and hydrate a new instance of this class
+     */
     public static function init(array $data): SubFormFieldRule
     {
         /** @var SubFormFieldRule */
-        $obj = ObjectSerializer::deserialize(
+        return ObjectSerializer::deserialize(
             $data,
             SubFormFieldRule::class,
         );
-
-        return $obj;
     }
 
-
     /**
-    * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
-    * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
-    * $this->openAPINullablesSetToNull array
-    *
-    * @param string $variableName
-    * @param array  $fields
-* @param string|int|object|array|mixed  $defaultValue
-    */
+     * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
+     * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
+     * $this->openAPINullablesSetToNull array
+     *
+     * @param string|int|object|array|mixed $defaultValue
+     */
     private function setIfExists(string $variableName, array $fields, $defaultValue): void
     {
         if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
@@ -324,18 +313,18 @@ class SubFormFieldRule implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['triggers'] === null) {
             $invalidProperties[] = "'triggers' can't be null";
         }
-        if ((count($this->container['triggers']) > 1)) {
+        if (count($this->container['triggers']) > 1) {
             $invalidProperties[] = "invalid value for 'triggers', number of items must be less than or equal to 1.";
         }
 
-        if ((count($this->container['triggers']) < 1)) {
+        if (count($this->container['triggers']) < 1) {
             $invalidProperties[] = "invalid value for 'triggers', number of items must be greater than or equal to 1.";
         }
 
         if ($this->container['actions'] === null) {
             $invalidProperties[] = "'actions' can't be null";
         }
-        if ((count($this->container['actions']) < 1)) {
+        if (count($this->container['actions']) < 1) {
             $invalidProperties[] = "invalid value for 'actions', number of items must be greater than or equal to 1.";
         }
 
@@ -353,7 +342,6 @@ class SubFormFieldRule implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
-
     /**
      * Gets id
      *
@@ -367,14 +355,14 @@ class SubFormFieldRule implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets id
      *
-     * @param string $id Must be unique across all defined rules.
+     * @param string $id must be unique across all defined rules
      *
      * @return self
      */
-    public function setId($id)
+    public function setId(string $id)
     {
         if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
+            throw new InvalidArgumentException('non-nullable id cannot be null');
         }
         $this->container['id'] = $id;
 
@@ -398,10 +386,10 @@ class SubFormFieldRule implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setTriggerOperator($trigger_operator)
+    public function setTriggerOperator(string $trigger_operator)
     {
         if (is_null($trigger_operator)) {
-            throw new \InvalidArgumentException('non-nullable trigger_operator cannot be null');
+            throw new InvalidArgumentException('non-nullable trigger_operator cannot be null');
         }
         $this->container['trigger_operator'] = $trigger_operator;
 
@@ -411,7 +399,7 @@ class SubFormFieldRule implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets triggers
      *
-     * @return \Dropbox\Sign\Model\SubFormFieldRuleTrigger[]
+     * @return SubFormFieldRuleTrigger[]
      */
     public function getTriggers()
     {
@@ -421,21 +409,21 @@ class SubFormFieldRule implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets triggers
      *
-     * @param \Dropbox\Sign\Model\SubFormFieldRuleTrigger[] $triggers An array of trigger definitions, the \"if this\" part of \"**if this**, then that\". Currently only a single trigger per rule is allowed.
+     * @param SubFormFieldRuleTrigger[] $triggers An array of trigger definitions, the \"if this\" part of \"**if this**, then that\". Currently only a single trigger per rule is allowed.
      *
      * @return self
      */
-    public function setTriggers($triggers)
+    public function setTriggers(array $triggers)
     {
         if (is_null($triggers)) {
-            throw new \InvalidArgumentException('non-nullable triggers cannot be null');
+            throw new InvalidArgumentException('non-nullable triggers cannot be null');
         }
 
-        if ((count($triggers) > 1)) {
-            throw new \InvalidArgumentException('invalid value for $triggers when calling SubFormFieldRule., number of items must be less than or equal to 1.');
+        if (count($triggers) > 1) {
+            throw new InvalidArgumentException('invalid value for $triggers when calling SubFormFieldRule., number of items must be less than or equal to 1.');
         }
-        if ((count($triggers) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $triggers when calling SubFormFieldRule., number of items must be greater than or equal to 1.');
+        if (count($triggers) < 1) {
+            throw new InvalidArgumentException('invalid length for $triggers when calling SubFormFieldRule., number of items must be greater than or equal to 1.');
         }
         $this->container['triggers'] = $triggers;
 
@@ -445,7 +433,7 @@ class SubFormFieldRule implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets actions
      *
-     * @return \Dropbox\Sign\Model\SubFormFieldRuleAction[]
+     * @return SubFormFieldRuleAction[]
      */
     public function getActions()
     {
@@ -455,32 +443,30 @@ class SubFormFieldRule implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets actions
      *
-     * @param \Dropbox\Sign\Model\SubFormFieldRuleAction[] $actions An array of action definitions, the \"then that\" part of \"if this, **then that**\". Any number of actions may be attached to a single rule.
+     * @param SubFormFieldRuleAction[] $actions An array of action definitions, the \"then that\" part of \"if this, **then that**\". Any number of actions may be attached to a single rule.
      *
      * @return self
      */
-    public function setActions($actions)
+    public function setActions(array $actions)
     {
         if (is_null($actions)) {
-            throw new \InvalidArgumentException('non-nullable actions cannot be null');
+            throw new InvalidArgumentException('non-nullable actions cannot be null');
         }
 
-
-        if ((count($actions) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $actions when calling SubFormFieldRule., number of items must be greater than or equal to 1.');
+        if (count($actions) < 1) {
+            throw new InvalidArgumentException('invalid length for $actions when calling SubFormFieldRule., number of items must be greater than or equal to 1.');
         }
         $this->container['actions'] = $actions;
 
         return $this;
     }
+
     /**
      * Returns true if offset exists. False otherwise.
      *
-     * @param integer $offset Offset
-     *
-     * @return boolean
+     * @param int $offset Offset
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
@@ -489,11 +475,11 @@ class SubFormFieldRule implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets offset.
      *
-     * @param integer $offset Offset
+     * @param int $offset Offset
      *
      * @return mixed|null
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return $this->container[$offset] ?? null;
@@ -504,10 +490,8 @@ class SubFormFieldRule implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @param int|null $offset Offset
      * @param mixed    $value  Value to be set
-     *
-     * @return void
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
@@ -520,11 +504,9 @@ class SubFormFieldRule implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Unsets offset.
      *
-     * @param integer $offset Offset
-     *
-     * @return void
+     * @param int $offset Offset
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
@@ -532,15 +514,15 @@ class SubFormFieldRule implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Serializes the object to a value that can be serialized natively by json_encode().
-     * @link https://www.php.net/manual/en/jsonserializable.jsonserialize.php
+     * @see https://www.php.net/manual/en/jsonserializable.jsonserialize.php
      *
-     * @return mixed Returns data which can be serialized by json_encode(), which is a value
-     * of any type other than a resource.
+     * @return mixed returns data which can be serialized by json_encode(), which is a value
+     *               of any type other than a resource
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function jsonSerialize()
     {
-       return ObjectSerializer::sanitizeForSerialization($this);
+        return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**
@@ -566,5 +548,3 @@ class SubFormFieldRule implements ModelInterface, ArrayAccess, \JsonSerializable
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
-
-

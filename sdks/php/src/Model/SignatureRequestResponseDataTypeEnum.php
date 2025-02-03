@@ -5,9 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  Dropbox\Sign
- * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ * @see     https://openapi-generator.tech
  */
 
 /**
@@ -28,15 +26,12 @@
  */
 
 namespace Dropbox\Sign\Model;
-use \Dropbox\Sign\ObjectSerializer;
 
 /**
  * SignatureRequestResponseDataTypeEnum Class Doc Comment
  *
  * @category Class
- * @package  Dropbox\Sign
- * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ * @see     https://openapi-generator.tech
  */
 class SignatureRequestResponseDataTypeEnum
 {
@@ -76,9 +71,7 @@ class SignatureRequestResponseDataTypeEnum
             self::RADIO,
             self::SIGNATURE,
             self::TEXT_MERGE,
-            self::CHECKBOX_MERGE
+            self::CHECKBOX_MERGE,
         ];
     }
 }
-
-

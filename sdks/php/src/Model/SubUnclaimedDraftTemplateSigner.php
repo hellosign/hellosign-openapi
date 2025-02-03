@@ -5,9 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  Dropbox\Sign
- * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ * @see     https://openapi-generator.tech
  */
 
 /**
@@ -29,69 +27,70 @@
 
 namespace Dropbox\Sign\Model;
 
-use \ArrayAccess;
-use \Dropbox\Sign\ObjectSerializer;
+use ArrayAccess;
+use Dropbox\Sign\ObjectSerializer;
+use InvalidArgumentException;
+use JsonSerializable;
+use ReturnTypeWillChange;
 
 /**
  * SubUnclaimedDraftTemplateSigner Class Doc Comment
  *
  * @category Class
- * @package  Dropbox\Sign
- * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ * @see     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class SubUnclaimedDraftTemplateSigner implements ModelInterface, ArrayAccess, \JsonSerializable
+class SubUnclaimedDraftTemplateSigner implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
     /**
-      * The original name of the model.
-      *
-      * @var string
-      */
+     * The original name of the model.
+     *
+     * @var string
+     */
     protected static $openAPIModelName = 'SubUnclaimedDraftTemplateSigner';
 
     /**
-      * Array of property to type mappings. Used for (de)serialization
-      *
-      * @var string[]
-      */
+     * Array of property to type mappings. Used for (de)serialization
+     *
+     * @var string[]
+     */
     protected static $openAPITypes = [
         'role' => 'string',
         'name' => 'string',
-        'email_address' => 'string'
+        'email_address' => 'string',
     ];
 
     /**
-      * Array of property to format mappings. Used for (de)serialization
-      *
-      * @var string[]
-      * @phpstan-var array<string, string|null>
-      * @psalm-var array<string, string|null>
-      */
+     * Array of property to format mappings. Used for (de)serialization
+     *
+     * @var string[]
+     * @phpstan-var array<string, string|null>
+     * @psalm-var array<string, string|null>
+     */
     protected static $openAPIFormats = [
         'role' => null,
         'name' => null,
-        'email_address' => 'email'
+        'email_address' => 'email',
     ];
 
     /**
-      * Array of nullable properties. Used for (de)serialization
-      *
-      * @var boolean[]
-      */
+     * Array of nullable properties. Used for (de)serialization
+     *
+     * @var bool[]
+     */
     protected static array $openAPINullables = [
         'role' => false,
         'name' => false,
-        'email_address' => false
+        'email_address' => false,
     ];
 
     /**
-      * If a nullable field gets set to null, insert it here
-      *
-      * @var boolean[]
-      */
+     * If a nullable field gets set to null, insert it here
+     *
+     * @var bool[]
+     */
     protected array $openAPINullablesSetToNull = [];
 
     /**
@@ -116,8 +115,6 @@ class SubUnclaimedDraftTemplateSigner implements ModelInterface, ArrayAccess, \J
 
     /**
      * Array of nullable properties
-     *
-     * @return array
      */
     protected static function openAPINullables(): array
     {
@@ -127,7 +124,7 @@ class SubUnclaimedDraftTemplateSigner implements ModelInterface, ArrayAccess, \J
     /**
      * Array of nullable field names deliberately set to null
      *
-     * @return boolean[]
+     * @return bool[]
      */
     private function getOpenAPINullablesSetToNull(): array
     {
@@ -137,7 +134,7 @@ class SubUnclaimedDraftTemplateSigner implements ModelInterface, ArrayAccess, \J
     /**
      * Setter - Array of nullable field names deliberately set to null
      *
-     * @param boolean[] $openAPINullablesSetToNull
+     * @param bool[] $openAPINullablesSetToNull
      */
     private function setOpenAPINullablesSetToNull(array $openAPINullablesSetToNull): void
     {
@@ -146,9 +143,6 @@ class SubUnclaimedDraftTemplateSigner implements ModelInterface, ArrayAccess, \J
 
     /**
      * Checks if a property is nullable
-     *
-     * @param string $property
-     * @return bool
      */
     public static function isNullable(string $property): bool
     {
@@ -157,9 +151,6 @@ class SubUnclaimedDraftTemplateSigner implements ModelInterface, ArrayAccess, \J
 
     /**
      * Checks if a nullable property is set to null.
-     *
-     * @param string $property
-     * @return bool
      */
     public function isNullableSetToNull(string $property): bool
     {
@@ -175,7 +166,7 @@ class SubUnclaimedDraftTemplateSigner implements ModelInterface, ArrayAccess, \J
     protected static $attributeMap = [
         'role' => 'role',
         'name' => 'name',
-        'email_address' => 'email_address'
+        'email_address' => 'email_address',
     ];
 
     /**
@@ -186,7 +177,7 @@ class SubUnclaimedDraftTemplateSigner implements ModelInterface, ArrayAccess, \J
     protected static $setters = [
         'role' => 'setRole',
         'name' => 'setName',
-        'email_address' => 'setEmailAddress'
+        'email_address' => 'setEmailAddress',
     ];
 
     /**
@@ -197,7 +188,7 @@ class SubUnclaimedDraftTemplateSigner implements ModelInterface, ArrayAccess, \J
     protected static $getters = [
         'role' => 'getRole',
         'name' => 'getName',
-        'email_address' => 'getEmailAddress'
+        'email_address' => 'getEmailAddress',
     ];
 
     /**
@@ -241,7 +232,6 @@ class SubUnclaimedDraftTemplateSigner implements ModelInterface, ArrayAccess, \J
         return self::$openAPIModelName;
     }
 
-
     /**
      * Associative array for storing property values
      *
@@ -262,34 +252,33 @@ class SubUnclaimedDraftTemplateSigner implements ModelInterface, ArrayAccess, \J
         $this->setIfExists('email_address', $data ?? [], null);
     }
 
-    /** @deprecated use ::init() */
+    /**
+     * @deprecated use ::init()
+     */
     public static function fromArray(array $data): SubUnclaimedDraftTemplateSigner
     {
         return self::init($data);
     }
 
-    /** Attempt to instantiate and hydrate a new instance of this class */
+    /**
+     * Attempt to instantiate and hydrate a new instance of this class
+     */
     public static function init(array $data): SubUnclaimedDraftTemplateSigner
     {
         /** @var SubUnclaimedDraftTemplateSigner */
-        $obj = ObjectSerializer::deserialize(
+        return ObjectSerializer::deserialize(
             $data,
             SubUnclaimedDraftTemplateSigner::class,
         );
-
-        return $obj;
     }
 
-
     /**
-    * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
-    * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
-    * $this->openAPINullablesSetToNull array
-    *
-    * @param string $variableName
-    * @param array  $fields
-* @param string|int|object|array|mixed  $defaultValue
-    */
+     * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
+     * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
+     * $this->openAPINullablesSetToNull array
+     *
+     * @param string|int|object|array|mixed $defaultValue
+     */
     private function setIfExists(string $variableName, array $fields, $defaultValue): void
     {
         if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
@@ -331,7 +320,6 @@ class SubUnclaimedDraftTemplateSigner implements ModelInterface, ArrayAccess, \J
         return count($this->listInvalidProperties()) === 0;
     }
 
-
     /**
      * Gets role
      *
@@ -345,14 +333,14 @@ class SubUnclaimedDraftTemplateSigner implements ModelInterface, ArrayAccess, \J
     /**
      * Sets role
      *
-     * @param string $role Must match an existing role in chosen Template(s).
+     * @param string $role must match an existing role in chosen Template(s)
      *
      * @return self
      */
-    public function setRole($role)
+    public function setRole(string $role)
     {
         if (is_null($role)) {
-            throw new \InvalidArgumentException('non-nullable role cannot be null');
+            throw new InvalidArgumentException('non-nullable role cannot be null');
         }
         $this->container['role'] = $role;
 
@@ -372,14 +360,14 @@ class SubUnclaimedDraftTemplateSigner implements ModelInterface, ArrayAccess, \J
     /**
      * Sets name
      *
-     * @param string $name The name of the signer filling the role of `role`.
+     * @param string $name the name of the signer filling the role of `role`
      *
      * @return self
      */
-    public function setName($name)
+    public function setName(string $name)
     {
         if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
+            throw new InvalidArgumentException('non-nullable name cannot be null');
         }
         $this->container['name'] = $name;
 
@@ -399,27 +387,26 @@ class SubUnclaimedDraftTemplateSigner implements ModelInterface, ArrayAccess, \J
     /**
      * Sets email_address
      *
-     * @param string $email_address The email address of the signer filling the role of `role`.
+     * @param string $email_address the email address of the signer filling the role of `role`
      *
      * @return self
      */
-    public function setEmailAddress($email_address)
+    public function setEmailAddress(string $email_address)
     {
         if (is_null($email_address)) {
-            throw new \InvalidArgumentException('non-nullable email_address cannot be null');
+            throw new InvalidArgumentException('non-nullable email_address cannot be null');
         }
         $this->container['email_address'] = $email_address;
 
         return $this;
     }
+
     /**
      * Returns true if offset exists. False otherwise.
      *
-     * @param integer $offset Offset
-     *
-     * @return boolean
+     * @param int $offset Offset
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
@@ -428,11 +415,11 @@ class SubUnclaimedDraftTemplateSigner implements ModelInterface, ArrayAccess, \J
     /**
      * Gets offset.
      *
-     * @param integer $offset Offset
+     * @param int $offset Offset
      *
      * @return mixed|null
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return $this->container[$offset] ?? null;
@@ -443,10 +430,8 @@ class SubUnclaimedDraftTemplateSigner implements ModelInterface, ArrayAccess, \J
      *
      * @param int|null $offset Offset
      * @param mixed    $value  Value to be set
-     *
-     * @return void
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
@@ -459,11 +444,9 @@ class SubUnclaimedDraftTemplateSigner implements ModelInterface, ArrayAccess, \J
     /**
      * Unsets offset.
      *
-     * @param integer $offset Offset
-     *
-     * @return void
+     * @param int $offset Offset
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
@@ -471,15 +454,15 @@ class SubUnclaimedDraftTemplateSigner implements ModelInterface, ArrayAccess, \J
 
     /**
      * Serializes the object to a value that can be serialized natively by json_encode().
-     * @link https://www.php.net/manual/en/jsonserializable.jsonserialize.php
+     * @see https://www.php.net/manual/en/jsonserializable.jsonserialize.php
      *
-     * @return mixed Returns data which can be serialized by json_encode(), which is a value
-     * of any type other than a resource.
+     * @return mixed returns data which can be serialized by json_encode(), which is a value
+     *               of any type other than a resource
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function jsonSerialize()
     {
-       return ObjectSerializer::sanitizeForSerialization($this);
+        return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**
@@ -505,5 +488,3 @@ class SubUnclaimedDraftTemplateSigner implements ModelInterface, ArrayAccess, \J
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
-
-

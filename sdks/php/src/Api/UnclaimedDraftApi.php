@@ -4,9 +4,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  Dropbox\Sign
- * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ * @see     https://openapi-generator.tech
  */
 
 /**
@@ -28,6 +26,11 @@
 
 namespace Dropbox\Sign\Api;
 
+use Dropbox\Sign\ApiException;
+use Dropbox\Sign\Configuration;
+use Dropbox\Sign\HeaderSelector;
+use Dropbox\Sign\Model;
+use Dropbox\Sign\ObjectSerializer;
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\ConnectException;
@@ -35,44 +38,34 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use Dropbox\Sign\ApiException;
-use Dropbox\Sign\Configuration;
-use Dropbox\Sign\HeaderSelector;
-use Dropbox\Sign\ObjectSerializer;
-use Dropbox\Sign\Model;
+use InvalidArgumentException;
+use JsonException;
 use Psr\Http\Message\ResponseInterface;
+use RuntimeException;
 
 /**
  * UnclaimedDraftApi Class Doc Comment
  *
  * @category Class
- * @package  Dropbox\Sign
- * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ * @see     https://openapi-generator.tech
  */
 class UnclaimedDraftApi
 {
-    /**
-     * @var ClientInterface
-     */
+    /** @var ClientInterface */
     protected $client;
 
-    /**
-     * @var Configuration
-     */
+    /** @var Configuration */
     protected $config;
 
-    /**
-     * @var HeaderSelector
-     */
+    /** @var HeaderSelector */
     protected $headerSelector;
 
-    /**
-     * @var int Host index
-     */
+    /** @var int Host index */
     protected $hostIndex;
 
-    /** @var string[] $contentTypes **/
+    /**
+     * @var string[] *
+     */
     public const contentTypes = [
         'unclaimedDraftCreate' => [
             'application/json',
@@ -95,16 +88,13 @@ class UnclaimedDraftApi
     protected $response;
 
     /**
-     * @param Configuration   $config
-     * @param ClientInterface $client
-     * @param HeaderSelector  $selector
-     * @param int             $hostIndex (Optional) host index to select the list of hosts if defined in the OpenAPI spec
+     * @param int $hostIndex (Optional) host index to select the list of hosts if defined in the OpenAPI spec
      */
     public function __construct(
         Configuration $config = null,
         ClientInterface $client = null,
         HeaderSelector $selector = null,
-        $hostIndex = 0
+        int $hostIndex = 0
     ) {
         $this->client = $client ?: new Client();
         $this->config = $config ?: new Configuration();
@@ -118,7 +108,7 @@ class UnclaimedDraftApi
      * @param int $hostIndex Host index (required)
      * @deprecated To be made private in the future
      */
-    public function setHostIndex($hostIndex): void
+    public function setHostIndex(int $hostIndex): void
     {
         $this->hostIndex = $hostIndex;
     }
@@ -155,13 +145,13 @@ class UnclaimedDraftApi
      *
      * Create Unclaimed Draft
      *
-     * @param  \Dropbox\Sign\Model\UnclaimedDraftCreateRequest $unclaimed_draft_create_request unclaimed_draft_create_request (required)
+     * @param Model\UnclaimedDraftCreateRequest $unclaimed_draft_create_request unclaimed_draft_create_request (required)
      *
-     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return \Dropbox\Sign\Model\UnclaimedDraftCreateResponse|\Dropbox\Sign\Model\ErrorResponse
+     * @return Model\UnclaimedDraftCreateResponse
+     * @throws ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws InvalidArgumentException
      */
-    public function unclaimedDraftCreate($unclaimed_draft_create_request)
+    public function unclaimedDraftCreate(Model\UnclaimedDraftCreateRequest $unclaimed_draft_create_request)
     {
         list($response) = $this->unclaimedDraftCreateWithHttpInfo($unclaimed_draft_create_request);
         return $response;
@@ -172,15 +162,15 @@ class UnclaimedDraftApi
      *
      * Create Unclaimed Draft
      *
-     * @param  \Dropbox\Sign\Model\UnclaimedDraftCreateRequest $unclaimed_draft_create_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['unclaimedDraftCreate'] to see the possible values for this operation
+     * @param Model\UnclaimedDraftCreateRequest $unclaimed_draft_create_request (required)
+     * @param string                            $contentType                    The value for the Content-Type header. Check self::contentTypes['unclaimedDraftCreate'] to see the possible values for this operation
      *
-     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return array of \Dropbox\Sign\Model\UnclaimedDraftCreateResponse|\Dropbox\Sign\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of Model\UnclaimedDraftCreateResponse, HTTP status code, HTTP response headers (array of strings)
+     * @throws ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::unclaimedDraftCreate. This method will eventually become unavailable
      */
-    public function unclaimedDraftCreateWithHttpInfo($unclaimed_draft_create_request, string $contentType = self::contentTypes['unclaimedDraftCreate'][0])
+    public function unclaimedDraftCreateWithHttpInfo(Model\UnclaimedDraftCreateRequest $unclaimed_draft_create_request, string $contentType = self::contentTypes['unclaimedDraftCreate'][0])
     {
         $request = $this->unclaimedDraftCreateRequest($unclaimed_draft_create_request, $contentType);
 
@@ -192,14 +182,14 @@ class UnclaimedDraftApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
+                    (int)$e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                    $e->getResponse() ? (string)$e->getResponse()->getBody() : null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
+                    (int)$e->getCode(),
                     null,
                     null
                 );
@@ -212,14 +202,14 @@ class UnclaimedDraftApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        (string) $request->getUri()
+                        (string)$request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    (string) $response->getBody()
+                    (string)$response->getBody()
                 );
             }
-            
+
             $result = $this->handleRangeCodeResponse(
                 $response,
                 '4XX',
@@ -228,18 +218,17 @@ class UnclaimedDraftApi
             if ($result) {
                 return $result;
             }
-            
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     if ('\Dropbox\Sign\Model\UnclaimedDraftCreateResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
-                        $content = (string) $response->getBody();
+                        $content = (string)$response->getBody();
                         if ('\Dropbox\Sign\Model\UnclaimedDraftCreateResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (\JsonException $exception) {
+                            } catch (JsonException $exception) {
                                 throw new ApiException(
                                     sprintf(
                                         'Error JSON decoding server response (%s)',
@@ -256,20 +245,19 @@ class UnclaimedDraftApi
                     return [
                         ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\UnclaimedDraftCreateResponse', []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
-                
             }
 
             $returnType = '\Dropbox\Sign\Model\UnclaimedDraftCreateResponse';
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
+                $content = $response->getBody(); // stream goes to serializer
             } else {
-                $content = (string) $response->getBody();
+                $content = (string)$response->getBody();
                 if ($returnType !== 'string') {
                     try {
                         $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                    } catch (\JsonException $exception) {
+                    } catch (JsonException $exception) {
                         throw new ApiException(
                             sprintf(
                                 'Error JSON decoding server response (%s)',
@@ -286,11 +274,9 @@ class UnclaimedDraftApi
             return [
                 ObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
-                $response->getHeaders()
+                $response->getHeaders(),
             ];
-
         } catch (ApiException $e) {
-            
             if ($this->handleRangeCodeException($e, '4XX', '\Dropbox\Sign\Model\ErrorResponse')) {
                 throw $e;
             }
@@ -303,7 +289,6 @@ class UnclaimedDraftApi
                     );
                     $e->setResponseObject($data);
                     break;
-                
             }
             throw $e;
         }
@@ -314,14 +299,14 @@ class UnclaimedDraftApi
      *
      * Create Unclaimed Draft
      *
-     * @param  \Dropbox\Sign\Model\UnclaimedDraftCreateRequest $unclaimed_draft_create_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['unclaimedDraftCreate'] to see the possible values for this operation
+     * @param Model\UnclaimedDraftCreateRequest $unclaimed_draft_create_request (required)
+     * @param string                            $contentType                    The value for the Content-Type header. Check self::contentTypes['unclaimedDraftCreate'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::unclaimedDraftCreate. This method will eventually become unavailable
      */
-    public function unclaimedDraftCreateAsync($unclaimed_draft_create_request, string $contentType = self::contentTypes['unclaimedDraftCreate'][0])
+    public function unclaimedDraftCreateAsync(Model\UnclaimedDraftCreateRequest $unclaimed_draft_create_request, string $contentType = self::contentTypes['unclaimedDraftCreate'][0])
     {
         return $this->unclaimedDraftCreateAsyncWithHttpInfo($unclaimed_draft_create_request, $contentType)
             ->then(
@@ -336,14 +321,14 @@ class UnclaimedDraftApi
      *
      * Create Unclaimed Draft
      *
-     * @param  \Dropbox\Sign\Model\UnclaimedDraftCreateRequest $unclaimed_draft_create_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['unclaimedDraftCreate'] to see the possible values for this operation
+     * @param Model\UnclaimedDraftCreateRequest $unclaimed_draft_create_request (required)
+     * @param string                            $contentType                    The value for the Content-Type header. Check self::contentTypes['unclaimedDraftCreate'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::unclaimedDraftCreate. This method will eventually become unavailable
      */
-    public function unclaimedDraftCreateAsyncWithHttpInfo($unclaimed_draft_create_request, string $contentType = self::contentTypes['unclaimedDraftCreate'][0])
+    public function unclaimedDraftCreateAsyncWithHttpInfo(Model\UnclaimedDraftCreateRequest $unclaimed_draft_create_request, string $contentType = self::contentTypes['unclaimedDraftCreate'][0])
     {
         $returnType = '\Dropbox\Sign\Model\UnclaimedDraftCreateResponse';
         $request = $this->unclaimedDraftCreateRequest($unclaimed_draft_create_request, $contentType);
@@ -353,9 +338,9 @@ class UnclaimedDraftApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
-                        $content = (string) $response->getBody();
+                        $content = (string)$response->getBody();
                         if ($returnType !== 'string') {
                             $content = json_decode($content);
                         }
@@ -364,7 +349,7 @@ class UnclaimedDraftApi
                     return [
                         ObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
                 },
                 function ($exception) {
@@ -378,7 +363,7 @@ class UnclaimedDraftApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        (string) $response->getBody()
+                        (string)$response->getBody()
                     );
                 }
             );
@@ -387,23 +372,21 @@ class UnclaimedDraftApi
     /**
      * Create request for operation 'unclaimedDraftCreate'
      *
-     * @param  \Dropbox\Sign\Model\UnclaimedDraftCreateRequest $unclaimed_draft_create_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['unclaimedDraftCreate'] to see the possible values for this operation
+     * @param Model\UnclaimedDraftCreateRequest $unclaimed_draft_create_request (required)
+     * @param string                            $contentType                    The value for the Content-Type header. Check self::contentTypes['unclaimedDraftCreate'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
+     * @return Request
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::unclaimedDraftCreate. This method will eventually become unavailable
      */
-    public function unclaimedDraftCreateRequest($unclaimed_draft_create_request, string $contentType = self::contentTypes['unclaimedDraftCreate'][0])
+    public function unclaimedDraftCreateRequest(Model\UnclaimedDraftCreateRequest $unclaimed_draft_create_request, string $contentType = self::contentTypes['unclaimedDraftCreate'][0])
     {
-
         // verify the required parameter 'unclaimed_draft_create_request' is set
         if ($unclaimed_draft_create_request === null || (is_array($unclaimed_draft_create_request) && count($unclaimed_draft_create_request) === 0)) {
-            throw new \InvalidArgumentException(
+            throw new InvalidArgumentException(
                 'Missing the required parameter $unclaimed_draft_create_request when calling unclaimedDraftCreate'
             );
         }
-
 
         $resourcePath = '/unclaimed_draft/create';
         $formParams = [];
@@ -418,11 +401,8 @@ class UnclaimedDraftApi
 
         $multipart = !empty($formParams);
 
-
-
-
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json', ],
+            $multipart ? ['multipart/form-data'] : ['application/json'],
             $contentType,
             $multipart
         );
@@ -430,7 +410,7 @@ class UnclaimedDraftApi
         // for model (json/xml)
         if (count($formParams) === 0) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the body
+                // if Content-Type contains "application/json", json_encode the body
                 $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($unclaimed_draft_create_request));
             } else {
                 $httpBody = $unclaimed_draft_create_request;
@@ -443,7 +423,7 @@ class UnclaimedDraftApi
                     foreach ($formParamValueItems as $formParamValueItem) {
                         $multipartContents[] = [
                             'name' => $formParamName,
-                            'contents' => $formParamValueItem
+                            'contents' => $formParamValueItem,
                         ];
                     }
                 }
@@ -460,9 +440,8 @@ class UnclaimedDraftApi
                     $payloadHook('multipart', $multipartContents, $unclaimed_draft_create_request);
                 }
                 $httpBody = new MultipartStream($multipartContents);
-
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
+                // if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
             } else {
                 // for HTTP post (form)
@@ -505,13 +484,13 @@ class UnclaimedDraftApi
      *
      * Create Embedded Unclaimed Draft
      *
-     * @param  \Dropbox\Sign\Model\UnclaimedDraftCreateEmbeddedRequest $unclaimed_draft_create_embedded_request unclaimed_draft_create_embedded_request (required)
+     * @param Model\UnclaimedDraftCreateEmbeddedRequest $unclaimed_draft_create_embedded_request unclaimed_draft_create_embedded_request (required)
      *
-     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return \Dropbox\Sign\Model\UnclaimedDraftCreateResponse|\Dropbox\Sign\Model\ErrorResponse
+     * @return Model\UnclaimedDraftCreateResponse
+     * @throws ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws InvalidArgumentException
      */
-    public function unclaimedDraftCreateEmbedded($unclaimed_draft_create_embedded_request)
+    public function unclaimedDraftCreateEmbedded(Model\UnclaimedDraftCreateEmbeddedRequest $unclaimed_draft_create_embedded_request)
     {
         list($response) = $this->unclaimedDraftCreateEmbeddedWithHttpInfo($unclaimed_draft_create_embedded_request);
         return $response;
@@ -522,15 +501,15 @@ class UnclaimedDraftApi
      *
      * Create Embedded Unclaimed Draft
      *
-     * @param  \Dropbox\Sign\Model\UnclaimedDraftCreateEmbeddedRequest $unclaimed_draft_create_embedded_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['unclaimedDraftCreateEmbedded'] to see the possible values for this operation
+     * @param Model\UnclaimedDraftCreateEmbeddedRequest $unclaimed_draft_create_embedded_request (required)
+     * @param string                                    $contentType                             The value for the Content-Type header. Check self::contentTypes['unclaimedDraftCreateEmbedded'] to see the possible values for this operation
      *
-     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return array of \Dropbox\Sign\Model\UnclaimedDraftCreateResponse|\Dropbox\Sign\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of Model\UnclaimedDraftCreateResponse, HTTP status code, HTTP response headers (array of strings)
+     * @throws ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::unclaimedDraftCreateEmbedded. This method will eventually become unavailable
      */
-    public function unclaimedDraftCreateEmbeddedWithHttpInfo($unclaimed_draft_create_embedded_request, string $contentType = self::contentTypes['unclaimedDraftCreateEmbedded'][0])
+    public function unclaimedDraftCreateEmbeddedWithHttpInfo(Model\UnclaimedDraftCreateEmbeddedRequest $unclaimed_draft_create_embedded_request, string $contentType = self::contentTypes['unclaimedDraftCreateEmbedded'][0])
     {
         $request = $this->unclaimedDraftCreateEmbeddedRequest($unclaimed_draft_create_embedded_request, $contentType);
 
@@ -542,14 +521,14 @@ class UnclaimedDraftApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
+                    (int)$e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                    $e->getResponse() ? (string)$e->getResponse()->getBody() : null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
+                    (int)$e->getCode(),
                     null,
                     null
                 );
@@ -562,14 +541,14 @@ class UnclaimedDraftApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        (string) $request->getUri()
+                        (string)$request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    (string) $response->getBody()
+                    (string)$response->getBody()
                 );
             }
-            
+
             $result = $this->handleRangeCodeResponse(
                 $response,
                 '4XX',
@@ -578,18 +557,17 @@ class UnclaimedDraftApi
             if ($result) {
                 return $result;
             }
-            
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     if ('\Dropbox\Sign\Model\UnclaimedDraftCreateResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
-                        $content = (string) $response->getBody();
+                        $content = (string)$response->getBody();
                         if ('\Dropbox\Sign\Model\UnclaimedDraftCreateResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (\JsonException $exception) {
+                            } catch (JsonException $exception) {
                                 throw new ApiException(
                                     sprintf(
                                         'Error JSON decoding server response (%s)',
@@ -606,20 +584,19 @@ class UnclaimedDraftApi
                     return [
                         ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\UnclaimedDraftCreateResponse', []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
-                
             }
 
             $returnType = '\Dropbox\Sign\Model\UnclaimedDraftCreateResponse';
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
+                $content = $response->getBody(); // stream goes to serializer
             } else {
-                $content = (string) $response->getBody();
+                $content = (string)$response->getBody();
                 if ($returnType !== 'string') {
                     try {
                         $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                    } catch (\JsonException $exception) {
+                    } catch (JsonException $exception) {
                         throw new ApiException(
                             sprintf(
                                 'Error JSON decoding server response (%s)',
@@ -636,11 +613,9 @@ class UnclaimedDraftApi
             return [
                 ObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
-                $response->getHeaders()
+                $response->getHeaders(),
             ];
-
         } catch (ApiException $e) {
-            
             if ($this->handleRangeCodeException($e, '4XX', '\Dropbox\Sign\Model\ErrorResponse')) {
                 throw $e;
             }
@@ -653,7 +628,6 @@ class UnclaimedDraftApi
                     );
                     $e->setResponseObject($data);
                     break;
-                
             }
             throw $e;
         }
@@ -664,14 +638,14 @@ class UnclaimedDraftApi
      *
      * Create Embedded Unclaimed Draft
      *
-     * @param  \Dropbox\Sign\Model\UnclaimedDraftCreateEmbeddedRequest $unclaimed_draft_create_embedded_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['unclaimedDraftCreateEmbedded'] to see the possible values for this operation
+     * @param Model\UnclaimedDraftCreateEmbeddedRequest $unclaimed_draft_create_embedded_request (required)
+     * @param string                                    $contentType                             The value for the Content-Type header. Check self::contentTypes['unclaimedDraftCreateEmbedded'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::unclaimedDraftCreateEmbedded. This method will eventually become unavailable
      */
-    public function unclaimedDraftCreateEmbeddedAsync($unclaimed_draft_create_embedded_request, string $contentType = self::contentTypes['unclaimedDraftCreateEmbedded'][0])
+    public function unclaimedDraftCreateEmbeddedAsync(Model\UnclaimedDraftCreateEmbeddedRequest $unclaimed_draft_create_embedded_request, string $contentType = self::contentTypes['unclaimedDraftCreateEmbedded'][0])
     {
         return $this->unclaimedDraftCreateEmbeddedAsyncWithHttpInfo($unclaimed_draft_create_embedded_request, $contentType)
             ->then(
@@ -686,14 +660,14 @@ class UnclaimedDraftApi
      *
      * Create Embedded Unclaimed Draft
      *
-     * @param  \Dropbox\Sign\Model\UnclaimedDraftCreateEmbeddedRequest $unclaimed_draft_create_embedded_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['unclaimedDraftCreateEmbedded'] to see the possible values for this operation
+     * @param Model\UnclaimedDraftCreateEmbeddedRequest $unclaimed_draft_create_embedded_request (required)
+     * @param string                                    $contentType                             The value for the Content-Type header. Check self::contentTypes['unclaimedDraftCreateEmbedded'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::unclaimedDraftCreateEmbedded. This method will eventually become unavailable
      */
-    public function unclaimedDraftCreateEmbeddedAsyncWithHttpInfo($unclaimed_draft_create_embedded_request, string $contentType = self::contentTypes['unclaimedDraftCreateEmbedded'][0])
+    public function unclaimedDraftCreateEmbeddedAsyncWithHttpInfo(Model\UnclaimedDraftCreateEmbeddedRequest $unclaimed_draft_create_embedded_request, string $contentType = self::contentTypes['unclaimedDraftCreateEmbedded'][0])
     {
         $returnType = '\Dropbox\Sign\Model\UnclaimedDraftCreateResponse';
         $request = $this->unclaimedDraftCreateEmbeddedRequest($unclaimed_draft_create_embedded_request, $contentType);
@@ -703,9 +677,9 @@ class UnclaimedDraftApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
-                        $content = (string) $response->getBody();
+                        $content = (string)$response->getBody();
                         if ($returnType !== 'string') {
                             $content = json_decode($content);
                         }
@@ -714,7 +688,7 @@ class UnclaimedDraftApi
                     return [
                         ObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
                 },
                 function ($exception) {
@@ -728,7 +702,7 @@ class UnclaimedDraftApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        (string) $response->getBody()
+                        (string)$response->getBody()
                     );
                 }
             );
@@ -737,23 +711,21 @@ class UnclaimedDraftApi
     /**
      * Create request for operation 'unclaimedDraftCreateEmbedded'
      *
-     * @param  \Dropbox\Sign\Model\UnclaimedDraftCreateEmbeddedRequest $unclaimed_draft_create_embedded_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['unclaimedDraftCreateEmbedded'] to see the possible values for this operation
+     * @param Model\UnclaimedDraftCreateEmbeddedRequest $unclaimed_draft_create_embedded_request (required)
+     * @param string                                    $contentType                             The value for the Content-Type header. Check self::contentTypes['unclaimedDraftCreateEmbedded'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
+     * @return Request
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::unclaimedDraftCreateEmbedded. This method will eventually become unavailable
      */
-    public function unclaimedDraftCreateEmbeddedRequest($unclaimed_draft_create_embedded_request, string $contentType = self::contentTypes['unclaimedDraftCreateEmbedded'][0])
+    public function unclaimedDraftCreateEmbeddedRequest(Model\UnclaimedDraftCreateEmbeddedRequest $unclaimed_draft_create_embedded_request, string $contentType = self::contentTypes['unclaimedDraftCreateEmbedded'][0])
     {
-
         // verify the required parameter 'unclaimed_draft_create_embedded_request' is set
         if ($unclaimed_draft_create_embedded_request === null || (is_array($unclaimed_draft_create_embedded_request) && count($unclaimed_draft_create_embedded_request) === 0)) {
-            throw new \InvalidArgumentException(
+            throw new InvalidArgumentException(
                 'Missing the required parameter $unclaimed_draft_create_embedded_request when calling unclaimedDraftCreateEmbedded'
             );
         }
-
 
         $resourcePath = '/unclaimed_draft/create_embedded';
         $formParams = [];
@@ -768,11 +740,8 @@ class UnclaimedDraftApi
 
         $multipart = !empty($formParams);
 
-
-
-
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json', ],
+            $multipart ? ['multipart/form-data'] : ['application/json'],
             $contentType,
             $multipart
         );
@@ -780,7 +749,7 @@ class UnclaimedDraftApi
         // for model (json/xml)
         if (count($formParams) === 0) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the body
+                // if Content-Type contains "application/json", json_encode the body
                 $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($unclaimed_draft_create_embedded_request));
             } else {
                 $httpBody = $unclaimed_draft_create_embedded_request;
@@ -793,7 +762,7 @@ class UnclaimedDraftApi
                     foreach ($formParamValueItems as $formParamValueItem) {
                         $multipartContents[] = [
                             'name' => $formParamName,
-                            'contents' => $formParamValueItem
+                            'contents' => $formParamValueItem,
                         ];
                     }
                 }
@@ -810,9 +779,8 @@ class UnclaimedDraftApi
                     $payloadHook('multipart', $multipartContents, $unclaimed_draft_create_embedded_request);
                 }
                 $httpBody = new MultipartStream($multipartContents);
-
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
+                // if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
             } else {
                 // for HTTP post (form)
@@ -855,13 +823,13 @@ class UnclaimedDraftApi
      *
      * Create Embedded Unclaimed Draft with Template
      *
-     * @param  \Dropbox\Sign\Model\UnclaimedDraftCreateEmbeddedWithTemplateRequest $unclaimed_draft_create_embedded_with_template_request unclaimed_draft_create_embedded_with_template_request (required)
+     * @param Model\UnclaimedDraftCreateEmbeddedWithTemplateRequest $unclaimed_draft_create_embedded_with_template_request unclaimed_draft_create_embedded_with_template_request (required)
      *
-     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return \Dropbox\Sign\Model\UnclaimedDraftCreateResponse|\Dropbox\Sign\Model\ErrorResponse
+     * @return Model\UnclaimedDraftCreateResponse
+     * @throws ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws InvalidArgumentException
      */
-    public function unclaimedDraftCreateEmbeddedWithTemplate($unclaimed_draft_create_embedded_with_template_request)
+    public function unclaimedDraftCreateEmbeddedWithTemplate(Model\UnclaimedDraftCreateEmbeddedWithTemplateRequest $unclaimed_draft_create_embedded_with_template_request)
     {
         list($response) = $this->unclaimedDraftCreateEmbeddedWithTemplateWithHttpInfo($unclaimed_draft_create_embedded_with_template_request);
         return $response;
@@ -872,15 +840,15 @@ class UnclaimedDraftApi
      *
      * Create Embedded Unclaimed Draft with Template
      *
-     * @param  \Dropbox\Sign\Model\UnclaimedDraftCreateEmbeddedWithTemplateRequest $unclaimed_draft_create_embedded_with_template_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['unclaimedDraftCreateEmbeddedWithTemplate'] to see the possible values for this operation
+     * @param Model\UnclaimedDraftCreateEmbeddedWithTemplateRequest $unclaimed_draft_create_embedded_with_template_request (required)
+     * @param string                                                $contentType                                           The value for the Content-Type header. Check self::contentTypes['unclaimedDraftCreateEmbeddedWithTemplate'] to see the possible values for this operation
      *
-     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return array of \Dropbox\Sign\Model\UnclaimedDraftCreateResponse|\Dropbox\Sign\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of Model\UnclaimedDraftCreateResponse, HTTP status code, HTTP response headers (array of strings)
+     * @throws ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::unclaimedDraftCreateEmbeddedWithTemplate. This method will eventually become unavailable
      */
-    public function unclaimedDraftCreateEmbeddedWithTemplateWithHttpInfo($unclaimed_draft_create_embedded_with_template_request, string $contentType = self::contentTypes['unclaimedDraftCreateEmbeddedWithTemplate'][0])
+    public function unclaimedDraftCreateEmbeddedWithTemplateWithHttpInfo(Model\UnclaimedDraftCreateEmbeddedWithTemplateRequest $unclaimed_draft_create_embedded_with_template_request, string $contentType = self::contentTypes['unclaimedDraftCreateEmbeddedWithTemplate'][0])
     {
         $request = $this->unclaimedDraftCreateEmbeddedWithTemplateRequest($unclaimed_draft_create_embedded_with_template_request, $contentType);
 
@@ -892,14 +860,14 @@ class UnclaimedDraftApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
+                    (int)$e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                    $e->getResponse() ? (string)$e->getResponse()->getBody() : null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
+                    (int)$e->getCode(),
                     null,
                     null
                 );
@@ -912,14 +880,14 @@ class UnclaimedDraftApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        (string) $request->getUri()
+                        (string)$request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    (string) $response->getBody()
+                    (string)$response->getBody()
                 );
             }
-            
+
             $result = $this->handleRangeCodeResponse(
                 $response,
                 '4XX',
@@ -928,18 +896,17 @@ class UnclaimedDraftApi
             if ($result) {
                 return $result;
             }
-            
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     if ('\Dropbox\Sign\Model\UnclaimedDraftCreateResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
-                        $content = (string) $response->getBody();
+                        $content = (string)$response->getBody();
                         if ('\Dropbox\Sign\Model\UnclaimedDraftCreateResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (\JsonException $exception) {
+                            } catch (JsonException $exception) {
                                 throw new ApiException(
                                     sprintf(
                                         'Error JSON decoding server response (%s)',
@@ -956,20 +923,19 @@ class UnclaimedDraftApi
                     return [
                         ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\UnclaimedDraftCreateResponse', []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
-                
             }
 
             $returnType = '\Dropbox\Sign\Model\UnclaimedDraftCreateResponse';
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
+                $content = $response->getBody(); // stream goes to serializer
             } else {
-                $content = (string) $response->getBody();
+                $content = (string)$response->getBody();
                 if ($returnType !== 'string') {
                     try {
                         $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                    } catch (\JsonException $exception) {
+                    } catch (JsonException $exception) {
                         throw new ApiException(
                             sprintf(
                                 'Error JSON decoding server response (%s)',
@@ -986,11 +952,9 @@ class UnclaimedDraftApi
             return [
                 ObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
-                $response->getHeaders()
+                $response->getHeaders(),
             ];
-
         } catch (ApiException $e) {
-            
             if ($this->handleRangeCodeException($e, '4XX', '\Dropbox\Sign\Model\ErrorResponse')) {
                 throw $e;
             }
@@ -1003,7 +967,6 @@ class UnclaimedDraftApi
                     );
                     $e->setResponseObject($data);
                     break;
-                
             }
             throw $e;
         }
@@ -1014,14 +977,14 @@ class UnclaimedDraftApi
      *
      * Create Embedded Unclaimed Draft with Template
      *
-     * @param  \Dropbox\Sign\Model\UnclaimedDraftCreateEmbeddedWithTemplateRequest $unclaimed_draft_create_embedded_with_template_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['unclaimedDraftCreateEmbeddedWithTemplate'] to see the possible values for this operation
+     * @param Model\UnclaimedDraftCreateEmbeddedWithTemplateRequest $unclaimed_draft_create_embedded_with_template_request (required)
+     * @param string                                                $contentType                                           The value for the Content-Type header. Check self::contentTypes['unclaimedDraftCreateEmbeddedWithTemplate'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::unclaimedDraftCreateEmbeddedWithTemplate. This method will eventually become unavailable
      */
-    public function unclaimedDraftCreateEmbeddedWithTemplateAsync($unclaimed_draft_create_embedded_with_template_request, string $contentType = self::contentTypes['unclaimedDraftCreateEmbeddedWithTemplate'][0])
+    public function unclaimedDraftCreateEmbeddedWithTemplateAsync(Model\UnclaimedDraftCreateEmbeddedWithTemplateRequest $unclaimed_draft_create_embedded_with_template_request, string $contentType = self::contentTypes['unclaimedDraftCreateEmbeddedWithTemplate'][0])
     {
         return $this->unclaimedDraftCreateEmbeddedWithTemplateAsyncWithHttpInfo($unclaimed_draft_create_embedded_with_template_request, $contentType)
             ->then(
@@ -1036,14 +999,14 @@ class UnclaimedDraftApi
      *
      * Create Embedded Unclaimed Draft with Template
      *
-     * @param  \Dropbox\Sign\Model\UnclaimedDraftCreateEmbeddedWithTemplateRequest $unclaimed_draft_create_embedded_with_template_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['unclaimedDraftCreateEmbeddedWithTemplate'] to see the possible values for this operation
+     * @param Model\UnclaimedDraftCreateEmbeddedWithTemplateRequest $unclaimed_draft_create_embedded_with_template_request (required)
+     * @param string                                                $contentType                                           The value for the Content-Type header. Check self::contentTypes['unclaimedDraftCreateEmbeddedWithTemplate'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::unclaimedDraftCreateEmbeddedWithTemplate. This method will eventually become unavailable
      */
-    public function unclaimedDraftCreateEmbeddedWithTemplateAsyncWithHttpInfo($unclaimed_draft_create_embedded_with_template_request, string $contentType = self::contentTypes['unclaimedDraftCreateEmbeddedWithTemplate'][0])
+    public function unclaimedDraftCreateEmbeddedWithTemplateAsyncWithHttpInfo(Model\UnclaimedDraftCreateEmbeddedWithTemplateRequest $unclaimed_draft_create_embedded_with_template_request, string $contentType = self::contentTypes['unclaimedDraftCreateEmbeddedWithTemplate'][0])
     {
         $returnType = '\Dropbox\Sign\Model\UnclaimedDraftCreateResponse';
         $request = $this->unclaimedDraftCreateEmbeddedWithTemplateRequest($unclaimed_draft_create_embedded_with_template_request, $contentType);
@@ -1053,9 +1016,9 @@ class UnclaimedDraftApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
-                        $content = (string) $response->getBody();
+                        $content = (string)$response->getBody();
                         if ($returnType !== 'string') {
                             $content = json_decode($content);
                         }
@@ -1064,7 +1027,7 @@ class UnclaimedDraftApi
                     return [
                         ObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
                 },
                 function ($exception) {
@@ -1078,7 +1041,7 @@ class UnclaimedDraftApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        (string) $response->getBody()
+                        (string)$response->getBody()
                     );
                 }
             );
@@ -1087,23 +1050,21 @@ class UnclaimedDraftApi
     /**
      * Create request for operation 'unclaimedDraftCreateEmbeddedWithTemplate'
      *
-     * @param  \Dropbox\Sign\Model\UnclaimedDraftCreateEmbeddedWithTemplateRequest $unclaimed_draft_create_embedded_with_template_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['unclaimedDraftCreateEmbeddedWithTemplate'] to see the possible values for this operation
+     * @param Model\UnclaimedDraftCreateEmbeddedWithTemplateRequest $unclaimed_draft_create_embedded_with_template_request (required)
+     * @param string                                                $contentType                                           The value for the Content-Type header. Check self::contentTypes['unclaimedDraftCreateEmbeddedWithTemplate'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
+     * @return Request
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::unclaimedDraftCreateEmbeddedWithTemplate. This method will eventually become unavailable
      */
-    public function unclaimedDraftCreateEmbeddedWithTemplateRequest($unclaimed_draft_create_embedded_with_template_request, string $contentType = self::contentTypes['unclaimedDraftCreateEmbeddedWithTemplate'][0])
+    public function unclaimedDraftCreateEmbeddedWithTemplateRequest(Model\UnclaimedDraftCreateEmbeddedWithTemplateRequest $unclaimed_draft_create_embedded_with_template_request, string $contentType = self::contentTypes['unclaimedDraftCreateEmbeddedWithTemplate'][0])
     {
-
         // verify the required parameter 'unclaimed_draft_create_embedded_with_template_request' is set
         if ($unclaimed_draft_create_embedded_with_template_request === null || (is_array($unclaimed_draft_create_embedded_with_template_request) && count($unclaimed_draft_create_embedded_with_template_request) === 0)) {
-            throw new \InvalidArgumentException(
+            throw new InvalidArgumentException(
                 'Missing the required parameter $unclaimed_draft_create_embedded_with_template_request when calling unclaimedDraftCreateEmbeddedWithTemplate'
             );
         }
-
 
         $resourcePath = '/unclaimed_draft/create_embedded_with_template';
         $formParams = [];
@@ -1118,11 +1079,8 @@ class UnclaimedDraftApi
 
         $multipart = !empty($formParams);
 
-
-
-
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json', ],
+            $multipart ? ['multipart/form-data'] : ['application/json'],
             $contentType,
             $multipart
         );
@@ -1130,7 +1088,7 @@ class UnclaimedDraftApi
         // for model (json/xml)
         if (count($formParams) === 0) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the body
+                // if Content-Type contains "application/json", json_encode the body
                 $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($unclaimed_draft_create_embedded_with_template_request));
             } else {
                 $httpBody = $unclaimed_draft_create_embedded_with_template_request;
@@ -1143,7 +1101,7 @@ class UnclaimedDraftApi
                     foreach ($formParamValueItems as $formParamValueItem) {
                         $multipartContents[] = [
                             'name' => $formParamName,
-                            'contents' => $formParamValueItem
+                            'contents' => $formParamValueItem,
                         ];
                     }
                 }
@@ -1160,9 +1118,8 @@ class UnclaimedDraftApi
                     $payloadHook('multipart', $multipartContents, $unclaimed_draft_create_embedded_with_template_request);
                 }
                 $httpBody = new MultipartStream($multipartContents);
-
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
+                // if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
             } else {
                 // for HTTP post (form)
@@ -1205,14 +1162,14 @@ class UnclaimedDraftApi
      *
      * Edit and Resend Unclaimed Draft
      *
-     * @param  string $signature_request_id The ID of the signature request to edit and resend. (required)
-     * @param  \Dropbox\Sign\Model\UnclaimedDraftEditAndResendRequest $unclaimed_draft_edit_and_resend_request unclaimed_draft_edit_and_resend_request (required)
+     * @param string                                   $signature_request_id                    The ID of the signature request to edit and resend. (required)
+     * @param Model\UnclaimedDraftEditAndResendRequest $unclaimed_draft_edit_and_resend_request unclaimed_draft_edit_and_resend_request (required)
      *
-     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return \Dropbox\Sign\Model\UnclaimedDraftCreateResponse|\Dropbox\Sign\Model\ErrorResponse
+     * @return Model\UnclaimedDraftCreateResponse
+     * @throws ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws InvalidArgumentException
      */
-    public function unclaimedDraftEditAndResend($signature_request_id, $unclaimed_draft_edit_and_resend_request)
+    public function unclaimedDraftEditAndResend(string $signature_request_id, Model\UnclaimedDraftEditAndResendRequest $unclaimed_draft_edit_and_resend_request)
     {
         list($response) = $this->unclaimedDraftEditAndResendWithHttpInfo($signature_request_id, $unclaimed_draft_edit_and_resend_request);
         return $response;
@@ -1223,16 +1180,16 @@ class UnclaimedDraftApi
      *
      * Edit and Resend Unclaimed Draft
      *
-     * @param  string $signature_request_id The ID of the signature request to edit and resend. (required)
-     * @param  \Dropbox\Sign\Model\UnclaimedDraftEditAndResendRequest $unclaimed_draft_edit_and_resend_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['unclaimedDraftEditAndResend'] to see the possible values for this operation
+     * @param string                                   $signature_request_id                    The ID of the signature request to edit and resend. (required)
+     * @param Model\UnclaimedDraftEditAndResendRequest $unclaimed_draft_edit_and_resend_request (required)
+     * @param string                                   $contentType                             The value for the Content-Type header. Check self::contentTypes['unclaimedDraftEditAndResend'] to see the possible values for this operation
      *
-     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return array of \Dropbox\Sign\Model\UnclaimedDraftCreateResponse|\Dropbox\Sign\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of Model\UnclaimedDraftCreateResponse, HTTP status code, HTTP response headers (array of strings)
+     * @throws ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::unclaimedDraftEditAndResend. This method will eventually become unavailable
      */
-    public function unclaimedDraftEditAndResendWithHttpInfo($signature_request_id, $unclaimed_draft_edit_and_resend_request, string $contentType = self::contentTypes['unclaimedDraftEditAndResend'][0])
+    public function unclaimedDraftEditAndResendWithHttpInfo(string $signature_request_id, Model\UnclaimedDraftEditAndResendRequest $unclaimed_draft_edit_and_resend_request, string $contentType = self::contentTypes['unclaimedDraftEditAndResend'][0])
     {
         $request = $this->unclaimedDraftEditAndResendRequest($signature_request_id, $unclaimed_draft_edit_and_resend_request, $contentType);
 
@@ -1244,14 +1201,14 @@ class UnclaimedDraftApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
+                    (int)$e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                    $e->getResponse() ? (string)$e->getResponse()->getBody() : null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
+                    (int)$e->getCode(),
                     null,
                     null
                 );
@@ -1264,14 +1221,14 @@ class UnclaimedDraftApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        (string) $request->getUri()
+                        (string)$request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    (string) $response->getBody()
+                    (string)$response->getBody()
                 );
             }
-            
+
             $result = $this->handleRangeCodeResponse(
                 $response,
                 '4XX',
@@ -1280,18 +1237,17 @@ class UnclaimedDraftApi
             if ($result) {
                 return $result;
             }
-            
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     if ('\Dropbox\Sign\Model\UnclaimedDraftCreateResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
-                        $content = (string) $response->getBody();
+                        $content = (string)$response->getBody();
                         if ('\Dropbox\Sign\Model\UnclaimedDraftCreateResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (\JsonException $exception) {
+                            } catch (JsonException $exception) {
                                 throw new ApiException(
                                     sprintf(
                                         'Error JSON decoding server response (%s)',
@@ -1308,20 +1264,19 @@ class UnclaimedDraftApi
                     return [
                         ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\UnclaimedDraftCreateResponse', []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
-                
             }
 
             $returnType = '\Dropbox\Sign\Model\UnclaimedDraftCreateResponse';
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
+                $content = $response->getBody(); // stream goes to serializer
             } else {
-                $content = (string) $response->getBody();
+                $content = (string)$response->getBody();
                 if ($returnType !== 'string') {
                     try {
                         $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                    } catch (\JsonException $exception) {
+                    } catch (JsonException $exception) {
                         throw new ApiException(
                             sprintf(
                                 'Error JSON decoding server response (%s)',
@@ -1338,11 +1293,9 @@ class UnclaimedDraftApi
             return [
                 ObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
-                $response->getHeaders()
+                $response->getHeaders(),
             ];
-
         } catch (ApiException $e) {
-            
             if ($this->handleRangeCodeException($e, '4XX', '\Dropbox\Sign\Model\ErrorResponse')) {
                 throw $e;
             }
@@ -1355,7 +1308,6 @@ class UnclaimedDraftApi
                     );
                     $e->setResponseObject($data);
                     break;
-                
             }
             throw $e;
         }
@@ -1366,15 +1318,15 @@ class UnclaimedDraftApi
      *
      * Edit and Resend Unclaimed Draft
      *
-     * @param  string $signature_request_id The ID of the signature request to edit and resend. (required)
-     * @param  \Dropbox\Sign\Model\UnclaimedDraftEditAndResendRequest $unclaimed_draft_edit_and_resend_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['unclaimedDraftEditAndResend'] to see the possible values for this operation
+     * @param string                                   $signature_request_id                    The ID of the signature request to edit and resend. (required)
+     * @param Model\UnclaimedDraftEditAndResendRequest $unclaimed_draft_edit_and_resend_request (required)
+     * @param string                                   $contentType                             The value for the Content-Type header. Check self::contentTypes['unclaimedDraftEditAndResend'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::unclaimedDraftEditAndResend. This method will eventually become unavailable
      */
-    public function unclaimedDraftEditAndResendAsync($signature_request_id, $unclaimed_draft_edit_and_resend_request, string $contentType = self::contentTypes['unclaimedDraftEditAndResend'][0])
+    public function unclaimedDraftEditAndResendAsync(string $signature_request_id, Model\UnclaimedDraftEditAndResendRequest $unclaimed_draft_edit_and_resend_request, string $contentType = self::contentTypes['unclaimedDraftEditAndResend'][0])
     {
         return $this->unclaimedDraftEditAndResendAsyncWithHttpInfo($signature_request_id, $unclaimed_draft_edit_and_resend_request, $contentType)
             ->then(
@@ -1389,15 +1341,15 @@ class UnclaimedDraftApi
      *
      * Edit and Resend Unclaimed Draft
      *
-     * @param  string $signature_request_id The ID of the signature request to edit and resend. (required)
-     * @param  \Dropbox\Sign\Model\UnclaimedDraftEditAndResendRequest $unclaimed_draft_edit_and_resend_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['unclaimedDraftEditAndResend'] to see the possible values for this operation
+     * @param string                                   $signature_request_id                    The ID of the signature request to edit and resend. (required)
+     * @param Model\UnclaimedDraftEditAndResendRequest $unclaimed_draft_edit_and_resend_request (required)
+     * @param string                                   $contentType                             The value for the Content-Type header. Check self::contentTypes['unclaimedDraftEditAndResend'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::unclaimedDraftEditAndResend. This method will eventually become unavailable
      */
-    public function unclaimedDraftEditAndResendAsyncWithHttpInfo($signature_request_id, $unclaimed_draft_edit_and_resend_request, string $contentType = self::contentTypes['unclaimedDraftEditAndResend'][0])
+    public function unclaimedDraftEditAndResendAsyncWithHttpInfo(string $signature_request_id, Model\UnclaimedDraftEditAndResendRequest $unclaimed_draft_edit_and_resend_request, string $contentType = self::contentTypes['unclaimedDraftEditAndResend'][0])
     {
         $returnType = '\Dropbox\Sign\Model\UnclaimedDraftCreateResponse';
         $request = $this->unclaimedDraftEditAndResendRequest($signature_request_id, $unclaimed_draft_edit_and_resend_request, $contentType);
@@ -1407,9 +1359,9 @@ class UnclaimedDraftApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
-                        $content = (string) $response->getBody();
+                        $content = (string)$response->getBody();
                         if ($returnType !== 'string') {
                             $content = json_decode($content);
                         }
@@ -1418,7 +1370,7 @@ class UnclaimedDraftApi
                     return [
                         ObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
                 },
                 function ($exception) {
@@ -1432,7 +1384,7 @@ class UnclaimedDraftApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        (string) $response->getBody()
+                        (string)$response->getBody()
                     );
                 }
             );
@@ -1441,31 +1393,29 @@ class UnclaimedDraftApi
     /**
      * Create request for operation 'unclaimedDraftEditAndResend'
      *
-     * @param  string $signature_request_id The ID of the signature request to edit and resend. (required)
-     * @param  \Dropbox\Sign\Model\UnclaimedDraftEditAndResendRequest $unclaimed_draft_edit_and_resend_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['unclaimedDraftEditAndResend'] to see the possible values for this operation
+     * @param string                                   $signature_request_id                    The ID of the signature request to edit and resend. (required)
+     * @param Model\UnclaimedDraftEditAndResendRequest $unclaimed_draft_edit_and_resend_request (required)
+     * @param string                                   $contentType                             The value for the Content-Type header. Check self::contentTypes['unclaimedDraftEditAndResend'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
+     * @return Request
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::unclaimedDraftEditAndResend. This method will eventually become unavailable
      */
-    public function unclaimedDraftEditAndResendRequest($signature_request_id, $unclaimed_draft_edit_and_resend_request, string $contentType = self::contentTypes['unclaimedDraftEditAndResend'][0])
+    public function unclaimedDraftEditAndResendRequest(string $signature_request_id, Model\UnclaimedDraftEditAndResendRequest $unclaimed_draft_edit_and_resend_request, string $contentType = self::contentTypes['unclaimedDraftEditAndResend'][0])
     {
-
         // verify the required parameter 'signature_request_id' is set
         if ($signature_request_id === null || (is_array($signature_request_id) && count($signature_request_id) === 0)) {
-            throw new \InvalidArgumentException(
+            throw new InvalidArgumentException(
                 'Missing the required parameter $signature_request_id when calling unclaimedDraftEditAndResend'
             );
         }
 
         // verify the required parameter 'unclaimed_draft_edit_and_resend_request' is set
         if ($unclaimed_draft_edit_and_resend_request === null || (is_array($unclaimed_draft_edit_and_resend_request) && count($unclaimed_draft_edit_and_resend_request) === 0)) {
-            throw new \InvalidArgumentException(
+            throw new InvalidArgumentException(
                 'Missing the required parameter $unclaimed_draft_edit_and_resend_request when calling unclaimedDraftEditAndResend'
             );
         }
-
 
         $resourcePath = '/unclaimed_draft/edit_and_resend/{signature_request_id}';
         $formParams = [];
@@ -1480,19 +1430,17 @@ class UnclaimedDraftApi
 
         $multipart = !empty($formParams);
 
-
         // path params
         if ($signature_request_id !== null) {
             $resourcePath = str_replace(
-                '{' . 'signature_request_id' . '}',
+                '{signature_request_id}',
                 ObjectSerializer::toPathValue($signature_request_id),
                 $resourcePath
             );
         }
 
-
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json', ],
+            $multipart ? ['multipart/form-data'] : ['application/json'],
             $contentType,
             $multipart
         );
@@ -1500,7 +1448,7 @@ class UnclaimedDraftApi
         // for model (json/xml)
         if (count($formParams) === 0) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the body
+                // if Content-Type contains "application/json", json_encode the body
                 $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($unclaimed_draft_edit_and_resend_request));
             } else {
                 $httpBody = $unclaimed_draft_edit_and_resend_request;
@@ -1513,7 +1461,7 @@ class UnclaimedDraftApi
                     foreach ($formParamValueItems as $formParamValueItem) {
                         $multipartContents[] = [
                             'name' => $formParamName,
-                            'contents' => $formParamValueItem
+                            'contents' => $formParamValueItem,
                         ];
                     }
                 }
@@ -1530,9 +1478,8 @@ class UnclaimedDraftApi
                     $payloadHook('multipart', $multipartContents, $unclaimed_draft_edit_and_resend_request);
                 }
                 $httpBody = new MultipartStream($multipartContents);
-
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
+                // if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
             } else {
                 // for HTTP post (form)
@@ -1573,8 +1520,8 @@ class UnclaimedDraftApi
     /**
      * Create http client option
      *
-     * @throws \RuntimeException on file opening failure
      * @return array of http client options
+     * @throws RuntimeException on file opening failure
      */
     protected function createHttpClientOption()
     {
@@ -1582,7 +1529,7 @@ class UnclaimedDraftApi
         if ($this->config->getDebug()) {
             $options[RequestOptions::DEBUG] = fopen($this->config->getDebugFile(), 'a');
             if (!$options[RequestOptions::DEBUG]) {
-                throw new \RuntimeException('Failed to open the debug file: ' . $this->config->getDebugFile());
+                throw new RuntimeException('Failed to open the debug file: ' . $this->config->getDebugFile());
             }
         }
 
@@ -1598,8 +1545,8 @@ class UnclaimedDraftApi
         string $returnDataType
     ) {
         $statusCode = $response->getStatusCode();
-        $rangeCodeLeft = (int) (substr($rangeCode, 0, 1) . '00');
-        $rangeCodeRight = (int) (substr($rangeCode, 0, 1) . '99');
+        $rangeCodeLeft = (int)(substr($rangeCode, 0, 1) . '00');
+        $rangeCodeRight = (int)(substr($rangeCode, 0, 1) . '99');
 
         if (
             $statusCode < $rangeCodeLeft
@@ -1609,9 +1556,9 @@ class UnclaimedDraftApi
         }
 
         if ($returnDataType === '\SplFileObject') {
-            $content = $response->getBody(); //stream goes to serializer
+            $content = $response->getBody(); // stream goes to serializer
         } else {
-            $content = (string) $response->getBody();
+            $content = (string)$response->getBody();
         }
 
         return [
@@ -1630,8 +1577,8 @@ class UnclaimedDraftApi
         string $exceptionDataType
     ): bool {
         $statusCode = $e->getCode();
-        $rangeCodeLeft = (int) (substr($rangeCode, 0, 1) . '00');
-        $rangeCodeRight = (int) (substr($rangeCode, 0, 1) . '99');
+        $rangeCodeLeft = (int)(substr($rangeCode, 0, 1) . '00');
+        $rangeCodeRight = (int)(substr($rangeCode, 0, 1) . '99');
 
         if (
             $statusCode < $rangeCodeLeft

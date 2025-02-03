@@ -5,9 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  Dropbox\Sign
- * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ * @see     https://openapi-generator.tech
  */
 
 /**
@@ -29,76 +27,77 @@
 
 namespace Dropbox\Sign\Model;
 
-use \ArrayAccess;
-use \Dropbox\Sign\ObjectSerializer;
+use ArrayAccess;
+use Dropbox\Sign\ObjectSerializer;
+use InvalidArgumentException;
+use JsonSerializable;
+use ReturnTypeWillChange;
 
 /**
  * SubSigningOptions Class Doc Comment
  *
  * @category Class
  * @description This allows the requester to specify the types allowed for creating a signature.  **NOTE:** If &#x60;signing_options&#x60; are not defined in the request, the allowed types will default to those specified in the account settings.
- * @package  Dropbox\Sign
- * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ * @see     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class SubSigningOptions implements ModelInterface, ArrayAccess, \JsonSerializable
+class SubSigningOptions implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
     /**
-      * The original name of the model.
-      *
-      * @var string
-      */
+     * The original name of the model.
+     *
+     * @var string
+     */
     protected static $openAPIModelName = 'SubSigningOptions';
 
     /**
-      * Array of property to type mappings. Used for (de)serialization
-      *
-      * @var string[]
-      */
+     * Array of property to type mappings. Used for (de)serialization
+     *
+     * @var string[]
+     */
     protected static $openAPITypes = [
         'default_type' => 'string',
         'draw' => 'bool',
         'phone' => 'bool',
         'type' => 'bool',
-        'upload' => 'bool'
+        'upload' => 'bool',
     ];
 
     /**
-      * Array of property to format mappings. Used for (de)serialization
-      *
-      * @var string[]
-      * @phpstan-var array<string, string|null>
-      * @psalm-var array<string, string|null>
-      */
+     * Array of property to format mappings. Used for (de)serialization
+     *
+     * @var string[]
+     * @phpstan-var array<string, string|null>
+     * @psalm-var array<string, string|null>
+     */
     protected static $openAPIFormats = [
         'default_type' => null,
         'draw' => null,
         'phone' => null,
         'type' => null,
-        'upload' => null
+        'upload' => null,
     ];
 
     /**
-      * Array of nullable properties. Used for (de)serialization
-      *
-      * @var boolean[]
-      */
+     * Array of nullable properties. Used for (de)serialization
+     *
+     * @var bool[]
+     */
     protected static array $openAPINullables = [
         'default_type' => false,
         'draw' => false,
         'phone' => false,
         'type' => false,
-        'upload' => false
+        'upload' => false,
     ];
 
     /**
-      * If a nullable field gets set to null, insert it here
-      *
-      * @var boolean[]
-      */
+     * If a nullable field gets set to null, insert it here
+     *
+     * @var bool[]
+     */
     protected array $openAPINullablesSetToNull = [];
 
     /**
@@ -123,8 +122,6 @@ class SubSigningOptions implements ModelInterface, ArrayAccess, \JsonSerializabl
 
     /**
      * Array of nullable properties
-     *
-     * @return array
      */
     protected static function openAPINullables(): array
     {
@@ -134,7 +131,7 @@ class SubSigningOptions implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Array of nullable field names deliberately set to null
      *
-     * @return boolean[]
+     * @return bool[]
      */
     private function getOpenAPINullablesSetToNull(): array
     {
@@ -144,7 +141,7 @@ class SubSigningOptions implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Setter - Array of nullable field names deliberately set to null
      *
-     * @param boolean[] $openAPINullablesSetToNull
+     * @param bool[] $openAPINullablesSetToNull
      */
     private function setOpenAPINullablesSetToNull(array $openAPINullablesSetToNull): void
     {
@@ -153,9 +150,6 @@ class SubSigningOptions implements ModelInterface, ArrayAccess, \JsonSerializabl
 
     /**
      * Checks if a property is nullable
-     *
-     * @param string $property
-     * @return bool
      */
     public static function isNullable(string $property): bool
     {
@@ -164,9 +158,6 @@ class SubSigningOptions implements ModelInterface, ArrayAccess, \JsonSerializabl
 
     /**
      * Checks if a nullable property is set to null.
-     *
-     * @param string $property
-     * @return bool
      */
     public function isNullableSetToNull(string $property): bool
     {
@@ -184,7 +175,7 @@ class SubSigningOptions implements ModelInterface, ArrayAccess, \JsonSerializabl
         'draw' => 'draw',
         'phone' => 'phone',
         'type' => 'type',
-        'upload' => 'upload'
+        'upload' => 'upload',
     ];
 
     /**
@@ -197,7 +188,7 @@ class SubSigningOptions implements ModelInterface, ArrayAccess, \JsonSerializabl
         'draw' => 'setDraw',
         'phone' => 'setPhone',
         'type' => 'setType',
-        'upload' => 'setUpload'
+        'upload' => 'setUpload',
     ];
 
     /**
@@ -210,7 +201,7 @@ class SubSigningOptions implements ModelInterface, ArrayAccess, \JsonSerializabl
         'draw' => 'getDraw',
         'phone' => 'getPhone',
         'type' => 'getType',
-        'upload' => 'getUpload'
+        'upload' => 'getUpload',
     ];
 
     /**
@@ -296,34 +287,33 @@ class SubSigningOptions implements ModelInterface, ArrayAccess, \JsonSerializabl
         $this->setIfExists('upload', $data ?? [], false);
     }
 
-    /** @deprecated use ::init() */
+    /**
+     * @deprecated use ::init()
+     */
     public static function fromArray(array $data): SubSigningOptions
     {
         return self::init($data);
     }
 
-    /** Attempt to instantiate and hydrate a new instance of this class */
+    /**
+     * Attempt to instantiate and hydrate a new instance of this class
+     */
     public static function init(array $data): SubSigningOptions
     {
         /** @var SubSigningOptions */
-        $obj = ObjectSerializer::deserialize(
+        return ObjectSerializer::deserialize(
             $data,
             SubSigningOptions::class,
         );
-
-        return $obj;
     }
 
-
     /**
-    * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
-    * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
-    * $this->openAPINullablesSetToNull array
-    *
-    * @param string $variableName
-    * @param array  $fields
-* @param string|int|object|array|mixed  $defaultValue
-    */
+     * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
+     * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
+     * $this->openAPINullablesSetToNull array
+     *
+     * @param string|int|object|array|mixed $defaultValue
+     */
     private function setIfExists(string $variableName, array $fields, $defaultValue): void
     {
         if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
@@ -368,7 +358,6 @@ class SubSigningOptions implements ModelInterface, ArrayAccess, \JsonSerializabl
         return count($this->listInvalidProperties()) === 0;
     }
 
-
     /**
      * Gets default_type
      *
@@ -386,14 +375,14 @@ class SubSigningOptions implements ModelInterface, ArrayAccess, \JsonSerializabl
      *
      * @return self
      */
-    public function setDefaultType($default_type)
+    public function setDefaultType(string $default_type)
     {
         if (is_null($default_type)) {
-            throw new \InvalidArgumentException('non-nullable default_type cannot be null');
+            throw new InvalidArgumentException('non-nullable default_type cannot be null');
         }
         $allowedValues = $this->getDefaultTypeAllowableValues();
         if (!in_array($default_type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
+            throw new InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'default_type', must be one of '%s'",
                     $default_type,
@@ -423,10 +412,10 @@ class SubSigningOptions implements ModelInterface, ArrayAccess, \JsonSerializabl
      *
      * @return self
      */
-    public function setDraw($draw)
+    public function setDraw(?bool $draw)
     {
         if (is_null($draw)) {
-            throw new \InvalidArgumentException('non-nullable draw cannot be null');
+            throw new InvalidArgumentException('non-nullable draw cannot be null');
         }
         $this->container['draw'] = $draw;
 
@@ -450,10 +439,10 @@ class SubSigningOptions implements ModelInterface, ArrayAccess, \JsonSerializabl
      *
      * @return self
      */
-    public function setPhone($phone)
+    public function setPhone(?bool $phone)
     {
         if (is_null($phone)) {
-            throw new \InvalidArgumentException('non-nullable phone cannot be null');
+            throw new InvalidArgumentException('non-nullable phone cannot be null');
         }
         $this->container['phone'] = $phone;
 
@@ -477,10 +466,10 @@ class SubSigningOptions implements ModelInterface, ArrayAccess, \JsonSerializabl
      *
      * @return self
      */
-    public function setType($type)
+    public function setType(?bool $type)
     {
         if (is_null($type)) {
-            throw new \InvalidArgumentException('non-nullable type cannot be null');
+            throw new InvalidArgumentException('non-nullable type cannot be null');
         }
         $this->container['type'] = $type;
 
@@ -504,23 +493,22 @@ class SubSigningOptions implements ModelInterface, ArrayAccess, \JsonSerializabl
      *
      * @return self
      */
-    public function setUpload($upload)
+    public function setUpload(?bool $upload)
     {
         if (is_null($upload)) {
-            throw new \InvalidArgumentException('non-nullable upload cannot be null');
+            throw new InvalidArgumentException('non-nullable upload cannot be null');
         }
         $this->container['upload'] = $upload;
 
         return $this;
     }
+
     /**
      * Returns true if offset exists. False otherwise.
      *
-     * @param integer $offset Offset
-     *
-     * @return boolean
+     * @param int $offset Offset
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
@@ -529,11 +517,11 @@ class SubSigningOptions implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets offset.
      *
-     * @param integer $offset Offset
+     * @param int $offset Offset
      *
      * @return mixed|null
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return $this->container[$offset] ?? null;
@@ -544,10 +532,8 @@ class SubSigningOptions implements ModelInterface, ArrayAccess, \JsonSerializabl
      *
      * @param int|null $offset Offset
      * @param mixed    $value  Value to be set
-     *
-     * @return void
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
@@ -560,11 +546,9 @@ class SubSigningOptions implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Unsets offset.
      *
-     * @param integer $offset Offset
-     *
-     * @return void
+     * @param int $offset Offset
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
@@ -572,15 +556,15 @@ class SubSigningOptions implements ModelInterface, ArrayAccess, \JsonSerializabl
 
     /**
      * Serializes the object to a value that can be serialized natively by json_encode().
-     * @link https://www.php.net/manual/en/jsonserializable.jsonserialize.php
+     * @see https://www.php.net/manual/en/jsonserializable.jsonserialize.php
      *
-     * @return mixed Returns data which can be serialized by json_encode(), which is a value
-     * of any type other than a resource.
+     * @return mixed returns data which can be serialized by json_encode(), which is a value
+     *               of any type other than a resource
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function jsonSerialize()
     {
-       return ObjectSerializer::sanitizeForSerialization($this);
+        return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**
@@ -606,5 +590,3 @@ class SubSigningOptions implements ModelInterface, ArrayAccess, \JsonSerializabl
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
-
-

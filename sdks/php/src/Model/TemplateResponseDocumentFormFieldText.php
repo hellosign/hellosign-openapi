@@ -5,9 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  Dropbox\Sign
- * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ * @see     https://openapi-generator.tech
  */
 
 /**
@@ -28,16 +26,17 @@
  */
 
 namespace Dropbox\Sign\Model;
-use \Dropbox\Sign\ObjectSerializer;
+
+use Dropbox\Sign\ObjectSerializer;
+use InvalidArgumentException;
+use ReturnTypeWillChange;
 
 /**
  * TemplateResponseDocumentFormFieldText Class Doc Comment
  *
  * @category Class
  * @description This class extends &#x60;TemplateResponseDocumentFormFieldBase&#x60;
- * @package  Dropbox\Sign
- * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ * @see     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
 class TemplateResponseDocumentFormFieldText extends TemplateResponseDocumentFormFieldBase
@@ -45,17 +44,17 @@ class TemplateResponseDocumentFormFieldText extends TemplateResponseDocumentForm
     public const DISCRIMINATOR = null;
 
     /**
-      * The original name of the model.
-      *
-      * @var string
-      */
+     * The original name of the model.
+     *
+     * @var string
+     */
     protected static $openAPIModelName = 'TemplateResponseDocumentFormFieldText';
 
     /**
-      * Array of property to type mappings. Used for (de)serialization
-      *
-      * @var string[]
-      */
+     * Array of property to type mappings. Used for (de)serialization
+     *
+     * @var string[]
+     */
     protected static $openAPITypes = [
         'type' => 'string',
         'avg_text_length' => '\Dropbox\Sign\Model\TemplateResponseFieldAvgTextLength',
@@ -63,16 +62,16 @@ class TemplateResponseDocumentFormFieldText extends TemplateResponseDocumentForm
         'original_font_size' => 'int',
         'font_family' => 'string',
         'validation_type' => 'string',
-        'group' => 'string'
+        'group' => 'string',
     ];
 
     /**
-      * Array of property to format mappings. Used for (de)serialization
-      *
-      * @var string[]
-      * @phpstan-var array<string, string|null>
-      * @psalm-var array<string, string|null>
-      */
+     * Array of property to format mappings. Used for (de)serialization
+     *
+     * @var string[]
+     * @phpstan-var array<string, string|null>
+     * @psalm-var array<string, string|null>
+     */
     protected static $openAPIFormats = [
         'type' => null,
         'avg_text_length' => null,
@@ -80,14 +79,14 @@ class TemplateResponseDocumentFormFieldText extends TemplateResponseDocumentForm
         'original_font_size' => null,
         'font_family' => null,
         'validation_type' => null,
-        'group' => null
+        'group' => null,
     ];
 
     /**
-      * Array of nullable properties. Used for (de)serialization
-      *
-      * @var boolean[]
-      */
+     * Array of nullable properties. Used for (de)serialization
+     *
+     * @var bool[]
+     */
     protected static array $openAPINullables = [
         'type' => false,
         'avg_text_length' => false,
@@ -95,14 +94,14 @@ class TemplateResponseDocumentFormFieldText extends TemplateResponseDocumentForm
         'original_font_size' => false,
         'font_family' => false,
         'validation_type' => true,
-        'group' => true
+        'group' => true,
     ];
 
     /**
-      * If a nullable field gets set to null, insert it here
-      *
-      * @var boolean[]
-      */
+     * If a nullable field gets set to null, insert it here
+     *
+     * @var bool[]
+     */
     protected array $openAPINullablesSetToNull = [];
 
     /**
@@ -127,8 +126,6 @@ class TemplateResponseDocumentFormFieldText extends TemplateResponseDocumentForm
 
     /**
      * Array of nullable properties
-     *
-     * @return array
      */
     protected static function openAPINullables(): array
     {
@@ -138,7 +135,7 @@ class TemplateResponseDocumentFormFieldText extends TemplateResponseDocumentForm
     /**
      * Array of nullable field names deliberately set to null
      *
-     * @return boolean[]
+     * @return bool[]
      */
     private function getOpenAPINullablesSetToNull(): array
     {
@@ -148,7 +145,7 @@ class TemplateResponseDocumentFormFieldText extends TemplateResponseDocumentForm
     /**
      * Setter - Array of nullable field names deliberately set to null
      *
-     * @param boolean[] $openAPINullablesSetToNull
+     * @param bool[] $openAPINullablesSetToNull
      */
     private function setOpenAPINullablesSetToNull(array $openAPINullablesSetToNull): void
     {
@@ -157,9 +154,6 @@ class TemplateResponseDocumentFormFieldText extends TemplateResponseDocumentForm
 
     /**
      * Checks if a property is nullable
-     *
-     * @param string $property
-     * @return bool
      */
     public static function isNullable(string $property): bool
     {
@@ -168,9 +162,6 @@ class TemplateResponseDocumentFormFieldText extends TemplateResponseDocumentForm
 
     /**
      * Checks if a nullable property is set to null.
-     *
-     * @param string $property
-     * @return bool
      */
     public function isNullableSetToNull(string $property): bool
     {
@@ -190,7 +181,7 @@ class TemplateResponseDocumentFormFieldText extends TemplateResponseDocumentForm
         'original_font_size' => 'originalFontSize',
         'font_family' => 'fontFamily',
         'validation_type' => 'validation_type',
-        'group' => 'group'
+        'group' => 'group',
     ];
 
     /**
@@ -205,7 +196,7 @@ class TemplateResponseDocumentFormFieldText extends TemplateResponseDocumentForm
         'original_font_size' => 'setOriginalFontSize',
         'font_family' => 'setFontFamily',
         'validation_type' => 'setValidationType',
-        'group' => 'setGroup'
+        'group' => 'setGroup',
     ];
 
     /**
@@ -220,7 +211,7 @@ class TemplateResponseDocumentFormFieldText extends TemplateResponseDocumentForm
         'original_font_size' => 'getOriginalFontSize',
         'font_family' => 'getFontFamily',
         'validation_type' => 'getValidationType',
-        'group' => 'getGroup'
+        'group' => 'getGroup',
     ];
 
     /**
@@ -296,7 +287,6 @@ class TemplateResponseDocumentFormFieldText extends TemplateResponseDocumentForm
         ];
     }
 
-
     /**
      * Constructor
      *
@@ -316,34 +306,33 @@ class TemplateResponseDocumentFormFieldText extends TemplateResponseDocumentForm
         $this->setIfExists('group', $data ?? [], null);
     }
 
-    /** @deprecated use ::init() */
+    /**
+     * @deprecated use ::init()
+     */
     public static function fromArray(array $data): TemplateResponseDocumentFormFieldText
     {
         return self::init($data);
     }
 
-    /** Attempt to instantiate and hydrate a new instance of this class */
+    /**
+     * Attempt to instantiate and hydrate a new instance of this class
+     */
     public static function init(array $data): TemplateResponseDocumentFormFieldText
     {
         /** @var TemplateResponseDocumentFormFieldText */
-        $obj = ObjectSerializer::deserialize(
+        return ObjectSerializer::deserialize(
             $data,
             TemplateResponseDocumentFormFieldText::class,
         );
-
-        return $obj;
     }
 
-
     /**
-    * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
-    * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
-    * $this->openAPINullablesSetToNull array
-    *
-    * @param string $variableName
-    * @param array  $fields
-* @param string|int|object|array|mixed  $defaultValue
-    */
+     * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
+     * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
+     * $this->openAPINullablesSetToNull array
+     *
+     * @param string|int|object|array|mixed $defaultValue
+     */
     private function setIfExists(string $variableName, array $fields, $defaultValue): void
     {
         if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
@@ -388,7 +377,6 @@ class TemplateResponseDocumentFormFieldText extends TemplateResponseDocumentForm
         return count($this->listInvalidProperties()) === 0;
     }
 
-
     /**
      * Gets type
      *
@@ -406,10 +394,10 @@ class TemplateResponseDocumentFormFieldText extends TemplateResponseDocumentForm
      *
      * @return self
      */
-    public function setType($type)
+    public function setType(string $type)
     {
         if (is_null($type)) {
-            throw new \InvalidArgumentException('non-nullable type cannot be null');
+            throw new InvalidArgumentException('non-nullable type cannot be null');
         }
         $this->container['type'] = $type;
 
@@ -419,7 +407,7 @@ class TemplateResponseDocumentFormFieldText extends TemplateResponseDocumentForm
     /**
      * Gets avg_text_length
      *
-     * @return \Dropbox\Sign\Model\TemplateResponseFieldAvgTextLength|null
+     * @return TemplateResponseFieldAvgTextLength|null
      */
     public function getAvgTextLength()
     {
@@ -429,14 +417,14 @@ class TemplateResponseDocumentFormFieldText extends TemplateResponseDocumentForm
     /**
      * Sets avg_text_length
      *
-     * @param \Dropbox\Sign\Model\TemplateResponseFieldAvgTextLength|null $avg_text_length avg_text_length
+     * @param TemplateResponseFieldAvgTextLength|null $avg_text_length avg_text_length
      *
      * @return self
      */
-    public function setAvgTextLength($avg_text_length)
+    public function setAvgTextLength(?TemplateResponseFieldAvgTextLength $avg_text_length)
     {
         if (is_null($avg_text_length)) {
-            throw new \InvalidArgumentException('non-nullable avg_text_length cannot be null');
+            throw new InvalidArgumentException('non-nullable avg_text_length cannot be null');
         }
         $this->container['avg_text_length'] = $avg_text_length;
 
@@ -456,14 +444,14 @@ class TemplateResponseDocumentFormFieldText extends TemplateResponseDocumentForm
     /**
      * Sets is_multiline
      *
-     * @param bool|null $is_multiline Whether this form field is multiline text.
+     * @param bool|null $is_multiline whether this form field is multiline text
      *
      * @return self
      */
-    public function setIsMultiline($is_multiline)
+    public function setIsMultiline(?bool $is_multiline)
     {
         if (is_null($is_multiline)) {
-            throw new \InvalidArgumentException('non-nullable is_multiline cannot be null');
+            throw new InvalidArgumentException('non-nullable is_multiline cannot be null');
         }
         $this->container['is_multiline'] = $is_multiline;
 
@@ -483,14 +471,14 @@ class TemplateResponseDocumentFormFieldText extends TemplateResponseDocumentForm
     /**
      * Sets original_font_size
      *
-     * @param int|null $original_font_size Original font size used in this form field's text.
+     * @param int|null $original_font_size original font size used in this form field's text
      *
      * @return self
      */
-    public function setOriginalFontSize($original_font_size)
+    public function setOriginalFontSize(?int $original_font_size)
     {
         if (is_null($original_font_size)) {
-            throw new \InvalidArgumentException('non-nullable original_font_size cannot be null');
+            throw new InvalidArgumentException('non-nullable original_font_size cannot be null');
         }
         $this->container['original_font_size'] = $original_font_size;
 
@@ -510,14 +498,14 @@ class TemplateResponseDocumentFormFieldText extends TemplateResponseDocumentForm
     /**
      * Sets font_family
      *
-     * @param string|null $font_family Font family used in this form field's text.
+     * @param string|null $font_family font family used in this form field's text
      *
      * @return self
      */
-    public function setFontFamily($font_family)
+    public function setFontFamily(?string $font_family)
     {
         if (is_null($font_family)) {
-            throw new \InvalidArgumentException('non-nullable font_family cannot be null');
+            throw new InvalidArgumentException('non-nullable font_family cannot be null');
         }
         $this->container['font_family'] = $font_family;
 
@@ -541,21 +529,21 @@ class TemplateResponseDocumentFormFieldText extends TemplateResponseDocumentForm
      *
      * @return self
      */
-    public function setValidationType($validation_type)
+    public function setValidationType(?string $validation_type)
     {
         if (is_null($validation_type)) {
             array_push($this->openAPINullablesSetToNull, 'validation_type');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
             $index = array_search('validation_type', $nullablesSetToNull);
-            if ($index !== FALSE) {
+            if ($index !== false) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
         $allowedValues = $this->getValidationTypeAllowableValues();
         if (!is_null($validation_type) && !in_array($validation_type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
+            throw new InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'validation_type', must be one of '%s'",
                     $validation_type,
@@ -585,14 +573,14 @@ class TemplateResponseDocumentFormFieldText extends TemplateResponseDocumentForm
      *
      * @return self
      */
-    public function setGroup($group)
+    public function setGroup(?string $group)
     {
         if (is_null($group)) {
             array_push($this->openAPINullablesSetToNull, 'group');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
             $index = array_search('group', $nullablesSetToNull);
-            if ($index !== FALSE) {
+            if ($index !== false) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
@@ -601,14 +589,13 @@ class TemplateResponseDocumentFormFieldText extends TemplateResponseDocumentForm
 
         return $this;
     }
+
     /**
      * Returns true if offset exists. False otherwise.
      *
-     * @param integer $offset Offset
-     *
-     * @return boolean
+     * @param int $offset Offset
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
@@ -617,11 +604,11 @@ class TemplateResponseDocumentFormFieldText extends TemplateResponseDocumentForm
     /**
      * Gets offset.
      *
-     * @param integer $offset Offset
+     * @param int $offset Offset
      *
      * @return mixed|null
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return $this->container[$offset] ?? null;
@@ -632,10 +619,8 @@ class TemplateResponseDocumentFormFieldText extends TemplateResponseDocumentForm
      *
      * @param int|null $offset Offset
      * @param mixed    $value  Value to be set
-     *
-     * @return void
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
@@ -648,11 +633,9 @@ class TemplateResponseDocumentFormFieldText extends TemplateResponseDocumentForm
     /**
      * Unsets offset.
      *
-     * @param integer $offset Offset
-     *
-     * @return void
+     * @param int $offset Offset
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
@@ -660,15 +643,15 @@ class TemplateResponseDocumentFormFieldText extends TemplateResponseDocumentForm
 
     /**
      * Serializes the object to a value that can be serialized natively by json_encode().
-     * @link https://www.php.net/manual/en/jsonserializable.jsonserialize.php
+     * @see https://www.php.net/manual/en/jsonserializable.jsonserialize.php
      *
-     * @return mixed Returns data which can be serialized by json_encode(), which is a value
-     * of any type other than a resource.
+     * @return mixed returns data which can be serialized by json_encode(), which is a value
+     *               of any type other than a resource
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function jsonSerialize()
     {
-       return ObjectSerializer::sanitizeForSerialization($this);
+        return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**
@@ -694,5 +677,3 @@ class TemplateResponseDocumentFormFieldText extends TemplateResponseDocumentForm
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
-
-

@@ -5,9 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  Dropbox\Sign
- * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ * @see     https://openapi-generator.tech
  */
 
 /**
@@ -29,34 +27,35 @@
 
 namespace Dropbox\Sign\Model;
 
-use \ArrayAccess;
-use \Dropbox\Sign\ObjectSerializer;
+use ArrayAccess;
+use Dropbox\Sign\ObjectSerializer;
+use InvalidArgumentException;
+use JsonSerializable;
+use ReturnTypeWillChange;
 
 /**
  * AccountResponse Class Doc Comment
  *
  * @category Class
- * @package  Dropbox\Sign
- * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ * @see     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class AccountResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class AccountResponse implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
     /**
-      * The original name of the model.
-      *
-      * @var string
-      */
+     * The original name of the model.
+     *
+     * @var string
+     */
     protected static $openAPIModelName = 'AccountResponse';
 
     /**
-      * Array of property to type mappings. Used for (de)serialization
-      *
-      * @var string[]
-      */
+     * Array of property to type mappings. Used for (de)serialization
+     *
+     * @var string[]
+     */
     protected static $openAPITypes = [
         'account_id' => 'string',
         'email_address' => 'string',
@@ -68,16 +67,16 @@ class AccountResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'role_code' => 'string',
         'team_id' => 'string',
         'locale' => 'string',
-        'usage' => '\Dropbox\Sign\Model\AccountResponseUsage'
+        'usage' => '\Dropbox\Sign\Model\AccountResponseUsage',
     ];
 
     /**
-      * Array of property to format mappings. Used for (de)serialization
-      *
-      * @var string[]
-      * @phpstan-var array<string, string|null>
-      * @psalm-var array<string, string|null>
-      */
+     * Array of property to format mappings. Used for (de)serialization
+     *
+     * @var string[]
+     * @phpstan-var array<string, string|null>
+     * @psalm-var array<string, string|null>
+     */
     protected static $openAPIFormats = [
         'account_id' => null,
         'email_address' => null,
@@ -89,14 +88,14 @@ class AccountResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'role_code' => null,
         'team_id' => null,
         'locale' => null,
-        'usage' => null
+        'usage' => null,
     ];
 
     /**
-      * Array of nullable properties. Used for (de)serialization
-      *
-      * @var boolean[]
-      */
+     * Array of nullable properties. Used for (de)serialization
+     *
+     * @var bool[]
+     */
     protected static array $openAPINullables = [
         'account_id' => false,
         'email_address' => false,
@@ -108,14 +107,14 @@ class AccountResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'role_code' => true,
         'team_id' => true,
         'locale' => true,
-        'usage' => false
+        'usage' => false,
     ];
 
     /**
-      * If a nullable field gets set to null, insert it here
-      *
-      * @var boolean[]
-      */
+     * If a nullable field gets set to null, insert it here
+     *
+     * @var bool[]
+     */
     protected array $openAPINullablesSetToNull = [];
 
     /**
@@ -140,8 +139,6 @@ class AccountResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Array of nullable properties
-     *
-     * @return array
      */
     protected static function openAPINullables(): array
     {
@@ -151,7 +148,7 @@ class AccountResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Array of nullable field names deliberately set to null
      *
-     * @return boolean[]
+     * @return bool[]
      */
     private function getOpenAPINullablesSetToNull(): array
     {
@@ -161,7 +158,7 @@ class AccountResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Setter - Array of nullable field names deliberately set to null
      *
-     * @param boolean[] $openAPINullablesSetToNull
+     * @param bool[] $openAPINullablesSetToNull
      */
     private function setOpenAPINullablesSetToNull(array $openAPINullablesSetToNull): void
     {
@@ -170,9 +167,6 @@ class AccountResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Checks if a property is nullable
-     *
-     * @param string $property
-     * @return bool
      */
     public static function isNullable(string $property): bool
     {
@@ -181,9 +175,6 @@ class AccountResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Checks if a nullable property is set to null.
-     *
-     * @param string $property
-     * @return bool
      */
     public function isNullableSetToNull(string $property): bool
     {
@@ -207,7 +198,7 @@ class AccountResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'role_code' => 'role_code',
         'team_id' => 'team_id',
         'locale' => 'locale',
-        'usage' => 'usage'
+        'usage' => 'usage',
     ];
 
     /**
@@ -226,7 +217,7 @@ class AccountResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'role_code' => 'setRoleCode',
         'team_id' => 'setTeamId',
         'locale' => 'setLocale',
-        'usage' => 'setUsage'
+        'usage' => 'setUsage',
     ];
 
     /**
@@ -245,7 +236,7 @@ class AccountResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'role_code' => 'getRoleCode',
         'team_id' => 'getTeamId',
         'locale' => 'getLocale',
-        'usage' => 'getUsage'
+        'usage' => 'getUsage',
     ];
 
     /**
@@ -289,7 +280,6 @@ class AccountResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
-
     /**
      * Associative array for storing property values
      *
@@ -318,34 +308,33 @@ class AccountResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('usage', $data ?? [], null);
     }
 
-    /** @deprecated use ::init() */
+    /**
+     * @deprecated use ::init()
+     */
     public static function fromArray(array $data): AccountResponse
     {
         return self::init($data);
     }
 
-    /** Attempt to instantiate and hydrate a new instance of this class */
+    /**
+     * Attempt to instantiate and hydrate a new instance of this class
+     */
     public static function init(array $data): AccountResponse
     {
         /** @var AccountResponse */
-        $obj = ObjectSerializer::deserialize(
+        return ObjectSerializer::deserialize(
             $data,
             AccountResponse::class,
         );
-
-        return $obj;
     }
 
-
     /**
-    * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
-    * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
-    * $this->openAPINullablesSetToNull array
-    *
-    * @param string $variableName
-    * @param array  $fields
-* @param string|int|object|array|mixed  $defaultValue
-    */
+     * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
+     * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
+     * $this->openAPINullablesSetToNull array
+     *
+     * @param string|int|object|array|mixed $defaultValue
+     */
     private function setIfExists(string $variableName, array $fields, $defaultValue): void
     {
         if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
@@ -362,9 +351,7 @@ class AccountResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = [];
-
-        return $invalidProperties;
+        return [];
     }
 
     /**
@@ -377,7 +364,6 @@ class AccountResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         return count($this->listInvalidProperties()) === 0;
     }
-
 
     /**
      * Gets account_id
@@ -396,10 +382,10 @@ class AccountResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setAccountId($account_id)
+    public function setAccountId(?string $account_id)
     {
         if (is_null($account_id)) {
-            throw new \InvalidArgumentException('non-nullable account_id cannot be null');
+            throw new InvalidArgumentException('non-nullable account_id cannot be null');
         }
         $this->container['account_id'] = $account_id;
 
@@ -419,14 +405,14 @@ class AccountResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets email_address
      *
-     * @param string|null $email_address The email address associated with the Account.
+     * @param string|null $email_address the email address associated with the Account
      *
      * @return self
      */
-    public function setEmailAddress($email_address)
+    public function setEmailAddress(?string $email_address)
     {
         if (is_null($email_address)) {
-            throw new \InvalidArgumentException('non-nullable email_address cannot be null');
+            throw new InvalidArgumentException('non-nullable email_address cannot be null');
         }
         $this->container['email_address'] = $email_address;
 
@@ -446,14 +432,14 @@ class AccountResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets is_locked
      *
-     * @param bool|null $is_locked Returns `true` if the user has been locked out of their account by a team admin.
+     * @param bool|null $is_locked returns `true` if the user has been locked out of their account by a team admin
      *
      * @return self
      */
-    public function setIsLocked($is_locked)
+    public function setIsLocked(?bool $is_locked)
     {
         if (is_null($is_locked)) {
-            throw new \InvalidArgumentException('non-nullable is_locked cannot be null');
+            throw new InvalidArgumentException('non-nullable is_locked cannot be null');
         }
         $this->container['is_locked'] = $is_locked;
 
@@ -473,14 +459,14 @@ class AccountResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets is_paid_hs
      *
-     * @param bool|null $is_paid_hs Returns `true` if the user has a paid Dropbox Sign account.
+     * @param bool|null $is_paid_hs returns `true` if the user has a paid Dropbox Sign account
      *
      * @return self
      */
-    public function setIsPaidHs($is_paid_hs)
+    public function setIsPaidHs(?bool $is_paid_hs)
     {
         if (is_null($is_paid_hs)) {
-            throw new \InvalidArgumentException('non-nullable is_paid_hs cannot be null');
+            throw new InvalidArgumentException('non-nullable is_paid_hs cannot be null');
         }
         $this->container['is_paid_hs'] = $is_paid_hs;
 
@@ -500,14 +486,14 @@ class AccountResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets is_paid_hf
      *
-     * @param bool|null $is_paid_hf Returns `true` if the user has a paid HelloFax account.
+     * @param bool|null $is_paid_hf returns `true` if the user has a paid HelloFax account
      *
      * @return self
      */
-    public function setIsPaidHf($is_paid_hf)
+    public function setIsPaidHf(?bool $is_paid_hf)
     {
         if (is_null($is_paid_hf)) {
-            throw new \InvalidArgumentException('non-nullable is_paid_hf cannot be null');
+            throw new InvalidArgumentException('non-nullable is_paid_hf cannot be null');
         }
         $this->container['is_paid_hf'] = $is_paid_hf;
 
@@ -517,7 +503,7 @@ class AccountResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets quotas
      *
-     * @return \Dropbox\Sign\Model\AccountResponseQuotas|null
+     * @return AccountResponseQuotas|null
      */
     public function getQuotas()
     {
@@ -527,14 +513,14 @@ class AccountResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets quotas
      *
-     * @param \Dropbox\Sign\Model\AccountResponseQuotas|null $quotas quotas
+     * @param AccountResponseQuotas|null $quotas quotas
      *
      * @return self
      */
-    public function setQuotas($quotas)
+    public function setQuotas(?AccountResponseQuotas $quotas)
     {
         if (is_null($quotas)) {
-            throw new \InvalidArgumentException('non-nullable quotas cannot be null');
+            throw new InvalidArgumentException('non-nullable quotas cannot be null');
         }
         $this->container['quotas'] = $quotas;
 
@@ -554,18 +540,18 @@ class AccountResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets callback_url
      *
-     * @param string|null $callback_url The URL that Dropbox Sign events will `POST` to.
+     * @param string|null $callback_url the URL that Dropbox Sign events will `POST` to
      *
      * @return self
      */
-    public function setCallbackUrl($callback_url)
+    public function setCallbackUrl(?string $callback_url)
     {
         if (is_null($callback_url)) {
             array_push($this->openAPINullablesSetToNull, 'callback_url');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
             $index = array_search('callback_url', $nullablesSetToNull);
-            if ($index !== FALSE) {
+            if ($index !== false) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
@@ -588,18 +574,18 @@ class AccountResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets role_code
      *
-     * @param string|null $role_code The membership role for the team.
+     * @param string|null $role_code the membership role for the team
      *
      * @return self
      */
-    public function setRoleCode($role_code)
+    public function setRoleCode(?string $role_code)
     {
         if (is_null($role_code)) {
             array_push($this->openAPINullablesSetToNull, 'role_code');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
             $index = array_search('role_code', $nullablesSetToNull);
-            if ($index !== FALSE) {
+            if ($index !== false) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
@@ -622,18 +608,18 @@ class AccountResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets team_id
      *
-     * @param string|null $team_id The id of the team account belongs to.
+     * @param string|null $team_id the id of the team account belongs to
      *
      * @return self
      */
-    public function setTeamId($team_id)
+    public function setTeamId(?string $team_id)
     {
         if (is_null($team_id)) {
             array_push($this->openAPINullablesSetToNull, 'team_id');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
             $index = array_search('team_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
+            if ($index !== false) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
@@ -660,14 +646,14 @@ class AccountResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setLocale($locale)
+    public function setLocale(?string $locale)
     {
         if (is_null($locale)) {
             array_push($this->openAPINullablesSetToNull, 'locale');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
             $index = array_search('locale', $nullablesSetToNull);
-            if ($index !== FALSE) {
+            if ($index !== false) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
@@ -680,7 +666,7 @@ class AccountResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets usage
      *
-     * @return \Dropbox\Sign\Model\AccountResponseUsage|null
+     * @return AccountResponseUsage|null
      */
     public function getUsage()
     {
@@ -690,27 +676,26 @@ class AccountResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets usage
      *
-     * @param \Dropbox\Sign\Model\AccountResponseUsage|null $usage usage
+     * @param AccountResponseUsage|null $usage usage
      *
      * @return self
      */
-    public function setUsage($usage)
+    public function setUsage(?AccountResponseUsage $usage)
     {
         if (is_null($usage)) {
-            throw new \InvalidArgumentException('non-nullable usage cannot be null');
+            throw new InvalidArgumentException('non-nullable usage cannot be null');
         }
         $this->container['usage'] = $usage;
 
         return $this;
     }
+
     /**
      * Returns true if offset exists. False otherwise.
      *
-     * @param integer $offset Offset
-     *
-     * @return boolean
+     * @param int $offset Offset
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
@@ -719,11 +704,11 @@ class AccountResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets offset.
      *
-     * @param integer $offset Offset
+     * @param int $offset Offset
      *
      * @return mixed|null
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return $this->container[$offset] ?? null;
@@ -734,10 +719,8 @@ class AccountResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @param int|null $offset Offset
      * @param mixed    $value  Value to be set
-     *
-     * @return void
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
@@ -750,11 +733,9 @@ class AccountResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Unsets offset.
      *
-     * @param integer $offset Offset
-     *
-     * @return void
+     * @param int $offset Offset
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
@@ -762,15 +743,15 @@ class AccountResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 
     /**
      * Serializes the object to a value that can be serialized natively by json_encode().
-     * @link https://www.php.net/manual/en/jsonserializable.jsonserialize.php
+     * @see https://www.php.net/manual/en/jsonserializable.jsonserialize.php
      *
-     * @return mixed Returns data which can be serialized by json_encode(), which is a value
-     * of any type other than a resource.
+     * @return mixed returns data which can be serialized by json_encode(), which is a value
+     *               of any type other than a resource
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function jsonSerialize()
     {
-       return ObjectSerializer::sanitizeForSerialization($this);
+        return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**
@@ -796,5 +777,3 @@ class AccountResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
-
-

@@ -5,9 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  Dropbox\Sign
- * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ * @see     https://openapi-generator.tech
  */
 
 /**
@@ -29,35 +27,36 @@
 
 namespace Dropbox\Sign\Model;
 
-use \ArrayAccess;
-use \Dropbox\Sign\ObjectSerializer;
+use ArrayAccess;
+use Dropbox\Sign\ObjectSerializer;
+use InvalidArgumentException;
+use JsonSerializable;
+use ReturnTypeWillChange;
 
 /**
  * SubWhiteLabelingOptions Class Doc Comment
  *
  * @category Class
  * @description An array of elements and values serialized to a string, to be used to customize the app&#39;s signer page. (Only applies to some API plans)  Take a look at our [white labeling guide](https://developers.hellosign.com/api/reference/premium-branding/) to learn more.
- * @package  Dropbox\Sign
- * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ * @see     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class SubWhiteLabelingOptions implements ModelInterface, ArrayAccess, \JsonSerializable
+class SubWhiteLabelingOptions implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
     /**
-      * The original name of the model.
-      *
-      * @var string
-      */
+     * The original name of the model.
+     *
+     * @var string
+     */
     protected static $openAPIModelName = 'SubWhiteLabelingOptions';
 
     /**
-      * Array of property to type mappings. Used for (de)serialization
-      *
-      * @var string[]
-      */
+     * Array of property to type mappings. Used for (de)serialization
+     *
+     * @var string[]
+     */
     protected static $openAPITypes = [
         'header_background_color' => 'string',
         'legal_version' => 'string',
@@ -73,16 +72,16 @@ class SubWhiteLabelingOptions implements ModelInterface, ArrayAccess, \JsonSeria
         'secondary_button_text_color_hover' => 'string',
         'text_color1' => 'string',
         'text_color2' => 'string',
-        'reset_to_default' => 'bool'
+        'reset_to_default' => 'bool',
     ];
 
     /**
-      * Array of property to format mappings. Used for (de)serialization
-      *
-      * @var string[]
-      * @phpstan-var array<string, string|null>
-      * @psalm-var array<string, string|null>
-      */
+     * Array of property to format mappings. Used for (de)serialization
+     *
+     * @var string[]
+     * @phpstan-var array<string, string|null>
+     * @psalm-var array<string, string|null>
+     */
     protected static $openAPIFormats = [
         'header_background_color' => null,
         'legal_version' => null,
@@ -98,14 +97,14 @@ class SubWhiteLabelingOptions implements ModelInterface, ArrayAccess, \JsonSeria
         'secondary_button_text_color_hover' => null,
         'text_color1' => null,
         'text_color2' => null,
-        'reset_to_default' => null
+        'reset_to_default' => null,
     ];
 
     /**
-      * Array of nullable properties. Used for (de)serialization
-      *
-      * @var boolean[]
-      */
+     * Array of nullable properties. Used for (de)serialization
+     *
+     * @var bool[]
+     */
     protected static array $openAPINullables = [
         'header_background_color' => false,
         'legal_version' => false,
@@ -121,14 +120,14 @@ class SubWhiteLabelingOptions implements ModelInterface, ArrayAccess, \JsonSeria
         'secondary_button_text_color_hover' => false,
         'text_color1' => false,
         'text_color2' => false,
-        'reset_to_default' => false
+        'reset_to_default' => false,
     ];
 
     /**
-      * If a nullable field gets set to null, insert it here
-      *
-      * @var boolean[]
-      */
+     * If a nullable field gets set to null, insert it here
+     *
+     * @var bool[]
+     */
     protected array $openAPINullablesSetToNull = [];
 
     /**
@@ -153,8 +152,6 @@ class SubWhiteLabelingOptions implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Array of nullable properties
-     *
-     * @return array
      */
     protected static function openAPINullables(): array
     {
@@ -164,7 +161,7 @@ class SubWhiteLabelingOptions implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Array of nullable field names deliberately set to null
      *
-     * @return boolean[]
+     * @return bool[]
      */
     private function getOpenAPINullablesSetToNull(): array
     {
@@ -174,7 +171,7 @@ class SubWhiteLabelingOptions implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Setter - Array of nullable field names deliberately set to null
      *
-     * @param boolean[] $openAPINullablesSetToNull
+     * @param bool[] $openAPINullablesSetToNull
      */
     private function setOpenAPINullablesSetToNull(array $openAPINullablesSetToNull): void
     {
@@ -183,9 +180,6 @@ class SubWhiteLabelingOptions implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Checks if a property is nullable
-     *
-     * @param string $property
-     * @return bool
      */
     public static function isNullable(string $property): bool
     {
@@ -194,9 +188,6 @@ class SubWhiteLabelingOptions implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Checks if a nullable property is set to null.
-     *
-     * @param string $property
-     * @return bool
      */
     public function isNullableSetToNull(string $property): bool
     {
@@ -224,7 +215,7 @@ class SubWhiteLabelingOptions implements ModelInterface, ArrayAccess, \JsonSeria
         'secondary_button_text_color_hover' => 'secondary_button_text_color_hover',
         'text_color1' => 'text_color1',
         'text_color2' => 'text_color2',
-        'reset_to_default' => 'reset_to_default'
+        'reset_to_default' => 'reset_to_default',
     ];
 
     /**
@@ -247,7 +238,7 @@ class SubWhiteLabelingOptions implements ModelInterface, ArrayAccess, \JsonSeria
         'secondary_button_text_color_hover' => 'setSecondaryButtonTextColorHover',
         'text_color1' => 'setTextColor1',
         'text_color2' => 'setTextColor2',
-        'reset_to_default' => 'setResetToDefault'
+        'reset_to_default' => 'setResetToDefault',
     ];
 
     /**
@@ -270,7 +261,7 @@ class SubWhiteLabelingOptions implements ModelInterface, ArrayAccess, \JsonSeria
         'secondary_button_text_color_hover' => 'getSecondaryButtonTextColorHover',
         'text_color1' => 'getTextColor1',
         'text_color2' => 'getTextColor2',
-        'reset_to_default' => 'getResetToDefault'
+        'reset_to_default' => 'getResetToDefault',
     ];
 
     /**
@@ -362,34 +353,33 @@ class SubWhiteLabelingOptions implements ModelInterface, ArrayAccess, \JsonSeria
         $this->setIfExists('reset_to_default', $data ?? [], null);
     }
 
-    /** @deprecated use ::init() */
+    /**
+     * @deprecated use ::init()
+     */
     public static function fromArray(array $data): SubWhiteLabelingOptions
     {
         return self::init($data);
     }
 
-    /** Attempt to instantiate and hydrate a new instance of this class */
+    /**
+     * Attempt to instantiate and hydrate a new instance of this class
+     */
     public static function init(array $data): SubWhiteLabelingOptions
     {
         /** @var SubWhiteLabelingOptions */
-        $obj = ObjectSerializer::deserialize(
+        return ObjectSerializer::deserialize(
             $data,
             SubWhiteLabelingOptions::class,
         );
-
-        return $obj;
     }
 
-
     /**
-    * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
-    * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
-    * $this->openAPINullablesSetToNull array
-    *
-    * @param string $variableName
-    * @param array  $fields
-* @param string|int|object|array|mixed  $defaultValue
-    */
+     * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
+     * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
+     * $this->openAPINullablesSetToNull array
+     *
+     * @param string|int|object|array|mixed $defaultValue
+     */
     private function setIfExists(string $variableName, array $fields, $defaultValue): void
     {
         if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
@@ -431,7 +421,6 @@ class SubWhiteLabelingOptions implements ModelInterface, ArrayAccess, \JsonSeria
         return count($this->listInvalidProperties()) === 0;
     }
 
-
     /**
      * Gets header_background_color
      *
@@ -449,10 +438,10 @@ class SubWhiteLabelingOptions implements ModelInterface, ArrayAccess, \JsonSeria
      *
      * @return self
      */
-    public function setHeaderBackgroundColor($header_background_color)
+    public function setHeaderBackgroundColor(?string $header_background_color)
     {
         if (is_null($header_background_color)) {
-            throw new \InvalidArgumentException('non-nullable header_background_color cannot be null');
+            throw new InvalidArgumentException('non-nullable header_background_color cannot be null');
         }
         $this->container['header_background_color'] = $header_background_color;
 
@@ -476,14 +465,14 @@ class SubWhiteLabelingOptions implements ModelInterface, ArrayAccess, \JsonSeria
      *
      * @return self
      */
-    public function setLegalVersion($legal_version)
+    public function setLegalVersion(?string $legal_version)
     {
         if (is_null($legal_version)) {
-            throw new \InvalidArgumentException('non-nullable legal_version cannot be null');
+            throw new InvalidArgumentException('non-nullable legal_version cannot be null');
         }
         $allowedValues = $this->getLegalVersionAllowableValues();
         if (!in_array($legal_version, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
+            throw new InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'legal_version', must be one of '%s'",
                     $legal_version,
@@ -513,10 +502,10 @@ class SubWhiteLabelingOptions implements ModelInterface, ArrayAccess, \JsonSeria
      *
      * @return self
      */
-    public function setLinkColor($link_color)
+    public function setLinkColor(?string $link_color)
     {
         if (is_null($link_color)) {
-            throw new \InvalidArgumentException('non-nullable link_color cannot be null');
+            throw new InvalidArgumentException('non-nullable link_color cannot be null');
         }
         $this->container['link_color'] = $link_color;
 
@@ -540,10 +529,10 @@ class SubWhiteLabelingOptions implements ModelInterface, ArrayAccess, \JsonSeria
      *
      * @return self
      */
-    public function setPageBackgroundColor($page_background_color)
+    public function setPageBackgroundColor(?string $page_background_color)
     {
         if (is_null($page_background_color)) {
-            throw new \InvalidArgumentException('non-nullable page_background_color cannot be null');
+            throw new InvalidArgumentException('non-nullable page_background_color cannot be null');
         }
         $this->container['page_background_color'] = $page_background_color;
 
@@ -567,10 +556,10 @@ class SubWhiteLabelingOptions implements ModelInterface, ArrayAccess, \JsonSeria
      *
      * @return self
      */
-    public function setPrimaryButtonColor($primary_button_color)
+    public function setPrimaryButtonColor(?string $primary_button_color)
     {
         if (is_null($primary_button_color)) {
-            throw new \InvalidArgumentException('non-nullable primary_button_color cannot be null');
+            throw new InvalidArgumentException('non-nullable primary_button_color cannot be null');
         }
         $this->container['primary_button_color'] = $primary_button_color;
 
@@ -594,10 +583,10 @@ class SubWhiteLabelingOptions implements ModelInterface, ArrayAccess, \JsonSeria
      *
      * @return self
      */
-    public function setPrimaryButtonColorHover($primary_button_color_hover)
+    public function setPrimaryButtonColorHover(?string $primary_button_color_hover)
     {
         if (is_null($primary_button_color_hover)) {
-            throw new \InvalidArgumentException('non-nullable primary_button_color_hover cannot be null');
+            throw new InvalidArgumentException('non-nullable primary_button_color_hover cannot be null');
         }
         $this->container['primary_button_color_hover'] = $primary_button_color_hover;
 
@@ -621,10 +610,10 @@ class SubWhiteLabelingOptions implements ModelInterface, ArrayAccess, \JsonSeria
      *
      * @return self
      */
-    public function setPrimaryButtonTextColor($primary_button_text_color)
+    public function setPrimaryButtonTextColor(?string $primary_button_text_color)
     {
         if (is_null($primary_button_text_color)) {
-            throw new \InvalidArgumentException('non-nullable primary_button_text_color cannot be null');
+            throw new InvalidArgumentException('non-nullable primary_button_text_color cannot be null');
         }
         $this->container['primary_button_text_color'] = $primary_button_text_color;
 
@@ -648,10 +637,10 @@ class SubWhiteLabelingOptions implements ModelInterface, ArrayAccess, \JsonSeria
      *
      * @return self
      */
-    public function setPrimaryButtonTextColorHover($primary_button_text_color_hover)
+    public function setPrimaryButtonTextColorHover(?string $primary_button_text_color_hover)
     {
         if (is_null($primary_button_text_color_hover)) {
-            throw new \InvalidArgumentException('non-nullable primary_button_text_color_hover cannot be null');
+            throw new InvalidArgumentException('non-nullable primary_button_text_color_hover cannot be null');
         }
         $this->container['primary_button_text_color_hover'] = $primary_button_text_color_hover;
 
@@ -675,10 +664,10 @@ class SubWhiteLabelingOptions implements ModelInterface, ArrayAccess, \JsonSeria
      *
      * @return self
      */
-    public function setSecondaryButtonColor($secondary_button_color)
+    public function setSecondaryButtonColor(?string $secondary_button_color)
     {
         if (is_null($secondary_button_color)) {
-            throw new \InvalidArgumentException('non-nullable secondary_button_color cannot be null');
+            throw new InvalidArgumentException('non-nullable secondary_button_color cannot be null');
         }
         $this->container['secondary_button_color'] = $secondary_button_color;
 
@@ -702,10 +691,10 @@ class SubWhiteLabelingOptions implements ModelInterface, ArrayAccess, \JsonSeria
      *
      * @return self
      */
-    public function setSecondaryButtonColorHover($secondary_button_color_hover)
+    public function setSecondaryButtonColorHover(?string $secondary_button_color_hover)
     {
         if (is_null($secondary_button_color_hover)) {
-            throw new \InvalidArgumentException('non-nullable secondary_button_color_hover cannot be null');
+            throw new InvalidArgumentException('non-nullable secondary_button_color_hover cannot be null');
         }
         $this->container['secondary_button_color_hover'] = $secondary_button_color_hover;
 
@@ -729,10 +718,10 @@ class SubWhiteLabelingOptions implements ModelInterface, ArrayAccess, \JsonSeria
      *
      * @return self
      */
-    public function setSecondaryButtonTextColor($secondary_button_text_color)
+    public function setSecondaryButtonTextColor(?string $secondary_button_text_color)
     {
         if (is_null($secondary_button_text_color)) {
-            throw new \InvalidArgumentException('non-nullable secondary_button_text_color cannot be null');
+            throw new InvalidArgumentException('non-nullable secondary_button_text_color cannot be null');
         }
         $this->container['secondary_button_text_color'] = $secondary_button_text_color;
 
@@ -756,10 +745,10 @@ class SubWhiteLabelingOptions implements ModelInterface, ArrayAccess, \JsonSeria
      *
      * @return self
      */
-    public function setSecondaryButtonTextColorHover($secondary_button_text_color_hover)
+    public function setSecondaryButtonTextColorHover(?string $secondary_button_text_color_hover)
     {
         if (is_null($secondary_button_text_color_hover)) {
-            throw new \InvalidArgumentException('non-nullable secondary_button_text_color_hover cannot be null');
+            throw new InvalidArgumentException('non-nullable secondary_button_text_color_hover cannot be null');
         }
         $this->container['secondary_button_text_color_hover'] = $secondary_button_text_color_hover;
 
@@ -783,10 +772,10 @@ class SubWhiteLabelingOptions implements ModelInterface, ArrayAccess, \JsonSeria
      *
      * @return self
      */
-    public function setTextColor1($text_color1)
+    public function setTextColor1(?string $text_color1)
     {
         if (is_null($text_color1)) {
-            throw new \InvalidArgumentException('non-nullable text_color1 cannot be null');
+            throw new InvalidArgumentException('non-nullable text_color1 cannot be null');
         }
         $this->container['text_color1'] = $text_color1;
 
@@ -810,10 +799,10 @@ class SubWhiteLabelingOptions implements ModelInterface, ArrayAccess, \JsonSeria
      *
      * @return self
      */
-    public function setTextColor2($text_color2)
+    public function setTextColor2(?string $text_color2)
     {
         if (is_null($text_color2)) {
-            throw new \InvalidArgumentException('non-nullable text_color2 cannot be null');
+            throw new InvalidArgumentException('non-nullable text_color2 cannot be null');
         }
         $this->container['text_color2'] = $text_color2;
 
@@ -837,23 +826,22 @@ class SubWhiteLabelingOptions implements ModelInterface, ArrayAccess, \JsonSeria
      *
      * @return self
      */
-    public function setResetToDefault($reset_to_default)
+    public function setResetToDefault(?bool $reset_to_default)
     {
         if (is_null($reset_to_default)) {
-            throw new \InvalidArgumentException('non-nullable reset_to_default cannot be null');
+            throw new InvalidArgumentException('non-nullable reset_to_default cannot be null');
         }
         $this->container['reset_to_default'] = $reset_to_default;
 
         return $this;
     }
+
     /**
      * Returns true if offset exists. False otherwise.
      *
-     * @param integer $offset Offset
-     *
-     * @return boolean
+     * @param int $offset Offset
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
@@ -862,11 +850,11 @@ class SubWhiteLabelingOptions implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets offset.
      *
-     * @param integer $offset Offset
+     * @param int $offset Offset
      *
      * @return mixed|null
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return $this->container[$offset] ?? null;
@@ -877,10 +865,8 @@ class SubWhiteLabelingOptions implements ModelInterface, ArrayAccess, \JsonSeria
      *
      * @param int|null $offset Offset
      * @param mixed    $value  Value to be set
-     *
-     * @return void
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
@@ -893,11 +879,9 @@ class SubWhiteLabelingOptions implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Unsets offset.
      *
-     * @param integer $offset Offset
-     *
-     * @return void
+     * @param int $offset Offset
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
@@ -905,15 +889,15 @@ class SubWhiteLabelingOptions implements ModelInterface, ArrayAccess, \JsonSeria
 
     /**
      * Serializes the object to a value that can be serialized natively by json_encode().
-     * @link https://www.php.net/manual/en/jsonserializable.jsonserialize.php
+     * @see https://www.php.net/manual/en/jsonserializable.jsonserialize.php
      *
-     * @return mixed Returns data which can be serialized by json_encode(), which is a value
-     * of any type other than a resource.
+     * @return mixed returns data which can be serialized by json_encode(), which is a value
+     *               of any type other than a resource
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function jsonSerialize()
     {
-       return ObjectSerializer::sanitizeForSerialization($this);
+        return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**
@@ -939,5 +923,3 @@ class SubWhiteLabelingOptions implements ModelInterface, ArrayAccess, \JsonSeria
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
-
-

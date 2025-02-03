@@ -5,9 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  Dropbox\Sign
- * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ * @see     https://openapi-generator.tech
  */
 
 /**
@@ -28,15 +26,16 @@
  */
 
 namespace Dropbox\Sign\Model;
-use \Dropbox\Sign\ObjectSerializer;
+
+use Dropbox\Sign\ObjectSerializer;
+use InvalidArgumentException;
+use ReturnTypeWillChange;
 
 /**
  * SignatureRequestResponseDataValueInitials Class Doc Comment
  *
  * @category Class
- * @package  Dropbox\Sign
- * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ * @see     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
 class SignatureRequestResponseDataValueInitials extends SignatureRequestResponseDataBase
@@ -44,52 +43,52 @@ class SignatureRequestResponseDataValueInitials extends SignatureRequestResponse
     public const DISCRIMINATOR = null;
 
     /**
-      * The original name of the model.
-      *
-      * @var string
-      */
+     * The original name of the model.
+     *
+     * @var string
+     */
     protected static $openAPIModelName = 'SignatureRequestResponseDataValueInitials';
 
     /**
-      * Array of property to type mappings. Used for (de)serialization
-      *
-      * @var string[]
-      */
+     * Array of property to type mappings. Used for (de)serialization
+     *
+     * @var string[]
+     */
     protected static $openAPITypes = [
         'type' => 'string',
         'value' => 'string',
-        'is_signed' => 'bool'
+        'is_signed' => 'bool',
     ];
 
     /**
-      * Array of property to format mappings. Used for (de)serialization
-      *
-      * @var string[]
-      * @phpstan-var array<string, string|null>
-      * @psalm-var array<string, string|null>
-      */
+     * Array of property to format mappings. Used for (de)serialization
+     *
+     * @var string[]
+     * @phpstan-var array<string, string|null>
+     * @psalm-var array<string, string|null>
+     */
     protected static $openAPIFormats = [
         'type' => null,
         'value' => null,
-        'is_signed' => null
+        'is_signed' => null,
     ];
 
     /**
-      * Array of nullable properties. Used for (de)serialization
-      *
-      * @var boolean[]
-      */
+     * Array of nullable properties. Used for (de)serialization
+     *
+     * @var bool[]
+     */
     protected static array $openAPINullables = [
         'type' => false,
         'value' => false,
-        'is_signed' => true
+        'is_signed' => true,
     ];
 
     /**
-      * If a nullable field gets set to null, insert it here
-      *
-      * @var boolean[]
-      */
+     * If a nullable field gets set to null, insert it here
+     *
+     * @var bool[]
+     */
     protected array $openAPINullablesSetToNull = [];
 
     /**
@@ -114,8 +113,6 @@ class SignatureRequestResponseDataValueInitials extends SignatureRequestResponse
 
     /**
      * Array of nullable properties
-     *
-     * @return array
      */
     protected static function openAPINullables(): array
     {
@@ -125,7 +122,7 @@ class SignatureRequestResponseDataValueInitials extends SignatureRequestResponse
     /**
      * Array of nullable field names deliberately set to null
      *
-     * @return boolean[]
+     * @return bool[]
      */
     private function getOpenAPINullablesSetToNull(): array
     {
@@ -135,7 +132,7 @@ class SignatureRequestResponseDataValueInitials extends SignatureRequestResponse
     /**
      * Setter - Array of nullable field names deliberately set to null
      *
-     * @param boolean[] $openAPINullablesSetToNull
+     * @param bool[] $openAPINullablesSetToNull
      */
     private function setOpenAPINullablesSetToNull(array $openAPINullablesSetToNull): void
     {
@@ -144,9 +141,6 @@ class SignatureRequestResponseDataValueInitials extends SignatureRequestResponse
 
     /**
      * Checks if a property is nullable
-     *
-     * @param string $property
-     * @return bool
      */
     public static function isNullable(string $property): bool
     {
@@ -155,9 +149,6 @@ class SignatureRequestResponseDataValueInitials extends SignatureRequestResponse
 
     /**
      * Checks if a nullable property is set to null.
-     *
-     * @param string $property
-     * @return bool
      */
     public function isNullableSetToNull(string $property): bool
     {
@@ -173,7 +164,7 @@ class SignatureRequestResponseDataValueInitials extends SignatureRequestResponse
     protected static $attributeMap = [
         'type' => 'type',
         'value' => 'value',
-        'is_signed' => 'is_signed'
+        'is_signed' => 'is_signed',
     ];
 
     /**
@@ -184,7 +175,7 @@ class SignatureRequestResponseDataValueInitials extends SignatureRequestResponse
     protected static $setters = [
         'type' => 'setType',
         'value' => 'setValue',
-        'is_signed' => 'setIsSigned'
+        'is_signed' => 'setIsSigned',
     ];
 
     /**
@@ -195,7 +186,7 @@ class SignatureRequestResponseDataValueInitials extends SignatureRequestResponse
     protected static $getters = [
         'type' => 'getType',
         'value' => 'getValue',
-        'is_signed' => 'getIsSigned'
+        'is_signed' => 'getIsSigned',
     ];
 
     /**
@@ -239,8 +230,6 @@ class SignatureRequestResponseDataValueInitials extends SignatureRequestResponse
         return self::$openAPIModelName;
     }
 
-
-
     /**
      * Constructor
      *
@@ -256,34 +245,33 @@ class SignatureRequestResponseDataValueInitials extends SignatureRequestResponse
         $this->setIfExists('is_signed', $data ?? [], null);
     }
 
-    /** @deprecated use ::init() */
+    /**
+     * @deprecated use ::init()
+     */
     public static function fromArray(array $data): SignatureRequestResponseDataValueInitials
     {
         return self::init($data);
     }
 
-    /** Attempt to instantiate and hydrate a new instance of this class */
+    /**
+     * Attempt to instantiate and hydrate a new instance of this class
+     */
     public static function init(array $data): SignatureRequestResponseDataValueInitials
     {
         /** @var SignatureRequestResponseDataValueInitials */
-        $obj = ObjectSerializer::deserialize(
+        return ObjectSerializer::deserialize(
             $data,
             SignatureRequestResponseDataValueInitials::class,
         );
-
-        return $obj;
     }
 
-
     /**
-    * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
-    * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
-    * $this->openAPINullablesSetToNull array
-    *
-    * @param string $variableName
-    * @param array  $fields
-* @param string|int|object|array|mixed  $defaultValue
-    */
+     * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
+     * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
+     * $this->openAPINullablesSetToNull array
+     *
+     * @param string|int|object|array|mixed $defaultValue
+     */
     private function setIfExists(string $variableName, array $fields, $defaultValue): void
     {
         if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
@@ -300,9 +288,7 @@ class SignatureRequestResponseDataValueInitials extends SignatureRequestResponse
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = parent::listInvalidProperties();
-
-        return $invalidProperties;
+        return parent::listInvalidProperties();
     }
 
     /**
@@ -315,7 +301,6 @@ class SignatureRequestResponseDataValueInitials extends SignatureRequestResponse
     {
         return count($this->listInvalidProperties()) === 0;
     }
-
 
     /**
      * Gets type
@@ -334,10 +319,10 @@ class SignatureRequestResponseDataValueInitials extends SignatureRequestResponse
      *
      * @return self
      */
-    public function setType($type)
+    public function setType(?string $type)
     {
         if (is_null($type)) {
-            throw new \InvalidArgumentException('non-nullable type cannot be null');
+            throw new InvalidArgumentException('non-nullable type cannot be null');
         }
         $this->container['type'] = $type;
 
@@ -357,14 +342,14 @@ class SignatureRequestResponseDataValueInitials extends SignatureRequestResponse
     /**
      * Sets value
      *
-     * @param string|null $value The value of the form field.
+     * @param string|null $value the value of the form field
      *
      * @return self
      */
-    public function setValue($value)
+    public function setValue(?string $value)
     {
         if (is_null($value)) {
-            throw new \InvalidArgumentException('non-nullable value cannot be null');
+            throw new InvalidArgumentException('non-nullable value cannot be null');
         }
         $this->container['value'] = $value;
 
@@ -384,18 +369,18 @@ class SignatureRequestResponseDataValueInitials extends SignatureRequestResponse
     /**
      * Sets is_signed
      *
-     * @param bool|null $is_signed This field contains the boolean true if the field is signed.
+     * @param bool|null $is_signed this field contains the boolean true if the field is signed
      *
      * @return self
      */
-    public function setIsSigned($is_signed)
+    public function setIsSigned(?bool $is_signed)
     {
         if (is_null($is_signed)) {
             array_push($this->openAPINullablesSetToNull, 'is_signed');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
             $index = array_search('is_signed', $nullablesSetToNull);
-            if ($index !== FALSE) {
+            if ($index !== false) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
@@ -404,14 +389,13 @@ class SignatureRequestResponseDataValueInitials extends SignatureRequestResponse
 
         return $this;
     }
+
     /**
      * Returns true if offset exists. False otherwise.
      *
-     * @param integer $offset Offset
-     *
-     * @return boolean
+     * @param int $offset Offset
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
@@ -420,11 +404,11 @@ class SignatureRequestResponseDataValueInitials extends SignatureRequestResponse
     /**
      * Gets offset.
      *
-     * @param integer $offset Offset
+     * @param int $offset Offset
      *
      * @return mixed|null
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return $this->container[$offset] ?? null;
@@ -435,10 +419,8 @@ class SignatureRequestResponseDataValueInitials extends SignatureRequestResponse
      *
      * @param int|null $offset Offset
      * @param mixed    $value  Value to be set
-     *
-     * @return void
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
@@ -451,11 +433,9 @@ class SignatureRequestResponseDataValueInitials extends SignatureRequestResponse
     /**
      * Unsets offset.
      *
-     * @param integer $offset Offset
-     *
-     * @return void
+     * @param int $offset Offset
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
@@ -463,15 +443,15 @@ class SignatureRequestResponseDataValueInitials extends SignatureRequestResponse
 
     /**
      * Serializes the object to a value that can be serialized natively by json_encode().
-     * @link https://www.php.net/manual/en/jsonserializable.jsonserialize.php
+     * @see https://www.php.net/manual/en/jsonserializable.jsonserialize.php
      *
-     * @return mixed Returns data which can be serialized by json_encode(), which is a value
-     * of any type other than a resource.
+     * @return mixed returns data which can be serialized by json_encode(), which is a value
+     *               of any type other than a resource
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function jsonSerialize()
     {
-       return ObjectSerializer::sanitizeForSerialization($this);
+        return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**
@@ -497,5 +477,3 @@ class SignatureRequestResponseDataValueInitials extends SignatureRequestResponse
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
-
-

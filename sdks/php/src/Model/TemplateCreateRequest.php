@@ -5,9 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  Dropbox\Sign
- * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ * @see     https://openapi-generator.tech
  */
 
 /**
@@ -29,34 +27,36 @@
 
 namespace Dropbox\Sign\Model;
 
-use \ArrayAccess;
-use \Dropbox\Sign\ObjectSerializer;
+use ArrayAccess;
+use Dropbox\Sign\ObjectSerializer;
+use InvalidArgumentException;
+use JsonSerializable;
+use ReturnTypeWillChange;
+use SplFileObject;
 
 /**
  * TemplateCreateRequest Class Doc Comment
  *
  * @category Class
- * @package  Dropbox\Sign
- * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ * @see     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class TemplateCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializable
+class TemplateCreateRequest implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
     /**
-      * The original name of the model.
-      *
-      * @var string
-      */
+     * The original name of the model.
+     *
+     * @var string
+     */
     protected static $openAPIModelName = 'TemplateCreateRequest';
 
     /**
-      * Array of property to type mappings. Used for (de)serialization
-      *
-      * @var string[]
-      */
+     * Array of property to type mappings. Used for (de)serialization
+     *
+     * @var string[]
+     */
     protected static $openAPITypes = [
         'form_fields_per_document' => '\Dropbox\Sign\Model\SubFormFieldsPerDocumentBase[]',
         'signer_roles' => '\Dropbox\Sign\Model\SubTemplateRole[]',
@@ -75,16 +75,16 @@ class TemplateCreateRequest implements ModelInterface, ArrayAccess, \JsonSeriali
         'subject' => 'string',
         'test_mode' => 'bool',
         'title' => 'string',
-        'use_preexisting_fields' => 'bool'
+        'use_preexisting_fields' => 'bool',
     ];
 
     /**
-      * Array of property to format mappings. Used for (de)serialization
-      *
-      * @var string[]
-      * @phpstan-var array<string, string|null>
-      * @psalm-var array<string, string|null>
-      */
+     * Array of property to format mappings. Used for (de)serialization
+     *
+     * @var string[]
+     * @phpstan-var array<string, string|null>
+     * @psalm-var array<string, string|null>
+     */
     protected static $openAPIFormats = [
         'form_fields_per_document' => null,
         'signer_roles' => null,
@@ -103,14 +103,14 @@ class TemplateCreateRequest implements ModelInterface, ArrayAccess, \JsonSeriali
         'subject' => null,
         'test_mode' => null,
         'title' => null,
-        'use_preexisting_fields' => null
+        'use_preexisting_fields' => null,
     ];
 
     /**
-      * Array of nullable properties. Used for (de)serialization
-      *
-      * @var boolean[]
-      */
+     * Array of nullable properties. Used for (de)serialization
+     *
+     * @var bool[]
+     */
     protected static array $openAPINullables = [
         'form_fields_per_document' => false,
         'signer_roles' => false,
@@ -129,14 +129,14 @@ class TemplateCreateRequest implements ModelInterface, ArrayAccess, \JsonSeriali
         'subject' => false,
         'test_mode' => false,
         'title' => false,
-        'use_preexisting_fields' => false
+        'use_preexisting_fields' => false,
     ];
 
     /**
-      * If a nullable field gets set to null, insert it here
-      *
-      * @var boolean[]
-      */
+     * If a nullable field gets set to null, insert it here
+     *
+     * @var bool[]
+     */
     protected array $openAPINullablesSetToNull = [];
 
     /**
@@ -161,8 +161,6 @@ class TemplateCreateRequest implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Array of nullable properties
-     *
-     * @return array
      */
     protected static function openAPINullables(): array
     {
@@ -172,7 +170,7 @@ class TemplateCreateRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Array of nullable field names deliberately set to null
      *
-     * @return boolean[]
+     * @return bool[]
      */
     private function getOpenAPINullablesSetToNull(): array
     {
@@ -182,7 +180,7 @@ class TemplateCreateRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Setter - Array of nullable field names deliberately set to null
      *
-     * @param boolean[] $openAPINullablesSetToNull
+     * @param bool[] $openAPINullablesSetToNull
      */
     private function setOpenAPINullablesSetToNull(array $openAPINullablesSetToNull): void
     {
@@ -191,9 +189,6 @@ class TemplateCreateRequest implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Checks if a property is nullable
-     *
-     * @param string $property
-     * @return bool
      */
     public static function isNullable(string $property): bool
     {
@@ -202,9 +197,6 @@ class TemplateCreateRequest implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Checks if a nullable property is set to null.
-     *
-     * @param string $property
-     * @return bool
      */
     public function isNullableSetToNull(string $property): bool
     {
@@ -235,7 +227,7 @@ class TemplateCreateRequest implements ModelInterface, ArrayAccess, \JsonSeriali
         'subject' => 'subject',
         'test_mode' => 'test_mode',
         'title' => 'title',
-        'use_preexisting_fields' => 'use_preexisting_fields'
+        'use_preexisting_fields' => 'use_preexisting_fields',
     ];
 
     /**
@@ -261,7 +253,7 @@ class TemplateCreateRequest implements ModelInterface, ArrayAccess, \JsonSeriali
         'subject' => 'setSubject',
         'test_mode' => 'setTestMode',
         'title' => 'setTitle',
-        'use_preexisting_fields' => 'setUsePreexistingFields'
+        'use_preexisting_fields' => 'setUsePreexistingFields',
     ];
 
     /**
@@ -287,7 +279,7 @@ class TemplateCreateRequest implements ModelInterface, ArrayAccess, \JsonSeriali
         'subject' => 'getSubject',
         'test_mode' => 'getTestMode',
         'title' => 'getTitle',
-        'use_preexisting_fields' => 'getUsePreexistingFields'
+        'use_preexisting_fields' => 'getUsePreexistingFields',
     ];
 
     /**
@@ -331,7 +323,6 @@ class TemplateCreateRequest implements ModelInterface, ArrayAccess, \JsonSeriali
         return self::$openAPIModelName;
     }
 
-
     /**
      * Associative array for storing property values
      *
@@ -367,34 +358,33 @@ class TemplateCreateRequest implements ModelInterface, ArrayAccess, \JsonSeriali
         $this->setIfExists('use_preexisting_fields', $data ?? [], false);
     }
 
-    /** @deprecated use ::init() */
+    /**
+     * @deprecated use ::init()
+     */
     public static function fromArray(array $data): TemplateCreateRequest
     {
         return self::init($data);
     }
 
-    /** Attempt to instantiate and hydrate a new instance of this class */
+    /**
+     * Attempt to instantiate and hydrate a new instance of this class
+     */
     public static function init(array $data): TemplateCreateRequest
     {
         /** @var TemplateCreateRequest */
-        $obj = ObjectSerializer::deserialize(
+        return ObjectSerializer::deserialize(
             $data,
             TemplateCreateRequest::class,
         );
-
-        return $obj;
     }
 
-
     /**
-    * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
-    * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
-    * $this->openAPINullablesSetToNull array
-    *
-    * @param string $variableName
-    * @param array  $fields
-* @param string|int|object|array|mixed  $defaultValue
-    */
+     * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
+     * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
+     * $this->openAPINullablesSetToNull array
+     *
+     * @param string|int|object|array|mixed $defaultValue
+     */
     private function setIfExists(string $variableName, array $fields, $defaultValue): void
     {
         if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
@@ -441,11 +431,10 @@ class TemplateCreateRequest implements ModelInterface, ArrayAccess, \JsonSeriali
         return count($this->listInvalidProperties()) === 0;
     }
 
-
     /**
      * Gets form_fields_per_document
      *
-     * @return \Dropbox\Sign\Model\SubFormFieldsPerDocumentBase[]
+     * @return SubFormFieldsPerDocumentBase[]
      */
     public function getFormFieldsPerDocument()
     {
@@ -455,14 +444,14 @@ class TemplateCreateRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets form_fields_per_document
      *
-     * @param \Dropbox\Sign\Model\SubFormFieldsPerDocumentBase[] $form_fields_per_document The fields that should appear on the document, expressed as an array of objects. (For more details you can read about it here: [Using Form Fields per Document](/docs/openapi/form-fields-per-document).)  **NOTE:** Fields like **text**, **dropdown**, **checkbox**, **radio**, and **hyperlink** have additional required and optional parameters. Check out the list of [additional parameters](/api/reference/constants/#form-fields-per-document) for these field types.  * Text Field use `SubFormFieldsPerDocumentText` * Dropdown Field use `SubFormFieldsPerDocumentDropdown` * Hyperlink Field use `SubFormFieldsPerDocumentHyperlink` * Checkbox Field use `SubFormFieldsPerDocumentCheckbox` * Radio Field use `SubFormFieldsPerDocumentRadio` * Signature Field use `SubFormFieldsPerDocumentSignature` * Date Signed Field use `SubFormFieldsPerDocumentDateSigned` * Initials Field use `SubFormFieldsPerDocumentInitials` * Text Merge Field use `SubFormFieldsPerDocumentTextMerge` * Checkbox Merge Field use `SubFormFieldsPerDocumentCheckboxMerge`
+     * @param SubFormFieldsPerDocumentBase[] $form_fields_per_document The fields that should appear on the document, expressed as an array of objects. (For more details you can read about it here: [Using Form Fields per Document](/docs/openapi/form-fields-per-document).)  **NOTE:** Fields like **text**, **dropdown**, **checkbox**, **radio**, and **hyperlink** have additional required and optional parameters. Check out the list of [additional parameters](/api/reference/constants/#form-fields-per-document) for these field types.  * Text Field use `SubFormFieldsPerDocumentText` * Dropdown Field use `SubFormFieldsPerDocumentDropdown` * Hyperlink Field use `SubFormFieldsPerDocumentHyperlink` * Checkbox Field use `SubFormFieldsPerDocumentCheckbox` * Radio Field use `SubFormFieldsPerDocumentRadio` * Signature Field use `SubFormFieldsPerDocumentSignature` * Date Signed Field use `SubFormFieldsPerDocumentDateSigned` * Initials Field use `SubFormFieldsPerDocumentInitials` * Text Merge Field use `SubFormFieldsPerDocumentTextMerge` * Checkbox Merge Field use `SubFormFieldsPerDocumentCheckboxMerge`
      *
      * @return self
      */
-    public function setFormFieldsPerDocument($form_fields_per_document)
+    public function setFormFieldsPerDocument(array $form_fields_per_document)
     {
         if (is_null($form_fields_per_document)) {
-            throw new \InvalidArgumentException('non-nullable form_fields_per_document cannot be null');
+            throw new InvalidArgumentException('non-nullable form_fields_per_document cannot be null');
         }
         $this->container['form_fields_per_document'] = $form_fields_per_document;
 
@@ -472,7 +461,7 @@ class TemplateCreateRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets signer_roles
      *
-     * @return \Dropbox\Sign\Model\SubTemplateRole[]
+     * @return SubTemplateRole[]
      */
     public function getSignerRoles()
     {
@@ -482,14 +471,14 @@ class TemplateCreateRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets signer_roles
      *
-     * @param \Dropbox\Sign\Model\SubTemplateRole[] $signer_roles An array of the designated signer roles that must be specified when sending a SignatureRequest using this Template.
+     * @param SubTemplateRole[] $signer_roles an array of the designated signer roles that must be specified when sending a SignatureRequest using this Template
      *
      * @return self
      */
-    public function setSignerRoles($signer_roles)
+    public function setSignerRoles(array $signer_roles)
     {
         if (is_null($signer_roles)) {
-            throw new \InvalidArgumentException('non-nullable signer_roles cannot be null');
+            throw new InvalidArgumentException('non-nullable signer_roles cannot be null');
         }
         $this->container['signer_roles'] = $signer_roles;
 
@@ -499,7 +488,7 @@ class TemplateCreateRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets files
      *
-     * @return \SplFileObject[]|null
+     * @return SplFileObject[]|null
      */
     public function getFiles()
     {
@@ -509,14 +498,14 @@ class TemplateCreateRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets files
      *
-     * @param \SplFileObject[]|null $files Use `files[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.
+     * @param SplFileObject[]|null $files Use `files[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.
      *
      * @return self
      */
-    public function setFiles($files)
+    public function setFiles(?array $files)
     {
         if (is_null($files)) {
-            throw new \InvalidArgumentException('non-nullable files cannot be null');
+            throw new InvalidArgumentException('non-nullable files cannot be null');
         }
         $this->container['files'] = $files;
 
@@ -540,10 +529,10 @@ class TemplateCreateRequest implements ModelInterface, ArrayAccess, \JsonSeriali
      *
      * @return self
      */
-    public function setFileUrls($file_urls)
+    public function setFileUrls(?array $file_urls)
     {
         if (is_null($file_urls)) {
-            throw new \InvalidArgumentException('non-nullable file_urls cannot be null');
+            throw new InvalidArgumentException('non-nullable file_urls cannot be null');
         }
         $this->container['file_urls'] = $file_urls;
 
@@ -567,10 +556,10 @@ class TemplateCreateRequest implements ModelInterface, ArrayAccess, \JsonSeriali
      *
      * @return self
      */
-    public function setAllowReassign($allow_reassign)
+    public function setAllowReassign(?bool $allow_reassign)
     {
         if (is_null($allow_reassign)) {
-            throw new \InvalidArgumentException('non-nullable allow_reassign cannot be null');
+            throw new InvalidArgumentException('non-nullable allow_reassign cannot be null');
         }
         $this->container['allow_reassign'] = $allow_reassign;
 
@@ -580,7 +569,7 @@ class TemplateCreateRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets attachments
      *
-     * @return \Dropbox\Sign\Model\SubAttachment[]|null
+     * @return SubAttachment[]|null
      */
     public function getAttachments()
     {
@@ -590,14 +579,14 @@ class TemplateCreateRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets attachments
      *
-     * @param \Dropbox\Sign\Model\SubAttachment[]|null $attachments A list describing the attachments
+     * @param SubAttachment[]|null $attachments A list describing the attachments
      *
      * @return self
      */
-    public function setAttachments($attachments)
+    public function setAttachments(?array $attachments)
     {
         if (is_null($attachments)) {
-            throw new \InvalidArgumentException('non-nullable attachments cannot be null');
+            throw new InvalidArgumentException('non-nullable attachments cannot be null');
         }
         $this->container['attachments'] = $attachments;
 
@@ -621,10 +610,10 @@ class TemplateCreateRequest implements ModelInterface, ArrayAccess, \JsonSeriali
      *
      * @return self
      */
-    public function setCcRoles($cc_roles)
+    public function setCcRoles(?array $cc_roles)
     {
         if (is_null($cc_roles)) {
-            throw new \InvalidArgumentException('non-nullable cc_roles cannot be null');
+            throw new InvalidArgumentException('non-nullable cc_roles cannot be null');
         }
         $this->container['cc_roles'] = $cc_roles;
 
@@ -648,10 +637,10 @@ class TemplateCreateRequest implements ModelInterface, ArrayAccess, \JsonSeriali
      *
      * @return self
      */
-    public function setClientId($client_id)
+    public function setClientId(?string $client_id)
     {
         if (is_null($client_id)) {
-            throw new \InvalidArgumentException('non-nullable client_id cannot be null');
+            throw new InvalidArgumentException('non-nullable client_id cannot be null');
         }
         $this->container['client_id'] = $client_id;
 
@@ -661,7 +650,7 @@ class TemplateCreateRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets field_options
      *
-     * @return \Dropbox\Sign\Model\SubFieldOptions|null
+     * @return SubFieldOptions|null
      */
     public function getFieldOptions()
     {
@@ -671,14 +660,14 @@ class TemplateCreateRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets field_options
      *
-     * @param \Dropbox\Sign\Model\SubFieldOptions|null $field_options field_options
+     * @param SubFieldOptions|null $field_options field_options
      *
      * @return self
      */
-    public function setFieldOptions($field_options)
+    public function setFieldOptions(?SubFieldOptions $field_options)
     {
         if (is_null($field_options)) {
-            throw new \InvalidArgumentException('non-nullable field_options cannot be null');
+            throw new InvalidArgumentException('non-nullable field_options cannot be null');
         }
         $this->container['field_options'] = $field_options;
 
@@ -688,7 +677,7 @@ class TemplateCreateRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets form_field_groups
      *
-     * @return \Dropbox\Sign\Model\SubFormFieldGroup[]|null
+     * @return SubFormFieldGroup[]|null
      */
     public function getFormFieldGroups()
     {
@@ -698,14 +687,14 @@ class TemplateCreateRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets form_field_groups
      *
-     * @param \Dropbox\Sign\Model\SubFormFieldGroup[]|null $form_field_groups Group information for fields defined in `form_fields_per_document`. String-indexed JSON array with `group_label` and `requirement` keys. `form_fields_per_document` must contain fields referencing a group defined in `form_field_groups`.
+     * @param SubFormFieldGroup[]|null $form_field_groups Group information for fields defined in `form_fields_per_document`. String-indexed JSON array with `group_label` and `requirement` keys. `form_fields_per_document` must contain fields referencing a group defined in `form_field_groups`.
      *
      * @return self
      */
-    public function setFormFieldGroups($form_field_groups)
+    public function setFormFieldGroups(?array $form_field_groups)
     {
         if (is_null($form_field_groups)) {
-            throw new \InvalidArgumentException('non-nullable form_field_groups cannot be null');
+            throw new InvalidArgumentException('non-nullable form_field_groups cannot be null');
         }
         $this->container['form_field_groups'] = $form_field_groups;
 
@@ -715,7 +704,7 @@ class TemplateCreateRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets form_field_rules
      *
-     * @return \Dropbox\Sign\Model\SubFormFieldRule[]|null
+     * @return SubFormFieldRule[]|null
      */
     public function getFormFieldRules()
     {
@@ -725,14 +714,14 @@ class TemplateCreateRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets form_field_rules
      *
-     * @param \Dropbox\Sign\Model\SubFormFieldRule[]|null $form_field_rules Conditional Logic rules for fields defined in `form_fields_per_document`.
+     * @param SubFormFieldRule[]|null $form_field_rules conditional Logic rules for fields defined in `form_fields_per_document`
      *
      * @return self
      */
-    public function setFormFieldRules($form_field_rules)
+    public function setFormFieldRules(?array $form_field_rules)
     {
         if (is_null($form_field_rules)) {
-            throw new \InvalidArgumentException('non-nullable form_field_rules cannot be null');
+            throw new InvalidArgumentException('non-nullable form_field_rules cannot be null');
         }
         $this->container['form_field_rules'] = $form_field_rules;
 
@@ -742,7 +731,7 @@ class TemplateCreateRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets merge_fields
      *
-     * @return \Dropbox\Sign\Model\SubMergeField[]|null
+     * @return SubMergeField[]|null
      */
     public function getMergeFields()
     {
@@ -752,14 +741,14 @@ class TemplateCreateRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets merge_fields
      *
-     * @param \Dropbox\Sign\Model\SubMergeField[]|null $merge_fields Add merge fields to the template. Merge fields are placed by the user creating the template and used to pre-fill data by passing values into signature requests with the `custom_fields` parameter. If the signature request using that template *does not* pass a value into a merge field, then an empty field remains in the document.
+     * @param SubMergeField[]|null $merge_fields Add merge fields to the template. Merge fields are placed by the user creating the template and used to pre-fill data by passing values into signature requests with the `custom_fields` parameter. If the signature request using that template *does not* pass a value into a merge field, then an empty field remains in the document.
      *
      * @return self
      */
-    public function setMergeFields($merge_fields)
+    public function setMergeFields(?array $merge_fields)
     {
         if (is_null($merge_fields)) {
-            throw new \InvalidArgumentException('non-nullable merge_fields cannot be null');
+            throw new InvalidArgumentException('non-nullable merge_fields cannot be null');
         }
         $this->container['merge_fields'] = $merge_fields;
 
@@ -779,17 +768,17 @@ class TemplateCreateRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets message
      *
-     * @param string|null $message The default template email message.
+     * @param string|null $message the default template email message
      *
      * @return self
      */
-    public function setMessage($message)
+    public function setMessage(?string $message)
     {
         if (is_null($message)) {
-            throw new \InvalidArgumentException('non-nullable message cannot be null');
+            throw new InvalidArgumentException('non-nullable message cannot be null');
         }
-        if ((mb_strlen($message) > 5000)) {
-            throw new \InvalidArgumentException('invalid length for $message when calling TemplateCreateRequest., must be smaller than or equal to 5000.');
+        if (mb_strlen($message) > 5000) {
+            throw new InvalidArgumentException('invalid length for $message when calling TemplateCreateRequest., must be smaller than or equal to 5000.');
         }
 
         $this->container['message'] = $message;
@@ -814,12 +803,11 @@ class TemplateCreateRequest implements ModelInterface, ArrayAccess, \JsonSeriali
      *
      * @return self
      */
-    public function setMetadata($metadata)
+    public function setMetadata(?array $metadata)
     {
         if (is_null($metadata)) {
-            throw new \InvalidArgumentException('non-nullable metadata cannot be null');
+            throw new InvalidArgumentException('non-nullable metadata cannot be null');
         }
-
 
         $this->container['metadata'] = $metadata;
 
@@ -839,17 +827,17 @@ class TemplateCreateRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets subject
      *
-     * @param string|null $subject The template title (alias).
+     * @param string|null $subject the template title (alias)
      *
      * @return self
      */
-    public function setSubject($subject)
+    public function setSubject(?string $subject)
     {
         if (is_null($subject)) {
-            throw new \InvalidArgumentException('non-nullable subject cannot be null');
+            throw new InvalidArgumentException('non-nullable subject cannot be null');
         }
-        if ((mb_strlen($subject) > 200)) {
-            throw new \InvalidArgumentException('invalid length for $subject when calling TemplateCreateRequest., must be smaller than or equal to 200.');
+        if (mb_strlen($subject) > 200) {
+            throw new InvalidArgumentException('invalid length for $subject when calling TemplateCreateRequest., must be smaller than or equal to 200.');
         }
 
         $this->container['subject'] = $subject;
@@ -874,10 +862,10 @@ class TemplateCreateRequest implements ModelInterface, ArrayAccess, \JsonSeriali
      *
      * @return self
      */
-    public function setTestMode($test_mode)
+    public function setTestMode(?bool $test_mode)
     {
         if (is_null($test_mode)) {
-            throw new \InvalidArgumentException('non-nullable test_mode cannot be null');
+            throw new InvalidArgumentException('non-nullable test_mode cannot be null');
         }
         $this->container['test_mode'] = $test_mode;
 
@@ -897,14 +885,14 @@ class TemplateCreateRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets title
      *
-     * @param string|null $title The title you want to assign to the SignatureRequest.
+     * @param string|null $title the title you want to assign to the SignatureRequest
      *
      * @return self
      */
-    public function setTitle($title)
+    public function setTitle(?string $title)
     {
         if (is_null($title)) {
-            throw new \InvalidArgumentException('non-nullable title cannot be null');
+            throw new InvalidArgumentException('non-nullable title cannot be null');
         }
         $this->container['title'] = $title;
 
@@ -924,27 +912,26 @@ class TemplateCreateRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets use_preexisting_fields
      *
-     * @param bool|null $use_preexisting_fields Enable the detection of predefined PDF fields by setting the `use_preexisting_fields` to `true` (defaults to disabled, or `false`).
+     * @param bool|null $use_preexisting_fields enable the detection of predefined PDF fields by setting the `use_preexisting_fields` to `true` (defaults to disabled, or `false`)
      *
      * @return self
      */
-    public function setUsePreexistingFields($use_preexisting_fields)
+    public function setUsePreexistingFields(?bool $use_preexisting_fields)
     {
         if (is_null($use_preexisting_fields)) {
-            throw new \InvalidArgumentException('non-nullable use_preexisting_fields cannot be null');
+            throw new InvalidArgumentException('non-nullable use_preexisting_fields cannot be null');
         }
         $this->container['use_preexisting_fields'] = $use_preexisting_fields;
 
         return $this;
     }
+
     /**
      * Returns true if offset exists. False otherwise.
      *
-     * @param integer $offset Offset
-     *
-     * @return boolean
+     * @param int $offset Offset
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
@@ -953,11 +940,11 @@ class TemplateCreateRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets offset.
      *
-     * @param integer $offset Offset
+     * @param int $offset Offset
      *
      * @return mixed|null
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return $this->container[$offset] ?? null;
@@ -968,10 +955,8 @@ class TemplateCreateRequest implements ModelInterface, ArrayAccess, \JsonSeriali
      *
      * @param int|null $offset Offset
      * @param mixed    $value  Value to be set
-     *
-     * @return void
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
@@ -984,11 +969,9 @@ class TemplateCreateRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Unsets offset.
      *
-     * @param integer $offset Offset
-     *
-     * @return void
+     * @param int $offset Offset
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
@@ -996,15 +979,15 @@ class TemplateCreateRequest implements ModelInterface, ArrayAccess, \JsonSeriali
 
     /**
      * Serializes the object to a value that can be serialized natively by json_encode().
-     * @link https://www.php.net/manual/en/jsonserializable.jsonserialize.php
+     * @see https://www.php.net/manual/en/jsonserializable.jsonserialize.php
      *
-     * @return mixed Returns data which can be serialized by json_encode(), which is a value
-     * of any type other than a resource.
+     * @return mixed returns data which can be serialized by json_encode(), which is a value
+     *               of any type other than a resource
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function jsonSerialize()
     {
-       return ObjectSerializer::sanitizeForSerialization($this);
+        return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**
@@ -1030,5 +1013,3 @@ class TemplateCreateRequest implements ModelInterface, ArrayAccess, \JsonSeriali
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
-
-

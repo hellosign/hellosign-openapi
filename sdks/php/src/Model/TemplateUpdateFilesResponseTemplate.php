@@ -5,9 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  Dropbox\Sign
- * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ * @see     https://openapi-generator.tech
  */
 
 /**
@@ -29,67 +27,68 @@
 
 namespace Dropbox\Sign\Model;
 
-use \ArrayAccess;
-use \Dropbox\Sign\ObjectSerializer;
+use ArrayAccess;
+use Dropbox\Sign\ObjectSerializer;
+use InvalidArgumentException;
+use JsonSerializable;
+use ReturnTypeWillChange;
 
 /**
  * TemplateUpdateFilesResponseTemplate Class Doc Comment
  *
  * @category Class
  * @description Contains template id
- * @package  Dropbox\Sign
- * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ * @see     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class TemplateUpdateFilesResponseTemplate implements ModelInterface, ArrayAccess, \JsonSerializable
+class TemplateUpdateFilesResponseTemplate implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
     /**
-      * The original name of the model.
-      *
-      * @var string
-      */
+     * The original name of the model.
+     *
+     * @var string
+     */
     protected static $openAPIModelName = 'TemplateUpdateFilesResponseTemplate';
 
     /**
-      * Array of property to type mappings. Used for (de)serialization
-      *
-      * @var string[]
-      */
+     * Array of property to type mappings. Used for (de)serialization
+     *
+     * @var string[]
+     */
     protected static $openAPITypes = [
         'template_id' => 'string',
-        'warnings' => '\Dropbox\Sign\Model\WarningResponse[]'
+        'warnings' => '\Dropbox\Sign\Model\WarningResponse[]',
     ];
 
     /**
-      * Array of property to format mappings. Used for (de)serialization
-      *
-      * @var string[]
-      * @phpstan-var array<string, string|null>
-      * @psalm-var array<string, string|null>
-      */
+     * Array of property to format mappings. Used for (de)serialization
+     *
+     * @var string[]
+     * @phpstan-var array<string, string|null>
+     * @psalm-var array<string, string|null>
+     */
     protected static $openAPIFormats = [
         'template_id' => null,
-        'warnings' => null
+        'warnings' => null,
     ];
 
     /**
-      * Array of nullable properties. Used for (de)serialization
-      *
-      * @var boolean[]
-      */
+     * Array of nullable properties. Used for (de)serialization
+     *
+     * @var bool[]
+     */
     protected static array $openAPINullables = [
         'template_id' => false,
-        'warnings' => false
+        'warnings' => false,
     ];
 
     /**
-      * If a nullable field gets set to null, insert it here
-      *
-      * @var boolean[]
-      */
+     * If a nullable field gets set to null, insert it here
+     *
+     * @var bool[]
+     */
     protected array $openAPINullablesSetToNull = [];
 
     /**
@@ -114,8 +113,6 @@ class TemplateUpdateFilesResponseTemplate implements ModelInterface, ArrayAccess
 
     /**
      * Array of nullable properties
-     *
-     * @return array
      */
     protected static function openAPINullables(): array
     {
@@ -125,7 +122,7 @@ class TemplateUpdateFilesResponseTemplate implements ModelInterface, ArrayAccess
     /**
      * Array of nullable field names deliberately set to null
      *
-     * @return boolean[]
+     * @return bool[]
      */
     private function getOpenAPINullablesSetToNull(): array
     {
@@ -135,7 +132,7 @@ class TemplateUpdateFilesResponseTemplate implements ModelInterface, ArrayAccess
     /**
      * Setter - Array of nullable field names deliberately set to null
      *
-     * @param boolean[] $openAPINullablesSetToNull
+     * @param bool[] $openAPINullablesSetToNull
      */
     private function setOpenAPINullablesSetToNull(array $openAPINullablesSetToNull): void
     {
@@ -144,9 +141,6 @@ class TemplateUpdateFilesResponseTemplate implements ModelInterface, ArrayAccess
 
     /**
      * Checks if a property is nullable
-     *
-     * @param string $property
-     * @return bool
      */
     public static function isNullable(string $property): bool
     {
@@ -155,9 +149,6 @@ class TemplateUpdateFilesResponseTemplate implements ModelInterface, ArrayAccess
 
     /**
      * Checks if a nullable property is set to null.
-     *
-     * @param string $property
-     * @return bool
      */
     public function isNullableSetToNull(string $property): bool
     {
@@ -172,7 +163,7 @@ class TemplateUpdateFilesResponseTemplate implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'template_id' => 'template_id',
-        'warnings' => 'warnings'
+        'warnings' => 'warnings',
     ];
 
     /**
@@ -182,7 +173,7 @@ class TemplateUpdateFilesResponseTemplate implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'template_id' => 'setTemplateId',
-        'warnings' => 'setWarnings'
+        'warnings' => 'setWarnings',
     ];
 
     /**
@@ -192,7 +183,7 @@ class TemplateUpdateFilesResponseTemplate implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'template_id' => 'getTemplateId',
-        'warnings' => 'getWarnings'
+        'warnings' => 'getWarnings',
     ];
 
     /**
@@ -236,7 +227,6 @@ class TemplateUpdateFilesResponseTemplate implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
-
     /**
      * Associative array for storing property values
      *
@@ -256,34 +246,33 @@ class TemplateUpdateFilesResponseTemplate implements ModelInterface, ArrayAccess
         $this->setIfExists('warnings', $data ?? [], null);
     }
 
-    /** @deprecated use ::init() */
+    /**
+     * @deprecated use ::init()
+     */
     public static function fromArray(array $data): TemplateUpdateFilesResponseTemplate
     {
         return self::init($data);
     }
 
-    /** Attempt to instantiate and hydrate a new instance of this class */
+    /**
+     * Attempt to instantiate and hydrate a new instance of this class
+     */
     public static function init(array $data): TemplateUpdateFilesResponseTemplate
     {
         /** @var TemplateUpdateFilesResponseTemplate */
-        $obj = ObjectSerializer::deserialize(
+        return ObjectSerializer::deserialize(
             $data,
             TemplateUpdateFilesResponseTemplate::class,
         );
-
-        return $obj;
     }
 
-
     /**
-    * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
-    * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
-    * $this->openAPINullablesSetToNull array
-    *
-    * @param string $variableName
-    * @param array  $fields
-* @param string|int|object|array|mixed  $defaultValue
-    */
+     * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
+     * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
+     * $this->openAPINullablesSetToNull array
+     *
+     * @param string|int|object|array|mixed $defaultValue
+     */
     private function setIfExists(string $variableName, array $fields, $defaultValue): void
     {
         if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
@@ -300,9 +289,7 @@ class TemplateUpdateFilesResponseTemplate implements ModelInterface, ArrayAccess
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = [];
-
-        return $invalidProperties;
+        return [];
     }
 
     /**
@@ -315,7 +302,6 @@ class TemplateUpdateFilesResponseTemplate implements ModelInterface, ArrayAccess
     {
         return count($this->listInvalidProperties()) === 0;
     }
-
 
     /**
      * Gets template_id
@@ -330,14 +316,14 @@ class TemplateUpdateFilesResponseTemplate implements ModelInterface, ArrayAccess
     /**
      * Sets template_id
      *
-     * @param string|null $template_id The id of the Template.
+     * @param string|null $template_id the id of the Template
      *
      * @return self
      */
-    public function setTemplateId($template_id)
+    public function setTemplateId(?string $template_id)
     {
         if (is_null($template_id)) {
-            throw new \InvalidArgumentException('non-nullable template_id cannot be null');
+            throw new InvalidArgumentException('non-nullable template_id cannot be null');
         }
         $this->container['template_id'] = $template_id;
 
@@ -347,7 +333,7 @@ class TemplateUpdateFilesResponseTemplate implements ModelInterface, ArrayAccess
     /**
      * Gets warnings
      *
-     * @return \Dropbox\Sign\Model\WarningResponse[]|null
+     * @return WarningResponse[]|null
      * @deprecated
      */
     public function getWarnings()
@@ -358,28 +344,27 @@ class TemplateUpdateFilesResponseTemplate implements ModelInterface, ArrayAccess
     /**
      * Sets warnings
      *
-     * @param \Dropbox\Sign\Model\WarningResponse[]|null $warnings A list of warnings.
+     * @param WarningResponse[]|null $warnings a list of warnings
      *
      * @return self
      * @deprecated
      */
-    public function setWarnings($warnings)
+    public function setWarnings(?array $warnings)
     {
         if (is_null($warnings)) {
-            throw new \InvalidArgumentException('non-nullable warnings cannot be null');
+            throw new InvalidArgumentException('non-nullable warnings cannot be null');
         }
         $this->container['warnings'] = $warnings;
 
         return $this;
     }
+
     /**
      * Returns true if offset exists. False otherwise.
      *
-     * @param integer $offset Offset
-     *
-     * @return boolean
+     * @param int $offset Offset
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
@@ -388,11 +373,11 @@ class TemplateUpdateFilesResponseTemplate implements ModelInterface, ArrayAccess
     /**
      * Gets offset.
      *
-     * @param integer $offset Offset
+     * @param int $offset Offset
      *
      * @return mixed|null
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return $this->container[$offset] ?? null;
@@ -403,10 +388,8 @@ class TemplateUpdateFilesResponseTemplate implements ModelInterface, ArrayAccess
      *
      * @param int|null $offset Offset
      * @param mixed    $value  Value to be set
-     *
-     * @return void
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
@@ -419,11 +402,9 @@ class TemplateUpdateFilesResponseTemplate implements ModelInterface, ArrayAccess
     /**
      * Unsets offset.
      *
-     * @param integer $offset Offset
-     *
-     * @return void
+     * @param int $offset Offset
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
@@ -431,15 +412,15 @@ class TemplateUpdateFilesResponseTemplate implements ModelInterface, ArrayAccess
 
     /**
      * Serializes the object to a value that can be serialized natively by json_encode().
-     * @link https://www.php.net/manual/en/jsonserializable.jsonserialize.php
+     * @see https://www.php.net/manual/en/jsonserializable.jsonserialize.php
      *
-     * @return mixed Returns data which can be serialized by json_encode(), which is a value
-     * of any type other than a resource.
+     * @return mixed returns data which can be serialized by json_encode(), which is a value
+     *               of any type other than a resource
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function jsonSerialize()
     {
-       return ObjectSerializer::sanitizeForSerialization($this);
+        return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**
@@ -465,5 +446,3 @@ class TemplateUpdateFilesResponseTemplate implements ModelInterface, ArrayAccess
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
-
-

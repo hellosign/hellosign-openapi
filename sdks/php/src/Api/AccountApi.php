@@ -4,9 +4,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  Dropbox\Sign
- * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ * @see     https://openapi-generator.tech
  */
 
 /**
@@ -28,6 +26,11 @@
 
 namespace Dropbox\Sign\Api;
 
+use Dropbox\Sign\ApiException;
+use Dropbox\Sign\Configuration;
+use Dropbox\Sign\HeaderSelector;
+use Dropbox\Sign\Model;
+use Dropbox\Sign\ObjectSerializer;
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\ConnectException;
@@ -35,44 +38,34 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use Dropbox\Sign\ApiException;
-use Dropbox\Sign\Configuration;
-use Dropbox\Sign\HeaderSelector;
-use Dropbox\Sign\ObjectSerializer;
-use Dropbox\Sign\Model;
+use InvalidArgumentException;
+use JsonException;
 use Psr\Http\Message\ResponseInterface;
+use RuntimeException;
 
 /**
  * AccountApi Class Doc Comment
  *
  * @category Class
- * @package  Dropbox\Sign
- * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ * @see     https://openapi-generator.tech
  */
 class AccountApi
 {
-    /**
-     * @var ClientInterface
-     */
+    /** @var ClientInterface */
     protected $client;
 
-    /**
-     * @var Configuration
-     */
+    /** @var Configuration */
     protected $config;
 
-    /**
-     * @var HeaderSelector
-     */
+    /** @var HeaderSelector */
     protected $headerSelector;
 
-    /**
-     * @var int Host index
-     */
+    /** @var int Host index */
     protected $hostIndex;
 
-    /** @var string[] $contentTypes **/
+    /**
+     * @var string[] *
+     */
     public const contentTypes = [
         'accountCreate' => [
             'application/json',
@@ -92,16 +85,13 @@ class AccountApi
     protected $response;
 
     /**
-     * @param Configuration   $config
-     * @param ClientInterface $client
-     * @param HeaderSelector  $selector
-     * @param int             $hostIndex (Optional) host index to select the list of hosts if defined in the OpenAPI spec
+     * @param int $hostIndex (Optional) host index to select the list of hosts if defined in the OpenAPI spec
      */
     public function __construct(
         Configuration $config = null,
         ClientInterface $client = null,
         HeaderSelector $selector = null,
-        $hostIndex = 0
+        int $hostIndex = 0
     ) {
         $this->client = $client ?: new Client();
         $this->config = $config ?: new Configuration();
@@ -115,7 +105,7 @@ class AccountApi
      * @param int $hostIndex Host index (required)
      * @deprecated To be made private in the future
      */
-    public function setHostIndex($hostIndex): void
+    public function setHostIndex(int $hostIndex): void
     {
         $this->hostIndex = $hostIndex;
     }
@@ -152,13 +142,13 @@ class AccountApi
      *
      * Create Account
      *
-     * @param  \Dropbox\Sign\Model\AccountCreateRequest $account_create_request account_create_request (required)
+     * @param Model\AccountCreateRequest $account_create_request account_create_request (required)
      *
-     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return \Dropbox\Sign\Model\AccountCreateResponse|\Dropbox\Sign\Model\ErrorResponse
+     * @return Model\AccountCreateResponse
+     * @throws ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws InvalidArgumentException
      */
-    public function accountCreate($account_create_request)
+    public function accountCreate(Model\AccountCreateRequest $account_create_request)
     {
         list($response) = $this->accountCreateWithHttpInfo($account_create_request);
         return $response;
@@ -169,15 +159,15 @@ class AccountApi
      *
      * Create Account
      *
-     * @param  \Dropbox\Sign\Model\AccountCreateRequest $account_create_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountCreate'] to see the possible values for this operation
+     * @param Model\AccountCreateRequest $account_create_request (required)
+     * @param string                     $contentType            The value for the Content-Type header. Check self::contentTypes['accountCreate'] to see the possible values for this operation
      *
-     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return array of \Dropbox\Sign\Model\AccountCreateResponse|\Dropbox\Sign\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of Model\AccountCreateResponse, HTTP status code, HTTP response headers (array of strings)
+     * @throws ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::accountCreate. This method will eventually become unavailable
      */
-    public function accountCreateWithHttpInfo($account_create_request, string $contentType = self::contentTypes['accountCreate'][0])
+    public function accountCreateWithHttpInfo(Model\AccountCreateRequest $account_create_request, string $contentType = self::contentTypes['accountCreate'][0])
     {
         $request = $this->accountCreateRequest($account_create_request, $contentType);
 
@@ -189,14 +179,14 @@ class AccountApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
+                    (int)$e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                    $e->getResponse() ? (string)$e->getResponse()->getBody() : null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
+                    (int)$e->getCode(),
                     null,
                     null
                 );
@@ -209,14 +199,14 @@ class AccountApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        (string) $request->getUri()
+                        (string)$request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    (string) $response->getBody()
+                    (string)$response->getBody()
                 );
             }
-            
+
             $result = $this->handleRangeCodeResponse(
                 $response,
                 '4XX',
@@ -225,18 +215,17 @@ class AccountApi
             if ($result) {
                 return $result;
             }
-            
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     if ('\Dropbox\Sign\Model\AccountCreateResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
-                        $content = (string) $response->getBody();
+                        $content = (string)$response->getBody();
                         if ('\Dropbox\Sign\Model\AccountCreateResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (\JsonException $exception) {
+                            } catch (JsonException $exception) {
                                 throw new ApiException(
                                     sprintf(
                                         'Error JSON decoding server response (%s)',
@@ -253,20 +242,19 @@ class AccountApi
                     return [
                         ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\AccountCreateResponse', []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
-                
             }
 
             $returnType = '\Dropbox\Sign\Model\AccountCreateResponse';
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
+                $content = $response->getBody(); // stream goes to serializer
             } else {
-                $content = (string) $response->getBody();
+                $content = (string)$response->getBody();
                 if ($returnType !== 'string') {
                     try {
                         $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                    } catch (\JsonException $exception) {
+                    } catch (JsonException $exception) {
                         throw new ApiException(
                             sprintf(
                                 'Error JSON decoding server response (%s)',
@@ -283,11 +271,9 @@ class AccountApi
             return [
                 ObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
-                $response->getHeaders()
+                $response->getHeaders(),
             ];
-
         } catch (ApiException $e) {
-            
             if ($this->handleRangeCodeException($e, '4XX', '\Dropbox\Sign\Model\ErrorResponse')) {
                 throw $e;
             }
@@ -300,7 +286,6 @@ class AccountApi
                     );
                     $e->setResponseObject($data);
                     break;
-                
             }
             throw $e;
         }
@@ -311,14 +296,14 @@ class AccountApi
      *
      * Create Account
      *
-     * @param  \Dropbox\Sign\Model\AccountCreateRequest $account_create_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountCreate'] to see the possible values for this operation
+     * @param Model\AccountCreateRequest $account_create_request (required)
+     * @param string                     $contentType            The value for the Content-Type header. Check self::contentTypes['accountCreate'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::accountCreate. This method will eventually become unavailable
      */
-    public function accountCreateAsync($account_create_request, string $contentType = self::contentTypes['accountCreate'][0])
+    public function accountCreateAsync(Model\AccountCreateRequest $account_create_request, string $contentType = self::contentTypes['accountCreate'][0])
     {
         return $this->accountCreateAsyncWithHttpInfo($account_create_request, $contentType)
             ->then(
@@ -333,14 +318,14 @@ class AccountApi
      *
      * Create Account
      *
-     * @param  \Dropbox\Sign\Model\AccountCreateRequest $account_create_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountCreate'] to see the possible values for this operation
+     * @param Model\AccountCreateRequest $account_create_request (required)
+     * @param string                     $contentType            The value for the Content-Type header. Check self::contentTypes['accountCreate'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::accountCreate. This method will eventually become unavailable
      */
-    public function accountCreateAsyncWithHttpInfo($account_create_request, string $contentType = self::contentTypes['accountCreate'][0])
+    public function accountCreateAsyncWithHttpInfo(Model\AccountCreateRequest $account_create_request, string $contentType = self::contentTypes['accountCreate'][0])
     {
         $returnType = '\Dropbox\Sign\Model\AccountCreateResponse';
         $request = $this->accountCreateRequest($account_create_request, $contentType);
@@ -350,9 +335,9 @@ class AccountApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
-                        $content = (string) $response->getBody();
+                        $content = (string)$response->getBody();
                         if ($returnType !== 'string') {
                             $content = json_decode($content);
                         }
@@ -361,7 +346,7 @@ class AccountApi
                     return [
                         ObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
                 },
                 function ($exception) {
@@ -375,7 +360,7 @@ class AccountApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        (string) $response->getBody()
+                        (string)$response->getBody()
                     );
                 }
             );
@@ -384,23 +369,21 @@ class AccountApi
     /**
      * Create request for operation 'accountCreate'
      *
-     * @param  \Dropbox\Sign\Model\AccountCreateRequest $account_create_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountCreate'] to see the possible values for this operation
+     * @param Model\AccountCreateRequest $account_create_request (required)
+     * @param string                     $contentType            The value for the Content-Type header. Check self::contentTypes['accountCreate'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
+     * @return Request
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::accountCreate. This method will eventually become unavailable
      */
-    public function accountCreateRequest($account_create_request, string $contentType = self::contentTypes['accountCreate'][0])
+    public function accountCreateRequest(Model\AccountCreateRequest $account_create_request, string $contentType = self::contentTypes['accountCreate'][0])
     {
-
         // verify the required parameter 'account_create_request' is set
         if ($account_create_request === null || (is_array($account_create_request) && count($account_create_request) === 0)) {
-            throw new \InvalidArgumentException(
+            throw new InvalidArgumentException(
                 'Missing the required parameter $account_create_request when calling accountCreate'
             );
         }
-
 
         $resourcePath = '/account/create';
         $formParams = [];
@@ -415,11 +398,8 @@ class AccountApi
 
         $multipart = !empty($formParams);
 
-
-
-
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json', ],
+            $multipart ? ['multipart/form-data'] : ['application/json'],
             $contentType,
             $multipart
         );
@@ -427,7 +407,7 @@ class AccountApi
         // for model (json/xml)
         if (count($formParams) === 0) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the body
+                // if Content-Type contains "application/json", json_encode the body
                 $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($account_create_request));
             } else {
                 $httpBody = $account_create_request;
@@ -440,7 +420,7 @@ class AccountApi
                     foreach ($formParamValueItems as $formParamValueItem) {
                         $multipartContents[] = [
                             'name' => $formParamName,
-                            'contents' => $formParamValueItem
+                            'contents' => $formParamValueItem,
                         ];
                     }
                 }
@@ -457,9 +437,8 @@ class AccountApi
                     $payloadHook('multipart', $multipartContents, $account_create_request);
                 }
                 $httpBody = new MultipartStream($multipartContents);
-
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
+                // if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
             } else {
                 // for HTTP post (form)
@@ -502,14 +481,14 @@ class AccountApi
      *
      * Get Account
      *
-     * @param  string $account_id &#x60;account_id&#x60; or &#x60;email_address&#x60; is required. If both are provided, the account id prevails.  The ID of the Account. (optional)
-     * @param  string $email_address &#x60;account_id&#x60; or &#x60;email_address&#x60; is required, If both are provided, the account id prevails.  The email address of the Account. (optional)
+     * @param string $account_id    &#x60;account_id&#x60; or &#x60;email_address&#x60; is required. If both are provided, the account id prevails.  The ID of the Account. (optional)
+     * @param string $email_address &#x60;account_id&#x60; or &#x60;email_address&#x60; is required, If both are provided, the account id prevails.  The email address of the Account. (optional)
      *
-     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return \Dropbox\Sign\Model\AccountGetResponse|\Dropbox\Sign\Model\ErrorResponse
+     * @return Model\AccountGetResponse
+     * @throws ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws InvalidArgumentException
      */
-    public function accountGet($account_id = null, $email_address = null)
+    public function accountGet(string $account_id = null, string $email_address = null)
     {
         list($response) = $this->accountGetWithHttpInfo($account_id, $email_address);
         return $response;
@@ -520,16 +499,16 @@ class AccountApi
      *
      * Get Account
      *
-     * @param  string $account_id &#x60;account_id&#x60; or &#x60;email_address&#x60; is required. If both are provided, the account id prevails.  The ID of the Account. (optional)
-     * @param  string $email_address &#x60;account_id&#x60; or &#x60;email_address&#x60; is required, If both are provided, the account id prevails.  The email address of the Account. (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountGet'] to see the possible values for this operation
+     * @param string $account_id    &#x60;account_id&#x60; or &#x60;email_address&#x60; is required. If both are provided, the account id prevails.  The ID of the Account. (optional)
+     * @param string $email_address &#x60;account_id&#x60; or &#x60;email_address&#x60; is required, If both are provided, the account id prevails.  The email address of the Account. (optional)
+     * @param string $contentType   The value for the Content-Type header. Check self::contentTypes['accountGet'] to see the possible values for this operation
      *
-     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return array of \Dropbox\Sign\Model\AccountGetResponse|\Dropbox\Sign\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of Model\AccountGetResponse, HTTP status code, HTTP response headers (array of strings)
+     * @throws ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::accountGet. This method will eventually become unavailable
      */
-    public function accountGetWithHttpInfo($account_id = null, $email_address = null, string $contentType = self::contentTypes['accountGet'][0])
+    public function accountGetWithHttpInfo(string $account_id = null, string $email_address = null, string $contentType = self::contentTypes['accountGet'][0])
     {
         $request = $this->accountGetRequest($account_id, $email_address, $contentType);
 
@@ -541,14 +520,14 @@ class AccountApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
+                    (int)$e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                    $e->getResponse() ? (string)$e->getResponse()->getBody() : null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
+                    (int)$e->getCode(),
                     null,
                     null
                 );
@@ -561,14 +540,14 @@ class AccountApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        (string) $request->getUri()
+                        (string)$request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    (string) $response->getBody()
+                    (string)$response->getBody()
                 );
             }
-            
+
             $result = $this->handleRangeCodeResponse(
                 $response,
                 '4XX',
@@ -577,18 +556,17 @@ class AccountApi
             if ($result) {
                 return $result;
             }
-            
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     if ('\Dropbox\Sign\Model\AccountGetResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
-                        $content = (string) $response->getBody();
+                        $content = (string)$response->getBody();
                         if ('\Dropbox\Sign\Model\AccountGetResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (\JsonException $exception) {
+                            } catch (JsonException $exception) {
                                 throw new ApiException(
                                     sprintf(
                                         'Error JSON decoding server response (%s)',
@@ -605,20 +583,19 @@ class AccountApi
                     return [
                         ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\AccountGetResponse', []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
-                
             }
 
             $returnType = '\Dropbox\Sign\Model\AccountGetResponse';
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
+                $content = $response->getBody(); // stream goes to serializer
             } else {
-                $content = (string) $response->getBody();
+                $content = (string)$response->getBody();
                 if ($returnType !== 'string') {
                     try {
                         $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                    } catch (\JsonException $exception) {
+                    } catch (JsonException $exception) {
                         throw new ApiException(
                             sprintf(
                                 'Error JSON decoding server response (%s)',
@@ -635,11 +612,9 @@ class AccountApi
             return [
                 ObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
-                $response->getHeaders()
+                $response->getHeaders(),
             ];
-
         } catch (ApiException $e) {
-            
             if ($this->handleRangeCodeException($e, '4XX', '\Dropbox\Sign\Model\ErrorResponse')) {
                 throw $e;
             }
@@ -652,7 +627,6 @@ class AccountApi
                     );
                     $e->setResponseObject($data);
                     break;
-                
             }
             throw $e;
         }
@@ -663,15 +637,15 @@ class AccountApi
      *
      * Get Account
      *
-     * @param  string $account_id &#x60;account_id&#x60; or &#x60;email_address&#x60; is required. If both are provided, the account id prevails.  The ID of the Account. (optional)
-     * @param  string $email_address &#x60;account_id&#x60; or &#x60;email_address&#x60; is required, If both are provided, the account id prevails.  The email address of the Account. (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountGet'] to see the possible values for this operation
+     * @param string $account_id    &#x60;account_id&#x60; or &#x60;email_address&#x60; is required. If both are provided, the account id prevails.  The ID of the Account. (optional)
+     * @param string $email_address &#x60;account_id&#x60; or &#x60;email_address&#x60; is required, If both are provided, the account id prevails.  The email address of the Account. (optional)
+     * @param string $contentType   The value for the Content-Type header. Check self::contentTypes['accountGet'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::accountGet. This method will eventually become unavailable
      */
-    public function accountGetAsync($account_id = null, $email_address = null, string $contentType = self::contentTypes['accountGet'][0])
+    public function accountGetAsync(string $account_id = null, string $email_address = null, string $contentType = self::contentTypes['accountGet'][0])
     {
         return $this->accountGetAsyncWithHttpInfo($account_id, $email_address, $contentType)
             ->then(
@@ -686,15 +660,15 @@ class AccountApi
      *
      * Get Account
      *
-     * @param  string $account_id &#x60;account_id&#x60; or &#x60;email_address&#x60; is required. If both are provided, the account id prevails.  The ID of the Account. (optional)
-     * @param  string $email_address &#x60;account_id&#x60; or &#x60;email_address&#x60; is required, If both are provided, the account id prevails.  The email address of the Account. (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountGet'] to see the possible values for this operation
+     * @param string $account_id    &#x60;account_id&#x60; or &#x60;email_address&#x60; is required. If both are provided, the account id prevails.  The ID of the Account. (optional)
+     * @param string $email_address &#x60;account_id&#x60; or &#x60;email_address&#x60; is required, If both are provided, the account id prevails.  The email address of the Account. (optional)
+     * @param string $contentType   The value for the Content-Type header. Check self::contentTypes['accountGet'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::accountGet. This method will eventually become unavailable
      */
-    public function accountGetAsyncWithHttpInfo($account_id = null, $email_address = null, string $contentType = self::contentTypes['accountGet'][0])
+    public function accountGetAsyncWithHttpInfo(string $account_id = null, string $email_address = null, string $contentType = self::contentTypes['accountGet'][0])
     {
         $returnType = '\Dropbox\Sign\Model\AccountGetResponse';
         $request = $this->accountGetRequest($account_id, $email_address, $contentType);
@@ -704,9 +678,9 @@ class AccountApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
-                        $content = (string) $response->getBody();
+                        $content = (string)$response->getBody();
                         if ($returnType !== 'string') {
                             $content = json_decode($content);
                         }
@@ -715,7 +689,7 @@ class AccountApi
                     return [
                         ObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
                 },
                 function ($exception) {
@@ -729,7 +703,7 @@ class AccountApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        (string) $response->getBody()
+                        (string)$response->getBody()
                     );
                 }
             );
@@ -738,20 +712,16 @@ class AccountApi
     /**
      * Create request for operation 'accountGet'
      *
-     * @param  string $account_id &#x60;account_id&#x60; or &#x60;email_address&#x60; is required. If both are provided, the account id prevails.  The ID of the Account. (optional)
-     * @param  string $email_address &#x60;account_id&#x60; or &#x60;email_address&#x60; is required, If both are provided, the account id prevails.  The email address of the Account. (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountGet'] to see the possible values for this operation
+     * @param string $account_id    &#x60;account_id&#x60; or &#x60;email_address&#x60; is required. If both are provided, the account id prevails.  The ID of the Account. (optional)
+     * @param string $email_address &#x60;account_id&#x60; or &#x60;email_address&#x60; is required, If both are provided, the account id prevails.  The email address of the Account. (optional)
+     * @param string $contentType   The value for the Content-Type header. Check self::contentTypes['accountGet'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
+     * @return Request
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::accountGet. This method will eventually become unavailable
      */
-    public function accountGetRequest($account_id = null, $email_address = null, string $contentType = self::contentTypes['accountGet'][0])
+    public function accountGetRequest(string $account_id = null, string $email_address = null, string $contentType = self::contentTypes['accountGet'][0])
     {
-
-
-
-
         $resourcePath = '/account';
         $formParams = [];
         $queryParams = [];
@@ -778,11 +748,8 @@ class AccountApi
             false // required
         ) ?? []);
 
-
-
-
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json', ],
+            $multipart ? ['multipart/form-data'] : ['application/json'],
             $contentType,
             $multipart
         );
@@ -796,7 +763,7 @@ class AccountApi
                     foreach ($formParamValueItems as $formParamValueItem) {
                         $multipartContents[] = [
                             'name' => $formParamName,
-                            'contents' => $formParamValueItem
+                            'contents' => $formParamValueItem,
                         ];
                     }
                 }
@@ -810,9 +777,8 @@ class AccountApi
                 }
 
                 $httpBody = new MultipartStream($multipartContents);
-
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
+                // if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
             } else {
                 // for HTTP post (form)
@@ -855,13 +821,13 @@ class AccountApi
      *
      * Update Account
      *
-     * @param  \Dropbox\Sign\Model\AccountUpdateRequest $account_update_request account_update_request (required)
+     * @param Model\AccountUpdateRequest $account_update_request account_update_request (required)
      *
-     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return \Dropbox\Sign\Model\AccountGetResponse|\Dropbox\Sign\Model\ErrorResponse
+     * @return Model\AccountGetResponse
+     * @throws ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws InvalidArgumentException
      */
-    public function accountUpdate($account_update_request)
+    public function accountUpdate(Model\AccountUpdateRequest $account_update_request)
     {
         list($response) = $this->accountUpdateWithHttpInfo($account_update_request);
         return $response;
@@ -872,15 +838,15 @@ class AccountApi
      *
      * Update Account
      *
-     * @param  \Dropbox\Sign\Model\AccountUpdateRequest $account_update_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountUpdate'] to see the possible values for this operation
+     * @param Model\AccountUpdateRequest $account_update_request (required)
+     * @param string                     $contentType            The value for the Content-Type header. Check self::contentTypes['accountUpdate'] to see the possible values for this operation
      *
-     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return array of \Dropbox\Sign\Model\AccountGetResponse|\Dropbox\Sign\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of Model\AccountGetResponse, HTTP status code, HTTP response headers (array of strings)
+     * @throws ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::accountUpdate. This method will eventually become unavailable
      */
-    public function accountUpdateWithHttpInfo($account_update_request, string $contentType = self::contentTypes['accountUpdate'][0])
+    public function accountUpdateWithHttpInfo(Model\AccountUpdateRequest $account_update_request, string $contentType = self::contentTypes['accountUpdate'][0])
     {
         $request = $this->accountUpdateRequest($account_update_request, $contentType);
 
@@ -892,14 +858,14 @@ class AccountApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
+                    (int)$e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                    $e->getResponse() ? (string)$e->getResponse()->getBody() : null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
+                    (int)$e->getCode(),
                     null,
                     null
                 );
@@ -912,14 +878,14 @@ class AccountApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        (string) $request->getUri()
+                        (string)$request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    (string) $response->getBody()
+                    (string)$response->getBody()
                 );
             }
-            
+
             $result = $this->handleRangeCodeResponse(
                 $response,
                 '4XX',
@@ -928,18 +894,17 @@ class AccountApi
             if ($result) {
                 return $result;
             }
-            
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     if ('\Dropbox\Sign\Model\AccountGetResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
-                        $content = (string) $response->getBody();
+                        $content = (string)$response->getBody();
                         if ('\Dropbox\Sign\Model\AccountGetResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (\JsonException $exception) {
+                            } catch (JsonException $exception) {
                                 throw new ApiException(
                                     sprintf(
                                         'Error JSON decoding server response (%s)',
@@ -956,20 +921,19 @@ class AccountApi
                     return [
                         ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\AccountGetResponse', []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
-                
             }
 
             $returnType = '\Dropbox\Sign\Model\AccountGetResponse';
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
+                $content = $response->getBody(); // stream goes to serializer
             } else {
-                $content = (string) $response->getBody();
+                $content = (string)$response->getBody();
                 if ($returnType !== 'string') {
                     try {
                         $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                    } catch (\JsonException $exception) {
+                    } catch (JsonException $exception) {
                         throw new ApiException(
                             sprintf(
                                 'Error JSON decoding server response (%s)',
@@ -986,11 +950,9 @@ class AccountApi
             return [
                 ObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
-                $response->getHeaders()
+                $response->getHeaders(),
             ];
-
         } catch (ApiException $e) {
-            
             if ($this->handleRangeCodeException($e, '4XX', '\Dropbox\Sign\Model\ErrorResponse')) {
                 throw $e;
             }
@@ -1003,7 +965,6 @@ class AccountApi
                     );
                     $e->setResponseObject($data);
                     break;
-                
             }
             throw $e;
         }
@@ -1014,14 +975,14 @@ class AccountApi
      *
      * Update Account
      *
-     * @param  \Dropbox\Sign\Model\AccountUpdateRequest $account_update_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountUpdate'] to see the possible values for this operation
+     * @param Model\AccountUpdateRequest $account_update_request (required)
+     * @param string                     $contentType            The value for the Content-Type header. Check self::contentTypes['accountUpdate'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::accountUpdate. This method will eventually become unavailable
      */
-    public function accountUpdateAsync($account_update_request, string $contentType = self::contentTypes['accountUpdate'][0])
+    public function accountUpdateAsync(Model\AccountUpdateRequest $account_update_request, string $contentType = self::contentTypes['accountUpdate'][0])
     {
         return $this->accountUpdateAsyncWithHttpInfo($account_update_request, $contentType)
             ->then(
@@ -1036,14 +997,14 @@ class AccountApi
      *
      * Update Account
      *
-     * @param  \Dropbox\Sign\Model\AccountUpdateRequest $account_update_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountUpdate'] to see the possible values for this operation
+     * @param Model\AccountUpdateRequest $account_update_request (required)
+     * @param string                     $contentType            The value for the Content-Type header. Check self::contentTypes['accountUpdate'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::accountUpdate. This method will eventually become unavailable
      */
-    public function accountUpdateAsyncWithHttpInfo($account_update_request, string $contentType = self::contentTypes['accountUpdate'][0])
+    public function accountUpdateAsyncWithHttpInfo(Model\AccountUpdateRequest $account_update_request, string $contentType = self::contentTypes['accountUpdate'][0])
     {
         $returnType = '\Dropbox\Sign\Model\AccountGetResponse';
         $request = $this->accountUpdateRequest($account_update_request, $contentType);
@@ -1053,9 +1014,9 @@ class AccountApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
-                        $content = (string) $response->getBody();
+                        $content = (string)$response->getBody();
                         if ($returnType !== 'string') {
                             $content = json_decode($content);
                         }
@@ -1064,7 +1025,7 @@ class AccountApi
                     return [
                         ObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
                 },
                 function ($exception) {
@@ -1078,7 +1039,7 @@ class AccountApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        (string) $response->getBody()
+                        (string)$response->getBody()
                     );
                 }
             );
@@ -1087,23 +1048,21 @@ class AccountApi
     /**
      * Create request for operation 'accountUpdate'
      *
-     * @param  \Dropbox\Sign\Model\AccountUpdateRequest $account_update_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountUpdate'] to see the possible values for this operation
+     * @param Model\AccountUpdateRequest $account_update_request (required)
+     * @param string                     $contentType            The value for the Content-Type header. Check self::contentTypes['accountUpdate'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
+     * @return Request
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::accountUpdate. This method will eventually become unavailable
      */
-    public function accountUpdateRequest($account_update_request, string $contentType = self::contentTypes['accountUpdate'][0])
+    public function accountUpdateRequest(Model\AccountUpdateRequest $account_update_request, string $contentType = self::contentTypes['accountUpdate'][0])
     {
-
         // verify the required parameter 'account_update_request' is set
         if ($account_update_request === null || (is_array($account_update_request) && count($account_update_request) === 0)) {
-            throw new \InvalidArgumentException(
+            throw new InvalidArgumentException(
                 'Missing the required parameter $account_update_request when calling accountUpdate'
             );
         }
-
 
         $resourcePath = '/account';
         $formParams = [];
@@ -1118,11 +1077,8 @@ class AccountApi
 
         $multipart = !empty($formParams);
 
-
-
-
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json', ],
+            $multipart ? ['multipart/form-data'] : ['application/json'],
             $contentType,
             $multipart
         );
@@ -1130,7 +1086,7 @@ class AccountApi
         // for model (json/xml)
         if (count($formParams) === 0) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the body
+                // if Content-Type contains "application/json", json_encode the body
                 $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($account_update_request));
             } else {
                 $httpBody = $account_update_request;
@@ -1143,7 +1099,7 @@ class AccountApi
                     foreach ($formParamValueItems as $formParamValueItem) {
                         $multipartContents[] = [
                             'name' => $formParamName,
-                            'contents' => $formParamValueItem
+                            'contents' => $formParamValueItem,
                         ];
                     }
                 }
@@ -1160,9 +1116,8 @@ class AccountApi
                     $payloadHook('multipart', $multipartContents, $account_update_request);
                 }
                 $httpBody = new MultipartStream($multipartContents);
-
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
+                // if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
             } else {
                 // for HTTP post (form)
@@ -1205,13 +1160,13 @@ class AccountApi
      *
      * Verify Account
      *
-     * @param  \Dropbox\Sign\Model\AccountVerifyRequest $account_verify_request account_verify_request (required)
+     * @param Model\AccountVerifyRequest $account_verify_request account_verify_request (required)
      *
-     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return \Dropbox\Sign\Model\AccountVerifyResponse|\Dropbox\Sign\Model\ErrorResponse
+     * @return Model\AccountVerifyResponse
+     * @throws ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws InvalidArgumentException
      */
-    public function accountVerify($account_verify_request)
+    public function accountVerify(Model\AccountVerifyRequest $account_verify_request)
     {
         list($response) = $this->accountVerifyWithHttpInfo($account_verify_request);
         return $response;
@@ -1222,15 +1177,15 @@ class AccountApi
      *
      * Verify Account
      *
-     * @param  \Dropbox\Sign\Model\AccountVerifyRequest $account_verify_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountVerify'] to see the possible values for this operation
+     * @param Model\AccountVerifyRequest $account_verify_request (required)
+     * @param string                     $contentType            The value for the Content-Type header. Check self::contentTypes['accountVerify'] to see the possible values for this operation
      *
-     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return array of \Dropbox\Sign\Model\AccountVerifyResponse|\Dropbox\Sign\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of Model\AccountVerifyResponse, HTTP status code, HTTP response headers (array of strings)
+     * @throws ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::accountVerify. This method will eventually become unavailable
      */
-    public function accountVerifyWithHttpInfo($account_verify_request, string $contentType = self::contentTypes['accountVerify'][0])
+    public function accountVerifyWithHttpInfo(Model\AccountVerifyRequest $account_verify_request, string $contentType = self::contentTypes['accountVerify'][0])
     {
         $request = $this->accountVerifyRequest($account_verify_request, $contentType);
 
@@ -1242,14 +1197,14 @@ class AccountApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
+                    (int)$e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                    $e->getResponse() ? (string)$e->getResponse()->getBody() : null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
+                    (int)$e->getCode(),
                     null,
                     null
                 );
@@ -1262,14 +1217,14 @@ class AccountApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        (string) $request->getUri()
+                        (string)$request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    (string) $response->getBody()
+                    (string)$response->getBody()
                 );
             }
-            
+
             $result = $this->handleRangeCodeResponse(
                 $response,
                 '4XX',
@@ -1278,18 +1233,17 @@ class AccountApi
             if ($result) {
                 return $result;
             }
-            
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     if ('\Dropbox\Sign\Model\AccountVerifyResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
-                        $content = (string) $response->getBody();
+                        $content = (string)$response->getBody();
                         if ('\Dropbox\Sign\Model\AccountVerifyResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (\JsonException $exception) {
+                            } catch (JsonException $exception) {
                                 throw new ApiException(
                                     sprintf(
                                         'Error JSON decoding server response (%s)',
@@ -1306,20 +1260,19 @@ class AccountApi
                     return [
                         ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\AccountVerifyResponse', []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
-                
             }
 
             $returnType = '\Dropbox\Sign\Model\AccountVerifyResponse';
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
+                $content = $response->getBody(); // stream goes to serializer
             } else {
-                $content = (string) $response->getBody();
+                $content = (string)$response->getBody();
                 if ($returnType !== 'string') {
                     try {
                         $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                    } catch (\JsonException $exception) {
+                    } catch (JsonException $exception) {
                         throw new ApiException(
                             sprintf(
                                 'Error JSON decoding server response (%s)',
@@ -1336,11 +1289,9 @@ class AccountApi
             return [
                 ObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
-                $response->getHeaders()
+                $response->getHeaders(),
             ];
-
         } catch (ApiException $e) {
-            
             if ($this->handleRangeCodeException($e, '4XX', '\Dropbox\Sign\Model\ErrorResponse')) {
                 throw $e;
             }
@@ -1353,7 +1304,6 @@ class AccountApi
                     );
                     $e->setResponseObject($data);
                     break;
-                
             }
             throw $e;
         }
@@ -1364,14 +1314,14 @@ class AccountApi
      *
      * Verify Account
      *
-     * @param  \Dropbox\Sign\Model\AccountVerifyRequest $account_verify_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountVerify'] to see the possible values for this operation
+     * @param Model\AccountVerifyRequest $account_verify_request (required)
+     * @param string                     $contentType            The value for the Content-Type header. Check self::contentTypes['accountVerify'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::accountVerify. This method will eventually become unavailable
      */
-    public function accountVerifyAsync($account_verify_request, string $contentType = self::contentTypes['accountVerify'][0])
+    public function accountVerifyAsync(Model\AccountVerifyRequest $account_verify_request, string $contentType = self::contentTypes['accountVerify'][0])
     {
         return $this->accountVerifyAsyncWithHttpInfo($account_verify_request, $contentType)
             ->then(
@@ -1386,14 +1336,14 @@ class AccountApi
      *
      * Verify Account
      *
-     * @param  \Dropbox\Sign\Model\AccountVerifyRequest $account_verify_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountVerify'] to see the possible values for this operation
+     * @param Model\AccountVerifyRequest $account_verify_request (required)
+     * @param string                     $contentType            The value for the Content-Type header. Check self::contentTypes['accountVerify'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::accountVerify. This method will eventually become unavailable
      */
-    public function accountVerifyAsyncWithHttpInfo($account_verify_request, string $contentType = self::contentTypes['accountVerify'][0])
+    public function accountVerifyAsyncWithHttpInfo(Model\AccountVerifyRequest $account_verify_request, string $contentType = self::contentTypes['accountVerify'][0])
     {
         $returnType = '\Dropbox\Sign\Model\AccountVerifyResponse';
         $request = $this->accountVerifyRequest($account_verify_request, $contentType);
@@ -1403,9 +1353,9 @@ class AccountApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
-                        $content = (string) $response->getBody();
+                        $content = (string)$response->getBody();
                         if ($returnType !== 'string') {
                             $content = json_decode($content);
                         }
@@ -1414,7 +1364,7 @@ class AccountApi
                     return [
                         ObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
                 },
                 function ($exception) {
@@ -1428,7 +1378,7 @@ class AccountApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        (string) $response->getBody()
+                        (string)$response->getBody()
                     );
                 }
             );
@@ -1437,23 +1387,21 @@ class AccountApi
     /**
      * Create request for operation 'accountVerify'
      *
-     * @param  \Dropbox\Sign\Model\AccountVerifyRequest $account_verify_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountVerify'] to see the possible values for this operation
+     * @param Model\AccountVerifyRequest $account_verify_request (required)
+     * @param string                     $contentType            The value for the Content-Type header. Check self::contentTypes['accountVerify'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
+     * @return Request
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::accountVerify. This method will eventually become unavailable
      */
-    public function accountVerifyRequest($account_verify_request, string $contentType = self::contentTypes['accountVerify'][0])
+    public function accountVerifyRequest(Model\AccountVerifyRequest $account_verify_request, string $contentType = self::contentTypes['accountVerify'][0])
     {
-
         // verify the required parameter 'account_verify_request' is set
         if ($account_verify_request === null || (is_array($account_verify_request) && count($account_verify_request) === 0)) {
-            throw new \InvalidArgumentException(
+            throw new InvalidArgumentException(
                 'Missing the required parameter $account_verify_request when calling accountVerify'
             );
         }
-
 
         $resourcePath = '/account/verify';
         $formParams = [];
@@ -1468,11 +1416,8 @@ class AccountApi
 
         $multipart = !empty($formParams);
 
-
-
-
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json', ],
+            $multipart ? ['multipart/form-data'] : ['application/json'],
             $contentType,
             $multipart
         );
@@ -1480,7 +1425,7 @@ class AccountApi
         // for model (json/xml)
         if (count($formParams) === 0) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the body
+                // if Content-Type contains "application/json", json_encode the body
                 $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($account_verify_request));
             } else {
                 $httpBody = $account_verify_request;
@@ -1493,7 +1438,7 @@ class AccountApi
                     foreach ($formParamValueItems as $formParamValueItem) {
                         $multipartContents[] = [
                             'name' => $formParamName,
-                            'contents' => $formParamValueItem
+                            'contents' => $formParamValueItem,
                         ];
                     }
                 }
@@ -1510,9 +1455,8 @@ class AccountApi
                     $payloadHook('multipart', $multipartContents, $account_verify_request);
                 }
                 $httpBody = new MultipartStream($multipartContents);
-
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
+                // if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
             } else {
                 // for HTTP post (form)
@@ -1553,8 +1497,8 @@ class AccountApi
     /**
      * Create http client option
      *
-     * @throws \RuntimeException on file opening failure
      * @return array of http client options
+     * @throws RuntimeException on file opening failure
      */
     protected function createHttpClientOption()
     {
@@ -1562,7 +1506,7 @@ class AccountApi
         if ($this->config->getDebug()) {
             $options[RequestOptions::DEBUG] = fopen($this->config->getDebugFile(), 'a');
             if (!$options[RequestOptions::DEBUG]) {
-                throw new \RuntimeException('Failed to open the debug file: ' . $this->config->getDebugFile());
+                throw new RuntimeException('Failed to open the debug file: ' . $this->config->getDebugFile());
             }
         }
 
@@ -1578,8 +1522,8 @@ class AccountApi
         string $returnDataType
     ) {
         $statusCode = $response->getStatusCode();
-        $rangeCodeLeft = (int) (substr($rangeCode, 0, 1) . '00');
-        $rangeCodeRight = (int) (substr($rangeCode, 0, 1) . '99');
+        $rangeCodeLeft = (int)(substr($rangeCode, 0, 1) . '00');
+        $rangeCodeRight = (int)(substr($rangeCode, 0, 1) . '99');
 
         if (
             $statusCode < $rangeCodeLeft
@@ -1589,9 +1533,9 @@ class AccountApi
         }
 
         if ($returnDataType === '\SplFileObject') {
-            $content = $response->getBody(); //stream goes to serializer
+            $content = $response->getBody(); // stream goes to serializer
         } else {
-            $content = (string) $response->getBody();
+            $content = (string)$response->getBody();
         }
 
         return [
@@ -1610,8 +1554,8 @@ class AccountApi
         string $exceptionDataType
     ): bool {
         $statusCode = $e->getCode();
-        $rangeCodeLeft = (int) (substr($rangeCode, 0, 1) . '00');
-        $rangeCodeRight = (int) (substr($rangeCode, 0, 1) . '99');
+        $rangeCodeLeft = (int)(substr($rangeCode, 0, 1) . '00');
+        $rangeCodeRight = (int)(substr($rangeCode, 0, 1) . '99');
 
         if (
             $statusCode < $rangeCodeLeft

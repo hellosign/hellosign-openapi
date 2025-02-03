@@ -90,7 +90,7 @@ end
 
 Get Available Fax Line Area Codes
 
-Returns a response with the area codes available for a given state/province and city.
+Returns a list of available area codes for a given state/province and city
 
 ### Examples
 
@@ -135,10 +135,10 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| `country` | **String** | Filter area codes by country. |  |
-| `state` | **String** | Filter area codes by state. | [optional] |
-| `province` | **String** | Filter area codes by province. | [optional] |
-| `city` | **String** | Filter area codes by city. | [optional] |
+| `country` | **String** | Filter area codes by country |  |
+| `state` | **String** | Filter area codes by state | [optional] |
+| `province` | **String** | Filter area codes by province | [optional] |
+| `city` | **String** | Filter area codes by city | [optional] |
 
 ### Return type
 
@@ -160,7 +160,7 @@ end
 
 Purchase Fax Line
 
-Purchases a new Fax Line.
+Purchases a new Fax Line
 
 ### Examples
 
@@ -345,7 +345,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| `number` | **String** | The Fax Line number. |  |
+| `number` | **String** | The Fax Line number |  |
 
 ### Return type
 
@@ -413,9 +413,9 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `account_id` | **String** | Account ID | [optional] |
-| `page` | **Integer** | Page | [optional][default to 1] |
-| `page_size` | **Integer** | Page size | [optional][default to 20] |
-| `show_team_lines` | **Boolean** | Show team lines | [optional] |
+| `page` | **Integer** | Which page number of the Fax Line List to return. Defaults to `1`. | [optional][default to 1] |
+| `page_size` | **Integer** | Number of objects to be returned per page. Must be between `1` and `100`. Default is `20`. | [optional][default to 20] |
+| `show_team_lines` | **Boolean** | Include Fax Lines belonging to team members in the list | [optional] |
 
 ### Return type
 
@@ -437,7 +437,7 @@ end
 
 Remove Fax Line Access
 
-Removes a user's access to the specified Fax Line.
+Removes a user's access to the specified Fax Line
 
 ### Examples
 

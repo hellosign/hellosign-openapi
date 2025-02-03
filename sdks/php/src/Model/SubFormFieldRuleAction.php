@@ -5,9 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  Dropbox\Sign
- * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ * @see     https://openapi-generator.tech
  */
 
 /**
@@ -29,72 +27,73 @@
 
 namespace Dropbox\Sign\Model;
 
-use \ArrayAccess;
-use \Dropbox\Sign\ObjectSerializer;
+use ArrayAccess;
+use Dropbox\Sign\ObjectSerializer;
+use InvalidArgumentException;
+use JsonSerializable;
+use ReturnTypeWillChange;
 
 /**
  * SubFormFieldRuleAction Class Doc Comment
  *
  * @category Class
- * @package  Dropbox\Sign
- * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ * @see     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class SubFormFieldRuleAction implements ModelInterface, ArrayAccess, \JsonSerializable
+class SubFormFieldRuleAction implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
     /**
-      * The original name of the model.
-      *
-      * @var string
-      */
+     * The original name of the model.
+     *
+     * @var string
+     */
     protected static $openAPIModelName = 'SubFormFieldRuleAction';
 
     /**
-      * Array of property to type mappings. Used for (de)serialization
-      *
-      * @var string[]
-      */
+     * Array of property to type mappings. Used for (de)serialization
+     *
+     * @var string[]
+     */
     protected static $openAPITypes = [
         'hidden' => 'bool',
         'type' => 'string',
         'field_id' => 'string',
-        'group_id' => 'string'
+        'group_id' => 'string',
     ];
 
     /**
-      * Array of property to format mappings. Used for (de)serialization
-      *
-      * @var string[]
-      * @phpstan-var array<string, string|null>
-      * @psalm-var array<string, string|null>
-      */
+     * Array of property to format mappings. Used for (de)serialization
+     *
+     * @var string[]
+     * @phpstan-var array<string, string|null>
+     * @psalm-var array<string, string|null>
+     */
     protected static $openAPIFormats = [
         'hidden' => null,
         'type' => null,
         'field_id' => null,
-        'group_id' => null
+        'group_id' => null,
     ];
 
     /**
-      * Array of nullable properties. Used for (de)serialization
-      *
-      * @var boolean[]
-      */
+     * Array of nullable properties. Used for (de)serialization
+     *
+     * @var bool[]
+     */
     protected static array $openAPINullables = [
         'hidden' => false,
         'type' => false,
         'field_id' => false,
-        'group_id' => false
+        'group_id' => false,
     ];
 
     /**
-      * If a nullable field gets set to null, insert it here
-      *
-      * @var boolean[]
-      */
+     * If a nullable field gets set to null, insert it here
+     *
+     * @var bool[]
+     */
     protected array $openAPINullablesSetToNull = [];
 
     /**
@@ -119,8 +118,6 @@ class SubFormFieldRuleAction implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Array of nullable properties
-     *
-     * @return array
      */
     protected static function openAPINullables(): array
     {
@@ -130,7 +127,7 @@ class SubFormFieldRuleAction implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Array of nullable field names deliberately set to null
      *
-     * @return boolean[]
+     * @return bool[]
      */
     private function getOpenAPINullablesSetToNull(): array
     {
@@ -140,7 +137,7 @@ class SubFormFieldRuleAction implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Setter - Array of nullable field names deliberately set to null
      *
-     * @param boolean[] $openAPINullablesSetToNull
+     * @param bool[] $openAPINullablesSetToNull
      */
     private function setOpenAPINullablesSetToNull(array $openAPINullablesSetToNull): void
     {
@@ -149,9 +146,6 @@ class SubFormFieldRuleAction implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Checks if a property is nullable
-     *
-     * @param string $property
-     * @return bool
      */
     public static function isNullable(string $property): bool
     {
@@ -160,9 +154,6 @@ class SubFormFieldRuleAction implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Checks if a nullable property is set to null.
-     *
-     * @param string $property
-     * @return bool
      */
     public function isNullableSetToNull(string $property): bool
     {
@@ -179,7 +170,7 @@ class SubFormFieldRuleAction implements ModelInterface, ArrayAccess, \JsonSerial
         'hidden' => 'hidden',
         'type' => 'type',
         'field_id' => 'field_id',
-        'group_id' => 'group_id'
+        'group_id' => 'group_id',
     ];
 
     /**
@@ -191,7 +182,7 @@ class SubFormFieldRuleAction implements ModelInterface, ArrayAccess, \JsonSerial
         'hidden' => 'setHidden',
         'type' => 'setType',
         'field_id' => 'setFieldId',
-        'group_id' => 'setGroupId'
+        'group_id' => 'setGroupId',
     ];
 
     /**
@@ -203,7 +194,7 @@ class SubFormFieldRuleAction implements ModelInterface, ArrayAccess, \JsonSerial
         'hidden' => 'getHidden',
         'type' => 'getType',
         'field_id' => 'getFieldId',
-        'group_id' => 'getGroupId'
+        'group_id' => 'getGroupId',
     ];
 
     /**
@@ -284,34 +275,33 @@ class SubFormFieldRuleAction implements ModelInterface, ArrayAccess, \JsonSerial
         $this->setIfExists('group_id', $data ?? [], null);
     }
 
-    /** @deprecated use ::init() */
+    /**
+     * @deprecated use ::init()
+     */
     public static function fromArray(array $data): SubFormFieldRuleAction
     {
         return self::init($data);
     }
 
-    /** Attempt to instantiate and hydrate a new instance of this class */
+    /**
+     * Attempt to instantiate and hydrate a new instance of this class
+     */
     public static function init(array $data): SubFormFieldRuleAction
     {
         /** @var SubFormFieldRuleAction */
-        $obj = ObjectSerializer::deserialize(
+        return ObjectSerializer::deserialize(
             $data,
             SubFormFieldRuleAction::class,
         );
-
-        return $obj;
     }
 
-
     /**
-    * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
-    * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
-    * $this->openAPINullablesSetToNull array
-    *
-    * @param string $variableName
-    * @param array  $fields
-* @param string|int|object|array|mixed  $defaultValue
-    */
+     * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
+     * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
+     * $this->openAPINullablesSetToNull array
+     *
+     * @param string|int|object|array|mixed $defaultValue
+     */
     private function setIfExists(string $variableName, array $fields, $defaultValue): void
     {
         if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
@@ -359,7 +349,6 @@ class SubFormFieldRuleAction implements ModelInterface, ArrayAccess, \JsonSerial
         return count($this->listInvalidProperties()) === 0;
     }
 
-
     /**
      * Gets hidden
      *
@@ -373,14 +362,14 @@ class SubFormFieldRuleAction implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets hidden
      *
-     * @param bool $hidden `true` to hide the target field when rule is satisfied, otherwise `false`.
+     * @param bool $hidden `true` to hide the target field when rule is satisfied, otherwise `false`
      *
      * @return self
      */
-    public function setHidden($hidden)
+    public function setHidden(bool $hidden)
     {
         if (is_null($hidden)) {
-            throw new \InvalidArgumentException('non-nullable hidden cannot be null');
+            throw new InvalidArgumentException('non-nullable hidden cannot be null');
         }
         $this->container['hidden'] = $hidden;
 
@@ -404,14 +393,14 @@ class SubFormFieldRuleAction implements ModelInterface, ArrayAccess, \JsonSerial
      *
      * @return self
      */
-    public function setType($type)
+    public function setType(string $type)
     {
         if (is_null($type)) {
-            throw new \InvalidArgumentException('non-nullable type cannot be null');
+            throw new InvalidArgumentException('non-nullable type cannot be null');
         }
         $allowedValues = $this->getTypeAllowableValues();
         if (!in_array($type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
+            throw new InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'type', must be one of '%s'",
                     $type,
@@ -441,10 +430,10 @@ class SubFormFieldRuleAction implements ModelInterface, ArrayAccess, \JsonSerial
      *
      * @return self
      */
-    public function setFieldId($field_id)
+    public function setFieldId(?string $field_id)
     {
         if (is_null($field_id)) {
-            throw new \InvalidArgumentException('non-nullable field_id cannot be null');
+            throw new InvalidArgumentException('non-nullable field_id cannot be null');
         }
         $this->container['field_id'] = $field_id;
 
@@ -468,23 +457,22 @@ class SubFormFieldRuleAction implements ModelInterface, ArrayAccess, \JsonSerial
      *
      * @return self
      */
-    public function setGroupId($group_id)
+    public function setGroupId(?string $group_id)
     {
         if (is_null($group_id)) {
-            throw new \InvalidArgumentException('non-nullable group_id cannot be null');
+            throw new InvalidArgumentException('non-nullable group_id cannot be null');
         }
         $this->container['group_id'] = $group_id;
 
         return $this;
     }
+
     /**
      * Returns true if offset exists. False otherwise.
      *
-     * @param integer $offset Offset
-     *
-     * @return boolean
+     * @param int $offset Offset
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
@@ -493,11 +481,11 @@ class SubFormFieldRuleAction implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets offset.
      *
-     * @param integer $offset Offset
+     * @param int $offset Offset
      *
      * @return mixed|null
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return $this->container[$offset] ?? null;
@@ -508,10 +496,8 @@ class SubFormFieldRuleAction implements ModelInterface, ArrayAccess, \JsonSerial
      *
      * @param int|null $offset Offset
      * @param mixed    $value  Value to be set
-     *
-     * @return void
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
@@ -524,11 +510,9 @@ class SubFormFieldRuleAction implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Unsets offset.
      *
-     * @param integer $offset Offset
-     *
-     * @return void
+     * @param int $offset Offset
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
@@ -536,15 +520,15 @@ class SubFormFieldRuleAction implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Serializes the object to a value that can be serialized natively by json_encode().
-     * @link https://www.php.net/manual/en/jsonserializable.jsonserialize.php
+     * @see https://www.php.net/manual/en/jsonserializable.jsonserialize.php
      *
-     * @return mixed Returns data which can be serialized by json_encode(), which is a value
-     * of any type other than a resource.
+     * @return mixed returns data which can be serialized by json_encode(), which is a value
+     *               of any type other than a resource
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function jsonSerialize()
     {
-       return ObjectSerializer::sanitizeForSerialization($this);
+        return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**
@@ -570,5 +554,3 @@ class SubFormFieldRuleAction implements ModelInterface, ArrayAccess, \JsonSerial
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
-
-

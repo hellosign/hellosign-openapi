@@ -23,7 +23,49 @@ Creates a new API App.
 ### Example
 
 ```php
-REPLACE_ME_WITH_EXAMPLE_FOR__apiAppCreate_PHP_CODE
+<?php
+
+require_once __DIR__ . "/vendor/autoload.php";
+
+$config = Dropbox\Sign\Configuration::getDefaultConfiguration();
+
+// Configure HTTP basic authorization: api_key
+$config->setUsername("YOUR_API_KEY");
+
+// or, configure Bearer (JWT) authorization: oauth2
+// $config->setAccessToken("YOUR_ACCESS_TOKEN");
+
+$apiAppApi = new Dropbox\Sign\Api\ApiAppApi($config);
+
+$oauth = new Dropbox\Sign\Model\SubOAuth();
+$oauth->setCallbackUrl("https://example.com/oauth")
+    ->setScopes([
+        Dropbox\Sign\Model\SubOAuth::SCOPES_BASIC_ACCOUNT_INFO,
+        Dropbox\Sign\Model\SubOAuth::SCOPES_REQUEST_SIGNATURE,
+    ]);
+
+$whiteLabelingOptions = new Dropbox\Sign\Model\SubWhiteLabelingOptions();
+$whiteLabelingOptions->setPrimaryButtonColor("#00b3e6")
+    ->setPrimaryButtonTextColor("#ffffff");
+
+$customLogoFile = new SplFileObject(__DIR__ . "/CustomLogoFile.png");
+
+$data = new Dropbox\Sign\Model\ApiAppCreateRequest();
+$data->setName("My Production App")
+    ->setDomains(["example.com"])
+    ->setOauth($oauth)
+    ->setWhiteLabelingOptions($whiteLabelingOptions)
+    ->setCustomLogoFile($customLogoFile);
+
+try {
+    $result = $apiAppApi->apiAppCreate($data);
+    print_r($result);
+} catch (Dropbox\Sign\ApiException $e) {
+    $error = $e->getResponseObject();
+    echo "Exception when calling Dropbox Sign API: "
+        . print_r($error->getError());
+}
+
 ```
 
 ### Parameters
@@ -61,7 +103,30 @@ Deletes an API App. Can only be invoked for apps you own.
 ### Example
 
 ```php
-REPLACE_ME_WITH_EXAMPLE_FOR__apiAppDelete_PHP_CODE
+<?php
+
+require_once __DIR__ . "/vendor/autoload.php";
+
+$config = Dropbox\Sign\Configuration::getDefaultConfiguration();
+
+// Configure HTTP basic authorization: api_key
+$config->setUsername("YOUR_API_KEY");
+
+// or, configure Bearer (JWT) authorization: oauth2
+// $config->setAccessToken("YOUR_ACCESS_TOKEN");
+
+$apiAppApi = new Dropbox\Sign\Api\ApiAppApi($config);
+
+$clientId = "0dd3b823a682527788c4e40cb7b6f7e9";
+
+try {
+    $apiAppApi->apiAppDelete($clientId);
+} catch (Dropbox\Sign\ApiException $e) {
+    $error = $e->getResponseObject();
+    echo "Exception when calling Dropbox Sign API: "
+        . print_r($error->getError());
+}
+
 ```
 
 ### Parameters
@@ -99,7 +164,31 @@ Returns an object with information about an API App.
 ### Example
 
 ```php
-REPLACE_ME_WITH_EXAMPLE_FOR__apiAppGet_PHP_CODE
+<?php
+
+require_once __DIR__ . "/vendor/autoload.php";
+
+$config = Dropbox\Sign\Configuration::getDefaultConfiguration();
+
+// Configure HTTP basic authorization: api_key
+$config->setUsername("YOUR_API_KEY");
+
+// or, configure Bearer (JWT) authorization: oauth2
+// $config->setAccessToken("YOUR_ACCESS_TOKEN");
+
+$apiAppApi = new Dropbox\Sign\Api\ApiAppApi($config);
+
+$clientId = "0dd3b823a682527788c4e40cb7b6f7e9";
+
+try {
+    $result = $apiAppApi->apiAppGet($clientId);
+    print_r($result);
+} catch (Dropbox\Sign\ApiException $e) {
+    $error = $e->getResponseObject();
+    echo "Exception when calling Dropbox Sign API: "
+        . print_r($error->getError());
+}
+
 ```
 
 ### Parameters
@@ -137,15 +226,40 @@ Returns a list of API Apps that are accessible by you. If you are on a team with
 ### Example
 
 ```php
-REPLACE_ME_WITH_EXAMPLE_FOR__apiAppList_PHP_CODE
+<?php
+
+require_once __DIR__ . "/vendor/autoload.php";
+
+$config = Dropbox\Sign\Configuration::getDefaultConfiguration();
+
+// Configure HTTP basic authorization: api_key
+$config->setUsername("YOUR_API_KEY");
+
+// or, configure Bearer (JWT) authorization: oauth2
+// $config->setAccessToken("YOUR_ACCESS_TOKEN");
+
+$apiAppApi = new Dropbox\Sign\Api\ApiAppApi($config);
+
+$page = 1;
+$pageSize = 2;
+
+try {
+    $result = $apiAppApi->apiAppList($page, $pageSize);
+    print_r($result);
+} catch (Dropbox\Sign\ApiException $e) {
+    $error = $e->getResponseObject();
+    echo "Exception when calling Dropbox Sign API: "
+        . print_r($error->getError());
+}
+
 ```
 
 ### Parameters
 
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **page** | **int**| Which page number of the API App List to return. Defaults to &#x60;1&#x60;. | [optional] [default to 1] |
-| **page_size** | **int**| Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. | [optional] [default to 20] |
+| **page** | **int**| Which page number of the API App List to return. Defaults to `1`. | [optional] [default to 1] |
+| **page_size** | **int**| Number of objects to be returned per page. Must be between `1` and `100`. Default is `20`. | [optional] [default to 20] |
 
 ### Return type
 
@@ -176,7 +290,43 @@ Updates an existing API App. Can only be invoked for apps you own. Only the fiel
 ### Example
 
 ```php
-REPLACE_ME_WITH_EXAMPLE_FOR__apiAppUpdate_PHP_CODE
+<?php
+
+require_once __DIR__ . "/vendor/autoload.php";
+
+$config = Dropbox\Sign\Configuration::getDefaultConfiguration();
+
+// Configure HTTP basic authorization: api_key
+$config->setUsername("YOUR_API_KEY");
+
+// or, configure Bearer (JWT) authorization: oauth2
+// $config->setAccessToken("YOUR_ACCESS_TOKEN");
+
+$apiAppApi = new Dropbox\Sign\Api\ApiAppApi($config);
+
+$whiteLabelingOptions = new Dropbox\Sign\Model\SubWhiteLabelingOptions();
+$whiteLabelingOptions->setPrimaryButtonColor("#00b3e6")
+    ->setPrimaryButtonTextColor("#ffffff");
+
+$customLogoFile = new SplFileObject(__DIR__ . "/CustomLogoFile.png");
+
+$data = new Dropbox\Sign\Model\ApiAppUpdateRequest();
+$data->setName("New Name")
+    ->setCallbackUrl("https://example.com/dropboxsign")
+    ->setWhiteLabelingOptions($whiteLabelingOptions)
+    ->setCustomLogoFile($customLogoFile);
+
+$clientId = "0dd3b823a682527788c4e40cb7b6f7e9";
+
+try {
+    $result = $apiAppApi->apiAppUpdate($clientId, $data);
+    print_r($result);
+} catch (Dropbox\Sign\ApiException $e) {
+    $error = $e->getResponseObject();
+    echo "Exception when calling Dropbox Sign API: "
+        . print_r($error->getError());
+}
+
 ```
 
 ### Parameters

@@ -5,9 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  Dropbox\Sign
- * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ * @see     https://openapi-generator.tech
  */
 
 /**
@@ -29,35 +27,37 @@
 
 namespace Dropbox\Sign\Model;
 
-use \ArrayAccess;
-use \Dropbox\Sign\ObjectSerializer;
+use ArrayAccess;
+use Dropbox\Sign\ObjectSerializer;
+use InvalidArgumentException;
+use JsonSerializable;
+use ReturnTypeWillChange;
+use SplFileObject;
 
 /**
  * UnclaimedDraftCreateEmbeddedRequest Class Doc Comment
  *
  * @category Class
- * @description 
- * @package  Dropbox\Sign
- * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ * @description
+ * @see     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess, \JsonSerializable
+class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
     /**
-      * The original name of the model.
-      *
-      * @var string
-      */
+     * The original name of the model.
+     *
+     * @var string
+     */
     protected static $openAPIModelName = 'UnclaimedDraftCreateEmbeddedRequest';
 
     /**
-      * Array of property to type mappings. Used for (de)serialization
-      *
-      * @var string[]
-      */
+     * Array of property to type mappings. Used for (de)serialization
+     *
+     * @var string[]
+     */
     protected static $openAPITypes = [
         'client_id' => 'string',
         'requester_email_address' => 'string',
@@ -94,16 +94,16 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
         'use_preexisting_fields' => 'bool',
         'use_text_tags' => 'bool',
         'populate_auto_fill_fields' => 'bool',
-        'expires_at' => 'int'
+        'expires_at' => 'int',
     ];
 
     /**
-      * Array of property to format mappings. Used for (de)serialization
-      *
-      * @var string[]
-      * @phpstan-var array<string, string|null>
-      * @psalm-var array<string, string|null>
-      */
+     * Array of property to format mappings. Used for (de)serialization
+     *
+     * @var string[]
+     * @phpstan-var array<string, string|null>
+     * @psalm-var array<string, string|null>
+     */
     protected static $openAPIFormats = [
         'client_id' => null,
         'requester_email_address' => 'email',
@@ -140,14 +140,14 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
         'use_preexisting_fields' => null,
         'use_text_tags' => null,
         'populate_auto_fill_fields' => null,
-        'expires_at' => null
+        'expires_at' => null,
     ];
 
     /**
-      * Array of nullable properties. Used for (de)serialization
-      *
-      * @var boolean[]
-      */
+     * Array of nullable properties. Used for (de)serialization
+     *
+     * @var bool[]
+     */
     protected static array $openAPINullables = [
         'client_id' => false,
         'requester_email_address' => false,
@@ -184,14 +184,14 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
         'use_preexisting_fields' => false,
         'use_text_tags' => false,
         'populate_auto_fill_fields' => false,
-        'expires_at' => true
+        'expires_at' => true,
     ];
 
     /**
-      * If a nullable field gets set to null, insert it here
-      *
-      * @var boolean[]
-      */
+     * If a nullable field gets set to null, insert it here
+     *
+     * @var bool[]
+     */
     protected array $openAPINullablesSetToNull = [];
 
     /**
@@ -216,8 +216,6 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
 
     /**
      * Array of nullable properties
-     *
-     * @return array
      */
     protected static function openAPINullables(): array
     {
@@ -227,7 +225,7 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
     /**
      * Array of nullable field names deliberately set to null
      *
-     * @return boolean[]
+     * @return bool[]
      */
     private function getOpenAPINullablesSetToNull(): array
     {
@@ -237,7 +235,7 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
     /**
      * Setter - Array of nullable field names deliberately set to null
      *
-     * @param boolean[] $openAPINullablesSetToNull
+     * @param bool[] $openAPINullablesSetToNull
      */
     private function setOpenAPINullablesSetToNull(array $openAPINullablesSetToNull): void
     {
@@ -246,9 +244,6 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
 
     /**
      * Checks if a property is nullable
-     *
-     * @param string $property
-     * @return bool
      */
     public static function isNullable(string $property): bool
     {
@@ -257,9 +252,6 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
 
     /**
      * Checks if a nullable property is set to null.
-     *
-     * @param string $property
-     * @return bool
      */
     public function isNullableSetToNull(string $property): bool
     {
@@ -308,7 +300,7 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
         'use_preexisting_fields' => 'use_preexisting_fields',
         'use_text_tags' => 'use_text_tags',
         'populate_auto_fill_fields' => 'populate_auto_fill_fields',
-        'expires_at' => 'expires_at'
+        'expires_at' => 'expires_at',
     ];
 
     /**
@@ -352,7 +344,7 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
         'use_preexisting_fields' => 'setUsePreexistingFields',
         'use_text_tags' => 'setUseTextTags',
         'populate_auto_fill_fields' => 'setPopulateAutoFillFields',
-        'expires_at' => 'setExpiresAt'
+        'expires_at' => 'setExpiresAt',
     ];
 
     /**
@@ -396,7 +388,7 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
         'use_preexisting_fields' => 'getUsePreexistingFields',
         'use_text_tags' => 'getUseTextTags',
         'populate_auto_fill_fields' => 'getPopulateAutoFillFields',
-        'expires_at' => 'getExpiresAt'
+        'expires_at' => 'getExpiresAt',
     ];
 
     /**
@@ -509,34 +501,33 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
         $this->setIfExists('expires_at', $data ?? [], null);
     }
 
-    /** @deprecated use ::init() */
+    /**
+     * @deprecated use ::init()
+     */
     public static function fromArray(array $data): UnclaimedDraftCreateEmbeddedRequest
     {
         return self::init($data);
     }
 
-    /** Attempt to instantiate and hydrate a new instance of this class */
+    /**
+     * Attempt to instantiate and hydrate a new instance of this class
+     */
     public static function init(array $data): UnclaimedDraftCreateEmbeddedRequest
     {
         /** @var UnclaimedDraftCreateEmbeddedRequest */
-        $obj = ObjectSerializer::deserialize(
+        return ObjectSerializer::deserialize(
             $data,
             UnclaimedDraftCreateEmbeddedRequest::class,
         );
-
-        return $obj;
     }
 
-
     /**
-    * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
-    * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
-    * $this->openAPINullablesSetToNull array
-    *
-    * @param string $variableName
-    * @param array  $fields
-* @param string|int|object|array|mixed  $defaultValue
-    */
+     * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
+     * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
+     * $this->openAPINullablesSetToNull array
+     *
+     * @param string|int|object|array|mixed $defaultValue
+     */
     private function setIfExists(string $variableName, array $fields, $defaultValue): void
     {
         if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
@@ -592,7 +583,6 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
-
     /**
      * Gets client_id
      *
@@ -610,10 +600,10 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
      *
      * @return self
      */
-    public function setClientId($client_id)
+    public function setClientId(string $client_id)
     {
         if (is_null($client_id)) {
-            throw new \InvalidArgumentException('non-nullable client_id cannot be null');
+            throw new InvalidArgumentException('non-nullable client_id cannot be null');
         }
         $this->container['client_id'] = $client_id;
 
@@ -633,14 +623,14 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
     /**
      * Sets requester_email_address
      *
-     * @param string $requester_email_address The email address of the user that should be designated as the requester of this draft, if the draft type is `request_signature`.
+     * @param string $requester_email_address the email address of the user that should be designated as the requester of this draft, if the draft type is `request_signature`
      *
      * @return self
      */
-    public function setRequesterEmailAddress($requester_email_address)
+    public function setRequesterEmailAddress(string $requester_email_address)
     {
         if (is_null($requester_email_address)) {
-            throw new \InvalidArgumentException('non-nullable requester_email_address cannot be null');
+            throw new InvalidArgumentException('non-nullable requester_email_address cannot be null');
         }
         $this->container['requester_email_address'] = $requester_email_address;
 
@@ -650,7 +640,7 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
     /**
      * Gets files
      *
-     * @return \SplFileObject[]|null
+     * @return SplFileObject[]|null
      */
     public function getFiles()
     {
@@ -660,14 +650,14 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
     /**
      * Sets files
      *
-     * @param \SplFileObject[]|null $files Use `files[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.
+     * @param SplFileObject[]|null $files Use `files[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.
      *
      * @return self
      */
-    public function setFiles($files)
+    public function setFiles(?array $files)
     {
         if (is_null($files)) {
-            throw new \InvalidArgumentException('non-nullable files cannot be null');
+            throw new InvalidArgumentException('non-nullable files cannot be null');
         }
         $this->container['files'] = $files;
 
@@ -691,10 +681,10 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
      *
      * @return self
      */
-    public function setFileUrls($file_urls)
+    public function setFileUrls(?array $file_urls)
     {
         if (is_null($file_urls)) {
-            throw new \InvalidArgumentException('non-nullable file_urls cannot be null');
+            throw new InvalidArgumentException('non-nullable file_urls cannot be null');
         }
         $this->container['file_urls'] = $file_urls;
 
@@ -714,14 +704,14 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
     /**
      * Sets allow_ccs
      *
-     * @param bool|null $allow_ccs This allows the requester to specify whether the user is allowed to provide email addresses to CC when claiming the draft.
+     * @param bool|null $allow_ccs this allows the requester to specify whether the user is allowed to provide email addresses to CC when claiming the draft
      *
      * @return self
      */
-    public function setAllowCcs($allow_ccs)
+    public function setAllowCcs(?bool $allow_ccs)
     {
         if (is_null($allow_ccs)) {
-            throw new \InvalidArgumentException('non-nullable allow_ccs cannot be null');
+            throw new InvalidArgumentException('non-nullable allow_ccs cannot be null');
         }
         $this->container['allow_ccs'] = $allow_ccs;
 
@@ -745,10 +735,10 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
      *
      * @return self
      */
-    public function setAllowDecline($allow_decline)
+    public function setAllowDecline(?bool $allow_decline)
     {
         if (is_null($allow_decline)) {
-            throw new \InvalidArgumentException('non-nullable allow_decline cannot be null');
+            throw new InvalidArgumentException('non-nullable allow_decline cannot be null');
         }
         $this->container['allow_decline'] = $allow_decline;
 
@@ -772,10 +762,10 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
      *
      * @return self
      */
-    public function setAllowReassign($allow_reassign)
+    public function setAllowReassign(?bool $allow_reassign)
     {
         if (is_null($allow_reassign)) {
-            throw new \InvalidArgumentException('non-nullable allow_reassign cannot be null');
+            throw new InvalidArgumentException('non-nullable allow_reassign cannot be null');
         }
         $this->container['allow_reassign'] = $allow_reassign;
 
@@ -785,7 +775,7 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
     /**
      * Gets attachments
      *
-     * @return \Dropbox\Sign\Model\SubAttachment[]|null
+     * @return SubAttachment[]|null
      */
     public function getAttachments()
     {
@@ -795,14 +785,14 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
     /**
      * Sets attachments
      *
-     * @param \Dropbox\Sign\Model\SubAttachment[]|null $attachments A list describing the attachments
+     * @param SubAttachment[]|null $attachments A list describing the attachments
      *
      * @return self
      */
-    public function setAttachments($attachments)
+    public function setAttachments(?array $attachments)
     {
         if (is_null($attachments)) {
-            throw new \InvalidArgumentException('non-nullable attachments cannot be null');
+            throw new InvalidArgumentException('non-nullable attachments cannot be null');
         }
         $this->container['attachments'] = $attachments;
 
@@ -822,14 +812,14 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
     /**
      * Sets cc_email_addresses
      *
-     * @param string[]|null $cc_email_addresses The email addresses that should be CCed.
+     * @param string[]|null $cc_email_addresses the email addresses that should be CCed
      *
      * @return self
      */
-    public function setCcEmailAddresses($cc_email_addresses)
+    public function setCcEmailAddresses(?array $cc_email_addresses)
     {
         if (is_null($cc_email_addresses)) {
-            throw new \InvalidArgumentException('non-nullable cc_email_addresses cannot be null');
+            throw new InvalidArgumentException('non-nullable cc_email_addresses cannot be null');
         }
         $this->container['cc_email_addresses'] = $cc_email_addresses;
 
@@ -839,7 +829,7 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
     /**
      * Gets custom_fields
      *
-     * @return \Dropbox\Sign\Model\SubCustomField[]|null
+     * @return SubCustomField[]|null
      */
     public function getCustomFields()
     {
@@ -849,14 +839,14 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
     /**
      * Sets custom_fields
      *
-     * @param \Dropbox\Sign\Model\SubCustomField[]|null $custom_fields When used together with merge fields, `custom_fields` allows users to add pre-filled data to their signature requests.  Pre-filled data can be used with \"send-once\" signature requests by adding merge fields with `form_fields_per_document` or [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) while passing values back with `custom_fields` together in one API call.  For using pre-filled on repeatable signature requests, merge fields are added to templates in the Dropbox Sign UI or by calling [/template/create_embedded_draft](/api/reference/operation/templateCreateEmbeddedDraft) and then passing `custom_fields` on subsequent signature requests referencing that template.
+     * @param SubCustomField[]|null $custom_fields When used together with merge fields, `custom_fields` allows users to add pre-filled data to their signature requests.  Pre-filled data can be used with \"send-once\" signature requests by adding merge fields with `form_fields_per_document` or [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) while passing values back with `custom_fields` together in one API call.  For using pre-filled on repeatable signature requests, merge fields are added to templates in the Dropbox Sign UI or by calling [/template/create_embedded_draft](/api/reference/operation/templateCreateEmbeddedDraft) and then passing `custom_fields` on subsequent signature requests referencing that template.
      *
      * @return self
      */
-    public function setCustomFields($custom_fields)
+    public function setCustomFields(?array $custom_fields)
     {
         if (is_null($custom_fields)) {
-            throw new \InvalidArgumentException('non-nullable custom_fields cannot be null');
+            throw new InvalidArgumentException('non-nullable custom_fields cannot be null');
         }
         $this->container['custom_fields'] = $custom_fields;
 
@@ -866,7 +856,7 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
     /**
      * Gets editor_options
      *
-     * @return \Dropbox\Sign\Model\SubEditorOptions|null
+     * @return SubEditorOptions|null
      */
     public function getEditorOptions()
     {
@@ -876,14 +866,14 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
     /**
      * Sets editor_options
      *
-     * @param \Dropbox\Sign\Model\SubEditorOptions|null $editor_options editor_options
+     * @param SubEditorOptions|null $editor_options editor_options
      *
      * @return self
      */
-    public function setEditorOptions($editor_options)
+    public function setEditorOptions(?SubEditorOptions $editor_options)
     {
         if (is_null($editor_options)) {
-            throw new \InvalidArgumentException('non-nullable editor_options cannot be null');
+            throw new InvalidArgumentException('non-nullable editor_options cannot be null');
         }
         $this->container['editor_options'] = $editor_options;
 
@@ -893,7 +883,7 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
     /**
      * Gets field_options
      *
-     * @return \Dropbox\Sign\Model\SubFieldOptions|null
+     * @return SubFieldOptions|null
      */
     public function getFieldOptions()
     {
@@ -903,14 +893,14 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
     /**
      * Sets field_options
      *
-     * @param \Dropbox\Sign\Model\SubFieldOptions|null $field_options field_options
+     * @param SubFieldOptions|null $field_options field_options
      *
      * @return self
      */
-    public function setFieldOptions($field_options)
+    public function setFieldOptions(?SubFieldOptions $field_options)
     {
         if (is_null($field_options)) {
-            throw new \InvalidArgumentException('non-nullable field_options cannot be null');
+            throw new InvalidArgumentException('non-nullable field_options cannot be null');
         }
         $this->container['field_options'] = $field_options;
 
@@ -930,14 +920,14 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
     /**
      * Sets force_signer_page
      *
-     * @param bool|null $force_signer_page Provide users the ability to review/edit the signers.
+     * @param bool|null $force_signer_page provide users the ability to review/edit the signers
      *
      * @return self
      */
-    public function setForceSignerPage($force_signer_page)
+    public function setForceSignerPage(?bool $force_signer_page)
     {
         if (is_null($force_signer_page)) {
-            throw new \InvalidArgumentException('non-nullable force_signer_page cannot be null');
+            throw new InvalidArgumentException('non-nullable force_signer_page cannot be null');
         }
         $this->container['force_signer_page'] = $force_signer_page;
 
@@ -957,14 +947,14 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
     /**
      * Sets force_subject_message
      *
-     * @param bool|null $force_subject_message Provide users the ability to review/edit the subject and message.
+     * @param bool|null $force_subject_message provide users the ability to review/edit the subject and message
      *
      * @return self
      */
-    public function setForceSubjectMessage($force_subject_message)
+    public function setForceSubjectMessage(?bool $force_subject_message)
     {
         if (is_null($force_subject_message)) {
-            throw new \InvalidArgumentException('non-nullable force_subject_message cannot be null');
+            throw new InvalidArgumentException('non-nullable force_subject_message cannot be null');
         }
         $this->container['force_subject_message'] = $force_subject_message;
 
@@ -974,7 +964,7 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
     /**
      * Gets form_field_groups
      *
-     * @return \Dropbox\Sign\Model\SubFormFieldGroup[]|null
+     * @return SubFormFieldGroup[]|null
      */
     public function getFormFieldGroups()
     {
@@ -984,14 +974,14 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
     /**
      * Sets form_field_groups
      *
-     * @param \Dropbox\Sign\Model\SubFormFieldGroup[]|null $form_field_groups Group information for fields defined in `form_fields_per_document`. String-indexed JSON array with `group_label` and `requirement` keys. `form_fields_per_document` must contain fields referencing a group defined in `form_field_groups`.
+     * @param SubFormFieldGroup[]|null $form_field_groups Group information for fields defined in `form_fields_per_document`. String-indexed JSON array with `group_label` and `requirement` keys. `form_fields_per_document` must contain fields referencing a group defined in `form_field_groups`.
      *
      * @return self
      */
-    public function setFormFieldGroups($form_field_groups)
+    public function setFormFieldGroups(?array $form_field_groups)
     {
         if (is_null($form_field_groups)) {
-            throw new \InvalidArgumentException('non-nullable form_field_groups cannot be null');
+            throw new InvalidArgumentException('non-nullable form_field_groups cannot be null');
         }
         $this->container['form_field_groups'] = $form_field_groups;
 
@@ -1001,7 +991,7 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
     /**
      * Gets form_field_rules
      *
-     * @return \Dropbox\Sign\Model\SubFormFieldRule[]|null
+     * @return SubFormFieldRule[]|null
      */
     public function getFormFieldRules()
     {
@@ -1011,14 +1001,14 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
     /**
      * Sets form_field_rules
      *
-     * @param \Dropbox\Sign\Model\SubFormFieldRule[]|null $form_field_rules Conditional Logic rules for fields defined in `form_fields_per_document`.
+     * @param SubFormFieldRule[]|null $form_field_rules conditional Logic rules for fields defined in `form_fields_per_document`
      *
      * @return self
      */
-    public function setFormFieldRules($form_field_rules)
+    public function setFormFieldRules(?array $form_field_rules)
     {
         if (is_null($form_field_rules)) {
-            throw new \InvalidArgumentException('non-nullable form_field_rules cannot be null');
+            throw new InvalidArgumentException('non-nullable form_field_rules cannot be null');
         }
         $this->container['form_field_rules'] = $form_field_rules;
 
@@ -1028,7 +1018,7 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
     /**
      * Gets form_fields_per_document
      *
-     * @return \Dropbox\Sign\Model\SubFormFieldsPerDocumentBase[]|null
+     * @return SubFormFieldsPerDocumentBase[]|null
      */
     public function getFormFieldsPerDocument()
     {
@@ -1038,14 +1028,14 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
     /**
      * Sets form_fields_per_document
      *
-     * @param \Dropbox\Sign\Model\SubFormFieldsPerDocumentBase[]|null $form_fields_per_document The fields that should appear on the document, expressed as an array of objects. (For more details you can read about it here: [Using Form Fields per Document](/docs/openapi/form-fields-per-document).)  **NOTE:** Fields like **text**, **dropdown**, **checkbox**, **radio**, and **hyperlink** have additional required and optional parameters. Check out the list of [additional parameters](/api/reference/constants/#form-fields-per-document) for these field types.  * Text Field use `SubFormFieldsPerDocumentText` * Dropdown Field use `SubFormFieldsPerDocumentDropdown` * Hyperlink Field use `SubFormFieldsPerDocumentHyperlink` * Checkbox Field use `SubFormFieldsPerDocumentCheckbox` * Radio Field use `SubFormFieldsPerDocumentRadio` * Signature Field use `SubFormFieldsPerDocumentSignature` * Date Signed Field use `SubFormFieldsPerDocumentDateSigned` * Initials Field use `SubFormFieldsPerDocumentInitials` * Text Merge Field use `SubFormFieldsPerDocumentTextMerge` * Checkbox Merge Field use `SubFormFieldsPerDocumentCheckboxMerge`
+     * @param SubFormFieldsPerDocumentBase[]|null $form_fields_per_document The fields that should appear on the document, expressed as an array of objects. (For more details you can read about it here: [Using Form Fields per Document](/docs/openapi/form-fields-per-document).)  **NOTE:** Fields like **text**, **dropdown**, **checkbox**, **radio**, and **hyperlink** have additional required and optional parameters. Check out the list of [additional parameters](/api/reference/constants/#form-fields-per-document) for these field types.  * Text Field use `SubFormFieldsPerDocumentText` * Dropdown Field use `SubFormFieldsPerDocumentDropdown` * Hyperlink Field use `SubFormFieldsPerDocumentHyperlink` * Checkbox Field use `SubFormFieldsPerDocumentCheckbox` * Radio Field use `SubFormFieldsPerDocumentRadio` * Signature Field use `SubFormFieldsPerDocumentSignature` * Date Signed Field use `SubFormFieldsPerDocumentDateSigned` * Initials Field use `SubFormFieldsPerDocumentInitials` * Text Merge Field use `SubFormFieldsPerDocumentTextMerge` * Checkbox Merge Field use `SubFormFieldsPerDocumentCheckboxMerge`
      *
      * @return self
      */
-    public function setFormFieldsPerDocument($form_fields_per_document)
+    public function setFormFieldsPerDocument(?array $form_fields_per_document)
     {
         if (is_null($form_fields_per_document)) {
-            throw new \InvalidArgumentException('non-nullable form_fields_per_document cannot be null');
+            throw new InvalidArgumentException('non-nullable form_fields_per_document cannot be null');
         }
         $this->container['form_fields_per_document'] = $form_fields_per_document;
 
@@ -1069,10 +1059,10 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
      *
      * @return self
      */
-    public function setHideTextTags($hide_text_tags)
+    public function setHideTextTags(?bool $hide_text_tags)
     {
         if (is_null($hide_text_tags)) {
-            throw new \InvalidArgumentException('non-nullable hide_text_tags cannot be null');
+            throw new InvalidArgumentException('non-nullable hide_text_tags cannot be null');
         }
         $this->container['hide_text_tags'] = $hide_text_tags;
 
@@ -1096,10 +1086,10 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
      *
      * @return self
      */
-    public function setHoldRequest($hold_request)
+    public function setHoldRequest(?bool $hold_request)
     {
         if (is_null($hold_request)) {
-            throw new \InvalidArgumentException('non-nullable hold_request cannot be null');
+            throw new InvalidArgumentException('non-nullable hold_request cannot be null');
         }
         $this->container['hold_request'] = $hold_request;
 
@@ -1123,10 +1113,10 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
      *
      * @return self
      */
-    public function setIsForEmbeddedSigning($is_for_embedded_signing)
+    public function setIsForEmbeddedSigning(?bool $is_for_embedded_signing)
     {
         if (is_null($is_for_embedded_signing)) {
-            throw new \InvalidArgumentException('non-nullable is_for_embedded_signing cannot be null');
+            throw new InvalidArgumentException('non-nullable is_for_embedded_signing cannot be null');
         }
         $this->container['is_for_embedded_signing'] = $is_for_embedded_signing;
 
@@ -1146,17 +1136,17 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
     /**
      * Sets message
      *
-     * @param string|null $message The custom message in the email that will be sent to the signers.
+     * @param string|null $message the custom message in the email that will be sent to the signers
      *
      * @return self
      */
-    public function setMessage($message)
+    public function setMessage(?string $message)
     {
         if (is_null($message)) {
-            throw new \InvalidArgumentException('non-nullable message cannot be null');
+            throw new InvalidArgumentException('non-nullable message cannot be null');
         }
-        if ((mb_strlen($message) > 5000)) {
-            throw new \InvalidArgumentException('invalid length for $message when calling UnclaimedDraftCreateEmbeddedRequest., must be smaller than or equal to 5000.');
+        if (mb_strlen($message) > 5000) {
+            throw new InvalidArgumentException('invalid length for $message when calling UnclaimedDraftCreateEmbeddedRequest., must be smaller than or equal to 5000.');
         }
 
         $this->container['message'] = $message;
@@ -1181,12 +1171,11 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
      *
      * @return self
      */
-    public function setMetadata($metadata)
+    public function setMetadata(?array $metadata)
     {
         if (is_null($metadata)) {
-            throw new \InvalidArgumentException('non-nullable metadata cannot be null');
+            throw new InvalidArgumentException('non-nullable metadata cannot be null');
         }
-
 
         $this->container['metadata'] = $metadata;
 
@@ -1206,14 +1195,14 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
     /**
      * Sets requesting_redirect_url
      *
-     * @param string|null $requesting_redirect_url The URL you want signers redirected to after they successfully request a signature.
+     * @param string|null $requesting_redirect_url the URL you want signers redirected to after they successfully request a signature
      *
      * @return self
      */
-    public function setRequestingRedirectUrl($requesting_redirect_url)
+    public function setRequestingRedirectUrl(?string $requesting_redirect_url)
     {
         if (is_null($requesting_redirect_url)) {
-            throw new \InvalidArgumentException('non-nullable requesting_redirect_url cannot be null');
+            throw new InvalidArgumentException('non-nullable requesting_redirect_url cannot be null');
         }
         $this->container['requesting_redirect_url'] = $requesting_redirect_url;
 
@@ -1237,10 +1226,10 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
      *
      * @return self
      */
-    public function setShowPreview($show_preview)
+    public function setShowPreview(?bool $show_preview)
     {
         if (is_null($show_preview)) {
-            throw new \InvalidArgumentException('non-nullable show_preview cannot be null');
+            throw new InvalidArgumentException('non-nullable show_preview cannot be null');
         }
         $this->container['show_preview'] = $show_preview;
 
@@ -1260,14 +1249,14 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
     /**
      * Sets show_progress_stepper
      *
-     * @param bool|null $show_progress_stepper When only one step remains in the signature request process and this parameter is set to `false` then the progress stepper will be hidden.
+     * @param bool|null $show_progress_stepper when only one step remains in the signature request process and this parameter is set to `false` then the progress stepper will be hidden
      *
      * @return self
      */
-    public function setShowProgressStepper($show_progress_stepper)
+    public function setShowProgressStepper(?bool $show_progress_stepper)
     {
         if (is_null($show_progress_stepper)) {
-            throw new \InvalidArgumentException('non-nullable show_progress_stepper cannot be null');
+            throw new InvalidArgumentException('non-nullable show_progress_stepper cannot be null');
         }
         $this->container['show_progress_stepper'] = $show_progress_stepper;
 
@@ -1277,7 +1266,7 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
     /**
      * Gets signers
      *
-     * @return \Dropbox\Sign\Model\SubUnclaimedDraftSigner[]|null
+     * @return SubUnclaimedDraftSigner[]|null
      */
     public function getSigners()
     {
@@ -1287,14 +1276,14 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
     /**
      * Sets signers
      *
-     * @param \Dropbox\Sign\Model\SubUnclaimedDraftSigner[]|null $signers Add Signers to your Unclaimed Draft Signature Request.
+     * @param SubUnclaimedDraftSigner[]|null $signers add Signers to your Unclaimed Draft Signature Request
      *
      * @return self
      */
-    public function setSigners($signers)
+    public function setSigners(?array $signers)
     {
         if (is_null($signers)) {
-            throw new \InvalidArgumentException('non-nullable signers cannot be null');
+            throw new InvalidArgumentException('non-nullable signers cannot be null');
         }
         $this->container['signers'] = $signers;
 
@@ -1304,7 +1293,7 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
     /**
      * Gets signing_options
      *
-     * @return \Dropbox\Sign\Model\SubSigningOptions|null
+     * @return SubSigningOptions|null
      */
     public function getSigningOptions()
     {
@@ -1314,14 +1303,14 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
     /**
      * Sets signing_options
      *
-     * @param \Dropbox\Sign\Model\SubSigningOptions|null $signing_options signing_options
+     * @param SubSigningOptions|null $signing_options signing_options
      *
      * @return self
      */
-    public function setSigningOptions($signing_options)
+    public function setSigningOptions(?SubSigningOptions $signing_options)
     {
         if (is_null($signing_options)) {
-            throw new \InvalidArgumentException('non-nullable signing_options cannot be null');
+            throw new InvalidArgumentException('non-nullable signing_options cannot be null');
         }
         $this->container['signing_options'] = $signing_options;
 
@@ -1341,14 +1330,14 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
     /**
      * Sets signing_redirect_url
      *
-     * @param string|null $signing_redirect_url The URL you want signers redirected to after they successfully sign.
+     * @param string|null $signing_redirect_url the URL you want signers redirected to after they successfully sign
      *
      * @return self
      */
-    public function setSigningRedirectUrl($signing_redirect_url)
+    public function setSigningRedirectUrl(?string $signing_redirect_url)
     {
         if (is_null($signing_redirect_url)) {
-            throw new \InvalidArgumentException('non-nullable signing_redirect_url cannot be null');
+            throw new InvalidArgumentException('non-nullable signing_redirect_url cannot be null');
         }
         $this->container['signing_redirect_url'] = $signing_redirect_url;
 
@@ -1372,10 +1361,10 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
      *
      * @return self
      */
-    public function setSkipMeNow($skip_me_now)
+    public function setSkipMeNow(?bool $skip_me_now)
     {
         if (is_null($skip_me_now)) {
-            throw new \InvalidArgumentException('non-nullable skip_me_now cannot be null');
+            throw new InvalidArgumentException('non-nullable skip_me_now cannot be null');
         }
         $this->container['skip_me_now'] = $skip_me_now;
 
@@ -1395,17 +1384,17 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
     /**
      * Sets subject
      *
-     * @param string|null $subject The subject in the email that will be sent to the signers.
+     * @param string|null $subject the subject in the email that will be sent to the signers
      *
      * @return self
      */
-    public function setSubject($subject)
+    public function setSubject(?string $subject)
     {
         if (is_null($subject)) {
-            throw new \InvalidArgumentException('non-nullable subject cannot be null');
+            throw new InvalidArgumentException('non-nullable subject cannot be null');
         }
-        if ((mb_strlen($subject) > 200)) {
-            throw new \InvalidArgumentException('invalid length for $subject when calling UnclaimedDraftCreateEmbeddedRequest., must be smaller than or equal to 200.');
+        if (mb_strlen($subject) > 200) {
+            throw new InvalidArgumentException('invalid length for $subject when calling UnclaimedDraftCreateEmbeddedRequest., must be smaller than or equal to 200.');
         }
 
         $this->container['subject'] = $subject;
@@ -1430,10 +1419,10 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
      *
      * @return self
      */
-    public function setTestMode($test_mode)
+    public function setTestMode(?bool $test_mode)
     {
         if (is_null($test_mode)) {
-            throw new \InvalidArgumentException('non-nullable test_mode cannot be null');
+            throw new InvalidArgumentException('non-nullable test_mode cannot be null');
         }
         $this->container['test_mode'] = $test_mode;
 
@@ -1457,14 +1446,14 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
      *
      * @return self
      */
-    public function setType($type)
+    public function setType(?string $type)
     {
         if (is_null($type)) {
-            throw new \InvalidArgumentException('non-nullable type cannot be null');
+            throw new InvalidArgumentException('non-nullable type cannot be null');
         }
         $allowedValues = $this->getTypeAllowableValues();
         if (!in_array($type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
+            throw new InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'type', must be one of '%s'",
                     $type,
@@ -1494,10 +1483,10 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
      *
      * @return self
      */
-    public function setUsePreexistingFields($use_preexisting_fields)
+    public function setUsePreexistingFields(?bool $use_preexisting_fields)
     {
         if (is_null($use_preexisting_fields)) {
-            throw new \InvalidArgumentException('non-nullable use_preexisting_fields cannot be null');
+            throw new InvalidArgumentException('non-nullable use_preexisting_fields cannot be null');
         }
         $this->container['use_preexisting_fields'] = $use_preexisting_fields;
 
@@ -1521,10 +1510,10 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
      *
      * @return self
      */
-    public function setUseTextTags($use_text_tags)
+    public function setUseTextTags(?bool $use_text_tags)
     {
         if (is_null($use_text_tags)) {
-            throw new \InvalidArgumentException('non-nullable use_text_tags cannot be null');
+            throw new InvalidArgumentException('non-nullable use_text_tags cannot be null');
         }
         $this->container['use_text_tags'] = $use_text_tags;
 
@@ -1548,10 +1537,10 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
      *
      * @return self
      */
-    public function setPopulateAutoFillFields($populate_auto_fill_fields)
+    public function setPopulateAutoFillFields(?bool $populate_auto_fill_fields)
     {
         if (is_null($populate_auto_fill_fields)) {
-            throw new \InvalidArgumentException('non-nullable populate_auto_fill_fields cannot be null');
+            throw new InvalidArgumentException('non-nullable populate_auto_fill_fields cannot be null');
         }
         $this->container['populate_auto_fill_fields'] = $populate_auto_fill_fields;
 
@@ -1575,14 +1564,14 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
      *
      * @return self
      */
-    public function setExpiresAt($expires_at)
+    public function setExpiresAt(?int $expires_at)
     {
         if (is_null($expires_at)) {
             array_push($this->openAPINullablesSetToNull, 'expires_at');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
             $index = array_search('expires_at', $nullablesSetToNull);
-            if ($index !== FALSE) {
+            if ($index !== false) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
@@ -1591,14 +1580,13 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
 
         return $this;
     }
+
     /**
      * Returns true if offset exists. False otherwise.
      *
-     * @param integer $offset Offset
-     *
-     * @return boolean
+     * @param int $offset Offset
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
@@ -1607,11 +1595,11 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
     /**
      * Gets offset.
      *
-     * @param integer $offset Offset
+     * @param int $offset Offset
      *
      * @return mixed|null
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return $this->container[$offset] ?? null;
@@ -1622,10 +1610,8 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
      *
      * @param int|null $offset Offset
      * @param mixed    $value  Value to be set
-     *
-     * @return void
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
@@ -1638,11 +1624,9 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
     /**
      * Unsets offset.
      *
-     * @param integer $offset Offset
-     *
-     * @return void
+     * @param int $offset Offset
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
@@ -1650,15 +1634,15 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
 
     /**
      * Serializes the object to a value that can be serialized natively by json_encode().
-     * @link https://www.php.net/manual/en/jsonserializable.jsonserialize.php
+     * @see https://www.php.net/manual/en/jsonserializable.jsonserialize.php
      *
-     * @return mixed Returns data which can be serialized by json_encode(), which is a value
-     * of any type other than a resource.
+     * @return mixed returns data which can be serialized by json_encode(), which is a value
+     *               of any type other than a resource
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function jsonSerialize()
     {
-       return ObjectSerializer::sanitizeForSerialization($this);
+        return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**
@@ -1684,5 +1668,3 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
-
-

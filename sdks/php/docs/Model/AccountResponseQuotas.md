@@ -6,11 +6,11 @@ Details concerning remaining monthly quotas.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-| `api_signature_requests_left` | ```int``` | REPLACE_ME_WITH_DESCRIPTION_BEGIN API signature requests remaining. REPLACE_ME_WITH_DESCRIPTION_END |  |
-| `documents_left` | ```int``` | REPLACE_ME_WITH_DESCRIPTION_BEGIN Signature requests remaining. REPLACE_ME_WITH_DESCRIPTION_END |  |
-| `templates_total` | ```int``` | REPLACE_ME_WITH_DESCRIPTION_BEGIN Total API templates allowed. REPLACE_ME_WITH_DESCRIPTION_END |  |
-| `templates_left` | ```int``` | REPLACE_ME_WITH_DESCRIPTION_BEGIN API templates remaining. REPLACE_ME_WITH_DESCRIPTION_END |  |
-| `sms_verifications_left` | ```int``` | REPLACE_ME_WITH_DESCRIPTION_BEGIN SMS verifications remaining. REPLACE_ME_WITH_DESCRIPTION_END |  |
-| `num_fax_pages_left` | ```int``` | REPLACE_ME_WITH_DESCRIPTION_BEGIN Number of fax pages left REPLACE_ME_WITH_DESCRIPTION_END |  |
+| `api_signature_requests_left` | ```int``` |  API signature requests remaining.  |  |
+| `documents_left` | ```int``` |  Signature requests remaining.  |  |
+| `templates_total` | ```int``` |  Total API templates allowed.  |  |
+| `templates_left` | ```int``` |  API templates remaining.  |  |
+| `sms_verifications_left` | ```int``` |  SMS verifications remaining.  |  |
+| `num_fax_pages_left` | ```int``` |  Number of fax pages left  |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

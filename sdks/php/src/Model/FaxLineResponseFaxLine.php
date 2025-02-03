@@ -5,9 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  Dropbox\Sign
- * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ * @see     https://openapi-generator.tech
  */
 
 /**
@@ -29,72 +27,73 @@
 
 namespace Dropbox\Sign\Model;
 
-use \ArrayAccess;
-use \Dropbox\Sign\ObjectSerializer;
+use ArrayAccess;
+use Dropbox\Sign\ObjectSerializer;
+use InvalidArgumentException;
+use JsonSerializable;
+use ReturnTypeWillChange;
 
 /**
  * FaxLineResponseFaxLine Class Doc Comment
  *
  * @category Class
- * @package  Dropbox\Sign
- * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ * @see     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class FaxLineResponseFaxLine implements ModelInterface, ArrayAccess, \JsonSerializable
+class FaxLineResponseFaxLine implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
     /**
-      * The original name of the model.
-      *
-      * @var string
-      */
+     * The original name of the model.
+     *
+     * @var string
+     */
     protected static $openAPIModelName = 'FaxLineResponseFaxLine';
 
     /**
-      * Array of property to type mappings. Used for (de)serialization
-      *
-      * @var string[]
-      */
+     * Array of property to type mappings. Used for (de)serialization
+     *
+     * @var string[]
+     */
     protected static $openAPITypes = [
         'number' => 'string',
         'created_at' => 'int',
         'updated_at' => 'int',
-        'accounts' => '\Dropbox\Sign\Model\AccountResponse[]'
+        'accounts' => '\Dropbox\Sign\Model\AccountResponse[]',
     ];
 
     /**
-      * Array of property to format mappings. Used for (de)serialization
-      *
-      * @var string[]
-      * @phpstan-var array<string, string|null>
-      * @psalm-var array<string, string|null>
-      */
+     * Array of property to format mappings. Used for (de)serialization
+     *
+     * @var string[]
+     * @phpstan-var array<string, string|null>
+     * @psalm-var array<string, string|null>
+     */
     protected static $openAPIFormats = [
         'number' => null,
         'created_at' => null,
         'updated_at' => null,
-        'accounts' => null
+        'accounts' => null,
     ];
 
     /**
-      * Array of nullable properties. Used for (de)serialization
-      *
-      * @var boolean[]
-      */
+     * Array of nullable properties. Used for (de)serialization
+     *
+     * @var bool[]
+     */
     protected static array $openAPINullables = [
         'number' => false,
         'created_at' => false,
         'updated_at' => false,
-        'accounts' => false
+        'accounts' => false,
     ];
 
     /**
-      * If a nullable field gets set to null, insert it here
-      *
-      * @var boolean[]
-      */
+     * If a nullable field gets set to null, insert it here
+     *
+     * @var bool[]
+     */
     protected array $openAPINullablesSetToNull = [];
 
     /**
@@ -119,8 +118,6 @@ class FaxLineResponseFaxLine implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Array of nullable properties
-     *
-     * @return array
      */
     protected static function openAPINullables(): array
     {
@@ -130,7 +127,7 @@ class FaxLineResponseFaxLine implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Array of nullable field names deliberately set to null
      *
-     * @return boolean[]
+     * @return bool[]
      */
     private function getOpenAPINullablesSetToNull(): array
     {
@@ -140,7 +137,7 @@ class FaxLineResponseFaxLine implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Setter - Array of nullable field names deliberately set to null
      *
-     * @param boolean[] $openAPINullablesSetToNull
+     * @param bool[] $openAPINullablesSetToNull
      */
     private function setOpenAPINullablesSetToNull(array $openAPINullablesSetToNull): void
     {
@@ -149,9 +146,6 @@ class FaxLineResponseFaxLine implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Checks if a property is nullable
-     *
-     * @param string $property
-     * @return bool
      */
     public static function isNullable(string $property): bool
     {
@@ -160,9 +154,6 @@ class FaxLineResponseFaxLine implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Checks if a nullable property is set to null.
-     *
-     * @param string $property
-     * @return bool
      */
     public function isNullableSetToNull(string $property): bool
     {
@@ -179,7 +170,7 @@ class FaxLineResponseFaxLine implements ModelInterface, ArrayAccess, \JsonSerial
         'number' => 'number',
         'created_at' => 'created_at',
         'updated_at' => 'updated_at',
-        'accounts' => 'accounts'
+        'accounts' => 'accounts',
     ];
 
     /**
@@ -191,7 +182,7 @@ class FaxLineResponseFaxLine implements ModelInterface, ArrayAccess, \JsonSerial
         'number' => 'setNumber',
         'created_at' => 'setCreatedAt',
         'updated_at' => 'setUpdatedAt',
-        'accounts' => 'setAccounts'
+        'accounts' => 'setAccounts',
     ];
 
     /**
@@ -203,7 +194,7 @@ class FaxLineResponseFaxLine implements ModelInterface, ArrayAccess, \JsonSerial
         'number' => 'getNumber',
         'created_at' => 'getCreatedAt',
         'updated_at' => 'getUpdatedAt',
-        'accounts' => 'getAccounts'
+        'accounts' => 'getAccounts',
     ];
 
     /**
@@ -247,7 +238,6 @@ class FaxLineResponseFaxLine implements ModelInterface, ArrayAccess, \JsonSerial
         return self::$openAPIModelName;
     }
 
-
     /**
      * Associative array for storing property values
      *
@@ -269,34 +259,33 @@ class FaxLineResponseFaxLine implements ModelInterface, ArrayAccess, \JsonSerial
         $this->setIfExists('accounts', $data ?? [], null);
     }
 
-    /** @deprecated use ::init() */
+    /**
+     * @deprecated use ::init()
+     */
     public static function fromArray(array $data): FaxLineResponseFaxLine
     {
         return self::init($data);
     }
 
-    /** Attempt to instantiate and hydrate a new instance of this class */
+    /**
+     * Attempt to instantiate and hydrate a new instance of this class
+     */
     public static function init(array $data): FaxLineResponseFaxLine
     {
         /** @var FaxLineResponseFaxLine */
-        $obj = ObjectSerializer::deserialize(
+        return ObjectSerializer::deserialize(
             $data,
             FaxLineResponseFaxLine::class,
         );
-
-        return $obj;
     }
 
-
     /**
-    * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
-    * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
-    * $this->openAPINullablesSetToNull array
-    *
-    * @param string $variableName
-    * @param array  $fields
-* @param string|int|object|array|mixed  $defaultValue
-    */
+     * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
+     * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
+     * $this->openAPINullablesSetToNull array
+     *
+     * @param string|int|object|array|mixed $defaultValue
+     */
     private function setIfExists(string $variableName, array $fields, $defaultValue): void
     {
         if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
@@ -313,9 +302,7 @@ class FaxLineResponseFaxLine implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = [];
-
-        return $invalidProperties;
+        return [];
     }
 
     /**
@@ -328,7 +315,6 @@ class FaxLineResponseFaxLine implements ModelInterface, ArrayAccess, \JsonSerial
     {
         return count($this->listInvalidProperties()) === 0;
     }
-
 
     /**
      * Gets number
@@ -347,10 +333,10 @@ class FaxLineResponseFaxLine implements ModelInterface, ArrayAccess, \JsonSerial
      *
      * @return self
      */
-    public function setNumber($number)
+    public function setNumber(?string $number)
     {
         if (is_null($number)) {
-            throw new \InvalidArgumentException('non-nullable number cannot be null');
+            throw new InvalidArgumentException('non-nullable number cannot be null');
         }
         $this->container['number'] = $number;
 
@@ -374,10 +360,10 @@ class FaxLineResponseFaxLine implements ModelInterface, ArrayAccess, \JsonSerial
      *
      * @return self
      */
-    public function setCreatedAt($created_at)
+    public function setCreatedAt(?int $created_at)
     {
         if (is_null($created_at)) {
-            throw new \InvalidArgumentException('non-nullable created_at cannot be null');
+            throw new InvalidArgumentException('non-nullable created_at cannot be null');
         }
         $this->container['created_at'] = $created_at;
 
@@ -401,10 +387,10 @@ class FaxLineResponseFaxLine implements ModelInterface, ArrayAccess, \JsonSerial
      *
      * @return self
      */
-    public function setUpdatedAt($updated_at)
+    public function setUpdatedAt(?int $updated_at)
     {
         if (is_null($updated_at)) {
-            throw new \InvalidArgumentException('non-nullable updated_at cannot be null');
+            throw new InvalidArgumentException('non-nullable updated_at cannot be null');
         }
         $this->container['updated_at'] = $updated_at;
 
@@ -414,7 +400,7 @@ class FaxLineResponseFaxLine implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets accounts
      *
-     * @return \Dropbox\Sign\Model\AccountResponse[]|null
+     * @return AccountResponse[]|null
      */
     public function getAccounts()
     {
@@ -424,27 +410,26 @@ class FaxLineResponseFaxLine implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets accounts
      *
-     * @param \Dropbox\Sign\Model\AccountResponse[]|null $accounts accounts
+     * @param AccountResponse[]|null $accounts accounts
      *
      * @return self
      */
-    public function setAccounts($accounts)
+    public function setAccounts(?array $accounts)
     {
         if (is_null($accounts)) {
-            throw new \InvalidArgumentException('non-nullable accounts cannot be null');
+            throw new InvalidArgumentException('non-nullable accounts cannot be null');
         }
         $this->container['accounts'] = $accounts;
 
         return $this;
     }
+
     /**
      * Returns true if offset exists. False otherwise.
      *
-     * @param integer $offset Offset
-     *
-     * @return boolean
+     * @param int $offset Offset
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
@@ -453,11 +438,11 @@ class FaxLineResponseFaxLine implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets offset.
      *
-     * @param integer $offset Offset
+     * @param int $offset Offset
      *
      * @return mixed|null
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return $this->container[$offset] ?? null;
@@ -468,10 +453,8 @@ class FaxLineResponseFaxLine implements ModelInterface, ArrayAccess, \JsonSerial
      *
      * @param int|null $offset Offset
      * @param mixed    $value  Value to be set
-     *
-     * @return void
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
@@ -484,11 +467,9 @@ class FaxLineResponseFaxLine implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Unsets offset.
      *
-     * @param integer $offset Offset
-     *
-     * @return void
+     * @param int $offset Offset
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
@@ -496,15 +477,15 @@ class FaxLineResponseFaxLine implements ModelInterface, ArrayAccess, \JsonSerial
 
     /**
      * Serializes the object to a value that can be serialized natively by json_encode().
-     * @link https://www.php.net/manual/en/jsonserializable.jsonserialize.php
+     * @see https://www.php.net/manual/en/jsonserializable.jsonserialize.php
      *
-     * @return mixed Returns data which can be serialized by json_encode(), which is a value
-     * of any type other than a resource.
+     * @return mixed returns data which can be serialized by json_encode(), which is a value
+     *               of any type other than a resource
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function jsonSerialize()
     {
-       return ObjectSerializer::sanitizeForSerialization($this);
+        return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**
@@ -530,5 +511,3 @@ class FaxLineResponseFaxLine implements ModelInterface, ArrayAccess, \JsonSerial
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
-
-

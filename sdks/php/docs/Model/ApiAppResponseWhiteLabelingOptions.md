@@ -6,19 +6,19 @@ An object with options to customize the app&#39;s signer page
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-| `header_background_color` | ```string``` | REPLACE_ME_WITH_DESCRIPTION_BEGIN  REPLACE_ME_WITH_DESCRIPTION_END |  |
-| `legal_version` | ```string``` | REPLACE_ME_WITH_DESCRIPTION_BEGIN  REPLACE_ME_WITH_DESCRIPTION_END |  |
-| `link_color` | ```string``` | REPLACE_ME_WITH_DESCRIPTION_BEGIN  REPLACE_ME_WITH_DESCRIPTION_END |  |
-| `page_background_color` | ```string``` | REPLACE_ME_WITH_DESCRIPTION_BEGIN  REPLACE_ME_WITH_DESCRIPTION_END |  |
-| `primary_button_color` | ```string``` | REPLACE_ME_WITH_DESCRIPTION_BEGIN  REPLACE_ME_WITH_DESCRIPTION_END |  |
-| `primary_button_color_hover` | ```string``` | REPLACE_ME_WITH_DESCRIPTION_BEGIN  REPLACE_ME_WITH_DESCRIPTION_END |  |
-| `primary_button_text_color` | ```string``` | REPLACE_ME_WITH_DESCRIPTION_BEGIN  REPLACE_ME_WITH_DESCRIPTION_END |  |
-| `primary_button_text_color_hover` | ```string``` | REPLACE_ME_WITH_DESCRIPTION_BEGIN  REPLACE_ME_WITH_DESCRIPTION_END |  |
-| `secondary_button_color` | ```string``` | REPLACE_ME_WITH_DESCRIPTION_BEGIN  REPLACE_ME_WITH_DESCRIPTION_END |  |
-| `secondary_button_color_hover` | ```string``` | REPLACE_ME_WITH_DESCRIPTION_BEGIN  REPLACE_ME_WITH_DESCRIPTION_END |  |
-| `secondary_button_text_color` | ```string``` | REPLACE_ME_WITH_DESCRIPTION_BEGIN  REPLACE_ME_WITH_DESCRIPTION_END |  |
-| `secondary_button_text_color_hover` | ```string``` | REPLACE_ME_WITH_DESCRIPTION_BEGIN  REPLACE_ME_WITH_DESCRIPTION_END |  |
-| `text_color1` | ```string``` | REPLACE_ME_WITH_DESCRIPTION_BEGIN  REPLACE_ME_WITH_DESCRIPTION_END |  |
-| `text_color2` | ```string``` | REPLACE_ME_WITH_DESCRIPTION_BEGIN  REPLACE_ME_WITH_DESCRIPTION_END |  |
+| `header_background_color` | ```string``` |    |  |
+| `legal_version` | ```string``` |    |  |
+| `link_color` | ```string``` |    |  |
+| `page_background_color` | ```string``` |    |  |
+| `primary_button_color` | ```string``` |    |  |
+| `primary_button_color_hover` | ```string``` |    |  |
+| `primary_button_text_color` | ```string``` |    |  |
+| `primary_button_text_color_hover` | ```string``` |    |  |
+| `secondary_button_color` | ```string``` |    |  |
+| `secondary_button_color_hover` | ```string``` |    |  |
+| `secondary_button_text_color` | ```string``` |    |  |
+| `secondary_button_text_color_hover` | ```string``` |    |  |
+| `text_color1` | ```string``` |    |  |
+| `text_color2` | ```string``` |    |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

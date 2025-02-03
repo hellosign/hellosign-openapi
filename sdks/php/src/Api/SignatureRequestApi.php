@@ -4,9 +4,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  Dropbox\Sign
- * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ * @see     https://openapi-generator.tech
  */
 
 /**
@@ -28,6 +26,11 @@
 
 namespace Dropbox\Sign\Api;
 
+use Dropbox\Sign\ApiException;
+use Dropbox\Sign\Configuration;
+use Dropbox\Sign\HeaderSelector;
+use Dropbox\Sign\Model;
+use Dropbox\Sign\ObjectSerializer;
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\ConnectException;
@@ -35,44 +38,35 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use Dropbox\Sign\ApiException;
-use Dropbox\Sign\Configuration;
-use Dropbox\Sign\HeaderSelector;
-use Dropbox\Sign\ObjectSerializer;
-use Dropbox\Sign\Model;
+use InvalidArgumentException;
+use JsonException;
 use Psr\Http\Message\ResponseInterface;
+use RuntimeException;
+use SplFileObject;
 
 /**
  * SignatureRequestApi Class Doc Comment
  *
  * @category Class
- * @package  Dropbox\Sign
- * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ * @see     https://openapi-generator.tech
  */
 class SignatureRequestApi
 {
-    /**
-     * @var ClientInterface
-     */
+    /** @var ClientInterface */
     protected $client;
 
-    /**
-     * @var Configuration
-     */
+    /** @var Configuration */
     protected $config;
 
-    /**
-     * @var HeaderSelector
-     */
+    /** @var HeaderSelector */
     protected $headerSelector;
 
-    /**
-     * @var int Host index
-     */
+    /** @var int Host index */
     protected $hostIndex;
 
-    /** @var string[] $contentTypes **/
+    /**
+     * @var string[] *
+     */
     public const contentTypes = [
         'signatureRequestBulkCreateEmbeddedWithTemplate' => [
             'application/json',
@@ -134,16 +128,13 @@ class SignatureRequestApi
     protected $response;
 
     /**
-     * @param Configuration   $config
-     * @param ClientInterface $client
-     * @param HeaderSelector  $selector
-     * @param int             $hostIndex (Optional) host index to select the list of hosts if defined in the OpenAPI spec
+     * @param int $hostIndex (Optional) host index to select the list of hosts if defined in the OpenAPI spec
      */
     public function __construct(
         Configuration $config = null,
         ClientInterface $client = null,
         HeaderSelector $selector = null,
-        $hostIndex = 0
+        int $hostIndex = 0
     ) {
         $this->client = $client ?: new Client();
         $this->config = $config ?: new Configuration();
@@ -157,7 +148,7 @@ class SignatureRequestApi
      * @param int $hostIndex Host index (required)
      * @deprecated To be made private in the future
      */
-    public function setHostIndex($hostIndex): void
+    public function setHostIndex(int $hostIndex): void
     {
         $this->hostIndex = $hostIndex;
     }
@@ -194,13 +185,13 @@ class SignatureRequestApi
      *
      * Embedded Bulk Send with Template
      *
-     * @param  \Dropbox\Sign\Model\SignatureRequestBulkCreateEmbeddedWithTemplateRequest $signature_request_bulk_create_embedded_with_template_request signature_request_bulk_create_embedded_with_template_request (required)
+     * @param Model\SignatureRequestBulkCreateEmbeddedWithTemplateRequest $signature_request_bulk_create_embedded_with_template_request signature_request_bulk_create_embedded_with_template_request (required)
      *
-     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return \Dropbox\Sign\Model\BulkSendJobSendResponse|\Dropbox\Sign\Model\ErrorResponse
+     * @return Model\BulkSendJobSendResponse
+     * @throws ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws InvalidArgumentException
      */
-    public function signatureRequestBulkCreateEmbeddedWithTemplate($signature_request_bulk_create_embedded_with_template_request)
+    public function signatureRequestBulkCreateEmbeddedWithTemplate(Model\SignatureRequestBulkCreateEmbeddedWithTemplateRequest $signature_request_bulk_create_embedded_with_template_request)
     {
         list($response) = $this->signatureRequestBulkCreateEmbeddedWithTemplateWithHttpInfo($signature_request_bulk_create_embedded_with_template_request);
         return $response;
@@ -211,15 +202,15 @@ class SignatureRequestApi
      *
      * Embedded Bulk Send with Template
      *
-     * @param  \Dropbox\Sign\Model\SignatureRequestBulkCreateEmbeddedWithTemplateRequest $signature_request_bulk_create_embedded_with_template_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['signatureRequestBulkCreateEmbeddedWithTemplate'] to see the possible values for this operation
+     * @param Model\SignatureRequestBulkCreateEmbeddedWithTemplateRequest $signature_request_bulk_create_embedded_with_template_request (required)
+     * @param string                                                      $contentType                                                  The value for the Content-Type header. Check self::contentTypes['signatureRequestBulkCreateEmbeddedWithTemplate'] to see the possible values for this operation
      *
-     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return array of \Dropbox\Sign\Model\BulkSendJobSendResponse|\Dropbox\Sign\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of Model\BulkSendJobSendResponse, HTTP status code, HTTP response headers (array of strings)
+     * @throws ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestBulkCreateEmbeddedWithTemplate. This method will eventually become unavailable
      */
-    public function signatureRequestBulkCreateEmbeddedWithTemplateWithHttpInfo($signature_request_bulk_create_embedded_with_template_request, string $contentType = self::contentTypes['signatureRequestBulkCreateEmbeddedWithTemplate'][0])
+    public function signatureRequestBulkCreateEmbeddedWithTemplateWithHttpInfo(Model\SignatureRequestBulkCreateEmbeddedWithTemplateRequest $signature_request_bulk_create_embedded_with_template_request, string $contentType = self::contentTypes['signatureRequestBulkCreateEmbeddedWithTemplate'][0])
     {
         $request = $this->signatureRequestBulkCreateEmbeddedWithTemplateRequest($signature_request_bulk_create_embedded_with_template_request, $contentType);
 
@@ -231,14 +222,14 @@ class SignatureRequestApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
+                    (int)$e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                    $e->getResponse() ? (string)$e->getResponse()->getBody() : null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
+                    (int)$e->getCode(),
                     null,
                     null
                 );
@@ -251,14 +242,14 @@ class SignatureRequestApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        (string) $request->getUri()
+                        (string)$request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    (string) $response->getBody()
+                    (string)$response->getBody()
                 );
             }
-            
+
             $result = $this->handleRangeCodeResponse(
                 $response,
                 '4XX',
@@ -267,18 +258,17 @@ class SignatureRequestApi
             if ($result) {
                 return $result;
             }
-            
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     if ('\Dropbox\Sign\Model\BulkSendJobSendResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
-                        $content = (string) $response->getBody();
+                        $content = (string)$response->getBody();
                         if ('\Dropbox\Sign\Model\BulkSendJobSendResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (\JsonException $exception) {
+                            } catch (JsonException $exception) {
                                 throw new ApiException(
                                     sprintf(
                                         'Error JSON decoding server response (%s)',
@@ -295,20 +285,19 @@ class SignatureRequestApi
                     return [
                         ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\BulkSendJobSendResponse', []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
-                
             }
 
             $returnType = '\Dropbox\Sign\Model\BulkSendJobSendResponse';
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
+                $content = $response->getBody(); // stream goes to serializer
             } else {
-                $content = (string) $response->getBody();
+                $content = (string)$response->getBody();
                 if ($returnType !== 'string') {
                     try {
                         $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                    } catch (\JsonException $exception) {
+                    } catch (JsonException $exception) {
                         throw new ApiException(
                             sprintf(
                                 'Error JSON decoding server response (%s)',
@@ -325,11 +314,9 @@ class SignatureRequestApi
             return [
                 ObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
-                $response->getHeaders()
+                $response->getHeaders(),
             ];
-
         } catch (ApiException $e) {
-            
             if ($this->handleRangeCodeException($e, '4XX', '\Dropbox\Sign\Model\ErrorResponse')) {
                 throw $e;
             }
@@ -342,7 +329,6 @@ class SignatureRequestApi
                     );
                     $e->setResponseObject($data);
                     break;
-                
             }
             throw $e;
         }
@@ -353,14 +339,14 @@ class SignatureRequestApi
      *
      * Embedded Bulk Send with Template
      *
-     * @param  \Dropbox\Sign\Model\SignatureRequestBulkCreateEmbeddedWithTemplateRequest $signature_request_bulk_create_embedded_with_template_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['signatureRequestBulkCreateEmbeddedWithTemplate'] to see the possible values for this operation
+     * @param Model\SignatureRequestBulkCreateEmbeddedWithTemplateRequest $signature_request_bulk_create_embedded_with_template_request (required)
+     * @param string                                                      $contentType                                                  The value for the Content-Type header. Check self::contentTypes['signatureRequestBulkCreateEmbeddedWithTemplate'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestBulkCreateEmbeddedWithTemplate. This method will eventually become unavailable
      */
-    public function signatureRequestBulkCreateEmbeddedWithTemplateAsync($signature_request_bulk_create_embedded_with_template_request, string $contentType = self::contentTypes['signatureRequestBulkCreateEmbeddedWithTemplate'][0])
+    public function signatureRequestBulkCreateEmbeddedWithTemplateAsync(Model\SignatureRequestBulkCreateEmbeddedWithTemplateRequest $signature_request_bulk_create_embedded_with_template_request, string $contentType = self::contentTypes['signatureRequestBulkCreateEmbeddedWithTemplate'][0])
     {
         return $this->signatureRequestBulkCreateEmbeddedWithTemplateAsyncWithHttpInfo($signature_request_bulk_create_embedded_with_template_request, $contentType)
             ->then(
@@ -375,14 +361,14 @@ class SignatureRequestApi
      *
      * Embedded Bulk Send with Template
      *
-     * @param  \Dropbox\Sign\Model\SignatureRequestBulkCreateEmbeddedWithTemplateRequest $signature_request_bulk_create_embedded_with_template_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['signatureRequestBulkCreateEmbeddedWithTemplate'] to see the possible values for this operation
+     * @param Model\SignatureRequestBulkCreateEmbeddedWithTemplateRequest $signature_request_bulk_create_embedded_with_template_request (required)
+     * @param string                                                      $contentType                                                  The value for the Content-Type header. Check self::contentTypes['signatureRequestBulkCreateEmbeddedWithTemplate'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestBulkCreateEmbeddedWithTemplate. This method will eventually become unavailable
      */
-    public function signatureRequestBulkCreateEmbeddedWithTemplateAsyncWithHttpInfo($signature_request_bulk_create_embedded_with_template_request, string $contentType = self::contentTypes['signatureRequestBulkCreateEmbeddedWithTemplate'][0])
+    public function signatureRequestBulkCreateEmbeddedWithTemplateAsyncWithHttpInfo(Model\SignatureRequestBulkCreateEmbeddedWithTemplateRequest $signature_request_bulk_create_embedded_with_template_request, string $contentType = self::contentTypes['signatureRequestBulkCreateEmbeddedWithTemplate'][0])
     {
         $returnType = '\Dropbox\Sign\Model\BulkSendJobSendResponse';
         $request = $this->signatureRequestBulkCreateEmbeddedWithTemplateRequest($signature_request_bulk_create_embedded_with_template_request, $contentType);
@@ -392,9 +378,9 @@ class SignatureRequestApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
-                        $content = (string) $response->getBody();
+                        $content = (string)$response->getBody();
                         if ($returnType !== 'string') {
                             $content = json_decode($content);
                         }
@@ -403,7 +389,7 @@ class SignatureRequestApi
                     return [
                         ObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
                 },
                 function ($exception) {
@@ -417,7 +403,7 @@ class SignatureRequestApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        (string) $response->getBody()
+                        (string)$response->getBody()
                     );
                 }
             );
@@ -426,23 +412,21 @@ class SignatureRequestApi
     /**
      * Create request for operation 'signatureRequestBulkCreateEmbeddedWithTemplate'
      *
-     * @param  \Dropbox\Sign\Model\SignatureRequestBulkCreateEmbeddedWithTemplateRequest $signature_request_bulk_create_embedded_with_template_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['signatureRequestBulkCreateEmbeddedWithTemplate'] to see the possible values for this operation
+     * @param Model\SignatureRequestBulkCreateEmbeddedWithTemplateRequest $signature_request_bulk_create_embedded_with_template_request (required)
+     * @param string                                                      $contentType                                                  The value for the Content-Type header. Check self::contentTypes['signatureRequestBulkCreateEmbeddedWithTemplate'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
+     * @return Request
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestBulkCreateEmbeddedWithTemplate. This method will eventually become unavailable
      */
-    public function signatureRequestBulkCreateEmbeddedWithTemplateRequest($signature_request_bulk_create_embedded_with_template_request, string $contentType = self::contentTypes['signatureRequestBulkCreateEmbeddedWithTemplate'][0])
+    public function signatureRequestBulkCreateEmbeddedWithTemplateRequest(Model\SignatureRequestBulkCreateEmbeddedWithTemplateRequest $signature_request_bulk_create_embedded_with_template_request, string $contentType = self::contentTypes['signatureRequestBulkCreateEmbeddedWithTemplate'][0])
     {
-
         // verify the required parameter 'signature_request_bulk_create_embedded_with_template_request' is set
         if ($signature_request_bulk_create_embedded_with_template_request === null || (is_array($signature_request_bulk_create_embedded_with_template_request) && count($signature_request_bulk_create_embedded_with_template_request) === 0)) {
-            throw new \InvalidArgumentException(
+            throw new InvalidArgumentException(
                 'Missing the required parameter $signature_request_bulk_create_embedded_with_template_request when calling signatureRequestBulkCreateEmbeddedWithTemplate'
             );
         }
-
 
         $resourcePath = '/signature_request/bulk_create_embedded_with_template';
         $formParams = [];
@@ -457,11 +441,8 @@ class SignatureRequestApi
 
         $multipart = !empty($formParams);
 
-
-
-
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json', ],
+            $multipart ? ['multipart/form-data'] : ['application/json'],
             $contentType,
             $multipart
         );
@@ -469,7 +450,7 @@ class SignatureRequestApi
         // for model (json/xml)
         if (count($formParams) === 0) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the body
+                // if Content-Type contains "application/json", json_encode the body
                 $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($signature_request_bulk_create_embedded_with_template_request));
             } else {
                 $httpBody = $signature_request_bulk_create_embedded_with_template_request;
@@ -482,7 +463,7 @@ class SignatureRequestApi
                     foreach ($formParamValueItems as $formParamValueItem) {
                         $multipartContents[] = [
                             'name' => $formParamName,
-                            'contents' => $formParamValueItem
+                            'contents' => $formParamValueItem,
                         ];
                     }
                 }
@@ -499,9 +480,8 @@ class SignatureRequestApi
                     $payloadHook('multipart', $multipartContents, $signature_request_bulk_create_embedded_with_template_request);
                 }
                 $httpBody = new MultipartStream($multipartContents);
-
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
+                // if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
             } else {
                 // for HTTP post (form)
@@ -540,13 +520,13 @@ class SignatureRequestApi
      *
      * Bulk Send with Template
      *
-     * @param  \Dropbox\Sign\Model\SignatureRequestBulkSendWithTemplateRequest $signature_request_bulk_send_with_template_request signature_request_bulk_send_with_template_request (required)
+     * @param Model\SignatureRequestBulkSendWithTemplateRequest $signature_request_bulk_send_with_template_request signature_request_bulk_send_with_template_request (required)
      *
-     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return \Dropbox\Sign\Model\BulkSendJobSendResponse|\Dropbox\Sign\Model\ErrorResponse
+     * @return Model\BulkSendJobSendResponse
+     * @throws ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws InvalidArgumentException
      */
-    public function signatureRequestBulkSendWithTemplate($signature_request_bulk_send_with_template_request)
+    public function signatureRequestBulkSendWithTemplate(Model\SignatureRequestBulkSendWithTemplateRequest $signature_request_bulk_send_with_template_request)
     {
         list($response) = $this->signatureRequestBulkSendWithTemplateWithHttpInfo($signature_request_bulk_send_with_template_request);
         return $response;
@@ -557,15 +537,15 @@ class SignatureRequestApi
      *
      * Bulk Send with Template
      *
-     * @param  \Dropbox\Sign\Model\SignatureRequestBulkSendWithTemplateRequest $signature_request_bulk_send_with_template_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['signatureRequestBulkSendWithTemplate'] to see the possible values for this operation
+     * @param Model\SignatureRequestBulkSendWithTemplateRequest $signature_request_bulk_send_with_template_request (required)
+     * @param string                                            $contentType                                       The value for the Content-Type header. Check self::contentTypes['signatureRequestBulkSendWithTemplate'] to see the possible values for this operation
      *
-     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return array of \Dropbox\Sign\Model\BulkSendJobSendResponse|\Dropbox\Sign\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of Model\BulkSendJobSendResponse, HTTP status code, HTTP response headers (array of strings)
+     * @throws ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestBulkSendWithTemplate. This method will eventually become unavailable
      */
-    public function signatureRequestBulkSendWithTemplateWithHttpInfo($signature_request_bulk_send_with_template_request, string $contentType = self::contentTypes['signatureRequestBulkSendWithTemplate'][0])
+    public function signatureRequestBulkSendWithTemplateWithHttpInfo(Model\SignatureRequestBulkSendWithTemplateRequest $signature_request_bulk_send_with_template_request, string $contentType = self::contentTypes['signatureRequestBulkSendWithTemplate'][0])
     {
         $request = $this->signatureRequestBulkSendWithTemplateRequest($signature_request_bulk_send_with_template_request, $contentType);
 
@@ -577,14 +557,14 @@ class SignatureRequestApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
+                    (int)$e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                    $e->getResponse() ? (string)$e->getResponse()->getBody() : null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
+                    (int)$e->getCode(),
                     null,
                     null
                 );
@@ -597,14 +577,14 @@ class SignatureRequestApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        (string) $request->getUri()
+                        (string)$request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    (string) $response->getBody()
+                    (string)$response->getBody()
                 );
             }
-            
+
             $result = $this->handleRangeCodeResponse(
                 $response,
                 '4XX',
@@ -613,18 +593,17 @@ class SignatureRequestApi
             if ($result) {
                 return $result;
             }
-            
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     if ('\Dropbox\Sign\Model\BulkSendJobSendResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
-                        $content = (string) $response->getBody();
+                        $content = (string)$response->getBody();
                         if ('\Dropbox\Sign\Model\BulkSendJobSendResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (\JsonException $exception) {
+                            } catch (JsonException $exception) {
                                 throw new ApiException(
                                     sprintf(
                                         'Error JSON decoding server response (%s)',
@@ -641,20 +620,19 @@ class SignatureRequestApi
                     return [
                         ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\BulkSendJobSendResponse', []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
-                
             }
 
             $returnType = '\Dropbox\Sign\Model\BulkSendJobSendResponse';
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
+                $content = $response->getBody(); // stream goes to serializer
             } else {
-                $content = (string) $response->getBody();
+                $content = (string)$response->getBody();
                 if ($returnType !== 'string') {
                     try {
                         $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                    } catch (\JsonException $exception) {
+                    } catch (JsonException $exception) {
                         throw new ApiException(
                             sprintf(
                                 'Error JSON decoding server response (%s)',
@@ -671,11 +649,9 @@ class SignatureRequestApi
             return [
                 ObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
-                $response->getHeaders()
+                $response->getHeaders(),
             ];
-
         } catch (ApiException $e) {
-            
             if ($this->handleRangeCodeException($e, '4XX', '\Dropbox\Sign\Model\ErrorResponse')) {
                 throw $e;
             }
@@ -688,7 +664,6 @@ class SignatureRequestApi
                     );
                     $e->setResponseObject($data);
                     break;
-                
             }
             throw $e;
         }
@@ -699,14 +674,14 @@ class SignatureRequestApi
      *
      * Bulk Send with Template
      *
-     * @param  \Dropbox\Sign\Model\SignatureRequestBulkSendWithTemplateRequest $signature_request_bulk_send_with_template_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['signatureRequestBulkSendWithTemplate'] to see the possible values for this operation
+     * @param Model\SignatureRequestBulkSendWithTemplateRequest $signature_request_bulk_send_with_template_request (required)
+     * @param string                                            $contentType                                       The value for the Content-Type header. Check self::contentTypes['signatureRequestBulkSendWithTemplate'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestBulkSendWithTemplate. This method will eventually become unavailable
      */
-    public function signatureRequestBulkSendWithTemplateAsync($signature_request_bulk_send_with_template_request, string $contentType = self::contentTypes['signatureRequestBulkSendWithTemplate'][0])
+    public function signatureRequestBulkSendWithTemplateAsync(Model\SignatureRequestBulkSendWithTemplateRequest $signature_request_bulk_send_with_template_request, string $contentType = self::contentTypes['signatureRequestBulkSendWithTemplate'][0])
     {
         return $this->signatureRequestBulkSendWithTemplateAsyncWithHttpInfo($signature_request_bulk_send_with_template_request, $contentType)
             ->then(
@@ -721,14 +696,14 @@ class SignatureRequestApi
      *
      * Bulk Send with Template
      *
-     * @param  \Dropbox\Sign\Model\SignatureRequestBulkSendWithTemplateRequest $signature_request_bulk_send_with_template_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['signatureRequestBulkSendWithTemplate'] to see the possible values for this operation
+     * @param Model\SignatureRequestBulkSendWithTemplateRequest $signature_request_bulk_send_with_template_request (required)
+     * @param string                                            $contentType                                       The value for the Content-Type header. Check self::contentTypes['signatureRequestBulkSendWithTemplate'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestBulkSendWithTemplate. This method will eventually become unavailable
      */
-    public function signatureRequestBulkSendWithTemplateAsyncWithHttpInfo($signature_request_bulk_send_with_template_request, string $contentType = self::contentTypes['signatureRequestBulkSendWithTemplate'][0])
+    public function signatureRequestBulkSendWithTemplateAsyncWithHttpInfo(Model\SignatureRequestBulkSendWithTemplateRequest $signature_request_bulk_send_with_template_request, string $contentType = self::contentTypes['signatureRequestBulkSendWithTemplate'][0])
     {
         $returnType = '\Dropbox\Sign\Model\BulkSendJobSendResponse';
         $request = $this->signatureRequestBulkSendWithTemplateRequest($signature_request_bulk_send_with_template_request, $contentType);
@@ -738,9 +713,9 @@ class SignatureRequestApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
-                        $content = (string) $response->getBody();
+                        $content = (string)$response->getBody();
                         if ($returnType !== 'string') {
                             $content = json_decode($content);
                         }
@@ -749,7 +724,7 @@ class SignatureRequestApi
                     return [
                         ObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
                 },
                 function ($exception) {
@@ -763,7 +738,7 @@ class SignatureRequestApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        (string) $response->getBody()
+                        (string)$response->getBody()
                     );
                 }
             );
@@ -772,23 +747,21 @@ class SignatureRequestApi
     /**
      * Create request for operation 'signatureRequestBulkSendWithTemplate'
      *
-     * @param  \Dropbox\Sign\Model\SignatureRequestBulkSendWithTemplateRequest $signature_request_bulk_send_with_template_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['signatureRequestBulkSendWithTemplate'] to see the possible values for this operation
+     * @param Model\SignatureRequestBulkSendWithTemplateRequest $signature_request_bulk_send_with_template_request (required)
+     * @param string                                            $contentType                                       The value for the Content-Type header. Check self::contentTypes['signatureRequestBulkSendWithTemplate'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
+     * @return Request
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestBulkSendWithTemplate. This method will eventually become unavailable
      */
-    public function signatureRequestBulkSendWithTemplateRequest($signature_request_bulk_send_with_template_request, string $contentType = self::contentTypes['signatureRequestBulkSendWithTemplate'][0])
+    public function signatureRequestBulkSendWithTemplateRequest(Model\SignatureRequestBulkSendWithTemplateRequest $signature_request_bulk_send_with_template_request, string $contentType = self::contentTypes['signatureRequestBulkSendWithTemplate'][0])
     {
-
         // verify the required parameter 'signature_request_bulk_send_with_template_request' is set
         if ($signature_request_bulk_send_with_template_request === null || (is_array($signature_request_bulk_send_with_template_request) && count($signature_request_bulk_send_with_template_request) === 0)) {
-            throw new \InvalidArgumentException(
+            throw new InvalidArgumentException(
                 'Missing the required parameter $signature_request_bulk_send_with_template_request when calling signatureRequestBulkSendWithTemplate'
             );
         }
-
 
         $resourcePath = '/signature_request/bulk_send_with_template';
         $formParams = [];
@@ -803,11 +776,8 @@ class SignatureRequestApi
 
         $multipart = !empty($formParams);
 
-
-
-
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json', ],
+            $multipart ? ['multipart/form-data'] : ['application/json'],
             $contentType,
             $multipart
         );
@@ -815,7 +785,7 @@ class SignatureRequestApi
         // for model (json/xml)
         if (count($formParams) === 0) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the body
+                // if Content-Type contains "application/json", json_encode the body
                 $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($signature_request_bulk_send_with_template_request));
             } else {
                 $httpBody = $signature_request_bulk_send_with_template_request;
@@ -828,7 +798,7 @@ class SignatureRequestApi
                     foreach ($formParamValueItems as $formParamValueItem) {
                         $multipartContents[] = [
                             'name' => $formParamName,
-                            'contents' => $formParamValueItem
+                            'contents' => $formParamValueItem,
                         ];
                     }
                 }
@@ -845,9 +815,8 @@ class SignatureRequestApi
                     $payloadHook('multipart', $multipartContents, $signature_request_bulk_send_with_template_request);
                 }
                 $httpBody = new MultipartStream($multipartContents);
-
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
+                // if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
             } else {
                 // for HTTP post (form)
@@ -890,13 +859,12 @@ class SignatureRequestApi
      *
      * Cancel Incomplete Signature Request
      *
-     * @param  string $signature_request_id The id of the incomplete SignatureRequest to cancel. (required)
+     * @param string $signature_request_id The id of the incomplete SignatureRequest to cancel. (required)
      *
-     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return void
+     * @throws ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws InvalidArgumentException
      */
-    public function signatureRequestCancel($signature_request_id)
+    public function signatureRequestCancel(string $signature_request_id)
     {
         $this->signatureRequestCancelWithHttpInfo($signature_request_id);
     }
@@ -906,15 +874,15 @@ class SignatureRequestApi
      *
      * Cancel Incomplete Signature Request
      *
-     * @param  string $signature_request_id The id of the incomplete SignatureRequest to cancel. (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['signatureRequestCancel'] to see the possible values for this operation
+     * @param string $signature_request_id The id of the incomplete SignatureRequest to cancel. (required)
+     * @param string $contentType          The value for the Content-Type header. Check self::contentTypes['signatureRequestCancel'] to see the possible values for this operation
      *
-     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestCancel. This method will eventually become unavailable
      */
-    public function signatureRequestCancelWithHttpInfo($signature_request_id, string $contentType = self::contentTypes['signatureRequestCancel'][0])
+    public function signatureRequestCancelWithHttpInfo(string $signature_request_id, string $contentType = self::contentTypes['signatureRequestCancel'][0])
     {
         $request = $this->signatureRequestCancelRequest($signature_request_id, $contentType);
 
@@ -926,14 +894,14 @@ class SignatureRequestApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
+                    (int)$e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                    $e->getResponse() ? (string)$e->getResponse()->getBody() : null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
+                    (int)$e->getCode(),
                     null,
                     null
                 );
@@ -946,23 +914,20 @@ class SignatureRequestApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        (string) $request->getUri()
+                        (string)$request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    (string) $response->getBody()
+                    (string)$response->getBody()
                 );
             }
 
             return [null, $statusCode, $response->getHeaders()];
-
         } catch (ApiException $e) {
-            
             if ($this->handleRangeCodeException($e, '4XX', '\Dropbox\Sign\Model\ErrorResponse')) {
                 throw $e;
             }
             switch ($e->getCode()) {
-                
             }
             throw $e;
         }
@@ -973,14 +938,14 @@ class SignatureRequestApi
      *
      * Cancel Incomplete Signature Request
      *
-     * @param  string $signature_request_id The id of the incomplete SignatureRequest to cancel. (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['signatureRequestCancel'] to see the possible values for this operation
+     * @param string $signature_request_id The id of the incomplete SignatureRequest to cancel. (required)
+     * @param string $contentType          The value for the Content-Type header. Check self::contentTypes['signatureRequestCancel'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestCancel. This method will eventually become unavailable
      */
-    public function signatureRequestCancelAsync($signature_request_id, string $contentType = self::contentTypes['signatureRequestCancel'][0])
+    public function signatureRequestCancelAsync(string $signature_request_id, string $contentType = self::contentTypes['signatureRequestCancel'][0])
     {
         return $this->signatureRequestCancelAsyncWithHttpInfo($signature_request_id, $contentType)
             ->then(
@@ -995,14 +960,14 @@ class SignatureRequestApi
      *
      * Cancel Incomplete Signature Request
      *
-     * @param  string $signature_request_id The id of the incomplete SignatureRequest to cancel. (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['signatureRequestCancel'] to see the possible values for this operation
+     * @param string $signature_request_id The id of the incomplete SignatureRequest to cancel. (required)
+     * @param string $contentType          The value for the Content-Type header. Check self::contentTypes['signatureRequestCancel'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestCancel. This method will eventually become unavailable
      */
-    public function signatureRequestCancelAsyncWithHttpInfo($signature_request_id, string $contentType = self::contentTypes['signatureRequestCancel'][0])
+    public function signatureRequestCancelAsyncWithHttpInfo(string $signature_request_id, string $contentType = self::contentTypes['signatureRequestCancel'][0])
     {
         $returnType = '';
         $request = $this->signatureRequestCancelRequest($signature_request_id, $contentType);
@@ -1010,7 +975,7 @@ class SignatureRequestApi
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
-                function ($response) use ($returnType) {
+                function ($response) {
                     return [null, $response->getStatusCode(), $response->getHeaders()];
                 },
                 function ($exception) {
@@ -1024,7 +989,7 @@ class SignatureRequestApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        (string) $response->getBody()
+                        (string)$response->getBody()
                     );
                 }
             );
@@ -1033,23 +998,21 @@ class SignatureRequestApi
     /**
      * Create request for operation 'signatureRequestCancel'
      *
-     * @param  string $signature_request_id The id of the incomplete SignatureRequest to cancel. (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['signatureRequestCancel'] to see the possible values for this operation
+     * @param string $signature_request_id The id of the incomplete SignatureRequest to cancel. (required)
+     * @param string $contentType          The value for the Content-Type header. Check self::contentTypes['signatureRequestCancel'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
+     * @return Request
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestCancel. This method will eventually become unavailable
      */
-    public function signatureRequestCancelRequest($signature_request_id, string $contentType = self::contentTypes['signatureRequestCancel'][0])
+    public function signatureRequestCancelRequest(string $signature_request_id, string $contentType = self::contentTypes['signatureRequestCancel'][0])
     {
-
         // verify the required parameter 'signature_request_id' is set
         if ($signature_request_id === null || (is_array($signature_request_id) && count($signature_request_id) === 0)) {
-            throw new \InvalidArgumentException(
+            throw new InvalidArgumentException(
                 'Missing the required parameter $signature_request_id when calling signatureRequestCancel'
             );
         }
-
 
         $resourcePath = '/signature_request/cancel/{signature_request_id}';
         $formParams = [];
@@ -1058,20 +1021,17 @@ class SignatureRequestApi
         $httpBody = '';
         $multipart = false;
 
-
-
         // path params
         if ($signature_request_id !== null) {
             $resourcePath = str_replace(
-                '{' . 'signature_request_id' . '}',
+                '{signature_request_id}',
                 ObjectSerializer::toPathValue($signature_request_id),
                 $resourcePath
             );
         }
 
-
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json', ],
+            $multipart ? ['multipart/form-data'] : ['application/json'],
             $contentType,
             $multipart
         );
@@ -1085,7 +1045,7 @@ class SignatureRequestApi
                     foreach ($formParamValueItems as $formParamValueItem) {
                         $multipartContents[] = [
                             'name' => $formParamName,
-                            'contents' => $formParamValueItem
+                            'contents' => $formParamValueItem,
                         ];
                     }
                 }
@@ -1099,9 +1059,8 @@ class SignatureRequestApi
                 }
 
                 $httpBody = new MultipartStream($multipartContents);
-
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
+                // if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
             } else {
                 // for HTTP post (form)
@@ -1144,13 +1103,13 @@ class SignatureRequestApi
      *
      * Create Embedded Signature Request
      *
-     * @param  \Dropbox\Sign\Model\SignatureRequestCreateEmbeddedRequest $signature_request_create_embedded_request signature_request_create_embedded_request (required)
+     * @param Model\SignatureRequestCreateEmbeddedRequest $signature_request_create_embedded_request signature_request_create_embedded_request (required)
      *
-     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return \Dropbox\Sign\Model\SignatureRequestGetResponse|\Dropbox\Sign\Model\ErrorResponse
+     * @return Model\SignatureRequestGetResponse
+     * @throws ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws InvalidArgumentException
      */
-    public function signatureRequestCreateEmbedded($signature_request_create_embedded_request)
+    public function signatureRequestCreateEmbedded(Model\SignatureRequestCreateEmbeddedRequest $signature_request_create_embedded_request)
     {
         list($response) = $this->signatureRequestCreateEmbeddedWithHttpInfo($signature_request_create_embedded_request);
         return $response;
@@ -1161,15 +1120,15 @@ class SignatureRequestApi
      *
      * Create Embedded Signature Request
      *
-     * @param  \Dropbox\Sign\Model\SignatureRequestCreateEmbeddedRequest $signature_request_create_embedded_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['signatureRequestCreateEmbedded'] to see the possible values for this operation
+     * @param Model\SignatureRequestCreateEmbeddedRequest $signature_request_create_embedded_request (required)
+     * @param string                                      $contentType                               The value for the Content-Type header. Check self::contentTypes['signatureRequestCreateEmbedded'] to see the possible values for this operation
      *
-     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return array of \Dropbox\Sign\Model\SignatureRequestGetResponse|\Dropbox\Sign\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of Model\SignatureRequestGetResponse, HTTP status code, HTTP response headers (array of strings)
+     * @throws ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestCreateEmbedded. This method will eventually become unavailable
      */
-    public function signatureRequestCreateEmbeddedWithHttpInfo($signature_request_create_embedded_request, string $contentType = self::contentTypes['signatureRequestCreateEmbedded'][0])
+    public function signatureRequestCreateEmbeddedWithHttpInfo(Model\SignatureRequestCreateEmbeddedRequest $signature_request_create_embedded_request, string $contentType = self::contentTypes['signatureRequestCreateEmbedded'][0])
     {
         $request = $this->signatureRequestCreateEmbeddedRequest($signature_request_create_embedded_request, $contentType);
 
@@ -1181,14 +1140,14 @@ class SignatureRequestApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
+                    (int)$e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                    $e->getResponse() ? (string)$e->getResponse()->getBody() : null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
+                    (int)$e->getCode(),
                     null,
                     null
                 );
@@ -1201,14 +1160,14 @@ class SignatureRequestApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        (string) $request->getUri()
+                        (string)$request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    (string) $response->getBody()
+                    (string)$response->getBody()
                 );
             }
-            
+
             $result = $this->handleRangeCodeResponse(
                 $response,
                 '4XX',
@@ -1217,18 +1176,17 @@ class SignatureRequestApi
             if ($result) {
                 return $result;
             }
-            
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     if ('\Dropbox\Sign\Model\SignatureRequestGetResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
-                        $content = (string) $response->getBody();
+                        $content = (string)$response->getBody();
                         if ('\Dropbox\Sign\Model\SignatureRequestGetResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (\JsonException $exception) {
+                            } catch (JsonException $exception) {
                                 throw new ApiException(
                                     sprintf(
                                         'Error JSON decoding server response (%s)',
@@ -1245,20 +1203,19 @@ class SignatureRequestApi
                     return [
                         ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\SignatureRequestGetResponse', []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
-                
             }
 
             $returnType = '\Dropbox\Sign\Model\SignatureRequestGetResponse';
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
+                $content = $response->getBody(); // stream goes to serializer
             } else {
-                $content = (string) $response->getBody();
+                $content = (string)$response->getBody();
                 if ($returnType !== 'string') {
                     try {
                         $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                    } catch (\JsonException $exception) {
+                    } catch (JsonException $exception) {
                         throw new ApiException(
                             sprintf(
                                 'Error JSON decoding server response (%s)',
@@ -1275,11 +1232,9 @@ class SignatureRequestApi
             return [
                 ObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
-                $response->getHeaders()
+                $response->getHeaders(),
             ];
-
         } catch (ApiException $e) {
-            
             if ($this->handleRangeCodeException($e, '4XX', '\Dropbox\Sign\Model\ErrorResponse')) {
                 throw $e;
             }
@@ -1292,7 +1247,6 @@ class SignatureRequestApi
                     );
                     $e->setResponseObject($data);
                     break;
-                
             }
             throw $e;
         }
@@ -1303,14 +1257,14 @@ class SignatureRequestApi
      *
      * Create Embedded Signature Request
      *
-     * @param  \Dropbox\Sign\Model\SignatureRequestCreateEmbeddedRequest $signature_request_create_embedded_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['signatureRequestCreateEmbedded'] to see the possible values for this operation
+     * @param Model\SignatureRequestCreateEmbeddedRequest $signature_request_create_embedded_request (required)
+     * @param string                                      $contentType                               The value for the Content-Type header. Check self::contentTypes['signatureRequestCreateEmbedded'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestCreateEmbedded. This method will eventually become unavailable
      */
-    public function signatureRequestCreateEmbeddedAsync($signature_request_create_embedded_request, string $contentType = self::contentTypes['signatureRequestCreateEmbedded'][0])
+    public function signatureRequestCreateEmbeddedAsync(Model\SignatureRequestCreateEmbeddedRequest $signature_request_create_embedded_request, string $contentType = self::contentTypes['signatureRequestCreateEmbedded'][0])
     {
         return $this->signatureRequestCreateEmbeddedAsyncWithHttpInfo($signature_request_create_embedded_request, $contentType)
             ->then(
@@ -1325,14 +1279,14 @@ class SignatureRequestApi
      *
      * Create Embedded Signature Request
      *
-     * @param  \Dropbox\Sign\Model\SignatureRequestCreateEmbeddedRequest $signature_request_create_embedded_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['signatureRequestCreateEmbedded'] to see the possible values for this operation
+     * @param Model\SignatureRequestCreateEmbeddedRequest $signature_request_create_embedded_request (required)
+     * @param string                                      $contentType                               The value for the Content-Type header. Check self::contentTypes['signatureRequestCreateEmbedded'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestCreateEmbedded. This method will eventually become unavailable
      */
-    public function signatureRequestCreateEmbeddedAsyncWithHttpInfo($signature_request_create_embedded_request, string $contentType = self::contentTypes['signatureRequestCreateEmbedded'][0])
+    public function signatureRequestCreateEmbeddedAsyncWithHttpInfo(Model\SignatureRequestCreateEmbeddedRequest $signature_request_create_embedded_request, string $contentType = self::contentTypes['signatureRequestCreateEmbedded'][0])
     {
         $returnType = '\Dropbox\Sign\Model\SignatureRequestGetResponse';
         $request = $this->signatureRequestCreateEmbeddedRequest($signature_request_create_embedded_request, $contentType);
@@ -1342,9 +1296,9 @@ class SignatureRequestApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
-                        $content = (string) $response->getBody();
+                        $content = (string)$response->getBody();
                         if ($returnType !== 'string') {
                             $content = json_decode($content);
                         }
@@ -1353,7 +1307,7 @@ class SignatureRequestApi
                     return [
                         ObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
                 },
                 function ($exception) {
@@ -1367,7 +1321,7 @@ class SignatureRequestApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        (string) $response->getBody()
+                        (string)$response->getBody()
                     );
                 }
             );
@@ -1376,23 +1330,21 @@ class SignatureRequestApi
     /**
      * Create request for operation 'signatureRequestCreateEmbedded'
      *
-     * @param  \Dropbox\Sign\Model\SignatureRequestCreateEmbeddedRequest $signature_request_create_embedded_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['signatureRequestCreateEmbedded'] to see the possible values for this operation
+     * @param Model\SignatureRequestCreateEmbeddedRequest $signature_request_create_embedded_request (required)
+     * @param string                                      $contentType                               The value for the Content-Type header. Check self::contentTypes['signatureRequestCreateEmbedded'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
+     * @return Request
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestCreateEmbedded. This method will eventually become unavailable
      */
-    public function signatureRequestCreateEmbeddedRequest($signature_request_create_embedded_request, string $contentType = self::contentTypes['signatureRequestCreateEmbedded'][0])
+    public function signatureRequestCreateEmbeddedRequest(Model\SignatureRequestCreateEmbeddedRequest $signature_request_create_embedded_request, string $contentType = self::contentTypes['signatureRequestCreateEmbedded'][0])
     {
-
         // verify the required parameter 'signature_request_create_embedded_request' is set
         if ($signature_request_create_embedded_request === null || (is_array($signature_request_create_embedded_request) && count($signature_request_create_embedded_request) === 0)) {
-            throw new \InvalidArgumentException(
+            throw new InvalidArgumentException(
                 'Missing the required parameter $signature_request_create_embedded_request when calling signatureRequestCreateEmbedded'
             );
         }
-
 
         $resourcePath = '/signature_request/create_embedded';
         $formParams = [];
@@ -1407,11 +1359,8 @@ class SignatureRequestApi
 
         $multipart = !empty($formParams);
 
-
-
-
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json', ],
+            $multipart ? ['multipart/form-data'] : ['application/json'],
             $contentType,
             $multipart
         );
@@ -1419,7 +1368,7 @@ class SignatureRequestApi
         // for model (json/xml)
         if (count($formParams) === 0) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the body
+                // if Content-Type contains "application/json", json_encode the body
                 $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($signature_request_create_embedded_request));
             } else {
                 $httpBody = $signature_request_create_embedded_request;
@@ -1432,7 +1381,7 @@ class SignatureRequestApi
                     foreach ($formParamValueItems as $formParamValueItem) {
                         $multipartContents[] = [
                             'name' => $formParamName,
-                            'contents' => $formParamValueItem
+                            'contents' => $formParamValueItem,
                         ];
                     }
                 }
@@ -1449,9 +1398,8 @@ class SignatureRequestApi
                     $payloadHook('multipart', $multipartContents, $signature_request_create_embedded_request);
                 }
                 $httpBody = new MultipartStream($multipartContents);
-
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
+                // if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
             } else {
                 // for HTTP post (form)
@@ -1494,13 +1442,13 @@ class SignatureRequestApi
      *
      * Create Embedded Signature Request with Template
      *
-     * @param  \Dropbox\Sign\Model\SignatureRequestCreateEmbeddedWithTemplateRequest $signature_request_create_embedded_with_template_request signature_request_create_embedded_with_template_request (required)
+     * @param Model\SignatureRequestCreateEmbeddedWithTemplateRequest $signature_request_create_embedded_with_template_request signature_request_create_embedded_with_template_request (required)
      *
-     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return \Dropbox\Sign\Model\SignatureRequestGetResponse|\Dropbox\Sign\Model\ErrorResponse
+     * @return Model\SignatureRequestGetResponse
+     * @throws ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws InvalidArgumentException
      */
-    public function signatureRequestCreateEmbeddedWithTemplate($signature_request_create_embedded_with_template_request)
+    public function signatureRequestCreateEmbeddedWithTemplate(Model\SignatureRequestCreateEmbeddedWithTemplateRequest $signature_request_create_embedded_with_template_request)
     {
         list($response) = $this->signatureRequestCreateEmbeddedWithTemplateWithHttpInfo($signature_request_create_embedded_with_template_request);
         return $response;
@@ -1511,15 +1459,15 @@ class SignatureRequestApi
      *
      * Create Embedded Signature Request with Template
      *
-     * @param  \Dropbox\Sign\Model\SignatureRequestCreateEmbeddedWithTemplateRequest $signature_request_create_embedded_with_template_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['signatureRequestCreateEmbeddedWithTemplate'] to see the possible values for this operation
+     * @param Model\SignatureRequestCreateEmbeddedWithTemplateRequest $signature_request_create_embedded_with_template_request (required)
+     * @param string                                                  $contentType                                             The value for the Content-Type header. Check self::contentTypes['signatureRequestCreateEmbeddedWithTemplate'] to see the possible values for this operation
      *
-     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return array of \Dropbox\Sign\Model\SignatureRequestGetResponse|\Dropbox\Sign\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of Model\SignatureRequestGetResponse, HTTP status code, HTTP response headers (array of strings)
+     * @throws ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestCreateEmbeddedWithTemplate. This method will eventually become unavailable
      */
-    public function signatureRequestCreateEmbeddedWithTemplateWithHttpInfo($signature_request_create_embedded_with_template_request, string $contentType = self::contentTypes['signatureRequestCreateEmbeddedWithTemplate'][0])
+    public function signatureRequestCreateEmbeddedWithTemplateWithHttpInfo(Model\SignatureRequestCreateEmbeddedWithTemplateRequest $signature_request_create_embedded_with_template_request, string $contentType = self::contentTypes['signatureRequestCreateEmbeddedWithTemplate'][0])
     {
         $request = $this->signatureRequestCreateEmbeddedWithTemplateRequest($signature_request_create_embedded_with_template_request, $contentType);
 
@@ -1531,14 +1479,14 @@ class SignatureRequestApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
+                    (int)$e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                    $e->getResponse() ? (string)$e->getResponse()->getBody() : null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
+                    (int)$e->getCode(),
                     null,
                     null
                 );
@@ -1551,14 +1499,14 @@ class SignatureRequestApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        (string) $request->getUri()
+                        (string)$request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    (string) $response->getBody()
+                    (string)$response->getBody()
                 );
             }
-            
+
             $result = $this->handleRangeCodeResponse(
                 $response,
                 '4XX',
@@ -1567,18 +1515,17 @@ class SignatureRequestApi
             if ($result) {
                 return $result;
             }
-            
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     if ('\Dropbox\Sign\Model\SignatureRequestGetResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
-                        $content = (string) $response->getBody();
+                        $content = (string)$response->getBody();
                         if ('\Dropbox\Sign\Model\SignatureRequestGetResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (\JsonException $exception) {
+                            } catch (JsonException $exception) {
                                 throw new ApiException(
                                     sprintf(
                                         'Error JSON decoding server response (%s)',
@@ -1595,20 +1542,19 @@ class SignatureRequestApi
                     return [
                         ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\SignatureRequestGetResponse', []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
-                
             }
 
             $returnType = '\Dropbox\Sign\Model\SignatureRequestGetResponse';
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
+                $content = $response->getBody(); // stream goes to serializer
             } else {
-                $content = (string) $response->getBody();
+                $content = (string)$response->getBody();
                 if ($returnType !== 'string') {
                     try {
                         $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                    } catch (\JsonException $exception) {
+                    } catch (JsonException $exception) {
                         throw new ApiException(
                             sprintf(
                                 'Error JSON decoding server response (%s)',
@@ -1625,11 +1571,9 @@ class SignatureRequestApi
             return [
                 ObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
-                $response->getHeaders()
+                $response->getHeaders(),
             ];
-
         } catch (ApiException $e) {
-            
             if ($this->handleRangeCodeException($e, '4XX', '\Dropbox\Sign\Model\ErrorResponse')) {
                 throw $e;
             }
@@ -1642,7 +1586,6 @@ class SignatureRequestApi
                     );
                     $e->setResponseObject($data);
                     break;
-                
             }
             throw $e;
         }
@@ -1653,14 +1596,14 @@ class SignatureRequestApi
      *
      * Create Embedded Signature Request with Template
      *
-     * @param  \Dropbox\Sign\Model\SignatureRequestCreateEmbeddedWithTemplateRequest $signature_request_create_embedded_with_template_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['signatureRequestCreateEmbeddedWithTemplate'] to see the possible values for this operation
+     * @param Model\SignatureRequestCreateEmbeddedWithTemplateRequest $signature_request_create_embedded_with_template_request (required)
+     * @param string                                                  $contentType                                             The value for the Content-Type header. Check self::contentTypes['signatureRequestCreateEmbeddedWithTemplate'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestCreateEmbeddedWithTemplate. This method will eventually become unavailable
      */
-    public function signatureRequestCreateEmbeddedWithTemplateAsync($signature_request_create_embedded_with_template_request, string $contentType = self::contentTypes['signatureRequestCreateEmbeddedWithTemplate'][0])
+    public function signatureRequestCreateEmbeddedWithTemplateAsync(Model\SignatureRequestCreateEmbeddedWithTemplateRequest $signature_request_create_embedded_with_template_request, string $contentType = self::contentTypes['signatureRequestCreateEmbeddedWithTemplate'][0])
     {
         return $this->signatureRequestCreateEmbeddedWithTemplateAsyncWithHttpInfo($signature_request_create_embedded_with_template_request, $contentType)
             ->then(
@@ -1675,14 +1618,14 @@ class SignatureRequestApi
      *
      * Create Embedded Signature Request with Template
      *
-     * @param  \Dropbox\Sign\Model\SignatureRequestCreateEmbeddedWithTemplateRequest $signature_request_create_embedded_with_template_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['signatureRequestCreateEmbeddedWithTemplate'] to see the possible values for this operation
+     * @param Model\SignatureRequestCreateEmbeddedWithTemplateRequest $signature_request_create_embedded_with_template_request (required)
+     * @param string                                                  $contentType                                             The value for the Content-Type header. Check self::contentTypes['signatureRequestCreateEmbeddedWithTemplate'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestCreateEmbeddedWithTemplate. This method will eventually become unavailable
      */
-    public function signatureRequestCreateEmbeddedWithTemplateAsyncWithHttpInfo($signature_request_create_embedded_with_template_request, string $contentType = self::contentTypes['signatureRequestCreateEmbeddedWithTemplate'][0])
+    public function signatureRequestCreateEmbeddedWithTemplateAsyncWithHttpInfo(Model\SignatureRequestCreateEmbeddedWithTemplateRequest $signature_request_create_embedded_with_template_request, string $contentType = self::contentTypes['signatureRequestCreateEmbeddedWithTemplate'][0])
     {
         $returnType = '\Dropbox\Sign\Model\SignatureRequestGetResponse';
         $request = $this->signatureRequestCreateEmbeddedWithTemplateRequest($signature_request_create_embedded_with_template_request, $contentType);
@@ -1692,9 +1635,9 @@ class SignatureRequestApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
-                        $content = (string) $response->getBody();
+                        $content = (string)$response->getBody();
                         if ($returnType !== 'string') {
                             $content = json_decode($content);
                         }
@@ -1703,7 +1646,7 @@ class SignatureRequestApi
                     return [
                         ObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
                 },
                 function ($exception) {
@@ -1717,7 +1660,7 @@ class SignatureRequestApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        (string) $response->getBody()
+                        (string)$response->getBody()
                     );
                 }
             );
@@ -1726,23 +1669,21 @@ class SignatureRequestApi
     /**
      * Create request for operation 'signatureRequestCreateEmbeddedWithTemplate'
      *
-     * @param  \Dropbox\Sign\Model\SignatureRequestCreateEmbeddedWithTemplateRequest $signature_request_create_embedded_with_template_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['signatureRequestCreateEmbeddedWithTemplate'] to see the possible values for this operation
+     * @param Model\SignatureRequestCreateEmbeddedWithTemplateRequest $signature_request_create_embedded_with_template_request (required)
+     * @param string                                                  $contentType                                             The value for the Content-Type header. Check self::contentTypes['signatureRequestCreateEmbeddedWithTemplate'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
+     * @return Request
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestCreateEmbeddedWithTemplate. This method will eventually become unavailable
      */
-    public function signatureRequestCreateEmbeddedWithTemplateRequest($signature_request_create_embedded_with_template_request, string $contentType = self::contentTypes['signatureRequestCreateEmbeddedWithTemplate'][0])
+    public function signatureRequestCreateEmbeddedWithTemplateRequest(Model\SignatureRequestCreateEmbeddedWithTemplateRequest $signature_request_create_embedded_with_template_request, string $contentType = self::contentTypes['signatureRequestCreateEmbeddedWithTemplate'][0])
     {
-
         // verify the required parameter 'signature_request_create_embedded_with_template_request' is set
         if ($signature_request_create_embedded_with_template_request === null || (is_array($signature_request_create_embedded_with_template_request) && count($signature_request_create_embedded_with_template_request) === 0)) {
-            throw new \InvalidArgumentException(
+            throw new InvalidArgumentException(
                 'Missing the required parameter $signature_request_create_embedded_with_template_request when calling signatureRequestCreateEmbeddedWithTemplate'
             );
         }
-
 
         $resourcePath = '/signature_request/create_embedded_with_template';
         $formParams = [];
@@ -1757,11 +1698,8 @@ class SignatureRequestApi
 
         $multipart = !empty($formParams);
 
-
-
-
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json', ],
+            $multipart ? ['multipart/form-data'] : ['application/json'],
             $contentType,
             $multipart
         );
@@ -1769,7 +1707,7 @@ class SignatureRequestApi
         // for model (json/xml)
         if (count($formParams) === 0) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the body
+                // if Content-Type contains "application/json", json_encode the body
                 $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($signature_request_create_embedded_with_template_request));
             } else {
                 $httpBody = $signature_request_create_embedded_with_template_request;
@@ -1782,7 +1720,7 @@ class SignatureRequestApi
                     foreach ($formParamValueItems as $formParamValueItem) {
                         $multipartContents[] = [
                             'name' => $formParamName,
-                            'contents' => $formParamValueItem
+                            'contents' => $formParamValueItem,
                         ];
                     }
                 }
@@ -1799,9 +1737,8 @@ class SignatureRequestApi
                     $payloadHook('multipart', $multipartContents, $signature_request_create_embedded_with_template_request);
                 }
                 $httpBody = new MultipartStream($multipartContents);
-
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
+                // if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
             } else {
                 // for HTTP post (form)
@@ -1844,14 +1781,14 @@ class SignatureRequestApi
      *
      * Download Files
      *
-     * @param  string $signature_request_id The id of the SignatureRequest to retrieve. (required)
-     * @param  string $file_type Set to &#x60;pdf&#x60; for a single merged document or &#x60;zip&#x60; for a collection of individual documents. (optional, default to 'pdf')
+     * @param string $signature_request_id The id of the SignatureRequest to retrieve. (required)
+     * @param string $file_type            Set to &#x60;pdf&#x60; for a single merged document or &#x60;zip&#x60; for a collection of individual documents. (optional, default to 'pdf')
      *
-     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return \SplFileObject|\Dropbox\Sign\Model\ErrorResponse
+     * @return SplFileObject
+     * @throws ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws InvalidArgumentException
      */
-    public function signatureRequestFiles($signature_request_id, $file_type = 'pdf')
+    public function signatureRequestFiles(string $signature_request_id, string $file_type = 'pdf')
     {
         list($response) = $this->signatureRequestFilesWithHttpInfo($signature_request_id, $file_type);
         return $response;
@@ -1862,16 +1799,16 @@ class SignatureRequestApi
      *
      * Download Files
      *
-     * @param  string $signature_request_id The id of the SignatureRequest to retrieve. (required)
-     * @param  string $file_type Set to &#x60;pdf&#x60; for a single merged document or &#x60;zip&#x60; for a collection of individual documents. (optional, default to 'pdf')
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['signatureRequestFiles'] to see the possible values for this operation
+     * @param string $signature_request_id The id of the SignatureRequest to retrieve. (required)
+     * @param string $file_type            Set to &#x60;pdf&#x60; for a single merged document or &#x60;zip&#x60; for a collection of individual documents. (optional, default to 'pdf')
+     * @param string $contentType          The value for the Content-Type header. Check self::contentTypes['signatureRequestFiles'] to see the possible values for this operation
      *
-     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
      * @return array of \SplFileObject|\Dropbox\Sign\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @throws ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestFiles. This method will eventually become unavailable
      */
-    public function signatureRequestFilesWithHttpInfo($signature_request_id, $file_type = 'pdf', string $contentType = self::contentTypes['signatureRequestFiles'][0])
+    public function signatureRequestFilesWithHttpInfo(string $signature_request_id, string $file_type = 'pdf', string $contentType = self::contentTypes['signatureRequestFiles'][0])
     {
         $request = $this->signatureRequestFilesRequest($signature_request_id, $file_type, $contentType);
 
@@ -1883,14 +1820,14 @@ class SignatureRequestApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
+                    (int)$e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                    $e->getResponse() ? (string)$e->getResponse()->getBody() : null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
+                    (int)$e->getCode(),
                     null,
                     null
                 );
@@ -1903,14 +1840,14 @@ class SignatureRequestApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        (string) $request->getUri()
+                        (string)$request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    (string) $response->getBody()
+                    (string)$response->getBody()
                 );
             }
-            
+
             $result = $this->handleRangeCodeResponse(
                 $response,
                 '4XX',
@@ -1919,18 +1856,17 @@ class SignatureRequestApi
             if ($result) {
                 return $result;
             }
-            
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     if ('\SplFileObject' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
-                        $content = (string) $response->getBody();
+                        $content = (string)$response->getBody();
                         if ('\SplFileObject' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (\JsonException $exception) {
+                            } catch (JsonException $exception) {
                                 throw new ApiException(
                                     sprintf(
                                         'Error JSON decoding server response (%s)',
@@ -1947,20 +1883,19 @@ class SignatureRequestApi
                     return [
                         ObjectSerializer::deserialize($content, '\SplFileObject', []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
-                
             }
 
             $returnType = '\SplFileObject';
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
+                $content = $response->getBody(); // stream goes to serializer
             } else {
-                $content = (string) $response->getBody();
+                $content = (string)$response->getBody();
                 if ($returnType !== 'string') {
                     try {
                         $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                    } catch (\JsonException $exception) {
+                    } catch (JsonException $exception) {
                         throw new ApiException(
                             sprintf(
                                 'Error JSON decoding server response (%s)',
@@ -1977,11 +1912,9 @@ class SignatureRequestApi
             return [
                 ObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
-                $response->getHeaders()
+                $response->getHeaders(),
             ];
-
         } catch (ApiException $e) {
-            
             if ($this->handleRangeCodeException($e, '4XX', '\Dropbox\Sign\Model\ErrorResponse')) {
                 throw $e;
             }
@@ -1994,7 +1927,6 @@ class SignatureRequestApi
                     );
                     $e->setResponseObject($data);
                     break;
-                
             }
             throw $e;
         }
@@ -2005,15 +1937,15 @@ class SignatureRequestApi
      *
      * Download Files
      *
-     * @param  string $signature_request_id The id of the SignatureRequest to retrieve. (required)
-     * @param  string $file_type Set to &#x60;pdf&#x60; for a single merged document or &#x60;zip&#x60; for a collection of individual documents. (optional, default to 'pdf')
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['signatureRequestFiles'] to see the possible values for this operation
+     * @param string $signature_request_id The id of the SignatureRequest to retrieve. (required)
+     * @param string $file_type            Set to &#x60;pdf&#x60; for a single merged document or &#x60;zip&#x60; for a collection of individual documents. (optional, default to 'pdf')
+     * @param string $contentType          The value for the Content-Type header. Check self::contentTypes['signatureRequestFiles'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestFiles. This method will eventually become unavailable
      */
-    public function signatureRequestFilesAsync($signature_request_id, $file_type = 'pdf', string $contentType = self::contentTypes['signatureRequestFiles'][0])
+    public function signatureRequestFilesAsync(string $signature_request_id, string $file_type = 'pdf', string $contentType = self::contentTypes['signatureRequestFiles'][0])
     {
         return $this->signatureRequestFilesAsyncWithHttpInfo($signature_request_id, $file_type, $contentType)
             ->then(
@@ -2028,15 +1960,15 @@ class SignatureRequestApi
      *
      * Download Files
      *
-     * @param  string $signature_request_id The id of the SignatureRequest to retrieve. (required)
-     * @param  string $file_type Set to &#x60;pdf&#x60; for a single merged document or &#x60;zip&#x60; for a collection of individual documents. (optional, default to 'pdf')
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['signatureRequestFiles'] to see the possible values for this operation
+     * @param string $signature_request_id The id of the SignatureRequest to retrieve. (required)
+     * @param string $file_type            Set to &#x60;pdf&#x60; for a single merged document or &#x60;zip&#x60; for a collection of individual documents. (optional, default to 'pdf')
+     * @param string $contentType          The value for the Content-Type header. Check self::contentTypes['signatureRequestFiles'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestFiles. This method will eventually become unavailable
      */
-    public function signatureRequestFilesAsyncWithHttpInfo($signature_request_id, $file_type = 'pdf', string $contentType = self::contentTypes['signatureRequestFiles'][0])
+    public function signatureRequestFilesAsyncWithHttpInfo(string $signature_request_id, string $file_type = 'pdf', string $contentType = self::contentTypes['signatureRequestFiles'][0])
     {
         $returnType = '\SplFileObject';
         $request = $this->signatureRequestFilesRequest($signature_request_id, $file_type, $contentType);
@@ -2046,9 +1978,9 @@ class SignatureRequestApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
-                        $content = (string) $response->getBody();
+                        $content = (string)$response->getBody();
                         if ($returnType !== 'string') {
                             $content = json_decode($content);
                         }
@@ -2057,7 +1989,7 @@ class SignatureRequestApi
                     return [
                         ObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
                 },
                 function ($exception) {
@@ -2071,7 +2003,7 @@ class SignatureRequestApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        (string) $response->getBody()
+                        (string)$response->getBody()
                     );
                 }
             );
@@ -2080,25 +2012,22 @@ class SignatureRequestApi
     /**
      * Create request for operation 'signatureRequestFiles'
      *
-     * @param  string $signature_request_id The id of the SignatureRequest to retrieve. (required)
-     * @param  string $file_type Set to &#x60;pdf&#x60; for a single merged document or &#x60;zip&#x60; for a collection of individual documents. (optional, default to 'pdf')
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['signatureRequestFiles'] to see the possible values for this operation
+     * @param string $signature_request_id The id of the SignatureRequest to retrieve. (required)
+     * @param string $file_type            Set to &#x60;pdf&#x60; for a single merged document or &#x60;zip&#x60; for a collection of individual documents. (optional, default to 'pdf')
+     * @param string $contentType          The value for the Content-Type header. Check self::contentTypes['signatureRequestFiles'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
+     * @return Request
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestFiles. This method will eventually become unavailable
      */
-    public function signatureRequestFilesRequest($signature_request_id, $file_type = 'pdf', string $contentType = self::contentTypes['signatureRequestFiles'][0])
+    public function signatureRequestFilesRequest(string $signature_request_id, string $file_type = 'pdf', string $contentType = self::contentTypes['signatureRequestFiles'][0])
     {
-
         // verify the required parameter 'signature_request_id' is set
         if ($signature_request_id === null || (is_array($signature_request_id) && count($signature_request_id) === 0)) {
-            throw new \InvalidArgumentException(
+            throw new InvalidArgumentException(
                 'Missing the required parameter $signature_request_id when calling signatureRequestFiles'
             );
         }
-
-
 
         $resourcePath = '/signature_request/files/{signature_request_id}';
         $formParams = [];
@@ -2117,19 +2046,17 @@ class SignatureRequestApi
             false // required
         ) ?? []);
 
-
         // path params
         if ($signature_request_id !== null) {
             $resourcePath = str_replace(
-                '{' . 'signature_request_id' . '}',
+                '{signature_request_id}',
                 ObjectSerializer::toPathValue($signature_request_id),
                 $resourcePath
             );
         }
 
-
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/pdf', 'application/zip', 'application/json', ],
+            $multipart ? ['multipart/form-data'] : ['application/pdf', 'application/zip', 'application/json'],
             $contentType,
             $multipart
         );
@@ -2143,7 +2070,7 @@ class SignatureRequestApi
                     foreach ($formParamValueItems as $formParamValueItem) {
                         $multipartContents[] = [
                             'name' => $formParamName,
-                            'contents' => $formParamValueItem
+                            'contents' => $formParamValueItem,
                         ];
                     }
                 }
@@ -2157,9 +2084,8 @@ class SignatureRequestApi
                 }
 
                 $httpBody = new MultipartStream($multipartContents);
-
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
+                // if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
             } else {
                 // for HTTP post (form)
@@ -2202,13 +2128,13 @@ class SignatureRequestApi
      *
      * Download Files as Data Uri
      *
-     * @param  string $signature_request_id The id of the SignatureRequest to retrieve. (required)
+     * @param string $signature_request_id The id of the SignatureRequest to retrieve. (required)
      *
-     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return \Dropbox\Sign\Model\FileResponseDataUri|\Dropbox\Sign\Model\ErrorResponse
+     * @return Model\FileResponseDataUri
+     * @throws ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws InvalidArgumentException
      */
-    public function signatureRequestFilesAsDataUri($signature_request_id)
+    public function signatureRequestFilesAsDataUri(string $signature_request_id)
     {
         list($response) = $this->signatureRequestFilesAsDataUriWithHttpInfo($signature_request_id);
         return $response;
@@ -2219,15 +2145,15 @@ class SignatureRequestApi
      *
      * Download Files as Data Uri
      *
-     * @param  string $signature_request_id The id of the SignatureRequest to retrieve. (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['signatureRequestFilesAsDataUri'] to see the possible values for this operation
+     * @param string $signature_request_id The id of the SignatureRequest to retrieve. (required)
+     * @param string $contentType          The value for the Content-Type header. Check self::contentTypes['signatureRequestFilesAsDataUri'] to see the possible values for this operation
      *
-     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return array of \Dropbox\Sign\Model\FileResponseDataUri|\Dropbox\Sign\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of Model\FileResponseDataUri, HTTP status code, HTTP response headers (array of strings)
+     * @throws ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestFilesAsDataUri. This method will eventually become unavailable
      */
-    public function signatureRequestFilesAsDataUriWithHttpInfo($signature_request_id, string $contentType = self::contentTypes['signatureRequestFilesAsDataUri'][0])
+    public function signatureRequestFilesAsDataUriWithHttpInfo(string $signature_request_id, string $contentType = self::contentTypes['signatureRequestFilesAsDataUri'][0])
     {
         $request = $this->signatureRequestFilesAsDataUriRequest($signature_request_id, $contentType);
 
@@ -2239,14 +2165,14 @@ class SignatureRequestApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
+                    (int)$e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                    $e->getResponse() ? (string)$e->getResponse()->getBody() : null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
+                    (int)$e->getCode(),
                     null,
                     null
                 );
@@ -2259,14 +2185,14 @@ class SignatureRequestApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        (string) $request->getUri()
+                        (string)$request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    (string) $response->getBody()
+                    (string)$response->getBody()
                 );
             }
-            
+
             $result = $this->handleRangeCodeResponse(
                 $response,
                 '4XX',
@@ -2275,18 +2201,17 @@ class SignatureRequestApi
             if ($result) {
                 return $result;
             }
-            
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     if ('\Dropbox\Sign\Model\FileResponseDataUri' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
-                        $content = (string) $response->getBody();
+                        $content = (string)$response->getBody();
                         if ('\Dropbox\Sign\Model\FileResponseDataUri' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (\JsonException $exception) {
+                            } catch (JsonException $exception) {
                                 throw new ApiException(
                                     sprintf(
                                         'Error JSON decoding server response (%s)',
@@ -2303,20 +2228,19 @@ class SignatureRequestApi
                     return [
                         ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\FileResponseDataUri', []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
-                
             }
 
             $returnType = '\Dropbox\Sign\Model\FileResponseDataUri';
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
+                $content = $response->getBody(); // stream goes to serializer
             } else {
-                $content = (string) $response->getBody();
+                $content = (string)$response->getBody();
                 if ($returnType !== 'string') {
                     try {
                         $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                    } catch (\JsonException $exception) {
+                    } catch (JsonException $exception) {
                         throw new ApiException(
                             sprintf(
                                 'Error JSON decoding server response (%s)',
@@ -2333,11 +2257,9 @@ class SignatureRequestApi
             return [
                 ObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
-                $response->getHeaders()
+                $response->getHeaders(),
             ];
-
         } catch (ApiException $e) {
-            
             if ($this->handleRangeCodeException($e, '4XX', '\Dropbox\Sign\Model\ErrorResponse')) {
                 throw $e;
             }
@@ -2350,7 +2272,6 @@ class SignatureRequestApi
                     );
                     $e->setResponseObject($data);
                     break;
-                
             }
             throw $e;
         }
@@ -2361,14 +2282,14 @@ class SignatureRequestApi
      *
      * Download Files as Data Uri
      *
-     * @param  string $signature_request_id The id of the SignatureRequest to retrieve. (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['signatureRequestFilesAsDataUri'] to see the possible values for this operation
+     * @param string $signature_request_id The id of the SignatureRequest to retrieve. (required)
+     * @param string $contentType          The value for the Content-Type header. Check self::contentTypes['signatureRequestFilesAsDataUri'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestFilesAsDataUri. This method will eventually become unavailable
      */
-    public function signatureRequestFilesAsDataUriAsync($signature_request_id, string $contentType = self::contentTypes['signatureRequestFilesAsDataUri'][0])
+    public function signatureRequestFilesAsDataUriAsync(string $signature_request_id, string $contentType = self::contentTypes['signatureRequestFilesAsDataUri'][0])
     {
         return $this->signatureRequestFilesAsDataUriAsyncWithHttpInfo($signature_request_id, $contentType)
             ->then(
@@ -2383,14 +2304,14 @@ class SignatureRequestApi
      *
      * Download Files as Data Uri
      *
-     * @param  string $signature_request_id The id of the SignatureRequest to retrieve. (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['signatureRequestFilesAsDataUri'] to see the possible values for this operation
+     * @param string $signature_request_id The id of the SignatureRequest to retrieve. (required)
+     * @param string $contentType          The value for the Content-Type header. Check self::contentTypes['signatureRequestFilesAsDataUri'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestFilesAsDataUri. This method will eventually become unavailable
      */
-    public function signatureRequestFilesAsDataUriAsyncWithHttpInfo($signature_request_id, string $contentType = self::contentTypes['signatureRequestFilesAsDataUri'][0])
+    public function signatureRequestFilesAsDataUriAsyncWithHttpInfo(string $signature_request_id, string $contentType = self::contentTypes['signatureRequestFilesAsDataUri'][0])
     {
         $returnType = '\Dropbox\Sign\Model\FileResponseDataUri';
         $request = $this->signatureRequestFilesAsDataUriRequest($signature_request_id, $contentType);
@@ -2400,9 +2321,9 @@ class SignatureRequestApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
-                        $content = (string) $response->getBody();
+                        $content = (string)$response->getBody();
                         if ($returnType !== 'string') {
                             $content = json_decode($content);
                         }
@@ -2411,7 +2332,7 @@ class SignatureRequestApi
                     return [
                         ObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
                 },
                 function ($exception) {
@@ -2425,7 +2346,7 @@ class SignatureRequestApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        (string) $response->getBody()
+                        (string)$response->getBody()
                     );
                 }
             );
@@ -2434,23 +2355,21 @@ class SignatureRequestApi
     /**
      * Create request for operation 'signatureRequestFilesAsDataUri'
      *
-     * @param  string $signature_request_id The id of the SignatureRequest to retrieve. (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['signatureRequestFilesAsDataUri'] to see the possible values for this operation
+     * @param string $signature_request_id The id of the SignatureRequest to retrieve. (required)
+     * @param string $contentType          The value for the Content-Type header. Check self::contentTypes['signatureRequestFilesAsDataUri'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
+     * @return Request
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestFilesAsDataUri. This method will eventually become unavailable
      */
-    public function signatureRequestFilesAsDataUriRequest($signature_request_id, string $contentType = self::contentTypes['signatureRequestFilesAsDataUri'][0])
+    public function signatureRequestFilesAsDataUriRequest(string $signature_request_id, string $contentType = self::contentTypes['signatureRequestFilesAsDataUri'][0])
     {
-
         // verify the required parameter 'signature_request_id' is set
         if ($signature_request_id === null || (is_array($signature_request_id) && count($signature_request_id) === 0)) {
-            throw new \InvalidArgumentException(
+            throw new InvalidArgumentException(
                 'Missing the required parameter $signature_request_id when calling signatureRequestFilesAsDataUri'
             );
         }
-
 
         $resourcePath = '/signature_request/files_as_data_uri/{signature_request_id}';
         $formParams = [];
@@ -2459,20 +2378,17 @@ class SignatureRequestApi
         $httpBody = '';
         $multipart = false;
 
-
-
         // path params
         if ($signature_request_id !== null) {
             $resourcePath = str_replace(
-                '{' . 'signature_request_id' . '}',
+                '{signature_request_id}',
                 ObjectSerializer::toPathValue($signature_request_id),
                 $resourcePath
             );
         }
 
-
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json', ],
+            $multipart ? ['multipart/form-data'] : ['application/json'],
             $contentType,
             $multipart
         );
@@ -2486,7 +2402,7 @@ class SignatureRequestApi
                     foreach ($formParamValueItems as $formParamValueItem) {
                         $multipartContents[] = [
                             'name' => $formParamName,
-                            'contents' => $formParamValueItem
+                            'contents' => $formParamValueItem,
                         ];
                     }
                 }
@@ -2500,9 +2416,8 @@ class SignatureRequestApi
                 }
 
                 $httpBody = new MultipartStream($multipartContents);
-
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
+                // if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
             } else {
                 // for HTTP post (form)
@@ -2545,14 +2460,14 @@ class SignatureRequestApi
      *
      * Download Files as File Url
      *
-     * @param  string $signature_request_id The id of the SignatureRequest to retrieve. (required)
-     * @param  int $force_download By default when opening the &#x60;file_url&#x60; a browser will download the PDF and save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser. (optional, default to 1)
+     * @param string $signature_request_id The id of the SignatureRequest to retrieve. (required)
+     * @param int    $force_download       By default when opening the &#x60;file_url&#x60; a browser will download the PDF and save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser. (optional, default to 1)
      *
-     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return \Dropbox\Sign\Model\FileResponse|\Dropbox\Sign\Model\ErrorResponse
+     * @return Model\FileResponse
+     * @throws ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws InvalidArgumentException
      */
-    public function signatureRequestFilesAsFileUrl($signature_request_id, $force_download = 1)
+    public function signatureRequestFilesAsFileUrl(string $signature_request_id, int $force_download = 1)
     {
         list($response) = $this->signatureRequestFilesAsFileUrlWithHttpInfo($signature_request_id, $force_download);
         return $response;
@@ -2563,16 +2478,16 @@ class SignatureRequestApi
      *
      * Download Files as File Url
      *
-     * @param  string $signature_request_id The id of the SignatureRequest to retrieve. (required)
-     * @param  int $force_download By default when opening the &#x60;file_url&#x60; a browser will download the PDF and save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser. (optional, default to 1)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['signatureRequestFilesAsFileUrl'] to see the possible values for this operation
+     * @param string $signature_request_id The id of the SignatureRequest to retrieve. (required)
+     * @param int    $force_download       By default when opening the &#x60;file_url&#x60; a browser will download the PDF and save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser. (optional, default to 1)
+     * @param string $contentType          The value for the Content-Type header. Check self::contentTypes['signatureRequestFilesAsFileUrl'] to see the possible values for this operation
      *
-     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return array of \Dropbox\Sign\Model\FileResponse|\Dropbox\Sign\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of Model\FileResponse, HTTP status code, HTTP response headers (array of strings)
+     * @throws ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestFilesAsFileUrl. This method will eventually become unavailable
      */
-    public function signatureRequestFilesAsFileUrlWithHttpInfo($signature_request_id, $force_download = 1, string $contentType = self::contentTypes['signatureRequestFilesAsFileUrl'][0])
+    public function signatureRequestFilesAsFileUrlWithHttpInfo(string $signature_request_id, int $force_download = 1, string $contentType = self::contentTypes['signatureRequestFilesAsFileUrl'][0])
     {
         $request = $this->signatureRequestFilesAsFileUrlRequest($signature_request_id, $force_download, $contentType);
 
@@ -2584,14 +2499,14 @@ class SignatureRequestApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
+                    (int)$e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                    $e->getResponse() ? (string)$e->getResponse()->getBody() : null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
+                    (int)$e->getCode(),
                     null,
                     null
                 );
@@ -2604,14 +2519,14 @@ class SignatureRequestApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        (string) $request->getUri()
+                        (string)$request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    (string) $response->getBody()
+                    (string)$response->getBody()
                 );
             }
-            
+
             $result = $this->handleRangeCodeResponse(
                 $response,
                 '4XX',
@@ -2620,18 +2535,17 @@ class SignatureRequestApi
             if ($result) {
                 return $result;
             }
-            
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     if ('\Dropbox\Sign\Model\FileResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
-                        $content = (string) $response->getBody();
+                        $content = (string)$response->getBody();
                         if ('\Dropbox\Sign\Model\FileResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (\JsonException $exception) {
+                            } catch (JsonException $exception) {
                                 throw new ApiException(
                                     sprintf(
                                         'Error JSON decoding server response (%s)',
@@ -2648,20 +2562,19 @@ class SignatureRequestApi
                     return [
                         ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\FileResponse', []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
-                
             }
 
             $returnType = '\Dropbox\Sign\Model\FileResponse';
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
+                $content = $response->getBody(); // stream goes to serializer
             } else {
-                $content = (string) $response->getBody();
+                $content = (string)$response->getBody();
                 if ($returnType !== 'string') {
                     try {
                         $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                    } catch (\JsonException $exception) {
+                    } catch (JsonException $exception) {
                         throw new ApiException(
                             sprintf(
                                 'Error JSON decoding server response (%s)',
@@ -2678,11 +2591,9 @@ class SignatureRequestApi
             return [
                 ObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
-                $response->getHeaders()
+                $response->getHeaders(),
             ];
-
         } catch (ApiException $e) {
-            
             if ($this->handleRangeCodeException($e, '4XX', '\Dropbox\Sign\Model\ErrorResponse')) {
                 throw $e;
             }
@@ -2695,7 +2606,6 @@ class SignatureRequestApi
                     );
                     $e->setResponseObject($data);
                     break;
-                
             }
             throw $e;
         }
@@ -2706,15 +2616,15 @@ class SignatureRequestApi
      *
      * Download Files as File Url
      *
-     * @param  string $signature_request_id The id of the SignatureRequest to retrieve. (required)
-     * @param  int $force_download By default when opening the &#x60;file_url&#x60; a browser will download the PDF and save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser. (optional, default to 1)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['signatureRequestFilesAsFileUrl'] to see the possible values for this operation
+     * @param string $signature_request_id The id of the SignatureRequest to retrieve. (required)
+     * @param int    $force_download       By default when opening the &#x60;file_url&#x60; a browser will download the PDF and save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser. (optional, default to 1)
+     * @param string $contentType          The value for the Content-Type header. Check self::contentTypes['signatureRequestFilesAsFileUrl'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestFilesAsFileUrl. This method will eventually become unavailable
      */
-    public function signatureRequestFilesAsFileUrlAsync($signature_request_id, $force_download = 1, string $contentType = self::contentTypes['signatureRequestFilesAsFileUrl'][0])
+    public function signatureRequestFilesAsFileUrlAsync(string $signature_request_id, int $force_download = 1, string $contentType = self::contentTypes['signatureRequestFilesAsFileUrl'][0])
     {
         return $this->signatureRequestFilesAsFileUrlAsyncWithHttpInfo($signature_request_id, $force_download, $contentType)
             ->then(
@@ -2729,15 +2639,15 @@ class SignatureRequestApi
      *
      * Download Files as File Url
      *
-     * @param  string $signature_request_id The id of the SignatureRequest to retrieve. (required)
-     * @param  int $force_download By default when opening the &#x60;file_url&#x60; a browser will download the PDF and save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser. (optional, default to 1)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['signatureRequestFilesAsFileUrl'] to see the possible values for this operation
+     * @param string $signature_request_id The id of the SignatureRequest to retrieve. (required)
+     * @param int    $force_download       By default when opening the &#x60;file_url&#x60; a browser will download the PDF and save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser. (optional, default to 1)
+     * @param string $contentType          The value for the Content-Type header. Check self::contentTypes['signatureRequestFilesAsFileUrl'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestFilesAsFileUrl. This method will eventually become unavailable
      */
-    public function signatureRequestFilesAsFileUrlAsyncWithHttpInfo($signature_request_id, $force_download = 1, string $contentType = self::contentTypes['signatureRequestFilesAsFileUrl'][0])
+    public function signatureRequestFilesAsFileUrlAsyncWithHttpInfo(string $signature_request_id, int $force_download = 1, string $contentType = self::contentTypes['signatureRequestFilesAsFileUrl'][0])
     {
         $returnType = '\Dropbox\Sign\Model\FileResponse';
         $request = $this->signatureRequestFilesAsFileUrlRequest($signature_request_id, $force_download, $contentType);
@@ -2747,9 +2657,9 @@ class SignatureRequestApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
-                        $content = (string) $response->getBody();
+                        $content = (string)$response->getBody();
                         if ($returnType !== 'string') {
                             $content = json_decode($content);
                         }
@@ -2758,7 +2668,7 @@ class SignatureRequestApi
                     return [
                         ObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
                 },
                 function ($exception) {
@@ -2772,7 +2682,7 @@ class SignatureRequestApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        (string) $response->getBody()
+                        (string)$response->getBody()
                     );
                 }
             );
@@ -2781,25 +2691,22 @@ class SignatureRequestApi
     /**
      * Create request for operation 'signatureRequestFilesAsFileUrl'
      *
-     * @param  string $signature_request_id The id of the SignatureRequest to retrieve. (required)
-     * @param  int $force_download By default when opening the &#x60;file_url&#x60; a browser will download the PDF and save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser. (optional, default to 1)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['signatureRequestFilesAsFileUrl'] to see the possible values for this operation
+     * @param string $signature_request_id The id of the SignatureRequest to retrieve. (required)
+     * @param int    $force_download       By default when opening the &#x60;file_url&#x60; a browser will download the PDF and save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser. (optional, default to 1)
+     * @param string $contentType          The value for the Content-Type header. Check self::contentTypes['signatureRequestFilesAsFileUrl'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
+     * @return Request
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestFilesAsFileUrl. This method will eventually become unavailable
      */
-    public function signatureRequestFilesAsFileUrlRequest($signature_request_id, $force_download = 1, string $contentType = self::contentTypes['signatureRequestFilesAsFileUrl'][0])
+    public function signatureRequestFilesAsFileUrlRequest(string $signature_request_id, int $force_download = 1, string $contentType = self::contentTypes['signatureRequestFilesAsFileUrl'][0])
     {
-
         // verify the required parameter 'signature_request_id' is set
         if ($signature_request_id === null || (is_array($signature_request_id) && count($signature_request_id) === 0)) {
-            throw new \InvalidArgumentException(
+            throw new InvalidArgumentException(
                 'Missing the required parameter $signature_request_id when calling signatureRequestFilesAsFileUrl'
             );
         }
-
-
 
         $resourcePath = '/signature_request/files_as_file_url/{signature_request_id}';
         $formParams = [];
@@ -2818,19 +2725,17 @@ class SignatureRequestApi
             false // required
         ) ?? []);
 
-
         // path params
         if ($signature_request_id !== null) {
             $resourcePath = str_replace(
-                '{' . 'signature_request_id' . '}',
+                '{signature_request_id}',
                 ObjectSerializer::toPathValue($signature_request_id),
                 $resourcePath
             );
         }
 
-
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json', ],
+            $multipart ? ['multipart/form-data'] : ['application/json'],
             $contentType,
             $multipart
         );
@@ -2844,7 +2749,7 @@ class SignatureRequestApi
                     foreach ($formParamValueItems as $formParamValueItem) {
                         $multipartContents[] = [
                             'name' => $formParamName,
-                            'contents' => $formParamValueItem
+                            'contents' => $formParamValueItem,
                         ];
                     }
                 }
@@ -2858,9 +2763,8 @@ class SignatureRequestApi
                 }
 
                 $httpBody = new MultipartStream($multipartContents);
-
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
+                // if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
             } else {
                 // for HTTP post (form)
@@ -2903,13 +2807,13 @@ class SignatureRequestApi
      *
      * Get Signature Request
      *
-     * @param  string $signature_request_id The id of the SignatureRequest to retrieve. (required)
+     * @param string $signature_request_id The id of the SignatureRequest to retrieve. (required)
      *
-     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return \Dropbox\Sign\Model\SignatureRequestGetResponse|\Dropbox\Sign\Model\ErrorResponse
+     * @return Model\SignatureRequestGetResponse
+     * @throws ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws InvalidArgumentException
      */
-    public function signatureRequestGet($signature_request_id)
+    public function signatureRequestGet(string $signature_request_id)
     {
         list($response) = $this->signatureRequestGetWithHttpInfo($signature_request_id);
         return $response;
@@ -2920,15 +2824,15 @@ class SignatureRequestApi
      *
      * Get Signature Request
      *
-     * @param  string $signature_request_id The id of the SignatureRequest to retrieve. (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['signatureRequestGet'] to see the possible values for this operation
+     * @param string $signature_request_id The id of the SignatureRequest to retrieve. (required)
+     * @param string $contentType          The value for the Content-Type header. Check self::contentTypes['signatureRequestGet'] to see the possible values for this operation
      *
-     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return array of \Dropbox\Sign\Model\SignatureRequestGetResponse|\Dropbox\Sign\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of Model\SignatureRequestGetResponse, HTTP status code, HTTP response headers (array of strings)
+     * @throws ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestGet. This method will eventually become unavailable
      */
-    public function signatureRequestGetWithHttpInfo($signature_request_id, string $contentType = self::contentTypes['signatureRequestGet'][0])
+    public function signatureRequestGetWithHttpInfo(string $signature_request_id, string $contentType = self::contentTypes['signatureRequestGet'][0])
     {
         $request = $this->signatureRequestGetRequest($signature_request_id, $contentType);
 
@@ -2940,14 +2844,14 @@ class SignatureRequestApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
+                    (int)$e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                    $e->getResponse() ? (string)$e->getResponse()->getBody() : null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
+                    (int)$e->getCode(),
                     null,
                     null
                 );
@@ -2960,14 +2864,14 @@ class SignatureRequestApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        (string) $request->getUri()
+                        (string)$request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    (string) $response->getBody()
+                    (string)$response->getBody()
                 );
             }
-            
+
             $result = $this->handleRangeCodeResponse(
                 $response,
                 '4XX',
@@ -2976,18 +2880,17 @@ class SignatureRequestApi
             if ($result) {
                 return $result;
             }
-            
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     if ('\Dropbox\Sign\Model\SignatureRequestGetResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
-                        $content = (string) $response->getBody();
+                        $content = (string)$response->getBody();
                         if ('\Dropbox\Sign\Model\SignatureRequestGetResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (\JsonException $exception) {
+                            } catch (JsonException $exception) {
                                 throw new ApiException(
                                     sprintf(
                                         'Error JSON decoding server response (%s)',
@@ -3004,20 +2907,19 @@ class SignatureRequestApi
                     return [
                         ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\SignatureRequestGetResponse', []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
-                
             }
 
             $returnType = '\Dropbox\Sign\Model\SignatureRequestGetResponse';
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
+                $content = $response->getBody(); // stream goes to serializer
             } else {
-                $content = (string) $response->getBody();
+                $content = (string)$response->getBody();
                 if ($returnType !== 'string') {
                     try {
                         $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                    } catch (\JsonException $exception) {
+                    } catch (JsonException $exception) {
                         throw new ApiException(
                             sprintf(
                                 'Error JSON decoding server response (%s)',
@@ -3034,11 +2936,9 @@ class SignatureRequestApi
             return [
                 ObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
-                $response->getHeaders()
+                $response->getHeaders(),
             ];
-
         } catch (ApiException $e) {
-            
             if ($this->handleRangeCodeException($e, '4XX', '\Dropbox\Sign\Model\ErrorResponse')) {
                 throw $e;
             }
@@ -3051,7 +2951,6 @@ class SignatureRequestApi
                     );
                     $e->setResponseObject($data);
                     break;
-                
             }
             throw $e;
         }
@@ -3062,14 +2961,14 @@ class SignatureRequestApi
      *
      * Get Signature Request
      *
-     * @param  string $signature_request_id The id of the SignatureRequest to retrieve. (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['signatureRequestGet'] to see the possible values for this operation
+     * @param string $signature_request_id The id of the SignatureRequest to retrieve. (required)
+     * @param string $contentType          The value for the Content-Type header. Check self::contentTypes['signatureRequestGet'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestGet. This method will eventually become unavailable
      */
-    public function signatureRequestGetAsync($signature_request_id, string $contentType = self::contentTypes['signatureRequestGet'][0])
+    public function signatureRequestGetAsync(string $signature_request_id, string $contentType = self::contentTypes['signatureRequestGet'][0])
     {
         return $this->signatureRequestGetAsyncWithHttpInfo($signature_request_id, $contentType)
             ->then(
@@ -3084,14 +2983,14 @@ class SignatureRequestApi
      *
      * Get Signature Request
      *
-     * @param  string $signature_request_id The id of the SignatureRequest to retrieve. (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['signatureRequestGet'] to see the possible values for this operation
+     * @param string $signature_request_id The id of the SignatureRequest to retrieve. (required)
+     * @param string $contentType          The value for the Content-Type header. Check self::contentTypes['signatureRequestGet'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestGet. This method will eventually become unavailable
      */
-    public function signatureRequestGetAsyncWithHttpInfo($signature_request_id, string $contentType = self::contentTypes['signatureRequestGet'][0])
+    public function signatureRequestGetAsyncWithHttpInfo(string $signature_request_id, string $contentType = self::contentTypes['signatureRequestGet'][0])
     {
         $returnType = '\Dropbox\Sign\Model\SignatureRequestGetResponse';
         $request = $this->signatureRequestGetRequest($signature_request_id, $contentType);
@@ -3101,9 +3000,9 @@ class SignatureRequestApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
-                        $content = (string) $response->getBody();
+                        $content = (string)$response->getBody();
                         if ($returnType !== 'string') {
                             $content = json_decode($content);
                         }
@@ -3112,7 +3011,7 @@ class SignatureRequestApi
                     return [
                         ObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
                 },
                 function ($exception) {
@@ -3126,7 +3025,7 @@ class SignatureRequestApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        (string) $response->getBody()
+                        (string)$response->getBody()
                     );
                 }
             );
@@ -3135,23 +3034,21 @@ class SignatureRequestApi
     /**
      * Create request for operation 'signatureRequestGet'
      *
-     * @param  string $signature_request_id The id of the SignatureRequest to retrieve. (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['signatureRequestGet'] to see the possible values for this operation
+     * @param string $signature_request_id The id of the SignatureRequest to retrieve. (required)
+     * @param string $contentType          The value for the Content-Type header. Check self::contentTypes['signatureRequestGet'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
+     * @return Request
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestGet. This method will eventually become unavailable
      */
-    public function signatureRequestGetRequest($signature_request_id, string $contentType = self::contentTypes['signatureRequestGet'][0])
+    public function signatureRequestGetRequest(string $signature_request_id, string $contentType = self::contentTypes['signatureRequestGet'][0])
     {
-
         // verify the required parameter 'signature_request_id' is set
         if ($signature_request_id === null || (is_array($signature_request_id) && count($signature_request_id) === 0)) {
-            throw new \InvalidArgumentException(
+            throw new InvalidArgumentException(
                 'Missing the required parameter $signature_request_id when calling signatureRequestGet'
             );
         }
-
 
         $resourcePath = '/signature_request/{signature_request_id}';
         $formParams = [];
@@ -3160,20 +3057,17 @@ class SignatureRequestApi
         $httpBody = '';
         $multipart = false;
 
-
-
         // path params
         if ($signature_request_id !== null) {
             $resourcePath = str_replace(
-                '{' . 'signature_request_id' . '}',
+                '{signature_request_id}',
                 ObjectSerializer::toPathValue($signature_request_id),
                 $resourcePath
             );
         }
 
-
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json', ],
+            $multipart ? ['multipart/form-data'] : ['application/json'],
             $contentType,
             $multipart
         );
@@ -3187,7 +3081,7 @@ class SignatureRequestApi
                     foreach ($formParamValueItems as $formParamValueItem) {
                         $multipartContents[] = [
                             'name' => $formParamName,
-                            'contents' => $formParamValueItem
+                            'contents' => $formParamValueItem,
                         ];
                     }
                 }
@@ -3201,9 +3095,8 @@ class SignatureRequestApi
                 }
 
                 $httpBody = new MultipartStream($multipartContents);
-
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
+                // if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
             } else {
                 // for HTTP post (form)
@@ -3246,16 +3139,16 @@ class SignatureRequestApi
      *
      * List Signature Requests
      *
-     * @param  string $account_id Which account to return SignatureRequests for. Must be a team member. Use &#x60;all&#x60; to indicate all team members. Defaults to your account. (optional)
-     * @param  int $page Which page number of the SignatureRequest List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
-     * @param  int $page_size Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
-     * @param  string $query String that includes search terms and/or fields to be used to filter the SignatureRequest objects. (optional)
+     * @param string $account_id Which account to return SignatureRequests for. Must be a team member. Use &#x60;all&#x60; to indicate all team members. Defaults to your account. (optional)
+     * @param int    $page       Which page number of the SignatureRequest List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
+     * @param int    $page_size  Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
+     * @param string $query      String that includes search terms and/or fields to be used to filter the SignatureRequest objects. (optional)
      *
-     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return \Dropbox\Sign\Model\SignatureRequestListResponse|\Dropbox\Sign\Model\ErrorResponse
+     * @return Model\SignatureRequestListResponse
+     * @throws ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws InvalidArgumentException
      */
-    public function signatureRequestList($account_id = null, $page = 1, $page_size = 20, $query = null)
+    public function signatureRequestList(string $account_id = null, int $page = 1, int $page_size = 20, string $query = null)
     {
         list($response) = $this->signatureRequestListWithHttpInfo($account_id, $page, $page_size, $query);
         return $response;
@@ -3266,18 +3159,18 @@ class SignatureRequestApi
      *
      * List Signature Requests
      *
-     * @param  string $account_id Which account to return SignatureRequests for. Must be a team member. Use &#x60;all&#x60; to indicate all team members. Defaults to your account. (optional)
-     * @param  int $page Which page number of the SignatureRequest List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
-     * @param  int $page_size Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
-     * @param  string $query String that includes search terms and/or fields to be used to filter the SignatureRequest objects. (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['signatureRequestList'] to see the possible values for this operation
+     * @param string $account_id  Which account to return SignatureRequests for. Must be a team member. Use &#x60;all&#x60; to indicate all team members. Defaults to your account. (optional)
+     * @param int    $page        Which page number of the SignatureRequest List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
+     * @param int    $page_size   Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
+     * @param string $query       String that includes search terms and/or fields to be used to filter the SignatureRequest objects. (optional)
+     * @param string $contentType The value for the Content-Type header. Check self::contentTypes['signatureRequestList'] to see the possible values for this operation
      *
-     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return array of \Dropbox\Sign\Model\SignatureRequestListResponse|\Dropbox\Sign\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of Model\SignatureRequestListResponse, HTTP status code, HTTP response headers (array of strings)
+     * @throws ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestList. This method will eventually become unavailable
      */
-    public function signatureRequestListWithHttpInfo($account_id = null, $page = 1, $page_size = 20, $query = null, string $contentType = self::contentTypes['signatureRequestList'][0])
+    public function signatureRequestListWithHttpInfo(string $account_id = null, int $page = 1, int $page_size = 20, string $query = null, string $contentType = self::contentTypes['signatureRequestList'][0])
     {
         $request = $this->signatureRequestListRequest($account_id, $page, $page_size, $query, $contentType);
 
@@ -3289,14 +3182,14 @@ class SignatureRequestApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
+                    (int)$e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                    $e->getResponse() ? (string)$e->getResponse()->getBody() : null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
+                    (int)$e->getCode(),
                     null,
                     null
                 );
@@ -3309,14 +3202,14 @@ class SignatureRequestApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        (string) $request->getUri()
+                        (string)$request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    (string) $response->getBody()
+                    (string)$response->getBody()
                 );
             }
-            
+
             $result = $this->handleRangeCodeResponse(
                 $response,
                 '4XX',
@@ -3325,18 +3218,17 @@ class SignatureRequestApi
             if ($result) {
                 return $result;
             }
-            
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     if ('\Dropbox\Sign\Model\SignatureRequestListResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
-                        $content = (string) $response->getBody();
+                        $content = (string)$response->getBody();
                         if ('\Dropbox\Sign\Model\SignatureRequestListResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (\JsonException $exception) {
+                            } catch (JsonException $exception) {
                                 throw new ApiException(
                                     sprintf(
                                         'Error JSON decoding server response (%s)',
@@ -3353,20 +3245,19 @@ class SignatureRequestApi
                     return [
                         ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\SignatureRequestListResponse', []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
-                
             }
 
             $returnType = '\Dropbox\Sign\Model\SignatureRequestListResponse';
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
+                $content = $response->getBody(); // stream goes to serializer
             } else {
-                $content = (string) $response->getBody();
+                $content = (string)$response->getBody();
                 if ($returnType !== 'string') {
                     try {
                         $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                    } catch (\JsonException $exception) {
+                    } catch (JsonException $exception) {
                         throw new ApiException(
                             sprintf(
                                 'Error JSON decoding server response (%s)',
@@ -3383,11 +3274,9 @@ class SignatureRequestApi
             return [
                 ObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
-                $response->getHeaders()
+                $response->getHeaders(),
             ];
-
         } catch (ApiException $e) {
-            
             if ($this->handleRangeCodeException($e, '4XX', '\Dropbox\Sign\Model\ErrorResponse')) {
                 throw $e;
             }
@@ -3400,7 +3289,6 @@ class SignatureRequestApi
                     );
                     $e->setResponseObject($data);
                     break;
-                
             }
             throw $e;
         }
@@ -3411,17 +3299,17 @@ class SignatureRequestApi
      *
      * List Signature Requests
      *
-     * @param  string $account_id Which account to return SignatureRequests for. Must be a team member. Use &#x60;all&#x60; to indicate all team members. Defaults to your account. (optional)
-     * @param  int $page Which page number of the SignatureRequest List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
-     * @param  int $page_size Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
-     * @param  string $query String that includes search terms and/or fields to be used to filter the SignatureRequest objects. (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['signatureRequestList'] to see the possible values for this operation
+     * @param string $account_id  Which account to return SignatureRequests for. Must be a team member. Use &#x60;all&#x60; to indicate all team members. Defaults to your account. (optional)
+     * @param int    $page        Which page number of the SignatureRequest List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
+     * @param int    $page_size   Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
+     * @param string $query       String that includes search terms and/or fields to be used to filter the SignatureRequest objects. (optional)
+     * @param string $contentType The value for the Content-Type header. Check self::contentTypes['signatureRequestList'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestList. This method will eventually become unavailable
      */
-    public function signatureRequestListAsync($account_id = null, $page = 1, $page_size = 20, $query = null, string $contentType = self::contentTypes['signatureRequestList'][0])
+    public function signatureRequestListAsync(string $account_id = null, int $page = 1, int $page_size = 20, string $query = null, string $contentType = self::contentTypes['signatureRequestList'][0])
     {
         return $this->signatureRequestListAsyncWithHttpInfo($account_id, $page, $page_size, $query, $contentType)
             ->then(
@@ -3436,17 +3324,17 @@ class SignatureRequestApi
      *
      * List Signature Requests
      *
-     * @param  string $account_id Which account to return SignatureRequests for. Must be a team member. Use &#x60;all&#x60; to indicate all team members. Defaults to your account. (optional)
-     * @param  int $page Which page number of the SignatureRequest List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
-     * @param  int $page_size Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
-     * @param  string $query String that includes search terms and/or fields to be used to filter the SignatureRequest objects. (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['signatureRequestList'] to see the possible values for this operation
+     * @param string $account_id  Which account to return SignatureRequests for. Must be a team member. Use &#x60;all&#x60; to indicate all team members. Defaults to your account. (optional)
+     * @param int    $page        Which page number of the SignatureRequest List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
+     * @param int    $page_size   Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
+     * @param string $query       String that includes search terms and/or fields to be used to filter the SignatureRequest objects. (optional)
+     * @param string $contentType The value for the Content-Type header. Check self::contentTypes['signatureRequestList'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestList. This method will eventually become unavailable
      */
-    public function signatureRequestListAsyncWithHttpInfo($account_id = null, $page = 1, $page_size = 20, $query = null, string $contentType = self::contentTypes['signatureRequestList'][0])
+    public function signatureRequestListAsyncWithHttpInfo(string $account_id = null, int $page = 1, int $page_size = 20, string $query = null, string $contentType = self::contentTypes['signatureRequestList'][0])
     {
         $returnType = '\Dropbox\Sign\Model\SignatureRequestListResponse';
         $request = $this->signatureRequestListRequest($account_id, $page, $page_size, $query, $contentType);
@@ -3456,9 +3344,9 @@ class SignatureRequestApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
-                        $content = (string) $response->getBody();
+                        $content = (string)$response->getBody();
                         if ($returnType !== 'string') {
                             $content = json_decode($content);
                         }
@@ -3467,7 +3355,7 @@ class SignatureRequestApi
                     return [
                         ObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
                 },
                 function ($exception) {
@@ -3481,7 +3369,7 @@ class SignatureRequestApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        (string) $response->getBody()
+                        (string)$response->getBody()
                     );
                 }
             );
@@ -3490,24 +3378,18 @@ class SignatureRequestApi
     /**
      * Create request for operation 'signatureRequestList'
      *
-     * @param  string $account_id Which account to return SignatureRequests for. Must be a team member. Use &#x60;all&#x60; to indicate all team members. Defaults to your account. (optional)
-     * @param  int $page Which page number of the SignatureRequest List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
-     * @param  int $page_size Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
-     * @param  string $query String that includes search terms and/or fields to be used to filter the SignatureRequest objects. (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['signatureRequestList'] to see the possible values for this operation
+     * @param string $account_id  Which account to return SignatureRequests for. Must be a team member. Use &#x60;all&#x60; to indicate all team members. Defaults to your account. (optional)
+     * @param int    $page        Which page number of the SignatureRequest List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
+     * @param int    $page_size   Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
+     * @param string $query       String that includes search terms and/or fields to be used to filter the SignatureRequest objects. (optional)
+     * @param string $contentType The value for the Content-Type header. Check self::contentTypes['signatureRequestList'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
+     * @return Request
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestList. This method will eventually become unavailable
      */
-    public function signatureRequestListRequest($account_id = null, $page = 1, $page_size = 20, $query = null, string $contentType = self::contentTypes['signatureRequestList'][0])
+    public function signatureRequestListRequest(string $account_id = null, int $page = 1, int $page_size = 20, string $query = null, string $contentType = self::contentTypes['signatureRequestList'][0])
     {
-
-
-
-
-
-
         $resourcePath = '/signature_request/list';
         $formParams = [];
         $queryParams = [];
@@ -3552,11 +3434,8 @@ class SignatureRequestApi
             false // required
         ) ?? []);
 
-
-
-
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json', ],
+            $multipart ? ['multipart/form-data'] : ['application/json'],
             $contentType,
             $multipart
         );
@@ -3570,7 +3449,7 @@ class SignatureRequestApi
                     foreach ($formParamValueItems as $formParamValueItem) {
                         $multipartContents[] = [
                             'name' => $formParamName,
-                            'contents' => $formParamValueItem
+                            'contents' => $formParamValueItem,
                         ];
                     }
                 }
@@ -3584,9 +3463,8 @@ class SignatureRequestApi
                 }
 
                 $httpBody = new MultipartStream($multipartContents);
-
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
+                // if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
             } else {
                 // for HTTP post (form)
@@ -3629,13 +3507,13 @@ class SignatureRequestApi
      *
      * Release On-Hold Signature Request
      *
-     * @param  string $signature_request_id The id of the SignatureRequest to release. (required)
+     * @param string $signature_request_id The id of the SignatureRequest to release. (required)
      *
-     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return \Dropbox\Sign\Model\SignatureRequestGetResponse|\Dropbox\Sign\Model\ErrorResponse
+     * @return Model\SignatureRequestGetResponse
+     * @throws ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws InvalidArgumentException
      */
-    public function signatureRequestReleaseHold($signature_request_id)
+    public function signatureRequestReleaseHold(string $signature_request_id)
     {
         list($response) = $this->signatureRequestReleaseHoldWithHttpInfo($signature_request_id);
         return $response;
@@ -3646,15 +3524,15 @@ class SignatureRequestApi
      *
      * Release On-Hold Signature Request
      *
-     * @param  string $signature_request_id The id of the SignatureRequest to release. (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['signatureRequestReleaseHold'] to see the possible values for this operation
+     * @param string $signature_request_id The id of the SignatureRequest to release. (required)
+     * @param string $contentType          The value for the Content-Type header. Check self::contentTypes['signatureRequestReleaseHold'] to see the possible values for this operation
      *
-     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return array of \Dropbox\Sign\Model\SignatureRequestGetResponse|\Dropbox\Sign\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of Model\SignatureRequestGetResponse, HTTP status code, HTTP response headers (array of strings)
+     * @throws ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestReleaseHold. This method will eventually become unavailable
      */
-    public function signatureRequestReleaseHoldWithHttpInfo($signature_request_id, string $contentType = self::contentTypes['signatureRequestReleaseHold'][0])
+    public function signatureRequestReleaseHoldWithHttpInfo(string $signature_request_id, string $contentType = self::contentTypes['signatureRequestReleaseHold'][0])
     {
         $request = $this->signatureRequestReleaseHoldRequest($signature_request_id, $contentType);
 
@@ -3666,14 +3544,14 @@ class SignatureRequestApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
+                    (int)$e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                    $e->getResponse() ? (string)$e->getResponse()->getBody() : null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
+                    (int)$e->getCode(),
                     null,
                     null
                 );
@@ -3686,14 +3564,14 @@ class SignatureRequestApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        (string) $request->getUri()
+                        (string)$request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    (string) $response->getBody()
+                    (string)$response->getBody()
                 );
             }
-            
+
             $result = $this->handleRangeCodeResponse(
                 $response,
                 '4XX',
@@ -3702,18 +3580,17 @@ class SignatureRequestApi
             if ($result) {
                 return $result;
             }
-            
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     if ('\Dropbox\Sign\Model\SignatureRequestGetResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
-                        $content = (string) $response->getBody();
+                        $content = (string)$response->getBody();
                         if ('\Dropbox\Sign\Model\SignatureRequestGetResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (\JsonException $exception) {
+                            } catch (JsonException $exception) {
                                 throw new ApiException(
                                     sprintf(
                                         'Error JSON decoding server response (%s)',
@@ -3730,20 +3607,19 @@ class SignatureRequestApi
                     return [
                         ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\SignatureRequestGetResponse', []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
-                
             }
 
             $returnType = '\Dropbox\Sign\Model\SignatureRequestGetResponse';
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
+                $content = $response->getBody(); // stream goes to serializer
             } else {
-                $content = (string) $response->getBody();
+                $content = (string)$response->getBody();
                 if ($returnType !== 'string') {
                     try {
                         $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                    } catch (\JsonException $exception) {
+                    } catch (JsonException $exception) {
                         throw new ApiException(
                             sprintf(
                                 'Error JSON decoding server response (%s)',
@@ -3760,11 +3636,9 @@ class SignatureRequestApi
             return [
                 ObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
-                $response->getHeaders()
+                $response->getHeaders(),
             ];
-
         } catch (ApiException $e) {
-            
             if ($this->handleRangeCodeException($e, '4XX', '\Dropbox\Sign\Model\ErrorResponse')) {
                 throw $e;
             }
@@ -3777,7 +3651,6 @@ class SignatureRequestApi
                     );
                     $e->setResponseObject($data);
                     break;
-                
             }
             throw $e;
         }
@@ -3788,14 +3661,14 @@ class SignatureRequestApi
      *
      * Release On-Hold Signature Request
      *
-     * @param  string $signature_request_id The id of the SignatureRequest to release. (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['signatureRequestReleaseHold'] to see the possible values for this operation
+     * @param string $signature_request_id The id of the SignatureRequest to release. (required)
+     * @param string $contentType          The value for the Content-Type header. Check self::contentTypes['signatureRequestReleaseHold'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestReleaseHold. This method will eventually become unavailable
      */
-    public function signatureRequestReleaseHoldAsync($signature_request_id, string $contentType = self::contentTypes['signatureRequestReleaseHold'][0])
+    public function signatureRequestReleaseHoldAsync(string $signature_request_id, string $contentType = self::contentTypes['signatureRequestReleaseHold'][0])
     {
         return $this->signatureRequestReleaseHoldAsyncWithHttpInfo($signature_request_id, $contentType)
             ->then(
@@ -3810,14 +3683,14 @@ class SignatureRequestApi
      *
      * Release On-Hold Signature Request
      *
-     * @param  string $signature_request_id The id of the SignatureRequest to release. (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['signatureRequestReleaseHold'] to see the possible values for this operation
+     * @param string $signature_request_id The id of the SignatureRequest to release. (required)
+     * @param string $contentType          The value for the Content-Type header. Check self::contentTypes['signatureRequestReleaseHold'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestReleaseHold. This method will eventually become unavailable
      */
-    public function signatureRequestReleaseHoldAsyncWithHttpInfo($signature_request_id, string $contentType = self::contentTypes['signatureRequestReleaseHold'][0])
+    public function signatureRequestReleaseHoldAsyncWithHttpInfo(string $signature_request_id, string $contentType = self::contentTypes['signatureRequestReleaseHold'][0])
     {
         $returnType = '\Dropbox\Sign\Model\SignatureRequestGetResponse';
         $request = $this->signatureRequestReleaseHoldRequest($signature_request_id, $contentType);
@@ -3827,9 +3700,9 @@ class SignatureRequestApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
-                        $content = (string) $response->getBody();
+                        $content = (string)$response->getBody();
                         if ($returnType !== 'string') {
                             $content = json_decode($content);
                         }
@@ -3838,7 +3711,7 @@ class SignatureRequestApi
                     return [
                         ObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
                 },
                 function ($exception) {
@@ -3852,7 +3725,7 @@ class SignatureRequestApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        (string) $response->getBody()
+                        (string)$response->getBody()
                     );
                 }
             );
@@ -3861,23 +3734,21 @@ class SignatureRequestApi
     /**
      * Create request for operation 'signatureRequestReleaseHold'
      *
-     * @param  string $signature_request_id The id of the SignatureRequest to release. (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['signatureRequestReleaseHold'] to see the possible values for this operation
+     * @param string $signature_request_id The id of the SignatureRequest to release. (required)
+     * @param string $contentType          The value for the Content-Type header. Check self::contentTypes['signatureRequestReleaseHold'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
+     * @return Request
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestReleaseHold. This method will eventually become unavailable
      */
-    public function signatureRequestReleaseHoldRequest($signature_request_id, string $contentType = self::contentTypes['signatureRequestReleaseHold'][0])
+    public function signatureRequestReleaseHoldRequest(string $signature_request_id, string $contentType = self::contentTypes['signatureRequestReleaseHold'][0])
     {
-
         // verify the required parameter 'signature_request_id' is set
         if ($signature_request_id === null || (is_array($signature_request_id) && count($signature_request_id) === 0)) {
-            throw new \InvalidArgumentException(
+            throw new InvalidArgumentException(
                 'Missing the required parameter $signature_request_id when calling signatureRequestReleaseHold'
             );
         }
-
 
         $resourcePath = '/signature_request/release_hold/{signature_request_id}';
         $formParams = [];
@@ -3886,20 +3757,17 @@ class SignatureRequestApi
         $httpBody = '';
         $multipart = false;
 
-
-
         // path params
         if ($signature_request_id !== null) {
             $resourcePath = str_replace(
-                '{' . 'signature_request_id' . '}',
+                '{signature_request_id}',
                 ObjectSerializer::toPathValue($signature_request_id),
                 $resourcePath
             );
         }
 
-
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json', ],
+            $multipart ? ['multipart/form-data'] : ['application/json'],
             $contentType,
             $multipart
         );
@@ -3913,7 +3781,7 @@ class SignatureRequestApi
                     foreach ($formParamValueItems as $formParamValueItem) {
                         $multipartContents[] = [
                             'name' => $formParamName,
-                            'contents' => $formParamValueItem
+                            'contents' => $formParamValueItem,
                         ];
                     }
                 }
@@ -3927,9 +3795,8 @@ class SignatureRequestApi
                 }
 
                 $httpBody = new MultipartStream($multipartContents);
-
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
+                // if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
             } else {
                 // for HTTP post (form)
@@ -3972,14 +3839,14 @@ class SignatureRequestApi
      *
      * Send Request Reminder
      *
-     * @param  string $signature_request_id The id of the SignatureRequest to send a reminder for. (required)
-     * @param  \Dropbox\Sign\Model\SignatureRequestRemindRequest $signature_request_remind_request signature_request_remind_request (required)
+     * @param string                              $signature_request_id             The id of the SignatureRequest to send a reminder for. (required)
+     * @param Model\SignatureRequestRemindRequest $signature_request_remind_request signature_request_remind_request (required)
      *
-     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return \Dropbox\Sign\Model\SignatureRequestGetResponse|\Dropbox\Sign\Model\ErrorResponse
+     * @return Model\SignatureRequestGetResponse
+     * @throws ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws InvalidArgumentException
      */
-    public function signatureRequestRemind($signature_request_id, $signature_request_remind_request)
+    public function signatureRequestRemind(string $signature_request_id, Model\SignatureRequestRemindRequest $signature_request_remind_request)
     {
         list($response) = $this->signatureRequestRemindWithHttpInfo($signature_request_id, $signature_request_remind_request);
         return $response;
@@ -3990,16 +3857,16 @@ class SignatureRequestApi
      *
      * Send Request Reminder
      *
-     * @param  string $signature_request_id The id of the SignatureRequest to send a reminder for. (required)
-     * @param  \Dropbox\Sign\Model\SignatureRequestRemindRequest $signature_request_remind_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['signatureRequestRemind'] to see the possible values for this operation
+     * @param string                              $signature_request_id             The id of the SignatureRequest to send a reminder for. (required)
+     * @param Model\SignatureRequestRemindRequest $signature_request_remind_request (required)
+     * @param string                              $contentType                      The value for the Content-Type header. Check self::contentTypes['signatureRequestRemind'] to see the possible values for this operation
      *
-     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return array of \Dropbox\Sign\Model\SignatureRequestGetResponse|\Dropbox\Sign\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of Model\SignatureRequestGetResponse, HTTP status code, HTTP response headers (array of strings)
+     * @throws ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestRemind. This method will eventually become unavailable
      */
-    public function signatureRequestRemindWithHttpInfo($signature_request_id, $signature_request_remind_request, string $contentType = self::contentTypes['signatureRequestRemind'][0])
+    public function signatureRequestRemindWithHttpInfo(string $signature_request_id, Model\SignatureRequestRemindRequest $signature_request_remind_request, string $contentType = self::contentTypes['signatureRequestRemind'][0])
     {
         $request = $this->signatureRequestRemindRequest($signature_request_id, $signature_request_remind_request, $contentType);
 
@@ -4011,14 +3878,14 @@ class SignatureRequestApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
+                    (int)$e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                    $e->getResponse() ? (string)$e->getResponse()->getBody() : null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
+                    (int)$e->getCode(),
                     null,
                     null
                 );
@@ -4031,14 +3898,14 @@ class SignatureRequestApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        (string) $request->getUri()
+                        (string)$request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    (string) $response->getBody()
+                    (string)$response->getBody()
                 );
             }
-            
+
             $result = $this->handleRangeCodeResponse(
                 $response,
                 '4XX',
@@ -4047,18 +3914,17 @@ class SignatureRequestApi
             if ($result) {
                 return $result;
             }
-            
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     if ('\Dropbox\Sign\Model\SignatureRequestGetResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
-                        $content = (string) $response->getBody();
+                        $content = (string)$response->getBody();
                         if ('\Dropbox\Sign\Model\SignatureRequestGetResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (\JsonException $exception) {
+                            } catch (JsonException $exception) {
                                 throw new ApiException(
                                     sprintf(
                                         'Error JSON decoding server response (%s)',
@@ -4075,20 +3941,19 @@ class SignatureRequestApi
                     return [
                         ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\SignatureRequestGetResponse', []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
-                
             }
 
             $returnType = '\Dropbox\Sign\Model\SignatureRequestGetResponse';
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
+                $content = $response->getBody(); // stream goes to serializer
             } else {
-                $content = (string) $response->getBody();
+                $content = (string)$response->getBody();
                 if ($returnType !== 'string') {
                     try {
                         $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                    } catch (\JsonException $exception) {
+                    } catch (JsonException $exception) {
                         throw new ApiException(
                             sprintf(
                                 'Error JSON decoding server response (%s)',
@@ -4105,11 +3970,9 @@ class SignatureRequestApi
             return [
                 ObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
-                $response->getHeaders()
+                $response->getHeaders(),
             ];
-
         } catch (ApiException $e) {
-            
             if ($this->handleRangeCodeException($e, '4XX', '\Dropbox\Sign\Model\ErrorResponse')) {
                 throw $e;
             }
@@ -4122,7 +3985,6 @@ class SignatureRequestApi
                     );
                     $e->setResponseObject($data);
                     break;
-                
             }
             throw $e;
         }
@@ -4133,15 +3995,15 @@ class SignatureRequestApi
      *
      * Send Request Reminder
      *
-     * @param  string $signature_request_id The id of the SignatureRequest to send a reminder for. (required)
-     * @param  \Dropbox\Sign\Model\SignatureRequestRemindRequest $signature_request_remind_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['signatureRequestRemind'] to see the possible values for this operation
+     * @param string                              $signature_request_id             The id of the SignatureRequest to send a reminder for. (required)
+     * @param Model\SignatureRequestRemindRequest $signature_request_remind_request (required)
+     * @param string                              $contentType                      The value for the Content-Type header. Check self::contentTypes['signatureRequestRemind'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestRemind. This method will eventually become unavailable
      */
-    public function signatureRequestRemindAsync($signature_request_id, $signature_request_remind_request, string $contentType = self::contentTypes['signatureRequestRemind'][0])
+    public function signatureRequestRemindAsync(string $signature_request_id, Model\SignatureRequestRemindRequest $signature_request_remind_request, string $contentType = self::contentTypes['signatureRequestRemind'][0])
     {
         return $this->signatureRequestRemindAsyncWithHttpInfo($signature_request_id, $signature_request_remind_request, $contentType)
             ->then(
@@ -4156,15 +4018,15 @@ class SignatureRequestApi
      *
      * Send Request Reminder
      *
-     * @param  string $signature_request_id The id of the SignatureRequest to send a reminder for. (required)
-     * @param  \Dropbox\Sign\Model\SignatureRequestRemindRequest $signature_request_remind_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['signatureRequestRemind'] to see the possible values for this operation
+     * @param string                              $signature_request_id             The id of the SignatureRequest to send a reminder for. (required)
+     * @param Model\SignatureRequestRemindRequest $signature_request_remind_request (required)
+     * @param string                              $contentType                      The value for the Content-Type header. Check self::contentTypes['signatureRequestRemind'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestRemind. This method will eventually become unavailable
      */
-    public function signatureRequestRemindAsyncWithHttpInfo($signature_request_id, $signature_request_remind_request, string $contentType = self::contentTypes['signatureRequestRemind'][0])
+    public function signatureRequestRemindAsyncWithHttpInfo(string $signature_request_id, Model\SignatureRequestRemindRequest $signature_request_remind_request, string $contentType = self::contentTypes['signatureRequestRemind'][0])
     {
         $returnType = '\Dropbox\Sign\Model\SignatureRequestGetResponse';
         $request = $this->signatureRequestRemindRequest($signature_request_id, $signature_request_remind_request, $contentType);
@@ -4174,9 +4036,9 @@ class SignatureRequestApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
-                        $content = (string) $response->getBody();
+                        $content = (string)$response->getBody();
                         if ($returnType !== 'string') {
                             $content = json_decode($content);
                         }
@@ -4185,7 +4047,7 @@ class SignatureRequestApi
                     return [
                         ObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
                 },
                 function ($exception) {
@@ -4199,7 +4061,7 @@ class SignatureRequestApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        (string) $response->getBody()
+                        (string)$response->getBody()
                     );
                 }
             );
@@ -4208,31 +4070,29 @@ class SignatureRequestApi
     /**
      * Create request for operation 'signatureRequestRemind'
      *
-     * @param  string $signature_request_id The id of the SignatureRequest to send a reminder for. (required)
-     * @param  \Dropbox\Sign\Model\SignatureRequestRemindRequest $signature_request_remind_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['signatureRequestRemind'] to see the possible values for this operation
+     * @param string                              $signature_request_id             The id of the SignatureRequest to send a reminder for. (required)
+     * @param Model\SignatureRequestRemindRequest $signature_request_remind_request (required)
+     * @param string                              $contentType                      The value for the Content-Type header. Check self::contentTypes['signatureRequestRemind'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
+     * @return Request
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestRemind. This method will eventually become unavailable
      */
-    public function signatureRequestRemindRequest($signature_request_id, $signature_request_remind_request, string $contentType = self::contentTypes['signatureRequestRemind'][0])
+    public function signatureRequestRemindRequest(string $signature_request_id, Model\SignatureRequestRemindRequest $signature_request_remind_request, string $contentType = self::contentTypes['signatureRequestRemind'][0])
     {
-
         // verify the required parameter 'signature_request_id' is set
         if ($signature_request_id === null || (is_array($signature_request_id) && count($signature_request_id) === 0)) {
-            throw new \InvalidArgumentException(
+            throw new InvalidArgumentException(
                 'Missing the required parameter $signature_request_id when calling signatureRequestRemind'
             );
         }
 
         // verify the required parameter 'signature_request_remind_request' is set
         if ($signature_request_remind_request === null || (is_array($signature_request_remind_request) && count($signature_request_remind_request) === 0)) {
-            throw new \InvalidArgumentException(
+            throw new InvalidArgumentException(
                 'Missing the required parameter $signature_request_remind_request when calling signatureRequestRemind'
             );
         }
-
 
         $resourcePath = '/signature_request/remind/{signature_request_id}';
         $formParams = [];
@@ -4247,19 +4107,17 @@ class SignatureRequestApi
 
         $multipart = !empty($formParams);
 
-
         // path params
         if ($signature_request_id !== null) {
             $resourcePath = str_replace(
-                '{' . 'signature_request_id' . '}',
+                '{signature_request_id}',
                 ObjectSerializer::toPathValue($signature_request_id),
                 $resourcePath
             );
         }
 
-
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json', ],
+            $multipart ? ['multipart/form-data'] : ['application/json'],
             $contentType,
             $multipart
         );
@@ -4267,7 +4125,7 @@ class SignatureRequestApi
         // for model (json/xml)
         if (count($formParams) === 0) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the body
+                // if Content-Type contains "application/json", json_encode the body
                 $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($signature_request_remind_request));
             } else {
                 $httpBody = $signature_request_remind_request;
@@ -4280,7 +4138,7 @@ class SignatureRequestApi
                     foreach ($formParamValueItems as $formParamValueItem) {
                         $multipartContents[] = [
                             'name' => $formParamName,
-                            'contents' => $formParamValueItem
+                            'contents' => $formParamValueItem,
                         ];
                     }
                 }
@@ -4297,9 +4155,8 @@ class SignatureRequestApi
                     $payloadHook('multipart', $multipartContents, $signature_request_remind_request);
                 }
                 $httpBody = new MultipartStream($multipartContents);
-
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
+                // if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
             } else {
                 // for HTTP post (form)
@@ -4342,13 +4199,12 @@ class SignatureRequestApi
      *
      * Remove Signature Request Access
      *
-     * @param  string $signature_request_id The id of the SignatureRequest to remove. (required)
+     * @param string $signature_request_id The id of the SignatureRequest to remove. (required)
      *
-     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return void
+     * @throws ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws InvalidArgumentException
      */
-    public function signatureRequestRemove($signature_request_id)
+    public function signatureRequestRemove(string $signature_request_id)
     {
         $this->signatureRequestRemoveWithHttpInfo($signature_request_id);
     }
@@ -4358,15 +4214,15 @@ class SignatureRequestApi
      *
      * Remove Signature Request Access
      *
-     * @param  string $signature_request_id The id of the SignatureRequest to remove. (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['signatureRequestRemove'] to see the possible values for this operation
+     * @param string $signature_request_id The id of the SignatureRequest to remove. (required)
+     * @param string $contentType          The value for the Content-Type header. Check self::contentTypes['signatureRequestRemove'] to see the possible values for this operation
      *
-     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestRemove. This method will eventually become unavailable
      */
-    public function signatureRequestRemoveWithHttpInfo($signature_request_id, string $contentType = self::contentTypes['signatureRequestRemove'][0])
+    public function signatureRequestRemoveWithHttpInfo(string $signature_request_id, string $contentType = self::contentTypes['signatureRequestRemove'][0])
     {
         $request = $this->signatureRequestRemoveRequest($signature_request_id, $contentType);
 
@@ -4378,14 +4234,14 @@ class SignatureRequestApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
+                    (int)$e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                    $e->getResponse() ? (string)$e->getResponse()->getBody() : null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
+                    (int)$e->getCode(),
                     null,
                     null
                 );
@@ -4398,23 +4254,20 @@ class SignatureRequestApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        (string) $request->getUri()
+                        (string)$request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    (string) $response->getBody()
+                    (string)$response->getBody()
                 );
             }
 
             return [null, $statusCode, $response->getHeaders()];
-
         } catch (ApiException $e) {
-            
             if ($this->handleRangeCodeException($e, '4XX', '\Dropbox\Sign\Model\ErrorResponse')) {
                 throw $e;
             }
             switch ($e->getCode()) {
-                
             }
             throw $e;
         }
@@ -4425,14 +4278,14 @@ class SignatureRequestApi
      *
      * Remove Signature Request Access
      *
-     * @param  string $signature_request_id The id of the SignatureRequest to remove. (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['signatureRequestRemove'] to see the possible values for this operation
+     * @param string $signature_request_id The id of the SignatureRequest to remove. (required)
+     * @param string $contentType          The value for the Content-Type header. Check self::contentTypes['signatureRequestRemove'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestRemove. This method will eventually become unavailable
      */
-    public function signatureRequestRemoveAsync($signature_request_id, string $contentType = self::contentTypes['signatureRequestRemove'][0])
+    public function signatureRequestRemoveAsync(string $signature_request_id, string $contentType = self::contentTypes['signatureRequestRemove'][0])
     {
         return $this->signatureRequestRemoveAsyncWithHttpInfo($signature_request_id, $contentType)
             ->then(
@@ -4447,14 +4300,14 @@ class SignatureRequestApi
      *
      * Remove Signature Request Access
      *
-     * @param  string $signature_request_id The id of the SignatureRequest to remove. (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['signatureRequestRemove'] to see the possible values for this operation
+     * @param string $signature_request_id The id of the SignatureRequest to remove. (required)
+     * @param string $contentType          The value for the Content-Type header. Check self::contentTypes['signatureRequestRemove'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestRemove. This method will eventually become unavailable
      */
-    public function signatureRequestRemoveAsyncWithHttpInfo($signature_request_id, string $contentType = self::contentTypes['signatureRequestRemove'][0])
+    public function signatureRequestRemoveAsyncWithHttpInfo(string $signature_request_id, string $contentType = self::contentTypes['signatureRequestRemove'][0])
     {
         $returnType = '';
         $request = $this->signatureRequestRemoveRequest($signature_request_id, $contentType);
@@ -4462,7 +4315,7 @@ class SignatureRequestApi
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
-                function ($response) use ($returnType) {
+                function ($response) {
                     return [null, $response->getStatusCode(), $response->getHeaders()];
                 },
                 function ($exception) {
@@ -4476,7 +4329,7 @@ class SignatureRequestApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        (string) $response->getBody()
+                        (string)$response->getBody()
                     );
                 }
             );
@@ -4485,23 +4338,21 @@ class SignatureRequestApi
     /**
      * Create request for operation 'signatureRequestRemove'
      *
-     * @param  string $signature_request_id The id of the SignatureRequest to remove. (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['signatureRequestRemove'] to see the possible values for this operation
+     * @param string $signature_request_id The id of the SignatureRequest to remove. (required)
+     * @param string $contentType          The value for the Content-Type header. Check self::contentTypes['signatureRequestRemove'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
+     * @return Request
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestRemove. This method will eventually become unavailable
      */
-    public function signatureRequestRemoveRequest($signature_request_id, string $contentType = self::contentTypes['signatureRequestRemove'][0])
+    public function signatureRequestRemoveRequest(string $signature_request_id, string $contentType = self::contentTypes['signatureRequestRemove'][0])
     {
-
         // verify the required parameter 'signature_request_id' is set
         if ($signature_request_id === null || (is_array($signature_request_id) && count($signature_request_id) === 0)) {
-            throw new \InvalidArgumentException(
+            throw new InvalidArgumentException(
                 'Missing the required parameter $signature_request_id when calling signatureRequestRemove'
             );
         }
-
 
         $resourcePath = '/signature_request/remove/{signature_request_id}';
         $formParams = [];
@@ -4510,20 +4361,17 @@ class SignatureRequestApi
         $httpBody = '';
         $multipart = false;
 
-
-
         // path params
         if ($signature_request_id !== null) {
             $resourcePath = str_replace(
-                '{' . 'signature_request_id' . '}',
+                '{signature_request_id}',
                 ObjectSerializer::toPathValue($signature_request_id),
                 $resourcePath
             );
         }
 
-
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json', ],
+            $multipart ? ['multipart/form-data'] : ['application/json'],
             $contentType,
             $multipart
         );
@@ -4537,7 +4385,7 @@ class SignatureRequestApi
                     foreach ($formParamValueItems as $formParamValueItem) {
                         $multipartContents[] = [
                             'name' => $formParamName,
-                            'contents' => $formParamValueItem
+                            'contents' => $formParamValueItem,
                         ];
                     }
                 }
@@ -4551,9 +4399,8 @@ class SignatureRequestApi
                 }
 
                 $httpBody = new MultipartStream($multipartContents);
-
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
+                // if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
             } else {
                 // for HTTP post (form)
@@ -4592,13 +4439,13 @@ class SignatureRequestApi
      *
      * Send Signature Request
      *
-     * @param  \Dropbox\Sign\Model\SignatureRequestSendRequest $signature_request_send_request signature_request_send_request (required)
+     * @param Model\SignatureRequestSendRequest $signature_request_send_request signature_request_send_request (required)
      *
-     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return \Dropbox\Sign\Model\SignatureRequestGetResponse|\Dropbox\Sign\Model\ErrorResponse
+     * @return Model\SignatureRequestGetResponse
+     * @throws ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws InvalidArgumentException
      */
-    public function signatureRequestSend($signature_request_send_request)
+    public function signatureRequestSend(Model\SignatureRequestSendRequest $signature_request_send_request)
     {
         list($response) = $this->signatureRequestSendWithHttpInfo($signature_request_send_request);
         return $response;
@@ -4609,15 +4456,15 @@ class SignatureRequestApi
      *
      * Send Signature Request
      *
-     * @param  \Dropbox\Sign\Model\SignatureRequestSendRequest $signature_request_send_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['signatureRequestSend'] to see the possible values for this operation
+     * @param Model\SignatureRequestSendRequest $signature_request_send_request (required)
+     * @param string                            $contentType                    The value for the Content-Type header. Check self::contentTypes['signatureRequestSend'] to see the possible values for this operation
      *
-     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return array of \Dropbox\Sign\Model\SignatureRequestGetResponse|\Dropbox\Sign\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of Model\SignatureRequestGetResponse, HTTP status code, HTTP response headers (array of strings)
+     * @throws ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestSend. This method will eventually become unavailable
      */
-    public function signatureRequestSendWithHttpInfo($signature_request_send_request, string $contentType = self::contentTypes['signatureRequestSend'][0])
+    public function signatureRequestSendWithHttpInfo(Model\SignatureRequestSendRequest $signature_request_send_request, string $contentType = self::contentTypes['signatureRequestSend'][0])
     {
         $request = $this->signatureRequestSendRequest($signature_request_send_request, $contentType);
 
@@ -4629,14 +4476,14 @@ class SignatureRequestApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
+                    (int)$e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                    $e->getResponse() ? (string)$e->getResponse()->getBody() : null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
+                    (int)$e->getCode(),
                     null,
                     null
                 );
@@ -4649,14 +4496,14 @@ class SignatureRequestApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        (string) $request->getUri()
+                        (string)$request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    (string) $response->getBody()
+                    (string)$response->getBody()
                 );
             }
-            
+
             $result = $this->handleRangeCodeResponse(
                 $response,
                 '4XX',
@@ -4665,18 +4512,17 @@ class SignatureRequestApi
             if ($result) {
                 return $result;
             }
-            
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     if ('\Dropbox\Sign\Model\SignatureRequestGetResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
-                        $content = (string) $response->getBody();
+                        $content = (string)$response->getBody();
                         if ('\Dropbox\Sign\Model\SignatureRequestGetResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (\JsonException $exception) {
+                            } catch (JsonException $exception) {
                                 throw new ApiException(
                                     sprintf(
                                         'Error JSON decoding server response (%s)',
@@ -4693,20 +4539,19 @@ class SignatureRequestApi
                     return [
                         ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\SignatureRequestGetResponse', []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
-                
             }
 
             $returnType = '\Dropbox\Sign\Model\SignatureRequestGetResponse';
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
+                $content = $response->getBody(); // stream goes to serializer
             } else {
-                $content = (string) $response->getBody();
+                $content = (string)$response->getBody();
                 if ($returnType !== 'string') {
                     try {
                         $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                    } catch (\JsonException $exception) {
+                    } catch (JsonException $exception) {
                         throw new ApiException(
                             sprintf(
                                 'Error JSON decoding server response (%s)',
@@ -4723,11 +4568,9 @@ class SignatureRequestApi
             return [
                 ObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
-                $response->getHeaders()
+                $response->getHeaders(),
             ];
-
         } catch (ApiException $e) {
-            
             if ($this->handleRangeCodeException($e, '4XX', '\Dropbox\Sign\Model\ErrorResponse')) {
                 throw $e;
             }
@@ -4740,7 +4583,6 @@ class SignatureRequestApi
                     );
                     $e->setResponseObject($data);
                     break;
-                
             }
             throw $e;
         }
@@ -4751,14 +4593,14 @@ class SignatureRequestApi
      *
      * Send Signature Request
      *
-     * @param  \Dropbox\Sign\Model\SignatureRequestSendRequest $signature_request_send_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['signatureRequestSend'] to see the possible values for this operation
+     * @param Model\SignatureRequestSendRequest $signature_request_send_request (required)
+     * @param string                            $contentType                    The value for the Content-Type header. Check self::contentTypes['signatureRequestSend'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestSend. This method will eventually become unavailable
      */
-    public function signatureRequestSendAsync($signature_request_send_request, string $contentType = self::contentTypes['signatureRequestSend'][0])
+    public function signatureRequestSendAsync(Model\SignatureRequestSendRequest $signature_request_send_request, string $contentType = self::contentTypes['signatureRequestSend'][0])
     {
         return $this->signatureRequestSendAsyncWithHttpInfo($signature_request_send_request, $contentType)
             ->then(
@@ -4773,14 +4615,14 @@ class SignatureRequestApi
      *
      * Send Signature Request
      *
-     * @param  \Dropbox\Sign\Model\SignatureRequestSendRequest $signature_request_send_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['signatureRequestSend'] to see the possible values for this operation
+     * @param Model\SignatureRequestSendRequest $signature_request_send_request (required)
+     * @param string                            $contentType                    The value for the Content-Type header. Check self::contentTypes['signatureRequestSend'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestSend. This method will eventually become unavailable
      */
-    public function signatureRequestSendAsyncWithHttpInfo($signature_request_send_request, string $contentType = self::contentTypes['signatureRequestSend'][0])
+    public function signatureRequestSendAsyncWithHttpInfo(Model\SignatureRequestSendRequest $signature_request_send_request, string $contentType = self::contentTypes['signatureRequestSend'][0])
     {
         $returnType = '\Dropbox\Sign\Model\SignatureRequestGetResponse';
         $request = $this->signatureRequestSendRequest($signature_request_send_request, $contentType);
@@ -4790,9 +4632,9 @@ class SignatureRequestApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
-                        $content = (string) $response->getBody();
+                        $content = (string)$response->getBody();
                         if ($returnType !== 'string') {
                             $content = json_decode($content);
                         }
@@ -4801,7 +4643,7 @@ class SignatureRequestApi
                     return [
                         ObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
                 },
                 function ($exception) {
@@ -4815,7 +4657,7 @@ class SignatureRequestApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        (string) $response->getBody()
+                        (string)$response->getBody()
                     );
                 }
             );
@@ -4824,23 +4666,21 @@ class SignatureRequestApi
     /**
      * Create request for operation 'signatureRequestSend'
      *
-     * @param  \Dropbox\Sign\Model\SignatureRequestSendRequest $signature_request_send_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['signatureRequestSend'] to see the possible values for this operation
+     * @param Model\SignatureRequestSendRequest $signature_request_send_request (required)
+     * @param string                            $contentType                    The value for the Content-Type header. Check self::contentTypes['signatureRequestSend'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
+     * @return Request
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestSend. This method will eventually become unavailable
      */
-    public function signatureRequestSendRequest($signature_request_send_request, string $contentType = self::contentTypes['signatureRequestSend'][0])
+    public function signatureRequestSendRequest(Model\SignatureRequestSendRequest $signature_request_send_request, string $contentType = self::contentTypes['signatureRequestSend'][0])
     {
-
         // verify the required parameter 'signature_request_send_request' is set
         if ($signature_request_send_request === null || (is_array($signature_request_send_request) && count($signature_request_send_request) === 0)) {
-            throw new \InvalidArgumentException(
+            throw new InvalidArgumentException(
                 'Missing the required parameter $signature_request_send_request when calling signatureRequestSend'
             );
         }
-
 
         $resourcePath = '/signature_request/send';
         $formParams = [];
@@ -4855,11 +4695,8 @@ class SignatureRequestApi
 
         $multipart = !empty($formParams);
 
-
-
-
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json', ],
+            $multipart ? ['multipart/form-data'] : ['application/json'],
             $contentType,
             $multipart
         );
@@ -4867,7 +4704,7 @@ class SignatureRequestApi
         // for model (json/xml)
         if (count($formParams) === 0) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the body
+                // if Content-Type contains "application/json", json_encode the body
                 $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($signature_request_send_request));
             } else {
                 $httpBody = $signature_request_send_request;
@@ -4880,7 +4717,7 @@ class SignatureRequestApi
                     foreach ($formParamValueItems as $formParamValueItem) {
                         $multipartContents[] = [
                             'name' => $formParamName,
-                            'contents' => $formParamValueItem
+                            'contents' => $formParamValueItem,
                         ];
                     }
                 }
@@ -4897,9 +4734,8 @@ class SignatureRequestApi
                     $payloadHook('multipart', $multipartContents, $signature_request_send_request);
                 }
                 $httpBody = new MultipartStream($multipartContents);
-
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
+                // if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
             } else {
                 // for HTTP post (form)
@@ -4942,13 +4778,13 @@ class SignatureRequestApi
      *
      * Send with Template
      *
-     * @param  \Dropbox\Sign\Model\SignatureRequestSendWithTemplateRequest $signature_request_send_with_template_request signature_request_send_with_template_request (required)
+     * @param Model\SignatureRequestSendWithTemplateRequest $signature_request_send_with_template_request signature_request_send_with_template_request (required)
      *
-     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return \Dropbox\Sign\Model\SignatureRequestGetResponse|\Dropbox\Sign\Model\ErrorResponse
+     * @return Model\SignatureRequestGetResponse
+     * @throws ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws InvalidArgumentException
      */
-    public function signatureRequestSendWithTemplate($signature_request_send_with_template_request)
+    public function signatureRequestSendWithTemplate(Model\SignatureRequestSendWithTemplateRequest $signature_request_send_with_template_request)
     {
         list($response) = $this->signatureRequestSendWithTemplateWithHttpInfo($signature_request_send_with_template_request);
         return $response;
@@ -4959,15 +4795,15 @@ class SignatureRequestApi
      *
      * Send with Template
      *
-     * @param  \Dropbox\Sign\Model\SignatureRequestSendWithTemplateRequest $signature_request_send_with_template_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['signatureRequestSendWithTemplate'] to see the possible values for this operation
+     * @param Model\SignatureRequestSendWithTemplateRequest $signature_request_send_with_template_request (required)
+     * @param string                                        $contentType                                  The value for the Content-Type header. Check self::contentTypes['signatureRequestSendWithTemplate'] to see the possible values for this operation
      *
-     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return array of \Dropbox\Sign\Model\SignatureRequestGetResponse|\Dropbox\Sign\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of Model\SignatureRequestGetResponse, HTTP status code, HTTP response headers (array of strings)
+     * @throws ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestSendWithTemplate. This method will eventually become unavailable
      */
-    public function signatureRequestSendWithTemplateWithHttpInfo($signature_request_send_with_template_request, string $contentType = self::contentTypes['signatureRequestSendWithTemplate'][0])
+    public function signatureRequestSendWithTemplateWithHttpInfo(Model\SignatureRequestSendWithTemplateRequest $signature_request_send_with_template_request, string $contentType = self::contentTypes['signatureRequestSendWithTemplate'][0])
     {
         $request = $this->signatureRequestSendWithTemplateRequest($signature_request_send_with_template_request, $contentType);
 
@@ -4979,14 +4815,14 @@ class SignatureRequestApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
+                    (int)$e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                    $e->getResponse() ? (string)$e->getResponse()->getBody() : null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
+                    (int)$e->getCode(),
                     null,
                     null
                 );
@@ -4999,14 +4835,14 @@ class SignatureRequestApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        (string) $request->getUri()
+                        (string)$request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    (string) $response->getBody()
+                    (string)$response->getBody()
                 );
             }
-            
+
             $result = $this->handleRangeCodeResponse(
                 $response,
                 '4XX',
@@ -5015,18 +4851,17 @@ class SignatureRequestApi
             if ($result) {
                 return $result;
             }
-            
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     if ('\Dropbox\Sign\Model\SignatureRequestGetResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
-                        $content = (string) $response->getBody();
+                        $content = (string)$response->getBody();
                         if ('\Dropbox\Sign\Model\SignatureRequestGetResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (\JsonException $exception) {
+                            } catch (JsonException $exception) {
                                 throw new ApiException(
                                     sprintf(
                                         'Error JSON decoding server response (%s)',
@@ -5043,20 +4878,19 @@ class SignatureRequestApi
                     return [
                         ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\SignatureRequestGetResponse', []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
-                
             }
 
             $returnType = '\Dropbox\Sign\Model\SignatureRequestGetResponse';
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
+                $content = $response->getBody(); // stream goes to serializer
             } else {
-                $content = (string) $response->getBody();
+                $content = (string)$response->getBody();
                 if ($returnType !== 'string') {
                     try {
                         $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                    } catch (\JsonException $exception) {
+                    } catch (JsonException $exception) {
                         throw new ApiException(
                             sprintf(
                                 'Error JSON decoding server response (%s)',
@@ -5073,11 +4907,9 @@ class SignatureRequestApi
             return [
                 ObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
-                $response->getHeaders()
+                $response->getHeaders(),
             ];
-
         } catch (ApiException $e) {
-            
             if ($this->handleRangeCodeException($e, '4XX', '\Dropbox\Sign\Model\ErrorResponse')) {
                 throw $e;
             }
@@ -5090,7 +4922,6 @@ class SignatureRequestApi
                     );
                     $e->setResponseObject($data);
                     break;
-                
             }
             throw $e;
         }
@@ -5101,14 +4932,14 @@ class SignatureRequestApi
      *
      * Send with Template
      *
-     * @param  \Dropbox\Sign\Model\SignatureRequestSendWithTemplateRequest $signature_request_send_with_template_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['signatureRequestSendWithTemplate'] to see the possible values for this operation
+     * @param Model\SignatureRequestSendWithTemplateRequest $signature_request_send_with_template_request (required)
+     * @param string                                        $contentType                                  The value for the Content-Type header. Check self::contentTypes['signatureRequestSendWithTemplate'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestSendWithTemplate. This method will eventually become unavailable
      */
-    public function signatureRequestSendWithTemplateAsync($signature_request_send_with_template_request, string $contentType = self::contentTypes['signatureRequestSendWithTemplate'][0])
+    public function signatureRequestSendWithTemplateAsync(Model\SignatureRequestSendWithTemplateRequest $signature_request_send_with_template_request, string $contentType = self::contentTypes['signatureRequestSendWithTemplate'][0])
     {
         return $this->signatureRequestSendWithTemplateAsyncWithHttpInfo($signature_request_send_with_template_request, $contentType)
             ->then(
@@ -5123,14 +4954,14 @@ class SignatureRequestApi
      *
      * Send with Template
      *
-     * @param  \Dropbox\Sign\Model\SignatureRequestSendWithTemplateRequest $signature_request_send_with_template_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['signatureRequestSendWithTemplate'] to see the possible values for this operation
+     * @param Model\SignatureRequestSendWithTemplateRequest $signature_request_send_with_template_request (required)
+     * @param string                                        $contentType                                  The value for the Content-Type header. Check self::contentTypes['signatureRequestSendWithTemplate'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestSendWithTemplate. This method will eventually become unavailable
      */
-    public function signatureRequestSendWithTemplateAsyncWithHttpInfo($signature_request_send_with_template_request, string $contentType = self::contentTypes['signatureRequestSendWithTemplate'][0])
+    public function signatureRequestSendWithTemplateAsyncWithHttpInfo(Model\SignatureRequestSendWithTemplateRequest $signature_request_send_with_template_request, string $contentType = self::contentTypes['signatureRequestSendWithTemplate'][0])
     {
         $returnType = '\Dropbox\Sign\Model\SignatureRequestGetResponse';
         $request = $this->signatureRequestSendWithTemplateRequest($signature_request_send_with_template_request, $contentType);
@@ -5140,9 +4971,9 @@ class SignatureRequestApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
-                        $content = (string) $response->getBody();
+                        $content = (string)$response->getBody();
                         if ($returnType !== 'string') {
                             $content = json_decode($content);
                         }
@@ -5151,7 +4982,7 @@ class SignatureRequestApi
                     return [
                         ObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
                 },
                 function ($exception) {
@@ -5165,7 +4996,7 @@ class SignatureRequestApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        (string) $response->getBody()
+                        (string)$response->getBody()
                     );
                 }
             );
@@ -5174,23 +5005,21 @@ class SignatureRequestApi
     /**
      * Create request for operation 'signatureRequestSendWithTemplate'
      *
-     * @param  \Dropbox\Sign\Model\SignatureRequestSendWithTemplateRequest $signature_request_send_with_template_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['signatureRequestSendWithTemplate'] to see the possible values for this operation
+     * @param Model\SignatureRequestSendWithTemplateRequest $signature_request_send_with_template_request (required)
+     * @param string                                        $contentType                                  The value for the Content-Type header. Check self::contentTypes['signatureRequestSendWithTemplate'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
+     * @return Request
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestSendWithTemplate. This method will eventually become unavailable
      */
-    public function signatureRequestSendWithTemplateRequest($signature_request_send_with_template_request, string $contentType = self::contentTypes['signatureRequestSendWithTemplate'][0])
+    public function signatureRequestSendWithTemplateRequest(Model\SignatureRequestSendWithTemplateRequest $signature_request_send_with_template_request, string $contentType = self::contentTypes['signatureRequestSendWithTemplate'][0])
     {
-
         // verify the required parameter 'signature_request_send_with_template_request' is set
         if ($signature_request_send_with_template_request === null || (is_array($signature_request_send_with_template_request) && count($signature_request_send_with_template_request) === 0)) {
-            throw new \InvalidArgumentException(
+            throw new InvalidArgumentException(
                 'Missing the required parameter $signature_request_send_with_template_request when calling signatureRequestSendWithTemplate'
             );
         }
-
 
         $resourcePath = '/signature_request/send_with_template';
         $formParams = [];
@@ -5205,11 +5034,8 @@ class SignatureRequestApi
 
         $multipart = !empty($formParams);
 
-
-
-
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json', ],
+            $multipart ? ['multipart/form-data'] : ['application/json'],
             $contentType,
             $multipart
         );
@@ -5217,7 +5043,7 @@ class SignatureRequestApi
         // for model (json/xml)
         if (count($formParams) === 0) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the body
+                // if Content-Type contains "application/json", json_encode the body
                 $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($signature_request_send_with_template_request));
             } else {
                 $httpBody = $signature_request_send_with_template_request;
@@ -5230,7 +5056,7 @@ class SignatureRequestApi
                     foreach ($formParamValueItems as $formParamValueItem) {
                         $multipartContents[] = [
                             'name' => $formParamName,
-                            'contents' => $formParamValueItem
+                            'contents' => $formParamValueItem,
                         ];
                     }
                 }
@@ -5247,9 +5073,8 @@ class SignatureRequestApi
                     $payloadHook('multipart', $multipartContents, $signature_request_send_with_template_request);
                 }
                 $httpBody = new MultipartStream($multipartContents);
-
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
+                // if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
             } else {
                 // for HTTP post (form)
@@ -5292,14 +5117,14 @@ class SignatureRequestApi
      *
      * Update Signature Request
      *
-     * @param  string $signature_request_id The id of the SignatureRequest to update. (required)
-     * @param  \Dropbox\Sign\Model\SignatureRequestUpdateRequest $signature_request_update_request signature_request_update_request (required)
+     * @param string                              $signature_request_id             The id of the SignatureRequest to update. (required)
+     * @param Model\SignatureRequestUpdateRequest $signature_request_update_request signature_request_update_request (required)
      *
-     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return \Dropbox\Sign\Model\SignatureRequestGetResponse|\Dropbox\Sign\Model\ErrorResponse
+     * @return Model\SignatureRequestGetResponse
+     * @throws ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws InvalidArgumentException
      */
-    public function signatureRequestUpdate($signature_request_id, $signature_request_update_request)
+    public function signatureRequestUpdate(string $signature_request_id, Model\SignatureRequestUpdateRequest $signature_request_update_request)
     {
         list($response) = $this->signatureRequestUpdateWithHttpInfo($signature_request_id, $signature_request_update_request);
         return $response;
@@ -5310,16 +5135,16 @@ class SignatureRequestApi
      *
      * Update Signature Request
      *
-     * @param  string $signature_request_id The id of the SignatureRequest to update. (required)
-     * @param  \Dropbox\Sign\Model\SignatureRequestUpdateRequest $signature_request_update_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['signatureRequestUpdate'] to see the possible values for this operation
+     * @param string                              $signature_request_id             The id of the SignatureRequest to update. (required)
+     * @param Model\SignatureRequestUpdateRequest $signature_request_update_request (required)
+     * @param string                              $contentType                      The value for the Content-Type header. Check self::contentTypes['signatureRequestUpdate'] to see the possible values for this operation
      *
-     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return array of \Dropbox\Sign\Model\SignatureRequestGetResponse|\Dropbox\Sign\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of Model\SignatureRequestGetResponse, HTTP status code, HTTP response headers (array of strings)
+     * @throws ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestUpdate. This method will eventually become unavailable
      */
-    public function signatureRequestUpdateWithHttpInfo($signature_request_id, $signature_request_update_request, string $contentType = self::contentTypes['signatureRequestUpdate'][0])
+    public function signatureRequestUpdateWithHttpInfo(string $signature_request_id, Model\SignatureRequestUpdateRequest $signature_request_update_request, string $contentType = self::contentTypes['signatureRequestUpdate'][0])
     {
         $request = $this->signatureRequestUpdateRequest($signature_request_id, $signature_request_update_request, $contentType);
 
@@ -5331,14 +5156,14 @@ class SignatureRequestApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
+                    (int)$e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                    $e->getResponse() ? (string)$e->getResponse()->getBody() : null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
+                    (int)$e->getCode(),
                     null,
                     null
                 );
@@ -5351,14 +5176,14 @@ class SignatureRequestApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        (string) $request->getUri()
+                        (string)$request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    (string) $response->getBody()
+                    (string)$response->getBody()
                 );
             }
-            
+
             $result = $this->handleRangeCodeResponse(
                 $response,
                 '4XX',
@@ -5367,18 +5192,17 @@ class SignatureRequestApi
             if ($result) {
                 return $result;
             }
-            
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     if ('\Dropbox\Sign\Model\SignatureRequestGetResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
-                        $content = (string) $response->getBody();
+                        $content = (string)$response->getBody();
                         if ('\Dropbox\Sign\Model\SignatureRequestGetResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (\JsonException $exception) {
+                            } catch (JsonException $exception) {
                                 throw new ApiException(
                                     sprintf(
                                         'Error JSON decoding server response (%s)',
@@ -5395,20 +5219,19 @@ class SignatureRequestApi
                     return [
                         ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\SignatureRequestGetResponse', []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
-                
             }
 
             $returnType = '\Dropbox\Sign\Model\SignatureRequestGetResponse';
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
+                $content = $response->getBody(); // stream goes to serializer
             } else {
-                $content = (string) $response->getBody();
+                $content = (string)$response->getBody();
                 if ($returnType !== 'string') {
                     try {
                         $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                    } catch (\JsonException $exception) {
+                    } catch (JsonException $exception) {
                         throw new ApiException(
                             sprintf(
                                 'Error JSON decoding server response (%s)',
@@ -5425,11 +5248,9 @@ class SignatureRequestApi
             return [
                 ObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
-                $response->getHeaders()
+                $response->getHeaders(),
             ];
-
         } catch (ApiException $e) {
-            
             if ($this->handleRangeCodeException($e, '4XX', '\Dropbox\Sign\Model\ErrorResponse')) {
                 throw $e;
             }
@@ -5442,7 +5263,6 @@ class SignatureRequestApi
                     );
                     $e->setResponseObject($data);
                     break;
-                
             }
             throw $e;
         }
@@ -5453,15 +5273,15 @@ class SignatureRequestApi
      *
      * Update Signature Request
      *
-     * @param  string $signature_request_id The id of the SignatureRequest to update. (required)
-     * @param  \Dropbox\Sign\Model\SignatureRequestUpdateRequest $signature_request_update_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['signatureRequestUpdate'] to see the possible values for this operation
+     * @param string                              $signature_request_id             The id of the SignatureRequest to update. (required)
+     * @param Model\SignatureRequestUpdateRequest $signature_request_update_request (required)
+     * @param string                              $contentType                      The value for the Content-Type header. Check self::contentTypes['signatureRequestUpdate'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestUpdate. This method will eventually become unavailable
      */
-    public function signatureRequestUpdateAsync($signature_request_id, $signature_request_update_request, string $contentType = self::contentTypes['signatureRequestUpdate'][0])
+    public function signatureRequestUpdateAsync(string $signature_request_id, Model\SignatureRequestUpdateRequest $signature_request_update_request, string $contentType = self::contentTypes['signatureRequestUpdate'][0])
     {
         return $this->signatureRequestUpdateAsyncWithHttpInfo($signature_request_id, $signature_request_update_request, $contentType)
             ->then(
@@ -5476,15 +5296,15 @@ class SignatureRequestApi
      *
      * Update Signature Request
      *
-     * @param  string $signature_request_id The id of the SignatureRequest to update. (required)
-     * @param  \Dropbox\Sign\Model\SignatureRequestUpdateRequest $signature_request_update_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['signatureRequestUpdate'] to see the possible values for this operation
+     * @param string                              $signature_request_id             The id of the SignatureRequest to update. (required)
+     * @param Model\SignatureRequestUpdateRequest $signature_request_update_request (required)
+     * @param string                              $contentType                      The value for the Content-Type header. Check self::contentTypes['signatureRequestUpdate'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestUpdate. This method will eventually become unavailable
      */
-    public function signatureRequestUpdateAsyncWithHttpInfo($signature_request_id, $signature_request_update_request, string $contentType = self::contentTypes['signatureRequestUpdate'][0])
+    public function signatureRequestUpdateAsyncWithHttpInfo(string $signature_request_id, Model\SignatureRequestUpdateRequest $signature_request_update_request, string $contentType = self::contentTypes['signatureRequestUpdate'][0])
     {
         $returnType = '\Dropbox\Sign\Model\SignatureRequestGetResponse';
         $request = $this->signatureRequestUpdateRequest($signature_request_id, $signature_request_update_request, $contentType);
@@ -5494,9 +5314,9 @@ class SignatureRequestApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
-                        $content = (string) $response->getBody();
+                        $content = (string)$response->getBody();
                         if ($returnType !== 'string') {
                             $content = json_decode($content);
                         }
@@ -5505,7 +5325,7 @@ class SignatureRequestApi
                     return [
                         ObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
                 },
                 function ($exception) {
@@ -5519,7 +5339,7 @@ class SignatureRequestApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        (string) $response->getBody()
+                        (string)$response->getBody()
                     );
                 }
             );
@@ -5528,31 +5348,29 @@ class SignatureRequestApi
     /**
      * Create request for operation 'signatureRequestUpdate'
      *
-     * @param  string $signature_request_id The id of the SignatureRequest to update. (required)
-     * @param  \Dropbox\Sign\Model\SignatureRequestUpdateRequest $signature_request_update_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['signatureRequestUpdate'] to see the possible values for this operation
+     * @param string                              $signature_request_id             The id of the SignatureRequest to update. (required)
+     * @param Model\SignatureRequestUpdateRequest $signature_request_update_request (required)
+     * @param string                              $contentType                      The value for the Content-Type header. Check self::contentTypes['signatureRequestUpdate'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
+     * @return Request
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::signatureRequestUpdate. This method will eventually become unavailable
      */
-    public function signatureRequestUpdateRequest($signature_request_id, $signature_request_update_request, string $contentType = self::contentTypes['signatureRequestUpdate'][0])
+    public function signatureRequestUpdateRequest(string $signature_request_id, Model\SignatureRequestUpdateRequest $signature_request_update_request, string $contentType = self::contentTypes['signatureRequestUpdate'][0])
     {
-
         // verify the required parameter 'signature_request_id' is set
         if ($signature_request_id === null || (is_array($signature_request_id) && count($signature_request_id) === 0)) {
-            throw new \InvalidArgumentException(
+            throw new InvalidArgumentException(
                 'Missing the required parameter $signature_request_id when calling signatureRequestUpdate'
             );
         }
 
         // verify the required parameter 'signature_request_update_request' is set
         if ($signature_request_update_request === null || (is_array($signature_request_update_request) && count($signature_request_update_request) === 0)) {
-            throw new \InvalidArgumentException(
+            throw new InvalidArgumentException(
                 'Missing the required parameter $signature_request_update_request when calling signatureRequestUpdate'
             );
         }
-
 
         $resourcePath = '/signature_request/update/{signature_request_id}';
         $formParams = [];
@@ -5567,19 +5385,17 @@ class SignatureRequestApi
 
         $multipart = !empty($formParams);
 
-
         // path params
         if ($signature_request_id !== null) {
             $resourcePath = str_replace(
-                '{' . 'signature_request_id' . '}',
+                '{signature_request_id}',
                 ObjectSerializer::toPathValue($signature_request_id),
                 $resourcePath
             );
         }
 
-
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json', ],
+            $multipart ? ['multipart/form-data'] : ['application/json'],
             $contentType,
             $multipart
         );
@@ -5587,7 +5403,7 @@ class SignatureRequestApi
         // for model (json/xml)
         if (count($formParams) === 0) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the body
+                // if Content-Type contains "application/json", json_encode the body
                 $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($signature_request_update_request));
             } else {
                 $httpBody = $signature_request_update_request;
@@ -5600,7 +5416,7 @@ class SignatureRequestApi
                     foreach ($formParamValueItems as $formParamValueItem) {
                         $multipartContents[] = [
                             'name' => $formParamName,
-                            'contents' => $formParamValueItem
+                            'contents' => $formParamValueItem,
                         ];
                     }
                 }
@@ -5617,9 +5433,8 @@ class SignatureRequestApi
                     $payloadHook('multipart', $multipartContents, $signature_request_update_request);
                 }
                 $httpBody = new MultipartStream($multipartContents);
-
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
+                // if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
             } else {
                 // for HTTP post (form)
@@ -5660,8 +5475,8 @@ class SignatureRequestApi
     /**
      * Create http client option
      *
-     * @throws \RuntimeException on file opening failure
      * @return array of http client options
+     * @throws RuntimeException on file opening failure
      */
     protected function createHttpClientOption()
     {
@@ -5669,7 +5484,7 @@ class SignatureRequestApi
         if ($this->config->getDebug()) {
             $options[RequestOptions::DEBUG] = fopen($this->config->getDebugFile(), 'a');
             if (!$options[RequestOptions::DEBUG]) {
-                throw new \RuntimeException('Failed to open the debug file: ' . $this->config->getDebugFile());
+                throw new RuntimeException('Failed to open the debug file: ' . $this->config->getDebugFile());
             }
         }
 
@@ -5685,8 +5500,8 @@ class SignatureRequestApi
         string $returnDataType
     ) {
         $statusCode = $response->getStatusCode();
-        $rangeCodeLeft = (int) (substr($rangeCode, 0, 1) . '00');
-        $rangeCodeRight = (int) (substr($rangeCode, 0, 1) . '99');
+        $rangeCodeLeft = (int)(substr($rangeCode, 0, 1) . '00');
+        $rangeCodeRight = (int)(substr($rangeCode, 0, 1) . '99');
 
         if (
             $statusCode < $rangeCodeLeft
@@ -5696,9 +5511,9 @@ class SignatureRequestApi
         }
 
         if ($returnDataType === '\SplFileObject') {
-            $content = $response->getBody(); //stream goes to serializer
+            $content = $response->getBody(); // stream goes to serializer
         } else {
-            $content = (string) $response->getBody();
+            $content = (string)$response->getBody();
         }
 
         return [
@@ -5717,8 +5532,8 @@ class SignatureRequestApi
         string $exceptionDataType
     ): bool {
         $statusCode = $e->getCode();
-        $rangeCodeLeft = (int) (substr($rangeCode, 0, 1) . '00');
-        $rangeCodeRight = (int) (substr($rangeCode, 0, 1) . '99');
+        $rangeCodeLeft = (int)(substr($rangeCode, 0, 1) . '00');
+        $rangeCodeRight = (int)(substr($rangeCode, 0, 1) . '99');
 
         if (
             $statusCode < $rangeCodeLeft

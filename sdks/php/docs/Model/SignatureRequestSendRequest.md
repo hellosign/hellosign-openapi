@@ -6,69 +6,31 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-| `files` | ```\SplFileObject[]``` | REPLACE_ME_WITH_DESCRIPTION_BEGIN Use &#x60;files[]&#x60; to indicate the uploaded file(s) to send for signature.
-
-This endpoint requires either **files** or **file_urls[]**, but not both. REPLACE_ME_WITH_DESCRIPTION_END |  |
-| `file_urls` | ```string[]``` | REPLACE_ME_WITH_DESCRIPTION_BEGIN Use &#x60;file_urls[]&#x60; to have Dropbox Sign download the file(s) to send for signature.
-
-This endpoint requires either **files** or **file_urls[]**, but not both. REPLACE_ME_WITH_DESCRIPTION_END |  |
-| `signers` | [```\Dropbox\Sign\Model\SubSignatureRequestSigner[]```](SubSignatureRequestSigner.md) | REPLACE_ME_WITH_DESCRIPTION_BEGIN Add Signers to your Signature Request.
-
-This endpoint requires either **signers** or **grouped_signers**, but not both. REPLACE_ME_WITH_DESCRIPTION_END |  |
-| `grouped_signers` | [```\Dropbox\Sign\Model\SubSignatureRequestGroupedSigners[]```](SubSignatureRequestGroupedSigners.md) | REPLACE_ME_WITH_DESCRIPTION_BEGIN Add Grouped Signers to your Signature Request.
-
-This endpoint requires either **signers** or **grouped_signers**, but not both. REPLACE_ME_WITH_DESCRIPTION_END |  |
-| `allow_decline` | ```bool``` | REPLACE_ME_WITH_DESCRIPTION_BEGIN Allows signers to decline to sign a document if &#x60;true&#x60;. Defaults to &#x60;false&#x60;. REPLACE_ME_WITH_DESCRIPTION_END |  [default to false] |
-| `allow_reassign` | ```bool``` | REPLACE_ME_WITH_DESCRIPTION_BEGIN Allows signers to reassign their signature requests to other signers if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.
-
-**NOTE:** Only available for Premium plan and higher. REPLACE_ME_WITH_DESCRIPTION_END |  [default to false] |
-| `attachments` | [```\Dropbox\Sign\Model\SubAttachment[]```](SubAttachment.md) | REPLACE_ME_WITH_DESCRIPTION_BEGIN A list describing the attachments REPLACE_ME_WITH_DESCRIPTION_END |  |
-| `cc_email_addresses` | ```string[]``` | REPLACE_ME_WITH_DESCRIPTION_BEGIN The email addresses that should be CCed. REPLACE_ME_WITH_DESCRIPTION_END |  |
-| `client_id` | ```string``` | REPLACE_ME_WITH_DESCRIPTION_BEGIN The client id of the API App you want to associate with this request. Used to apply the branding and callback url defined for the app. REPLACE_ME_WITH_DESCRIPTION_END |  |
-| `custom_fields` | [```\Dropbox\Sign\Model\SubCustomField[]```](SubCustomField.md) | REPLACE_ME_WITH_DESCRIPTION_BEGIN When used together with merge fields, &#x60;custom_fields&#x60; allows users to add pre-filled data to their signature requests.
-
-Pre-filled data can be used with &quot;send-once&quot; signature requests by adding merge fields with &#x60;form_fields_per_document&#x60; or [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) while passing values back with &#x60;custom_fields&#x60; together in one API call.
-
-For using pre-filled on repeatable signature requests, merge fields are added to templates in the Dropbox Sign UI or by calling [/template/create_embedded_draft](/api/reference/operation/templateCreateEmbeddedDraft) and then passing &#x60;custom_fields&#x60; on subsequent signature requests referencing that template. REPLACE_ME_WITH_DESCRIPTION_END |  |
-| `field_options` | [```\Dropbox\Sign\Model\SubFieldOptions```](SubFieldOptions.md) | REPLACE_ME_WITH_DESCRIPTION_BEGIN  REPLACE_ME_WITH_DESCRIPTION_END |  |
-| `form_field_groups` | [```\Dropbox\Sign\Model\SubFormFieldGroup[]```](SubFormFieldGroup.md) | REPLACE_ME_WITH_DESCRIPTION_BEGIN Group information for fields defined in &#x60;form_fields_per_document&#x60;. String-indexed JSON array with &#x60;group_label&#x60; and &#x60;requirement&#x60; keys. &#x60;form_fields_per_document&#x60; must contain fields referencing a group defined in &#x60;form_field_groups&#x60;. REPLACE_ME_WITH_DESCRIPTION_END |  |
-| `form_field_rules` | [```\Dropbox\Sign\Model\SubFormFieldRule[]```](SubFormFieldRule.md) | REPLACE_ME_WITH_DESCRIPTION_BEGIN Conditional Logic rules for fields defined in &#x60;form_fields_per_document&#x60;. REPLACE_ME_WITH_DESCRIPTION_END |  |
-| `form_fields_per_document` | [```\Dropbox\Sign\Model\SubFormFieldsPerDocumentBase[]```](SubFormFieldsPerDocumentBase.md) | REPLACE_ME_WITH_DESCRIPTION_BEGIN The fields that should appear on the document, expressed as an array of objects. (For more details you can read about it here: [Using Form Fields per Document](/docs/openapi/form-fields-per-document).)
-
-**NOTE:** Fields like **text**, **dropdown**, **checkbox**, **radio**, and **hyperlink** have additional required and optional parameters. Check out the list of [additional parameters](/api/reference/constants/#form-fields-per-document) for these field types.
-
-* Text Field use &#x60;SubFormFieldsPerDocumentText&#x60;
-* Dropdown Field use &#x60;SubFormFieldsPerDocumentDropdown&#x60;
-* Hyperlink Field use &#x60;SubFormFieldsPerDocumentHyperlink&#x60;
-* Checkbox Field use &#x60;SubFormFieldsPerDocumentCheckbox&#x60;
-* Radio Field use &#x60;SubFormFieldsPerDocumentRadio&#x60;
-* Signature Field use &#x60;SubFormFieldsPerDocumentSignature&#x60;
-* Date Signed Field use &#x60;SubFormFieldsPerDocumentDateSigned&#x60;
-* Initials Field use &#x60;SubFormFieldsPerDocumentInitials&#x60;
-* Text Merge Field use &#x60;SubFormFieldsPerDocumentTextMerge&#x60;
-* Checkbox Merge Field use &#x60;SubFormFieldsPerDocumentCheckboxMerge&#x60; REPLACE_ME_WITH_DESCRIPTION_END |  |
-| `hide_text_tags` | ```bool``` | REPLACE_ME_WITH_DESCRIPTION_BEGIN Enables automatic Text Tag removal when set to true.
-
-**NOTE:** Removing text tags this way can cause unwanted clipping. We recommend leaving this setting on &#x60;false&#x60; and instead hiding your text tags using white text or a similar approach. See the [Text Tags Walkthrough](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) for more information. REPLACE_ME_WITH_DESCRIPTION_END |  [default to false] |
-| `is_qualified_signature` | ```bool``` | REPLACE_ME_WITH_DESCRIPTION_BEGIN Send with a value of &#x60;true&#x60; if you wish to enable
-[Qualified Electronic Signatures](https://www.hellosign.com/features/qualified-electronic-signatures) (QES),
-which requires a face-to-face call to verify the signer&#39;s identity.&lt;br&gt;
-**NOTE:** QES is only available on the Premium API plan as an add-on purchase.
-Cannot be used in &#x60;test_mode&#x60;. Only works on requests with one signer. REPLACE_ME_WITH_DESCRIPTION_END |  [default to false] |
-| `is_eid` | ```bool``` | REPLACE_ME_WITH_DESCRIPTION_BEGIN Send with a value of &#x60;true&#x60; if you wish to enable
-[electronic identification (eID)](https://www.hellosign.com/features/electronic-id),
-which requires the signer to verify their identity with an eID provider to sign a document.&lt;br&gt;
-**NOTE:** eID is only available on the Premium API plan. Cannot be used in &#x60;test_mode&#x60;. Only works on requests with one signer. REPLACE_ME_WITH_DESCRIPTION_END |  [default to false] |
-| `message` | ```string``` | REPLACE_ME_WITH_DESCRIPTION_BEGIN The custom message in the email that will be sent to the signers. REPLACE_ME_WITH_DESCRIPTION_END |  |
-| `metadata` | ```array<string,mixed>``` | REPLACE_ME_WITH_DESCRIPTION_BEGIN Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer&#39;s order number for look up when receiving events for the signature request.
-
-Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long. REPLACE_ME_WITH_DESCRIPTION_END |  |
-| `signing_options` | [```\Dropbox\Sign\Model\SubSigningOptions```](SubSigningOptions.md) | REPLACE_ME_WITH_DESCRIPTION_BEGIN  REPLACE_ME_WITH_DESCRIPTION_END |  |
-| `signing_redirect_url` | ```string``` | REPLACE_ME_WITH_DESCRIPTION_BEGIN The URL you want signers redirected to after they successfully sign. REPLACE_ME_WITH_DESCRIPTION_END |  |
-| `subject` | ```string``` | REPLACE_ME_WITH_DESCRIPTION_BEGIN The subject in the email that will be sent to the signers. REPLACE_ME_WITH_DESCRIPTION_END |  |
-| `test_mode` | ```bool``` | REPLACE_ME_WITH_DESCRIPTION_BEGIN Whether this is a test, the signature request will not be legally binding if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;. REPLACE_ME_WITH_DESCRIPTION_END |  [default to false] |
-| `title` | ```string``` | REPLACE_ME_WITH_DESCRIPTION_BEGIN The title you want to assign to the SignatureRequest. REPLACE_ME_WITH_DESCRIPTION_END |  |
-| `use_text_tags` | ```bool``` | REPLACE_ME_WITH_DESCRIPTION_BEGIN Send with a value of &#x60;true&#x60; if you wish to enable [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) parsing in your document. Defaults to disabled, or &#x60;false&#x60;. REPLACE_ME_WITH_DESCRIPTION_END |  [default to false] |
-| `expires_at` | ```int``` | REPLACE_ME_WITH_DESCRIPTION_BEGIN When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details. REPLACE_ME_WITH_DESCRIPTION_END |  |
+| `files` | ```\SplFileObject[]``` |  Use `files[]` to indicate the uploaded file(s) to send for signature.<br><br>This endpoint requires either **files** or **file_urls[]**, but not both.  |  |
+| `file_urls` | ```string[]``` |  Use `file_urls[]` to have Dropbox Sign download the file(s) to send for signature.<br><br>This endpoint requires either **files** or **file_urls[]**, but not both.  |  |
+| `signers` | [```\Dropbox\Sign\Model\SubSignatureRequestSigner[]```](SubSignatureRequestSigner.md) |  Add Signers to your Signature Request.<br><br>This endpoint requires either **signers** or **grouped_signers**, but not both.  |  |
+| `grouped_signers` | [```\Dropbox\Sign\Model\SubSignatureRequestGroupedSigners[]```](SubSignatureRequestGroupedSigners.md) |  Add Grouped Signers to your Signature Request.<br><br>This endpoint requires either **signers** or **grouped_signers**, but not both.  |  |
+| `allow_decline` | ```bool``` |  Allows signers to decline to sign a document if `true`. Defaults to `false`.  |  [default to false] |
+| `allow_reassign` | ```bool``` |  Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.<br><br>**NOTE:** Only available for Premium plan and higher.  |  [default to false] |
+| `attachments` | [```\Dropbox\Sign\Model\SubAttachment[]```](SubAttachment.md) |  A list describing the attachments  |  |
+| `cc_email_addresses` | ```string[]``` |  The email addresses that should be CCed.  |  |
+| `client_id` | ```string``` |  The client id of the API App you want to associate with this request. Used to apply the branding and callback url defined for the app.  |  |
+| `custom_fields` | [```\Dropbox\Sign\Model\SubCustomField[]```](SubCustomField.md) |  When used together with merge fields, `custom_fields` allows users to add pre-filled data to their signature requests.<br><br>Pre-filled data can be used with &quot;send-once&quot; signature requests by adding merge fields with `form_fields_per_document` or [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) while passing values back with `custom_fields` together in one API call.<br><br>For using pre-filled on repeatable signature requests, merge fields are added to templates in the Dropbox Sign UI or by calling [/template/create_embedded_draft](/api/reference/operation/templateCreateEmbeddedDraft) and then passing `custom_fields` on subsequent signature requests referencing that template.  |  |
+| `field_options` | [```\Dropbox\Sign\Model\SubFieldOptions```](SubFieldOptions.md) |    |  |
+| `form_field_groups` | [```\Dropbox\Sign\Model\SubFormFieldGroup[]```](SubFormFieldGroup.md) |  Group information for fields defined in `form_fields_per_document`. String-indexed JSON array with `group_label` and `requirement` keys. `form_fields_per_document` must contain fields referencing a group defined in `form_field_groups`.  |  |
+| `form_field_rules` | [```\Dropbox\Sign\Model\SubFormFieldRule[]```](SubFormFieldRule.md) |  Conditional Logic rules for fields defined in `form_fields_per_document`.  |  |
+| `form_fields_per_document` | [```\Dropbox\Sign\Model\SubFormFieldsPerDocumentBase[]```](SubFormFieldsPerDocumentBase.md) |  The fields that should appear on the document, expressed as an array of objects. (For more details you can read about it here: [Using Form Fields per Document](/docs/openapi/form-fields-per-document).)<br><br>**NOTE:** Fields like **text**, **dropdown**, **checkbox**, **radio**, and **hyperlink** have additional required and optional parameters. Check out the list of [additional parameters](/api/reference/constants/#form-fields-per-document) for these field types.<br><br>* Text Field use `SubFormFieldsPerDocumentText`<br>* Dropdown Field use `SubFormFieldsPerDocumentDropdown`<br>* Hyperlink Field use `SubFormFieldsPerDocumentHyperlink`<br>* Checkbox Field use `SubFormFieldsPerDocumentCheckbox`<br>* Radio Field use `SubFormFieldsPerDocumentRadio`<br>* Signature Field use `SubFormFieldsPerDocumentSignature`<br>* Date Signed Field use `SubFormFieldsPerDocumentDateSigned`<br>* Initials Field use `SubFormFieldsPerDocumentInitials`<br>* Text Merge Field use `SubFormFieldsPerDocumentTextMerge`<br>* Checkbox Merge Field use `SubFormFieldsPerDocumentCheckboxMerge`  |  |
+| `hide_text_tags` | ```bool``` |  Enables automatic Text Tag removal when set to true.<br><br>**NOTE:** Removing text tags this way can cause unwanted clipping. We recommend leaving this setting on `false` and instead hiding your text tags using white text or a similar approach. See the [Text Tags Walkthrough](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) for more information.  |  [default to false] |
+| `is_qualified_signature` | ```bool``` |  Send with a value of `true` if you wish to enable [Qualified Electronic Signatures](https://www.hellosign.com/features/qualified-electronic-signatures) (QES), which requires a face-to-face call to verify the signer&#39;s identity.&lt;br&gt;<br>**NOTE:** QES is only available on the Premium API plan as an add-on purchase. Cannot be used in `test_mode`. Only works on requests with one signer.  |  [default to false] |
+| `is_eid` | ```bool``` |  Send with a value of `true` if you wish to enable [electronic identification (eID)](https://www.hellosign.com/features/electronic-id), which requires the signer to verify their identity with an eID provider to sign a document.&lt;br&gt;<br>**NOTE:** eID is only available on the Premium API plan. Cannot be used in `test_mode`. Only works on requests with one signer.  |  [default to false] |
+| `message` | ```string``` |  The custom message in the email that will be sent to the signers.  |  |
+| `metadata` | ```array<string,mixed>``` |  Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer&#39;s order number for look up when receiving events for the signature request.<br><br>Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.  |  |
+| `signing_options` | [```\Dropbox\Sign\Model\SubSigningOptions```](SubSigningOptions.md) |    |  |
+| `signing_redirect_url` | ```string``` |  The URL you want signers redirected to after they successfully sign.  |  |
+| `subject` | ```string``` |  The subject in the email that will be sent to the signers.  |  |
+| `test_mode` | ```bool``` |  Whether this is a test, the signature request will not be legally binding if set to `true`. Defaults to `false`.  |  [default to false] |
+| `title` | ```string``` |  The title you want to assign to the SignatureRequest.  |  |
+| `use_text_tags` | ```bool``` |  Send with a value of `true` if you wish to enable [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) parsing in your document. Defaults to disabled, or `false`.  |  [default to false] |
+| `expires_at` | ```int``` |  When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.  |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

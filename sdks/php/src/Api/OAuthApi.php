@@ -4,9 +4,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  Dropbox\Sign
- * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ * @see     https://openapi-generator.tech
  */
 
 /**
@@ -28,6 +26,11 @@
 
 namespace Dropbox\Sign\Api;
 
+use Dropbox\Sign\ApiException;
+use Dropbox\Sign\Configuration;
+use Dropbox\Sign\HeaderSelector;
+use Dropbox\Sign\Model;
+use Dropbox\Sign\ObjectSerializer;
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\ConnectException;
@@ -35,44 +38,34 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use Dropbox\Sign\ApiException;
-use Dropbox\Sign\Configuration;
-use Dropbox\Sign\HeaderSelector;
-use Dropbox\Sign\ObjectSerializer;
-use Dropbox\Sign\Model;
+use InvalidArgumentException;
+use JsonException;
 use Psr\Http\Message\ResponseInterface;
+use RuntimeException;
 
 /**
  * OAuthApi Class Doc Comment
  *
  * @category Class
- * @package  Dropbox\Sign
- * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ * @see     https://openapi-generator.tech
  */
 class OAuthApi
 {
-    /**
-     * @var ClientInterface
-     */
+    /** @var ClientInterface */
     protected $client;
 
-    /**
-     * @var Configuration
-     */
+    /** @var Configuration */
     protected $config;
 
-    /**
-     * @var HeaderSelector
-     */
+    /** @var HeaderSelector */
     protected $headerSelector;
 
-    /**
-     * @var int Host index
-     */
+    /** @var int Host index */
     protected $hostIndex;
 
-    /** @var string[] $contentTypes **/
+    /**
+     * @var string[] *
+     */
     public const contentTypes = [
         'oauthTokenGenerate' => [
             'application/json',
@@ -86,16 +79,13 @@ class OAuthApi
     protected $response;
 
     /**
-     * @param Configuration   $config
-     * @param ClientInterface $client
-     * @param HeaderSelector  $selector
-     * @param int             $hostIndex (Optional) host index to select the list of hosts if defined in the OpenAPI spec
+     * @param int $hostIndex (Optional) host index to select the list of hosts if defined in the OpenAPI spec
      */
     public function __construct(
         Configuration $config = null,
         ClientInterface $client = null,
         HeaderSelector $selector = null,
-        $hostIndex = 0
+        int $hostIndex = 0
     ) {
         $this->client = $client ?: new Client();
         $this->config = $config ?: new Configuration();
@@ -109,7 +99,7 @@ class OAuthApi
      * @param int $hostIndex Host index (required)
      * @deprecated To be made private in the future
      */
-    public function setHostIndex($hostIndex): void
+    public function setHostIndex(int $hostIndex): void
     {
         $this->hostIndex = $hostIndex;
     }
@@ -150,13 +140,13 @@ class OAuthApi
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://app.hellosign.com
      *
-     * @param  \Dropbox\Sign\Model\OAuthTokenGenerateRequest $o_auth_token_generate_request o_auth_token_generate_request (required)
+     * @param Model\OAuthTokenGenerateRequest $o_auth_token_generate_request o_auth_token_generate_request (required)
      *
-     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return \Dropbox\Sign\Model\OAuthTokenResponse|\Dropbox\Sign\Model\ErrorResponse
+     * @return Model\OAuthTokenResponse
+     * @throws ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws InvalidArgumentException
      */
-    public function oauthTokenGenerate($o_auth_token_generate_request)
+    public function oauthTokenGenerate(Model\OAuthTokenGenerateRequest $o_auth_token_generate_request)
     {
         list($response) = $this->oauthTokenGenerateWithHttpInfo($o_auth_token_generate_request);
         return $response;
@@ -171,17 +161,17 @@ class OAuthApi
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://app.hellosign.com
      *
-     * @param  \Dropbox\Sign\Model\OAuthTokenGenerateRequest $o_auth_token_generate_request (required)
-     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
-     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['oauthTokenGenerate'] to see the possible values for this operation
+     * @param Model\OAuthTokenGenerateRequest $o_auth_token_generate_request (required)
+     * @param int|null                        $hostIndex                     Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param array                           $variables                     Associative array of variables to pass to the host. Defaults to empty array.
+     * @param string                          $contentType                   The value for the Content-Type header. Check self::contentTypes['oauthTokenGenerate'] to see the possible values for this operation
      *
-     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return array of \Dropbox\Sign\Model\OAuthTokenResponse|\Dropbox\Sign\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of Model\OAuthTokenResponse, HTTP status code, HTTP response headers (array of strings)
+     * @throws ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::oauthTokenGenerate. This method will eventually become unavailable
      */
-    public function oauthTokenGenerateWithHttpInfo($o_auth_token_generate_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['oauthTokenGenerate'][0])
+    public function oauthTokenGenerateWithHttpInfo(Model\OAuthTokenGenerateRequest $o_auth_token_generate_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['oauthTokenGenerate'][0])
     {
         $request = $this->oauthTokenGenerateRequest($o_auth_token_generate_request, $hostIndex, $variables, $contentType);
 
@@ -193,14 +183,14 @@ class OAuthApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
+                    (int)$e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                    $e->getResponse() ? (string)$e->getResponse()->getBody() : null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
+                    (int)$e->getCode(),
                     null,
                     null
                 );
@@ -213,14 +203,14 @@ class OAuthApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        (string) $request->getUri()
+                        (string)$request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    (string) $response->getBody()
+                    (string)$response->getBody()
                 );
             }
-            
+
             $result = $this->handleRangeCodeResponse(
                 $response,
                 '4XX',
@@ -229,18 +219,17 @@ class OAuthApi
             if ($result) {
                 return $result;
             }
-            
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     if ('\Dropbox\Sign\Model\OAuthTokenResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
-                        $content = (string) $response->getBody();
+                        $content = (string)$response->getBody();
                         if ('\Dropbox\Sign\Model\OAuthTokenResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (\JsonException $exception) {
+                            } catch (JsonException $exception) {
                                 throw new ApiException(
                                     sprintf(
                                         'Error JSON decoding server response (%s)',
@@ -257,20 +246,19 @@ class OAuthApi
                     return [
                         ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\OAuthTokenResponse', []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
-                
             }
 
             $returnType = '\Dropbox\Sign\Model\OAuthTokenResponse';
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
+                $content = $response->getBody(); // stream goes to serializer
             } else {
-                $content = (string) $response->getBody();
+                $content = (string)$response->getBody();
                 if ($returnType !== 'string') {
                     try {
                         $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                    } catch (\JsonException $exception) {
+                    } catch (JsonException $exception) {
                         throw new ApiException(
                             sprintf(
                                 'Error JSON decoding server response (%s)',
@@ -287,11 +275,9 @@ class OAuthApi
             return [
                 ObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
-                $response->getHeaders()
+                $response->getHeaders(),
             ];
-
         } catch (ApiException $e) {
-            
             if ($this->handleRangeCodeException($e, '4XX', '\Dropbox\Sign\Model\ErrorResponse')) {
                 throw $e;
             }
@@ -304,7 +290,6 @@ class OAuthApi
                     );
                     $e->setResponseObject($data);
                     break;
-                
             }
             throw $e;
         }
@@ -319,16 +304,16 @@ class OAuthApi
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://app.hellosign.com
      *
-     * @param  \Dropbox\Sign\Model\OAuthTokenGenerateRequest $o_auth_token_generate_request (required)
-     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
-     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['oauthTokenGenerate'] to see the possible values for this operation
+     * @param Model\OAuthTokenGenerateRequest $o_auth_token_generate_request (required)
+     * @param int|null                        $hostIndex                     Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param array                           $variables                     Associative array of variables to pass to the host. Defaults to empty array.
+     * @param string                          $contentType                   The value for the Content-Type header. Check self::contentTypes['oauthTokenGenerate'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::oauthTokenGenerate. This method will eventually become unavailable
      */
-    public function oauthTokenGenerateAsync($o_auth_token_generate_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['oauthTokenGenerate'][0])
+    public function oauthTokenGenerateAsync(Model\OAuthTokenGenerateRequest $o_auth_token_generate_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['oauthTokenGenerate'][0])
     {
         return $this->oauthTokenGenerateAsyncWithHttpInfo($o_auth_token_generate_request, $hostIndex, $variables, $contentType)
             ->then(
@@ -347,16 +332,16 @@ class OAuthApi
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://app.hellosign.com
      *
-     * @param  \Dropbox\Sign\Model\OAuthTokenGenerateRequest $o_auth_token_generate_request (required)
-     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
-     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['oauthTokenGenerate'] to see the possible values for this operation
+     * @param Model\OAuthTokenGenerateRequest $o_auth_token_generate_request (required)
+     * @param int|null                        $hostIndex                     Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param array                           $variables                     Associative array of variables to pass to the host. Defaults to empty array.
+     * @param string                          $contentType                   The value for the Content-Type header. Check self::contentTypes['oauthTokenGenerate'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::oauthTokenGenerate. This method will eventually become unavailable
      */
-    public function oauthTokenGenerateAsyncWithHttpInfo($o_auth_token_generate_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['oauthTokenGenerate'][0])
+    public function oauthTokenGenerateAsyncWithHttpInfo(Model\OAuthTokenGenerateRequest $o_auth_token_generate_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['oauthTokenGenerate'][0])
     {
         $returnType = '\Dropbox\Sign\Model\OAuthTokenResponse';
         $request = $this->oauthTokenGenerateRequest($o_auth_token_generate_request, $hostIndex, $variables, $contentType);
@@ -366,9 +351,9 @@ class OAuthApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
-                        $content = (string) $response->getBody();
+                        $content = (string)$response->getBody();
                         if ($returnType !== 'string') {
                             $content = json_decode($content);
                         }
@@ -377,7 +362,7 @@ class OAuthApi
                     return [
                         ObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
                 },
                 function ($exception) {
@@ -391,7 +376,7 @@ class OAuthApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        (string) $response->getBody()
+                        (string)$response->getBody()
                     );
                 }
             );
@@ -400,29 +385,27 @@ class OAuthApi
     /**
      * Create request for operation 'oauthTokenGenerate'
      *
-    * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
-    * if needed, use the 'variables' parameter to pass variables to the host.
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://app.hellosign.com
      *
-     * @param  \Dropbox\Sign\Model\OAuthTokenGenerateRequest $o_auth_token_generate_request (required)
-     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
-     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['oauthTokenGenerate'] to see the possible values for this operation
+     * @param Model\OAuthTokenGenerateRequest $o_auth_token_generate_request (required)
+     * @param int|null                        $hostIndex                     Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param array                           $variables                     Associative array of variables to pass to the host. Defaults to empty array.
+     * @param string                          $contentType                   The value for the Content-Type header. Check self::contentTypes['oauthTokenGenerate'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
+     * @return Request
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::oauthTokenGenerate. This method will eventually become unavailable
      */
-    public function oauthTokenGenerateRequest($o_auth_token_generate_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['oauthTokenGenerate'][0])
+    public function oauthTokenGenerateRequest(Model\OAuthTokenGenerateRequest $o_auth_token_generate_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['oauthTokenGenerate'][0])
     {
-
         // verify the required parameter 'o_auth_token_generate_request' is set
         if ($o_auth_token_generate_request === null || (is_array($o_auth_token_generate_request) && count($o_auth_token_generate_request) === 0)) {
-            throw new \InvalidArgumentException(
+            throw new InvalidArgumentException(
                 'Missing the required parameter $o_auth_token_generate_request when calling oauthTokenGenerate'
             );
         }
-
 
         $resourcePath = '/oauth/token';
         $formParams = [];
@@ -437,11 +420,8 @@ class OAuthApi
 
         $multipart = !empty($formParams);
 
-
-
-
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json', ],
+            $multipart ? ['multipart/form-data'] : ['application/json'],
             $contentType,
             $multipart
         );
@@ -449,7 +429,7 @@ class OAuthApi
         // for model (json/xml)
         if (count($formParams) === 0) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the body
+                // if Content-Type contains "application/json", json_encode the body
                 $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($o_auth_token_generate_request));
             } else {
                 $httpBody = $o_auth_token_generate_request;
@@ -462,7 +442,7 @@ class OAuthApi
                     foreach ($formParamValueItems as $formParamValueItem) {
                         $multipartContents[] = [
                             'name' => $formParamName,
-                            'contents' => $formParamValueItem
+                            'contents' => $formParamValueItem,
                         ];
                     }
                 }
@@ -479,16 +459,14 @@ class OAuthApi
                     $payloadHook('multipart', $multipartContents, $o_auth_token_generate_request);
                 }
                 $httpBody = new MultipartStream($multipartContents);
-
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
+                // if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
             } else {
                 // for HTTP post (form)
                 $httpBody = ObjectSerializer::buildQuery($formParams);
             }
         }
-
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -501,7 +479,7 @@ class OAuthApi
             $headers
         );
 
-        # Preserve the original behavior of server indexing.
+        // Preserve the original behavior of server indexing.
         if ($hostIndex === null) {
             $hostIndex = $this->hostIndex;
         }
@@ -509,7 +487,7 @@ class OAuthApi
         $hostSettings = $this->getHostSettingsForoauthTokenGenerate();
 
         if ($hostIndex < 0 || $hostIndex >= count($hostSettings)) {
-            throw new \InvalidArgumentException("Invalid index {$hostIndex} when selecting the host. Must be less than ".count($hostSettings));
+            throw new InvalidArgumentException("Invalid index {$hostIndex} when selecting the host. Must be less than " . count($hostSettings));
         }
         $operationHost = Configuration::getHostString($hostSettings, $hostIndex, $variables);
         $query = ObjectSerializer::buildQuery($queryParams);
@@ -530,9 +508,9 @@ class OAuthApi
     {
         return [
             [
-                "url" => "https://app.hellosign.com",
-                "description" => "No description provided",
-            ]
+                'url' => 'https://app.hellosign.com',
+                'description' => 'No description provided',
+            ],
         ];
     }
 
@@ -545,13 +523,13 @@ class OAuthApi
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://app.hellosign.com
      *
-     * @param  \Dropbox\Sign\Model\OAuthTokenRefreshRequest $o_auth_token_refresh_request o_auth_token_refresh_request (required)
+     * @param Model\OAuthTokenRefreshRequest $o_auth_token_refresh_request o_auth_token_refresh_request (required)
      *
-     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return \Dropbox\Sign\Model\OAuthTokenResponse|\Dropbox\Sign\Model\ErrorResponse
+     * @return Model\OAuthTokenResponse
+     * @throws ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws InvalidArgumentException
      */
-    public function oauthTokenRefresh($o_auth_token_refresh_request)
+    public function oauthTokenRefresh(Model\OAuthTokenRefreshRequest $o_auth_token_refresh_request)
     {
         list($response) = $this->oauthTokenRefreshWithHttpInfo($o_auth_token_refresh_request);
         return $response;
@@ -566,17 +544,17 @@ class OAuthApi
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://app.hellosign.com
      *
-     * @param  \Dropbox\Sign\Model\OAuthTokenRefreshRequest $o_auth_token_refresh_request (required)
-     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
-     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['oauthTokenRefresh'] to see the possible values for this operation
+     * @param Model\OAuthTokenRefreshRequest $o_auth_token_refresh_request (required)
+     * @param int|null                       $hostIndex                    Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param array                          $variables                    Associative array of variables to pass to the host. Defaults to empty array.
+     * @param string                         $contentType                  The value for the Content-Type header. Check self::contentTypes['oauthTokenRefresh'] to see the possible values for this operation
      *
-     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return array of \Dropbox\Sign\Model\OAuthTokenResponse|\Dropbox\Sign\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of Model\OAuthTokenResponse, HTTP status code, HTTP response headers (array of strings)
+     * @throws ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::oauthTokenRefresh. This method will eventually become unavailable
      */
-    public function oauthTokenRefreshWithHttpInfo($o_auth_token_refresh_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['oauthTokenRefresh'][0])
+    public function oauthTokenRefreshWithHttpInfo(Model\OAuthTokenRefreshRequest $o_auth_token_refresh_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['oauthTokenRefresh'][0])
     {
         $request = $this->oauthTokenRefreshRequest($o_auth_token_refresh_request, $hostIndex, $variables, $contentType);
 
@@ -588,14 +566,14 @@ class OAuthApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
+                    (int)$e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                    $e->getResponse() ? (string)$e->getResponse()->getBody() : null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
+                    (int)$e->getCode(),
                     null,
                     null
                 );
@@ -608,14 +586,14 @@ class OAuthApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        (string) $request->getUri()
+                        (string)$request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    (string) $response->getBody()
+                    (string)$response->getBody()
                 );
             }
-            
+
             $result = $this->handleRangeCodeResponse(
                 $response,
                 '4XX',
@@ -624,18 +602,17 @@ class OAuthApi
             if ($result) {
                 return $result;
             }
-            
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     if ('\Dropbox\Sign\Model\OAuthTokenResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
-                        $content = (string) $response->getBody();
+                        $content = (string)$response->getBody();
                         if ('\Dropbox\Sign\Model\OAuthTokenResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (\JsonException $exception) {
+                            } catch (JsonException $exception) {
                                 throw new ApiException(
                                     sprintf(
                                         'Error JSON decoding server response (%s)',
@@ -652,20 +629,19 @@ class OAuthApi
                     return [
                         ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\OAuthTokenResponse', []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
-                
             }
 
             $returnType = '\Dropbox\Sign\Model\OAuthTokenResponse';
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
+                $content = $response->getBody(); // stream goes to serializer
             } else {
-                $content = (string) $response->getBody();
+                $content = (string)$response->getBody();
                 if ($returnType !== 'string') {
                     try {
                         $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                    } catch (\JsonException $exception) {
+                    } catch (JsonException $exception) {
                         throw new ApiException(
                             sprintf(
                                 'Error JSON decoding server response (%s)',
@@ -682,11 +658,9 @@ class OAuthApi
             return [
                 ObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
-                $response->getHeaders()
+                $response->getHeaders(),
             ];
-
         } catch (ApiException $e) {
-            
             if ($this->handleRangeCodeException($e, '4XX', '\Dropbox\Sign\Model\ErrorResponse')) {
                 throw $e;
             }
@@ -699,7 +673,6 @@ class OAuthApi
                     );
                     $e->setResponseObject($data);
                     break;
-                
             }
             throw $e;
         }
@@ -714,16 +687,16 @@ class OAuthApi
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://app.hellosign.com
      *
-     * @param  \Dropbox\Sign\Model\OAuthTokenRefreshRequest $o_auth_token_refresh_request (required)
-     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
-     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['oauthTokenRefresh'] to see the possible values for this operation
+     * @param Model\OAuthTokenRefreshRequest $o_auth_token_refresh_request (required)
+     * @param int|null                       $hostIndex                    Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param array                          $variables                    Associative array of variables to pass to the host. Defaults to empty array.
+     * @param string                         $contentType                  The value for the Content-Type header. Check self::contentTypes['oauthTokenRefresh'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::oauthTokenRefresh. This method will eventually become unavailable
      */
-    public function oauthTokenRefreshAsync($o_auth_token_refresh_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['oauthTokenRefresh'][0])
+    public function oauthTokenRefreshAsync(Model\OAuthTokenRefreshRequest $o_auth_token_refresh_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['oauthTokenRefresh'][0])
     {
         return $this->oauthTokenRefreshAsyncWithHttpInfo($o_auth_token_refresh_request, $hostIndex, $variables, $contentType)
             ->then(
@@ -742,16 +715,16 @@ class OAuthApi
      * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://app.hellosign.com
      *
-     * @param  \Dropbox\Sign\Model\OAuthTokenRefreshRequest $o_auth_token_refresh_request (required)
-     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
-     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['oauthTokenRefresh'] to see the possible values for this operation
+     * @param Model\OAuthTokenRefreshRequest $o_auth_token_refresh_request (required)
+     * @param int|null                       $hostIndex                    Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param array                          $variables                    Associative array of variables to pass to the host. Defaults to empty array.
+     * @param string                         $contentType                  The value for the Content-Type header. Check self::contentTypes['oauthTokenRefresh'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::oauthTokenRefresh. This method will eventually become unavailable
      */
-    public function oauthTokenRefreshAsyncWithHttpInfo($o_auth_token_refresh_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['oauthTokenRefresh'][0])
+    public function oauthTokenRefreshAsyncWithHttpInfo(Model\OAuthTokenRefreshRequest $o_auth_token_refresh_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['oauthTokenRefresh'][0])
     {
         $returnType = '\Dropbox\Sign\Model\OAuthTokenResponse';
         $request = $this->oauthTokenRefreshRequest($o_auth_token_refresh_request, $hostIndex, $variables, $contentType);
@@ -761,9 +734,9 @@ class OAuthApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
+                        $content = $response->getBody(); // stream goes to serializer
                     } else {
-                        $content = (string) $response->getBody();
+                        $content = (string)$response->getBody();
                         if ($returnType !== 'string') {
                             $content = json_decode($content);
                         }
@@ -772,7 +745,7 @@ class OAuthApi
                     return [
                         ObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
-                        $response->getHeaders()
+                        $response->getHeaders(),
                     ];
                 },
                 function ($exception) {
@@ -786,7 +759,7 @@ class OAuthApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        (string) $response->getBody()
+                        (string)$response->getBody()
                     );
                 }
             );
@@ -795,29 +768,27 @@ class OAuthApi
     /**
      * Create request for operation 'oauthTokenRefresh'
      *
-    * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
-    * if needed, use the 'variables' parameter to pass variables to the host.
+     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
+     * if needed, use the 'variables' parameter to pass variables to the host.
      * URL: https://app.hellosign.com
      *
-     * @param  \Dropbox\Sign\Model\OAuthTokenRefreshRequest $o_auth_token_refresh_request (required)
-     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
-     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['oauthTokenRefresh'] to see the possible values for this operation
+     * @param Model\OAuthTokenRefreshRequest $o_auth_token_refresh_request (required)
+     * @param int|null                       $hostIndex                    Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param array                          $variables                    Associative array of variables to pass to the host. Defaults to empty array.
+     * @param string                         $contentType                  The value for the Content-Type header. Check self::contentTypes['oauthTokenRefresh'] to see the possible values for this operation
      *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
+     * @return Request
+     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::oauthTokenRefresh. This method will eventually become unavailable
      */
-    public function oauthTokenRefreshRequest($o_auth_token_refresh_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['oauthTokenRefresh'][0])
+    public function oauthTokenRefreshRequest(Model\OAuthTokenRefreshRequest $o_auth_token_refresh_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['oauthTokenRefresh'][0])
     {
-
         // verify the required parameter 'o_auth_token_refresh_request' is set
         if ($o_auth_token_refresh_request === null || (is_array($o_auth_token_refresh_request) && count($o_auth_token_refresh_request) === 0)) {
-            throw new \InvalidArgumentException(
+            throw new InvalidArgumentException(
                 'Missing the required parameter $o_auth_token_refresh_request when calling oauthTokenRefresh'
             );
         }
-
 
         $resourcePath = '/oauth/token?refresh';
         $formParams = [];
@@ -832,11 +803,8 @@ class OAuthApi
 
         $multipart = !empty($formParams);
 
-
-
-
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json', ],
+            $multipart ? ['multipart/form-data'] : ['application/json'],
             $contentType,
             $multipart
         );
@@ -844,7 +812,7 @@ class OAuthApi
         // for model (json/xml)
         if (count($formParams) === 0) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the body
+                // if Content-Type contains "application/json", json_encode the body
                 $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($o_auth_token_refresh_request));
             } else {
                 $httpBody = $o_auth_token_refresh_request;
@@ -857,7 +825,7 @@ class OAuthApi
                     foreach ($formParamValueItems as $formParamValueItem) {
                         $multipartContents[] = [
                             'name' => $formParamName,
-                            'contents' => $formParamValueItem
+                            'contents' => $formParamValueItem,
                         ];
                     }
                 }
@@ -874,16 +842,14 @@ class OAuthApi
                     $payloadHook('multipart', $multipartContents, $o_auth_token_refresh_request);
                 }
                 $httpBody = new MultipartStream($multipartContents);
-
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
+                // if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
             } else {
                 // for HTTP post (form)
                 $httpBody = ObjectSerializer::buildQuery($formParams);
             }
         }
-
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -896,7 +862,7 @@ class OAuthApi
             $headers
         );
 
-        # Preserve the original behavior of server indexing.
+        // Preserve the original behavior of server indexing.
         if ($hostIndex === null) {
             $hostIndex = $this->hostIndex;
         }
@@ -904,7 +870,7 @@ class OAuthApi
         $hostSettings = $this->getHostSettingsForoauthTokenRefresh();
 
         if ($hostIndex < 0 || $hostIndex >= count($hostSettings)) {
-            throw new \InvalidArgumentException("Invalid index {$hostIndex} when selecting the host. Must be less than ".count($hostSettings));
+            throw new InvalidArgumentException("Invalid index {$hostIndex} when selecting the host. Must be less than " . count($hostSettings));
         }
         $operationHost = Configuration::getHostString($hostSettings, $hostIndex, $variables);
         $query = ObjectSerializer::buildQuery($queryParams);
@@ -925,17 +891,17 @@ class OAuthApi
     {
         return [
             [
-                "url" => "https://app.hellosign.com",
-                "description" => "No description provided",
-            ]
+                'url' => 'https://app.hellosign.com',
+                'description' => 'No description provided',
+            ],
         ];
     }
 
     /**
      * Create http client option
      *
-     * @throws \RuntimeException on file opening failure
      * @return array of http client options
+     * @throws RuntimeException on file opening failure
      */
     protected function createHttpClientOption()
     {
@@ -943,7 +909,7 @@ class OAuthApi
         if ($this->config->getDebug()) {
             $options[RequestOptions::DEBUG] = fopen($this->config->getDebugFile(), 'a');
             if (!$options[RequestOptions::DEBUG]) {
-                throw new \RuntimeException('Failed to open the debug file: ' . $this->config->getDebugFile());
+                throw new RuntimeException('Failed to open the debug file: ' . $this->config->getDebugFile());
             }
         }
 
@@ -959,8 +925,8 @@ class OAuthApi
         string $returnDataType
     ) {
         $statusCode = $response->getStatusCode();
-        $rangeCodeLeft = (int) (substr($rangeCode, 0, 1) . '00');
-        $rangeCodeRight = (int) (substr($rangeCode, 0, 1) . '99');
+        $rangeCodeLeft = (int)(substr($rangeCode, 0, 1) . '00');
+        $rangeCodeRight = (int)(substr($rangeCode, 0, 1) . '99');
 
         if (
             $statusCode < $rangeCodeLeft
@@ -970,9 +936,9 @@ class OAuthApi
         }
 
         if ($returnDataType === '\SplFileObject') {
-            $content = $response->getBody(); //stream goes to serializer
+            $content = $response->getBody(); // stream goes to serializer
         } else {
-            $content = (string) $response->getBody();
+            $content = (string)$response->getBody();
         }
 
         return [
@@ -991,8 +957,8 @@ class OAuthApi
         string $exceptionDataType
     ): bool {
         $statusCode = $e->getCode();
-        $rangeCodeLeft = (int) (substr($rangeCode, 0, 1) . '00');
-        $rangeCodeRight = (int) (substr($rangeCode, 0, 1) . '99');
+        $rangeCodeLeft = (int)(substr($rangeCode, 0, 1) . '00');
+        $rangeCodeRight = (int)(substr($rangeCode, 0, 1) . '99');
 
         if (
             $statusCode < $rangeCodeLeft

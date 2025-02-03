@@ -23,7 +23,25 @@ Deletes the specified Fax from the system
 ### Example
 
 ```php
-REPLACE_ME_WITH_EXAMPLE_FOR__faxDelete_PHP_CODE
+<?php
+
+require_once __DIR__ . "/vendor/autoload.php";
+
+$config = Dropbox\Sign\Configuration::getDefaultConfiguration();
+
+// Configure HTTP basic authorization: api_key
+$config->setUsername("YOUR_API_KEY");
+
+$faxApi = new Dropbox\Sign\Api\FaxApi($config);
+
+try {
+    $faxApi->faxDelete("fa5c8a0b0f492d768749333ad6fcc214c111e967");
+} catch (Dropbox\Sign\ApiException $e) {
+    $error = $e->getResponseObject();
+    echo "Exception when calling Dropbox Sign API: "
+        . print_r($error->getError());
+}
+
 ```
 
 ### Parameters
@@ -61,7 +79,28 @@ Downloads files associated with a Fax
 ### Example
 
 ```php
-REPLACE_ME_WITH_EXAMPLE_FOR__faxFiles_PHP_CODE
+<?php
+
+require_once __DIR__ . "/vendor/autoload.php";
+
+$config = Dropbox\Sign\Configuration::getDefaultConfiguration();
+
+// Configure HTTP basic authorization: api_key
+$config->setUsername("YOUR_API_KEY");
+
+$faxApi = new Dropbox\Sign\Api\FaxApi($config);
+
+$faxId = "fa5c8a0b0f492d768749333ad6fcc214c111e967";
+
+try {
+    $result = $faxApi->faxFiles($faxId);
+    copy($result->getRealPath(), __DIR__ . '/file_response.pdf');
+} catch (Dropbox\Sign\ApiException $e) {
+    $error = $e->getResponseObject();
+    echo "Exception when calling Dropbox Sign API: "
+        . print_r($error->getError());
+}
+
 ```
 
 ### Parameters
@@ -99,7 +138,28 @@ Returns information about a Fax
 ### Example
 
 ```php
-REPLACE_ME_WITH_EXAMPLE_FOR__faxGet_PHP_CODE
+<?php
+
+require_once __DIR__ . "/vendor/autoload.php";
+
+$config = Dropbox\Sign\Configuration::getDefaultConfiguration();
+
+// Configure HTTP basic authorization: api_key
+$config->setUsername("YOUR_API_KEY");
+
+$faxApi = new Dropbox\Sign\Api\FaxApi($config);
+
+$faxId = "fa5c8a0b0f492d768749333ad6fcc214c111e967";
+
+try {
+    $result = $faxApi->faxGet($faxId);
+    print_r($result);
+} catch (Dropbox\Sign\ApiException $e) {
+    $error = $e->getResponseObject();
+    echo "Exception when calling Dropbox Sign API: "
+        . print_r($error->getError());
+}
+
 ```
 
 ### Parameters
@@ -137,15 +197,37 @@ Returns properties of multiple Faxes
 ### Example
 
 ```php
-REPLACE_ME_WITH_EXAMPLE_FOR__faxList_PHP_CODE
+<?php
+
+require_once __DIR__ . "/vendor/autoload.php";
+
+$config = Dropbox\Sign\Configuration::getDefaultConfiguration();
+
+// Configure HTTP basic authorization: api_key
+$config->setUsername("YOUR_API_KEY");
+
+$faxApi = new Dropbox\Sign\Api\FaxApi($config);
+
+$page = 1;
+$pageSize = 2;
+
+try {
+    $result = $faxApi->faxList($page, $pageSize);
+    print_r($result);
+} catch (Dropbox\Sign\ApiException $e) {
+    $error = $e->getResponseObject();
+    echo "Exception when calling Dropbox Sign API: "
+        . print_r($error->getError());
+}
+
 ```
 
 ### Parameters
 
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **page** | **int**| Which page number of the Fax List to return. Defaults to &#x60;1&#x60;. | [optional] [default to 1] |
-| **page_size** | **int**| Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. | [optional] [default to 20] |
+| **page** | **int**| Which page number of the Fax List to return. Defaults to `1`. | [optional] [default to 1] |
+| **page_size** | **int**| Number of objects to be returned per page. Must be between `1` and `100`. Default is `20`. | [optional] [default to 20] |
 
 ### Return type
 
@@ -176,7 +258,36 @@ Creates and sends a new Fax with the submitted file(s)
 ### Example
 
 ```php
-REPLACE_ME_WITH_EXAMPLE_FOR__faxSend_PHP_CODE
+<?php
+
+require_once __DIR__ . "/vendor/autoload.php";
+
+$config = Dropbox\Sign\Configuration::getDefaultConfiguration();
+
+// Configure HTTP basic authorization: api_key
+$config->setUsername("YOUR_API_KEY");
+
+$faxApi = new Dropbox\Sign\Api\FaxApi($config);
+
+$data = new Dropbox\Sign\Model\FaxSendRequest();
+$data->setFiles([new SplFileObject(__DIR__ . "/example_signature_request.pdf")])
+    ->setTestMode(true)
+    ->setRecipient("16690000001")
+    ->setSender("16690000000")
+    ->setCoverPageTo("Jill Fax")
+    ->setCoverPageMessage("I'm sending you a fax!")
+    ->setCoverPageFrom("Faxer Faxerson")
+    ->setTitle("This is what the fax is about!");
+
+try {
+    $result = $faxApi->faxSend($data);
+    print_r($result);
+} catch (Dropbox\Sign\ApiException $e) {
+    $error = $e->getResponseObject();
+    echo "Exception when calling Dropbox Sign API: "
+        . print_r($error->getError());
+}
+
 ```
 
 ### Parameters

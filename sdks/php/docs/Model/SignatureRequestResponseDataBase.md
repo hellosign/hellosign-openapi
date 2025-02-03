@@ -6,10 +6,10 @@ An array of form field objects containing the name, value, and type of each text
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-| `api_id` | ```string``` | REPLACE_ME_WITH_DESCRIPTION_BEGIN The unique ID for this field. REPLACE_ME_WITH_DESCRIPTION_END |  |
-| `signature_id` | ```string``` | REPLACE_ME_WITH_DESCRIPTION_BEGIN The ID of the signature to which this response is linked. REPLACE_ME_WITH_DESCRIPTION_END |  |
-| `name` | ```string``` | REPLACE_ME_WITH_DESCRIPTION_BEGIN The name of the form field. REPLACE_ME_WITH_DESCRIPTION_END |  |
-| `required` | ```bool``` | REPLACE_ME_WITH_DESCRIPTION_BEGIN A boolean value denoting if this field is required. REPLACE_ME_WITH_DESCRIPTION_END |  |
-| `type` | ```string``` | REPLACE_ME_WITH_DESCRIPTION_BEGIN  REPLACE_ME_WITH_DESCRIPTION_END |  |
+| `api_id` | ```string``` |  The unique ID for this field.  |  |
+| `signature_id` | ```string``` |  The ID of the signature to which this response is linked.  |  |
+| `name` | ```string``` |  The name of the form field.  |  |
+| `required` | ```bool``` |  A boolean value denoting if this field is required.  |  |
+| `type` | ```string``` |    |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

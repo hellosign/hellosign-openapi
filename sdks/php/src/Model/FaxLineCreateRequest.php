@@ -5,9 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  Dropbox\Sign
- * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ * @see     https://openapi-generator.tech
  */
 
 /**
@@ -29,72 +27,73 @@
 
 namespace Dropbox\Sign\Model;
 
-use \ArrayAccess;
-use \Dropbox\Sign\ObjectSerializer;
+use ArrayAccess;
+use Dropbox\Sign\ObjectSerializer;
+use InvalidArgumentException;
+use JsonSerializable;
+use ReturnTypeWillChange;
 
 /**
  * FaxLineCreateRequest Class Doc Comment
  *
  * @category Class
- * @package  Dropbox\Sign
- * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ * @see     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class FaxLineCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializable
+class FaxLineCreateRequest implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
     /**
-      * The original name of the model.
-      *
-      * @var string
-      */
+     * The original name of the model.
+     *
+     * @var string
+     */
     protected static $openAPIModelName = 'FaxLineCreateRequest';
 
     /**
-      * Array of property to type mappings. Used for (de)serialization
-      *
-      * @var string[]
-      */
+     * Array of property to type mappings. Used for (de)serialization
+     *
+     * @var string[]
+     */
     protected static $openAPITypes = [
         'area_code' => 'int',
         'country' => 'string',
         'city' => 'string',
-        'account_id' => 'string'
+        'account_id' => 'string',
     ];
 
     /**
-      * Array of property to format mappings. Used for (de)serialization
-      *
-      * @var string[]
-      * @phpstan-var array<string, string|null>
-      * @psalm-var array<string, string|null>
-      */
+     * Array of property to format mappings. Used for (de)serialization
+     *
+     * @var string[]
+     * @phpstan-var array<string, string|null>
+     * @psalm-var array<string, string|null>
+     */
     protected static $openAPIFormats = [
         'area_code' => null,
         'country' => null,
         'city' => null,
-        'account_id' => null
+        'account_id' => null,
     ];
 
     /**
-      * Array of nullable properties. Used for (de)serialization
-      *
-      * @var boolean[]
-      */
+     * Array of nullable properties. Used for (de)serialization
+     *
+     * @var bool[]
+     */
     protected static array $openAPINullables = [
         'area_code' => false,
         'country' => false,
         'city' => false,
-        'account_id' => false
+        'account_id' => false,
     ];
 
     /**
-      * If a nullable field gets set to null, insert it here
-      *
-      * @var boolean[]
-      */
+     * If a nullable field gets set to null, insert it here
+     *
+     * @var bool[]
+     */
     protected array $openAPINullablesSetToNull = [];
 
     /**
@@ -119,8 +118,6 @@ class FaxLineCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Array of nullable properties
-     *
-     * @return array
      */
     protected static function openAPINullables(): array
     {
@@ -130,7 +127,7 @@ class FaxLineCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Array of nullable field names deliberately set to null
      *
-     * @return boolean[]
+     * @return bool[]
      */
     private function getOpenAPINullablesSetToNull(): array
     {
@@ -140,7 +137,7 @@ class FaxLineCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Setter - Array of nullable field names deliberately set to null
      *
-     * @param boolean[] $openAPINullablesSetToNull
+     * @param bool[] $openAPINullablesSetToNull
      */
     private function setOpenAPINullablesSetToNull(array $openAPINullablesSetToNull): void
     {
@@ -149,9 +146,6 @@ class FaxLineCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Checks if a property is nullable
-     *
-     * @param string $property
-     * @return bool
      */
     public static function isNullable(string $property): bool
     {
@@ -160,9 +154,6 @@ class FaxLineCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Checks if a nullable property is set to null.
-     *
-     * @param string $property
-     * @return bool
      */
     public function isNullableSetToNull(string $property): bool
     {
@@ -179,7 +170,7 @@ class FaxLineCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
         'area_code' => 'area_code',
         'country' => 'country',
         'city' => 'city',
-        'account_id' => 'account_id'
+        'account_id' => 'account_id',
     ];
 
     /**
@@ -191,7 +182,7 @@ class FaxLineCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
         'area_code' => 'setAreaCode',
         'country' => 'setCountry',
         'city' => 'setCity',
-        'account_id' => 'setAccountId'
+        'account_id' => 'setAccountId',
     ];
 
     /**
@@ -203,7 +194,7 @@ class FaxLineCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
         'area_code' => 'getAreaCode',
         'country' => 'getCountry',
         'city' => 'getCity',
-        'account_id' => 'getAccountId'
+        'account_id' => 'getAccountId',
     ];
 
     /**
@@ -286,34 +277,33 @@ class FaxLineCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
         $this->setIfExists('account_id', $data ?? [], null);
     }
 
-    /** @deprecated use ::init() */
+    /**
+     * @deprecated use ::init()
+     */
     public static function fromArray(array $data): FaxLineCreateRequest
     {
         return self::init($data);
     }
 
-    /** Attempt to instantiate and hydrate a new instance of this class */
+    /**
+     * Attempt to instantiate and hydrate a new instance of this class
+     */
     public static function init(array $data): FaxLineCreateRequest
     {
         /** @var FaxLineCreateRequest */
-        $obj = ObjectSerializer::deserialize(
+        return ObjectSerializer::deserialize(
             $data,
             FaxLineCreateRequest::class,
         );
-
-        return $obj;
     }
 
-
     /**
-    * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
-    * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
-    * $this->openAPINullablesSetToNull array
-    *
-    * @param string $variableName
-    * @param array  $fields
-* @param string|int|object|array|mixed  $defaultValue
-    */
+     * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
+     * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
+     * $this->openAPINullablesSetToNull array
+     *
+     * @param string|int|object|array|mixed $defaultValue
+     */
     private function setIfExists(string $variableName, array $fields, $defaultValue): void
     {
         if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
@@ -361,7 +351,6 @@ class FaxLineCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
         return count($this->listInvalidProperties()) === 0;
     }
 
-
     /**
      * Gets area_code
      *
@@ -379,10 +368,10 @@ class FaxLineCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
      *
      * @return self
      */
-    public function setAreaCode($area_code)
+    public function setAreaCode(int $area_code)
     {
         if (is_null($area_code)) {
-            throw new \InvalidArgumentException('non-nullable area_code cannot be null');
+            throw new InvalidArgumentException('non-nullable area_code cannot be null');
         }
         $this->container['area_code'] = $area_code;
 
@@ -406,14 +395,14 @@ class FaxLineCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
      *
      * @return self
      */
-    public function setCountry($country)
+    public function setCountry(string $country)
     {
         if (is_null($country)) {
-            throw new \InvalidArgumentException('non-nullable country cannot be null');
+            throw new InvalidArgumentException('non-nullable country cannot be null');
         }
         $allowedValues = $this->getCountryAllowableValues();
         if (!in_array($country, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
+            throw new InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'country', must be one of '%s'",
                     $country,
@@ -443,10 +432,10 @@ class FaxLineCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
      *
      * @return self
      */
-    public function setCity($city)
+    public function setCity(?string $city)
     {
         if (is_null($city)) {
-            throw new \InvalidArgumentException('non-nullable city cannot be null');
+            throw new InvalidArgumentException('non-nullable city cannot be null');
         }
         $this->container['city'] = $city;
 
@@ -470,23 +459,22 @@ class FaxLineCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
      *
      * @return self
      */
-    public function setAccountId($account_id)
+    public function setAccountId(?string $account_id)
     {
         if (is_null($account_id)) {
-            throw new \InvalidArgumentException('non-nullable account_id cannot be null');
+            throw new InvalidArgumentException('non-nullable account_id cannot be null');
         }
         $this->container['account_id'] = $account_id;
 
         return $this;
     }
+
     /**
      * Returns true if offset exists. False otherwise.
      *
-     * @param integer $offset Offset
-     *
-     * @return boolean
+     * @param int $offset Offset
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
@@ -495,11 +483,11 @@ class FaxLineCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets offset.
      *
-     * @param integer $offset Offset
+     * @param int $offset Offset
      *
      * @return mixed|null
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return $this->container[$offset] ?? null;
@@ -510,10 +498,8 @@ class FaxLineCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
      *
      * @param int|null $offset Offset
      * @param mixed    $value  Value to be set
-     *
-     * @return void
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
@@ -526,11 +512,9 @@ class FaxLineCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Unsets offset.
      *
-     * @param integer $offset Offset
-     *
-     * @return void
+     * @param int $offset Offset
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
@@ -538,15 +522,15 @@ class FaxLineCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Serializes the object to a value that can be serialized natively by json_encode().
-     * @link https://www.php.net/manual/en/jsonserializable.jsonserialize.php
+     * @see https://www.php.net/manual/en/jsonserializable.jsonserialize.php
      *
-     * @return mixed Returns data which can be serialized by json_encode(), which is a value
-     * of any type other than a resource.
+     * @return mixed returns data which can be serialized by json_encode(), which is a value
+     *               of any type other than a resource
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function jsonSerialize()
     {
-       return ObjectSerializer::sanitizeForSerialization($this);
+        return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**
@@ -572,5 +556,3 @@ class FaxLineCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
-
-

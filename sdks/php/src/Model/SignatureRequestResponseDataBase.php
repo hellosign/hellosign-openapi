@@ -5,9 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  Dropbox\Sign
- * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ * @see     https://openapi-generator.tech
  */
 
 /**
@@ -29,76 +27,77 @@
 
 namespace Dropbox\Sign\Model;
 
-use \ArrayAccess;
-use \Dropbox\Sign\ObjectSerializer;
+use ArrayAccess;
+use Dropbox\Sign\ObjectSerializer;
+use InvalidArgumentException;
+use JsonSerializable;
+use ReturnTypeWillChange;
 
 /**
  * SignatureRequestResponseDataBase Class Doc Comment
  *
  * @category Class
  * @description An array of form field objects containing the name, value, and type of each textbox or checkmark field filled in by the signers.
- * @package  Dropbox\Sign
- * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ * @see     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class SignatureRequestResponseDataBase implements ModelInterface, ArrayAccess, \JsonSerializable
+class SignatureRequestResponseDataBase implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = 'type';
 
     /**
-      * The original name of the model.
-      *
-      * @var string
-      */
+     * The original name of the model.
+     *
+     * @var string
+     */
     protected static $openAPIModelName = 'SignatureRequestResponseDataBase';
 
     /**
-      * Array of property to type mappings. Used for (de)serialization
-      *
-      * @var string[]
-      */
+     * Array of property to type mappings. Used for (de)serialization
+     *
+     * @var string[]
+     */
     protected static $openAPITypes = [
         'api_id' => 'string',
         'signature_id' => 'string',
         'name' => 'string',
         'required' => 'bool',
-        'type' => 'string'
+        'type' => 'string',
     ];
 
     /**
-      * Array of property to format mappings. Used for (de)serialization
-      *
-      * @var string[]
-      * @phpstan-var array<string, string|null>
-      * @psalm-var array<string, string|null>
-      */
+     * Array of property to format mappings. Used for (de)serialization
+     *
+     * @var string[]
+     * @phpstan-var array<string, string|null>
+     * @psalm-var array<string, string|null>
+     */
     protected static $openAPIFormats = [
         'api_id' => null,
         'signature_id' => null,
         'name' => null,
         'required' => null,
-        'type' => null
+        'type' => null,
     ];
 
     /**
-      * Array of nullable properties. Used for (de)serialization
-      *
-      * @var boolean[]
-      */
+     * Array of nullable properties. Used for (de)serialization
+     *
+     * @var bool[]
+     */
     protected static array $openAPINullables = [
         'api_id' => false,
         'signature_id' => false,
         'name' => false,
         'required' => false,
-        'type' => false
+        'type' => false,
     ];
 
     /**
-      * If a nullable field gets set to null, insert it here
-      *
-      * @var boolean[]
-      */
+     * If a nullable field gets set to null, insert it here
+     *
+     * @var bool[]
+     */
     protected array $openAPINullablesSetToNull = [];
 
     /**
@@ -123,8 +122,6 @@ class SignatureRequestResponseDataBase implements ModelInterface, ArrayAccess, \
 
     /**
      * Array of nullable properties
-     *
-     * @return array
      */
     protected static function openAPINullables(): array
     {
@@ -134,7 +131,7 @@ class SignatureRequestResponseDataBase implements ModelInterface, ArrayAccess, \
     /**
      * Array of nullable field names deliberately set to null
      *
-     * @return boolean[]
+     * @return bool[]
      */
     private function getOpenAPINullablesSetToNull(): array
     {
@@ -144,7 +141,7 @@ class SignatureRequestResponseDataBase implements ModelInterface, ArrayAccess, \
     /**
      * Setter - Array of nullable field names deliberately set to null
      *
-     * @param boolean[] $openAPINullablesSetToNull
+     * @param bool[] $openAPINullablesSetToNull
      */
     private function setOpenAPINullablesSetToNull(array $openAPINullablesSetToNull): void
     {
@@ -153,9 +150,6 @@ class SignatureRequestResponseDataBase implements ModelInterface, ArrayAccess, \
 
     /**
      * Checks if a property is nullable
-     *
-     * @param string $property
-     * @return bool
      */
     public static function isNullable(string $property): bool
     {
@@ -164,9 +158,6 @@ class SignatureRequestResponseDataBase implements ModelInterface, ArrayAccess, \
 
     /**
      * Checks if a nullable property is set to null.
-     *
-     * @param string $property
-     * @return bool
      */
     public function isNullableSetToNull(string $property): bool
     {
@@ -184,7 +175,7 @@ class SignatureRequestResponseDataBase implements ModelInterface, ArrayAccess, \
         'signature_id' => 'signature_id',
         'name' => 'name',
         'required' => 'required',
-        'type' => 'type'
+        'type' => 'type',
     ];
 
     /**
@@ -197,7 +188,7 @@ class SignatureRequestResponseDataBase implements ModelInterface, ArrayAccess, \
         'signature_id' => 'setSignatureId',
         'name' => 'setName',
         'required' => 'setRequired',
-        'type' => 'setType'
+        'type' => 'setType',
     ];
 
     /**
@@ -210,7 +201,7 @@ class SignatureRequestResponseDataBase implements ModelInterface, ArrayAccess, \
         'signature_id' => 'getSignatureId',
         'name' => 'getName',
         'required' => 'getRequired',
-        'type' => 'getType'
+        'type' => 'getType',
     ];
 
     /**
@@ -254,7 +245,6 @@ class SignatureRequestResponseDataBase implements ModelInterface, ArrayAccess, \
         return self::$openAPIModelName;
     }
 
-
     /**
      * Associative array for storing property values
      *
@@ -279,7 +269,6 @@ class SignatureRequestResponseDataBase implements ModelInterface, ArrayAccess, \
         // Initialize discriminator property with the model name.
         $this->container['type'] = static::$openAPIModelName;
     }
-
 
     public static function discriminatorClassName(array $data): ?string
     {
@@ -319,14 +308,12 @@ class SignatureRequestResponseDataBase implements ModelInterface, ArrayAccess, \
     }
 
     /**
-    * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
-    * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
-    * $this->openAPINullablesSetToNull array
-    *
-    * @param string $variableName
-    * @param array  $fields
-* @param string|int|object|array|mixed  $defaultValue
-    */
+     * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
+     * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
+     * $this->openAPINullablesSetToNull array
+     *
+     * @param string|int|object|array|mixed $defaultValue
+     */
     private function setIfExists(string $variableName, array $fields, $defaultValue): void
     {
         if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
@@ -343,9 +330,7 @@ class SignatureRequestResponseDataBase implements ModelInterface, ArrayAccess, \
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = [];
-
-        return $invalidProperties;
+        return [];
     }
 
     /**
@@ -358,7 +343,6 @@ class SignatureRequestResponseDataBase implements ModelInterface, ArrayAccess, \
     {
         return count($this->listInvalidProperties()) === 0;
     }
-
 
     /**
      * Gets api_id
@@ -373,14 +357,14 @@ class SignatureRequestResponseDataBase implements ModelInterface, ArrayAccess, \
     /**
      * Sets api_id
      *
-     * @param string|null $api_id The unique ID for this field.
+     * @param string|null $api_id the unique ID for this field
      *
      * @return self
      */
-    public function setApiId($api_id)
+    public function setApiId(?string $api_id)
     {
         if (is_null($api_id)) {
-            throw new \InvalidArgumentException('non-nullable api_id cannot be null');
+            throw new InvalidArgumentException('non-nullable api_id cannot be null');
         }
         $this->container['api_id'] = $api_id;
 
@@ -400,14 +384,14 @@ class SignatureRequestResponseDataBase implements ModelInterface, ArrayAccess, \
     /**
      * Sets signature_id
      *
-     * @param string|null $signature_id The ID of the signature to which this response is linked.
+     * @param string|null $signature_id the ID of the signature to which this response is linked
      *
      * @return self
      */
-    public function setSignatureId($signature_id)
+    public function setSignatureId(?string $signature_id)
     {
         if (is_null($signature_id)) {
-            throw new \InvalidArgumentException('non-nullable signature_id cannot be null');
+            throw new InvalidArgumentException('non-nullable signature_id cannot be null');
         }
         $this->container['signature_id'] = $signature_id;
 
@@ -427,14 +411,14 @@ class SignatureRequestResponseDataBase implements ModelInterface, ArrayAccess, \
     /**
      * Sets name
      *
-     * @param string|null $name The name of the form field.
+     * @param string|null $name the name of the form field
      *
      * @return self
      */
-    public function setName($name)
+    public function setName(?string $name)
     {
         if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
+            throw new InvalidArgumentException('non-nullable name cannot be null');
         }
         $this->container['name'] = $name;
 
@@ -454,14 +438,14 @@ class SignatureRequestResponseDataBase implements ModelInterface, ArrayAccess, \
     /**
      * Sets required
      *
-     * @param bool|null $required A boolean value denoting if this field is required.
+     * @param bool|null $required a boolean value denoting if this field is required
      *
      * @return self
      */
-    public function setRequired($required)
+    public function setRequired(?bool $required)
     {
         if (is_null($required)) {
-            throw new \InvalidArgumentException('non-nullable required cannot be null');
+            throw new InvalidArgumentException('non-nullable required cannot be null');
         }
         $this->container['required'] = $required;
 
@@ -485,23 +469,22 @@ class SignatureRequestResponseDataBase implements ModelInterface, ArrayAccess, \
      *
      * @return self
      */
-    public function setType($type)
+    public function setType(?string $type)
     {
         if (is_null($type)) {
-            throw new \InvalidArgumentException('non-nullable type cannot be null');
+            throw new InvalidArgumentException('non-nullable type cannot be null');
         }
         $this->container['type'] = $type;
 
         return $this;
     }
+
     /**
      * Returns true if offset exists. False otherwise.
      *
-     * @param integer $offset Offset
-     *
-     * @return boolean
+     * @param int $offset Offset
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
@@ -510,11 +493,11 @@ class SignatureRequestResponseDataBase implements ModelInterface, ArrayAccess, \
     /**
      * Gets offset.
      *
-     * @param integer $offset Offset
+     * @param int $offset Offset
      *
      * @return mixed|null
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return $this->container[$offset] ?? null;
@@ -525,10 +508,8 @@ class SignatureRequestResponseDataBase implements ModelInterface, ArrayAccess, \
      *
      * @param int|null $offset Offset
      * @param mixed    $value  Value to be set
-     *
-     * @return void
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
@@ -541,11 +522,9 @@ class SignatureRequestResponseDataBase implements ModelInterface, ArrayAccess, \
     /**
      * Unsets offset.
      *
-     * @param integer $offset Offset
-     *
-     * @return void
+     * @param int $offset Offset
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
@@ -553,15 +532,15 @@ class SignatureRequestResponseDataBase implements ModelInterface, ArrayAccess, \
 
     /**
      * Serializes the object to a value that can be serialized natively by json_encode().
-     * @link https://www.php.net/manual/en/jsonserializable.jsonserialize.php
+     * @see https://www.php.net/manual/en/jsonserializable.jsonserialize.php
      *
-     * @return mixed Returns data which can be serialized by json_encode(), which is a value
-     * of any type other than a resource.
+     * @return mixed returns data which can be serialized by json_encode(), which is a value
+     *               of any type other than a resource
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function jsonSerialize()
     {
-       return ObjectSerializer::sanitizeForSerialization($this);
+        return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**
@@ -587,5 +566,3 @@ class SignatureRequestResponseDataBase implements ModelInterface, ArrayAccess, \
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
-
-

@@ -5,9 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  Dropbox\Sign
- * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ * @see     https://openapi-generator.tech
  */
 
 /**
@@ -28,15 +26,12 @@
  */
 
 namespace Dropbox\Sign\Model;
-use \Dropbox\Sign\ObjectSerializer;
 
 /**
  * FaxLineAreaCodeGetStateEnum Class Doc Comment
  *
  * @category Class
- * @package  Dropbox\Sign
- * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ * @see     https://openapi-generator.tech
  */
 class FaxLineAreaCodeGetStateEnum
 {
@@ -202,9 +197,7 @@ class FaxLineAreaCodeGetStateEnum
             self::WA,
             self::WI,
             self::WV,
-            self::WY
+            self::WY,
         ];
     }
 }
-
-

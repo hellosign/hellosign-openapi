@@ -5,9 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  Dropbox\Sign
- * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ * @see     https://openapi-generator.tech
  */
 
 /**
@@ -29,69 +27,70 @@
 
 namespace Dropbox\Sign\Model;
 
-use \ArrayAccess;
-use \Dropbox\Sign\ObjectSerializer;
+use ArrayAccess;
+use Dropbox\Sign\ObjectSerializer;
+use InvalidArgumentException;
+use JsonSerializable;
+use ReturnTypeWillChange;
 
 /**
  * TeamSubTeamsResponse Class Doc Comment
  *
  * @category Class
- * @package  Dropbox\Sign
- * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ * @see     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class TeamSubTeamsResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class TeamSubTeamsResponse implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
     /**
-      * The original name of the model.
-      *
-      * @var string
-      */
+     * The original name of the model.
+     *
+     * @var string
+     */
     protected static $openAPIModelName = 'TeamSubTeamsResponse';
 
     /**
-      * Array of property to type mappings. Used for (de)serialization
-      *
-      * @var string[]
-      */
+     * Array of property to type mappings. Used for (de)serialization
+     *
+     * @var string[]
+     */
     protected static $openAPITypes = [
         'sub_teams' => '\Dropbox\Sign\Model\SubTeamResponse[]',
         'list_info' => '\Dropbox\Sign\Model\ListInfoResponse',
-        'warnings' => '\Dropbox\Sign\Model\WarningResponse[]'
+        'warnings' => '\Dropbox\Sign\Model\WarningResponse[]',
     ];
 
     /**
-      * Array of property to format mappings. Used for (de)serialization
-      *
-      * @var string[]
-      * @phpstan-var array<string, string|null>
-      * @psalm-var array<string, string|null>
-      */
+     * Array of property to format mappings. Used for (de)serialization
+     *
+     * @var string[]
+     * @phpstan-var array<string, string|null>
+     * @psalm-var array<string, string|null>
+     */
     protected static $openAPIFormats = [
         'sub_teams' => null,
         'list_info' => null,
-        'warnings' => null
+        'warnings' => null,
     ];
 
     /**
-      * Array of nullable properties. Used for (de)serialization
-      *
-      * @var boolean[]
-      */
+     * Array of nullable properties. Used for (de)serialization
+     *
+     * @var bool[]
+     */
     protected static array $openAPINullables = [
         'sub_teams' => false,
         'list_info' => false,
-        'warnings' => false
+        'warnings' => false,
     ];
 
     /**
-      * If a nullable field gets set to null, insert it here
-      *
-      * @var boolean[]
-      */
+     * If a nullable field gets set to null, insert it here
+     *
+     * @var bool[]
+     */
     protected array $openAPINullablesSetToNull = [];
 
     /**
@@ -116,8 +115,6 @@ class TeamSubTeamsResponse implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Array of nullable properties
-     *
-     * @return array
      */
     protected static function openAPINullables(): array
     {
@@ -127,7 +124,7 @@ class TeamSubTeamsResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Array of nullable field names deliberately set to null
      *
-     * @return boolean[]
+     * @return bool[]
      */
     private function getOpenAPINullablesSetToNull(): array
     {
@@ -137,7 +134,7 @@ class TeamSubTeamsResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Setter - Array of nullable field names deliberately set to null
      *
-     * @param boolean[] $openAPINullablesSetToNull
+     * @param bool[] $openAPINullablesSetToNull
      */
     private function setOpenAPINullablesSetToNull(array $openAPINullablesSetToNull): void
     {
@@ -146,9 +143,6 @@ class TeamSubTeamsResponse implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Checks if a property is nullable
-     *
-     * @param string $property
-     * @return bool
      */
     public static function isNullable(string $property): bool
     {
@@ -157,9 +151,6 @@ class TeamSubTeamsResponse implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Checks if a nullable property is set to null.
-     *
-     * @param string $property
-     * @return bool
      */
     public function isNullableSetToNull(string $property): bool
     {
@@ -175,7 +166,7 @@ class TeamSubTeamsResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     protected static $attributeMap = [
         'sub_teams' => 'sub_teams',
         'list_info' => 'list_info',
-        'warnings' => 'warnings'
+        'warnings' => 'warnings',
     ];
 
     /**
@@ -186,7 +177,7 @@ class TeamSubTeamsResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     protected static $setters = [
         'sub_teams' => 'setSubTeams',
         'list_info' => 'setListInfo',
-        'warnings' => 'setWarnings'
+        'warnings' => 'setWarnings',
     ];
 
     /**
@@ -197,7 +188,7 @@ class TeamSubTeamsResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     protected static $getters = [
         'sub_teams' => 'getSubTeams',
         'list_info' => 'getListInfo',
-        'warnings' => 'getWarnings'
+        'warnings' => 'getWarnings',
     ];
 
     /**
@@ -241,7 +232,6 @@ class TeamSubTeamsResponse implements ModelInterface, ArrayAccess, \JsonSerializ
         return self::$openAPIModelName;
     }
 
-
     /**
      * Associative array for storing property values
      *
@@ -262,34 +252,33 @@ class TeamSubTeamsResponse implements ModelInterface, ArrayAccess, \JsonSerializ
         $this->setIfExists('warnings', $data ?? [], null);
     }
 
-    /** @deprecated use ::init() */
+    /**
+     * @deprecated use ::init()
+     */
     public static function fromArray(array $data): TeamSubTeamsResponse
     {
         return self::init($data);
     }
 
-    /** Attempt to instantiate and hydrate a new instance of this class */
+    /**
+     * Attempt to instantiate and hydrate a new instance of this class
+     */
     public static function init(array $data): TeamSubTeamsResponse
     {
         /** @var TeamSubTeamsResponse */
-        $obj = ObjectSerializer::deserialize(
+        return ObjectSerializer::deserialize(
             $data,
             TeamSubTeamsResponse::class,
         );
-
-        return $obj;
     }
 
-
     /**
-    * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
-    * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
-    * $this->openAPINullablesSetToNull array
-    *
-    * @param string $variableName
-    * @param array  $fields
-* @param string|int|object|array|mixed  $defaultValue
-    */
+     * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
+     * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
+     * $this->openAPINullablesSetToNull array
+     *
+     * @param string|int|object|array|mixed $defaultValue
+     */
     private function setIfExists(string $variableName, array $fields, $defaultValue): void
     {
         if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
@@ -328,11 +317,10 @@ class TeamSubTeamsResponse implements ModelInterface, ArrayAccess, \JsonSerializ
         return count($this->listInvalidProperties()) === 0;
     }
 
-
     /**
      * Gets sub_teams
      *
-     * @return \Dropbox\Sign\Model\SubTeamResponse[]
+     * @return SubTeamResponse[]
      */
     public function getSubTeams()
     {
@@ -342,14 +330,14 @@ class TeamSubTeamsResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets sub_teams
      *
-     * @param \Dropbox\Sign\Model\SubTeamResponse[] $sub_teams Contains a list with sub teams.
+     * @param SubTeamResponse[] $sub_teams contains a list with sub teams
      *
      * @return self
      */
-    public function setSubTeams($sub_teams)
+    public function setSubTeams(array $sub_teams)
     {
         if (is_null($sub_teams)) {
-            throw new \InvalidArgumentException('non-nullable sub_teams cannot be null');
+            throw new InvalidArgumentException('non-nullable sub_teams cannot be null');
         }
         $this->container['sub_teams'] = $sub_teams;
 
@@ -359,7 +347,7 @@ class TeamSubTeamsResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets list_info
      *
-     * @return \Dropbox\Sign\Model\ListInfoResponse
+     * @return ListInfoResponse
      */
     public function getListInfo()
     {
@@ -369,14 +357,14 @@ class TeamSubTeamsResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets list_info
      *
-     * @param \Dropbox\Sign\Model\ListInfoResponse $list_info list_info
+     * @param ListInfoResponse $list_info list_info
      *
      * @return self
      */
-    public function setListInfo($list_info)
+    public function setListInfo(ListInfoResponse $list_info)
     {
         if (is_null($list_info)) {
-            throw new \InvalidArgumentException('non-nullable list_info cannot be null');
+            throw new InvalidArgumentException('non-nullable list_info cannot be null');
         }
         $this->container['list_info'] = $list_info;
 
@@ -386,7 +374,7 @@ class TeamSubTeamsResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets warnings
      *
-     * @return \Dropbox\Sign\Model\WarningResponse[]|null
+     * @return WarningResponse[]|null
      */
     public function getWarnings()
     {
@@ -396,27 +384,26 @@ class TeamSubTeamsResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets warnings
      *
-     * @param \Dropbox\Sign\Model\WarningResponse[]|null $warnings warnings
+     * @param WarningResponse[]|null $warnings warnings
      *
      * @return self
      */
-    public function setWarnings($warnings)
+    public function setWarnings(?array $warnings)
     {
         if (is_null($warnings)) {
-            throw new \InvalidArgumentException('non-nullable warnings cannot be null');
+            throw new InvalidArgumentException('non-nullable warnings cannot be null');
         }
         $this->container['warnings'] = $warnings;
 
         return $this;
     }
+
     /**
      * Returns true if offset exists. False otherwise.
      *
-     * @param integer $offset Offset
-     *
-     * @return boolean
+     * @param int $offset Offset
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
@@ -425,11 +412,11 @@ class TeamSubTeamsResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets offset.
      *
-     * @param integer $offset Offset
+     * @param int $offset Offset
      *
      * @return mixed|null
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return $this->container[$offset] ?? null;
@@ -440,10 +427,8 @@ class TeamSubTeamsResponse implements ModelInterface, ArrayAccess, \JsonSerializ
      *
      * @param int|null $offset Offset
      * @param mixed    $value  Value to be set
-     *
-     * @return void
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
@@ -456,11 +441,9 @@ class TeamSubTeamsResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Unsets offset.
      *
-     * @param integer $offset Offset
-     *
-     * @return void
+     * @param int $offset Offset
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
@@ -468,15 +451,15 @@ class TeamSubTeamsResponse implements ModelInterface, ArrayAccess, \JsonSerializ
 
     /**
      * Serializes the object to a value that can be serialized natively by json_encode().
-     * @link https://www.php.net/manual/en/jsonserializable.jsonserialize.php
+     * @see https://www.php.net/manual/en/jsonserializable.jsonserialize.php
      *
-     * @return mixed Returns data which can be serialized by json_encode(), which is a value
-     * of any type other than a resource.
+     * @return mixed returns data which can be serialized by json_encode(), which is a value
+     *               of any type other than a resource
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function jsonSerialize()
     {
-       return ObjectSerializer::sanitizeForSerialization($this);
+        return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**
@@ -502,5 +485,3 @@ class TeamSubTeamsResponse implements ModelInterface, ArrayAccess, \JsonSerializ
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
-
-

@@ -5,9 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  Dropbox\Sign
- * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ * @see     https://openapi-generator.tech
  */
 
 /**
@@ -29,35 +27,36 @@
 
 namespace Dropbox\Sign\Model;
 
-use \ArrayAccess;
-use \Dropbox\Sign\ObjectSerializer;
+use ArrayAccess;
+use Dropbox\Sign\ObjectSerializer;
+use InvalidArgumentException;
+use JsonSerializable;
+use ReturnTypeWillChange;
 
 /**
  * SignatureRequestResponseSignatures Class Doc Comment
  *
  * @category Class
  * @description An array of signature objects, 1 for each signer.
- * @package  Dropbox\Sign
- * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ * @see     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class SignatureRequestResponseSignatures implements ModelInterface, ArrayAccess, \JsonSerializable
+class SignatureRequestResponseSignatures implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
     /**
-      * The original name of the model.
-      *
-      * @var string
-      */
+     * The original name of the model.
+     *
+     * @var string
+     */
     protected static $openAPIModelName = 'SignatureRequestResponseSignatures';
 
     /**
-      * Array of property to type mappings. Used for (de)serialization
-      *
-      * @var string[]
-      */
+     * Array of property to type mappings. Used for (de)serialization
+     *
+     * @var string[]
+     */
     protected static $openAPITypes = [
         'signature_id' => 'string',
         'signer_group_guid' => 'string',
@@ -77,16 +76,16 @@ class SignatureRequestResponseSignatures implements ModelInterface, ArrayAccess,
         'reassigned_by' => 'string',
         'reassignment_reason' => 'string',
         'reassigned_from' => 'string',
-        'error' => 'string'
+        'error' => 'string',
     ];
 
     /**
-      * Array of property to format mappings. Used for (de)serialization
-      *
-      * @var string[]
-      * @phpstan-var array<string, string|null>
-      * @psalm-var array<string, string|null>
-      */
+     * Array of property to format mappings. Used for (de)serialization
+     *
+     * @var string[]
+     * @phpstan-var array<string, string|null>
+     * @psalm-var array<string, string|null>
+     */
     protected static $openAPIFormats = [
         'signature_id' => null,
         'signer_group_guid' => null,
@@ -106,14 +105,14 @@ class SignatureRequestResponseSignatures implements ModelInterface, ArrayAccess,
         'reassigned_by' => null,
         'reassignment_reason' => null,
         'reassigned_from' => null,
-        'error' => null
+        'error' => null,
     ];
 
     /**
-      * Array of nullable properties. Used for (de)serialization
-      *
-      * @var boolean[]
-      */
+     * Array of nullable properties. Used for (de)serialization
+     *
+     * @var bool[]
+     */
     protected static array $openAPINullables = [
         'signature_id' => false,
         'signer_group_guid' => true,
@@ -133,14 +132,14 @@ class SignatureRequestResponseSignatures implements ModelInterface, ArrayAccess,
         'reassigned_by' => true,
         'reassignment_reason' => true,
         'reassigned_from' => true,
-        'error' => true
+        'error' => true,
     ];
 
     /**
-      * If a nullable field gets set to null, insert it here
-      *
-      * @var boolean[]
-      */
+     * If a nullable field gets set to null, insert it here
+     *
+     * @var bool[]
+     */
     protected array $openAPINullablesSetToNull = [];
 
     /**
@@ -165,8 +164,6 @@ class SignatureRequestResponseSignatures implements ModelInterface, ArrayAccess,
 
     /**
      * Array of nullable properties
-     *
-     * @return array
      */
     protected static function openAPINullables(): array
     {
@@ -176,7 +173,7 @@ class SignatureRequestResponseSignatures implements ModelInterface, ArrayAccess,
     /**
      * Array of nullable field names deliberately set to null
      *
-     * @return boolean[]
+     * @return bool[]
      */
     private function getOpenAPINullablesSetToNull(): array
     {
@@ -186,7 +183,7 @@ class SignatureRequestResponseSignatures implements ModelInterface, ArrayAccess,
     /**
      * Setter - Array of nullable field names deliberately set to null
      *
-     * @param boolean[] $openAPINullablesSetToNull
+     * @param bool[] $openAPINullablesSetToNull
      */
     private function setOpenAPINullablesSetToNull(array $openAPINullablesSetToNull): void
     {
@@ -195,9 +192,6 @@ class SignatureRequestResponseSignatures implements ModelInterface, ArrayAccess,
 
     /**
      * Checks if a property is nullable
-     *
-     * @param string $property
-     * @return bool
      */
     public static function isNullable(string $property): bool
     {
@@ -206,9 +200,6 @@ class SignatureRequestResponseSignatures implements ModelInterface, ArrayAccess,
 
     /**
      * Checks if a nullable property is set to null.
-     *
-     * @param string $property
-     * @return bool
      */
     public function isNullableSetToNull(string $property): bool
     {
@@ -240,7 +231,7 @@ class SignatureRequestResponseSignatures implements ModelInterface, ArrayAccess,
         'reassigned_by' => 'reassigned_by',
         'reassignment_reason' => 'reassignment_reason',
         'reassigned_from' => 'reassigned_from',
-        'error' => 'error'
+        'error' => 'error',
     ];
 
     /**
@@ -267,7 +258,7 @@ class SignatureRequestResponseSignatures implements ModelInterface, ArrayAccess,
         'reassigned_by' => 'setReassignedBy',
         'reassignment_reason' => 'setReassignmentReason',
         'reassigned_from' => 'setReassignedFrom',
-        'error' => 'setError'
+        'error' => 'setError',
     ];
 
     /**
@@ -294,7 +285,7 @@ class SignatureRequestResponseSignatures implements ModelInterface, ArrayAccess,
         'reassigned_by' => 'getReassignedBy',
         'reassignment_reason' => 'getReassignmentReason',
         'reassigned_from' => 'getReassignedFrom',
-        'error' => 'getError'
+        'error' => 'getError',
     ];
 
     /**
@@ -338,7 +329,6 @@ class SignatureRequestResponseSignatures implements ModelInterface, ArrayAccess,
         return self::$openAPIModelName;
     }
 
-
     /**
      * Associative array for storing property values
      *
@@ -375,34 +365,33 @@ class SignatureRequestResponseSignatures implements ModelInterface, ArrayAccess,
         $this->setIfExists('error', $data ?? [], null);
     }
 
-    /** @deprecated use ::init() */
+    /**
+     * @deprecated use ::init()
+     */
     public static function fromArray(array $data): SignatureRequestResponseSignatures
     {
         return self::init($data);
     }
 
-    /** Attempt to instantiate and hydrate a new instance of this class */
+    /**
+     * Attempt to instantiate and hydrate a new instance of this class
+     */
     public static function init(array $data): SignatureRequestResponseSignatures
     {
         /** @var SignatureRequestResponseSignatures */
-        $obj = ObjectSerializer::deserialize(
+        return ObjectSerializer::deserialize(
             $data,
             SignatureRequestResponseSignatures::class,
         );
-
-        return $obj;
     }
 
-
     /**
-    * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
-    * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
-    * $this->openAPINullablesSetToNull array
-    *
-    * @param string $variableName
-    * @param array  $fields
-* @param string|int|object|array|mixed  $defaultValue
-    */
+     * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
+     * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
+     * $this->openAPINullablesSetToNull array
+     *
+     * @param string|int|object|array|mixed $defaultValue
+     */
     private function setIfExists(string $variableName, array $fields, $defaultValue): void
     {
         if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
@@ -419,9 +408,7 @@ class SignatureRequestResponseSignatures implements ModelInterface, ArrayAccess,
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = [];
-
-        return $invalidProperties;
+        return [];
     }
 
     /**
@@ -434,7 +421,6 @@ class SignatureRequestResponseSignatures implements ModelInterface, ArrayAccess,
     {
         return count($this->listInvalidProperties()) === 0;
     }
-
 
     /**
      * Gets signature_id
@@ -449,14 +435,14 @@ class SignatureRequestResponseSignatures implements ModelInterface, ArrayAccess,
     /**
      * Sets signature_id
      *
-     * @param string|null $signature_id Signature identifier.
+     * @param string|null $signature_id signature identifier
      *
      * @return self
      */
-    public function setSignatureId($signature_id)
+    public function setSignatureId(?string $signature_id)
     {
         if (is_null($signature_id)) {
-            throw new \InvalidArgumentException('non-nullable signature_id cannot be null');
+            throw new InvalidArgumentException('non-nullable signature_id cannot be null');
         }
         $this->container['signature_id'] = $signature_id;
 
@@ -480,14 +466,14 @@ class SignatureRequestResponseSignatures implements ModelInterface, ArrayAccess,
      *
      * @return self
      */
-    public function setSignerGroupGuid($signer_group_guid)
+    public function setSignerGroupGuid(?string $signer_group_guid)
     {
         if (is_null($signer_group_guid)) {
             array_push($this->openAPINullablesSetToNull, 'signer_group_guid');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
             $index = array_search('signer_group_guid', $nullablesSetToNull);
-            if ($index !== FALSE) {
+            if ($index !== false) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
@@ -510,14 +496,14 @@ class SignatureRequestResponseSignatures implements ModelInterface, ArrayAccess,
     /**
      * Sets signer_email_address
      *
-     * @param string|null $signer_email_address The email address of the signer.
+     * @param string|null $signer_email_address the email address of the signer
      *
      * @return self
      */
-    public function setSignerEmailAddress($signer_email_address)
+    public function setSignerEmailAddress(?string $signer_email_address)
     {
         if (is_null($signer_email_address)) {
-            throw new \InvalidArgumentException('non-nullable signer_email_address cannot be null');
+            throw new InvalidArgumentException('non-nullable signer_email_address cannot be null');
         }
         $this->container['signer_email_address'] = $signer_email_address;
 
@@ -537,18 +523,18 @@ class SignatureRequestResponseSignatures implements ModelInterface, ArrayAccess,
     /**
      * Sets signer_name
      *
-     * @param string|null $signer_name The name of the signer.
+     * @param string|null $signer_name the name of the signer
      *
      * @return self
      */
-    public function setSignerName($signer_name)
+    public function setSignerName(?string $signer_name)
     {
         if (is_null($signer_name)) {
             array_push($this->openAPINullablesSetToNull, 'signer_name');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
             $index = array_search('signer_name', $nullablesSetToNull);
-            if ($index !== FALSE) {
+            if ($index !== false) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
@@ -571,18 +557,18 @@ class SignatureRequestResponseSignatures implements ModelInterface, ArrayAccess,
     /**
      * Sets signer_role
      *
-     * @param string|null $signer_role The role of the signer.
+     * @param string|null $signer_role the role of the signer
      *
      * @return self
      */
-    public function setSignerRole($signer_role)
+    public function setSignerRole(?string $signer_role)
     {
         if (is_null($signer_role)) {
             array_push($this->openAPINullablesSetToNull, 'signer_role');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
             $index = array_search('signer_role', $nullablesSetToNull);
-            if ($index !== FALSE) {
+            if ($index !== false) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
@@ -605,18 +591,18 @@ class SignatureRequestResponseSignatures implements ModelInterface, ArrayAccess,
     /**
      * Sets order
      *
-     * @param int|null $order If signer order is assigned this is the 0-based index for this signer.
+     * @param int|null $order if signer order is assigned this is the 0-based index for this signer
      *
      * @return self
      */
-    public function setOrder($order)
+    public function setOrder(?int $order)
     {
         if (is_null($order)) {
             array_push($this->openAPINullablesSetToNull, 'order');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
             $index = array_search('order', $nullablesSetToNull);
-            if ($index !== FALSE) {
+            if ($index !== false) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
@@ -643,10 +629,10 @@ class SignatureRequestResponseSignatures implements ModelInterface, ArrayAccess,
      *
      * @return self
      */
-    public function setStatusCode($status_code)
+    public function setStatusCode(?string $status_code)
     {
         if (is_null($status_code)) {
-            throw new \InvalidArgumentException('non-nullable status_code cannot be null');
+            throw new InvalidArgumentException('non-nullable status_code cannot be null');
         }
         $this->container['status_code'] = $status_code;
 
@@ -666,18 +652,18 @@ class SignatureRequestResponseSignatures implements ModelInterface, ArrayAccess,
     /**
      * Sets decline_reason
      *
-     * @param string|null $decline_reason The reason provided by the signer for declining the request.
+     * @param string|null $decline_reason the reason provided by the signer for declining the request
      *
      * @return self
      */
-    public function setDeclineReason($decline_reason)
+    public function setDeclineReason(?string $decline_reason)
     {
         if (is_null($decline_reason)) {
             array_push($this->openAPINullablesSetToNull, 'decline_reason');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
             $index = array_search('decline_reason', $nullablesSetToNull);
-            if ($index !== FALSE) {
+            if ($index !== false) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
@@ -700,18 +686,18 @@ class SignatureRequestResponseSignatures implements ModelInterface, ArrayAccess,
     /**
      * Sets signed_at
      *
-     * @param int|null $signed_at Time that the document was signed or null.
+     * @param int|null $signed_at time that the document was signed or null
      *
      * @return self
      */
-    public function setSignedAt($signed_at)
+    public function setSignedAt(?int $signed_at)
     {
         if (is_null($signed_at)) {
             array_push($this->openAPINullablesSetToNull, 'signed_at');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
             $index = array_search('signed_at', $nullablesSetToNull);
-            if ($index !== FALSE) {
+            if ($index !== false) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
@@ -734,18 +720,18 @@ class SignatureRequestResponseSignatures implements ModelInterface, ArrayAccess,
     /**
      * Sets last_viewed_at
      *
-     * @param int|null $last_viewed_at The time that the document was last viewed by this signer or null.
+     * @param int|null $last_viewed_at the time that the document was last viewed by this signer or null
      *
      * @return self
      */
-    public function setLastViewedAt($last_viewed_at)
+    public function setLastViewedAt(?int $last_viewed_at)
     {
         if (is_null($last_viewed_at)) {
             array_push($this->openAPINullablesSetToNull, 'last_viewed_at');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
             $index = array_search('last_viewed_at', $nullablesSetToNull);
-            if ($index !== FALSE) {
+            if ($index !== false) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
@@ -768,18 +754,18 @@ class SignatureRequestResponseSignatures implements ModelInterface, ArrayAccess,
     /**
      * Sets last_reminded_at
      *
-     * @param int|null $last_reminded_at The time the last reminder email was sent to the signer or null.
+     * @param int|null $last_reminded_at the time the last reminder email was sent to the signer or null
      *
      * @return self
      */
-    public function setLastRemindedAt($last_reminded_at)
+    public function setLastRemindedAt(?int $last_reminded_at)
     {
         if (is_null($last_reminded_at)) {
             array_push($this->openAPINullablesSetToNull, 'last_reminded_at');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
             $index = array_search('last_reminded_at', $nullablesSetToNull);
-            if ($index !== FALSE) {
+            if ($index !== false) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
@@ -802,14 +788,14 @@ class SignatureRequestResponseSignatures implements ModelInterface, ArrayAccess,
     /**
      * Sets has_pin
      *
-     * @param bool|null $has_pin Boolean to indicate whether this signature requires a PIN to access.
+     * @param bool|null $has_pin boolean to indicate whether this signature requires a PIN to access
      *
      * @return self
      */
-    public function setHasPin($has_pin)
+    public function setHasPin(?bool $has_pin)
     {
         if (is_null($has_pin)) {
-            throw new \InvalidArgumentException('non-nullable has_pin cannot be null');
+            throw new InvalidArgumentException('non-nullable has_pin cannot be null');
         }
         $this->container['has_pin'] = $has_pin;
 
@@ -829,18 +815,18 @@ class SignatureRequestResponseSignatures implements ModelInterface, ArrayAccess,
     /**
      * Sets has_sms_auth
      *
-     * @param bool|null $has_sms_auth Boolean to indicate whether this signature has SMS authentication enabled.
+     * @param bool|null $has_sms_auth boolean to indicate whether this signature has SMS authentication enabled
      *
      * @return self
      */
-    public function setHasSmsAuth($has_sms_auth)
+    public function setHasSmsAuth(?bool $has_sms_auth)
     {
         if (is_null($has_sms_auth)) {
             array_push($this->openAPINullablesSetToNull, 'has_sms_auth');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
             $index = array_search('has_sms_auth', $nullablesSetToNull);
-            if ($index !== FALSE) {
+            if ($index !== false) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
@@ -863,18 +849,18 @@ class SignatureRequestResponseSignatures implements ModelInterface, ArrayAccess,
     /**
      * Sets has_sms_delivery
      *
-     * @param bool|null $has_sms_delivery Boolean to indicate whether this signature has SMS delivery enabled.
+     * @param bool|null $has_sms_delivery boolean to indicate whether this signature has SMS delivery enabled
      *
      * @return self
      */
-    public function setHasSmsDelivery($has_sms_delivery)
+    public function setHasSmsDelivery(?bool $has_sms_delivery)
     {
         if (is_null($has_sms_delivery)) {
             array_push($this->openAPINullablesSetToNull, 'has_sms_delivery');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
             $index = array_search('has_sms_delivery', $nullablesSetToNull);
-            if ($index !== FALSE) {
+            if ($index !== false) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
@@ -897,18 +883,18 @@ class SignatureRequestResponseSignatures implements ModelInterface, ArrayAccess,
     /**
      * Sets sms_phone_number
      *
-     * @param string|null $sms_phone_number The SMS phone number used for authentication or signature request delivery.
+     * @param string|null $sms_phone_number the SMS phone number used for authentication or signature request delivery
      *
      * @return self
      */
-    public function setSmsPhoneNumber($sms_phone_number)
+    public function setSmsPhoneNumber(?string $sms_phone_number)
     {
         if (is_null($sms_phone_number)) {
             array_push($this->openAPINullablesSetToNull, 'sms_phone_number');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
             $index = array_search('sms_phone_number', $nullablesSetToNull);
-            if ($index !== FALSE) {
+            if ($index !== false) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
@@ -931,18 +917,18 @@ class SignatureRequestResponseSignatures implements ModelInterface, ArrayAccess,
     /**
      * Sets reassigned_by
      *
-     * @param string|null $reassigned_by Email address of original signer who reassigned to this signer.
+     * @param string|null $reassigned_by email address of original signer who reassigned to this signer
      *
      * @return self
      */
-    public function setReassignedBy($reassigned_by)
+    public function setReassignedBy(?string $reassigned_by)
     {
         if (is_null($reassigned_by)) {
             array_push($this->openAPINullablesSetToNull, 'reassigned_by');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
             $index = array_search('reassigned_by', $nullablesSetToNull);
-            if ($index !== FALSE) {
+            if ($index !== false) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
@@ -965,18 +951,18 @@ class SignatureRequestResponseSignatures implements ModelInterface, ArrayAccess,
     /**
      * Sets reassignment_reason
      *
-     * @param string|null $reassignment_reason Reason provided by original signer who reassigned to this signer.
+     * @param string|null $reassignment_reason reason provided by original signer who reassigned to this signer
      *
      * @return self
      */
-    public function setReassignmentReason($reassignment_reason)
+    public function setReassignmentReason(?string $reassignment_reason)
     {
         if (is_null($reassignment_reason)) {
             array_push($this->openAPINullablesSetToNull, 'reassignment_reason');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
             $index = array_search('reassignment_reason', $nullablesSetToNull);
-            if ($index !== FALSE) {
+            if ($index !== false) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
@@ -999,18 +985,18 @@ class SignatureRequestResponseSignatures implements ModelInterface, ArrayAccess,
     /**
      * Sets reassigned_from
      *
-     * @param string|null $reassigned_from Previous signature identifier.
+     * @param string|null $reassigned_from previous signature identifier
      *
      * @return self
      */
-    public function setReassignedFrom($reassigned_from)
+    public function setReassignedFrom(?string $reassigned_from)
     {
         if (is_null($reassigned_from)) {
             array_push($this->openAPINullablesSetToNull, 'reassigned_from');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
             $index = array_search('reassigned_from', $nullablesSetToNull);
-            if ($index !== FALSE) {
+            if ($index !== false) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
@@ -1033,18 +1019,18 @@ class SignatureRequestResponseSignatures implements ModelInterface, ArrayAccess,
     /**
      * Sets error
      *
-     * @param string|null $error Error message pertaining to this signer, or null.
+     * @param string|null $error error message pertaining to this signer, or null
      *
      * @return self
      */
-    public function setError($error)
+    public function setError(?string $error)
     {
         if (is_null($error)) {
             array_push($this->openAPINullablesSetToNull, 'error');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
             $index = array_search('error', $nullablesSetToNull);
-            if ($index !== FALSE) {
+            if ($index !== false) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
@@ -1053,14 +1039,13 @@ class SignatureRequestResponseSignatures implements ModelInterface, ArrayAccess,
 
         return $this;
     }
+
     /**
      * Returns true if offset exists. False otherwise.
      *
-     * @param integer $offset Offset
-     *
-     * @return boolean
+     * @param int $offset Offset
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
@@ -1069,11 +1054,11 @@ class SignatureRequestResponseSignatures implements ModelInterface, ArrayAccess,
     /**
      * Gets offset.
      *
-     * @param integer $offset Offset
+     * @param int $offset Offset
      *
      * @return mixed|null
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return $this->container[$offset] ?? null;
@@ -1084,10 +1069,8 @@ class SignatureRequestResponseSignatures implements ModelInterface, ArrayAccess,
      *
      * @param int|null $offset Offset
      * @param mixed    $value  Value to be set
-     *
-     * @return void
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
@@ -1100,11 +1083,9 @@ class SignatureRequestResponseSignatures implements ModelInterface, ArrayAccess,
     /**
      * Unsets offset.
      *
-     * @param integer $offset Offset
-     *
-     * @return void
+     * @param int $offset Offset
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
@@ -1112,15 +1093,15 @@ class SignatureRequestResponseSignatures implements ModelInterface, ArrayAccess,
 
     /**
      * Serializes the object to a value that can be serialized natively by json_encode().
-     * @link https://www.php.net/manual/en/jsonserializable.jsonserialize.php
+     * @see https://www.php.net/manual/en/jsonserializable.jsonserialize.php
      *
-     * @return mixed Returns data which can be serialized by json_encode(), which is a value
-     * of any type other than a resource.
+     * @return mixed returns data which can be serialized by json_encode(), which is a value
+     *               of any type other than a resource
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function jsonSerialize()
     {
-       return ObjectSerializer::sanitizeForSerialization($this);
+        return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**
@@ -1146,5 +1127,3 @@ class SignatureRequestResponseSignatures implements ModelInterface, ArrayAccess,
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
-
-

@@ -5,9 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  Dropbox\Sign
- * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ * @see     https://openapi-generator.tech
  */
 
 /**
@@ -29,34 +27,36 @@
 
 namespace Dropbox\Sign\Model;
 
-use \ArrayAccess;
-use \Dropbox\Sign\ObjectSerializer;
+use ArrayAccess;
+use Dropbox\Sign\ObjectSerializer;
+use InvalidArgumentException;
+use JsonSerializable;
+use ReturnTypeWillChange;
+use SplFileObject;
 
 /**
  * ApiAppCreateRequest Class Doc Comment
  *
  * @category Class
- * @package  Dropbox\Sign
- * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ * @see     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class ApiAppCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializable
+class ApiAppCreateRequest implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
     /**
-      * The original name of the model.
-      *
-      * @var string
-      */
+     * The original name of the model.
+     *
+     * @var string
+     */
     protected static $openAPIModelName = 'ApiAppCreateRequest';
 
     /**
-      * Array of property to type mappings. Used for (de)serialization
-      *
-      * @var string[]
-      */
+     * Array of property to type mappings. Used for (de)serialization
+     *
+     * @var string[]
+     */
     protected static $openAPITypes = [
         'domains' => 'string[]',
         'name' => 'string',
@@ -64,16 +64,16 @@ class ApiAppCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         'custom_logo_file' => '\SplFileObject',
         'oauth' => '\Dropbox\Sign\Model\SubOAuth',
         'options' => '\Dropbox\Sign\Model\SubOptions',
-        'white_labeling_options' => '\Dropbox\Sign\Model\SubWhiteLabelingOptions'
+        'white_labeling_options' => '\Dropbox\Sign\Model\SubWhiteLabelingOptions',
     ];
 
     /**
-      * Array of property to format mappings. Used for (de)serialization
-      *
-      * @var string[]
-      * @phpstan-var array<string, string|null>
-      * @psalm-var array<string, string|null>
-      */
+     * Array of property to format mappings. Used for (de)serialization
+     *
+     * @var string[]
+     * @phpstan-var array<string, string|null>
+     * @psalm-var array<string, string|null>
+     */
     protected static $openAPIFormats = [
         'domains' => null,
         'name' => null,
@@ -81,14 +81,14 @@ class ApiAppCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         'custom_logo_file' => 'binary',
         'oauth' => null,
         'options' => null,
-        'white_labeling_options' => null
+        'white_labeling_options' => null,
     ];
 
     /**
-      * Array of nullable properties. Used for (de)serialization
-      *
-      * @var boolean[]
-      */
+     * Array of nullable properties. Used for (de)serialization
+     *
+     * @var bool[]
+     */
     protected static array $openAPINullables = [
         'domains' => false,
         'name' => false,
@@ -96,14 +96,14 @@ class ApiAppCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         'custom_logo_file' => false,
         'oauth' => false,
         'options' => false,
-        'white_labeling_options' => false
+        'white_labeling_options' => false,
     ];
 
     /**
-      * If a nullable field gets set to null, insert it here
-      *
-      * @var boolean[]
-      */
+     * If a nullable field gets set to null, insert it here
+     *
+     * @var bool[]
+     */
     protected array $openAPINullablesSetToNull = [];
 
     /**
@@ -128,8 +128,6 @@ class ApiAppCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Array of nullable properties
-     *
-     * @return array
      */
     protected static function openAPINullables(): array
     {
@@ -139,7 +137,7 @@ class ApiAppCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Array of nullable field names deliberately set to null
      *
-     * @return boolean[]
+     * @return bool[]
      */
     private function getOpenAPINullablesSetToNull(): array
     {
@@ -149,7 +147,7 @@ class ApiAppCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Setter - Array of nullable field names deliberately set to null
      *
-     * @param boolean[] $openAPINullablesSetToNull
+     * @param bool[] $openAPINullablesSetToNull
      */
     private function setOpenAPINullablesSetToNull(array $openAPINullablesSetToNull): void
     {
@@ -158,9 +156,6 @@ class ApiAppCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Checks if a property is nullable
-     *
-     * @param string $property
-     * @return bool
      */
     public static function isNullable(string $property): bool
     {
@@ -169,9 +164,6 @@ class ApiAppCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Checks if a nullable property is set to null.
-     *
-     * @param string $property
-     * @return bool
      */
     public function isNullableSetToNull(string $property): bool
     {
@@ -191,7 +183,7 @@ class ApiAppCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         'custom_logo_file' => 'custom_logo_file',
         'oauth' => 'oauth',
         'options' => 'options',
-        'white_labeling_options' => 'white_labeling_options'
+        'white_labeling_options' => 'white_labeling_options',
     ];
 
     /**
@@ -206,7 +198,7 @@ class ApiAppCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         'custom_logo_file' => 'setCustomLogoFile',
         'oauth' => 'setOauth',
         'options' => 'setOptions',
-        'white_labeling_options' => 'setWhiteLabelingOptions'
+        'white_labeling_options' => 'setWhiteLabelingOptions',
     ];
 
     /**
@@ -221,7 +213,7 @@ class ApiAppCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         'custom_logo_file' => 'getCustomLogoFile',
         'oauth' => 'getOauth',
         'options' => 'getOptions',
-        'white_labeling_options' => 'getWhiteLabelingOptions'
+        'white_labeling_options' => 'getWhiteLabelingOptions',
     ];
 
     /**
@@ -265,7 +257,6 @@ class ApiAppCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         return self::$openAPIModelName;
     }
 
-
     /**
      * Associative array for storing property values
      *
@@ -290,34 +281,33 @@ class ApiAppCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         $this->setIfExists('white_labeling_options', $data ?? [], null);
     }
 
-    /** @deprecated use ::init() */
+    /**
+     * @deprecated use ::init()
+     */
     public static function fromArray(array $data): ApiAppCreateRequest
     {
         return self::init($data);
     }
 
-    /** Attempt to instantiate and hydrate a new instance of this class */
+    /**
+     * Attempt to instantiate and hydrate a new instance of this class
+     */
     public static function init(array $data): ApiAppCreateRequest
     {
         /** @var ApiAppCreateRequest */
-        $obj = ObjectSerializer::deserialize(
+        return ObjectSerializer::deserialize(
             $data,
             ApiAppCreateRequest::class,
         );
-
-        return $obj;
     }
 
-
     /**
-    * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
-    * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
-    * $this->openAPINullablesSetToNull array
-    *
-    * @param string $variableName
-    * @param array  $fields
-* @param string|int|object|array|mixed  $defaultValue
-    */
+     * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
+     * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
+     * $this->openAPINullablesSetToNull array
+     *
+     * @param string|int|object|array|mixed $defaultValue
+     */
     private function setIfExists(string $variableName, array $fields, $defaultValue): void
     {
         if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
@@ -339,11 +329,11 @@ class ApiAppCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         if ($this->container['domains'] === null) {
             $invalidProperties[] = "'domains' can't be null";
         }
-        if ((count($this->container['domains']) > 2)) {
+        if (count($this->container['domains']) > 2) {
             $invalidProperties[] = "invalid value for 'domains', number of items must be less than or equal to 2.";
         }
 
-        if ((count($this->container['domains']) < 1)) {
+        if (count($this->container['domains']) < 1) {
             $invalidProperties[] = "invalid value for 'domains', number of items must be greater than or equal to 1.";
         }
 
@@ -364,7 +354,6 @@ class ApiAppCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         return count($this->listInvalidProperties()) === 0;
     }
 
-
     /**
      * Gets domains
      *
@@ -378,21 +367,21 @@ class ApiAppCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets domains
      *
-     * @param string[] $domains The domain names the ApiApp will be associated with.
+     * @param string[] $domains the domain names the ApiApp will be associated with
      *
      * @return self
      */
-    public function setDomains($domains)
+    public function setDomains(array $domains)
     {
         if (is_null($domains)) {
-            throw new \InvalidArgumentException('non-nullable domains cannot be null');
+            throw new InvalidArgumentException('non-nullable domains cannot be null');
         }
 
-        if ((count($domains) > 2)) {
-            throw new \InvalidArgumentException('invalid value for $domains when calling ApiAppCreateRequest., number of items must be less than or equal to 2.');
+        if (count($domains) > 2) {
+            throw new InvalidArgumentException('invalid value for $domains when calling ApiAppCreateRequest., number of items must be less than or equal to 2.');
         }
-        if ((count($domains) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $domains when calling ApiAppCreateRequest., number of items must be greater than or equal to 1.');
+        if (count($domains) < 1) {
+            throw new InvalidArgumentException('invalid length for $domains when calling ApiAppCreateRequest., number of items must be greater than or equal to 1.');
         }
         $this->container['domains'] = $domains;
 
@@ -412,14 +401,14 @@ class ApiAppCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets name
      *
-     * @param string $name The name you want to assign to the ApiApp.
+     * @param string $name the name you want to assign to the ApiApp
      *
      * @return self
      */
-    public function setName($name)
+    public function setName(string $name)
     {
         if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
+            throw new InvalidArgumentException('non-nullable name cannot be null');
         }
         $this->container['name'] = $name;
 
@@ -439,14 +428,14 @@ class ApiAppCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets callback_url
      *
-     * @param string|null $callback_url The URL at which the ApiApp should receive event callbacks.
+     * @param string|null $callback_url the URL at which the ApiApp should receive event callbacks
      *
      * @return self
      */
-    public function setCallbackUrl($callback_url)
+    public function setCallbackUrl(?string $callback_url)
     {
         if (is_null($callback_url)) {
-            throw new \InvalidArgumentException('non-nullable callback_url cannot be null');
+            throw new InvalidArgumentException('non-nullable callback_url cannot be null');
         }
         $this->container['callback_url'] = $callback_url;
 
@@ -456,7 +445,7 @@ class ApiAppCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets custom_logo_file
      *
-     * @return \SplFileObject|null
+     * @return SplFileObject|null
      */
     public function getCustomLogoFile()
     {
@@ -466,14 +455,14 @@ class ApiAppCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets custom_logo_file
      *
-     * @param \SplFileObject|null $custom_logo_file An image file to use as a custom logo in embedded contexts. (Only applies to some API plans)
+     * @param SplFileObject|null $custom_logo_file An image file to use as a custom logo in embedded contexts. (Only applies to some API plans)
      *
      * @return self
      */
-    public function setCustomLogoFile($custom_logo_file)
+    public function setCustomLogoFile(?SplFileObject $custom_logo_file)
     {
         if (is_null($custom_logo_file)) {
-            throw new \InvalidArgumentException('non-nullable custom_logo_file cannot be null');
+            throw new InvalidArgumentException('non-nullable custom_logo_file cannot be null');
         }
         $this->container['custom_logo_file'] = $custom_logo_file;
 
@@ -483,7 +472,7 @@ class ApiAppCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets oauth
      *
-     * @return \Dropbox\Sign\Model\SubOAuth|null
+     * @return SubOAuth|null
      */
     public function getOauth()
     {
@@ -493,14 +482,14 @@ class ApiAppCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets oauth
      *
-     * @param \Dropbox\Sign\Model\SubOAuth|null $oauth oauth
+     * @param SubOAuth|null $oauth oauth
      *
      * @return self
      */
-    public function setOauth($oauth)
+    public function setOauth(?SubOAuth $oauth)
     {
         if (is_null($oauth)) {
-            throw new \InvalidArgumentException('non-nullable oauth cannot be null');
+            throw new InvalidArgumentException('non-nullable oauth cannot be null');
         }
         $this->container['oauth'] = $oauth;
 
@@ -510,7 +499,7 @@ class ApiAppCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets options
      *
-     * @return \Dropbox\Sign\Model\SubOptions|null
+     * @return SubOptions|null
      */
     public function getOptions()
     {
@@ -520,14 +509,14 @@ class ApiAppCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets options
      *
-     * @param \Dropbox\Sign\Model\SubOptions|null $options options
+     * @param SubOptions|null $options options
      *
      * @return self
      */
-    public function setOptions($options)
+    public function setOptions(?SubOptions $options)
     {
         if (is_null($options)) {
-            throw new \InvalidArgumentException('non-nullable options cannot be null');
+            throw new InvalidArgumentException('non-nullable options cannot be null');
         }
         $this->container['options'] = $options;
 
@@ -537,7 +526,7 @@ class ApiAppCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets white_labeling_options
      *
-     * @return \Dropbox\Sign\Model\SubWhiteLabelingOptions|null
+     * @return SubWhiteLabelingOptions|null
      */
     public function getWhiteLabelingOptions()
     {
@@ -547,27 +536,26 @@ class ApiAppCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets white_labeling_options
      *
-     * @param \Dropbox\Sign\Model\SubWhiteLabelingOptions|null $white_labeling_options white_labeling_options
+     * @param SubWhiteLabelingOptions|null $white_labeling_options white_labeling_options
      *
      * @return self
      */
-    public function setWhiteLabelingOptions($white_labeling_options)
+    public function setWhiteLabelingOptions(?SubWhiteLabelingOptions $white_labeling_options)
     {
         if (is_null($white_labeling_options)) {
-            throw new \InvalidArgumentException('non-nullable white_labeling_options cannot be null');
+            throw new InvalidArgumentException('non-nullable white_labeling_options cannot be null');
         }
         $this->container['white_labeling_options'] = $white_labeling_options;
 
         return $this;
     }
+
     /**
      * Returns true if offset exists. False otherwise.
      *
-     * @param integer $offset Offset
-     *
-     * @return boolean
+     * @param int $offset Offset
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
@@ -576,11 +564,11 @@ class ApiAppCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets offset.
      *
-     * @param integer $offset Offset
+     * @param int $offset Offset
      *
      * @return mixed|null
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return $this->container[$offset] ?? null;
@@ -591,10 +579,8 @@ class ApiAppCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializa
      *
      * @param int|null $offset Offset
      * @param mixed    $value  Value to be set
-     *
-     * @return void
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
@@ -607,11 +593,9 @@ class ApiAppCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Unsets offset.
      *
-     * @param integer $offset Offset
-     *
-     * @return void
+     * @param int $offset Offset
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
@@ -619,15 +603,15 @@ class ApiAppCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializa
 
     /**
      * Serializes the object to a value that can be serialized natively by json_encode().
-     * @link https://www.php.net/manual/en/jsonserializable.jsonserialize.php
+     * @see https://www.php.net/manual/en/jsonserializable.jsonserialize.php
      *
-     * @return mixed Returns data which can be serialized by json_encode(), which is a value
-     * of any type other than a resource.
+     * @return mixed returns data which can be serialized by json_encode(), which is a value
+     *               of any type other than a resource
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function jsonSerialize()
     {
-       return ObjectSerializer::sanitizeForSerialization($this);
+        return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**
@@ -653,5 +637,3 @@ class ApiAppCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
-
-

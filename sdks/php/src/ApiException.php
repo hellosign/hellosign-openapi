@@ -4,9 +4,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  Dropbox\Sign
- * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ * @see     https://openapi-generator.tech
  */
 
 /**
@@ -28,22 +26,21 @@
 
 namespace Dropbox\Sign;
 
-use \Exception;
+use Exception;
+use stdClass;
 
 /**
  * ApiException Class Doc Comment
  *
  * @category Class
- * @package  Dropbox\Sign
- * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ * @see     https://openapi-generator.tech
  */
 class ApiException extends Exception
 {
     /**
      * The HTTP body of the server response either as Json or string.
      *
-     * @var \stdClass|string|null
+     * @var stdClass|string|null
      */
     protected $responseBody;
 
@@ -64,12 +61,12 @@ class ApiException extends Exception
     /**
      * Constructor
      *
-     * @param string                $message         Error message
-     * @param int                   $code            HTTP status code
-     * @param string[][]|null       $responseHeaders HTTP response header
-     * @param \stdClass|string|null $responseBody    HTTP decoded body of the server response either as \stdClass or string
+     * @param string               $message         Error message
+     * @param int                  $code            HTTP status code
+     * @param string[][]|null      $responseHeaders HTTP response header
+     * @param stdClass|string|null $responseBody    HTTP decoded body of the server response either as \stdClass or string
      */
-    public function __construct($message = "", $code = 0, $responseHeaders = [], $responseBody = null)
+    public function __construct(string $message = '', int $code = 0, ?array $responseHeaders = [], $responseBody = null)
     {
         parent::__construct($message, $code);
         $this->responseHeaders = $responseHeaders;
@@ -89,7 +86,7 @@ class ApiException extends Exception
     /**
      * Gets the HTTP body of the server response either as Json or string
      *
-     * @return \stdClass|string|null HTTP body of the server response either as \stdClass or string
+     * @return stdClass|string|null HTTP body of the server response either as \stdClass or string
      */
     public function getResponseBody()
     {
@@ -100,8 +97,6 @@ class ApiException extends Exception
      * Sets the deserialized response object (during deserialization)
      *
      * @param string|int|object|array|mixed $obj Deserialized response object
-     *
-     * @return void
      */
     public function setResponseObject($obj)
     {

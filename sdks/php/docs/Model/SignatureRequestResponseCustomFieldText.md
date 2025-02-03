@@ -1,12 +1,12 @@
 # # SignatureRequestResponseCustomFieldText
 
-This class extends &#x60;SignatureRequestResponseCustomFieldBase&#x60;.
+This class extends `SignatureRequestResponseCustomFieldBase`.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-| `type`<sup>*_required_</sup> | ```string``` | REPLACE_ME_WITH_DESCRIPTION_BEGIN The type of this Custom Field. Only &#39;text&#39; and &#39;checkbox&#39; are currently supported. REPLACE_ME_WITH_DESCRIPTION_END |  [default to 'text'] |
-| `value` | ```string``` | REPLACE_ME_WITH_DESCRIPTION_BEGIN A text string for text fields REPLACE_ME_WITH_DESCRIPTION_END |  |
+| `type`<sup>*_required_</sup> | ```string``` |  The type of this Custom Field. Only &#39;text&#39; and &#39;checkbox&#39; are currently supported.  |  [default to 'text'] |
+| `value` | ```string``` |  A text string for text fields  |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

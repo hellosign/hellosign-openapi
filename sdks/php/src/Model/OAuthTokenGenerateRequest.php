@@ -5,9 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  Dropbox\Sign
- * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ * @see     https://openapi-generator.tech
  */
 
 /**
@@ -29,75 +27,76 @@
 
 namespace Dropbox\Sign\Model;
 
-use \ArrayAccess;
-use \Dropbox\Sign\ObjectSerializer;
+use ArrayAccess;
+use Dropbox\Sign\ObjectSerializer;
+use InvalidArgumentException;
+use JsonSerializable;
+use ReturnTypeWillChange;
 
 /**
  * OAuthTokenGenerateRequest Class Doc Comment
  *
  * @category Class
- * @package  Dropbox\Sign
- * @author   OpenAPI Generator team
- * @link     https://openapi-generator.tech
+ * @see     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class OAuthTokenGenerateRequest implements ModelInterface, ArrayAccess, \JsonSerializable
+class OAuthTokenGenerateRequest implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
     /**
-      * The original name of the model.
-      *
-      * @var string
-      */
+     * The original name of the model.
+     *
+     * @var string
+     */
     protected static $openAPIModelName = 'OAuthTokenGenerateRequest';
 
     /**
-      * Array of property to type mappings. Used for (de)serialization
-      *
-      * @var string[]
-      */
+     * Array of property to type mappings. Used for (de)serialization
+     *
+     * @var string[]
+     */
     protected static $openAPITypes = [
         'client_id' => 'string',
         'client_secret' => 'string',
         'code' => 'string',
         'grant_type' => 'string',
-        'state' => 'string'
+        'state' => 'string',
     ];
 
     /**
-      * Array of property to format mappings. Used for (de)serialization
-      *
-      * @var string[]
-      * @phpstan-var array<string, string|null>
-      * @psalm-var array<string, string|null>
-      */
+     * Array of property to format mappings. Used for (de)serialization
+     *
+     * @var string[]
+     * @phpstan-var array<string, string|null>
+     * @psalm-var array<string, string|null>
+     */
     protected static $openAPIFormats = [
         'client_id' => null,
         'client_secret' => null,
         'code' => null,
         'grant_type' => null,
-        'state' => null
+        'state' => null,
     ];
 
     /**
-      * Array of nullable properties. Used for (de)serialization
-      *
-      * @var boolean[]
-      */
+     * Array of nullable properties. Used for (de)serialization
+     *
+     * @var bool[]
+     */
     protected static array $openAPINullables = [
         'client_id' => false,
         'client_secret' => false,
         'code' => false,
         'grant_type' => false,
-        'state' => false
+        'state' => false,
     ];
 
     /**
-      * If a nullable field gets set to null, insert it here
-      *
-      * @var boolean[]
-      */
+     * If a nullable field gets set to null, insert it here
+     *
+     * @var bool[]
+     */
     protected array $openAPINullablesSetToNull = [];
 
     /**
@@ -122,8 +121,6 @@ class OAuthTokenGenerateRequest implements ModelInterface, ArrayAccess, \JsonSer
 
     /**
      * Array of nullable properties
-     *
-     * @return array
      */
     protected static function openAPINullables(): array
     {
@@ -133,7 +130,7 @@ class OAuthTokenGenerateRequest implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Array of nullable field names deliberately set to null
      *
-     * @return boolean[]
+     * @return bool[]
      */
     private function getOpenAPINullablesSetToNull(): array
     {
@@ -143,7 +140,7 @@ class OAuthTokenGenerateRequest implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Setter - Array of nullable field names deliberately set to null
      *
-     * @param boolean[] $openAPINullablesSetToNull
+     * @param bool[] $openAPINullablesSetToNull
      */
     private function setOpenAPINullablesSetToNull(array $openAPINullablesSetToNull): void
     {
@@ -152,9 +149,6 @@ class OAuthTokenGenerateRequest implements ModelInterface, ArrayAccess, \JsonSer
 
     /**
      * Checks if a property is nullable
-     *
-     * @param string $property
-     * @return bool
      */
     public static function isNullable(string $property): bool
     {
@@ -163,9 +157,6 @@ class OAuthTokenGenerateRequest implements ModelInterface, ArrayAccess, \JsonSer
 
     /**
      * Checks if a nullable property is set to null.
-     *
-     * @param string $property
-     * @return bool
      */
     public function isNullableSetToNull(string $property): bool
     {
@@ -183,7 +174,7 @@ class OAuthTokenGenerateRequest implements ModelInterface, ArrayAccess, \JsonSer
         'client_secret' => 'client_secret',
         'code' => 'code',
         'grant_type' => 'grant_type',
-        'state' => 'state'
+        'state' => 'state',
     ];
 
     /**
@@ -196,7 +187,7 @@ class OAuthTokenGenerateRequest implements ModelInterface, ArrayAccess, \JsonSer
         'client_secret' => 'setClientSecret',
         'code' => 'setCode',
         'grant_type' => 'setGrantType',
-        'state' => 'setState'
+        'state' => 'setState',
     ];
 
     /**
@@ -209,7 +200,7 @@ class OAuthTokenGenerateRequest implements ModelInterface, ArrayAccess, \JsonSer
         'client_secret' => 'getClientSecret',
         'code' => 'getCode',
         'grant_type' => 'getGrantType',
-        'state' => 'getState'
+        'state' => 'getState',
     ];
 
     /**
@@ -253,7 +244,6 @@ class OAuthTokenGenerateRequest implements ModelInterface, ArrayAccess, \JsonSer
         return self::$openAPIModelName;
     }
 
-
     /**
      * Associative array for storing property values
      *
@@ -276,34 +266,33 @@ class OAuthTokenGenerateRequest implements ModelInterface, ArrayAccess, \JsonSer
         $this->setIfExists('state', $data ?? [], null);
     }
 
-    /** @deprecated use ::init() */
+    /**
+     * @deprecated use ::init()
+     */
     public static function fromArray(array $data): OAuthTokenGenerateRequest
     {
         return self::init($data);
     }
 
-    /** Attempt to instantiate and hydrate a new instance of this class */
+    /**
+     * Attempt to instantiate and hydrate a new instance of this class
+     */
     public static function init(array $data): OAuthTokenGenerateRequest
     {
         /** @var OAuthTokenGenerateRequest */
-        $obj = ObjectSerializer::deserialize(
+        return ObjectSerializer::deserialize(
             $data,
             OAuthTokenGenerateRequest::class,
         );
-
-        return $obj;
     }
 
-
     /**
-    * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
-    * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
-    * $this->openAPINullablesSetToNull array
-    *
-    * @param string $variableName
-    * @param array  $fields
-* @param string|int|object|array|mixed  $defaultValue
-    */
+     * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
+     * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
+     * $this->openAPINullablesSetToNull array
+     *
+     * @param string|int|object|array|mixed $defaultValue
+     */
     private function setIfExists(string $variableName, array $fields, $defaultValue): void
     {
         if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
@@ -351,7 +340,6 @@ class OAuthTokenGenerateRequest implements ModelInterface, ArrayAccess, \JsonSer
         return count($this->listInvalidProperties()) === 0;
     }
 
-
     /**
      * Gets client_id
      *
@@ -365,14 +353,14 @@ class OAuthTokenGenerateRequest implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets client_id
      *
-     * @param string $client_id The client id of the app requesting authorization.
+     * @param string $client_id the client id of the app requesting authorization
      *
      * @return self
      */
-    public function setClientId($client_id)
+    public function setClientId(string $client_id)
     {
         if (is_null($client_id)) {
-            throw new \InvalidArgumentException('non-nullable client_id cannot be null');
+            throw new InvalidArgumentException('non-nullable client_id cannot be null');
         }
         $this->container['client_id'] = $client_id;
 
@@ -392,14 +380,14 @@ class OAuthTokenGenerateRequest implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets client_secret
      *
-     * @param string $client_secret The secret token of your app.
+     * @param string $client_secret the secret token of your app
      *
      * @return self
      */
-    public function setClientSecret($client_secret)
+    public function setClientSecret(string $client_secret)
     {
         if (is_null($client_secret)) {
-            throw new \InvalidArgumentException('non-nullable client_secret cannot be null');
+            throw new InvalidArgumentException('non-nullable client_secret cannot be null');
         }
         $this->container['client_secret'] = $client_secret;
 
@@ -419,14 +407,14 @@ class OAuthTokenGenerateRequest implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets code
      *
-     * @param string $code The code passed to your callback when the user granted access.
+     * @param string $code the code passed to your callback when the user granted access
      *
      * @return self
      */
-    public function setCode($code)
+    public function setCode(string $code)
     {
         if (is_null($code)) {
-            throw new \InvalidArgumentException('non-nullable code cannot be null');
+            throw new InvalidArgumentException('non-nullable code cannot be null');
         }
         $this->container['code'] = $code;
 
@@ -446,14 +434,14 @@ class OAuthTokenGenerateRequest implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets grant_type
      *
-     * @param string $grant_type When generating a new token use `authorization_code`.
+     * @param string $grant_type when generating a new token use `authorization_code`
      *
      * @return self
      */
-    public function setGrantType($grant_type)
+    public function setGrantType(string $grant_type)
     {
         if (is_null($grant_type)) {
-            throw new \InvalidArgumentException('non-nullable grant_type cannot be null');
+            throw new InvalidArgumentException('non-nullable grant_type cannot be null');
         }
         $this->container['grant_type'] = $grant_type;
 
@@ -473,27 +461,26 @@ class OAuthTokenGenerateRequest implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets state
      *
-     * @param string $state Same as the state you specified earlier.
+     * @param string $state same as the state you specified earlier
      *
      * @return self
      */
-    public function setState($state)
+    public function setState(string $state)
     {
         if (is_null($state)) {
-            throw new \InvalidArgumentException('non-nullable state cannot be null');
+            throw new InvalidArgumentException('non-nullable state cannot be null');
         }
         $this->container['state'] = $state;
 
         return $this;
     }
+
     /**
      * Returns true if offset exists. False otherwise.
      *
-     * @param integer $offset Offset
-     *
-     * @return boolean
+     * @param int $offset Offset
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
@@ -502,11 +489,11 @@ class OAuthTokenGenerateRequest implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Gets offset.
      *
-     * @param integer $offset Offset
+     * @param int $offset Offset
      *
      * @return mixed|null
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return $this->container[$offset] ?? null;
@@ -517,10 +504,8 @@ class OAuthTokenGenerateRequest implements ModelInterface, ArrayAccess, \JsonSer
      *
      * @param int|null $offset Offset
      * @param mixed    $value  Value to be set
-     *
-     * @return void
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
@@ -533,11 +518,9 @@ class OAuthTokenGenerateRequest implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Unsets offset.
      *
-     * @param integer $offset Offset
-     *
-     * @return void
+     * @param int $offset Offset
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
@@ -545,15 +528,15 @@ class OAuthTokenGenerateRequest implements ModelInterface, ArrayAccess, \JsonSer
 
     /**
      * Serializes the object to a value that can be serialized natively by json_encode().
-     * @link https://www.php.net/manual/en/jsonserializable.jsonserialize.php
+     * @see https://www.php.net/manual/en/jsonserializable.jsonserialize.php
      *
-     * @return mixed Returns data which can be serialized by json_encode(), which is a value
-     * of any type other than a resource.
+     * @return mixed returns data which can be serialized by json_encode(), which is a value
+     *               of any type other than a resource
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function jsonSerialize()
     {
-       return ObjectSerializer::sanitizeForSerialization($this);
+        return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**
@@ -579,5 +562,3 @@ class OAuthTokenGenerateRequest implements ModelInterface, ArrayAccess, \JsonSer
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
-
-
