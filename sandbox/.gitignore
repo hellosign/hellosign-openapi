@@ -1,11 +1,5 @@
 **/artifacts/
 
-python/*
-!python/Example.py
-!python/requirements.txt
-!python/tests
-!python/test_fixtures
-
 ruby/*
 !ruby/Example.rb
 !ruby/Gemfile

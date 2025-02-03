@@ -1,0 +1,12 @@
+from datetime import date, datetime
+from pprint import pprint
+
+from dropbox_sign import ApiClient, ApiException, Configuration, api, models
+
+configuration = Configuration()
+
+with ApiClient(configuration) as api_client:
+    try:
+        api.TeamApi(api_client).team_delete()
+    except ApiException as e:
+        print("Exception when calling Team#team_delete: %s\n" % e)
