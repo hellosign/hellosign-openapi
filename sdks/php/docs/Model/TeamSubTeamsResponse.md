@@ -6,8 +6,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-| `sub_teams`<sup>*_required_</sup> | [```\Dropbox\Sign\Model\SubTeamResponse[]```](SubTeamResponse.md) |  Contains a list with sub teams.  |  |
-| `list_info`<sup>*_required_</sup> | [```\Dropbox\Sign\Model\ListInfoResponse```](ListInfoResponse.md) |    |  |
-| `warnings` | [```\Dropbox\Sign\Model\WarningResponse[]```](WarningResponse.md) |    |  |
+| `sub_teams`<sup>*_required_</sup> | [```\Dropbox\Sign\Model\SubTeamResponse[]```](SubTeamResponse.md) | REPLACE_ME_WITH_DESCRIPTION_BEGIN Contains a list with sub teams. REPLACE_ME_WITH_DESCRIPTION_END |  |
+| `list_info`<sup>*_required_</sup> | [```\Dropbox\Sign\Model\ListInfoResponse```](ListInfoResponse.md) | REPLACE_ME_WITH_DESCRIPTION_BEGIN  REPLACE_ME_WITH_DESCRIPTION_END |  |
+| `warnings` | [```\Dropbox\Sign\Model\WarningResponse[]```](WarningResponse.md) | REPLACE_ME_WITH_DESCRIPTION_BEGIN  REPLACE_ME_WITH_DESCRIPTION_END |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

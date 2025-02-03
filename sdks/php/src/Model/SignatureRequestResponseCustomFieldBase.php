@@ -5,7 +5,9 @@
  * PHP version 7.4
  *
  * @category Class
- * @see     https://openapi-generator.tech
+ * @package  Dropbox\Sign
+ * @author   OpenAPI Generator team
+ * @link     https://openapi-generator.tech
  */
 
 /**
@@ -27,77 +29,76 @@
 
 namespace Dropbox\Sign\Model;
 
-use ArrayAccess;
-use Dropbox\Sign\ObjectSerializer;
-use InvalidArgumentException;
-use JsonSerializable;
-use ReturnTypeWillChange;
+use \ArrayAccess;
+use \Dropbox\Sign\ObjectSerializer;
 
 /**
  * SignatureRequestResponseCustomFieldBase Class Doc Comment
  *
  * @category Class
  * @description An array of Custom Field objects containing the name and type of each custom field.  * Text Field uses &#x60;SignatureRequestResponseCustomFieldText&#x60; * Checkbox Field uses &#x60;SignatureRequestResponseCustomFieldCheckbox&#x60;
- * @see     https://openapi-generator.tech
+ * @package  Dropbox\Sign
+ * @author   OpenAPI Generator team
+ * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class SignatureRequestResponseCustomFieldBase implements ModelInterface, ArrayAccess, JsonSerializable
+class SignatureRequestResponseCustomFieldBase implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = 'type';
 
     /**
-     * The original name of the model.
-     *
-     * @var string
-     */
+      * The original name of the model.
+      *
+      * @var string
+      */
     protected static $openAPIModelName = 'SignatureRequestResponseCustomFieldBase';
 
     /**
-     * Array of property to type mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to type mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPITypes = [
         'type' => 'string',
         'name' => 'string',
         'required' => 'bool',
         'api_id' => 'string',
-        'editor' => 'string',
+        'editor' => 'string'
     ];
 
     /**
-     * Array of property to format mappings. Used for (de)serialization
-     *
-     * @var string[]
-     * @phpstan-var array<string, string|null>
-     * @psalm-var array<string, string|null>
-     */
+      * Array of property to format mappings. Used for (de)serialization
+      *
+      * @var string[]
+      * @phpstan-var array<string, string|null>
+      * @psalm-var array<string, string|null>
+      */
     protected static $openAPIFormats = [
         'type' => null,
         'name' => null,
         'required' => null,
         'api_id' => null,
-        'editor' => null,
+        'editor' => null
     ];
 
     /**
-     * Array of nullable properties. Used for (de)serialization
-     *
-     * @var bool[]
-     */
+      * Array of nullable properties. Used for (de)serialization
+      *
+      * @var boolean[]
+      */
     protected static array $openAPINullables = [
         'type' => false,
         'name' => false,
         'required' => false,
         'api_id' => false,
-        'editor' => true,
+        'editor' => true
     ];
 
     /**
-     * If a nullable field gets set to null, insert it here
-     *
-     * @var bool[]
-     */
+      * If a nullable field gets set to null, insert it here
+      *
+      * @var boolean[]
+      */
     protected array $openAPINullablesSetToNull = [];
 
     /**
@@ -122,6 +123,8 @@ class SignatureRequestResponseCustomFieldBase implements ModelInterface, ArrayAc
 
     /**
      * Array of nullable properties
+     *
+     * @return array
      */
     protected static function openAPINullables(): array
     {
@@ -131,7 +134,7 @@ class SignatureRequestResponseCustomFieldBase implements ModelInterface, ArrayAc
     /**
      * Array of nullable field names deliberately set to null
      *
-     * @return bool[]
+     * @return boolean[]
      */
     private function getOpenAPINullablesSetToNull(): array
     {
@@ -141,7 +144,7 @@ class SignatureRequestResponseCustomFieldBase implements ModelInterface, ArrayAc
     /**
      * Setter - Array of nullable field names deliberately set to null
      *
-     * @param bool[] $openAPINullablesSetToNull
+     * @param boolean[] $openAPINullablesSetToNull
      */
     private function setOpenAPINullablesSetToNull(array $openAPINullablesSetToNull): void
     {
@@ -150,6 +153,9 @@ class SignatureRequestResponseCustomFieldBase implements ModelInterface, ArrayAc
 
     /**
      * Checks if a property is nullable
+     *
+     * @param string $property
+     * @return bool
      */
     public static function isNullable(string $property): bool
     {
@@ -158,6 +164,9 @@ class SignatureRequestResponseCustomFieldBase implements ModelInterface, ArrayAc
 
     /**
      * Checks if a nullable property is set to null.
+     *
+     * @param string $property
+     * @return bool
      */
     public function isNullableSetToNull(string $property): bool
     {
@@ -175,7 +184,7 @@ class SignatureRequestResponseCustomFieldBase implements ModelInterface, ArrayAc
         'name' => 'name',
         'required' => 'required',
         'api_id' => 'api_id',
-        'editor' => 'editor',
+        'editor' => 'editor'
     ];
 
     /**
@@ -188,7 +197,7 @@ class SignatureRequestResponseCustomFieldBase implements ModelInterface, ArrayAc
         'name' => 'setName',
         'required' => 'setRequired',
         'api_id' => 'setApiId',
-        'editor' => 'setEditor',
+        'editor' => 'setEditor'
     ];
 
     /**
@@ -201,7 +210,7 @@ class SignatureRequestResponseCustomFieldBase implements ModelInterface, ArrayAc
         'name' => 'getName',
         'required' => 'getRequired',
         'api_id' => 'getApiId',
-        'editor' => 'getEditor',
+        'editor' => 'getEditor'
     ];
 
     /**
@@ -245,6 +254,7 @@ class SignatureRequestResponseCustomFieldBase implements ModelInterface, ArrayAc
         return self::$openAPIModelName;
     }
 
+
     /**
      * Associative array for storing property values
      *
@@ -270,6 +280,7 @@ class SignatureRequestResponseCustomFieldBase implements ModelInterface, ArrayAc
         $this->container['type'] = static::$openAPIModelName;
     }
 
+
     public static function discriminatorClassName(array $data): ?string
     {
         if (!array_key_exists('type', $data)) {
@@ -287,12 +298,14 @@ class SignatureRequestResponseCustomFieldBase implements ModelInterface, ArrayAc
     }
 
     /**
-     * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
-     * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
-     * $this->openAPINullablesSetToNull array
-     *
-     * @param string|int|object|array|mixed $defaultValue
-     */
+    * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
+    * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
+    * $this->openAPINullablesSetToNull array
+    *
+    * @param string $variableName
+    * @param array  $fields
+* @param string|int|object|array|mixed  $defaultValue
+    */
     private function setIfExists(string $variableName, array $fields, $defaultValue): void
     {
         if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
@@ -331,6 +344,7 @@ class SignatureRequestResponseCustomFieldBase implements ModelInterface, ArrayAc
         return count($this->listInvalidProperties()) === 0;
     }
 
+
     /**
      * Gets type
      *
@@ -348,10 +362,10 @@ class SignatureRequestResponseCustomFieldBase implements ModelInterface, ArrayAc
      *
      * @return self
      */
-    public function setType(string $type)
+    public function setType($type)
     {
         if (is_null($type)) {
-            throw new InvalidArgumentException('non-nullable type cannot be null');
+            throw new \InvalidArgumentException('non-nullable type cannot be null');
         }
         $this->container['type'] = $type;
 
@@ -371,14 +385,14 @@ class SignatureRequestResponseCustomFieldBase implements ModelInterface, ArrayAc
     /**
      * Sets name
      *
-     * @param string $name the name of the Custom Field
+     * @param string $name The name of the Custom Field.
      *
      * @return self
      */
-    public function setName(string $name)
+    public function setName($name)
     {
         if (is_null($name)) {
-            throw new InvalidArgumentException('non-nullable name cannot be null');
+            throw new \InvalidArgumentException('non-nullable name cannot be null');
         }
         $this->container['name'] = $name;
 
@@ -398,14 +412,14 @@ class SignatureRequestResponseCustomFieldBase implements ModelInterface, ArrayAc
     /**
      * Sets required
      *
-     * @param bool|null $required a boolean value denoting if this field is required
+     * @param bool|null $required A boolean value denoting if this field is required.
      *
      * @return self
      */
-    public function setRequired(?bool $required)
+    public function setRequired($required)
     {
         if (is_null($required)) {
-            throw new InvalidArgumentException('non-nullable required cannot be null');
+            throw new \InvalidArgumentException('non-nullable required cannot be null');
         }
         $this->container['required'] = $required;
 
@@ -425,14 +439,14 @@ class SignatureRequestResponseCustomFieldBase implements ModelInterface, ArrayAc
     /**
      * Sets api_id
      *
-     * @param string|null $api_id the unique ID for this field
+     * @param string|null $api_id The unique ID for this field.
      *
      * @return self
      */
-    public function setApiId(?string $api_id)
+    public function setApiId($api_id)
     {
         if (is_null($api_id)) {
-            throw new InvalidArgumentException('non-nullable api_id cannot be null');
+            throw new \InvalidArgumentException('non-nullable api_id cannot be null');
         }
         $this->container['api_id'] = $api_id;
 
@@ -452,18 +466,18 @@ class SignatureRequestResponseCustomFieldBase implements ModelInterface, ArrayAc
     /**
      * Sets editor
      *
-     * @param string|null $editor the name of the Role that is able to edit this field
+     * @param string|null $editor The name of the Role that is able to edit this field.
      *
      * @return self
      */
-    public function setEditor(?string $editor)
+    public function setEditor($editor)
     {
         if (is_null($editor)) {
             array_push($this->openAPINullablesSetToNull, 'editor');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
             $index = array_search('editor', $nullablesSetToNull);
-            if ($index !== false) {
+            if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
@@ -472,13 +486,14 @@ class SignatureRequestResponseCustomFieldBase implements ModelInterface, ArrayAc
 
         return $this;
     }
-
     /**
      * Returns true if offset exists. False otherwise.
      *
-     * @param int $offset Offset
+     * @param integer $offset Offset
+     *
+     * @return boolean
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
@@ -487,11 +502,11 @@ class SignatureRequestResponseCustomFieldBase implements ModelInterface, ArrayAc
     /**
      * Gets offset.
      *
-     * @param int $offset Offset
+     * @param integer $offset Offset
      *
      * @return mixed|null
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return $this->container[$offset] ?? null;
@@ -502,8 +517,10 @@ class SignatureRequestResponseCustomFieldBase implements ModelInterface, ArrayAc
      *
      * @param int|null $offset Offset
      * @param mixed    $value  Value to be set
+     *
+     * @return void
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
@@ -516,9 +533,11 @@ class SignatureRequestResponseCustomFieldBase implements ModelInterface, ArrayAc
     /**
      * Unsets offset.
      *
-     * @param int $offset Offset
+     * @param integer $offset Offset
+     *
+     * @return void
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
@@ -526,15 +545,15 @@ class SignatureRequestResponseCustomFieldBase implements ModelInterface, ArrayAc
 
     /**
      * Serializes the object to a value that can be serialized natively by json_encode().
-     * @see https://www.php.net/manual/en/jsonserializable.jsonserialize.php
+     * @link https://www.php.net/manual/en/jsonserializable.jsonserialize.php
      *
-     * @return mixed returns data which can be serialized by json_encode(), which is a value
-     *               of any type other than a resource
+     * @return mixed Returns data which can be serialized by json_encode(), which is a value
+     * of any type other than a resource.
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
-        return ObjectSerializer::sanitizeForSerialization($this);
+       return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**
@@ -560,3 +579,5 @@ class SignatureRequestResponseCustomFieldBase implements ModelInterface, ArrayAc
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
+
+

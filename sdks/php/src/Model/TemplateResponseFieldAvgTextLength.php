@@ -5,7 +5,9 @@
  * PHP version 7.4
  *
  * @category Class
- * @see     https://openapi-generator.tech
+ * @package  Dropbox\Sign
+ * @author   OpenAPI Generator team
+ * @link     https://openapi-generator.tech
  */
 
 /**
@@ -27,68 +29,67 @@
 
 namespace Dropbox\Sign\Model;
 
-use ArrayAccess;
-use Dropbox\Sign\ObjectSerializer;
-use InvalidArgumentException;
-use JsonSerializable;
-use ReturnTypeWillChange;
+use \ArrayAccess;
+use \Dropbox\Sign\ObjectSerializer;
 
 /**
  * TemplateResponseFieldAvgTextLength Class Doc Comment
  *
  * @category Class
  * @description Average text length in this field.
- * @see     https://openapi-generator.tech
+ * @package  Dropbox\Sign
+ * @author   OpenAPI Generator team
+ * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class TemplateResponseFieldAvgTextLength implements ModelInterface, ArrayAccess, JsonSerializable
+class TemplateResponseFieldAvgTextLength implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
     /**
-     * The original name of the model.
-     *
-     * @var string
-     */
+      * The original name of the model.
+      *
+      * @var string
+      */
     protected static $openAPIModelName = 'TemplateResponseFieldAvgTextLength';
 
     /**
-     * Array of property to type mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to type mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPITypes = [
         'num_lines' => 'int',
-        'num_chars_per_line' => 'int',
+        'num_chars_per_line' => 'int'
     ];
 
     /**
-     * Array of property to format mappings. Used for (de)serialization
-     *
-     * @var string[]
-     * @phpstan-var array<string, string|null>
-     * @psalm-var array<string, string|null>
-     */
+      * Array of property to format mappings. Used for (de)serialization
+      *
+      * @var string[]
+      * @phpstan-var array<string, string|null>
+      * @psalm-var array<string, string|null>
+      */
     protected static $openAPIFormats = [
         'num_lines' => null,
-        'num_chars_per_line' => null,
+        'num_chars_per_line' => null
     ];
 
     /**
-     * Array of nullable properties. Used for (de)serialization
-     *
-     * @var bool[]
-     */
+      * Array of nullable properties. Used for (de)serialization
+      *
+      * @var boolean[]
+      */
     protected static array $openAPINullables = [
         'num_lines' => false,
-        'num_chars_per_line' => false,
+        'num_chars_per_line' => false
     ];
 
     /**
-     * If a nullable field gets set to null, insert it here
-     *
-     * @var bool[]
-     */
+      * If a nullable field gets set to null, insert it here
+      *
+      * @var boolean[]
+      */
     protected array $openAPINullablesSetToNull = [];
 
     /**
@@ -113,6 +114,8 @@ class TemplateResponseFieldAvgTextLength implements ModelInterface, ArrayAccess,
 
     /**
      * Array of nullable properties
+     *
+     * @return array
      */
     protected static function openAPINullables(): array
     {
@@ -122,7 +125,7 @@ class TemplateResponseFieldAvgTextLength implements ModelInterface, ArrayAccess,
     /**
      * Array of nullable field names deliberately set to null
      *
-     * @return bool[]
+     * @return boolean[]
      */
     private function getOpenAPINullablesSetToNull(): array
     {
@@ -132,7 +135,7 @@ class TemplateResponseFieldAvgTextLength implements ModelInterface, ArrayAccess,
     /**
      * Setter - Array of nullable field names deliberately set to null
      *
-     * @param bool[] $openAPINullablesSetToNull
+     * @param boolean[] $openAPINullablesSetToNull
      */
     private function setOpenAPINullablesSetToNull(array $openAPINullablesSetToNull): void
     {
@@ -141,6 +144,9 @@ class TemplateResponseFieldAvgTextLength implements ModelInterface, ArrayAccess,
 
     /**
      * Checks if a property is nullable
+     *
+     * @param string $property
+     * @return bool
      */
     public static function isNullable(string $property): bool
     {
@@ -149,6 +155,9 @@ class TemplateResponseFieldAvgTextLength implements ModelInterface, ArrayAccess,
 
     /**
      * Checks if a nullable property is set to null.
+     *
+     * @param string $property
+     * @return bool
      */
     public function isNullableSetToNull(string $property): bool
     {
@@ -163,7 +172,7 @@ class TemplateResponseFieldAvgTextLength implements ModelInterface, ArrayAccess,
      */
     protected static $attributeMap = [
         'num_lines' => 'num_lines',
-        'num_chars_per_line' => 'num_chars_per_line',
+        'num_chars_per_line' => 'num_chars_per_line'
     ];
 
     /**
@@ -173,7 +182,7 @@ class TemplateResponseFieldAvgTextLength implements ModelInterface, ArrayAccess,
      */
     protected static $setters = [
         'num_lines' => 'setNumLines',
-        'num_chars_per_line' => 'setNumCharsPerLine',
+        'num_chars_per_line' => 'setNumCharsPerLine'
     ];
 
     /**
@@ -183,7 +192,7 @@ class TemplateResponseFieldAvgTextLength implements ModelInterface, ArrayAccess,
      */
     protected static $getters = [
         'num_lines' => 'getNumLines',
-        'num_chars_per_line' => 'getNumCharsPerLine',
+        'num_chars_per_line' => 'getNumCharsPerLine'
     ];
 
     /**
@@ -227,6 +236,7 @@ class TemplateResponseFieldAvgTextLength implements ModelInterface, ArrayAccess,
         return self::$openAPIModelName;
     }
 
+
     /**
      * Associative array for storing property values
      *
@@ -246,33 +256,34 @@ class TemplateResponseFieldAvgTextLength implements ModelInterface, ArrayAccess,
         $this->setIfExists('num_chars_per_line', $data ?? [], null);
     }
 
-    /**
-     * @deprecated use ::init()
-     */
+    /** @deprecated use ::init() */
     public static function fromArray(array $data): TemplateResponseFieldAvgTextLength
     {
         return self::init($data);
     }
 
-    /**
-     * Attempt to instantiate and hydrate a new instance of this class
-     */
+    /** Attempt to instantiate and hydrate a new instance of this class */
     public static function init(array $data): TemplateResponseFieldAvgTextLength
     {
         /** @var TemplateResponseFieldAvgTextLength */
-        return ObjectSerializer::deserialize(
+        $obj = ObjectSerializer::deserialize(
             $data,
             TemplateResponseFieldAvgTextLength::class,
         );
+
+        return $obj;
     }
 
+
     /**
-     * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
-     * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
-     * $this->openAPINullablesSetToNull array
-     *
-     * @param string|int|object|array|mixed $defaultValue
-     */
+    * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
+    * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
+    * $this->openAPINullablesSetToNull array
+    *
+    * @param string $variableName
+    * @param array  $fields
+* @param string|int|object|array|mixed  $defaultValue
+    */
     private function setIfExists(string $variableName, array $fields, $defaultValue): void
     {
         if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
@@ -289,7 +300,9 @@ class TemplateResponseFieldAvgTextLength implements ModelInterface, ArrayAccess,
      */
     public function listInvalidProperties()
     {
-        return [];
+        $invalidProperties = [];
+
+        return $invalidProperties;
     }
 
     /**
@@ -302,6 +315,7 @@ class TemplateResponseFieldAvgTextLength implements ModelInterface, ArrayAccess,
     {
         return count($this->listInvalidProperties()) === 0;
     }
+
 
     /**
      * Gets num_lines
@@ -316,14 +330,14 @@ class TemplateResponseFieldAvgTextLength implements ModelInterface, ArrayAccess,
     /**
      * Sets num_lines
      *
-     * @param int|null $num_lines number of lines
+     * @param int|null $num_lines Number of lines.
      *
      * @return self
      */
-    public function setNumLines(?int $num_lines)
+    public function setNumLines($num_lines)
     {
         if (is_null($num_lines)) {
-            throw new InvalidArgumentException('non-nullable num_lines cannot be null');
+            throw new \InvalidArgumentException('non-nullable num_lines cannot be null');
         }
         $this->container['num_lines'] = $num_lines;
 
@@ -343,26 +357,27 @@ class TemplateResponseFieldAvgTextLength implements ModelInterface, ArrayAccess,
     /**
      * Sets num_chars_per_line
      *
-     * @param int|null $num_chars_per_line number of characters per line
+     * @param int|null $num_chars_per_line Number of characters per line.
      *
      * @return self
      */
-    public function setNumCharsPerLine(?int $num_chars_per_line)
+    public function setNumCharsPerLine($num_chars_per_line)
     {
         if (is_null($num_chars_per_line)) {
-            throw new InvalidArgumentException('non-nullable num_chars_per_line cannot be null');
+            throw new \InvalidArgumentException('non-nullable num_chars_per_line cannot be null');
         }
         $this->container['num_chars_per_line'] = $num_chars_per_line;
 
         return $this;
     }
-
     /**
      * Returns true if offset exists. False otherwise.
      *
-     * @param int $offset Offset
+     * @param integer $offset Offset
+     *
+     * @return boolean
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
@@ -371,11 +386,11 @@ class TemplateResponseFieldAvgTextLength implements ModelInterface, ArrayAccess,
     /**
      * Gets offset.
      *
-     * @param int $offset Offset
+     * @param integer $offset Offset
      *
      * @return mixed|null
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return $this->container[$offset] ?? null;
@@ -386,8 +401,10 @@ class TemplateResponseFieldAvgTextLength implements ModelInterface, ArrayAccess,
      *
      * @param int|null $offset Offset
      * @param mixed    $value  Value to be set
+     *
+     * @return void
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
@@ -400,9 +417,11 @@ class TemplateResponseFieldAvgTextLength implements ModelInterface, ArrayAccess,
     /**
      * Unsets offset.
      *
-     * @param int $offset Offset
+     * @param integer $offset Offset
+     *
+     * @return void
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
@@ -410,15 +429,15 @@ class TemplateResponseFieldAvgTextLength implements ModelInterface, ArrayAccess,
 
     /**
      * Serializes the object to a value that can be serialized natively by json_encode().
-     * @see https://www.php.net/manual/en/jsonserializable.jsonserialize.php
+     * @link https://www.php.net/manual/en/jsonserializable.jsonserialize.php
      *
-     * @return mixed returns data which can be serialized by json_encode(), which is a value
-     *               of any type other than a resource
+     * @return mixed Returns data which can be serialized by json_encode(), which is a value
+     * of any type other than a resource.
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
-        return ObjectSerializer::sanitizeForSerialization($this);
+       return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**
@@ -444,3 +463,5 @@ class TemplateResponseFieldAvgTextLength implements ModelInterface, ArrayAccess,
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
+
+

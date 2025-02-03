@@ -5,7 +5,9 @@
  * PHP version 7.4
  *
  * @category Class
- * @see     https://openapi-generator.tech
+ * @package  Dropbox\Sign
+ * @author   OpenAPI Generator team
+ * @link     https://openapi-generator.tech
  */
 
 /**
@@ -27,36 +29,35 @@
 
 namespace Dropbox\Sign\Model;
 
-use ArrayAccess;
-use Dropbox\Sign\ObjectSerializer;
-use InvalidArgumentException;
-use JsonSerializable;
-use ReturnTypeWillChange;
+use \ArrayAccess;
+use \Dropbox\Sign\ObjectSerializer;
 
 /**
  * ApiAppResponseWhiteLabelingOptions Class Doc Comment
  *
  * @category Class
  * @description An object with options to customize the app&#39;s signer page
- * @see     https://openapi-generator.tech
+ * @package  Dropbox\Sign
+ * @author   OpenAPI Generator team
+ * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class ApiAppResponseWhiteLabelingOptions implements ModelInterface, ArrayAccess, JsonSerializable
+class ApiAppResponseWhiteLabelingOptions implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
     /**
-     * The original name of the model.
-     *
-     * @var string
-     */
+      * The original name of the model.
+      *
+      * @var string
+      */
     protected static $openAPIModelName = 'ApiAppResponseWhiteLabelingOptions';
 
     /**
-     * Array of property to type mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to type mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPITypes = [
         'header_background_color' => 'string',
         'legal_version' => 'string',
@@ -71,16 +72,16 @@ class ApiAppResponseWhiteLabelingOptions implements ModelInterface, ArrayAccess,
         'secondary_button_text_color' => 'string',
         'secondary_button_text_color_hover' => 'string',
         'text_color1' => 'string',
-        'text_color2' => 'string',
+        'text_color2' => 'string'
     ];
 
     /**
-     * Array of property to format mappings. Used for (de)serialization
-     *
-     * @var string[]
-     * @phpstan-var array<string, string|null>
-     * @psalm-var array<string, string|null>
-     */
+      * Array of property to format mappings. Used for (de)serialization
+      *
+      * @var string[]
+      * @phpstan-var array<string, string|null>
+      * @psalm-var array<string, string|null>
+      */
     protected static $openAPIFormats = [
         'header_background_color' => null,
         'legal_version' => null,
@@ -95,14 +96,14 @@ class ApiAppResponseWhiteLabelingOptions implements ModelInterface, ArrayAccess,
         'secondary_button_text_color' => null,
         'secondary_button_text_color_hover' => null,
         'text_color1' => null,
-        'text_color2' => null,
+        'text_color2' => null
     ];
 
     /**
-     * Array of nullable properties. Used for (de)serialization
-     *
-     * @var bool[]
-     */
+      * Array of nullable properties. Used for (de)serialization
+      *
+      * @var boolean[]
+      */
     protected static array $openAPINullables = [
         'header_background_color' => false,
         'legal_version' => false,
@@ -117,14 +118,14 @@ class ApiAppResponseWhiteLabelingOptions implements ModelInterface, ArrayAccess,
         'secondary_button_text_color' => false,
         'secondary_button_text_color_hover' => false,
         'text_color1' => false,
-        'text_color2' => false,
+        'text_color2' => false
     ];
 
     /**
-     * If a nullable field gets set to null, insert it here
-     *
-     * @var bool[]
-     */
+      * If a nullable field gets set to null, insert it here
+      *
+      * @var boolean[]
+      */
     protected array $openAPINullablesSetToNull = [];
 
     /**
@@ -149,6 +150,8 @@ class ApiAppResponseWhiteLabelingOptions implements ModelInterface, ArrayAccess,
 
     /**
      * Array of nullable properties
+     *
+     * @return array
      */
     protected static function openAPINullables(): array
     {
@@ -158,7 +161,7 @@ class ApiAppResponseWhiteLabelingOptions implements ModelInterface, ArrayAccess,
     /**
      * Array of nullable field names deliberately set to null
      *
-     * @return bool[]
+     * @return boolean[]
      */
     private function getOpenAPINullablesSetToNull(): array
     {
@@ -168,7 +171,7 @@ class ApiAppResponseWhiteLabelingOptions implements ModelInterface, ArrayAccess,
     /**
      * Setter - Array of nullable field names deliberately set to null
      *
-     * @param bool[] $openAPINullablesSetToNull
+     * @param boolean[] $openAPINullablesSetToNull
      */
     private function setOpenAPINullablesSetToNull(array $openAPINullablesSetToNull): void
     {
@@ -177,6 +180,9 @@ class ApiAppResponseWhiteLabelingOptions implements ModelInterface, ArrayAccess,
 
     /**
      * Checks if a property is nullable
+     *
+     * @param string $property
+     * @return bool
      */
     public static function isNullable(string $property): bool
     {
@@ -185,6 +191,9 @@ class ApiAppResponseWhiteLabelingOptions implements ModelInterface, ArrayAccess,
 
     /**
      * Checks if a nullable property is set to null.
+     *
+     * @param string $property
+     * @return bool
      */
     public function isNullableSetToNull(string $property): bool
     {
@@ -211,7 +220,7 @@ class ApiAppResponseWhiteLabelingOptions implements ModelInterface, ArrayAccess,
         'secondary_button_text_color' => 'secondary_button_text_color',
         'secondary_button_text_color_hover' => 'secondary_button_text_color_hover',
         'text_color1' => 'text_color1',
-        'text_color2' => 'text_color2',
+        'text_color2' => 'text_color2'
     ];
 
     /**
@@ -233,7 +242,7 @@ class ApiAppResponseWhiteLabelingOptions implements ModelInterface, ArrayAccess,
         'secondary_button_text_color' => 'setSecondaryButtonTextColor',
         'secondary_button_text_color_hover' => 'setSecondaryButtonTextColorHover',
         'text_color1' => 'setTextColor1',
-        'text_color2' => 'setTextColor2',
+        'text_color2' => 'setTextColor2'
     ];
 
     /**
@@ -255,7 +264,7 @@ class ApiAppResponseWhiteLabelingOptions implements ModelInterface, ArrayAccess,
         'secondary_button_text_color' => 'getSecondaryButtonTextColor',
         'secondary_button_text_color_hover' => 'getSecondaryButtonTextColorHover',
         'text_color1' => 'getTextColor1',
-        'text_color2' => 'getTextColor2',
+        'text_color2' => 'getTextColor2'
     ];
 
     /**
@@ -299,6 +308,7 @@ class ApiAppResponseWhiteLabelingOptions implements ModelInterface, ArrayAccess,
         return self::$openAPIModelName;
     }
 
+
     /**
      * Associative array for storing property values
      *
@@ -330,33 +340,34 @@ class ApiAppResponseWhiteLabelingOptions implements ModelInterface, ArrayAccess,
         $this->setIfExists('text_color2', $data ?? [], null);
     }
 
-    /**
-     * @deprecated use ::init()
-     */
+    /** @deprecated use ::init() */
     public static function fromArray(array $data): ApiAppResponseWhiteLabelingOptions
     {
         return self::init($data);
     }
 
-    /**
-     * Attempt to instantiate and hydrate a new instance of this class
-     */
+    /** Attempt to instantiate and hydrate a new instance of this class */
     public static function init(array $data): ApiAppResponseWhiteLabelingOptions
     {
         /** @var ApiAppResponseWhiteLabelingOptions */
-        return ObjectSerializer::deserialize(
+        $obj = ObjectSerializer::deserialize(
             $data,
             ApiAppResponseWhiteLabelingOptions::class,
         );
+
+        return $obj;
     }
 
+
     /**
-     * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
-     * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
-     * $this->openAPINullablesSetToNull array
-     *
-     * @param string|int|object|array|mixed $defaultValue
-     */
+    * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
+    * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
+    * $this->openAPINullablesSetToNull array
+    *
+    * @param string $variableName
+    * @param array  $fields
+* @param string|int|object|array|mixed  $defaultValue
+    */
     private function setIfExists(string $variableName, array $fields, $defaultValue): void
     {
         if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
@@ -373,7 +384,9 @@ class ApiAppResponseWhiteLabelingOptions implements ModelInterface, ArrayAccess,
      */
     public function listInvalidProperties()
     {
-        return [];
+        $invalidProperties = [];
+
+        return $invalidProperties;
     }
 
     /**
@@ -386,6 +399,7 @@ class ApiAppResponseWhiteLabelingOptions implements ModelInterface, ArrayAccess,
     {
         return count($this->listInvalidProperties()) === 0;
     }
+
 
     /**
      * Gets header_background_color
@@ -404,10 +418,10 @@ class ApiAppResponseWhiteLabelingOptions implements ModelInterface, ArrayAccess,
      *
      * @return self
      */
-    public function setHeaderBackgroundColor(?string $header_background_color)
+    public function setHeaderBackgroundColor($header_background_color)
     {
         if (is_null($header_background_color)) {
-            throw new InvalidArgumentException('non-nullable header_background_color cannot be null');
+            throw new \InvalidArgumentException('non-nullable header_background_color cannot be null');
         }
         $this->container['header_background_color'] = $header_background_color;
 
@@ -431,10 +445,10 @@ class ApiAppResponseWhiteLabelingOptions implements ModelInterface, ArrayAccess,
      *
      * @return self
      */
-    public function setLegalVersion(?string $legal_version)
+    public function setLegalVersion($legal_version)
     {
         if (is_null($legal_version)) {
-            throw new InvalidArgumentException('non-nullable legal_version cannot be null');
+            throw new \InvalidArgumentException('non-nullable legal_version cannot be null');
         }
         $this->container['legal_version'] = $legal_version;
 
@@ -458,10 +472,10 @@ class ApiAppResponseWhiteLabelingOptions implements ModelInterface, ArrayAccess,
      *
      * @return self
      */
-    public function setLinkColor(?string $link_color)
+    public function setLinkColor($link_color)
     {
         if (is_null($link_color)) {
-            throw new InvalidArgumentException('non-nullable link_color cannot be null');
+            throw new \InvalidArgumentException('non-nullable link_color cannot be null');
         }
         $this->container['link_color'] = $link_color;
 
@@ -485,10 +499,10 @@ class ApiAppResponseWhiteLabelingOptions implements ModelInterface, ArrayAccess,
      *
      * @return self
      */
-    public function setPageBackgroundColor(?string $page_background_color)
+    public function setPageBackgroundColor($page_background_color)
     {
         if (is_null($page_background_color)) {
-            throw new InvalidArgumentException('non-nullable page_background_color cannot be null');
+            throw new \InvalidArgumentException('non-nullable page_background_color cannot be null');
         }
         $this->container['page_background_color'] = $page_background_color;
 
@@ -512,10 +526,10 @@ class ApiAppResponseWhiteLabelingOptions implements ModelInterface, ArrayAccess,
      *
      * @return self
      */
-    public function setPrimaryButtonColor(?string $primary_button_color)
+    public function setPrimaryButtonColor($primary_button_color)
     {
         if (is_null($primary_button_color)) {
-            throw new InvalidArgumentException('non-nullable primary_button_color cannot be null');
+            throw new \InvalidArgumentException('non-nullable primary_button_color cannot be null');
         }
         $this->container['primary_button_color'] = $primary_button_color;
 
@@ -539,10 +553,10 @@ class ApiAppResponseWhiteLabelingOptions implements ModelInterface, ArrayAccess,
      *
      * @return self
      */
-    public function setPrimaryButtonColorHover(?string $primary_button_color_hover)
+    public function setPrimaryButtonColorHover($primary_button_color_hover)
     {
         if (is_null($primary_button_color_hover)) {
-            throw new InvalidArgumentException('non-nullable primary_button_color_hover cannot be null');
+            throw new \InvalidArgumentException('non-nullable primary_button_color_hover cannot be null');
         }
         $this->container['primary_button_color_hover'] = $primary_button_color_hover;
 
@@ -566,10 +580,10 @@ class ApiAppResponseWhiteLabelingOptions implements ModelInterface, ArrayAccess,
      *
      * @return self
      */
-    public function setPrimaryButtonTextColor(?string $primary_button_text_color)
+    public function setPrimaryButtonTextColor($primary_button_text_color)
     {
         if (is_null($primary_button_text_color)) {
-            throw new InvalidArgumentException('non-nullable primary_button_text_color cannot be null');
+            throw new \InvalidArgumentException('non-nullable primary_button_text_color cannot be null');
         }
         $this->container['primary_button_text_color'] = $primary_button_text_color;
 
@@ -593,10 +607,10 @@ class ApiAppResponseWhiteLabelingOptions implements ModelInterface, ArrayAccess,
      *
      * @return self
      */
-    public function setPrimaryButtonTextColorHover(?string $primary_button_text_color_hover)
+    public function setPrimaryButtonTextColorHover($primary_button_text_color_hover)
     {
         if (is_null($primary_button_text_color_hover)) {
-            throw new InvalidArgumentException('non-nullable primary_button_text_color_hover cannot be null');
+            throw new \InvalidArgumentException('non-nullable primary_button_text_color_hover cannot be null');
         }
         $this->container['primary_button_text_color_hover'] = $primary_button_text_color_hover;
 
@@ -620,10 +634,10 @@ class ApiAppResponseWhiteLabelingOptions implements ModelInterface, ArrayAccess,
      *
      * @return self
      */
-    public function setSecondaryButtonColor(?string $secondary_button_color)
+    public function setSecondaryButtonColor($secondary_button_color)
     {
         if (is_null($secondary_button_color)) {
-            throw new InvalidArgumentException('non-nullable secondary_button_color cannot be null');
+            throw new \InvalidArgumentException('non-nullable secondary_button_color cannot be null');
         }
         $this->container['secondary_button_color'] = $secondary_button_color;
 
@@ -647,10 +661,10 @@ class ApiAppResponseWhiteLabelingOptions implements ModelInterface, ArrayAccess,
      *
      * @return self
      */
-    public function setSecondaryButtonColorHover(?string $secondary_button_color_hover)
+    public function setSecondaryButtonColorHover($secondary_button_color_hover)
     {
         if (is_null($secondary_button_color_hover)) {
-            throw new InvalidArgumentException('non-nullable secondary_button_color_hover cannot be null');
+            throw new \InvalidArgumentException('non-nullable secondary_button_color_hover cannot be null');
         }
         $this->container['secondary_button_color_hover'] = $secondary_button_color_hover;
 
@@ -674,10 +688,10 @@ class ApiAppResponseWhiteLabelingOptions implements ModelInterface, ArrayAccess,
      *
      * @return self
      */
-    public function setSecondaryButtonTextColor(?string $secondary_button_text_color)
+    public function setSecondaryButtonTextColor($secondary_button_text_color)
     {
         if (is_null($secondary_button_text_color)) {
-            throw new InvalidArgumentException('non-nullable secondary_button_text_color cannot be null');
+            throw new \InvalidArgumentException('non-nullable secondary_button_text_color cannot be null');
         }
         $this->container['secondary_button_text_color'] = $secondary_button_text_color;
 
@@ -701,10 +715,10 @@ class ApiAppResponseWhiteLabelingOptions implements ModelInterface, ArrayAccess,
      *
      * @return self
      */
-    public function setSecondaryButtonTextColorHover(?string $secondary_button_text_color_hover)
+    public function setSecondaryButtonTextColorHover($secondary_button_text_color_hover)
     {
         if (is_null($secondary_button_text_color_hover)) {
-            throw new InvalidArgumentException('non-nullable secondary_button_text_color_hover cannot be null');
+            throw new \InvalidArgumentException('non-nullable secondary_button_text_color_hover cannot be null');
         }
         $this->container['secondary_button_text_color_hover'] = $secondary_button_text_color_hover;
 
@@ -728,10 +742,10 @@ class ApiAppResponseWhiteLabelingOptions implements ModelInterface, ArrayAccess,
      *
      * @return self
      */
-    public function setTextColor1(?string $text_color1)
+    public function setTextColor1($text_color1)
     {
         if (is_null($text_color1)) {
-            throw new InvalidArgumentException('non-nullable text_color1 cannot be null');
+            throw new \InvalidArgumentException('non-nullable text_color1 cannot be null');
         }
         $this->container['text_color1'] = $text_color1;
 
@@ -755,22 +769,23 @@ class ApiAppResponseWhiteLabelingOptions implements ModelInterface, ArrayAccess,
      *
      * @return self
      */
-    public function setTextColor2(?string $text_color2)
+    public function setTextColor2($text_color2)
     {
         if (is_null($text_color2)) {
-            throw new InvalidArgumentException('non-nullable text_color2 cannot be null');
+            throw new \InvalidArgumentException('non-nullable text_color2 cannot be null');
         }
         $this->container['text_color2'] = $text_color2;
 
         return $this;
     }
-
     /**
      * Returns true if offset exists. False otherwise.
      *
-     * @param int $offset Offset
+     * @param integer $offset Offset
+     *
+     * @return boolean
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
@@ -779,11 +794,11 @@ class ApiAppResponseWhiteLabelingOptions implements ModelInterface, ArrayAccess,
     /**
      * Gets offset.
      *
-     * @param int $offset Offset
+     * @param integer $offset Offset
      *
      * @return mixed|null
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return $this->container[$offset] ?? null;
@@ -794,8 +809,10 @@ class ApiAppResponseWhiteLabelingOptions implements ModelInterface, ArrayAccess,
      *
      * @param int|null $offset Offset
      * @param mixed    $value  Value to be set
+     *
+     * @return void
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
@@ -808,9 +825,11 @@ class ApiAppResponseWhiteLabelingOptions implements ModelInterface, ArrayAccess,
     /**
      * Unsets offset.
      *
-     * @param int $offset Offset
+     * @param integer $offset Offset
+     *
+     * @return void
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
@@ -818,15 +837,15 @@ class ApiAppResponseWhiteLabelingOptions implements ModelInterface, ArrayAccess,
 
     /**
      * Serializes the object to a value that can be serialized natively by json_encode().
-     * @see https://www.php.net/manual/en/jsonserializable.jsonserialize.php
+     * @link https://www.php.net/manual/en/jsonserializable.jsonserialize.php
      *
-     * @return mixed returns data which can be serialized by json_encode(), which is a value
-     *               of any type other than a resource
+     * @return mixed Returns data which can be serialized by json_encode(), which is a value
+     * of any type other than a resource.
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
-        return ObjectSerializer::sanitizeForSerialization($this);
+       return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**
@@ -852,3 +871,5 @@ class ApiAppResponseWhiteLabelingOptions implements ModelInterface, ArrayAccess,
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
+
+

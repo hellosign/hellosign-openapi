@@ -5,7 +5,9 @@
  * PHP version 7.4
  *
  * @category Class
- * @see     https://openapi-generator.tech
+ * @package  Dropbox\Sign
+ * @author   OpenAPI Generator team
+ * @link     https://openapi-generator.tech
  */
 
 /**
@@ -27,73 +29,72 @@
 
 namespace Dropbox\Sign\Model;
 
-use ArrayAccess;
-use Dropbox\Sign\ObjectSerializer;
-use InvalidArgumentException;
-use JsonSerializable;
-use ReturnTypeWillChange;
+use \ArrayAccess;
+use \Dropbox\Sign\ObjectSerializer;
 
 /**
  * SignatureRequestUpdateRequest Class Doc Comment
  *
  * @category Class
- * @see     https://openapi-generator.tech
+ * @package  Dropbox\Sign
+ * @author   OpenAPI Generator team
+ * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class SignatureRequestUpdateRequest implements ModelInterface, ArrayAccess, JsonSerializable
+class SignatureRequestUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
     /**
-     * The original name of the model.
-     *
-     * @var string
-     */
+      * The original name of the model.
+      *
+      * @var string
+      */
     protected static $openAPIModelName = 'SignatureRequestUpdateRequest';
 
     /**
-     * Array of property to type mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to type mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPITypes = [
         'signature_id' => 'string',
         'email_address' => 'string',
         'name' => 'string',
-        'expires_at' => 'int',
+        'expires_at' => 'int'
     ];
 
     /**
-     * Array of property to format mappings. Used for (de)serialization
-     *
-     * @var string[]
-     * @phpstan-var array<string, string|null>
-     * @psalm-var array<string, string|null>
-     */
+      * Array of property to format mappings. Used for (de)serialization
+      *
+      * @var string[]
+      * @phpstan-var array<string, string|null>
+      * @psalm-var array<string, string|null>
+      */
     protected static $openAPIFormats = [
         'signature_id' => null,
         'email_address' => 'email',
         'name' => null,
-        'expires_at' => null,
+        'expires_at' => null
     ];
 
     /**
-     * Array of nullable properties. Used for (de)serialization
-     *
-     * @var bool[]
-     */
+      * Array of nullable properties. Used for (de)serialization
+      *
+      * @var boolean[]
+      */
     protected static array $openAPINullables = [
         'signature_id' => false,
         'email_address' => false,
         'name' => false,
-        'expires_at' => true,
+        'expires_at' => true
     ];
 
     /**
-     * If a nullable field gets set to null, insert it here
-     *
-     * @var bool[]
-     */
+      * If a nullable field gets set to null, insert it here
+      *
+      * @var boolean[]
+      */
     protected array $openAPINullablesSetToNull = [];
 
     /**
@@ -118,6 +119,8 @@ class SignatureRequestUpdateRequest implements ModelInterface, ArrayAccess, Json
 
     /**
      * Array of nullable properties
+     *
+     * @return array
      */
     protected static function openAPINullables(): array
     {
@@ -127,7 +130,7 @@ class SignatureRequestUpdateRequest implements ModelInterface, ArrayAccess, Json
     /**
      * Array of nullable field names deliberately set to null
      *
-     * @return bool[]
+     * @return boolean[]
      */
     private function getOpenAPINullablesSetToNull(): array
     {
@@ -137,7 +140,7 @@ class SignatureRequestUpdateRequest implements ModelInterface, ArrayAccess, Json
     /**
      * Setter - Array of nullable field names deliberately set to null
      *
-     * @param bool[] $openAPINullablesSetToNull
+     * @param boolean[] $openAPINullablesSetToNull
      */
     private function setOpenAPINullablesSetToNull(array $openAPINullablesSetToNull): void
     {
@@ -146,6 +149,9 @@ class SignatureRequestUpdateRequest implements ModelInterface, ArrayAccess, Json
 
     /**
      * Checks if a property is nullable
+     *
+     * @param string $property
+     * @return bool
      */
     public static function isNullable(string $property): bool
     {
@@ -154,6 +160,9 @@ class SignatureRequestUpdateRequest implements ModelInterface, ArrayAccess, Json
 
     /**
      * Checks if a nullable property is set to null.
+     *
+     * @param string $property
+     * @return bool
      */
     public function isNullableSetToNull(string $property): bool
     {
@@ -170,7 +179,7 @@ class SignatureRequestUpdateRequest implements ModelInterface, ArrayAccess, Json
         'signature_id' => 'signature_id',
         'email_address' => 'email_address',
         'name' => 'name',
-        'expires_at' => 'expires_at',
+        'expires_at' => 'expires_at'
     ];
 
     /**
@@ -182,7 +191,7 @@ class SignatureRequestUpdateRequest implements ModelInterface, ArrayAccess, Json
         'signature_id' => 'setSignatureId',
         'email_address' => 'setEmailAddress',
         'name' => 'setName',
-        'expires_at' => 'setExpiresAt',
+        'expires_at' => 'setExpiresAt'
     ];
 
     /**
@@ -194,7 +203,7 @@ class SignatureRequestUpdateRequest implements ModelInterface, ArrayAccess, Json
         'signature_id' => 'getSignatureId',
         'email_address' => 'getEmailAddress',
         'name' => 'getName',
-        'expires_at' => 'getExpiresAt',
+        'expires_at' => 'getExpiresAt'
     ];
 
     /**
@@ -238,6 +247,7 @@ class SignatureRequestUpdateRequest implements ModelInterface, ArrayAccess, Json
         return self::$openAPIModelName;
     }
 
+
     /**
      * Associative array for storing property values
      *
@@ -259,33 +269,34 @@ class SignatureRequestUpdateRequest implements ModelInterface, ArrayAccess, Json
         $this->setIfExists('expires_at', $data ?? [], null);
     }
 
-    /**
-     * @deprecated use ::init()
-     */
+    /** @deprecated use ::init() */
     public static function fromArray(array $data): SignatureRequestUpdateRequest
     {
         return self::init($data);
     }
 
-    /**
-     * Attempt to instantiate and hydrate a new instance of this class
-     */
+    /** Attempt to instantiate and hydrate a new instance of this class */
     public static function init(array $data): SignatureRequestUpdateRequest
     {
         /** @var SignatureRequestUpdateRequest */
-        return ObjectSerializer::deserialize(
+        $obj = ObjectSerializer::deserialize(
             $data,
             SignatureRequestUpdateRequest::class,
         );
+
+        return $obj;
     }
 
+
     /**
-     * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
-     * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
-     * $this->openAPINullablesSetToNull array
-     *
-     * @param string|int|object|array|mixed $defaultValue
-     */
+    * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
+    * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
+    * $this->openAPINullablesSetToNull array
+    *
+    * @param string $variableName
+    * @param array  $fields
+* @param string|int|object|array|mixed  $defaultValue
+    */
     private function setIfExists(string $variableName, array $fields, $defaultValue): void
     {
         if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
@@ -321,6 +332,7 @@ class SignatureRequestUpdateRequest implements ModelInterface, ArrayAccess, Json
         return count($this->listInvalidProperties()) === 0;
     }
 
+
     /**
      * Gets signature_id
      *
@@ -334,14 +346,14 @@ class SignatureRequestUpdateRequest implements ModelInterface, ArrayAccess, Json
     /**
      * Sets signature_id
      *
-     * @param string $signature_id the signature ID for the recipient
+     * @param string $signature_id The signature ID for the recipient.
      *
      * @return self
      */
-    public function setSignatureId(string $signature_id)
+    public function setSignatureId($signature_id)
     {
         if (is_null($signature_id)) {
-            throw new InvalidArgumentException('non-nullable signature_id cannot be null');
+            throw new \InvalidArgumentException('non-nullable signature_id cannot be null');
         }
         $this->container['signature_id'] = $signature_id;
 
@@ -365,10 +377,10 @@ class SignatureRequestUpdateRequest implements ModelInterface, ArrayAccess, Json
      *
      * @return self
      */
-    public function setEmailAddress(?string $email_address)
+    public function setEmailAddress($email_address)
     {
         if (is_null($email_address)) {
-            throw new InvalidArgumentException('non-nullable email_address cannot be null');
+            throw new \InvalidArgumentException('non-nullable email_address cannot be null');
         }
         $this->container['email_address'] = $email_address;
 
@@ -392,10 +404,10 @@ class SignatureRequestUpdateRequest implements ModelInterface, ArrayAccess, Json
      *
      * @return self
      */
-    public function setName(?string $name)
+    public function setName($name)
     {
         if (is_null($name)) {
-            throw new InvalidArgumentException('non-nullable name cannot be null');
+            throw new \InvalidArgumentException('non-nullable name cannot be null');
         }
         $this->container['name'] = $name;
 
@@ -419,14 +431,14 @@ class SignatureRequestUpdateRequest implements ModelInterface, ArrayAccess, Json
      *
      * @return self
      */
-    public function setExpiresAt(?int $expires_at)
+    public function setExpiresAt($expires_at)
     {
         if (is_null($expires_at)) {
             array_push($this->openAPINullablesSetToNull, 'expires_at');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
             $index = array_search('expires_at', $nullablesSetToNull);
-            if ($index !== false) {
+            if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
@@ -435,13 +447,14 @@ class SignatureRequestUpdateRequest implements ModelInterface, ArrayAccess, Json
 
         return $this;
     }
-
     /**
      * Returns true if offset exists. False otherwise.
      *
-     * @param int $offset Offset
+     * @param integer $offset Offset
+     *
+     * @return boolean
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
@@ -450,11 +463,11 @@ class SignatureRequestUpdateRequest implements ModelInterface, ArrayAccess, Json
     /**
      * Gets offset.
      *
-     * @param int $offset Offset
+     * @param integer $offset Offset
      *
      * @return mixed|null
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return $this->container[$offset] ?? null;
@@ -465,8 +478,10 @@ class SignatureRequestUpdateRequest implements ModelInterface, ArrayAccess, Json
      *
      * @param int|null $offset Offset
      * @param mixed    $value  Value to be set
+     *
+     * @return void
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
@@ -479,9 +494,11 @@ class SignatureRequestUpdateRequest implements ModelInterface, ArrayAccess, Json
     /**
      * Unsets offset.
      *
-     * @param int $offset Offset
+     * @param integer $offset Offset
+     *
+     * @return void
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
@@ -489,15 +506,15 @@ class SignatureRequestUpdateRequest implements ModelInterface, ArrayAccess, Json
 
     /**
      * Serializes the object to a value that can be serialized natively by json_encode().
-     * @see https://www.php.net/manual/en/jsonserializable.jsonserialize.php
+     * @link https://www.php.net/manual/en/jsonserializable.jsonserialize.php
      *
-     * @return mixed returns data which can be serialized by json_encode(), which is a value
-     *               of any type other than a resource
+     * @return mixed Returns data which can be serialized by json_encode(), which is a value
+     * of any type other than a resource.
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
-        return ObjectSerializer::sanitizeForSerialization($this);
+       return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**
@@ -523,3 +540,5 @@ class SignatureRequestUpdateRequest implements ModelInterface, ArrayAccess, Json
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
+
+

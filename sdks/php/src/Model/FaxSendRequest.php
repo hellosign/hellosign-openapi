@@ -5,7 +5,9 @@
  * PHP version 7.4
  *
  * @category Class
- * @see     https://openapi-generator.tech
+ * @package  Dropbox\Sign
+ * @author   OpenAPI Generator team
+ * @link     https://openapi-generator.tech
  */
 
 /**
@@ -27,36 +29,34 @@
 
 namespace Dropbox\Sign\Model;
 
-use ArrayAccess;
-use Dropbox\Sign\ObjectSerializer;
-use InvalidArgumentException;
-use JsonSerializable;
-use ReturnTypeWillChange;
-use SplFileObject;
+use \ArrayAccess;
+use \Dropbox\Sign\ObjectSerializer;
 
 /**
  * FaxSendRequest Class Doc Comment
  *
  * @category Class
- * @see     https://openapi-generator.tech
+ * @package  Dropbox\Sign
+ * @author   OpenAPI Generator team
+ * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class FaxSendRequest implements ModelInterface, ArrayAccess, JsonSerializable
+class FaxSendRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
     /**
-     * The original name of the model.
-     *
-     * @var string
-     */
+      * The original name of the model.
+      *
+      * @var string
+      */
     protected static $openAPIModelName = 'FaxSendRequest';
 
     /**
-     * Array of property to type mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to type mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPITypes = [
         'recipient' => 'string',
         'sender' => 'string',
@@ -66,16 +66,16 @@ class FaxSendRequest implements ModelInterface, ArrayAccess, JsonSerializable
         'cover_page_to' => 'string',
         'cover_page_from' => 'string',
         'cover_page_message' => 'string',
-        'title' => 'string',
+        'title' => 'string'
     ];
 
     /**
-     * Array of property to format mappings. Used for (de)serialization
-     *
-     * @var string[]
-     * @phpstan-var array<string, string|null>
-     * @psalm-var array<string, string|null>
-     */
+      * Array of property to format mappings. Used for (de)serialization
+      *
+      * @var string[]
+      * @phpstan-var array<string, string|null>
+      * @psalm-var array<string, string|null>
+      */
     protected static $openAPIFormats = [
         'recipient' => null,
         'sender' => null,
@@ -85,14 +85,14 @@ class FaxSendRequest implements ModelInterface, ArrayAccess, JsonSerializable
         'cover_page_to' => null,
         'cover_page_from' => null,
         'cover_page_message' => null,
-        'title' => null,
+        'title' => null
     ];
 
     /**
-     * Array of nullable properties. Used for (de)serialization
-     *
-     * @var bool[]
-     */
+      * Array of nullable properties. Used for (de)serialization
+      *
+      * @var boolean[]
+      */
     protected static array $openAPINullables = [
         'recipient' => false,
         'sender' => false,
@@ -102,14 +102,14 @@ class FaxSendRequest implements ModelInterface, ArrayAccess, JsonSerializable
         'cover_page_to' => false,
         'cover_page_from' => false,
         'cover_page_message' => false,
-        'title' => false,
+        'title' => false
     ];
 
     /**
-     * If a nullable field gets set to null, insert it here
-     *
-     * @var bool[]
-     */
+      * If a nullable field gets set to null, insert it here
+      *
+      * @var boolean[]
+      */
     protected array $openAPINullablesSetToNull = [];
 
     /**
@@ -134,6 +134,8 @@ class FaxSendRequest implements ModelInterface, ArrayAccess, JsonSerializable
 
     /**
      * Array of nullable properties
+     *
+     * @return array
      */
     protected static function openAPINullables(): array
     {
@@ -143,7 +145,7 @@ class FaxSendRequest implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Array of nullable field names deliberately set to null
      *
-     * @return bool[]
+     * @return boolean[]
      */
     private function getOpenAPINullablesSetToNull(): array
     {
@@ -153,7 +155,7 @@ class FaxSendRequest implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Setter - Array of nullable field names deliberately set to null
      *
-     * @param bool[] $openAPINullablesSetToNull
+     * @param boolean[] $openAPINullablesSetToNull
      */
     private function setOpenAPINullablesSetToNull(array $openAPINullablesSetToNull): void
     {
@@ -162,6 +164,9 @@ class FaxSendRequest implements ModelInterface, ArrayAccess, JsonSerializable
 
     /**
      * Checks if a property is nullable
+     *
+     * @param string $property
+     * @return bool
      */
     public static function isNullable(string $property): bool
     {
@@ -170,6 +175,9 @@ class FaxSendRequest implements ModelInterface, ArrayAccess, JsonSerializable
 
     /**
      * Checks if a nullable property is set to null.
+     *
+     * @param string $property
+     * @return bool
      */
     public function isNullableSetToNull(string $property): bool
     {
@@ -191,7 +199,7 @@ class FaxSendRequest implements ModelInterface, ArrayAccess, JsonSerializable
         'cover_page_to' => 'cover_page_to',
         'cover_page_from' => 'cover_page_from',
         'cover_page_message' => 'cover_page_message',
-        'title' => 'title',
+        'title' => 'title'
     ];
 
     /**
@@ -208,7 +216,7 @@ class FaxSendRequest implements ModelInterface, ArrayAccess, JsonSerializable
         'cover_page_to' => 'setCoverPageTo',
         'cover_page_from' => 'setCoverPageFrom',
         'cover_page_message' => 'setCoverPageMessage',
-        'title' => 'setTitle',
+        'title' => 'setTitle'
     ];
 
     /**
@@ -225,7 +233,7 @@ class FaxSendRequest implements ModelInterface, ArrayAccess, JsonSerializable
         'cover_page_to' => 'getCoverPageTo',
         'cover_page_from' => 'getCoverPageFrom',
         'cover_page_message' => 'getCoverPageMessage',
-        'title' => 'getTitle',
+        'title' => 'getTitle'
     ];
 
     /**
@@ -269,6 +277,7 @@ class FaxSendRequest implements ModelInterface, ArrayAccess, JsonSerializable
         return self::$openAPIModelName;
     }
 
+
     /**
      * Associative array for storing property values
      *
@@ -295,33 +304,34 @@ class FaxSendRequest implements ModelInterface, ArrayAccess, JsonSerializable
         $this->setIfExists('title', $data ?? [], null);
     }
 
-    /**
-     * @deprecated use ::init()
-     */
+    /** @deprecated use ::init() */
     public static function fromArray(array $data): FaxSendRequest
     {
         return self::init($data);
     }
 
-    /**
-     * Attempt to instantiate and hydrate a new instance of this class
-     */
+    /** Attempt to instantiate and hydrate a new instance of this class */
     public static function init(array $data): FaxSendRequest
     {
         /** @var FaxSendRequest */
-        return ObjectSerializer::deserialize(
+        $obj = ObjectSerializer::deserialize(
             $data,
             FaxSendRequest::class,
         );
+
+        return $obj;
     }
 
+
     /**
-     * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
-     * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
-     * $this->openAPINullablesSetToNull array
-     *
-     * @param string|int|object|array|mixed $defaultValue
-     */
+    * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
+    * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
+    * $this->openAPINullablesSetToNull array
+    *
+    * @param string $variableName
+    * @param array  $fields
+* @param string|int|object|array|mixed  $defaultValue
+    */
     private function setIfExists(string $variableName, array $fields, $defaultValue): void
     {
         if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
@@ -357,6 +367,7 @@ class FaxSendRequest implements ModelInterface, ArrayAccess, JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
+
     /**
      * Gets recipient
      *
@@ -370,14 +381,14 @@ class FaxSendRequest implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets recipient
      *
-     * @param string $recipient Fax Send To Recipient
+     * @param string $recipient Recipient of the fax  Can be a phone number in E.164 format or email address
      *
      * @return self
      */
-    public function setRecipient(string $recipient)
+    public function setRecipient($recipient)
     {
         if (is_null($recipient)) {
-            throw new InvalidArgumentException('non-nullable recipient cannot be null');
+            throw new \InvalidArgumentException('non-nullable recipient cannot be null');
         }
         $this->container['recipient'] = $recipient;
 
@@ -401,10 +412,10 @@ class FaxSendRequest implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @return self
      */
-    public function setSender(?string $sender)
+    public function setSender($sender)
     {
         if (is_null($sender)) {
-            throw new InvalidArgumentException('non-nullable sender cannot be null');
+            throw new \InvalidArgumentException('non-nullable sender cannot be null');
         }
         $this->container['sender'] = $sender;
 
@@ -414,7 +425,7 @@ class FaxSendRequest implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets files
      *
-     * @return SplFileObject[]|null
+     * @return \SplFileObject[]|null
      */
     public function getFiles()
     {
@@ -424,14 +435,14 @@ class FaxSendRequest implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets files
      *
-     * @param SplFileObject[]|null $files Fax File to Send
+     * @param \SplFileObject[]|null $files Use `files[]` to indicate the uploaded file(s) to fax  This endpoint requires either **files** or **file_urls[]**, but not both.
      *
      * @return self
      */
-    public function setFiles(?array $files)
+    public function setFiles($files)
     {
         if (is_null($files)) {
-            throw new InvalidArgumentException('non-nullable files cannot be null');
+            throw new \InvalidArgumentException('non-nullable files cannot be null');
         }
         $this->container['files'] = $files;
 
@@ -451,14 +462,14 @@ class FaxSendRequest implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets file_urls
      *
-     * @param string[]|null $file_urls Fax File URL to Send
+     * @param string[]|null $file_urls Use `file_urls[]` to have Dropbox Fax download the file(s) to fax  This endpoint requires either **files** or **file_urls[]**, but not both.
      *
      * @return self
      */
-    public function setFileUrls(?array $file_urls)
+    public function setFileUrls($file_urls)
     {
         if (is_null($file_urls)) {
-            throw new InvalidArgumentException('non-nullable file_urls cannot be null');
+            throw new \InvalidArgumentException('non-nullable file_urls cannot be null');
         }
         $this->container['file_urls'] = $file_urls;
 
@@ -482,10 +493,10 @@ class FaxSendRequest implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @return self
      */
-    public function setTestMode(?bool $test_mode)
+    public function setTestMode($test_mode)
     {
         if (is_null($test_mode)) {
-            throw new InvalidArgumentException('non-nullable test_mode cannot be null');
+            throw new \InvalidArgumentException('non-nullable test_mode cannot be null');
         }
         $this->container['test_mode'] = $test_mode;
 
@@ -505,14 +516,14 @@ class FaxSendRequest implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets cover_page_to
      *
-     * @param string|null $cover_page_to Fax Cover Page for Recipient
+     * @param string|null $cover_page_to Fax cover page recipient information
      *
      * @return self
      */
-    public function setCoverPageTo(?string $cover_page_to)
+    public function setCoverPageTo($cover_page_to)
     {
         if (is_null($cover_page_to)) {
-            throw new InvalidArgumentException('non-nullable cover_page_to cannot be null');
+            throw new \InvalidArgumentException('non-nullable cover_page_to cannot be null');
         }
         $this->container['cover_page_to'] = $cover_page_to;
 
@@ -532,14 +543,14 @@ class FaxSendRequest implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets cover_page_from
      *
-     * @param string|null $cover_page_from Fax Cover Page for Sender
+     * @param string|null $cover_page_from Fax cover page sender information
      *
      * @return self
      */
-    public function setCoverPageFrom(?string $cover_page_from)
+    public function setCoverPageFrom($cover_page_from)
     {
         if (is_null($cover_page_from)) {
-            throw new InvalidArgumentException('non-nullable cover_page_from cannot be null');
+            throw new \InvalidArgumentException('non-nullable cover_page_from cannot be null');
         }
         $this->container['cover_page_from'] = $cover_page_from;
 
@@ -563,10 +574,10 @@ class FaxSendRequest implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @return self
      */
-    public function setCoverPageMessage(?string $cover_page_message)
+    public function setCoverPageMessage($cover_page_message)
     {
         if (is_null($cover_page_message)) {
-            throw new InvalidArgumentException('non-nullable cover_page_message cannot be null');
+            throw new \InvalidArgumentException('non-nullable cover_page_message cannot be null');
         }
         $this->container['cover_page_message'] = $cover_page_message;
 
@@ -590,22 +601,23 @@ class FaxSendRequest implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @return self
      */
-    public function setTitle(?string $title)
+    public function setTitle($title)
     {
         if (is_null($title)) {
-            throw new InvalidArgumentException('non-nullable title cannot be null');
+            throw new \InvalidArgumentException('non-nullable title cannot be null');
         }
         $this->container['title'] = $title;
 
         return $this;
     }
-
     /**
      * Returns true if offset exists. False otherwise.
      *
-     * @param int $offset Offset
+     * @param integer $offset Offset
+     *
+     * @return boolean
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
@@ -614,11 +626,11 @@ class FaxSendRequest implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets offset.
      *
-     * @param int $offset Offset
+     * @param integer $offset Offset
      *
      * @return mixed|null
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return $this->container[$offset] ?? null;
@@ -629,8 +641,10 @@ class FaxSendRequest implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param int|null $offset Offset
      * @param mixed    $value  Value to be set
+     *
+     * @return void
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
@@ -643,9 +657,11 @@ class FaxSendRequest implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Unsets offset.
      *
-     * @param int $offset Offset
+     * @param integer $offset Offset
+     *
+     * @return void
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
@@ -653,15 +669,15 @@ class FaxSendRequest implements ModelInterface, ArrayAccess, JsonSerializable
 
     /**
      * Serializes the object to a value that can be serialized natively by json_encode().
-     * @see https://www.php.net/manual/en/jsonserializable.jsonserialize.php
+     * @link https://www.php.net/manual/en/jsonserializable.jsonserialize.php
      *
-     * @return mixed returns data which can be serialized by json_encode(), which is a value
-     *               of any type other than a resource
+     * @return mixed Returns data which can be serialized by json_encode(), which is a value
+     * of any type other than a resource.
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
-        return ObjectSerializer::sanitizeForSerialization($this);
+       return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**
@@ -687,3 +703,5 @@ class FaxSendRequest implements ModelInterface, ArrayAccess, JsonSerializable
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
+
+

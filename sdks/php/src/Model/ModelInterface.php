@@ -5,7 +5,9 @@
  * PHP version 7.4
  *
  * @category Class
- * @see     https://openapi-generator.tech
+ * @package  Dropbox\Sign\Model
+ * @author   OpenAPI Generator team
+ * @link     https://openapi-generator.tech
  */
 
 /**
@@ -29,6 +31,9 @@ namespace Dropbox\Sign\Model;
 
 /**
  * Interface abstracting model access.
+ *
+ * @package Dropbox\Sign\Model
+ * @author  OpenAPI Generator team
  */
 interface ModelInterface
 {
@@ -91,11 +96,17 @@ interface ModelInterface
 
     /**
      * Checks if a property is nullable
+     *
+     * @param string $property
+     * @return bool
      */
     public static function isNullable(string $property): bool;
 
     /**
      * Checks if a nullable property is set to null.
+     *
+     * @param string $property
+     * @return bool
      */
     public function isNullableSetToNull(string $property): bool;
 }

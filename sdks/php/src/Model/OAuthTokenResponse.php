@@ -5,7 +5,9 @@
  * PHP version 7.4
  *
  * @category Class
- * @see     https://openapi-generator.tech
+ * @package  Dropbox\Sign
+ * @author   OpenAPI Generator team
+ * @link     https://openapi-generator.tech
  */
 
 /**
@@ -27,76 +29,75 @@
 
 namespace Dropbox\Sign\Model;
 
-use ArrayAccess;
-use Dropbox\Sign\ObjectSerializer;
-use InvalidArgumentException;
-use JsonSerializable;
-use ReturnTypeWillChange;
+use \ArrayAccess;
+use \Dropbox\Sign\ObjectSerializer;
 
 /**
  * OAuthTokenResponse Class Doc Comment
  *
  * @category Class
- * @see     https://openapi-generator.tech
+ * @package  Dropbox\Sign
+ * @author   OpenAPI Generator team
+ * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class OAuthTokenResponse implements ModelInterface, ArrayAccess, JsonSerializable
+class OAuthTokenResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
     /**
-     * The original name of the model.
-     *
-     * @var string
-     */
+      * The original name of the model.
+      *
+      * @var string
+      */
     protected static $openAPIModelName = 'OAuthTokenResponse';
 
     /**
-     * Array of property to type mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to type mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPITypes = [
         'access_token' => 'string',
         'token_type' => 'string',
         'refresh_token' => 'string',
         'expires_in' => 'int',
-        'state' => 'string',
+        'state' => 'string'
     ];
 
     /**
-     * Array of property to format mappings. Used for (de)serialization
-     *
-     * @var string[]
-     * @phpstan-var array<string, string|null>
-     * @psalm-var array<string, string|null>
-     */
+      * Array of property to format mappings. Used for (de)serialization
+      *
+      * @var string[]
+      * @phpstan-var array<string, string|null>
+      * @psalm-var array<string, string|null>
+      */
     protected static $openAPIFormats = [
         'access_token' => null,
         'token_type' => null,
         'refresh_token' => null,
         'expires_in' => null,
-        'state' => null,
+        'state' => null
     ];
 
     /**
-     * Array of nullable properties. Used for (de)serialization
-     *
-     * @var bool[]
-     */
+      * Array of nullable properties. Used for (de)serialization
+      *
+      * @var boolean[]
+      */
     protected static array $openAPINullables = [
         'access_token' => false,
         'token_type' => false,
         'refresh_token' => false,
         'expires_in' => false,
-        'state' => true,
+        'state' => true
     ];
 
     /**
-     * If a nullable field gets set to null, insert it here
-     *
-     * @var bool[]
-     */
+      * If a nullable field gets set to null, insert it here
+      *
+      * @var boolean[]
+      */
     protected array $openAPINullablesSetToNull = [];
 
     /**
@@ -121,6 +122,8 @@ class OAuthTokenResponse implements ModelInterface, ArrayAccess, JsonSerializabl
 
     /**
      * Array of nullable properties
+     *
+     * @return array
      */
     protected static function openAPINullables(): array
     {
@@ -130,7 +133,7 @@ class OAuthTokenResponse implements ModelInterface, ArrayAccess, JsonSerializabl
     /**
      * Array of nullable field names deliberately set to null
      *
-     * @return bool[]
+     * @return boolean[]
      */
     private function getOpenAPINullablesSetToNull(): array
     {
@@ -140,7 +143,7 @@ class OAuthTokenResponse implements ModelInterface, ArrayAccess, JsonSerializabl
     /**
      * Setter - Array of nullable field names deliberately set to null
      *
-     * @param bool[] $openAPINullablesSetToNull
+     * @param boolean[] $openAPINullablesSetToNull
      */
     private function setOpenAPINullablesSetToNull(array $openAPINullablesSetToNull): void
     {
@@ -149,6 +152,9 @@ class OAuthTokenResponse implements ModelInterface, ArrayAccess, JsonSerializabl
 
     /**
      * Checks if a property is nullable
+     *
+     * @param string $property
+     * @return bool
      */
     public static function isNullable(string $property): bool
     {
@@ -157,6 +163,9 @@ class OAuthTokenResponse implements ModelInterface, ArrayAccess, JsonSerializabl
 
     /**
      * Checks if a nullable property is set to null.
+     *
+     * @param string $property
+     * @return bool
      */
     public function isNullableSetToNull(string $property): bool
     {
@@ -174,7 +183,7 @@ class OAuthTokenResponse implements ModelInterface, ArrayAccess, JsonSerializabl
         'token_type' => 'token_type',
         'refresh_token' => 'refresh_token',
         'expires_in' => 'expires_in',
-        'state' => 'state',
+        'state' => 'state'
     ];
 
     /**
@@ -187,7 +196,7 @@ class OAuthTokenResponse implements ModelInterface, ArrayAccess, JsonSerializabl
         'token_type' => 'setTokenType',
         'refresh_token' => 'setRefreshToken',
         'expires_in' => 'setExpiresIn',
-        'state' => 'setState',
+        'state' => 'setState'
     ];
 
     /**
@@ -200,7 +209,7 @@ class OAuthTokenResponse implements ModelInterface, ArrayAccess, JsonSerializabl
         'token_type' => 'getTokenType',
         'refresh_token' => 'getRefreshToken',
         'expires_in' => 'getExpiresIn',
-        'state' => 'getState',
+        'state' => 'getState'
     ];
 
     /**
@@ -244,6 +253,7 @@ class OAuthTokenResponse implements ModelInterface, ArrayAccess, JsonSerializabl
         return self::$openAPIModelName;
     }
 
+
     /**
      * Associative array for storing property values
      *
@@ -266,33 +276,34 @@ class OAuthTokenResponse implements ModelInterface, ArrayAccess, JsonSerializabl
         $this->setIfExists('state', $data ?? [], null);
     }
 
-    /**
-     * @deprecated use ::init()
-     */
+    /** @deprecated use ::init() */
     public static function fromArray(array $data): OAuthTokenResponse
     {
         return self::init($data);
     }
 
-    /**
-     * Attempt to instantiate and hydrate a new instance of this class
-     */
+    /** Attempt to instantiate and hydrate a new instance of this class */
     public static function init(array $data): OAuthTokenResponse
     {
         /** @var OAuthTokenResponse */
-        return ObjectSerializer::deserialize(
+        $obj = ObjectSerializer::deserialize(
             $data,
             OAuthTokenResponse::class,
         );
+
+        return $obj;
     }
 
+
     /**
-     * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
-     * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
-     * $this->openAPINullablesSetToNull array
-     *
-     * @param string|int|object|array|mixed $defaultValue
-     */
+    * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
+    * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
+    * $this->openAPINullablesSetToNull array
+    *
+    * @param string $variableName
+    * @param array  $fields
+* @param string|int|object|array|mixed  $defaultValue
+    */
     private function setIfExists(string $variableName, array $fields, $defaultValue): void
     {
         if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
@@ -309,7 +320,9 @@ class OAuthTokenResponse implements ModelInterface, ArrayAccess, JsonSerializabl
      */
     public function listInvalidProperties()
     {
-        return [];
+        $invalidProperties = [];
+
+        return $invalidProperties;
     }
 
     /**
@@ -322,6 +335,7 @@ class OAuthTokenResponse implements ModelInterface, ArrayAccess, JsonSerializabl
     {
         return count($this->listInvalidProperties()) === 0;
     }
+
 
     /**
      * Gets access_token
@@ -340,10 +354,10 @@ class OAuthTokenResponse implements ModelInterface, ArrayAccess, JsonSerializabl
      *
      * @return self
      */
-    public function setAccessToken(?string $access_token)
+    public function setAccessToken($access_token)
     {
         if (is_null($access_token)) {
-            throw new InvalidArgumentException('non-nullable access_token cannot be null');
+            throw new \InvalidArgumentException('non-nullable access_token cannot be null');
         }
         $this->container['access_token'] = $access_token;
 
@@ -367,10 +381,10 @@ class OAuthTokenResponse implements ModelInterface, ArrayAccess, JsonSerializabl
      *
      * @return self
      */
-    public function setTokenType(?string $token_type)
+    public function setTokenType($token_type)
     {
         if (is_null($token_type)) {
-            throw new InvalidArgumentException('non-nullable token_type cannot be null');
+            throw new \InvalidArgumentException('non-nullable token_type cannot be null');
         }
         $this->container['token_type'] = $token_type;
 
@@ -394,10 +408,10 @@ class OAuthTokenResponse implements ModelInterface, ArrayAccess, JsonSerializabl
      *
      * @return self
      */
-    public function setRefreshToken(?string $refresh_token)
+    public function setRefreshToken($refresh_token)
     {
         if (is_null($refresh_token)) {
-            throw new InvalidArgumentException('non-nullable refresh_token cannot be null');
+            throw new \InvalidArgumentException('non-nullable refresh_token cannot be null');
         }
         $this->container['refresh_token'] = $refresh_token;
 
@@ -421,10 +435,10 @@ class OAuthTokenResponse implements ModelInterface, ArrayAccess, JsonSerializabl
      *
      * @return self
      */
-    public function setExpiresIn(?int $expires_in)
+    public function setExpiresIn($expires_in)
     {
         if (is_null($expires_in)) {
-            throw new InvalidArgumentException('non-nullable expires_in cannot be null');
+            throw new \InvalidArgumentException('non-nullable expires_in cannot be null');
         }
         $this->container['expires_in'] = $expires_in;
 
@@ -448,14 +462,14 @@ class OAuthTokenResponse implements ModelInterface, ArrayAccess, JsonSerializabl
      *
      * @return self
      */
-    public function setState(?string $state)
+    public function setState($state)
     {
         if (is_null($state)) {
             array_push($this->openAPINullablesSetToNull, 'state');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
             $index = array_search('state', $nullablesSetToNull);
-            if ($index !== false) {
+            if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
@@ -464,13 +478,14 @@ class OAuthTokenResponse implements ModelInterface, ArrayAccess, JsonSerializabl
 
         return $this;
     }
-
     /**
      * Returns true if offset exists. False otherwise.
      *
-     * @param int $offset Offset
+     * @param integer $offset Offset
+     *
+     * @return boolean
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
@@ -479,11 +494,11 @@ class OAuthTokenResponse implements ModelInterface, ArrayAccess, JsonSerializabl
     /**
      * Gets offset.
      *
-     * @param int $offset Offset
+     * @param integer $offset Offset
      *
      * @return mixed|null
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return $this->container[$offset] ?? null;
@@ -494,8 +509,10 @@ class OAuthTokenResponse implements ModelInterface, ArrayAccess, JsonSerializabl
      *
      * @param int|null $offset Offset
      * @param mixed    $value  Value to be set
+     *
+     * @return void
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
@@ -508,9 +525,11 @@ class OAuthTokenResponse implements ModelInterface, ArrayAccess, JsonSerializabl
     /**
      * Unsets offset.
      *
-     * @param int $offset Offset
+     * @param integer $offset Offset
+     *
+     * @return void
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
@@ -518,15 +537,15 @@ class OAuthTokenResponse implements ModelInterface, ArrayAccess, JsonSerializabl
 
     /**
      * Serializes the object to a value that can be serialized natively by json_encode().
-     * @see https://www.php.net/manual/en/jsonserializable.jsonserialize.php
+     * @link https://www.php.net/manual/en/jsonserializable.jsonserialize.php
      *
-     * @return mixed returns data which can be serialized by json_encode(), which is a value
-     *               of any type other than a resource
+     * @return mixed Returns data which can be serialized by json_encode(), which is a value
+     * of any type other than a resource.
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
-        return ObjectSerializer::sanitizeForSerialization($this);
+       return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**
@@ -552,3 +571,5 @@ class OAuthTokenResponse implements ModelInterface, ArrayAccess, JsonSerializabl
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
+
+

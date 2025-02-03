@@ -5,7 +5,9 @@
  * PHP version 7.4
  *
  * @category Class
- * @see     https://openapi-generator.tech
+ * @package  Dropbox\Sign
+ * @author   OpenAPI Generator team
+ * @link     https://openapi-generator.tech
  */
 
 /**
@@ -26,12 +28,15 @@
  */
 
 namespace Dropbox\Sign\Model;
+use \Dropbox\Sign\ObjectSerializer;
 
 /**
  * SignatureRequestResponseCustomFieldTypeEnum Class Doc Comment
  *
  * @category Class
- * @see     https://openapi-generator.tech
+ * @package  Dropbox\Sign
+ * @author   OpenAPI Generator team
+ * @link     https://openapi-generator.tech
  */
 class SignatureRequestResponseCustomFieldTypeEnum
 {
@@ -50,7 +55,9 @@ class SignatureRequestResponseCustomFieldTypeEnum
     {
         return [
             self::TEXT,
-            self::CHECKBOX,
+            self::CHECKBOX
         ];
     }
 }
+
+

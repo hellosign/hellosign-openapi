@@ -4,7 +4,9 @@
  * PHP version 7.4
  *
  * @category Class
- * @see     https://openapi-generator.tech
+ * @package  Dropbox\Sign
+ * @author   OpenAPI Generator team
+ * @link     https://openapi-generator.tech
  */
 
 /**
@@ -26,11 +28,6 @@
 
 namespace Dropbox\Sign\Api;
 
-use Dropbox\Sign\ApiException;
-use Dropbox\Sign\Configuration;
-use Dropbox\Sign\HeaderSelector;
-use Dropbox\Sign\Model;
-use Dropbox\Sign\ObjectSerializer;
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\ConnectException;
@@ -38,35 +35,44 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use InvalidArgumentException;
-use JsonException;
+use Dropbox\Sign\ApiException;
+use Dropbox\Sign\Configuration;
+use Dropbox\Sign\HeaderSelector;
+use Dropbox\Sign\ObjectSerializer;
+use Dropbox\Sign\Model;
 use Psr\Http\Message\ResponseInterface;
-use RuntimeException;
-use SplFileObject;
 
 /**
  * TemplateApi Class Doc Comment
  *
  * @category Class
- * @see     https://openapi-generator.tech
+ * @package  Dropbox\Sign
+ * @author   OpenAPI Generator team
+ * @link     https://openapi-generator.tech
  */
 class TemplateApi
 {
-    /** @var ClientInterface */
+    /**
+     * @var ClientInterface
+     */
     protected $client;
 
-    /** @var Configuration */
+    /**
+     * @var Configuration
+     */
     protected $config;
 
-    /** @var HeaderSelector */
+    /**
+     * @var HeaderSelector
+     */
     protected $headerSelector;
 
-    /** @var int Host index */
+    /**
+     * @var int Host index
+     */
     protected $hostIndex;
 
-    /**
-     * @var string[] *
-     */
+    /** @var string[] $contentTypes **/
     public const contentTypes = [
         'templateAddUser' => [
             'application/json',
@@ -110,13 +116,16 @@ class TemplateApi
     protected $response;
 
     /**
-     * @param int $hostIndex (Optional) host index to select the list of hosts if defined in the OpenAPI spec
+     * @param Configuration   $config
+     * @param ClientInterface $client
+     * @param HeaderSelector  $selector
+     * @param int             $hostIndex (Optional) host index to select the list of hosts if defined in the OpenAPI spec
      */
     public function __construct(
         Configuration $config = null,
         ClientInterface $client = null,
         HeaderSelector $selector = null,
-        int $hostIndex = 0
+        $hostIndex = 0
     ) {
         $this->client = $client ?: new Client();
         $this->config = $config ?: new Configuration();
@@ -130,7 +139,7 @@ class TemplateApi
      * @param int $hostIndex Host index (required)
      * @deprecated To be made private in the future
      */
-    public function setHostIndex(int $hostIndex): void
+    public function setHostIndex($hostIndex): void
     {
         $this->hostIndex = $hostIndex;
     }
@@ -167,14 +176,14 @@ class TemplateApi
      *
      * Add User to Template
      *
-     * @param string                       $template_id               The id of the Template to give the Account access to. (required)
-     * @param Model\TemplateAddUserRequest $template_add_user_request template_add_user_request (required)
+     * @param  string $template_id The id of the Template to give the Account access to. (required)
+     * @param  \Dropbox\Sign\Model\TemplateAddUserRequest $template_add_user_request template_add_user_request (required)
      *
-     * @return Model\TemplateGetResponse
-     * @throws ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws InvalidArgumentException
+     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \Dropbox\Sign\Model\TemplateGetResponse|\Dropbox\Sign\Model\ErrorResponse
      */
-    public function templateAddUser(string $template_id, Model\TemplateAddUserRequest $template_add_user_request)
+    public function templateAddUser($template_id, $template_add_user_request)
     {
         list($response) = $this->templateAddUserWithHttpInfo($template_id, $template_add_user_request);
         return $response;
@@ -185,16 +194,16 @@ class TemplateApi
      *
      * Add User to Template
      *
-     * @param string                       $template_id               The id of the Template to give the Account access to. (required)
-     * @param Model\TemplateAddUserRequest $template_add_user_request (required)
-     * @param string                       $contentType               The value for the Content-Type header. Check self::contentTypes['templateAddUser'] to see the possible values for this operation
+     * @param  string $template_id The id of the Template to give the Account access to. (required)
+     * @param  \Dropbox\Sign\Model\TemplateAddUserRequest $template_add_user_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['templateAddUser'] to see the possible values for this operation
      *
-     * @return array of Model\TemplateGetResponse, HTTP status code, HTTP response headers (array of strings)
-     * @throws ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws InvalidArgumentException
+     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \Dropbox\Sign\Model\TemplateGetResponse|\Dropbox\Sign\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      * @deprecated Prefer to use ::templateAddUser. This method will eventually become unavailable
      */
-    public function templateAddUserWithHttpInfo(string $template_id, Model\TemplateAddUserRequest $template_add_user_request, string $contentType = self::contentTypes['templateAddUser'][0])
+    public function templateAddUserWithHttpInfo($template_id, $template_add_user_request, string $contentType = self::contentTypes['templateAddUser'][0])
     {
         $request = $this->templateAddUserRequest($template_id, $template_add_user_request, $contentType);
 
@@ -206,14 +215,14 @@ class TemplateApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int)$e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string)$e->getResponse()->getBody() : null
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int)$e->getCode(),
+                    (int) $e->getCode(),
                     null,
                     null
                 );
@@ -226,14 +235,14 @@ class TemplateApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        (string)$request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    (string)$response->getBody()
+                    (string) $response->getBody()
                 );
             }
-
+            
             $result = $this->handleRangeCodeResponse(
                 $response,
                 '4XX',
@@ -242,17 +251,18 @@ class TemplateApi
             if ($result) {
                 return $result;
             }
+            
 
-            switch ($statusCode) {
+            switch($statusCode) {
                 case 200:
                     if ('\Dropbox\Sign\Model\TemplateGetResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string)$response->getBody();
+                        $content = (string) $response->getBody();
                         if ('\Dropbox\Sign\Model\TemplateGetResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (JsonException $exception) {
+                            } catch (\JsonException $exception) {
                                 throw new ApiException(
                                     sprintf(
                                         'Error JSON decoding server response (%s)',
@@ -269,19 +279,20 @@ class TemplateApi
                     return [
                         ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\TemplateGetResponse', []),
                         $response->getStatusCode(),
-                        $response->getHeaders(),
+                        $response->getHeaders()
                     ];
+                
             }
 
             $returnType = '\Dropbox\Sign\Model\TemplateGetResponse';
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); // stream goes to serializer
+                $content = $response->getBody(); //stream goes to serializer
             } else {
-                $content = (string)$response->getBody();
+                $content = (string) $response->getBody();
                 if ($returnType !== 'string') {
                     try {
                         $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                    } catch (JsonException $exception) {
+                    } catch (\JsonException $exception) {
                         throw new ApiException(
                             sprintf(
                                 'Error JSON decoding server response (%s)',
@@ -298,9 +309,11 @@ class TemplateApi
             return [
                 ObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
-                $response->getHeaders(),
+                $response->getHeaders()
             ];
+
         } catch (ApiException $e) {
+            
             if ($this->handleRangeCodeException($e, '4XX', '\Dropbox\Sign\Model\ErrorResponse')) {
                 throw $e;
             }
@@ -313,6 +326,7 @@ class TemplateApi
                     );
                     $e->setResponseObject($data);
                     break;
+                
             }
             throw $e;
         }
@@ -323,15 +337,15 @@ class TemplateApi
      *
      * Add User to Template
      *
-     * @param string                       $template_id               The id of the Template to give the Account access to. (required)
-     * @param Model\TemplateAddUserRequest $template_add_user_request (required)
-     * @param string                       $contentType               The value for the Content-Type header. Check self::contentTypes['templateAddUser'] to see the possible values for this operation
+     * @param  string $template_id The id of the Template to give the Account access to. (required)
+     * @param  \Dropbox\Sign\Model\TemplateAddUserRequest $template_add_user_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['templateAddUser'] to see the possible values for this operation
      *
+     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
-     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::templateAddUser. This method will eventually become unavailable
      */
-    public function templateAddUserAsync(string $template_id, Model\TemplateAddUserRequest $template_add_user_request, string $contentType = self::contentTypes['templateAddUser'][0])
+    public function templateAddUserAsync($template_id, $template_add_user_request, string $contentType = self::contentTypes['templateAddUser'][0])
     {
         return $this->templateAddUserAsyncWithHttpInfo($template_id, $template_add_user_request, $contentType)
             ->then(
@@ -346,15 +360,15 @@ class TemplateApi
      *
      * Add User to Template
      *
-     * @param string                       $template_id               The id of the Template to give the Account access to. (required)
-     * @param Model\TemplateAddUserRequest $template_add_user_request (required)
-     * @param string                       $contentType               The value for the Content-Type header. Check self::contentTypes['templateAddUser'] to see the possible values for this operation
+     * @param  string $template_id The id of the Template to give the Account access to. (required)
+     * @param  \Dropbox\Sign\Model\TemplateAddUserRequest $template_add_user_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['templateAddUser'] to see the possible values for this operation
      *
+     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
-     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::templateAddUser. This method will eventually become unavailable
      */
-    public function templateAddUserAsyncWithHttpInfo(string $template_id, Model\TemplateAddUserRequest $template_add_user_request, string $contentType = self::contentTypes['templateAddUser'][0])
+    public function templateAddUserAsyncWithHttpInfo($template_id, $template_add_user_request, string $contentType = self::contentTypes['templateAddUser'][0])
     {
         $returnType = '\Dropbox\Sign\Model\TemplateGetResponse';
         $request = $this->templateAddUserRequest($template_id, $template_add_user_request, $contentType);
@@ -364,9 +378,9 @@ class TemplateApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string)$response->getBody();
+                        $content = (string) $response->getBody();
                         if ($returnType !== 'string') {
                             $content = json_decode($content);
                         }
@@ -375,7 +389,7 @@ class TemplateApi
                     return [
                         ObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
-                        $response->getHeaders(),
+                        $response->getHeaders()
                     ];
                 },
                 function ($exception) {
@@ -389,7 +403,7 @@ class TemplateApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        (string)$response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -398,29 +412,31 @@ class TemplateApi
     /**
      * Create request for operation 'templateAddUser'
      *
-     * @param string                       $template_id               The id of the Template to give the Account access to. (required)
-     * @param Model\TemplateAddUserRequest $template_add_user_request (required)
-     * @param string                       $contentType               The value for the Content-Type header. Check self::contentTypes['templateAddUser'] to see the possible values for this operation
+     * @param  string $template_id The id of the Template to give the Account access to. (required)
+     * @param  \Dropbox\Sign\Model\TemplateAddUserRequest $template_add_user_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['templateAddUser'] to see the possible values for this operation
      *
-     * @return Request
-     * @throws InvalidArgumentException
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
      * @deprecated Prefer to use ::templateAddUser. This method will eventually become unavailable
      */
-    public function templateAddUserRequest(string $template_id, Model\TemplateAddUserRequest $template_add_user_request, string $contentType = self::contentTypes['templateAddUser'][0])
+    public function templateAddUserRequest($template_id, $template_add_user_request, string $contentType = self::contentTypes['templateAddUser'][0])
     {
+
         // verify the required parameter 'template_id' is set
         if ($template_id === null || (is_array($template_id) && count($template_id) === 0)) {
-            throw new InvalidArgumentException(
+            throw new \InvalidArgumentException(
                 'Missing the required parameter $template_id when calling templateAddUser'
             );
         }
 
         // verify the required parameter 'template_add_user_request' is set
         if ($template_add_user_request === null || (is_array($template_add_user_request) && count($template_add_user_request) === 0)) {
-            throw new InvalidArgumentException(
+            throw new \InvalidArgumentException(
                 'Missing the required parameter $template_add_user_request when calling templateAddUser'
             );
         }
+
 
         $resourcePath = '/template/add_user/{template_id}';
         $formParams = [];
@@ -435,17 +451,19 @@ class TemplateApi
 
         $multipart = !empty($formParams);
 
+
         // path params
         if ($template_id !== null) {
             $resourcePath = str_replace(
-                '{template_id}',
+                '{' . 'template_id' . '}',
                 ObjectSerializer::toPathValue($template_id),
                 $resourcePath
             );
         }
 
+
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            $multipart ? ['multipart/form-data'] : ['application/json', ],
             $contentType,
             $multipart
         );
@@ -453,7 +471,7 @@ class TemplateApi
         // for model (json/xml)
         if (count($formParams) === 0) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                // if Content-Type contains "application/json", json_encode the body
+                # if Content-Type contains "application/json", json_encode the body
                 $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($template_add_user_request));
             } else {
                 $httpBody = $template_add_user_request;
@@ -466,7 +484,7 @@ class TemplateApi
                     foreach ($formParamValueItems as $formParamValueItem) {
                         $multipartContents[] = [
                             'name' => $formParamName,
-                            'contents' => $formParamValueItem,
+                            'contents' => $formParamValueItem
                         ];
                     }
                 }
@@ -483,8 +501,9 @@ class TemplateApi
                     $payloadHook('multipart', $multipartContents, $template_add_user_request);
                 }
                 $httpBody = new MultipartStream($multipartContents);
+
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                // if Content-Type contains "application/json", json_encode the form parameters
+                # if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
             } else {
                 // for HTTP post (form)
@@ -527,13 +546,13 @@ class TemplateApi
      *
      * Create Template
      *
-     * @param Model\TemplateCreateRequest $template_create_request template_create_request (required)
+     * @param  \Dropbox\Sign\Model\TemplateCreateRequest $template_create_request template_create_request (required)
      *
-     * @return Model\TemplateCreateResponse
-     * @throws ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws InvalidArgumentException
+     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \Dropbox\Sign\Model\TemplateCreateResponse|\Dropbox\Sign\Model\ErrorResponse
      */
-    public function templateCreate(Model\TemplateCreateRequest $template_create_request)
+    public function templateCreate($template_create_request)
     {
         list($response) = $this->templateCreateWithHttpInfo($template_create_request);
         return $response;
@@ -544,15 +563,15 @@ class TemplateApi
      *
      * Create Template
      *
-     * @param Model\TemplateCreateRequest $template_create_request (required)
-     * @param string                      $contentType             The value for the Content-Type header. Check self::contentTypes['templateCreate'] to see the possible values for this operation
+     * @param  \Dropbox\Sign\Model\TemplateCreateRequest $template_create_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['templateCreate'] to see the possible values for this operation
      *
-     * @return array of Model\TemplateCreateResponse, HTTP status code, HTTP response headers (array of strings)
-     * @throws ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws InvalidArgumentException
+     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \Dropbox\Sign\Model\TemplateCreateResponse|\Dropbox\Sign\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      * @deprecated Prefer to use ::templateCreate. This method will eventually become unavailable
      */
-    public function templateCreateWithHttpInfo(Model\TemplateCreateRequest $template_create_request, string $contentType = self::contentTypes['templateCreate'][0])
+    public function templateCreateWithHttpInfo($template_create_request, string $contentType = self::contentTypes['templateCreate'][0])
     {
         $request = $this->templateCreateRequest($template_create_request, $contentType);
 
@@ -564,14 +583,14 @@ class TemplateApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int)$e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string)$e->getResponse()->getBody() : null
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int)$e->getCode(),
+                    (int) $e->getCode(),
                     null,
                     null
                 );
@@ -584,14 +603,14 @@ class TemplateApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        (string)$request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    (string)$response->getBody()
+                    (string) $response->getBody()
                 );
             }
-
+            
             $result = $this->handleRangeCodeResponse(
                 $response,
                 '4XX',
@@ -600,17 +619,18 @@ class TemplateApi
             if ($result) {
                 return $result;
             }
+            
 
-            switch ($statusCode) {
+            switch($statusCode) {
                 case 200:
                     if ('\Dropbox\Sign\Model\TemplateCreateResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string)$response->getBody();
+                        $content = (string) $response->getBody();
                         if ('\Dropbox\Sign\Model\TemplateCreateResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (JsonException $exception) {
+                            } catch (\JsonException $exception) {
                                 throw new ApiException(
                                     sprintf(
                                         'Error JSON decoding server response (%s)',
@@ -627,19 +647,20 @@ class TemplateApi
                     return [
                         ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\TemplateCreateResponse', []),
                         $response->getStatusCode(),
-                        $response->getHeaders(),
+                        $response->getHeaders()
                     ];
+                
             }
 
             $returnType = '\Dropbox\Sign\Model\TemplateCreateResponse';
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); // stream goes to serializer
+                $content = $response->getBody(); //stream goes to serializer
             } else {
-                $content = (string)$response->getBody();
+                $content = (string) $response->getBody();
                 if ($returnType !== 'string') {
                     try {
                         $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                    } catch (JsonException $exception) {
+                    } catch (\JsonException $exception) {
                         throw new ApiException(
                             sprintf(
                                 'Error JSON decoding server response (%s)',
@@ -656,9 +677,11 @@ class TemplateApi
             return [
                 ObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
-                $response->getHeaders(),
+                $response->getHeaders()
             ];
+
         } catch (ApiException $e) {
+            
             if ($this->handleRangeCodeException($e, '4XX', '\Dropbox\Sign\Model\ErrorResponse')) {
                 throw $e;
             }
@@ -671,6 +694,7 @@ class TemplateApi
                     );
                     $e->setResponseObject($data);
                     break;
+                
             }
             throw $e;
         }
@@ -681,14 +705,14 @@ class TemplateApi
      *
      * Create Template
      *
-     * @param Model\TemplateCreateRequest $template_create_request (required)
-     * @param string                      $contentType             The value for the Content-Type header. Check self::contentTypes['templateCreate'] to see the possible values for this operation
+     * @param  \Dropbox\Sign\Model\TemplateCreateRequest $template_create_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['templateCreate'] to see the possible values for this operation
      *
+     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
-     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::templateCreate. This method will eventually become unavailable
      */
-    public function templateCreateAsync(Model\TemplateCreateRequest $template_create_request, string $contentType = self::contentTypes['templateCreate'][0])
+    public function templateCreateAsync($template_create_request, string $contentType = self::contentTypes['templateCreate'][0])
     {
         return $this->templateCreateAsyncWithHttpInfo($template_create_request, $contentType)
             ->then(
@@ -703,14 +727,14 @@ class TemplateApi
      *
      * Create Template
      *
-     * @param Model\TemplateCreateRequest $template_create_request (required)
-     * @param string                      $contentType             The value for the Content-Type header. Check self::contentTypes['templateCreate'] to see the possible values for this operation
+     * @param  \Dropbox\Sign\Model\TemplateCreateRequest $template_create_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['templateCreate'] to see the possible values for this operation
      *
+     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
-     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::templateCreate. This method will eventually become unavailable
      */
-    public function templateCreateAsyncWithHttpInfo(Model\TemplateCreateRequest $template_create_request, string $contentType = self::contentTypes['templateCreate'][0])
+    public function templateCreateAsyncWithHttpInfo($template_create_request, string $contentType = self::contentTypes['templateCreate'][0])
     {
         $returnType = '\Dropbox\Sign\Model\TemplateCreateResponse';
         $request = $this->templateCreateRequest($template_create_request, $contentType);
@@ -720,9 +744,9 @@ class TemplateApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string)$response->getBody();
+                        $content = (string) $response->getBody();
                         if ($returnType !== 'string') {
                             $content = json_decode($content);
                         }
@@ -731,7 +755,7 @@ class TemplateApi
                     return [
                         ObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
-                        $response->getHeaders(),
+                        $response->getHeaders()
                     ];
                 },
                 function ($exception) {
@@ -745,7 +769,7 @@ class TemplateApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        (string)$response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -754,21 +778,23 @@ class TemplateApi
     /**
      * Create request for operation 'templateCreate'
      *
-     * @param Model\TemplateCreateRequest $template_create_request (required)
-     * @param string                      $contentType             The value for the Content-Type header. Check self::contentTypes['templateCreate'] to see the possible values for this operation
+     * @param  \Dropbox\Sign\Model\TemplateCreateRequest $template_create_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['templateCreate'] to see the possible values for this operation
      *
-     * @return Request
-     * @throws InvalidArgumentException
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
      * @deprecated Prefer to use ::templateCreate. This method will eventually become unavailable
      */
-    public function templateCreateRequest(Model\TemplateCreateRequest $template_create_request, string $contentType = self::contentTypes['templateCreate'][0])
+    public function templateCreateRequest($template_create_request, string $contentType = self::contentTypes['templateCreate'][0])
     {
+
         // verify the required parameter 'template_create_request' is set
         if ($template_create_request === null || (is_array($template_create_request) && count($template_create_request) === 0)) {
-            throw new InvalidArgumentException(
+            throw new \InvalidArgumentException(
                 'Missing the required parameter $template_create_request when calling templateCreate'
             );
         }
+
 
         $resourcePath = '/template/create';
         $formParams = [];
@@ -783,8 +809,11 @@ class TemplateApi
 
         $multipart = !empty($formParams);
 
+
+
+
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            $multipart ? ['multipart/form-data'] : ['application/json', ],
             $contentType,
             $multipart
         );
@@ -792,7 +821,7 @@ class TemplateApi
         // for model (json/xml)
         if (count($formParams) === 0) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                // if Content-Type contains "application/json", json_encode the body
+                # if Content-Type contains "application/json", json_encode the body
                 $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($template_create_request));
             } else {
                 $httpBody = $template_create_request;
@@ -805,7 +834,7 @@ class TemplateApi
                     foreach ($formParamValueItems as $formParamValueItem) {
                         $multipartContents[] = [
                             'name' => $formParamName,
-                            'contents' => $formParamValueItem,
+                            'contents' => $formParamValueItem
                         ];
                     }
                 }
@@ -822,8 +851,9 @@ class TemplateApi
                     $payloadHook('multipart', $multipartContents, $template_create_request);
                 }
                 $httpBody = new MultipartStream($multipartContents);
+
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                // if Content-Type contains "application/json", json_encode the form parameters
+                # if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
             } else {
                 // for HTTP post (form)
@@ -866,13 +896,13 @@ class TemplateApi
      *
      * Create Embedded Template Draft
      *
-     * @param Model\TemplateCreateEmbeddedDraftRequest $template_create_embedded_draft_request template_create_embedded_draft_request (required)
+     * @param  \Dropbox\Sign\Model\TemplateCreateEmbeddedDraftRequest $template_create_embedded_draft_request template_create_embedded_draft_request (required)
      *
-     * @return Model\TemplateCreateEmbeddedDraftResponse
-     * @throws ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws InvalidArgumentException
+     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \Dropbox\Sign\Model\TemplateCreateEmbeddedDraftResponse|\Dropbox\Sign\Model\ErrorResponse
      */
-    public function templateCreateEmbeddedDraft(Model\TemplateCreateEmbeddedDraftRequest $template_create_embedded_draft_request)
+    public function templateCreateEmbeddedDraft($template_create_embedded_draft_request)
     {
         list($response) = $this->templateCreateEmbeddedDraftWithHttpInfo($template_create_embedded_draft_request);
         return $response;
@@ -883,15 +913,15 @@ class TemplateApi
      *
      * Create Embedded Template Draft
      *
-     * @param Model\TemplateCreateEmbeddedDraftRequest $template_create_embedded_draft_request (required)
-     * @param string                                   $contentType                            The value for the Content-Type header. Check self::contentTypes['templateCreateEmbeddedDraft'] to see the possible values for this operation
+     * @param  \Dropbox\Sign\Model\TemplateCreateEmbeddedDraftRequest $template_create_embedded_draft_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['templateCreateEmbeddedDraft'] to see the possible values for this operation
      *
-     * @return array of Model\TemplateCreateEmbeddedDraftResponse, HTTP status code, HTTP response headers (array of strings)
-     * @throws ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws InvalidArgumentException
+     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \Dropbox\Sign\Model\TemplateCreateEmbeddedDraftResponse|\Dropbox\Sign\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      * @deprecated Prefer to use ::templateCreateEmbeddedDraft. This method will eventually become unavailable
      */
-    public function templateCreateEmbeddedDraftWithHttpInfo(Model\TemplateCreateEmbeddedDraftRequest $template_create_embedded_draft_request, string $contentType = self::contentTypes['templateCreateEmbeddedDraft'][0])
+    public function templateCreateEmbeddedDraftWithHttpInfo($template_create_embedded_draft_request, string $contentType = self::contentTypes['templateCreateEmbeddedDraft'][0])
     {
         $request = $this->templateCreateEmbeddedDraftRequest($template_create_embedded_draft_request, $contentType);
 
@@ -903,14 +933,14 @@ class TemplateApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int)$e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string)$e->getResponse()->getBody() : null
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int)$e->getCode(),
+                    (int) $e->getCode(),
                     null,
                     null
                 );
@@ -923,14 +953,14 @@ class TemplateApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        (string)$request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    (string)$response->getBody()
+                    (string) $response->getBody()
                 );
             }
-
+            
             $result = $this->handleRangeCodeResponse(
                 $response,
                 '4XX',
@@ -939,17 +969,18 @@ class TemplateApi
             if ($result) {
                 return $result;
             }
+            
 
-            switch ($statusCode) {
+            switch($statusCode) {
                 case 200:
                     if ('\Dropbox\Sign\Model\TemplateCreateEmbeddedDraftResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string)$response->getBody();
+                        $content = (string) $response->getBody();
                         if ('\Dropbox\Sign\Model\TemplateCreateEmbeddedDraftResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (JsonException $exception) {
+                            } catch (\JsonException $exception) {
                                 throw new ApiException(
                                     sprintf(
                                         'Error JSON decoding server response (%s)',
@@ -966,19 +997,20 @@ class TemplateApi
                     return [
                         ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\TemplateCreateEmbeddedDraftResponse', []),
                         $response->getStatusCode(),
-                        $response->getHeaders(),
+                        $response->getHeaders()
                     ];
+                
             }
 
             $returnType = '\Dropbox\Sign\Model\TemplateCreateEmbeddedDraftResponse';
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); // stream goes to serializer
+                $content = $response->getBody(); //stream goes to serializer
             } else {
-                $content = (string)$response->getBody();
+                $content = (string) $response->getBody();
                 if ($returnType !== 'string') {
                     try {
                         $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                    } catch (JsonException $exception) {
+                    } catch (\JsonException $exception) {
                         throw new ApiException(
                             sprintf(
                                 'Error JSON decoding server response (%s)',
@@ -995,9 +1027,11 @@ class TemplateApi
             return [
                 ObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
-                $response->getHeaders(),
+                $response->getHeaders()
             ];
+
         } catch (ApiException $e) {
+            
             if ($this->handleRangeCodeException($e, '4XX', '\Dropbox\Sign\Model\ErrorResponse')) {
                 throw $e;
             }
@@ -1010,6 +1044,7 @@ class TemplateApi
                     );
                     $e->setResponseObject($data);
                     break;
+                
             }
             throw $e;
         }
@@ -1020,14 +1055,14 @@ class TemplateApi
      *
      * Create Embedded Template Draft
      *
-     * @param Model\TemplateCreateEmbeddedDraftRequest $template_create_embedded_draft_request (required)
-     * @param string                                   $contentType                            The value for the Content-Type header. Check self::contentTypes['templateCreateEmbeddedDraft'] to see the possible values for this operation
+     * @param  \Dropbox\Sign\Model\TemplateCreateEmbeddedDraftRequest $template_create_embedded_draft_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['templateCreateEmbeddedDraft'] to see the possible values for this operation
      *
+     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
-     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::templateCreateEmbeddedDraft. This method will eventually become unavailable
      */
-    public function templateCreateEmbeddedDraftAsync(Model\TemplateCreateEmbeddedDraftRequest $template_create_embedded_draft_request, string $contentType = self::contentTypes['templateCreateEmbeddedDraft'][0])
+    public function templateCreateEmbeddedDraftAsync($template_create_embedded_draft_request, string $contentType = self::contentTypes['templateCreateEmbeddedDraft'][0])
     {
         return $this->templateCreateEmbeddedDraftAsyncWithHttpInfo($template_create_embedded_draft_request, $contentType)
             ->then(
@@ -1042,14 +1077,14 @@ class TemplateApi
      *
      * Create Embedded Template Draft
      *
-     * @param Model\TemplateCreateEmbeddedDraftRequest $template_create_embedded_draft_request (required)
-     * @param string                                   $contentType                            The value for the Content-Type header. Check self::contentTypes['templateCreateEmbeddedDraft'] to see the possible values for this operation
+     * @param  \Dropbox\Sign\Model\TemplateCreateEmbeddedDraftRequest $template_create_embedded_draft_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['templateCreateEmbeddedDraft'] to see the possible values for this operation
      *
+     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
-     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::templateCreateEmbeddedDraft. This method will eventually become unavailable
      */
-    public function templateCreateEmbeddedDraftAsyncWithHttpInfo(Model\TemplateCreateEmbeddedDraftRequest $template_create_embedded_draft_request, string $contentType = self::contentTypes['templateCreateEmbeddedDraft'][0])
+    public function templateCreateEmbeddedDraftAsyncWithHttpInfo($template_create_embedded_draft_request, string $contentType = self::contentTypes['templateCreateEmbeddedDraft'][0])
     {
         $returnType = '\Dropbox\Sign\Model\TemplateCreateEmbeddedDraftResponse';
         $request = $this->templateCreateEmbeddedDraftRequest($template_create_embedded_draft_request, $contentType);
@@ -1059,9 +1094,9 @@ class TemplateApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string)$response->getBody();
+                        $content = (string) $response->getBody();
                         if ($returnType !== 'string') {
                             $content = json_decode($content);
                         }
@@ -1070,7 +1105,7 @@ class TemplateApi
                     return [
                         ObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
-                        $response->getHeaders(),
+                        $response->getHeaders()
                     ];
                 },
                 function ($exception) {
@@ -1084,7 +1119,7 @@ class TemplateApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        (string)$response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -1093,21 +1128,23 @@ class TemplateApi
     /**
      * Create request for operation 'templateCreateEmbeddedDraft'
      *
-     * @param Model\TemplateCreateEmbeddedDraftRequest $template_create_embedded_draft_request (required)
-     * @param string                                   $contentType                            The value for the Content-Type header. Check self::contentTypes['templateCreateEmbeddedDraft'] to see the possible values for this operation
+     * @param  \Dropbox\Sign\Model\TemplateCreateEmbeddedDraftRequest $template_create_embedded_draft_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['templateCreateEmbeddedDraft'] to see the possible values for this operation
      *
-     * @return Request
-     * @throws InvalidArgumentException
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
      * @deprecated Prefer to use ::templateCreateEmbeddedDraft. This method will eventually become unavailable
      */
-    public function templateCreateEmbeddedDraftRequest(Model\TemplateCreateEmbeddedDraftRequest $template_create_embedded_draft_request, string $contentType = self::contentTypes['templateCreateEmbeddedDraft'][0])
+    public function templateCreateEmbeddedDraftRequest($template_create_embedded_draft_request, string $contentType = self::contentTypes['templateCreateEmbeddedDraft'][0])
     {
+
         // verify the required parameter 'template_create_embedded_draft_request' is set
         if ($template_create_embedded_draft_request === null || (is_array($template_create_embedded_draft_request) && count($template_create_embedded_draft_request) === 0)) {
-            throw new InvalidArgumentException(
+            throw new \InvalidArgumentException(
                 'Missing the required parameter $template_create_embedded_draft_request when calling templateCreateEmbeddedDraft'
             );
         }
+
 
         $resourcePath = '/template/create_embedded_draft';
         $formParams = [];
@@ -1122,8 +1159,11 @@ class TemplateApi
 
         $multipart = !empty($formParams);
 
+
+
+
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            $multipart ? ['multipart/form-data'] : ['application/json', ],
             $contentType,
             $multipart
         );
@@ -1131,7 +1171,7 @@ class TemplateApi
         // for model (json/xml)
         if (count($formParams) === 0) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                // if Content-Type contains "application/json", json_encode the body
+                # if Content-Type contains "application/json", json_encode the body
                 $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($template_create_embedded_draft_request));
             } else {
                 $httpBody = $template_create_embedded_draft_request;
@@ -1144,7 +1184,7 @@ class TemplateApi
                     foreach ($formParamValueItems as $formParamValueItem) {
                         $multipartContents[] = [
                             'name' => $formParamName,
-                            'contents' => $formParamValueItem,
+                            'contents' => $formParamValueItem
                         ];
                     }
                 }
@@ -1161,8 +1201,9 @@ class TemplateApi
                     $payloadHook('multipart', $multipartContents, $template_create_embedded_draft_request);
                 }
                 $httpBody = new MultipartStream($multipartContents);
+
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                // if Content-Type contains "application/json", json_encode the form parameters
+                # if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
             } else {
                 // for HTTP post (form)
@@ -1205,12 +1246,13 @@ class TemplateApi
      *
      * Delete Template
      *
-     * @param string $template_id The id of the Template to delete. (required)
+     * @param  string $template_id The id of the Template to delete. (required)
      *
-     * @throws ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws InvalidArgumentException
+     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return void
      */
-    public function templateDelete(string $template_id)
+    public function templateDelete($template_id)
     {
         $this->templateDeleteWithHttpInfo($template_id);
     }
@@ -1220,15 +1262,15 @@ class TemplateApi
      *
      * Delete Template
      *
-     * @param string $template_id The id of the Template to delete. (required)
-     * @param string $contentType The value for the Content-Type header. Check self::contentTypes['templateDelete'] to see the possible values for this operation
+     * @param  string $template_id The id of the Template to delete. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['templateDelete'] to see the possible values for this operation
      *
+     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
-     * @throws ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::templateDelete. This method will eventually become unavailable
      */
-    public function templateDeleteWithHttpInfo(string $template_id, string $contentType = self::contentTypes['templateDelete'][0])
+    public function templateDeleteWithHttpInfo($template_id, string $contentType = self::contentTypes['templateDelete'][0])
     {
         $request = $this->templateDeleteRequest($template_id, $contentType);
 
@@ -1240,14 +1282,14 @@ class TemplateApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int)$e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string)$e->getResponse()->getBody() : null
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int)$e->getCode(),
+                    (int) $e->getCode(),
                     null,
                     null
                 );
@@ -1260,20 +1302,23 @@ class TemplateApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        (string)$request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    (string)$response->getBody()
+                    (string) $response->getBody()
                 );
             }
 
             return [null, $statusCode, $response->getHeaders()];
+
         } catch (ApiException $e) {
+            
             if ($this->handleRangeCodeException($e, '4XX', '\Dropbox\Sign\Model\ErrorResponse')) {
                 throw $e;
             }
             switch ($e->getCode()) {
+                
             }
             throw $e;
         }
@@ -1284,14 +1329,14 @@ class TemplateApi
      *
      * Delete Template
      *
-     * @param string $template_id The id of the Template to delete. (required)
-     * @param string $contentType The value for the Content-Type header. Check self::contentTypes['templateDelete'] to see the possible values for this operation
+     * @param  string $template_id The id of the Template to delete. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['templateDelete'] to see the possible values for this operation
      *
+     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
-     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::templateDelete. This method will eventually become unavailable
      */
-    public function templateDeleteAsync(string $template_id, string $contentType = self::contentTypes['templateDelete'][0])
+    public function templateDeleteAsync($template_id, string $contentType = self::contentTypes['templateDelete'][0])
     {
         return $this->templateDeleteAsyncWithHttpInfo($template_id, $contentType)
             ->then(
@@ -1306,14 +1351,14 @@ class TemplateApi
      *
      * Delete Template
      *
-     * @param string $template_id The id of the Template to delete. (required)
-     * @param string $contentType The value for the Content-Type header. Check self::contentTypes['templateDelete'] to see the possible values for this operation
+     * @param  string $template_id The id of the Template to delete. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['templateDelete'] to see the possible values for this operation
      *
+     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
-     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::templateDelete. This method will eventually become unavailable
      */
-    public function templateDeleteAsyncWithHttpInfo(string $template_id, string $contentType = self::contentTypes['templateDelete'][0])
+    public function templateDeleteAsyncWithHttpInfo($template_id, string $contentType = self::contentTypes['templateDelete'][0])
     {
         $returnType = '';
         $request = $this->templateDeleteRequest($template_id, $contentType);
@@ -1321,7 +1366,7 @@ class TemplateApi
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
-                function ($response) {
+                function ($response) use ($returnType) {
                     return [null, $response->getStatusCode(), $response->getHeaders()];
                 },
                 function ($exception) {
@@ -1335,7 +1380,7 @@ class TemplateApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        (string)$response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -1344,21 +1389,23 @@ class TemplateApi
     /**
      * Create request for operation 'templateDelete'
      *
-     * @param string $template_id The id of the Template to delete. (required)
-     * @param string $contentType The value for the Content-Type header. Check self::contentTypes['templateDelete'] to see the possible values for this operation
+     * @param  string $template_id The id of the Template to delete. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['templateDelete'] to see the possible values for this operation
      *
-     * @return Request
-     * @throws InvalidArgumentException
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
      * @deprecated Prefer to use ::templateDelete. This method will eventually become unavailable
      */
-    public function templateDeleteRequest(string $template_id, string $contentType = self::contentTypes['templateDelete'][0])
+    public function templateDeleteRequest($template_id, string $contentType = self::contentTypes['templateDelete'][0])
     {
+
         // verify the required parameter 'template_id' is set
         if ($template_id === null || (is_array($template_id) && count($template_id) === 0)) {
-            throw new InvalidArgumentException(
+            throw new \InvalidArgumentException(
                 'Missing the required parameter $template_id when calling templateDelete'
             );
         }
+
 
         $resourcePath = '/template/delete/{template_id}';
         $formParams = [];
@@ -1367,17 +1414,20 @@ class TemplateApi
         $httpBody = '';
         $multipart = false;
 
+
+
         // path params
         if ($template_id !== null) {
             $resourcePath = str_replace(
-                '{template_id}',
+                '{' . 'template_id' . '}',
                 ObjectSerializer::toPathValue($template_id),
                 $resourcePath
             );
         }
 
+
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            $multipart ? ['multipart/form-data'] : ['application/json', ],
             $contentType,
             $multipart
         );
@@ -1391,7 +1441,7 @@ class TemplateApi
                     foreach ($formParamValueItems as $formParamValueItem) {
                         $multipartContents[] = [
                             'name' => $formParamName,
-                            'contents' => $formParamValueItem,
+                            'contents' => $formParamValueItem
                         ];
                     }
                 }
@@ -1405,8 +1455,9 @@ class TemplateApi
                 }
 
                 $httpBody = new MultipartStream($multipartContents);
+
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                // if Content-Type contains "application/json", json_encode the form parameters
+                # if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
             } else {
                 // for HTTP post (form)
@@ -1449,14 +1500,14 @@ class TemplateApi
      *
      * Get Template Files
      *
-     * @param string $template_id The id of the template files to retrieve. (required)
-     * @param string $file_type   Set to &#x60;pdf&#x60; for a single merged document or &#x60;zip&#x60; for a collection of individual documents. (optional)
+     * @param  string $template_id The id of the template files to retrieve. (required)
+     * @param  string $file_type Set to &#x60;pdf&#x60; for a single merged document or &#x60;zip&#x60; for a collection of individual documents. (optional)
      *
-     * @return SplFileObject
-     * @throws ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws InvalidArgumentException
+     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \SplFileObject|\Dropbox\Sign\Model\ErrorResponse
      */
-    public function templateFiles(string $template_id, string $file_type = null)
+    public function templateFiles($template_id, $file_type = null)
     {
         list($response) = $this->templateFilesWithHttpInfo($template_id, $file_type);
         return $response;
@@ -1467,16 +1518,16 @@ class TemplateApi
      *
      * Get Template Files
      *
-     * @param string $template_id The id of the template files to retrieve. (required)
-     * @param string $file_type   Set to &#x60;pdf&#x60; for a single merged document or &#x60;zip&#x60; for a collection of individual documents. (optional)
-     * @param string $contentType The value for the Content-Type header. Check self::contentTypes['templateFiles'] to see the possible values for this operation
+     * @param  string $template_id The id of the template files to retrieve. (required)
+     * @param  string $file_type Set to &#x60;pdf&#x60; for a single merged document or &#x60;zip&#x60; for a collection of individual documents. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['templateFiles'] to see the possible values for this operation
      *
+     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
      * @return array of \SplFileObject|\Dropbox\Sign\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
-     * @throws ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::templateFiles. This method will eventually become unavailable
      */
-    public function templateFilesWithHttpInfo(string $template_id, string $file_type = null, string $contentType = self::contentTypes['templateFiles'][0])
+    public function templateFilesWithHttpInfo($template_id, $file_type = null, string $contentType = self::contentTypes['templateFiles'][0])
     {
         $request = $this->templateFilesRequest($template_id, $file_type, $contentType);
 
@@ -1488,14 +1539,14 @@ class TemplateApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int)$e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string)$e->getResponse()->getBody() : null
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int)$e->getCode(),
+                    (int) $e->getCode(),
                     null,
                     null
                 );
@@ -1508,14 +1559,14 @@ class TemplateApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        (string)$request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    (string)$response->getBody()
+                    (string) $response->getBody()
                 );
             }
-
+            
             $result = $this->handleRangeCodeResponse(
                 $response,
                 '4XX',
@@ -1524,17 +1575,18 @@ class TemplateApi
             if ($result) {
                 return $result;
             }
+            
 
-            switch ($statusCode) {
+            switch($statusCode) {
                 case 200:
                     if ('\SplFileObject' === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string)$response->getBody();
+                        $content = (string) $response->getBody();
                         if ('\SplFileObject' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (JsonException $exception) {
+                            } catch (\JsonException $exception) {
                                 throw new ApiException(
                                     sprintf(
                                         'Error JSON decoding server response (%s)',
@@ -1551,19 +1603,20 @@ class TemplateApi
                     return [
                         ObjectSerializer::deserialize($content, '\SplFileObject', []),
                         $response->getStatusCode(),
-                        $response->getHeaders(),
+                        $response->getHeaders()
                     ];
+                
             }
 
             $returnType = '\SplFileObject';
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); // stream goes to serializer
+                $content = $response->getBody(); //stream goes to serializer
             } else {
-                $content = (string)$response->getBody();
+                $content = (string) $response->getBody();
                 if ($returnType !== 'string') {
                     try {
                         $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                    } catch (JsonException $exception) {
+                    } catch (\JsonException $exception) {
                         throw new ApiException(
                             sprintf(
                                 'Error JSON decoding server response (%s)',
@@ -1580,9 +1633,11 @@ class TemplateApi
             return [
                 ObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
-                $response->getHeaders(),
+                $response->getHeaders()
             ];
+
         } catch (ApiException $e) {
+            
             if ($this->handleRangeCodeException($e, '4XX', '\Dropbox\Sign\Model\ErrorResponse')) {
                 throw $e;
             }
@@ -1595,6 +1650,7 @@ class TemplateApi
                     );
                     $e->setResponseObject($data);
                     break;
+                
             }
             throw $e;
         }
@@ -1605,15 +1661,15 @@ class TemplateApi
      *
      * Get Template Files
      *
-     * @param string $template_id The id of the template files to retrieve. (required)
-     * @param string $file_type   Set to &#x60;pdf&#x60; for a single merged document or &#x60;zip&#x60; for a collection of individual documents. (optional)
-     * @param string $contentType The value for the Content-Type header. Check self::contentTypes['templateFiles'] to see the possible values for this operation
+     * @param  string $template_id The id of the template files to retrieve. (required)
+     * @param  string $file_type Set to &#x60;pdf&#x60; for a single merged document or &#x60;zip&#x60; for a collection of individual documents. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['templateFiles'] to see the possible values for this operation
      *
+     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
-     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::templateFiles. This method will eventually become unavailable
      */
-    public function templateFilesAsync(string $template_id, string $file_type = null, string $contentType = self::contentTypes['templateFiles'][0])
+    public function templateFilesAsync($template_id, $file_type = null, string $contentType = self::contentTypes['templateFiles'][0])
     {
         return $this->templateFilesAsyncWithHttpInfo($template_id, $file_type, $contentType)
             ->then(
@@ -1628,15 +1684,15 @@ class TemplateApi
      *
      * Get Template Files
      *
-     * @param string $template_id The id of the template files to retrieve. (required)
-     * @param string $file_type   Set to &#x60;pdf&#x60; for a single merged document or &#x60;zip&#x60; for a collection of individual documents. (optional)
-     * @param string $contentType The value for the Content-Type header. Check self::contentTypes['templateFiles'] to see the possible values for this operation
+     * @param  string $template_id The id of the template files to retrieve. (required)
+     * @param  string $file_type Set to &#x60;pdf&#x60; for a single merged document or &#x60;zip&#x60; for a collection of individual documents. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['templateFiles'] to see the possible values for this operation
      *
+     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
-     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::templateFiles. This method will eventually become unavailable
      */
-    public function templateFilesAsyncWithHttpInfo(string $template_id, string $file_type = null, string $contentType = self::contentTypes['templateFiles'][0])
+    public function templateFilesAsyncWithHttpInfo($template_id, $file_type = null, string $contentType = self::contentTypes['templateFiles'][0])
     {
         $returnType = '\SplFileObject';
         $request = $this->templateFilesRequest($template_id, $file_type, $contentType);
@@ -1646,9 +1702,9 @@ class TemplateApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string)$response->getBody();
+                        $content = (string) $response->getBody();
                         if ($returnType !== 'string') {
                             $content = json_decode($content);
                         }
@@ -1657,7 +1713,7 @@ class TemplateApi
                     return [
                         ObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
-                        $response->getHeaders(),
+                        $response->getHeaders()
                     ];
                 },
                 function ($exception) {
@@ -1671,7 +1727,7 @@ class TemplateApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        (string)$response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -1680,22 +1736,25 @@ class TemplateApi
     /**
      * Create request for operation 'templateFiles'
      *
-     * @param string $template_id The id of the template files to retrieve. (required)
-     * @param string $file_type   Set to &#x60;pdf&#x60; for a single merged document or &#x60;zip&#x60; for a collection of individual documents. (optional)
-     * @param string $contentType The value for the Content-Type header. Check self::contentTypes['templateFiles'] to see the possible values for this operation
+     * @param  string $template_id The id of the template files to retrieve. (required)
+     * @param  string $file_type Set to &#x60;pdf&#x60; for a single merged document or &#x60;zip&#x60; for a collection of individual documents. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['templateFiles'] to see the possible values for this operation
      *
-     * @return Request
-     * @throws InvalidArgumentException
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
      * @deprecated Prefer to use ::templateFiles. This method will eventually become unavailable
      */
-    public function templateFilesRequest(string $template_id, string $file_type = null, string $contentType = self::contentTypes['templateFiles'][0])
+    public function templateFilesRequest($template_id, $file_type = null, string $contentType = self::contentTypes['templateFiles'][0])
     {
+
         // verify the required parameter 'template_id' is set
         if ($template_id === null || (is_array($template_id) && count($template_id) === 0)) {
-            throw new InvalidArgumentException(
+            throw new \InvalidArgumentException(
                 'Missing the required parameter $template_id when calling templateFiles'
             );
         }
+
+
 
         $resourcePath = '/template/files/{template_id}';
         $formParams = [];
@@ -1714,17 +1773,19 @@ class TemplateApi
             false // required
         ) ?? []);
 
+
         // path params
         if ($template_id !== null) {
             $resourcePath = str_replace(
-                '{template_id}',
+                '{' . 'template_id' . '}',
                 ObjectSerializer::toPathValue($template_id),
                 $resourcePath
             );
         }
 
+
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/pdf', 'application/zip', 'application/json'],
+            $multipart ? ['multipart/form-data'] : ['application/pdf', 'application/zip', 'application/json', ],
             $contentType,
             $multipart
         );
@@ -1738,7 +1799,7 @@ class TemplateApi
                     foreach ($formParamValueItems as $formParamValueItem) {
                         $multipartContents[] = [
                             'name' => $formParamName,
-                            'contents' => $formParamValueItem,
+                            'contents' => $formParamValueItem
                         ];
                     }
                 }
@@ -1752,8 +1813,9 @@ class TemplateApi
                 }
 
                 $httpBody = new MultipartStream($multipartContents);
+
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                // if Content-Type contains "application/json", json_encode the form parameters
+                # if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
             } else {
                 // for HTTP post (form)
@@ -1796,13 +1858,13 @@ class TemplateApi
      *
      * Get Template Files as Data Uri
      *
-     * @param string $template_id The id of the template files to retrieve. (required)
+     * @param  string $template_id The id of the template files to retrieve. (required)
      *
-     * @return Model\FileResponseDataUri
-     * @throws ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws InvalidArgumentException
+     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \Dropbox\Sign\Model\FileResponseDataUri|\Dropbox\Sign\Model\ErrorResponse
      */
-    public function templateFilesAsDataUri(string $template_id)
+    public function templateFilesAsDataUri($template_id)
     {
         list($response) = $this->templateFilesAsDataUriWithHttpInfo($template_id);
         return $response;
@@ -1813,15 +1875,15 @@ class TemplateApi
      *
      * Get Template Files as Data Uri
      *
-     * @param string $template_id The id of the template files to retrieve. (required)
-     * @param string $contentType The value for the Content-Type header. Check self::contentTypes['templateFilesAsDataUri'] to see the possible values for this operation
+     * @param  string $template_id The id of the template files to retrieve. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['templateFilesAsDataUri'] to see the possible values for this operation
      *
-     * @return array of Model\FileResponseDataUri, HTTP status code, HTTP response headers (array of strings)
-     * @throws ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws InvalidArgumentException
+     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \Dropbox\Sign\Model\FileResponseDataUri|\Dropbox\Sign\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      * @deprecated Prefer to use ::templateFilesAsDataUri. This method will eventually become unavailable
      */
-    public function templateFilesAsDataUriWithHttpInfo(string $template_id, string $contentType = self::contentTypes['templateFilesAsDataUri'][0])
+    public function templateFilesAsDataUriWithHttpInfo($template_id, string $contentType = self::contentTypes['templateFilesAsDataUri'][0])
     {
         $request = $this->templateFilesAsDataUriRequest($template_id, $contentType);
 
@@ -1833,14 +1895,14 @@ class TemplateApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int)$e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string)$e->getResponse()->getBody() : null
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int)$e->getCode(),
+                    (int) $e->getCode(),
                     null,
                     null
                 );
@@ -1853,14 +1915,14 @@ class TemplateApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        (string)$request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    (string)$response->getBody()
+                    (string) $response->getBody()
                 );
             }
-
+            
             $result = $this->handleRangeCodeResponse(
                 $response,
                 '4XX',
@@ -1869,17 +1931,18 @@ class TemplateApi
             if ($result) {
                 return $result;
             }
+            
 
-            switch ($statusCode) {
+            switch($statusCode) {
                 case 200:
                     if ('\Dropbox\Sign\Model\FileResponseDataUri' === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string)$response->getBody();
+                        $content = (string) $response->getBody();
                         if ('\Dropbox\Sign\Model\FileResponseDataUri' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (JsonException $exception) {
+                            } catch (\JsonException $exception) {
                                 throw new ApiException(
                                     sprintf(
                                         'Error JSON decoding server response (%s)',
@@ -1896,19 +1959,20 @@ class TemplateApi
                     return [
                         ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\FileResponseDataUri', []),
                         $response->getStatusCode(),
-                        $response->getHeaders(),
+                        $response->getHeaders()
                     ];
+                
             }
 
             $returnType = '\Dropbox\Sign\Model\FileResponseDataUri';
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); // stream goes to serializer
+                $content = $response->getBody(); //stream goes to serializer
             } else {
-                $content = (string)$response->getBody();
+                $content = (string) $response->getBody();
                 if ($returnType !== 'string') {
                     try {
                         $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                    } catch (JsonException $exception) {
+                    } catch (\JsonException $exception) {
                         throw new ApiException(
                             sprintf(
                                 'Error JSON decoding server response (%s)',
@@ -1925,9 +1989,11 @@ class TemplateApi
             return [
                 ObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
-                $response->getHeaders(),
+                $response->getHeaders()
             ];
+
         } catch (ApiException $e) {
+            
             if ($this->handleRangeCodeException($e, '4XX', '\Dropbox\Sign\Model\ErrorResponse')) {
                 throw $e;
             }
@@ -1940,6 +2006,7 @@ class TemplateApi
                     );
                     $e->setResponseObject($data);
                     break;
+                
             }
             throw $e;
         }
@@ -1950,14 +2017,14 @@ class TemplateApi
      *
      * Get Template Files as Data Uri
      *
-     * @param string $template_id The id of the template files to retrieve. (required)
-     * @param string $contentType The value for the Content-Type header. Check self::contentTypes['templateFilesAsDataUri'] to see the possible values for this operation
+     * @param  string $template_id The id of the template files to retrieve. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['templateFilesAsDataUri'] to see the possible values for this operation
      *
+     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
-     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::templateFilesAsDataUri. This method will eventually become unavailable
      */
-    public function templateFilesAsDataUriAsync(string $template_id, string $contentType = self::contentTypes['templateFilesAsDataUri'][0])
+    public function templateFilesAsDataUriAsync($template_id, string $contentType = self::contentTypes['templateFilesAsDataUri'][0])
     {
         return $this->templateFilesAsDataUriAsyncWithHttpInfo($template_id, $contentType)
             ->then(
@@ -1972,14 +2039,14 @@ class TemplateApi
      *
      * Get Template Files as Data Uri
      *
-     * @param string $template_id The id of the template files to retrieve. (required)
-     * @param string $contentType The value for the Content-Type header. Check self::contentTypes['templateFilesAsDataUri'] to see the possible values for this operation
+     * @param  string $template_id The id of the template files to retrieve. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['templateFilesAsDataUri'] to see the possible values for this operation
      *
+     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
-     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::templateFilesAsDataUri. This method will eventually become unavailable
      */
-    public function templateFilesAsDataUriAsyncWithHttpInfo(string $template_id, string $contentType = self::contentTypes['templateFilesAsDataUri'][0])
+    public function templateFilesAsDataUriAsyncWithHttpInfo($template_id, string $contentType = self::contentTypes['templateFilesAsDataUri'][0])
     {
         $returnType = '\Dropbox\Sign\Model\FileResponseDataUri';
         $request = $this->templateFilesAsDataUriRequest($template_id, $contentType);
@@ -1989,9 +2056,9 @@ class TemplateApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string)$response->getBody();
+                        $content = (string) $response->getBody();
                         if ($returnType !== 'string') {
                             $content = json_decode($content);
                         }
@@ -2000,7 +2067,7 @@ class TemplateApi
                     return [
                         ObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
-                        $response->getHeaders(),
+                        $response->getHeaders()
                     ];
                 },
                 function ($exception) {
@@ -2014,7 +2081,7 @@ class TemplateApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        (string)$response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -2023,21 +2090,23 @@ class TemplateApi
     /**
      * Create request for operation 'templateFilesAsDataUri'
      *
-     * @param string $template_id The id of the template files to retrieve. (required)
-     * @param string $contentType The value for the Content-Type header. Check self::contentTypes['templateFilesAsDataUri'] to see the possible values for this operation
+     * @param  string $template_id The id of the template files to retrieve. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['templateFilesAsDataUri'] to see the possible values for this operation
      *
-     * @return Request
-     * @throws InvalidArgumentException
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
      * @deprecated Prefer to use ::templateFilesAsDataUri. This method will eventually become unavailable
      */
-    public function templateFilesAsDataUriRequest(string $template_id, string $contentType = self::contentTypes['templateFilesAsDataUri'][0])
+    public function templateFilesAsDataUriRequest($template_id, string $contentType = self::contentTypes['templateFilesAsDataUri'][0])
     {
+
         // verify the required parameter 'template_id' is set
         if ($template_id === null || (is_array($template_id) && count($template_id) === 0)) {
-            throw new InvalidArgumentException(
+            throw new \InvalidArgumentException(
                 'Missing the required parameter $template_id when calling templateFilesAsDataUri'
             );
         }
+
 
         $resourcePath = '/template/files_as_data_uri/{template_id}';
         $formParams = [];
@@ -2046,17 +2115,20 @@ class TemplateApi
         $httpBody = '';
         $multipart = false;
 
+
+
         // path params
         if ($template_id !== null) {
             $resourcePath = str_replace(
-                '{template_id}',
+                '{' . 'template_id' . '}',
                 ObjectSerializer::toPathValue($template_id),
                 $resourcePath
             );
         }
 
+
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            $multipart ? ['multipart/form-data'] : ['application/json', ],
             $contentType,
             $multipart
         );
@@ -2070,7 +2142,7 @@ class TemplateApi
                     foreach ($formParamValueItems as $formParamValueItem) {
                         $multipartContents[] = [
                             'name' => $formParamName,
-                            'contents' => $formParamValueItem,
+                            'contents' => $formParamValueItem
                         ];
                     }
                 }
@@ -2084,8 +2156,9 @@ class TemplateApi
                 }
 
                 $httpBody = new MultipartStream($multipartContents);
+
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                // if Content-Type contains "application/json", json_encode the form parameters
+                # if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
             } else {
                 // for HTTP post (form)
@@ -2128,14 +2201,14 @@ class TemplateApi
      *
      * Get Template Files as File Url
      *
-     * @param string $template_id    The id of the template files to retrieve. (required)
-     * @param int    $force_download By default when opening the &#x60;file_url&#x60; a browser will download the PDF and save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser. (optional, default to 1)
+     * @param  string $template_id The id of the template files to retrieve. (required)
+     * @param  int $force_download By default when opening the &#x60;file_url&#x60; a browser will download the PDF and save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser. (optional, default to 1)
      *
-     * @return Model\FileResponse
-     * @throws ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws InvalidArgumentException
+     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \Dropbox\Sign\Model\FileResponse|\Dropbox\Sign\Model\ErrorResponse
      */
-    public function templateFilesAsFileUrl(string $template_id, int $force_download = 1)
+    public function templateFilesAsFileUrl($template_id, $force_download = 1)
     {
         list($response) = $this->templateFilesAsFileUrlWithHttpInfo($template_id, $force_download);
         return $response;
@@ -2146,16 +2219,16 @@ class TemplateApi
      *
      * Get Template Files as File Url
      *
-     * @param string $template_id    The id of the template files to retrieve. (required)
-     * @param int    $force_download By default when opening the &#x60;file_url&#x60; a browser will download the PDF and save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser. (optional, default to 1)
-     * @param string $contentType    The value for the Content-Type header. Check self::contentTypes['templateFilesAsFileUrl'] to see the possible values for this operation
+     * @param  string $template_id The id of the template files to retrieve. (required)
+     * @param  int $force_download By default when opening the &#x60;file_url&#x60; a browser will download the PDF and save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser. (optional, default to 1)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['templateFilesAsFileUrl'] to see the possible values for this operation
      *
-     * @return array of Model\FileResponse, HTTP status code, HTTP response headers (array of strings)
-     * @throws ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws InvalidArgumentException
+     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \Dropbox\Sign\Model\FileResponse|\Dropbox\Sign\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      * @deprecated Prefer to use ::templateFilesAsFileUrl. This method will eventually become unavailable
      */
-    public function templateFilesAsFileUrlWithHttpInfo(string $template_id, int $force_download = 1, string $contentType = self::contentTypes['templateFilesAsFileUrl'][0])
+    public function templateFilesAsFileUrlWithHttpInfo($template_id, $force_download = 1, string $contentType = self::contentTypes['templateFilesAsFileUrl'][0])
     {
         $request = $this->templateFilesAsFileUrlRequest($template_id, $force_download, $contentType);
 
@@ -2167,14 +2240,14 @@ class TemplateApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int)$e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string)$e->getResponse()->getBody() : null
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int)$e->getCode(),
+                    (int) $e->getCode(),
                     null,
                     null
                 );
@@ -2187,14 +2260,14 @@ class TemplateApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        (string)$request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    (string)$response->getBody()
+                    (string) $response->getBody()
                 );
             }
-
+            
             $result = $this->handleRangeCodeResponse(
                 $response,
                 '4XX',
@@ -2203,17 +2276,18 @@ class TemplateApi
             if ($result) {
                 return $result;
             }
+            
 
-            switch ($statusCode) {
+            switch($statusCode) {
                 case 200:
                     if ('\Dropbox\Sign\Model\FileResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string)$response->getBody();
+                        $content = (string) $response->getBody();
                         if ('\Dropbox\Sign\Model\FileResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (JsonException $exception) {
+                            } catch (\JsonException $exception) {
                                 throw new ApiException(
                                     sprintf(
                                         'Error JSON decoding server response (%s)',
@@ -2230,19 +2304,20 @@ class TemplateApi
                     return [
                         ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\FileResponse', []),
                         $response->getStatusCode(),
-                        $response->getHeaders(),
+                        $response->getHeaders()
                     ];
+                
             }
 
             $returnType = '\Dropbox\Sign\Model\FileResponse';
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); // stream goes to serializer
+                $content = $response->getBody(); //stream goes to serializer
             } else {
-                $content = (string)$response->getBody();
+                $content = (string) $response->getBody();
                 if ($returnType !== 'string') {
                     try {
                         $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                    } catch (JsonException $exception) {
+                    } catch (\JsonException $exception) {
                         throw new ApiException(
                             sprintf(
                                 'Error JSON decoding server response (%s)',
@@ -2259,9 +2334,11 @@ class TemplateApi
             return [
                 ObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
-                $response->getHeaders(),
+                $response->getHeaders()
             ];
+
         } catch (ApiException $e) {
+            
             if ($this->handleRangeCodeException($e, '4XX', '\Dropbox\Sign\Model\ErrorResponse')) {
                 throw $e;
             }
@@ -2274,6 +2351,7 @@ class TemplateApi
                     );
                     $e->setResponseObject($data);
                     break;
+                
             }
             throw $e;
         }
@@ -2284,15 +2362,15 @@ class TemplateApi
      *
      * Get Template Files as File Url
      *
-     * @param string $template_id    The id of the template files to retrieve. (required)
-     * @param int    $force_download By default when opening the &#x60;file_url&#x60; a browser will download the PDF and save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser. (optional, default to 1)
-     * @param string $contentType    The value for the Content-Type header. Check self::contentTypes['templateFilesAsFileUrl'] to see the possible values for this operation
+     * @param  string $template_id The id of the template files to retrieve. (required)
+     * @param  int $force_download By default when opening the &#x60;file_url&#x60; a browser will download the PDF and save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser. (optional, default to 1)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['templateFilesAsFileUrl'] to see the possible values for this operation
      *
+     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
-     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::templateFilesAsFileUrl. This method will eventually become unavailable
      */
-    public function templateFilesAsFileUrlAsync(string $template_id, int $force_download = 1, string $contentType = self::contentTypes['templateFilesAsFileUrl'][0])
+    public function templateFilesAsFileUrlAsync($template_id, $force_download = 1, string $contentType = self::contentTypes['templateFilesAsFileUrl'][0])
     {
         return $this->templateFilesAsFileUrlAsyncWithHttpInfo($template_id, $force_download, $contentType)
             ->then(
@@ -2307,15 +2385,15 @@ class TemplateApi
      *
      * Get Template Files as File Url
      *
-     * @param string $template_id    The id of the template files to retrieve. (required)
-     * @param int    $force_download By default when opening the &#x60;file_url&#x60; a browser will download the PDF and save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser. (optional, default to 1)
-     * @param string $contentType    The value for the Content-Type header. Check self::contentTypes['templateFilesAsFileUrl'] to see the possible values for this operation
+     * @param  string $template_id The id of the template files to retrieve. (required)
+     * @param  int $force_download By default when opening the &#x60;file_url&#x60; a browser will download the PDF and save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser. (optional, default to 1)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['templateFilesAsFileUrl'] to see the possible values for this operation
      *
+     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
-     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::templateFilesAsFileUrl. This method will eventually become unavailable
      */
-    public function templateFilesAsFileUrlAsyncWithHttpInfo(string $template_id, int $force_download = 1, string $contentType = self::contentTypes['templateFilesAsFileUrl'][0])
+    public function templateFilesAsFileUrlAsyncWithHttpInfo($template_id, $force_download = 1, string $contentType = self::contentTypes['templateFilesAsFileUrl'][0])
     {
         $returnType = '\Dropbox\Sign\Model\FileResponse';
         $request = $this->templateFilesAsFileUrlRequest($template_id, $force_download, $contentType);
@@ -2325,9 +2403,9 @@ class TemplateApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string)$response->getBody();
+                        $content = (string) $response->getBody();
                         if ($returnType !== 'string') {
                             $content = json_decode($content);
                         }
@@ -2336,7 +2414,7 @@ class TemplateApi
                     return [
                         ObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
-                        $response->getHeaders(),
+                        $response->getHeaders()
                     ];
                 },
                 function ($exception) {
@@ -2350,7 +2428,7 @@ class TemplateApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        (string)$response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -2359,22 +2437,25 @@ class TemplateApi
     /**
      * Create request for operation 'templateFilesAsFileUrl'
      *
-     * @param string $template_id    The id of the template files to retrieve. (required)
-     * @param int    $force_download By default when opening the &#x60;file_url&#x60; a browser will download the PDF and save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser. (optional, default to 1)
-     * @param string $contentType    The value for the Content-Type header. Check self::contentTypes['templateFilesAsFileUrl'] to see the possible values for this operation
+     * @param  string $template_id The id of the template files to retrieve. (required)
+     * @param  int $force_download By default when opening the &#x60;file_url&#x60; a browser will download the PDF and save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser. (optional, default to 1)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['templateFilesAsFileUrl'] to see the possible values for this operation
      *
-     * @return Request
-     * @throws InvalidArgumentException
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
      * @deprecated Prefer to use ::templateFilesAsFileUrl. This method will eventually become unavailable
      */
-    public function templateFilesAsFileUrlRequest(string $template_id, int $force_download = 1, string $contentType = self::contentTypes['templateFilesAsFileUrl'][0])
+    public function templateFilesAsFileUrlRequest($template_id, $force_download = 1, string $contentType = self::contentTypes['templateFilesAsFileUrl'][0])
     {
+
         // verify the required parameter 'template_id' is set
         if ($template_id === null || (is_array($template_id) && count($template_id) === 0)) {
-            throw new InvalidArgumentException(
+            throw new \InvalidArgumentException(
                 'Missing the required parameter $template_id when calling templateFilesAsFileUrl'
             );
         }
+
+
 
         $resourcePath = '/template/files_as_file_url/{template_id}';
         $formParams = [];
@@ -2393,17 +2474,19 @@ class TemplateApi
             false // required
         ) ?? []);
 
+
         // path params
         if ($template_id !== null) {
             $resourcePath = str_replace(
-                '{template_id}',
+                '{' . 'template_id' . '}',
                 ObjectSerializer::toPathValue($template_id),
                 $resourcePath
             );
         }
 
+
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            $multipart ? ['multipart/form-data'] : ['application/json', ],
             $contentType,
             $multipart
         );
@@ -2417,7 +2500,7 @@ class TemplateApi
                     foreach ($formParamValueItems as $formParamValueItem) {
                         $multipartContents[] = [
                             'name' => $formParamName,
-                            'contents' => $formParamValueItem,
+                            'contents' => $formParamValueItem
                         ];
                     }
                 }
@@ -2431,8 +2514,9 @@ class TemplateApi
                 }
 
                 $httpBody = new MultipartStream($multipartContents);
+
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                // if Content-Type contains "application/json", json_encode the form parameters
+                # if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
             } else {
                 // for HTTP post (form)
@@ -2475,13 +2559,13 @@ class TemplateApi
      *
      * Get Template
      *
-     * @param string $template_id The id of the Template to retrieve. (required)
+     * @param  string $template_id The id of the Template to retrieve. (required)
      *
-     * @return Model\TemplateGetResponse
-     * @throws ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws InvalidArgumentException
+     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \Dropbox\Sign\Model\TemplateGetResponse|\Dropbox\Sign\Model\ErrorResponse
      */
-    public function templateGet(string $template_id)
+    public function templateGet($template_id)
     {
         list($response) = $this->templateGetWithHttpInfo($template_id);
         return $response;
@@ -2492,15 +2576,15 @@ class TemplateApi
      *
      * Get Template
      *
-     * @param string $template_id The id of the Template to retrieve. (required)
-     * @param string $contentType The value for the Content-Type header. Check self::contentTypes['templateGet'] to see the possible values for this operation
+     * @param  string $template_id The id of the Template to retrieve. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['templateGet'] to see the possible values for this operation
      *
-     * @return array of Model\TemplateGetResponse, HTTP status code, HTTP response headers (array of strings)
-     * @throws ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws InvalidArgumentException
+     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \Dropbox\Sign\Model\TemplateGetResponse|\Dropbox\Sign\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      * @deprecated Prefer to use ::templateGet. This method will eventually become unavailable
      */
-    public function templateGetWithHttpInfo(string $template_id, string $contentType = self::contentTypes['templateGet'][0])
+    public function templateGetWithHttpInfo($template_id, string $contentType = self::contentTypes['templateGet'][0])
     {
         $request = $this->templateGetRequest($template_id, $contentType);
 
@@ -2512,14 +2596,14 @@ class TemplateApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int)$e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string)$e->getResponse()->getBody() : null
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int)$e->getCode(),
+                    (int) $e->getCode(),
                     null,
                     null
                 );
@@ -2532,14 +2616,14 @@ class TemplateApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        (string)$request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    (string)$response->getBody()
+                    (string) $response->getBody()
                 );
             }
-
+            
             $result = $this->handleRangeCodeResponse(
                 $response,
                 '4XX',
@@ -2548,17 +2632,18 @@ class TemplateApi
             if ($result) {
                 return $result;
             }
+            
 
-            switch ($statusCode) {
+            switch($statusCode) {
                 case 200:
                     if ('\Dropbox\Sign\Model\TemplateGetResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string)$response->getBody();
+                        $content = (string) $response->getBody();
                         if ('\Dropbox\Sign\Model\TemplateGetResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (JsonException $exception) {
+                            } catch (\JsonException $exception) {
                                 throw new ApiException(
                                     sprintf(
                                         'Error JSON decoding server response (%s)',
@@ -2575,19 +2660,20 @@ class TemplateApi
                     return [
                         ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\TemplateGetResponse', []),
                         $response->getStatusCode(),
-                        $response->getHeaders(),
+                        $response->getHeaders()
                     ];
+                
             }
 
             $returnType = '\Dropbox\Sign\Model\TemplateGetResponse';
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); // stream goes to serializer
+                $content = $response->getBody(); //stream goes to serializer
             } else {
-                $content = (string)$response->getBody();
+                $content = (string) $response->getBody();
                 if ($returnType !== 'string') {
                     try {
                         $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                    } catch (JsonException $exception) {
+                    } catch (\JsonException $exception) {
                         throw new ApiException(
                             sprintf(
                                 'Error JSON decoding server response (%s)',
@@ -2604,9 +2690,11 @@ class TemplateApi
             return [
                 ObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
-                $response->getHeaders(),
+                $response->getHeaders()
             ];
+
         } catch (ApiException $e) {
+            
             if ($this->handleRangeCodeException($e, '4XX', '\Dropbox\Sign\Model\ErrorResponse')) {
                 throw $e;
             }
@@ -2619,6 +2707,7 @@ class TemplateApi
                     );
                     $e->setResponseObject($data);
                     break;
+                
             }
             throw $e;
         }
@@ -2629,14 +2718,14 @@ class TemplateApi
      *
      * Get Template
      *
-     * @param string $template_id The id of the Template to retrieve. (required)
-     * @param string $contentType The value for the Content-Type header. Check self::contentTypes['templateGet'] to see the possible values for this operation
+     * @param  string $template_id The id of the Template to retrieve. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['templateGet'] to see the possible values for this operation
      *
+     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
-     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::templateGet. This method will eventually become unavailable
      */
-    public function templateGetAsync(string $template_id, string $contentType = self::contentTypes['templateGet'][0])
+    public function templateGetAsync($template_id, string $contentType = self::contentTypes['templateGet'][0])
     {
         return $this->templateGetAsyncWithHttpInfo($template_id, $contentType)
             ->then(
@@ -2651,14 +2740,14 @@ class TemplateApi
      *
      * Get Template
      *
-     * @param string $template_id The id of the Template to retrieve. (required)
-     * @param string $contentType The value for the Content-Type header. Check self::contentTypes['templateGet'] to see the possible values for this operation
+     * @param  string $template_id The id of the Template to retrieve. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['templateGet'] to see the possible values for this operation
      *
+     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
-     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::templateGet. This method will eventually become unavailable
      */
-    public function templateGetAsyncWithHttpInfo(string $template_id, string $contentType = self::contentTypes['templateGet'][0])
+    public function templateGetAsyncWithHttpInfo($template_id, string $contentType = self::contentTypes['templateGet'][0])
     {
         $returnType = '\Dropbox\Sign\Model\TemplateGetResponse';
         $request = $this->templateGetRequest($template_id, $contentType);
@@ -2668,9 +2757,9 @@ class TemplateApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string)$response->getBody();
+                        $content = (string) $response->getBody();
                         if ($returnType !== 'string') {
                             $content = json_decode($content);
                         }
@@ -2679,7 +2768,7 @@ class TemplateApi
                     return [
                         ObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
-                        $response->getHeaders(),
+                        $response->getHeaders()
                     ];
                 },
                 function ($exception) {
@@ -2693,7 +2782,7 @@ class TemplateApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        (string)$response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -2702,21 +2791,23 @@ class TemplateApi
     /**
      * Create request for operation 'templateGet'
      *
-     * @param string $template_id The id of the Template to retrieve. (required)
-     * @param string $contentType The value for the Content-Type header. Check self::contentTypes['templateGet'] to see the possible values for this operation
+     * @param  string $template_id The id of the Template to retrieve. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['templateGet'] to see the possible values for this operation
      *
-     * @return Request
-     * @throws InvalidArgumentException
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
      * @deprecated Prefer to use ::templateGet. This method will eventually become unavailable
      */
-    public function templateGetRequest(string $template_id, string $contentType = self::contentTypes['templateGet'][0])
+    public function templateGetRequest($template_id, string $contentType = self::contentTypes['templateGet'][0])
     {
+
         // verify the required parameter 'template_id' is set
         if ($template_id === null || (is_array($template_id) && count($template_id) === 0)) {
-            throw new InvalidArgumentException(
+            throw new \InvalidArgumentException(
                 'Missing the required parameter $template_id when calling templateGet'
             );
         }
+
 
         $resourcePath = '/template/{template_id}';
         $formParams = [];
@@ -2725,17 +2816,20 @@ class TemplateApi
         $httpBody = '';
         $multipart = false;
 
+
+
         // path params
         if ($template_id !== null) {
             $resourcePath = str_replace(
-                '{template_id}',
+                '{' . 'template_id' . '}',
                 ObjectSerializer::toPathValue($template_id),
                 $resourcePath
             );
         }
 
+
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            $multipart ? ['multipart/form-data'] : ['application/json', ],
             $contentType,
             $multipart
         );
@@ -2749,7 +2843,7 @@ class TemplateApi
                     foreach ($formParamValueItems as $formParamValueItem) {
                         $multipartContents[] = [
                             'name' => $formParamName,
-                            'contents' => $formParamValueItem,
+                            'contents' => $formParamValueItem
                         ];
                     }
                 }
@@ -2763,8 +2857,9 @@ class TemplateApi
                 }
 
                 $httpBody = new MultipartStream($multipartContents);
+
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                // if Content-Type contains "application/json", json_encode the form parameters
+                # if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
             } else {
                 // for HTTP post (form)
@@ -2807,16 +2902,16 @@ class TemplateApi
      *
      * List Templates
      *
-     * @param string $account_id Which account to return Templates for. Must be a team member. Use &#x60;all&#x60; to indicate all team members. Defaults to your account. (optional)
-     * @param int    $page       Which page number of the Template List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
-     * @param int    $page_size  Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
-     * @param string $query      String that includes search terms and/or fields to be used to filter the Template objects. (optional)
+     * @param  string $account_id Which account to return Templates for. Must be a team member. Use &#x60;all&#x60; to indicate all team members. Defaults to your account. (optional)
+     * @param  int $page Which page number of the Template List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
+     * @param  int $page_size Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
+     * @param  string $query String that includes search terms and/or fields to be used to filter the Template objects. (optional)
      *
-     * @return Model\TemplateListResponse
-     * @throws ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws InvalidArgumentException
+     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \Dropbox\Sign\Model\TemplateListResponse|\Dropbox\Sign\Model\ErrorResponse
      */
-    public function templateList(string $account_id = null, int $page = 1, int $page_size = 20, string $query = null)
+    public function templateList($account_id = null, $page = 1, $page_size = 20, $query = null)
     {
         list($response) = $this->templateListWithHttpInfo($account_id, $page, $page_size, $query);
         return $response;
@@ -2827,18 +2922,18 @@ class TemplateApi
      *
      * List Templates
      *
-     * @param string $account_id  Which account to return Templates for. Must be a team member. Use &#x60;all&#x60; to indicate all team members. Defaults to your account. (optional)
-     * @param int    $page        Which page number of the Template List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
-     * @param int    $page_size   Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
-     * @param string $query       String that includes search terms and/or fields to be used to filter the Template objects. (optional)
-     * @param string $contentType The value for the Content-Type header. Check self::contentTypes['templateList'] to see the possible values for this operation
+     * @param  string $account_id Which account to return Templates for. Must be a team member. Use &#x60;all&#x60; to indicate all team members. Defaults to your account. (optional)
+     * @param  int $page Which page number of the Template List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
+     * @param  int $page_size Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
+     * @param  string $query String that includes search terms and/or fields to be used to filter the Template objects. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['templateList'] to see the possible values for this operation
      *
-     * @return array of Model\TemplateListResponse, HTTP status code, HTTP response headers (array of strings)
-     * @throws ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws InvalidArgumentException
+     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \Dropbox\Sign\Model\TemplateListResponse|\Dropbox\Sign\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      * @deprecated Prefer to use ::templateList. This method will eventually become unavailable
      */
-    public function templateListWithHttpInfo(string $account_id = null, int $page = 1, int $page_size = 20, string $query = null, string $contentType = self::contentTypes['templateList'][0])
+    public function templateListWithHttpInfo($account_id = null, $page = 1, $page_size = 20, $query = null, string $contentType = self::contentTypes['templateList'][0])
     {
         $request = $this->templateListRequest($account_id, $page, $page_size, $query, $contentType);
 
@@ -2850,14 +2945,14 @@ class TemplateApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int)$e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string)$e->getResponse()->getBody() : null
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int)$e->getCode(),
+                    (int) $e->getCode(),
                     null,
                     null
                 );
@@ -2870,14 +2965,14 @@ class TemplateApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        (string)$request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    (string)$response->getBody()
+                    (string) $response->getBody()
                 );
             }
-
+            
             $result = $this->handleRangeCodeResponse(
                 $response,
                 '4XX',
@@ -2886,17 +2981,18 @@ class TemplateApi
             if ($result) {
                 return $result;
             }
+            
 
-            switch ($statusCode) {
+            switch($statusCode) {
                 case 200:
                     if ('\Dropbox\Sign\Model\TemplateListResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string)$response->getBody();
+                        $content = (string) $response->getBody();
                         if ('\Dropbox\Sign\Model\TemplateListResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (JsonException $exception) {
+                            } catch (\JsonException $exception) {
                                 throw new ApiException(
                                     sprintf(
                                         'Error JSON decoding server response (%s)',
@@ -2913,19 +3009,20 @@ class TemplateApi
                     return [
                         ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\TemplateListResponse', []),
                         $response->getStatusCode(),
-                        $response->getHeaders(),
+                        $response->getHeaders()
                     ];
+                
             }
 
             $returnType = '\Dropbox\Sign\Model\TemplateListResponse';
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); // stream goes to serializer
+                $content = $response->getBody(); //stream goes to serializer
             } else {
-                $content = (string)$response->getBody();
+                $content = (string) $response->getBody();
                 if ($returnType !== 'string') {
                     try {
                         $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                    } catch (JsonException $exception) {
+                    } catch (\JsonException $exception) {
                         throw new ApiException(
                             sprintf(
                                 'Error JSON decoding server response (%s)',
@@ -2942,9 +3039,11 @@ class TemplateApi
             return [
                 ObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
-                $response->getHeaders(),
+                $response->getHeaders()
             ];
+
         } catch (ApiException $e) {
+            
             if ($this->handleRangeCodeException($e, '4XX', '\Dropbox\Sign\Model\ErrorResponse')) {
                 throw $e;
             }
@@ -2957,6 +3056,7 @@ class TemplateApi
                     );
                     $e->setResponseObject($data);
                     break;
+                
             }
             throw $e;
         }
@@ -2967,17 +3067,17 @@ class TemplateApi
      *
      * List Templates
      *
-     * @param string $account_id  Which account to return Templates for. Must be a team member. Use &#x60;all&#x60; to indicate all team members. Defaults to your account. (optional)
-     * @param int    $page        Which page number of the Template List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
-     * @param int    $page_size   Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
-     * @param string $query       String that includes search terms and/or fields to be used to filter the Template objects. (optional)
-     * @param string $contentType The value for the Content-Type header. Check self::contentTypes['templateList'] to see the possible values for this operation
+     * @param  string $account_id Which account to return Templates for. Must be a team member. Use &#x60;all&#x60; to indicate all team members. Defaults to your account. (optional)
+     * @param  int $page Which page number of the Template List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
+     * @param  int $page_size Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
+     * @param  string $query String that includes search terms and/or fields to be used to filter the Template objects. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['templateList'] to see the possible values for this operation
      *
+     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
-     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::templateList. This method will eventually become unavailable
      */
-    public function templateListAsync(string $account_id = null, int $page = 1, int $page_size = 20, string $query = null, string $contentType = self::contentTypes['templateList'][0])
+    public function templateListAsync($account_id = null, $page = 1, $page_size = 20, $query = null, string $contentType = self::contentTypes['templateList'][0])
     {
         return $this->templateListAsyncWithHttpInfo($account_id, $page, $page_size, $query, $contentType)
             ->then(
@@ -2992,17 +3092,17 @@ class TemplateApi
      *
      * List Templates
      *
-     * @param string $account_id  Which account to return Templates for. Must be a team member. Use &#x60;all&#x60; to indicate all team members. Defaults to your account. (optional)
-     * @param int    $page        Which page number of the Template List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
-     * @param int    $page_size   Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
-     * @param string $query       String that includes search terms and/or fields to be used to filter the Template objects. (optional)
-     * @param string $contentType The value for the Content-Type header. Check self::contentTypes['templateList'] to see the possible values for this operation
+     * @param  string $account_id Which account to return Templates for. Must be a team member. Use &#x60;all&#x60; to indicate all team members. Defaults to your account. (optional)
+     * @param  int $page Which page number of the Template List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
+     * @param  int $page_size Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
+     * @param  string $query String that includes search terms and/or fields to be used to filter the Template objects. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['templateList'] to see the possible values for this operation
      *
+     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
-     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::templateList. This method will eventually become unavailable
      */
-    public function templateListAsyncWithHttpInfo(string $account_id = null, int $page = 1, int $page_size = 20, string $query = null, string $contentType = self::contentTypes['templateList'][0])
+    public function templateListAsyncWithHttpInfo($account_id = null, $page = 1, $page_size = 20, $query = null, string $contentType = self::contentTypes['templateList'][0])
     {
         $returnType = '\Dropbox\Sign\Model\TemplateListResponse';
         $request = $this->templateListRequest($account_id, $page, $page_size, $query, $contentType);
@@ -3012,9 +3112,9 @@ class TemplateApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string)$response->getBody();
+                        $content = (string) $response->getBody();
                         if ($returnType !== 'string') {
                             $content = json_decode($content);
                         }
@@ -3023,7 +3123,7 @@ class TemplateApi
                     return [
                         ObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
-                        $response->getHeaders(),
+                        $response->getHeaders()
                     ];
                 },
                 function ($exception) {
@@ -3037,7 +3137,7 @@ class TemplateApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        (string)$response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -3046,24 +3146,29 @@ class TemplateApi
     /**
      * Create request for operation 'templateList'
      *
-     * @param string $account_id  Which account to return Templates for. Must be a team member. Use &#x60;all&#x60; to indicate all team members. Defaults to your account. (optional)
-     * @param int    $page        Which page number of the Template List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
-     * @param int    $page_size   Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
-     * @param string $query       String that includes search terms and/or fields to be used to filter the Template objects. (optional)
-     * @param string $contentType The value for the Content-Type header. Check self::contentTypes['templateList'] to see the possible values for this operation
+     * @param  string $account_id Which account to return Templates for. Must be a team member. Use &#x60;all&#x60; to indicate all team members. Defaults to your account. (optional)
+     * @param  int $page Which page number of the Template List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
+     * @param  int $page_size Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
+     * @param  string $query String that includes search terms and/or fields to be used to filter the Template objects. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['templateList'] to see the possible values for this operation
      *
-     * @return Request
-     * @throws InvalidArgumentException
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
      * @deprecated Prefer to use ::templateList. This method will eventually become unavailable
      */
-    public function templateListRequest(string $account_id = null, int $page = 1, int $page_size = 20, string $query = null, string $contentType = self::contentTypes['templateList'][0])
+    public function templateListRequest($account_id = null, $page = 1, $page_size = 20, $query = null, string $contentType = self::contentTypes['templateList'][0])
     {
+
+
+
         if ($page_size !== null && $page_size > 100) {
-            throw new InvalidArgumentException('invalid value for "$page_size" when calling TemplateApi.templateList, must be smaller than or equal to 100.');
+            throw new \InvalidArgumentException('invalid value for "$page_size" when calling TemplateApi.templateList, must be smaller than or equal to 100.');
         }
         if ($page_size !== null && $page_size < 1) {
-            throw new InvalidArgumentException('invalid value for "$page_size" when calling TemplateApi.templateList, must be bigger than or equal to 1.');
+            throw new \InvalidArgumentException('invalid value for "$page_size" when calling TemplateApi.templateList, must be bigger than or equal to 1.');
         }
+        
+
 
         $resourcePath = '/template/list';
         $formParams = [];
@@ -3109,8 +3214,11 @@ class TemplateApi
             false // required
         ) ?? []);
 
+
+
+
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            $multipart ? ['multipart/form-data'] : ['application/json', ],
             $contentType,
             $multipart
         );
@@ -3124,7 +3232,7 @@ class TemplateApi
                     foreach ($formParamValueItems as $formParamValueItem) {
                         $multipartContents[] = [
                             'name' => $formParamName,
-                            'contents' => $formParamValueItem,
+                            'contents' => $formParamValueItem
                         ];
                     }
                 }
@@ -3138,8 +3246,9 @@ class TemplateApi
                 }
 
                 $httpBody = new MultipartStream($multipartContents);
+
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                // if Content-Type contains "application/json", json_encode the form parameters
+                # if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
             } else {
                 // for HTTP post (form)
@@ -3182,14 +3291,14 @@ class TemplateApi
      *
      * Remove User from Template
      *
-     * @param string                          $template_id                  The id of the Template to remove the Account&#39;s access to. (required)
-     * @param Model\TemplateRemoveUserRequest $template_remove_user_request template_remove_user_request (required)
+     * @param  string $template_id The id of the Template to remove the Account&#39;s access to. (required)
+     * @param  \Dropbox\Sign\Model\TemplateRemoveUserRequest $template_remove_user_request template_remove_user_request (required)
      *
-     * @return Model\TemplateGetResponse
-     * @throws ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws InvalidArgumentException
+     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \Dropbox\Sign\Model\TemplateGetResponse|\Dropbox\Sign\Model\ErrorResponse
      */
-    public function templateRemoveUser(string $template_id, Model\TemplateRemoveUserRequest $template_remove_user_request)
+    public function templateRemoveUser($template_id, $template_remove_user_request)
     {
         list($response) = $this->templateRemoveUserWithHttpInfo($template_id, $template_remove_user_request);
         return $response;
@@ -3200,16 +3309,16 @@ class TemplateApi
      *
      * Remove User from Template
      *
-     * @param string                          $template_id                  The id of the Template to remove the Account&#39;s access to. (required)
-     * @param Model\TemplateRemoveUserRequest $template_remove_user_request (required)
-     * @param string                          $contentType                  The value for the Content-Type header. Check self::contentTypes['templateRemoveUser'] to see the possible values for this operation
+     * @param  string $template_id The id of the Template to remove the Account&#39;s access to. (required)
+     * @param  \Dropbox\Sign\Model\TemplateRemoveUserRequest $template_remove_user_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['templateRemoveUser'] to see the possible values for this operation
      *
-     * @return array of Model\TemplateGetResponse, HTTP status code, HTTP response headers (array of strings)
-     * @throws ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws InvalidArgumentException
+     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \Dropbox\Sign\Model\TemplateGetResponse|\Dropbox\Sign\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      * @deprecated Prefer to use ::templateRemoveUser. This method will eventually become unavailable
      */
-    public function templateRemoveUserWithHttpInfo(string $template_id, Model\TemplateRemoveUserRequest $template_remove_user_request, string $contentType = self::contentTypes['templateRemoveUser'][0])
+    public function templateRemoveUserWithHttpInfo($template_id, $template_remove_user_request, string $contentType = self::contentTypes['templateRemoveUser'][0])
     {
         $request = $this->templateRemoveUserRequest($template_id, $template_remove_user_request, $contentType);
 
@@ -3221,14 +3330,14 @@ class TemplateApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int)$e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string)$e->getResponse()->getBody() : null
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int)$e->getCode(),
+                    (int) $e->getCode(),
                     null,
                     null
                 );
@@ -3241,14 +3350,14 @@ class TemplateApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        (string)$request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    (string)$response->getBody()
+                    (string) $response->getBody()
                 );
             }
-
+            
             $result = $this->handleRangeCodeResponse(
                 $response,
                 '4XX',
@@ -3257,17 +3366,18 @@ class TemplateApi
             if ($result) {
                 return $result;
             }
+            
 
-            switch ($statusCode) {
+            switch($statusCode) {
                 case 200:
                     if ('\Dropbox\Sign\Model\TemplateGetResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string)$response->getBody();
+                        $content = (string) $response->getBody();
                         if ('\Dropbox\Sign\Model\TemplateGetResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (JsonException $exception) {
+                            } catch (\JsonException $exception) {
                                 throw new ApiException(
                                     sprintf(
                                         'Error JSON decoding server response (%s)',
@@ -3284,19 +3394,20 @@ class TemplateApi
                     return [
                         ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\TemplateGetResponse', []),
                         $response->getStatusCode(),
-                        $response->getHeaders(),
+                        $response->getHeaders()
                     ];
+                
             }
 
             $returnType = '\Dropbox\Sign\Model\TemplateGetResponse';
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); // stream goes to serializer
+                $content = $response->getBody(); //stream goes to serializer
             } else {
-                $content = (string)$response->getBody();
+                $content = (string) $response->getBody();
                 if ($returnType !== 'string') {
                     try {
                         $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                    } catch (JsonException $exception) {
+                    } catch (\JsonException $exception) {
                         throw new ApiException(
                             sprintf(
                                 'Error JSON decoding server response (%s)',
@@ -3313,9 +3424,11 @@ class TemplateApi
             return [
                 ObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
-                $response->getHeaders(),
+                $response->getHeaders()
             ];
+
         } catch (ApiException $e) {
+            
             if ($this->handleRangeCodeException($e, '4XX', '\Dropbox\Sign\Model\ErrorResponse')) {
                 throw $e;
             }
@@ -3328,6 +3441,7 @@ class TemplateApi
                     );
                     $e->setResponseObject($data);
                     break;
+                
             }
             throw $e;
         }
@@ -3338,15 +3452,15 @@ class TemplateApi
      *
      * Remove User from Template
      *
-     * @param string                          $template_id                  The id of the Template to remove the Account&#39;s access to. (required)
-     * @param Model\TemplateRemoveUserRequest $template_remove_user_request (required)
-     * @param string                          $contentType                  The value for the Content-Type header. Check self::contentTypes['templateRemoveUser'] to see the possible values for this operation
+     * @param  string $template_id The id of the Template to remove the Account&#39;s access to. (required)
+     * @param  \Dropbox\Sign\Model\TemplateRemoveUserRequest $template_remove_user_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['templateRemoveUser'] to see the possible values for this operation
      *
+     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
-     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::templateRemoveUser. This method will eventually become unavailable
      */
-    public function templateRemoveUserAsync(string $template_id, Model\TemplateRemoveUserRequest $template_remove_user_request, string $contentType = self::contentTypes['templateRemoveUser'][0])
+    public function templateRemoveUserAsync($template_id, $template_remove_user_request, string $contentType = self::contentTypes['templateRemoveUser'][0])
     {
         return $this->templateRemoveUserAsyncWithHttpInfo($template_id, $template_remove_user_request, $contentType)
             ->then(
@@ -3361,15 +3475,15 @@ class TemplateApi
      *
      * Remove User from Template
      *
-     * @param string                          $template_id                  The id of the Template to remove the Account&#39;s access to. (required)
-     * @param Model\TemplateRemoveUserRequest $template_remove_user_request (required)
-     * @param string                          $contentType                  The value for the Content-Type header. Check self::contentTypes['templateRemoveUser'] to see the possible values for this operation
+     * @param  string $template_id The id of the Template to remove the Account&#39;s access to. (required)
+     * @param  \Dropbox\Sign\Model\TemplateRemoveUserRequest $template_remove_user_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['templateRemoveUser'] to see the possible values for this operation
      *
+     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
-     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::templateRemoveUser. This method will eventually become unavailable
      */
-    public function templateRemoveUserAsyncWithHttpInfo(string $template_id, Model\TemplateRemoveUserRequest $template_remove_user_request, string $contentType = self::contentTypes['templateRemoveUser'][0])
+    public function templateRemoveUserAsyncWithHttpInfo($template_id, $template_remove_user_request, string $contentType = self::contentTypes['templateRemoveUser'][0])
     {
         $returnType = '\Dropbox\Sign\Model\TemplateGetResponse';
         $request = $this->templateRemoveUserRequest($template_id, $template_remove_user_request, $contentType);
@@ -3379,9 +3493,9 @@ class TemplateApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string)$response->getBody();
+                        $content = (string) $response->getBody();
                         if ($returnType !== 'string') {
                             $content = json_decode($content);
                         }
@@ -3390,7 +3504,7 @@ class TemplateApi
                     return [
                         ObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
-                        $response->getHeaders(),
+                        $response->getHeaders()
                     ];
                 },
                 function ($exception) {
@@ -3404,7 +3518,7 @@ class TemplateApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        (string)$response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -3413,29 +3527,31 @@ class TemplateApi
     /**
      * Create request for operation 'templateRemoveUser'
      *
-     * @param string                          $template_id                  The id of the Template to remove the Account&#39;s access to. (required)
-     * @param Model\TemplateRemoveUserRequest $template_remove_user_request (required)
-     * @param string                          $contentType                  The value for the Content-Type header. Check self::contentTypes['templateRemoveUser'] to see the possible values for this operation
+     * @param  string $template_id The id of the Template to remove the Account&#39;s access to. (required)
+     * @param  \Dropbox\Sign\Model\TemplateRemoveUserRequest $template_remove_user_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['templateRemoveUser'] to see the possible values for this operation
      *
-     * @return Request
-     * @throws InvalidArgumentException
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
      * @deprecated Prefer to use ::templateRemoveUser. This method will eventually become unavailable
      */
-    public function templateRemoveUserRequest(string $template_id, Model\TemplateRemoveUserRequest $template_remove_user_request, string $contentType = self::contentTypes['templateRemoveUser'][0])
+    public function templateRemoveUserRequest($template_id, $template_remove_user_request, string $contentType = self::contentTypes['templateRemoveUser'][0])
     {
+
         // verify the required parameter 'template_id' is set
         if ($template_id === null || (is_array($template_id) && count($template_id) === 0)) {
-            throw new InvalidArgumentException(
+            throw new \InvalidArgumentException(
                 'Missing the required parameter $template_id when calling templateRemoveUser'
             );
         }
 
         // verify the required parameter 'template_remove_user_request' is set
         if ($template_remove_user_request === null || (is_array($template_remove_user_request) && count($template_remove_user_request) === 0)) {
-            throw new InvalidArgumentException(
+            throw new \InvalidArgumentException(
                 'Missing the required parameter $template_remove_user_request when calling templateRemoveUser'
             );
         }
+
 
         $resourcePath = '/template/remove_user/{template_id}';
         $formParams = [];
@@ -3450,17 +3566,19 @@ class TemplateApi
 
         $multipart = !empty($formParams);
 
+
         // path params
         if ($template_id !== null) {
             $resourcePath = str_replace(
-                '{template_id}',
+                '{' . 'template_id' . '}',
                 ObjectSerializer::toPathValue($template_id),
                 $resourcePath
             );
         }
 
+
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            $multipart ? ['multipart/form-data'] : ['application/json', ],
             $contentType,
             $multipart
         );
@@ -3468,7 +3586,7 @@ class TemplateApi
         // for model (json/xml)
         if (count($formParams) === 0) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                // if Content-Type contains "application/json", json_encode the body
+                # if Content-Type contains "application/json", json_encode the body
                 $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($template_remove_user_request));
             } else {
                 $httpBody = $template_remove_user_request;
@@ -3481,7 +3599,7 @@ class TemplateApi
                     foreach ($formParamValueItems as $formParamValueItem) {
                         $multipartContents[] = [
                             'name' => $formParamName,
-                            'contents' => $formParamValueItem,
+                            'contents' => $formParamValueItem
                         ];
                     }
                 }
@@ -3498,8 +3616,9 @@ class TemplateApi
                     $payloadHook('multipart', $multipartContents, $template_remove_user_request);
                 }
                 $httpBody = new MultipartStream($multipartContents);
+
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                // if Content-Type contains "application/json", json_encode the form parameters
+                # if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
             } else {
                 // for HTTP post (form)
@@ -3542,14 +3661,14 @@ class TemplateApi
      *
      * Update Template Files
      *
-     * @param string                           $template_id                   The ID of the template whose files to update. (required)
-     * @param Model\TemplateUpdateFilesRequest $template_update_files_request template_update_files_request (required)
+     * @param  string $template_id The ID of the template whose files to update. (required)
+     * @param  \Dropbox\Sign\Model\TemplateUpdateFilesRequest $template_update_files_request template_update_files_request (required)
      *
-     * @return Model\TemplateUpdateFilesResponse
-     * @throws ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws InvalidArgumentException
+     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \Dropbox\Sign\Model\TemplateUpdateFilesResponse|\Dropbox\Sign\Model\ErrorResponse
      */
-    public function templateUpdateFiles(string $template_id, Model\TemplateUpdateFilesRequest $template_update_files_request)
+    public function templateUpdateFiles($template_id, $template_update_files_request)
     {
         list($response) = $this->templateUpdateFilesWithHttpInfo($template_id, $template_update_files_request);
         return $response;
@@ -3560,16 +3679,16 @@ class TemplateApi
      *
      * Update Template Files
      *
-     * @param string                           $template_id                   The ID of the template whose files to update. (required)
-     * @param Model\TemplateUpdateFilesRequest $template_update_files_request (required)
-     * @param string                           $contentType                   The value for the Content-Type header. Check self::contentTypes['templateUpdateFiles'] to see the possible values for this operation
+     * @param  string $template_id The ID of the template whose files to update. (required)
+     * @param  \Dropbox\Sign\Model\TemplateUpdateFilesRequest $template_update_files_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['templateUpdateFiles'] to see the possible values for this operation
      *
-     * @return array of Model\TemplateUpdateFilesResponse, HTTP status code, HTTP response headers (array of strings)
-     * @throws ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws InvalidArgumentException
+     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \Dropbox\Sign\Model\TemplateUpdateFilesResponse|\Dropbox\Sign\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      * @deprecated Prefer to use ::templateUpdateFiles. This method will eventually become unavailable
      */
-    public function templateUpdateFilesWithHttpInfo(string $template_id, Model\TemplateUpdateFilesRequest $template_update_files_request, string $contentType = self::contentTypes['templateUpdateFiles'][0])
+    public function templateUpdateFilesWithHttpInfo($template_id, $template_update_files_request, string $contentType = self::contentTypes['templateUpdateFiles'][0])
     {
         $request = $this->templateUpdateFilesRequest($template_id, $template_update_files_request, $contentType);
 
@@ -3581,14 +3700,14 @@ class TemplateApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int)$e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string)$e->getResponse()->getBody() : null
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int)$e->getCode(),
+                    (int) $e->getCode(),
                     null,
                     null
                 );
@@ -3601,14 +3720,14 @@ class TemplateApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        (string)$request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    (string)$response->getBody()
+                    (string) $response->getBody()
                 );
             }
-
+            
             $result = $this->handleRangeCodeResponse(
                 $response,
                 '4XX',
@@ -3617,17 +3736,18 @@ class TemplateApi
             if ($result) {
                 return $result;
             }
+            
 
-            switch ($statusCode) {
+            switch($statusCode) {
                 case 200:
                     if ('\Dropbox\Sign\Model\TemplateUpdateFilesResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string)$response->getBody();
+                        $content = (string) $response->getBody();
                         if ('\Dropbox\Sign\Model\TemplateUpdateFilesResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (JsonException $exception) {
+                            } catch (\JsonException $exception) {
                                 throw new ApiException(
                                     sprintf(
                                         'Error JSON decoding server response (%s)',
@@ -3644,19 +3764,20 @@ class TemplateApi
                     return [
                         ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\TemplateUpdateFilesResponse', []),
                         $response->getStatusCode(),
-                        $response->getHeaders(),
+                        $response->getHeaders()
                     ];
+                
             }
 
             $returnType = '\Dropbox\Sign\Model\TemplateUpdateFilesResponse';
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); // stream goes to serializer
+                $content = $response->getBody(); //stream goes to serializer
             } else {
-                $content = (string)$response->getBody();
+                $content = (string) $response->getBody();
                 if ($returnType !== 'string') {
                     try {
                         $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                    } catch (JsonException $exception) {
+                    } catch (\JsonException $exception) {
                         throw new ApiException(
                             sprintf(
                                 'Error JSON decoding server response (%s)',
@@ -3673,9 +3794,11 @@ class TemplateApi
             return [
                 ObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
-                $response->getHeaders(),
+                $response->getHeaders()
             ];
+
         } catch (ApiException $e) {
+            
             if ($this->handleRangeCodeException($e, '4XX', '\Dropbox\Sign\Model\ErrorResponse')) {
                 throw $e;
             }
@@ -3688,6 +3811,7 @@ class TemplateApi
                     );
                     $e->setResponseObject($data);
                     break;
+                
             }
             throw $e;
         }
@@ -3698,15 +3822,15 @@ class TemplateApi
      *
      * Update Template Files
      *
-     * @param string                           $template_id                   The ID of the template whose files to update. (required)
-     * @param Model\TemplateUpdateFilesRequest $template_update_files_request (required)
-     * @param string                           $contentType                   The value for the Content-Type header. Check self::contentTypes['templateUpdateFiles'] to see the possible values for this operation
+     * @param  string $template_id The ID of the template whose files to update. (required)
+     * @param  \Dropbox\Sign\Model\TemplateUpdateFilesRequest $template_update_files_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['templateUpdateFiles'] to see the possible values for this operation
      *
+     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
-     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::templateUpdateFiles. This method will eventually become unavailable
      */
-    public function templateUpdateFilesAsync(string $template_id, Model\TemplateUpdateFilesRequest $template_update_files_request, string $contentType = self::contentTypes['templateUpdateFiles'][0])
+    public function templateUpdateFilesAsync($template_id, $template_update_files_request, string $contentType = self::contentTypes['templateUpdateFiles'][0])
     {
         return $this->templateUpdateFilesAsyncWithHttpInfo($template_id, $template_update_files_request, $contentType)
             ->then(
@@ -3721,15 +3845,15 @@ class TemplateApi
      *
      * Update Template Files
      *
-     * @param string                           $template_id                   The ID of the template whose files to update. (required)
-     * @param Model\TemplateUpdateFilesRequest $template_update_files_request (required)
-     * @param string                           $contentType                   The value for the Content-Type header. Check self::contentTypes['templateUpdateFiles'] to see the possible values for this operation
+     * @param  string $template_id The ID of the template whose files to update. (required)
+     * @param  \Dropbox\Sign\Model\TemplateUpdateFilesRequest $template_update_files_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['templateUpdateFiles'] to see the possible values for this operation
      *
+     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
-     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::templateUpdateFiles. This method will eventually become unavailable
      */
-    public function templateUpdateFilesAsyncWithHttpInfo(string $template_id, Model\TemplateUpdateFilesRequest $template_update_files_request, string $contentType = self::contentTypes['templateUpdateFiles'][0])
+    public function templateUpdateFilesAsyncWithHttpInfo($template_id, $template_update_files_request, string $contentType = self::contentTypes['templateUpdateFiles'][0])
     {
         $returnType = '\Dropbox\Sign\Model\TemplateUpdateFilesResponse';
         $request = $this->templateUpdateFilesRequest($template_id, $template_update_files_request, $contentType);
@@ -3739,9 +3863,9 @@ class TemplateApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string)$response->getBody();
+                        $content = (string) $response->getBody();
                         if ($returnType !== 'string') {
                             $content = json_decode($content);
                         }
@@ -3750,7 +3874,7 @@ class TemplateApi
                     return [
                         ObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
-                        $response->getHeaders(),
+                        $response->getHeaders()
                     ];
                 },
                 function ($exception) {
@@ -3764,7 +3888,7 @@ class TemplateApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        (string)$response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -3773,29 +3897,31 @@ class TemplateApi
     /**
      * Create request for operation 'templateUpdateFiles'
      *
-     * @param string                           $template_id                   The ID of the template whose files to update. (required)
-     * @param Model\TemplateUpdateFilesRequest $template_update_files_request (required)
-     * @param string                           $contentType                   The value for the Content-Type header. Check self::contentTypes['templateUpdateFiles'] to see the possible values for this operation
+     * @param  string $template_id The ID of the template whose files to update. (required)
+     * @param  \Dropbox\Sign\Model\TemplateUpdateFilesRequest $template_update_files_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['templateUpdateFiles'] to see the possible values for this operation
      *
-     * @return Request
-     * @throws InvalidArgumentException
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
      * @deprecated Prefer to use ::templateUpdateFiles. This method will eventually become unavailable
      */
-    public function templateUpdateFilesRequest(string $template_id, Model\TemplateUpdateFilesRequest $template_update_files_request, string $contentType = self::contentTypes['templateUpdateFiles'][0])
+    public function templateUpdateFilesRequest($template_id, $template_update_files_request, string $contentType = self::contentTypes['templateUpdateFiles'][0])
     {
+
         // verify the required parameter 'template_id' is set
         if ($template_id === null || (is_array($template_id) && count($template_id) === 0)) {
-            throw new InvalidArgumentException(
+            throw new \InvalidArgumentException(
                 'Missing the required parameter $template_id when calling templateUpdateFiles'
             );
         }
 
         // verify the required parameter 'template_update_files_request' is set
         if ($template_update_files_request === null || (is_array($template_update_files_request) && count($template_update_files_request) === 0)) {
-            throw new InvalidArgumentException(
+            throw new \InvalidArgumentException(
                 'Missing the required parameter $template_update_files_request when calling templateUpdateFiles'
             );
         }
+
 
         $resourcePath = '/template/update_files/{template_id}';
         $formParams = [];
@@ -3810,17 +3936,19 @@ class TemplateApi
 
         $multipart = !empty($formParams);
 
+
         // path params
         if ($template_id !== null) {
             $resourcePath = str_replace(
-                '{template_id}',
+                '{' . 'template_id' . '}',
                 ObjectSerializer::toPathValue($template_id),
                 $resourcePath
             );
         }
 
+
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            $multipart ? ['multipart/form-data'] : ['application/json', ],
             $contentType,
             $multipart
         );
@@ -3828,7 +3956,7 @@ class TemplateApi
         // for model (json/xml)
         if (count($formParams) === 0) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                // if Content-Type contains "application/json", json_encode the body
+                # if Content-Type contains "application/json", json_encode the body
                 $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($template_update_files_request));
             } else {
                 $httpBody = $template_update_files_request;
@@ -3841,7 +3969,7 @@ class TemplateApi
                     foreach ($formParamValueItems as $formParamValueItem) {
                         $multipartContents[] = [
                             'name' => $formParamName,
-                            'contents' => $formParamValueItem,
+                            'contents' => $formParamValueItem
                         ];
                     }
                 }
@@ -3858,8 +3986,9 @@ class TemplateApi
                     $payloadHook('multipart', $multipartContents, $template_update_files_request);
                 }
                 $httpBody = new MultipartStream($multipartContents);
+
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                // if Content-Type contains "application/json", json_encode the form parameters
+                # if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
             } else {
                 // for HTTP post (form)
@@ -3900,8 +4029,8 @@ class TemplateApi
     /**
      * Create http client option
      *
+     * @throws \RuntimeException on file opening failure
      * @return array of http client options
-     * @throws RuntimeException on file opening failure
      */
     protected function createHttpClientOption()
     {
@@ -3909,7 +4038,7 @@ class TemplateApi
         if ($this->config->getDebug()) {
             $options[RequestOptions::DEBUG] = fopen($this->config->getDebugFile(), 'a');
             if (!$options[RequestOptions::DEBUG]) {
-                throw new RuntimeException('Failed to open the debug file: ' . $this->config->getDebugFile());
+                throw new \RuntimeException('Failed to open the debug file: ' . $this->config->getDebugFile());
             }
         }
 
@@ -3925,8 +4054,8 @@ class TemplateApi
         string $returnDataType
     ) {
         $statusCode = $response->getStatusCode();
-        $rangeCodeLeft = (int)(substr($rangeCode, 0, 1) . '00');
-        $rangeCodeRight = (int)(substr($rangeCode, 0, 1) . '99');
+        $rangeCodeLeft = (int) (substr($rangeCode, 0, 1) . '00');
+        $rangeCodeRight = (int) (substr($rangeCode, 0, 1) . '99');
 
         if (
             $statusCode < $rangeCodeLeft
@@ -3936,9 +4065,9 @@ class TemplateApi
         }
 
         if ($returnDataType === '\SplFileObject') {
-            $content = $response->getBody(); // stream goes to serializer
+            $content = $response->getBody(); //stream goes to serializer
         } else {
-            $content = (string)$response->getBody();
+            $content = (string) $response->getBody();
         }
 
         return [
@@ -3957,8 +4086,8 @@ class TemplateApi
         string $exceptionDataType
     ): bool {
         $statusCode = $e->getCode();
-        $rangeCodeLeft = (int)(substr($rangeCode, 0, 1) . '00');
-        $rangeCodeRight = (int)(substr($rangeCode, 0, 1) . '99');
+        $rangeCodeLeft = (int) (substr($rangeCode, 0, 1) . '00');
+        $rangeCodeRight = (int) (substr($rangeCode, 0, 1) . '99');
 
         if (
             $statusCode < $rangeCodeLeft

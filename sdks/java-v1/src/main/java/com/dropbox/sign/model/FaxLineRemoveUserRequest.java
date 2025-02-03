@@ -67,7 +67,7 @@ public class FaxLineRemoveUserRequest {
     }
 
     /**
-     * The Fax Line number.
+     * The Fax Line number
      *
      * @return number
      */
@@ -90,7 +90,7 @@ public class FaxLineRemoveUserRequest {
     }
 
     /**
-     * Account ID
+     * Account ID of the user to remove access
      *
      * @return accountId
      */
@@ -112,7 +112,7 @@ public class FaxLineRemoveUserRequest {
     }
 
     /**
-     * Email address
+     * Email address of the user to remove access
      *
      * @return emailAddress
      */

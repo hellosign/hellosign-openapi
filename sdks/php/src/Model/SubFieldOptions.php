@@ -5,7 +5,9 @@
  * PHP version 7.4
  *
  * @category Class
- * @see     https://openapi-generator.tech
+ * @package  Dropbox\Sign
+ * @author   OpenAPI Generator team
+ * @link     https://openapi-generator.tech
  */
 
 /**
@@ -27,65 +29,64 @@
 
 namespace Dropbox\Sign\Model;
 
-use ArrayAccess;
-use Dropbox\Sign\ObjectSerializer;
-use InvalidArgumentException;
-use JsonSerializable;
-use ReturnTypeWillChange;
+use \ArrayAccess;
+use \Dropbox\Sign\ObjectSerializer;
 
 /**
  * SubFieldOptions Class Doc Comment
  *
  * @category Class
  * @description This allows the requester to specify field options for a signature request.
- * @see     https://openapi-generator.tech
+ * @package  Dropbox\Sign
+ * @author   OpenAPI Generator team
+ * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class SubFieldOptions implements ModelInterface, ArrayAccess, JsonSerializable
+class SubFieldOptions implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
     /**
-     * The original name of the model.
-     *
-     * @var string
-     */
+      * The original name of the model.
+      *
+      * @var string
+      */
     protected static $openAPIModelName = 'SubFieldOptions';
 
     /**
-     * Array of property to type mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to type mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPITypes = [
-        'date_format' => 'string',
+        'date_format' => 'string'
     ];
 
     /**
-     * Array of property to format mappings. Used for (de)serialization
-     *
-     * @var string[]
-     * @phpstan-var array<string, string|null>
-     * @psalm-var array<string, string|null>
-     */
+      * Array of property to format mappings. Used for (de)serialization
+      *
+      * @var string[]
+      * @phpstan-var array<string, string|null>
+      * @psalm-var array<string, string|null>
+      */
     protected static $openAPIFormats = [
-        'date_format' => null,
+        'date_format' => null
     ];
 
     /**
-     * Array of nullable properties. Used for (de)serialization
-     *
-     * @var bool[]
-     */
+      * Array of nullable properties. Used for (de)serialization
+      *
+      * @var boolean[]
+      */
     protected static array $openAPINullables = [
-        'date_format' => false,
+        'date_format' => false
     ];
 
     /**
-     * If a nullable field gets set to null, insert it here
-     *
-     * @var bool[]
-     */
+      * If a nullable field gets set to null, insert it here
+      *
+      * @var boolean[]
+      */
     protected array $openAPINullablesSetToNull = [];
 
     /**
@@ -110,6 +111,8 @@ class SubFieldOptions implements ModelInterface, ArrayAccess, JsonSerializable
 
     /**
      * Array of nullable properties
+     *
+     * @return array
      */
     protected static function openAPINullables(): array
     {
@@ -119,7 +122,7 @@ class SubFieldOptions implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Array of nullable field names deliberately set to null
      *
-     * @return bool[]
+     * @return boolean[]
      */
     private function getOpenAPINullablesSetToNull(): array
     {
@@ -129,7 +132,7 @@ class SubFieldOptions implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Setter - Array of nullable field names deliberately set to null
      *
-     * @param bool[] $openAPINullablesSetToNull
+     * @param boolean[] $openAPINullablesSetToNull
      */
     private function setOpenAPINullablesSetToNull(array $openAPINullablesSetToNull): void
     {
@@ -138,6 +141,9 @@ class SubFieldOptions implements ModelInterface, ArrayAccess, JsonSerializable
 
     /**
      * Checks if a property is nullable
+     *
+     * @param string $property
+     * @return bool
      */
     public static function isNullable(string $property): bool
     {
@@ -146,6 +152,9 @@ class SubFieldOptions implements ModelInterface, ArrayAccess, JsonSerializable
 
     /**
      * Checks if a nullable property is set to null.
+     *
+     * @param string $property
+     * @return bool
      */
     public function isNullableSetToNull(string $property): bool
     {
@@ -159,7 +168,7 @@ class SubFieldOptions implements ModelInterface, ArrayAccess, JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'date_format' => 'date_format',
+        'date_format' => 'date_format'
     ];
 
     /**
@@ -168,7 +177,7 @@ class SubFieldOptions implements ModelInterface, ArrayAccess, JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'date_format' => 'setDateFormat',
+        'date_format' => 'setDateFormat'
     ];
 
     /**
@@ -177,7 +186,7 @@ class SubFieldOptions implements ModelInterface, ArrayAccess, JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'date_format' => 'getDateFormat',
+        'date_format' => 'getDateFormat'
     ];
 
     /**
@@ -263,33 +272,34 @@ class SubFieldOptions implements ModelInterface, ArrayAccess, JsonSerializable
         $this->setIfExists('date_format', $data ?? [], null);
     }
 
-    /**
-     * @deprecated use ::init()
-     */
+    /** @deprecated use ::init() */
     public static function fromArray(array $data): SubFieldOptions
     {
         return self::init($data);
     }
 
-    /**
-     * Attempt to instantiate and hydrate a new instance of this class
-     */
+    /** Attempt to instantiate and hydrate a new instance of this class */
     public static function init(array $data): SubFieldOptions
     {
         /** @var SubFieldOptions */
-        return ObjectSerializer::deserialize(
+        $obj = ObjectSerializer::deserialize(
             $data,
             SubFieldOptions::class,
         );
+
+        return $obj;
     }
 
+
     /**
-     * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
-     * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
-     * $this->openAPINullablesSetToNull array
-     *
-     * @param string|int|object|array|mixed $defaultValue
-     */
+    * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
+    * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
+    * $this->openAPINullablesSetToNull array
+    *
+    * @param string $variableName
+    * @param array  $fields
+* @param string|int|object|array|mixed  $defaultValue
+    */
     private function setIfExists(string $variableName, array $fields, $defaultValue): void
     {
         if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
@@ -334,6 +344,7 @@ class SubFieldOptions implements ModelInterface, ArrayAccess, JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
+
     /**
      * Gets date_format
      *
@@ -347,18 +358,18 @@ class SubFieldOptions implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets date_format
      *
-     * @param string $date_format allows requester to specify the date format (see list of allowed [formats](/api/reference/constants/#date-formats))  **NOTE:** Only available for Premium and higher
+     * @param string $date_format Allows requester to specify the date format (see list of allowed [formats](/api/reference/constants/#date-formats))  **NOTE:** Only available for Premium and higher.
      *
      * @return self
      */
-    public function setDateFormat(string $date_format)
+    public function setDateFormat($date_format)
     {
         if (is_null($date_format)) {
-            throw new InvalidArgumentException('non-nullable date_format cannot be null');
+            throw new \InvalidArgumentException('non-nullable date_format cannot be null');
         }
         $allowedValues = $this->getDateFormatAllowableValues();
         if (!in_array($date_format, $allowedValues, true)) {
-            throw new InvalidArgumentException(
+            throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'date_format', must be one of '%s'",
                     $date_format,
@@ -370,13 +381,14 @@ class SubFieldOptions implements ModelInterface, ArrayAccess, JsonSerializable
 
         return $this;
     }
-
     /**
      * Returns true if offset exists. False otherwise.
      *
-     * @param int $offset Offset
+     * @param integer $offset Offset
+     *
+     * @return boolean
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
@@ -385,11 +397,11 @@ class SubFieldOptions implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets offset.
      *
-     * @param int $offset Offset
+     * @param integer $offset Offset
      *
      * @return mixed|null
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return $this->container[$offset] ?? null;
@@ -400,8 +412,10 @@ class SubFieldOptions implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param int|null $offset Offset
      * @param mixed    $value  Value to be set
+     *
+     * @return void
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
@@ -414,9 +428,11 @@ class SubFieldOptions implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Unsets offset.
      *
-     * @param int $offset Offset
+     * @param integer $offset Offset
+     *
+     * @return void
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
@@ -424,15 +440,15 @@ class SubFieldOptions implements ModelInterface, ArrayAccess, JsonSerializable
 
     /**
      * Serializes the object to a value that can be serialized natively by json_encode().
-     * @see https://www.php.net/manual/en/jsonserializable.jsonserialize.php
+     * @link https://www.php.net/manual/en/jsonserializable.jsonserialize.php
      *
-     * @return mixed returns data which can be serialized by json_encode(), which is a value
-     *               of any type other than a resource
+     * @return mixed Returns data which can be serialized by json_encode(), which is a value
+     * of any type other than a resource.
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
-        return ObjectSerializer::sanitizeForSerialization($this);
+       return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**
@@ -458,3 +474,5 @@ class SubFieldOptions implements ModelInterface, ArrayAccess, JsonSerializable
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
+
+

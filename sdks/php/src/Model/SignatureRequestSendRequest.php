@@ -5,7 +5,9 @@
  * PHP version 7.4
  *
  * @category Class
- * @see     https://openapi-generator.tech
+ * @package  Dropbox\Sign
+ * @author   OpenAPI Generator team
+ * @link     https://openapi-generator.tech
  */
 
 /**
@@ -27,36 +29,34 @@
 
 namespace Dropbox\Sign\Model;
 
-use ArrayAccess;
-use Dropbox\Sign\ObjectSerializer;
-use InvalidArgumentException;
-use JsonSerializable;
-use ReturnTypeWillChange;
-use SplFileObject;
+use \ArrayAccess;
+use \Dropbox\Sign\ObjectSerializer;
 
 /**
  * SignatureRequestSendRequest Class Doc Comment
  *
  * @category Class
- * @see     https://openapi-generator.tech
+ * @package  Dropbox\Sign
+ * @author   OpenAPI Generator team
+ * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class SignatureRequestSendRequest implements ModelInterface, ArrayAccess, JsonSerializable
+class SignatureRequestSendRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
     /**
-     * The original name of the model.
-     *
-     * @var string
-     */
+      * The original name of the model.
+      *
+      * @var string
+      */
     protected static $openAPIModelName = 'SignatureRequestSendRequest';
 
     /**
-     * Array of property to type mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to type mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPITypes = [
         'files' => '\SplFileObject[]',
         'file_urls' => 'string[]',
@@ -83,16 +83,16 @@ class SignatureRequestSendRequest implements ModelInterface, ArrayAccess, JsonSe
         'test_mode' => 'bool',
         'title' => 'string',
         'use_text_tags' => 'bool',
-        'expires_at' => 'int',
+        'expires_at' => 'int'
     ];
 
     /**
-     * Array of property to format mappings. Used for (de)serialization
-     *
-     * @var string[]
-     * @phpstan-var array<string, string|null>
-     * @psalm-var array<string, string|null>
-     */
+      * Array of property to format mappings. Used for (de)serialization
+      *
+      * @var string[]
+      * @phpstan-var array<string, string|null>
+      * @psalm-var array<string, string|null>
+      */
     protected static $openAPIFormats = [
         'files' => 'binary',
         'file_urls' => null,
@@ -119,14 +119,14 @@ class SignatureRequestSendRequest implements ModelInterface, ArrayAccess, JsonSe
         'test_mode' => null,
         'title' => null,
         'use_text_tags' => null,
-        'expires_at' => null,
+        'expires_at' => null
     ];
 
     /**
-     * Array of nullable properties. Used for (de)serialization
-     *
-     * @var bool[]
-     */
+      * Array of nullable properties. Used for (de)serialization
+      *
+      * @var boolean[]
+      */
     protected static array $openAPINullables = [
         'files' => false,
         'file_urls' => false,
@@ -153,14 +153,14 @@ class SignatureRequestSendRequest implements ModelInterface, ArrayAccess, JsonSe
         'test_mode' => false,
         'title' => false,
         'use_text_tags' => false,
-        'expires_at' => true,
+        'expires_at' => true
     ];
 
     /**
-     * If a nullable field gets set to null, insert it here
-     *
-     * @var bool[]
-     */
+      * If a nullable field gets set to null, insert it here
+      *
+      * @var boolean[]
+      */
     protected array $openAPINullablesSetToNull = [];
 
     /**
@@ -185,6 +185,8 @@ class SignatureRequestSendRequest implements ModelInterface, ArrayAccess, JsonSe
 
     /**
      * Array of nullable properties
+     *
+     * @return array
      */
     protected static function openAPINullables(): array
     {
@@ -194,7 +196,7 @@ class SignatureRequestSendRequest implements ModelInterface, ArrayAccess, JsonSe
     /**
      * Array of nullable field names deliberately set to null
      *
-     * @return bool[]
+     * @return boolean[]
      */
     private function getOpenAPINullablesSetToNull(): array
     {
@@ -204,7 +206,7 @@ class SignatureRequestSendRequest implements ModelInterface, ArrayAccess, JsonSe
     /**
      * Setter - Array of nullable field names deliberately set to null
      *
-     * @param bool[] $openAPINullablesSetToNull
+     * @param boolean[] $openAPINullablesSetToNull
      */
     private function setOpenAPINullablesSetToNull(array $openAPINullablesSetToNull): void
     {
@@ -213,6 +215,9 @@ class SignatureRequestSendRequest implements ModelInterface, ArrayAccess, JsonSe
 
     /**
      * Checks if a property is nullable
+     *
+     * @param string $property
+     * @return bool
      */
     public static function isNullable(string $property): bool
     {
@@ -221,6 +226,9 @@ class SignatureRequestSendRequest implements ModelInterface, ArrayAccess, JsonSe
 
     /**
      * Checks if a nullable property is set to null.
+     *
+     * @param string $property
+     * @return bool
      */
     public function isNullableSetToNull(string $property): bool
     {
@@ -259,7 +267,7 @@ class SignatureRequestSendRequest implements ModelInterface, ArrayAccess, JsonSe
         'test_mode' => 'test_mode',
         'title' => 'title',
         'use_text_tags' => 'use_text_tags',
-        'expires_at' => 'expires_at',
+        'expires_at' => 'expires_at'
     ];
 
     /**
@@ -293,7 +301,7 @@ class SignatureRequestSendRequest implements ModelInterface, ArrayAccess, JsonSe
         'test_mode' => 'setTestMode',
         'title' => 'setTitle',
         'use_text_tags' => 'setUseTextTags',
-        'expires_at' => 'setExpiresAt',
+        'expires_at' => 'setExpiresAt'
     ];
 
     /**
@@ -327,7 +335,7 @@ class SignatureRequestSendRequest implements ModelInterface, ArrayAccess, JsonSe
         'test_mode' => 'getTestMode',
         'title' => 'getTitle',
         'use_text_tags' => 'getUseTextTags',
-        'expires_at' => 'getExpiresAt',
+        'expires_at' => 'getExpiresAt'
     ];
 
     /**
@@ -370,6 +378,7 @@ class SignatureRequestSendRequest implements ModelInterface, ArrayAccess, JsonSe
     {
         return self::$openAPIModelName;
     }
+
 
     /**
      * Associative array for storing property values
@@ -414,33 +423,34 @@ class SignatureRequestSendRequest implements ModelInterface, ArrayAccess, JsonSe
         $this->setIfExists('expires_at', $data ?? [], null);
     }
 
-    /**
-     * @deprecated use ::init()
-     */
+    /** @deprecated use ::init() */
     public static function fromArray(array $data): SignatureRequestSendRequest
     {
         return self::init($data);
     }
 
-    /**
-     * Attempt to instantiate and hydrate a new instance of this class
-     */
+    /** Attempt to instantiate and hydrate a new instance of this class */
     public static function init(array $data): SignatureRequestSendRequest
     {
         /** @var SignatureRequestSendRequest */
-        return ObjectSerializer::deserialize(
+        $obj = ObjectSerializer::deserialize(
             $data,
             SignatureRequestSendRequest::class,
         );
+
+        return $obj;
     }
 
+
     /**
-     * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
-     * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
-     * $this->openAPINullablesSetToNull array
-     *
-     * @param string|int|object|array|mixed $defaultValue
-     */
+    * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
+    * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
+    * $this->openAPINullablesSetToNull array
+    *
+    * @param string $variableName
+    * @param array  $fields
+* @param string|int|object|array|mixed  $defaultValue
+    */
     private function setIfExists(string $variableName, array $fields, $defaultValue): void
     {
         if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
@@ -485,10 +495,11 @@ class SignatureRequestSendRequest implements ModelInterface, ArrayAccess, JsonSe
         return count($this->listInvalidProperties()) === 0;
     }
 
+
     /**
      * Gets files
      *
-     * @return SplFileObject[]|null
+     * @return \SplFileObject[]|null
      */
     public function getFiles()
     {
@@ -498,14 +509,14 @@ class SignatureRequestSendRequest implements ModelInterface, ArrayAccess, JsonSe
     /**
      * Sets files
      *
-     * @param SplFileObject[]|null $files Use `files[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.
+     * @param \SplFileObject[]|null $files Use `files[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.
      *
      * @return self
      */
-    public function setFiles(?array $files)
+    public function setFiles($files)
     {
         if (is_null($files)) {
-            throw new InvalidArgumentException('non-nullable files cannot be null');
+            throw new \InvalidArgumentException('non-nullable files cannot be null');
         }
         $this->container['files'] = $files;
 
@@ -529,10 +540,10 @@ class SignatureRequestSendRequest implements ModelInterface, ArrayAccess, JsonSe
      *
      * @return self
      */
-    public function setFileUrls(?array $file_urls)
+    public function setFileUrls($file_urls)
     {
         if (is_null($file_urls)) {
-            throw new InvalidArgumentException('non-nullable file_urls cannot be null');
+            throw new \InvalidArgumentException('non-nullable file_urls cannot be null');
         }
         $this->container['file_urls'] = $file_urls;
 
@@ -542,7 +553,7 @@ class SignatureRequestSendRequest implements ModelInterface, ArrayAccess, JsonSe
     /**
      * Gets signers
      *
-     * @return SubSignatureRequestSigner[]|null
+     * @return \Dropbox\Sign\Model\SubSignatureRequestSigner[]|null
      */
     public function getSigners()
     {
@@ -552,14 +563,14 @@ class SignatureRequestSendRequest implements ModelInterface, ArrayAccess, JsonSe
     /**
      * Sets signers
      *
-     * @param SubSignatureRequestSigner[]|null $signers Add Signers to your Signature Request.  This endpoint requires either **signers** or **grouped_signers**, but not both.
+     * @param \Dropbox\Sign\Model\SubSignatureRequestSigner[]|null $signers Add Signers to your Signature Request.  This endpoint requires either **signers** or **grouped_signers**, but not both.
      *
      * @return self
      */
-    public function setSigners(?array $signers)
+    public function setSigners($signers)
     {
         if (is_null($signers)) {
-            throw new InvalidArgumentException('non-nullable signers cannot be null');
+            throw new \InvalidArgumentException('non-nullable signers cannot be null');
         }
         $this->container['signers'] = $signers;
 
@@ -569,7 +580,7 @@ class SignatureRequestSendRequest implements ModelInterface, ArrayAccess, JsonSe
     /**
      * Gets grouped_signers
      *
-     * @return SubSignatureRequestGroupedSigners[]|null
+     * @return \Dropbox\Sign\Model\SubSignatureRequestGroupedSigners[]|null
      */
     public function getGroupedSigners()
     {
@@ -579,14 +590,14 @@ class SignatureRequestSendRequest implements ModelInterface, ArrayAccess, JsonSe
     /**
      * Sets grouped_signers
      *
-     * @param SubSignatureRequestGroupedSigners[]|null $grouped_signers Add Grouped Signers to your Signature Request.  This endpoint requires either **signers** or **grouped_signers**, but not both.
+     * @param \Dropbox\Sign\Model\SubSignatureRequestGroupedSigners[]|null $grouped_signers Add Grouped Signers to your Signature Request.  This endpoint requires either **signers** or **grouped_signers**, but not both.
      *
      * @return self
      */
-    public function setGroupedSigners(?array $grouped_signers)
+    public function setGroupedSigners($grouped_signers)
     {
         if (is_null($grouped_signers)) {
-            throw new InvalidArgumentException('non-nullable grouped_signers cannot be null');
+            throw new \InvalidArgumentException('non-nullable grouped_signers cannot be null');
         }
         $this->container['grouped_signers'] = $grouped_signers;
 
@@ -610,10 +621,10 @@ class SignatureRequestSendRequest implements ModelInterface, ArrayAccess, JsonSe
      *
      * @return self
      */
-    public function setAllowDecline(?bool $allow_decline)
+    public function setAllowDecline($allow_decline)
     {
         if (is_null($allow_decline)) {
-            throw new InvalidArgumentException('non-nullable allow_decline cannot be null');
+            throw new \InvalidArgumentException('non-nullable allow_decline cannot be null');
         }
         $this->container['allow_decline'] = $allow_decline;
 
@@ -637,10 +648,10 @@ class SignatureRequestSendRequest implements ModelInterface, ArrayAccess, JsonSe
      *
      * @return self
      */
-    public function setAllowReassign(?bool $allow_reassign)
+    public function setAllowReassign($allow_reassign)
     {
         if (is_null($allow_reassign)) {
-            throw new InvalidArgumentException('non-nullable allow_reassign cannot be null');
+            throw new \InvalidArgumentException('non-nullable allow_reassign cannot be null');
         }
         $this->container['allow_reassign'] = $allow_reassign;
 
@@ -650,7 +661,7 @@ class SignatureRequestSendRequest implements ModelInterface, ArrayAccess, JsonSe
     /**
      * Gets attachments
      *
-     * @return SubAttachment[]|null
+     * @return \Dropbox\Sign\Model\SubAttachment[]|null
      */
     public function getAttachments()
     {
@@ -660,14 +671,14 @@ class SignatureRequestSendRequest implements ModelInterface, ArrayAccess, JsonSe
     /**
      * Sets attachments
      *
-     * @param SubAttachment[]|null $attachments A list describing the attachments
+     * @param \Dropbox\Sign\Model\SubAttachment[]|null $attachments A list describing the attachments
      *
      * @return self
      */
-    public function setAttachments(?array $attachments)
+    public function setAttachments($attachments)
     {
         if (is_null($attachments)) {
-            throw new InvalidArgumentException('non-nullable attachments cannot be null');
+            throw new \InvalidArgumentException('non-nullable attachments cannot be null');
         }
         $this->container['attachments'] = $attachments;
 
@@ -687,14 +698,14 @@ class SignatureRequestSendRequest implements ModelInterface, ArrayAccess, JsonSe
     /**
      * Sets cc_email_addresses
      *
-     * @param string[]|null $cc_email_addresses the email addresses that should be CCed
+     * @param string[]|null $cc_email_addresses The email addresses that should be CCed.
      *
      * @return self
      */
-    public function setCcEmailAddresses(?array $cc_email_addresses)
+    public function setCcEmailAddresses($cc_email_addresses)
     {
         if (is_null($cc_email_addresses)) {
-            throw new InvalidArgumentException('non-nullable cc_email_addresses cannot be null');
+            throw new \InvalidArgumentException('non-nullable cc_email_addresses cannot be null');
         }
         $this->container['cc_email_addresses'] = $cc_email_addresses;
 
@@ -718,10 +729,10 @@ class SignatureRequestSendRequest implements ModelInterface, ArrayAccess, JsonSe
      *
      * @return self
      */
-    public function setClientId(?string $client_id)
+    public function setClientId($client_id)
     {
         if (is_null($client_id)) {
-            throw new InvalidArgumentException('non-nullable client_id cannot be null');
+            throw new \InvalidArgumentException('non-nullable client_id cannot be null');
         }
         $this->container['client_id'] = $client_id;
 
@@ -731,7 +742,7 @@ class SignatureRequestSendRequest implements ModelInterface, ArrayAccess, JsonSe
     /**
      * Gets custom_fields
      *
-     * @return SubCustomField[]|null
+     * @return \Dropbox\Sign\Model\SubCustomField[]|null
      */
     public function getCustomFields()
     {
@@ -741,14 +752,14 @@ class SignatureRequestSendRequest implements ModelInterface, ArrayAccess, JsonSe
     /**
      * Sets custom_fields
      *
-     * @param SubCustomField[]|null $custom_fields When used together with merge fields, `custom_fields` allows users to add pre-filled data to their signature requests.  Pre-filled data can be used with \"send-once\" signature requests by adding merge fields with `form_fields_per_document` or [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) while passing values back with `custom_fields` together in one API call.  For using pre-filled on repeatable signature requests, merge fields are added to templates in the Dropbox Sign UI or by calling [/template/create_embedded_draft](/api/reference/operation/templateCreateEmbeddedDraft) and then passing `custom_fields` on subsequent signature requests referencing that template.
+     * @param \Dropbox\Sign\Model\SubCustomField[]|null $custom_fields When used together with merge fields, `custom_fields` allows users to add pre-filled data to their signature requests.  Pre-filled data can be used with \"send-once\" signature requests by adding merge fields with `form_fields_per_document` or [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) while passing values back with `custom_fields` together in one API call.  For using pre-filled on repeatable signature requests, merge fields are added to templates in the Dropbox Sign UI or by calling [/template/create_embedded_draft](/api/reference/operation/templateCreateEmbeddedDraft) and then passing `custom_fields` on subsequent signature requests referencing that template.
      *
      * @return self
      */
-    public function setCustomFields(?array $custom_fields)
+    public function setCustomFields($custom_fields)
     {
         if (is_null($custom_fields)) {
-            throw new InvalidArgumentException('non-nullable custom_fields cannot be null');
+            throw new \InvalidArgumentException('non-nullable custom_fields cannot be null');
         }
         $this->container['custom_fields'] = $custom_fields;
 
@@ -758,7 +769,7 @@ class SignatureRequestSendRequest implements ModelInterface, ArrayAccess, JsonSe
     /**
      * Gets field_options
      *
-     * @return SubFieldOptions|null
+     * @return \Dropbox\Sign\Model\SubFieldOptions|null
      */
     public function getFieldOptions()
     {
@@ -768,14 +779,14 @@ class SignatureRequestSendRequest implements ModelInterface, ArrayAccess, JsonSe
     /**
      * Sets field_options
      *
-     * @param SubFieldOptions|null $field_options field_options
+     * @param \Dropbox\Sign\Model\SubFieldOptions|null $field_options field_options
      *
      * @return self
      */
-    public function setFieldOptions(?SubFieldOptions $field_options)
+    public function setFieldOptions($field_options)
     {
         if (is_null($field_options)) {
-            throw new InvalidArgumentException('non-nullable field_options cannot be null');
+            throw new \InvalidArgumentException('non-nullable field_options cannot be null');
         }
         $this->container['field_options'] = $field_options;
 
@@ -785,7 +796,7 @@ class SignatureRequestSendRequest implements ModelInterface, ArrayAccess, JsonSe
     /**
      * Gets form_field_groups
      *
-     * @return SubFormFieldGroup[]|null
+     * @return \Dropbox\Sign\Model\SubFormFieldGroup[]|null
      */
     public function getFormFieldGroups()
     {
@@ -795,14 +806,14 @@ class SignatureRequestSendRequest implements ModelInterface, ArrayAccess, JsonSe
     /**
      * Sets form_field_groups
      *
-     * @param SubFormFieldGroup[]|null $form_field_groups Group information for fields defined in `form_fields_per_document`. String-indexed JSON array with `group_label` and `requirement` keys. `form_fields_per_document` must contain fields referencing a group defined in `form_field_groups`.
+     * @param \Dropbox\Sign\Model\SubFormFieldGroup[]|null $form_field_groups Group information for fields defined in `form_fields_per_document`. String-indexed JSON array with `group_label` and `requirement` keys. `form_fields_per_document` must contain fields referencing a group defined in `form_field_groups`.
      *
      * @return self
      */
-    public function setFormFieldGroups(?array $form_field_groups)
+    public function setFormFieldGroups($form_field_groups)
     {
         if (is_null($form_field_groups)) {
-            throw new InvalidArgumentException('non-nullable form_field_groups cannot be null');
+            throw new \InvalidArgumentException('non-nullable form_field_groups cannot be null');
         }
         $this->container['form_field_groups'] = $form_field_groups;
 
@@ -812,7 +823,7 @@ class SignatureRequestSendRequest implements ModelInterface, ArrayAccess, JsonSe
     /**
      * Gets form_field_rules
      *
-     * @return SubFormFieldRule[]|null
+     * @return \Dropbox\Sign\Model\SubFormFieldRule[]|null
      */
     public function getFormFieldRules()
     {
@@ -822,14 +833,14 @@ class SignatureRequestSendRequest implements ModelInterface, ArrayAccess, JsonSe
     /**
      * Sets form_field_rules
      *
-     * @param SubFormFieldRule[]|null $form_field_rules conditional Logic rules for fields defined in `form_fields_per_document`
+     * @param \Dropbox\Sign\Model\SubFormFieldRule[]|null $form_field_rules Conditional Logic rules for fields defined in `form_fields_per_document`.
      *
      * @return self
      */
-    public function setFormFieldRules(?array $form_field_rules)
+    public function setFormFieldRules($form_field_rules)
     {
         if (is_null($form_field_rules)) {
-            throw new InvalidArgumentException('non-nullable form_field_rules cannot be null');
+            throw new \InvalidArgumentException('non-nullable form_field_rules cannot be null');
         }
         $this->container['form_field_rules'] = $form_field_rules;
 
@@ -839,7 +850,7 @@ class SignatureRequestSendRequest implements ModelInterface, ArrayAccess, JsonSe
     /**
      * Gets form_fields_per_document
      *
-     * @return SubFormFieldsPerDocumentBase[]|null
+     * @return \Dropbox\Sign\Model\SubFormFieldsPerDocumentBase[]|null
      */
     public function getFormFieldsPerDocument()
     {
@@ -849,14 +860,14 @@ class SignatureRequestSendRequest implements ModelInterface, ArrayAccess, JsonSe
     /**
      * Sets form_fields_per_document
      *
-     * @param SubFormFieldsPerDocumentBase[]|null $form_fields_per_document The fields that should appear on the document, expressed as an array of objects. (For more details you can read about it here: [Using Form Fields per Document](/docs/openapi/form-fields-per-document).)  **NOTE:** Fields like **text**, **dropdown**, **checkbox**, **radio**, and **hyperlink** have additional required and optional parameters. Check out the list of [additional parameters](/api/reference/constants/#form-fields-per-document) for these field types.  * Text Field use `SubFormFieldsPerDocumentText` * Dropdown Field use `SubFormFieldsPerDocumentDropdown` * Hyperlink Field use `SubFormFieldsPerDocumentHyperlink` * Checkbox Field use `SubFormFieldsPerDocumentCheckbox` * Radio Field use `SubFormFieldsPerDocumentRadio` * Signature Field use `SubFormFieldsPerDocumentSignature` * Date Signed Field use `SubFormFieldsPerDocumentDateSigned` * Initials Field use `SubFormFieldsPerDocumentInitials` * Text Merge Field use `SubFormFieldsPerDocumentTextMerge` * Checkbox Merge Field use `SubFormFieldsPerDocumentCheckboxMerge`
+     * @param \Dropbox\Sign\Model\SubFormFieldsPerDocumentBase[]|null $form_fields_per_document The fields that should appear on the document, expressed as an array of objects. (For more details you can read about it here: [Using Form Fields per Document](/docs/openapi/form-fields-per-document).)  **NOTE:** Fields like **text**, **dropdown**, **checkbox**, **radio**, and **hyperlink** have additional required and optional parameters. Check out the list of [additional parameters](/api/reference/constants/#form-fields-per-document) for these field types.  * Text Field use `SubFormFieldsPerDocumentText` * Dropdown Field use `SubFormFieldsPerDocumentDropdown` * Hyperlink Field use `SubFormFieldsPerDocumentHyperlink` * Checkbox Field use `SubFormFieldsPerDocumentCheckbox` * Radio Field use `SubFormFieldsPerDocumentRadio` * Signature Field use `SubFormFieldsPerDocumentSignature` * Date Signed Field use `SubFormFieldsPerDocumentDateSigned` * Initials Field use `SubFormFieldsPerDocumentInitials` * Text Merge Field use `SubFormFieldsPerDocumentTextMerge` * Checkbox Merge Field use `SubFormFieldsPerDocumentCheckboxMerge`
      *
      * @return self
      */
-    public function setFormFieldsPerDocument(?array $form_fields_per_document)
+    public function setFormFieldsPerDocument($form_fields_per_document)
     {
         if (is_null($form_fields_per_document)) {
-            throw new InvalidArgumentException('non-nullable form_fields_per_document cannot be null');
+            throw new \InvalidArgumentException('non-nullable form_fields_per_document cannot be null');
         }
         $this->container['form_fields_per_document'] = $form_fields_per_document;
 
@@ -880,10 +891,10 @@ class SignatureRequestSendRequest implements ModelInterface, ArrayAccess, JsonSe
      *
      * @return self
      */
-    public function setHideTextTags(?bool $hide_text_tags)
+    public function setHideTextTags($hide_text_tags)
     {
         if (is_null($hide_text_tags)) {
-            throw new InvalidArgumentException('non-nullable hide_text_tags cannot be null');
+            throw new \InvalidArgumentException('non-nullable hide_text_tags cannot be null');
         }
         $this->container['hide_text_tags'] = $hide_text_tags;
 
@@ -909,10 +920,10 @@ class SignatureRequestSendRequest implements ModelInterface, ArrayAccess, JsonSe
      * @return self
      * @deprecated
      */
-    public function setIsQualifiedSignature(?bool $is_qualified_signature)
+    public function setIsQualifiedSignature($is_qualified_signature)
     {
         if (is_null($is_qualified_signature)) {
-            throw new InvalidArgumentException('non-nullable is_qualified_signature cannot be null');
+            throw new \InvalidArgumentException('non-nullable is_qualified_signature cannot be null');
         }
         $this->container['is_qualified_signature'] = $is_qualified_signature;
 
@@ -936,10 +947,10 @@ class SignatureRequestSendRequest implements ModelInterface, ArrayAccess, JsonSe
      *
      * @return self
      */
-    public function setIsEid(?bool $is_eid)
+    public function setIsEid($is_eid)
     {
         if (is_null($is_eid)) {
-            throw new InvalidArgumentException('non-nullable is_eid cannot be null');
+            throw new \InvalidArgumentException('non-nullable is_eid cannot be null');
         }
         $this->container['is_eid'] = $is_eid;
 
@@ -959,17 +970,17 @@ class SignatureRequestSendRequest implements ModelInterface, ArrayAccess, JsonSe
     /**
      * Sets message
      *
-     * @param string|null $message the custom message in the email that will be sent to the signers
+     * @param string|null $message The custom message in the email that will be sent to the signers.
      *
      * @return self
      */
-    public function setMessage(?string $message)
+    public function setMessage($message)
     {
         if (is_null($message)) {
-            throw new InvalidArgumentException('non-nullable message cannot be null');
+            throw new \InvalidArgumentException('non-nullable message cannot be null');
         }
-        if (mb_strlen($message) > 5000) {
-            throw new InvalidArgumentException('invalid length for $message when calling SignatureRequestSendRequest., must be smaller than or equal to 5000.');
+        if ((mb_strlen($message) > 5000)) {
+            throw new \InvalidArgumentException('invalid length for $message when calling SignatureRequestSendRequest., must be smaller than or equal to 5000.');
         }
 
         $this->container['message'] = $message;
@@ -994,11 +1005,12 @@ class SignatureRequestSendRequest implements ModelInterface, ArrayAccess, JsonSe
      *
      * @return self
      */
-    public function setMetadata(?array $metadata)
+    public function setMetadata($metadata)
     {
         if (is_null($metadata)) {
-            throw new InvalidArgumentException('non-nullable metadata cannot be null');
+            throw new \InvalidArgumentException('non-nullable metadata cannot be null');
         }
+
 
         $this->container['metadata'] = $metadata;
 
@@ -1008,7 +1020,7 @@ class SignatureRequestSendRequest implements ModelInterface, ArrayAccess, JsonSe
     /**
      * Gets signing_options
      *
-     * @return SubSigningOptions|null
+     * @return \Dropbox\Sign\Model\SubSigningOptions|null
      */
     public function getSigningOptions()
     {
@@ -1018,14 +1030,14 @@ class SignatureRequestSendRequest implements ModelInterface, ArrayAccess, JsonSe
     /**
      * Sets signing_options
      *
-     * @param SubSigningOptions|null $signing_options signing_options
+     * @param \Dropbox\Sign\Model\SubSigningOptions|null $signing_options signing_options
      *
      * @return self
      */
-    public function setSigningOptions(?SubSigningOptions $signing_options)
+    public function setSigningOptions($signing_options)
     {
         if (is_null($signing_options)) {
-            throw new InvalidArgumentException('non-nullable signing_options cannot be null');
+            throw new \InvalidArgumentException('non-nullable signing_options cannot be null');
         }
         $this->container['signing_options'] = $signing_options;
 
@@ -1045,14 +1057,14 @@ class SignatureRequestSendRequest implements ModelInterface, ArrayAccess, JsonSe
     /**
      * Sets signing_redirect_url
      *
-     * @param string|null $signing_redirect_url the URL you want signers redirected to after they successfully sign
+     * @param string|null $signing_redirect_url The URL you want signers redirected to after they successfully sign.
      *
      * @return self
      */
-    public function setSigningRedirectUrl(?string $signing_redirect_url)
+    public function setSigningRedirectUrl($signing_redirect_url)
     {
         if (is_null($signing_redirect_url)) {
-            throw new InvalidArgumentException('non-nullable signing_redirect_url cannot be null');
+            throw new \InvalidArgumentException('non-nullable signing_redirect_url cannot be null');
         }
         $this->container['signing_redirect_url'] = $signing_redirect_url;
 
@@ -1072,17 +1084,17 @@ class SignatureRequestSendRequest implements ModelInterface, ArrayAccess, JsonSe
     /**
      * Sets subject
      *
-     * @param string|null $subject the subject in the email that will be sent to the signers
+     * @param string|null $subject The subject in the email that will be sent to the signers.
      *
      * @return self
      */
-    public function setSubject(?string $subject)
+    public function setSubject($subject)
     {
         if (is_null($subject)) {
-            throw new InvalidArgumentException('non-nullable subject cannot be null');
+            throw new \InvalidArgumentException('non-nullable subject cannot be null');
         }
-        if (mb_strlen($subject) > 255) {
-            throw new InvalidArgumentException('invalid length for $subject when calling SignatureRequestSendRequest., must be smaller than or equal to 255.');
+        if ((mb_strlen($subject) > 255)) {
+            throw new \InvalidArgumentException('invalid length for $subject when calling SignatureRequestSendRequest., must be smaller than or equal to 255.');
         }
 
         $this->container['subject'] = $subject;
@@ -1107,10 +1119,10 @@ class SignatureRequestSendRequest implements ModelInterface, ArrayAccess, JsonSe
      *
      * @return self
      */
-    public function setTestMode(?bool $test_mode)
+    public function setTestMode($test_mode)
     {
         if (is_null($test_mode)) {
-            throw new InvalidArgumentException('non-nullable test_mode cannot be null');
+            throw new \InvalidArgumentException('non-nullable test_mode cannot be null');
         }
         $this->container['test_mode'] = $test_mode;
 
@@ -1130,17 +1142,17 @@ class SignatureRequestSendRequest implements ModelInterface, ArrayAccess, JsonSe
     /**
      * Sets title
      *
-     * @param string|null $title the title you want to assign to the SignatureRequest
+     * @param string|null $title The title you want to assign to the SignatureRequest.
      *
      * @return self
      */
-    public function setTitle(?string $title)
+    public function setTitle($title)
     {
         if (is_null($title)) {
-            throw new InvalidArgumentException('non-nullable title cannot be null');
+            throw new \InvalidArgumentException('non-nullable title cannot be null');
         }
-        if (mb_strlen($title) > 255) {
-            throw new InvalidArgumentException('invalid length for $title when calling SignatureRequestSendRequest., must be smaller than or equal to 255.');
+        if ((mb_strlen($title) > 255)) {
+            throw new \InvalidArgumentException('invalid length for $title when calling SignatureRequestSendRequest., must be smaller than or equal to 255.');
         }
 
         $this->container['title'] = $title;
@@ -1165,10 +1177,10 @@ class SignatureRequestSendRequest implements ModelInterface, ArrayAccess, JsonSe
      *
      * @return self
      */
-    public function setUseTextTags(?bool $use_text_tags)
+    public function setUseTextTags($use_text_tags)
     {
         if (is_null($use_text_tags)) {
-            throw new InvalidArgumentException('non-nullable use_text_tags cannot be null');
+            throw new \InvalidArgumentException('non-nullable use_text_tags cannot be null');
         }
         $this->container['use_text_tags'] = $use_text_tags;
 
@@ -1192,14 +1204,14 @@ class SignatureRequestSendRequest implements ModelInterface, ArrayAccess, JsonSe
      *
      * @return self
      */
-    public function setExpiresAt(?int $expires_at)
+    public function setExpiresAt($expires_at)
     {
         if (is_null($expires_at)) {
             array_push($this->openAPINullablesSetToNull, 'expires_at');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
             $index = array_search('expires_at', $nullablesSetToNull);
-            if ($index !== false) {
+            if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
@@ -1208,13 +1220,14 @@ class SignatureRequestSendRequest implements ModelInterface, ArrayAccess, JsonSe
 
         return $this;
     }
-
     /**
      * Returns true if offset exists. False otherwise.
      *
-     * @param int $offset Offset
+     * @param integer $offset Offset
+     *
+     * @return boolean
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
@@ -1223,11 +1236,11 @@ class SignatureRequestSendRequest implements ModelInterface, ArrayAccess, JsonSe
     /**
      * Gets offset.
      *
-     * @param int $offset Offset
+     * @param integer $offset Offset
      *
      * @return mixed|null
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return $this->container[$offset] ?? null;
@@ -1238,8 +1251,10 @@ class SignatureRequestSendRequest implements ModelInterface, ArrayAccess, JsonSe
      *
      * @param int|null $offset Offset
      * @param mixed    $value  Value to be set
+     *
+     * @return void
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
@@ -1252,9 +1267,11 @@ class SignatureRequestSendRequest implements ModelInterface, ArrayAccess, JsonSe
     /**
      * Unsets offset.
      *
-     * @param int $offset Offset
+     * @param integer $offset Offset
+     *
+     * @return void
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
@@ -1262,15 +1279,15 @@ class SignatureRequestSendRequest implements ModelInterface, ArrayAccess, JsonSe
 
     /**
      * Serializes the object to a value that can be serialized natively by json_encode().
-     * @see https://www.php.net/manual/en/jsonserializable.jsonserialize.php
+     * @link https://www.php.net/manual/en/jsonserializable.jsonserialize.php
      *
-     * @return mixed returns data which can be serialized by json_encode(), which is a value
-     *               of any type other than a resource
+     * @return mixed Returns data which can be serialized by json_encode(), which is a value
+     * of any type other than a resource.
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
-        return ObjectSerializer::sanitizeForSerialization($this);
+       return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**
@@ -1296,3 +1313,5 @@ class SignatureRequestSendRequest implements ModelInterface, ArrayAccess, JsonSe
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
+
+

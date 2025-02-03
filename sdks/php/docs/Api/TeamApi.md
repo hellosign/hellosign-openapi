@@ -28,32 +28,7 @@ Invites a user (specified using the `email_address` parameter) to your Team. If 
 ### Example
 
 ```php
-<?php
-
-require_once __DIR__ . "/vendor/autoload.php";
-
-$config = Dropbox\Sign\Configuration::getDefaultConfiguration();
-
-// Configure HTTP basic authorization: api_key
-$config->setUsername("YOUR_API_KEY");
-
-// or, configure Bearer (JWT) authorization: oauth2
-// $config->setAccessToken("YOUR_ACCESS_TOKEN");
-
-$teamApi = new Dropbox\Sign\Api\TeamApi($config);
-
-$data = new Dropbox\Sign\Model\TeamAddMemberRequest();
-$data->setEmailAddress("george@example.com");
-
-try {
-    $result = $teamApi->teamAddMember($data);
-    print_r($result);
-} catch (Dropbox\Sign\ApiException $e) {
-    $error = $e->getResponseObject();
-    echo "Exception when calling Dropbox Sign API: "
-        . print_r($error->getError());
-}
-
+REPLACE_ME_WITH_EXAMPLE_FOR__teamAddMember_PHP_CODE
 ```
 
 ### Parameters
@@ -92,32 +67,7 @@ Creates a new Team and makes you a member. You must not currently belong to a Te
 ### Example
 
 ```php
-<?php
-
-require_once __DIR__ . "/vendor/autoload.php";
-
-$config = Dropbox\Sign\Configuration::getDefaultConfiguration();
-
-// Configure HTTP basic authorization: api_key
-$config->setUsername("YOUR_API_KEY");
-
-// or, configure Bearer (JWT) authorization: oauth2
-// $config->setAccessToken("YOUR_ACCESS_TOKEN");
-
-$teamApi = new Dropbox\Sign\Api\TeamApi($config);
-
-$data = new Dropbox\Sign\Model\TeamCreateRequest();
-$data->setName("New Team Name");
-
-try {
-    $result = $teamApi->teamCreate($data);
-    print_r($result);
-} catch (Dropbox\Sign\ApiException $e) {
-    $error = $e->getResponseObject();
-    echo "Exception when calling Dropbox Sign API: "
-        . print_r($error->getError());
-}
-
+REPLACE_ME_WITH_EXAMPLE_FOR__teamCreate_PHP_CODE
 ```
 
 ### Parameters
@@ -155,28 +105,7 @@ Deletes your Team. Can only be invoked when you have a Team with only one member
 ### Example
 
 ```php
-<?php
-
-require_once __DIR__ . "/vendor/autoload.php";
-
-$config = Dropbox\Sign\Configuration::getDefaultConfiguration();
-
-// Configure HTTP basic authorization: api_key
-$config->setUsername("YOUR_API_KEY");
-
-// or, configure Bearer (JWT) authorization: oauth2
-// $config->setAccessToken("YOUR_ACCESS_TOKEN");
-
-$teamApi = new Dropbox\Sign\Api\TeamApi($config);
-
-try {
-    $teamApi->teamDelete();
-} catch (Dropbox\Sign\ApiException $e) {
-    $error = $e->getResponseObject();
-    echo "Exception when calling Dropbox Sign API: "
-        . print_r($error->getError());
-}
-
+REPLACE_ME_WITH_EXAMPLE_FOR__teamDelete_PHP_CODE
 ```
 
 ### Parameters
@@ -212,29 +141,7 @@ Returns information about your Team as well as a list of its members. If you do 
 ### Example
 
 ```php
-<?php
-
-require_once __DIR__ . "/vendor/autoload.php";
-
-$config = Dropbox\Sign\Configuration::getDefaultConfiguration();
-
-// Configure HTTP basic authorization: api_key
-$config->setUsername("YOUR_API_KEY");
-
-// or, configure Bearer (JWT) authorization: oauth2
-// $config->setAccessToken("YOUR_ACCESS_TOKEN");
-
-$teamApi = new Dropbox\Sign\Api\TeamApi($config);
-
-try {
-    $result = $teamApi->teamGet();
-    print_r($result);
-} catch (Dropbox\Sign\ApiException $e) {
-    $error = $e->getResponseObject();
-    echo "Exception when calling Dropbox Sign API: "
-        . print_r($error->getError());
-}
-
+REPLACE_ME_WITH_EXAMPLE_FOR__teamGet_PHP_CODE
 ```
 
 ### Parameters
@@ -270,29 +177,7 @@ Provides information about a team.
 ### Example
 
 ```php
-<?php
-
-require_once __DIR__ . "/vendor/autoload.php";
-
-$config = Dropbox\Sign\Configuration::getDefaultConfiguration();
-
-// Configure HTTP basic authorization: api_key
-$config->setUsername("YOUR_API_KEY");
-
-// or, configure Bearer (JWT) authorization: oauth2
-// $config->setAccessToken("YOUR_ACCESS_TOKEN");
-
-$teamApi = new Dropbox\Sign\Api\TeamApi($config);
-
-try {
-    $result = $teamApi->teamInfo();
-    print_r($result);
-} catch (Dropbox\Sign\ApiException $e) {
-    $error = $e->getResponseObject();
-    echo "Exception when calling Dropbox Sign API: "
-        . print_r($error->getError());
-}
-
+REPLACE_ME_WITH_EXAMPLE_FOR__teamInfo_PHP_CODE
 ```
 
 ### Parameters
@@ -330,31 +215,7 @@ Provides a list of team invites (and their roles).
 ### Example
 
 ```php
-<?php
-
-require_once __DIR__ . "/vendor/autoload.php";
-
-$config = Dropbox\Sign\Configuration::getDefaultConfiguration();
-
-// Configure HTTP basic authorization: api_key
-$config->setUsername("YOUR_API_KEY");
-
-// or, configure Bearer (JWT) authorization: oauth2
-// $config->setAccessToken("YOUR_ACCESS_TOKEN");
-
-$teamApi = new Dropbox\Sign\Api\TeamApi($config);
-
-$emailAddress = "user@dropboxsign.com";
-
-try {
-    $result = $teamApi->teamInvites($emailAddress);
-    print_r($result);
-} catch (Dropbox\Sign\ApiException $e) {
-    $error = $e->getResponseObject();
-    echo "Exception when calling Dropbox Sign API: "
-        . print_r($error->getError());
-}
-
+REPLACE_ME_WITH_EXAMPLE_FOR__teamInvites_PHP_CODE
 ```
 
 ### Parameters
@@ -392,31 +253,7 @@ Provides a paginated list of members (and their roles) that belong to a given te
 ### Example
 
 ```php
-<?php
-
-require_once __DIR__ . "/vendor/autoload.php";
-
-$config = Dropbox\Sign\Configuration::getDefaultConfiguration();
-
-// Configure HTTP basic authorization: api_key
-$config->setUsername("YOUR_API_KEY");
-
-// or, configure Bearer (JWT) authorization: oauth2
-// $config->setAccessToken("YOUR_ACCESS_TOKEN");
-
-$teamApi = new Dropbox\Sign\Api\TeamApi($config);
-
-$teamId = "4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c";
-
-try {
-    $result = $teamApi->teamMembers($teamId);
-    print_r($result);
-} catch (Dropbox\Sign\ApiException $e) {
-    $error = $e->getResponseObject();
-    echo "Exception when calling Dropbox Sign API: "
-        . print_r($error->getError());
-}
-
+REPLACE_ME_WITH_EXAMPLE_FOR__teamMembers_PHP_CODE
 ```
 
 ### Parameters
@@ -424,8 +261,8 @@ try {
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **team_id** | **string**| The id of the team that a member list is being requested from. | |
-| **page** | **int**| Which page number of the team member list to return. Defaults to `1`. | [optional] [default to 1] |
-| **page_size** | **int**| Number of objects to be returned per page. Must be between `1` and `100`. Default is `20`. | [optional] [default to 20] |
+| **page** | **int**| Which page number of the team member list to return. Defaults to &#x60;1&#x60;. | [optional] [default to 1] |
+| **page_size** | **int**| Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. | [optional] [default to 20] |
 
 ### Return type
 
@@ -456,33 +293,7 @@ Removes the provided user Account from your Team. If the Account had an outstand
 ### Example
 
 ```php
-<?php
-
-require_once __DIR__ . "/vendor/autoload.php";
-
-$config = Dropbox\Sign\Configuration::getDefaultConfiguration();
-
-// Configure HTTP basic authorization: api_key
-$config->setUsername("YOUR_API_KEY");
-
-// or, configure Bearer (JWT) authorization: oauth2
-// $config->setAccessToken("YOUR_ACCESS_TOKEN");
-
-$teamApi = new Dropbox\Sign\Api\TeamApi($config);
-
-$data = new Dropbox\Sign\Model\TeamRemoveMemberRequest();
-$data->setEmailAddress("teammate@dropboxsign.com")
-    ->setNewOwnerEmailAddress("new_teammate@dropboxsign.com");
-
-try {
-    $result = $teamApi->teamRemoveMember($data);
-    print_r($result);
-} catch (Dropbox\Sign\ApiException $e) {
-    $error = $e->getResponseObject();
-    echo "Exception when calling Dropbox Sign API: "
-        . print_r($error->getError());
-}
-
+REPLACE_ME_WITH_EXAMPLE_FOR__teamRemoveMember_PHP_CODE
 ```
 
 ### Parameters
@@ -520,31 +331,7 @@ Provides a paginated list of sub teams that belong to a given team.
 ### Example
 
 ```php
-<?php
-
-require_once __DIR__ . "/vendor/autoload.php";
-
-$config = Dropbox\Sign\Configuration::getDefaultConfiguration();
-
-// Configure HTTP basic authorization: api_key
-$config->setUsername("YOUR_API_KEY");
-
-// or, configure Bearer (JWT) authorization: oauth2
-// $config->setAccessToken("YOUR_ACCESS_TOKEN");
-
-$teamApi = new Dropbox\Sign\Api\TeamApi($config);
-
-$teamId = "4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c";
-
-try {
-    $result = $teamApi->teamSubTeams($teamId);
-    print_r($result);
-} catch (Dropbox\Sign\ApiException $e) {
-    $error = $e->getResponseObject();
-    echo "Exception when calling Dropbox Sign API: "
-        . print_r($error->getError());
-}
-
+REPLACE_ME_WITH_EXAMPLE_FOR__teamSubTeams_PHP_CODE
 ```
 
 ### Parameters
@@ -552,8 +339,8 @@ try {
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **team_id** | **string**| The id of the parent Team. | |
-| **page** | **int**| Which page number of the SubTeam List to return. Defaults to `1`. | [optional] [default to 1] |
-| **page_size** | **int**| Number of objects to be returned per page. Must be between `1` and `100`. Default is `20`. | [optional] [default to 20] |
+| **page** | **int**| Which page number of the SubTeam List to return. Defaults to &#x60;1&#x60;. | [optional] [default to 1] |
+| **page_size** | **int**| Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. | [optional] [default to 20] |
 
 ### Return type
 
@@ -584,32 +371,7 @@ Updates the name of your Team.
 ### Example
 
 ```php
-<?php
-
-require_once __DIR__ . "/vendor/autoload.php";
-
-$config = Dropbox\Sign\Configuration::getDefaultConfiguration();
-
-// Configure HTTP basic authorization: api_key
-$config->setUsername("YOUR_API_KEY");
-
-// or, configure Bearer (JWT) authorization: oauth2
-// $config->setAccessToken("YOUR_ACCESS_TOKEN");
-
-$teamApi = new Dropbox\Sign\Api\TeamApi($config);
-
-$data = new Dropbox\Sign\Model\TeamUpdateRequest();
-$data->setName("New Team Name");
-
-try {
-    $result = $teamApi->teamUpdate($data);
-    print_r($result);
-} catch (Dropbox\Sign\ApiException $e) {
-    $error = $e->getResponseObject();
-    echo "Exception when calling Dropbox Sign API: "
-        . print_r($error->getError());
-}
-
+REPLACE_ME_WITH_EXAMPLE_FOR__teamUpdate_PHP_CODE
 ```
 
 ### Parameters

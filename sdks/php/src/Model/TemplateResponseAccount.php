@@ -5,7 +5,9 @@
  * PHP version 7.4
  *
  * @category Class
- * @see     https://openapi-generator.tech
+ * @package  Dropbox\Sign
+ * @author   OpenAPI Generator team
+ * @link     https://openapi-generator.tech
  */
 
 /**
@@ -27,79 +29,78 @@
 
 namespace Dropbox\Sign\Model;
 
-use ArrayAccess;
-use Dropbox\Sign\ObjectSerializer;
-use InvalidArgumentException;
-use JsonSerializable;
-use ReturnTypeWillChange;
+use \ArrayAccess;
+use \Dropbox\Sign\ObjectSerializer;
 
 /**
  * TemplateResponseAccount Class Doc Comment
  *
  * @category Class
- * @see     https://openapi-generator.tech
+ * @package  Dropbox\Sign
+ * @author   OpenAPI Generator team
+ * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class TemplateResponseAccount implements ModelInterface, ArrayAccess, JsonSerializable
+class TemplateResponseAccount implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
     /**
-     * The original name of the model.
-     *
-     * @var string
-     */
+      * The original name of the model.
+      *
+      * @var string
+      */
     protected static $openAPIModelName = 'TemplateResponseAccount';
 
     /**
-     * Array of property to type mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to type mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPITypes = [
         'account_id' => 'string',
         'email_address' => 'string',
         'is_locked' => 'bool',
         'is_paid_hs' => 'bool',
         'is_paid_hf' => 'bool',
-        'quotas' => '\Dropbox\Sign\Model\TemplateResponseAccountQuota',
+        'quotas' => '\Dropbox\Sign\Model\TemplateResponseAccountQuota'
     ];
 
     /**
-     * Array of property to format mappings. Used for (de)serialization
-     *
-     * @var string[]
-     * @phpstan-var array<string, string|null>
-     * @psalm-var array<string, string|null>
-     */
+      * Array of property to format mappings. Used for (de)serialization
+      *
+      * @var string[]
+      * @phpstan-var array<string, string|null>
+      * @psalm-var array<string, string|null>
+      */
     protected static $openAPIFormats = [
         'account_id' => null,
         'email_address' => null,
         'is_locked' => null,
         'is_paid_hs' => null,
         'is_paid_hf' => null,
-        'quotas' => null,
+        'quotas' => null
     ];
 
     /**
-     * Array of nullable properties. Used for (de)serialization
-     *
-     * @var bool[]
-     */
+      * Array of nullable properties. Used for (de)serialization
+      *
+      * @var boolean[]
+      */
     protected static array $openAPINullables = [
         'account_id' => false,
         'email_address' => false,
         'is_locked' => false,
         'is_paid_hs' => false,
         'is_paid_hf' => false,
-        'quotas' => false,
+        'quotas' => false
     ];
 
     /**
-     * If a nullable field gets set to null, insert it here
-     *
-     * @var bool[]
-     */
+      * If a nullable field gets set to null, insert it here
+      *
+      * @var boolean[]
+      */
     protected array $openAPINullablesSetToNull = [];
 
     /**
@@ -124,6 +125,8 @@ class TemplateResponseAccount implements ModelInterface, ArrayAccess, JsonSerial
 
     /**
      * Array of nullable properties
+     *
+     * @return array
      */
     protected static function openAPINullables(): array
     {
@@ -133,7 +136,7 @@ class TemplateResponseAccount implements ModelInterface, ArrayAccess, JsonSerial
     /**
      * Array of nullable field names deliberately set to null
      *
-     * @return bool[]
+     * @return boolean[]
      */
     private function getOpenAPINullablesSetToNull(): array
     {
@@ -143,7 +146,7 @@ class TemplateResponseAccount implements ModelInterface, ArrayAccess, JsonSerial
     /**
      * Setter - Array of nullable field names deliberately set to null
      *
-     * @param bool[] $openAPINullablesSetToNull
+     * @param boolean[] $openAPINullablesSetToNull
      */
     private function setOpenAPINullablesSetToNull(array $openAPINullablesSetToNull): void
     {
@@ -152,6 +155,9 @@ class TemplateResponseAccount implements ModelInterface, ArrayAccess, JsonSerial
 
     /**
      * Checks if a property is nullable
+     *
+     * @param string $property
+     * @return bool
      */
     public static function isNullable(string $property): bool
     {
@@ -160,6 +166,9 @@ class TemplateResponseAccount implements ModelInterface, ArrayAccess, JsonSerial
 
     /**
      * Checks if a nullable property is set to null.
+     *
+     * @param string $property
+     * @return bool
      */
     public function isNullableSetToNull(string $property): bool
     {
@@ -178,7 +187,7 @@ class TemplateResponseAccount implements ModelInterface, ArrayAccess, JsonSerial
         'is_locked' => 'is_locked',
         'is_paid_hs' => 'is_paid_hs',
         'is_paid_hf' => 'is_paid_hf',
-        'quotas' => 'quotas',
+        'quotas' => 'quotas'
     ];
 
     /**
@@ -192,7 +201,7 @@ class TemplateResponseAccount implements ModelInterface, ArrayAccess, JsonSerial
         'is_locked' => 'setIsLocked',
         'is_paid_hs' => 'setIsPaidHs',
         'is_paid_hf' => 'setIsPaidHf',
-        'quotas' => 'setQuotas',
+        'quotas' => 'setQuotas'
     ];
 
     /**
@@ -206,7 +215,7 @@ class TemplateResponseAccount implements ModelInterface, ArrayAccess, JsonSerial
         'is_locked' => 'getIsLocked',
         'is_paid_hs' => 'getIsPaidHs',
         'is_paid_hf' => 'getIsPaidHf',
-        'quotas' => 'getQuotas',
+        'quotas' => 'getQuotas'
     ];
 
     /**
@@ -250,6 +259,7 @@ class TemplateResponseAccount implements ModelInterface, ArrayAccess, JsonSerial
         return self::$openAPIModelName;
     }
 
+
     /**
      * Associative array for storing property values
      *
@@ -273,33 +283,34 @@ class TemplateResponseAccount implements ModelInterface, ArrayAccess, JsonSerial
         $this->setIfExists('quotas', $data ?? [], null);
     }
 
-    /**
-     * @deprecated use ::init()
-     */
+    /** @deprecated use ::init() */
     public static function fromArray(array $data): TemplateResponseAccount
     {
         return self::init($data);
     }
 
-    /**
-     * Attempt to instantiate and hydrate a new instance of this class
-     */
+    /** Attempt to instantiate and hydrate a new instance of this class */
     public static function init(array $data): TemplateResponseAccount
     {
         /** @var TemplateResponseAccount */
-        return ObjectSerializer::deserialize(
+        $obj = ObjectSerializer::deserialize(
             $data,
             TemplateResponseAccount::class,
         );
+
+        return $obj;
     }
 
+
     /**
-     * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
-     * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
-     * $this->openAPINullablesSetToNull array
-     *
-     * @param string|int|object|array|mixed $defaultValue
-     */
+    * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
+    * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
+    * $this->openAPINullablesSetToNull array
+    *
+    * @param string $variableName
+    * @param array  $fields
+* @param string|int|object|array|mixed  $defaultValue
+    */
     private function setIfExists(string $variableName, array $fields, $defaultValue): void
     {
         if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
@@ -316,7 +327,9 @@ class TemplateResponseAccount implements ModelInterface, ArrayAccess, JsonSerial
      */
     public function listInvalidProperties()
     {
-        return [];
+        $invalidProperties = [];
+
+        return $invalidProperties;
     }
 
     /**
@@ -329,6 +342,7 @@ class TemplateResponseAccount implements ModelInterface, ArrayAccess, JsonSerial
     {
         return count($this->listInvalidProperties()) === 0;
     }
+
 
     /**
      * Gets account_id
@@ -343,14 +357,14 @@ class TemplateResponseAccount implements ModelInterface, ArrayAccess, JsonSerial
     /**
      * Sets account_id
      *
-     * @param string|null $account_id the id of the Account
+     * @param string|null $account_id The id of the Account.
      *
      * @return self
      */
-    public function setAccountId(?string $account_id)
+    public function setAccountId($account_id)
     {
         if (is_null($account_id)) {
-            throw new InvalidArgumentException('non-nullable account_id cannot be null');
+            throw new \InvalidArgumentException('non-nullable account_id cannot be null');
         }
         $this->container['account_id'] = $account_id;
 
@@ -370,14 +384,14 @@ class TemplateResponseAccount implements ModelInterface, ArrayAccess, JsonSerial
     /**
      * Sets email_address
      *
-     * @param string|null $email_address the email address associated with the Account
+     * @param string|null $email_address The email address associated with the Account.
      *
      * @return self
      */
-    public function setEmailAddress(?string $email_address)
+    public function setEmailAddress($email_address)
     {
         if (is_null($email_address)) {
-            throw new InvalidArgumentException('non-nullable email_address cannot be null');
+            throw new \InvalidArgumentException('non-nullable email_address cannot be null');
         }
         $this->container['email_address'] = $email_address;
 
@@ -397,14 +411,14 @@ class TemplateResponseAccount implements ModelInterface, ArrayAccess, JsonSerial
     /**
      * Sets is_locked
      *
-     * @param bool|null $is_locked returns `true` if the user has been locked out of their account by a team admin
+     * @param bool|null $is_locked Returns `true` if the user has been locked out of their account by a team admin.
      *
      * @return self
      */
-    public function setIsLocked(?bool $is_locked)
+    public function setIsLocked($is_locked)
     {
         if (is_null($is_locked)) {
-            throw new InvalidArgumentException('non-nullable is_locked cannot be null');
+            throw new \InvalidArgumentException('non-nullable is_locked cannot be null');
         }
         $this->container['is_locked'] = $is_locked;
 
@@ -424,14 +438,14 @@ class TemplateResponseAccount implements ModelInterface, ArrayAccess, JsonSerial
     /**
      * Sets is_paid_hs
      *
-     * @param bool|null $is_paid_hs returns `true` if the user has a paid Dropbox Sign account
+     * @param bool|null $is_paid_hs Returns `true` if the user has a paid Dropbox Sign account.
      *
      * @return self
      */
-    public function setIsPaidHs(?bool $is_paid_hs)
+    public function setIsPaidHs($is_paid_hs)
     {
         if (is_null($is_paid_hs)) {
-            throw new InvalidArgumentException('non-nullable is_paid_hs cannot be null');
+            throw new \InvalidArgumentException('non-nullable is_paid_hs cannot be null');
         }
         $this->container['is_paid_hs'] = $is_paid_hs;
 
@@ -451,14 +465,14 @@ class TemplateResponseAccount implements ModelInterface, ArrayAccess, JsonSerial
     /**
      * Sets is_paid_hf
      *
-     * @param bool|null $is_paid_hf returns `true` if the user has a paid HelloFax account
+     * @param bool|null $is_paid_hf Returns `true` if the user has a paid HelloFax account.
      *
      * @return self
      */
-    public function setIsPaidHf(?bool $is_paid_hf)
+    public function setIsPaidHf($is_paid_hf)
     {
         if (is_null($is_paid_hf)) {
-            throw new InvalidArgumentException('non-nullable is_paid_hf cannot be null');
+            throw new \InvalidArgumentException('non-nullable is_paid_hf cannot be null');
         }
         $this->container['is_paid_hf'] = $is_paid_hf;
 
@@ -468,7 +482,7 @@ class TemplateResponseAccount implements ModelInterface, ArrayAccess, JsonSerial
     /**
      * Gets quotas
      *
-     * @return TemplateResponseAccountQuota|null
+     * @return \Dropbox\Sign\Model\TemplateResponseAccountQuota|null
      */
     public function getQuotas()
     {
@@ -478,26 +492,27 @@ class TemplateResponseAccount implements ModelInterface, ArrayAccess, JsonSerial
     /**
      * Sets quotas
      *
-     * @param TemplateResponseAccountQuota|null $quotas quotas
+     * @param \Dropbox\Sign\Model\TemplateResponseAccountQuota|null $quotas quotas
      *
      * @return self
      */
-    public function setQuotas(?TemplateResponseAccountQuota $quotas)
+    public function setQuotas($quotas)
     {
         if (is_null($quotas)) {
-            throw new InvalidArgumentException('non-nullable quotas cannot be null');
+            throw new \InvalidArgumentException('non-nullable quotas cannot be null');
         }
         $this->container['quotas'] = $quotas;
 
         return $this;
     }
-
     /**
      * Returns true if offset exists. False otherwise.
      *
-     * @param int $offset Offset
+     * @param integer $offset Offset
+     *
+     * @return boolean
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
@@ -506,11 +521,11 @@ class TemplateResponseAccount implements ModelInterface, ArrayAccess, JsonSerial
     /**
      * Gets offset.
      *
-     * @param int $offset Offset
+     * @param integer $offset Offset
      *
      * @return mixed|null
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return $this->container[$offset] ?? null;
@@ -521,8 +536,10 @@ class TemplateResponseAccount implements ModelInterface, ArrayAccess, JsonSerial
      *
      * @param int|null $offset Offset
      * @param mixed    $value  Value to be set
+     *
+     * @return void
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
@@ -535,9 +552,11 @@ class TemplateResponseAccount implements ModelInterface, ArrayAccess, JsonSerial
     /**
      * Unsets offset.
      *
-     * @param int $offset Offset
+     * @param integer $offset Offset
+     *
+     * @return void
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
@@ -545,15 +564,15 @@ class TemplateResponseAccount implements ModelInterface, ArrayAccess, JsonSerial
 
     /**
      * Serializes the object to a value that can be serialized natively by json_encode().
-     * @see https://www.php.net/manual/en/jsonserializable.jsonserialize.php
+     * @link https://www.php.net/manual/en/jsonserializable.jsonserialize.php
      *
-     * @return mixed returns data which can be serialized by json_encode(), which is a value
-     *               of any type other than a resource
+     * @return mixed Returns data which can be serialized by json_encode(), which is a value
+     * of any type other than a resource.
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
-        return ObjectSerializer::sanitizeForSerialization($this);
+       return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**
@@ -579,3 +598,5 @@ class TemplateResponseAccount implements ModelInterface, ArrayAccess, JsonSerial
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
+
+

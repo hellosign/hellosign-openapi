@@ -5,7 +5,9 @@
  * PHP version 7.4
  *
  * @category Class
- * @see     https://openapi-generator.tech
+ * @package  Dropbox\Sign
+ * @author   OpenAPI Generator team
+ * @link     https://openapi-generator.tech
  */
 
 /**
@@ -27,36 +29,34 @@
 
 namespace Dropbox\Sign\Model;
 
-use ArrayAccess;
-use Dropbox\Sign\ObjectSerializer;
-use InvalidArgumentException;
-use JsonSerializable;
-use ReturnTypeWillChange;
-use SplFileObject;
+use \ArrayAccess;
+use \Dropbox\Sign\ObjectSerializer;
 
 /**
  * SignatureRequestBulkSendWithTemplateRequest Class Doc Comment
  *
  * @category Class
- * @see     https://openapi-generator.tech
+ * @package  Dropbox\Sign
+ * @author   OpenAPI Generator team
+ * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class SignatureRequestBulkSendWithTemplateRequest implements ModelInterface, ArrayAccess, JsonSerializable
+class SignatureRequestBulkSendWithTemplateRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
     /**
-     * The original name of the model.
-     *
-     * @var string
-     */
+      * The original name of the model.
+      *
+      * @var string
+      */
     protected static $openAPIModelName = 'SignatureRequestBulkSendWithTemplateRequest';
 
     /**
-     * Array of property to type mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to type mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPITypes = [
         'template_ids' => 'string[]',
         'signer_file' => '\SplFileObject',
@@ -70,16 +70,16 @@ class SignatureRequestBulkSendWithTemplateRequest implements ModelInterface, Arr
         'signing_redirect_url' => 'string',
         'subject' => 'string',
         'test_mode' => 'bool',
-        'title' => 'string',
+        'title' => 'string'
     ];
 
     /**
-     * Array of property to format mappings. Used for (de)serialization
-     *
-     * @var string[]
-     * @phpstan-var array<string, string|null>
-     * @psalm-var array<string, string|null>
-     */
+      * Array of property to format mappings. Used for (de)serialization
+      *
+      * @var string[]
+      * @phpstan-var array<string, string|null>
+      * @psalm-var array<string, string|null>
+      */
     protected static $openAPIFormats = [
         'template_ids' => null,
         'signer_file' => 'binary',
@@ -93,14 +93,14 @@ class SignatureRequestBulkSendWithTemplateRequest implements ModelInterface, Arr
         'signing_redirect_url' => null,
         'subject' => null,
         'test_mode' => null,
-        'title' => null,
+        'title' => null
     ];
 
     /**
-     * Array of nullable properties. Used for (de)serialization
-     *
-     * @var bool[]
-     */
+      * Array of nullable properties. Used for (de)serialization
+      *
+      * @var boolean[]
+      */
     protected static array $openAPINullables = [
         'template_ids' => false,
         'signer_file' => false,
@@ -114,14 +114,14 @@ class SignatureRequestBulkSendWithTemplateRequest implements ModelInterface, Arr
         'signing_redirect_url' => false,
         'subject' => false,
         'test_mode' => false,
-        'title' => false,
+        'title' => false
     ];
 
     /**
-     * If a nullable field gets set to null, insert it here
-     *
-     * @var bool[]
-     */
+      * If a nullable field gets set to null, insert it here
+      *
+      * @var boolean[]
+      */
     protected array $openAPINullablesSetToNull = [];
 
     /**
@@ -146,6 +146,8 @@ class SignatureRequestBulkSendWithTemplateRequest implements ModelInterface, Arr
 
     /**
      * Array of nullable properties
+     *
+     * @return array
      */
     protected static function openAPINullables(): array
     {
@@ -155,7 +157,7 @@ class SignatureRequestBulkSendWithTemplateRequest implements ModelInterface, Arr
     /**
      * Array of nullable field names deliberately set to null
      *
-     * @return bool[]
+     * @return boolean[]
      */
     private function getOpenAPINullablesSetToNull(): array
     {
@@ -165,7 +167,7 @@ class SignatureRequestBulkSendWithTemplateRequest implements ModelInterface, Arr
     /**
      * Setter - Array of nullable field names deliberately set to null
      *
-     * @param bool[] $openAPINullablesSetToNull
+     * @param boolean[] $openAPINullablesSetToNull
      */
     private function setOpenAPINullablesSetToNull(array $openAPINullablesSetToNull): void
     {
@@ -174,6 +176,9 @@ class SignatureRequestBulkSendWithTemplateRequest implements ModelInterface, Arr
 
     /**
      * Checks if a property is nullable
+     *
+     * @param string $property
+     * @return bool
      */
     public static function isNullable(string $property): bool
     {
@@ -182,6 +187,9 @@ class SignatureRequestBulkSendWithTemplateRequest implements ModelInterface, Arr
 
     /**
      * Checks if a nullable property is set to null.
+     *
+     * @param string $property
+     * @return bool
      */
     public function isNullableSetToNull(string $property): bool
     {
@@ -207,7 +215,7 @@ class SignatureRequestBulkSendWithTemplateRequest implements ModelInterface, Arr
         'signing_redirect_url' => 'signing_redirect_url',
         'subject' => 'subject',
         'test_mode' => 'test_mode',
-        'title' => 'title',
+        'title' => 'title'
     ];
 
     /**
@@ -228,7 +236,7 @@ class SignatureRequestBulkSendWithTemplateRequest implements ModelInterface, Arr
         'signing_redirect_url' => 'setSigningRedirectUrl',
         'subject' => 'setSubject',
         'test_mode' => 'setTestMode',
-        'title' => 'setTitle',
+        'title' => 'setTitle'
     ];
 
     /**
@@ -249,7 +257,7 @@ class SignatureRequestBulkSendWithTemplateRequest implements ModelInterface, Arr
         'signing_redirect_url' => 'getSigningRedirectUrl',
         'subject' => 'getSubject',
         'test_mode' => 'getTestMode',
-        'title' => 'getTitle',
+        'title' => 'getTitle'
     ];
 
     /**
@@ -293,6 +301,7 @@ class SignatureRequestBulkSendWithTemplateRequest implements ModelInterface, Arr
         return self::$openAPIModelName;
     }
 
+
     /**
      * Associative array for storing property values
      *
@@ -323,33 +332,34 @@ class SignatureRequestBulkSendWithTemplateRequest implements ModelInterface, Arr
         $this->setIfExists('title', $data ?? [], null);
     }
 
-    /**
-     * @deprecated use ::init()
-     */
+    /** @deprecated use ::init() */
     public static function fromArray(array $data): SignatureRequestBulkSendWithTemplateRequest
     {
         return self::init($data);
     }
 
-    /**
-     * Attempt to instantiate and hydrate a new instance of this class
-     */
+    /** Attempt to instantiate and hydrate a new instance of this class */
     public static function init(array $data): SignatureRequestBulkSendWithTemplateRequest
     {
         /** @var SignatureRequestBulkSendWithTemplateRequest */
-        return ObjectSerializer::deserialize(
+        $obj = ObjectSerializer::deserialize(
             $data,
             SignatureRequestBulkSendWithTemplateRequest::class,
         );
+
+        return $obj;
     }
 
+
     /**
-     * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
-     * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
-     * $this->openAPINullablesSetToNull array
-     *
-     * @param string|int|object|array|mixed $defaultValue
-     */
+    * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
+    * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
+    * $this->openAPINullablesSetToNull array
+    *
+    * @param string $variableName
+    * @param array  $fields
+* @param string|int|object|array|mixed  $defaultValue
+    */
     private function setIfExists(string $variableName, array $fields, $defaultValue): void
     {
         if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
@@ -397,6 +407,7 @@ class SignatureRequestBulkSendWithTemplateRequest implements ModelInterface, Arr
         return count($this->listInvalidProperties()) === 0;
     }
 
+
     /**
      * Gets template_ids
      *
@@ -410,14 +421,14 @@ class SignatureRequestBulkSendWithTemplateRequest implements ModelInterface, Arr
     /**
      * Sets template_ids
      *
-     * @param string[] $template_ids use `template_ids` to create a SignatureRequest from one or more templates, in the order in which the template will be used
+     * @param string[] $template_ids Use `template_ids` to create a SignatureRequest from one or more templates, in the order in which the template will be used.
      *
      * @return self
      */
-    public function setTemplateIds(array $template_ids)
+    public function setTemplateIds($template_ids)
     {
         if (is_null($template_ids)) {
-            throw new InvalidArgumentException('non-nullable template_ids cannot be null');
+            throw new \InvalidArgumentException('non-nullable template_ids cannot be null');
         }
         $this->container['template_ids'] = $template_ids;
 
@@ -427,7 +438,7 @@ class SignatureRequestBulkSendWithTemplateRequest implements ModelInterface, Arr
     /**
      * Gets signer_file
      *
-     * @return SplFileObject|null
+     * @return \SplFileObject|null
      */
     public function getSignerFile()
     {
@@ -437,14 +448,14 @@ class SignatureRequestBulkSendWithTemplateRequest implements ModelInterface, Arr
     /**
      * Sets signer_file
      *
-     * @param SplFileObject|null $signer_file `signer_file` is a CSV file defining values and options for signer fields. Required unless a `signer_list` is used, you may not use both. The CSV can have the following columns:  - `name`: the name of the signer filling the role of RoleName - `email_address`: email address of the signer filling the role of RoleName - `pin`: the 4- to 12-character access code that will secure this signer's signature page (optional) - `sms_phone_number`: An E.164 formatted phone number that will receive a code via SMS to access this signer's signature page. (optional)      By using the feature, you agree you are responsible for obtaining a signer's consent to receive text messages from Dropbox Sign related to this signature request and confirm you have obtained such consent from all signers prior to enabling SMS delivery for this signature request. [Learn more](https://faq.hellosign.com/hc/en-us/articles/15815316468877-Dropbox-Sign-SMS-tools-add-on).      **NOTE:** Not available in test mode and requires a Standard plan or higher. - `*_field`: any column with a _field\" suffix will be treated as a custom field (optional)      You may only specify field values here, any other options should be set in the custom_fields request parameter.  Example CSV:  ``` name, email_address, pin, company_field George, george@example.com, d79a3td, ABC Corp Mary, mary@example.com, gd9as5b, 123 LLC ```
+     * @param \SplFileObject|null $signer_file `signer_file` is a CSV file defining values and options for signer fields. Required unless a `signer_list` is used, you may not use both. The CSV can have the following columns:  - `name`: the name of the signer filling the role of RoleName - `email_address`: email address of the signer filling the role of RoleName - `pin`: the 4- to 12-character access code that will secure this signer's signature page (optional) - `sms_phone_number`: An E.164 formatted phone number that will receive a code via SMS to access this signer's signature page. (optional)      By using the feature, you agree you are responsible for obtaining a signer's consent to receive text messages from Dropbox Sign related to this signature request and confirm you have obtained such consent from all signers prior to enabling SMS delivery for this signature request. [Learn more](https://faq.hellosign.com/hc/en-us/articles/15815316468877-Dropbox-Sign-SMS-tools-add-on).      **NOTE:** Not available in test mode and requires a Standard plan or higher. - `*_field`: any column with a _field\" suffix will be treated as a custom field (optional)      You may only specify field values here, any other options should be set in the custom_fields request parameter.  Example CSV:  ``` name, email_address, pin, company_field George, george@example.com, d79a3td, ABC Corp Mary, mary@example.com, gd9as5b, 123 LLC ```
      *
      * @return self
      */
-    public function setSignerFile(?SplFileObject $signer_file)
+    public function setSignerFile($signer_file)
     {
         if (is_null($signer_file)) {
-            throw new InvalidArgumentException('non-nullable signer_file cannot be null');
+            throw new \InvalidArgumentException('non-nullable signer_file cannot be null');
         }
         $this->container['signer_file'] = $signer_file;
 
@@ -454,7 +465,7 @@ class SignatureRequestBulkSendWithTemplateRequest implements ModelInterface, Arr
     /**
      * Gets signer_list
      *
-     * @return SubBulkSignerList[]|null
+     * @return \Dropbox\Sign\Model\SubBulkSignerList[]|null
      */
     public function getSignerList()
     {
@@ -464,14 +475,14 @@ class SignatureRequestBulkSendWithTemplateRequest implements ModelInterface, Arr
     /**
      * Sets signer_list
      *
-     * @param SubBulkSignerList[]|null $signer_list `signer_list` is an array defining values and options for signer fields. Required unless a `signer_file` is used, you may not use both.
+     * @param \Dropbox\Sign\Model\SubBulkSignerList[]|null $signer_list `signer_list` is an array defining values and options for signer fields. Required unless a `signer_file` is used, you may not use both.
      *
      * @return self
      */
-    public function setSignerList(?array $signer_list)
+    public function setSignerList($signer_list)
     {
         if (is_null($signer_list)) {
-            throw new InvalidArgumentException('non-nullable signer_list cannot be null');
+            throw new \InvalidArgumentException('non-nullable signer_list cannot be null');
         }
         $this->container['signer_list'] = $signer_list;
 
@@ -495,10 +506,10 @@ class SignatureRequestBulkSendWithTemplateRequest implements ModelInterface, Arr
      *
      * @return self
      */
-    public function setAllowDecline(?bool $allow_decline)
+    public function setAllowDecline($allow_decline)
     {
         if (is_null($allow_decline)) {
-            throw new InvalidArgumentException('non-nullable allow_decline cannot be null');
+            throw new \InvalidArgumentException('non-nullable allow_decline cannot be null');
         }
         $this->container['allow_decline'] = $allow_decline;
 
@@ -508,7 +519,7 @@ class SignatureRequestBulkSendWithTemplateRequest implements ModelInterface, Arr
     /**
      * Gets ccs
      *
-     * @return SubCC[]|null
+     * @return \Dropbox\Sign\Model\SubCC[]|null
      */
     public function getCcs()
     {
@@ -518,14 +529,14 @@ class SignatureRequestBulkSendWithTemplateRequest implements ModelInterface, Arr
     /**
      * Sets ccs
      *
-     * @param SubCC[]|null $ccs Add CC email recipients. Required when a CC role exists for the Template.
+     * @param \Dropbox\Sign\Model\SubCC[]|null $ccs Add CC email recipients. Required when a CC role exists for the Template.
      *
      * @return self
      */
-    public function setCcs(?array $ccs)
+    public function setCcs($ccs)
     {
         if (is_null($ccs)) {
-            throw new InvalidArgumentException('non-nullable ccs cannot be null');
+            throw new \InvalidArgumentException('non-nullable ccs cannot be null');
         }
         $this->container['ccs'] = $ccs;
 
@@ -549,10 +560,10 @@ class SignatureRequestBulkSendWithTemplateRequest implements ModelInterface, Arr
      *
      * @return self
      */
-    public function setClientId(?string $client_id)
+    public function setClientId($client_id)
     {
         if (is_null($client_id)) {
-            throw new InvalidArgumentException('non-nullable client_id cannot be null');
+            throw new \InvalidArgumentException('non-nullable client_id cannot be null');
         }
         $this->container['client_id'] = $client_id;
 
@@ -562,7 +573,7 @@ class SignatureRequestBulkSendWithTemplateRequest implements ModelInterface, Arr
     /**
      * Gets custom_fields
      *
-     * @return SubCustomField[]|null
+     * @return \Dropbox\Sign\Model\SubCustomField[]|null
      */
     public function getCustomFields()
     {
@@ -572,14 +583,14 @@ class SignatureRequestBulkSendWithTemplateRequest implements ModelInterface, Arr
     /**
      * Sets custom_fields
      *
-     * @param SubCustomField[]|null $custom_fields When used together with merge fields, `custom_fields` allows users to add pre-filled data to their signature requests.  Pre-filled data can be used with \"send-once\" signature requests by adding merge fields with `form_fields_per_document` or [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) while passing values back with `custom_fields` together in one API call.  For using pre-filled on repeatable signature requests, merge fields are added to templates in the Dropbox Sign UI or by calling [/template/create_embedded_draft](/api/reference/operation/templateCreateEmbeddedDraft) and then passing `custom_fields` on subsequent signature requests referencing that template.
+     * @param \Dropbox\Sign\Model\SubCustomField[]|null $custom_fields When used together with merge fields, `custom_fields` allows users to add pre-filled data to their signature requests.  Pre-filled data can be used with \"send-once\" signature requests by adding merge fields with `form_fields_per_document` or [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) while passing values back with `custom_fields` together in one API call.  For using pre-filled on repeatable signature requests, merge fields are added to templates in the Dropbox Sign UI or by calling [/template/create_embedded_draft](/api/reference/operation/templateCreateEmbeddedDraft) and then passing `custom_fields` on subsequent signature requests referencing that template.
      *
      * @return self
      */
-    public function setCustomFields(?array $custom_fields)
+    public function setCustomFields($custom_fields)
     {
         if (is_null($custom_fields)) {
-            throw new InvalidArgumentException('non-nullable custom_fields cannot be null');
+            throw new \InvalidArgumentException('non-nullable custom_fields cannot be null');
         }
         $this->container['custom_fields'] = $custom_fields;
 
@@ -599,17 +610,17 @@ class SignatureRequestBulkSendWithTemplateRequest implements ModelInterface, Arr
     /**
      * Sets message
      *
-     * @param string|null $message the custom message in the email that will be sent to the signers
+     * @param string|null $message The custom message in the email that will be sent to the signers.
      *
      * @return self
      */
-    public function setMessage(?string $message)
+    public function setMessage($message)
     {
         if (is_null($message)) {
-            throw new InvalidArgumentException('non-nullable message cannot be null');
+            throw new \InvalidArgumentException('non-nullable message cannot be null');
         }
-        if (mb_strlen($message) > 5000) {
-            throw new InvalidArgumentException('invalid length for $message when calling SignatureRequestBulkSendWithTemplateRequest., must be smaller than or equal to 5000.');
+        if ((mb_strlen($message) > 5000)) {
+            throw new \InvalidArgumentException('invalid length for $message when calling SignatureRequestBulkSendWithTemplateRequest., must be smaller than or equal to 5000.');
         }
 
         $this->container['message'] = $message;
@@ -634,11 +645,12 @@ class SignatureRequestBulkSendWithTemplateRequest implements ModelInterface, Arr
      *
      * @return self
      */
-    public function setMetadata(?array $metadata)
+    public function setMetadata($metadata)
     {
         if (is_null($metadata)) {
-            throw new InvalidArgumentException('non-nullable metadata cannot be null');
+            throw new \InvalidArgumentException('non-nullable metadata cannot be null');
         }
+
 
         $this->container['metadata'] = $metadata;
 
@@ -658,14 +670,14 @@ class SignatureRequestBulkSendWithTemplateRequest implements ModelInterface, Arr
     /**
      * Sets signing_redirect_url
      *
-     * @param string|null $signing_redirect_url the URL you want signers redirected to after they successfully sign
+     * @param string|null $signing_redirect_url The URL you want signers redirected to after they successfully sign.
      *
      * @return self
      */
-    public function setSigningRedirectUrl(?string $signing_redirect_url)
+    public function setSigningRedirectUrl($signing_redirect_url)
     {
         if (is_null($signing_redirect_url)) {
-            throw new InvalidArgumentException('non-nullable signing_redirect_url cannot be null');
+            throw new \InvalidArgumentException('non-nullable signing_redirect_url cannot be null');
         }
         $this->container['signing_redirect_url'] = $signing_redirect_url;
 
@@ -685,17 +697,17 @@ class SignatureRequestBulkSendWithTemplateRequest implements ModelInterface, Arr
     /**
      * Sets subject
      *
-     * @param string|null $subject the subject in the email that will be sent to the signers
+     * @param string|null $subject The subject in the email that will be sent to the signers.
      *
      * @return self
      */
-    public function setSubject(?string $subject)
+    public function setSubject($subject)
     {
         if (is_null($subject)) {
-            throw new InvalidArgumentException('non-nullable subject cannot be null');
+            throw new \InvalidArgumentException('non-nullable subject cannot be null');
         }
-        if (mb_strlen($subject) > 255) {
-            throw new InvalidArgumentException('invalid length for $subject when calling SignatureRequestBulkSendWithTemplateRequest., must be smaller than or equal to 255.');
+        if ((mb_strlen($subject) > 255)) {
+            throw new \InvalidArgumentException('invalid length for $subject when calling SignatureRequestBulkSendWithTemplateRequest., must be smaller than or equal to 255.');
         }
 
         $this->container['subject'] = $subject;
@@ -720,10 +732,10 @@ class SignatureRequestBulkSendWithTemplateRequest implements ModelInterface, Arr
      *
      * @return self
      */
-    public function setTestMode(?bool $test_mode)
+    public function setTestMode($test_mode)
     {
         if (is_null($test_mode)) {
-            throw new InvalidArgumentException('non-nullable test_mode cannot be null');
+            throw new \InvalidArgumentException('non-nullable test_mode cannot be null');
         }
         $this->container['test_mode'] = $test_mode;
 
@@ -743,30 +755,31 @@ class SignatureRequestBulkSendWithTemplateRequest implements ModelInterface, Arr
     /**
      * Sets title
      *
-     * @param string|null $title the title you want to assign to the SignatureRequest
+     * @param string|null $title The title you want to assign to the SignatureRequest.
      *
      * @return self
      */
-    public function setTitle(?string $title)
+    public function setTitle($title)
     {
         if (is_null($title)) {
-            throw new InvalidArgumentException('non-nullable title cannot be null');
+            throw new \InvalidArgumentException('non-nullable title cannot be null');
         }
-        if (mb_strlen($title) > 255) {
-            throw new InvalidArgumentException('invalid length for $title when calling SignatureRequestBulkSendWithTemplateRequest., must be smaller than or equal to 255.');
+        if ((mb_strlen($title) > 255)) {
+            throw new \InvalidArgumentException('invalid length for $title when calling SignatureRequestBulkSendWithTemplateRequest., must be smaller than or equal to 255.');
         }
 
         $this->container['title'] = $title;
 
         return $this;
     }
-
     /**
      * Returns true if offset exists. False otherwise.
      *
-     * @param int $offset Offset
+     * @param integer $offset Offset
+     *
+     * @return boolean
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
@@ -775,11 +788,11 @@ class SignatureRequestBulkSendWithTemplateRequest implements ModelInterface, Arr
     /**
      * Gets offset.
      *
-     * @param int $offset Offset
+     * @param integer $offset Offset
      *
      * @return mixed|null
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return $this->container[$offset] ?? null;
@@ -790,8 +803,10 @@ class SignatureRequestBulkSendWithTemplateRequest implements ModelInterface, Arr
      *
      * @param int|null $offset Offset
      * @param mixed    $value  Value to be set
+     *
+     * @return void
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
@@ -804,9 +819,11 @@ class SignatureRequestBulkSendWithTemplateRequest implements ModelInterface, Arr
     /**
      * Unsets offset.
      *
-     * @param int $offset Offset
+     * @param integer $offset Offset
+     *
+     * @return void
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
@@ -814,15 +831,15 @@ class SignatureRequestBulkSendWithTemplateRequest implements ModelInterface, Arr
 
     /**
      * Serializes the object to a value that can be serialized natively by json_encode().
-     * @see https://www.php.net/manual/en/jsonserializable.jsonserialize.php
+     * @link https://www.php.net/manual/en/jsonserializable.jsonserialize.php
      *
-     * @return mixed returns data which can be serialized by json_encode(), which is a value
-     *               of any type other than a resource
+     * @return mixed Returns data which can be serialized by json_encode(), which is a value
+     * of any type other than a resource.
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
-        return ObjectSerializer::sanitizeForSerialization($this);
+       return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**
@@ -848,3 +865,5 @@ class SignatureRequestBulkSendWithTemplateRequest implements ModelInterface, Arr
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
+
+

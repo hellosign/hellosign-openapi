@@ -4,7 +4,9 @@
  * PHP version 7.4
  *
  * @category Class
- * @see     https://openapi-generator.tech
+ * @package  Dropbox\Sign
+ * @author   OpenAPI Generator team
+ * @link     https://openapi-generator.tech
  */
 
 /**
@@ -26,11 +28,6 @@
 
 namespace Dropbox\Sign\Api;
 
-use Dropbox\Sign\ApiException;
-use Dropbox\Sign\Configuration;
-use Dropbox\Sign\HeaderSelector;
-use Dropbox\Sign\Model;
-use Dropbox\Sign\ObjectSerializer;
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\ConnectException;
@@ -38,34 +35,44 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use InvalidArgumentException;
-use JsonException;
+use Dropbox\Sign\ApiException;
+use Dropbox\Sign\Configuration;
+use Dropbox\Sign\HeaderSelector;
+use Dropbox\Sign\ObjectSerializer;
+use Dropbox\Sign\Model;
 use Psr\Http\Message\ResponseInterface;
-use RuntimeException;
 
 /**
  * TeamApi Class Doc Comment
  *
  * @category Class
- * @see     https://openapi-generator.tech
+ * @package  Dropbox\Sign
+ * @author   OpenAPI Generator team
+ * @link     https://openapi-generator.tech
  */
 class TeamApi
 {
-    /** @var ClientInterface */
+    /**
+     * @var ClientInterface
+     */
     protected $client;
 
-    /** @var Configuration */
+    /**
+     * @var Configuration
+     */
     protected $config;
 
-    /** @var HeaderSelector */
+    /**
+     * @var HeaderSelector
+     */
     protected $headerSelector;
 
-    /** @var int Host index */
+    /**
+     * @var int Host index
+     */
     protected $hostIndex;
 
-    /**
-     * @var string[] *
-     */
+    /** @var string[] $contentTypes **/
     public const contentTypes = [
         'teamAddMember' => [
             'application/json',
@@ -103,13 +110,16 @@ class TeamApi
     protected $response;
 
     /**
-     * @param int $hostIndex (Optional) host index to select the list of hosts if defined in the OpenAPI spec
+     * @param Configuration   $config
+     * @param ClientInterface $client
+     * @param HeaderSelector  $selector
+     * @param int             $hostIndex (Optional) host index to select the list of hosts if defined in the OpenAPI spec
      */
     public function __construct(
         Configuration $config = null,
         ClientInterface $client = null,
         HeaderSelector $selector = null,
-        int $hostIndex = 0
+        $hostIndex = 0
     ) {
         $this->client = $client ?: new Client();
         $this->config = $config ?: new Configuration();
@@ -123,7 +133,7 @@ class TeamApi
      * @param int $hostIndex Host index (required)
      * @deprecated To be made private in the future
      */
-    public function setHostIndex(int $hostIndex): void
+    public function setHostIndex($hostIndex): void
     {
         $this->hostIndex = $hostIndex;
     }
@@ -160,14 +170,14 @@ class TeamApi
      *
      * Add User to Team
      *
-     * @param Model\TeamAddMemberRequest $team_add_member_request team_add_member_request (required)
-     * @param string                     $team_id                 The id of the team. (optional)
+     * @param  \Dropbox\Sign\Model\TeamAddMemberRequest $team_add_member_request team_add_member_request (required)
+     * @param  string $team_id The id of the team. (optional)
      *
-     * @return Model\TeamGetResponse
-     * @throws ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws InvalidArgumentException
+     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \Dropbox\Sign\Model\TeamGetResponse|\Dropbox\Sign\Model\ErrorResponse
      */
-    public function teamAddMember(Model\TeamAddMemberRequest $team_add_member_request, string $team_id = null)
+    public function teamAddMember($team_add_member_request, $team_id = null)
     {
         list($response) = $this->teamAddMemberWithHttpInfo($team_add_member_request, $team_id);
         return $response;
@@ -178,16 +188,16 @@ class TeamApi
      *
      * Add User to Team
      *
-     * @param Model\TeamAddMemberRequest $team_add_member_request (required)
-     * @param string                     $team_id                 The id of the team. (optional)
-     * @param string                     $contentType             The value for the Content-Type header. Check self::contentTypes['teamAddMember'] to see the possible values for this operation
+     * @param  \Dropbox\Sign\Model\TeamAddMemberRequest $team_add_member_request (required)
+     * @param  string $team_id The id of the team. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['teamAddMember'] to see the possible values for this operation
      *
-     * @return array of Model\TeamGetResponse, HTTP status code, HTTP response headers (array of strings)
-     * @throws ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws InvalidArgumentException
+     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \Dropbox\Sign\Model\TeamGetResponse|\Dropbox\Sign\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      * @deprecated Prefer to use ::teamAddMember. This method will eventually become unavailable
      */
-    public function teamAddMemberWithHttpInfo(Model\TeamAddMemberRequest $team_add_member_request, string $team_id = null, string $contentType = self::contentTypes['teamAddMember'][0])
+    public function teamAddMemberWithHttpInfo($team_add_member_request, $team_id = null, string $contentType = self::contentTypes['teamAddMember'][0])
     {
         $request = $this->teamAddMemberRequest($team_add_member_request, $team_id, $contentType);
 
@@ -199,14 +209,14 @@ class TeamApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int)$e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string)$e->getResponse()->getBody() : null
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int)$e->getCode(),
+                    (int) $e->getCode(),
                     null,
                     null
                 );
@@ -219,14 +229,14 @@ class TeamApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        (string)$request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    (string)$response->getBody()
+                    (string) $response->getBody()
                 );
             }
-
+            
             $result = $this->handleRangeCodeResponse(
                 $response,
                 '4XX',
@@ -235,17 +245,18 @@ class TeamApi
             if ($result) {
                 return $result;
             }
+            
 
-            switch ($statusCode) {
+            switch($statusCode) {
                 case 200:
                     if ('\Dropbox\Sign\Model\TeamGetResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string)$response->getBody();
+                        $content = (string) $response->getBody();
                         if ('\Dropbox\Sign\Model\TeamGetResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (JsonException $exception) {
+                            } catch (\JsonException $exception) {
                                 throw new ApiException(
                                     sprintf(
                                         'Error JSON decoding server response (%s)',
@@ -262,19 +273,20 @@ class TeamApi
                     return [
                         ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\TeamGetResponse', []),
                         $response->getStatusCode(),
-                        $response->getHeaders(),
+                        $response->getHeaders()
                     ];
+                
             }
 
             $returnType = '\Dropbox\Sign\Model\TeamGetResponse';
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); // stream goes to serializer
+                $content = $response->getBody(); //stream goes to serializer
             } else {
-                $content = (string)$response->getBody();
+                $content = (string) $response->getBody();
                 if ($returnType !== 'string') {
                     try {
                         $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                    } catch (JsonException $exception) {
+                    } catch (\JsonException $exception) {
                         throw new ApiException(
                             sprintf(
                                 'Error JSON decoding server response (%s)',
@@ -291,9 +303,11 @@ class TeamApi
             return [
                 ObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
-                $response->getHeaders(),
+                $response->getHeaders()
             ];
+
         } catch (ApiException $e) {
+            
             if ($this->handleRangeCodeException($e, '4XX', '\Dropbox\Sign\Model\ErrorResponse')) {
                 throw $e;
             }
@@ -306,6 +320,7 @@ class TeamApi
                     );
                     $e->setResponseObject($data);
                     break;
+                
             }
             throw $e;
         }
@@ -316,15 +331,15 @@ class TeamApi
      *
      * Add User to Team
      *
-     * @param Model\TeamAddMemberRequest $team_add_member_request (required)
-     * @param string                     $team_id                 The id of the team. (optional)
-     * @param string                     $contentType             The value for the Content-Type header. Check self::contentTypes['teamAddMember'] to see the possible values for this operation
+     * @param  \Dropbox\Sign\Model\TeamAddMemberRequest $team_add_member_request (required)
+     * @param  string $team_id The id of the team. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['teamAddMember'] to see the possible values for this operation
      *
+     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
-     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::teamAddMember. This method will eventually become unavailable
      */
-    public function teamAddMemberAsync(Model\TeamAddMemberRequest $team_add_member_request, string $team_id = null, string $contentType = self::contentTypes['teamAddMember'][0])
+    public function teamAddMemberAsync($team_add_member_request, $team_id = null, string $contentType = self::contentTypes['teamAddMember'][0])
     {
         return $this->teamAddMemberAsyncWithHttpInfo($team_add_member_request, $team_id, $contentType)
             ->then(
@@ -339,15 +354,15 @@ class TeamApi
      *
      * Add User to Team
      *
-     * @param Model\TeamAddMemberRequest $team_add_member_request (required)
-     * @param string                     $team_id                 The id of the team. (optional)
-     * @param string                     $contentType             The value for the Content-Type header. Check self::contentTypes['teamAddMember'] to see the possible values for this operation
+     * @param  \Dropbox\Sign\Model\TeamAddMemberRequest $team_add_member_request (required)
+     * @param  string $team_id The id of the team. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['teamAddMember'] to see the possible values for this operation
      *
+     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
-     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::teamAddMember. This method will eventually become unavailable
      */
-    public function teamAddMemberAsyncWithHttpInfo(Model\TeamAddMemberRequest $team_add_member_request, string $team_id = null, string $contentType = self::contentTypes['teamAddMember'][0])
+    public function teamAddMemberAsyncWithHttpInfo($team_add_member_request, $team_id = null, string $contentType = self::contentTypes['teamAddMember'][0])
     {
         $returnType = '\Dropbox\Sign\Model\TeamGetResponse';
         $request = $this->teamAddMemberRequest($team_add_member_request, $team_id, $contentType);
@@ -357,9 +372,9 @@ class TeamApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string)$response->getBody();
+                        $content = (string) $response->getBody();
                         if ($returnType !== 'string') {
                             $content = json_decode($content);
                         }
@@ -368,7 +383,7 @@ class TeamApi
                     return [
                         ObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
-                        $response->getHeaders(),
+                        $response->getHeaders()
                     ];
                 },
                 function ($exception) {
@@ -382,7 +397,7 @@ class TeamApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        (string)$response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -391,22 +406,25 @@ class TeamApi
     /**
      * Create request for operation 'teamAddMember'
      *
-     * @param Model\TeamAddMemberRequest $team_add_member_request (required)
-     * @param string                     $team_id                 The id of the team. (optional)
-     * @param string                     $contentType             The value for the Content-Type header. Check self::contentTypes['teamAddMember'] to see the possible values for this operation
+     * @param  \Dropbox\Sign\Model\TeamAddMemberRequest $team_add_member_request (required)
+     * @param  string $team_id The id of the team. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['teamAddMember'] to see the possible values for this operation
      *
-     * @return Request
-     * @throws InvalidArgumentException
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
      * @deprecated Prefer to use ::teamAddMember. This method will eventually become unavailable
      */
-    public function teamAddMemberRequest(Model\TeamAddMemberRequest $team_add_member_request, string $team_id = null, string $contentType = self::contentTypes['teamAddMember'][0])
+    public function teamAddMemberRequest($team_add_member_request, $team_id = null, string $contentType = self::contentTypes['teamAddMember'][0])
     {
+
         // verify the required parameter 'team_add_member_request' is set
         if ($team_add_member_request === null || (is_array($team_add_member_request) && count($team_add_member_request) === 0)) {
-            throw new InvalidArgumentException(
+            throw new \InvalidArgumentException(
                 'Missing the required parameter $team_add_member_request when calling teamAddMember'
             );
         }
+
+
 
         $resourcePath = '/team/add_member';
         $formParams = [];
@@ -430,8 +448,11 @@ class TeamApi
             false // required
         ) ?? []);
 
+
+
+
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            $multipart ? ['multipart/form-data'] : ['application/json', ],
             $contentType,
             $multipart
         );
@@ -439,7 +460,7 @@ class TeamApi
         // for model (json/xml)
         if (count($formParams) === 0) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                // if Content-Type contains "application/json", json_encode the body
+                # if Content-Type contains "application/json", json_encode the body
                 $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($team_add_member_request));
             } else {
                 $httpBody = $team_add_member_request;
@@ -452,7 +473,7 @@ class TeamApi
                     foreach ($formParamValueItems as $formParamValueItem) {
                         $multipartContents[] = [
                             'name' => $formParamName,
-                            'contents' => $formParamValueItem,
+                            'contents' => $formParamValueItem
                         ];
                     }
                 }
@@ -469,8 +490,9 @@ class TeamApi
                     $payloadHook('multipart', $multipartContents, $team_add_member_request);
                 }
                 $httpBody = new MultipartStream($multipartContents);
+
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                // if Content-Type contains "application/json", json_encode the form parameters
+                # if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
             } else {
                 // for HTTP post (form)
@@ -513,13 +535,13 @@ class TeamApi
      *
      * Create Team
      *
-     * @param Model\TeamCreateRequest $team_create_request team_create_request (required)
+     * @param  \Dropbox\Sign\Model\TeamCreateRequest $team_create_request team_create_request (required)
      *
-     * @return Model\TeamGetResponse
-     * @throws ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws InvalidArgumentException
+     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \Dropbox\Sign\Model\TeamGetResponse|\Dropbox\Sign\Model\ErrorResponse
      */
-    public function teamCreate(Model\TeamCreateRequest $team_create_request)
+    public function teamCreate($team_create_request)
     {
         list($response) = $this->teamCreateWithHttpInfo($team_create_request);
         return $response;
@@ -530,15 +552,15 @@ class TeamApi
      *
      * Create Team
      *
-     * @param Model\TeamCreateRequest $team_create_request (required)
-     * @param string                  $contentType         The value for the Content-Type header. Check self::contentTypes['teamCreate'] to see the possible values for this operation
+     * @param  \Dropbox\Sign\Model\TeamCreateRequest $team_create_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['teamCreate'] to see the possible values for this operation
      *
-     * @return array of Model\TeamGetResponse, HTTP status code, HTTP response headers (array of strings)
-     * @throws ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws InvalidArgumentException
+     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \Dropbox\Sign\Model\TeamGetResponse|\Dropbox\Sign\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      * @deprecated Prefer to use ::teamCreate. This method will eventually become unavailable
      */
-    public function teamCreateWithHttpInfo(Model\TeamCreateRequest $team_create_request, string $contentType = self::contentTypes['teamCreate'][0])
+    public function teamCreateWithHttpInfo($team_create_request, string $contentType = self::contentTypes['teamCreate'][0])
     {
         $request = $this->teamCreateRequest($team_create_request, $contentType);
 
@@ -550,14 +572,14 @@ class TeamApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int)$e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string)$e->getResponse()->getBody() : null
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int)$e->getCode(),
+                    (int) $e->getCode(),
                     null,
                     null
                 );
@@ -570,14 +592,14 @@ class TeamApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        (string)$request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    (string)$response->getBody()
+                    (string) $response->getBody()
                 );
             }
-
+            
             $result = $this->handleRangeCodeResponse(
                 $response,
                 '4XX',
@@ -586,17 +608,18 @@ class TeamApi
             if ($result) {
                 return $result;
             }
+            
 
-            switch ($statusCode) {
+            switch($statusCode) {
                 case 200:
                     if ('\Dropbox\Sign\Model\TeamGetResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string)$response->getBody();
+                        $content = (string) $response->getBody();
                         if ('\Dropbox\Sign\Model\TeamGetResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (JsonException $exception) {
+                            } catch (\JsonException $exception) {
                                 throw new ApiException(
                                     sprintf(
                                         'Error JSON decoding server response (%s)',
@@ -613,19 +636,20 @@ class TeamApi
                     return [
                         ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\TeamGetResponse', []),
                         $response->getStatusCode(),
-                        $response->getHeaders(),
+                        $response->getHeaders()
                     ];
+                
             }
 
             $returnType = '\Dropbox\Sign\Model\TeamGetResponse';
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); // stream goes to serializer
+                $content = $response->getBody(); //stream goes to serializer
             } else {
-                $content = (string)$response->getBody();
+                $content = (string) $response->getBody();
                 if ($returnType !== 'string') {
                     try {
                         $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                    } catch (JsonException $exception) {
+                    } catch (\JsonException $exception) {
                         throw new ApiException(
                             sprintf(
                                 'Error JSON decoding server response (%s)',
@@ -642,9 +666,11 @@ class TeamApi
             return [
                 ObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
-                $response->getHeaders(),
+                $response->getHeaders()
             ];
+
         } catch (ApiException $e) {
+            
             if ($this->handleRangeCodeException($e, '4XX', '\Dropbox\Sign\Model\ErrorResponse')) {
                 throw $e;
             }
@@ -657,6 +683,7 @@ class TeamApi
                     );
                     $e->setResponseObject($data);
                     break;
+                
             }
             throw $e;
         }
@@ -667,14 +694,14 @@ class TeamApi
      *
      * Create Team
      *
-     * @param Model\TeamCreateRequest $team_create_request (required)
-     * @param string                  $contentType         The value for the Content-Type header. Check self::contentTypes['teamCreate'] to see the possible values for this operation
+     * @param  \Dropbox\Sign\Model\TeamCreateRequest $team_create_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['teamCreate'] to see the possible values for this operation
      *
+     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
-     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::teamCreate. This method will eventually become unavailable
      */
-    public function teamCreateAsync(Model\TeamCreateRequest $team_create_request, string $contentType = self::contentTypes['teamCreate'][0])
+    public function teamCreateAsync($team_create_request, string $contentType = self::contentTypes['teamCreate'][0])
     {
         return $this->teamCreateAsyncWithHttpInfo($team_create_request, $contentType)
             ->then(
@@ -689,14 +716,14 @@ class TeamApi
      *
      * Create Team
      *
-     * @param Model\TeamCreateRequest $team_create_request (required)
-     * @param string                  $contentType         The value for the Content-Type header. Check self::contentTypes['teamCreate'] to see the possible values for this operation
+     * @param  \Dropbox\Sign\Model\TeamCreateRequest $team_create_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['teamCreate'] to see the possible values for this operation
      *
+     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
-     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::teamCreate. This method will eventually become unavailable
      */
-    public function teamCreateAsyncWithHttpInfo(Model\TeamCreateRequest $team_create_request, string $contentType = self::contentTypes['teamCreate'][0])
+    public function teamCreateAsyncWithHttpInfo($team_create_request, string $contentType = self::contentTypes['teamCreate'][0])
     {
         $returnType = '\Dropbox\Sign\Model\TeamGetResponse';
         $request = $this->teamCreateRequest($team_create_request, $contentType);
@@ -706,9 +733,9 @@ class TeamApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string)$response->getBody();
+                        $content = (string) $response->getBody();
                         if ($returnType !== 'string') {
                             $content = json_decode($content);
                         }
@@ -717,7 +744,7 @@ class TeamApi
                     return [
                         ObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
-                        $response->getHeaders(),
+                        $response->getHeaders()
                     ];
                 },
                 function ($exception) {
@@ -731,7 +758,7 @@ class TeamApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        (string)$response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -740,21 +767,23 @@ class TeamApi
     /**
      * Create request for operation 'teamCreate'
      *
-     * @param Model\TeamCreateRequest $team_create_request (required)
-     * @param string                  $contentType         The value for the Content-Type header. Check self::contentTypes['teamCreate'] to see the possible values for this operation
+     * @param  \Dropbox\Sign\Model\TeamCreateRequest $team_create_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['teamCreate'] to see the possible values for this operation
      *
-     * @return Request
-     * @throws InvalidArgumentException
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
      * @deprecated Prefer to use ::teamCreate. This method will eventually become unavailable
      */
-    public function teamCreateRequest(Model\TeamCreateRequest $team_create_request, string $contentType = self::contentTypes['teamCreate'][0])
+    public function teamCreateRequest($team_create_request, string $contentType = self::contentTypes['teamCreate'][0])
     {
+
         // verify the required parameter 'team_create_request' is set
         if ($team_create_request === null || (is_array($team_create_request) && count($team_create_request) === 0)) {
-            throw new InvalidArgumentException(
+            throw new \InvalidArgumentException(
                 'Missing the required parameter $team_create_request when calling teamCreate'
             );
         }
+
 
         $resourcePath = '/team/create';
         $formParams = [];
@@ -769,8 +798,11 @@ class TeamApi
 
         $multipart = !empty($formParams);
 
+
+
+
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            $multipart ? ['multipart/form-data'] : ['application/json', ],
             $contentType,
             $multipart
         );
@@ -778,7 +810,7 @@ class TeamApi
         // for model (json/xml)
         if (count($formParams) === 0) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                // if Content-Type contains "application/json", json_encode the body
+                # if Content-Type contains "application/json", json_encode the body
                 $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($team_create_request));
             } else {
                 $httpBody = $team_create_request;
@@ -791,7 +823,7 @@ class TeamApi
                     foreach ($formParamValueItems as $formParamValueItem) {
                         $multipartContents[] = [
                             'name' => $formParamName,
-                            'contents' => $formParamValueItem,
+                            'contents' => $formParamValueItem
                         ];
                     }
                 }
@@ -808,8 +840,9 @@ class TeamApi
                     $payloadHook('multipart', $multipartContents, $team_create_request);
                 }
                 $httpBody = new MultipartStream($multipartContents);
+
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                // if Content-Type contains "application/json", json_encode the form parameters
+                # if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
             } else {
                 // for HTTP post (form)
@@ -852,8 +885,10 @@ class TeamApi
      *
      * Delete Team
      *
-     * @throws ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws InvalidArgumentException
+     *
+     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return void
      */
     public function teamDelete()
     {
@@ -865,11 +900,11 @@ class TeamApi
      *
      * Delete Team
      *
-     * @param string $contentType The value for the Content-Type header. Check self::contentTypes['teamDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['teamDelete'] to see the possible values for this operation
      *
+     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
-     * @throws ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::teamDelete. This method will eventually become unavailable
      */
     public function teamDeleteWithHttpInfo(string $contentType = self::contentTypes['teamDelete'][0])
@@ -884,14 +919,14 @@ class TeamApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int)$e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string)$e->getResponse()->getBody() : null
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int)$e->getCode(),
+                    (int) $e->getCode(),
                     null,
                     null
                 );
@@ -904,20 +939,23 @@ class TeamApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        (string)$request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    (string)$response->getBody()
+                    (string) $response->getBody()
                 );
             }
 
             return [null, $statusCode, $response->getHeaders()];
+
         } catch (ApiException $e) {
+            
             if ($this->handleRangeCodeException($e, '4XX', '\Dropbox\Sign\Model\ErrorResponse')) {
                 throw $e;
             }
             switch ($e->getCode()) {
+                
             }
             throw $e;
         }
@@ -928,10 +966,10 @@ class TeamApi
      *
      * Delete Team
      *
-     * @param string $contentType The value for the Content-Type header. Check self::contentTypes['teamDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['teamDelete'] to see the possible values for this operation
      *
+     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
-     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::teamDelete. This method will eventually become unavailable
      */
     public function teamDeleteAsync(string $contentType = self::contentTypes['teamDelete'][0])
@@ -949,10 +987,10 @@ class TeamApi
      *
      * Delete Team
      *
-     * @param string $contentType The value for the Content-Type header. Check self::contentTypes['teamDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['teamDelete'] to see the possible values for this operation
      *
+     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
-     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::teamDelete. This method will eventually become unavailable
      */
     public function teamDeleteAsyncWithHttpInfo(string $contentType = self::contentTypes['teamDelete'][0])
@@ -963,7 +1001,7 @@ class TeamApi
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
-                function ($response) {
+                function ($response) use ($returnType) {
                     return [null, $response->getStatusCode(), $response->getHeaders()];
                 },
                 function ($exception) {
@@ -977,7 +1015,7 @@ class TeamApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        (string)$response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -986,14 +1024,16 @@ class TeamApi
     /**
      * Create request for operation 'teamDelete'
      *
-     * @param string $contentType The value for the Content-Type header. Check self::contentTypes['teamDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['teamDelete'] to see the possible values for this operation
      *
-     * @return Request
-     * @throws InvalidArgumentException
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
      * @deprecated Prefer to use ::teamDelete. This method will eventually become unavailable
      */
     public function teamDeleteRequest(string $contentType = self::contentTypes['teamDelete'][0])
     {
+
+
         $resourcePath = '/team/destroy';
         $formParams = [];
         $queryParams = [];
@@ -1001,8 +1041,12 @@ class TeamApi
         $httpBody = '';
         $multipart = false;
 
+
+
+
+
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            $multipart ? ['multipart/form-data'] : ['application/json', ],
             $contentType,
             $multipart
         );
@@ -1016,7 +1060,7 @@ class TeamApi
                     foreach ($formParamValueItems as $formParamValueItem) {
                         $multipartContents[] = [
                             'name' => $formParamName,
-                            'contents' => $formParamValueItem,
+                            'contents' => $formParamValueItem
                         ];
                     }
                 }
@@ -1030,8 +1074,9 @@ class TeamApi
                 }
 
                 $httpBody = new MultipartStream($multipartContents);
+
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                // if Content-Type contains "application/json", json_encode the form parameters
+                # if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
             } else {
                 // for HTTP post (form)
@@ -1074,9 +1119,10 @@ class TeamApi
      *
      * Get Team
      *
-     * @return Model\TeamGetResponse
-     * @throws ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws InvalidArgumentException
+     *
+     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \Dropbox\Sign\Model\TeamGetResponse|\Dropbox\Sign\Model\ErrorResponse
      */
     public function teamGet()
     {
@@ -1089,11 +1135,11 @@ class TeamApi
      *
      * Get Team
      *
-     * @param string $contentType The value for the Content-Type header. Check self::contentTypes['teamGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['teamGet'] to see the possible values for this operation
      *
-     * @return array of Model\TeamGetResponse, HTTP status code, HTTP response headers (array of strings)
-     * @throws ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws InvalidArgumentException
+     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \Dropbox\Sign\Model\TeamGetResponse|\Dropbox\Sign\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      * @deprecated Prefer to use ::teamGet. This method will eventually become unavailable
      */
     public function teamGetWithHttpInfo(string $contentType = self::contentTypes['teamGet'][0])
@@ -1108,14 +1154,14 @@ class TeamApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int)$e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string)$e->getResponse()->getBody() : null
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int)$e->getCode(),
+                    (int) $e->getCode(),
                     null,
                     null
                 );
@@ -1128,14 +1174,14 @@ class TeamApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        (string)$request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    (string)$response->getBody()
+                    (string) $response->getBody()
                 );
             }
-
+            
             $result = $this->handleRangeCodeResponse(
                 $response,
                 '4XX',
@@ -1144,17 +1190,18 @@ class TeamApi
             if ($result) {
                 return $result;
             }
+            
 
-            switch ($statusCode) {
+            switch($statusCode) {
                 case 200:
                     if ('\Dropbox\Sign\Model\TeamGetResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string)$response->getBody();
+                        $content = (string) $response->getBody();
                         if ('\Dropbox\Sign\Model\TeamGetResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (JsonException $exception) {
+                            } catch (\JsonException $exception) {
                                 throw new ApiException(
                                     sprintf(
                                         'Error JSON decoding server response (%s)',
@@ -1171,19 +1218,20 @@ class TeamApi
                     return [
                         ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\TeamGetResponse', []),
                         $response->getStatusCode(),
-                        $response->getHeaders(),
+                        $response->getHeaders()
                     ];
+                
             }
 
             $returnType = '\Dropbox\Sign\Model\TeamGetResponse';
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); // stream goes to serializer
+                $content = $response->getBody(); //stream goes to serializer
             } else {
-                $content = (string)$response->getBody();
+                $content = (string) $response->getBody();
                 if ($returnType !== 'string') {
                     try {
                         $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                    } catch (JsonException $exception) {
+                    } catch (\JsonException $exception) {
                         throw new ApiException(
                             sprintf(
                                 'Error JSON decoding server response (%s)',
@@ -1200,9 +1248,11 @@ class TeamApi
             return [
                 ObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
-                $response->getHeaders(),
+                $response->getHeaders()
             ];
+
         } catch (ApiException $e) {
+            
             if ($this->handleRangeCodeException($e, '4XX', '\Dropbox\Sign\Model\ErrorResponse')) {
                 throw $e;
             }
@@ -1215,6 +1265,7 @@ class TeamApi
                     );
                     $e->setResponseObject($data);
                     break;
+                
             }
             throw $e;
         }
@@ -1225,10 +1276,10 @@ class TeamApi
      *
      * Get Team
      *
-     * @param string $contentType The value for the Content-Type header. Check self::contentTypes['teamGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['teamGet'] to see the possible values for this operation
      *
+     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
-     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::teamGet. This method will eventually become unavailable
      */
     public function teamGetAsync(string $contentType = self::contentTypes['teamGet'][0])
@@ -1246,10 +1297,10 @@ class TeamApi
      *
      * Get Team
      *
-     * @param string $contentType The value for the Content-Type header. Check self::contentTypes['teamGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['teamGet'] to see the possible values for this operation
      *
+     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
-     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::teamGet. This method will eventually become unavailable
      */
     public function teamGetAsyncWithHttpInfo(string $contentType = self::contentTypes['teamGet'][0])
@@ -1262,9 +1313,9 @@ class TeamApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string)$response->getBody();
+                        $content = (string) $response->getBody();
                         if ($returnType !== 'string') {
                             $content = json_decode($content);
                         }
@@ -1273,7 +1324,7 @@ class TeamApi
                     return [
                         ObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
-                        $response->getHeaders(),
+                        $response->getHeaders()
                     ];
                 },
                 function ($exception) {
@@ -1287,7 +1338,7 @@ class TeamApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        (string)$response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -1296,14 +1347,16 @@ class TeamApi
     /**
      * Create request for operation 'teamGet'
      *
-     * @param string $contentType The value for the Content-Type header. Check self::contentTypes['teamGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['teamGet'] to see the possible values for this operation
      *
-     * @return Request
-     * @throws InvalidArgumentException
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
      * @deprecated Prefer to use ::teamGet. This method will eventually become unavailable
      */
     public function teamGetRequest(string $contentType = self::contentTypes['teamGet'][0])
     {
+
+
         $resourcePath = '/team';
         $formParams = [];
         $queryParams = [];
@@ -1311,8 +1364,12 @@ class TeamApi
         $httpBody = '';
         $multipart = false;
 
+
+
+
+
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            $multipart ? ['multipart/form-data'] : ['application/json', ],
             $contentType,
             $multipart
         );
@@ -1326,7 +1383,7 @@ class TeamApi
                     foreach ($formParamValueItems as $formParamValueItem) {
                         $multipartContents[] = [
                             'name' => $formParamName,
-                            'contents' => $formParamValueItem,
+                            'contents' => $formParamValueItem
                         ];
                     }
                 }
@@ -1340,8 +1397,9 @@ class TeamApi
                 }
 
                 $httpBody = new MultipartStream($multipartContents);
+
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                // if Content-Type contains "application/json", json_encode the form parameters
+                # if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
             } else {
                 // for HTTP post (form)
@@ -1384,13 +1442,13 @@ class TeamApi
      *
      * Get Team Info
      *
-     * @param string $team_id The id of the team. (optional)
+     * @param  string $team_id The id of the team. (optional)
      *
-     * @return Model\TeamGetInfoResponse
-     * @throws ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws InvalidArgumentException
+     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \Dropbox\Sign\Model\TeamGetInfoResponse|\Dropbox\Sign\Model\ErrorResponse
      */
-    public function teamInfo(string $team_id = null)
+    public function teamInfo($team_id = null)
     {
         list($response) = $this->teamInfoWithHttpInfo($team_id);
         return $response;
@@ -1401,15 +1459,15 @@ class TeamApi
      *
      * Get Team Info
      *
-     * @param string $team_id     The id of the team. (optional)
-     * @param string $contentType The value for the Content-Type header. Check self::contentTypes['teamInfo'] to see the possible values for this operation
+     * @param  string $team_id The id of the team. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['teamInfo'] to see the possible values for this operation
      *
-     * @return array of Model\TeamGetInfoResponse, HTTP status code, HTTP response headers (array of strings)
-     * @throws ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws InvalidArgumentException
+     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \Dropbox\Sign\Model\TeamGetInfoResponse|\Dropbox\Sign\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      * @deprecated Prefer to use ::teamInfo. This method will eventually become unavailable
      */
-    public function teamInfoWithHttpInfo(string $team_id = null, string $contentType = self::contentTypes['teamInfo'][0])
+    public function teamInfoWithHttpInfo($team_id = null, string $contentType = self::contentTypes['teamInfo'][0])
     {
         $request = $this->teamInfoRequest($team_id, $contentType);
 
@@ -1421,14 +1479,14 @@ class TeamApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int)$e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string)$e->getResponse()->getBody() : null
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int)$e->getCode(),
+                    (int) $e->getCode(),
                     null,
                     null
                 );
@@ -1441,14 +1499,14 @@ class TeamApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        (string)$request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    (string)$response->getBody()
+                    (string) $response->getBody()
                 );
             }
-
+            
             $result = $this->handleRangeCodeResponse(
                 $response,
                 '4XX',
@@ -1457,17 +1515,18 @@ class TeamApi
             if ($result) {
                 return $result;
             }
+            
 
-            switch ($statusCode) {
+            switch($statusCode) {
                 case 200:
                     if ('\Dropbox\Sign\Model\TeamGetInfoResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string)$response->getBody();
+                        $content = (string) $response->getBody();
                         if ('\Dropbox\Sign\Model\TeamGetInfoResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (JsonException $exception) {
+                            } catch (\JsonException $exception) {
                                 throw new ApiException(
                                     sprintf(
                                         'Error JSON decoding server response (%s)',
@@ -1484,19 +1543,20 @@ class TeamApi
                     return [
                         ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\TeamGetInfoResponse', []),
                         $response->getStatusCode(),
-                        $response->getHeaders(),
+                        $response->getHeaders()
                     ];
+                
             }
 
             $returnType = '\Dropbox\Sign\Model\TeamGetInfoResponse';
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); // stream goes to serializer
+                $content = $response->getBody(); //stream goes to serializer
             } else {
-                $content = (string)$response->getBody();
+                $content = (string) $response->getBody();
                 if ($returnType !== 'string') {
                     try {
                         $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                    } catch (JsonException $exception) {
+                    } catch (\JsonException $exception) {
                         throw new ApiException(
                             sprintf(
                                 'Error JSON decoding server response (%s)',
@@ -1513,9 +1573,11 @@ class TeamApi
             return [
                 ObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
-                $response->getHeaders(),
+                $response->getHeaders()
             ];
+
         } catch (ApiException $e) {
+            
             if ($this->handleRangeCodeException($e, '4XX', '\Dropbox\Sign\Model\ErrorResponse')) {
                 throw $e;
             }
@@ -1528,6 +1590,7 @@ class TeamApi
                     );
                     $e->setResponseObject($data);
                     break;
+                
             }
             throw $e;
         }
@@ -1538,14 +1601,14 @@ class TeamApi
      *
      * Get Team Info
      *
-     * @param string $team_id     The id of the team. (optional)
-     * @param string $contentType The value for the Content-Type header. Check self::contentTypes['teamInfo'] to see the possible values for this operation
+     * @param  string $team_id The id of the team. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['teamInfo'] to see the possible values for this operation
      *
+     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
-     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::teamInfo. This method will eventually become unavailable
      */
-    public function teamInfoAsync(string $team_id = null, string $contentType = self::contentTypes['teamInfo'][0])
+    public function teamInfoAsync($team_id = null, string $contentType = self::contentTypes['teamInfo'][0])
     {
         return $this->teamInfoAsyncWithHttpInfo($team_id, $contentType)
             ->then(
@@ -1560,14 +1623,14 @@ class TeamApi
      *
      * Get Team Info
      *
-     * @param string $team_id     The id of the team. (optional)
-     * @param string $contentType The value for the Content-Type header. Check self::contentTypes['teamInfo'] to see the possible values for this operation
+     * @param  string $team_id The id of the team. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['teamInfo'] to see the possible values for this operation
      *
+     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
-     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::teamInfo. This method will eventually become unavailable
      */
-    public function teamInfoAsyncWithHttpInfo(string $team_id = null, string $contentType = self::contentTypes['teamInfo'][0])
+    public function teamInfoAsyncWithHttpInfo($team_id = null, string $contentType = self::contentTypes['teamInfo'][0])
     {
         $returnType = '\Dropbox\Sign\Model\TeamGetInfoResponse';
         $request = $this->teamInfoRequest($team_id, $contentType);
@@ -1577,9 +1640,9 @@ class TeamApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string)$response->getBody();
+                        $content = (string) $response->getBody();
                         if ($returnType !== 'string') {
                             $content = json_decode($content);
                         }
@@ -1588,7 +1651,7 @@ class TeamApi
                     return [
                         ObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
-                        $response->getHeaders(),
+                        $response->getHeaders()
                     ];
                 },
                 function ($exception) {
@@ -1602,7 +1665,7 @@ class TeamApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        (string)$response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -1611,15 +1674,18 @@ class TeamApi
     /**
      * Create request for operation 'teamInfo'
      *
-     * @param string $team_id     The id of the team. (optional)
-     * @param string $contentType The value for the Content-Type header. Check self::contentTypes['teamInfo'] to see the possible values for this operation
+     * @param  string $team_id The id of the team. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['teamInfo'] to see the possible values for this operation
      *
-     * @return Request
-     * @throws InvalidArgumentException
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
      * @deprecated Prefer to use ::teamInfo. This method will eventually become unavailable
      */
-    public function teamInfoRequest(string $team_id = null, string $contentType = self::contentTypes['teamInfo'][0])
+    public function teamInfoRequest($team_id = null, string $contentType = self::contentTypes['teamInfo'][0])
     {
+
+
+
         $resourcePath = '/team/info';
         $formParams = [];
         $queryParams = [];
@@ -1637,8 +1703,11 @@ class TeamApi
             false // required
         ) ?? []);
 
+
+
+
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            $multipart ? ['multipart/form-data'] : ['application/json', ],
             $contentType,
             $multipart
         );
@@ -1652,7 +1721,7 @@ class TeamApi
                     foreach ($formParamValueItems as $formParamValueItem) {
                         $multipartContents[] = [
                             'name' => $formParamName,
-                            'contents' => $formParamValueItem,
+                            'contents' => $formParamValueItem
                         ];
                     }
                 }
@@ -1666,8 +1735,9 @@ class TeamApi
                 }
 
                 $httpBody = new MultipartStream($multipartContents);
+
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                // if Content-Type contains "application/json", json_encode the form parameters
+                # if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
             } else {
                 // for HTTP post (form)
@@ -1710,13 +1780,13 @@ class TeamApi
      *
      * List Team Invites
      *
-     * @param string $email_address The email address for which to display the team invites. (optional)
+     * @param  string $email_address The email address for which to display the team invites. (optional)
      *
-     * @return Model\TeamInvitesResponse
-     * @throws ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws InvalidArgumentException
+     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \Dropbox\Sign\Model\TeamInvitesResponse|\Dropbox\Sign\Model\ErrorResponse
      */
-    public function teamInvites(string $email_address = null)
+    public function teamInvites($email_address = null)
     {
         list($response) = $this->teamInvitesWithHttpInfo($email_address);
         return $response;
@@ -1727,15 +1797,15 @@ class TeamApi
      *
      * List Team Invites
      *
-     * @param string $email_address The email address for which to display the team invites. (optional)
-     * @param string $contentType   The value for the Content-Type header. Check self::contentTypes['teamInvites'] to see the possible values for this operation
+     * @param  string $email_address The email address for which to display the team invites. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['teamInvites'] to see the possible values for this operation
      *
-     * @return array of Model\TeamInvitesResponse, HTTP status code, HTTP response headers (array of strings)
-     * @throws ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws InvalidArgumentException
+     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \Dropbox\Sign\Model\TeamInvitesResponse|\Dropbox\Sign\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      * @deprecated Prefer to use ::teamInvites. This method will eventually become unavailable
      */
-    public function teamInvitesWithHttpInfo(string $email_address = null, string $contentType = self::contentTypes['teamInvites'][0])
+    public function teamInvitesWithHttpInfo($email_address = null, string $contentType = self::contentTypes['teamInvites'][0])
     {
         $request = $this->teamInvitesRequest($email_address, $contentType);
 
@@ -1747,14 +1817,14 @@ class TeamApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int)$e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string)$e->getResponse()->getBody() : null
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int)$e->getCode(),
+                    (int) $e->getCode(),
                     null,
                     null
                 );
@@ -1767,14 +1837,14 @@ class TeamApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        (string)$request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    (string)$response->getBody()
+                    (string) $response->getBody()
                 );
             }
-
+            
             $result = $this->handleRangeCodeResponse(
                 $response,
                 '4XX',
@@ -1783,17 +1853,18 @@ class TeamApi
             if ($result) {
                 return $result;
             }
+            
 
-            switch ($statusCode) {
+            switch($statusCode) {
                 case 200:
                     if ('\Dropbox\Sign\Model\TeamInvitesResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string)$response->getBody();
+                        $content = (string) $response->getBody();
                         if ('\Dropbox\Sign\Model\TeamInvitesResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (JsonException $exception) {
+                            } catch (\JsonException $exception) {
                                 throw new ApiException(
                                     sprintf(
                                         'Error JSON decoding server response (%s)',
@@ -1810,19 +1881,20 @@ class TeamApi
                     return [
                         ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\TeamInvitesResponse', []),
                         $response->getStatusCode(),
-                        $response->getHeaders(),
+                        $response->getHeaders()
                     ];
+                
             }
 
             $returnType = '\Dropbox\Sign\Model\TeamInvitesResponse';
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); // stream goes to serializer
+                $content = $response->getBody(); //stream goes to serializer
             } else {
-                $content = (string)$response->getBody();
+                $content = (string) $response->getBody();
                 if ($returnType !== 'string') {
                     try {
                         $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                    } catch (JsonException $exception) {
+                    } catch (\JsonException $exception) {
                         throw new ApiException(
                             sprintf(
                                 'Error JSON decoding server response (%s)',
@@ -1839,9 +1911,11 @@ class TeamApi
             return [
                 ObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
-                $response->getHeaders(),
+                $response->getHeaders()
             ];
+
         } catch (ApiException $e) {
+            
             if ($this->handleRangeCodeException($e, '4XX', '\Dropbox\Sign\Model\ErrorResponse')) {
                 throw $e;
             }
@@ -1854,6 +1928,7 @@ class TeamApi
                     );
                     $e->setResponseObject($data);
                     break;
+                
             }
             throw $e;
         }
@@ -1864,14 +1939,14 @@ class TeamApi
      *
      * List Team Invites
      *
-     * @param string $email_address The email address for which to display the team invites. (optional)
-     * @param string $contentType   The value for the Content-Type header. Check self::contentTypes['teamInvites'] to see the possible values for this operation
+     * @param  string $email_address The email address for which to display the team invites. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['teamInvites'] to see the possible values for this operation
      *
+     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
-     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::teamInvites. This method will eventually become unavailable
      */
-    public function teamInvitesAsync(string $email_address = null, string $contentType = self::contentTypes['teamInvites'][0])
+    public function teamInvitesAsync($email_address = null, string $contentType = self::contentTypes['teamInvites'][0])
     {
         return $this->teamInvitesAsyncWithHttpInfo($email_address, $contentType)
             ->then(
@@ -1886,14 +1961,14 @@ class TeamApi
      *
      * List Team Invites
      *
-     * @param string $email_address The email address for which to display the team invites. (optional)
-     * @param string $contentType   The value for the Content-Type header. Check self::contentTypes['teamInvites'] to see the possible values for this operation
+     * @param  string $email_address The email address for which to display the team invites. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['teamInvites'] to see the possible values for this operation
      *
+     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
-     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::teamInvites. This method will eventually become unavailable
      */
-    public function teamInvitesAsyncWithHttpInfo(string $email_address = null, string $contentType = self::contentTypes['teamInvites'][0])
+    public function teamInvitesAsyncWithHttpInfo($email_address = null, string $contentType = self::contentTypes['teamInvites'][0])
     {
         $returnType = '\Dropbox\Sign\Model\TeamInvitesResponse';
         $request = $this->teamInvitesRequest($email_address, $contentType);
@@ -1903,9 +1978,9 @@ class TeamApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string)$response->getBody();
+                        $content = (string) $response->getBody();
                         if ($returnType !== 'string') {
                             $content = json_decode($content);
                         }
@@ -1914,7 +1989,7 @@ class TeamApi
                     return [
                         ObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
-                        $response->getHeaders(),
+                        $response->getHeaders()
                     ];
                 },
                 function ($exception) {
@@ -1928,7 +2003,7 @@ class TeamApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        (string)$response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -1937,15 +2012,18 @@ class TeamApi
     /**
      * Create request for operation 'teamInvites'
      *
-     * @param string $email_address The email address for which to display the team invites. (optional)
-     * @param string $contentType   The value for the Content-Type header. Check self::contentTypes['teamInvites'] to see the possible values for this operation
+     * @param  string $email_address The email address for which to display the team invites. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['teamInvites'] to see the possible values for this operation
      *
-     * @return Request
-     * @throws InvalidArgumentException
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
      * @deprecated Prefer to use ::teamInvites. This method will eventually become unavailable
      */
-    public function teamInvitesRequest(string $email_address = null, string $contentType = self::contentTypes['teamInvites'][0])
+    public function teamInvitesRequest($email_address = null, string $contentType = self::contentTypes['teamInvites'][0])
     {
+
+
+
         $resourcePath = '/team/invites';
         $formParams = [];
         $queryParams = [];
@@ -1963,8 +2041,11 @@ class TeamApi
             false // required
         ) ?? []);
 
+
+
+
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            $multipart ? ['multipart/form-data'] : ['application/json', ],
             $contentType,
             $multipart
         );
@@ -1978,7 +2059,7 @@ class TeamApi
                     foreach ($formParamValueItems as $formParamValueItem) {
                         $multipartContents[] = [
                             'name' => $formParamName,
-                            'contents' => $formParamValueItem,
+                            'contents' => $formParamValueItem
                         ];
                     }
                 }
@@ -1992,8 +2073,9 @@ class TeamApi
                 }
 
                 $httpBody = new MultipartStream($multipartContents);
+
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                // if Content-Type contains "application/json", json_encode the form parameters
+                # if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
             } else {
                 // for HTTP post (form)
@@ -2036,15 +2118,15 @@ class TeamApi
      *
      * List Team Members
      *
-     * @param string $team_id   The id of the team that a member list is being requested from. (required)
-     * @param int    $page      Which page number of the team member list to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
-     * @param int    $page_size Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
+     * @param  string $team_id The id of the team that a member list is being requested from. (required)
+     * @param  int $page Which page number of the team member list to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
+     * @param  int $page_size Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
      *
-     * @return Model\TeamMembersResponse
-     * @throws ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws InvalidArgumentException
+     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \Dropbox\Sign\Model\TeamMembersResponse|\Dropbox\Sign\Model\ErrorResponse
      */
-    public function teamMembers(string $team_id, int $page = 1, int $page_size = 20)
+    public function teamMembers($team_id, $page = 1, $page_size = 20)
     {
         list($response) = $this->teamMembersWithHttpInfo($team_id, $page, $page_size);
         return $response;
@@ -2055,17 +2137,17 @@ class TeamApi
      *
      * List Team Members
      *
-     * @param string $team_id     The id of the team that a member list is being requested from. (required)
-     * @param int    $page        Which page number of the team member list to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
-     * @param int    $page_size   Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
-     * @param string $contentType The value for the Content-Type header. Check self::contentTypes['teamMembers'] to see the possible values for this operation
+     * @param  string $team_id The id of the team that a member list is being requested from. (required)
+     * @param  int $page Which page number of the team member list to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
+     * @param  int $page_size Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['teamMembers'] to see the possible values for this operation
      *
-     * @return array of Model\TeamMembersResponse, HTTP status code, HTTP response headers (array of strings)
-     * @throws ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws InvalidArgumentException
+     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \Dropbox\Sign\Model\TeamMembersResponse|\Dropbox\Sign\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      * @deprecated Prefer to use ::teamMembers. This method will eventually become unavailable
      */
-    public function teamMembersWithHttpInfo(string $team_id, int $page = 1, int $page_size = 20, string $contentType = self::contentTypes['teamMembers'][0])
+    public function teamMembersWithHttpInfo($team_id, $page = 1, $page_size = 20, string $contentType = self::contentTypes['teamMembers'][0])
     {
         $request = $this->teamMembersRequest($team_id, $page, $page_size, $contentType);
 
@@ -2077,14 +2159,14 @@ class TeamApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int)$e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string)$e->getResponse()->getBody() : null
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int)$e->getCode(),
+                    (int) $e->getCode(),
                     null,
                     null
                 );
@@ -2097,14 +2179,14 @@ class TeamApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        (string)$request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    (string)$response->getBody()
+                    (string) $response->getBody()
                 );
             }
-
+            
             $result = $this->handleRangeCodeResponse(
                 $response,
                 '4XX',
@@ -2113,17 +2195,18 @@ class TeamApi
             if ($result) {
                 return $result;
             }
+            
 
-            switch ($statusCode) {
+            switch($statusCode) {
                 case 200:
                     if ('\Dropbox\Sign\Model\TeamMembersResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string)$response->getBody();
+                        $content = (string) $response->getBody();
                         if ('\Dropbox\Sign\Model\TeamMembersResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (JsonException $exception) {
+                            } catch (\JsonException $exception) {
                                 throw new ApiException(
                                     sprintf(
                                         'Error JSON decoding server response (%s)',
@@ -2140,19 +2223,20 @@ class TeamApi
                     return [
                         ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\TeamMembersResponse', []),
                         $response->getStatusCode(),
-                        $response->getHeaders(),
+                        $response->getHeaders()
                     ];
+                
             }
 
             $returnType = '\Dropbox\Sign\Model\TeamMembersResponse';
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); // stream goes to serializer
+                $content = $response->getBody(); //stream goes to serializer
             } else {
-                $content = (string)$response->getBody();
+                $content = (string) $response->getBody();
                 if ($returnType !== 'string') {
                     try {
                         $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                    } catch (JsonException $exception) {
+                    } catch (\JsonException $exception) {
                         throw new ApiException(
                             sprintf(
                                 'Error JSON decoding server response (%s)',
@@ -2169,9 +2253,11 @@ class TeamApi
             return [
                 ObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
-                $response->getHeaders(),
+                $response->getHeaders()
             ];
+
         } catch (ApiException $e) {
+            
             if ($this->handleRangeCodeException($e, '4XX', '\Dropbox\Sign\Model\ErrorResponse')) {
                 throw $e;
             }
@@ -2184,6 +2270,7 @@ class TeamApi
                     );
                     $e->setResponseObject($data);
                     break;
+                
             }
             throw $e;
         }
@@ -2194,16 +2281,16 @@ class TeamApi
      *
      * List Team Members
      *
-     * @param string $team_id     The id of the team that a member list is being requested from. (required)
-     * @param int    $page        Which page number of the team member list to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
-     * @param int    $page_size   Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
-     * @param string $contentType The value for the Content-Type header. Check self::contentTypes['teamMembers'] to see the possible values for this operation
+     * @param  string $team_id The id of the team that a member list is being requested from. (required)
+     * @param  int $page Which page number of the team member list to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
+     * @param  int $page_size Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['teamMembers'] to see the possible values for this operation
      *
+     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
-     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::teamMembers. This method will eventually become unavailable
      */
-    public function teamMembersAsync(string $team_id, int $page = 1, int $page_size = 20, string $contentType = self::contentTypes['teamMembers'][0])
+    public function teamMembersAsync($team_id, $page = 1, $page_size = 20, string $contentType = self::contentTypes['teamMembers'][0])
     {
         return $this->teamMembersAsyncWithHttpInfo($team_id, $page, $page_size, $contentType)
             ->then(
@@ -2218,16 +2305,16 @@ class TeamApi
      *
      * List Team Members
      *
-     * @param string $team_id     The id of the team that a member list is being requested from. (required)
-     * @param int    $page        Which page number of the team member list to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
-     * @param int    $page_size   Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
-     * @param string $contentType The value for the Content-Type header. Check self::contentTypes['teamMembers'] to see the possible values for this operation
+     * @param  string $team_id The id of the team that a member list is being requested from. (required)
+     * @param  int $page Which page number of the team member list to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
+     * @param  int $page_size Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['teamMembers'] to see the possible values for this operation
      *
+     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
-     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::teamMembers. This method will eventually become unavailable
      */
-    public function teamMembersAsyncWithHttpInfo(string $team_id, int $page = 1, int $page_size = 20, string $contentType = self::contentTypes['teamMembers'][0])
+    public function teamMembersAsyncWithHttpInfo($team_id, $page = 1, $page_size = 20, string $contentType = self::contentTypes['teamMembers'][0])
     {
         $returnType = '\Dropbox\Sign\Model\TeamMembersResponse';
         $request = $this->teamMembersRequest($team_id, $page, $page_size, $contentType);
@@ -2237,9 +2324,9 @@ class TeamApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string)$response->getBody();
+                        $content = (string) $response->getBody();
                         if ($returnType !== 'string') {
                             $content = json_decode($content);
                         }
@@ -2248,7 +2335,7 @@ class TeamApi
                     return [
                         ObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
-                        $response->getHeaders(),
+                        $response->getHeaders()
                     ];
                 },
                 function ($exception) {
@@ -2262,7 +2349,7 @@ class TeamApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        (string)$response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -2271,30 +2358,33 @@ class TeamApi
     /**
      * Create request for operation 'teamMembers'
      *
-     * @param string $team_id     The id of the team that a member list is being requested from. (required)
-     * @param int    $page        Which page number of the team member list to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
-     * @param int    $page_size   Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
-     * @param string $contentType The value for the Content-Type header. Check self::contentTypes['teamMembers'] to see the possible values for this operation
+     * @param  string $team_id The id of the team that a member list is being requested from. (required)
+     * @param  int $page Which page number of the team member list to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
+     * @param  int $page_size Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['teamMembers'] to see the possible values for this operation
      *
-     * @return Request
-     * @throws InvalidArgumentException
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
      * @deprecated Prefer to use ::teamMembers. This method will eventually become unavailable
      */
-    public function teamMembersRequest(string $team_id, int $page = 1, int $page_size = 20, string $contentType = self::contentTypes['teamMembers'][0])
+    public function teamMembersRequest($team_id, $page = 1, $page_size = 20, string $contentType = self::contentTypes['teamMembers'][0])
     {
+
         // verify the required parameter 'team_id' is set
         if ($team_id === null || (is_array($team_id) && count($team_id) === 0)) {
-            throw new InvalidArgumentException(
+            throw new \InvalidArgumentException(
                 'Missing the required parameter $team_id when calling teamMembers'
             );
         }
 
+
         if ($page_size !== null && $page_size > 100) {
-            throw new InvalidArgumentException('invalid value for "$page_size" when calling TeamApi.teamMembers, must be smaller than or equal to 100.');
+            throw new \InvalidArgumentException('invalid value for "$page_size" when calling TeamApi.teamMembers, must be smaller than or equal to 100.');
         }
         if ($page_size !== null && $page_size < 1) {
-            throw new InvalidArgumentException('invalid value for "$page_size" when calling TeamApi.teamMembers, must be bigger than or equal to 1.');
+            throw new \InvalidArgumentException('invalid value for "$page_size" when calling TeamApi.teamMembers, must be bigger than or equal to 1.');
         }
+        
 
         $resourcePath = '/team/members/{team_id}';
         $formParams = [];
@@ -2322,17 +2412,19 @@ class TeamApi
             false // required
         ) ?? []);
 
+
         // path params
         if ($team_id !== null) {
             $resourcePath = str_replace(
-                '{team_id}',
+                '{' . 'team_id' . '}',
                 ObjectSerializer::toPathValue($team_id),
                 $resourcePath
             );
         }
 
+
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            $multipart ? ['multipart/form-data'] : ['application/json', ],
             $contentType,
             $multipart
         );
@@ -2346,7 +2438,7 @@ class TeamApi
                     foreach ($formParamValueItems as $formParamValueItem) {
                         $multipartContents[] = [
                             'name' => $formParamName,
-                            'contents' => $formParamValueItem,
+                            'contents' => $formParamValueItem
                         ];
                     }
                 }
@@ -2360,8 +2452,9 @@ class TeamApi
                 }
 
                 $httpBody = new MultipartStream($multipartContents);
+
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                // if Content-Type contains "application/json", json_encode the form parameters
+                # if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
             } else {
                 // for HTTP post (form)
@@ -2404,13 +2497,13 @@ class TeamApi
      *
      * Remove User from Team
      *
-     * @param Model\TeamRemoveMemberRequest $team_remove_member_request team_remove_member_request (required)
+     * @param  \Dropbox\Sign\Model\TeamRemoveMemberRequest $team_remove_member_request team_remove_member_request (required)
      *
-     * @return Model\TeamGetResponse
-     * @throws ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws InvalidArgumentException
+     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \Dropbox\Sign\Model\TeamGetResponse|\Dropbox\Sign\Model\ErrorResponse
      */
-    public function teamRemoveMember(Model\TeamRemoveMemberRequest $team_remove_member_request)
+    public function teamRemoveMember($team_remove_member_request)
     {
         list($response) = $this->teamRemoveMemberWithHttpInfo($team_remove_member_request);
         return $response;
@@ -2421,15 +2514,15 @@ class TeamApi
      *
      * Remove User from Team
      *
-     * @param Model\TeamRemoveMemberRequest $team_remove_member_request (required)
-     * @param string                        $contentType                The value for the Content-Type header. Check self::contentTypes['teamRemoveMember'] to see the possible values for this operation
+     * @param  \Dropbox\Sign\Model\TeamRemoveMemberRequest $team_remove_member_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['teamRemoveMember'] to see the possible values for this operation
      *
-     * @return array of Model\TeamGetResponse, HTTP status code, HTTP response headers (array of strings)
-     * @throws ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws InvalidArgumentException
+     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \Dropbox\Sign\Model\TeamGetResponse|\Dropbox\Sign\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      * @deprecated Prefer to use ::teamRemoveMember. This method will eventually become unavailable
      */
-    public function teamRemoveMemberWithHttpInfo(Model\TeamRemoveMemberRequest $team_remove_member_request, string $contentType = self::contentTypes['teamRemoveMember'][0])
+    public function teamRemoveMemberWithHttpInfo($team_remove_member_request, string $contentType = self::contentTypes['teamRemoveMember'][0])
     {
         $request = $this->teamRemoveMemberRequest($team_remove_member_request, $contentType);
 
@@ -2441,14 +2534,14 @@ class TeamApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int)$e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string)$e->getResponse()->getBody() : null
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int)$e->getCode(),
+                    (int) $e->getCode(),
                     null,
                     null
                 );
@@ -2461,14 +2554,14 @@ class TeamApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        (string)$request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    (string)$response->getBody()
+                    (string) $response->getBody()
                 );
             }
-
+            
             $result = $this->handleRangeCodeResponse(
                 $response,
                 '4XX',
@@ -2477,17 +2570,18 @@ class TeamApi
             if ($result) {
                 return $result;
             }
+            
 
-            switch ($statusCode) {
+            switch($statusCode) {
                 case 201:
                     if ('\Dropbox\Sign\Model\TeamGetResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string)$response->getBody();
+                        $content = (string) $response->getBody();
                         if ('\Dropbox\Sign\Model\TeamGetResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (JsonException $exception) {
+                            } catch (\JsonException $exception) {
                                 throw new ApiException(
                                     sprintf(
                                         'Error JSON decoding server response (%s)',
@@ -2504,19 +2598,20 @@ class TeamApi
                     return [
                         ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\TeamGetResponse', []),
                         $response->getStatusCode(),
-                        $response->getHeaders(),
+                        $response->getHeaders()
                     ];
+                
             }
 
             $returnType = '\Dropbox\Sign\Model\TeamGetResponse';
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); // stream goes to serializer
+                $content = $response->getBody(); //stream goes to serializer
             } else {
-                $content = (string)$response->getBody();
+                $content = (string) $response->getBody();
                 if ($returnType !== 'string') {
                     try {
                         $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                    } catch (JsonException $exception) {
+                    } catch (\JsonException $exception) {
                         throw new ApiException(
                             sprintf(
                                 'Error JSON decoding server response (%s)',
@@ -2533,9 +2628,11 @@ class TeamApi
             return [
                 ObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
-                $response->getHeaders(),
+                $response->getHeaders()
             ];
+
         } catch (ApiException $e) {
+            
             if ($this->handleRangeCodeException($e, '4XX', '\Dropbox\Sign\Model\ErrorResponse')) {
                 throw $e;
             }
@@ -2548,6 +2645,7 @@ class TeamApi
                     );
                     $e->setResponseObject($data);
                     break;
+                
             }
             throw $e;
         }
@@ -2558,14 +2656,14 @@ class TeamApi
      *
      * Remove User from Team
      *
-     * @param Model\TeamRemoveMemberRequest $team_remove_member_request (required)
-     * @param string                        $contentType                The value for the Content-Type header. Check self::contentTypes['teamRemoveMember'] to see the possible values for this operation
+     * @param  \Dropbox\Sign\Model\TeamRemoveMemberRequest $team_remove_member_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['teamRemoveMember'] to see the possible values for this operation
      *
+     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
-     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::teamRemoveMember. This method will eventually become unavailable
      */
-    public function teamRemoveMemberAsync(Model\TeamRemoveMemberRequest $team_remove_member_request, string $contentType = self::contentTypes['teamRemoveMember'][0])
+    public function teamRemoveMemberAsync($team_remove_member_request, string $contentType = self::contentTypes['teamRemoveMember'][0])
     {
         return $this->teamRemoveMemberAsyncWithHttpInfo($team_remove_member_request, $contentType)
             ->then(
@@ -2580,14 +2678,14 @@ class TeamApi
      *
      * Remove User from Team
      *
-     * @param Model\TeamRemoveMemberRequest $team_remove_member_request (required)
-     * @param string                        $contentType                The value for the Content-Type header. Check self::contentTypes['teamRemoveMember'] to see the possible values for this operation
+     * @param  \Dropbox\Sign\Model\TeamRemoveMemberRequest $team_remove_member_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['teamRemoveMember'] to see the possible values for this operation
      *
+     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
-     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::teamRemoveMember. This method will eventually become unavailable
      */
-    public function teamRemoveMemberAsyncWithHttpInfo(Model\TeamRemoveMemberRequest $team_remove_member_request, string $contentType = self::contentTypes['teamRemoveMember'][0])
+    public function teamRemoveMemberAsyncWithHttpInfo($team_remove_member_request, string $contentType = self::contentTypes['teamRemoveMember'][0])
     {
         $returnType = '\Dropbox\Sign\Model\TeamGetResponse';
         $request = $this->teamRemoveMemberRequest($team_remove_member_request, $contentType);
@@ -2597,9 +2695,9 @@ class TeamApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string)$response->getBody();
+                        $content = (string) $response->getBody();
                         if ($returnType !== 'string') {
                             $content = json_decode($content);
                         }
@@ -2608,7 +2706,7 @@ class TeamApi
                     return [
                         ObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
-                        $response->getHeaders(),
+                        $response->getHeaders()
                     ];
                 },
                 function ($exception) {
@@ -2622,7 +2720,7 @@ class TeamApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        (string)$response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -2631,21 +2729,23 @@ class TeamApi
     /**
      * Create request for operation 'teamRemoveMember'
      *
-     * @param Model\TeamRemoveMemberRequest $team_remove_member_request (required)
-     * @param string                        $contentType                The value for the Content-Type header. Check self::contentTypes['teamRemoveMember'] to see the possible values for this operation
+     * @param  \Dropbox\Sign\Model\TeamRemoveMemberRequest $team_remove_member_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['teamRemoveMember'] to see the possible values for this operation
      *
-     * @return Request
-     * @throws InvalidArgumentException
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
      * @deprecated Prefer to use ::teamRemoveMember. This method will eventually become unavailable
      */
-    public function teamRemoveMemberRequest(Model\TeamRemoveMemberRequest $team_remove_member_request, string $contentType = self::contentTypes['teamRemoveMember'][0])
+    public function teamRemoveMemberRequest($team_remove_member_request, string $contentType = self::contentTypes['teamRemoveMember'][0])
     {
+
         // verify the required parameter 'team_remove_member_request' is set
         if ($team_remove_member_request === null || (is_array($team_remove_member_request) && count($team_remove_member_request) === 0)) {
-            throw new InvalidArgumentException(
+            throw new \InvalidArgumentException(
                 'Missing the required parameter $team_remove_member_request when calling teamRemoveMember'
             );
         }
+
 
         $resourcePath = '/team/remove_member';
         $formParams = [];
@@ -2660,8 +2760,11 @@ class TeamApi
 
         $multipart = !empty($formParams);
 
+
+
+
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            $multipart ? ['multipart/form-data'] : ['application/json', ],
             $contentType,
             $multipart
         );
@@ -2669,7 +2772,7 @@ class TeamApi
         // for model (json/xml)
         if (count($formParams) === 0) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                // if Content-Type contains "application/json", json_encode the body
+                # if Content-Type contains "application/json", json_encode the body
                 $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($team_remove_member_request));
             } else {
                 $httpBody = $team_remove_member_request;
@@ -2682,7 +2785,7 @@ class TeamApi
                     foreach ($formParamValueItems as $formParamValueItem) {
                         $multipartContents[] = [
                             'name' => $formParamName,
-                            'contents' => $formParamValueItem,
+                            'contents' => $formParamValueItem
                         ];
                     }
                 }
@@ -2699,8 +2802,9 @@ class TeamApi
                     $payloadHook('multipart', $multipartContents, $team_remove_member_request);
                 }
                 $httpBody = new MultipartStream($multipartContents);
+
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                // if Content-Type contains "application/json", json_encode the form parameters
+                # if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
             } else {
                 // for HTTP post (form)
@@ -2743,15 +2847,15 @@ class TeamApi
      *
      * List Sub Teams
      *
-     * @param string $team_id   The id of the parent Team. (required)
-     * @param int    $page      Which page number of the SubTeam List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
-     * @param int    $page_size Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
+     * @param  string $team_id The id of the parent Team. (required)
+     * @param  int $page Which page number of the SubTeam List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
+     * @param  int $page_size Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
      *
-     * @return Model\TeamSubTeamsResponse
-     * @throws ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws InvalidArgumentException
+     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \Dropbox\Sign\Model\TeamSubTeamsResponse|\Dropbox\Sign\Model\ErrorResponse
      */
-    public function teamSubTeams(string $team_id, int $page = 1, int $page_size = 20)
+    public function teamSubTeams($team_id, $page = 1, $page_size = 20)
     {
         list($response) = $this->teamSubTeamsWithHttpInfo($team_id, $page, $page_size);
         return $response;
@@ -2762,17 +2866,17 @@ class TeamApi
      *
      * List Sub Teams
      *
-     * @param string $team_id     The id of the parent Team. (required)
-     * @param int    $page        Which page number of the SubTeam List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
-     * @param int    $page_size   Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
-     * @param string $contentType The value for the Content-Type header. Check self::contentTypes['teamSubTeams'] to see the possible values for this operation
+     * @param  string $team_id The id of the parent Team. (required)
+     * @param  int $page Which page number of the SubTeam List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
+     * @param  int $page_size Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['teamSubTeams'] to see the possible values for this operation
      *
-     * @return array of Model\TeamSubTeamsResponse, HTTP status code, HTTP response headers (array of strings)
-     * @throws ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws InvalidArgumentException
+     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \Dropbox\Sign\Model\TeamSubTeamsResponse|\Dropbox\Sign\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      * @deprecated Prefer to use ::teamSubTeams. This method will eventually become unavailable
      */
-    public function teamSubTeamsWithHttpInfo(string $team_id, int $page = 1, int $page_size = 20, string $contentType = self::contentTypes['teamSubTeams'][0])
+    public function teamSubTeamsWithHttpInfo($team_id, $page = 1, $page_size = 20, string $contentType = self::contentTypes['teamSubTeams'][0])
     {
         $request = $this->teamSubTeamsRequest($team_id, $page, $page_size, $contentType);
 
@@ -2784,14 +2888,14 @@ class TeamApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int)$e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string)$e->getResponse()->getBody() : null
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int)$e->getCode(),
+                    (int) $e->getCode(),
                     null,
                     null
                 );
@@ -2804,14 +2908,14 @@ class TeamApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        (string)$request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    (string)$response->getBody()
+                    (string) $response->getBody()
                 );
             }
-
+            
             $result = $this->handleRangeCodeResponse(
                 $response,
                 '4XX',
@@ -2820,17 +2924,18 @@ class TeamApi
             if ($result) {
                 return $result;
             }
+            
 
-            switch ($statusCode) {
+            switch($statusCode) {
                 case 200:
                     if ('\Dropbox\Sign\Model\TeamSubTeamsResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string)$response->getBody();
+                        $content = (string) $response->getBody();
                         if ('\Dropbox\Sign\Model\TeamSubTeamsResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (JsonException $exception) {
+                            } catch (\JsonException $exception) {
                                 throw new ApiException(
                                     sprintf(
                                         'Error JSON decoding server response (%s)',
@@ -2847,19 +2952,20 @@ class TeamApi
                     return [
                         ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\TeamSubTeamsResponse', []),
                         $response->getStatusCode(),
-                        $response->getHeaders(),
+                        $response->getHeaders()
                     ];
+                
             }
 
             $returnType = '\Dropbox\Sign\Model\TeamSubTeamsResponse';
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); // stream goes to serializer
+                $content = $response->getBody(); //stream goes to serializer
             } else {
-                $content = (string)$response->getBody();
+                $content = (string) $response->getBody();
                 if ($returnType !== 'string') {
                     try {
                         $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                    } catch (JsonException $exception) {
+                    } catch (\JsonException $exception) {
                         throw new ApiException(
                             sprintf(
                                 'Error JSON decoding server response (%s)',
@@ -2876,9 +2982,11 @@ class TeamApi
             return [
                 ObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
-                $response->getHeaders(),
+                $response->getHeaders()
             ];
+
         } catch (ApiException $e) {
+            
             if ($this->handleRangeCodeException($e, '4XX', '\Dropbox\Sign\Model\ErrorResponse')) {
                 throw $e;
             }
@@ -2891,6 +2999,7 @@ class TeamApi
                     );
                     $e->setResponseObject($data);
                     break;
+                
             }
             throw $e;
         }
@@ -2901,16 +3010,16 @@ class TeamApi
      *
      * List Sub Teams
      *
-     * @param string $team_id     The id of the parent Team. (required)
-     * @param int    $page        Which page number of the SubTeam List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
-     * @param int    $page_size   Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
-     * @param string $contentType The value for the Content-Type header. Check self::contentTypes['teamSubTeams'] to see the possible values for this operation
+     * @param  string $team_id The id of the parent Team. (required)
+     * @param  int $page Which page number of the SubTeam List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
+     * @param  int $page_size Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['teamSubTeams'] to see the possible values for this operation
      *
+     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
-     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::teamSubTeams. This method will eventually become unavailable
      */
-    public function teamSubTeamsAsync(string $team_id, int $page = 1, int $page_size = 20, string $contentType = self::contentTypes['teamSubTeams'][0])
+    public function teamSubTeamsAsync($team_id, $page = 1, $page_size = 20, string $contentType = self::contentTypes['teamSubTeams'][0])
     {
         return $this->teamSubTeamsAsyncWithHttpInfo($team_id, $page, $page_size, $contentType)
             ->then(
@@ -2925,16 +3034,16 @@ class TeamApi
      *
      * List Sub Teams
      *
-     * @param string $team_id     The id of the parent Team. (required)
-     * @param int    $page        Which page number of the SubTeam List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
-     * @param int    $page_size   Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
-     * @param string $contentType The value for the Content-Type header. Check self::contentTypes['teamSubTeams'] to see the possible values for this operation
+     * @param  string $team_id The id of the parent Team. (required)
+     * @param  int $page Which page number of the SubTeam List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
+     * @param  int $page_size Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['teamSubTeams'] to see the possible values for this operation
      *
+     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
-     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::teamSubTeams. This method will eventually become unavailable
      */
-    public function teamSubTeamsAsyncWithHttpInfo(string $team_id, int $page = 1, int $page_size = 20, string $contentType = self::contentTypes['teamSubTeams'][0])
+    public function teamSubTeamsAsyncWithHttpInfo($team_id, $page = 1, $page_size = 20, string $contentType = self::contentTypes['teamSubTeams'][0])
     {
         $returnType = '\Dropbox\Sign\Model\TeamSubTeamsResponse';
         $request = $this->teamSubTeamsRequest($team_id, $page, $page_size, $contentType);
@@ -2944,9 +3053,9 @@ class TeamApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string)$response->getBody();
+                        $content = (string) $response->getBody();
                         if ($returnType !== 'string') {
                             $content = json_decode($content);
                         }
@@ -2955,7 +3064,7 @@ class TeamApi
                     return [
                         ObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
-                        $response->getHeaders(),
+                        $response->getHeaders()
                     ];
                 },
                 function ($exception) {
@@ -2969,7 +3078,7 @@ class TeamApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        (string)$response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -2978,30 +3087,33 @@ class TeamApi
     /**
      * Create request for operation 'teamSubTeams'
      *
-     * @param string $team_id     The id of the parent Team. (required)
-     * @param int    $page        Which page number of the SubTeam List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
-     * @param int    $page_size   Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
-     * @param string $contentType The value for the Content-Type header. Check self::contentTypes['teamSubTeams'] to see the possible values for this operation
+     * @param  string $team_id The id of the parent Team. (required)
+     * @param  int $page Which page number of the SubTeam List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
+     * @param  int $page_size Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['teamSubTeams'] to see the possible values for this operation
      *
-     * @return Request
-     * @throws InvalidArgumentException
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
      * @deprecated Prefer to use ::teamSubTeams. This method will eventually become unavailable
      */
-    public function teamSubTeamsRequest(string $team_id, int $page = 1, int $page_size = 20, string $contentType = self::contentTypes['teamSubTeams'][0])
+    public function teamSubTeamsRequest($team_id, $page = 1, $page_size = 20, string $contentType = self::contentTypes['teamSubTeams'][0])
     {
+
         // verify the required parameter 'team_id' is set
         if ($team_id === null || (is_array($team_id) && count($team_id) === 0)) {
-            throw new InvalidArgumentException(
+            throw new \InvalidArgumentException(
                 'Missing the required parameter $team_id when calling teamSubTeams'
             );
         }
 
+
         if ($page_size !== null && $page_size > 100) {
-            throw new InvalidArgumentException('invalid value for "$page_size" when calling TeamApi.teamSubTeams, must be smaller than or equal to 100.');
+            throw new \InvalidArgumentException('invalid value for "$page_size" when calling TeamApi.teamSubTeams, must be smaller than or equal to 100.');
         }
         if ($page_size !== null && $page_size < 1) {
-            throw new InvalidArgumentException('invalid value for "$page_size" when calling TeamApi.teamSubTeams, must be bigger than or equal to 1.');
+            throw new \InvalidArgumentException('invalid value for "$page_size" when calling TeamApi.teamSubTeams, must be bigger than or equal to 1.');
         }
+        
 
         $resourcePath = '/team/sub_teams/{team_id}';
         $formParams = [];
@@ -3029,17 +3141,19 @@ class TeamApi
             false // required
         ) ?? []);
 
+
         // path params
         if ($team_id !== null) {
             $resourcePath = str_replace(
-                '{team_id}',
+                '{' . 'team_id' . '}',
                 ObjectSerializer::toPathValue($team_id),
                 $resourcePath
             );
         }
 
+
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            $multipart ? ['multipart/form-data'] : ['application/json', ],
             $contentType,
             $multipart
         );
@@ -3053,7 +3167,7 @@ class TeamApi
                     foreach ($formParamValueItems as $formParamValueItem) {
                         $multipartContents[] = [
                             'name' => $formParamName,
-                            'contents' => $formParamValueItem,
+                            'contents' => $formParamValueItem
                         ];
                     }
                 }
@@ -3067,8 +3181,9 @@ class TeamApi
                 }
 
                 $httpBody = new MultipartStream($multipartContents);
+
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                // if Content-Type contains "application/json", json_encode the form parameters
+                # if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
             } else {
                 // for HTTP post (form)
@@ -3111,13 +3226,13 @@ class TeamApi
      *
      * Update Team
      *
-     * @param Model\TeamUpdateRequest $team_update_request team_update_request (required)
+     * @param  \Dropbox\Sign\Model\TeamUpdateRequest $team_update_request team_update_request (required)
      *
-     * @return Model\TeamGetResponse
-     * @throws ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws InvalidArgumentException
+     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \Dropbox\Sign\Model\TeamGetResponse|\Dropbox\Sign\Model\ErrorResponse
      */
-    public function teamUpdate(Model\TeamUpdateRequest $team_update_request)
+    public function teamUpdate($team_update_request)
     {
         list($response) = $this->teamUpdateWithHttpInfo($team_update_request);
         return $response;
@@ -3128,15 +3243,15 @@ class TeamApi
      *
      * Update Team
      *
-     * @param Model\TeamUpdateRequest $team_update_request (required)
-     * @param string                  $contentType         The value for the Content-Type header. Check self::contentTypes['teamUpdate'] to see the possible values for this operation
+     * @param  \Dropbox\Sign\Model\TeamUpdateRequest $team_update_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['teamUpdate'] to see the possible values for this operation
      *
-     * @return array of Model\TeamGetResponse, HTTP status code, HTTP response headers (array of strings)
-     * @throws ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws InvalidArgumentException
+     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \Dropbox\Sign\Model\TeamGetResponse|\Dropbox\Sign\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      * @deprecated Prefer to use ::teamUpdate. This method will eventually become unavailable
      */
-    public function teamUpdateWithHttpInfo(Model\TeamUpdateRequest $team_update_request, string $contentType = self::contentTypes['teamUpdate'][0])
+    public function teamUpdateWithHttpInfo($team_update_request, string $contentType = self::contentTypes['teamUpdate'][0])
     {
         $request = $this->teamUpdateRequest($team_update_request, $contentType);
 
@@ -3148,14 +3263,14 @@ class TeamApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int)$e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string)$e->getResponse()->getBody() : null
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int)$e->getCode(),
+                    (int) $e->getCode(),
                     null,
                     null
                 );
@@ -3168,14 +3283,14 @@ class TeamApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        (string)$request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    (string)$response->getBody()
+                    (string) $response->getBody()
                 );
             }
-
+            
             $result = $this->handleRangeCodeResponse(
                 $response,
                 '4XX',
@@ -3184,17 +3299,18 @@ class TeamApi
             if ($result) {
                 return $result;
             }
+            
 
-            switch ($statusCode) {
+            switch($statusCode) {
                 case 200:
                     if ('\Dropbox\Sign\Model\TeamGetResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string)$response->getBody();
+                        $content = (string) $response->getBody();
                         if ('\Dropbox\Sign\Model\TeamGetResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (JsonException $exception) {
+                            } catch (\JsonException $exception) {
                                 throw new ApiException(
                                     sprintf(
                                         'Error JSON decoding server response (%s)',
@@ -3211,19 +3327,20 @@ class TeamApi
                     return [
                         ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\TeamGetResponse', []),
                         $response->getStatusCode(),
-                        $response->getHeaders(),
+                        $response->getHeaders()
                     ];
+                
             }
 
             $returnType = '\Dropbox\Sign\Model\TeamGetResponse';
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); // stream goes to serializer
+                $content = $response->getBody(); //stream goes to serializer
             } else {
-                $content = (string)$response->getBody();
+                $content = (string) $response->getBody();
                 if ($returnType !== 'string') {
                     try {
                         $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                    } catch (JsonException $exception) {
+                    } catch (\JsonException $exception) {
                         throw new ApiException(
                             sprintf(
                                 'Error JSON decoding server response (%s)',
@@ -3240,9 +3357,11 @@ class TeamApi
             return [
                 ObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
-                $response->getHeaders(),
+                $response->getHeaders()
             ];
+
         } catch (ApiException $e) {
+            
             if ($this->handleRangeCodeException($e, '4XX', '\Dropbox\Sign\Model\ErrorResponse')) {
                 throw $e;
             }
@@ -3255,6 +3374,7 @@ class TeamApi
                     );
                     $e->setResponseObject($data);
                     break;
+                
             }
             throw $e;
         }
@@ -3265,14 +3385,14 @@ class TeamApi
      *
      * Update Team
      *
-     * @param Model\TeamUpdateRequest $team_update_request (required)
-     * @param string                  $contentType         The value for the Content-Type header. Check self::contentTypes['teamUpdate'] to see the possible values for this operation
+     * @param  \Dropbox\Sign\Model\TeamUpdateRequest $team_update_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['teamUpdate'] to see the possible values for this operation
      *
+     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
-     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::teamUpdate. This method will eventually become unavailable
      */
-    public function teamUpdateAsync(Model\TeamUpdateRequest $team_update_request, string $contentType = self::contentTypes['teamUpdate'][0])
+    public function teamUpdateAsync($team_update_request, string $contentType = self::contentTypes['teamUpdate'][0])
     {
         return $this->teamUpdateAsyncWithHttpInfo($team_update_request, $contentType)
             ->then(
@@ -3287,14 +3407,14 @@ class TeamApi
      *
      * Update Team
      *
-     * @param Model\TeamUpdateRequest $team_update_request (required)
-     * @param string                  $contentType         The value for the Content-Type header. Check self::contentTypes['teamUpdate'] to see the possible values for this operation
+     * @param  \Dropbox\Sign\Model\TeamUpdateRequest $team_update_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['teamUpdate'] to see the possible values for this operation
      *
+     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
-     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::teamUpdate. This method will eventually become unavailable
      */
-    public function teamUpdateAsyncWithHttpInfo(Model\TeamUpdateRequest $team_update_request, string $contentType = self::contentTypes['teamUpdate'][0])
+    public function teamUpdateAsyncWithHttpInfo($team_update_request, string $contentType = self::contentTypes['teamUpdate'][0])
     {
         $returnType = '\Dropbox\Sign\Model\TeamGetResponse';
         $request = $this->teamUpdateRequest($team_update_request, $contentType);
@@ -3304,9 +3424,9 @@ class TeamApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string)$response->getBody();
+                        $content = (string) $response->getBody();
                         if ($returnType !== 'string') {
                             $content = json_decode($content);
                         }
@@ -3315,7 +3435,7 @@ class TeamApi
                     return [
                         ObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
-                        $response->getHeaders(),
+                        $response->getHeaders()
                     ];
                 },
                 function ($exception) {
@@ -3329,7 +3449,7 @@ class TeamApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        (string)$response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -3338,21 +3458,23 @@ class TeamApi
     /**
      * Create request for operation 'teamUpdate'
      *
-     * @param Model\TeamUpdateRequest $team_update_request (required)
-     * @param string                  $contentType         The value for the Content-Type header. Check self::contentTypes['teamUpdate'] to see the possible values for this operation
+     * @param  \Dropbox\Sign\Model\TeamUpdateRequest $team_update_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['teamUpdate'] to see the possible values for this operation
      *
-     * @return Request
-     * @throws InvalidArgumentException
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
      * @deprecated Prefer to use ::teamUpdate. This method will eventually become unavailable
      */
-    public function teamUpdateRequest(Model\TeamUpdateRequest $team_update_request, string $contentType = self::contentTypes['teamUpdate'][0])
+    public function teamUpdateRequest($team_update_request, string $contentType = self::contentTypes['teamUpdate'][0])
     {
+
         // verify the required parameter 'team_update_request' is set
         if ($team_update_request === null || (is_array($team_update_request) && count($team_update_request) === 0)) {
-            throw new InvalidArgumentException(
+            throw new \InvalidArgumentException(
                 'Missing the required parameter $team_update_request when calling teamUpdate'
             );
         }
+
 
         $resourcePath = '/team';
         $formParams = [];
@@ -3367,8 +3489,11 @@ class TeamApi
 
         $multipart = !empty($formParams);
 
+
+
+
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            $multipart ? ['multipart/form-data'] : ['application/json', ],
             $contentType,
             $multipart
         );
@@ -3376,7 +3501,7 @@ class TeamApi
         // for model (json/xml)
         if (count($formParams) === 0) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                // if Content-Type contains "application/json", json_encode the body
+                # if Content-Type contains "application/json", json_encode the body
                 $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($team_update_request));
             } else {
                 $httpBody = $team_update_request;
@@ -3389,7 +3514,7 @@ class TeamApi
                     foreach ($formParamValueItems as $formParamValueItem) {
                         $multipartContents[] = [
                             'name' => $formParamName,
-                            'contents' => $formParamValueItem,
+                            'contents' => $formParamValueItem
                         ];
                     }
                 }
@@ -3406,8 +3531,9 @@ class TeamApi
                     $payloadHook('multipart', $multipartContents, $team_update_request);
                 }
                 $httpBody = new MultipartStream($multipartContents);
+
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                // if Content-Type contains "application/json", json_encode the form parameters
+                # if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
             } else {
                 // for HTTP post (form)
@@ -3448,8 +3574,8 @@ class TeamApi
     /**
      * Create http client option
      *
+     * @throws \RuntimeException on file opening failure
      * @return array of http client options
-     * @throws RuntimeException on file opening failure
      */
     protected function createHttpClientOption()
     {
@@ -3457,7 +3583,7 @@ class TeamApi
         if ($this->config->getDebug()) {
             $options[RequestOptions::DEBUG] = fopen($this->config->getDebugFile(), 'a');
             if (!$options[RequestOptions::DEBUG]) {
-                throw new RuntimeException('Failed to open the debug file: ' . $this->config->getDebugFile());
+                throw new \RuntimeException('Failed to open the debug file: ' . $this->config->getDebugFile());
             }
         }
 
@@ -3473,8 +3599,8 @@ class TeamApi
         string $returnDataType
     ) {
         $statusCode = $response->getStatusCode();
-        $rangeCodeLeft = (int)(substr($rangeCode, 0, 1) . '00');
-        $rangeCodeRight = (int)(substr($rangeCode, 0, 1) . '99');
+        $rangeCodeLeft = (int) (substr($rangeCode, 0, 1) . '00');
+        $rangeCodeRight = (int) (substr($rangeCode, 0, 1) . '99');
 
         if (
             $statusCode < $rangeCodeLeft
@@ -3484,9 +3610,9 @@ class TeamApi
         }
 
         if ($returnDataType === '\SplFileObject') {
-            $content = $response->getBody(); // stream goes to serializer
+            $content = $response->getBody(); //stream goes to serializer
         } else {
-            $content = (string)$response->getBody();
+            $content = (string) $response->getBody();
         }
 
         return [
@@ -3505,8 +3631,8 @@ class TeamApi
         string $exceptionDataType
     ): bool {
         $statusCode = $e->getCode();
-        $rangeCodeLeft = (int)(substr($rangeCode, 0, 1) . '00');
-        $rangeCodeRight = (int)(substr($rangeCode, 0, 1) . '99');
+        $rangeCodeLeft = (int) (substr($rangeCode, 0, 1) . '00');
+        $rangeCodeRight = (int) (substr($rangeCode, 0, 1) . '99');
 
         if (
             $statusCode < $rangeCodeLeft

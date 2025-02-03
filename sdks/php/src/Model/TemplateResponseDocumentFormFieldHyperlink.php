@@ -5,7 +5,9 @@
  * PHP version 7.4
  *
  * @category Class
- * @see     https://openapi-generator.tech
+ * @package  Dropbox\Sign
+ * @author   OpenAPI Generator team
+ * @link     https://openapi-generator.tech
  */
 
 /**
@@ -26,17 +28,16 @@
  */
 
 namespace Dropbox\Sign\Model;
-
-use Dropbox\Sign\ObjectSerializer;
-use InvalidArgumentException;
-use ReturnTypeWillChange;
+use \Dropbox\Sign\ObjectSerializer;
 
 /**
  * TemplateResponseDocumentFormFieldHyperlink Class Doc Comment
  *
  * @category Class
  * @description This class extends &#x60;TemplateResponseDocumentFormFieldBase&#x60;
- * @see     https://openapi-generator.tech
+ * @package  Dropbox\Sign
+ * @author   OpenAPI Generator team
+ * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
 class TemplateResponseDocumentFormFieldHyperlink extends TemplateResponseDocumentFormFieldBase
@@ -44,61 +45,61 @@ class TemplateResponseDocumentFormFieldHyperlink extends TemplateResponseDocumen
     public const DISCRIMINATOR = null;
 
     /**
-     * The original name of the model.
-     *
-     * @var string
-     */
+      * The original name of the model.
+      *
+      * @var string
+      */
     protected static $openAPIModelName = 'TemplateResponseDocumentFormFieldHyperlink';
 
     /**
-     * Array of property to type mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to type mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPITypes = [
         'type' => 'string',
         'avg_text_length' => '\Dropbox\Sign\Model\TemplateResponseFieldAvgTextLength',
         'is_multiline' => 'bool',
         'original_font_size' => 'int',
         'font_family' => 'string',
-        'group' => 'string',
+        'group' => 'string'
     ];
 
     /**
-     * Array of property to format mappings. Used for (de)serialization
-     *
-     * @var string[]
-     * @phpstan-var array<string, string|null>
-     * @psalm-var array<string, string|null>
-     */
+      * Array of property to format mappings. Used for (de)serialization
+      *
+      * @var string[]
+      * @phpstan-var array<string, string|null>
+      * @psalm-var array<string, string|null>
+      */
     protected static $openAPIFormats = [
         'type' => null,
         'avg_text_length' => null,
         'is_multiline' => null,
         'original_font_size' => null,
         'font_family' => null,
-        'group' => null,
+        'group' => null
     ];
 
     /**
-     * Array of nullable properties. Used for (de)serialization
-     *
-     * @var bool[]
-     */
+      * Array of nullable properties. Used for (de)serialization
+      *
+      * @var boolean[]
+      */
     protected static array $openAPINullables = [
         'type' => false,
         'avg_text_length' => false,
         'is_multiline' => false,
         'original_font_size' => false,
         'font_family' => false,
-        'group' => true,
+        'group' => true
     ];
 
     /**
-     * If a nullable field gets set to null, insert it here
-     *
-     * @var bool[]
-     */
+      * If a nullable field gets set to null, insert it here
+      *
+      * @var boolean[]
+      */
     protected array $openAPINullablesSetToNull = [];
 
     /**
@@ -123,6 +124,8 @@ class TemplateResponseDocumentFormFieldHyperlink extends TemplateResponseDocumen
 
     /**
      * Array of nullable properties
+     *
+     * @return array
      */
     protected static function openAPINullables(): array
     {
@@ -132,7 +135,7 @@ class TemplateResponseDocumentFormFieldHyperlink extends TemplateResponseDocumen
     /**
      * Array of nullable field names deliberately set to null
      *
-     * @return bool[]
+     * @return boolean[]
      */
     private function getOpenAPINullablesSetToNull(): array
     {
@@ -142,7 +145,7 @@ class TemplateResponseDocumentFormFieldHyperlink extends TemplateResponseDocumen
     /**
      * Setter - Array of nullable field names deliberately set to null
      *
-     * @param bool[] $openAPINullablesSetToNull
+     * @param boolean[] $openAPINullablesSetToNull
      */
     private function setOpenAPINullablesSetToNull(array $openAPINullablesSetToNull): void
     {
@@ -151,6 +154,9 @@ class TemplateResponseDocumentFormFieldHyperlink extends TemplateResponseDocumen
 
     /**
      * Checks if a property is nullable
+     *
+     * @param string $property
+     * @return bool
      */
     public static function isNullable(string $property): bool
     {
@@ -159,6 +165,9 @@ class TemplateResponseDocumentFormFieldHyperlink extends TemplateResponseDocumen
 
     /**
      * Checks if a nullable property is set to null.
+     *
+     * @param string $property
+     * @return bool
      */
     public function isNullableSetToNull(string $property): bool
     {
@@ -177,7 +186,7 @@ class TemplateResponseDocumentFormFieldHyperlink extends TemplateResponseDocumen
         'is_multiline' => 'isMultiline',
         'original_font_size' => 'originalFontSize',
         'font_family' => 'fontFamily',
-        'group' => 'group',
+        'group' => 'group'
     ];
 
     /**
@@ -191,7 +200,7 @@ class TemplateResponseDocumentFormFieldHyperlink extends TemplateResponseDocumen
         'is_multiline' => 'setIsMultiline',
         'original_font_size' => 'setOriginalFontSize',
         'font_family' => 'setFontFamily',
-        'group' => 'setGroup',
+        'group' => 'setGroup'
     ];
 
     /**
@@ -205,7 +214,7 @@ class TemplateResponseDocumentFormFieldHyperlink extends TemplateResponseDocumen
         'is_multiline' => 'getIsMultiline',
         'original_font_size' => 'getOriginalFontSize',
         'font_family' => 'getFontFamily',
-        'group' => 'getGroup',
+        'group' => 'getGroup'
     ];
 
     /**
@@ -249,6 +258,8 @@ class TemplateResponseDocumentFormFieldHyperlink extends TemplateResponseDocumen
         return self::$openAPIModelName;
     }
 
+
+
     /**
      * Constructor
      *
@@ -267,33 +278,34 @@ class TemplateResponseDocumentFormFieldHyperlink extends TemplateResponseDocumen
         $this->setIfExists('group', $data ?? [], null);
     }
 
-    /**
-     * @deprecated use ::init()
-     */
+    /** @deprecated use ::init() */
     public static function fromArray(array $data): TemplateResponseDocumentFormFieldHyperlink
     {
         return self::init($data);
     }
 
-    /**
-     * Attempt to instantiate and hydrate a new instance of this class
-     */
+    /** Attempt to instantiate and hydrate a new instance of this class */
     public static function init(array $data): TemplateResponseDocumentFormFieldHyperlink
     {
         /** @var TemplateResponseDocumentFormFieldHyperlink */
-        return ObjectSerializer::deserialize(
+        $obj = ObjectSerializer::deserialize(
             $data,
             TemplateResponseDocumentFormFieldHyperlink::class,
         );
+
+        return $obj;
     }
 
+
     /**
-     * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
-     * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
-     * $this->openAPINullablesSetToNull array
-     *
-     * @param string|int|object|array|mixed $defaultValue
-     */
+    * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
+    * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
+    * $this->openAPINullablesSetToNull array
+    *
+    * @param string $variableName
+    * @param array  $fields
+* @param string|int|object|array|mixed  $defaultValue
+    */
     private function setIfExists(string $variableName, array $fields, $defaultValue): void
     {
         if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
@@ -329,6 +341,7 @@ class TemplateResponseDocumentFormFieldHyperlink extends TemplateResponseDocumen
         return count($this->listInvalidProperties()) === 0;
     }
 
+
     /**
      * Gets type
      *
@@ -346,10 +359,10 @@ class TemplateResponseDocumentFormFieldHyperlink extends TemplateResponseDocumen
      *
      * @return self
      */
-    public function setType(string $type)
+    public function setType($type)
     {
         if (is_null($type)) {
-            throw new InvalidArgumentException('non-nullable type cannot be null');
+            throw new \InvalidArgumentException('non-nullable type cannot be null');
         }
         $this->container['type'] = $type;
 
@@ -359,7 +372,7 @@ class TemplateResponseDocumentFormFieldHyperlink extends TemplateResponseDocumen
     /**
      * Gets avg_text_length
      *
-     * @return TemplateResponseFieldAvgTextLength|null
+     * @return \Dropbox\Sign\Model\TemplateResponseFieldAvgTextLength|null
      */
     public function getAvgTextLength()
     {
@@ -369,14 +382,14 @@ class TemplateResponseDocumentFormFieldHyperlink extends TemplateResponseDocumen
     /**
      * Sets avg_text_length
      *
-     * @param TemplateResponseFieldAvgTextLength|null $avg_text_length avg_text_length
+     * @param \Dropbox\Sign\Model\TemplateResponseFieldAvgTextLength|null $avg_text_length avg_text_length
      *
      * @return self
      */
-    public function setAvgTextLength(?TemplateResponseFieldAvgTextLength $avg_text_length)
+    public function setAvgTextLength($avg_text_length)
     {
         if (is_null($avg_text_length)) {
-            throw new InvalidArgumentException('non-nullable avg_text_length cannot be null');
+            throw new \InvalidArgumentException('non-nullable avg_text_length cannot be null');
         }
         $this->container['avg_text_length'] = $avg_text_length;
 
@@ -396,14 +409,14 @@ class TemplateResponseDocumentFormFieldHyperlink extends TemplateResponseDocumen
     /**
      * Sets is_multiline
      *
-     * @param bool|null $is_multiline whether this form field is multiline text
+     * @param bool|null $is_multiline Whether this form field is multiline text.
      *
      * @return self
      */
-    public function setIsMultiline(?bool $is_multiline)
+    public function setIsMultiline($is_multiline)
     {
         if (is_null($is_multiline)) {
-            throw new InvalidArgumentException('non-nullable is_multiline cannot be null');
+            throw new \InvalidArgumentException('non-nullable is_multiline cannot be null');
         }
         $this->container['is_multiline'] = $is_multiline;
 
@@ -423,14 +436,14 @@ class TemplateResponseDocumentFormFieldHyperlink extends TemplateResponseDocumen
     /**
      * Sets original_font_size
      *
-     * @param int|null $original_font_size original font size used in this form field's text
+     * @param int|null $original_font_size Original font size used in this form field's text.
      *
      * @return self
      */
-    public function setOriginalFontSize(?int $original_font_size)
+    public function setOriginalFontSize($original_font_size)
     {
         if (is_null($original_font_size)) {
-            throw new InvalidArgumentException('non-nullable original_font_size cannot be null');
+            throw new \InvalidArgumentException('non-nullable original_font_size cannot be null');
         }
         $this->container['original_font_size'] = $original_font_size;
 
@@ -450,14 +463,14 @@ class TemplateResponseDocumentFormFieldHyperlink extends TemplateResponseDocumen
     /**
      * Sets font_family
      *
-     * @param string|null $font_family font family used in this form field's text
+     * @param string|null $font_family Font family used in this form field's text.
      *
      * @return self
      */
-    public function setFontFamily(?string $font_family)
+    public function setFontFamily($font_family)
     {
         if (is_null($font_family)) {
-            throw new InvalidArgumentException('non-nullable font_family cannot be null');
+            throw new \InvalidArgumentException('non-nullable font_family cannot be null');
         }
         $this->container['font_family'] = $font_family;
 
@@ -481,14 +494,14 @@ class TemplateResponseDocumentFormFieldHyperlink extends TemplateResponseDocumen
      *
      * @return self
      */
-    public function setGroup(?string $group)
+    public function setGroup($group)
     {
         if (is_null($group)) {
             array_push($this->openAPINullablesSetToNull, 'group');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
             $index = array_search('group', $nullablesSetToNull);
-            if ($index !== false) {
+            if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
@@ -497,13 +510,14 @@ class TemplateResponseDocumentFormFieldHyperlink extends TemplateResponseDocumen
 
         return $this;
     }
-
     /**
      * Returns true if offset exists. False otherwise.
      *
-     * @param int $offset Offset
+     * @param integer $offset Offset
+     *
+     * @return boolean
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
@@ -512,11 +526,11 @@ class TemplateResponseDocumentFormFieldHyperlink extends TemplateResponseDocumen
     /**
      * Gets offset.
      *
-     * @param int $offset Offset
+     * @param integer $offset Offset
      *
      * @return mixed|null
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return $this->container[$offset] ?? null;
@@ -527,8 +541,10 @@ class TemplateResponseDocumentFormFieldHyperlink extends TemplateResponseDocumen
      *
      * @param int|null $offset Offset
      * @param mixed    $value  Value to be set
+     *
+     * @return void
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
@@ -541,9 +557,11 @@ class TemplateResponseDocumentFormFieldHyperlink extends TemplateResponseDocumen
     /**
      * Unsets offset.
      *
-     * @param int $offset Offset
+     * @param integer $offset Offset
+     *
+     * @return void
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
@@ -551,15 +569,15 @@ class TemplateResponseDocumentFormFieldHyperlink extends TemplateResponseDocumen
 
     /**
      * Serializes the object to a value that can be serialized natively by json_encode().
-     * @see https://www.php.net/manual/en/jsonserializable.jsonserialize.php
+     * @link https://www.php.net/manual/en/jsonserializable.jsonserialize.php
      *
-     * @return mixed returns data which can be serialized by json_encode(), which is a value
-     *               of any type other than a resource
+     * @return mixed Returns data which can be serialized by json_encode(), which is a value
+     * of any type other than a resource.
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
-        return ObjectSerializer::sanitizeForSerialization($this);
+       return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**
@@ -585,3 +603,5 @@ class TemplateResponseDocumentFormFieldHyperlink extends TemplateResponseDocumen
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
+
+

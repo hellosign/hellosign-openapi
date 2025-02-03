@@ -20,31 +20,7 @@ Returns the status of the BulkSendJob and its SignatureRequests specified by the
 ### Example
 
 ```php
-<?php
-
-require_once __DIR__ . "/vendor/autoload.php";
-
-$config = Dropbox\Sign\Configuration::getDefaultConfiguration();
-
-// Configure HTTP basic authorization: api_key
-$config->setUsername("YOUR_API_KEY");
-
-// or, configure Bearer (JWT) authorization: oauth2
-// $config->setAccessToken("YOUR_ACCESS_TOKEN");
-
-$bulkSendJobApi = new Dropbox\Sign\Api\BulkSendJobApi($config);
-
-$bulkSendJobId = "6e683bc0369ba3d5b6f43c2c22a8031dbf6bd174";
-
-try {
-    $result = $bulkSendJobApi->bulkSendJobGet($bulkSendJobId);
-    print_r($result);
-} catch (Dropbox\Sign\ApiException $e) {
-    $error = $e->getResponseObject();
-    echo "Exception when calling Dropbox Sign API: "
-        . print_r($error->getError());
-}
-
+REPLACE_ME_WITH_EXAMPLE_FOR__bulkSendJobGet_PHP_CODE
 ```
 
 ### Parameters
@@ -52,8 +28,8 @@ try {
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **bulk_send_job_id** | **string**| The id of the BulkSendJob to retrieve. | |
-| **page** | **int**| Which page number of the BulkSendJob list to return. Defaults to `1`. | [optional] [default to 1] |
-| **page_size** | **int**| Number of objects to be returned per page. Must be between `1` and `100`. Default is 20. | [optional] [default to 20] |
+| **page** | **int**| Which page number of the BulkSendJob list to return. Defaults to &#x60;1&#x60;. | [optional] [default to 1] |
+| **page_size** | **int**| Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is 20. | [optional] [default to 20] |
 
 ### Return type
 
@@ -84,40 +60,15 @@ Returns a list of BulkSendJob that you can access.
 ### Example
 
 ```php
-<?php
-
-require_once __DIR__ . "/vendor/autoload.php";
-
-$config = Dropbox\Sign\Configuration::getDefaultConfiguration();
-
-// Configure HTTP basic authorization: api_key
-$config->setUsername("YOUR_API_KEY");
-
-// or, configure Bearer (JWT) authorization: oauth2
-// $config->setAccessToken("YOUR_ACCESS_TOKEN");
-
-$bulkSendJobApi = new Dropbox\Sign\Api\BulkSendJobApi($config);
-
-$page = 1;
-$pageSize = 20;
-
-try {
-    $result = $bulkSendJobApi->bulkSendJobList($page, $pageSize);
-    print_r($result);
-} catch (Dropbox\Sign\ApiException $e) {
-    $error = $e->getResponseObject();
-    echo "Exception when calling Dropbox Sign API: "
-        . print_r($error->getError());
-}
-
+REPLACE_ME_WITH_EXAMPLE_FOR__bulkSendJobList_PHP_CODE
 ```
 
 ### Parameters
 
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **page** | **int**| Which page number of the BulkSendJob List to return. Defaults to `1`. | [optional] [default to 1] |
-| **page_size** | **int**| Number of objects to be returned per page. Must be between `1` and `100`. Default is 20. | [optional] [default to 20] |
+| **page** | **int**| Which page number of the BulkSendJob List to return. Defaults to &#x60;1&#x60;. | [optional] [default to 1] |
+| **page_size** | **int**| Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is 20. | [optional] [default to 20] |
 
 ### Return type
 

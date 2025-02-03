@@ -5,7 +5,9 @@
  * PHP version 7.4
  *
  * @category Class
- * @see     https://openapi-generator.tech
+ * @package  Dropbox\Sign
+ * @author   OpenAPI Generator team
+ * @link     https://openapi-generator.tech
  */
 
 /**
@@ -27,76 +29,75 @@
 
 namespace Dropbox\Sign\Model;
 
-use ArrayAccess;
-use Dropbox\Sign\ObjectSerializer;
-use InvalidArgumentException;
-use JsonSerializable;
-use ReturnTypeWillChange;
+use \ArrayAccess;
+use \Dropbox\Sign\ObjectSerializer;
 
 /**
  * TeamInfoResponse Class Doc Comment
  *
  * @category Class
- * @see     https://openapi-generator.tech
+ * @package  Dropbox\Sign
+ * @author   OpenAPI Generator team
+ * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class TeamInfoResponse implements ModelInterface, ArrayAccess, JsonSerializable
+class TeamInfoResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
     /**
-     * The original name of the model.
-     *
-     * @var string
-     */
+      * The original name of the model.
+      *
+      * @var string
+      */
     protected static $openAPIModelName = 'TeamInfoResponse';
 
     /**
-     * Array of property to type mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to type mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPITypes = [
         'team_id' => 'string',
         'team_parent' => '\Dropbox\Sign\Model\TeamParentResponse',
         'name' => 'string',
         'num_members' => 'int',
-        'num_sub_teams' => 'int',
+        'num_sub_teams' => 'int'
     ];
 
     /**
-     * Array of property to format mappings. Used for (de)serialization
-     *
-     * @var string[]
-     * @phpstan-var array<string, string|null>
-     * @psalm-var array<string, string|null>
-     */
+      * Array of property to format mappings. Used for (de)serialization
+      *
+      * @var string[]
+      * @phpstan-var array<string, string|null>
+      * @psalm-var array<string, string|null>
+      */
     protected static $openAPIFormats = [
         'team_id' => null,
         'team_parent' => null,
         'name' => null,
         'num_members' => null,
-        'num_sub_teams' => null,
+        'num_sub_teams' => null
     ];
 
     /**
-     * Array of nullable properties. Used for (de)serialization
-     *
-     * @var bool[]
-     */
+      * Array of nullable properties. Used for (de)serialization
+      *
+      * @var boolean[]
+      */
     protected static array $openAPINullables = [
         'team_id' => false,
         'team_parent' => true,
         'name' => false,
         'num_members' => false,
-        'num_sub_teams' => false,
+        'num_sub_teams' => false
     ];
 
     /**
-     * If a nullable field gets set to null, insert it here
-     *
-     * @var bool[]
-     */
+      * If a nullable field gets set to null, insert it here
+      *
+      * @var boolean[]
+      */
     protected array $openAPINullablesSetToNull = [];
 
     /**
@@ -121,6 +122,8 @@ class TeamInfoResponse implements ModelInterface, ArrayAccess, JsonSerializable
 
     /**
      * Array of nullable properties
+     *
+     * @return array
      */
     protected static function openAPINullables(): array
     {
@@ -130,7 +133,7 @@ class TeamInfoResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Array of nullable field names deliberately set to null
      *
-     * @return bool[]
+     * @return boolean[]
      */
     private function getOpenAPINullablesSetToNull(): array
     {
@@ -140,7 +143,7 @@ class TeamInfoResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Setter - Array of nullable field names deliberately set to null
      *
-     * @param bool[] $openAPINullablesSetToNull
+     * @param boolean[] $openAPINullablesSetToNull
      */
     private function setOpenAPINullablesSetToNull(array $openAPINullablesSetToNull): void
     {
@@ -149,6 +152,9 @@ class TeamInfoResponse implements ModelInterface, ArrayAccess, JsonSerializable
 
     /**
      * Checks if a property is nullable
+     *
+     * @param string $property
+     * @return bool
      */
     public static function isNullable(string $property): bool
     {
@@ -157,6 +163,9 @@ class TeamInfoResponse implements ModelInterface, ArrayAccess, JsonSerializable
 
     /**
      * Checks if a nullable property is set to null.
+     *
+     * @param string $property
+     * @return bool
      */
     public function isNullableSetToNull(string $property): bool
     {
@@ -174,7 +183,7 @@ class TeamInfoResponse implements ModelInterface, ArrayAccess, JsonSerializable
         'team_parent' => 'team_parent',
         'name' => 'name',
         'num_members' => 'num_members',
-        'num_sub_teams' => 'num_sub_teams',
+        'num_sub_teams' => 'num_sub_teams'
     ];
 
     /**
@@ -187,7 +196,7 @@ class TeamInfoResponse implements ModelInterface, ArrayAccess, JsonSerializable
         'team_parent' => 'setTeamParent',
         'name' => 'setName',
         'num_members' => 'setNumMembers',
-        'num_sub_teams' => 'setNumSubTeams',
+        'num_sub_teams' => 'setNumSubTeams'
     ];
 
     /**
@@ -200,7 +209,7 @@ class TeamInfoResponse implements ModelInterface, ArrayAccess, JsonSerializable
         'team_parent' => 'getTeamParent',
         'name' => 'getName',
         'num_members' => 'getNumMembers',
-        'num_sub_teams' => 'getNumSubTeams',
+        'num_sub_teams' => 'getNumSubTeams'
     ];
 
     /**
@@ -244,6 +253,7 @@ class TeamInfoResponse implements ModelInterface, ArrayAccess, JsonSerializable
         return self::$openAPIModelName;
     }
 
+
     /**
      * Associative array for storing property values
      *
@@ -266,33 +276,34 @@ class TeamInfoResponse implements ModelInterface, ArrayAccess, JsonSerializable
         $this->setIfExists('num_sub_teams', $data ?? [], null);
     }
 
-    /**
-     * @deprecated use ::init()
-     */
+    /** @deprecated use ::init() */
     public static function fromArray(array $data): TeamInfoResponse
     {
         return self::init($data);
     }
 
-    /**
-     * Attempt to instantiate and hydrate a new instance of this class
-     */
+    /** Attempt to instantiate and hydrate a new instance of this class */
     public static function init(array $data): TeamInfoResponse
     {
         /** @var TeamInfoResponse */
-        return ObjectSerializer::deserialize(
+        $obj = ObjectSerializer::deserialize(
             $data,
             TeamInfoResponse::class,
         );
+
+        return $obj;
     }
 
+
     /**
-     * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
-     * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
-     * $this->openAPINullablesSetToNull array
-     *
-     * @param string|int|object|array|mixed $defaultValue
-     */
+    * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
+    * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
+    * $this->openAPINullablesSetToNull array
+    *
+    * @param string $variableName
+    * @param array  $fields
+* @param string|int|object|array|mixed  $defaultValue
+    */
     private function setIfExists(string $variableName, array $fields, $defaultValue): void
     {
         if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
@@ -309,7 +320,9 @@ class TeamInfoResponse implements ModelInterface, ArrayAccess, JsonSerializable
      */
     public function listInvalidProperties()
     {
-        return [];
+        $invalidProperties = [];
+
+        return $invalidProperties;
     }
 
     /**
@@ -322,6 +335,7 @@ class TeamInfoResponse implements ModelInterface, ArrayAccess, JsonSerializable
     {
         return count($this->listInvalidProperties()) === 0;
     }
+
 
     /**
      * Gets team_id
@@ -340,10 +354,10 @@ class TeamInfoResponse implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @return self
      */
-    public function setTeamId(?string $team_id)
+    public function setTeamId($team_id)
     {
         if (is_null($team_id)) {
-            throw new InvalidArgumentException('non-nullable team_id cannot be null');
+            throw new \InvalidArgumentException('non-nullable team_id cannot be null');
         }
         $this->container['team_id'] = $team_id;
 
@@ -353,7 +367,7 @@ class TeamInfoResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets team_parent
      *
-     * @return TeamParentResponse|null
+     * @return \Dropbox\Sign\Model\TeamParentResponse|null
      */
     public function getTeamParent()
     {
@@ -363,18 +377,18 @@ class TeamInfoResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets team_parent
      *
-     * @param TeamParentResponse|null $team_parent team_parent
+     * @param \Dropbox\Sign\Model\TeamParentResponse|null $team_parent team_parent
      *
      * @return self
      */
-    public function setTeamParent(?TeamParentResponse $team_parent)
+    public function setTeamParent($team_parent)
     {
         if (is_null($team_parent)) {
             array_push($this->openAPINullablesSetToNull, 'team_parent');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
             $index = array_search('team_parent', $nullablesSetToNull);
-            if ($index !== false) {
+            if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
@@ -401,10 +415,10 @@ class TeamInfoResponse implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @return self
      */
-    public function setName(?string $name)
+    public function setName($name)
     {
         if (is_null($name)) {
-            throw new InvalidArgumentException('non-nullable name cannot be null');
+            throw new \InvalidArgumentException('non-nullable name cannot be null');
         }
         $this->container['name'] = $name;
 
@@ -428,10 +442,10 @@ class TeamInfoResponse implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @return self
      */
-    public function setNumMembers(?int $num_members)
+    public function setNumMembers($num_members)
     {
         if (is_null($num_members)) {
-            throw new InvalidArgumentException('non-nullable num_members cannot be null');
+            throw new \InvalidArgumentException('non-nullable num_members cannot be null');
         }
         $this->container['num_members'] = $num_members;
 
@@ -455,22 +469,23 @@ class TeamInfoResponse implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @return self
      */
-    public function setNumSubTeams(?int $num_sub_teams)
+    public function setNumSubTeams($num_sub_teams)
     {
         if (is_null($num_sub_teams)) {
-            throw new InvalidArgumentException('non-nullable num_sub_teams cannot be null');
+            throw new \InvalidArgumentException('non-nullable num_sub_teams cannot be null');
         }
         $this->container['num_sub_teams'] = $num_sub_teams;
 
         return $this;
     }
-
     /**
      * Returns true if offset exists. False otherwise.
      *
-     * @param int $offset Offset
+     * @param integer $offset Offset
+     *
+     * @return boolean
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
@@ -479,11 +494,11 @@ class TeamInfoResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets offset.
      *
-     * @param int $offset Offset
+     * @param integer $offset Offset
      *
      * @return mixed|null
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return $this->container[$offset] ?? null;
@@ -494,8 +509,10 @@ class TeamInfoResponse implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param int|null $offset Offset
      * @param mixed    $value  Value to be set
+     *
+     * @return void
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
@@ -508,9 +525,11 @@ class TeamInfoResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Unsets offset.
      *
-     * @param int $offset Offset
+     * @param integer $offset Offset
+     *
+     * @return void
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
@@ -518,15 +537,15 @@ class TeamInfoResponse implements ModelInterface, ArrayAccess, JsonSerializable
 
     /**
      * Serializes the object to a value that can be serialized natively by json_encode().
-     * @see https://www.php.net/manual/en/jsonserializable.jsonserialize.php
+     * @link https://www.php.net/manual/en/jsonserializable.jsonserialize.php
      *
-     * @return mixed returns data which can be serialized by json_encode(), which is a value
-     *               of any type other than a resource
+     * @return mixed Returns data which can be serialized by json_encode(), which is a value
+     * of any type other than a resource.
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
-        return ObjectSerializer::sanitizeForSerialization($this);
+       return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**
@@ -552,3 +571,5 @@ class TeamInfoResponse implements ModelInterface, ArrayAccess, JsonSerializable
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
+
+

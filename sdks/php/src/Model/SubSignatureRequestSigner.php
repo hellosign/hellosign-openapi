@@ -5,7 +5,9 @@
  * PHP version 7.4
  *
  * @category Class
- * @see     https://openapi-generator.tech
+ * @package  Dropbox\Sign
+ * @author   OpenAPI Generator team
+ * @link     https://openapi-generator.tech
  */
 
 /**
@@ -27,79 +29,78 @@
 
 namespace Dropbox\Sign\Model;
 
-use ArrayAccess;
-use Dropbox\Sign\ObjectSerializer;
-use InvalidArgumentException;
-use JsonSerializable;
-use ReturnTypeWillChange;
+use \ArrayAccess;
+use \Dropbox\Sign\ObjectSerializer;
 
 /**
  * SubSignatureRequestSigner Class Doc Comment
  *
  * @category Class
- * @see     https://openapi-generator.tech
+ * @package  Dropbox\Sign
+ * @author   OpenAPI Generator team
+ * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class SubSignatureRequestSigner implements ModelInterface, ArrayAccess, JsonSerializable
+class SubSignatureRequestSigner implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
     /**
-     * The original name of the model.
-     *
-     * @var string
-     */
+      * The original name of the model.
+      *
+      * @var string
+      */
     protected static $openAPIModelName = 'SubSignatureRequestSigner';
 
     /**
-     * Array of property to type mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to type mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPITypes = [
         'name' => 'string',
         'email_address' => 'string',
         'order' => 'int',
         'pin' => 'string',
         'sms_phone_number' => 'string',
-        'sms_phone_number_type' => 'string',
+        'sms_phone_number_type' => 'string'
     ];
 
     /**
-     * Array of property to format mappings. Used for (de)serialization
-     *
-     * @var string[]
-     * @phpstan-var array<string, string|null>
-     * @psalm-var array<string, string|null>
-     */
+      * Array of property to format mappings. Used for (de)serialization
+      *
+      * @var string[]
+      * @phpstan-var array<string, string|null>
+      * @psalm-var array<string, string|null>
+      */
     protected static $openAPIFormats = [
         'name' => null,
         'email_address' => 'email',
         'order' => null,
         'pin' => null,
         'sms_phone_number' => null,
-        'sms_phone_number_type' => null,
+        'sms_phone_number_type' => null
     ];
 
     /**
-     * Array of nullable properties. Used for (de)serialization
-     *
-     * @var bool[]
-     */
+      * Array of nullable properties. Used for (de)serialization
+      *
+      * @var boolean[]
+      */
     protected static array $openAPINullables = [
         'name' => false,
         'email_address' => false,
         'order' => true,
         'pin' => false,
         'sms_phone_number' => false,
-        'sms_phone_number_type' => false,
+        'sms_phone_number_type' => false
     ];
 
     /**
-     * If a nullable field gets set to null, insert it here
-     *
-     * @var bool[]
-     */
+      * If a nullable field gets set to null, insert it here
+      *
+      * @var boolean[]
+      */
     protected array $openAPINullablesSetToNull = [];
 
     /**
@@ -124,6 +125,8 @@ class SubSignatureRequestSigner implements ModelInterface, ArrayAccess, JsonSeri
 
     /**
      * Array of nullable properties
+     *
+     * @return array
      */
     protected static function openAPINullables(): array
     {
@@ -133,7 +136,7 @@ class SubSignatureRequestSigner implements ModelInterface, ArrayAccess, JsonSeri
     /**
      * Array of nullable field names deliberately set to null
      *
-     * @return bool[]
+     * @return boolean[]
      */
     private function getOpenAPINullablesSetToNull(): array
     {
@@ -143,7 +146,7 @@ class SubSignatureRequestSigner implements ModelInterface, ArrayAccess, JsonSeri
     /**
      * Setter - Array of nullable field names deliberately set to null
      *
-     * @param bool[] $openAPINullablesSetToNull
+     * @param boolean[] $openAPINullablesSetToNull
      */
     private function setOpenAPINullablesSetToNull(array $openAPINullablesSetToNull): void
     {
@@ -152,6 +155,9 @@ class SubSignatureRequestSigner implements ModelInterface, ArrayAccess, JsonSeri
 
     /**
      * Checks if a property is nullable
+     *
+     * @param string $property
+     * @return bool
      */
     public static function isNullable(string $property): bool
     {
@@ -160,6 +166,9 @@ class SubSignatureRequestSigner implements ModelInterface, ArrayAccess, JsonSeri
 
     /**
      * Checks if a nullable property is set to null.
+     *
+     * @param string $property
+     * @return bool
      */
     public function isNullableSetToNull(string $property): bool
     {
@@ -178,7 +187,7 @@ class SubSignatureRequestSigner implements ModelInterface, ArrayAccess, JsonSeri
         'order' => 'order',
         'pin' => 'pin',
         'sms_phone_number' => 'sms_phone_number',
-        'sms_phone_number_type' => 'sms_phone_number_type',
+        'sms_phone_number_type' => 'sms_phone_number_type'
     ];
 
     /**
@@ -192,7 +201,7 @@ class SubSignatureRequestSigner implements ModelInterface, ArrayAccess, JsonSeri
         'order' => 'setOrder',
         'pin' => 'setPin',
         'sms_phone_number' => 'setSmsPhoneNumber',
-        'sms_phone_number_type' => 'setSmsPhoneNumberType',
+        'sms_phone_number_type' => 'setSmsPhoneNumberType'
     ];
 
     /**
@@ -206,7 +215,7 @@ class SubSignatureRequestSigner implements ModelInterface, ArrayAccess, JsonSeri
         'order' => 'getOrder',
         'pin' => 'getPin',
         'sms_phone_number' => 'getSmsPhoneNumber',
-        'sms_phone_number_type' => 'getSmsPhoneNumberType',
+        'sms_phone_number_type' => 'getSmsPhoneNumberType'
     ];
 
     /**
@@ -289,33 +298,34 @@ class SubSignatureRequestSigner implements ModelInterface, ArrayAccess, JsonSeri
         $this->setIfExists('sms_phone_number_type', $data ?? [], null);
     }
 
-    /**
-     * @deprecated use ::init()
-     */
+    /** @deprecated use ::init() */
     public static function fromArray(array $data): SubSignatureRequestSigner
     {
         return self::init($data);
     }
 
-    /**
-     * Attempt to instantiate and hydrate a new instance of this class
-     */
+    /** Attempt to instantiate and hydrate a new instance of this class */
     public static function init(array $data): SubSignatureRequestSigner
     {
         /** @var SubSignatureRequestSigner */
-        return ObjectSerializer::deserialize(
+        $obj = ObjectSerializer::deserialize(
             $data,
             SubSignatureRequestSigner::class,
         );
+
+        return $obj;
     }
 
+
     /**
-     * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
-     * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
-     * $this->openAPINullablesSetToNull array
-     *
-     * @param string|int|object|array|mixed $defaultValue
-     */
+    * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
+    * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
+    * $this->openAPINullablesSetToNull array
+    *
+    * @param string $variableName
+    * @param array  $fields
+* @param string|int|object|array|mixed  $defaultValue
+    */
     private function setIfExists(string $variableName, array $fields, $defaultValue): void
     {
         if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
@@ -371,6 +381,7 @@ class SubSignatureRequestSigner implements ModelInterface, ArrayAccess, JsonSeri
         return count($this->listInvalidProperties()) === 0;
     }
 
+
     /**
      * Gets name
      *
@@ -384,14 +395,14 @@ class SubSignatureRequestSigner implements ModelInterface, ArrayAccess, JsonSeri
     /**
      * Sets name
      *
-     * @param string $name the name of the signer
+     * @param string $name The name of the signer.
      *
      * @return self
      */
-    public function setName(string $name)
+    public function setName($name)
     {
         if (is_null($name)) {
-            throw new InvalidArgumentException('non-nullable name cannot be null');
+            throw new \InvalidArgumentException('non-nullable name cannot be null');
         }
         $this->container['name'] = $name;
 
@@ -411,14 +422,14 @@ class SubSignatureRequestSigner implements ModelInterface, ArrayAccess, JsonSeri
     /**
      * Sets email_address
      *
-     * @param string $email_address the email address of the signer
+     * @param string $email_address The email address of the signer.
      *
      * @return self
      */
-    public function setEmailAddress(string $email_address)
+    public function setEmailAddress($email_address)
     {
         if (is_null($email_address)) {
-            throw new InvalidArgumentException('non-nullable email_address cannot be null');
+            throw new \InvalidArgumentException('non-nullable email_address cannot be null');
         }
         $this->container['email_address'] = $email_address;
 
@@ -438,18 +449,18 @@ class SubSignatureRequestSigner implements ModelInterface, ArrayAccess, JsonSeri
     /**
      * Sets order
      *
-     * @param int|null $order the order the signer is required to sign in
+     * @param int|null $order The order the signer is required to sign in.
      *
      * @return self
      */
-    public function setOrder(?int $order)
+    public function setOrder($order)
     {
         if (is_null($order)) {
             array_push($this->openAPINullablesSetToNull, 'order');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
             $index = array_search('order', $nullablesSetToNull);
-            if ($index !== false) {
+            if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
@@ -472,20 +483,20 @@ class SubSignatureRequestSigner implements ModelInterface, ArrayAccess, JsonSeri
     /**
      * Sets pin
      *
-     * @param string|null $pin the 4- to 12-character access code that will secure this signer's signature page
+     * @param string|null $pin The 4- to 12-character access code that will secure this signer's signature page.
      *
      * @return self
      */
-    public function setPin(?string $pin)
+    public function setPin($pin)
     {
         if (is_null($pin)) {
-            throw new InvalidArgumentException('non-nullable pin cannot be null');
+            throw new \InvalidArgumentException('non-nullable pin cannot be null');
         }
-        if (mb_strlen($pin) > 12) {
-            throw new InvalidArgumentException('invalid length for $pin when calling SubSignatureRequestSigner., must be smaller than or equal to 12.');
+        if ((mb_strlen($pin) > 12)) {
+            throw new \InvalidArgumentException('invalid length for $pin when calling SubSignatureRequestSigner., must be smaller than or equal to 12.');
         }
-        if (mb_strlen($pin) < 4) {
-            throw new InvalidArgumentException('invalid length for $pin when calling SubSignatureRequestSigner., must be bigger than or equal to 4.');
+        if ((mb_strlen($pin) < 4)) {
+            throw new \InvalidArgumentException('invalid length for $pin when calling SubSignatureRequestSigner., must be bigger than or equal to 4.');
         }
 
         $this->container['pin'] = $pin;
@@ -510,10 +521,10 @@ class SubSignatureRequestSigner implements ModelInterface, ArrayAccess, JsonSeri
      *
      * @return self
      */
-    public function setSmsPhoneNumber(?string $sms_phone_number)
+    public function setSmsPhoneNumber($sms_phone_number)
     {
         if (is_null($sms_phone_number)) {
-            throw new InvalidArgumentException('non-nullable sms_phone_number cannot be null');
+            throw new \InvalidArgumentException('non-nullable sms_phone_number cannot be null');
         }
         $this->container['sms_phone_number'] = $sms_phone_number;
 
@@ -537,14 +548,14 @@ class SubSignatureRequestSigner implements ModelInterface, ArrayAccess, JsonSeri
      *
      * @return self
      */
-    public function setSmsPhoneNumberType(?string $sms_phone_number_type)
+    public function setSmsPhoneNumberType($sms_phone_number_type)
     {
         if (is_null($sms_phone_number_type)) {
-            throw new InvalidArgumentException('non-nullable sms_phone_number_type cannot be null');
+            throw new \InvalidArgumentException('non-nullable sms_phone_number_type cannot be null');
         }
         $allowedValues = $this->getSmsPhoneNumberTypeAllowableValues();
         if (!in_array($sms_phone_number_type, $allowedValues, true)) {
-            throw new InvalidArgumentException(
+            throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'sms_phone_number_type', must be one of '%s'",
                     $sms_phone_number_type,
@@ -556,13 +567,14 @@ class SubSignatureRequestSigner implements ModelInterface, ArrayAccess, JsonSeri
 
         return $this;
     }
-
     /**
      * Returns true if offset exists. False otherwise.
      *
-     * @param int $offset Offset
+     * @param integer $offset Offset
+     *
+     * @return boolean
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
@@ -571,11 +583,11 @@ class SubSignatureRequestSigner implements ModelInterface, ArrayAccess, JsonSeri
     /**
      * Gets offset.
      *
-     * @param int $offset Offset
+     * @param integer $offset Offset
      *
      * @return mixed|null
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return $this->container[$offset] ?? null;
@@ -586,8 +598,10 @@ class SubSignatureRequestSigner implements ModelInterface, ArrayAccess, JsonSeri
      *
      * @param int|null $offset Offset
      * @param mixed    $value  Value to be set
+     *
+     * @return void
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
@@ -600,9 +614,11 @@ class SubSignatureRequestSigner implements ModelInterface, ArrayAccess, JsonSeri
     /**
      * Unsets offset.
      *
-     * @param int $offset Offset
+     * @param integer $offset Offset
+     *
+     * @return void
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
@@ -610,15 +626,15 @@ class SubSignatureRequestSigner implements ModelInterface, ArrayAccess, JsonSeri
 
     /**
      * Serializes the object to a value that can be serialized natively by json_encode().
-     * @see https://www.php.net/manual/en/jsonserializable.jsonserialize.php
+     * @link https://www.php.net/manual/en/jsonserializable.jsonserialize.php
      *
-     * @return mixed returns data which can be serialized by json_encode(), which is a value
-     *               of any type other than a resource
+     * @return mixed Returns data which can be serialized by json_encode(), which is a value
+     * of any type other than a resource.
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
-        return ObjectSerializer::sanitizeForSerialization($this);
+       return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**
@@ -644,3 +660,5 @@ class SubSignatureRequestSigner implements ModelInterface, ArrayAccess, JsonSeri
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
+
+

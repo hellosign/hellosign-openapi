@@ -5,7 +5,9 @@
  * PHP version 7.4
  *
  * @category Class
- * @see     https://openapi-generator.tech
+ * @package  Dropbox\Sign
+ * @author   OpenAPI Generator team
+ * @link     https://openapi-generator.tech
  */
 
 /**
@@ -27,70 +29,69 @@
 
 namespace Dropbox\Sign\Model;
 
-use ArrayAccess;
-use Dropbox\Sign\ObjectSerializer;
-use InvalidArgumentException;
-use JsonSerializable;
-use ReturnTypeWillChange;
+use \ArrayAccess;
+use \Dropbox\Sign\ObjectSerializer;
 
 /**
  * ApiAppListResponse Class Doc Comment
  *
  * @category Class
- * @see     https://openapi-generator.tech
+ * @package  Dropbox\Sign
+ * @author   OpenAPI Generator team
+ * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class ApiAppListResponse implements ModelInterface, ArrayAccess, JsonSerializable
+class ApiAppListResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
     /**
-     * The original name of the model.
-     *
-     * @var string
-     */
+      * The original name of the model.
+      *
+      * @var string
+      */
     protected static $openAPIModelName = 'ApiAppListResponse';
 
     /**
-     * Array of property to type mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to type mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPITypes = [
         'api_apps' => '\Dropbox\Sign\Model\ApiAppResponse[]',
         'list_info' => '\Dropbox\Sign\Model\ListInfoResponse',
-        'warnings' => '\Dropbox\Sign\Model\WarningResponse[]',
+        'warnings' => '\Dropbox\Sign\Model\WarningResponse[]'
     ];
 
     /**
-     * Array of property to format mappings. Used for (de)serialization
-     *
-     * @var string[]
-     * @phpstan-var array<string, string|null>
-     * @psalm-var array<string, string|null>
-     */
+      * Array of property to format mappings. Used for (de)serialization
+      *
+      * @var string[]
+      * @phpstan-var array<string, string|null>
+      * @psalm-var array<string, string|null>
+      */
     protected static $openAPIFormats = [
         'api_apps' => null,
         'list_info' => null,
-        'warnings' => null,
+        'warnings' => null
     ];
 
     /**
-     * Array of nullable properties. Used for (de)serialization
-     *
-     * @var bool[]
-     */
+      * Array of nullable properties. Used for (de)serialization
+      *
+      * @var boolean[]
+      */
     protected static array $openAPINullables = [
         'api_apps' => false,
         'list_info' => false,
-        'warnings' => false,
+        'warnings' => false
     ];
 
     /**
-     * If a nullable field gets set to null, insert it here
-     *
-     * @var bool[]
-     */
+      * If a nullable field gets set to null, insert it here
+      *
+      * @var boolean[]
+      */
     protected array $openAPINullablesSetToNull = [];
 
     /**
@@ -115,6 +116,8 @@ class ApiAppListResponse implements ModelInterface, ArrayAccess, JsonSerializabl
 
     /**
      * Array of nullable properties
+     *
+     * @return array
      */
     protected static function openAPINullables(): array
     {
@@ -124,7 +127,7 @@ class ApiAppListResponse implements ModelInterface, ArrayAccess, JsonSerializabl
     /**
      * Array of nullable field names deliberately set to null
      *
-     * @return bool[]
+     * @return boolean[]
      */
     private function getOpenAPINullablesSetToNull(): array
     {
@@ -134,7 +137,7 @@ class ApiAppListResponse implements ModelInterface, ArrayAccess, JsonSerializabl
     /**
      * Setter - Array of nullable field names deliberately set to null
      *
-     * @param bool[] $openAPINullablesSetToNull
+     * @param boolean[] $openAPINullablesSetToNull
      */
     private function setOpenAPINullablesSetToNull(array $openAPINullablesSetToNull): void
     {
@@ -143,6 +146,9 @@ class ApiAppListResponse implements ModelInterface, ArrayAccess, JsonSerializabl
 
     /**
      * Checks if a property is nullable
+     *
+     * @param string $property
+     * @return bool
      */
     public static function isNullable(string $property): bool
     {
@@ -151,6 +157,9 @@ class ApiAppListResponse implements ModelInterface, ArrayAccess, JsonSerializabl
 
     /**
      * Checks if a nullable property is set to null.
+     *
+     * @param string $property
+     * @return bool
      */
     public function isNullableSetToNull(string $property): bool
     {
@@ -166,7 +175,7 @@ class ApiAppListResponse implements ModelInterface, ArrayAccess, JsonSerializabl
     protected static $attributeMap = [
         'api_apps' => 'api_apps',
         'list_info' => 'list_info',
-        'warnings' => 'warnings',
+        'warnings' => 'warnings'
     ];
 
     /**
@@ -177,7 +186,7 @@ class ApiAppListResponse implements ModelInterface, ArrayAccess, JsonSerializabl
     protected static $setters = [
         'api_apps' => 'setApiApps',
         'list_info' => 'setListInfo',
-        'warnings' => 'setWarnings',
+        'warnings' => 'setWarnings'
     ];
 
     /**
@@ -188,7 +197,7 @@ class ApiAppListResponse implements ModelInterface, ArrayAccess, JsonSerializabl
     protected static $getters = [
         'api_apps' => 'getApiApps',
         'list_info' => 'getListInfo',
-        'warnings' => 'getWarnings',
+        'warnings' => 'getWarnings'
     ];
 
     /**
@@ -232,6 +241,7 @@ class ApiAppListResponse implements ModelInterface, ArrayAccess, JsonSerializabl
         return self::$openAPIModelName;
     }
 
+
     /**
      * Associative array for storing property values
      *
@@ -252,33 +262,34 @@ class ApiAppListResponse implements ModelInterface, ArrayAccess, JsonSerializabl
         $this->setIfExists('warnings', $data ?? [], null);
     }
 
-    /**
-     * @deprecated use ::init()
-     */
+    /** @deprecated use ::init() */
     public static function fromArray(array $data): ApiAppListResponse
     {
         return self::init($data);
     }
 
-    /**
-     * Attempt to instantiate and hydrate a new instance of this class
-     */
+    /** Attempt to instantiate and hydrate a new instance of this class */
     public static function init(array $data): ApiAppListResponse
     {
         /** @var ApiAppListResponse */
-        return ObjectSerializer::deserialize(
+        $obj = ObjectSerializer::deserialize(
             $data,
             ApiAppListResponse::class,
         );
+
+        return $obj;
     }
 
+
     /**
-     * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
-     * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
-     * $this->openAPINullablesSetToNull array
-     *
-     * @param string|int|object|array|mixed $defaultValue
-     */
+    * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
+    * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
+    * $this->openAPINullablesSetToNull array
+    *
+    * @param string $variableName
+    * @param array  $fields
+* @param string|int|object|array|mixed  $defaultValue
+    */
     private function setIfExists(string $variableName, array $fields, $defaultValue): void
     {
         if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
@@ -317,10 +328,11 @@ class ApiAppListResponse implements ModelInterface, ArrayAccess, JsonSerializabl
         return count($this->listInvalidProperties()) === 0;
     }
 
+
     /**
      * Gets api_apps
      *
-     * @return ApiAppResponse[]
+     * @return \Dropbox\Sign\Model\ApiAppResponse[]
      */
     public function getApiApps()
     {
@@ -330,14 +342,14 @@ class ApiAppListResponse implements ModelInterface, ArrayAccess, JsonSerializabl
     /**
      * Sets api_apps
      *
-     * @param ApiAppResponse[] $api_apps contains information about API Apps
+     * @param \Dropbox\Sign\Model\ApiAppResponse[] $api_apps Contains information about API Apps.
      *
      * @return self
      */
-    public function setApiApps(array $api_apps)
+    public function setApiApps($api_apps)
     {
         if (is_null($api_apps)) {
-            throw new InvalidArgumentException('non-nullable api_apps cannot be null');
+            throw new \InvalidArgumentException('non-nullable api_apps cannot be null');
         }
         $this->container['api_apps'] = $api_apps;
 
@@ -347,7 +359,7 @@ class ApiAppListResponse implements ModelInterface, ArrayAccess, JsonSerializabl
     /**
      * Gets list_info
      *
-     * @return ListInfoResponse
+     * @return \Dropbox\Sign\Model\ListInfoResponse
      */
     public function getListInfo()
     {
@@ -357,14 +369,14 @@ class ApiAppListResponse implements ModelInterface, ArrayAccess, JsonSerializabl
     /**
      * Sets list_info
      *
-     * @param ListInfoResponse $list_info list_info
+     * @param \Dropbox\Sign\Model\ListInfoResponse $list_info list_info
      *
      * @return self
      */
-    public function setListInfo(ListInfoResponse $list_info)
+    public function setListInfo($list_info)
     {
         if (is_null($list_info)) {
-            throw new InvalidArgumentException('non-nullable list_info cannot be null');
+            throw new \InvalidArgumentException('non-nullable list_info cannot be null');
         }
         $this->container['list_info'] = $list_info;
 
@@ -374,7 +386,7 @@ class ApiAppListResponse implements ModelInterface, ArrayAccess, JsonSerializabl
     /**
      * Gets warnings
      *
-     * @return WarningResponse[]|null
+     * @return \Dropbox\Sign\Model\WarningResponse[]|null
      */
     public function getWarnings()
     {
@@ -384,26 +396,27 @@ class ApiAppListResponse implements ModelInterface, ArrayAccess, JsonSerializabl
     /**
      * Sets warnings
      *
-     * @param WarningResponse[]|null $warnings a list of warnings
+     * @param \Dropbox\Sign\Model\WarningResponse[]|null $warnings A list of warnings.
      *
      * @return self
      */
-    public function setWarnings(?array $warnings)
+    public function setWarnings($warnings)
     {
         if (is_null($warnings)) {
-            throw new InvalidArgumentException('non-nullable warnings cannot be null');
+            throw new \InvalidArgumentException('non-nullable warnings cannot be null');
         }
         $this->container['warnings'] = $warnings;
 
         return $this;
     }
-
     /**
      * Returns true if offset exists. False otherwise.
      *
-     * @param int $offset Offset
+     * @param integer $offset Offset
+     *
+     * @return boolean
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
@@ -412,11 +425,11 @@ class ApiAppListResponse implements ModelInterface, ArrayAccess, JsonSerializabl
     /**
      * Gets offset.
      *
-     * @param int $offset Offset
+     * @param integer $offset Offset
      *
      * @return mixed|null
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return $this->container[$offset] ?? null;
@@ -427,8 +440,10 @@ class ApiAppListResponse implements ModelInterface, ArrayAccess, JsonSerializabl
      *
      * @param int|null $offset Offset
      * @param mixed    $value  Value to be set
+     *
+     * @return void
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
@@ -441,9 +456,11 @@ class ApiAppListResponse implements ModelInterface, ArrayAccess, JsonSerializabl
     /**
      * Unsets offset.
      *
-     * @param int $offset Offset
+     * @param integer $offset Offset
+     *
+     * @return void
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
@@ -451,15 +468,15 @@ class ApiAppListResponse implements ModelInterface, ArrayAccess, JsonSerializabl
 
     /**
      * Serializes the object to a value that can be serialized natively by json_encode().
-     * @see https://www.php.net/manual/en/jsonserializable.jsonserialize.php
+     * @link https://www.php.net/manual/en/jsonserializable.jsonserialize.php
      *
-     * @return mixed returns data which can be serialized by json_encode(), which is a value
-     *               of any type other than a resource
+     * @return mixed Returns data which can be serialized by json_encode(), which is a value
+     * of any type other than a resource.
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
-        return ObjectSerializer::sanitizeForSerialization($this);
+       return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**
@@ -485,3 +502,5 @@ class ApiAppListResponse implements ModelInterface, ArrayAccess, JsonSerializabl
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
+
+

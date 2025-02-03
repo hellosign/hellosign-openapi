@@ -19,7 +19,7 @@ faxDelete(faxId: string)
 
 Delete Fax
 
-Deletes the specified Fax from the system.
+Deletes the specified Fax from the system
 
 ### TypeScript Example
 
@@ -90,7 +90,7 @@ faxFiles(faxId: string): Buffer
 
 Download Fax Files
 
-Downloads fax files
+Downloads files associated with a Fax
 
 ### TypeScript Example
 
@@ -169,7 +169,7 @@ faxGet(faxId: string): FaxGetResponse
 
 Get Fax
 
-Returns information about fax
+Returns information about a Fax
 
 ### TypeScript Example
 
@@ -246,7 +246,7 @@ faxList(page: number, pageSize: number): FaxListResponse
 
 Lists Faxes
 
-Returns properties of multiple faxes
+Returns properties of multiple Faxes
 
 ### TypeScript Example
 
@@ -298,8 +298,8 @@ result.then(response => {
 
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **page** | **number**| Page | [optional] [default to 1] |
-| **pageSize** | **number**| Page size | [optional] [default to 20] |
+| **page** | **number**| Which page number of the Fax List to return. Defaults to `1`. | [optional] [default to 1] |
+| **pageSize** | **number**| Number of objects to be returned per page. Must be between `1` and `100`. Default is `20`. | [optional] [default to 20] |
 
 ### Return type
 
@@ -326,7 +326,7 @@ faxSend(faxSendRequest: FaxSendRequest): FaxGetResponse
 
 Send Fax
 
-Action to prepare and send a fax
+Creates and sends a new Fax with the submitted file(s)
 
 ### TypeScript Example
 

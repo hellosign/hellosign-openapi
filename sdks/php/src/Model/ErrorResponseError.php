@@ -5,7 +5,9 @@
  * PHP version 7.4
  *
  * @category Class
- * @see     https://openapi-generator.tech
+ * @package  Dropbox\Sign
+ * @author   OpenAPI Generator team
+ * @link     https://openapi-generator.tech
  */
 
 /**
@@ -27,71 +29,70 @@
 
 namespace Dropbox\Sign\Model;
 
-use ArrayAccess;
-use Dropbox\Sign\ObjectSerializer;
-use InvalidArgumentException;
-use JsonSerializable;
-use ReturnTypeWillChange;
+use \ArrayAccess;
+use \Dropbox\Sign\ObjectSerializer;
 
 /**
  * ErrorResponseError Class Doc Comment
  *
  * @category Class
  * @description Contains information about an error that occurred.
- * @see     https://openapi-generator.tech
+ * @package  Dropbox\Sign
+ * @author   OpenAPI Generator team
+ * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class ErrorResponseError implements ModelInterface, ArrayAccess, JsonSerializable
+class ErrorResponseError implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
     /**
-     * The original name of the model.
-     *
-     * @var string
-     */
+      * The original name of the model.
+      *
+      * @var string
+      */
     protected static $openAPIModelName = 'ErrorResponseError';
 
     /**
-     * Array of property to type mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to type mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPITypes = [
         'error_msg' => 'string',
         'error_name' => 'string',
-        'error_path' => 'string',
+        'error_path' => 'string'
     ];
 
     /**
-     * Array of property to format mappings. Used for (de)serialization
-     *
-     * @var string[]
-     * @phpstan-var array<string, string|null>
-     * @psalm-var array<string, string|null>
-     */
+      * Array of property to format mappings. Used for (de)serialization
+      *
+      * @var string[]
+      * @phpstan-var array<string, string|null>
+      * @psalm-var array<string, string|null>
+      */
     protected static $openAPIFormats = [
         'error_msg' => null,
         'error_name' => null,
-        'error_path' => null,
+        'error_path' => null
     ];
 
     /**
-     * Array of nullable properties. Used for (de)serialization
-     *
-     * @var bool[]
-     */
+      * Array of nullable properties. Used for (de)serialization
+      *
+      * @var boolean[]
+      */
     protected static array $openAPINullables = [
         'error_msg' => false,
         'error_name' => false,
-        'error_path' => false,
+        'error_path' => false
     ];
 
     /**
-     * If a nullable field gets set to null, insert it here
-     *
-     * @var bool[]
-     */
+      * If a nullable field gets set to null, insert it here
+      *
+      * @var boolean[]
+      */
     protected array $openAPINullablesSetToNull = [];
 
     /**
@@ -116,6 +117,8 @@ class ErrorResponseError implements ModelInterface, ArrayAccess, JsonSerializabl
 
     /**
      * Array of nullable properties
+     *
+     * @return array
      */
     protected static function openAPINullables(): array
     {
@@ -125,7 +128,7 @@ class ErrorResponseError implements ModelInterface, ArrayAccess, JsonSerializabl
     /**
      * Array of nullable field names deliberately set to null
      *
-     * @return bool[]
+     * @return boolean[]
      */
     private function getOpenAPINullablesSetToNull(): array
     {
@@ -135,7 +138,7 @@ class ErrorResponseError implements ModelInterface, ArrayAccess, JsonSerializabl
     /**
      * Setter - Array of nullable field names deliberately set to null
      *
-     * @param bool[] $openAPINullablesSetToNull
+     * @param boolean[] $openAPINullablesSetToNull
      */
     private function setOpenAPINullablesSetToNull(array $openAPINullablesSetToNull): void
     {
@@ -144,6 +147,9 @@ class ErrorResponseError implements ModelInterface, ArrayAccess, JsonSerializabl
 
     /**
      * Checks if a property is nullable
+     *
+     * @param string $property
+     * @return bool
      */
     public static function isNullable(string $property): bool
     {
@@ -152,6 +158,9 @@ class ErrorResponseError implements ModelInterface, ArrayAccess, JsonSerializabl
 
     /**
      * Checks if a nullable property is set to null.
+     *
+     * @param string $property
+     * @return bool
      */
     public function isNullableSetToNull(string $property): bool
     {
@@ -167,7 +176,7 @@ class ErrorResponseError implements ModelInterface, ArrayAccess, JsonSerializabl
     protected static $attributeMap = [
         'error_msg' => 'error_msg',
         'error_name' => 'error_name',
-        'error_path' => 'error_path',
+        'error_path' => 'error_path'
     ];
 
     /**
@@ -178,7 +187,7 @@ class ErrorResponseError implements ModelInterface, ArrayAccess, JsonSerializabl
     protected static $setters = [
         'error_msg' => 'setErrorMsg',
         'error_name' => 'setErrorName',
-        'error_path' => 'setErrorPath',
+        'error_path' => 'setErrorPath'
     ];
 
     /**
@@ -189,7 +198,7 @@ class ErrorResponseError implements ModelInterface, ArrayAccess, JsonSerializabl
     protected static $getters = [
         'error_msg' => 'getErrorMsg',
         'error_name' => 'getErrorName',
-        'error_path' => 'getErrorPath',
+        'error_path' => 'getErrorPath'
     ];
 
     /**
@@ -233,6 +242,7 @@ class ErrorResponseError implements ModelInterface, ArrayAccess, JsonSerializabl
         return self::$openAPIModelName;
     }
 
+
     /**
      * Associative array for storing property values
      *
@@ -253,33 +263,34 @@ class ErrorResponseError implements ModelInterface, ArrayAccess, JsonSerializabl
         $this->setIfExists('error_path', $data ?? [], null);
     }
 
-    /**
-     * @deprecated use ::init()
-     */
+    /** @deprecated use ::init() */
     public static function fromArray(array $data): ErrorResponseError
     {
         return self::init($data);
     }
 
-    /**
-     * Attempt to instantiate and hydrate a new instance of this class
-     */
+    /** Attempt to instantiate and hydrate a new instance of this class */
     public static function init(array $data): ErrorResponseError
     {
         /** @var ErrorResponseError */
-        return ObjectSerializer::deserialize(
+        $obj = ObjectSerializer::deserialize(
             $data,
             ErrorResponseError::class,
         );
+
+        return $obj;
     }
 
+
     /**
-     * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
-     * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
-     * $this->openAPINullablesSetToNull array
-     *
-     * @param string|int|object|array|mixed $defaultValue
-     */
+    * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
+    * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
+    * $this->openAPINullablesSetToNull array
+    *
+    * @param string $variableName
+    * @param array  $fields
+* @param string|int|object|array|mixed  $defaultValue
+    */
     private function setIfExists(string $variableName, array $fields, $defaultValue): void
     {
         if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
@@ -318,6 +329,7 @@ class ErrorResponseError implements ModelInterface, ArrayAccess, JsonSerializabl
         return count($this->listInvalidProperties()) === 0;
     }
 
+
     /**
      * Gets error_msg
      *
@@ -331,14 +343,14 @@ class ErrorResponseError implements ModelInterface, ArrayAccess, JsonSerializabl
     /**
      * Sets error_msg
      *
-     * @param string $error_msg message describing an error
+     * @param string $error_msg Message describing an error.
      *
      * @return self
      */
-    public function setErrorMsg(string $error_msg)
+    public function setErrorMsg($error_msg)
     {
         if (is_null($error_msg)) {
-            throw new InvalidArgumentException('non-nullable error_msg cannot be null');
+            throw new \InvalidArgumentException('non-nullable error_msg cannot be null');
         }
         $this->container['error_msg'] = $error_msg;
 
@@ -358,14 +370,14 @@ class ErrorResponseError implements ModelInterface, ArrayAccess, JsonSerializabl
     /**
      * Sets error_name
      *
-     * @param string $error_name name of the error
+     * @param string $error_name Name of the error.
      *
      * @return self
      */
-    public function setErrorName(string $error_name)
+    public function setErrorName($error_name)
     {
         if (is_null($error_name)) {
-            throw new InvalidArgumentException('non-nullable error_name cannot be null');
+            throw new \InvalidArgumentException('non-nullable error_name cannot be null');
         }
         $this->container['error_name'] = $error_name;
 
@@ -385,26 +397,27 @@ class ErrorResponseError implements ModelInterface, ArrayAccess, JsonSerializabl
     /**
      * Sets error_path
      *
-     * @param string|null $error_path path at which an error occurred
+     * @param string|null $error_path Path at which an error occurred.
      *
      * @return self
      */
-    public function setErrorPath(?string $error_path)
+    public function setErrorPath($error_path)
     {
         if (is_null($error_path)) {
-            throw new InvalidArgumentException('non-nullable error_path cannot be null');
+            throw new \InvalidArgumentException('non-nullable error_path cannot be null');
         }
         $this->container['error_path'] = $error_path;
 
         return $this;
     }
-
     /**
      * Returns true if offset exists. False otherwise.
      *
-     * @param int $offset Offset
+     * @param integer $offset Offset
+     *
+     * @return boolean
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
@@ -413,11 +426,11 @@ class ErrorResponseError implements ModelInterface, ArrayAccess, JsonSerializabl
     /**
      * Gets offset.
      *
-     * @param int $offset Offset
+     * @param integer $offset Offset
      *
      * @return mixed|null
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return $this->container[$offset] ?? null;
@@ -428,8 +441,10 @@ class ErrorResponseError implements ModelInterface, ArrayAccess, JsonSerializabl
      *
      * @param int|null $offset Offset
      * @param mixed    $value  Value to be set
+     *
+     * @return void
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
@@ -442,9 +457,11 @@ class ErrorResponseError implements ModelInterface, ArrayAccess, JsonSerializabl
     /**
      * Unsets offset.
      *
-     * @param int $offset Offset
+     * @param integer $offset Offset
+     *
+     * @return void
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
@@ -452,15 +469,15 @@ class ErrorResponseError implements ModelInterface, ArrayAccess, JsonSerializabl
 
     /**
      * Serializes the object to a value that can be serialized natively by json_encode().
-     * @see https://www.php.net/manual/en/jsonserializable.jsonserialize.php
+     * @link https://www.php.net/manual/en/jsonserializable.jsonserialize.php
      *
-     * @return mixed returns data which can be serialized by json_encode(), which is a value
-     *               of any type other than a resource
+     * @return mixed Returns data which can be serialized by json_encode(), which is a value
+     * of any type other than a resource.
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
-        return ObjectSerializer::sanitizeForSerialization($this);
+       return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**
@@ -486,3 +503,5 @@ class ErrorResponseError implements ModelInterface, ArrayAccess, JsonSerializabl
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
+
+

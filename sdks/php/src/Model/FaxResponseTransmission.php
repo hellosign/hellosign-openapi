@@ -5,7 +5,9 @@
  * PHP version 7.4
  *
  * @category Class
- * @see     https://openapi-generator.tech
+ * @package  Dropbox\Sign
+ * @author   OpenAPI Generator team
+ * @link     https://openapi-generator.tech
  */
 
 /**
@@ -27,70 +29,69 @@
 
 namespace Dropbox\Sign\Model;
 
-use ArrayAccess;
-use Dropbox\Sign\ObjectSerializer;
-use InvalidArgumentException;
-use JsonSerializable;
-use ReturnTypeWillChange;
+use \ArrayAccess;
+use \Dropbox\Sign\ObjectSerializer;
 
 /**
  * FaxResponseTransmission Class Doc Comment
  *
  * @category Class
- * @see     https://openapi-generator.tech
+ * @package  Dropbox\Sign
+ * @author   OpenAPI Generator team
+ * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class FaxResponseTransmission implements ModelInterface, ArrayAccess, JsonSerializable
+class FaxResponseTransmission implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
     /**
-     * The original name of the model.
-     *
-     * @var string
-     */
+      * The original name of the model.
+      *
+      * @var string
+      */
     protected static $openAPIModelName = 'FaxResponseTransmission';
 
     /**
-     * Array of property to type mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to type mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPITypes = [
         'recipient' => 'string',
         'status_code' => 'string',
-        'sent_at' => 'int',
+        'sent_at' => 'int'
     ];
 
     /**
-     * Array of property to format mappings. Used for (de)serialization
-     *
-     * @var string[]
-     * @phpstan-var array<string, string|null>
-     * @psalm-var array<string, string|null>
-     */
+      * Array of property to format mappings. Used for (de)serialization
+      *
+      * @var string[]
+      * @phpstan-var array<string, string|null>
+      * @psalm-var array<string, string|null>
+      */
     protected static $openAPIFormats = [
         'recipient' => null,
         'status_code' => null,
-        'sent_at' => null,
+        'sent_at' => null
     ];
 
     /**
-     * Array of nullable properties. Used for (de)serialization
-     *
-     * @var bool[]
-     */
+      * Array of nullable properties. Used for (de)serialization
+      *
+      * @var boolean[]
+      */
     protected static array $openAPINullables = [
         'recipient' => false,
         'status_code' => false,
-        'sent_at' => false,
+        'sent_at' => false
     ];
 
     /**
-     * If a nullable field gets set to null, insert it here
-     *
-     * @var bool[]
-     */
+      * If a nullable field gets set to null, insert it here
+      *
+      * @var boolean[]
+      */
     protected array $openAPINullablesSetToNull = [];
 
     /**
@@ -115,6 +116,8 @@ class FaxResponseTransmission implements ModelInterface, ArrayAccess, JsonSerial
 
     /**
      * Array of nullable properties
+     *
+     * @return array
      */
     protected static function openAPINullables(): array
     {
@@ -124,7 +127,7 @@ class FaxResponseTransmission implements ModelInterface, ArrayAccess, JsonSerial
     /**
      * Array of nullable field names deliberately set to null
      *
-     * @return bool[]
+     * @return boolean[]
      */
     private function getOpenAPINullablesSetToNull(): array
     {
@@ -134,7 +137,7 @@ class FaxResponseTransmission implements ModelInterface, ArrayAccess, JsonSerial
     /**
      * Setter - Array of nullable field names deliberately set to null
      *
-     * @param bool[] $openAPINullablesSetToNull
+     * @param boolean[] $openAPINullablesSetToNull
      */
     private function setOpenAPINullablesSetToNull(array $openAPINullablesSetToNull): void
     {
@@ -143,6 +146,9 @@ class FaxResponseTransmission implements ModelInterface, ArrayAccess, JsonSerial
 
     /**
      * Checks if a property is nullable
+     *
+     * @param string $property
+     * @return bool
      */
     public static function isNullable(string $property): bool
     {
@@ -151,6 +157,9 @@ class FaxResponseTransmission implements ModelInterface, ArrayAccess, JsonSerial
 
     /**
      * Checks if a nullable property is set to null.
+     *
+     * @param string $property
+     * @return bool
      */
     public function isNullableSetToNull(string $property): bool
     {
@@ -166,7 +175,7 @@ class FaxResponseTransmission implements ModelInterface, ArrayAccess, JsonSerial
     protected static $attributeMap = [
         'recipient' => 'recipient',
         'status_code' => 'status_code',
-        'sent_at' => 'sent_at',
+        'sent_at' => 'sent_at'
     ];
 
     /**
@@ -177,7 +186,7 @@ class FaxResponseTransmission implements ModelInterface, ArrayAccess, JsonSerial
     protected static $setters = [
         'recipient' => 'setRecipient',
         'status_code' => 'setStatusCode',
-        'sent_at' => 'setSentAt',
+        'sent_at' => 'setSentAt'
     ];
 
     /**
@@ -188,7 +197,7 @@ class FaxResponseTransmission implements ModelInterface, ArrayAccess, JsonSerial
     protected static $getters = [
         'recipient' => 'getRecipient',
         'status_code' => 'getStatusCode',
-        'sent_at' => 'getSentAt',
+        'sent_at' => 'getSentAt'
     ];
 
     /**
@@ -280,33 +289,34 @@ class FaxResponseTransmission implements ModelInterface, ArrayAccess, JsonSerial
         $this->setIfExists('sent_at', $data ?? [], null);
     }
 
-    /**
-     * @deprecated use ::init()
-     */
+    /** @deprecated use ::init() */
     public static function fromArray(array $data): FaxResponseTransmission
     {
         return self::init($data);
     }
 
-    /**
-     * Attempt to instantiate and hydrate a new instance of this class
-     */
+    /** Attempt to instantiate and hydrate a new instance of this class */
     public static function init(array $data): FaxResponseTransmission
     {
         /** @var FaxResponseTransmission */
-        return ObjectSerializer::deserialize(
+        $obj = ObjectSerializer::deserialize(
             $data,
             FaxResponseTransmission::class,
         );
+
+        return $obj;
     }
 
+
     /**
-     * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
-     * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
-     * $this->openAPINullablesSetToNull array
-     *
-     * @param string|int|object|array|mixed $defaultValue
-     */
+    * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
+    * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
+    * $this->openAPINullablesSetToNull array
+    *
+    * @param string $variableName
+    * @param array  $fields
+* @param string|int|object|array|mixed  $defaultValue
+    */
     private function setIfExists(string $variableName, array $fields, $defaultValue): void
     {
         if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
@@ -354,6 +364,7 @@ class FaxResponseTransmission implements ModelInterface, ArrayAccess, JsonSerial
         return count($this->listInvalidProperties()) === 0;
     }
 
+
     /**
      * Gets recipient
      *
@@ -371,10 +382,10 @@ class FaxResponseTransmission implements ModelInterface, ArrayAccess, JsonSerial
      *
      * @return self
      */
-    public function setRecipient(string $recipient)
+    public function setRecipient($recipient)
     {
         if (is_null($recipient)) {
-            throw new InvalidArgumentException('non-nullable recipient cannot be null');
+            throw new \InvalidArgumentException('non-nullable recipient cannot be null');
         }
         $this->container['recipient'] = $recipient;
 
@@ -398,14 +409,14 @@ class FaxResponseTransmission implements ModelInterface, ArrayAccess, JsonSerial
      *
      * @return self
      */
-    public function setStatusCode(string $status_code)
+    public function setStatusCode($status_code)
     {
         if (is_null($status_code)) {
-            throw new InvalidArgumentException('non-nullable status_code cannot be null');
+            throw new \InvalidArgumentException('non-nullable status_code cannot be null');
         }
         $allowedValues = $this->getStatusCodeAllowableValues();
         if (!in_array($status_code, $allowedValues, true)) {
-            throw new InvalidArgumentException(
+            throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'status_code', must be one of '%s'",
                     $status_code,
@@ -435,22 +446,23 @@ class FaxResponseTransmission implements ModelInterface, ArrayAccess, JsonSerial
      *
      * @return self
      */
-    public function setSentAt(?int $sent_at)
+    public function setSentAt($sent_at)
     {
         if (is_null($sent_at)) {
-            throw new InvalidArgumentException('non-nullable sent_at cannot be null');
+            throw new \InvalidArgumentException('non-nullable sent_at cannot be null');
         }
         $this->container['sent_at'] = $sent_at;
 
         return $this;
     }
-
     /**
      * Returns true if offset exists. False otherwise.
      *
-     * @param int $offset Offset
+     * @param integer $offset Offset
+     *
+     * @return boolean
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
@@ -459,11 +471,11 @@ class FaxResponseTransmission implements ModelInterface, ArrayAccess, JsonSerial
     /**
      * Gets offset.
      *
-     * @param int $offset Offset
+     * @param integer $offset Offset
      *
      * @return mixed|null
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return $this->container[$offset] ?? null;
@@ -474,8 +486,10 @@ class FaxResponseTransmission implements ModelInterface, ArrayAccess, JsonSerial
      *
      * @param int|null $offset Offset
      * @param mixed    $value  Value to be set
+     *
+     * @return void
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
@@ -488,9 +502,11 @@ class FaxResponseTransmission implements ModelInterface, ArrayAccess, JsonSerial
     /**
      * Unsets offset.
      *
-     * @param int $offset Offset
+     * @param integer $offset Offset
+     *
+     * @return void
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
@@ -498,15 +514,15 @@ class FaxResponseTransmission implements ModelInterface, ArrayAccess, JsonSerial
 
     /**
      * Serializes the object to a value that can be serialized natively by json_encode().
-     * @see https://www.php.net/manual/en/jsonserializable.jsonserialize.php
+     * @link https://www.php.net/manual/en/jsonserializable.jsonserialize.php
      *
-     * @return mixed returns data which can be serialized by json_encode(), which is a value
-     *               of any type other than a resource
+     * @return mixed Returns data which can be serialized by json_encode(), which is a value
+     * of any type other than a resource.
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
-        return ObjectSerializer::sanitizeForSerialization($this);
+       return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**
@@ -532,3 +548,5 @@ class FaxResponseTransmission implements ModelInterface, ArrayAccess, JsonSerial
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
+
+

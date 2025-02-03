@@ -5,7 +5,9 @@
  * PHP version 7.4
  *
  * @category Class
- * @see     https://openapi-generator.tech
+ * @package  Dropbox\Sign
+ * @author   OpenAPI Generator team
+ * @link     https://openapi-generator.tech
  */
 
 /**
@@ -27,64 +29,63 @@
 
 namespace Dropbox\Sign\Model;
 
-use ArrayAccess;
-use Dropbox\Sign\ObjectSerializer;
-use InvalidArgumentException;
-use JsonSerializable;
-use ReturnTypeWillChange;
+use \ArrayAccess;
+use \Dropbox\Sign\ObjectSerializer;
 
 /**
  * AccountVerifyResponseAccount Class Doc Comment
  *
  * @category Class
- * @see     https://openapi-generator.tech
+ * @package  Dropbox\Sign
+ * @author   OpenAPI Generator team
+ * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class AccountVerifyResponseAccount implements ModelInterface, ArrayAccess, JsonSerializable
+class AccountVerifyResponseAccount implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
     /**
-     * The original name of the model.
-     *
-     * @var string
-     */
+      * The original name of the model.
+      *
+      * @var string
+      */
     protected static $openAPIModelName = 'AccountVerifyResponseAccount';
 
     /**
-     * Array of property to type mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to type mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPITypes = [
-        'email_address' => 'string',
+        'email_address' => 'string'
     ];
 
     /**
-     * Array of property to format mappings. Used for (de)serialization
-     *
-     * @var string[]
-     * @phpstan-var array<string, string|null>
-     * @psalm-var array<string, string|null>
-     */
+      * Array of property to format mappings. Used for (de)serialization
+      *
+      * @var string[]
+      * @phpstan-var array<string, string|null>
+      * @psalm-var array<string, string|null>
+      */
     protected static $openAPIFormats = [
-        'email_address' => null,
+        'email_address' => null
     ];
 
     /**
-     * Array of nullable properties. Used for (de)serialization
-     *
-     * @var bool[]
-     */
+      * Array of nullable properties. Used for (de)serialization
+      *
+      * @var boolean[]
+      */
     protected static array $openAPINullables = [
-        'email_address' => false,
+        'email_address' => false
     ];
 
     /**
-     * If a nullable field gets set to null, insert it here
-     *
-     * @var bool[]
-     */
+      * If a nullable field gets set to null, insert it here
+      *
+      * @var boolean[]
+      */
     protected array $openAPINullablesSetToNull = [];
 
     /**
@@ -109,6 +110,8 @@ class AccountVerifyResponseAccount implements ModelInterface, ArrayAccess, JsonS
 
     /**
      * Array of nullable properties
+     *
+     * @return array
      */
     protected static function openAPINullables(): array
     {
@@ -118,7 +121,7 @@ class AccountVerifyResponseAccount implements ModelInterface, ArrayAccess, JsonS
     /**
      * Array of nullable field names deliberately set to null
      *
-     * @return bool[]
+     * @return boolean[]
      */
     private function getOpenAPINullablesSetToNull(): array
     {
@@ -128,7 +131,7 @@ class AccountVerifyResponseAccount implements ModelInterface, ArrayAccess, JsonS
     /**
      * Setter - Array of nullable field names deliberately set to null
      *
-     * @param bool[] $openAPINullablesSetToNull
+     * @param boolean[] $openAPINullablesSetToNull
      */
     private function setOpenAPINullablesSetToNull(array $openAPINullablesSetToNull): void
     {
@@ -137,6 +140,9 @@ class AccountVerifyResponseAccount implements ModelInterface, ArrayAccess, JsonS
 
     /**
      * Checks if a property is nullable
+     *
+     * @param string $property
+     * @return bool
      */
     public static function isNullable(string $property): bool
     {
@@ -145,6 +151,9 @@ class AccountVerifyResponseAccount implements ModelInterface, ArrayAccess, JsonS
 
     /**
      * Checks if a nullable property is set to null.
+     *
+     * @param string $property
+     * @return bool
      */
     public function isNullableSetToNull(string $property): bool
     {
@@ -158,7 +167,7 @@ class AccountVerifyResponseAccount implements ModelInterface, ArrayAccess, JsonS
      * @var string[]
      */
     protected static $attributeMap = [
-        'email_address' => 'email_address',
+        'email_address' => 'email_address'
     ];
 
     /**
@@ -167,7 +176,7 @@ class AccountVerifyResponseAccount implements ModelInterface, ArrayAccess, JsonS
      * @var string[]
      */
     protected static $setters = [
-        'email_address' => 'setEmailAddress',
+        'email_address' => 'setEmailAddress'
     ];
 
     /**
@@ -176,7 +185,7 @@ class AccountVerifyResponseAccount implements ModelInterface, ArrayAccess, JsonS
      * @var string[]
      */
     protected static $getters = [
-        'email_address' => 'getEmailAddress',
+        'email_address' => 'getEmailAddress'
     ];
 
     /**
@@ -220,6 +229,7 @@ class AccountVerifyResponseAccount implements ModelInterface, ArrayAccess, JsonS
         return self::$openAPIModelName;
     }
 
+
     /**
      * Associative array for storing property values
      *
@@ -238,33 +248,34 @@ class AccountVerifyResponseAccount implements ModelInterface, ArrayAccess, JsonS
         $this->setIfExists('email_address', $data ?? [], null);
     }
 
-    /**
-     * @deprecated use ::init()
-     */
+    /** @deprecated use ::init() */
     public static function fromArray(array $data): AccountVerifyResponseAccount
     {
         return self::init($data);
     }
 
-    /**
-     * Attempt to instantiate and hydrate a new instance of this class
-     */
+    /** Attempt to instantiate and hydrate a new instance of this class */
     public static function init(array $data): AccountVerifyResponseAccount
     {
         /** @var AccountVerifyResponseAccount */
-        return ObjectSerializer::deserialize(
+        $obj = ObjectSerializer::deserialize(
             $data,
             AccountVerifyResponseAccount::class,
         );
+
+        return $obj;
     }
 
+
     /**
-     * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
-     * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
-     * $this->openAPINullablesSetToNull array
-     *
-     * @param string|int|object|array|mixed $defaultValue
-     */
+    * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
+    * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
+    * $this->openAPINullablesSetToNull array
+    *
+    * @param string $variableName
+    * @param array  $fields
+* @param string|int|object|array|mixed  $defaultValue
+    */
     private function setIfExists(string $variableName, array $fields, $defaultValue): void
     {
         if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
@@ -281,7 +292,9 @@ class AccountVerifyResponseAccount implements ModelInterface, ArrayAccess, JsonS
      */
     public function listInvalidProperties()
     {
-        return [];
+        $invalidProperties = [];
+
+        return $invalidProperties;
     }
 
     /**
@@ -294,6 +307,7 @@ class AccountVerifyResponseAccount implements ModelInterface, ArrayAccess, JsonS
     {
         return count($this->listInvalidProperties()) === 0;
     }
+
 
     /**
      * Gets email_address
@@ -308,26 +322,27 @@ class AccountVerifyResponseAccount implements ModelInterface, ArrayAccess, JsonS
     /**
      * Sets email_address
      *
-     * @param string|null $email_address the email address associated with the Account
+     * @param string|null $email_address The email address associated with the Account.
      *
      * @return self
      */
-    public function setEmailAddress(?string $email_address)
+    public function setEmailAddress($email_address)
     {
         if (is_null($email_address)) {
-            throw new InvalidArgumentException('non-nullable email_address cannot be null');
+            throw new \InvalidArgumentException('non-nullable email_address cannot be null');
         }
         $this->container['email_address'] = $email_address;
 
         return $this;
     }
-
     /**
      * Returns true if offset exists. False otherwise.
      *
-     * @param int $offset Offset
+     * @param integer $offset Offset
+     *
+     * @return boolean
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
@@ -336,11 +351,11 @@ class AccountVerifyResponseAccount implements ModelInterface, ArrayAccess, JsonS
     /**
      * Gets offset.
      *
-     * @param int $offset Offset
+     * @param integer $offset Offset
      *
      * @return mixed|null
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return $this->container[$offset] ?? null;
@@ -351,8 +366,10 @@ class AccountVerifyResponseAccount implements ModelInterface, ArrayAccess, JsonS
      *
      * @param int|null $offset Offset
      * @param mixed    $value  Value to be set
+     *
+     * @return void
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
@@ -365,9 +382,11 @@ class AccountVerifyResponseAccount implements ModelInterface, ArrayAccess, JsonS
     /**
      * Unsets offset.
      *
-     * @param int $offset Offset
+     * @param integer $offset Offset
+     *
+     * @return void
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
@@ -375,15 +394,15 @@ class AccountVerifyResponseAccount implements ModelInterface, ArrayAccess, JsonS
 
     /**
      * Serializes the object to a value that can be serialized natively by json_encode().
-     * @see https://www.php.net/manual/en/jsonserializable.jsonserialize.php
+     * @link https://www.php.net/manual/en/jsonserializable.jsonserialize.php
      *
-     * @return mixed returns data which can be serialized by json_encode(), which is a value
-     *               of any type other than a resource
+     * @return mixed Returns data which can be serialized by json_encode(), which is a value
+     * of any type other than a resource.
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
-        return ObjectSerializer::sanitizeForSerialization($this);
+       return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**
@@ -409,3 +428,5 @@ class AccountVerifyResponseAccount implements ModelInterface, ArrayAccess, JsonS
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
+
+

@@ -6,9 +6,9 @@ Contains pagination information about the data returned.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-| `num_pages` | ```int``` |  Total number of pages available.  |  |
-| `num_results` | ```int``` |  Total number of objects available.  |  |
-| `page` | ```int``` |  Number of the page being returned.  |  |
-| `page_size` | ```int``` |  Objects returned per page.  |  |
+| `num_pages` | ```int``` | REPLACE_ME_WITH_DESCRIPTION_BEGIN Total number of pages available. REPLACE_ME_WITH_DESCRIPTION_END |  |
+| `num_results` | ```int``` | REPLACE_ME_WITH_DESCRIPTION_BEGIN Total number of objects available. REPLACE_ME_WITH_DESCRIPTION_END |  |
+| `page` | ```int``` | REPLACE_ME_WITH_DESCRIPTION_BEGIN Number of the page being returned. REPLACE_ME_WITH_DESCRIPTION_END |  |
+| `page_size` | ```int``` | REPLACE_ME_WITH_DESCRIPTION_BEGIN Objects returned per page. REPLACE_ME_WITH_DESCRIPTION_END |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

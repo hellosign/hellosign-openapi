@@ -4,7 +4,9 @@
  * PHP version 7.4
  *
  * @category Class
- * @see     https://openapi-generator.tech
+ * @package  Dropbox\Sign
+ * @author   OpenAPI Generator team
+ * @link     https://openapi-generator.tech
  */
 
 /**
@@ -30,12 +32,16 @@ namespace Dropbox\Sign;
  * HeaderSelector Class Doc Comment
  *
  * @category Class
- * @see     https://openapi-generator.tech
+ * @package  Dropbox\Sign
+ * @author   OpenAPI Generator team
+ * @link     https://openapi-generator.tech
  */
 class HeaderSelector
 {
     /**
-     * @param  string[] $accept
+     * @param string[] $accept
+     * @param string   $contentType
+     * @param bool     $isMultipart
      * @return string[]
      */
     public function selectHeaders(array $accept, string $contentType, bool $isMultipart): array
@@ -48,7 +54,7 @@ class HeaderSelector
         }
 
         if (!$isMultipart) {
-            if ($contentType === '') {
+            if($contentType === '') {
                 $contentType = 'application/json';
             }
 
@@ -63,41 +69,41 @@ class HeaderSelector
      *
      * @param string[] $accept Array of header
      *
-     * @return string|null Accept (e.g. application/json)
+     * @return null|string Accept (e.g. application/json)
      */
     private function selectAcceptHeader(array $accept): ?string
     {
-        // filter out empty entries
+        # filter out empty entries
         $accept = array_filter($accept);
 
         if (count($accept) === 0) {
             return null;
         }
 
-        // If there's only one Accept header, just use it
+        # If there's only one Accept header, just use it
         if (count($accept) === 1) {
             return reset($accept);
         }
 
-        // If none of the available Accept headers is of type "json", then just use all them
+        # If none of the available Accept headers is of type "json", then just use all them
         $headersWithJson = preg_grep('~(?i)^(application/json|[^;/ \t]+/[^;/ \t]+[+]json)[ \t]*(;.*)?$~', $accept);
         if (count($headersWithJson) === 0) {
             return implode(',', $accept);
         }
 
-        // If we got here, then we need add quality values (weight), as described in IETF RFC 9110, Items 12.4.2/12.5.1,
-        // to give the highest priority to json-like headers - recalculating the existing ones, if needed
+        # If we got here, then we need add quality values (weight), as described in IETF RFC 9110, Items 12.4.2/12.5.1,
+        # to give the highest priority to json-like headers - recalculating the existing ones, if needed
         return $this->getAcceptHeaderWithAdjustedWeight($accept, $headersWithJson);
     }
 
     /**
-     * Create an Accept header string from the given "Accept" headers array, recalculating all weights
-     *
-     * @param string[] $accept          Array of Accept Headers
-     * @param string[] $headersWithJson Array of Accept Headers of type "json"
-     *
-     * @return string "Accept" Header (e.g. "application/json, text/html; q=0.9")
-     */
+    * Create an Accept header string from the given "Accept" headers array, recalculating all weights
+    *
+    * @param string[] $accept            Array of Accept Headers
+    * @param string[] $headersWithJson   Array of Accept Headers of type "json"
+    *
+    * @return string "Accept" Header (e.g. "application/json, text/html; q=0.9")
+    */
     private function getAcceptHeaderWithAdjustedWeight(array $accept, array $headersWithJson): string
     {
         $processedHeaders = [
@@ -107,6 +113,7 @@ class HeaderSelector
         ];
 
         foreach ($accept as $header) {
+
             $headerData = $this->getHeaderAndWeight($header);
 
             if (stripos($headerData['header'], 'application/json') === 0) {
@@ -123,7 +130,7 @@ class HeaderSelector
 
         $hasMoreThan28Headers = count($accept) > 28;
 
-        foreach ($processedHeaders as $headers) {
+        foreach($processedHeaders as $headers) {
             if (count($headers) > 0) {
                 $acceptHeaders[] = $this->adjustWeight($headers, $currentWeight, $hasMoreThan28Headers);
             }
@@ -143,7 +150,7 @@ class HeaderSelector
      */
     private function getHeaderAndWeight(string $header): array
     {
-        // matches headers with weight, splitting the header and the weight in $outputArray
+        # matches headers with weight, splitting the header and the weight in $outputArray
         if (preg_match('/(.*);\s*q=(1(?:\.0+)?|0\.\d+)$/', $header, $outputArray) === 1) {
             $headerData = [
                 'header' => $outputArray[1],
@@ -160,7 +167,9 @@ class HeaderSelector
     }
 
     /**
-     * @param  array[]  $headers
+     * @param array[] $headers
+     * @param float   $currentWeight
+     * @param bool    $hasMoreThan28Headers
      * @return string[] array of adjusted "Accept" headers
      */
     private function adjustWeight(array $headers, float &$currentWeight, bool $hasMoreThan28Headers): array
@@ -171,7 +180,8 @@ class HeaderSelector
 
         $acceptHeaders = [];
         foreach ($headers as $index => $header) {
-            if ($index > 0 && $headers[$index - 1]['weight'] > $header['weight']) {
+            if($index > 0 && $headers[$index - 1]['weight'] > $header['weight'])
+            {
                 $currentWeight = $this->getNextWeight($currentWeight, $hasMoreThan28Headers);
             }
 
@@ -185,9 +195,14 @@ class HeaderSelector
         return $acceptHeaders;
     }
 
+    /**
+     * @param string $header
+     * @param int    $weight
+     * @return string
+     */
     private function buildAcceptHeader(string $header, int $weight): string
     {
-        if ($weight === 1000) {
+        if($weight === 1000) {
             return $header;
         }
 
@@ -212,7 +227,9 @@ class HeaderSelector
      * if there is a maximum of 28 "Accept" headers. If we have more than that (which is extremely unlikely), then we fall back to a 1-by-1
      * decrement rule, which will result in quality codes like "q=0.999", "q=0.998" etc.
      *
-     * @param int $currentWeight varying from 1 to 1000 (will be divided by 1000 to build the quality value)
+     * @param int  $currentWeight varying from 1 to 1000 (will be divided by 1000 to build the quality value)
+     * @param bool $hasMoreThan28Headers
+     * @return int
      */
     public function getNextWeight(int $currentWeight, bool $hasMoreThan28Headers): int
     {
@@ -224,6 +241,6 @@ class HeaderSelector
             return $currentWeight - 1;
         }
 
-        return $currentWeight - 10 ** floor(log10($currentWeight - 1));
+        return $currentWeight - 10 ** floor( log10($currentWeight - 1) );
     }
 }

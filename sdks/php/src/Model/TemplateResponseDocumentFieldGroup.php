@@ -5,7 +5,9 @@
  * PHP version 7.4
  *
  * @category Class
- * @see     https://openapi-generator.tech
+ * @package  Dropbox\Sign
+ * @author   OpenAPI Generator team
+ * @link     https://openapi-generator.tech
  */
 
 /**
@@ -27,67 +29,66 @@
 
 namespace Dropbox\Sign\Model;
 
-use ArrayAccess;
-use Dropbox\Sign\ObjectSerializer;
-use InvalidArgumentException;
-use JsonSerializable;
-use ReturnTypeWillChange;
+use \ArrayAccess;
+use \Dropbox\Sign\ObjectSerializer;
 
 /**
  * TemplateResponseDocumentFieldGroup Class Doc Comment
  *
  * @category Class
- * @see     https://openapi-generator.tech
+ * @package  Dropbox\Sign
+ * @author   OpenAPI Generator team
+ * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class TemplateResponseDocumentFieldGroup implements ModelInterface, ArrayAccess, JsonSerializable
+class TemplateResponseDocumentFieldGroup implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
     /**
-     * The original name of the model.
-     *
-     * @var string
-     */
+      * The original name of the model.
+      *
+      * @var string
+      */
     protected static $openAPIModelName = 'TemplateResponseDocumentFieldGroup';
 
     /**
-     * Array of property to type mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to type mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPITypes = [
         'name' => 'string',
-        'rule' => '\Dropbox\Sign\Model\TemplateResponseDocumentFieldGroupRule',
+        'rule' => '\Dropbox\Sign\Model\TemplateResponseDocumentFieldGroupRule'
     ];
 
     /**
-     * Array of property to format mappings. Used for (de)serialization
-     *
-     * @var string[]
-     * @phpstan-var array<string, string|null>
-     * @psalm-var array<string, string|null>
-     */
+      * Array of property to format mappings. Used for (de)serialization
+      *
+      * @var string[]
+      * @phpstan-var array<string, string|null>
+      * @psalm-var array<string, string|null>
+      */
     protected static $openAPIFormats = [
         'name' => null,
-        'rule' => null,
+        'rule' => null
     ];
 
     /**
-     * Array of nullable properties. Used for (de)serialization
-     *
-     * @var bool[]
-     */
+      * Array of nullable properties. Used for (de)serialization
+      *
+      * @var boolean[]
+      */
     protected static array $openAPINullables = [
         'name' => false,
-        'rule' => false,
+        'rule' => false
     ];
 
     /**
-     * If a nullable field gets set to null, insert it here
-     *
-     * @var bool[]
-     */
+      * If a nullable field gets set to null, insert it here
+      *
+      * @var boolean[]
+      */
     protected array $openAPINullablesSetToNull = [];
 
     /**
@@ -112,6 +113,8 @@ class TemplateResponseDocumentFieldGroup implements ModelInterface, ArrayAccess,
 
     /**
      * Array of nullable properties
+     *
+     * @return array
      */
     protected static function openAPINullables(): array
     {
@@ -121,7 +124,7 @@ class TemplateResponseDocumentFieldGroup implements ModelInterface, ArrayAccess,
     /**
      * Array of nullable field names deliberately set to null
      *
-     * @return bool[]
+     * @return boolean[]
      */
     private function getOpenAPINullablesSetToNull(): array
     {
@@ -131,7 +134,7 @@ class TemplateResponseDocumentFieldGroup implements ModelInterface, ArrayAccess,
     /**
      * Setter - Array of nullable field names deliberately set to null
      *
-     * @param bool[] $openAPINullablesSetToNull
+     * @param boolean[] $openAPINullablesSetToNull
      */
     private function setOpenAPINullablesSetToNull(array $openAPINullablesSetToNull): void
     {
@@ -140,6 +143,9 @@ class TemplateResponseDocumentFieldGroup implements ModelInterface, ArrayAccess,
 
     /**
      * Checks if a property is nullable
+     *
+     * @param string $property
+     * @return bool
      */
     public static function isNullable(string $property): bool
     {
@@ -148,6 +154,9 @@ class TemplateResponseDocumentFieldGroup implements ModelInterface, ArrayAccess,
 
     /**
      * Checks if a nullable property is set to null.
+     *
+     * @param string $property
+     * @return bool
      */
     public function isNullableSetToNull(string $property): bool
     {
@@ -162,7 +171,7 @@ class TemplateResponseDocumentFieldGroup implements ModelInterface, ArrayAccess,
      */
     protected static $attributeMap = [
         'name' => 'name',
-        'rule' => 'rule',
+        'rule' => 'rule'
     ];
 
     /**
@@ -172,7 +181,7 @@ class TemplateResponseDocumentFieldGroup implements ModelInterface, ArrayAccess,
      */
     protected static $setters = [
         'name' => 'setName',
-        'rule' => 'setRule',
+        'rule' => 'setRule'
     ];
 
     /**
@@ -182,7 +191,7 @@ class TemplateResponseDocumentFieldGroup implements ModelInterface, ArrayAccess,
      */
     protected static $getters = [
         'name' => 'getName',
-        'rule' => 'getRule',
+        'rule' => 'getRule'
     ];
 
     /**
@@ -226,6 +235,7 @@ class TemplateResponseDocumentFieldGroup implements ModelInterface, ArrayAccess,
         return self::$openAPIModelName;
     }
 
+
     /**
      * Associative array for storing property values
      *
@@ -245,33 +255,34 @@ class TemplateResponseDocumentFieldGroup implements ModelInterface, ArrayAccess,
         $this->setIfExists('rule', $data ?? [], null);
     }
 
-    /**
-     * @deprecated use ::init()
-     */
+    /** @deprecated use ::init() */
     public static function fromArray(array $data): TemplateResponseDocumentFieldGroup
     {
         return self::init($data);
     }
 
-    /**
-     * Attempt to instantiate and hydrate a new instance of this class
-     */
+    /** Attempt to instantiate and hydrate a new instance of this class */
     public static function init(array $data): TemplateResponseDocumentFieldGroup
     {
         /** @var TemplateResponseDocumentFieldGroup */
-        return ObjectSerializer::deserialize(
+        $obj = ObjectSerializer::deserialize(
             $data,
             TemplateResponseDocumentFieldGroup::class,
         );
+
+        return $obj;
     }
 
+
     /**
-     * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
-     * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
-     * $this->openAPINullablesSetToNull array
-     *
-     * @param string|int|object|array|mixed $defaultValue
-     */
+    * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
+    * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
+    * $this->openAPINullablesSetToNull array
+    *
+    * @param string $variableName
+    * @param array  $fields
+* @param string|int|object|array|mixed  $defaultValue
+    */
     private function setIfExists(string $variableName, array $fields, $defaultValue): void
     {
         if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
@@ -288,7 +299,9 @@ class TemplateResponseDocumentFieldGroup implements ModelInterface, ArrayAccess,
      */
     public function listInvalidProperties()
     {
-        return [];
+        $invalidProperties = [];
+
+        return $invalidProperties;
     }
 
     /**
@@ -301,6 +314,7 @@ class TemplateResponseDocumentFieldGroup implements ModelInterface, ArrayAccess,
     {
         return count($this->listInvalidProperties()) === 0;
     }
+
 
     /**
      * Gets name
@@ -315,14 +329,14 @@ class TemplateResponseDocumentFieldGroup implements ModelInterface, ArrayAccess,
     /**
      * Sets name
      *
-     * @param string|null $name the name of the form field group
+     * @param string|null $name The name of the form field group.
      *
      * @return self
      */
-    public function setName(?string $name)
+    public function setName($name)
     {
         if (is_null($name)) {
-            throw new InvalidArgumentException('non-nullable name cannot be null');
+            throw new \InvalidArgumentException('non-nullable name cannot be null');
         }
         $this->container['name'] = $name;
 
@@ -332,7 +346,7 @@ class TemplateResponseDocumentFieldGroup implements ModelInterface, ArrayAccess,
     /**
      * Gets rule
      *
-     * @return TemplateResponseDocumentFieldGroupRule|null
+     * @return \Dropbox\Sign\Model\TemplateResponseDocumentFieldGroupRule|null
      */
     public function getRule()
     {
@@ -342,26 +356,27 @@ class TemplateResponseDocumentFieldGroup implements ModelInterface, ArrayAccess,
     /**
      * Sets rule
      *
-     * @param TemplateResponseDocumentFieldGroupRule|null $rule rule
+     * @param \Dropbox\Sign\Model\TemplateResponseDocumentFieldGroupRule|null $rule rule
      *
      * @return self
      */
-    public function setRule(?TemplateResponseDocumentFieldGroupRule $rule)
+    public function setRule($rule)
     {
         if (is_null($rule)) {
-            throw new InvalidArgumentException('non-nullable rule cannot be null');
+            throw new \InvalidArgumentException('non-nullable rule cannot be null');
         }
         $this->container['rule'] = $rule;
 
         return $this;
     }
-
     /**
      * Returns true if offset exists. False otherwise.
      *
-     * @param int $offset Offset
+     * @param integer $offset Offset
+     *
+     * @return boolean
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
@@ -370,11 +385,11 @@ class TemplateResponseDocumentFieldGroup implements ModelInterface, ArrayAccess,
     /**
      * Gets offset.
      *
-     * @param int $offset Offset
+     * @param integer $offset Offset
      *
      * @return mixed|null
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return $this->container[$offset] ?? null;
@@ -385,8 +400,10 @@ class TemplateResponseDocumentFieldGroup implements ModelInterface, ArrayAccess,
      *
      * @param int|null $offset Offset
      * @param mixed    $value  Value to be set
+     *
+     * @return void
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
@@ -399,9 +416,11 @@ class TemplateResponseDocumentFieldGroup implements ModelInterface, ArrayAccess,
     /**
      * Unsets offset.
      *
-     * @param int $offset Offset
+     * @param integer $offset Offset
+     *
+     * @return void
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
@@ -409,15 +428,15 @@ class TemplateResponseDocumentFieldGroup implements ModelInterface, ArrayAccess,
 
     /**
      * Serializes the object to a value that can be serialized natively by json_encode().
-     * @see https://www.php.net/manual/en/jsonserializable.jsonserialize.php
+     * @link https://www.php.net/manual/en/jsonserializable.jsonserialize.php
      *
-     * @return mixed returns data which can be serialized by json_encode(), which is a value
-     *               of any type other than a resource
+     * @return mixed Returns data which can be serialized by json_encode(), which is a value
+     * of any type other than a resource.
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
-        return ObjectSerializer::sanitizeForSerialization($this);
+       return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**
@@ -443,3 +462,5 @@ class TemplateResponseDocumentFieldGroup implements ModelInterface, ArrayAccess,
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
+
+

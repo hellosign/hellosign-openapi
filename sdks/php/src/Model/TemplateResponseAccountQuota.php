@@ -5,7 +5,9 @@
  * PHP version 7.4
  *
  * @category Class
- * @see     https://openapi-generator.tech
+ * @package  Dropbox\Sign
+ * @author   OpenAPI Generator team
+ * @link     https://openapi-generator.tech
  */
 
 /**
@@ -27,74 +29,73 @@
 
 namespace Dropbox\Sign\Model;
 
-use ArrayAccess;
-use Dropbox\Sign\ObjectSerializer;
-use InvalidArgumentException;
-use JsonSerializable;
-use ReturnTypeWillChange;
+use \ArrayAccess;
+use \Dropbox\Sign\ObjectSerializer;
 
 /**
  * TemplateResponseAccountQuota Class Doc Comment
  *
  * @category Class
  * @description An array of the designated CC roles that must be specified when sending a SignatureRequest using this Template.
- * @see     https://openapi-generator.tech
+ * @package  Dropbox\Sign
+ * @author   OpenAPI Generator team
+ * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class TemplateResponseAccountQuota implements ModelInterface, ArrayAccess, JsonSerializable
+class TemplateResponseAccountQuota implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
     /**
-     * The original name of the model.
-     *
-     * @var string
-     */
+      * The original name of the model.
+      *
+      * @var string
+      */
     protected static $openAPIModelName = 'TemplateResponseAccountQuota';
 
     /**
-     * Array of property to type mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to type mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPITypes = [
         'templates_left' => 'int',
         'api_signature_requests_left' => 'int',
         'documents_left' => 'int',
-        'sms_verifications_left' => 'int',
+        'sms_verifications_left' => 'int'
     ];
 
     /**
-     * Array of property to format mappings. Used for (de)serialization
-     *
-     * @var string[]
-     * @phpstan-var array<string, string|null>
-     * @psalm-var array<string, string|null>
-     */
+      * Array of property to format mappings. Used for (de)serialization
+      *
+      * @var string[]
+      * @phpstan-var array<string, string|null>
+      * @psalm-var array<string, string|null>
+      */
     protected static $openAPIFormats = [
         'templates_left' => null,
         'api_signature_requests_left' => null,
         'documents_left' => null,
-        'sms_verifications_left' => null,
+        'sms_verifications_left' => null
     ];
 
     /**
-     * Array of nullable properties. Used for (de)serialization
-     *
-     * @var bool[]
-     */
+      * Array of nullable properties. Used for (de)serialization
+      *
+      * @var boolean[]
+      */
     protected static array $openAPINullables = [
         'templates_left' => false,
         'api_signature_requests_left' => false,
         'documents_left' => false,
-        'sms_verifications_left' => false,
+        'sms_verifications_left' => false
     ];
 
     /**
-     * If a nullable field gets set to null, insert it here
-     *
-     * @var bool[]
-     */
+      * If a nullable field gets set to null, insert it here
+      *
+      * @var boolean[]
+      */
     protected array $openAPINullablesSetToNull = [];
 
     /**
@@ -119,6 +120,8 @@ class TemplateResponseAccountQuota implements ModelInterface, ArrayAccess, JsonS
 
     /**
      * Array of nullable properties
+     *
+     * @return array
      */
     protected static function openAPINullables(): array
     {
@@ -128,7 +131,7 @@ class TemplateResponseAccountQuota implements ModelInterface, ArrayAccess, JsonS
     /**
      * Array of nullable field names deliberately set to null
      *
-     * @return bool[]
+     * @return boolean[]
      */
     private function getOpenAPINullablesSetToNull(): array
     {
@@ -138,7 +141,7 @@ class TemplateResponseAccountQuota implements ModelInterface, ArrayAccess, JsonS
     /**
      * Setter - Array of nullable field names deliberately set to null
      *
-     * @param bool[] $openAPINullablesSetToNull
+     * @param boolean[] $openAPINullablesSetToNull
      */
     private function setOpenAPINullablesSetToNull(array $openAPINullablesSetToNull): void
     {
@@ -147,6 +150,9 @@ class TemplateResponseAccountQuota implements ModelInterface, ArrayAccess, JsonS
 
     /**
      * Checks if a property is nullable
+     *
+     * @param string $property
+     * @return bool
      */
     public static function isNullable(string $property): bool
     {
@@ -155,6 +161,9 @@ class TemplateResponseAccountQuota implements ModelInterface, ArrayAccess, JsonS
 
     /**
      * Checks if a nullable property is set to null.
+     *
+     * @param string $property
+     * @return bool
      */
     public function isNullableSetToNull(string $property): bool
     {
@@ -171,7 +180,7 @@ class TemplateResponseAccountQuota implements ModelInterface, ArrayAccess, JsonS
         'templates_left' => 'templates_left',
         'api_signature_requests_left' => 'api_signature_requests_left',
         'documents_left' => 'documents_left',
-        'sms_verifications_left' => 'sms_verifications_left',
+        'sms_verifications_left' => 'sms_verifications_left'
     ];
 
     /**
@@ -183,7 +192,7 @@ class TemplateResponseAccountQuota implements ModelInterface, ArrayAccess, JsonS
         'templates_left' => 'setTemplatesLeft',
         'api_signature_requests_left' => 'setApiSignatureRequestsLeft',
         'documents_left' => 'setDocumentsLeft',
-        'sms_verifications_left' => 'setSmsVerificationsLeft',
+        'sms_verifications_left' => 'setSmsVerificationsLeft'
     ];
 
     /**
@@ -195,7 +204,7 @@ class TemplateResponseAccountQuota implements ModelInterface, ArrayAccess, JsonS
         'templates_left' => 'getTemplatesLeft',
         'api_signature_requests_left' => 'getApiSignatureRequestsLeft',
         'documents_left' => 'getDocumentsLeft',
-        'sms_verifications_left' => 'getSmsVerificationsLeft',
+        'sms_verifications_left' => 'getSmsVerificationsLeft'
     ];
 
     /**
@@ -239,6 +248,7 @@ class TemplateResponseAccountQuota implements ModelInterface, ArrayAccess, JsonS
         return self::$openAPIModelName;
     }
 
+
     /**
      * Associative array for storing property values
      *
@@ -260,33 +270,34 @@ class TemplateResponseAccountQuota implements ModelInterface, ArrayAccess, JsonS
         $this->setIfExists('sms_verifications_left', $data ?? [], null);
     }
 
-    /**
-     * @deprecated use ::init()
-     */
+    /** @deprecated use ::init() */
     public static function fromArray(array $data): TemplateResponseAccountQuota
     {
         return self::init($data);
     }
 
-    /**
-     * Attempt to instantiate and hydrate a new instance of this class
-     */
+    /** Attempt to instantiate and hydrate a new instance of this class */
     public static function init(array $data): TemplateResponseAccountQuota
     {
         /** @var TemplateResponseAccountQuota */
-        return ObjectSerializer::deserialize(
+        $obj = ObjectSerializer::deserialize(
             $data,
             TemplateResponseAccountQuota::class,
         );
+
+        return $obj;
     }
 
+
     /**
-     * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
-     * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
-     * $this->openAPINullablesSetToNull array
-     *
-     * @param string|int|object|array|mixed $defaultValue
-     */
+    * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
+    * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
+    * $this->openAPINullablesSetToNull array
+    *
+    * @param string $variableName
+    * @param array  $fields
+* @param string|int|object|array|mixed  $defaultValue
+    */
     private function setIfExists(string $variableName, array $fields, $defaultValue): void
     {
         if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
@@ -303,7 +314,9 @@ class TemplateResponseAccountQuota implements ModelInterface, ArrayAccess, JsonS
      */
     public function listInvalidProperties()
     {
-        return [];
+        $invalidProperties = [];
+
+        return $invalidProperties;
     }
 
     /**
@@ -316,6 +329,7 @@ class TemplateResponseAccountQuota implements ModelInterface, ArrayAccess, JsonS
     {
         return count($this->listInvalidProperties()) === 0;
     }
+
 
     /**
      * Gets templates_left
@@ -330,14 +344,14 @@ class TemplateResponseAccountQuota implements ModelInterface, ArrayAccess, JsonS
     /**
      * Sets templates_left
      *
-     * @param int|null $templates_left API templates remaining
+     * @param int|null $templates_left API templates remaining.
      *
      * @return self
      */
-    public function setTemplatesLeft(?int $templates_left)
+    public function setTemplatesLeft($templates_left)
     {
         if (is_null($templates_left)) {
-            throw new InvalidArgumentException('non-nullable templates_left cannot be null');
+            throw new \InvalidArgumentException('non-nullable templates_left cannot be null');
         }
         $this->container['templates_left'] = $templates_left;
 
@@ -357,14 +371,14 @@ class TemplateResponseAccountQuota implements ModelInterface, ArrayAccess, JsonS
     /**
      * Sets api_signature_requests_left
      *
-     * @param int|null $api_signature_requests_left API signature requests remaining
+     * @param int|null $api_signature_requests_left API signature requests remaining.
      *
      * @return self
      */
-    public function setApiSignatureRequestsLeft(?int $api_signature_requests_left)
+    public function setApiSignatureRequestsLeft($api_signature_requests_left)
     {
         if (is_null($api_signature_requests_left)) {
-            throw new InvalidArgumentException('non-nullable api_signature_requests_left cannot be null');
+            throw new \InvalidArgumentException('non-nullable api_signature_requests_left cannot be null');
         }
         $this->container['api_signature_requests_left'] = $api_signature_requests_left;
 
@@ -384,14 +398,14 @@ class TemplateResponseAccountQuota implements ModelInterface, ArrayAccess, JsonS
     /**
      * Sets documents_left
      *
-     * @param int|null $documents_left signature requests remaining
+     * @param int|null $documents_left Signature requests remaining.
      *
      * @return self
      */
-    public function setDocumentsLeft(?int $documents_left)
+    public function setDocumentsLeft($documents_left)
     {
         if (is_null($documents_left)) {
-            throw new InvalidArgumentException('non-nullable documents_left cannot be null');
+            throw new \InvalidArgumentException('non-nullable documents_left cannot be null');
         }
         $this->container['documents_left'] = $documents_left;
 
@@ -411,26 +425,27 @@ class TemplateResponseAccountQuota implements ModelInterface, ArrayAccess, JsonS
     /**
      * Sets sms_verifications_left
      *
-     * @param int|null $sms_verifications_left SMS verifications remaining
+     * @param int|null $sms_verifications_left SMS verifications remaining.
      *
      * @return self
      */
-    public function setSmsVerificationsLeft(?int $sms_verifications_left)
+    public function setSmsVerificationsLeft($sms_verifications_left)
     {
         if (is_null($sms_verifications_left)) {
-            throw new InvalidArgumentException('non-nullable sms_verifications_left cannot be null');
+            throw new \InvalidArgumentException('non-nullable sms_verifications_left cannot be null');
         }
         $this->container['sms_verifications_left'] = $sms_verifications_left;
 
         return $this;
     }
-
     /**
      * Returns true if offset exists. False otherwise.
      *
-     * @param int $offset Offset
+     * @param integer $offset Offset
+     *
+     * @return boolean
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
@@ -439,11 +454,11 @@ class TemplateResponseAccountQuota implements ModelInterface, ArrayAccess, JsonS
     /**
      * Gets offset.
      *
-     * @param int $offset Offset
+     * @param integer $offset Offset
      *
      * @return mixed|null
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return $this->container[$offset] ?? null;
@@ -454,8 +469,10 @@ class TemplateResponseAccountQuota implements ModelInterface, ArrayAccess, JsonS
      *
      * @param int|null $offset Offset
      * @param mixed    $value  Value to be set
+     *
+     * @return void
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
@@ -468,9 +485,11 @@ class TemplateResponseAccountQuota implements ModelInterface, ArrayAccess, JsonS
     /**
      * Unsets offset.
      *
-     * @param int $offset Offset
+     * @param integer $offset Offset
+     *
+     * @return void
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
@@ -478,15 +497,15 @@ class TemplateResponseAccountQuota implements ModelInterface, ArrayAccess, JsonS
 
     /**
      * Serializes the object to a value that can be serialized natively by json_encode().
-     * @see https://www.php.net/manual/en/jsonserializable.jsonserialize.php
+     * @link https://www.php.net/manual/en/jsonserializable.jsonserialize.php
      *
-     * @return mixed returns data which can be serialized by json_encode(), which is a value
-     *               of any type other than a resource
+     * @return mixed Returns data which can be serialized by json_encode(), which is a value
+     * of any type other than a resource.
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
-        return ObjectSerializer::sanitizeForSerialization($this);
+       return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**
@@ -512,3 +531,5 @@ class TemplateResponseAccountQuota implements ModelInterface, ArrayAccess, JsonS
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
+
+

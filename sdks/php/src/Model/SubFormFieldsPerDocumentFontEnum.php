@@ -5,7 +5,9 @@
  * PHP version 7.4
  *
  * @category Class
- * @see     https://openapi-generator.tech
+ * @package  Dropbox\Sign
+ * @author   OpenAPI Generator team
+ * @link     https://openapi-generator.tech
  */
 
 /**
@@ -26,12 +28,15 @@
  */
 
 namespace Dropbox\Sign\Model;
+use \Dropbox\Sign\ObjectSerializer;
 
 /**
  * SubFormFieldsPerDocumentFontEnum Class Doc Comment
  *
  * @category Class
- * @see     https://openapi-generator.tech
+ * @package  Dropbox\Sign
+ * @author   OpenAPI Generator team
+ * @link     https://openapi-generator.tech
  */
 class SubFormFieldsPerDocumentFontEnum
 {
@@ -92,7 +97,9 @@ class SubFormFieldsPerDocumentFontEnum
             self::NOTO_SERIF,
             self::NOTO_CJK_JP_REGULAR,
             self::NOTO_HEBREW_REGULAR,
-            self::NOTO_SAN_THAI_MERGED,
+            self::NOTO_SAN_THAI_MERGED
         ];
     }
 }
+
+

@@ -4,7 +4,9 @@
  * PHP version 7.4
  *
  * @category Class
- * @see     https://openapi-generator.tech
+ * @package  Dropbox\Sign
+ * @author   OpenAPI Generator team
+ * @link     https://openapi-generator.tech
  */
 
 /**
@@ -26,11 +28,6 @@
 
 namespace Dropbox\Sign\Api;
 
-use Dropbox\Sign\ApiException;
-use Dropbox\Sign\Configuration;
-use Dropbox\Sign\HeaderSelector;
-use Dropbox\Sign\Model;
-use Dropbox\Sign\ObjectSerializer;
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\ConnectException;
@@ -38,34 +35,44 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use InvalidArgumentException;
-use JsonException;
+use Dropbox\Sign\ApiException;
+use Dropbox\Sign\Configuration;
+use Dropbox\Sign\HeaderSelector;
+use Dropbox\Sign\ObjectSerializer;
+use Dropbox\Sign\Model;
 use Psr\Http\Message\ResponseInterface;
-use RuntimeException;
 
 /**
  * ApiAppApi Class Doc Comment
  *
  * @category Class
- * @see     https://openapi-generator.tech
+ * @package  Dropbox\Sign
+ * @author   OpenAPI Generator team
+ * @link     https://openapi-generator.tech
  */
 class ApiAppApi
 {
-    /** @var ClientInterface */
+    /**
+     * @var ClientInterface
+     */
     protected $client;
 
-    /** @var Configuration */
+    /**
+     * @var Configuration
+     */
     protected $config;
 
-    /** @var HeaderSelector */
+    /**
+     * @var HeaderSelector
+     */
     protected $headerSelector;
 
-    /** @var int Host index */
+    /**
+     * @var int Host index
+     */
     protected $hostIndex;
 
-    /**
-     * @var string[] *
-     */
+    /** @var string[] $contentTypes **/
     public const contentTypes = [
         'apiAppCreate' => [
             'application/json',
@@ -90,13 +97,16 @@ class ApiAppApi
     protected $response;
 
     /**
-     * @param int $hostIndex (Optional) host index to select the list of hosts if defined in the OpenAPI spec
+     * @param Configuration   $config
+     * @param ClientInterface $client
+     * @param HeaderSelector  $selector
+     * @param int             $hostIndex (Optional) host index to select the list of hosts if defined in the OpenAPI spec
      */
     public function __construct(
         Configuration $config = null,
         ClientInterface $client = null,
         HeaderSelector $selector = null,
-        int $hostIndex = 0
+        $hostIndex = 0
     ) {
         $this->client = $client ?: new Client();
         $this->config = $config ?: new Configuration();
@@ -110,7 +120,7 @@ class ApiAppApi
      * @param int $hostIndex Host index (required)
      * @deprecated To be made private in the future
      */
-    public function setHostIndex(int $hostIndex): void
+    public function setHostIndex($hostIndex): void
     {
         $this->hostIndex = $hostIndex;
     }
@@ -147,13 +157,13 @@ class ApiAppApi
      *
      * Create API App
      *
-     * @param Model\ApiAppCreateRequest $api_app_create_request api_app_create_request (required)
+     * @param  \Dropbox\Sign\Model\ApiAppCreateRequest $api_app_create_request api_app_create_request (required)
      *
-     * @return Model\ApiAppGetResponse
-     * @throws ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws InvalidArgumentException
+     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \Dropbox\Sign\Model\ApiAppGetResponse|\Dropbox\Sign\Model\ErrorResponse
      */
-    public function apiAppCreate(Model\ApiAppCreateRequest $api_app_create_request)
+    public function apiAppCreate($api_app_create_request)
     {
         list($response) = $this->apiAppCreateWithHttpInfo($api_app_create_request);
         return $response;
@@ -164,15 +174,15 @@ class ApiAppApi
      *
      * Create API App
      *
-     * @param Model\ApiAppCreateRequest $api_app_create_request (required)
-     * @param string                    $contentType            The value for the Content-Type header. Check self::contentTypes['apiAppCreate'] to see the possible values for this operation
+     * @param  \Dropbox\Sign\Model\ApiAppCreateRequest $api_app_create_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiAppCreate'] to see the possible values for this operation
      *
-     * @return array of Model\ApiAppGetResponse, HTTP status code, HTTP response headers (array of strings)
-     * @throws ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws InvalidArgumentException
+     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \Dropbox\Sign\Model\ApiAppGetResponse|\Dropbox\Sign\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      * @deprecated Prefer to use ::apiAppCreate. This method will eventually become unavailable
      */
-    public function apiAppCreateWithHttpInfo(Model\ApiAppCreateRequest $api_app_create_request, string $contentType = self::contentTypes['apiAppCreate'][0])
+    public function apiAppCreateWithHttpInfo($api_app_create_request, string $contentType = self::contentTypes['apiAppCreate'][0])
     {
         $request = $this->apiAppCreateRequest($api_app_create_request, $contentType);
 
@@ -184,14 +194,14 @@ class ApiAppApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int)$e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string)$e->getResponse()->getBody() : null
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int)$e->getCode(),
+                    (int) $e->getCode(),
                     null,
                     null
                 );
@@ -204,14 +214,14 @@ class ApiAppApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        (string)$request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    (string)$response->getBody()
+                    (string) $response->getBody()
                 );
             }
-
+            
             $result = $this->handleRangeCodeResponse(
                 $response,
                 '4XX',
@@ -220,17 +230,18 @@ class ApiAppApi
             if ($result) {
                 return $result;
             }
+            
 
-            switch ($statusCode) {
+            switch($statusCode) {
                 case 201:
                     if ('\Dropbox\Sign\Model\ApiAppGetResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string)$response->getBody();
+                        $content = (string) $response->getBody();
                         if ('\Dropbox\Sign\Model\ApiAppGetResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (JsonException $exception) {
+                            } catch (\JsonException $exception) {
                                 throw new ApiException(
                                     sprintf(
                                         'Error JSON decoding server response (%s)',
@@ -247,19 +258,20 @@ class ApiAppApi
                     return [
                         ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\ApiAppGetResponse', []),
                         $response->getStatusCode(),
-                        $response->getHeaders(),
+                        $response->getHeaders()
                     ];
+                
             }
 
             $returnType = '\Dropbox\Sign\Model\ApiAppGetResponse';
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); // stream goes to serializer
+                $content = $response->getBody(); //stream goes to serializer
             } else {
-                $content = (string)$response->getBody();
+                $content = (string) $response->getBody();
                 if ($returnType !== 'string') {
                     try {
                         $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                    } catch (JsonException $exception) {
+                    } catch (\JsonException $exception) {
                         throw new ApiException(
                             sprintf(
                                 'Error JSON decoding server response (%s)',
@@ -276,9 +288,11 @@ class ApiAppApi
             return [
                 ObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
-                $response->getHeaders(),
+                $response->getHeaders()
             ];
+
         } catch (ApiException $e) {
+            
             if ($this->handleRangeCodeException($e, '4XX', '\Dropbox\Sign\Model\ErrorResponse')) {
                 throw $e;
             }
@@ -291,6 +305,7 @@ class ApiAppApi
                     );
                     $e->setResponseObject($data);
                     break;
+                
             }
             throw $e;
         }
@@ -301,14 +316,14 @@ class ApiAppApi
      *
      * Create API App
      *
-     * @param Model\ApiAppCreateRequest $api_app_create_request (required)
-     * @param string                    $contentType            The value for the Content-Type header. Check self::contentTypes['apiAppCreate'] to see the possible values for this operation
+     * @param  \Dropbox\Sign\Model\ApiAppCreateRequest $api_app_create_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiAppCreate'] to see the possible values for this operation
      *
+     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
-     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::apiAppCreate. This method will eventually become unavailable
      */
-    public function apiAppCreateAsync(Model\ApiAppCreateRequest $api_app_create_request, string $contentType = self::contentTypes['apiAppCreate'][0])
+    public function apiAppCreateAsync($api_app_create_request, string $contentType = self::contentTypes['apiAppCreate'][0])
     {
         return $this->apiAppCreateAsyncWithHttpInfo($api_app_create_request, $contentType)
             ->then(
@@ -323,14 +338,14 @@ class ApiAppApi
      *
      * Create API App
      *
-     * @param Model\ApiAppCreateRequest $api_app_create_request (required)
-     * @param string                    $contentType            The value for the Content-Type header. Check self::contentTypes['apiAppCreate'] to see the possible values for this operation
+     * @param  \Dropbox\Sign\Model\ApiAppCreateRequest $api_app_create_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiAppCreate'] to see the possible values for this operation
      *
+     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
-     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::apiAppCreate. This method will eventually become unavailable
      */
-    public function apiAppCreateAsyncWithHttpInfo(Model\ApiAppCreateRequest $api_app_create_request, string $contentType = self::contentTypes['apiAppCreate'][0])
+    public function apiAppCreateAsyncWithHttpInfo($api_app_create_request, string $contentType = self::contentTypes['apiAppCreate'][0])
     {
         $returnType = '\Dropbox\Sign\Model\ApiAppGetResponse';
         $request = $this->apiAppCreateRequest($api_app_create_request, $contentType);
@@ -340,9 +355,9 @@ class ApiAppApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string)$response->getBody();
+                        $content = (string) $response->getBody();
                         if ($returnType !== 'string') {
                             $content = json_decode($content);
                         }
@@ -351,7 +366,7 @@ class ApiAppApi
                     return [
                         ObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
-                        $response->getHeaders(),
+                        $response->getHeaders()
                     ];
                 },
                 function ($exception) {
@@ -365,7 +380,7 @@ class ApiAppApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        (string)$response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -374,21 +389,23 @@ class ApiAppApi
     /**
      * Create request for operation 'apiAppCreate'
      *
-     * @param Model\ApiAppCreateRequest $api_app_create_request (required)
-     * @param string                    $contentType            The value for the Content-Type header. Check self::contentTypes['apiAppCreate'] to see the possible values for this operation
+     * @param  \Dropbox\Sign\Model\ApiAppCreateRequest $api_app_create_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiAppCreate'] to see the possible values for this operation
      *
-     * @return Request
-     * @throws InvalidArgumentException
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
      * @deprecated Prefer to use ::apiAppCreate. This method will eventually become unavailable
      */
-    public function apiAppCreateRequest(Model\ApiAppCreateRequest $api_app_create_request, string $contentType = self::contentTypes['apiAppCreate'][0])
+    public function apiAppCreateRequest($api_app_create_request, string $contentType = self::contentTypes['apiAppCreate'][0])
     {
+
         // verify the required parameter 'api_app_create_request' is set
         if ($api_app_create_request === null || (is_array($api_app_create_request) && count($api_app_create_request) === 0)) {
-            throw new InvalidArgumentException(
+            throw new \InvalidArgumentException(
                 'Missing the required parameter $api_app_create_request when calling apiAppCreate'
             );
         }
+
 
         $resourcePath = '/api_app';
         $formParams = [];
@@ -403,8 +420,11 @@ class ApiAppApi
 
         $multipart = !empty($formParams);
 
+
+
+
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            $multipart ? ['multipart/form-data'] : ['application/json', ],
             $contentType,
             $multipart
         );
@@ -412,7 +432,7 @@ class ApiAppApi
         // for model (json/xml)
         if (count($formParams) === 0) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                // if Content-Type contains "application/json", json_encode the body
+                # if Content-Type contains "application/json", json_encode the body
                 $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($api_app_create_request));
             } else {
                 $httpBody = $api_app_create_request;
@@ -425,7 +445,7 @@ class ApiAppApi
                     foreach ($formParamValueItems as $formParamValueItem) {
                         $multipartContents[] = [
                             'name' => $formParamName,
-                            'contents' => $formParamValueItem,
+                            'contents' => $formParamValueItem
                         ];
                     }
                 }
@@ -442,8 +462,9 @@ class ApiAppApi
                     $payloadHook('multipart', $multipartContents, $api_app_create_request);
                 }
                 $httpBody = new MultipartStream($multipartContents);
+
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                // if Content-Type contains "application/json", json_encode the form parameters
+                # if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
             } else {
                 // for HTTP post (form)
@@ -486,12 +507,13 @@ class ApiAppApi
      *
      * Delete API App
      *
-     * @param string $client_id The client id of the API App to delete. (required)
+     * @param  string $client_id The client id of the API App to delete. (required)
      *
-     * @throws ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws InvalidArgumentException
+     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return void
      */
-    public function apiAppDelete(string $client_id)
+    public function apiAppDelete($client_id)
     {
         $this->apiAppDeleteWithHttpInfo($client_id);
     }
@@ -501,15 +523,15 @@ class ApiAppApi
      *
      * Delete API App
      *
-     * @param string $client_id   The client id of the API App to delete. (required)
-     * @param string $contentType The value for the Content-Type header. Check self::contentTypes['apiAppDelete'] to see the possible values for this operation
+     * @param  string $client_id The client id of the API App to delete. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiAppDelete'] to see the possible values for this operation
      *
+     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
-     * @throws ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::apiAppDelete. This method will eventually become unavailable
      */
-    public function apiAppDeleteWithHttpInfo(string $client_id, string $contentType = self::contentTypes['apiAppDelete'][0])
+    public function apiAppDeleteWithHttpInfo($client_id, string $contentType = self::contentTypes['apiAppDelete'][0])
     {
         $request = $this->apiAppDeleteRequest($client_id, $contentType);
 
@@ -521,14 +543,14 @@ class ApiAppApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int)$e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string)$e->getResponse()->getBody() : null
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int)$e->getCode(),
+                    (int) $e->getCode(),
                     null,
                     null
                 );
@@ -541,20 +563,23 @@ class ApiAppApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        (string)$request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    (string)$response->getBody()
+                    (string) $response->getBody()
                 );
             }
 
             return [null, $statusCode, $response->getHeaders()];
+
         } catch (ApiException $e) {
+            
             if ($this->handleRangeCodeException($e, '4XX', '\Dropbox\Sign\Model\ErrorResponse')) {
                 throw $e;
             }
             switch ($e->getCode()) {
+                
             }
             throw $e;
         }
@@ -565,14 +590,14 @@ class ApiAppApi
      *
      * Delete API App
      *
-     * @param string $client_id   The client id of the API App to delete. (required)
-     * @param string $contentType The value for the Content-Type header. Check self::contentTypes['apiAppDelete'] to see the possible values for this operation
+     * @param  string $client_id The client id of the API App to delete. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiAppDelete'] to see the possible values for this operation
      *
+     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
-     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::apiAppDelete. This method will eventually become unavailable
      */
-    public function apiAppDeleteAsync(string $client_id, string $contentType = self::contentTypes['apiAppDelete'][0])
+    public function apiAppDeleteAsync($client_id, string $contentType = self::contentTypes['apiAppDelete'][0])
     {
         return $this->apiAppDeleteAsyncWithHttpInfo($client_id, $contentType)
             ->then(
@@ -587,14 +612,14 @@ class ApiAppApi
      *
      * Delete API App
      *
-     * @param string $client_id   The client id of the API App to delete. (required)
-     * @param string $contentType The value for the Content-Type header. Check self::contentTypes['apiAppDelete'] to see the possible values for this operation
+     * @param  string $client_id The client id of the API App to delete. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiAppDelete'] to see the possible values for this operation
      *
+     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
-     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::apiAppDelete. This method will eventually become unavailable
      */
-    public function apiAppDeleteAsyncWithHttpInfo(string $client_id, string $contentType = self::contentTypes['apiAppDelete'][0])
+    public function apiAppDeleteAsyncWithHttpInfo($client_id, string $contentType = self::contentTypes['apiAppDelete'][0])
     {
         $returnType = '';
         $request = $this->apiAppDeleteRequest($client_id, $contentType);
@@ -602,7 +627,7 @@ class ApiAppApi
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
-                function ($response) {
+                function ($response) use ($returnType) {
                     return [null, $response->getStatusCode(), $response->getHeaders()];
                 },
                 function ($exception) {
@@ -616,7 +641,7 @@ class ApiAppApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        (string)$response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -625,21 +650,23 @@ class ApiAppApi
     /**
      * Create request for operation 'apiAppDelete'
      *
-     * @param string $client_id   The client id of the API App to delete. (required)
-     * @param string $contentType The value for the Content-Type header. Check self::contentTypes['apiAppDelete'] to see the possible values for this operation
+     * @param  string $client_id The client id of the API App to delete. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiAppDelete'] to see the possible values for this operation
      *
-     * @return Request
-     * @throws InvalidArgumentException
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
      * @deprecated Prefer to use ::apiAppDelete. This method will eventually become unavailable
      */
-    public function apiAppDeleteRequest(string $client_id, string $contentType = self::contentTypes['apiAppDelete'][0])
+    public function apiAppDeleteRequest($client_id, string $contentType = self::contentTypes['apiAppDelete'][0])
     {
+
         // verify the required parameter 'client_id' is set
         if ($client_id === null || (is_array($client_id) && count($client_id) === 0)) {
-            throw new InvalidArgumentException(
+            throw new \InvalidArgumentException(
                 'Missing the required parameter $client_id when calling apiAppDelete'
             );
         }
+
 
         $resourcePath = '/api_app/{client_id}';
         $formParams = [];
@@ -648,17 +675,20 @@ class ApiAppApi
         $httpBody = '';
         $multipart = false;
 
+
+
         // path params
         if ($client_id !== null) {
             $resourcePath = str_replace(
-                '{client_id}',
+                '{' . 'client_id' . '}',
                 ObjectSerializer::toPathValue($client_id),
                 $resourcePath
             );
         }
 
+
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            $multipart ? ['multipart/form-data'] : ['application/json', ],
             $contentType,
             $multipart
         );
@@ -672,7 +702,7 @@ class ApiAppApi
                     foreach ($formParamValueItems as $formParamValueItem) {
                         $multipartContents[] = [
                             'name' => $formParamName,
-                            'contents' => $formParamValueItem,
+                            'contents' => $formParamValueItem
                         ];
                     }
                 }
@@ -686,8 +716,9 @@ class ApiAppApi
                 }
 
                 $httpBody = new MultipartStream($multipartContents);
+
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                // if Content-Type contains "application/json", json_encode the form parameters
+                # if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
             } else {
                 // for HTTP post (form)
@@ -730,13 +761,13 @@ class ApiAppApi
      *
      * Get API App
      *
-     * @param string $client_id The client id of the API App to retrieve. (required)
+     * @param  string $client_id The client id of the API App to retrieve. (required)
      *
-     * @return Model\ApiAppGetResponse
-     * @throws ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws InvalidArgumentException
+     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \Dropbox\Sign\Model\ApiAppGetResponse|\Dropbox\Sign\Model\ErrorResponse
      */
-    public function apiAppGet(string $client_id)
+    public function apiAppGet($client_id)
     {
         list($response) = $this->apiAppGetWithHttpInfo($client_id);
         return $response;
@@ -747,15 +778,15 @@ class ApiAppApi
      *
      * Get API App
      *
-     * @param string $client_id   The client id of the API App to retrieve. (required)
-     * @param string $contentType The value for the Content-Type header. Check self::contentTypes['apiAppGet'] to see the possible values for this operation
+     * @param  string $client_id The client id of the API App to retrieve. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiAppGet'] to see the possible values for this operation
      *
-     * @return array of Model\ApiAppGetResponse, HTTP status code, HTTP response headers (array of strings)
-     * @throws ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws InvalidArgumentException
+     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \Dropbox\Sign\Model\ApiAppGetResponse|\Dropbox\Sign\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      * @deprecated Prefer to use ::apiAppGet. This method will eventually become unavailable
      */
-    public function apiAppGetWithHttpInfo(string $client_id, string $contentType = self::contentTypes['apiAppGet'][0])
+    public function apiAppGetWithHttpInfo($client_id, string $contentType = self::contentTypes['apiAppGet'][0])
     {
         $request = $this->apiAppGetRequest($client_id, $contentType);
 
@@ -767,14 +798,14 @@ class ApiAppApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int)$e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string)$e->getResponse()->getBody() : null
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int)$e->getCode(),
+                    (int) $e->getCode(),
                     null,
                     null
                 );
@@ -787,14 +818,14 @@ class ApiAppApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        (string)$request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    (string)$response->getBody()
+                    (string) $response->getBody()
                 );
             }
-
+            
             $result = $this->handleRangeCodeResponse(
                 $response,
                 '4XX',
@@ -803,17 +834,18 @@ class ApiAppApi
             if ($result) {
                 return $result;
             }
+            
 
-            switch ($statusCode) {
+            switch($statusCode) {
                 case 200:
                     if ('\Dropbox\Sign\Model\ApiAppGetResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string)$response->getBody();
+                        $content = (string) $response->getBody();
                         if ('\Dropbox\Sign\Model\ApiAppGetResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (JsonException $exception) {
+                            } catch (\JsonException $exception) {
                                 throw new ApiException(
                                     sprintf(
                                         'Error JSON decoding server response (%s)',
@@ -830,19 +862,20 @@ class ApiAppApi
                     return [
                         ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\ApiAppGetResponse', []),
                         $response->getStatusCode(),
-                        $response->getHeaders(),
+                        $response->getHeaders()
                     ];
+                
             }
 
             $returnType = '\Dropbox\Sign\Model\ApiAppGetResponse';
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); // stream goes to serializer
+                $content = $response->getBody(); //stream goes to serializer
             } else {
-                $content = (string)$response->getBody();
+                $content = (string) $response->getBody();
                 if ($returnType !== 'string') {
                     try {
                         $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                    } catch (JsonException $exception) {
+                    } catch (\JsonException $exception) {
                         throw new ApiException(
                             sprintf(
                                 'Error JSON decoding server response (%s)',
@@ -859,9 +892,11 @@ class ApiAppApi
             return [
                 ObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
-                $response->getHeaders(),
+                $response->getHeaders()
             ];
+
         } catch (ApiException $e) {
+            
             if ($this->handleRangeCodeException($e, '4XX', '\Dropbox\Sign\Model\ErrorResponse')) {
                 throw $e;
             }
@@ -874,6 +909,7 @@ class ApiAppApi
                     );
                     $e->setResponseObject($data);
                     break;
+                
             }
             throw $e;
         }
@@ -884,14 +920,14 @@ class ApiAppApi
      *
      * Get API App
      *
-     * @param string $client_id   The client id of the API App to retrieve. (required)
-     * @param string $contentType The value for the Content-Type header. Check self::contentTypes['apiAppGet'] to see the possible values for this operation
+     * @param  string $client_id The client id of the API App to retrieve. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiAppGet'] to see the possible values for this operation
      *
+     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
-     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::apiAppGet. This method will eventually become unavailable
      */
-    public function apiAppGetAsync(string $client_id, string $contentType = self::contentTypes['apiAppGet'][0])
+    public function apiAppGetAsync($client_id, string $contentType = self::contentTypes['apiAppGet'][0])
     {
         return $this->apiAppGetAsyncWithHttpInfo($client_id, $contentType)
             ->then(
@@ -906,14 +942,14 @@ class ApiAppApi
      *
      * Get API App
      *
-     * @param string $client_id   The client id of the API App to retrieve. (required)
-     * @param string $contentType The value for the Content-Type header. Check self::contentTypes['apiAppGet'] to see the possible values for this operation
+     * @param  string $client_id The client id of the API App to retrieve. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiAppGet'] to see the possible values for this operation
      *
+     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
-     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::apiAppGet. This method will eventually become unavailable
      */
-    public function apiAppGetAsyncWithHttpInfo(string $client_id, string $contentType = self::contentTypes['apiAppGet'][0])
+    public function apiAppGetAsyncWithHttpInfo($client_id, string $contentType = self::contentTypes['apiAppGet'][0])
     {
         $returnType = '\Dropbox\Sign\Model\ApiAppGetResponse';
         $request = $this->apiAppGetRequest($client_id, $contentType);
@@ -923,9 +959,9 @@ class ApiAppApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string)$response->getBody();
+                        $content = (string) $response->getBody();
                         if ($returnType !== 'string') {
                             $content = json_decode($content);
                         }
@@ -934,7 +970,7 @@ class ApiAppApi
                     return [
                         ObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
-                        $response->getHeaders(),
+                        $response->getHeaders()
                     ];
                 },
                 function ($exception) {
@@ -948,7 +984,7 @@ class ApiAppApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        (string)$response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -957,21 +993,23 @@ class ApiAppApi
     /**
      * Create request for operation 'apiAppGet'
      *
-     * @param string $client_id   The client id of the API App to retrieve. (required)
-     * @param string $contentType The value for the Content-Type header. Check self::contentTypes['apiAppGet'] to see the possible values for this operation
+     * @param  string $client_id The client id of the API App to retrieve. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiAppGet'] to see the possible values for this operation
      *
-     * @return Request
-     * @throws InvalidArgumentException
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
      * @deprecated Prefer to use ::apiAppGet. This method will eventually become unavailable
      */
-    public function apiAppGetRequest(string $client_id, string $contentType = self::contentTypes['apiAppGet'][0])
+    public function apiAppGetRequest($client_id, string $contentType = self::contentTypes['apiAppGet'][0])
     {
+
         // verify the required parameter 'client_id' is set
         if ($client_id === null || (is_array($client_id) && count($client_id) === 0)) {
-            throw new InvalidArgumentException(
+            throw new \InvalidArgumentException(
                 'Missing the required parameter $client_id when calling apiAppGet'
             );
         }
+
 
         $resourcePath = '/api_app/{client_id}';
         $formParams = [];
@@ -980,17 +1018,20 @@ class ApiAppApi
         $httpBody = '';
         $multipart = false;
 
+
+
         // path params
         if ($client_id !== null) {
             $resourcePath = str_replace(
-                '{client_id}',
+                '{' . 'client_id' . '}',
                 ObjectSerializer::toPathValue($client_id),
                 $resourcePath
             );
         }
 
+
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            $multipart ? ['multipart/form-data'] : ['application/json', ],
             $contentType,
             $multipart
         );
@@ -1004,7 +1045,7 @@ class ApiAppApi
                     foreach ($formParamValueItems as $formParamValueItem) {
                         $multipartContents[] = [
                             'name' => $formParamName,
-                            'contents' => $formParamValueItem,
+                            'contents' => $formParamValueItem
                         ];
                     }
                 }
@@ -1018,8 +1059,9 @@ class ApiAppApi
                 }
 
                 $httpBody = new MultipartStream($multipartContents);
+
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                // if Content-Type contains "application/json", json_encode the form parameters
+                # if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
             } else {
                 // for HTTP post (form)
@@ -1062,14 +1104,14 @@ class ApiAppApi
      *
      * List API Apps
      *
-     * @param int $page      Which page number of the API App List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
-     * @param int $page_size Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
+     * @param  int $page Which page number of the API App List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
+     * @param  int $page_size Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
      *
-     * @return Model\ApiAppListResponse
-     * @throws ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws InvalidArgumentException
+     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \Dropbox\Sign\Model\ApiAppListResponse|\Dropbox\Sign\Model\ErrorResponse
      */
-    public function apiAppList(int $page = 1, int $page_size = 20)
+    public function apiAppList($page = 1, $page_size = 20)
     {
         list($response) = $this->apiAppListWithHttpInfo($page, $page_size);
         return $response;
@@ -1080,16 +1122,16 @@ class ApiAppApi
      *
      * List API Apps
      *
-     * @param int    $page        Which page number of the API App List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
-     * @param int    $page_size   Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
-     * @param string $contentType The value for the Content-Type header. Check self::contentTypes['apiAppList'] to see the possible values for this operation
+     * @param  int $page Which page number of the API App List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
+     * @param  int $page_size Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiAppList'] to see the possible values for this operation
      *
-     * @return array of Model\ApiAppListResponse, HTTP status code, HTTP response headers (array of strings)
-     * @throws ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws InvalidArgumentException
+     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \Dropbox\Sign\Model\ApiAppListResponse|\Dropbox\Sign\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      * @deprecated Prefer to use ::apiAppList. This method will eventually become unavailable
      */
-    public function apiAppListWithHttpInfo(int $page = 1, int $page_size = 20, string $contentType = self::contentTypes['apiAppList'][0])
+    public function apiAppListWithHttpInfo($page = 1, $page_size = 20, string $contentType = self::contentTypes['apiAppList'][0])
     {
         $request = $this->apiAppListRequest($page, $page_size, $contentType);
 
@@ -1101,14 +1143,14 @@ class ApiAppApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int)$e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string)$e->getResponse()->getBody() : null
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int)$e->getCode(),
+                    (int) $e->getCode(),
                     null,
                     null
                 );
@@ -1121,14 +1163,14 @@ class ApiAppApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        (string)$request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    (string)$response->getBody()
+                    (string) $response->getBody()
                 );
             }
-
+            
             $result = $this->handleRangeCodeResponse(
                 $response,
                 '4XX',
@@ -1137,17 +1179,18 @@ class ApiAppApi
             if ($result) {
                 return $result;
             }
+            
 
-            switch ($statusCode) {
+            switch($statusCode) {
                 case 200:
                     if ('\Dropbox\Sign\Model\ApiAppListResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string)$response->getBody();
+                        $content = (string) $response->getBody();
                         if ('\Dropbox\Sign\Model\ApiAppListResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (JsonException $exception) {
+                            } catch (\JsonException $exception) {
                                 throw new ApiException(
                                     sprintf(
                                         'Error JSON decoding server response (%s)',
@@ -1164,19 +1207,20 @@ class ApiAppApi
                     return [
                         ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\ApiAppListResponse', []),
                         $response->getStatusCode(),
-                        $response->getHeaders(),
+                        $response->getHeaders()
                     ];
+                
             }
 
             $returnType = '\Dropbox\Sign\Model\ApiAppListResponse';
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); // stream goes to serializer
+                $content = $response->getBody(); //stream goes to serializer
             } else {
-                $content = (string)$response->getBody();
+                $content = (string) $response->getBody();
                 if ($returnType !== 'string') {
                     try {
                         $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                    } catch (JsonException $exception) {
+                    } catch (\JsonException $exception) {
                         throw new ApiException(
                             sprintf(
                                 'Error JSON decoding server response (%s)',
@@ -1193,9 +1237,11 @@ class ApiAppApi
             return [
                 ObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
-                $response->getHeaders(),
+                $response->getHeaders()
             ];
+
         } catch (ApiException $e) {
+            
             if ($this->handleRangeCodeException($e, '4XX', '\Dropbox\Sign\Model\ErrorResponse')) {
                 throw $e;
             }
@@ -1208,6 +1254,7 @@ class ApiAppApi
                     );
                     $e->setResponseObject($data);
                     break;
+                
             }
             throw $e;
         }
@@ -1218,15 +1265,15 @@ class ApiAppApi
      *
      * List API Apps
      *
-     * @param int    $page        Which page number of the API App List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
-     * @param int    $page_size   Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
-     * @param string $contentType The value for the Content-Type header. Check self::contentTypes['apiAppList'] to see the possible values for this operation
+     * @param  int $page Which page number of the API App List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
+     * @param  int $page_size Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiAppList'] to see the possible values for this operation
      *
+     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
-     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::apiAppList. This method will eventually become unavailable
      */
-    public function apiAppListAsync(int $page = 1, int $page_size = 20, string $contentType = self::contentTypes['apiAppList'][0])
+    public function apiAppListAsync($page = 1, $page_size = 20, string $contentType = self::contentTypes['apiAppList'][0])
     {
         return $this->apiAppListAsyncWithHttpInfo($page, $page_size, $contentType)
             ->then(
@@ -1241,15 +1288,15 @@ class ApiAppApi
      *
      * List API Apps
      *
-     * @param int    $page        Which page number of the API App List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
-     * @param int    $page_size   Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
-     * @param string $contentType The value for the Content-Type header. Check self::contentTypes['apiAppList'] to see the possible values for this operation
+     * @param  int $page Which page number of the API App List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
+     * @param  int $page_size Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiAppList'] to see the possible values for this operation
      *
+     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
-     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::apiAppList. This method will eventually become unavailable
      */
-    public function apiAppListAsyncWithHttpInfo(int $page = 1, int $page_size = 20, string $contentType = self::contentTypes['apiAppList'][0])
+    public function apiAppListAsyncWithHttpInfo($page = 1, $page_size = 20, string $contentType = self::contentTypes['apiAppList'][0])
     {
         $returnType = '\Dropbox\Sign\Model\ApiAppListResponse';
         $request = $this->apiAppListRequest($page, $page_size, $contentType);
@@ -1259,9 +1306,9 @@ class ApiAppApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string)$response->getBody();
+                        $content = (string) $response->getBody();
                         if ($returnType !== 'string') {
                             $content = json_decode($content);
                         }
@@ -1270,7 +1317,7 @@ class ApiAppApi
                     return [
                         ObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
-                        $response->getHeaders(),
+                        $response->getHeaders()
                     ];
                 },
                 function ($exception) {
@@ -1284,7 +1331,7 @@ class ApiAppApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        (string)$response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -1293,16 +1340,20 @@ class ApiAppApi
     /**
      * Create request for operation 'apiAppList'
      *
-     * @param int    $page        Which page number of the API App List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
-     * @param int    $page_size   Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
-     * @param string $contentType The value for the Content-Type header. Check self::contentTypes['apiAppList'] to see the possible values for this operation
+     * @param  int $page Which page number of the API App List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
+     * @param  int $page_size Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiAppList'] to see the possible values for this operation
      *
-     * @return Request
-     * @throws InvalidArgumentException
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
      * @deprecated Prefer to use ::apiAppList. This method will eventually become unavailable
      */
-    public function apiAppListRequest(int $page = 1, int $page_size = 20, string $contentType = self::contentTypes['apiAppList'][0])
+    public function apiAppListRequest($page = 1, $page_size = 20, string $contentType = self::contentTypes['apiAppList'][0])
     {
+
+
+
+
         $resourcePath = '/api_app/list';
         $formParams = [];
         $queryParams = [];
@@ -1329,8 +1380,11 @@ class ApiAppApi
             false // required
         ) ?? []);
 
+
+
+
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            $multipart ? ['multipart/form-data'] : ['application/json', ],
             $contentType,
             $multipart
         );
@@ -1344,7 +1398,7 @@ class ApiAppApi
                     foreach ($formParamValueItems as $formParamValueItem) {
                         $multipartContents[] = [
                             'name' => $formParamName,
-                            'contents' => $formParamValueItem,
+                            'contents' => $formParamValueItem
                         ];
                     }
                 }
@@ -1358,8 +1412,9 @@ class ApiAppApi
                 }
 
                 $httpBody = new MultipartStream($multipartContents);
+
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                // if Content-Type contains "application/json", json_encode the form parameters
+                # if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
             } else {
                 // for HTTP post (form)
@@ -1402,14 +1457,14 @@ class ApiAppApi
      *
      * Update API App
      *
-     * @param string                    $client_id              The client id of the API App to update. (required)
-     * @param Model\ApiAppUpdateRequest $api_app_update_request api_app_update_request (required)
+     * @param  string $client_id The client id of the API App to update. (required)
+     * @param  \Dropbox\Sign\Model\ApiAppUpdateRequest $api_app_update_request api_app_update_request (required)
      *
-     * @return Model\ApiAppGetResponse
-     * @throws ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws InvalidArgumentException
+     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \Dropbox\Sign\Model\ApiAppGetResponse|\Dropbox\Sign\Model\ErrorResponse
      */
-    public function apiAppUpdate(string $client_id, Model\ApiAppUpdateRequest $api_app_update_request)
+    public function apiAppUpdate($client_id, $api_app_update_request)
     {
         list($response) = $this->apiAppUpdateWithHttpInfo($client_id, $api_app_update_request);
         return $response;
@@ -1420,16 +1475,16 @@ class ApiAppApi
      *
      * Update API App
      *
-     * @param string                    $client_id              The client id of the API App to update. (required)
-     * @param Model\ApiAppUpdateRequest $api_app_update_request (required)
-     * @param string                    $contentType            The value for the Content-Type header. Check self::contentTypes['apiAppUpdate'] to see the possible values for this operation
+     * @param  string $client_id The client id of the API App to update. (required)
+     * @param  \Dropbox\Sign\Model\ApiAppUpdateRequest $api_app_update_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiAppUpdate'] to see the possible values for this operation
      *
-     * @return array of Model\ApiAppGetResponse, HTTP status code, HTTP response headers (array of strings)
-     * @throws ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws InvalidArgumentException
+     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \Dropbox\Sign\Model\ApiAppGetResponse|\Dropbox\Sign\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      * @deprecated Prefer to use ::apiAppUpdate. This method will eventually become unavailable
      */
-    public function apiAppUpdateWithHttpInfo(string $client_id, Model\ApiAppUpdateRequest $api_app_update_request, string $contentType = self::contentTypes['apiAppUpdate'][0])
+    public function apiAppUpdateWithHttpInfo($client_id, $api_app_update_request, string $contentType = self::contentTypes['apiAppUpdate'][0])
     {
         $request = $this->apiAppUpdateRequest($client_id, $api_app_update_request, $contentType);
 
@@ -1441,14 +1496,14 @@ class ApiAppApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int)$e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string)$e->getResponse()->getBody() : null
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int)$e->getCode(),
+                    (int) $e->getCode(),
                     null,
                     null
                 );
@@ -1461,14 +1516,14 @@ class ApiAppApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        (string)$request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    (string)$response->getBody()
+                    (string) $response->getBody()
                 );
             }
-
+            
             $result = $this->handleRangeCodeResponse(
                 $response,
                 '4XX',
@@ -1477,17 +1532,18 @@ class ApiAppApi
             if ($result) {
                 return $result;
             }
+            
 
-            switch ($statusCode) {
+            switch($statusCode) {
                 case 200:
                     if ('\Dropbox\Sign\Model\ApiAppGetResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string)$response->getBody();
+                        $content = (string) $response->getBody();
                         if ('\Dropbox\Sign\Model\ApiAppGetResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (JsonException $exception) {
+                            } catch (\JsonException $exception) {
                                 throw new ApiException(
                                     sprintf(
                                         'Error JSON decoding server response (%s)',
@@ -1504,19 +1560,20 @@ class ApiAppApi
                     return [
                         ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\ApiAppGetResponse', []),
                         $response->getStatusCode(),
-                        $response->getHeaders(),
+                        $response->getHeaders()
                     ];
+                
             }
 
             $returnType = '\Dropbox\Sign\Model\ApiAppGetResponse';
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); // stream goes to serializer
+                $content = $response->getBody(); //stream goes to serializer
             } else {
-                $content = (string)$response->getBody();
+                $content = (string) $response->getBody();
                 if ($returnType !== 'string') {
                     try {
                         $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                    } catch (JsonException $exception) {
+                    } catch (\JsonException $exception) {
                         throw new ApiException(
                             sprintf(
                                 'Error JSON decoding server response (%s)',
@@ -1533,9 +1590,11 @@ class ApiAppApi
             return [
                 ObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
-                $response->getHeaders(),
+                $response->getHeaders()
             ];
+
         } catch (ApiException $e) {
+            
             if ($this->handleRangeCodeException($e, '4XX', '\Dropbox\Sign\Model\ErrorResponse')) {
                 throw $e;
             }
@@ -1548,6 +1607,7 @@ class ApiAppApi
                     );
                     $e->setResponseObject($data);
                     break;
+                
             }
             throw $e;
         }
@@ -1558,15 +1618,15 @@ class ApiAppApi
      *
      * Update API App
      *
-     * @param string                    $client_id              The client id of the API App to update. (required)
-     * @param Model\ApiAppUpdateRequest $api_app_update_request (required)
-     * @param string                    $contentType            The value for the Content-Type header. Check self::contentTypes['apiAppUpdate'] to see the possible values for this operation
+     * @param  string $client_id The client id of the API App to update. (required)
+     * @param  \Dropbox\Sign\Model\ApiAppUpdateRequest $api_app_update_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiAppUpdate'] to see the possible values for this operation
      *
+     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
-     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::apiAppUpdate. This method will eventually become unavailable
      */
-    public function apiAppUpdateAsync(string $client_id, Model\ApiAppUpdateRequest $api_app_update_request, string $contentType = self::contentTypes['apiAppUpdate'][0])
+    public function apiAppUpdateAsync($client_id, $api_app_update_request, string $contentType = self::contentTypes['apiAppUpdate'][0])
     {
         return $this->apiAppUpdateAsyncWithHttpInfo($client_id, $api_app_update_request, $contentType)
             ->then(
@@ -1581,15 +1641,15 @@ class ApiAppApi
      *
      * Update API App
      *
-     * @param string                    $client_id              The client id of the API App to update. (required)
-     * @param Model\ApiAppUpdateRequest $api_app_update_request (required)
-     * @param string                    $contentType            The value for the Content-Type header. Check self::contentTypes['apiAppUpdate'] to see the possible values for this operation
+     * @param  string $client_id The client id of the API App to update. (required)
+     * @param  \Dropbox\Sign\Model\ApiAppUpdateRequest $api_app_update_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiAppUpdate'] to see the possible values for this operation
      *
+     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
-     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::apiAppUpdate. This method will eventually become unavailable
      */
-    public function apiAppUpdateAsyncWithHttpInfo(string $client_id, Model\ApiAppUpdateRequest $api_app_update_request, string $contentType = self::contentTypes['apiAppUpdate'][0])
+    public function apiAppUpdateAsyncWithHttpInfo($client_id, $api_app_update_request, string $contentType = self::contentTypes['apiAppUpdate'][0])
     {
         $returnType = '\Dropbox\Sign\Model\ApiAppGetResponse';
         $request = $this->apiAppUpdateRequest($client_id, $api_app_update_request, $contentType);
@@ -1599,9 +1659,9 @@ class ApiAppApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string)$response->getBody();
+                        $content = (string) $response->getBody();
                         if ($returnType !== 'string') {
                             $content = json_decode($content);
                         }
@@ -1610,7 +1670,7 @@ class ApiAppApi
                     return [
                         ObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
-                        $response->getHeaders(),
+                        $response->getHeaders()
                     ];
                 },
                 function ($exception) {
@@ -1624,7 +1684,7 @@ class ApiAppApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        (string)$response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -1633,29 +1693,31 @@ class ApiAppApi
     /**
      * Create request for operation 'apiAppUpdate'
      *
-     * @param string                    $client_id              The client id of the API App to update. (required)
-     * @param Model\ApiAppUpdateRequest $api_app_update_request (required)
-     * @param string                    $contentType            The value for the Content-Type header. Check self::contentTypes['apiAppUpdate'] to see the possible values for this operation
+     * @param  string $client_id The client id of the API App to update. (required)
+     * @param  \Dropbox\Sign\Model\ApiAppUpdateRequest $api_app_update_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['apiAppUpdate'] to see the possible values for this operation
      *
-     * @return Request
-     * @throws InvalidArgumentException
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
      * @deprecated Prefer to use ::apiAppUpdate. This method will eventually become unavailable
      */
-    public function apiAppUpdateRequest(string $client_id, Model\ApiAppUpdateRequest $api_app_update_request, string $contentType = self::contentTypes['apiAppUpdate'][0])
+    public function apiAppUpdateRequest($client_id, $api_app_update_request, string $contentType = self::contentTypes['apiAppUpdate'][0])
     {
+
         // verify the required parameter 'client_id' is set
         if ($client_id === null || (is_array($client_id) && count($client_id) === 0)) {
-            throw new InvalidArgumentException(
+            throw new \InvalidArgumentException(
                 'Missing the required parameter $client_id when calling apiAppUpdate'
             );
         }
 
         // verify the required parameter 'api_app_update_request' is set
         if ($api_app_update_request === null || (is_array($api_app_update_request) && count($api_app_update_request) === 0)) {
-            throw new InvalidArgumentException(
+            throw new \InvalidArgumentException(
                 'Missing the required parameter $api_app_update_request when calling apiAppUpdate'
             );
         }
+
 
         $resourcePath = '/api_app/{client_id}';
         $formParams = [];
@@ -1670,17 +1732,19 @@ class ApiAppApi
 
         $multipart = !empty($formParams);
 
+
         // path params
         if ($client_id !== null) {
             $resourcePath = str_replace(
-                '{client_id}',
+                '{' . 'client_id' . '}',
                 ObjectSerializer::toPathValue($client_id),
                 $resourcePath
             );
         }
 
+
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            $multipart ? ['multipart/form-data'] : ['application/json', ],
             $contentType,
             $multipart
         );
@@ -1688,7 +1752,7 @@ class ApiAppApi
         // for model (json/xml)
         if (count($formParams) === 0) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                // if Content-Type contains "application/json", json_encode the body
+                # if Content-Type contains "application/json", json_encode the body
                 $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($api_app_update_request));
             } else {
                 $httpBody = $api_app_update_request;
@@ -1701,7 +1765,7 @@ class ApiAppApi
                     foreach ($formParamValueItems as $formParamValueItem) {
                         $multipartContents[] = [
                             'name' => $formParamName,
-                            'contents' => $formParamValueItem,
+                            'contents' => $formParamValueItem
                         ];
                     }
                 }
@@ -1718,8 +1782,9 @@ class ApiAppApi
                     $payloadHook('multipart', $multipartContents, $api_app_update_request);
                 }
                 $httpBody = new MultipartStream($multipartContents);
+
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                // if Content-Type contains "application/json", json_encode the form parameters
+                # if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
             } else {
                 // for HTTP post (form)
@@ -1760,8 +1825,8 @@ class ApiAppApi
     /**
      * Create http client option
      *
+     * @throws \RuntimeException on file opening failure
      * @return array of http client options
-     * @throws RuntimeException on file opening failure
      */
     protected function createHttpClientOption()
     {
@@ -1769,7 +1834,7 @@ class ApiAppApi
         if ($this->config->getDebug()) {
             $options[RequestOptions::DEBUG] = fopen($this->config->getDebugFile(), 'a');
             if (!$options[RequestOptions::DEBUG]) {
-                throw new RuntimeException('Failed to open the debug file: ' . $this->config->getDebugFile());
+                throw new \RuntimeException('Failed to open the debug file: ' . $this->config->getDebugFile());
             }
         }
 
@@ -1785,8 +1850,8 @@ class ApiAppApi
         string $returnDataType
     ) {
         $statusCode = $response->getStatusCode();
-        $rangeCodeLeft = (int)(substr($rangeCode, 0, 1) . '00');
-        $rangeCodeRight = (int)(substr($rangeCode, 0, 1) . '99');
+        $rangeCodeLeft = (int) (substr($rangeCode, 0, 1) . '00');
+        $rangeCodeRight = (int) (substr($rangeCode, 0, 1) . '99');
 
         if (
             $statusCode < $rangeCodeLeft
@@ -1796,9 +1861,9 @@ class ApiAppApi
         }
 
         if ($returnDataType === '\SplFileObject') {
-            $content = $response->getBody(); // stream goes to serializer
+            $content = $response->getBody(); //stream goes to serializer
         } else {
-            $content = (string)$response->getBody();
+            $content = (string) $response->getBody();
         }
 
         return [
@@ -1817,8 +1882,8 @@ class ApiAppApi
         string $exceptionDataType
     ): bool {
         $statusCode = $e->getCode();
-        $rangeCodeLeft = (int)(substr($rangeCode, 0, 1) . '00');
-        $rangeCodeRight = (int)(substr($rangeCode, 0, 1) . '99');
+        $rangeCodeLeft = (int) (substr($rangeCode, 0, 1) . '00');
+        $rangeCodeRight = (int) (substr($rangeCode, 0, 1) . '99');
 
         if (
             $statusCode < $rangeCodeLeft

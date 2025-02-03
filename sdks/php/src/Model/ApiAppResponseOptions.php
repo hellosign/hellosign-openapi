@@ -5,7 +5,9 @@
  * PHP version 7.4
  *
  * @category Class
- * @see     https://openapi-generator.tech
+ * @package  Dropbox\Sign
+ * @author   OpenAPI Generator team
+ * @link     https://openapi-generator.tech
  */
 
 /**
@@ -27,65 +29,64 @@
 
 namespace Dropbox\Sign\Model;
 
-use ArrayAccess;
-use Dropbox\Sign\ObjectSerializer;
-use InvalidArgumentException;
-use JsonSerializable;
-use ReturnTypeWillChange;
+use \ArrayAccess;
+use \Dropbox\Sign\ObjectSerializer;
 
 /**
  * ApiAppResponseOptions Class Doc Comment
  *
  * @category Class
  * @description An object with options that override account settings.
- * @see     https://openapi-generator.tech
+ * @package  Dropbox\Sign
+ * @author   OpenAPI Generator team
+ * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class ApiAppResponseOptions implements ModelInterface, ArrayAccess, JsonSerializable
+class ApiAppResponseOptions implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
     /**
-     * The original name of the model.
-     *
-     * @var string
-     */
+      * The original name of the model.
+      *
+      * @var string
+      */
     protected static $openAPIModelName = 'ApiAppResponseOptions';
 
     /**
-     * Array of property to type mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to type mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPITypes = [
-        'can_insert_everywhere' => 'bool',
+        'can_insert_everywhere' => 'bool'
     ];
 
     /**
-     * Array of property to format mappings. Used for (de)serialization
-     *
-     * @var string[]
-     * @phpstan-var array<string, string|null>
-     * @psalm-var array<string, string|null>
-     */
+      * Array of property to format mappings. Used for (de)serialization
+      *
+      * @var string[]
+      * @phpstan-var array<string, string|null>
+      * @psalm-var array<string, string|null>
+      */
     protected static $openAPIFormats = [
-        'can_insert_everywhere' => null,
+        'can_insert_everywhere' => null
     ];
 
     /**
-     * Array of nullable properties. Used for (de)serialization
-     *
-     * @var bool[]
-     */
+      * Array of nullable properties. Used for (de)serialization
+      *
+      * @var boolean[]
+      */
     protected static array $openAPINullables = [
-        'can_insert_everywhere' => false,
+        'can_insert_everywhere' => false
     ];
 
     /**
-     * If a nullable field gets set to null, insert it here
-     *
-     * @var bool[]
-     */
+      * If a nullable field gets set to null, insert it here
+      *
+      * @var boolean[]
+      */
     protected array $openAPINullablesSetToNull = [];
 
     /**
@@ -110,6 +111,8 @@ class ApiAppResponseOptions implements ModelInterface, ArrayAccess, JsonSerializ
 
     /**
      * Array of nullable properties
+     *
+     * @return array
      */
     protected static function openAPINullables(): array
     {
@@ -119,7 +122,7 @@ class ApiAppResponseOptions implements ModelInterface, ArrayAccess, JsonSerializ
     /**
      * Array of nullable field names deliberately set to null
      *
-     * @return bool[]
+     * @return boolean[]
      */
     private function getOpenAPINullablesSetToNull(): array
     {
@@ -129,7 +132,7 @@ class ApiAppResponseOptions implements ModelInterface, ArrayAccess, JsonSerializ
     /**
      * Setter - Array of nullable field names deliberately set to null
      *
-     * @param bool[] $openAPINullablesSetToNull
+     * @param boolean[] $openAPINullablesSetToNull
      */
     private function setOpenAPINullablesSetToNull(array $openAPINullablesSetToNull): void
     {
@@ -138,6 +141,9 @@ class ApiAppResponseOptions implements ModelInterface, ArrayAccess, JsonSerializ
 
     /**
      * Checks if a property is nullable
+     *
+     * @param string $property
+     * @return bool
      */
     public static function isNullable(string $property): bool
     {
@@ -146,6 +152,9 @@ class ApiAppResponseOptions implements ModelInterface, ArrayAccess, JsonSerializ
 
     /**
      * Checks if a nullable property is set to null.
+     *
+     * @param string $property
+     * @return bool
      */
     public function isNullableSetToNull(string $property): bool
     {
@@ -159,7 +168,7 @@ class ApiAppResponseOptions implements ModelInterface, ArrayAccess, JsonSerializ
      * @var string[]
      */
     protected static $attributeMap = [
-        'can_insert_everywhere' => 'can_insert_everywhere',
+        'can_insert_everywhere' => 'can_insert_everywhere'
     ];
 
     /**
@@ -168,7 +177,7 @@ class ApiAppResponseOptions implements ModelInterface, ArrayAccess, JsonSerializ
      * @var string[]
      */
     protected static $setters = [
-        'can_insert_everywhere' => 'setCanInsertEverywhere',
+        'can_insert_everywhere' => 'setCanInsertEverywhere'
     ];
 
     /**
@@ -177,7 +186,7 @@ class ApiAppResponseOptions implements ModelInterface, ArrayAccess, JsonSerializ
      * @var string[]
      */
     protected static $getters = [
-        'can_insert_everywhere' => 'getCanInsertEverywhere',
+        'can_insert_everywhere' => 'getCanInsertEverywhere'
     ];
 
     /**
@@ -221,6 +230,7 @@ class ApiAppResponseOptions implements ModelInterface, ArrayAccess, JsonSerializ
         return self::$openAPIModelName;
     }
 
+
     /**
      * Associative array for storing property values
      *
@@ -239,33 +249,34 @@ class ApiAppResponseOptions implements ModelInterface, ArrayAccess, JsonSerializ
         $this->setIfExists('can_insert_everywhere', $data ?? [], null);
     }
 
-    /**
-     * @deprecated use ::init()
-     */
+    /** @deprecated use ::init() */
     public static function fromArray(array $data): ApiAppResponseOptions
     {
         return self::init($data);
     }
 
-    /**
-     * Attempt to instantiate and hydrate a new instance of this class
-     */
+    /** Attempt to instantiate and hydrate a new instance of this class */
     public static function init(array $data): ApiAppResponseOptions
     {
         /** @var ApiAppResponseOptions */
-        return ObjectSerializer::deserialize(
+        $obj = ObjectSerializer::deserialize(
             $data,
             ApiAppResponseOptions::class,
         );
+
+        return $obj;
     }
 
+
     /**
-     * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
-     * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
-     * $this->openAPINullablesSetToNull array
-     *
-     * @param string|int|object|array|mixed $defaultValue
-     */
+    * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
+    * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
+    * $this->openAPINullablesSetToNull array
+    *
+    * @param string $variableName
+    * @param array  $fields
+* @param string|int|object|array|mixed  $defaultValue
+    */
     private function setIfExists(string $variableName, array $fields, $defaultValue): void
     {
         if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
@@ -282,7 +293,9 @@ class ApiAppResponseOptions implements ModelInterface, ArrayAccess, JsonSerializ
      */
     public function listInvalidProperties()
     {
-        return [];
+        $invalidProperties = [];
+
+        return $invalidProperties;
     }
 
     /**
@@ -295,6 +308,7 @@ class ApiAppResponseOptions implements ModelInterface, ArrayAccess, JsonSerializ
     {
         return count($this->listInvalidProperties()) === 0;
     }
+
 
     /**
      * Gets can_insert_everywhere
@@ -313,22 +327,23 @@ class ApiAppResponseOptions implements ModelInterface, ArrayAccess, JsonSerializ
      *
      * @return self
      */
-    public function setCanInsertEverywhere(?bool $can_insert_everywhere)
+    public function setCanInsertEverywhere($can_insert_everywhere)
     {
         if (is_null($can_insert_everywhere)) {
-            throw new InvalidArgumentException('non-nullable can_insert_everywhere cannot be null');
+            throw new \InvalidArgumentException('non-nullable can_insert_everywhere cannot be null');
         }
         $this->container['can_insert_everywhere'] = $can_insert_everywhere;
 
         return $this;
     }
-
     /**
      * Returns true if offset exists. False otherwise.
      *
-     * @param int $offset Offset
+     * @param integer $offset Offset
+     *
+     * @return boolean
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
@@ -337,11 +352,11 @@ class ApiAppResponseOptions implements ModelInterface, ArrayAccess, JsonSerializ
     /**
      * Gets offset.
      *
-     * @param int $offset Offset
+     * @param integer $offset Offset
      *
      * @return mixed|null
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return $this->container[$offset] ?? null;
@@ -352,8 +367,10 @@ class ApiAppResponseOptions implements ModelInterface, ArrayAccess, JsonSerializ
      *
      * @param int|null $offset Offset
      * @param mixed    $value  Value to be set
+     *
+     * @return void
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
@@ -366,9 +383,11 @@ class ApiAppResponseOptions implements ModelInterface, ArrayAccess, JsonSerializ
     /**
      * Unsets offset.
      *
-     * @param int $offset Offset
+     * @param integer $offset Offset
+     *
+     * @return void
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
@@ -376,15 +395,15 @@ class ApiAppResponseOptions implements ModelInterface, ArrayAccess, JsonSerializ
 
     /**
      * Serializes the object to a value that can be serialized natively by json_encode().
-     * @see https://www.php.net/manual/en/jsonserializable.jsonserialize.php
+     * @link https://www.php.net/manual/en/jsonserializable.jsonserialize.php
      *
-     * @return mixed returns data which can be serialized by json_encode(), which is a value
-     *               of any type other than a resource
+     * @return mixed Returns data which can be serialized by json_encode(), which is a value
+     * of any type other than a resource.
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
-        return ObjectSerializer::sanitizeForSerialization($this);
+       return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**
@@ -410,3 +429,5 @@ class ApiAppResponseOptions implements ModelInterface, ArrayAccess, JsonSerializ
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
+
+

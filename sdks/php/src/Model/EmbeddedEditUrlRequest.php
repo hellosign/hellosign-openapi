@@ -5,7 +5,9 @@
  * PHP version 7.4
  *
  * @category Class
- * @see     https://openapi-generator.tech
+ * @package  Dropbox\Sign
+ * @author   OpenAPI Generator team
+ * @link     https://openapi-generator.tech
  */
 
 /**
@@ -27,35 +29,34 @@
 
 namespace Dropbox\Sign\Model;
 
-use ArrayAccess;
-use Dropbox\Sign\ObjectSerializer;
-use InvalidArgumentException;
-use JsonSerializable;
-use ReturnTypeWillChange;
+use \ArrayAccess;
+use \Dropbox\Sign\ObjectSerializer;
 
 /**
  * EmbeddedEditUrlRequest Class Doc Comment
  *
  * @category Class
- * @see     https://openapi-generator.tech
+ * @package  Dropbox\Sign
+ * @author   OpenAPI Generator team
+ * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class EmbeddedEditUrlRequest implements ModelInterface, ArrayAccess, JsonSerializable
+class EmbeddedEditUrlRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
     /**
-     * The original name of the model.
-     *
-     * @var string
-     */
+      * The original name of the model.
+      *
+      * @var string
+      */
     protected static $openAPIModelName = 'EmbeddedEditUrlRequest';
 
     /**
-     * Array of property to type mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to type mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPITypes = [
         'allow_edit_ccs' => 'bool',
         'cc_roles' => 'string[]',
@@ -66,16 +67,16 @@ class EmbeddedEditUrlRequest implements ModelInterface, ArrayAccess, JsonSeriali
         'preview_only' => 'bool',
         'show_preview' => 'bool',
         'show_progress_stepper' => 'bool',
-        'test_mode' => 'bool',
+        'test_mode' => 'bool'
     ];
 
     /**
-     * Array of property to format mappings. Used for (de)serialization
-     *
-     * @var string[]
-     * @phpstan-var array<string, string|null>
-     * @psalm-var array<string, string|null>
-     */
+      * Array of property to format mappings. Used for (de)serialization
+      *
+      * @var string[]
+      * @phpstan-var array<string, string|null>
+      * @psalm-var array<string, string|null>
+      */
     protected static $openAPIFormats = [
         'allow_edit_ccs' => null,
         'cc_roles' => null,
@@ -86,14 +87,14 @@ class EmbeddedEditUrlRequest implements ModelInterface, ArrayAccess, JsonSeriali
         'preview_only' => null,
         'show_preview' => null,
         'show_progress_stepper' => null,
-        'test_mode' => null,
+        'test_mode' => null
     ];
 
     /**
-     * Array of nullable properties. Used for (de)serialization
-     *
-     * @var bool[]
-     */
+      * Array of nullable properties. Used for (de)serialization
+      *
+      * @var boolean[]
+      */
     protected static array $openAPINullables = [
         'allow_edit_ccs' => false,
         'cc_roles' => false,
@@ -104,14 +105,14 @@ class EmbeddedEditUrlRequest implements ModelInterface, ArrayAccess, JsonSeriali
         'preview_only' => false,
         'show_preview' => false,
         'show_progress_stepper' => false,
-        'test_mode' => false,
+        'test_mode' => false
     ];
 
     /**
-     * If a nullable field gets set to null, insert it here
-     *
-     * @var bool[]
-     */
+      * If a nullable field gets set to null, insert it here
+      *
+      * @var boolean[]
+      */
     protected array $openAPINullablesSetToNull = [];
 
     /**
@@ -136,6 +137,8 @@ class EmbeddedEditUrlRequest implements ModelInterface, ArrayAccess, JsonSeriali
 
     /**
      * Array of nullable properties
+     *
+     * @return array
      */
     protected static function openAPINullables(): array
     {
@@ -145,7 +148,7 @@ class EmbeddedEditUrlRequest implements ModelInterface, ArrayAccess, JsonSeriali
     /**
      * Array of nullable field names deliberately set to null
      *
-     * @return bool[]
+     * @return boolean[]
      */
     private function getOpenAPINullablesSetToNull(): array
     {
@@ -155,7 +158,7 @@ class EmbeddedEditUrlRequest implements ModelInterface, ArrayAccess, JsonSeriali
     /**
      * Setter - Array of nullable field names deliberately set to null
      *
-     * @param bool[] $openAPINullablesSetToNull
+     * @param boolean[] $openAPINullablesSetToNull
      */
     private function setOpenAPINullablesSetToNull(array $openAPINullablesSetToNull): void
     {
@@ -164,6 +167,9 @@ class EmbeddedEditUrlRequest implements ModelInterface, ArrayAccess, JsonSeriali
 
     /**
      * Checks if a property is nullable
+     *
+     * @param string $property
+     * @return bool
      */
     public static function isNullable(string $property): bool
     {
@@ -172,6 +178,9 @@ class EmbeddedEditUrlRequest implements ModelInterface, ArrayAccess, JsonSeriali
 
     /**
      * Checks if a nullable property is set to null.
+     *
+     * @param string $property
+     * @return bool
      */
     public function isNullableSetToNull(string $property): bool
     {
@@ -194,7 +203,7 @@ class EmbeddedEditUrlRequest implements ModelInterface, ArrayAccess, JsonSeriali
         'preview_only' => 'preview_only',
         'show_preview' => 'show_preview',
         'show_progress_stepper' => 'show_progress_stepper',
-        'test_mode' => 'test_mode',
+        'test_mode' => 'test_mode'
     ];
 
     /**
@@ -212,7 +221,7 @@ class EmbeddedEditUrlRequest implements ModelInterface, ArrayAccess, JsonSeriali
         'preview_only' => 'setPreviewOnly',
         'show_preview' => 'setShowPreview',
         'show_progress_stepper' => 'setShowProgressStepper',
-        'test_mode' => 'setTestMode',
+        'test_mode' => 'setTestMode'
     ];
 
     /**
@@ -230,7 +239,7 @@ class EmbeddedEditUrlRequest implements ModelInterface, ArrayAccess, JsonSeriali
         'preview_only' => 'getPreviewOnly',
         'show_preview' => 'getShowPreview',
         'show_progress_stepper' => 'getShowProgressStepper',
-        'test_mode' => 'getTestMode',
+        'test_mode' => 'getTestMode'
     ];
 
     /**
@@ -274,6 +283,7 @@ class EmbeddedEditUrlRequest implements ModelInterface, ArrayAccess, JsonSeriali
         return self::$openAPIModelName;
     }
 
+
     /**
      * Associative array for storing property values
      *
@@ -301,33 +311,34 @@ class EmbeddedEditUrlRequest implements ModelInterface, ArrayAccess, JsonSeriali
         $this->setIfExists('test_mode', $data ?? [], false);
     }
 
-    /**
-     * @deprecated use ::init()
-     */
+    /** @deprecated use ::init() */
     public static function fromArray(array $data): EmbeddedEditUrlRequest
     {
         return self::init($data);
     }
 
-    /**
-     * Attempt to instantiate and hydrate a new instance of this class
-     */
+    /** Attempt to instantiate and hydrate a new instance of this class */
     public static function init(array $data): EmbeddedEditUrlRequest
     {
         /** @var EmbeddedEditUrlRequest */
-        return ObjectSerializer::deserialize(
+        $obj = ObjectSerializer::deserialize(
             $data,
             EmbeddedEditUrlRequest::class,
         );
+
+        return $obj;
     }
 
+
     /**
-     * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
-     * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
-     * $this->openAPINullablesSetToNull array
-     *
-     * @param string|int|object|array|mixed $defaultValue
-     */
+    * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
+    * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
+    * $this->openAPINullablesSetToNull array
+    *
+    * @param string $variableName
+    * @param array  $fields
+* @param string|int|object|array|mixed  $defaultValue
+    */
     private function setIfExists(string $variableName, array $fields, $defaultValue): void
     {
         if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
@@ -344,7 +355,9 @@ class EmbeddedEditUrlRequest implements ModelInterface, ArrayAccess, JsonSeriali
      */
     public function listInvalidProperties()
     {
-        return [];
+        $invalidProperties = [];
+
+        return $invalidProperties;
     }
 
     /**
@@ -357,6 +370,7 @@ class EmbeddedEditUrlRequest implements ModelInterface, ArrayAccess, JsonSeriali
     {
         return count($this->listInvalidProperties()) === 0;
     }
+
 
     /**
      * Gets allow_edit_ccs
@@ -371,14 +385,14 @@ class EmbeddedEditUrlRequest implements ModelInterface, ArrayAccess, JsonSeriali
     /**
      * Sets allow_edit_ccs
      *
-     * @param bool|null $allow_edit_ccs this allows the requester to enable/disable to add or change CC roles when editing the template
+     * @param bool|null $allow_edit_ccs This allows the requester to enable/disable to add or change CC roles when editing the template.
      *
      * @return self
      */
-    public function setAllowEditCcs(?bool $allow_edit_ccs)
+    public function setAllowEditCcs($allow_edit_ccs)
     {
         if (is_null($allow_edit_ccs)) {
-            throw new InvalidArgumentException('non-nullable allow_edit_ccs cannot be null');
+            throw new \InvalidArgumentException('non-nullable allow_edit_ccs cannot be null');
         }
         $this->container['allow_edit_ccs'] = $allow_edit_ccs;
 
@@ -402,10 +416,10 @@ class EmbeddedEditUrlRequest implements ModelInterface, ArrayAccess, JsonSeriali
      *
      * @return self
      */
-    public function setCcRoles(?array $cc_roles)
+    public function setCcRoles($cc_roles)
     {
         if (is_null($cc_roles)) {
-            throw new InvalidArgumentException('non-nullable cc_roles cannot be null');
+            throw new \InvalidArgumentException('non-nullable cc_roles cannot be null');
         }
         $this->container['cc_roles'] = $cc_roles;
 
@@ -415,7 +429,7 @@ class EmbeddedEditUrlRequest implements ModelInterface, ArrayAccess, JsonSeriali
     /**
      * Gets editor_options
      *
-     * @return SubEditorOptions|null
+     * @return \Dropbox\Sign\Model\SubEditorOptions|null
      */
     public function getEditorOptions()
     {
@@ -425,14 +439,14 @@ class EmbeddedEditUrlRequest implements ModelInterface, ArrayAccess, JsonSeriali
     /**
      * Sets editor_options
      *
-     * @param SubEditorOptions|null $editor_options editor_options
+     * @param \Dropbox\Sign\Model\SubEditorOptions|null $editor_options editor_options
      *
      * @return self
      */
-    public function setEditorOptions(?SubEditorOptions $editor_options)
+    public function setEditorOptions($editor_options)
     {
         if (is_null($editor_options)) {
-            throw new InvalidArgumentException('non-nullable editor_options cannot be null');
+            throw new \InvalidArgumentException('non-nullable editor_options cannot be null');
         }
         $this->container['editor_options'] = $editor_options;
 
@@ -452,14 +466,14 @@ class EmbeddedEditUrlRequest implements ModelInterface, ArrayAccess, JsonSeriali
     /**
      * Sets force_signer_roles
      *
-     * @param bool|null $force_signer_roles provide users the ability to review/edit the template signer roles
+     * @param bool|null $force_signer_roles Provide users the ability to review/edit the template signer roles.
      *
      * @return self
      */
-    public function setForceSignerRoles(?bool $force_signer_roles)
+    public function setForceSignerRoles($force_signer_roles)
     {
         if (is_null($force_signer_roles)) {
-            throw new InvalidArgumentException('non-nullable force_signer_roles cannot be null');
+            throw new \InvalidArgumentException('non-nullable force_signer_roles cannot be null');
         }
         $this->container['force_signer_roles'] = $force_signer_roles;
 
@@ -479,14 +493,14 @@ class EmbeddedEditUrlRequest implements ModelInterface, ArrayAccess, JsonSeriali
     /**
      * Sets force_subject_message
      *
-     * @param bool|null $force_subject_message provide users the ability to review/edit the template subject and message
+     * @param bool|null $force_subject_message Provide users the ability to review/edit the template subject and message.
      *
      * @return self
      */
-    public function setForceSubjectMessage(?bool $force_subject_message)
+    public function setForceSubjectMessage($force_subject_message)
     {
         if (is_null($force_subject_message)) {
-            throw new InvalidArgumentException('non-nullable force_subject_message cannot be null');
+            throw new \InvalidArgumentException('non-nullable force_subject_message cannot be null');
         }
         $this->container['force_subject_message'] = $force_subject_message;
 
@@ -496,7 +510,7 @@ class EmbeddedEditUrlRequest implements ModelInterface, ArrayAccess, JsonSeriali
     /**
      * Gets merge_fields
      *
-     * @return SubMergeField[]|null
+     * @return \Dropbox\Sign\Model\SubMergeField[]|null
      */
     public function getMergeFields()
     {
@@ -506,14 +520,14 @@ class EmbeddedEditUrlRequest implements ModelInterface, ArrayAccess, JsonSeriali
     /**
      * Sets merge_fields
      *
-     * @param SubMergeField[]|null $merge_fields Add additional merge fields to the template, which can be used used to pre-fill data by passing values into signature requests made with that template.  Remove all merge fields on the template by passing an empty array `[]`.
+     * @param \Dropbox\Sign\Model\SubMergeField[]|null $merge_fields Add additional merge fields to the template, which can be used used to pre-fill data by passing values into signature requests made with that template.  Remove all merge fields on the template by passing an empty array `[]`.
      *
      * @return self
      */
-    public function setMergeFields(?array $merge_fields)
+    public function setMergeFields($merge_fields)
     {
         if (is_null($merge_fields)) {
-            throw new InvalidArgumentException('non-nullable merge_fields cannot be null');
+            throw new \InvalidArgumentException('non-nullable merge_fields cannot be null');
         }
         $this->container['merge_fields'] = $merge_fields;
 
@@ -537,10 +551,10 @@ class EmbeddedEditUrlRequest implements ModelInterface, ArrayAccess, JsonSeriali
      *
      * @return self
      */
-    public function setPreviewOnly(?bool $preview_only)
+    public function setPreviewOnly($preview_only)
     {
         if (is_null($preview_only)) {
-            throw new InvalidArgumentException('non-nullable preview_only cannot be null');
+            throw new \InvalidArgumentException('non-nullable preview_only cannot be null');
         }
         $this->container['preview_only'] = $preview_only;
 
@@ -560,14 +574,14 @@ class EmbeddedEditUrlRequest implements ModelInterface, ArrayAccess, JsonSeriali
     /**
      * Sets show_preview
      *
-     * @param bool|null $show_preview this allows the requester to enable the editor/preview experience
+     * @param bool|null $show_preview This allows the requester to enable the editor/preview experience.
      *
      * @return self
      */
-    public function setShowPreview(?bool $show_preview)
+    public function setShowPreview($show_preview)
     {
         if (is_null($show_preview)) {
-            throw new InvalidArgumentException('non-nullable show_preview cannot be null');
+            throw new \InvalidArgumentException('non-nullable show_preview cannot be null');
         }
         $this->container['show_preview'] = $show_preview;
 
@@ -587,14 +601,14 @@ class EmbeddedEditUrlRequest implements ModelInterface, ArrayAccess, JsonSeriali
     /**
      * Sets show_progress_stepper
      *
-     * @param bool|null $show_progress_stepper when only one step remains in the signature request process and this parameter is set to `false` then the progress stepper will be hidden
+     * @param bool|null $show_progress_stepper When only one step remains in the signature request process and this parameter is set to `false` then the progress stepper will be hidden.
      *
      * @return self
      */
-    public function setShowProgressStepper(?bool $show_progress_stepper)
+    public function setShowProgressStepper($show_progress_stepper)
     {
         if (is_null($show_progress_stepper)) {
-            throw new InvalidArgumentException('non-nullable show_progress_stepper cannot be null');
+            throw new \InvalidArgumentException('non-nullable show_progress_stepper cannot be null');
         }
         $this->container['show_progress_stepper'] = $show_progress_stepper;
 
@@ -618,22 +632,23 @@ class EmbeddedEditUrlRequest implements ModelInterface, ArrayAccess, JsonSeriali
      *
      * @return self
      */
-    public function setTestMode(?bool $test_mode)
+    public function setTestMode($test_mode)
     {
         if (is_null($test_mode)) {
-            throw new InvalidArgumentException('non-nullable test_mode cannot be null');
+            throw new \InvalidArgumentException('non-nullable test_mode cannot be null');
         }
         $this->container['test_mode'] = $test_mode;
 
         return $this;
     }
-
     /**
      * Returns true if offset exists. False otherwise.
      *
-     * @param int $offset Offset
+     * @param integer $offset Offset
+     *
+     * @return boolean
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
@@ -642,11 +657,11 @@ class EmbeddedEditUrlRequest implements ModelInterface, ArrayAccess, JsonSeriali
     /**
      * Gets offset.
      *
-     * @param int $offset Offset
+     * @param integer $offset Offset
      *
      * @return mixed|null
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return $this->container[$offset] ?? null;
@@ -657,8 +672,10 @@ class EmbeddedEditUrlRequest implements ModelInterface, ArrayAccess, JsonSeriali
      *
      * @param int|null $offset Offset
      * @param mixed    $value  Value to be set
+     *
+     * @return void
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
@@ -671,9 +688,11 @@ class EmbeddedEditUrlRequest implements ModelInterface, ArrayAccess, JsonSeriali
     /**
      * Unsets offset.
      *
-     * @param int $offset Offset
+     * @param integer $offset Offset
+     *
+     * @return void
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
@@ -681,15 +700,15 @@ class EmbeddedEditUrlRequest implements ModelInterface, ArrayAccess, JsonSeriali
 
     /**
      * Serializes the object to a value that can be serialized natively by json_encode().
-     * @see https://www.php.net/manual/en/jsonserializable.jsonserialize.php
+     * @link https://www.php.net/manual/en/jsonserializable.jsonserialize.php
      *
-     * @return mixed returns data which can be serialized by json_encode(), which is a value
-     *               of any type other than a resource
+     * @return mixed Returns data which can be serialized by json_encode(), which is a value
+     * of any type other than a resource.
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
-        return ObjectSerializer::sanitizeForSerialization($this);
+       return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**
@@ -715,3 +734,5 @@ class EmbeddedEditUrlRequest implements ModelInterface, ArrayAccess, JsonSeriali
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
+
+

@@ -5,7 +5,9 @@
  * PHP version 7.4
  *
  * @category Class
- * @see     https://openapi-generator.tech
+ * @package  Dropbox\Sign
+ * @author   OpenAPI Generator team
+ * @link     https://openapi-generator.tech
  */
 
 /**
@@ -27,70 +29,69 @@
 
 namespace Dropbox\Sign\Model;
 
-use ArrayAccess;
-use Dropbox\Sign\ObjectSerializer;
-use InvalidArgumentException;
-use JsonSerializable;
-use ReturnTypeWillChange;
+use \ArrayAccess;
+use \Dropbox\Sign\ObjectSerializer;
 
 /**
  * SubFormFieldGroup Class Doc Comment
  *
  * @category Class
- * @see     https://openapi-generator.tech
+ * @package  Dropbox\Sign
+ * @author   OpenAPI Generator team
+ * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class SubFormFieldGroup implements ModelInterface, ArrayAccess, JsonSerializable
+class SubFormFieldGroup implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
     /**
-     * The original name of the model.
-     *
-     * @var string
-     */
+      * The original name of the model.
+      *
+      * @var string
+      */
     protected static $openAPIModelName = 'SubFormFieldGroup';
 
     /**
-     * Array of property to type mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to type mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPITypes = [
         'group_id' => 'string',
         'group_label' => 'string',
-        'requirement' => 'string',
+        'requirement' => 'string'
     ];
 
     /**
-     * Array of property to format mappings. Used for (de)serialization
-     *
-     * @var string[]
-     * @phpstan-var array<string, string|null>
-     * @psalm-var array<string, string|null>
-     */
+      * Array of property to format mappings. Used for (de)serialization
+      *
+      * @var string[]
+      * @phpstan-var array<string, string|null>
+      * @psalm-var array<string, string|null>
+      */
     protected static $openAPIFormats = [
         'group_id' => null,
         'group_label' => null,
-        'requirement' => null,
+        'requirement' => null
     ];
 
     /**
-     * Array of nullable properties. Used for (de)serialization
-     *
-     * @var bool[]
-     */
+      * Array of nullable properties. Used for (de)serialization
+      *
+      * @var boolean[]
+      */
     protected static array $openAPINullables = [
         'group_id' => false,
         'group_label' => false,
-        'requirement' => false,
+        'requirement' => false
     ];
 
     /**
-     * If a nullable field gets set to null, insert it here
-     *
-     * @var bool[]
-     */
+      * If a nullable field gets set to null, insert it here
+      *
+      * @var boolean[]
+      */
     protected array $openAPINullablesSetToNull = [];
 
     /**
@@ -115,6 +116,8 @@ class SubFormFieldGroup implements ModelInterface, ArrayAccess, JsonSerializable
 
     /**
      * Array of nullable properties
+     *
+     * @return array
      */
     protected static function openAPINullables(): array
     {
@@ -124,7 +127,7 @@ class SubFormFieldGroup implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Array of nullable field names deliberately set to null
      *
-     * @return bool[]
+     * @return boolean[]
      */
     private function getOpenAPINullablesSetToNull(): array
     {
@@ -134,7 +137,7 @@ class SubFormFieldGroup implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Setter - Array of nullable field names deliberately set to null
      *
-     * @param bool[] $openAPINullablesSetToNull
+     * @param boolean[] $openAPINullablesSetToNull
      */
     private function setOpenAPINullablesSetToNull(array $openAPINullablesSetToNull): void
     {
@@ -143,6 +146,9 @@ class SubFormFieldGroup implements ModelInterface, ArrayAccess, JsonSerializable
 
     /**
      * Checks if a property is nullable
+     *
+     * @param string $property
+     * @return bool
      */
     public static function isNullable(string $property): bool
     {
@@ -151,6 +157,9 @@ class SubFormFieldGroup implements ModelInterface, ArrayAccess, JsonSerializable
 
     /**
      * Checks if a nullable property is set to null.
+     *
+     * @param string $property
+     * @return bool
      */
     public function isNullableSetToNull(string $property): bool
     {
@@ -166,7 +175,7 @@ class SubFormFieldGroup implements ModelInterface, ArrayAccess, JsonSerializable
     protected static $attributeMap = [
         'group_id' => 'group_id',
         'group_label' => 'group_label',
-        'requirement' => 'requirement',
+        'requirement' => 'requirement'
     ];
 
     /**
@@ -177,7 +186,7 @@ class SubFormFieldGroup implements ModelInterface, ArrayAccess, JsonSerializable
     protected static $setters = [
         'group_id' => 'setGroupId',
         'group_label' => 'setGroupLabel',
-        'requirement' => 'setRequirement',
+        'requirement' => 'setRequirement'
     ];
 
     /**
@@ -188,7 +197,7 @@ class SubFormFieldGroup implements ModelInterface, ArrayAccess, JsonSerializable
     protected static $getters = [
         'group_id' => 'getGroupId',
         'group_label' => 'getGroupLabel',
-        'requirement' => 'getRequirement',
+        'requirement' => 'getRequirement'
     ];
 
     /**
@@ -232,6 +241,7 @@ class SubFormFieldGroup implements ModelInterface, ArrayAccess, JsonSerializable
         return self::$openAPIModelName;
     }
 
+
     /**
      * Associative array for storing property values
      *
@@ -252,33 +262,34 @@ class SubFormFieldGroup implements ModelInterface, ArrayAccess, JsonSerializable
         $this->setIfExists('requirement', $data ?? [], null);
     }
 
-    /**
-     * @deprecated use ::init()
-     */
+    /** @deprecated use ::init() */
     public static function fromArray(array $data): SubFormFieldGroup
     {
         return self::init($data);
     }
 
-    /**
-     * Attempt to instantiate and hydrate a new instance of this class
-     */
+    /** Attempt to instantiate and hydrate a new instance of this class */
     public static function init(array $data): SubFormFieldGroup
     {
         /** @var SubFormFieldGroup */
-        return ObjectSerializer::deserialize(
+        $obj = ObjectSerializer::deserialize(
             $data,
             SubFormFieldGroup::class,
         );
+
+        return $obj;
     }
 
+
     /**
-     * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
-     * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
-     * $this->openAPINullablesSetToNull array
-     *
-     * @param string|int|object|array|mixed $defaultValue
-     */
+    * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
+    * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
+    * $this->openAPINullablesSetToNull array
+    *
+    * @param string $variableName
+    * @param array  $fields
+* @param string|int|object|array|mixed  $defaultValue
+    */
     private function setIfExists(string $variableName, array $fields, $defaultValue): void
     {
         if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
@@ -320,6 +331,7 @@ class SubFormFieldGroup implements ModelInterface, ArrayAccess, JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
+
     /**
      * Gets group_id
      *
@@ -337,10 +349,10 @@ class SubFormFieldGroup implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @return self
      */
-    public function setGroupId(string $group_id)
+    public function setGroupId($group_id)
     {
         if (is_null($group_id)) {
-            throw new InvalidArgumentException('non-nullable group_id cannot be null');
+            throw new \InvalidArgumentException('non-nullable group_id cannot be null');
         }
         $this->container['group_id'] = $group_id;
 
@@ -364,10 +376,10 @@ class SubFormFieldGroup implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @return self
      */
-    public function setGroupLabel(string $group_label)
+    public function setGroupLabel($group_label)
     {
         if (is_null($group_label)) {
-            throw new InvalidArgumentException('non-nullable group_label cannot be null');
+            throw new \InvalidArgumentException('non-nullable group_label cannot be null');
         }
         $this->container['group_label'] = $group_label;
 
@@ -391,22 +403,23 @@ class SubFormFieldGroup implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @return self
      */
-    public function setRequirement(string $requirement)
+    public function setRequirement($requirement)
     {
         if (is_null($requirement)) {
-            throw new InvalidArgumentException('non-nullable requirement cannot be null');
+            throw new \InvalidArgumentException('non-nullable requirement cannot be null');
         }
         $this->container['requirement'] = $requirement;
 
         return $this;
     }
-
     /**
      * Returns true if offset exists. False otherwise.
      *
-     * @param int $offset Offset
+     * @param integer $offset Offset
+     *
+     * @return boolean
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
@@ -415,11 +428,11 @@ class SubFormFieldGroup implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets offset.
      *
-     * @param int $offset Offset
+     * @param integer $offset Offset
      *
      * @return mixed|null
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return $this->container[$offset] ?? null;
@@ -430,8 +443,10 @@ class SubFormFieldGroup implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param int|null $offset Offset
      * @param mixed    $value  Value to be set
+     *
+     * @return void
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
@@ -444,9 +459,11 @@ class SubFormFieldGroup implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Unsets offset.
      *
-     * @param int $offset Offset
+     * @param integer $offset Offset
+     *
+     * @return void
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
@@ -454,15 +471,15 @@ class SubFormFieldGroup implements ModelInterface, ArrayAccess, JsonSerializable
 
     /**
      * Serializes the object to a value that can be serialized natively by json_encode().
-     * @see https://www.php.net/manual/en/jsonserializable.jsonserialize.php
+     * @link https://www.php.net/manual/en/jsonserializable.jsonserialize.php
      *
-     * @return mixed returns data which can be serialized by json_encode(), which is a value
-     *               of any type other than a resource
+     * @return mixed Returns data which can be serialized by json_encode(), which is a value
+     * of any type other than a resource.
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
-        return ObjectSerializer::sanitizeForSerialization($this);
+       return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**
@@ -488,3 +505,5 @@ class SubFormFieldGroup implements ModelInterface, ArrayAccess, JsonSerializable
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
+
+

@@ -6,8 +6,8 @@ Contains information about an error that occurred.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-| `error_msg`<sup>*_required_</sup> | ```string``` |  Message describing an error.  |  |
-| `error_name`<sup>*_required_</sup> | ```string``` |  Name of the error.  |  |
-| `error_path` | ```string``` |  Path at which an error occurred.  |  |
+| `error_msg`<sup>*_required_</sup> | ```string``` | REPLACE_ME_WITH_DESCRIPTION_BEGIN Message describing an error. REPLACE_ME_WITH_DESCRIPTION_END |  |
+| `error_name`<sup>*_required_</sup> | ```string``` | REPLACE_ME_WITH_DESCRIPTION_BEGIN Name of the error. REPLACE_ME_WITH_DESCRIPTION_END |  |
+| `error_path` | ```string``` | REPLACE_ME_WITH_DESCRIPTION_BEGIN Path at which an error occurred. REPLACE_ME_WITH_DESCRIPTION_END |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

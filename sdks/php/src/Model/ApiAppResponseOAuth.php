@@ -5,7 +5,9 @@
  * PHP version 7.4
  *
  * @category Class
- * @see     https://openapi-generator.tech
+ * @package  Dropbox\Sign
+ * @author   OpenAPI Generator team
+ * @link     https://openapi-generator.tech
  */
 
 /**
@@ -27,74 +29,73 @@
 
 namespace Dropbox\Sign\Model;
 
-use ArrayAccess;
-use Dropbox\Sign\ObjectSerializer;
-use InvalidArgumentException;
-use JsonSerializable;
-use ReturnTypeWillChange;
+use \ArrayAccess;
+use \Dropbox\Sign\ObjectSerializer;
 
 /**
  * ApiAppResponseOAuth Class Doc Comment
  *
  * @category Class
  * @description An object describing the app&#39;s OAuth properties, or null if OAuth is not configured for the app.
- * @see     https://openapi-generator.tech
+ * @package  Dropbox\Sign
+ * @author   OpenAPI Generator team
+ * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class ApiAppResponseOAuth implements ModelInterface, ArrayAccess, JsonSerializable
+class ApiAppResponseOAuth implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
     /**
-     * The original name of the model.
-     *
-     * @var string
-     */
+      * The original name of the model.
+      *
+      * @var string
+      */
     protected static $openAPIModelName = 'ApiAppResponseOAuth';
 
     /**
-     * Array of property to type mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to type mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPITypes = [
         'callback_url' => 'string',
         'secret' => 'string',
         'scopes' => 'string[]',
-        'charges_users' => 'bool',
+        'charges_users' => 'bool'
     ];
 
     /**
-     * Array of property to format mappings. Used for (de)serialization
-     *
-     * @var string[]
-     * @phpstan-var array<string, string|null>
-     * @psalm-var array<string, string|null>
-     */
+      * Array of property to format mappings. Used for (de)serialization
+      *
+      * @var string[]
+      * @phpstan-var array<string, string|null>
+      * @psalm-var array<string, string|null>
+      */
     protected static $openAPIFormats = [
         'callback_url' => null,
         'secret' => null,
         'scopes' => null,
-        'charges_users' => null,
+        'charges_users' => null
     ];
 
     /**
-     * Array of nullable properties. Used for (de)serialization
-     *
-     * @var bool[]
-     */
+      * Array of nullable properties. Used for (de)serialization
+      *
+      * @var boolean[]
+      */
     protected static array $openAPINullables = [
         'callback_url' => false,
         'secret' => true,
         'scopes' => false,
-        'charges_users' => false,
+        'charges_users' => false
     ];
 
     /**
-     * If a nullable field gets set to null, insert it here
-     *
-     * @var bool[]
-     */
+      * If a nullable field gets set to null, insert it here
+      *
+      * @var boolean[]
+      */
     protected array $openAPINullablesSetToNull = [];
 
     /**
@@ -119,6 +120,8 @@ class ApiAppResponseOAuth implements ModelInterface, ArrayAccess, JsonSerializab
 
     /**
      * Array of nullable properties
+     *
+     * @return array
      */
     protected static function openAPINullables(): array
     {
@@ -128,7 +131,7 @@ class ApiAppResponseOAuth implements ModelInterface, ArrayAccess, JsonSerializab
     /**
      * Array of nullable field names deliberately set to null
      *
-     * @return bool[]
+     * @return boolean[]
      */
     private function getOpenAPINullablesSetToNull(): array
     {
@@ -138,7 +141,7 @@ class ApiAppResponseOAuth implements ModelInterface, ArrayAccess, JsonSerializab
     /**
      * Setter - Array of nullable field names deliberately set to null
      *
-     * @param bool[] $openAPINullablesSetToNull
+     * @param boolean[] $openAPINullablesSetToNull
      */
     private function setOpenAPINullablesSetToNull(array $openAPINullablesSetToNull): void
     {
@@ -147,6 +150,9 @@ class ApiAppResponseOAuth implements ModelInterface, ArrayAccess, JsonSerializab
 
     /**
      * Checks if a property is nullable
+     *
+     * @param string $property
+     * @return bool
      */
     public static function isNullable(string $property): bool
     {
@@ -155,6 +161,9 @@ class ApiAppResponseOAuth implements ModelInterface, ArrayAccess, JsonSerializab
 
     /**
      * Checks if a nullable property is set to null.
+     *
+     * @param string $property
+     * @return bool
      */
     public function isNullableSetToNull(string $property): bool
     {
@@ -171,7 +180,7 @@ class ApiAppResponseOAuth implements ModelInterface, ArrayAccess, JsonSerializab
         'callback_url' => 'callback_url',
         'secret' => 'secret',
         'scopes' => 'scopes',
-        'charges_users' => 'charges_users',
+        'charges_users' => 'charges_users'
     ];
 
     /**
@@ -183,7 +192,7 @@ class ApiAppResponseOAuth implements ModelInterface, ArrayAccess, JsonSerializab
         'callback_url' => 'setCallbackUrl',
         'secret' => 'setSecret',
         'scopes' => 'setScopes',
-        'charges_users' => 'setChargesUsers',
+        'charges_users' => 'setChargesUsers'
     ];
 
     /**
@@ -195,7 +204,7 @@ class ApiAppResponseOAuth implements ModelInterface, ArrayAccess, JsonSerializab
         'callback_url' => 'getCallbackUrl',
         'secret' => 'getSecret',
         'scopes' => 'getScopes',
-        'charges_users' => 'getChargesUsers',
+        'charges_users' => 'getChargesUsers'
     ];
 
     /**
@@ -239,6 +248,7 @@ class ApiAppResponseOAuth implements ModelInterface, ArrayAccess, JsonSerializab
         return self::$openAPIModelName;
     }
 
+
     /**
      * Associative array for storing property values
      *
@@ -260,33 +270,34 @@ class ApiAppResponseOAuth implements ModelInterface, ArrayAccess, JsonSerializab
         $this->setIfExists('charges_users', $data ?? [], null);
     }
 
-    /**
-     * @deprecated use ::init()
-     */
+    /** @deprecated use ::init() */
     public static function fromArray(array $data): ApiAppResponseOAuth
     {
         return self::init($data);
     }
 
-    /**
-     * Attempt to instantiate and hydrate a new instance of this class
-     */
+    /** Attempt to instantiate and hydrate a new instance of this class */
     public static function init(array $data): ApiAppResponseOAuth
     {
         /** @var ApiAppResponseOAuth */
-        return ObjectSerializer::deserialize(
+        $obj = ObjectSerializer::deserialize(
             $data,
             ApiAppResponseOAuth::class,
         );
+
+        return $obj;
     }
 
+
     /**
-     * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
-     * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
-     * $this->openAPINullablesSetToNull array
-     *
-     * @param string|int|object|array|mixed $defaultValue
-     */
+    * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
+    * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
+    * $this->openAPINullablesSetToNull array
+    *
+    * @param string $variableName
+    * @param array  $fields
+* @param string|int|object|array|mixed  $defaultValue
+    */
     private function setIfExists(string $variableName, array $fields, $defaultValue): void
     {
         if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
@@ -303,7 +314,9 @@ class ApiAppResponseOAuth implements ModelInterface, ArrayAccess, JsonSerializab
      */
     public function listInvalidProperties()
     {
-        return [];
+        $invalidProperties = [];
+
+        return $invalidProperties;
     }
 
     /**
@@ -316,6 +329,7 @@ class ApiAppResponseOAuth implements ModelInterface, ArrayAccess, JsonSerializab
     {
         return count($this->listInvalidProperties()) === 0;
     }
+
 
     /**
      * Gets callback_url
@@ -330,14 +344,14 @@ class ApiAppResponseOAuth implements ModelInterface, ArrayAccess, JsonSerializab
     /**
      * Sets callback_url
      *
-     * @param string|null $callback_url the app's OAuth callback URL
+     * @param string|null $callback_url The app's OAuth callback URL.
      *
      * @return self
      */
-    public function setCallbackUrl(?string $callback_url)
+    public function setCallbackUrl($callback_url)
     {
         if (is_null($callback_url)) {
-            throw new InvalidArgumentException('non-nullable callback_url cannot be null');
+            throw new \InvalidArgumentException('non-nullable callback_url cannot be null');
         }
         $this->container['callback_url'] = $callback_url;
 
@@ -357,18 +371,18 @@ class ApiAppResponseOAuth implements ModelInterface, ArrayAccess, JsonSerializab
     /**
      * Sets secret
      *
-     * @param string|null $secret the app's OAuth secret, or null if the app does not belong to user
+     * @param string|null $secret The app's OAuth secret, or null if the app does not belong to user.
      *
      * @return self
      */
-    public function setSecret(?string $secret)
+    public function setSecret($secret)
     {
         if (is_null($secret)) {
             array_push($this->openAPINullablesSetToNull, 'secret');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
             $index = array_search('secret', $nullablesSetToNull);
-            if ($index !== false) {
+            if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
@@ -391,14 +405,14 @@ class ApiAppResponseOAuth implements ModelInterface, ArrayAccess, JsonSerializab
     /**
      * Sets scopes
      *
-     * @param string[]|null $scopes array of OAuth scopes used by the app
+     * @param string[]|null $scopes Array of OAuth scopes used by the app.
      *
      * @return self
      */
-    public function setScopes(?array $scopes)
+    public function setScopes($scopes)
     {
         if (is_null($scopes)) {
-            throw new InvalidArgumentException('non-nullable scopes cannot be null');
+            throw new \InvalidArgumentException('non-nullable scopes cannot be null');
         }
         $this->container['scopes'] = $scopes;
 
@@ -418,26 +432,27 @@ class ApiAppResponseOAuth implements ModelInterface, ArrayAccess, JsonSerializab
     /**
      * Sets charges_users
      *
-     * @param bool|null $charges_users boolean indicating whether the app owner or the account granting permission is billed for OAuth requests
+     * @param bool|null $charges_users Boolean indicating whether the app owner or the account granting permission is billed for OAuth requests.
      *
      * @return self
      */
-    public function setChargesUsers(?bool $charges_users)
+    public function setChargesUsers($charges_users)
     {
         if (is_null($charges_users)) {
-            throw new InvalidArgumentException('non-nullable charges_users cannot be null');
+            throw new \InvalidArgumentException('non-nullable charges_users cannot be null');
         }
         $this->container['charges_users'] = $charges_users;
 
         return $this;
     }
-
     /**
      * Returns true if offset exists. False otherwise.
      *
-     * @param int $offset Offset
+     * @param integer $offset Offset
+     *
+     * @return boolean
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
@@ -446,11 +461,11 @@ class ApiAppResponseOAuth implements ModelInterface, ArrayAccess, JsonSerializab
     /**
      * Gets offset.
      *
-     * @param int $offset Offset
+     * @param integer $offset Offset
      *
      * @return mixed|null
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return $this->container[$offset] ?? null;
@@ -461,8 +476,10 @@ class ApiAppResponseOAuth implements ModelInterface, ArrayAccess, JsonSerializab
      *
      * @param int|null $offset Offset
      * @param mixed    $value  Value to be set
+     *
+     * @return void
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
@@ -475,9 +492,11 @@ class ApiAppResponseOAuth implements ModelInterface, ArrayAccess, JsonSerializab
     /**
      * Unsets offset.
      *
-     * @param int $offset Offset
+     * @param integer $offset Offset
+     *
+     * @return void
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
@@ -485,15 +504,15 @@ class ApiAppResponseOAuth implements ModelInterface, ArrayAccess, JsonSerializab
 
     /**
      * Serializes the object to a value that can be serialized natively by json_encode().
-     * @see https://www.php.net/manual/en/jsonserializable.jsonserialize.php
+     * @link https://www.php.net/manual/en/jsonserializable.jsonserialize.php
      *
-     * @return mixed returns data which can be serialized by json_encode(), which is a value
-     *               of any type other than a resource
+     * @return mixed Returns data which can be serialized by json_encode(), which is a value
+     * of any type other than a resource.
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
-        return ObjectSerializer::sanitizeForSerialization($this);
+       return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**
@@ -519,3 +538,5 @@ class ApiAppResponseOAuth implements ModelInterface, ArrayAccess, JsonSerializab
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
+
+

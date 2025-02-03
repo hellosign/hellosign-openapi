@@ -5,7 +5,9 @@
  * PHP version 7.4
  *
  * @category Class
- * @see     https://openapi-generator.tech
+ * @package  Dropbox\Sign
+ * @author   OpenAPI Generator team
+ * @link     https://openapi-generator.tech
  */
 
 /**
@@ -27,35 +29,34 @@
 
 namespace Dropbox\Sign\Model;
 
-use ArrayAccess;
-use Dropbox\Sign\ObjectSerializer;
-use InvalidArgumentException;
-use JsonSerializable;
-use ReturnTypeWillChange;
+use \ArrayAccess;
+use \Dropbox\Sign\ObjectSerializer;
 
 /**
  * UnclaimedDraftEditAndResendRequest Class Doc Comment
  *
  * @category Class
- * @see     https://openapi-generator.tech
+ * @package  Dropbox\Sign
+ * @author   OpenAPI Generator team
+ * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class UnclaimedDraftEditAndResendRequest implements ModelInterface, ArrayAccess, JsonSerializable
+class UnclaimedDraftEditAndResendRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
     /**
-     * The original name of the model.
-     *
-     * @var string
-     */
+      * The original name of the model.
+      *
+      * @var string
+      */
     protected static $openAPIModelName = 'UnclaimedDraftEditAndResendRequest';
 
     /**
-     * Array of property to type mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to type mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPITypes = [
         'client_id' => 'string',
         'editor_options' => '\Dropbox\Sign\Model\SubEditorOptions',
@@ -64,16 +65,16 @@ class UnclaimedDraftEditAndResendRequest implements ModelInterface, ArrayAccess,
         'requesting_redirect_url' => 'string',
         'show_progress_stepper' => 'bool',
         'signing_redirect_url' => 'string',
-        'test_mode' => 'bool',
+        'test_mode' => 'bool'
     ];
 
     /**
-     * Array of property to format mappings. Used for (de)serialization
-     *
-     * @var string[]
-     * @phpstan-var array<string, string|null>
-     * @psalm-var array<string, string|null>
-     */
+      * Array of property to format mappings. Used for (de)serialization
+      *
+      * @var string[]
+      * @phpstan-var array<string, string|null>
+      * @psalm-var array<string, string|null>
+      */
     protected static $openAPIFormats = [
         'client_id' => null,
         'editor_options' => null,
@@ -82,14 +83,14 @@ class UnclaimedDraftEditAndResendRequest implements ModelInterface, ArrayAccess,
         'requesting_redirect_url' => null,
         'show_progress_stepper' => null,
         'signing_redirect_url' => null,
-        'test_mode' => null,
+        'test_mode' => null
     ];
 
     /**
-     * Array of nullable properties. Used for (de)serialization
-     *
-     * @var bool[]
-     */
+      * Array of nullable properties. Used for (de)serialization
+      *
+      * @var boolean[]
+      */
     protected static array $openAPINullables = [
         'client_id' => false,
         'editor_options' => false,
@@ -98,14 +99,14 @@ class UnclaimedDraftEditAndResendRequest implements ModelInterface, ArrayAccess,
         'requesting_redirect_url' => false,
         'show_progress_stepper' => false,
         'signing_redirect_url' => false,
-        'test_mode' => false,
+        'test_mode' => false
     ];
 
     /**
-     * If a nullable field gets set to null, insert it here
-     *
-     * @var bool[]
-     */
+      * If a nullable field gets set to null, insert it here
+      *
+      * @var boolean[]
+      */
     protected array $openAPINullablesSetToNull = [];
 
     /**
@@ -130,6 +131,8 @@ class UnclaimedDraftEditAndResendRequest implements ModelInterface, ArrayAccess,
 
     /**
      * Array of nullable properties
+     *
+     * @return array
      */
     protected static function openAPINullables(): array
     {
@@ -139,7 +142,7 @@ class UnclaimedDraftEditAndResendRequest implements ModelInterface, ArrayAccess,
     /**
      * Array of nullable field names deliberately set to null
      *
-     * @return bool[]
+     * @return boolean[]
      */
     private function getOpenAPINullablesSetToNull(): array
     {
@@ -149,7 +152,7 @@ class UnclaimedDraftEditAndResendRequest implements ModelInterface, ArrayAccess,
     /**
      * Setter - Array of nullable field names deliberately set to null
      *
-     * @param bool[] $openAPINullablesSetToNull
+     * @param boolean[] $openAPINullablesSetToNull
      */
     private function setOpenAPINullablesSetToNull(array $openAPINullablesSetToNull): void
     {
@@ -158,6 +161,9 @@ class UnclaimedDraftEditAndResendRequest implements ModelInterface, ArrayAccess,
 
     /**
      * Checks if a property is nullable
+     *
+     * @param string $property
+     * @return bool
      */
     public static function isNullable(string $property): bool
     {
@@ -166,6 +172,9 @@ class UnclaimedDraftEditAndResendRequest implements ModelInterface, ArrayAccess,
 
     /**
      * Checks if a nullable property is set to null.
+     *
+     * @param string $property
+     * @return bool
      */
     public function isNullableSetToNull(string $property): bool
     {
@@ -186,7 +195,7 @@ class UnclaimedDraftEditAndResendRequest implements ModelInterface, ArrayAccess,
         'requesting_redirect_url' => 'requesting_redirect_url',
         'show_progress_stepper' => 'show_progress_stepper',
         'signing_redirect_url' => 'signing_redirect_url',
-        'test_mode' => 'test_mode',
+        'test_mode' => 'test_mode'
     ];
 
     /**
@@ -202,7 +211,7 @@ class UnclaimedDraftEditAndResendRequest implements ModelInterface, ArrayAccess,
         'requesting_redirect_url' => 'setRequestingRedirectUrl',
         'show_progress_stepper' => 'setShowProgressStepper',
         'signing_redirect_url' => 'setSigningRedirectUrl',
-        'test_mode' => 'setTestMode',
+        'test_mode' => 'setTestMode'
     ];
 
     /**
@@ -218,7 +227,7 @@ class UnclaimedDraftEditAndResendRequest implements ModelInterface, ArrayAccess,
         'requesting_redirect_url' => 'getRequestingRedirectUrl',
         'show_progress_stepper' => 'getShowProgressStepper',
         'signing_redirect_url' => 'getSigningRedirectUrl',
-        'test_mode' => 'getTestMode',
+        'test_mode' => 'getTestMode'
     ];
 
     /**
@@ -262,6 +271,7 @@ class UnclaimedDraftEditAndResendRequest implements ModelInterface, ArrayAccess,
         return self::$openAPIModelName;
     }
 
+
     /**
      * Associative array for storing property values
      *
@@ -287,33 +297,34 @@ class UnclaimedDraftEditAndResendRequest implements ModelInterface, ArrayAccess,
         $this->setIfExists('test_mode', $data ?? [], false);
     }
 
-    /**
-     * @deprecated use ::init()
-     */
+    /** @deprecated use ::init() */
     public static function fromArray(array $data): UnclaimedDraftEditAndResendRequest
     {
         return self::init($data);
     }
 
-    /**
-     * Attempt to instantiate and hydrate a new instance of this class
-     */
+    /** Attempt to instantiate and hydrate a new instance of this class */
     public static function init(array $data): UnclaimedDraftEditAndResendRequest
     {
         /** @var UnclaimedDraftEditAndResendRequest */
-        return ObjectSerializer::deserialize(
+        $obj = ObjectSerializer::deserialize(
             $data,
             UnclaimedDraftEditAndResendRequest::class,
         );
+
+        return $obj;
     }
 
+
     /**
-     * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
-     * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
-     * $this->openAPINullablesSetToNull array
-     *
-     * @param string|int|object|array|mixed $defaultValue
-     */
+    * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
+    * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
+    * $this->openAPINullablesSetToNull array
+    *
+    * @param string $variableName
+    * @param array  $fields
+* @param string|int|object|array|mixed  $defaultValue
+    */
     private function setIfExists(string $variableName, array $fields, $defaultValue): void
     {
         if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
@@ -349,6 +360,7 @@ class UnclaimedDraftEditAndResendRequest implements ModelInterface, ArrayAccess,
         return count($this->listInvalidProperties()) === 0;
     }
 
+
     /**
      * Gets client_id
      *
@@ -366,10 +378,10 @@ class UnclaimedDraftEditAndResendRequest implements ModelInterface, ArrayAccess,
      *
      * @return self
      */
-    public function setClientId(string $client_id)
+    public function setClientId($client_id)
     {
         if (is_null($client_id)) {
-            throw new InvalidArgumentException('non-nullable client_id cannot be null');
+            throw new \InvalidArgumentException('non-nullable client_id cannot be null');
         }
         $this->container['client_id'] = $client_id;
 
@@ -379,7 +391,7 @@ class UnclaimedDraftEditAndResendRequest implements ModelInterface, ArrayAccess,
     /**
      * Gets editor_options
      *
-     * @return SubEditorOptions|null
+     * @return \Dropbox\Sign\Model\SubEditorOptions|null
      */
     public function getEditorOptions()
     {
@@ -389,14 +401,14 @@ class UnclaimedDraftEditAndResendRequest implements ModelInterface, ArrayAccess,
     /**
      * Sets editor_options
      *
-     * @param SubEditorOptions|null $editor_options editor_options
+     * @param \Dropbox\Sign\Model\SubEditorOptions|null $editor_options editor_options
      *
      * @return self
      */
-    public function setEditorOptions(?SubEditorOptions $editor_options)
+    public function setEditorOptions($editor_options)
     {
         if (is_null($editor_options)) {
-            throw new InvalidArgumentException('non-nullable editor_options cannot be null');
+            throw new \InvalidArgumentException('non-nullable editor_options cannot be null');
         }
         $this->container['editor_options'] = $editor_options;
 
@@ -416,14 +428,14 @@ class UnclaimedDraftEditAndResendRequest implements ModelInterface, ArrayAccess,
     /**
      * Sets is_for_embedded_signing
      *
-     * @param bool|null $is_for_embedded_signing the request created from this draft will also be signable in embedded mode if set to `true`
+     * @param bool|null $is_for_embedded_signing The request created from this draft will also be signable in embedded mode if set to `true`.
      *
      * @return self
      */
-    public function setIsForEmbeddedSigning(?bool $is_for_embedded_signing)
+    public function setIsForEmbeddedSigning($is_for_embedded_signing)
     {
         if (is_null($is_for_embedded_signing)) {
-            throw new InvalidArgumentException('non-nullable is_for_embedded_signing cannot be null');
+            throw new \InvalidArgumentException('non-nullable is_for_embedded_signing cannot be null');
         }
         $this->container['is_for_embedded_signing'] = $is_for_embedded_signing;
 
@@ -447,10 +459,10 @@ class UnclaimedDraftEditAndResendRequest implements ModelInterface, ArrayAccess,
      *
      * @return self
      */
-    public function setRequesterEmailAddress(?string $requester_email_address)
+    public function setRequesterEmailAddress($requester_email_address)
     {
         if (is_null($requester_email_address)) {
-            throw new InvalidArgumentException('non-nullable requester_email_address cannot be null');
+            throw new \InvalidArgumentException('non-nullable requester_email_address cannot be null');
         }
         $this->container['requester_email_address'] = $requester_email_address;
 
@@ -470,14 +482,14 @@ class UnclaimedDraftEditAndResendRequest implements ModelInterface, ArrayAccess,
     /**
      * Sets requesting_redirect_url
      *
-     * @param string|null $requesting_redirect_url the URL you want signers redirected to after they successfully request a signature
+     * @param string|null $requesting_redirect_url The URL you want signers redirected to after they successfully request a signature.
      *
      * @return self
      */
-    public function setRequestingRedirectUrl(?string $requesting_redirect_url)
+    public function setRequestingRedirectUrl($requesting_redirect_url)
     {
         if (is_null($requesting_redirect_url)) {
-            throw new InvalidArgumentException('non-nullable requesting_redirect_url cannot be null');
+            throw new \InvalidArgumentException('non-nullable requesting_redirect_url cannot be null');
         }
         $this->container['requesting_redirect_url'] = $requesting_redirect_url;
 
@@ -497,14 +509,14 @@ class UnclaimedDraftEditAndResendRequest implements ModelInterface, ArrayAccess,
     /**
      * Sets show_progress_stepper
      *
-     * @param bool|null $show_progress_stepper when only one step remains in the signature request process and this parameter is set to `false` then the progress stepper will be hidden
+     * @param bool|null $show_progress_stepper When only one step remains in the signature request process and this parameter is set to `false` then the progress stepper will be hidden.
      *
      * @return self
      */
-    public function setShowProgressStepper(?bool $show_progress_stepper)
+    public function setShowProgressStepper($show_progress_stepper)
     {
         if (is_null($show_progress_stepper)) {
-            throw new InvalidArgumentException('non-nullable show_progress_stepper cannot be null');
+            throw new \InvalidArgumentException('non-nullable show_progress_stepper cannot be null');
         }
         $this->container['show_progress_stepper'] = $show_progress_stepper;
 
@@ -524,14 +536,14 @@ class UnclaimedDraftEditAndResendRequest implements ModelInterface, ArrayAccess,
     /**
      * Sets signing_redirect_url
      *
-     * @param string|null $signing_redirect_url the URL you want signers redirected to after they successfully sign
+     * @param string|null $signing_redirect_url The URL you want signers redirected to after they successfully sign.
      *
      * @return self
      */
-    public function setSigningRedirectUrl(?string $signing_redirect_url)
+    public function setSigningRedirectUrl($signing_redirect_url)
     {
         if (is_null($signing_redirect_url)) {
-            throw new InvalidArgumentException('non-nullable signing_redirect_url cannot be null');
+            throw new \InvalidArgumentException('non-nullable signing_redirect_url cannot be null');
         }
         $this->container['signing_redirect_url'] = $signing_redirect_url;
 
@@ -555,22 +567,23 @@ class UnclaimedDraftEditAndResendRequest implements ModelInterface, ArrayAccess,
      *
      * @return self
      */
-    public function setTestMode(?bool $test_mode)
+    public function setTestMode($test_mode)
     {
         if (is_null($test_mode)) {
-            throw new InvalidArgumentException('non-nullable test_mode cannot be null');
+            throw new \InvalidArgumentException('non-nullable test_mode cannot be null');
         }
         $this->container['test_mode'] = $test_mode;
 
         return $this;
     }
-
     /**
      * Returns true if offset exists. False otherwise.
      *
-     * @param int $offset Offset
+     * @param integer $offset Offset
+     *
+     * @return boolean
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
@@ -579,11 +592,11 @@ class UnclaimedDraftEditAndResendRequest implements ModelInterface, ArrayAccess,
     /**
      * Gets offset.
      *
-     * @param int $offset Offset
+     * @param integer $offset Offset
      *
      * @return mixed|null
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return $this->container[$offset] ?? null;
@@ -594,8 +607,10 @@ class UnclaimedDraftEditAndResendRequest implements ModelInterface, ArrayAccess,
      *
      * @param int|null $offset Offset
      * @param mixed    $value  Value to be set
+     *
+     * @return void
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
@@ -608,9 +623,11 @@ class UnclaimedDraftEditAndResendRequest implements ModelInterface, ArrayAccess,
     /**
      * Unsets offset.
      *
-     * @param int $offset Offset
+     * @param integer $offset Offset
+     *
+     * @return void
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
@@ -618,15 +635,15 @@ class UnclaimedDraftEditAndResendRequest implements ModelInterface, ArrayAccess,
 
     /**
      * Serializes the object to a value that can be serialized natively by json_encode().
-     * @see https://www.php.net/manual/en/jsonserializable.jsonserialize.php
+     * @link https://www.php.net/manual/en/jsonserializable.jsonserialize.php
      *
-     * @return mixed returns data which can be serialized by json_encode(), which is a value
-     *               of any type other than a resource
+     * @return mixed Returns data which can be serialized by json_encode(), which is a value
+     * of any type other than a resource.
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
-        return ObjectSerializer::sanitizeForSerialization($this);
+       return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**
@@ -652,3 +669,5 @@ class UnclaimedDraftEditAndResendRequest implements ModelInterface, ArrayAccess,
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
+
+

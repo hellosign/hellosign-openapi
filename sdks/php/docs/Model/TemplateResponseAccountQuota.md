@@ -6,9 +6,9 @@ An array of the designated CC roles that must be specified when sending a Signat
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-| `templates_left` | ```int``` |  API templates remaining.  |  |
-| `api_signature_requests_left` | ```int``` |  API signature requests remaining.  |  |
-| `documents_left` | ```int``` |  Signature requests remaining.  |  |
-| `sms_verifications_left` | ```int``` |  SMS verifications remaining.  |  |
+| `templates_left` | ```int``` | REPLACE_ME_WITH_DESCRIPTION_BEGIN API templates remaining. REPLACE_ME_WITH_DESCRIPTION_END |  |
+| `api_signature_requests_left` | ```int``` | REPLACE_ME_WITH_DESCRIPTION_BEGIN API signature requests remaining. REPLACE_ME_WITH_DESCRIPTION_END |  |
+| `documents_left` | ```int``` | REPLACE_ME_WITH_DESCRIPTION_BEGIN Signature requests remaining. REPLACE_ME_WITH_DESCRIPTION_END |  |
+| `sms_verifications_left` | ```int``` | REPLACE_ME_WITH_DESCRIPTION_BEGIN SMS verifications remaining. REPLACE_ME_WITH_DESCRIPTION_END |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

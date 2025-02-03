@@ -34,67 +34,7 @@ Creates BulkSendJob which sends up to 250 SignatureRequests in bulk based off of
 ### Example
 
 ```php
-<?php
-
-require_once __DIR__ . "/vendor/autoload.php";
-
-$config = Dropbox\Sign\Configuration::getDefaultConfiguration();
-
-// Configure HTTP basic authorization: api_key
-$config->setUsername("YOUR_API_KEY");
-
-$signatureRequestApi = new Dropbox\Sign\Api\SignatureRequestApi($config);
-
-$signerList1Signer = new Dropbox\Sign\Model\SubSignatureRequestTemplateSigner();
-$signerList1Signer->setRole("Client")
-    ->setName("George")
-    ->setEmailAddress("george@example.com")
-    ->setPin("d79a3td");
-
-$signerList1CustomFields = new Dropbox\Sign\Model\SubBulkSignerListCustomField();
-$signerList1CustomFields->setName("company")
-    ->setValue("ABC Corp");
-
-$signerList1 = new Dropbox\Sign\Model\SubBulkSignerList();
-$signerList1->setSigners([$signerList1Signer])
-    ->setCustomFields([$signerList1CustomFields]);
-
-$signerList2Signer = new Dropbox\Sign\Model\SubSignatureRequestTemplateSigner();
-$signerList2Signer->setRole("Client")
-    ->setName("Mary")
-    ->setEmailAddress("mary@example.com")
-    ->setPin("gd9as5b");
-
-$signerList2CustomFields = new Dropbox\Sign\Model\SubBulkSignerListCustomField();
-$signerList2CustomFields->setName("company")
-    ->setValue("123 LLC");
-
-$signerList2 = new Dropbox\Sign\Model\SubBulkSignerList();
-$signerList2->setSigners([$signerList2Signer])
-    ->setCustomFields([$signerList2CustomFields]);
-
-$cc1 = new Dropbox\Sign\Model\SubCC();
-$cc1->setRole("Accounting")
-    ->setEmailAddress("accounting@example.com");
-
-$data = new Dropbox\Sign\Model\SignatureRequestBulkCreateEmbeddedWithTemplateRequest();
-$data->setClientId("1a659d9ad95bccd307ecad78d72192f8")
-    ->setTemplateIds(["c26b8a16784a872da37ea946b9ddec7c1e11dff6"])
-    ->setSubject("Purchase Order")
-    ->setMessage("Glad we could come to an agreement.")
-    ->setSignerList([$signerList1, $signerList2])
-    ->setCcs([$cc1])
-    ->setTestMode(true);
-
-try {
-    $result = $signatureRequestApi->signatureRequestBulkCreateEmbeddedWithTemplate($data);
-    print_r($result);
-} catch (Dropbox\Sign\ApiException $e) {
-    $error = $e->getResponseObject();
-    echo "Exception when calling Dropbox Sign API: "
-        . print_r($error->getError());
-}
-
+REPLACE_ME_WITH_EXAMPLE_FOR__signatureRequestBulkCreateEmbeddedWithTemplate_PHP_CODE
 ```
 
 ### Parameters
@@ -132,69 +72,7 @@ Creates BulkSendJob which sends up to 250 SignatureRequests in bulk based off of
 ### Example
 
 ```php
-<?php
-
-require_once __DIR__ . "/vendor/autoload.php";
-
-$config = Dropbox\Sign\Configuration::getDefaultConfiguration();
-
-// Configure HTTP basic authorization: api_key
-$config->setUsername("YOUR_API_KEY");
-
-// or, configure Bearer (JWT) authorization: oauth2
-// $config->setAccessToken("YOUR_ACCESS_TOKEN");
-
-$signatureRequestApi = new Dropbox\Sign\Api\SignatureRequestApi($config);
-
-$signerList1Signer = new Dropbox\Sign\Model\SubSignatureRequestTemplateSigner();
-$signerList1Signer->setRole("Client")
-    ->setName("George")
-    ->setEmailAddress("george@example.com")
-    ->setPin("d79a3td");
-
-$signerList1CustomFields = new Dropbox\Sign\Model\SubBulkSignerListCustomField();
-$signerList1CustomFields->setName("company")
-    ->setValue("ABC Corp");
-
-$signerList1 = new Dropbox\Sign\Model\SubBulkSignerList();
-$signerList1->setSigners([$signerList1Signer])
-    ->setCustomFields([$signerList1CustomFields]);
-
-$signerList2Signer = new Dropbox\Sign\Model\SubSignatureRequestTemplateSigner();
-$signerList2Signer->setRole("Client")
-    ->setName("Mary")
-    ->setEmailAddress("mary@example.com")
-    ->setPin("gd9as5b");
-
-$signerList2CustomFields = new Dropbox\Sign\Model\SubBulkSignerListCustomField();
-$signerList2CustomFields->setName("company")
-    ->setValue("123 LLC");
-
-$signerList2 = new Dropbox\Sign\Model\SubBulkSignerList();
-$signerList2->setSigners([$signerList2Signer])
-    ->setCustomFields([$signerList2CustomFields]);
-
-$cc1 = new Dropbox\Sign\Model\SubCC();
-$cc1->setRole("Accounting")
-    ->setEmailAddress("accounting@example.com");
-
-$data = new Dropbox\Sign\Model\SignatureRequestBulkSendWithTemplateRequest();
-$data->setTemplateIds(["c26b8a16784a872da37ea946b9ddec7c1e11dff6"])
-    ->setSubject("Purchase Order")
-    ->setMessage("Glad we could come to an agreement.")
-    ->setSignerList([$signerList1, $signerList2])
-    ->setCcs([$cc1])
-    ->setTestMode(true);
-
-try {
-    $result = $signatureRequestApi->signatureRequestBulkSendWithTemplate($data);
-    print_r($result);
-} catch (Dropbox\Sign\ApiException $e) {
-    $error = $e->getResponseObject();
-    echo "Exception when calling Dropbox Sign API: "
-        . print_r($error->getError());
-}
-
+REPLACE_ME_WITH_EXAMPLE_FOR__signatureRequestBulkSendWithTemplate_PHP_CODE
 ```
 
 ### Parameters
@@ -232,30 +110,7 @@ Cancels an incomplete signature request. This action is **not reversible**.  The
 ### Example
 
 ```php
-<?php
-
-require_once __DIR__ . "/vendor/autoload.php";
-
-$config = Dropbox\Sign\Configuration::getDefaultConfiguration();
-
-// Configure HTTP basic authorization: api_key
-$config->setUsername("YOUR_API_KEY");
-
-// or, configure Bearer (JWT) authorization: oauth2
-// $config->setAccessToken("YOUR_ACCESS_TOKEN");
-
-$signatureRequestApi = new Dropbox\Sign\Api\SignatureRequestApi($config);
-
-$signatureRequestId = "2f9781e1a8e2045224d808c153c2e1d3df6f8f2f";
-
-try {
-    $signatureRequestApi->signatureRequestCancel($signatureRequestId);
-} catch (Dropbox\Sign\ApiException $e) {
-    $error = $e->getResponseObject();
-    echo "Exception when calling Dropbox Sign API: "
-        . print_r($error->getError());
-}
-
+REPLACE_ME_WITH_EXAMPLE_FOR__signatureRequestCancel_PHP_CODE
 ```
 
 ### Parameters
@@ -293,60 +148,7 @@ Creates a new SignatureRequest with the submitted documents to be signed in an e
 ### Example
 
 ```php
-<?php
-
-require_once __DIR__ . "/vendor/autoload.php";
-
-$config = Dropbox\Sign\Configuration::getDefaultConfiguration();
-
-// Configure HTTP basic authorization: api_key
-$config->setUsername("YOUR_API_KEY");
-
-// or, configure Bearer (JWT) authorization: oauth2
-// $config->setAccessToken("YOUR_ACCESS_TOKEN");
-
-$signatureRequestApi = new Dropbox\Sign\Api\SignatureRequestApi($config);
-
-$signer1 = new Dropbox\Sign\Model\SubSignatureRequestSigner();
-$signer1->setEmailAddress("jack@example.com")
-    ->setName("Jack")
-    ->setOrder(0);
-
-$signer2 = new Dropbox\Sign\Model\SubSignatureRequestSigner();
-$signer2->setEmailAddress("jill@example.com")
-    ->setName("Jill")
-    ->setOrder(1);
-
-$signingOptions = new Dropbox\Sign\Model\SubSigningOptions();
-$signingOptions->setDraw(true)
-    ->setType(true)
-    ->setUpload(true)
-    ->setPhone(true)
-    ->setDefaultType(Dropbox\Sign\Model\SubSigningOptions::DEFAULT_TYPE_DRAW);
-
-$data = new Dropbox\Sign\Model\SignatureRequestCreateEmbeddedRequest();
-$data->setClientId("ec64a202072370a737edf4a0eb7f4437")
-    ->setTitle("NDA with Acme Co.")
-    ->setSubject("The NDA we talked about")
-    ->setMessage("Please sign this NDA and then we can discuss more. Let me know if you have any questions.")
-    ->setSigners([$signer1, $signer2])
-    ->setCcEmailAddresses([
-        "lawyer1@dropboxsign.com",
-        "lawyer2@dropboxsign.com",
-    ])
-    ->setFiles([new SplFileObject(__DIR__ . "/example_signature_request.pdf")])
-    ->setSigningOptions($signingOptions)
-    ->setTestMode(true);
-
-try {
-    $result = $signatureRequestApi->signatureRequestCreateEmbedded($data);
-    print_r($result);
-} catch (Dropbox\Sign\ApiException $e) {
-    $error = $e->getResponseObject();
-    echo "Exception when calling Dropbox Sign API: "
-        . print_r($error->getError());
-}
-
+REPLACE_ME_WITH_EXAMPLE_FOR__signatureRequestCreateEmbedded_PHP_CODE
 ```
 
 ### Parameters
@@ -384,50 +186,7 @@ Creates a new SignatureRequest based on the given Template(s) to be signed in an
 ### Example
 
 ```php
-<?php
-
-require_once __DIR__ . "/vendor/autoload.php";
-
-$config = Dropbox\Sign\Configuration::getDefaultConfiguration();
-
-// Configure HTTP basic authorization: api_key
-$config->setUsername("YOUR_API_KEY");
-
-// or, configure Bearer (JWT) authorization: oauth2
-// $config->setAccessToken("YOUR_ACCESS_TOKEN");
-
-$signatureRequestApi = new Dropbox\Sign\Api\SignatureRequestApi($config);
-
-$signer1 = new Dropbox\Sign\Model\SubSignatureRequestTemplateSigner();
-$signer1->setRole("Client")
-    ->setEmailAddress("george@example.com")
-    ->setName("George");
-
-$signingOptions = new Dropbox\Sign\Model\SubSigningOptions();
-$signingOptions->setDraw(true)
-    ->setType(true)
-    ->setUpload(true)
-    ->setPhone(false)
-    ->setDefaultType(Dropbox\Sign\Model\SubSigningOptions::DEFAULT_TYPE_DRAW);
-
-$data = new Dropbox\Sign\Model\SignatureRequestCreateEmbeddedWithTemplateRequest();
-$data->setClientId("ec64a202072370a737edf4a0eb7f4437")
-    ->setTemplateIds(["c26b8a16784a872da37ea946b9ddec7c1e11dff6"])
-    ->setSubject("Purchase Order")
-    ->setMessage("Glad we could come to an agreement.")
-    ->setSigners([$signer1])
-    ->setSigningOptions($signingOptions)
-    ->setTestMode(true);
-
-try {
-    $result = $signatureRequestApi->signatureRequestCreateEmbeddedWithTemplate($data);
-    print_r($result);
-} catch (Dropbox\Sign\ApiException $e) {
-    $error = $e->getResponseObject();
-    echo "Exception when calling Dropbox Sign API: "
-        . print_r($error->getError());
-}
-
+REPLACE_ME_WITH_EXAMPLE_FOR__signatureRequestCreateEmbeddedWithTemplate_PHP_CODE
 ```
 
 ### Parameters
@@ -465,32 +224,7 @@ Obtain a copy of the current documents specified by the `signature_request_id` p
 ### Example
 
 ```php
-<?php
-
-require_once __DIR__ . "/vendor/autoload.php";
-
-$config = Dropbox\Sign\Configuration::getDefaultConfiguration();
-
-// Configure HTTP basic authorization: api_key
-$config->setUsername("YOUR_API_KEY");
-
-// or, configure Bearer (JWT) authorization: oauth2
-// $config->setAccessToken("YOUR_ACCESS_TOKEN");
-
-$signatureRequestApi = new Dropbox\Sign\Api\SignatureRequestApi($config);
-
-$signatureRequestId = "fa5c8a0b0f492d768749333ad6fcc214c111e967";
-$fileType = "pdf";
-
-try {
-    $result = $signatureRequestApi->signatureRequestFiles($signatureRequestId, $fileType);
-    copy($result->getRealPath(), __DIR__ . '/file_response.pdf');
-} catch (Dropbox\Sign\ApiException $e) {
-    $error = $e->getResponseObject();
-    echo "Exception when calling Dropbox Sign API: "
-        . print_r($error->getError());
-}
-
+REPLACE_ME_WITH_EXAMPLE_FOR__signatureRequestFiles_PHP_CODE
 ```
 
 ### Parameters
@@ -498,7 +232,7 @@ try {
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **signature_request_id** | **string**| The id of the SignatureRequest to retrieve. | |
-| **file_type** | **string**| Set to `pdf` for a single merged document or `zip` for a collection of individual documents. | [optional] [default to &#39;pdf&#39;] |
+| **file_type** | **string**| Set to &#x60;pdf&#x60; for a single merged document or &#x60;zip&#x60; for a collection of individual documents. | [optional] [default to &#39;pdf&#39;] |
 
 ### Return type
 
@@ -529,31 +263,7 @@ Obtain a copy of the current documents specified by the `signature_request_id` p
 ### Example
 
 ```php
-<?php
-
-require_once __DIR__ . "/vendor/autoload.php";
-
-$config = Dropbox\Sign\Configuration::getDefaultConfiguration();
-
-// Configure HTTP basic authorization: api_key
-$config->setUsername("YOUR_API_KEY");
-
-// or, configure Bearer (JWT) authorization: oauth2
-// $config->setAccessToken("YOUR_ACCESS_TOKEN");
-
-$signatureRequestApi = new Dropbox\Sign\Api\SignatureRequestApi($config);
-
-$signatureRequestId = "fa5c8a0b0f492d768749333ad6fcc214c111e967";
-
-try {
-    $result = $signatureRequestApi->signatureRequestFilesAsDataUri($signatureRequestId);
-    print_r($result);
-} catch (Dropbox\Sign\ApiException $e) {
-    $error = $e->getResponseObject();
-    echo "Exception when calling Dropbox Sign API: "
-        . print_r($error->getError());
-}
-
+REPLACE_ME_WITH_EXAMPLE_FOR__signatureRequestFilesAsDataUri_PHP_CODE
 ```
 
 ### Parameters
@@ -591,31 +301,7 @@ Obtain a copy of the current documents specified by the `signature_request_id` p
 ### Example
 
 ```php
-<?php
-
-require_once __DIR__ . "/vendor/autoload.php";
-
-$config = Dropbox\Sign\Configuration::getDefaultConfiguration();
-
-// Configure HTTP basic authorization: api_key
-$config->setUsername("YOUR_API_KEY");
-
-// or, configure Bearer (JWT) authorization: oauth2
-// $config->setAccessToken("YOUR_ACCESS_TOKEN");
-
-$signatureRequestApi = new Dropbox\Sign\Api\SignatureRequestApi($config);
-
-$signatureRequestId = "fa5c8a0b0f492d768749333ad6fcc214c111e967";
-
-try {
-    $result = $signatureRequestApi->signatureRequestFilesAsFileUrl($signatureRequestId);
-    print_r($result);
-} catch (Dropbox\Sign\ApiException $e) {
-    $error = $e->getResponseObject();
-    echo "Exception when calling Dropbox Sign API: "
-        . print_r($error->getError());
-}
-
+REPLACE_ME_WITH_EXAMPLE_FOR__signatureRequestFilesAsFileUrl_PHP_CODE
 ```
 
 ### Parameters
@@ -623,7 +309,7 @@ try {
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **signature_request_id** | **string**| The id of the SignatureRequest to retrieve. | |
-| **force_download** | **int**| By default when opening the `file_url` a browser will download the PDF and save it locally. When set to `0` the PDF file will be displayed in the browser. | [optional] [default to 1] |
+| **force_download** | **int**| By default when opening the &#x60;file_url&#x60; a browser will download the PDF and save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser. | [optional] [default to 1] |
 
 ### Return type
 
@@ -654,31 +340,7 @@ Returns the status of the SignatureRequest specified by the `signature_request_i
 ### Example
 
 ```php
-<?php
-
-require_once __DIR__ . "/vendor/autoload.php";
-
-$config = Dropbox\Sign\Configuration::getDefaultConfiguration();
-
-// Configure HTTP basic authorization: api_key
-$config->setUsername("YOUR_API_KEY");
-
-// or, configure Bearer (JWT) authorization: oauth2
-// $config->setAccessToken("YOUR_ACCESS_TOKEN");
-
-$signatureRequestApi = new Dropbox\Sign\Api\SignatureRequestApi($config);
-
-$signatureRequestId = "fa5c8a0b0f492d768749333ad6fcc214c111e967";
-
-try {
-    $result = $signatureRequestApi->signatureRequestGet($signatureRequestId);
-    print_r($result);
-} catch (Dropbox\Sign\ApiException $e) {
-    $error = $e->getResponseObject();
-    echo "Exception when calling Dropbox Sign API: "
-        . print_r($error->getError());
-}
-
+REPLACE_ME_WITH_EXAMPLE_FOR__signatureRequestGet_PHP_CODE
 ```
 
 ### Parameters
@@ -716,41 +378,16 @@ Returns a list of SignatureRequests that you can access. This includes Signature
 ### Example
 
 ```php
-<?php
-
-require_once __DIR__ . "/vendor/autoload.php";
-
-$config = Dropbox\Sign\Configuration::getDefaultConfiguration();
-
-// Configure HTTP basic authorization: api_key
-$config->setUsername("YOUR_API_KEY");
-
-// or, configure Bearer (JWT) authorization: oauth2
-// $config->setAccessToken("YOUR_ACCESS_TOKEN");
-
-$signatureRequestApi = new Dropbox\Sign\Api\SignatureRequestApi($config);
-
-$accountId = null;
-$page = 1;
-
-try {
-    $result = $signatureRequestApi->signatureRequestList($accountId, $page);
-    print_r($result);
-} catch (Dropbox\Sign\ApiException $e) {
-    $error = $e->getResponseObject();
-    echo "Exception when calling Dropbox Sign API: "
-        . print_r($error->getError());
-}
-
+REPLACE_ME_WITH_EXAMPLE_FOR__signatureRequestList_PHP_CODE
 ```
 
 ### Parameters
 
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **account_id** | **string**| Which account to return SignatureRequests for. Must be a team member. Use `all` to indicate all team members. Defaults to your account. | [optional] |
-| **page** | **int**| Which page number of the SignatureRequest List to return. Defaults to `1`. | [optional] [default to 1] |
-| **page_size** | **int**| Number of objects to be returned per page. Must be between `1` and `100`. Default is `20`. | [optional] [default to 20] |
+| **account_id** | **string**| Which account to return SignatureRequests for. Must be a team member. Use &#x60;all&#x60; to indicate all team members. Defaults to your account. | [optional] |
+| **page** | **int**| Which page number of the SignatureRequest List to return. Defaults to &#x60;1&#x60;. | [optional] [default to 1] |
+| **page_size** | **int**| Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. | [optional] [default to 20] |
 | **query** | **string**| String that includes search terms and/or fields to be used to filter the SignatureRequest objects. | [optional] |
 
 ### Return type
@@ -782,31 +419,7 @@ Releases a held SignatureRequest that was claimed and prepared from an [Unclaime
 ### Example
 
 ```php
-<?php
-
-require_once __DIR__ . "/vendor/autoload.php";
-
-$config = Dropbox\Sign\Configuration::getDefaultConfiguration();
-
-// Configure HTTP basic authorization: api_key
-$config->setUsername("YOUR_API_KEY");
-
-// or, configure Bearer (JWT) authorization: oauth2
-// $config->setAccessToken("YOUR_ACCESS_TOKEN");
-
-$signatureRequestApi = new Dropbox\Sign\Api\SignatureRequestApi($config);
-
-$signatureRequestId = "2f9781e1a8e2045224d808c153c2e1d3df6f8f2f";
-
-try {
-    $result = $signatureRequestApi->signatureRequestReleaseHold($signatureRequestId);
-    print_r($result);
-} catch (Dropbox\Sign\ApiException $e) {
-    $error = $e->getResponseObject();
-    echo "Exception when calling Dropbox Sign API: "
-        . print_r($error->getError());
-}
-
+REPLACE_ME_WITH_EXAMPLE_FOR__signatureRequestReleaseHold_PHP_CODE
 ```
 
 ### Parameters
@@ -844,34 +457,7 @@ Sends an email to the signer reminding them to sign the signature request. You c
 ### Example
 
 ```php
-<?php
-
-require_once __DIR__ . "/vendor/autoload.php";
-
-$config = Dropbox\Sign\Configuration::getDefaultConfiguration();
-
-// Configure HTTP basic authorization: api_key
-$config->setUsername("YOUR_API_KEY");
-
-// or, configure Bearer (JWT) authorization: oauth2
-// $config->setAccessToken("YOUR_ACCESS_TOKEN");
-
-$signatureRequestApi = new Dropbox\Sign\Api\SignatureRequestApi($config);
-
-$data = new Dropbox\Sign\Model\SignatureRequestRemindRequest();
-$data->setEmailAddress("john@example.com");
-
-$signatureRequestId = "2f9781e1a8e2045224d808c153c2e1d3df6f8f2f";
-
-try {
-    $result = $signatureRequestApi->signatureRequestRemind($signatureRequestId, $data);
-    print_r($result);
-} catch (Dropbox\Sign\ApiException $e) {
-    $error = $e->getResponseObject();
-    echo "Exception when calling Dropbox Sign API: "
-        . print_r($error->getError());
-}
-
+REPLACE_ME_WITH_EXAMPLE_FOR__signatureRequestRemind_PHP_CODE
 ```
 
 ### Parameters
@@ -910,27 +496,7 @@ Removes your access to a completed signature request. This action is **not rever
 ### Example
 
 ```php
-<?php
-
-require_once __DIR__ . "/vendor/autoload.php";
-
-$config = Dropbox\Sign\Configuration::getDefaultConfiguration();
-
-// Configure HTTP basic authorization: api_key
-$config->setUsername("YOUR_API_KEY");
-
-$signatureRequestApi = new Dropbox\Sign\Api\SignatureRequestApi($config);
-
-$signatureRequestId = "2f9781e1a8e2045224d808c153c2e1d3df6f8f2f";
-
-try {
-    $signatureRequestApi->signatureRequestRemove($signatureRequestId);
-} catch (Dropbox\Sign\ApiException $e) {
-    $error = $e->getResponseObject();
-    echo "Exception when calling Dropbox Sign API: "
-        . print_r($error->getError());
-}
-
+REPLACE_ME_WITH_EXAMPLE_FOR__signatureRequestRemove_PHP_CODE
 ```
 
 ### Parameters
@@ -968,67 +534,7 @@ Creates and sends a new SignatureRequest with the submitted documents. If `form_
 ### Example
 
 ```php
-<?php
-
-require_once __DIR__ . "/vendor/autoload.php";
-
-$config = Dropbox\Sign\Configuration::getDefaultConfiguration();
-
-// Configure HTTP basic authorization: api_key
-$config->setUsername("YOUR_API_KEY");
-
-// or, configure Bearer (JWT) authorization: oauth2
-// $config->setAccessToken("YOUR_ACCESS_TOKEN");
-
-$signatureRequestApi = new Dropbox\Sign\Api\SignatureRequestApi($config);
-
-$signer1 = new Dropbox\Sign\Model\SubSignatureRequestSigner();
-$signer1->setEmailAddress("jack@example.com")
-    ->setName("Jack")
-    ->setOrder(0);
-
-$signer2 = new Dropbox\Sign\Model\SubSignatureRequestSigner();
-$signer2->setEmailAddress("jill@example.com")
-    ->setName("Jill")
-    ->setOrder(1);
-
-$signingOptions = new Dropbox\Sign\Model\SubSigningOptions();
-$signingOptions->setDraw(true)
-    ->setType(true)
-    ->setUpload(true)
-    ->setPhone(false)
-    ->setDefaultType(Dropbox\Sign\Model\SubSigningOptions::DEFAULT_TYPE_DRAW);
-
-$fieldOptions = new Dropbox\Sign\Model\SubFieldOptions();
-$fieldOptions->setDateFormat(Dropbox\Sign\Model\SubFieldOptions::DATE_FORMAT_DD_MM_YYYY);
-
-$data = new Dropbox\Sign\Model\SignatureRequestSendRequest();
-$data->setTitle("NDA with Acme Co.")
-    ->setSubject("The NDA we talked about")
-    ->setMessage("Please sign this NDA and then we can discuss more. Let me know if you have any questions.")
-    ->setSigners([$signer1, $signer2])
-    ->setCcEmailAddresses([
-        "lawyer1@dropboxsign.com",
-        "lawyer2@dropboxsign.com",
-    ])
-    ->setFiles([new SplFileObject(__DIR__ . "/example_signature_request.pdf")])
-    ->setMetadata([
-        "custom_id" => 1234,
-        "custom_text" => "NDA #9",
-    ])
-    ->setSigningOptions($signingOptions)
-    ->setFieldOptions($fieldOptions)
-    ->setTestMode(true);
-
-try {
-    $result = $signatureRequestApi->signatureRequestSend($data);
-    print_r($result);
-} catch (Dropbox\Sign\ApiException $e) {
-    $error = $e->getResponseObject();
-    echo "Exception when calling Dropbox Sign API: "
-        . print_r($error->getError());
-}
-
+REPLACE_ME_WITH_EXAMPLE_FOR__signatureRequestSend_PHP_CODE
 ```
 
 ### Parameters
@@ -1066,61 +572,7 @@ Creates and sends a new SignatureRequest based off of the Template(s) specified 
 ### Example
 
 ```php
-<?php
-
-require_once __DIR__ . "/vendor/autoload.php";
-
-$config = Dropbox\Sign\Configuration::getDefaultConfiguration();
-
-// Configure HTTP basic authorization: api_key
-$config->setUsername("YOUR_API_KEY");
-
-// or, configure Bearer (JWT) authorization: oauth2
-// $config->setAccessToken("YOUR_ACCESS_TOKEN");
-
-$signatureRequestApi = new Dropbox\Sign\Api\SignatureRequestApi($config);
-
-$signer1 = new Dropbox\Sign\Model\SubSignatureRequestTemplateSigner();
-$signer1->setRole("Client")
-    ->setEmailAddress("george@example.com")
-    ->setName("George");
-
-$cc1 = new Dropbox\Sign\Model\SubCC();
-$cc1->setRole("Accounting")
-    ->setEmailAddress("accounting@example.com");
-
-$customField1 = new Dropbox\Sign\Model\SubCustomField();
-$customField1->setName("Cost")
-    ->setValue("$20,000")
-    ->setEditor("Client")
-    ->setRequired(true);
-
-$signingOptions = new Dropbox\Sign\Model\SubSigningOptions();
-$signingOptions->setDraw(true)
-    ->setType(true)
-    ->setUpload(true)
-    ->setPhone(false)
-    ->setDefaultType(Dropbox\Sign\Model\SubSigningOptions::DEFAULT_TYPE_DRAW);
-
-$data = new Dropbox\Sign\Model\SignatureRequestSendWithTemplateRequest();
-$data->setTemplateIds(["c26b8a16784a872da37ea946b9ddec7c1e11dff6"])
-    ->setSubject("Purchase Order")
-    ->setMessage("Glad we could come to an agreement.")
-    ->setSigners([$signer1])
-    ->setCcs([$cc1])
-    ->setCustomFields([$customField1])
-    ->setSigningOptions($signingOptions)
-    ->setTestMode(true);
-
-try {
-    $result = $signatureRequestApi->signatureRequestSendWithTemplate($data);
-    print_r($result);
-} catch (Dropbox\Sign\ApiException $e) {
-    $error = $e->getResponseObject();
-    echo "Exception when calling Dropbox Sign API: "
-        . print_r($error->getError());
-}
-
+REPLACE_ME_WITH_EXAMPLE_FOR__signatureRequestSendWithTemplate_PHP_CODE
 ```
 
 ### Parameters
@@ -1158,35 +610,7 @@ Updates the email address and/or the name for a given signer on a signature requ
 ### Example
 
 ```php
-<?php
-
-require_once __DIR__ . "/vendor/autoload.php";
-
-$config = Dropbox\Sign\Configuration::getDefaultConfiguration();
-
-// Configure HTTP basic authorization: api_key
-$config->setUsername("YOUR_API_KEY");
-
-// or, configure Bearer (JWT) authorization: oauth2
-// $config->setAccessToken("YOUR_ACCESS_TOKEN");
-
-$signatureRequestApi = new Dropbox\Sign\Api\SignatureRequestApi($config);
-
-$data = new Dropbox\Sign\Model\SignatureRequestUpdateRequest();
-$data->setEmailAddress("john@example.com")
-    ->setSignatureId("78caf2a1d01cd39cea2bc1cbb340dac3");
-
-$signatureRequestId = "2f9781e1a8e2045224d808c153c2e1d3df6f8f2f";
-
-try {
-    $result = $signatureRequestApi->signatureRequestUpdate($signatureRequestId, $data);
-    print_r($result);
-} catch (Dropbox\Sign\ApiException $e) {
-    $error = $e->getResponseObject();
-    echo "Exception when calling Dropbox Sign API: "
-        . print_r($error->getError());
-}
-
+REPLACE_ME_WITH_EXAMPLE_FOR__signatureRequestUpdate_PHP_CODE
 ```
 
 ### Parameters

@@ -5,7 +5,9 @@
  * PHP version 7.4
  *
  * @category Class
- * @see     https://openapi-generator.tech
+ * @package  Dropbox\Sign
+ * @author   OpenAPI Generator team
+ * @link     https://openapi-generator.tech
  */
 
 /**
@@ -27,67 +29,66 @@
 
 namespace Dropbox\Sign\Model;
 
-use ArrayAccess;
-use Dropbox\Sign\ObjectSerializer;
-use InvalidArgumentException;
-use JsonSerializable;
-use ReturnTypeWillChange;
+use \ArrayAccess;
+use \Dropbox\Sign\ObjectSerializer;
 
 /**
  * SubBulkSignerList Class Doc Comment
  *
  * @category Class
- * @see     https://openapi-generator.tech
+ * @package  Dropbox\Sign
+ * @author   OpenAPI Generator team
+ * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class SubBulkSignerList implements ModelInterface, ArrayAccess, JsonSerializable
+class SubBulkSignerList implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
     /**
-     * The original name of the model.
-     *
-     * @var string
-     */
+      * The original name of the model.
+      *
+      * @var string
+      */
     protected static $openAPIModelName = 'SubBulkSignerList';
 
     /**
-     * Array of property to type mappings. Used for (de)serialization
-     *
-     * @var string[]
-     */
+      * Array of property to type mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
     protected static $openAPITypes = [
         'custom_fields' => '\Dropbox\Sign\Model\SubBulkSignerListCustomField[]',
-        'signers' => '\Dropbox\Sign\Model\SubSignatureRequestTemplateSigner[]',
+        'signers' => '\Dropbox\Sign\Model\SubSignatureRequestTemplateSigner[]'
     ];
 
     /**
-     * Array of property to format mappings. Used for (de)serialization
-     *
-     * @var string[]
-     * @phpstan-var array<string, string|null>
-     * @psalm-var array<string, string|null>
-     */
+      * Array of property to format mappings. Used for (de)serialization
+      *
+      * @var string[]
+      * @phpstan-var array<string, string|null>
+      * @psalm-var array<string, string|null>
+      */
     protected static $openAPIFormats = [
         'custom_fields' => null,
-        'signers' => null,
+        'signers' => null
     ];
 
     /**
-     * Array of nullable properties. Used for (de)serialization
-     *
-     * @var bool[]
-     */
+      * Array of nullable properties. Used for (de)serialization
+      *
+      * @var boolean[]
+      */
     protected static array $openAPINullables = [
         'custom_fields' => false,
-        'signers' => false,
+        'signers' => false
     ];
 
     /**
-     * If a nullable field gets set to null, insert it here
-     *
-     * @var bool[]
-     */
+      * If a nullable field gets set to null, insert it here
+      *
+      * @var boolean[]
+      */
     protected array $openAPINullablesSetToNull = [];
 
     /**
@@ -112,6 +113,8 @@ class SubBulkSignerList implements ModelInterface, ArrayAccess, JsonSerializable
 
     /**
      * Array of nullable properties
+     *
+     * @return array
      */
     protected static function openAPINullables(): array
     {
@@ -121,7 +124,7 @@ class SubBulkSignerList implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Array of nullable field names deliberately set to null
      *
-     * @return bool[]
+     * @return boolean[]
      */
     private function getOpenAPINullablesSetToNull(): array
     {
@@ -131,7 +134,7 @@ class SubBulkSignerList implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Setter - Array of nullable field names deliberately set to null
      *
-     * @param bool[] $openAPINullablesSetToNull
+     * @param boolean[] $openAPINullablesSetToNull
      */
     private function setOpenAPINullablesSetToNull(array $openAPINullablesSetToNull): void
     {
@@ -140,6 +143,9 @@ class SubBulkSignerList implements ModelInterface, ArrayAccess, JsonSerializable
 
     /**
      * Checks if a property is nullable
+     *
+     * @param string $property
+     * @return bool
      */
     public static function isNullable(string $property): bool
     {
@@ -148,6 +154,9 @@ class SubBulkSignerList implements ModelInterface, ArrayAccess, JsonSerializable
 
     /**
      * Checks if a nullable property is set to null.
+     *
+     * @param string $property
+     * @return bool
      */
     public function isNullableSetToNull(string $property): bool
     {
@@ -162,7 +171,7 @@ class SubBulkSignerList implements ModelInterface, ArrayAccess, JsonSerializable
      */
     protected static $attributeMap = [
         'custom_fields' => 'custom_fields',
-        'signers' => 'signers',
+        'signers' => 'signers'
     ];
 
     /**
@@ -172,7 +181,7 @@ class SubBulkSignerList implements ModelInterface, ArrayAccess, JsonSerializable
      */
     protected static $setters = [
         'custom_fields' => 'setCustomFields',
-        'signers' => 'setSigners',
+        'signers' => 'setSigners'
     ];
 
     /**
@@ -182,7 +191,7 @@ class SubBulkSignerList implements ModelInterface, ArrayAccess, JsonSerializable
      */
     protected static $getters = [
         'custom_fields' => 'getCustomFields',
-        'signers' => 'getSigners',
+        'signers' => 'getSigners'
     ];
 
     /**
@@ -226,6 +235,7 @@ class SubBulkSignerList implements ModelInterface, ArrayAccess, JsonSerializable
         return self::$openAPIModelName;
     }
 
+
     /**
      * Associative array for storing property values
      *
@@ -245,33 +255,34 @@ class SubBulkSignerList implements ModelInterface, ArrayAccess, JsonSerializable
         $this->setIfExists('signers', $data ?? [], null);
     }
 
-    /**
-     * @deprecated use ::init()
-     */
+    /** @deprecated use ::init() */
     public static function fromArray(array $data): SubBulkSignerList
     {
         return self::init($data);
     }
 
-    /**
-     * Attempt to instantiate and hydrate a new instance of this class
-     */
+    /** Attempt to instantiate and hydrate a new instance of this class */
     public static function init(array $data): SubBulkSignerList
     {
         /** @var SubBulkSignerList */
-        return ObjectSerializer::deserialize(
+        $obj = ObjectSerializer::deserialize(
             $data,
             SubBulkSignerList::class,
         );
+
+        return $obj;
     }
 
+
     /**
-     * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
-     * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
-     * $this->openAPINullablesSetToNull array
-     *
-     * @param string|int|object|array|mixed $defaultValue
-     */
+    * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
+    * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
+    * $this->openAPINullablesSetToNull array
+    *
+    * @param string $variableName
+    * @param array  $fields
+* @param string|int|object|array|mixed  $defaultValue
+    */
     private function setIfExists(string $variableName, array $fields, $defaultValue): void
     {
         if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
@@ -288,7 +299,9 @@ class SubBulkSignerList implements ModelInterface, ArrayAccess, JsonSerializable
      */
     public function listInvalidProperties()
     {
-        return [];
+        $invalidProperties = [];
+
+        return $invalidProperties;
     }
 
     /**
@@ -302,10 +315,11 @@ class SubBulkSignerList implements ModelInterface, ArrayAccess, JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
+
     /**
      * Gets custom_fields
      *
-     * @return SubBulkSignerListCustomField[]|null
+     * @return \Dropbox\Sign\Model\SubBulkSignerListCustomField[]|null
      */
     public function getCustomFields()
     {
@@ -315,14 +329,14 @@ class SubBulkSignerList implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets custom_fields
      *
-     * @param SubBulkSignerListCustomField[]|null $custom_fields an array of custom field values
+     * @param \Dropbox\Sign\Model\SubBulkSignerListCustomField[]|null $custom_fields An array of custom field values.
      *
      * @return self
      */
-    public function setCustomFields(?array $custom_fields)
+    public function setCustomFields($custom_fields)
     {
         if (is_null($custom_fields)) {
-            throw new InvalidArgumentException('non-nullable custom_fields cannot be null');
+            throw new \InvalidArgumentException('non-nullable custom_fields cannot be null');
         }
         $this->container['custom_fields'] = $custom_fields;
 
@@ -332,7 +346,7 @@ class SubBulkSignerList implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets signers
      *
-     * @return SubSignatureRequestTemplateSigner[]|null
+     * @return \Dropbox\Sign\Model\SubSignatureRequestTemplateSigner[]|null
      */
     public function getSigners()
     {
@@ -342,26 +356,27 @@ class SubBulkSignerList implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets signers
      *
-     * @param SubSignatureRequestTemplateSigner[]|null $signers Add Signers to your Templated-based Signature Request. Allows the requester to specify editor options when a preparing a document.  Currently only templates with a single role are supported. All signers must have the same `role` value.
+     * @param \Dropbox\Sign\Model\SubSignatureRequestTemplateSigner[]|null $signers Add Signers to your Templated-based Signature Request. Allows the requester to specify editor options when a preparing a document.  Currently only templates with a single role are supported. All signers must have the same `role` value.
      *
      * @return self
      */
-    public function setSigners(?array $signers)
+    public function setSigners($signers)
     {
         if (is_null($signers)) {
-            throw new InvalidArgumentException('non-nullable signers cannot be null');
+            throw new \InvalidArgumentException('non-nullable signers cannot be null');
         }
         $this->container['signers'] = $signers;
 
         return $this;
     }
-
     /**
      * Returns true if offset exists. False otherwise.
      *
-     * @param int $offset Offset
+     * @param integer $offset Offset
+     *
+     * @return boolean
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
@@ -370,11 +385,11 @@ class SubBulkSignerList implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets offset.
      *
-     * @param int $offset Offset
+     * @param integer $offset Offset
      *
      * @return mixed|null
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return $this->container[$offset] ?? null;
@@ -385,8 +400,10 @@ class SubBulkSignerList implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param int|null $offset Offset
      * @param mixed    $value  Value to be set
+     *
+     * @return void
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
@@ -399,9 +416,11 @@ class SubBulkSignerList implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Unsets offset.
      *
-     * @param int $offset Offset
+     * @param integer $offset Offset
+     *
+     * @return void
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
@@ -409,15 +428,15 @@ class SubBulkSignerList implements ModelInterface, ArrayAccess, JsonSerializable
 
     /**
      * Serializes the object to a value that can be serialized natively by json_encode().
-     * @see https://www.php.net/manual/en/jsonserializable.jsonserialize.php
+     * @link https://www.php.net/manual/en/jsonserializable.jsonserialize.php
      *
-     * @return mixed returns data which can be serialized by json_encode(), which is a value
-     *               of any type other than a resource
+     * @return mixed Returns data which can be serialized by json_encode(), which is a value
+     * of any type other than a resource.
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
-        return ObjectSerializer::sanitizeForSerialization($this);
+       return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**
@@ -443,3 +462,5 @@ class SubBulkSignerList implements ModelInterface, ArrayAccess, JsonSerializable
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
+
+

@@ -65,7 +65,7 @@ public class FaxLineDeleteRequest {
   }
 
   /**
-   * The Fax Line number.
+   * The Fax Line number
    * @return number
    */
   @jakarta.annotation.Nonnull

@@ -1,11 +1,20 @@
 # # TemplateResponseDocumentStaticFieldText
 
-This class extends `TemplateResponseDocumentStaticFieldBase`
+This class extends &#x60;TemplateResponseDocumentStaticFieldBase&#x60;
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-| `type`<sup>*_required_</sup> | ```string``` |  The type of this static field. See [field types](/api/reference/constants/#field-types).<br><br>* Text Field uses `TemplateResponseDocumentStaticFieldText`<br>* Dropdown Field uses `TemplateResponseDocumentStaticFieldDropdown`<br>* Hyperlink Field uses `TemplateResponseDocumentStaticFieldHyperlink`<br>* Checkbox Field uses `TemplateResponseDocumentStaticFieldCheckbox`<br>* Radio Field uses `TemplateResponseDocumentStaticFieldRadio`<br>* Signature Field uses `TemplateResponseDocumentStaticFieldSignature`<br>* Date Signed Field uses `TemplateResponseDocumentStaticFieldDateSigned`<br>* Initials Field uses `TemplateResponseDocumentStaticFieldInitials`  |  [default to 'text'] |
+| `type`<sup>*_required_</sup> | ```string``` | REPLACE_ME_WITH_DESCRIPTION_BEGIN The type of this static field. See [field types](/api/reference/constants/#field-types).
+
+* Text Field uses &#x60;TemplateResponseDocumentStaticFieldText&#x60;
+* Dropdown Field uses &#x60;TemplateResponseDocumentStaticFieldDropdown&#x60;
+* Hyperlink Field uses &#x60;TemplateResponseDocumentStaticFieldHyperlink&#x60;
+* Checkbox Field uses &#x60;TemplateResponseDocumentStaticFieldCheckbox&#x60;
+* Radio Field uses &#x60;TemplateResponseDocumentStaticFieldRadio&#x60;
+* Signature Field uses &#x60;TemplateResponseDocumentStaticFieldSignature&#x60;
+* Date Signed Field uses &#x60;TemplateResponseDocumentStaticFieldDateSigned&#x60;
+* Initials Field uses &#x60;TemplateResponseDocumentStaticFieldInitials&#x60; REPLACE_ME_WITH_DESCRIPTION_END |  [default to 'text'] |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

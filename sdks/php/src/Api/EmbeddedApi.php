@@ -4,7 +4,9 @@
  * PHP version 7.4
  *
  * @category Class
- * @see     https://openapi-generator.tech
+ * @package  Dropbox\Sign
+ * @author   OpenAPI Generator team
+ * @link     https://openapi-generator.tech
  */
 
 /**
@@ -26,11 +28,6 @@
 
 namespace Dropbox\Sign\Api;
 
-use Dropbox\Sign\ApiException;
-use Dropbox\Sign\Configuration;
-use Dropbox\Sign\HeaderSelector;
-use Dropbox\Sign\Model;
-use Dropbox\Sign\ObjectSerializer;
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\ConnectException;
@@ -38,34 +35,44 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use InvalidArgumentException;
-use JsonException;
+use Dropbox\Sign\ApiException;
+use Dropbox\Sign\Configuration;
+use Dropbox\Sign\HeaderSelector;
+use Dropbox\Sign\ObjectSerializer;
+use Dropbox\Sign\Model;
 use Psr\Http\Message\ResponseInterface;
-use RuntimeException;
 
 /**
  * EmbeddedApi Class Doc Comment
  *
  * @category Class
- * @see     https://openapi-generator.tech
+ * @package  Dropbox\Sign
+ * @author   OpenAPI Generator team
+ * @link     https://openapi-generator.tech
  */
 class EmbeddedApi
 {
-    /** @var ClientInterface */
+    /**
+     * @var ClientInterface
+     */
     protected $client;
 
-    /** @var Configuration */
+    /**
+     * @var Configuration
+     */
     protected $config;
 
-    /** @var HeaderSelector */
+    /**
+     * @var HeaderSelector
+     */
     protected $headerSelector;
 
-    /** @var int Host index */
+    /**
+     * @var int Host index
+     */
     protected $hostIndex;
 
-    /**
-     * @var string[] *
-     */
+    /** @var string[] $contentTypes **/
     public const contentTypes = [
         'embeddedEditUrl' => [
             'application/json',
@@ -79,13 +86,16 @@ class EmbeddedApi
     protected $response;
 
     /**
-     * @param int $hostIndex (Optional) host index to select the list of hosts if defined in the OpenAPI spec
+     * @param Configuration   $config
+     * @param ClientInterface $client
+     * @param HeaderSelector  $selector
+     * @param int             $hostIndex (Optional) host index to select the list of hosts if defined in the OpenAPI spec
      */
     public function __construct(
         Configuration $config = null,
         ClientInterface $client = null,
         HeaderSelector $selector = null,
-        int $hostIndex = 0
+        $hostIndex = 0
     ) {
         $this->client = $client ?: new Client();
         $this->config = $config ?: new Configuration();
@@ -99,7 +109,7 @@ class EmbeddedApi
      * @param int $hostIndex Host index (required)
      * @deprecated To be made private in the future
      */
-    public function setHostIndex(int $hostIndex): void
+    public function setHostIndex($hostIndex): void
     {
         $this->hostIndex = $hostIndex;
     }
@@ -136,14 +146,14 @@ class EmbeddedApi
      *
      * Get Embedded Template Edit URL
      *
-     * @param string                       $template_id               The id of the template to edit. (required)
-     * @param Model\EmbeddedEditUrlRequest $embedded_edit_url_request embedded_edit_url_request (required)
+     * @param  string $template_id The id of the template to edit. (required)
+     * @param  \Dropbox\Sign\Model\EmbeddedEditUrlRequest $embedded_edit_url_request embedded_edit_url_request (required)
      *
-     * @return Model\EmbeddedEditUrlResponse
-     * @throws ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws InvalidArgumentException
+     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \Dropbox\Sign\Model\EmbeddedEditUrlResponse|\Dropbox\Sign\Model\ErrorResponse
      */
-    public function embeddedEditUrl(string $template_id, Model\EmbeddedEditUrlRequest $embedded_edit_url_request)
+    public function embeddedEditUrl($template_id, $embedded_edit_url_request)
     {
         list($response) = $this->embeddedEditUrlWithHttpInfo($template_id, $embedded_edit_url_request);
         return $response;
@@ -154,16 +164,16 @@ class EmbeddedApi
      *
      * Get Embedded Template Edit URL
      *
-     * @param string                       $template_id               The id of the template to edit. (required)
-     * @param Model\EmbeddedEditUrlRequest $embedded_edit_url_request (required)
-     * @param string                       $contentType               The value for the Content-Type header. Check self::contentTypes['embeddedEditUrl'] to see the possible values for this operation
+     * @param  string $template_id The id of the template to edit. (required)
+     * @param  \Dropbox\Sign\Model\EmbeddedEditUrlRequest $embedded_edit_url_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['embeddedEditUrl'] to see the possible values for this operation
      *
-     * @return array of Model\EmbeddedEditUrlResponse, HTTP status code, HTTP response headers (array of strings)
-     * @throws ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws InvalidArgumentException
+     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \Dropbox\Sign\Model\EmbeddedEditUrlResponse|\Dropbox\Sign\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      * @deprecated Prefer to use ::embeddedEditUrl. This method will eventually become unavailable
      */
-    public function embeddedEditUrlWithHttpInfo(string $template_id, Model\EmbeddedEditUrlRequest $embedded_edit_url_request, string $contentType = self::contentTypes['embeddedEditUrl'][0])
+    public function embeddedEditUrlWithHttpInfo($template_id, $embedded_edit_url_request, string $contentType = self::contentTypes['embeddedEditUrl'][0])
     {
         $request = $this->embeddedEditUrlRequest($template_id, $embedded_edit_url_request, $contentType);
 
@@ -175,14 +185,14 @@ class EmbeddedApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int)$e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string)$e->getResponse()->getBody() : null
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int)$e->getCode(),
+                    (int) $e->getCode(),
                     null,
                     null
                 );
@@ -195,14 +205,14 @@ class EmbeddedApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        (string)$request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    (string)$response->getBody()
+                    (string) $response->getBody()
                 );
             }
-
+            
             $result = $this->handleRangeCodeResponse(
                 $response,
                 '4XX',
@@ -211,17 +221,18 @@ class EmbeddedApi
             if ($result) {
                 return $result;
             }
+            
 
-            switch ($statusCode) {
+            switch($statusCode) {
                 case 200:
                     if ('\Dropbox\Sign\Model\EmbeddedEditUrlResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string)$response->getBody();
+                        $content = (string) $response->getBody();
                         if ('\Dropbox\Sign\Model\EmbeddedEditUrlResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (JsonException $exception) {
+                            } catch (\JsonException $exception) {
                                 throw new ApiException(
                                     sprintf(
                                         'Error JSON decoding server response (%s)',
@@ -238,19 +249,20 @@ class EmbeddedApi
                     return [
                         ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\EmbeddedEditUrlResponse', []),
                         $response->getStatusCode(),
-                        $response->getHeaders(),
+                        $response->getHeaders()
                     ];
+                
             }
 
             $returnType = '\Dropbox\Sign\Model\EmbeddedEditUrlResponse';
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); // stream goes to serializer
+                $content = $response->getBody(); //stream goes to serializer
             } else {
-                $content = (string)$response->getBody();
+                $content = (string) $response->getBody();
                 if ($returnType !== 'string') {
                     try {
                         $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                    } catch (JsonException $exception) {
+                    } catch (\JsonException $exception) {
                         throw new ApiException(
                             sprintf(
                                 'Error JSON decoding server response (%s)',
@@ -267,9 +279,11 @@ class EmbeddedApi
             return [
                 ObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
-                $response->getHeaders(),
+                $response->getHeaders()
             ];
+
         } catch (ApiException $e) {
+            
             if ($this->handleRangeCodeException($e, '4XX', '\Dropbox\Sign\Model\ErrorResponse')) {
                 throw $e;
             }
@@ -282,6 +296,7 @@ class EmbeddedApi
                     );
                     $e->setResponseObject($data);
                     break;
+                
             }
             throw $e;
         }
@@ -292,15 +307,15 @@ class EmbeddedApi
      *
      * Get Embedded Template Edit URL
      *
-     * @param string                       $template_id               The id of the template to edit. (required)
-     * @param Model\EmbeddedEditUrlRequest $embedded_edit_url_request (required)
-     * @param string                       $contentType               The value for the Content-Type header. Check self::contentTypes['embeddedEditUrl'] to see the possible values for this operation
+     * @param  string $template_id The id of the template to edit. (required)
+     * @param  \Dropbox\Sign\Model\EmbeddedEditUrlRequest $embedded_edit_url_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['embeddedEditUrl'] to see the possible values for this operation
      *
+     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
-     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::embeddedEditUrl. This method will eventually become unavailable
      */
-    public function embeddedEditUrlAsync(string $template_id, Model\EmbeddedEditUrlRequest $embedded_edit_url_request, string $contentType = self::contentTypes['embeddedEditUrl'][0])
+    public function embeddedEditUrlAsync($template_id, $embedded_edit_url_request, string $contentType = self::contentTypes['embeddedEditUrl'][0])
     {
         return $this->embeddedEditUrlAsyncWithHttpInfo($template_id, $embedded_edit_url_request, $contentType)
             ->then(
@@ -315,15 +330,15 @@ class EmbeddedApi
      *
      * Get Embedded Template Edit URL
      *
-     * @param string                       $template_id               The id of the template to edit. (required)
-     * @param Model\EmbeddedEditUrlRequest $embedded_edit_url_request (required)
-     * @param string                       $contentType               The value for the Content-Type header. Check self::contentTypes['embeddedEditUrl'] to see the possible values for this operation
+     * @param  string $template_id The id of the template to edit. (required)
+     * @param  \Dropbox\Sign\Model\EmbeddedEditUrlRequest $embedded_edit_url_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['embeddedEditUrl'] to see the possible values for this operation
      *
+     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
-     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::embeddedEditUrl. This method will eventually become unavailable
      */
-    public function embeddedEditUrlAsyncWithHttpInfo(string $template_id, Model\EmbeddedEditUrlRequest $embedded_edit_url_request, string $contentType = self::contentTypes['embeddedEditUrl'][0])
+    public function embeddedEditUrlAsyncWithHttpInfo($template_id, $embedded_edit_url_request, string $contentType = self::contentTypes['embeddedEditUrl'][0])
     {
         $returnType = '\Dropbox\Sign\Model\EmbeddedEditUrlResponse';
         $request = $this->embeddedEditUrlRequest($template_id, $embedded_edit_url_request, $contentType);
@@ -333,9 +348,9 @@ class EmbeddedApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string)$response->getBody();
+                        $content = (string) $response->getBody();
                         if ($returnType !== 'string') {
                             $content = json_decode($content);
                         }
@@ -344,7 +359,7 @@ class EmbeddedApi
                     return [
                         ObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
-                        $response->getHeaders(),
+                        $response->getHeaders()
                     ];
                 },
                 function ($exception) {
@@ -358,7 +373,7 @@ class EmbeddedApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        (string)$response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -367,29 +382,31 @@ class EmbeddedApi
     /**
      * Create request for operation 'embeddedEditUrl'
      *
-     * @param string                       $template_id               The id of the template to edit. (required)
-     * @param Model\EmbeddedEditUrlRequest $embedded_edit_url_request (required)
-     * @param string                       $contentType               The value for the Content-Type header. Check self::contentTypes['embeddedEditUrl'] to see the possible values for this operation
+     * @param  string $template_id The id of the template to edit. (required)
+     * @param  \Dropbox\Sign\Model\EmbeddedEditUrlRequest $embedded_edit_url_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['embeddedEditUrl'] to see the possible values for this operation
      *
-     * @return Request
-     * @throws InvalidArgumentException
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
      * @deprecated Prefer to use ::embeddedEditUrl. This method will eventually become unavailable
      */
-    public function embeddedEditUrlRequest(string $template_id, Model\EmbeddedEditUrlRequest $embedded_edit_url_request, string $contentType = self::contentTypes['embeddedEditUrl'][0])
+    public function embeddedEditUrlRequest($template_id, $embedded_edit_url_request, string $contentType = self::contentTypes['embeddedEditUrl'][0])
     {
+
         // verify the required parameter 'template_id' is set
         if ($template_id === null || (is_array($template_id) && count($template_id) === 0)) {
-            throw new InvalidArgumentException(
+            throw new \InvalidArgumentException(
                 'Missing the required parameter $template_id when calling embeddedEditUrl'
             );
         }
 
         // verify the required parameter 'embedded_edit_url_request' is set
         if ($embedded_edit_url_request === null || (is_array($embedded_edit_url_request) && count($embedded_edit_url_request) === 0)) {
-            throw new InvalidArgumentException(
+            throw new \InvalidArgumentException(
                 'Missing the required parameter $embedded_edit_url_request when calling embeddedEditUrl'
             );
         }
+
 
         $resourcePath = '/embedded/edit_url/{template_id}';
         $formParams = [];
@@ -404,17 +421,19 @@ class EmbeddedApi
 
         $multipart = !empty($formParams);
 
+
         // path params
         if ($template_id !== null) {
             $resourcePath = str_replace(
-                '{template_id}',
+                '{' . 'template_id' . '}',
                 ObjectSerializer::toPathValue($template_id),
                 $resourcePath
             );
         }
 
+
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            $multipart ? ['multipart/form-data'] : ['application/json', ],
             $contentType,
             $multipart
         );
@@ -422,7 +441,7 @@ class EmbeddedApi
         // for model (json/xml)
         if (count($formParams) === 0) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                // if Content-Type contains "application/json", json_encode the body
+                # if Content-Type contains "application/json", json_encode the body
                 $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($embedded_edit_url_request));
             } else {
                 $httpBody = $embedded_edit_url_request;
@@ -435,7 +454,7 @@ class EmbeddedApi
                     foreach ($formParamValueItems as $formParamValueItem) {
                         $multipartContents[] = [
                             'name' => $formParamName,
-                            'contents' => $formParamValueItem,
+                            'contents' => $formParamValueItem
                         ];
                     }
                 }
@@ -452,8 +471,9 @@ class EmbeddedApi
                     $payloadHook('multipart', $multipartContents, $embedded_edit_url_request);
                 }
                 $httpBody = new MultipartStream($multipartContents);
+
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                // if Content-Type contains "application/json", json_encode the form parameters
+                # if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
             } else {
                 // for HTTP post (form)
@@ -496,13 +516,13 @@ class EmbeddedApi
      *
      * Get Embedded Sign URL
      *
-     * @param string $signature_id The id of the signature to get a signature url for. (required)
+     * @param  string $signature_id The id of the signature to get a signature url for. (required)
      *
-     * @return Model\EmbeddedSignUrlResponse
-     * @throws ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws InvalidArgumentException
+     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \Dropbox\Sign\Model\EmbeddedSignUrlResponse|\Dropbox\Sign\Model\ErrorResponse
      */
-    public function embeddedSignUrl(string $signature_id)
+    public function embeddedSignUrl($signature_id)
     {
         list($response) = $this->embeddedSignUrlWithHttpInfo($signature_id);
         return $response;
@@ -513,15 +533,15 @@ class EmbeddedApi
      *
      * Get Embedded Sign URL
      *
-     * @param string $signature_id The id of the signature to get a signature url for. (required)
-     * @param string $contentType  The value for the Content-Type header. Check self::contentTypes['embeddedSignUrl'] to see the possible values for this operation
+     * @param  string $signature_id The id of the signature to get a signature url for. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['embeddedSignUrl'] to see the possible values for this operation
      *
-     * @return array of Model\EmbeddedSignUrlResponse, HTTP status code, HTTP response headers (array of strings)
-     * @throws ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws InvalidArgumentException
+     * @throws \Dropbox\Sign\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \Dropbox\Sign\Model\EmbeddedSignUrlResponse|\Dropbox\Sign\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      * @deprecated Prefer to use ::embeddedSignUrl. This method will eventually become unavailable
      */
-    public function embeddedSignUrlWithHttpInfo(string $signature_id, string $contentType = self::contentTypes['embeddedSignUrl'][0])
+    public function embeddedSignUrlWithHttpInfo($signature_id, string $contentType = self::contentTypes['embeddedSignUrl'][0])
     {
         $request = $this->embeddedSignUrlRequest($signature_id, $contentType);
 
@@ -533,14 +553,14 @@ class EmbeddedApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int)$e->getCode(),
+                    (int) $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string)$e->getResponse()->getBody() : null
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
                 );
             } catch (ConnectException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int)$e->getCode(),
+                    (int) $e->getCode(),
                     null,
                     null
                 );
@@ -553,14 +573,14 @@ class EmbeddedApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        (string)$request->getUri()
+                        (string) $request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    (string)$response->getBody()
+                    (string) $response->getBody()
                 );
             }
-
+            
             $result = $this->handleRangeCodeResponse(
                 $response,
                 '4XX',
@@ -569,17 +589,18 @@ class EmbeddedApi
             if ($result) {
                 return $result;
             }
+            
 
-            switch ($statusCode) {
+            switch($statusCode) {
                 case 200:
                     if ('\Dropbox\Sign\Model\EmbeddedSignUrlResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string)$response->getBody();
+                        $content = (string) $response->getBody();
                         if ('\Dropbox\Sign\Model\EmbeddedSignUrlResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (JsonException $exception) {
+                            } catch (\JsonException $exception) {
                                 throw new ApiException(
                                     sprintf(
                                         'Error JSON decoding server response (%s)',
@@ -596,19 +617,20 @@ class EmbeddedApi
                     return [
                         ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\EmbeddedSignUrlResponse', []),
                         $response->getStatusCode(),
-                        $response->getHeaders(),
+                        $response->getHeaders()
                     ];
+                
             }
 
             $returnType = '\Dropbox\Sign\Model\EmbeddedSignUrlResponse';
             if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); // stream goes to serializer
+                $content = $response->getBody(); //stream goes to serializer
             } else {
-                $content = (string)$response->getBody();
+                $content = (string) $response->getBody();
                 if ($returnType !== 'string') {
                     try {
                         $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                    } catch (JsonException $exception) {
+                    } catch (\JsonException $exception) {
                         throw new ApiException(
                             sprintf(
                                 'Error JSON decoding server response (%s)',
@@ -625,9 +647,11 @@ class EmbeddedApi
             return [
                 ObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
-                $response->getHeaders(),
+                $response->getHeaders()
             ];
+
         } catch (ApiException $e) {
+            
             if ($this->handleRangeCodeException($e, '4XX', '\Dropbox\Sign\Model\ErrorResponse')) {
                 throw $e;
             }
@@ -640,6 +664,7 @@ class EmbeddedApi
                     );
                     $e->setResponseObject($data);
                     break;
+                
             }
             throw $e;
         }
@@ -650,14 +675,14 @@ class EmbeddedApi
      *
      * Get Embedded Sign URL
      *
-     * @param string $signature_id The id of the signature to get a signature url for. (required)
-     * @param string $contentType  The value for the Content-Type header. Check self::contentTypes['embeddedSignUrl'] to see the possible values for this operation
+     * @param  string $signature_id The id of the signature to get a signature url for. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['embeddedSignUrl'] to see the possible values for this operation
      *
+     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
-     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::embeddedSignUrl. This method will eventually become unavailable
      */
-    public function embeddedSignUrlAsync(string $signature_id, string $contentType = self::contentTypes['embeddedSignUrl'][0])
+    public function embeddedSignUrlAsync($signature_id, string $contentType = self::contentTypes['embeddedSignUrl'][0])
     {
         return $this->embeddedSignUrlAsyncWithHttpInfo($signature_id, $contentType)
             ->then(
@@ -672,14 +697,14 @@ class EmbeddedApi
      *
      * Get Embedded Sign URL
      *
-     * @param string $signature_id The id of the signature to get a signature url for. (required)
-     * @param string $contentType  The value for the Content-Type header. Check self::contentTypes['embeddedSignUrl'] to see the possible values for this operation
+     * @param  string $signature_id The id of the signature to get a signature url for. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['embeddedSignUrl'] to see the possible values for this operation
      *
+     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
-     * @throws InvalidArgumentException
      * @deprecated Prefer to use ::embeddedSignUrl. This method will eventually become unavailable
      */
-    public function embeddedSignUrlAsyncWithHttpInfo(string $signature_id, string $contentType = self::contentTypes['embeddedSignUrl'][0])
+    public function embeddedSignUrlAsyncWithHttpInfo($signature_id, string $contentType = self::contentTypes['embeddedSignUrl'][0])
     {
         $returnType = '\Dropbox\Sign\Model\EmbeddedSignUrlResponse';
         $request = $this->embeddedSignUrlRequest($signature_id, $contentType);
@@ -689,9 +714,9 @@ class EmbeddedApi
             ->then(
                 function ($response) use ($returnType) {
                     if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); // stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string)$response->getBody();
+                        $content = (string) $response->getBody();
                         if ($returnType !== 'string') {
                             $content = json_decode($content);
                         }
@@ -700,7 +725,7 @@ class EmbeddedApi
                     return [
                         ObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
-                        $response->getHeaders(),
+                        $response->getHeaders()
                     ];
                 },
                 function ($exception) {
@@ -714,7 +739,7 @@ class EmbeddedApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        (string)$response->getBody()
+                        (string) $response->getBody()
                     );
                 }
             );
@@ -723,21 +748,23 @@ class EmbeddedApi
     /**
      * Create request for operation 'embeddedSignUrl'
      *
-     * @param string $signature_id The id of the signature to get a signature url for. (required)
-     * @param string $contentType  The value for the Content-Type header. Check self::contentTypes['embeddedSignUrl'] to see the possible values for this operation
+     * @param  string $signature_id The id of the signature to get a signature url for. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['embeddedSignUrl'] to see the possible values for this operation
      *
-     * @return Request
-     * @throws InvalidArgumentException
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
      * @deprecated Prefer to use ::embeddedSignUrl. This method will eventually become unavailable
      */
-    public function embeddedSignUrlRequest(string $signature_id, string $contentType = self::contentTypes['embeddedSignUrl'][0])
+    public function embeddedSignUrlRequest($signature_id, string $contentType = self::contentTypes['embeddedSignUrl'][0])
     {
+
         // verify the required parameter 'signature_id' is set
         if ($signature_id === null || (is_array($signature_id) && count($signature_id) === 0)) {
-            throw new InvalidArgumentException(
+            throw new \InvalidArgumentException(
                 'Missing the required parameter $signature_id when calling embeddedSignUrl'
             );
         }
+
 
         $resourcePath = '/embedded/sign_url/{signature_id}';
         $formParams = [];
@@ -746,17 +773,20 @@ class EmbeddedApi
         $httpBody = '';
         $multipart = false;
 
+
+
         // path params
         if ($signature_id !== null) {
             $resourcePath = str_replace(
-                '{signature_id}',
+                '{' . 'signature_id' . '}',
                 ObjectSerializer::toPathValue($signature_id),
                 $resourcePath
             );
         }
 
+
         $headers = $this->headerSelector->selectHeaders(
-            $multipart ? ['multipart/form-data'] : ['application/json'],
+            $multipart ? ['multipart/form-data'] : ['application/json', ],
             $contentType,
             $multipart
         );
@@ -770,7 +800,7 @@ class EmbeddedApi
                     foreach ($formParamValueItems as $formParamValueItem) {
                         $multipartContents[] = [
                             'name' => $formParamName,
-                            'contents' => $formParamValueItem,
+                            'contents' => $formParamValueItem
                         ];
                     }
                 }
@@ -784,8 +814,9 @@ class EmbeddedApi
                 }
 
                 $httpBody = new MultipartStream($multipartContents);
+
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                // if Content-Type contains "application/json", json_encode the form parameters
+                # if Content-Type contains "application/json", json_encode the form parameters
                 $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
             } else {
                 // for HTTP post (form)
@@ -826,8 +857,8 @@ class EmbeddedApi
     /**
      * Create http client option
      *
+     * @throws \RuntimeException on file opening failure
      * @return array of http client options
-     * @throws RuntimeException on file opening failure
      */
     protected function createHttpClientOption()
     {
@@ -835,7 +866,7 @@ class EmbeddedApi
         if ($this->config->getDebug()) {
             $options[RequestOptions::DEBUG] = fopen($this->config->getDebugFile(), 'a');
             if (!$options[RequestOptions::DEBUG]) {
-                throw new RuntimeException('Failed to open the debug file: ' . $this->config->getDebugFile());
+                throw new \RuntimeException('Failed to open the debug file: ' . $this->config->getDebugFile());
             }
         }
 
@@ -851,8 +882,8 @@ class EmbeddedApi
         string $returnDataType
     ) {
         $statusCode = $response->getStatusCode();
-        $rangeCodeLeft = (int)(substr($rangeCode, 0, 1) . '00');
-        $rangeCodeRight = (int)(substr($rangeCode, 0, 1) . '99');
+        $rangeCodeLeft = (int) (substr($rangeCode, 0, 1) . '00');
+        $rangeCodeRight = (int) (substr($rangeCode, 0, 1) . '99');
 
         if (
             $statusCode < $rangeCodeLeft
@@ -862,9 +893,9 @@ class EmbeddedApi
         }
 
         if ($returnDataType === '\SplFileObject') {
-            $content = $response->getBody(); // stream goes to serializer
+            $content = $response->getBody(); //stream goes to serializer
         } else {
-            $content = (string)$response->getBody();
+            $content = (string) $response->getBody();
         }
 
         return [
@@ -883,8 +914,8 @@ class EmbeddedApi
         string $exceptionDataType
     ): bool {
         $statusCode = $e->getCode();
-        $rangeCodeLeft = (int)(substr($rangeCode, 0, 1) . '00');
-        $rangeCodeRight = (int)(substr($rangeCode, 0, 1) . '99');
+        $rangeCodeLeft = (int) (substr($rangeCode, 0, 1) . '00');
+        $rangeCodeRight = (int) (substr($rangeCode, 0, 1) . '99');
 
         if (
             $statusCode < $rangeCodeLeft
