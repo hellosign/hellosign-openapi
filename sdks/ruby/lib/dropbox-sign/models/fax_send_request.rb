@@ -18,7 +18,7 @@ end
 
 module Dropbox::Sign
   class FaxSendRequest
-    # Fax Send To Recipient
+    # Recipient of the fax  Can be a phone number in E.164 format or email address
     # @return [String]
     attr_accessor :recipient
 
@@ -26,11 +26,11 @@ module Dropbox::Sign
     # @return [String]
     attr_accessor :sender
 
-    # Fax File to Send
+    # Use `files[]` to indicate the uploaded file(s) to fax  This endpoint requires either **files** or **file_urls[]**, but not both.
     # @return [Array<File>]
     attr_accessor :files
 
-    # Fax File URL to Send
+    # Use `file_urls[]` to have Dropbox Fax download the file(s) to fax  This endpoint requires either **files** or **file_urls[]**, but not both.
     # @return [Array<String>]
     attr_accessor :file_urls
 
@@ -38,11 +38,11 @@ module Dropbox::Sign
     # @return [Boolean]
     attr_accessor :test_mode
 
-    # Fax Cover Page for Recipient
+    # Fax cover page recipient information
     # @return [String]
     attr_accessor :cover_page_to
 
-    # Fax Cover Page for Sender
+    # Fax cover page sender information
     # @return [String]
     attr_accessor :cover_page_from
 

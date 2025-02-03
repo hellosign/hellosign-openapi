@@ -18,19 +18,19 @@ end
 
 module Dropbox::Sign
   class FaxLineCreateRequest
-    # Area code
+    # Area code of the new Fax Line
     # @return [Integer]
     attr_accessor :area_code
 
-    # Country
+    # Country of the area code
     # @return [String]
     attr_accessor :country
 
-    # City
+    # City of the area code
     # @return [String]
     attr_accessor :city
 
-    # Account ID
+    # Account ID of the account that will be assigned this new Fax Line
     # @return [String]
     attr_accessor :account_id
 

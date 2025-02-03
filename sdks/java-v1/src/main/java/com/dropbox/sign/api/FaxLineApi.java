@@ -120,13 +120,13 @@ public class FaxLineApi {
     }
 
     /**
-     * Get Available Fax Line Area Codes. Returns a response with the area codes available for a
-     * given state/province and city.
+     * Get Available Fax Line Area Codes. Returns a list of available area codes for a given
+     * state/province and city
      *
-     * @param country Filter area codes by country. (required)
-     * @param state Filter area codes by state. (optional)
-     * @param province Filter area codes by province. (optional)
-     * @param city Filter area codes by city. (optional)
+     * @param country Filter area codes by country (required)
+     * @param state Filter area codes by state (optional)
+     * @param province Filter area codes by province (optional)
+     * @param city Filter area codes by city (optional)
      * @return FaxLineAreaCodeGetResponse
      * @throws ApiException if fails to make API call
      * @http.response.details
@@ -207,13 +207,13 @@ public class FaxLineApi {
     }
 
     /**
-     * Get Available Fax Line Area Codes. Returns a response with the area codes available for a
-     * given state/province and city.
+     * Get Available Fax Line Area Codes. Returns a list of available area codes for a given
+     * state/province and city
      *
-     * @param country Filter area codes by country. (required)
-     * @param state Filter area codes by state. (optional)
-     * @param province Filter area codes by province. (optional)
-     * @param city Filter area codes by city. (optional)
+     * @param country Filter area codes by country (required)
+     * @param state Filter area codes by state (optional)
+     * @param province Filter area codes by province (optional)
+     * @param city Filter area codes by city (optional)
      * @return ApiResponse&lt;FaxLineAreaCodeGetResponse&gt;
      * @throws ApiException if fails to make API call
      * @http.response.details
@@ -266,7 +266,7 @@ public class FaxLineApi {
     }
 
     /**
-     * Purchase Fax Line. Purchases a new Fax Line.
+     * Purchase Fax Line. Purchases a new Fax Line
      *
      * @param faxLineCreateRequest (required)
      * @return FaxLineResponse
@@ -284,7 +284,7 @@ public class FaxLineApi {
     }
 
     /**
-     * Purchase Fax Line. Purchases a new Fax Line.
+     * Purchase Fax Line. Purchases a new Fax Line
      *
      * @param faxLineCreateRequest (required)
      * @return ApiResponse&lt;FaxLineResponse&gt;
@@ -401,7 +401,7 @@ public class FaxLineApi {
     /**
      * Get Fax Line. Returns the properties and settings of a Fax Line.
      *
-     * @param number The Fax Line number. (required)
+     * @param number The Fax Line number (required)
      * @return FaxLineResponse
      * @throws ApiException if fails to make API call
      * @http.response.details
@@ -418,7 +418,7 @@ public class FaxLineApi {
     /**
      * Get Fax Line. Returns the properties and settings of a Fax Line.
      *
-     * @param number The Fax Line number. (required)
+     * @param number The Fax Line number (required)
      * @return ApiResponse&lt;FaxLineResponse&gt;
      * @throws ApiException if fails to make API call
      * @http.response.details
@@ -468,9 +468,11 @@ public class FaxLineApi {
      * List Fax Lines. Returns the properties and settings of multiple Fax Lines.
      *
      * @param accountId Account ID (optional)
-     * @param page Page (optional, default to 1)
-     * @param pageSize Page size (optional, default to 20)
-     * @param showTeamLines Show team lines (optional)
+     * @param page Which page number of the Fax Line List to return. Defaults to &#x60;1&#x60;.
+     *     (optional, default to 1)
+     * @param pageSize Number of objects to be returned per page. Must be between &#x60;1&#x60; and
+     *     &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
+     * @param showTeamLines Include Fax Lines belonging to team members in the list (optional)
      * @return FaxLineListResponse
      * @throws ApiException if fails to make API call
      * @http.response.details
@@ -578,9 +580,11 @@ public class FaxLineApi {
      * List Fax Lines. Returns the properties and settings of multiple Fax Lines.
      *
      * @param accountId Account ID (optional)
-     * @param page Page (optional, default to 1)
-     * @param pageSize Page size (optional, default to 20)
-     * @param showTeamLines Show team lines (optional)
+     * @param page Which page number of the Fax Line List to return. Defaults to &#x60;1&#x60;.
+     *     (optional, default to 1)
+     * @param pageSize Number of objects to be returned per page. Must be between &#x60;1&#x60; and
+     *     &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
+     * @param showTeamLines Include Fax Lines belonging to team members in the list (optional)
      * @return ApiResponse&lt;FaxLineListResponse&gt;
      * @throws ApiException if fails to make API call
      * @http.response.details
@@ -634,7 +638,7 @@ public class FaxLineApi {
     }
 
     /**
-     * Remove Fax Line Access. Removes a user&#39;s access to the specified Fax Line.
+     * Remove Fax Line Access. Removes a user&#39;s access to the specified Fax Line
      *
      * @param faxLineRemoveUserRequest (required)
      * @return FaxLineResponse
@@ -652,7 +656,7 @@ public class FaxLineApi {
     }
 
     /**
-     * Remove Fax Line Access. Removes a user&#39;s access to the specified Fax Line.
+     * Remove Fax Line Access. Removes a user&#39;s access to the specified Fax Line
      *
      * @param faxLineRemoveUserRequest (required)
      * @return ApiResponse&lt;FaxLineResponse&gt;

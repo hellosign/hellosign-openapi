@@ -18,7 +18,7 @@ faxDelete($fax_id)
 ```
 Delete Fax
 
-Deletes the specified Fax from the system.
+Deletes the specified Fax from the system
 
 ### Example
 
@@ -74,7 +74,7 @@ faxFiles($fax_id): \SplFileObject
 ```
 Download Fax Files
 
-Downloads fax files
+Downloads files associated with a Fax
 
 ### Example
 
@@ -133,7 +133,7 @@ faxGet($fax_id): \Dropbox\Sign\Model\FaxGetResponse
 ```
 Get Fax
 
-Returns information about fax
+Returns information about a Fax
 
 ### Example
 
@@ -192,7 +192,7 @@ faxList($page, $page_size): \Dropbox\Sign\Model\FaxListResponse
 ```
 Lists Faxes
 
-Returns properties of multiple faxes
+Returns properties of multiple Faxes
 
 ### Example
 
@@ -226,8 +226,8 @@ try {
 
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **page** | **int**| Page | [optional] [default to 1] |
-| **page_size** | **int**| Page size | [optional] [default to 20] |
+| **page** | **int**| Which page number of the Fax List to return. Defaults to `1`. | [optional] [default to 1] |
+| **page_size** | **int**| Number of objects to be returned per page. Must be between `1` and `100`. Default is `20`. | [optional] [default to 20] |
 
 ### Return type
 
@@ -253,7 +253,7 @@ faxSend($fax_send_request): \Dropbox\Sign\Model\FaxGetResponse
 ```
 Send Fax
 
-Action to prepare and send a fax
+Creates and sends a new Fax with the submitted file(s)
 
 ### Example
 

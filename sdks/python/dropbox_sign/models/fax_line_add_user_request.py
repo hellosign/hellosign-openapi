@@ -32,7 +32,7 @@ class FaxLineAddUserRequest(BaseModel):
     FaxLineAddUserRequest
     """  # noqa: E501
 
-    number: StrictStr = Field(description="The Fax Line number.")
+    number: StrictStr = Field(description="The Fax Line number")
     account_id: Optional[StrictStr] = Field(default=None, description="Account ID")
     email_address: Optional[StrictStr] = Field(
         default=None, description="Email address"

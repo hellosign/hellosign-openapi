@@ -364,7 +364,7 @@ class FaxLineCreateRequest implements ModelInterface, ArrayAccess, JsonSerializa
     /**
      * Sets area_code
      *
-     * @param int $area_code Area code
+     * @param int $area_code Area code of the new Fax Line
      *
      * @return self
      */
@@ -391,7 +391,7 @@ class FaxLineCreateRequest implements ModelInterface, ArrayAccess, JsonSerializa
     /**
      * Sets country
      *
-     * @param string $country Country
+     * @param string $country Country of the area code
      *
      * @return self
      */
@@ -428,7 +428,7 @@ class FaxLineCreateRequest implements ModelInterface, ArrayAccess, JsonSerializa
     /**
      * Sets city
      *
-     * @param string|null $city City
+     * @param string|null $city City of the area code
      *
      * @return self
      */
@@ -455,7 +455,7 @@ class FaxLineCreateRequest implements ModelInterface, ArrayAccess, JsonSerializa
     /**
      * Sets account_id
      *
-     * @param string|null $account_id Account ID
+     * @param string|null $account_id Account ID of the account that will be assigned this new Fax Line
      *
      * @return self
      */

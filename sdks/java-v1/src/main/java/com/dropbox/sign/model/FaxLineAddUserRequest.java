@@ -66,7 +66,7 @@ public class FaxLineAddUserRequest {
     }
 
     /**
-     * The Fax Line number.
+     * The Fax Line number
      *
      * @return number
      */

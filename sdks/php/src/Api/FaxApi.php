@@ -1043,8 +1043,8 @@ class FaxApi
      *
      * Lists Faxes
      *
-     * @param int $page      Page (optional, default to 1)
-     * @param int $page_size Page size (optional, default to 20)
+     * @param int $page      Which page number of the Fax List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
+     * @param int $page_size Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
      *
      * @return Model\FaxListResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
@@ -1061,8 +1061,8 @@ class FaxApi
      *
      * Lists Faxes
      *
-     * @param int    $page        Page (optional, default to 1)
-     * @param int    $page_size   Page size (optional, default to 20)
+     * @param int    $page        Which page number of the Fax List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
+     * @param int    $page_size   Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
      * @param string $contentType The value for the Content-Type header. Check self::contentTypes['faxList'] to see the possible values for this operation
      *
      * @return array of Model\FaxListResponse, HTTP status code, HTTP response headers (array of strings)
@@ -1199,8 +1199,8 @@ class FaxApi
      *
      * Lists Faxes
      *
-     * @param int    $page        Page (optional, default to 1)
-     * @param int    $page_size   Page size (optional, default to 20)
+     * @param int    $page        Which page number of the Fax List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
+     * @param int    $page_size   Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
      * @param string $contentType The value for the Content-Type header. Check self::contentTypes['faxList'] to see the possible values for this operation
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1222,8 +1222,8 @@ class FaxApi
      *
      * Lists Faxes
      *
-     * @param int    $page        Page (optional, default to 1)
-     * @param int    $page_size   Page size (optional, default to 20)
+     * @param int    $page        Which page number of the Fax List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
+     * @param int    $page_size   Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
      * @param string $contentType The value for the Content-Type header. Check self::contentTypes['faxList'] to see the possible values for this operation
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1274,8 +1274,8 @@ class FaxApi
     /**
      * Create request for operation 'faxList'
      *
-     * @param int    $page        Page (optional, default to 1)
-     * @param int    $page_size   Page size (optional, default to 20)
+     * @param int    $page        Which page number of the Fax List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
+     * @param int    $page_size   Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
      * @param string $contentType The value for the Content-Type header. Check self::contentTypes['faxList'] to see the possible values for this operation
      *
      * @return Request

@@ -26,7 +26,7 @@ import { AttributeTypeMap, ObjectSerializer, RequestFile } from "./";
 
 export class FaxSendRequest {
   /**
-   * Fax Send To Recipient
+   * Recipient of the fax  Can be a phone number in E.164 format or email address
    */
   "recipient": string;
   /**
@@ -34,11 +34,11 @@ export class FaxSendRequest {
    */
   "sender"?: string;
   /**
-   * Fax File to Send
+   * Use `files[]` to indicate the uploaded file(s) to fax  This endpoint requires either **files** or **file_urls[]**, but not both.
    */
   "files"?: Array<RequestFile>;
   /**
-   * Fax File URL to Send
+   * Use `file_urls[]` to have Dropbox Fax download the file(s) to fax  This endpoint requires either **files** or **file_urls[]**, but not both.
    */
   "fileUrls"?: Array<string>;
   /**
@@ -46,11 +46,11 @@ export class FaxSendRequest {
    */
   "testMode"?: boolean = false;
   /**
-   * Fax Cover Page for Recipient
+   * Fax cover page recipient information
    */
   "coverPageTo"?: string;
   /**
-   * Fax Cover Page for Sender
+   * Fax cover page sender information
    */
   "coverPageFrom"?: string;
   /**

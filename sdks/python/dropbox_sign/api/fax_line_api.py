@@ -327,16 +327,16 @@ class FaxLineApi:
     def fax_line_area_code_get(
         self,
         country: Annotated[
-            StrictStr, Field(description="Filter area codes by country.")
+            StrictStr, Field(description="Filter area codes by country")
         ],
         state: Annotated[
-            Optional[StrictStr], Field(description="Filter area codes by state.")
+            Optional[StrictStr], Field(description="Filter area codes by state")
         ] = None,
         province: Annotated[
-            Optional[StrictStr], Field(description="Filter area codes by province.")
+            Optional[StrictStr], Field(description="Filter area codes by province")
         ] = None,
         city: Annotated[
-            Optional[StrictStr], Field(description="Filter area codes by city.")
+            Optional[StrictStr], Field(description="Filter area codes by city")
         ] = None,
         _request_timeout: Union[
             None,
@@ -352,15 +352,15 @@ class FaxLineApi:
     ) -> FaxLineAreaCodeGetResponse:
         """Get Available Fax Line Area Codes
 
-        Returns a response with the area codes available for a given state/province and city.
+        Returns a list of available area codes for a given state/province and city
 
-        :param country: Filter area codes by country. (required)
+        :param country: Filter area codes by country (required)
         :type country: str
-        :param state: Filter area codes by state.
+        :param state: Filter area codes by state
         :type state: str
-        :param province: Filter area codes by province.
+        :param province: Filter area codes by province
         :type province: str
-        :param city: Filter area codes by city.
+        :param city: Filter area codes by city
         :type city: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -412,16 +412,16 @@ class FaxLineApi:
     def fax_line_area_code_get_with_http_info(
         self,
         country: Annotated[
-            StrictStr, Field(description="Filter area codes by country.")
+            StrictStr, Field(description="Filter area codes by country")
         ],
         state: Annotated[
-            Optional[StrictStr], Field(description="Filter area codes by state.")
+            Optional[StrictStr], Field(description="Filter area codes by state")
         ] = None,
         province: Annotated[
-            Optional[StrictStr], Field(description="Filter area codes by province.")
+            Optional[StrictStr], Field(description="Filter area codes by province")
         ] = None,
         city: Annotated[
-            Optional[StrictStr], Field(description="Filter area codes by city.")
+            Optional[StrictStr], Field(description="Filter area codes by city")
         ] = None,
         _request_timeout: Union[
             None,
@@ -437,15 +437,15 @@ class FaxLineApi:
     ) -> ApiResponse[FaxLineAreaCodeGetResponse]:
         """Get Available Fax Line Area Codes
 
-        Returns a response with the area codes available for a given state/province and city.
+        Returns a list of available area codes for a given state/province and city
 
-        :param country: Filter area codes by country. (required)
+        :param country: Filter area codes by country (required)
         :type country: str
-        :param state: Filter area codes by state.
+        :param state: Filter area codes by state
         :type state: str
-        :param province: Filter area codes by province.
+        :param province: Filter area codes by province
         :type province: str
-        :param city: Filter area codes by city.
+        :param city: Filter area codes by city
         :type city: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -497,16 +497,16 @@ class FaxLineApi:
     def fax_line_area_code_get_without_preload_content(
         self,
         country: Annotated[
-            StrictStr, Field(description="Filter area codes by country.")
+            StrictStr, Field(description="Filter area codes by country")
         ],
         state: Annotated[
-            Optional[StrictStr], Field(description="Filter area codes by state.")
+            Optional[StrictStr], Field(description="Filter area codes by state")
         ] = None,
         province: Annotated[
-            Optional[StrictStr], Field(description="Filter area codes by province.")
+            Optional[StrictStr], Field(description="Filter area codes by province")
         ] = None,
         city: Annotated[
-            Optional[StrictStr], Field(description="Filter area codes by city.")
+            Optional[StrictStr], Field(description="Filter area codes by city")
         ] = None,
         _request_timeout: Union[
             None,
@@ -522,15 +522,15 @@ class FaxLineApi:
     ) -> RESTResponseType:
         """Get Available Fax Line Area Codes
 
-        Returns a response with the area codes available for a given state/province and city.
+        Returns a list of available area codes for a given state/province and city
 
-        :param country: Filter area codes by country. (required)
+        :param country: Filter area codes by country (required)
         :type country: str
-        :param state: Filter area codes by state.
+        :param state: Filter area codes by state
         :type state: str
-        :param province: Filter area codes by province.
+        :param province: Filter area codes by province
         :type province: str
-        :param city: Filter area codes by city.
+        :param city: Filter area codes by city
         :type city: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -661,7 +661,7 @@ class FaxLineApi:
     ) -> FaxLineResponse:
         """Purchase Fax Line
 
-        Purchases a new Fax Line.
+        Purchases a new Fax Line
 
         :param fax_line_create_request: (required)
         :type fax_line_create_request: FaxLineCreateRequest
@@ -726,7 +726,7 @@ class FaxLineApi:
     ) -> ApiResponse[FaxLineResponse]:
         """Purchase Fax Line
 
-        Purchases a new Fax Line.
+        Purchases a new Fax Line
 
         :param fax_line_create_request: (required)
         :type fax_line_create_request: FaxLineCreateRequest
@@ -791,7 +791,7 @@ class FaxLineApi:
     ) -> RESTResponseType:
         """Purchase Fax Line
 
-        Purchases a new Fax Line.
+        Purchases a new Fax Line
 
         :param fax_line_create_request: (required)
         :type fax_line_create_request: FaxLineCreateRequest
@@ -1196,7 +1196,7 @@ class FaxLineApi:
     @validate_call
     def fax_line_get(
         self,
-        number: Annotated[StrictStr, Field(description="The Fax Line number.")],
+        number: Annotated[StrictStr, Field(description="The Fax Line number")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1213,7 +1213,7 @@ class FaxLineApi:
 
         Returns the properties and settings of a Fax Line.
 
-        :param number: The Fax Line number. (required)
+        :param number: The Fax Line number (required)
         :type number: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1261,7 +1261,7 @@ class FaxLineApi:
     @validate_call
     def fax_line_get_with_http_info(
         self,
-        number: Annotated[StrictStr, Field(description="The Fax Line number.")],
+        number: Annotated[StrictStr, Field(description="The Fax Line number")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1278,7 +1278,7 @@ class FaxLineApi:
 
         Returns the properties and settings of a Fax Line.
 
-        :param number: The Fax Line number. (required)
+        :param number: The Fax Line number (required)
         :type number: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1326,7 +1326,7 @@ class FaxLineApi:
     @validate_call
     def fax_line_get_without_preload_content(
         self,
-        number: Annotated[StrictStr, Field(description="The Fax Line number.")],
+        number: Annotated[StrictStr, Field(description="The Fax Line number")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1343,7 +1343,7 @@ class FaxLineApi:
 
         Returns the properties and settings of a Fax Line.
 
-        :param number: The Fax Line number. (required)
+        :param number: The Fax Line number (required)
         :type number: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1444,12 +1444,23 @@ class FaxLineApi:
         account_id: Annotated[
             Optional[StrictStr], Field(description="Account ID")
         ] = None,
-        page: Annotated[Optional[StrictInt], Field(description="Page")] = None,
+        page: Annotated[
+            Optional[StrictInt],
+            Field(
+                description="Which page number of the Fax Line List to return. Defaults to `1`."
+            ),
+        ] = None,
         page_size: Annotated[
-            Optional[StrictInt], Field(description="Page size")
+            Optional[StrictInt],
+            Field(
+                description="Number of objects to be returned per page. Must be between `1` and `100`. Default is `20`."
+            ),
         ] = None,
         show_team_lines: Annotated[
-            Optional[StrictBool], Field(description="Show team lines")
+            Optional[StrictBool],
+            Field(
+                description="Include Fax Lines belonging to team members in the list"
+            ),
         ] = None,
         _request_timeout: Union[
             None,
@@ -1469,11 +1480,11 @@ class FaxLineApi:
 
         :param account_id: Account ID
         :type account_id: str
-        :param page: Page
+        :param page: Which page number of the Fax Line List to return. Defaults to `1`.
         :type page: int
-        :param page_size: Page size
+        :param page_size: Number of objects to be returned per page. Must be between `1` and `100`. Default is `20`.
         :type page_size: int
-        :param show_team_lines: Show team lines
+        :param show_team_lines: Include Fax Lines belonging to team members in the list
         :type show_team_lines: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1527,12 +1538,23 @@ class FaxLineApi:
         account_id: Annotated[
             Optional[StrictStr], Field(description="Account ID")
         ] = None,
-        page: Annotated[Optional[StrictInt], Field(description="Page")] = None,
+        page: Annotated[
+            Optional[StrictInt],
+            Field(
+                description="Which page number of the Fax Line List to return. Defaults to `1`."
+            ),
+        ] = None,
         page_size: Annotated[
-            Optional[StrictInt], Field(description="Page size")
+            Optional[StrictInt],
+            Field(
+                description="Number of objects to be returned per page. Must be between `1` and `100`. Default is `20`."
+            ),
         ] = None,
         show_team_lines: Annotated[
-            Optional[StrictBool], Field(description="Show team lines")
+            Optional[StrictBool],
+            Field(
+                description="Include Fax Lines belonging to team members in the list"
+            ),
         ] = None,
         _request_timeout: Union[
             None,
@@ -1552,11 +1574,11 @@ class FaxLineApi:
 
         :param account_id: Account ID
         :type account_id: str
-        :param page: Page
+        :param page: Which page number of the Fax Line List to return. Defaults to `1`.
         :type page: int
-        :param page_size: Page size
+        :param page_size: Number of objects to be returned per page. Must be between `1` and `100`. Default is `20`.
         :type page_size: int
-        :param show_team_lines: Show team lines
+        :param show_team_lines: Include Fax Lines belonging to team members in the list
         :type show_team_lines: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1610,12 +1632,23 @@ class FaxLineApi:
         account_id: Annotated[
             Optional[StrictStr], Field(description="Account ID")
         ] = None,
-        page: Annotated[Optional[StrictInt], Field(description="Page")] = None,
+        page: Annotated[
+            Optional[StrictInt],
+            Field(
+                description="Which page number of the Fax Line List to return. Defaults to `1`."
+            ),
+        ] = None,
         page_size: Annotated[
-            Optional[StrictInt], Field(description="Page size")
+            Optional[StrictInt],
+            Field(
+                description="Number of objects to be returned per page. Must be between `1` and `100`. Default is `20`."
+            ),
         ] = None,
         show_team_lines: Annotated[
-            Optional[StrictBool], Field(description="Show team lines")
+            Optional[StrictBool],
+            Field(
+                description="Include Fax Lines belonging to team members in the list"
+            ),
         ] = None,
         _request_timeout: Union[
             None,
@@ -1635,11 +1668,11 @@ class FaxLineApi:
 
         :param account_id: Account ID
         :type account_id: str
-        :param page: Page
+        :param page: Which page number of the Fax Line List to return. Defaults to `1`.
         :type page: int
-        :param page_size: Page size
+        :param page_size: Number of objects to be returned per page. Must be between `1` and `100`. Default is `20`.
         :type page_size: int
-        :param show_team_lines: Show team lines
+        :param show_team_lines: Include Fax Lines belonging to team members in the list
         :type show_team_lines: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1770,7 +1803,7 @@ class FaxLineApi:
     ) -> FaxLineResponse:
         """Remove Fax Line Access
 
-        Removes a user's access to the specified Fax Line.
+        Removes a user's access to the specified Fax Line
 
         :param fax_line_remove_user_request: (required)
         :type fax_line_remove_user_request: FaxLineRemoveUserRequest
@@ -1835,7 +1868,7 @@ class FaxLineApi:
     ) -> ApiResponse[FaxLineResponse]:
         """Remove Fax Line Access
 
-        Removes a user's access to the specified Fax Line.
+        Removes a user's access to the specified Fax Line
 
         :param fax_line_remove_user_request: (required)
         :type fax_line_remove_user_request: FaxLineRemoveUserRequest
@@ -1900,7 +1933,7 @@ class FaxLineApi:
     ) -> RESTResponseType:
         """Remove Fax Line Access
 
-        Removes a user's access to the specified Fax Line.
+        Removes a user's access to the specified Fax Line
 
         :param fax_line_remove_user_request: (required)
         :type fax_line_remove_user_request: FaxLineRemoveUserRequest

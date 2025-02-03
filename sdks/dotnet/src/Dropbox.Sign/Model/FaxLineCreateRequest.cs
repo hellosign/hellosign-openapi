@@ -34,9 +34,9 @@ namespace Dropbox.Sign.Model
     public partial class FaxLineCreateRequest : IEquatable<FaxLineCreateRequest>, IValidatableObject
     {
         /// <summary>
-        /// Country
+        /// Country of the area code
         /// </summary>
-        /// <value>Country</value>
+        /// <value>Country of the area code</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum CountryEnum
         {
@@ -61,9 +61,9 @@ namespace Dropbox.Sign.Model
 
 
         /// <summary>
-        /// Country
+        /// Country of the area code
         /// </summary>
-        /// <value>Country</value>
+        /// <value>Country of the area code</value>
         [DataMember(Name = "country", IsRequired = true, EmitDefaultValue = true)]
         public CountryEnum Country { get; set; }
         /// <summary>
@@ -74,10 +74,10 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FaxLineCreateRequest" /> class.
         /// </summary>
-        /// <param name="areaCode">Area code (required).</param>
-        /// <param name="country">Country (required).</param>
-        /// <param name="city">City.</param>
-        /// <param name="accountId">Account ID.</param>
+        /// <param name="areaCode">Area code of the new Fax Line (required).</param>
+        /// <param name="country">Country of the area code (required).</param>
+        /// <param name="city">City of the area code.</param>
+        /// <param name="accountId">Account ID of the account that will be assigned this new Fax Line.</param>
         public FaxLineCreateRequest(int areaCode = default(int), CountryEnum country = default(CountryEnum), string city = default(string), string accountId = default(string))
         {
 
@@ -104,23 +104,23 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
-        /// Area code
+        /// Area code of the new Fax Line
         /// </summary>
-        /// <value>Area code</value>
+        /// <value>Area code of the new Fax Line</value>
         [DataMember(Name = "area_code", IsRequired = true, EmitDefaultValue = true)]
         public int AreaCode { get; set; }
 
         /// <summary>
-        /// City
+        /// City of the area code
         /// </summary>
-        /// <value>City</value>
+        /// <value>City of the area code</value>
         [DataMember(Name = "city", EmitDefaultValue = true)]
         public string City { get; set; }
 
         /// <summary>
-        /// Account ID
+        /// Account ID of the account that will be assigned this new Fax Line
         /// </summary>
-        /// <value>Account ID</value>
+        /// <value>Account ID of the account that will be assigned this new Fax Line</value>
         /// <example>ab55cd14a97219e36b5ff5fe23f2f9329b0c1e97</example>
         [DataMember(Name = "account_id", EmitDefaultValue = true)]
         public string AccountId { get; set; }

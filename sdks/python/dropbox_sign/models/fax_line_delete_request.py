@@ -32,7 +32,7 @@ class FaxLineDeleteRequest(BaseModel):
     FaxLineDeleteRequest
     """  # noqa: E501
 
-    number: StrictStr = Field(description="The Fax Line number.")
+    number: StrictStr = Field(description="The Fax Line number")
     __properties: ClassVar[List[str]] = ["number"]
 
     model_config = ConfigDict(

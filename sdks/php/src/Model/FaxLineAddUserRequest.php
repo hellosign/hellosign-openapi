@@ -327,7 +327,7 @@ class FaxLineAddUserRequest implements ModelInterface, ArrayAccess, JsonSerializ
     /**
      * Sets number
      *
-     * @param string $number the Fax Line number
+     * @param string $number The Fax Line number
      *
      * @return self
      */

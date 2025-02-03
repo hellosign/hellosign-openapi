@@ -370,7 +370,7 @@ class FaxSendRequest implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets recipient
      *
-     * @param string $recipient Fax Send To Recipient
+     * @param string $recipient Recipient of the fax  Can be a phone number in E.164 format or email address
      *
      * @return self
      */
@@ -424,7 +424,7 @@ class FaxSendRequest implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets files
      *
-     * @param SplFileObject[]|null $files Fax File to Send
+     * @param SplFileObject[]|null $files use `files[]` to indicate the uploaded file(s) to fax  This endpoint requires either **files** or **file_urls[]**, but not both
      *
      * @return self
      */
@@ -451,7 +451,7 @@ class FaxSendRequest implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets file_urls
      *
-     * @param string[]|null $file_urls Fax File URL to Send
+     * @param string[]|null $file_urls use `file_urls[]` to have Dropbox Fax download the file(s) to fax  This endpoint requires either **files** or **file_urls[]**, but not both
      *
      * @return self
      */
@@ -505,7 +505,7 @@ class FaxSendRequest implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets cover_page_to
      *
-     * @param string|null $cover_page_to Fax Cover Page for Recipient
+     * @param string|null $cover_page_to Fax cover page recipient information
      *
      * @return self
      */
@@ -532,7 +532,7 @@ class FaxSendRequest implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets cover_page_from
      *
-     * @param string|null $cover_page_from Fax Cover Page for Sender
+     * @param string|null $cover_page_from Fax cover page sender information
      *
      * @return self
      */

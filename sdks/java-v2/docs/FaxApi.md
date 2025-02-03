@@ -18,7 +18,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 
 Delete Fax
 
-Deletes the specified Fax from the system.
+Deletes the specified Fax from the system
 
 ### Example
 
@@ -84,7 +84,7 @@ null (empty response body)
 
 Download Fax Files
 
-Downloads fax files
+Downloads files associated with a Fax
 
 ### Example
 
@@ -153,7 +153,7 @@ public class Example {
 
 Get Fax
 
-Returns information about fax
+Returns information about a Fax
 
 ### Example
 
@@ -221,7 +221,7 @@ public class Example {
 
 Lists Faxes
 
-Returns properties of multiple faxes
+Returns properties of multiple Faxes
 
 ### Example
 
@@ -262,8 +262,8 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
- **page** | **Integer**| Page | [optional] [default to 1]
- **pageSize** | **Integer**| Page size | [optional] [default to 20]
+ **page** | **Integer**| Which page number of the Fax List to return. Defaults to `1`. | [optional] [default to 1]
+ **pageSize** | **Integer**| Number of objects to be returned per page. Must be between `1` and `100`. Default is `20`. | [optional] [default to 20]
 
 ### Return type
 
@@ -291,7 +291,7 @@ public class Example {
 
 Send Fax
 
-Action to prepare and send a fax
+Creates and sends a new Fax with the submitted file(s)
 
 ### Example
 

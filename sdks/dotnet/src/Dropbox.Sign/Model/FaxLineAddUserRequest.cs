@@ -41,7 +41,7 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FaxLineAddUserRequest" /> class.
         /// </summary>
-        /// <param name="number">The Fax Line number. (required).</param>
+        /// <param name="number">The Fax Line number (required).</param>
         /// <param name="accountId">Account ID.</param>
         /// <param name="emailAddress">Email address.</param>
         public FaxLineAddUserRequest(string number = default(string), string accountId = default(string), string emailAddress = default(string))
@@ -74,9 +74,9 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
-        /// The Fax Line number.
+        /// The Fax Line number
         /// </summary>
-        /// <value>The Fax Line number.</value>
+        /// <value>The Fax Line number</value>
         [DataMember(Name = "number", IsRequired = true, EmitDefaultValue = true)]
         public string Number { get; set; }
 
