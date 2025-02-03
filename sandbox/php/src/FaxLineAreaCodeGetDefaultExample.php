@@ -1,0 +1,22 @@
+<?php
+
+namespace Dropbox\SignSandbox;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use Dropbox;
+
+$config = Dropbox\Sign\Configuration::getDefaultConfiguration();
+
+try {
+    $response = (new Dropbox\Sign\Api\FaxLineApi(config: $config))->faxLineAreaCodeGet(
+        country: "US",
+        state: null,
+        province: null,
+        city: null,
+    );
+
+    print_r($response);
+} catch (Dropbox\Sign\ApiException $e) {
+    echo "Exception when calling FaxLine#faxLineAreaCodeGet: {$e->getMessage()}";
+}

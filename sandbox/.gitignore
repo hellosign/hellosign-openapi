@@ -1,11 +1,5 @@
 **/artifacts/
 
-php/*
-!php/composer.json
-!php/Example.php
-!php/test
-!php/test_fixtures
-
 python/*
 !python/Example.py
 !python/requirements.txt
