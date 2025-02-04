@@ -87,6 +87,22 @@ class SignatureRequestApi
             'application/json',
             'multipart/form-data',
         ],
+        'signatureRequestEdit' => [
+            'application/json',
+            'multipart/form-data',
+        ],
+        'signatureRequestEditEmbedded' => [
+            'application/json',
+            'multipart/form-data',
+        ],
+        'signatureRequestEditEmbeddedWithTemplate' => [
+            'application/json',
+            'multipart/form-data',
+        ],
+        'signatureRequestEditWithTemplate' => [
+            'application/json',
+            'multipart/form-data',
+        ],
         'signatureRequestFiles' => [
             'application/json',
         ],
@@ -1770,6 +1786,1446 @@ class SignatureRequestApi
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation signatureRequestEdit
+     *
+     * Edit Signature Request
+     *
+     * @param string                            $signature_request_id           The id of the SignatureRequest to edit. (required)
+     * @param Model\SignatureRequestEditRequest $signature_request_edit_request signature_request_edit_request (required)
+     *
+     * @return Model\SignatureRequestGetResponse
+     * @throws ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws InvalidArgumentException
+     */
+    public function signatureRequestEdit(string $signature_request_id, Model\SignatureRequestEditRequest $signature_request_edit_request)
+    {
+        list($response) = $this->signatureRequestEditWithHttpInfo($signature_request_id, $signature_request_edit_request);
+        return $response;
+    }
+
+    /**
+     * Operation signatureRequestEditWithHttpInfo
+     *
+     * Edit Signature Request
+     *
+     * @param string                            $signature_request_id           The id of the SignatureRequest to edit. (required)
+     * @param Model\SignatureRequestEditRequest $signature_request_edit_request (required)
+     * @param string                            $contentType                    The value for the Content-Type header. Check self::contentTypes['signatureRequestEdit'] to see the possible values for this operation
+     *
+     * @return array of Model\SignatureRequestGetResponse, HTTP status code, HTTP response headers (array of strings)
+     * @throws ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::signatureRequestEdit. This method will eventually become unavailable
+     */
+    public function signatureRequestEditWithHttpInfo(string $signature_request_id, Model\SignatureRequestEditRequest $signature_request_edit_request, string $contentType = self::contentTypes['signatureRequestEdit'][0])
+    {
+        $request = $this->signatureRequestEditRequest($signature_request_id, $signature_request_edit_request, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+                $this->response = $response;
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int)$e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string)$e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int)$e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string)$request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string)$response->getBody()
+                );
+            }
+
+            $result = $this->handleRangeCodeResponse(
+                $response,
+                '4XX',
+                '\Dropbox\Sign\Model\ErrorResponse'
+            );
+            if ($result) {
+                return $result;
+            }
+
+            switch ($statusCode) {
+                case 200:
+                    if ('\Dropbox\Sign\Model\SignatureRequestGetResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); // stream goes to serializer
+                    } else {
+                        $content = (string)$response->getBody();
+                        if ('\Dropbox\Sign\Model\SignatureRequestGetResponse' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\SignatureRequestGetResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders(),
+                    ];
+            }
+
+            $returnType = '\Dropbox\Sign\Model\SignatureRequestGetResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); // stream goes to serializer
+            } else {
+                $content = (string)$response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders(),
+            ];
+        } catch (ApiException $e) {
+            if ($this->handleRangeCodeException($e, '4XX', '\Dropbox\Sign\Model\ErrorResponse')) {
+                throw $e;
+            }
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Dropbox\Sign\Model\SignatureRequestGetResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation signatureRequestEditAsync
+     *
+     * Edit Signature Request
+     *
+     * @param string                            $signature_request_id           The id of the SignatureRequest to edit. (required)
+     * @param Model\SignatureRequestEditRequest $signature_request_edit_request (required)
+     * @param string                            $contentType                    The value for the Content-Type header. Check self::contentTypes['signatureRequestEdit'] to see the possible values for this operation
+     *
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::signatureRequestEdit. This method will eventually become unavailable
+     */
+    public function signatureRequestEditAsync(string $signature_request_id, Model\SignatureRequestEditRequest $signature_request_edit_request, string $contentType = self::contentTypes['signatureRequestEdit'][0])
+    {
+        return $this->signatureRequestEditAsyncWithHttpInfo($signature_request_id, $signature_request_edit_request, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation signatureRequestEditAsyncWithHttpInfo
+     *
+     * Edit Signature Request
+     *
+     * @param string                            $signature_request_id           The id of the SignatureRequest to edit. (required)
+     * @param Model\SignatureRequestEditRequest $signature_request_edit_request (required)
+     * @param string                            $contentType                    The value for the Content-Type header. Check self::contentTypes['signatureRequestEdit'] to see the possible values for this operation
+     *
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::signatureRequestEdit. This method will eventually become unavailable
+     */
+    public function signatureRequestEditAsyncWithHttpInfo(string $signature_request_id, Model\SignatureRequestEditRequest $signature_request_edit_request, string $contentType = self::contentTypes['signatureRequestEdit'][0])
+    {
+        $returnType = '\Dropbox\Sign\Model\SignatureRequestGetResponse';
+        $request = $this->signatureRequestEditRequest($signature_request_id, $signature_request_edit_request, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); // stream goes to serializer
+                    } else {
+                        $content = (string)$response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders(),
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string)$response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'signatureRequestEdit'
+     *
+     * @param string                            $signature_request_id           The id of the SignatureRequest to edit. (required)
+     * @param Model\SignatureRequestEditRequest $signature_request_edit_request (required)
+     * @param string                            $contentType                    The value for the Content-Type header. Check self::contentTypes['signatureRequestEdit'] to see the possible values for this operation
+     *
+     * @return Request
+     * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::signatureRequestEdit. This method will eventually become unavailable
+     */
+    public function signatureRequestEditRequest(string $signature_request_id, Model\SignatureRequestEditRequest $signature_request_edit_request, string $contentType = self::contentTypes['signatureRequestEdit'][0])
+    {
+        // verify the required parameter 'signature_request_id' is set
+        if ($signature_request_id === null || (is_array($signature_request_id) && count($signature_request_id) === 0)) {
+            throw new InvalidArgumentException(
+                'Missing the required parameter $signature_request_id when calling signatureRequestEdit'
+            );
+        }
+
+        // verify the required parameter 'signature_request_edit_request' is set
+        if ($signature_request_edit_request === null || (is_array($signature_request_edit_request) && count($signature_request_edit_request) === 0)) {
+            throw new InvalidArgumentException(
+                'Missing the required parameter $signature_request_edit_request when calling signatureRequestEdit'
+            );
+        }
+
+        $resourcePath = '/signature_request/edit/{signature_request_id}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        $formParams = ObjectSerializer::getFormParams(
+            $signature_request_edit_request
+        );
+
+        $multipart = !empty($formParams);
+
+        // path params
+        if ($signature_request_id !== null) {
+            $resourcePath = str_replace(
+                '{signature_request_id}',
+                ObjectSerializer::toPathValue($signature_request_id),
+                $resourcePath
+            );
+        }
+
+        $headers = $this->headerSelector->selectHeaders(
+            $multipart ? ['multipart/form-data'] : ['application/json'],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) === 0) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                // if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($signature_request_edit_request));
+            } else {
+                $httpBody = $signature_request_edit_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem,
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                if (!empty($body)) {
+                    $multipartContents[] = [
+                        'name'     => 'body',
+                        'contents' => $body,
+                        'headers'  => ['Content-Type' => 'application/json'],
+                    ];
+                }
+
+                if ($payloadHook = $this->config->getPayloadHook()) {
+                    $payloadHook('multipart', $multipartContents, $signature_request_edit_request);
+                }
+                $httpBody = new MultipartStream($multipartContents);
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                // if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername())) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ':');
+        }
+        // this endpoint requires Bearer (JWT) authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'PUT',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation signatureRequestEditEmbedded
+     *
+     * Edit Embedded Signature Request
+     *
+     * @param string                                    $signature_request_id                    The id of the SignatureRequest to edit. (required)
+     * @param Model\SignatureRequestEditEmbeddedRequest $signature_request_edit_embedded_request signature_request_edit_embedded_request (required)
+     *
+     * @return Model\SignatureRequestGetResponse
+     * @throws ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws InvalidArgumentException
+     */
+    public function signatureRequestEditEmbedded(string $signature_request_id, Model\SignatureRequestEditEmbeddedRequest $signature_request_edit_embedded_request)
+    {
+        list($response) = $this->signatureRequestEditEmbeddedWithHttpInfo($signature_request_id, $signature_request_edit_embedded_request);
+        return $response;
+    }
+
+    /**
+     * Operation signatureRequestEditEmbeddedWithHttpInfo
+     *
+     * Edit Embedded Signature Request
+     *
+     * @param string                                    $signature_request_id                    The id of the SignatureRequest to edit. (required)
+     * @param Model\SignatureRequestEditEmbeddedRequest $signature_request_edit_embedded_request (required)
+     * @param string                                    $contentType                             The value for the Content-Type header. Check self::contentTypes['signatureRequestEditEmbedded'] to see the possible values for this operation
+     *
+     * @return array of Model\SignatureRequestGetResponse, HTTP status code, HTTP response headers (array of strings)
+     * @throws ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::signatureRequestEditEmbedded. This method will eventually become unavailable
+     */
+    public function signatureRequestEditEmbeddedWithHttpInfo(string $signature_request_id, Model\SignatureRequestEditEmbeddedRequest $signature_request_edit_embedded_request, string $contentType = self::contentTypes['signatureRequestEditEmbedded'][0])
+    {
+        $request = $this->signatureRequestEditEmbeddedRequest($signature_request_id, $signature_request_edit_embedded_request, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+                $this->response = $response;
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int)$e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string)$e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int)$e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string)$request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string)$response->getBody()
+                );
+            }
+
+            $result = $this->handleRangeCodeResponse(
+                $response,
+                '4XX',
+                '\Dropbox\Sign\Model\ErrorResponse'
+            );
+            if ($result) {
+                return $result;
+            }
+
+            switch ($statusCode) {
+                case 200:
+                    if ('\Dropbox\Sign\Model\SignatureRequestGetResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); // stream goes to serializer
+                    } else {
+                        $content = (string)$response->getBody();
+                        if ('\Dropbox\Sign\Model\SignatureRequestGetResponse' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\SignatureRequestGetResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders(),
+                    ];
+            }
+
+            $returnType = '\Dropbox\Sign\Model\SignatureRequestGetResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); // stream goes to serializer
+            } else {
+                $content = (string)$response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders(),
+            ];
+        } catch (ApiException $e) {
+            if ($this->handleRangeCodeException($e, '4XX', '\Dropbox\Sign\Model\ErrorResponse')) {
+                throw $e;
+            }
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Dropbox\Sign\Model\SignatureRequestGetResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation signatureRequestEditEmbeddedAsync
+     *
+     * Edit Embedded Signature Request
+     *
+     * @param string                                    $signature_request_id                    The id of the SignatureRequest to edit. (required)
+     * @param Model\SignatureRequestEditEmbeddedRequest $signature_request_edit_embedded_request (required)
+     * @param string                                    $contentType                             The value for the Content-Type header. Check self::contentTypes['signatureRequestEditEmbedded'] to see the possible values for this operation
+     *
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::signatureRequestEditEmbedded. This method will eventually become unavailable
+     */
+    public function signatureRequestEditEmbeddedAsync(string $signature_request_id, Model\SignatureRequestEditEmbeddedRequest $signature_request_edit_embedded_request, string $contentType = self::contentTypes['signatureRequestEditEmbedded'][0])
+    {
+        return $this->signatureRequestEditEmbeddedAsyncWithHttpInfo($signature_request_id, $signature_request_edit_embedded_request, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation signatureRequestEditEmbeddedAsyncWithHttpInfo
+     *
+     * Edit Embedded Signature Request
+     *
+     * @param string                                    $signature_request_id                    The id of the SignatureRequest to edit. (required)
+     * @param Model\SignatureRequestEditEmbeddedRequest $signature_request_edit_embedded_request (required)
+     * @param string                                    $contentType                             The value for the Content-Type header. Check self::contentTypes['signatureRequestEditEmbedded'] to see the possible values for this operation
+     *
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::signatureRequestEditEmbedded. This method will eventually become unavailable
+     */
+    public function signatureRequestEditEmbeddedAsyncWithHttpInfo(string $signature_request_id, Model\SignatureRequestEditEmbeddedRequest $signature_request_edit_embedded_request, string $contentType = self::contentTypes['signatureRequestEditEmbedded'][0])
+    {
+        $returnType = '\Dropbox\Sign\Model\SignatureRequestGetResponse';
+        $request = $this->signatureRequestEditEmbeddedRequest($signature_request_id, $signature_request_edit_embedded_request, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); // stream goes to serializer
+                    } else {
+                        $content = (string)$response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders(),
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string)$response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'signatureRequestEditEmbedded'
+     *
+     * @param string                                    $signature_request_id                    The id of the SignatureRequest to edit. (required)
+     * @param Model\SignatureRequestEditEmbeddedRequest $signature_request_edit_embedded_request (required)
+     * @param string                                    $contentType                             The value for the Content-Type header. Check self::contentTypes['signatureRequestEditEmbedded'] to see the possible values for this operation
+     *
+     * @return Request
+     * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::signatureRequestEditEmbedded. This method will eventually become unavailable
+     */
+    public function signatureRequestEditEmbeddedRequest(string $signature_request_id, Model\SignatureRequestEditEmbeddedRequest $signature_request_edit_embedded_request, string $contentType = self::contentTypes['signatureRequestEditEmbedded'][0])
+    {
+        // verify the required parameter 'signature_request_id' is set
+        if ($signature_request_id === null || (is_array($signature_request_id) && count($signature_request_id) === 0)) {
+            throw new InvalidArgumentException(
+                'Missing the required parameter $signature_request_id when calling signatureRequestEditEmbedded'
+            );
+        }
+
+        // verify the required parameter 'signature_request_edit_embedded_request' is set
+        if ($signature_request_edit_embedded_request === null || (is_array($signature_request_edit_embedded_request) && count($signature_request_edit_embedded_request) === 0)) {
+            throw new InvalidArgumentException(
+                'Missing the required parameter $signature_request_edit_embedded_request when calling signatureRequestEditEmbedded'
+            );
+        }
+
+        $resourcePath = '/signature_request/edit_embedded/{signature_request_id}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        $formParams = ObjectSerializer::getFormParams(
+            $signature_request_edit_embedded_request
+        );
+
+        $multipart = !empty($formParams);
+
+        // path params
+        if ($signature_request_id !== null) {
+            $resourcePath = str_replace(
+                '{signature_request_id}',
+                ObjectSerializer::toPathValue($signature_request_id),
+                $resourcePath
+            );
+        }
+
+        $headers = $this->headerSelector->selectHeaders(
+            $multipart ? ['multipart/form-data'] : ['application/json'],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) === 0) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                // if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($signature_request_edit_embedded_request));
+            } else {
+                $httpBody = $signature_request_edit_embedded_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem,
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                if (!empty($body)) {
+                    $multipartContents[] = [
+                        'name'     => 'body',
+                        'contents' => $body,
+                        'headers'  => ['Content-Type' => 'application/json'],
+                    ];
+                }
+
+                if ($payloadHook = $this->config->getPayloadHook()) {
+                    $payloadHook('multipart', $multipartContents, $signature_request_edit_embedded_request);
+                }
+                $httpBody = new MultipartStream($multipartContents);
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                // if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername())) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ':');
+        }
+        // this endpoint requires Bearer (JWT) authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'PUT',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation signatureRequestEditEmbeddedWithTemplate
+     *
+     * Edit Embedded Signature Request with Template
+     *
+     * @param string                                                $signature_request_id                                  The id of the SignatureRequest to edit. (required)
+     * @param Model\SignatureRequestEditEmbeddedWithTemplateRequest $signature_request_edit_embedded_with_template_request signature_request_edit_embedded_with_template_request (required)
+     *
+     * @return Model\SignatureRequestGetResponse
+     * @throws ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws InvalidArgumentException
+     */
+    public function signatureRequestEditEmbeddedWithTemplate(string $signature_request_id, Model\SignatureRequestEditEmbeddedWithTemplateRequest $signature_request_edit_embedded_with_template_request)
+    {
+        list($response) = $this->signatureRequestEditEmbeddedWithTemplateWithHttpInfo($signature_request_id, $signature_request_edit_embedded_with_template_request);
+        return $response;
+    }
+
+    /**
+     * Operation signatureRequestEditEmbeddedWithTemplateWithHttpInfo
+     *
+     * Edit Embedded Signature Request with Template
+     *
+     * @param string                                                $signature_request_id                                  The id of the SignatureRequest to edit. (required)
+     * @param Model\SignatureRequestEditEmbeddedWithTemplateRequest $signature_request_edit_embedded_with_template_request (required)
+     * @param string                                                $contentType                                           The value for the Content-Type header. Check self::contentTypes['signatureRequestEditEmbeddedWithTemplate'] to see the possible values for this operation
+     *
+     * @return array of Model\SignatureRequestGetResponse, HTTP status code, HTTP response headers (array of strings)
+     * @throws ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::signatureRequestEditEmbeddedWithTemplate. This method will eventually become unavailable
+     */
+    public function signatureRequestEditEmbeddedWithTemplateWithHttpInfo(string $signature_request_id, Model\SignatureRequestEditEmbeddedWithTemplateRequest $signature_request_edit_embedded_with_template_request, string $contentType = self::contentTypes['signatureRequestEditEmbeddedWithTemplate'][0])
+    {
+        $request = $this->signatureRequestEditEmbeddedWithTemplateRequest($signature_request_id, $signature_request_edit_embedded_with_template_request, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+                $this->response = $response;
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int)$e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string)$e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int)$e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string)$request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string)$response->getBody()
+                );
+            }
+
+            $result = $this->handleRangeCodeResponse(
+                $response,
+                '4XX',
+                '\Dropbox\Sign\Model\ErrorResponse'
+            );
+            if ($result) {
+                return $result;
+            }
+
+            switch ($statusCode) {
+                case 200:
+                    if ('\Dropbox\Sign\Model\SignatureRequestGetResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); // stream goes to serializer
+                    } else {
+                        $content = (string)$response->getBody();
+                        if ('\Dropbox\Sign\Model\SignatureRequestGetResponse' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\SignatureRequestGetResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders(),
+                    ];
+            }
+
+            $returnType = '\Dropbox\Sign\Model\SignatureRequestGetResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); // stream goes to serializer
+            } else {
+                $content = (string)$response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders(),
+            ];
+        } catch (ApiException $e) {
+            if ($this->handleRangeCodeException($e, '4XX', '\Dropbox\Sign\Model\ErrorResponse')) {
+                throw $e;
+            }
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Dropbox\Sign\Model\SignatureRequestGetResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation signatureRequestEditEmbeddedWithTemplateAsync
+     *
+     * Edit Embedded Signature Request with Template
+     *
+     * @param string                                                $signature_request_id                                  The id of the SignatureRequest to edit. (required)
+     * @param Model\SignatureRequestEditEmbeddedWithTemplateRequest $signature_request_edit_embedded_with_template_request (required)
+     * @param string                                                $contentType                                           The value for the Content-Type header. Check self::contentTypes['signatureRequestEditEmbeddedWithTemplate'] to see the possible values for this operation
+     *
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::signatureRequestEditEmbeddedWithTemplate. This method will eventually become unavailable
+     */
+    public function signatureRequestEditEmbeddedWithTemplateAsync(string $signature_request_id, Model\SignatureRequestEditEmbeddedWithTemplateRequest $signature_request_edit_embedded_with_template_request, string $contentType = self::contentTypes['signatureRequestEditEmbeddedWithTemplate'][0])
+    {
+        return $this->signatureRequestEditEmbeddedWithTemplateAsyncWithHttpInfo($signature_request_id, $signature_request_edit_embedded_with_template_request, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation signatureRequestEditEmbeddedWithTemplateAsyncWithHttpInfo
+     *
+     * Edit Embedded Signature Request with Template
+     *
+     * @param string                                                $signature_request_id                                  The id of the SignatureRequest to edit. (required)
+     * @param Model\SignatureRequestEditEmbeddedWithTemplateRequest $signature_request_edit_embedded_with_template_request (required)
+     * @param string                                                $contentType                                           The value for the Content-Type header. Check self::contentTypes['signatureRequestEditEmbeddedWithTemplate'] to see the possible values for this operation
+     *
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::signatureRequestEditEmbeddedWithTemplate. This method will eventually become unavailable
+     */
+    public function signatureRequestEditEmbeddedWithTemplateAsyncWithHttpInfo(string $signature_request_id, Model\SignatureRequestEditEmbeddedWithTemplateRequest $signature_request_edit_embedded_with_template_request, string $contentType = self::contentTypes['signatureRequestEditEmbeddedWithTemplate'][0])
+    {
+        $returnType = '\Dropbox\Sign\Model\SignatureRequestGetResponse';
+        $request = $this->signatureRequestEditEmbeddedWithTemplateRequest($signature_request_id, $signature_request_edit_embedded_with_template_request, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); // stream goes to serializer
+                    } else {
+                        $content = (string)$response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders(),
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string)$response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'signatureRequestEditEmbeddedWithTemplate'
+     *
+     * @param string                                                $signature_request_id                                  The id of the SignatureRequest to edit. (required)
+     * @param Model\SignatureRequestEditEmbeddedWithTemplateRequest $signature_request_edit_embedded_with_template_request (required)
+     * @param string                                                $contentType                                           The value for the Content-Type header. Check self::contentTypes['signatureRequestEditEmbeddedWithTemplate'] to see the possible values for this operation
+     *
+     * @return Request
+     * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::signatureRequestEditEmbeddedWithTemplate. This method will eventually become unavailable
+     */
+    public function signatureRequestEditEmbeddedWithTemplateRequest(string $signature_request_id, Model\SignatureRequestEditEmbeddedWithTemplateRequest $signature_request_edit_embedded_with_template_request, string $contentType = self::contentTypes['signatureRequestEditEmbeddedWithTemplate'][0])
+    {
+        // verify the required parameter 'signature_request_id' is set
+        if ($signature_request_id === null || (is_array($signature_request_id) && count($signature_request_id) === 0)) {
+            throw new InvalidArgumentException(
+                'Missing the required parameter $signature_request_id when calling signatureRequestEditEmbeddedWithTemplate'
+            );
+        }
+
+        // verify the required parameter 'signature_request_edit_embedded_with_template_request' is set
+        if ($signature_request_edit_embedded_with_template_request === null || (is_array($signature_request_edit_embedded_with_template_request) && count($signature_request_edit_embedded_with_template_request) === 0)) {
+            throw new InvalidArgumentException(
+                'Missing the required parameter $signature_request_edit_embedded_with_template_request when calling signatureRequestEditEmbeddedWithTemplate'
+            );
+        }
+
+        $resourcePath = '/signature_request/edit_embedded_with_template/{signature_request_id}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        $formParams = ObjectSerializer::getFormParams(
+            $signature_request_edit_embedded_with_template_request
+        );
+
+        $multipart = !empty($formParams);
+
+        // path params
+        if ($signature_request_id !== null) {
+            $resourcePath = str_replace(
+                '{signature_request_id}',
+                ObjectSerializer::toPathValue($signature_request_id),
+                $resourcePath
+            );
+        }
+
+        $headers = $this->headerSelector->selectHeaders(
+            $multipart ? ['multipart/form-data'] : ['application/json'],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) === 0) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                // if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($signature_request_edit_embedded_with_template_request));
+            } else {
+                $httpBody = $signature_request_edit_embedded_with_template_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem,
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                if (!empty($body)) {
+                    $multipartContents[] = [
+                        'name'     => 'body',
+                        'contents' => $body,
+                        'headers'  => ['Content-Type' => 'application/json'],
+                    ];
+                }
+
+                if ($payloadHook = $this->config->getPayloadHook()) {
+                    $payloadHook('multipart', $multipartContents, $signature_request_edit_embedded_with_template_request);
+                }
+                $httpBody = new MultipartStream($multipartContents);
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                // if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername())) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ':');
+        }
+        // this endpoint requires Bearer (JWT) authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'PUT',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation signatureRequestEditWithTemplate
+     *
+     * Edit Signature Request With Template
+     *
+     * @param string                                        $signature_request_id                         The id of the SignatureRequest to edit. (required)
+     * @param Model\SignatureRequestEditWithTemplateRequest $signature_request_edit_with_template_request signature_request_edit_with_template_request (required)
+     *
+     * @return Model\SignatureRequestGetResponse
+     * @throws ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws InvalidArgumentException
+     */
+    public function signatureRequestEditWithTemplate(string $signature_request_id, Model\SignatureRequestEditWithTemplateRequest $signature_request_edit_with_template_request)
+    {
+        list($response) = $this->signatureRequestEditWithTemplateWithHttpInfo($signature_request_id, $signature_request_edit_with_template_request);
+        return $response;
+    }
+
+    /**
+     * Operation signatureRequestEditWithTemplateWithHttpInfo
+     *
+     * Edit Signature Request With Template
+     *
+     * @param string                                        $signature_request_id                         The id of the SignatureRequest to edit. (required)
+     * @param Model\SignatureRequestEditWithTemplateRequest $signature_request_edit_with_template_request (required)
+     * @param string                                        $contentType                                  The value for the Content-Type header. Check self::contentTypes['signatureRequestEditWithTemplate'] to see the possible values for this operation
+     *
+     * @return array of Model\SignatureRequestGetResponse, HTTP status code, HTTP response headers (array of strings)
+     * @throws ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::signatureRequestEditWithTemplate. This method will eventually become unavailable
+     */
+    public function signatureRequestEditWithTemplateWithHttpInfo(string $signature_request_id, Model\SignatureRequestEditWithTemplateRequest $signature_request_edit_with_template_request, string $contentType = self::contentTypes['signatureRequestEditWithTemplate'][0])
+    {
+        $request = $this->signatureRequestEditWithTemplateRequest($signature_request_id, $signature_request_edit_with_template_request, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+                $this->response = $response;
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int)$e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string)$e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int)$e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string)$request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string)$response->getBody()
+                );
+            }
+
+            $result = $this->handleRangeCodeResponse(
+                $response,
+                '4XX',
+                '\Dropbox\Sign\Model\ErrorResponse'
+            );
+            if ($result) {
+                return $result;
+            }
+
+            switch ($statusCode) {
+                case 200:
+                    if ('\Dropbox\Sign\Model\SignatureRequestGetResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); // stream goes to serializer
+                    } else {
+                        $content = (string)$response->getBody();
+                        if ('\Dropbox\Sign\Model\SignatureRequestGetResponse' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\SignatureRequestGetResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders(),
+                    ];
+            }
+
+            $returnType = '\Dropbox\Sign\Model\SignatureRequestGetResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); // stream goes to serializer
+            } else {
+                $content = (string)$response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders(),
+            ];
+        } catch (ApiException $e) {
+            if ($this->handleRangeCodeException($e, '4XX', '\Dropbox\Sign\Model\ErrorResponse')) {
+                throw $e;
+            }
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Dropbox\Sign\Model\SignatureRequestGetResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation signatureRequestEditWithTemplateAsync
+     *
+     * Edit Signature Request With Template
+     *
+     * @param string                                        $signature_request_id                         The id of the SignatureRequest to edit. (required)
+     * @param Model\SignatureRequestEditWithTemplateRequest $signature_request_edit_with_template_request (required)
+     * @param string                                        $contentType                                  The value for the Content-Type header. Check self::contentTypes['signatureRequestEditWithTemplate'] to see the possible values for this operation
+     *
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::signatureRequestEditWithTemplate. This method will eventually become unavailable
+     */
+    public function signatureRequestEditWithTemplateAsync(string $signature_request_id, Model\SignatureRequestEditWithTemplateRequest $signature_request_edit_with_template_request, string $contentType = self::contentTypes['signatureRequestEditWithTemplate'][0])
+    {
+        return $this->signatureRequestEditWithTemplateAsyncWithHttpInfo($signature_request_id, $signature_request_edit_with_template_request, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation signatureRequestEditWithTemplateAsyncWithHttpInfo
+     *
+     * Edit Signature Request With Template
+     *
+     * @param string                                        $signature_request_id                         The id of the SignatureRequest to edit. (required)
+     * @param Model\SignatureRequestEditWithTemplateRequest $signature_request_edit_with_template_request (required)
+     * @param string                                        $contentType                                  The value for the Content-Type header. Check self::contentTypes['signatureRequestEditWithTemplate'] to see the possible values for this operation
+     *
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::signatureRequestEditWithTemplate. This method will eventually become unavailable
+     */
+    public function signatureRequestEditWithTemplateAsyncWithHttpInfo(string $signature_request_id, Model\SignatureRequestEditWithTemplateRequest $signature_request_edit_with_template_request, string $contentType = self::contentTypes['signatureRequestEditWithTemplate'][0])
+    {
+        $returnType = '\Dropbox\Sign\Model\SignatureRequestGetResponse';
+        $request = $this->signatureRequestEditWithTemplateRequest($signature_request_id, $signature_request_edit_with_template_request, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); // stream goes to serializer
+                    } else {
+                        $content = (string)$response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders(),
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string)$response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'signatureRequestEditWithTemplate'
+     *
+     * @param string                                        $signature_request_id                         The id of the SignatureRequest to edit. (required)
+     * @param Model\SignatureRequestEditWithTemplateRequest $signature_request_edit_with_template_request (required)
+     * @param string                                        $contentType                                  The value for the Content-Type header. Check self::contentTypes['signatureRequestEditWithTemplate'] to see the possible values for this operation
+     *
+     * @return Request
+     * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::signatureRequestEditWithTemplate. This method will eventually become unavailable
+     */
+    public function signatureRequestEditWithTemplateRequest(string $signature_request_id, Model\SignatureRequestEditWithTemplateRequest $signature_request_edit_with_template_request, string $contentType = self::contentTypes['signatureRequestEditWithTemplate'][0])
+    {
+        // verify the required parameter 'signature_request_id' is set
+        if ($signature_request_id === null || (is_array($signature_request_id) && count($signature_request_id) === 0)) {
+            throw new InvalidArgumentException(
+                'Missing the required parameter $signature_request_id when calling signatureRequestEditWithTemplate'
+            );
+        }
+
+        // verify the required parameter 'signature_request_edit_with_template_request' is set
+        if ($signature_request_edit_with_template_request === null || (is_array($signature_request_edit_with_template_request) && count($signature_request_edit_with_template_request) === 0)) {
+            throw new InvalidArgumentException(
+                'Missing the required parameter $signature_request_edit_with_template_request when calling signatureRequestEditWithTemplate'
+            );
+        }
+
+        $resourcePath = '/signature_request/edit_with_template/{signature_request_id}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        $formParams = ObjectSerializer::getFormParams(
+            $signature_request_edit_with_template_request
+        );
+
+        $multipart = !empty($formParams);
+
+        // path params
+        if ($signature_request_id !== null) {
+            $resourcePath = str_replace(
+                '{signature_request_id}',
+                ObjectSerializer::toPathValue($signature_request_id),
+                $resourcePath
+            );
+        }
+
+        $headers = $this->headerSelector->selectHeaders(
+            $multipart ? ['multipart/form-data'] : ['application/json'],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) === 0) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                // if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($signature_request_edit_with_template_request));
+            } else {
+                $httpBody = $signature_request_edit_with_template_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem,
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                if (!empty($body)) {
+                    $multipartContents[] = [
+                        'name'     => 'body',
+                        'contents' => $body,
+                        'headers'  => ['Content-Type' => 'application/json'],
+                    ];
+                }
+
+                if ($payloadHook = $this->config->getPayloadHook()) {
+                    $payloadHook('multipart', $multipartContents, $signature_request_edit_with_template_request);
+                }
+                $httpBody = new MultipartStream($multipartContents);
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                // if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername())) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ':');
+        }
+        // this endpoint requires Bearer (JWT) authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'PUT',
             $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
