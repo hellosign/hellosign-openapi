@@ -21,10 +21,7 @@ public class AccountGetDefaultExample
 
         try
         {
-            var response = new AccountApi(config).accountGet(
-                null,
-                null
-            );
+            var response = new AccountApi(config).accountGet();
 
             System.out.println(response);
         } catch (ApiException e) {

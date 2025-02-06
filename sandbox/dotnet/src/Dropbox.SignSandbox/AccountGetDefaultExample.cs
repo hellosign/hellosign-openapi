@@ -16,10 +16,7 @@ public class AccountGetDefaultExample
 
         try
         {
-            var response = new AccountApi(config).AccountGet(
-                accountId: null,
-                emailAddress: null
-            );
+            var response = new AccountApi(config).AccountGet();
 
             Console.WriteLine(response);
         }

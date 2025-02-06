@@ -7,10 +7,7 @@ configuration = Configuration()
 
 with ApiClient(configuration) as api_client:
     try:
-        response = api.AccountApi(api_client).account_get(
-            account_id=None,
-            email_address=None,
-        )
+        response = api.AccountApi(api_client).account_get()
 
         pprint(response)
     except ApiException as e:

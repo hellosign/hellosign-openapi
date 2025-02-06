@@ -7,9 +7,7 @@ configuration = Configuration()
 
 with ApiClient(configuration) as api_client:
     try:
-        response = api.TeamApi(api_client).team_invites(
-            email_address=None,
-        )
+        response = api.TeamApi(api_client).team_invites()
 
         pprint(response)
     except ApiException as e:

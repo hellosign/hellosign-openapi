@@ -9,10 +9,7 @@ use Dropbox;
 $config = Dropbox\Sign\Configuration::getDefaultConfiguration();
 
 try {
-    $response = (new Dropbox\Sign\Api\AccountApi(config: $config))->accountGet(
-        account_id: null,
-        email_address: null,
-    );
+    $response = (new Dropbox\Sign\Api\AccountApi(config: $config))->accountGet();
 
     print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {

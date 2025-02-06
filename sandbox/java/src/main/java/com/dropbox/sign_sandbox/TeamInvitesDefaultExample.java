@@ -21,9 +21,7 @@ public class TeamInvitesDefaultExample
 
         try
         {
-            var response = new TeamApi(config).teamInvites(
-                null
-            );
+            var response = new TeamApi(config).teamInvites();
 
             System.out.println(response);
         } catch (ApiException e) {

@@ -4,12 +4,7 @@ Dropbox::Sign.configure do |config|
 end
 
 begin
-    response = Dropbox::Sign::AccountApi.new.account_get(
-        {
-            account_id: nil,
-            email_address: nil,
-        },
-    )
+    response = Dropbox::Sign::AccountApi.new.account_get
 
     p response
 rescue Dropbox::Sign::ApiError => e

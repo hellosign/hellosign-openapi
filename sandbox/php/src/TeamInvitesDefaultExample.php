@@ -9,9 +9,7 @@ use Dropbox;
 $config = Dropbox\Sign\Configuration::getDefaultConfiguration();
 
 try {
-    $response = (new Dropbox\Sign\Api\TeamApi(config: $config))->teamInvites(
-        email_address: null,
-    );
+    $response = (new Dropbox\Sign\Api\TeamApi(config: $config))->teamInvites();
 
     print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {

@@ -6,9 +6,6 @@ end
 begin
     response = Dropbox::Sign::TemplateApi.new.template_files(
         "f57db65d3f933b5316d398057a36176831451a35",
-        {
-            file_type: nil,
-        },
     )
 
     FileUtils.cp(response.path, "path/to/file.zip")

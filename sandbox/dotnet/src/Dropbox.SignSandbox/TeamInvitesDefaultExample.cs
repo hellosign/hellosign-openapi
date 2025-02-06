@@ -16,9 +16,7 @@ public class TeamInvitesDefaultExample
 
         try
         {
-            var response = new TeamApi(config).TeamInvites(
-                emailAddress: null
-            );
+            var response = new TeamApi(config).TeamInvites();
 
             Console.WriteLine(response);
         }

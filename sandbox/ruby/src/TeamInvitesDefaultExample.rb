@@ -4,11 +4,7 @@ Dropbox::Sign.configure do |config|
 end
 
 begin
-    response = Dropbox::Sign::TeamApi.new.team_invites(
-        {
-            email_address: nil,
-        },
-    )
+    response = Dropbox::Sign::TeamApi.new.team_invites
 
     p response
 rescue Dropbox::Sign::ApiError => e
