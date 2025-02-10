@@ -8,7 +8,7 @@ using Dropbox.Sign.Model;
 
 namespace Dropbox.SignSandbox;
 
-public class TeamAddMemberEmailAddressExample
+public class TeamRemoveMemberExample
 {
     public static void Run()
     {
@@ -16,22 +16,22 @@ public class TeamAddMemberEmailAddressExample
         config.Username = "YOUR_API_KEY";
         // config.AccessToken = "YOUR_ACCESS_TOKEN";
 
-        var teamAddMemberRequest = new TeamAddMemberRequest(
-            emailAddress: "george@example.com"
+        var teamRemoveMemberRequest = new TeamRemoveMemberRequest(
+            emailAddress: "teammate@dropboxsign.com",
+            newOwnerEmailAddress: "new_teammate@dropboxsign.com"
         );
 
         try
         {
-            var response = new TeamApi(config).TeamAddMember(
-                teamAddMemberRequest: teamAddMemberRequest,
-                teamId: "4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c"
+            var response = new TeamApi(config).TeamRemoveMember(
+                teamRemoveMemberRequest: teamRemoveMemberRequest
             );
 
             Console.WriteLine(response);
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling Team#TeamAddMember: " + e.Message);
+            Console.WriteLine("Exception when calling Team#TeamRemoveMember: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }

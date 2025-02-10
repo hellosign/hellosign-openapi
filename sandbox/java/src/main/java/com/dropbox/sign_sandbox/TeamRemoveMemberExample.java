@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-public class TeamAddMemberEmailAddressExample
+public class TeamRemoveMemberExample
 {
     public static void main(String[] args)
     {
@@ -21,19 +21,19 @@ public class TeamAddMemberEmailAddressExample
         config.setUsername("YOUR_API_KEY");
         // config.setAccessToken("YOUR_ACCESS_TOKEN");
 
-        var teamAddMemberRequest = new TeamAddMemberRequest();
-        teamAddMemberRequest.emailAddress("george@example.com");
+        var teamRemoveMemberRequest = new TeamRemoveMemberRequest();
+        teamRemoveMemberRequest.emailAddress("teammate@dropboxsign.com");
+        teamRemoveMemberRequest.newOwnerEmailAddress("new_teammate@dropboxsign.com");
 
         try
         {
-            var response = new TeamApi(config).teamAddMember(
-                teamAddMemberRequest,
-                "4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c"
+            var response = new TeamApi(config).teamRemoveMember(
+                teamRemoveMemberRequest
             );
 
             System.out.println(response);
         } catch (ApiException e) {
-            System.err.println("Exception when calling Team#teamAddMember");
+            System.err.println("Exception when calling Team#teamRemoveMember");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
