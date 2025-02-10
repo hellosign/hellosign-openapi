@@ -4,7 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.util.HashMap;
 
-public class Example {
+public class EventCallbackExample {
     public static void main(String[] args) throws Exception {
         // use your API key
         var apiKey = "324e3b0840f065eb51f3fd63231d0d33daa35d4ed10d27718839e81737065782";

@@ -1,6 +1,10 @@
 <?php
 
-require_once __DIR__ . "/vendor/autoload.php";
+namespace Dropbox\SignSandbox;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use Dropbox;
 
 // use your API key
 $api_key = "324e3b0840f065eb51f3fd63231d0d33daa35d4ed10d27718839e81737065782";
