@@ -27,9 +27,9 @@ paths:
             schema:
               $ref: '#/components/schemas/AccountCreateRequest'
             examples:
-              default_example:
+              example:
                 $ref: '#/components/examples/AccountCreateRequest'
-              oauth:
+              oauth_example:
                 $ref: '#/components/examples/AccountCreateRequestOAuth'
       responses:
         '200':
@@ -46,9 +46,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/AccountCreateResponse'
               examples:
-                default_example:
+                example:
                   $ref: '#/components/examples/AccountCreateResponse'
-                oauth:
+                oauth_example:
                   $ref: '#/components/examples/AccountCreateOAuthResponse'
         '4XX':
           description: failed_operation
@@ -156,7 +156,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/AccountGetResponse'
               examples:
-                default_example:
+                example:
                   $ref: '#/components/examples/AccountGetResponse'
         '4XX':
           description: failed_operation
@@ -235,7 +235,7 @@ paths:
             schema:
               $ref: '#/components/schemas/AccountUpdateRequest'
             examples:
-              default_example:
+              example:
                 $ref: '#/components/examples/AccountUpdateRequest'
       responses:
         '200':
@@ -252,7 +252,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/AccountGetResponse'
               examples:
-                default_example:
+                example:
                   $ref: '#/components/examples/AccountUpdateResponse'
         '4XX':
           description: failed_operation
@@ -333,7 +333,7 @@ paths:
             schema:
               $ref: '#/components/schemas/AccountVerifyRequest'
             examples:
-              default_example:
+              example:
                 $ref: '#/components/examples/AccountVerifyRequest'
       responses:
         '200':
@@ -350,9 +350,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/AccountVerifyResponse'
               examples:
-                default_example:
+                example:
                   $ref: '#/components/examples/AccountVerifyFoundResponse'
-                not_found:
+                not_found_example:
                   $ref: '#/components/examples/AccountVerifyNotFoundResponse'
         '4XX':
           description: failed_operation
@@ -431,7 +431,7 @@ paths:
             schema:
               $ref: '#/components/schemas/ApiAppCreateRequest'
             examples:
-              default_example:
+              example:
                 $ref: '#/components/examples/ApiAppCreateRequest'
           multipart/form-data:
             schema:
@@ -451,7 +451,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ApiAppGetResponse'
               examples:
-                default_example:
+                example:
                   $ref: '#/components/examples/ApiAppCreateResponse'
         '4XX':
           description: failed_operation
@@ -549,7 +549,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ApiAppGetResponse'
               examples:
-                default_example:
+                example:
                   $ref: '#/components/examples/ApiAppGetResponse'
         '4XX':
           description: failed_operation
@@ -640,7 +640,7 @@ paths:
             schema:
               $ref: '#/components/schemas/ApiAppUpdateRequest'
             examples:
-              default_example:
+              example:
                 $ref: '#/components/examples/ApiAppUpdateRequest'
           multipart/form-data:
             schema:
@@ -660,7 +660,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ApiAppGetResponse'
               examples:
-                default_example:
+                example:
                   $ref: '#/components/examples/ApiAppUpdateResponse'
         '4XX':
           description: failed_operation
@@ -856,7 +856,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ApiAppListResponse'
               examples:
-                default_example:
+                example:
                   $ref: '#/components/examples/ApiAppListResponse'
         '4XX':
           description: failed_operation
@@ -966,7 +966,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/BulkSendJobGetResponse'
               examples:
-                default_example:
+                example:
                   $ref: '#/components/examples/BulkSendJobGetResponse'
         '4XX':
           description: failed_operation
@@ -1069,7 +1069,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/BulkSendJobListResponse'
               examples:
-                default_example:
+                example:
                   $ref: '#/components/examples/BulkSendJobListResponse'
         '4XX':
           description: failed_operation
@@ -1158,7 +1158,7 @@ paths:
             schema:
               $ref: '#/components/schemas/EmbeddedEditUrlRequest'
             examples:
-              default_example:
+              example:
                 $ref: '#/components/examples/EmbeddedEditUrlRequest'
       responses:
         '200':
@@ -1175,7 +1175,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/EmbeddedEditUrlResponse'
               examples:
-                default_example:
+                example:
                   $ref: '#/components/examples/EmbeddedEditUrlResponse'
         '4XX':
           description: failed_operation
@@ -1273,7 +1273,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/EmbeddedSignUrlResponse'
               examples:
-                default_example:
+                example:
                   $ref: '#/components/examples/EmbeddedSignUrlResponse'
         '4XX':
           description: failed_operation
@@ -1375,7 +1375,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/FaxGetResponse'
               examples:
-                default_example:
+                example:
                   $ref: '#/components/examples/FaxGetResponse'
         '4XX':
           description: failed_operation
@@ -1641,7 +1641,7 @@ paths:
             schema:
               $ref: '#/components/schemas/FaxLineAddUserRequest'
             examples:
-              default_example:
+              example:
                 $ref: '#/components/examples/FaxLineAddUserRequest'
       responses:
         '200':
@@ -1658,7 +1658,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/FaxLineResponse'
               examples:
-                default_example:
+                example:
                   $ref: '#/components/examples/FaxLineResponse'
         '4XX':
           description: failed_operation
@@ -1840,7 +1840,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/FaxLineAreaCodeGetResponse'
               examples:
-                default_example:
+                example:
                   $ref: '#/components/examples/FaxLineAreaCodeGetResponse'
         '4XX':
           description: failed_operation
@@ -1916,7 +1916,7 @@ paths:
             schema:
               $ref: '#/components/schemas/FaxLineCreateRequest'
             examples:
-              default_example:
+              example:
                 $ref: '#/components/examples/FaxLineCreateRequest'
       responses:
         '200':
@@ -1933,7 +1933,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/FaxLineResponse'
               examples:
-                default_example:
+                example:
                   $ref: '#/components/examples/FaxLineResponse'
         '4XX':
           description: failed_operation
@@ -2027,7 +2027,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/FaxLineResponse'
               examples:
-                default_example:
+                example:
                   $ref: '#/components/examples/FaxLineResponse'
         '4XX':
           description: failed_operation
@@ -2104,7 +2104,7 @@ paths:
             schema:
               $ref: '#/components/schemas/FaxLineDeleteRequest'
             examples:
-              default_example:
+              example:
                 $ref: '#/components/examples/FaxLineDeleteRequest'
       responses:
         '200':
@@ -2232,7 +2232,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/FaxLineListResponse'
               examples:
-                default_example:
+                example:
                   $ref: '#/components/examples/FaxLineListResponse'
         '4XX':
           description: failed_operation
@@ -2308,7 +2308,7 @@ paths:
             schema:
               $ref: '#/components/schemas/FaxLineRemoveUserRequest'
             examples:
-              default_example:
+              example:
                 $ref: '#/components/examples/FaxLineRemoveUserRequest'
       responses:
         '200':
@@ -2325,7 +2325,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/FaxLineResponse'
               examples:
-                default_example:
+                example:
                   $ref: '#/components/examples/FaxLineResponse'
         '4XX':
           description: failed_operation
@@ -2431,7 +2431,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/FaxListResponse'
               examples:
-                default_example:
+                example:
                   $ref: '#/components/examples/FaxListResponse'
         '4XX':
           description: failed_operation
@@ -2507,7 +2507,7 @@ paths:
             schema:
               $ref: '#/components/schemas/FaxSendRequest'
             examples:
-              default_example:
+              example:
                 $ref: '#/components/examples/FaxSendRequest'
           multipart/form-data:
             schema:
@@ -2527,7 +2527,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/FaxGetResponse'
               examples:
-                default_example:
+                example:
                   $ref: '#/components/examples/FaxGetResponse'
         '4XX':
           description: failed_operation
@@ -2607,7 +2607,7 @@ paths:
             schema:
               $ref: '#/components/schemas/OAuthTokenGenerateRequest'
             examples:
-              default_example:
+              example:
                 $ref: '#/components/examples/OAuthTokenGenerateRequest'
       responses:
         '200':
@@ -2624,7 +2624,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/OAuthTokenResponse'
               examples:
-                default_example:
+                example:
                   $ref: '#/components/examples/OAuthTokenGenerateResponse'
         '4XX':
           description: failed_operation
@@ -2702,7 +2702,7 @@ paths:
             schema:
               $ref: '#/components/schemas/OAuthTokenRefreshRequest'
             examples:
-              default_example:
+              example:
                 $ref: '#/components/examples/OAuthTokenRefreshRequest'
       responses:
         '200':
@@ -2719,7 +2719,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/OAuthTokenResponse'
               examples:
-                default_example:
+                example:
                   $ref: '#/components/examples/OAuthTokenRefreshResponse'
         '4XX':
           description: failed_operation
@@ -2800,7 +2800,7 @@ paths:
             schema:
               $ref: '#/components/schemas/ReportCreateRequest'
             examples:
-              default_example:
+              example:
                 $ref: '#/components/examples/ReportCreateRequest'
       responses:
         '200':
@@ -2817,7 +2817,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ReportCreateResponse'
               examples:
-                default_example:
+                example:
                   $ref: '#/components/examples/ReportCreateResponse'
         '4XX':
           description: failed_operation
@@ -2896,7 +2896,7 @@ paths:
             schema:
               $ref: '#/components/schemas/SignatureRequestBulkCreateEmbeddedWithTemplateRequest'
             examples:
-              default_example:
+              example:
                 $ref: '#/components/examples/SignatureRequestBulkCreateEmbeddedWithTemplateRequest'
           multipart/form-data:
             schema:
@@ -2916,7 +2916,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/BulkSendJobSendResponse'
               examples:
-                default_example:
+                example:
                   $ref: '#/components/examples/SignatureRequestBulkCreateEmbeddedWithTemplateResponse'
         '4XX':
           description: failed_operation
@@ -3001,7 +3001,7 @@ paths:
             schema:
               $ref: '#/components/schemas/SignatureRequestBulkSendWithTemplateRequest'
             examples:
-              default_example:
+              example:
                 $ref: '#/components/examples/SignatureRequestBulkSendWithTemplateRequest'
           multipart/form-data:
             schema:
@@ -3021,7 +3021,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/BulkSendJobSendResponse'
               examples:
-                default_example:
+                example:
                   $ref: '#/components/examples/SignatureRequestBulkSendWithTemplateResponse'
         '4XX':
           description: failed_operation
@@ -3210,7 +3210,7 @@ paths:
             schema:
               $ref: '#/components/schemas/SignatureRequestCreateEmbeddedRequest'
             examples:
-              default_example:
+              example:
                 $ref: '#/components/examples/SignatureRequestCreateEmbeddedRequest'
               grouped_signers_example:
                 $ref: '#/components/examples/SignatureRequestCreateEmbeddedRequestGroupedSigners'
@@ -3232,7 +3232,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/SignatureRequestGetResponse'
               examples:
-                default_example:
+                example:
                   $ref: '#/components/examples/SignatureRequestCreateEmbeddedResponse'
         '4XX':
           description: failed_operation
@@ -3315,7 +3315,7 @@ paths:
             schema:
               $ref: '#/components/schemas/SignatureRequestCreateEmbeddedWithTemplateRequest'
             examples:
-              default_example:
+              example:
                 $ref: '#/components/examples/SignatureRequestCreateEmbeddedWithTemplateRequest'
           multipart/form-data:
             schema:
@@ -3335,7 +3335,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/SignatureRequestGetResponse'
               examples:
-                default_example:
+                example:
                   $ref: '#/components/examples/SignatureRequestCreateEmbeddedWithTemplateResponse'
         '4XX':
           description: failed_operation
@@ -3558,7 +3558,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/FileResponseDataUri'
               examples:
-                default_example:
+                example:
                   $ref: '#/components/examples/SignatureRequestFilesResponse'
         '4XX':
           description: failed_operation
@@ -3673,7 +3673,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/FileResponse'
               examples:
-                default_example:
+                example:
                   $ref: '#/components/examples/SignatureRequestFilesResponse'
         '4XX':
           description: failed_operation
@@ -3778,7 +3778,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/SignatureRequestGetResponse'
               examples:
-                default_example:
+                example:
                   $ref: '#/components/examples/SignatureRequestGetResponse'
         '4XX':
           description: failed_operation
@@ -3901,7 +3901,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/SignatureRequestListResponse'
               examples:
-                default_example:
+                example:
                   $ref: '#/components/examples/SignatureRequestListResponse'
         '4XX':
           description: failed_operation
@@ -4000,7 +4000,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/SignatureRequestGetResponse'
               examples:
-                default_example:
+                example:
                   $ref: '#/components/examples/SignatureRequestReleaseHoldResponse'
         '4XX':
           description: failed_operation
@@ -4093,7 +4093,7 @@ paths:
             schema:
               $ref: '#/components/schemas/SignatureRequestRemindRequest'
             examples:
-              default_example:
+              example:
                 $ref: '#/components/examples/SignatureRequestRemindRequest'
       responses:
         '200':
@@ -4110,7 +4110,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/SignatureRequestGetResponse'
               examples:
-                default_example:
+                example:
                   $ref: '#/components/examples/SignatureRequestRemindResponse'
         '4XX':
           description: failed_operation
@@ -4297,7 +4297,7 @@ paths:
             schema:
               $ref: '#/components/schemas/SignatureRequestSendRequest'
             examples:
-              default_example:
+              example:
                 $ref: '#/components/examples/SignatureRequestSendRequest'
               grouped_signers_example:
                 $ref: '#/components/examples/SignatureRequestSendRequestGroupedSigners'
@@ -4319,7 +4319,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/SignatureRequestGetResponse'
               examples:
-                default_example:
+                example:
                   $ref: '#/components/examples/SignatureRequestSendResponse'
         '4XX':
           description: failed_operation
@@ -4403,7 +4403,7 @@ paths:
             schema:
               $ref: '#/components/schemas/SignatureRequestSendWithTemplateRequest'
             examples:
-              default_example:
+              example:
                 $ref: '#/components/examples/SignatureRequestSendWithTemplateRequest'
           multipart/form-data:
             schema:
@@ -4423,7 +4423,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/SignatureRequestGetResponse'
               examples:
-                default_example:
+                example:
                   $ref: '#/components/examples/SignatureRequestSendWithTemplateResponse'
         '4XX':
           description: failed_operation
@@ -4519,7 +4519,7 @@ paths:
             schema:
               $ref: '#/components/schemas/SignatureRequestUpdateRequest'
             examples:
-              default_example:
+              example:
                 $ref: '#/components/examples/SignatureRequestUpdateRequest'
       responses:
         '200':
@@ -4536,7 +4536,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/SignatureRequestGetResponse'
               examples:
-                default_example:
+                example:
                   $ref: '#/components/examples/SignatureRequestUpdateResponse'
         '4XX':
           description: failed_operation
@@ -4626,9 +4626,9 @@ paths:
             schema:
               $ref: '#/components/schemas/TeamAddMemberRequest'
             examples:
-              email_address:
+              email_address_example:
                 $ref: '#/components/examples/TeamAddMemberRequestEmailAddress'
-              account_id:
+              account_id_example:
                 $ref: '#/components/examples/TeamAddMemberRequestAccountId'
       responses:
         '200':
@@ -4645,7 +4645,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/TeamGetResponse'
               examples:
-                default_example:
+                example:
                   $ref: '#/components/examples/TeamAddMemberResponse'
         '4XX':
           description: failed_operation
@@ -4726,7 +4726,7 @@ paths:
             schema:
               $ref: '#/components/schemas/TeamCreateRequest'
             examples:
-              default_example:
+              example:
                 $ref: '#/components/examples/TeamCreateRequest'
       responses:
         '200':
@@ -4743,7 +4743,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/TeamGetResponse'
               examples:
-                default_example:
+                example:
                   $ref: '#/components/examples/TeamCreateResponse'
         '4XX':
           description: failed_operation
@@ -4910,7 +4910,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/TeamGetResponse'
               examples:
-                default_example:
+                example:
                   $ref: '#/components/examples/TeamGetResponse'
         '4XX':
           description: failed_operation
@@ -4990,7 +4990,7 @@ paths:
             schema:
               $ref: '#/components/schemas/TeamUpdateRequest'
             examples:
-              default_example:
+              example:
                 $ref: '#/components/examples/TeamUpdateRequest'
       responses:
         '200':
@@ -5007,7 +5007,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/TeamGetResponse'
               examples:
-                default_example:
+                example:
                   $ref: '#/components/examples/TeamUpdateResponse'
         '4XX':
           description: failed_operation
@@ -5103,7 +5103,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/TeamGetInfoResponse'
               examples:
-                default_example:
+                example:
                   $ref: '#/components/examples/TeamGetInfoResponse'
         '4XX':
           description: failed_operation
@@ -5202,7 +5202,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/TeamInvitesResponse'
               examples:
-                default_example:
+                example:
                   $ref: '#/components/examples/TeamInvitesResponse'
         '4XX':
           description: failed_operation
@@ -5315,7 +5315,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/TeamMembersResponse'
               examples:
-                default_example:
+                example:
                   $ref: '#/components/examples/TeamMembersResponse'
         '4XX':
           description: failed_operation
@@ -5398,9 +5398,9 @@ paths:
             schema:
               $ref: '#/components/schemas/TeamRemoveMemberRequest'
             examples:
-              email_address:
+              email_address_example:
                 $ref: '#/components/examples/TeamRemoveMemberRequestEmailAddress'
-              account_id:
+              account_id_example:
                 $ref: '#/components/examples/TeamRemoveMemberRequestAccountId'
       responses:
         '201':
@@ -5417,7 +5417,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/TeamGetResponse'
               examples:
-                default_example:
+                example:
                   $ref: '#/components/examples/TeamRemoveMemberResponse'
         '4XX':
           description: failed_operation
@@ -5531,7 +5531,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/TeamSubTeamsResponse'
               examples:
-                default_example:
+                example:
                   $ref: '#/components/examples/TeamSubTeamsResponse'
         '4XX':
           description: failed_operation
@@ -5623,7 +5623,7 @@ paths:
             schema:
               $ref: '#/components/schemas/TemplateAddUserRequest'
             examples:
-              default_example:
+              example:
                 $ref: '#/components/examples/TemplateAddUserRequest'
       responses:
         '200':
@@ -5640,7 +5640,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/TemplateGetResponse'
               examples:
-                default_example:
+                example:
                   $ref: '#/components/examples/TemplateAddUserResponse'
         '4XX':
           description: failed_operation
@@ -5721,13 +5721,13 @@ paths:
             schema:
               $ref: '#/components/schemas/TemplateCreateRequest'
             examples:
-              default_example:
+              example:
                 $ref: '#/components/examples/TemplateCreateRequest'
-              form_fields_per_document:
+              form_fields_per_document_example:
                 $ref: '#/components/examples/TemplateCreateRequestFormFieldsPerDocument'
-              form_field_groups:
+              form_field_groups_example:
                 $ref: '#/components/examples/TemplateCreateRequestFormFieldGroups'
-              form_field_rules:
+              form_field_rules_example:
                 $ref: '#/components/examples/TemplateCreateRequestFormFieldRules'
           multipart/form-data:
             schema:
@@ -5747,7 +5747,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/TemplateCreateResponse'
               examples:
-                default_example:
+                example:
                   $ref: '#/components/examples/TemplateCreateResponse'
         '4XX':
           description: failed_operation
@@ -5830,13 +5830,13 @@ paths:
             schema:
               $ref: '#/components/schemas/TemplateCreateEmbeddedDraftRequest'
             examples:
-              default_example:
+              example:
                 $ref: '#/components/examples/TemplateCreateEmbeddedDraftRequest'
-              form_fields_per_document:
+              form_fields_per_document_example:
                 $ref: '#/components/examples/TemplateCreateEmbeddedDraftRequestFormFieldsPerDocument'
-              form_field_groups:
+              form_field_groups_example:
                 $ref: '#/components/examples/TemplateCreateEmbeddedDraftRequestFormFieldGroups'
-              form_field_rules:
+              form_field_rules_example:
                 $ref: '#/components/examples/TemplateCreateEmbeddedDraftRequestFormFieldRules'
           multipart/form-data:
             schema:
@@ -5856,7 +5856,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/TemplateCreateEmbeddedDraftResponse'
               examples:
-                default_example:
+                example:
                   $ref: '#/components/examples/TemplateCreateEmbeddedDraftResponse'
         '4XX':
           description: failed_operation
@@ -6172,7 +6172,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/FileResponseDataUri'
               examples:
-                default_example:
+                example:
                   $ref: '#/components/examples/TemplateFilesResponse'
         '4XX':
           description: failed_operation
@@ -6286,7 +6286,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/FileResponse'
               examples:
-                default_example:
+                example:
                   $ref: '#/components/examples/TemplateFilesResponse'
         '4XX':
           description: failed_operation
@@ -6390,7 +6390,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/TemplateGetResponse'
               examples:
-                default_example:
+                example:
                   $ref: '#/components/examples/TemplateGetResponse'
         '4XX':
           description: failed_operation
@@ -6513,7 +6513,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/TemplateListResponse'
               examples:
-                default_example:
+                example:
                   $ref: '#/components/examples/TemplateListResponse'
         '4XX':
           description: failed_operation
@@ -6605,7 +6605,7 @@ paths:
             schema:
               $ref: '#/components/schemas/TemplateRemoveUserRequest'
             examples:
-              default_example:
+              example:
                 $ref: '#/components/examples/TemplateRemoveUserRequest'
       responses:
         '200':
@@ -6622,7 +6622,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/TemplateGetResponse'
               examples:
-                default_example:
+                example:
                   $ref: '#/components/examples/TemplateRemoveUserResponse'
         '4XX':
           description: failed_operation
@@ -6724,7 +6724,7 @@ paths:
             schema:
               $ref: '#/components/schemas/TemplateUpdateFilesRequest'
             examples:
-              default_example:
+              example:
                 $ref: '#/components/examples/TemplateUpdateFilesRequest'
           multipart/form-data:
             schema:
@@ -6744,7 +6744,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/TemplateUpdateFilesResponse'
               examples:
-                default_example:
+                example:
                   $ref: '#/components/examples/TemplateUpdateFilesResponse'
         '4XX':
           description: failed_operation
@@ -6829,13 +6829,13 @@ paths:
             schema:
               $ref: '#/components/schemas/UnclaimedDraftCreateRequest'
             examples:
-              default_example:
+              example:
                 $ref: '#/components/examples/UnclaimedDraftCreateRequest'
-              form_fields_per_document:
+              form_fields_per_document_example:
                 $ref: '#/components/examples/UnclaimedDraftCreateRequestFormFieldsPerDocument'
-              form_field_groups:
+              form_field_groups_example:
                 $ref: '#/components/examples/UnclaimedDraftCreateRequestFormFieldGroups'
-              form_field_rules:
+              form_field_rules_example:
                 $ref: '#/components/examples/UnclaimedDraftCreateRequestFormFieldRules'
           multipart/form-data:
             schema:
@@ -6855,7 +6855,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/UnclaimedDraftCreateResponse'
               examples:
-                default_example:
+                example:
                   $ref: '#/components/examples/UnclaimedDraftCreateResponse'
         '4XX':
           description: failed_operation
@@ -6937,13 +6937,13 @@ paths:
             schema:
               $ref: '#/components/schemas/UnclaimedDraftCreateEmbeddedRequest'
             examples:
-              default_example:
+              example:
                 $ref: '#/components/examples/UnclaimedDraftCreateEmbeddedRequest'
-              form_fields_per_document:
+              form_fields_per_document_example:
                 $ref: '#/components/examples/UnclaimedDraftCreateEmbeddedRequestFormFieldsPerDocument'
-              form_field_groups:
+              form_field_groups_example:
                 $ref: '#/components/examples/UnclaimedDraftCreateEmbeddedRequestFormFieldGroups'
-              form_field_rules:
+              form_field_rules_example:
                 $ref: '#/components/examples/UnclaimedDraftCreateEmbeddedRequestFormFieldRules'
           multipart/form-data:
             schema:
@@ -6963,7 +6963,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/UnclaimedDraftCreateResponse'
               examples:
-                default_example:
+                example:
                   $ref: '#/components/examples/UnclaimedDraftCreateEmbeddedResponse'
         '4XX':
           description: failed_operation
@@ -7050,7 +7050,7 @@ paths:
             schema:
               $ref: '#/components/schemas/UnclaimedDraftCreateEmbeddedWithTemplateRequest'
             examples:
-              default_example:
+              example:
                 $ref: '#/components/examples/UnclaimedDraftCreateEmbeddedWithTemplateRequest'
           multipart/form-data:
             schema:
@@ -7070,7 +7070,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/UnclaimedDraftCreateResponse'
               examples:
-                default_example:
+                example:
                   $ref: '#/components/examples/UnclaimedDraftCreateEmbeddedWithTemplateResponse'
         '4XX':
           description: failed_operation
@@ -7167,7 +7167,7 @@ paths:
             schema:
               $ref: '#/components/schemas/UnclaimedDraftEditAndResendRequest'
             examples:
-              default_example:
+              example:
                 $ref: '#/components/examples/UnclaimedDraftEditAndResendRequest'
       responses:
         '200':
@@ -7184,7 +7184,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/UnclaimedDraftCreateResponse'
               examples:
-                default_example:
+                example:
                   $ref: '#/components/examples/UnclaimedDraftEditAndResend'
         '4XX':
           description: failed_operation
