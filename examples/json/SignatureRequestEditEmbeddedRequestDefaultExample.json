@@ -19,8 +19,8 @@
     "lawyer1@dropboxsign.com",
     "lawyer2@dropboxsign.com"
   ],
-  "file_urls": [
-    "https://www.dropbox.com/s/ad9qnhbrjjn64tu/mutual-NDA-example.pdf?dl=1"
+  "files": [
+    "./example_signature_request.pdf"
   ],
   "signing_options": {
     "draw": true,

@@ -1,6 +1,6 @@
 {
-  "file_urls": [
-    "https://api.hellosign.com/v3/fax/files/2b388914e3ae3b738bd4e2ee2850c677e6dc53d2"
+  "files": [
+    "./example_fax.pdf"
   ],
   "test_mode": "true",
   "recipient": "16690000001",
