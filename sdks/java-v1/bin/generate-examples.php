@@ -140,11 +140,8 @@ class GenerateExamples
                         $this->codeSamples[$id] = [];
                     }
 
-                    $filename = explode('/', $sample['source']['$ref']);
-                    $filename = array_pop($filename);
-
                     $contents = file_get_contents(
-                        __DIR__ . "/../examples/{$filename}"
+                        __DIR__ . "/../{$sample['source']['$ref']}"
                     );
 
                     $this->codeSamples[$id][$sample['lang']] = $contents;

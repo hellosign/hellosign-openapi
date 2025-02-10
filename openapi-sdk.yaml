@@ -78,32 +78,32 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: sandbox/php/src/AccountCreateExample.php
+            $ref: examples/AccountCreateExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: sandbox/dotnet/src/Dropbox.SignSandbox/AccountCreateExample.cs
+            $ref: examples/AccountCreateExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: sandbox/node/src/AccountCreateExample.ts
+            $ref: examples/AccountCreateExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: sandbox/java/src/main/java/com/dropbox/sign_sandbox/AccountCreateExample.java
+            $ref: examples/AccountCreateExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: sandbox/ruby/src/AccountCreateExample.rb
+            $ref: examples/AccountCreateExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: sandbox/python/src/AccountCreateExample.py
+            $ref: examples/AccountCreateExample.py
         -
           lang: cURL
           label: cURL
@@ -187,32 +187,32 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: sandbox/php/src/AccountGetExample.php
+            $ref: examples/AccountGetExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: sandbox/dotnet/src/Dropbox.SignSandbox/AccountGetExample.cs
+            $ref: examples/AccountGetExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: sandbox/node/src/AccountGetExample.ts
+            $ref: examples/AccountGetExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: sandbox/java/src/main/java/com/dropbox/sign_sandbox/AccountGetExample.java
+            $ref: examples/AccountGetExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: sandbox/ruby/src/AccountGetExample.rb
+            $ref: examples/AccountGetExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: sandbox/python/src/AccountGetExample.py
+            $ref: examples/AccountGetExample.py
         -
           lang: cURL
           label: cURL
@@ -284,32 +284,32 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: sandbox/php/src/AccountUpdateExample.php
+            $ref: examples/AccountUpdateExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: sandbox/dotnet/src/Dropbox.SignSandbox/AccountUpdateExample.cs
+            $ref: examples/AccountUpdateExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: sandbox/node/src/AccountUpdateExample.ts
+            $ref: examples/AccountUpdateExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: sandbox/java/src/main/java/com/dropbox/sign_sandbox/AccountUpdateExample.java
+            $ref: examples/AccountUpdateExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: sandbox/ruby/src/AccountUpdateExample.rb
+            $ref: examples/AccountUpdateExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: sandbox/python/src/AccountUpdateExample.py
+            $ref: examples/AccountUpdateExample.py
         -
           lang: cURL
           label: cURL
@@ -382,32 +382,32 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: sandbox/php/src/AccountVerifyExample.php
+            $ref: examples/AccountVerifyExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: sandbox/dotnet/src/Dropbox.SignSandbox/AccountVerifyExample.cs
+            $ref: examples/AccountVerifyExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: sandbox/node/src/AccountVerifyExample.ts
+            $ref: examples/AccountVerifyExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: sandbox/java/src/main/java/com/dropbox/sign_sandbox/AccountVerifyExample.java
+            $ref: examples/AccountVerifyExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: sandbox/ruby/src/AccountVerifyExample.rb
+            $ref: examples/AccountVerifyExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: sandbox/python/src/AccountVerifyExample.py
+            $ref: examples/AccountVerifyExample.py
         -
           lang: cURL
           label: cURL
@@ -483,32 +483,32 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: sandbox/php/src/ApiAppCreateExample.php
+            $ref: examples/ApiAppCreateExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: sandbox/dotnet/src/Dropbox.SignSandbox/ApiAppCreateExample.cs
+            $ref: examples/ApiAppCreateExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: sandbox/node/src/ApiAppCreateExample.ts
+            $ref: examples/ApiAppCreateExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: sandbox/java/src/main/java/com/dropbox/sign_sandbox/ApiAppCreateExample.java
+            $ref: examples/ApiAppCreateExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: sandbox/ruby/src/ApiAppCreateExample.rb
+            $ref: examples/ApiAppCreateExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: sandbox/python/src/ApiAppCreateExample.py
+            $ref: examples/ApiAppCreateExample.py
         -
           lang: cURL
           label: cURL
@@ -583,32 +583,32 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: sandbox/php/src/ApiAppGetExample.php
+            $ref: examples/ApiAppGetExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: sandbox/dotnet/src/Dropbox.SignSandbox/ApiAppGetExample.cs
+            $ref: examples/ApiAppGetExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: sandbox/node/src/ApiAppGetExample.ts
+            $ref: examples/ApiAppGetExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: sandbox/java/src/main/java/com/dropbox/sign_sandbox/ApiAppGetExample.java
+            $ref: examples/ApiAppGetExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: sandbox/ruby/src/ApiAppGetExample.rb
+            $ref: examples/ApiAppGetExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: sandbox/python/src/ApiAppGetExample.py
+            $ref: examples/ApiAppGetExample.py
         -
           lang: cURL
           label: cURL
@@ -694,32 +694,32 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: sandbox/php/src/ApiAppUpdateExample.php
+            $ref: examples/ApiAppUpdateExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: sandbox/dotnet/src/Dropbox.SignSandbox/ApiAppUpdateExample.cs
+            $ref: examples/ApiAppUpdateExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: sandbox/node/src/ApiAppUpdateExample.ts
+            $ref: examples/ApiAppUpdateExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: sandbox/java/src/main/java/com/dropbox/sign_sandbox/ApiAppUpdateExample.java
+            $ref: examples/ApiAppUpdateExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: sandbox/ruby/src/ApiAppUpdateExample.rb
+            $ref: examples/ApiAppUpdateExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: sandbox/python/src/ApiAppUpdateExample.py
+            $ref: examples/ApiAppUpdateExample.py
         -
           lang: cURL
           label: cURL
@@ -784,32 +784,32 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: sandbox/php/src/ApiAppDeleteExample.php
+            $ref: examples/ApiAppDeleteExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: sandbox/dotnet/src/Dropbox.SignSandbox/ApiAppDeleteExample.cs
+            $ref: examples/ApiAppDeleteExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: sandbox/node/src/ApiAppDeleteExample.ts
+            $ref: examples/ApiAppDeleteExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: sandbox/java/src/main/java/com/dropbox/sign_sandbox/ApiAppDeleteExample.java
+            $ref: examples/ApiAppDeleteExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: sandbox/ruby/src/ApiAppDeleteExample.rb
+            $ref: examples/ApiAppDeleteExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: sandbox/python/src/ApiAppDeleteExample.py
+            $ref: examples/ApiAppDeleteExample.py
         -
           lang: cURL
           label: cURL
@@ -886,32 +886,32 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: sandbox/php/src/ApiAppListExample.php
+            $ref: examples/ApiAppListExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: sandbox/dotnet/src/Dropbox.SignSandbox/ApiAppListExample.cs
+            $ref: examples/ApiAppListExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: sandbox/node/src/ApiAppListExample.ts
+            $ref: examples/ApiAppListExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: sandbox/java/src/main/java/com/dropbox/sign_sandbox/ApiAppListExample.java
+            $ref: examples/ApiAppListExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: sandbox/ruby/src/ApiAppListExample.rb
+            $ref: examples/ApiAppListExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: sandbox/python/src/ApiAppListExample.py
+            $ref: examples/ApiAppListExample.py
         -
           lang: cURL
           label: cURL
@@ -997,32 +997,32 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: sandbox/php/src/BulkSendJobGetExample.php
+            $ref: examples/BulkSendJobGetExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: sandbox/dotnet/src/Dropbox.SignSandbox/BulkSendJobGetExample.cs
+            $ref: examples/BulkSendJobGetExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: sandbox/node/src/BulkSendJobGetExample.ts
+            $ref: examples/BulkSendJobGetExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: sandbox/java/src/main/java/com/dropbox/sign_sandbox/BulkSendJobGetExample.java
+            $ref: examples/BulkSendJobGetExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: sandbox/ruby/src/BulkSendJobGetExample.rb
+            $ref: examples/BulkSendJobGetExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: sandbox/python/src/BulkSendJobGetExample.py
+            $ref: examples/BulkSendJobGetExample.py
         -
           lang: cURL
           label: cURL
@@ -1100,32 +1100,32 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: sandbox/php/src/BulkSendJobListExample.php
+            $ref: examples/BulkSendJobListExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: sandbox/dotnet/src/Dropbox.SignSandbox/BulkSendJobListExample.cs
+            $ref: examples/BulkSendJobListExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: sandbox/node/src/BulkSendJobListExample.ts
+            $ref: examples/BulkSendJobListExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: sandbox/java/src/main/java/com/dropbox/sign_sandbox/BulkSendJobListExample.java
+            $ref: examples/BulkSendJobListExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: sandbox/ruby/src/BulkSendJobListExample.rb
+            $ref: examples/BulkSendJobListExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: sandbox/python/src/BulkSendJobListExample.py
+            $ref: examples/BulkSendJobListExample.py
         -
           lang: cURL
           label: cURL
@@ -1207,32 +1207,32 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: sandbox/php/src/EmbeddedEditUrlExample.php
+            $ref: examples/EmbeddedEditUrlExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: sandbox/dotnet/src/Dropbox.SignSandbox/EmbeddedEditUrlExample.cs
+            $ref: examples/EmbeddedEditUrlExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: sandbox/node/src/EmbeddedEditUrlExample.ts
+            $ref: examples/EmbeddedEditUrlExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: sandbox/java/src/main/java/com/dropbox/sign_sandbox/EmbeddedEditUrlExample.java
+            $ref: examples/EmbeddedEditUrlExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: sandbox/ruby/src/EmbeddedEditUrlExample.rb
+            $ref: examples/EmbeddedEditUrlExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: sandbox/python/src/EmbeddedEditUrlExample.py
+            $ref: examples/EmbeddedEditUrlExample.py
         -
           lang: cURL
           label: cURL
@@ -1309,32 +1309,32 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: sandbox/php/src/EmbeddedSignUrlExample.php
+            $ref: examples/EmbeddedSignUrlExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: sandbox/dotnet/src/Dropbox.SignSandbox/EmbeddedSignUrlExample.cs
+            $ref: examples/EmbeddedSignUrlExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: sandbox/node/src/EmbeddedSignUrlExample.ts
+            $ref: examples/EmbeddedSignUrlExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: sandbox/java/src/main/java/com/dropbox/sign_sandbox/EmbeddedSignUrlExample.java
+            $ref: examples/EmbeddedSignUrlExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: sandbox/ruby/src/EmbeddedSignUrlExample.rb
+            $ref: examples/EmbeddedSignUrlExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: sandbox/python/src/EmbeddedSignUrlExample.py
+            $ref: examples/EmbeddedSignUrlExample.py
         -
           lang: cURL
           label: cURL
@@ -1406,32 +1406,32 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: sandbox/php/src/FaxGetExample.php
+            $ref: examples/FaxGetExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: sandbox/dotnet/src/Dropbox.SignSandbox/FaxGetExample.cs
+            $ref: examples/FaxGetExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: sandbox/node/src/FaxGetExample.ts
+            $ref: examples/FaxGetExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: sandbox/java/src/main/java/com/dropbox/sign_sandbox/FaxGetExample.java
+            $ref: examples/FaxGetExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: sandbox/ruby/src/FaxGetExample.rb
+            $ref: examples/FaxGetExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: sandbox/python/src/FaxGetExample.py
+            $ref: examples/FaxGetExample.py
         -
           lang: cURL
           label: cURL
@@ -1495,32 +1495,32 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: sandbox/php/src/FaxDeleteExample.php
+            $ref: examples/FaxDeleteExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: sandbox/dotnet/src/Dropbox.SignSandbox/FaxDeleteExample.cs
+            $ref: examples/FaxDeleteExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: sandbox/node/src/FaxDeleteExample.ts
+            $ref: examples/FaxDeleteExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: sandbox/java/src/main/java/com/dropbox/sign_sandbox/FaxDeleteExample.java
+            $ref: examples/FaxDeleteExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: sandbox/ruby/src/FaxDeleteExample.rb
+            $ref: examples/FaxDeleteExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: sandbox/python/src/FaxDeleteExample.py
+            $ref: examples/FaxDeleteExample.py
         -
           lang: cURL
           label: cURL
@@ -1592,32 +1592,32 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: sandbox/php/src/FaxFilesExample.php
+            $ref: examples/FaxFilesExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: sandbox/dotnet/src/Dropbox.SignSandbox/FaxFilesExample.cs
+            $ref: examples/FaxFilesExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: sandbox/node/src/FaxFilesExample.ts
+            $ref: examples/FaxFilesExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: sandbox/java/src/main/java/com/dropbox/sign_sandbox/FaxFilesExample.java
+            $ref: examples/FaxFilesExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: sandbox/ruby/src/FaxFilesExample.rb
+            $ref: examples/FaxFilesExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: sandbox/python/src/FaxFilesExample.py
+            $ref: examples/FaxFilesExample.py
         -
           lang: cURL
           label: cURL
@@ -1687,32 +1687,32 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: sandbox/php/src/FaxLineAddUserExample.php
+            $ref: examples/FaxLineAddUserExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: sandbox/dotnet/src/Dropbox.SignSandbox/FaxLineAddUserExample.cs
+            $ref: examples/FaxLineAddUserExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: sandbox/node/src/FaxLineAddUserExample.ts
+            $ref: examples/FaxLineAddUserExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: sandbox/java/src/main/java/com/dropbox/sign_sandbox/FaxLineAddUserExample.java
+            $ref: examples/FaxLineAddUserExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: sandbox/ruby/src/FaxLineAddUserExample.rb
+            $ref: examples/FaxLineAddUserExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: sandbox/python/src/FaxLineAddUserExample.py
+            $ref: examples/FaxLineAddUserExample.py
         -
           lang: cURL
           label: cURL
@@ -1867,32 +1867,32 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: sandbox/php/src/FaxLineAreaCodeGetExample.php
+            $ref: examples/FaxLineAreaCodeGetExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: sandbox/dotnet/src/Dropbox.SignSandbox/FaxLineAreaCodeGetExample.cs
+            $ref: examples/FaxLineAreaCodeGetExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: sandbox/node/src/FaxLineAreaCodeGetExample.ts
+            $ref: examples/FaxLineAreaCodeGetExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: sandbox/java/src/main/java/com/dropbox/sign_sandbox/FaxLineAreaCodeGetExample.java
+            $ref: examples/FaxLineAreaCodeGetExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: sandbox/ruby/src/FaxLineAreaCodeGetExample.rb
+            $ref: examples/FaxLineAreaCodeGetExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: sandbox/python/src/FaxLineAreaCodeGetExample.py
+            $ref: examples/FaxLineAreaCodeGetExample.py
         -
           lang: cURL
           label: cURL
@@ -1962,32 +1962,32 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: sandbox/php/src/FaxLineCreateExample.php
+            $ref: examples/FaxLineCreateExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: sandbox/dotnet/src/Dropbox.SignSandbox/FaxLineCreateExample.cs
+            $ref: examples/FaxLineCreateExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: sandbox/node/src/FaxLineCreateExample.ts
+            $ref: examples/FaxLineCreateExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: sandbox/java/src/main/java/com/dropbox/sign_sandbox/FaxLineCreateExample.java
+            $ref: examples/FaxLineCreateExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: sandbox/ruby/src/FaxLineCreateExample.rb
+            $ref: examples/FaxLineCreateExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: sandbox/python/src/FaxLineCreateExample.py
+            $ref: examples/FaxLineCreateExample.py
         -
           lang: cURL
           label: cURL
@@ -2056,32 +2056,32 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: sandbox/php/src/FaxLineGetExample.php
+            $ref: examples/FaxLineGetExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: sandbox/dotnet/src/Dropbox.SignSandbox/FaxLineGetExample.cs
+            $ref: examples/FaxLineGetExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: sandbox/node/src/FaxLineGetExample.ts
+            $ref: examples/FaxLineGetExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: sandbox/java/src/main/java/com/dropbox/sign_sandbox/FaxLineGetExample.java
+            $ref: examples/FaxLineGetExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: sandbox/ruby/src/FaxLineGetExample.rb
+            $ref: examples/FaxLineGetExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: sandbox/python/src/FaxLineGetExample.py
+            $ref: examples/FaxLineGetExample.py
         -
           lang: cURL
           label: cURL
@@ -2145,32 +2145,32 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: sandbox/php/src/FaxLineDeleteExample.php
+            $ref: examples/FaxLineDeleteExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: sandbox/dotnet/src/Dropbox.SignSandbox/FaxLineDeleteExample.cs
+            $ref: examples/FaxLineDeleteExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: sandbox/node/src/FaxLineDeleteExample.ts
+            $ref: examples/FaxLineDeleteExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: sandbox/java/src/main/java/com/dropbox/sign_sandbox/FaxLineDeleteExample.java
+            $ref: examples/FaxLineDeleteExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: sandbox/ruby/src/FaxLineDeleteExample.rb
+            $ref: examples/FaxLineDeleteExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: sandbox/python/src/FaxLineDeleteExample.py
+            $ref: examples/FaxLineDeleteExample.py
         -
           lang: cURL
           label: cURL
@@ -2259,32 +2259,32 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: sandbox/php/src/FaxLineListExample.php
+            $ref: examples/FaxLineListExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: sandbox/dotnet/src/Dropbox.SignSandbox/FaxLineListExample.cs
+            $ref: examples/FaxLineListExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: sandbox/node/src/FaxLineListExample.ts
+            $ref: examples/FaxLineListExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: sandbox/java/src/main/java/com/dropbox/sign_sandbox/FaxLineListExample.java
+            $ref: examples/FaxLineListExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: sandbox/ruby/src/FaxLineListExample.rb
+            $ref: examples/FaxLineListExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: sandbox/python/src/FaxLineListExample.py
+            $ref: examples/FaxLineListExample.py
         -
           lang: cURL
           label: cURL
@@ -2354,32 +2354,32 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: sandbox/php/src/FaxLineRemoveUserExample.php
+            $ref: examples/FaxLineRemoveUserExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: sandbox/dotnet/src/Dropbox.SignSandbox/FaxLineRemoveUserExample.cs
+            $ref: examples/FaxLineRemoveUserExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: sandbox/node/src/FaxLineRemoveUserExample.ts
+            $ref: examples/FaxLineRemoveUserExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: sandbox/java/src/main/java/com/dropbox/sign_sandbox/FaxLineRemoveUserExample.java
+            $ref: examples/FaxLineRemoveUserExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: sandbox/ruby/src/FaxLineRemoveUserExample.rb
+            $ref: examples/FaxLineRemoveUserExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: sandbox/python/src/FaxLineRemoveUserExample.py
+            $ref: examples/FaxLineRemoveUserExample.py
         -
           lang: cURL
           label: cURL
@@ -2458,32 +2458,32 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: sandbox/php/src/FaxListExample.php
+            $ref: examples/FaxListExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: sandbox/dotnet/src/Dropbox.SignSandbox/FaxListExample.cs
+            $ref: examples/FaxListExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: sandbox/node/src/FaxListExample.ts
+            $ref: examples/FaxListExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: sandbox/java/src/main/java/com/dropbox/sign_sandbox/FaxListExample.java
+            $ref: examples/FaxListExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: sandbox/ruby/src/FaxListExample.rb
+            $ref: examples/FaxListExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: sandbox/python/src/FaxListExample.py
+            $ref: examples/FaxListExample.py
         -
           lang: cURL
           label: cURL
@@ -2558,32 +2558,32 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: sandbox/php/src/FaxSendExample.php
+            $ref: examples/FaxSendExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: sandbox/dotnet/src/Dropbox.SignSandbox/FaxSendExample.cs
+            $ref: examples/FaxSendExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: sandbox/node/src/FaxSendExample.ts
+            $ref: examples/FaxSendExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: sandbox/java/src/main/java/com/dropbox/sign_sandbox/FaxSendExample.java
+            $ref: examples/FaxSendExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: sandbox/ruby/src/FaxSendExample.rb
+            $ref: examples/FaxSendExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: sandbox/python/src/FaxSendExample.py
+            $ref: examples/FaxSendExample.py
         -
           lang: cURL
           label: cURL
@@ -2652,32 +2652,32 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: sandbox/php/src/OauthTokenGenerateExample.php
+            $ref: examples/OauthTokenGenerateExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: sandbox/dotnet/src/Dropbox.SignSandbox/OauthTokenGenerateExample.cs
+            $ref: examples/OauthTokenGenerateExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: sandbox/node/src/OauthTokenGenerateExample.ts
+            $ref: examples/OauthTokenGenerateExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: sandbox/java/src/main/java/com/dropbox/sign_sandbox/OauthTokenGenerateExample.java
+            $ref: examples/OauthTokenGenerateExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: sandbox/ruby/src/OauthTokenGenerateExample.rb
+            $ref: examples/OauthTokenGenerateExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: sandbox/python/src/OauthTokenGenerateExample.py
+            $ref: examples/OauthTokenGenerateExample.py
         -
           lang: cURL
           label: cURL
@@ -2747,32 +2747,32 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: sandbox/php/src/OauthTokenRefreshExample.php
+            $ref: examples/OauthTokenRefreshExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: sandbox/dotnet/src/Dropbox.SignSandbox/OauthTokenRefreshExample.cs
+            $ref: examples/OauthTokenRefreshExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: sandbox/node/src/OauthTokenRefreshExample.ts
+            $ref: examples/OauthTokenRefreshExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: sandbox/java/src/main/java/com/dropbox/sign_sandbox/OauthTokenRefreshExample.java
+            $ref: examples/OauthTokenRefreshExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: sandbox/ruby/src/OauthTokenRefreshExample.rb
+            $ref: examples/OauthTokenRefreshExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: sandbox/python/src/OauthTokenRefreshExample.py
+            $ref: examples/OauthTokenRefreshExample.py
         -
           lang: cURL
           label: cURL
@@ -2844,32 +2844,32 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: sandbox/php/src/ReportCreateExample.php
+            $ref: examples/ReportCreateExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: sandbox/dotnet/src/Dropbox.SignSandbox/ReportCreateExample.cs
+            $ref: examples/ReportCreateExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: sandbox/node/src/ReportCreateExample.ts
+            $ref: examples/ReportCreateExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: sandbox/java/src/main/java/com/dropbox/sign_sandbox/ReportCreateExample.java
+            $ref: examples/ReportCreateExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: sandbox/ruby/src/ReportCreateExample.rb
+            $ref: examples/ReportCreateExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: sandbox/python/src/ReportCreateExample.py
+            $ref: examples/ReportCreateExample.py
         -
           lang: cURL
           label: cURL
@@ -2949,32 +2949,32 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: sandbox/php/src/SignatureRequestBulkCreateEmbeddedWithTemplateExample.php
+            $ref: examples/SignatureRequestBulkCreateEmbeddedWithTemplateExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: sandbox/dotnet/src/Dropbox.SignSandbox/SignatureRequestBulkCreateEmbeddedWithTemplateExample.cs
+            $ref: examples/SignatureRequestBulkCreateEmbeddedWithTemplateExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: sandbox/node/src/SignatureRequestBulkCreateEmbeddedWithTemplateExample.ts
+            $ref: examples/SignatureRequestBulkCreateEmbeddedWithTemplateExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: sandbox/java/src/main/java/com/dropbox/sign_sandbox/SignatureRequestBulkCreateEmbeddedWithTemplateExample.java
+            $ref: examples/SignatureRequestBulkCreateEmbeddedWithTemplateExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: sandbox/ruby/src/SignatureRequestBulkCreateEmbeddedWithTemplateExample.rb
+            $ref: examples/SignatureRequestBulkCreateEmbeddedWithTemplateExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: sandbox/python/src/SignatureRequestBulkCreateEmbeddedWithTemplateExample.py
+            $ref: examples/SignatureRequestBulkCreateEmbeddedWithTemplateExample.py
         -
           lang: cURL
           label: cURL
@@ -3054,32 +3054,32 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: sandbox/php/src/SignatureRequestBulkSendWithTemplateExample.php
+            $ref: examples/SignatureRequestBulkSendWithTemplateExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: sandbox/dotnet/src/Dropbox.SignSandbox/SignatureRequestBulkSendWithTemplateExample.cs
+            $ref: examples/SignatureRequestBulkSendWithTemplateExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: sandbox/node/src/SignatureRequestBulkSendWithTemplateExample.ts
+            $ref: examples/SignatureRequestBulkSendWithTemplateExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: sandbox/java/src/main/java/com/dropbox/sign_sandbox/SignatureRequestBulkSendWithTemplateExample.java
+            $ref: examples/SignatureRequestBulkSendWithTemplateExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: sandbox/ruby/src/SignatureRequestBulkSendWithTemplateExample.rb
+            $ref: examples/SignatureRequestBulkSendWithTemplateExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: sandbox/python/src/SignatureRequestBulkSendWithTemplateExample.py
+            $ref: examples/SignatureRequestBulkSendWithTemplateExample.py
         -
           lang: cURL
           label: cURL
@@ -3161,32 +3161,32 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: sandbox/php/src/SignatureRequestCancelExample.php
+            $ref: examples/SignatureRequestCancelExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: sandbox/dotnet/src/Dropbox.SignSandbox/SignatureRequestCancelExample.cs
+            $ref: examples/SignatureRequestCancelExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: sandbox/node/src/SignatureRequestCancelExample.ts
+            $ref: examples/SignatureRequestCancelExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: sandbox/java/src/main/java/com/dropbox/sign_sandbox/SignatureRequestCancelExample.java
+            $ref: examples/SignatureRequestCancelExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: sandbox/ruby/src/SignatureRequestCancelExample.rb
+            $ref: examples/SignatureRequestCancelExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: sandbox/python/src/SignatureRequestCancelExample.py
+            $ref: examples/SignatureRequestCancelExample.py
         -
           lang: cURL
           label: cURL
@@ -3266,32 +3266,32 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: sandbox/php/src/SignatureRequestCreateEmbeddedExample.php
+            $ref: examples/SignatureRequestCreateEmbeddedExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: sandbox/dotnet/src/Dropbox.SignSandbox/SignatureRequestCreateEmbeddedExample.cs
+            $ref: examples/SignatureRequestCreateEmbeddedExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: sandbox/node/src/SignatureRequestCreateEmbeddedExample.ts
+            $ref: examples/SignatureRequestCreateEmbeddedExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: sandbox/java/src/main/java/com/dropbox/sign_sandbox/SignatureRequestCreateEmbeddedExample.java
+            $ref: examples/SignatureRequestCreateEmbeddedExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: sandbox/ruby/src/SignatureRequestCreateEmbeddedExample.rb
+            $ref: examples/SignatureRequestCreateEmbeddedExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: sandbox/python/src/SignatureRequestCreateEmbeddedExample.py
+            $ref: examples/SignatureRequestCreateEmbeddedExample.py
         -
           lang: cURL
           label: cURL
@@ -3369,32 +3369,32 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: sandbox/php/src/SignatureRequestCreateEmbeddedWithTemplateExample.php
+            $ref: examples/SignatureRequestCreateEmbeddedWithTemplateExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: sandbox/dotnet/src/Dropbox.SignSandbox/SignatureRequestCreateEmbeddedWithTemplateExample.cs
+            $ref: examples/SignatureRequestCreateEmbeddedWithTemplateExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: sandbox/node/src/SignatureRequestCreateEmbeddedWithTemplateExample.ts
+            $ref: examples/SignatureRequestCreateEmbeddedWithTemplateExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: sandbox/java/src/main/java/com/dropbox/sign_sandbox/SignatureRequestCreateEmbeddedWithTemplateExample.java
+            $ref: examples/SignatureRequestCreateEmbeddedWithTemplateExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: sandbox/ruby/src/SignatureRequestCreateEmbeddedWithTemplateExample.rb
+            $ref: examples/SignatureRequestCreateEmbeddedWithTemplateExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: sandbox/python/src/SignatureRequestCreateEmbeddedWithTemplateExample.py
+            $ref: examples/SignatureRequestCreateEmbeddedWithTemplateExample.py
         -
           lang: cURL
           label: cURL
@@ -3489,32 +3489,32 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: sandbox/php/src/SignatureRequestEditExample.php
+            $ref: examples/SignatureRequestEditExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: sandbox/dotnet/src/Dropbox.SignSandbox/SignatureRequestEditExample.cs
+            $ref: examples/SignatureRequestEditExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: sandbox/node/src/SignatureRequestEditExample.ts
+            $ref: examples/SignatureRequestEditExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: sandbox/java/src/main/java/com/dropbox/sign_sandbox/SignatureRequestEditExample.java
+            $ref: examples/SignatureRequestEditExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: sandbox/ruby/src/SignatureRequestEditExample.rb
+            $ref: examples/SignatureRequestEditExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: sandbox/python/src/SignatureRequestEditExample.py
+            $ref: examples/SignatureRequestEditExample.py
         -
           lang: cURL
           label: cURL
@@ -3607,32 +3607,32 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: sandbox/php/src/SignatureRequestEditEmbeddedExample.php
+            $ref: examples/SignatureRequestEditEmbeddedExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: sandbox/dotnet/src/Dropbox.SignSandbox/SignatureRequestEditEmbeddedExample.cs
+            $ref: examples/SignatureRequestEditEmbeddedExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: sandbox/node/src/SignatureRequestEditEmbeddedExample.ts
+            $ref: examples/SignatureRequestEditEmbeddedExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: sandbox/java/src/main/java/com/dropbox/sign_sandbox/SignatureRequestEditEmbeddedExample.java
+            $ref: examples/SignatureRequestEditEmbeddedExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: sandbox/ruby/src/SignatureRequestEditEmbeddedExample.rb
+            $ref: examples/SignatureRequestEditEmbeddedExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: sandbox/python/src/SignatureRequestEditEmbeddedExample.py
+            $ref: examples/SignatureRequestEditEmbeddedExample.py
         -
           lang: cURL
           label: cURL
@@ -3723,32 +3723,32 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: sandbox/php/src/SignatureRequestEditEmbeddedWithTemplateExample.php
+            $ref: examples/SignatureRequestEditEmbeddedWithTemplateExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: sandbox/dotnet/src/Dropbox.SignSandbox/SignatureRequestEditEmbeddedWithTemplateExample.cs
+            $ref: examples/SignatureRequestEditEmbeddedWithTemplateExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: sandbox/node/src/SignatureRequestEditEmbeddedWithTemplateExample.ts
+            $ref: examples/SignatureRequestEditEmbeddedWithTemplateExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: sandbox/java/src/main/java/com/dropbox/sign_sandbox/SignatureRequestEditEmbeddedWithTemplateExample.java
+            $ref: examples/SignatureRequestEditEmbeddedWithTemplateExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: sandbox/ruby/src/SignatureRequestEditEmbeddedWithTemplateExample.rb
+            $ref: examples/SignatureRequestEditEmbeddedWithTemplateExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: sandbox/python/src/SignatureRequestEditEmbeddedWithTemplateExample.py
+            $ref: examples/SignatureRequestEditEmbeddedWithTemplateExample.py
         -
           lang: cURL
           label: cURL
@@ -3843,32 +3843,32 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: sandbox/php/src/SignatureRequestEditWithTemplateExample.php
+            $ref: examples/SignatureRequestEditWithTemplateExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: sandbox/dotnet/src/Dropbox.SignSandbox/SignatureRequestEditWithTemplateExample.cs
+            $ref: examples/SignatureRequestEditWithTemplateExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: sandbox/node/src/SignatureRequestEditWithTemplateExample.ts
+            $ref: examples/SignatureRequestEditWithTemplateExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: sandbox/java/src/main/java/com/dropbox/sign_sandbox/SignatureRequestEditWithTemplateExample.java
+            $ref: examples/SignatureRequestEditWithTemplateExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: sandbox/ruby/src/SignatureRequestEditWithTemplateExample.rb
+            $ref: examples/SignatureRequestEditWithTemplateExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: sandbox/python/src/SignatureRequestEditWithTemplateExample.py
+            $ref: examples/SignatureRequestEditWithTemplateExample.py
         -
           lang: cURL
           label: cURL
@@ -3965,32 +3965,32 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: sandbox/php/src/SignatureRequestFilesExample.php
+            $ref: examples/SignatureRequestFilesExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: sandbox/dotnet/src/Dropbox.SignSandbox/SignatureRequestFilesExample.cs
+            $ref: examples/SignatureRequestFilesExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: sandbox/node/src/SignatureRequestFilesExample.ts
+            $ref: examples/SignatureRequestFilesExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: sandbox/java/src/main/java/com/dropbox/sign_sandbox/SignatureRequestFilesExample.java
+            $ref: examples/SignatureRequestFilesExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: sandbox/ruby/src/SignatureRequestFilesExample.rb
+            $ref: examples/SignatureRequestFilesExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: sandbox/python/src/SignatureRequestFilesExample.py
+            $ref: examples/SignatureRequestFilesExample.py
         -
           lang: cURL
           label: cURL
@@ -4073,32 +4073,32 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: sandbox/php/src/SignatureRequestFilesAsDataUriExample.php
+            $ref: examples/SignatureRequestFilesAsDataUriExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: sandbox/dotnet/src/Dropbox.SignSandbox/SignatureRequestFilesAsDataUriExample.cs
+            $ref: examples/SignatureRequestFilesAsDataUriExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: sandbox/node/src/SignatureRequestFilesAsDataUriExample.ts
+            $ref: examples/SignatureRequestFilesAsDataUriExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: sandbox/java/src/main/java/com/dropbox/sign_sandbox/SignatureRequestFilesAsDataUriExample.java
+            $ref: examples/SignatureRequestFilesAsDataUriExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: sandbox/ruby/src/SignatureRequestFilesAsDataUriExample.rb
+            $ref: examples/SignatureRequestFilesAsDataUriExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: sandbox/python/src/SignatureRequestFilesAsDataUriExample.py
+            $ref: examples/SignatureRequestFilesAsDataUriExample.py
         -
           lang: cURL
           label: cURL
@@ -4188,32 +4188,32 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: sandbox/php/src/SignatureRequestFilesAsFileUrlExample.php
+            $ref: examples/SignatureRequestFilesAsFileUrlExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: sandbox/dotnet/src/Dropbox.SignSandbox/SignatureRequestFilesAsFileUrlExample.cs
+            $ref: examples/SignatureRequestFilesAsFileUrlExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: sandbox/node/src/SignatureRequestFilesAsFileUrlExample.ts
+            $ref: examples/SignatureRequestFilesAsFileUrlExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: sandbox/java/src/main/java/com/dropbox/sign_sandbox/SignatureRequestFilesAsFileUrlExample.java
+            $ref: examples/SignatureRequestFilesAsFileUrlExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: sandbox/ruby/src/SignatureRequestFilesAsFileUrlExample.rb
+            $ref: examples/SignatureRequestFilesAsFileUrlExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: sandbox/python/src/SignatureRequestFilesAsFileUrlExample.py
+            $ref: examples/SignatureRequestFilesAsFileUrlExample.py
         -
           lang: cURL
           label: cURL
@@ -4289,32 +4289,32 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: sandbox/php/src/SignatureRequestGetExample.php
+            $ref: examples/SignatureRequestGetExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: sandbox/dotnet/src/Dropbox.SignSandbox/SignatureRequestGetExample.cs
+            $ref: examples/SignatureRequestGetExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: sandbox/node/src/SignatureRequestGetExample.ts
+            $ref: examples/SignatureRequestGetExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: sandbox/java/src/main/java/com/dropbox/sign_sandbox/SignatureRequestGetExample.java
+            $ref: examples/SignatureRequestGetExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: sandbox/ruby/src/SignatureRequestGetExample.rb
+            $ref: examples/SignatureRequestGetExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: sandbox/python/src/SignatureRequestGetExample.py
+            $ref: examples/SignatureRequestGetExample.py
         -
           lang: cURL
           label: cURL
@@ -4410,32 +4410,32 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: sandbox/php/src/SignatureRequestListExample.php
+            $ref: examples/SignatureRequestListExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: sandbox/dotnet/src/Dropbox.SignSandbox/SignatureRequestListExample.cs
+            $ref: examples/SignatureRequestListExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: sandbox/node/src/SignatureRequestListExample.ts
+            $ref: examples/SignatureRequestListExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: sandbox/java/src/main/java/com/dropbox/sign_sandbox/SignatureRequestListExample.java
+            $ref: examples/SignatureRequestListExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: sandbox/ruby/src/SignatureRequestListExample.rb
+            $ref: examples/SignatureRequestListExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: sandbox/python/src/SignatureRequestListExample.py
+            $ref: examples/SignatureRequestListExample.py
         -
           lang: cURL
           label: cURL
@@ -4508,32 +4508,32 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: sandbox/php/src/SignatureRequestReleaseHoldExample.php
+            $ref: examples/SignatureRequestReleaseHoldExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: sandbox/dotnet/src/Dropbox.SignSandbox/SignatureRequestReleaseHoldExample.cs
+            $ref: examples/SignatureRequestReleaseHoldExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: sandbox/node/src/SignatureRequestReleaseHoldExample.ts
+            $ref: examples/SignatureRequestReleaseHoldExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: sandbox/java/src/main/java/com/dropbox/sign_sandbox/SignatureRequestReleaseHoldExample.java
+            $ref: examples/SignatureRequestReleaseHoldExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: sandbox/ruby/src/SignatureRequestReleaseHoldExample.rb
+            $ref: examples/SignatureRequestReleaseHoldExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: sandbox/python/src/SignatureRequestReleaseHoldExample.py
+            $ref: examples/SignatureRequestReleaseHoldExample.py
         -
           lang: cURL
           label: cURL
@@ -4625,32 +4625,32 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: sandbox/php/src/SignatureRequestRemindExample.php
+            $ref: examples/SignatureRequestRemindExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: sandbox/dotnet/src/Dropbox.SignSandbox/SignatureRequestRemindExample.cs
+            $ref: examples/SignatureRequestRemindExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: sandbox/node/src/SignatureRequestRemindExample.ts
+            $ref: examples/SignatureRequestRemindExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: sandbox/java/src/main/java/com/dropbox/sign_sandbox/SignatureRequestRemindExample.java
+            $ref: examples/SignatureRequestRemindExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: sandbox/ruby/src/SignatureRequestRemindExample.rb
+            $ref: examples/SignatureRequestRemindExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: sandbox/python/src/SignatureRequestRemindExample.py
+            $ref: examples/SignatureRequestRemindExample.py
         -
           lang: cURL
           label: cURL
@@ -4724,32 +4724,32 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: sandbox/php/src/SignatureRequestRemoveExample.php
+            $ref: examples/SignatureRequestRemoveExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: sandbox/dotnet/src/Dropbox.SignSandbox/SignatureRequestRemoveExample.cs
+            $ref: examples/SignatureRequestRemoveExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: sandbox/node/src/SignatureRequestRemoveExample.ts
+            $ref: examples/SignatureRequestRemoveExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: sandbox/java/src/main/java/com/dropbox/sign_sandbox/SignatureRequestRemoveExample.java
+            $ref: examples/SignatureRequestRemoveExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: sandbox/ruby/src/SignatureRequestRemoveExample.rb
+            $ref: examples/SignatureRequestRemoveExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: sandbox/python/src/SignatureRequestRemoveExample.py
+            $ref: examples/SignatureRequestRemoveExample.py
         -
           lang: cURL
           label: cURL
@@ -4830,32 +4830,32 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: sandbox/php/src/SignatureRequestSendExample.php
+            $ref: examples/SignatureRequestSendExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: sandbox/dotnet/src/Dropbox.SignSandbox/SignatureRequestSendExample.cs
+            $ref: examples/SignatureRequestSendExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: sandbox/node/src/SignatureRequestSendExample.ts
+            $ref: examples/SignatureRequestSendExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: sandbox/java/src/main/java/com/dropbox/sign_sandbox/SignatureRequestSendExample.java
+            $ref: examples/SignatureRequestSendExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: sandbox/ruby/src/SignatureRequestSendExample.rb
+            $ref: examples/SignatureRequestSendExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: sandbox/python/src/SignatureRequestSendExample.py
+            $ref: examples/SignatureRequestSendExample.py
         -
           lang: cURL
           label: cURL
@@ -4932,32 +4932,32 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: sandbox/php/src/SignatureRequestSendWithTemplateExample.php
+            $ref: examples/SignatureRequestSendWithTemplateExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: sandbox/dotnet/src/Dropbox.SignSandbox/SignatureRequestSendWithTemplateExample.cs
+            $ref: examples/SignatureRequestSendWithTemplateExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: sandbox/node/src/SignatureRequestSendWithTemplateExample.ts
+            $ref: examples/SignatureRequestSendWithTemplateExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: sandbox/java/src/main/java/com/dropbox/sign_sandbox/SignatureRequestSendWithTemplateExample.java
+            $ref: examples/SignatureRequestSendWithTemplateExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: sandbox/ruby/src/SignatureRequestSendWithTemplateExample.rb
+            $ref: examples/SignatureRequestSendWithTemplateExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: sandbox/python/src/SignatureRequestSendWithTemplateExample.py
+            $ref: examples/SignatureRequestSendWithTemplateExample.py
         -
           lang: cURL
           label: cURL
@@ -5044,32 +5044,32 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: sandbox/php/src/SignatureRequestUpdateExample.php
+            $ref: examples/SignatureRequestUpdateExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: sandbox/dotnet/src/Dropbox.SignSandbox/SignatureRequestUpdateExample.cs
+            $ref: examples/SignatureRequestUpdateExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: sandbox/node/src/SignatureRequestUpdateExample.ts
+            $ref: examples/SignatureRequestUpdateExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: sandbox/java/src/main/java/com/dropbox/sign_sandbox/SignatureRequestUpdateExample.java
+            $ref: examples/SignatureRequestUpdateExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: sandbox/ruby/src/SignatureRequestUpdateExample.rb
+            $ref: examples/SignatureRequestUpdateExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: sandbox/python/src/SignatureRequestUpdateExample.py
+            $ref: examples/SignatureRequestUpdateExample.py
         -
           lang: cURL
           label: cURL
@@ -5153,32 +5153,32 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: sandbox/php/src/TeamAddMemberExample.php
+            $ref: examples/TeamAddMemberExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: sandbox/dotnet/src/Dropbox.SignSandbox/TeamAddMemberExample.cs
+            $ref: examples/TeamAddMemberExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: sandbox/node/src/TeamAddMemberExample.ts
+            $ref: examples/TeamAddMemberExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: sandbox/java/src/main/java/com/dropbox/sign_sandbox/TeamAddMemberExample.java
+            $ref: examples/TeamAddMemberExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: sandbox/ruby/src/TeamAddMemberExample.rb
+            $ref: examples/TeamAddMemberExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: sandbox/python/src/TeamAddMemberExample.py
+            $ref: examples/TeamAddMemberExample.py
         -
           lang: cURL
           label: cURL
@@ -5249,32 +5249,32 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: sandbox/php/src/TeamCreateExample.php
+            $ref: examples/TeamCreateExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: sandbox/dotnet/src/Dropbox.SignSandbox/TeamCreateExample.cs
+            $ref: examples/TeamCreateExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: sandbox/node/src/TeamCreateExample.ts
+            $ref: examples/TeamCreateExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: sandbox/java/src/main/java/com/dropbox/sign_sandbox/TeamCreateExample.java
+            $ref: examples/TeamCreateExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: sandbox/ruby/src/TeamCreateExample.rb
+            $ref: examples/TeamCreateExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: sandbox/python/src/TeamCreateExample.py
+            $ref: examples/TeamCreateExample.py
         -
           lang: cURL
           label: cURL
@@ -5329,32 +5329,32 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: sandbox/php/src/TeamDeleteExample.php
+            $ref: examples/TeamDeleteExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: sandbox/dotnet/src/Dropbox.SignSandbox/TeamDeleteExample.cs
+            $ref: examples/TeamDeleteExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: sandbox/node/src/TeamDeleteExample.ts
+            $ref: examples/TeamDeleteExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: sandbox/java/src/main/java/com/dropbox/sign_sandbox/TeamDeleteExample.java
+            $ref: examples/TeamDeleteExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: sandbox/ruby/src/TeamDeleteExample.rb
+            $ref: examples/TeamDeleteExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: sandbox/python/src/TeamDeleteExample.py
+            $ref: examples/TeamDeleteExample.py
         -
           lang: cURL
           label: cURL
@@ -5418,32 +5418,32 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: sandbox/php/src/TeamGetExample.php
+            $ref: examples/TeamGetExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: sandbox/dotnet/src/Dropbox.SignSandbox/TeamGetExample.cs
+            $ref: examples/TeamGetExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: sandbox/node/src/TeamGetExample.ts
+            $ref: examples/TeamGetExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: sandbox/java/src/main/java/com/dropbox/sign_sandbox/TeamGetExample.java
+            $ref: examples/TeamGetExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: sandbox/ruby/src/TeamGetExample.rb
+            $ref: examples/TeamGetExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: sandbox/python/src/TeamGetExample.py
+            $ref: examples/TeamGetExample.py
         -
           lang: cURL
           label: cURL
@@ -5513,32 +5513,32 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: sandbox/php/src/TeamUpdateExample.php
+            $ref: examples/TeamUpdateExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: sandbox/dotnet/src/Dropbox.SignSandbox/TeamUpdateExample.cs
+            $ref: examples/TeamUpdateExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: sandbox/node/src/TeamUpdateExample.ts
+            $ref: examples/TeamUpdateExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: sandbox/java/src/main/java/com/dropbox/sign_sandbox/TeamUpdateExample.java
+            $ref: examples/TeamUpdateExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: sandbox/ruby/src/TeamUpdateExample.rb
+            $ref: examples/TeamUpdateExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: sandbox/python/src/TeamUpdateExample.py
+            $ref: examples/TeamUpdateExample.py
         -
           lang: cURL
           label: cURL
@@ -5613,32 +5613,32 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: sandbox/php/src/TeamInfoExample.php
+            $ref: examples/TeamInfoExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: sandbox/dotnet/src/Dropbox.SignSandbox/TeamInfoExample.cs
+            $ref: examples/TeamInfoExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: sandbox/node/src/TeamInfoExample.ts
+            $ref: examples/TeamInfoExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: sandbox/java/src/main/java/com/dropbox/sign_sandbox/TeamInfoExample.java
+            $ref: examples/TeamInfoExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: sandbox/ruby/src/TeamInfoExample.rb
+            $ref: examples/TeamInfoExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: sandbox/python/src/TeamInfoExample.py
+            $ref: examples/TeamInfoExample.py
         -
           lang: cURL
           label: cURL
@@ -5709,32 +5709,32 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: sandbox/php/src/TeamInvitesExample.php
+            $ref: examples/TeamInvitesExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: sandbox/dotnet/src/Dropbox.SignSandbox/TeamInvitesExample.cs
+            $ref: examples/TeamInvitesExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: sandbox/node/src/TeamInvitesExample.ts
+            $ref: examples/TeamInvitesExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: sandbox/java/src/main/java/com/dropbox/sign_sandbox/TeamInvitesExample.java
+            $ref: examples/TeamInvitesExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: sandbox/ruby/src/TeamInvitesExample.rb
+            $ref: examples/TeamInvitesExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: sandbox/python/src/TeamInvitesExample.py
+            $ref: examples/TeamInvitesExample.py
         -
           lang: cURL
           label: cURL
@@ -5825,32 +5825,32 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: sandbox/php/src/TeamMembersExample.php
+            $ref: examples/TeamMembersExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: sandbox/dotnet/src/Dropbox.SignSandbox/TeamMembersExample.cs
+            $ref: examples/TeamMembersExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: sandbox/node/src/TeamMembersExample.ts
+            $ref: examples/TeamMembersExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: sandbox/java/src/main/java/com/dropbox/sign_sandbox/TeamMembersExample.java
+            $ref: examples/TeamMembersExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: sandbox/ruby/src/TeamMembersExample.rb
+            $ref: examples/TeamMembersExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: sandbox/python/src/TeamMembersExample.py
+            $ref: examples/TeamMembersExample.py
         -
           lang: cURL
           label: cURL
@@ -5925,32 +5925,32 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: sandbox/php/src/TeamRemoveMemberExample.php
+            $ref: examples/TeamRemoveMemberExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: sandbox/dotnet/src/Dropbox.SignSandbox/TeamRemoveMemberExample.cs
+            $ref: examples/TeamRemoveMemberExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: sandbox/node/src/TeamRemoveMemberExample.ts
+            $ref: examples/TeamRemoveMemberExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: sandbox/java/src/main/java/com/dropbox/sign_sandbox/TeamRemoveMemberExample.java
+            $ref: examples/TeamRemoveMemberExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: sandbox/ruby/src/TeamRemoveMemberExample.rb
+            $ref: examples/TeamRemoveMemberExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: sandbox/python/src/TeamRemoveMemberExample.py
+            $ref: examples/TeamRemoveMemberExample.py
         -
           lang: cURL
           label: cURL
@@ -6041,32 +6041,32 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: sandbox/php/src/TeamSubTeamsExample.php
+            $ref: examples/TeamSubTeamsExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: sandbox/dotnet/src/Dropbox.SignSandbox/TeamSubTeamsExample.cs
+            $ref: examples/TeamSubTeamsExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: sandbox/node/src/TeamSubTeamsExample.ts
+            $ref: examples/TeamSubTeamsExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: sandbox/java/src/main/java/com/dropbox/sign_sandbox/TeamSubTeamsExample.java
+            $ref: examples/TeamSubTeamsExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: sandbox/ruby/src/TeamSubTeamsExample.rb
+            $ref: examples/TeamSubTeamsExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: sandbox/python/src/TeamSubTeamsExample.py
+            $ref: examples/TeamSubTeamsExample.py
         -
           lang: cURL
           label: cURL
@@ -6148,32 +6148,32 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: sandbox/php/src/TemplateAddUserExample.php
+            $ref: examples/TemplateAddUserExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: sandbox/dotnet/src/Dropbox.SignSandbox/TemplateAddUserExample.cs
+            $ref: examples/TemplateAddUserExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: sandbox/node/src/TemplateAddUserExample.ts
+            $ref: examples/TemplateAddUserExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: sandbox/java/src/main/java/com/dropbox/sign_sandbox/TemplateAddUserExample.java
+            $ref: examples/TemplateAddUserExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: sandbox/ruby/src/TemplateAddUserExample.rb
+            $ref: examples/TemplateAddUserExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: sandbox/python/src/TemplateAddUserExample.py
+            $ref: examples/TemplateAddUserExample.py
         -
           lang: cURL
           label: cURL
@@ -6257,32 +6257,32 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: sandbox/php/src/TemplateCreateExample.php
+            $ref: examples/TemplateCreateExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: sandbox/dotnet/src/Dropbox.SignSandbox/TemplateCreateExample.cs
+            $ref: examples/TemplateCreateExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: sandbox/node/src/TemplateCreateExample.ts
+            $ref: examples/TemplateCreateExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: sandbox/java/src/main/java/com/dropbox/sign_sandbox/TemplateCreateExample.java
+            $ref: examples/TemplateCreateExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: sandbox/ruby/src/TemplateCreateExample.rb
+            $ref: examples/TemplateCreateExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: sandbox/python/src/TemplateCreateExample.py
+            $ref: examples/TemplateCreateExample.py
         -
           lang: cURL
           label: cURL
@@ -6366,32 +6366,32 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: sandbox/php/src/TemplateCreateEmbeddedDraftExample.php
+            $ref: examples/TemplateCreateEmbeddedDraftExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: sandbox/dotnet/src/Dropbox.SignSandbox/TemplateCreateEmbeddedDraftExample.cs
+            $ref: examples/TemplateCreateEmbeddedDraftExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: sandbox/node/src/TemplateCreateEmbeddedDraftExample.ts
+            $ref: examples/TemplateCreateEmbeddedDraftExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: sandbox/java/src/main/java/com/dropbox/sign_sandbox/TemplateCreateEmbeddedDraftExample.java
+            $ref: examples/TemplateCreateEmbeddedDraftExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: sandbox/ruby/src/TemplateCreateEmbeddedDraftExample.rb
+            $ref: examples/TemplateCreateEmbeddedDraftExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: sandbox/python/src/TemplateCreateEmbeddedDraftExample.py
+            $ref: examples/TemplateCreateEmbeddedDraftExample.py
         -
           lang: cURL
           label: cURL
@@ -6461,32 +6461,32 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: sandbox/php/src/TemplateDeleteExample.php
+            $ref: examples/TemplateDeleteExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: sandbox/dotnet/src/Dropbox.SignSandbox/TemplateDeleteExample.cs
+            $ref: examples/TemplateDeleteExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: sandbox/node/src/TemplateDeleteExample.ts
+            $ref: examples/TemplateDeleteExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: sandbox/java/src/main/java/com/dropbox/sign_sandbox/TemplateDeleteExample.java
+            $ref: examples/TemplateDeleteExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: sandbox/ruby/src/TemplateDeleteExample.rb
+            $ref: examples/TemplateDeleteExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: sandbox/python/src/TemplateDeleteExample.py
+            $ref: examples/TemplateDeleteExample.py
         -
           lang: cURL
           label: cURL
@@ -6579,32 +6579,32 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: sandbox/php/src/TemplateFilesExample.php
+            $ref: examples/TemplateFilesExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: sandbox/dotnet/src/Dropbox.SignSandbox/TemplateFilesExample.cs
+            $ref: examples/TemplateFilesExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: sandbox/node/src/TemplateFilesExample.ts
+            $ref: examples/TemplateFilesExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: sandbox/java/src/main/java/com/dropbox/sign_sandbox/TemplateFilesExample.java
+            $ref: examples/TemplateFilesExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: sandbox/ruby/src/TemplateFilesExample.rb
+            $ref: examples/TemplateFilesExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: sandbox/python/src/TemplateFilesExample.py
+            $ref: examples/TemplateFilesExample.py
         -
           lang: cURL
           label: cURL
@@ -6686,32 +6686,32 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: sandbox/php/src/TemplateFilesAsDataUriExample.php
+            $ref: examples/TemplateFilesAsDataUriExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: sandbox/dotnet/src/Dropbox.SignSandbox/TemplateFilesAsDataUriExample.cs
+            $ref: examples/TemplateFilesAsDataUriExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: sandbox/node/src/TemplateFilesAsDataUriExample.ts
+            $ref: examples/TemplateFilesAsDataUriExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: sandbox/java/src/main/java/com/dropbox/sign_sandbox/TemplateFilesAsDataUriExample.java
+            $ref: examples/TemplateFilesAsDataUriExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: sandbox/ruby/src/TemplateFilesAsDataUriExample.rb
+            $ref: examples/TemplateFilesAsDataUriExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: sandbox/python/src/TemplateFilesAsDataUriExample.py
+            $ref: examples/TemplateFilesAsDataUriExample.py
         -
           lang: cURL
           label: cURL
@@ -6800,32 +6800,32 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: sandbox/php/src/TemplateFilesAsFileUrlExample.php
+            $ref: examples/TemplateFilesAsFileUrlExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: sandbox/dotnet/src/Dropbox.SignSandbox/TemplateFilesAsFileUrlExample.cs
+            $ref: examples/TemplateFilesAsFileUrlExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: sandbox/node/src/TemplateFilesAsFileUrlExample.ts
+            $ref: examples/TemplateFilesAsFileUrlExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: sandbox/java/src/main/java/com/dropbox/sign_sandbox/TemplateFilesAsFileUrlExample.java
+            $ref: examples/TemplateFilesAsFileUrlExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: sandbox/ruby/src/TemplateFilesAsFileUrlExample.rb
+            $ref: examples/TemplateFilesAsFileUrlExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: sandbox/python/src/TemplateFilesAsFileUrlExample.py
+            $ref: examples/TemplateFilesAsFileUrlExample.py
         -
           lang: cURL
           label: cURL
@@ -6900,32 +6900,32 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: sandbox/php/src/TemplateGetExample.php
+            $ref: examples/TemplateGetExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: sandbox/dotnet/src/Dropbox.SignSandbox/TemplateGetExample.cs
+            $ref: examples/TemplateGetExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: sandbox/node/src/TemplateGetExample.ts
+            $ref: examples/TemplateGetExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: sandbox/java/src/main/java/com/dropbox/sign_sandbox/TemplateGetExample.java
+            $ref: examples/TemplateGetExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: sandbox/ruby/src/TemplateGetExample.rb
+            $ref: examples/TemplateGetExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: sandbox/python/src/TemplateGetExample.py
+            $ref: examples/TemplateGetExample.py
         -
           lang: cURL
           label: cURL
@@ -7023,32 +7023,32 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: sandbox/php/src/TemplateListExample.php
+            $ref: examples/TemplateListExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: sandbox/dotnet/src/Dropbox.SignSandbox/TemplateListExample.cs
+            $ref: examples/TemplateListExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: sandbox/node/src/TemplateListExample.ts
+            $ref: examples/TemplateListExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: sandbox/java/src/main/java/com/dropbox/sign_sandbox/TemplateListExample.java
+            $ref: examples/TemplateListExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: sandbox/ruby/src/TemplateListExample.rb
+            $ref: examples/TemplateListExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: sandbox/python/src/TemplateListExample.py
+            $ref: examples/TemplateListExample.py
         -
           lang: cURL
           label: cURL
@@ -7130,32 +7130,32 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: sandbox/php/src/TemplateRemoveUserExample.php
+            $ref: examples/TemplateRemoveUserExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: sandbox/dotnet/src/Dropbox.SignSandbox/TemplateRemoveUserExample.cs
+            $ref: examples/TemplateRemoveUserExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: sandbox/node/src/TemplateRemoveUserExample.ts
+            $ref: examples/TemplateRemoveUserExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: sandbox/java/src/main/java/com/dropbox/sign_sandbox/TemplateRemoveUserExample.java
+            $ref: examples/TemplateRemoveUserExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: sandbox/ruby/src/TemplateRemoveUserExample.rb
+            $ref: examples/TemplateRemoveUserExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: sandbox/python/src/TemplateRemoveUserExample.py
+            $ref: examples/TemplateRemoveUserExample.py
         -
           lang: cURL
           label: cURL
@@ -7256,32 +7256,32 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: sandbox/php/src/TemplateUpdateFilesExample.php
+            $ref: examples/TemplateUpdateFilesExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: sandbox/dotnet/src/Dropbox.SignSandbox/TemplateUpdateFilesExample.cs
+            $ref: examples/TemplateUpdateFilesExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: sandbox/node/src/TemplateUpdateFilesExample.ts
+            $ref: examples/TemplateUpdateFilesExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: sandbox/java/src/main/java/com/dropbox/sign_sandbox/TemplateUpdateFilesExample.java
+            $ref: examples/TemplateUpdateFilesExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: sandbox/ruby/src/TemplateUpdateFilesExample.rb
+            $ref: examples/TemplateUpdateFilesExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: sandbox/python/src/TemplateUpdateFilesExample.py
+            $ref: examples/TemplateUpdateFilesExample.py
         -
           lang: cURL
           label: cURL
@@ -7361,32 +7361,32 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: sandbox/php/src/UnclaimedDraftCreateExample.php
+            $ref: examples/UnclaimedDraftCreateExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: sandbox/dotnet/src/Dropbox.SignSandbox/UnclaimedDraftCreateExample.cs
+            $ref: examples/UnclaimedDraftCreateExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: sandbox/node/src/UnclaimedDraftCreateExample.ts
+            $ref: examples/UnclaimedDraftCreateExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: sandbox/java/src/main/java/com/dropbox/sign_sandbox/UnclaimedDraftCreateExample.java
+            $ref: examples/UnclaimedDraftCreateExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: sandbox/ruby/src/UnclaimedDraftCreateExample.rb
+            $ref: examples/UnclaimedDraftCreateExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: sandbox/python/src/UnclaimedDraftCreateExample.py
+            $ref: examples/UnclaimedDraftCreateExample.py
         -
           lang: cURL
           label: cURL
@@ -7474,32 +7474,32 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: sandbox/php/src/UnclaimedDraftCreateEmbeddedExample.php
+            $ref: examples/UnclaimedDraftCreateEmbeddedExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: sandbox/dotnet/src/Dropbox.SignSandbox/UnclaimedDraftCreateEmbeddedExample.cs
+            $ref: examples/UnclaimedDraftCreateEmbeddedExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: sandbox/node/src/UnclaimedDraftCreateEmbeddedExample.ts
+            $ref: examples/UnclaimedDraftCreateEmbeddedExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: sandbox/java/src/main/java/com/dropbox/sign_sandbox/UnclaimedDraftCreateEmbeddedExample.java
+            $ref: examples/UnclaimedDraftCreateEmbeddedExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: sandbox/ruby/src/UnclaimedDraftCreateEmbeddedExample.rb
+            $ref: examples/UnclaimedDraftCreateEmbeddedExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: sandbox/python/src/UnclaimedDraftCreateEmbeddedExample.py
+            $ref: examples/UnclaimedDraftCreateEmbeddedExample.py
         -
           lang: cURL
           label: cURL
@@ -7582,32 +7582,32 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: sandbox/php/src/UnclaimedDraftCreateEmbeddedWithTemplateExample.php
+            $ref: examples/UnclaimedDraftCreateEmbeddedWithTemplateExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: sandbox/dotnet/src/Dropbox.SignSandbox/UnclaimedDraftCreateEmbeddedWithTemplateExample.cs
+            $ref: examples/UnclaimedDraftCreateEmbeddedWithTemplateExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: sandbox/node/src/UnclaimedDraftCreateEmbeddedWithTemplateExample.ts
+            $ref: examples/UnclaimedDraftCreateEmbeddedWithTemplateExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: sandbox/java/src/main/java/com/dropbox/sign_sandbox/UnclaimedDraftCreateEmbeddedWithTemplateExample.java
+            $ref: examples/UnclaimedDraftCreateEmbeddedWithTemplateExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: sandbox/ruby/src/UnclaimedDraftCreateEmbeddedWithTemplateExample.rb
+            $ref: examples/UnclaimedDraftCreateEmbeddedWithTemplateExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: sandbox/python/src/UnclaimedDraftCreateEmbeddedWithTemplateExample.py
+            $ref: examples/UnclaimedDraftCreateEmbeddedWithTemplateExample.py
         -
           lang: cURL
           label: cURL
@@ -7697,32 +7697,32 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: sandbox/php/src/UnclaimedDraftEditAndResendExample.php
+            $ref: examples/UnclaimedDraftEditAndResendExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: sandbox/dotnet/src/Dropbox.SignSandbox/UnclaimedDraftEditAndResendExample.cs
+            $ref: examples/UnclaimedDraftEditAndResendExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: sandbox/node/src/UnclaimedDraftEditAndResendExample.ts
+            $ref: examples/UnclaimedDraftEditAndResendExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: sandbox/java/src/main/java/com/dropbox/sign_sandbox/UnclaimedDraftEditAndResendExample.java
+            $ref: examples/UnclaimedDraftEditAndResendExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: sandbox/ruby/src/UnclaimedDraftEditAndResendExample.rb
+            $ref: examples/UnclaimedDraftEditAndResendExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: sandbox/python/src/UnclaimedDraftEditAndResendExample.py
+            $ref: examples/UnclaimedDraftEditAndResendExample.py
         -
           lang: cURL
           label: cURL
