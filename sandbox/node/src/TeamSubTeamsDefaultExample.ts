@@ -3,6 +3,8 @@ import api from "@dropbox/sign"
 import models from "@dropbox/sign"
 
 const apiCaller = new api.TeamApi();
+apiCaller.username = "YOUR_API_KEY";
+// apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
 const teamId = "4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c";
 const page = 1;

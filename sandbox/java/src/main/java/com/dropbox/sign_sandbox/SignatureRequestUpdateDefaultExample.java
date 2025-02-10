@@ -18,6 +18,8 @@ public class SignatureRequestUpdateDefaultExample
     public static void main(String[] args)
     {
         var config = Configuration.getDefaultApiClient();
+        config.setUsername("YOUR_API_KEY");
+        // config.setAccessToken("YOUR_ACCESS_TOKEN");
 
         var signatureRequestUpdateRequest = new SignatureRequestUpdateRequest();
         signatureRequestUpdateRequest.signatureId("2f9781e1a8e2045224d808c153c2e1d3df6f8f2f");

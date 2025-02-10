@@ -3,6 +3,8 @@ import api from "@dropbox/sign"
 import models from "@dropbox/sign"
 
 const apiCaller = new api.UnclaimedDraftApi();
+apiCaller.username = "YOUR_API_KEY";
+// apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
 const formFieldsPerDocument1 = new models.SubFormFieldsPerDocumentText();
 formFieldsPerDocument1.documentIndex = 0;

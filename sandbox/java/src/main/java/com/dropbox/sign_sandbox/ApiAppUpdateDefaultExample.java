@@ -18,6 +18,8 @@ public class ApiAppUpdateDefaultExample
     public static void main(String[] args)
     {
         var config = Configuration.getDefaultApiClient();
+        config.setUsername("YOUR_API_KEY");
+        // config.setAccessToken("YOUR_ACCESS_TOKEN");
 
         var whiteLabelingOptions = new SubWhiteLabelingOptions();
         whiteLabelingOptions.primaryButtonColor("#00b3e6");

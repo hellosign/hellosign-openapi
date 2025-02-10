@@ -18,6 +18,7 @@ public class FaxLineRemoveUserDefaultExample
     public static void main(String[] args)
     {
         var config = Configuration.getDefaultApiClient();
+        config.setUsername("YOUR_API_KEY");
 
         var faxLineRemoveUserRequest = new FaxLineRemoveUserRequest();
         faxLineRemoveUserRequest.number("[FAX_NUMBER]");

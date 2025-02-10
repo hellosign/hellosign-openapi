@@ -18,6 +18,7 @@ public class FaxDeleteDefaultExample
     public static void main(String[] args)
     {
         var config = Configuration.getDefaultApiClient();
+        config.setUsername("YOUR_API_KEY");
 
         try
         {

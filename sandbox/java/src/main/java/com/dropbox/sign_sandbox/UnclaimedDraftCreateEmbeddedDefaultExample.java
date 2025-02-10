@@ -18,6 +18,8 @@ public class UnclaimedDraftCreateEmbeddedDefaultExample
     public static void main(String[] args)
     {
         var config = Configuration.getDefaultApiClient();
+        config.setUsername("YOUR_API_KEY");
+        // config.setAccessToken("YOUR_ACCESS_TOKEN");
 
         var unclaimedDraftCreateEmbeddedRequest = new UnclaimedDraftCreateEmbeddedRequest();
         unclaimedDraftCreateEmbeddedRequest.clientId("b6b8e7deaf8f0b95c029dca049356d4a2cf9710a");

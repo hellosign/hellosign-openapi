@@ -18,6 +18,7 @@ public class SignatureRequestBulkCreateEmbeddedWithTemplateDefaultExample
     public static void main(String[] args)
     {
         var config = Configuration.getDefaultApiClient();
+        config.setUsername("YOUR_API_KEY");
 
         var signerList2CustomFields1 = new SubBulkSignerListCustomField();
         signerList2CustomFields1.name("company");

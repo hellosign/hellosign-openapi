@@ -13,6 +13,8 @@ public class SignatureRequestBulkSendWithTemplateDefaultExample
     public static void Run()
     {
         var config = new Configuration();
+        config.Username = "YOUR_API_KEY";
+        // config.AccessToken = "YOUR_ACCESS_TOKEN";
 
         var signerList2CustomFields1 = new SubBulkSignerListCustomField(
             name: "company",

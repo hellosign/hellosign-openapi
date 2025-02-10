@@ -4,9 +4,11 @@ namespace Dropbox\SignSandbox;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
+use SplFileObject;
 use Dropbox;
 
 $config = Dropbox\Sign\Configuration::getDefaultConfiguration();
+$config->setUsername("YOUR_API_KEY");
 
 $report_create_request = (new Dropbox\Sign\Model\ReportCreateRequest())
     ->setStartDate("09/01/2020")

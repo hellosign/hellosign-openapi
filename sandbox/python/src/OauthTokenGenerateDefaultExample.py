@@ -3,7 +3,8 @@ from pprint import pprint
 
 from dropbox_sign import ApiClient, ApiException, Configuration, api, models
 
-configuration = Configuration()
+configuration = Configuration(
+)
 
 with ApiClient(configuration) as api_client:
     o_auth_token_generate_request = models.OAuthTokenGenerateRequest(

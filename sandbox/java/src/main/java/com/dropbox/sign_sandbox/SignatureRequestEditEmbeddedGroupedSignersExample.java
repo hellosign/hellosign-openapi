@@ -18,6 +18,8 @@ public class SignatureRequestEditEmbeddedGroupedSignersExample
     public static void main(String[] args)
     {
         var config = Configuration.getDefaultApiClient();
+        config.setUsername("YOUR_API_KEY");
+        // config.setAccessToken("YOUR_ACCESS_TOKEN");
 
         var groupedSigners2Signers1 = new SubSignatureRequestSigner();
         groupedSigners2Signers1.name("Bob");

@@ -18,6 +18,8 @@ public class UnclaimedDraftCreateDefaultExample
     public static void main(String[] args)
     {
         var config = Configuration.getDefaultApiClient();
+        config.setUsername("YOUR_API_KEY");
+        // config.setAccessToken("YOUR_ACCESS_TOKEN");
 
         var signers1 = new SubUnclaimedDraftSigner();
         signers1.name("Jack");

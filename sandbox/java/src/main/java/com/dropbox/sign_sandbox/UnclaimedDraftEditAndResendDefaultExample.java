@@ -18,6 +18,8 @@ public class UnclaimedDraftEditAndResendDefaultExample
     public static void main(String[] args)
     {
         var config = Configuration.getDefaultApiClient();
+        config.setUsername("YOUR_API_KEY");
+        // config.setAccessToken("YOUR_ACCESS_TOKEN");
 
         var unclaimedDraftEditAndResendRequest = new UnclaimedDraftEditAndResendRequest();
         unclaimedDraftEditAndResendRequest.clientId("b6b8e7deaf8f0b95c029dca049356d4a2cf9710a");

@@ -18,6 +18,8 @@ public class UnclaimedDraftCreateEmbeddedFormFieldsPerDocument
     public static void main(String[] args)
     {
         var config = Configuration.getDefaultApiClient();
+        config.setUsername("YOUR_API_KEY");
+        // config.setAccessToken("YOUR_ACCESS_TOKEN");
 
         var formFieldsPerDocument1 = new SubFormFieldsPerDocumentText();
         formFieldsPerDocument1.documentIndex(0);

@@ -1,6 +1,7 @@
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
+    config.username = "YOUR_API_KEY";
 end
 
 signer_list_2_custom_fields_1 = Dropbox::Sign::SubBulkSignerListCustomField.new

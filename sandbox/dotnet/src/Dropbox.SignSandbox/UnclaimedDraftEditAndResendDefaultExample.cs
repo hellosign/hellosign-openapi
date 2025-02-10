@@ -13,6 +13,8 @@ public class UnclaimedDraftEditAndResendDefaultExample
     public static void Run()
     {
         var config = new Configuration();
+        config.Username = "YOUR_API_KEY";
+        // config.AccessToken = "YOUR_ACCESS_TOKEN";
 
         var unclaimedDraftEditAndResendRequest = new UnclaimedDraftEditAndResendRequest(
             clientId: "b6b8e7deaf8f0b95c029dca049356d4a2cf9710a",

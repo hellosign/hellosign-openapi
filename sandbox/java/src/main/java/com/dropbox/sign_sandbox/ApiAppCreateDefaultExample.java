@@ -18,6 +18,8 @@ public class ApiAppCreateDefaultExample
     public static void main(String[] args)
     {
         var config = Configuration.getDefaultApiClient();
+        config.setUsername("YOUR_API_KEY");
+        // config.setAccessToken("YOUR_ACCESS_TOKEN");
 
         var oauth = new SubOAuth();
         oauth.callbackUrl("https://example.com/oauth");

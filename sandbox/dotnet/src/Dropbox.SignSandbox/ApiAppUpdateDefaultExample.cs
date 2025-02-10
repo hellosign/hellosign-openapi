@@ -13,6 +13,8 @@ public class ApiAppUpdateDefaultExample
     public static void Run()
     {
         var config = new Configuration();
+        config.Username = "YOUR_API_KEY";
+        // config.AccessToken = "YOUR_ACCESS_TOKEN";
 
         var whiteLabelingOptions = new SubWhiteLabelingOptions(
             primaryButtonColor: "#00b3e6",

@@ -1,6 +1,8 @@
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
+    config.username = "YOUR_API_KEY";
+    # config.access_token = "YOUR_ACCESS_TOKEN";
 end
 
 template_add_user_request = Dropbox::Sign::TemplateAddUserRequest.new

@@ -4,9 +4,12 @@ namespace Dropbox\SignSandbox;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
+use SplFileObject;
 use Dropbox;
 
 $config = Dropbox\Sign\Configuration::getDefaultConfiguration();
+$config->setUsername("YOUR_API_KEY");
+// $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
 $field_options = (new Dropbox\Sign\Model\SubFieldOptions())
     ->setDateFormat(Dropbox\Sign\Model\SubFieldOptions::DATE_FORMAT_DD_MM_YYYY);

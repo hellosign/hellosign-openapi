@@ -4,9 +4,12 @@ namespace Dropbox\SignSandbox;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
+use SplFileObject;
 use Dropbox;
 
 $config = Dropbox\Sign\Configuration::getDefaultConfiguration();
+$config->setUsername("YOUR_API_KEY");
+// $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
 $unclaimed_draft_edit_and_resend_request = (new Dropbox\Sign\Model\UnclaimedDraftEditAndResendRequest())
     ->setClientId("b6b8e7deaf8f0b95c029dca049356d4a2cf9710a")

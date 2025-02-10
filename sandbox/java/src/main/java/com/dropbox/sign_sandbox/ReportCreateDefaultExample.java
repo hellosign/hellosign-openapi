@@ -18,6 +18,7 @@ public class ReportCreateDefaultExample
     public static void main(String[] args)
     {
         var config = Configuration.getDefaultApiClient();
+        config.setUsername("YOUR_API_KEY");
 
         var reportCreateRequest = new ReportCreateRequest();
         reportCreateRequest.startDate("09/01/2020");

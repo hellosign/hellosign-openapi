@@ -18,6 +18,8 @@ public class TeamAddMemberEmailAddress
     public static void main(String[] args)
     {
         var config = Configuration.getDefaultApiClient();
+        config.setUsername("YOUR_API_KEY");
+        // config.setAccessToken("YOUR_ACCESS_TOKEN");
 
         var teamAddMemberRequest = new TeamAddMemberRequest();
         teamAddMemberRequest.emailAddress("george@example.com");

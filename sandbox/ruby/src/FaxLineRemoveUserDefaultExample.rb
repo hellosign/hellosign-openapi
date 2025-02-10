@@ -1,6 +1,7 @@
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
+    config.username = "YOUR_API_KEY";
 end
 
 fax_line_remove_user_request = Dropbox::Sign::FaxLineRemoveUserRequest.new

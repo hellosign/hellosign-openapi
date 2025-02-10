@@ -3,6 +3,7 @@ import api from "@dropbox/sign"
 import models from "@dropbox/sign"
 
 const apiCaller = new api.FaxLineApi();
+apiCaller.username = "YOUR_API_KEY";
 
 const faxLineCreateRequest = new models.FaxLineCreateRequest();
 faxLineCreateRequest.areaCode = 209;

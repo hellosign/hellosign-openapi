@@ -4,9 +4,11 @@ namespace Dropbox\SignSandbox;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
+use SplFileObject;
 use Dropbox;
 
 $config = Dropbox\Sign\Configuration::getDefaultConfiguration();
+$config->setUsername("YOUR_API_KEY");
 
 $signer_list_2_custom_fields_1 = (new Dropbox\Sign\Model\SubBulkSignerListCustomField())
     ->setName("company")

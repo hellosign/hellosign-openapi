@@ -1,6 +1,8 @@
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
+    config.username = "YOUR_API_KEY";
+    # config.access_token = "YOUR_ACCESS_TOKEN";
 end
 
 team_update_request = Dropbox::Sign::TeamUpdateRequest.new

@@ -13,6 +13,7 @@ public class FaxSendDefaultExample
     public static void Run()
     {
         var config = new Configuration();
+        config.Username = "YOUR_API_KEY";
 
         var faxSendRequest = new FaxSendRequest(
             recipient: "16690000001",

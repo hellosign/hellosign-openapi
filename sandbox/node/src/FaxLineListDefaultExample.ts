@@ -3,6 +3,7 @@ import api from "@dropbox/sign"
 import models from "@dropbox/sign"
 
 const apiCaller = new api.FaxLineApi();
+apiCaller.username = "YOUR_API_KEY";
 
 const accountId = "ab55cd14a97219e36b5ff5fe23f2f9329b0c1e97";
 const page = 1;

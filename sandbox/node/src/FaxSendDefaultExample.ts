@@ -3,6 +3,7 @@ import api from "@dropbox/sign"
 import models from "@dropbox/sign"
 
 const apiCaller = new api.FaxApi();
+apiCaller.username = "YOUR_API_KEY";
 
 const faxSendRequest = new models.FaxSendRequest();
 faxSendRequest.recipient = "16690000001";

@@ -13,6 +13,7 @@ public class FaxLineAddUserDefaultExample
     public static void Run()
     {
         var config = new Configuration();
+        config.Username = "YOUR_API_KEY";
 
         var faxLineAddUserRequest = new FaxLineAddUserRequest(
             number: "[FAX_NUMBER]",

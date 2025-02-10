@@ -3,6 +3,7 @@ import api from "@dropbox/sign"
 import models from "@dropbox/sign"
 
 const apiCaller = new api.FaxApi();
+apiCaller.username = "YOUR_API_KEY";
 
 const page = 1;
 const pageSize = 20;

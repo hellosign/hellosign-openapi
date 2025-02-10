@@ -4,9 +4,12 @@ namespace Dropbox\SignSandbox;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
+use SplFileObject;
 use Dropbox;
 
 $config = Dropbox\Sign\Configuration::getDefaultConfiguration();
+$config->setUsername("YOUR_API_KEY");
+// $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
 $form_field_rules_1_triggers_1 = (new Dropbox\Sign\Model\SubFormFieldRuleTrigger())
     ->setId("uniqueIdHere_1")

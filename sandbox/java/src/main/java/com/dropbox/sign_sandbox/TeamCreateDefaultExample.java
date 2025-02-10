@@ -18,6 +18,8 @@ public class TeamCreateDefaultExample
     public static void main(String[] args)
     {
         var config = Configuration.getDefaultApiClient();
+        config.setUsername("YOUR_API_KEY");
+        // config.setAccessToken("YOUR_ACCESS_TOKEN");
 
         var teamCreateRequest = new TeamCreateRequest();
         teamCreateRequest.name("New Team Name");

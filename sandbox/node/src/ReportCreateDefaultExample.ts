@@ -3,6 +3,7 @@ import api from "@dropbox/sign"
 import models from "@dropbox/sign"
 
 const apiCaller = new api.ReportApi();
+apiCaller.username = "YOUR_API_KEY";
 
 const reportCreateRequest = new models.ReportCreateRequest();
 reportCreateRequest.startDate = "09/01/2020";

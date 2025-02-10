@@ -13,6 +13,8 @@ public class TeamRemoveMemberEmailAddress
     public static void Run()
     {
         var config = new Configuration();
+        config.Username = "YOUR_API_KEY";
+        // config.AccessToken = "YOUR_ACCESS_TOKEN";
 
         var teamRemoveMemberRequest = new TeamRemoveMemberRequest(
             emailAddress: "teammate@dropboxsign.com",

@@ -13,6 +13,7 @@ public class FaxListDefaultExample
     public static void Run()
     {
         var config = new Configuration();
+        config.Username = "YOUR_API_KEY";
 
         try
         {

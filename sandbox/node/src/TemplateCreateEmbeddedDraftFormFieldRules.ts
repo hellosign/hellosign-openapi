@@ -3,6 +3,8 @@ import api from "@dropbox/sign"
 import models from "@dropbox/sign"
 
 const apiCaller = new api.TemplateApi();
+apiCaller.username = "YOUR_API_KEY";
+// apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
 const formFieldRules1Triggers1 = new models.SubFormFieldRuleTrigger();
 formFieldRules1Triggers1.id = "uniqueIdHere_1";

@@ -13,6 +13,8 @@ public class AccountCreateOauth
     public static void Run()
     {
         var config = new Configuration();
+        config.Username = "YOUR_API_KEY";
+        // config.AccessToken = "YOUR_ACCESS_TOKEN";
 
         var accountCreateRequest = new AccountCreateRequest(
             emailAddress: "newuser@dropboxsign.com",

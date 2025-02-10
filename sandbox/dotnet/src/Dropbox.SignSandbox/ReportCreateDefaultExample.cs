@@ -13,6 +13,7 @@ public class ReportCreateDefaultExample
     public static void Run()
     {
         var config = new Configuration();
+        config.Username = "YOUR_API_KEY";
 
         var reportCreateRequest = new ReportCreateRequest(
             startDate: "09/01/2020",

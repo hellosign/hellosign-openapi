@@ -3,6 +3,7 @@ import api from "@dropbox/sign"
 import models from "@dropbox/sign"
 
 const apiCaller = new api.SignatureRequestApi();
+apiCaller.username = "YOUR_API_KEY";
 
 const signerList2CustomFields1 = new models.SubBulkSignerListCustomField();
 signerList2CustomFields1.name = "company";

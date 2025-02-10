@@ -3,7 +3,9 @@ from pprint import pprint
 
 from dropbox_sign import ApiClient, ApiException, Configuration, api, models
 
-configuration = Configuration()
+configuration = Configuration(
+    username="YOUR_API_KEY",
+)
 
 with ApiClient(configuration) as api_client:
     fax_line_create_request = models.FaxLineCreateRequest(

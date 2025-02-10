@@ -13,6 +13,8 @@ public class SignatureRequestUpdateDefaultExample
     public static void Run()
     {
         var config = new Configuration();
+        config.Username = "YOUR_API_KEY";
+        // config.AccessToken = "YOUR_ACCESS_TOKEN";
 
         var signatureRequestUpdateRequest = new SignatureRequestUpdateRequest(
             signatureId: "2f9781e1a8e2045224d808c153c2e1d3df6f8f2f",

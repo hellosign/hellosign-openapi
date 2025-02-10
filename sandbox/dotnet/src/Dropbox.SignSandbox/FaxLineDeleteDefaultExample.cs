@@ -13,6 +13,7 @@ public class FaxLineDeleteDefaultExample
     public static void Run()
     {
         var config = new Configuration();
+        config.Username = "YOUR_API_KEY";
 
         var faxLineDeleteRequest = new FaxLineDeleteRequest(
             number: "[FAX_NUMBER]"

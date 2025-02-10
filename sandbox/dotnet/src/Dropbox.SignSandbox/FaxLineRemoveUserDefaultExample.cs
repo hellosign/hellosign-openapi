@@ -13,6 +13,7 @@ public class FaxLineRemoveUserDefaultExample
     public static void Run()
     {
         var config = new Configuration();
+        config.Username = "YOUR_API_KEY";
 
         var faxLineRemoveUserRequest = new FaxLineRemoveUserRequest(
             number: "[FAX_NUMBER]",

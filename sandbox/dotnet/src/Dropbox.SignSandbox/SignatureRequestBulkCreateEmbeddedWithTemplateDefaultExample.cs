@@ -13,6 +13,7 @@ public class SignatureRequestBulkCreateEmbeddedWithTemplateDefaultExample
     public static void Run()
     {
         var config = new Configuration();
+        config.Username = "YOUR_API_KEY";
 
         var signerList2CustomFields1 = new SubBulkSignerListCustomField(
             name: "company",

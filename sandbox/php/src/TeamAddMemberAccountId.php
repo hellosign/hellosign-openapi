@@ -4,9 +4,12 @@ namespace Dropbox\SignSandbox;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
+use SplFileObject;
 use Dropbox;
 
 $config = Dropbox\Sign\Configuration::getDefaultConfiguration();
+$config->setUsername("YOUR_API_KEY");
+// $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
 $team_add_member_request = (new Dropbox\Sign\Model\TeamAddMemberRequest())
     ->setAccountId("f57db65d3f933b5316d398057a36176831451a35");

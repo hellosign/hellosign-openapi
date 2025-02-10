@@ -3,6 +3,8 @@ import api from "@dropbox/sign"
 import models from "@dropbox/sign"
 
 const apiCaller = new api.SignatureRequestApi();
+apiCaller.username = "YOUR_API_KEY";
+// apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
 const fieldOptions = new models.SubFieldOptions();
 fieldOptions.dateFormat = models.SubFieldOptions.DateFormatEnum.DD_MM_YYYY;

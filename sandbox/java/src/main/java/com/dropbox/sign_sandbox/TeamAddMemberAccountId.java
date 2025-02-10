@@ -18,6 +18,8 @@ public class TeamAddMemberAccountId
     public static void main(String[] args)
     {
         var config = Configuration.getDefaultApiClient();
+        config.setUsername("YOUR_API_KEY");
+        // config.setAccessToken("YOUR_ACCESS_TOKEN");
 
         var teamAddMemberRequest = new TeamAddMemberRequest();
         teamAddMemberRequest.accountId("f57db65d3f933b5316d398057a36176831451a35");

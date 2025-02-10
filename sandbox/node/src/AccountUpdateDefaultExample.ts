@@ -3,6 +3,8 @@ import api from "@dropbox/sign"
 import models from "@dropbox/sign"
 
 const apiCaller = new api.AccountApi();
+apiCaller.username = "YOUR_API_KEY";
+// apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
 const accountUpdateRequest = new models.AccountUpdateRequest();
 accountUpdateRequest.callbackUrl = "https://www.example.com/callback";

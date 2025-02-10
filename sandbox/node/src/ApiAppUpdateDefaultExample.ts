@@ -3,6 +3,8 @@ import api from "@dropbox/sign"
 import models from "@dropbox/sign"
 
 const apiCaller = new api.ApiAppApi();
+apiCaller.username = "YOUR_API_KEY";
+// apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
 const whiteLabelingOptions = new models.SubWhiteLabelingOptions();
 whiteLabelingOptions.primaryButtonColor = "#00b3e6";
