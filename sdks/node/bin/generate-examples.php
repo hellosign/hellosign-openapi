@@ -140,8 +140,11 @@ class GenerateExamples
                         $this->codeSamples[$id] = [];
                     }
 
+                    $filename = explode('/', $sample['source']['$ref']);
+                    $filename = array_pop($filename);
+
                     $contents = file_get_contents(
-                        __DIR__ . "/../{$sample['source']['$ref']}"
+                        __DIR__ . "/../examples/{$filename}"
                     );
 
                     $this->codeSamples[$id][$sample['lang']] = $contents;
@@ -260,7 +263,7 @@ class GenerateExamples
 
 $generate = new GenerateExamples(
     Yaml::parse(file_get_contents(__DIR__ . '/../openapi-sdk.yaml')),
-    ['JavaScript', 'TypeScript'],
+    ['TypeScript'],
     [__DIR__ . '/../docs/api', __DIR__ . '/../docs/model'],
     [__DIR__ . '/../README.md'],
     [
