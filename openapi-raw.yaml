@@ -78,37 +78,37 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: examples/AccountCreate.php
+            $ref: examples/AccountCreateExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: examples/AccountCreate.cs
+            $ref: examples/AccountCreateExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: examples/AccountCreate.ts
+            $ref: examples/AccountCreateExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: examples/AccountCreate.java
+            $ref: examples/AccountCreateExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: examples/AccountCreate.rb
+            $ref: examples/AccountCreateExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: examples/AccountCreate.py
+            $ref: examples/AccountCreateExample.py
         -
           lang: cURL
           label: cURL
           source:
-            $ref: examples/AccountCreate.sh
+            $ref: examples/AccountCreateExample.sh
       x-meta:
         seo:
           title: '_t__AccountCreate::SEO::TITLE'
@@ -181,37 +181,37 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: examples/AccountGet.php
+            $ref: examples/AccountGetExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: examples/AccountGet.cs
+            $ref: examples/AccountGetExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: examples/AccountGet.ts
+            $ref: examples/AccountGetExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: examples/AccountGet.java
+            $ref: examples/AccountGetExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: examples/AccountGet.rb
+            $ref: examples/AccountGetExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: examples/AccountGet.py
+            $ref: examples/AccountGetExample.py
         -
           lang: cURL
           label: cURL
           source:
-            $ref: examples/AccountGet.sh
+            $ref: examples/AccountGetExample.sh
       x-meta:
         seo:
           title: '_t__AccountGet::SEO::TITLE'
@@ -278,37 +278,37 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: examples/AccountUpdate.php
+            $ref: examples/AccountUpdateExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: examples/AccountUpdate.cs
+            $ref: examples/AccountUpdateExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: examples/AccountUpdate.ts
+            $ref: examples/AccountUpdateExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: examples/AccountUpdate.java
+            $ref: examples/AccountUpdateExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: examples/AccountUpdate.rb
+            $ref: examples/AccountUpdateExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: examples/AccountUpdate.py
+            $ref: examples/AccountUpdateExample.py
         -
           lang: cURL
           label: cURL
           source:
-            $ref: examples/AccountUpdate.sh
+            $ref: examples/AccountUpdateExample.sh
       x-meta:
         seo:
           title: '_t__AccountUpdate::SEO::TITLE'
@@ -376,37 +376,37 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: examples/AccountVerify.php
+            $ref: examples/AccountVerifyExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: examples/AccountVerify.cs
+            $ref: examples/AccountVerifyExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: examples/AccountVerify.ts
+            $ref: examples/AccountVerifyExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: examples/AccountVerify.java
+            $ref: examples/AccountVerifyExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: examples/AccountVerify.rb
+            $ref: examples/AccountVerifyExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: examples/AccountVerify.py
+            $ref: examples/AccountVerifyExample.py
         -
           lang: cURL
           label: cURL
           source:
-            $ref: examples/AccountVerify.sh
+            $ref: examples/AccountVerifyExample.sh
       x-meta:
         seo:
           title: '_t__AccountVerify::SEO::TITLE'
@@ -477,37 +477,37 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: examples/ApiAppCreate.php
+            $ref: examples/ApiAppCreateExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: examples/ApiAppCreate.cs
+            $ref: examples/ApiAppCreateExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: examples/ApiAppCreate.ts
+            $ref: examples/ApiAppCreateExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: examples/ApiAppCreate.java
+            $ref: examples/ApiAppCreateExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: examples/ApiAppCreate.rb
+            $ref: examples/ApiAppCreateExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: examples/ApiAppCreate.py
+            $ref: examples/ApiAppCreateExample.py
         -
           lang: cURL
           label: cURL
           source:
-            $ref: examples/ApiAppCreate.sh
+            $ref: examples/ApiAppCreateExample.sh
       x-meta:
         seo:
           title: '_t__ApiAppCreate::SEO::TITLE'
@@ -577,37 +577,37 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: examples/ApiAppGet.php
+            $ref: examples/ApiAppGetExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: examples/ApiAppGet.cs
+            $ref: examples/ApiAppGetExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: examples/ApiAppGet.ts
+            $ref: examples/ApiAppGetExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: examples/ApiAppGet.java
+            $ref: examples/ApiAppGetExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: examples/ApiAppGet.rb
+            $ref: examples/ApiAppGetExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: examples/ApiAppGet.py
+            $ref: examples/ApiAppGetExample.py
         -
           lang: cURL
           label: cURL
           source:
-            $ref: examples/ApiAppGet.sh
+            $ref: examples/ApiAppGetExample.sh
       x-meta:
         seo:
           title: '_t__ApiAppGet::SEO::TITLE'
@@ -688,37 +688,37 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: examples/ApiAppUpdate.php
+            $ref: examples/ApiAppUpdateExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: examples/ApiAppUpdate.cs
+            $ref: examples/ApiAppUpdateExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: examples/ApiAppUpdate.ts
+            $ref: examples/ApiAppUpdateExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: examples/ApiAppUpdate.java
+            $ref: examples/ApiAppUpdateExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: examples/ApiAppUpdate.rb
+            $ref: examples/ApiAppUpdateExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: examples/ApiAppUpdate.py
+            $ref: examples/ApiAppUpdateExample.py
         -
           lang: cURL
           label: cURL
           source:
-            $ref: examples/ApiAppUpdate.sh
+            $ref: examples/ApiAppUpdateExample.sh
       x-meta:
         seo:
           title: '_t__ApiAppUpdate::SEO::TITLE'
@@ -778,37 +778,37 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: examples/ApiAppDelete.php
+            $ref: examples/ApiAppDeleteExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: examples/ApiAppDelete.cs
+            $ref: examples/ApiAppDeleteExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: examples/ApiAppDelete.ts
+            $ref: examples/ApiAppDeleteExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: examples/ApiAppDelete.java
+            $ref: examples/ApiAppDeleteExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: examples/ApiAppDelete.rb
+            $ref: examples/ApiAppDeleteExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: examples/ApiAppDelete.py
+            $ref: examples/ApiAppDeleteExample.py
         -
           lang: cURL
           label: cURL
           source:
-            $ref: examples/ApiAppDelete.sh
+            $ref: examples/ApiAppDeleteExample.sh
       x-meta:
         seo:
           title: '_t__ApiAppDelete::SEO::TITLE'
@@ -880,37 +880,37 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: examples/ApiAppList.php
+            $ref: examples/ApiAppListExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: examples/ApiAppList.cs
+            $ref: examples/ApiAppListExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: examples/ApiAppList.ts
+            $ref: examples/ApiAppListExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: examples/ApiAppList.java
+            $ref: examples/ApiAppListExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: examples/ApiAppList.rb
+            $ref: examples/ApiAppListExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: examples/ApiAppList.py
+            $ref: examples/ApiAppListExample.py
         -
           lang: cURL
           label: cURL
           source:
-            $ref: examples/ApiAppList.sh
+            $ref: examples/ApiAppListExample.sh
       x-meta:
         seo:
           title: '_t__ApiAppList::SEO::TITLE'
@@ -991,37 +991,37 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: examples/BulkSendJobGet.php
+            $ref: examples/BulkSendJobGetExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: examples/BulkSendJobGet.cs
+            $ref: examples/BulkSendJobGetExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: examples/BulkSendJobGet.ts
+            $ref: examples/BulkSendJobGetExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: examples/BulkSendJobGet.java
+            $ref: examples/BulkSendJobGetExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: examples/BulkSendJobGet.rb
+            $ref: examples/BulkSendJobGetExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: examples/BulkSendJobGet.py
+            $ref: examples/BulkSendJobGetExample.py
         -
           lang: cURL
           label: cURL
           source:
-            $ref: examples/BulkSendJobGet.sh
+            $ref: examples/BulkSendJobGetExample.sh
       x-meta:
         seo:
           title: '_t__BulkSendJobGet::SEO::TITLE'
@@ -1094,37 +1094,37 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: examples/BulkSendJobList.php
+            $ref: examples/BulkSendJobListExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: examples/BulkSendJobList.cs
+            $ref: examples/BulkSendJobListExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: examples/BulkSendJobList.ts
+            $ref: examples/BulkSendJobListExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: examples/BulkSendJobList.java
+            $ref: examples/BulkSendJobListExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: examples/BulkSendJobList.rb
+            $ref: examples/BulkSendJobListExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: examples/BulkSendJobList.py
+            $ref: examples/BulkSendJobListExample.py
         -
           lang: cURL
           label: cURL
           source:
-            $ref: examples/BulkSendJobList.sh
+            $ref: examples/BulkSendJobListExample.sh
       x-meta:
         seo:
           title: '_t__BulkSendJobList::SEO::TITLE'
@@ -1201,37 +1201,37 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: examples/EmbeddedEditUrl.php
+            $ref: examples/EmbeddedEditUrlExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: examples/EmbeddedEditUrl.cs
+            $ref: examples/EmbeddedEditUrlExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: examples/EmbeddedEditUrl.ts
+            $ref: examples/EmbeddedEditUrlExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: examples/EmbeddedEditUrl.java
+            $ref: examples/EmbeddedEditUrlExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: examples/EmbeddedEditUrl.rb
+            $ref: examples/EmbeddedEditUrlExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: examples/EmbeddedEditUrl.py
+            $ref: examples/EmbeddedEditUrlExample.py
         -
           lang: cURL
           label: cURL
           source:
-            $ref: examples/EmbeddedEditUrl.sh
+            $ref: examples/EmbeddedEditUrlExample.sh
       x-meta:
         seo:
           title: '_t__EmbeddedEditUrl::SEO::TITLE'
@@ -1303,37 +1303,37 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: examples/EmbeddedSignUrl.php
+            $ref: examples/EmbeddedSignUrlExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: examples/EmbeddedSignUrl.cs
+            $ref: examples/EmbeddedSignUrlExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: examples/EmbeddedSignUrl.ts
+            $ref: examples/EmbeddedSignUrlExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: examples/EmbeddedSignUrl.java
+            $ref: examples/EmbeddedSignUrlExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: examples/EmbeddedSignUrl.rb
+            $ref: examples/EmbeddedSignUrlExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: examples/EmbeddedSignUrl.py
+            $ref: examples/EmbeddedSignUrlExample.py
         -
           lang: cURL
           label: cURL
           source:
-            $ref: examples/EmbeddedSignUrl.sh
+            $ref: examples/EmbeddedSignUrlExample.sh
       x-meta:
         seo:
           title: '_t__EmbeddedSignUrl::SEO::TITLE'
@@ -1400,37 +1400,37 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: examples/FaxGet.php
+            $ref: examples/FaxGetExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: examples/FaxGet.cs
+            $ref: examples/FaxGetExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: examples/FaxGet.ts
+            $ref: examples/FaxGetExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: examples/FaxGet.java
+            $ref: examples/FaxGetExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: examples/FaxGet.rb
+            $ref: examples/FaxGetExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: examples/FaxGet.py
+            $ref: examples/FaxGetExample.py
         -
           lang: cURL
           label: cURL
           source:
-            $ref: examples/FaxGet.sh
+            $ref: examples/FaxGetExample.sh
       x-meta:
         seo:
           title: '_t__FaxGet::SEO::TITLE'
@@ -1489,37 +1489,37 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: examples/FaxDelete.php
+            $ref: examples/FaxDeleteExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: examples/FaxDelete.cs
+            $ref: examples/FaxDeleteExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: examples/FaxDelete.ts
+            $ref: examples/FaxDeleteExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: examples/FaxDelete.java
+            $ref: examples/FaxDeleteExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: examples/FaxDelete.rb
+            $ref: examples/FaxDeleteExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: examples/FaxDelete.py
+            $ref: examples/FaxDeleteExample.py
         -
           lang: cURL
           label: cURL
           source:
-            $ref: examples/FaxDelete.sh
+            $ref: examples/FaxDeleteExample.sh
       x-meta:
         seo:
           title: '_t__FaxDelete::SEO::TITLE'
@@ -1586,37 +1586,37 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: examples/FaxFiles.php
+            $ref: examples/FaxFilesExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: examples/FaxFiles.cs
+            $ref: examples/FaxFilesExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: examples/FaxFiles.ts
+            $ref: examples/FaxFilesExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: examples/FaxFiles.java
+            $ref: examples/FaxFilesExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: examples/FaxFiles.rb
+            $ref: examples/FaxFilesExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: examples/FaxFiles.py
+            $ref: examples/FaxFilesExample.py
         -
           lang: cURL
           label: cURL
           source:
-            $ref: examples/FaxFiles.sh
+            $ref: examples/FaxFilesExample.sh
       x-meta:
         seo:
           title: '_t__FaxFiles::SEO::TITLE'
@@ -1681,37 +1681,37 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: examples/FaxLineAddUser.php
+            $ref: examples/FaxLineAddUserExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: examples/FaxLineAddUser.cs
+            $ref: examples/FaxLineAddUserExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: examples/FaxLineAddUser.ts
+            $ref: examples/FaxLineAddUserExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: examples/FaxLineAddUser.java
+            $ref: examples/FaxLineAddUserExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: examples/FaxLineAddUser.rb
+            $ref: examples/FaxLineAddUserExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: examples/FaxLineAddUser.py
+            $ref: examples/FaxLineAddUserExample.py
         -
           lang: cURL
           label: cURL
           source:
-            $ref: examples/FaxLineAddUser.sh
+            $ref: examples/FaxLineAddUserExample.sh
       x-meta:
         seo:
           title: '_t__FaxLineAddUser::SEO::TITLE'
@@ -1861,37 +1861,37 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: examples/FaxLineAreaCodeGet.php
+            $ref: examples/FaxLineAreaCodeGetExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: examples/FaxLineAreaCodeGet.cs
+            $ref: examples/FaxLineAreaCodeGetExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: examples/FaxLineAreaCodeGet.ts
+            $ref: examples/FaxLineAreaCodeGetExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: examples/FaxLineAreaCodeGet.java
+            $ref: examples/FaxLineAreaCodeGetExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: examples/FaxLineAreaCodeGet.rb
+            $ref: examples/FaxLineAreaCodeGetExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: examples/FaxLineAreaCodeGet.py
+            $ref: examples/FaxLineAreaCodeGetExample.py
         -
           lang: cURL
           label: cURL
           source:
-            $ref: examples/FaxLineAreaCodeGet.sh
+            $ref: examples/FaxLineAreaCodeGetExample.sh
       x-meta:
         seo:
           title: '_t__FaxLineAreaCodeGet::SEO::TITLE'
@@ -1956,37 +1956,37 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: examples/FaxLineCreate.php
+            $ref: examples/FaxLineCreateExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: examples/FaxLineCreate.cs
+            $ref: examples/FaxLineCreateExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: examples/FaxLineCreate.ts
+            $ref: examples/FaxLineCreateExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: examples/FaxLineCreate.java
+            $ref: examples/FaxLineCreateExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: examples/FaxLineCreate.rb
+            $ref: examples/FaxLineCreateExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: examples/FaxLineCreate.py
+            $ref: examples/FaxLineCreateExample.py
         -
           lang: cURL
           label: cURL
           source:
-            $ref: examples/FaxLineCreate.sh
+            $ref: examples/FaxLineCreateExample.sh
       x-meta:
         seo:
           title: '_t__FaxLineCreate::SEO::TITLE'
@@ -2050,37 +2050,37 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: examples/FaxLineGet.php
+            $ref: examples/FaxLineGetExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: examples/FaxLineGet.cs
+            $ref: examples/FaxLineGetExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: examples/FaxLineGet.ts
+            $ref: examples/FaxLineGetExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: examples/FaxLineGet.java
+            $ref: examples/FaxLineGetExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: examples/FaxLineGet.rb
+            $ref: examples/FaxLineGetExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: examples/FaxLineGet.py
+            $ref: examples/FaxLineGetExample.py
         -
           lang: cURL
           label: cURL
           source:
-            $ref: examples/FaxLineGet.sh
+            $ref: examples/FaxLineGetExample.sh
       x-meta:
         seo:
           title: '_t__FaxLineGet::SEO::TITLE'
@@ -2139,37 +2139,37 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: examples/FaxLineDelete.php
+            $ref: examples/FaxLineDeleteExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: examples/FaxLineDelete.cs
+            $ref: examples/FaxLineDeleteExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: examples/FaxLineDelete.ts
+            $ref: examples/FaxLineDeleteExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: examples/FaxLineDelete.java
+            $ref: examples/FaxLineDeleteExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: examples/FaxLineDelete.rb
+            $ref: examples/FaxLineDeleteExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: examples/FaxLineDelete.py
+            $ref: examples/FaxLineDeleteExample.py
         -
           lang: cURL
           label: cURL
           source:
-            $ref: examples/FaxLineDelete.sh
+            $ref: examples/FaxLineDeleteExample.sh
       x-meta:
         seo:
           title: '_t__FaxLineDelete::SEO::TITLE'
@@ -2253,37 +2253,37 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: examples/FaxLineList.php
+            $ref: examples/FaxLineListExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: examples/FaxLineList.cs
+            $ref: examples/FaxLineListExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: examples/FaxLineList.ts
+            $ref: examples/FaxLineListExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: examples/FaxLineList.java
+            $ref: examples/FaxLineListExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: examples/FaxLineList.rb
+            $ref: examples/FaxLineListExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: examples/FaxLineList.py
+            $ref: examples/FaxLineListExample.py
         -
           lang: cURL
           label: cURL
           source:
-            $ref: examples/FaxLineList.sh
+            $ref: examples/FaxLineListExample.sh
       x-meta:
         seo:
           title: '_t__FaxLineList::SEO::TITLE'
@@ -2348,37 +2348,37 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: examples/FaxLineRemoveUser.php
+            $ref: examples/FaxLineRemoveUserExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: examples/FaxLineRemoveUser.cs
+            $ref: examples/FaxLineRemoveUserExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: examples/FaxLineRemoveUser.ts
+            $ref: examples/FaxLineRemoveUserExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: examples/FaxLineRemoveUser.java
+            $ref: examples/FaxLineRemoveUserExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: examples/FaxLineRemoveUser.rb
+            $ref: examples/FaxLineRemoveUserExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: examples/FaxLineRemoveUser.py
+            $ref: examples/FaxLineRemoveUserExample.py
         -
           lang: cURL
           label: cURL
           source:
-            $ref: examples/FaxLineRemoveUser.sh
+            $ref: examples/FaxLineRemoveUserExample.sh
       x-meta:
         seo:
           title: '_t__FaxLineRemoveUser::SEO::TITLE'
@@ -2452,37 +2452,37 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: examples/FaxList.php
+            $ref: examples/FaxListExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: examples/FaxList.cs
+            $ref: examples/FaxListExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: examples/FaxList.ts
+            $ref: examples/FaxListExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: examples/FaxList.java
+            $ref: examples/FaxListExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: examples/FaxList.rb
+            $ref: examples/FaxListExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: examples/FaxList.py
+            $ref: examples/FaxListExample.py
         -
           lang: cURL
           label: cURL
           source:
-            $ref: examples/FaxList.sh
+            $ref: examples/FaxListExample.sh
       x-meta:
         seo:
           title: '_t__FaxList::SEO::TITLE'
@@ -2552,37 +2552,37 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: examples/FaxSend.php
+            $ref: examples/FaxSendExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: examples/FaxSend.cs
+            $ref: examples/FaxSendExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: examples/FaxSend.ts
+            $ref: examples/FaxSendExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: examples/FaxSend.java
+            $ref: examples/FaxSendExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: examples/FaxSend.rb
+            $ref: examples/FaxSendExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: examples/FaxSend.py
+            $ref: examples/FaxSendExample.py
         -
           lang: cURL
           label: cURL
           source:
-            $ref: examples/FaxSend.sh
+            $ref: examples/FaxSendExample.sh
       x-meta:
         seo:
           title: '_t__FaxSend::SEO::TITLE'
@@ -2646,37 +2646,37 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: examples/OauthTokenGenerate.php
+            $ref: examples/OauthTokenGenerateExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: examples/OauthTokenGenerate.cs
+            $ref: examples/OauthTokenGenerateExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: examples/OauthTokenGenerate.ts
+            $ref: examples/OauthTokenGenerateExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: examples/OauthTokenGenerate.java
+            $ref: examples/OauthTokenGenerateExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: examples/OauthTokenGenerate.rb
+            $ref: examples/OauthTokenGenerateExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: examples/OauthTokenGenerate.py
+            $ref: examples/OauthTokenGenerateExample.py
         -
           lang: cURL
           label: cURL
           source:
-            $ref: examples/OauthTokenGenerate.sh
+            $ref: examples/OauthTokenGenerateExample.sh
       x-meta:
         seo:
           title: '_t__OAuthTokenGenerate::SEO::TITLE'
@@ -2741,37 +2741,37 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: examples/OauthTokenRefresh.php
+            $ref: examples/OauthTokenRefreshExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: examples/OauthTokenRefresh.cs
+            $ref: examples/OauthTokenRefreshExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: examples/OauthTokenRefresh.ts
+            $ref: examples/OauthTokenRefreshExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: examples/OauthTokenRefresh.java
+            $ref: examples/OauthTokenRefreshExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: examples/OauthTokenRefresh.rb
+            $ref: examples/OauthTokenRefreshExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: examples/OauthTokenRefresh.py
+            $ref: examples/OauthTokenRefreshExample.py
         -
           lang: cURL
           label: cURL
           source:
-            $ref: examples/OauthTokenRefresh.sh
+            $ref: examples/OauthTokenRefreshExample.sh
       x-meta:
         seo:
           title: '_t__OAuthTokenRefresh::SEO::TITLE'
@@ -2835,37 +2835,37 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: examples/ReportCreate.php
+            $ref: examples/ReportCreateExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: examples/ReportCreate.cs
+            $ref: examples/ReportCreateExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: examples/ReportCreate.ts
+            $ref: examples/ReportCreateExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: examples/ReportCreate.java
+            $ref: examples/ReportCreateExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: examples/ReportCreate.rb
+            $ref: examples/ReportCreateExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: examples/ReportCreate.py
+            $ref: examples/ReportCreateExample.py
         -
           lang: cURL
           label: cURL
           source:
-            $ref: examples/ReportCreate.sh
+            $ref: examples/ReportCreateExample.sh
       x-meta:
         seo:
           title: '_t__ReportCreate::SEO::TITLE'
@@ -2937,37 +2937,37 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: examples/SignatureRequestBulkCreateEmbeddedWithTemplate.php
+            $ref: examples/SignatureRequestBulkCreateEmbeddedWithTemplateExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: examples/SignatureRequestBulkCreateEmbeddedWithTemplate.cs
+            $ref: examples/SignatureRequestBulkCreateEmbeddedWithTemplateExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: examples/SignatureRequestBulkCreateEmbeddedWithTemplate.ts
+            $ref: examples/SignatureRequestBulkCreateEmbeddedWithTemplateExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: examples/SignatureRequestBulkCreateEmbeddedWithTemplate.java
+            $ref: examples/SignatureRequestBulkCreateEmbeddedWithTemplateExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: examples/SignatureRequestBulkCreateEmbeddedWithTemplate.rb
+            $ref: examples/SignatureRequestBulkCreateEmbeddedWithTemplateExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: examples/SignatureRequestBulkCreateEmbeddedWithTemplate.py
+            $ref: examples/SignatureRequestBulkCreateEmbeddedWithTemplateExample.py
         -
           lang: cURL
           label: cURL
           source:
-            $ref: examples/SignatureRequestBulkCreateEmbeddedWithTemplate.sh
+            $ref: examples/SignatureRequestBulkCreateEmbeddedWithTemplateExample.sh
       x-meta:
         seo:
           title: '_t__SignatureRequestBulkCreateEmbeddedWithTemplate::SEO::TITLE'
@@ -3039,37 +3039,37 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: examples/SignatureRequestBulkSendWithTemplate.php
+            $ref: examples/SignatureRequestBulkSendWithTemplateExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: examples/SignatureRequestBulkSendWithTemplate.cs
+            $ref: examples/SignatureRequestBulkSendWithTemplateExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: examples/SignatureRequestBulkSendWithTemplate.ts
+            $ref: examples/SignatureRequestBulkSendWithTemplateExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: examples/SignatureRequestBulkSendWithTemplate.java
+            $ref: examples/SignatureRequestBulkSendWithTemplateExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: examples/SignatureRequestBulkSendWithTemplate.rb
+            $ref: examples/SignatureRequestBulkSendWithTemplateExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: examples/SignatureRequestBulkSendWithTemplate.py
+            $ref: examples/SignatureRequestBulkSendWithTemplateExample.py
         -
           lang: cURL
           label: cURL
           source:
-            $ref: examples/SignatureRequestBulkSendWithTemplate.sh
+            $ref: examples/SignatureRequestBulkSendWithTemplateExample.sh
       x-meta:
         seo:
           title: '_t__SignatureRequestBulkSendWithTemplate::SEO::TITLE'
@@ -3137,37 +3137,37 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: examples/SignatureRequestCancel.php
+            $ref: examples/SignatureRequestCancelExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: examples/SignatureRequestCancel.cs
+            $ref: examples/SignatureRequestCancelExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: examples/SignatureRequestCancel.ts
+            $ref: examples/SignatureRequestCancelExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: examples/SignatureRequestCancel.java
+            $ref: examples/SignatureRequestCancelExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: examples/SignatureRequestCancel.rb
+            $ref: examples/SignatureRequestCancelExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: examples/SignatureRequestCancel.py
+            $ref: examples/SignatureRequestCancelExample.py
         -
           lang: cURL
           label: cURL
           source:
-            $ref: examples/SignatureRequestCancel.sh
+            $ref: examples/SignatureRequestCancelExample.sh
       x-meta:
         seo:
           title: '_t__SignatureRequestCancel::SEO::TITLE'
@@ -3242,37 +3242,37 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: examples/SignatureRequestCreateEmbedded.php
+            $ref: examples/SignatureRequestCreateEmbeddedExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: examples/SignatureRequestCreateEmbedded.cs
+            $ref: examples/SignatureRequestCreateEmbeddedExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: examples/SignatureRequestCreateEmbedded.ts
+            $ref: examples/SignatureRequestCreateEmbeddedExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: examples/SignatureRequestCreateEmbedded.java
+            $ref: examples/SignatureRequestCreateEmbeddedExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: examples/SignatureRequestCreateEmbedded.rb
+            $ref: examples/SignatureRequestCreateEmbeddedExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: examples/SignatureRequestCreateEmbedded.py
+            $ref: examples/SignatureRequestCreateEmbeddedExample.py
         -
           lang: cURL
           label: cURL
           source:
-            $ref: examples/SignatureRequestCreateEmbedded.sh
+            $ref: examples/SignatureRequestCreateEmbeddedExample.sh
       x-meta:
         seo:
           title: '_t__SignatureRequestCreateEmbedded::SEO::TITLE'
@@ -3345,37 +3345,37 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: examples/SignatureRequestCreateEmbeddedWithTemplate.php
+            $ref: examples/SignatureRequestCreateEmbeddedWithTemplateExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: examples/SignatureRequestCreateEmbeddedWithTemplate.cs
+            $ref: examples/SignatureRequestCreateEmbeddedWithTemplateExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: examples/SignatureRequestCreateEmbeddedWithTemplate.ts
+            $ref: examples/SignatureRequestCreateEmbeddedWithTemplateExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: examples/SignatureRequestCreateEmbeddedWithTemplate.java
+            $ref: examples/SignatureRequestCreateEmbeddedWithTemplateExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: examples/SignatureRequestCreateEmbeddedWithTemplate.rb
+            $ref: examples/SignatureRequestCreateEmbeddedWithTemplateExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: examples/SignatureRequestCreateEmbeddedWithTemplate.py
+            $ref: examples/SignatureRequestCreateEmbeddedWithTemplateExample.py
         -
           lang: cURL
           label: cURL
           source:
-            $ref: examples/SignatureRequestCreateEmbeddedWithTemplate.sh
+            $ref: examples/SignatureRequestCreateEmbeddedWithTemplateExample.sh
       x-meta:
         seo:
           title: '_t__SignatureRequestCreateEmbeddedWithTemplate::SEO::TITLE'
@@ -3462,37 +3462,37 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: examples/SignatureRequestEdit.php
+            $ref: examples/SignatureRequestEditExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: examples/SignatureRequestEdit.cs
+            $ref: examples/SignatureRequestEditExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: examples/SignatureRequestEdit.ts
+            $ref: examples/SignatureRequestEditExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: examples/SignatureRequestEdit.java
+            $ref: examples/SignatureRequestEditExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: examples/SignatureRequestEdit.rb
+            $ref: examples/SignatureRequestEditExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: examples/SignatureRequestEdit.py
+            $ref: examples/SignatureRequestEditExample.py
         -
           lang: cURL
           label: cURL
           source:
-            $ref: examples/SignatureRequestEdit.sh
+            $ref: examples/SignatureRequestEditExample.sh
       x-meta:
         seo:
           title: '_t__SignatureRequestEdit::SEO::TITLE'
@@ -3580,37 +3580,37 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: examples/SignatureRequestEditEmbedded.php
+            $ref: examples/SignatureRequestEditEmbeddedExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: examples/SignatureRequestEditEmbedded.cs
+            $ref: examples/SignatureRequestEditEmbeddedExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: examples/SignatureRequestEditEmbedded.ts
+            $ref: examples/SignatureRequestEditEmbeddedExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: examples/SignatureRequestEditEmbedded.java
+            $ref: examples/SignatureRequestEditEmbeddedExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: examples/SignatureRequestEditEmbedded.rb
+            $ref: examples/SignatureRequestEditEmbeddedExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: examples/SignatureRequestEditEmbedded.py
+            $ref: examples/SignatureRequestEditEmbeddedExample.py
         -
           lang: cURL
           label: cURL
           source:
-            $ref: examples/SignatureRequestEditEmbedded.sh
+            $ref: examples/SignatureRequestEditEmbeddedExample.sh
       x-meta:
         seo:
           title: '_t__SignatureRequestEditEmbedded::SEO::TITLE'
@@ -3696,37 +3696,37 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: examples/SignatureRequestEditEmbeddedWithTemplate.php
+            $ref: examples/SignatureRequestEditEmbeddedWithTemplateExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: examples/SignatureRequestEditEmbeddedWithTemplate.cs
+            $ref: examples/SignatureRequestEditEmbeddedWithTemplateExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: examples/SignatureRequestEditEmbeddedWithTemplate.ts
+            $ref: examples/SignatureRequestEditEmbeddedWithTemplateExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: examples/SignatureRequestEditEmbeddedWithTemplate.java
+            $ref: examples/SignatureRequestEditEmbeddedWithTemplateExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: examples/SignatureRequestEditEmbeddedWithTemplate.rb
+            $ref: examples/SignatureRequestEditEmbeddedWithTemplateExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: examples/SignatureRequestEditEmbeddedWithTemplate.py
+            $ref: examples/SignatureRequestEditEmbeddedWithTemplateExample.py
         -
           lang: cURL
           label: cURL
           source:
-            $ref: examples/SignatureRequestEditEmbeddedWithTemplate.sh
+            $ref: examples/SignatureRequestEditEmbeddedWithTemplateExample.sh
       x-meta:
         seo:
           title: '_t__SignatureRequestEditEmbeddedWithTemplate::SEO::TITLE'
@@ -3813,37 +3813,37 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: examples/SignatureRequestEditWithTemplate.php
+            $ref: examples/SignatureRequestEditWithTemplateExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: examples/SignatureRequestEditWithTemplate.cs
+            $ref: examples/SignatureRequestEditWithTemplateExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: examples/SignatureRequestEditWithTemplate.ts
+            $ref: examples/SignatureRequestEditWithTemplateExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: examples/SignatureRequestEditWithTemplate.java
+            $ref: examples/SignatureRequestEditWithTemplateExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: examples/SignatureRequestEditWithTemplate.rb
+            $ref: examples/SignatureRequestEditWithTemplateExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: examples/SignatureRequestEditWithTemplate.py
+            $ref: examples/SignatureRequestEditWithTemplateExample.py
         -
           lang: cURL
           label: cURL
           source:
-            $ref: examples/SignatureRequestEditWithTemplate.sh
+            $ref: examples/SignatureRequestEditWithTemplateExample.sh
       x-meta:
         seo:
           title: '_t__SignatureRequestEditWithTemplate::SEO::TITLE'
@@ -3932,37 +3932,37 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: examples/SignatureRequestFiles.php
+            $ref: examples/SignatureRequestFilesExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: examples/SignatureRequestFiles.cs
+            $ref: examples/SignatureRequestFilesExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: examples/SignatureRequestFiles.ts
+            $ref: examples/SignatureRequestFilesExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: examples/SignatureRequestFiles.java
+            $ref: examples/SignatureRequestFilesExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: examples/SignatureRequestFiles.rb
+            $ref: examples/SignatureRequestFilesExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: examples/SignatureRequestFiles.py
+            $ref: examples/SignatureRequestFilesExample.py
         -
           lang: cURL
           label: cURL
           source:
-            $ref: examples/SignatureRequestFiles.sh
+            $ref: examples/SignatureRequestFilesExample.sh
       x-meta:
         seo:
           title: '_t__SignatureRequestFiles::SEO::TITLE'
@@ -4037,37 +4037,37 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: examples/SignatureRequestFilesAsDataUri.php
+            $ref: examples/SignatureRequestFilesAsDataUriExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: examples/SignatureRequestFilesAsDataUri.cs
+            $ref: examples/SignatureRequestFilesAsDataUriExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: examples/SignatureRequestFilesAsDataUri.ts
+            $ref: examples/SignatureRequestFilesAsDataUriExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: examples/SignatureRequestFilesAsDataUri.java
+            $ref: examples/SignatureRequestFilesAsDataUriExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: examples/SignatureRequestFilesAsDataUri.rb
+            $ref: examples/SignatureRequestFilesAsDataUriExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: examples/SignatureRequestFilesAsDataUri.py
+            $ref: examples/SignatureRequestFilesAsDataUriExample.py
         -
           lang: cURL
           label: cURL
           source:
-            $ref: examples/SignatureRequestFilesAsDataUri.sh
+            $ref: examples/SignatureRequestFilesAsDataUriExample.sh
       x-meta:
         seo:
           title: '_t__SignatureRequestFiles::SEO::TITLE'
@@ -4149,37 +4149,37 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: examples/SignatureRequestFilesAsFileUrl.php
+            $ref: examples/SignatureRequestFilesAsFileUrlExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: examples/SignatureRequestFilesAsFileUrl.cs
+            $ref: examples/SignatureRequestFilesAsFileUrlExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: examples/SignatureRequestFilesAsFileUrl.ts
+            $ref: examples/SignatureRequestFilesAsFileUrlExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: examples/SignatureRequestFilesAsFileUrl.java
+            $ref: examples/SignatureRequestFilesAsFileUrlExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: examples/SignatureRequestFilesAsFileUrl.rb
+            $ref: examples/SignatureRequestFilesAsFileUrlExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: examples/SignatureRequestFilesAsFileUrl.py
+            $ref: examples/SignatureRequestFilesAsFileUrlExample.py
         -
           lang: cURL
           label: cURL
           source:
-            $ref: examples/SignatureRequestFilesAsFileUrl.sh
+            $ref: examples/SignatureRequestFilesAsFileUrlExample.sh
       x-meta:
         seo:
           title: '_t__SignatureRequestFiles::SEO::TITLE'
@@ -4250,37 +4250,37 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: examples/SignatureRequestGet.php
+            $ref: examples/SignatureRequestGetExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: examples/SignatureRequestGet.cs
+            $ref: examples/SignatureRequestGetExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: examples/SignatureRequestGet.ts
+            $ref: examples/SignatureRequestGetExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: examples/SignatureRequestGet.java
+            $ref: examples/SignatureRequestGetExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: examples/SignatureRequestGet.rb
+            $ref: examples/SignatureRequestGetExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: examples/SignatureRequestGet.py
+            $ref: examples/SignatureRequestGetExample.py
         -
           lang: cURL
           label: cURL
           source:
-            $ref: examples/SignatureRequestGet.sh
+            $ref: examples/SignatureRequestGetExample.sh
       x-meta:
         seo:
           title: '_t__SignatureRequestGet::SEO::TITLE'
@@ -4368,37 +4368,37 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: examples/SignatureRequestList.php
+            $ref: examples/SignatureRequestListExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: examples/SignatureRequestList.cs
+            $ref: examples/SignatureRequestListExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: examples/SignatureRequestList.ts
+            $ref: examples/SignatureRequestListExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: examples/SignatureRequestList.java
+            $ref: examples/SignatureRequestListExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: examples/SignatureRequestList.rb
+            $ref: examples/SignatureRequestListExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: examples/SignatureRequestList.py
+            $ref: examples/SignatureRequestListExample.py
         -
           lang: cURL
           label: cURL
           source:
-            $ref: examples/SignatureRequestList.sh
+            $ref: examples/SignatureRequestListExample.sh
       x-meta:
         seo:
           title: '_t__SignatureRequestList::SEO::TITLE'
@@ -4466,37 +4466,37 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: examples/SignatureRequestReleaseHold.php
+            $ref: examples/SignatureRequestReleaseHoldExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: examples/SignatureRequestReleaseHold.cs
+            $ref: examples/SignatureRequestReleaseHoldExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: examples/SignatureRequestReleaseHold.ts
+            $ref: examples/SignatureRequestReleaseHoldExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: examples/SignatureRequestReleaseHold.java
+            $ref: examples/SignatureRequestReleaseHoldExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: examples/SignatureRequestReleaseHold.rb
+            $ref: examples/SignatureRequestReleaseHoldExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: examples/SignatureRequestReleaseHold.py
+            $ref: examples/SignatureRequestReleaseHoldExample.py
         -
           lang: cURL
           label: cURL
           source:
-            $ref: examples/SignatureRequestReleaseHold.sh
+            $ref: examples/SignatureRequestReleaseHoldExample.sh
       x-meta:
         seo:
           title: '_t__SignatureRequestReleaseHold::SEO::TITLE'
@@ -4580,37 +4580,37 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: examples/SignatureRequestRemind.php
+            $ref: examples/SignatureRequestRemindExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: examples/SignatureRequestRemind.cs
+            $ref: examples/SignatureRequestRemindExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: examples/SignatureRequestRemind.ts
+            $ref: examples/SignatureRequestRemindExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: examples/SignatureRequestRemind.java
+            $ref: examples/SignatureRequestRemindExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: examples/SignatureRequestRemind.rb
+            $ref: examples/SignatureRequestRemindExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: examples/SignatureRequestRemind.py
+            $ref: examples/SignatureRequestRemindExample.py
         -
           lang: cURL
           label: cURL
           source:
-            $ref: examples/SignatureRequestRemind.sh
+            $ref: examples/SignatureRequestRemindExample.sh
       x-meta:
         seo:
           title: '_t__SignatureRequestRemind::SEO::TITLE'
@@ -4674,37 +4674,37 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: examples/SignatureRequestRemove.php
+            $ref: examples/SignatureRequestRemoveExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: examples/SignatureRequestRemove.cs
+            $ref: examples/SignatureRequestRemoveExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: examples/SignatureRequestRemove.ts
+            $ref: examples/SignatureRequestRemoveExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: examples/SignatureRequestRemove.java
+            $ref: examples/SignatureRequestRemoveExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: examples/SignatureRequestRemove.rb
+            $ref: examples/SignatureRequestRemoveExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: examples/SignatureRequestRemove.py
+            $ref: examples/SignatureRequestRemoveExample.py
         -
           lang: cURL
           label: cURL
           source:
-            $ref: examples/SignatureRequestRemove.sh
+            $ref: examples/SignatureRequestRemoveExample.sh
       x-meta:
         seo:
           title: '_t__SignatureRequestRemove::SEO::TITLE'
@@ -4780,37 +4780,37 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: examples/SignatureRequestSend.php
+            $ref: examples/SignatureRequestSendExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: examples/SignatureRequestSend.cs
+            $ref: examples/SignatureRequestSendExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: examples/SignatureRequestSend.ts
+            $ref: examples/SignatureRequestSendExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: examples/SignatureRequestSend.java
+            $ref: examples/SignatureRequestSendExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: examples/SignatureRequestSend.rb
+            $ref: examples/SignatureRequestSendExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: examples/SignatureRequestSend.py
+            $ref: examples/SignatureRequestSendExample.py
         -
           lang: cURL
           label: cURL
           source:
-            $ref: examples/SignatureRequestSend.sh
+            $ref: examples/SignatureRequestSendExample.sh
       x-meta:
         seo:
           title: '_t__SignatureRequestSend::SEO::TITLE'
@@ -4882,37 +4882,37 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: examples/SignatureRequestSendWithTemplate.php
+            $ref: examples/SignatureRequestSendWithTemplateExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: examples/SignatureRequestSendWithTemplate.cs
+            $ref: examples/SignatureRequestSendWithTemplateExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: examples/SignatureRequestSendWithTemplate.ts
+            $ref: examples/SignatureRequestSendWithTemplateExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: examples/SignatureRequestSendWithTemplate.java
+            $ref: examples/SignatureRequestSendWithTemplateExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: examples/SignatureRequestSendWithTemplate.rb
+            $ref: examples/SignatureRequestSendWithTemplateExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: examples/SignatureRequestSendWithTemplate.py
+            $ref: examples/SignatureRequestSendWithTemplateExample.py
         -
           lang: cURL
           label: cURL
           source:
-            $ref: examples/SignatureRequestSendWithTemplate.sh
+            $ref: examples/SignatureRequestSendWithTemplateExample.sh
       x-meta:
         seo:
           title: '_t__SignatureRequestSendWithTemplate::SEO::TITLE'
@@ -4989,37 +4989,37 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: examples/SignatureRequestUpdate.php
+            $ref: examples/SignatureRequestUpdateExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: examples/SignatureRequestUpdate.cs
+            $ref: examples/SignatureRequestUpdateExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: examples/SignatureRequestUpdate.ts
+            $ref: examples/SignatureRequestUpdateExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: examples/SignatureRequestUpdate.java
+            $ref: examples/SignatureRequestUpdateExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: examples/SignatureRequestUpdate.rb
+            $ref: examples/SignatureRequestUpdateExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: examples/SignatureRequestUpdate.py
+            $ref: examples/SignatureRequestUpdateExample.py
         -
           lang: cURL
           label: cURL
           source:
-            $ref: examples/SignatureRequestUpdate.sh
+            $ref: examples/SignatureRequestUpdateExample.sh
       x-meta:
         seo:
           title: '_t__SignatureRequestUpdate::SEO::TITLE'
@@ -5098,37 +5098,37 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: examples/TeamAddMember.php
+            $ref: examples/TeamAddMemberExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: examples/TeamAddMember.cs
+            $ref: examples/TeamAddMemberExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: examples/TeamAddMember.ts
+            $ref: examples/TeamAddMemberExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: examples/TeamAddMember.java
+            $ref: examples/TeamAddMemberExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: examples/TeamAddMember.rb
+            $ref: examples/TeamAddMemberExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: examples/TeamAddMember.py
+            $ref: examples/TeamAddMemberExample.py
         -
           lang: cURL
           label: cURL
           source:
-            $ref: examples/TeamAddMember.sh
+            $ref: examples/TeamAddMemberExample.sh
       x-meta:
         seo:
           title: '_t__TeamAddMember::SEO::TITLE'
@@ -5194,37 +5194,37 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: examples/TeamCreate.php
+            $ref: examples/TeamCreateExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: examples/TeamCreate.cs
+            $ref: examples/TeamCreateExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: examples/TeamCreate.ts
+            $ref: examples/TeamCreateExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: examples/TeamCreate.java
+            $ref: examples/TeamCreateExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: examples/TeamCreate.rb
+            $ref: examples/TeamCreateExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: examples/TeamCreate.py
+            $ref: examples/TeamCreateExample.py
         -
           lang: cURL
           label: cURL
           source:
-            $ref: examples/TeamCreate.sh
+            $ref: examples/TeamCreateExample.sh
       x-meta:
         seo:
           title: '_t__TeamCreate::SEO::TITLE'
@@ -5274,37 +5274,37 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: examples/TeamDelete.php
+            $ref: examples/TeamDeleteExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: examples/TeamDelete.cs
+            $ref: examples/TeamDeleteExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: examples/TeamDelete.ts
+            $ref: examples/TeamDeleteExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: examples/TeamDelete.java
+            $ref: examples/TeamDeleteExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: examples/TeamDelete.rb
+            $ref: examples/TeamDeleteExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: examples/TeamDelete.py
+            $ref: examples/TeamDeleteExample.py
         -
           lang: cURL
           label: cURL
           source:
-            $ref: examples/TeamDelete.sh
+            $ref: examples/TeamDeleteExample.sh
       x-meta:
         seo:
           title: '_t__TeamDelete::SEO::TITLE'
@@ -5363,37 +5363,37 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: examples/TeamGet.php
+            $ref: examples/TeamGetExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: examples/TeamGet.cs
+            $ref: examples/TeamGetExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: examples/TeamGet.ts
+            $ref: examples/TeamGetExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: examples/TeamGet.java
+            $ref: examples/TeamGetExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: examples/TeamGet.rb
+            $ref: examples/TeamGetExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: examples/TeamGet.py
+            $ref: examples/TeamGetExample.py
         -
           lang: cURL
           label: cURL
           source:
-            $ref: examples/TeamGet.sh
+            $ref: examples/TeamGetExample.sh
       x-meta:
         seo:
           title: '_t__TeamGet::SEO::TITLE'
@@ -5458,37 +5458,37 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: examples/TeamUpdate.php
+            $ref: examples/TeamUpdateExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: examples/TeamUpdate.cs
+            $ref: examples/TeamUpdateExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: examples/TeamUpdate.ts
+            $ref: examples/TeamUpdateExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: examples/TeamUpdate.java
+            $ref: examples/TeamUpdateExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: examples/TeamUpdate.rb
+            $ref: examples/TeamUpdateExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: examples/TeamUpdate.py
+            $ref: examples/TeamUpdateExample.py
         -
           lang: cURL
           label: cURL
           source:
-            $ref: examples/TeamUpdate.sh
+            $ref: examples/TeamUpdateExample.sh
       x-meta:
         seo:
           title: '_t__TeamUpdate::SEO::TITLE'
@@ -5558,37 +5558,37 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: examples/TeamInfo.php
+            $ref: examples/TeamInfoExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: examples/TeamInfo.cs
+            $ref: examples/TeamInfoExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: examples/TeamInfo.ts
+            $ref: examples/TeamInfoExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: examples/TeamInfo.java
+            $ref: examples/TeamInfoExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: examples/TeamInfo.rb
+            $ref: examples/TeamInfoExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: examples/TeamInfo.py
+            $ref: examples/TeamInfoExample.py
         -
           lang: cURL
           label: cURL
           source:
-            $ref: examples/TeamInfo.sh
+            $ref: examples/TeamInfoExample.sh
       x-meta:
         seo:
           title: '_t__TeamInfo::SEO::TITLE'
@@ -5654,37 +5654,37 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: examples/TeamInvites.php
+            $ref: examples/TeamInvitesExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: examples/TeamInvites.cs
+            $ref: examples/TeamInvitesExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: examples/TeamInvites.ts
+            $ref: examples/TeamInvitesExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: examples/TeamInvites.java
+            $ref: examples/TeamInvitesExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: examples/TeamInvites.rb
+            $ref: examples/TeamInvitesExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: examples/TeamInvites.py
+            $ref: examples/TeamInvitesExample.py
         -
           lang: cURL
           label: cURL
           source:
-            $ref: examples/TeamInvites.sh
+            $ref: examples/TeamInvitesExample.sh
       x-meta:
         seo:
           title: '_t__TeamInvites::SEO::TITLE'
@@ -5770,37 +5770,37 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: examples/TeamMembers.php
+            $ref: examples/TeamMembersExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: examples/TeamMembers.cs
+            $ref: examples/TeamMembersExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: examples/TeamMembers.ts
+            $ref: examples/TeamMembersExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: examples/TeamMembers.java
+            $ref: examples/TeamMembersExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: examples/TeamMembers.rb
+            $ref: examples/TeamMembersExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: examples/TeamMembers.py
+            $ref: examples/TeamMembersExample.py
         -
           lang: cURL
           label: cURL
           source:
-            $ref: examples/TeamMembers.sh
+            $ref: examples/TeamMembersExample.sh
       x-meta:
         seo:
           title: '_t__TeamMembers::SEO::TITLE'
@@ -5870,37 +5870,37 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: examples/TeamRemoveMember.php
+            $ref: examples/TeamRemoveMemberExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: examples/TeamRemoveMember.cs
+            $ref: examples/TeamRemoveMemberExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: examples/TeamRemoveMember.ts
+            $ref: examples/TeamRemoveMemberExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: examples/TeamRemoveMember.java
+            $ref: examples/TeamRemoveMemberExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: examples/TeamRemoveMember.rb
+            $ref: examples/TeamRemoveMemberExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: examples/TeamRemoveMember.py
+            $ref: examples/TeamRemoveMemberExample.py
         -
           lang: cURL
           label: cURL
           source:
-            $ref: examples/TeamRemoveMember.sh
+            $ref: examples/TeamRemoveMemberExample.sh
       x-meta:
         seo:
           title: '_t__TeamRemoveMember::SEO::TITLE'
@@ -5986,37 +5986,37 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: examples/TeamSubTeams.php
+            $ref: examples/TeamSubTeamsExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: examples/TeamSubTeams.cs
+            $ref: examples/TeamSubTeamsExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: examples/TeamSubTeams.ts
+            $ref: examples/TeamSubTeamsExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: examples/TeamSubTeams.java
+            $ref: examples/TeamSubTeamsExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: examples/TeamSubTeams.rb
+            $ref: examples/TeamSubTeamsExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: examples/TeamSubTeams.py
+            $ref: examples/TeamSubTeamsExample.py
         -
           lang: cURL
           label: cURL
           source:
-            $ref: examples/TeamSubTeams.sh
+            $ref: examples/TeamSubTeamsExample.sh
       x-meta:
         seo:
           title: '_t__TeamSubTeams::SEO::TITLE'
@@ -6093,37 +6093,37 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: examples/TemplateAddUser.php
+            $ref: examples/TemplateAddUserExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: examples/TemplateAddUser.cs
+            $ref: examples/TemplateAddUserExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: examples/TemplateAddUser.ts
+            $ref: examples/TemplateAddUserExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: examples/TemplateAddUser.java
+            $ref: examples/TemplateAddUserExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: examples/TemplateAddUser.rb
+            $ref: examples/TemplateAddUserExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: examples/TemplateAddUser.py
+            $ref: examples/TemplateAddUserExample.py
         -
           lang: cURL
           label: cURL
           source:
-            $ref: examples/TemplateAddUser.sh
+            $ref: examples/TemplateAddUserExample.sh
       x-meta:
         seo:
           title: '_t__TemplateAddUser::SEO::TITLE'
@@ -6202,37 +6202,37 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: examples/TemplateCreate.php
+            $ref: examples/TemplateCreateExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: examples/TemplateCreate.cs
+            $ref: examples/TemplateCreateExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: examples/TemplateCreate.ts
+            $ref: examples/TemplateCreateExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: examples/TemplateCreate.java
+            $ref: examples/TemplateCreateExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: examples/TemplateCreate.rb
+            $ref: examples/TemplateCreateExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: examples/TemplateCreate.py
+            $ref: examples/TemplateCreateExample.py
         -
           lang: cURL
           label: cURL
           source:
-            $ref: examples/TemplateCreate.sh
+            $ref: examples/TemplateCreateExample.sh
       x-meta:
         seo:
           title: '_t__TemplateCreate::SEO::TITLE'
@@ -6311,37 +6311,37 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: examples/TemplateCreateEmbeddedDraft.php
+            $ref: examples/TemplateCreateEmbeddedDraftExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: examples/TemplateCreateEmbeddedDraft.cs
+            $ref: examples/TemplateCreateEmbeddedDraftExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: examples/TemplateCreateEmbeddedDraft.ts
+            $ref: examples/TemplateCreateEmbeddedDraftExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: examples/TemplateCreateEmbeddedDraft.java
+            $ref: examples/TemplateCreateEmbeddedDraftExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: examples/TemplateCreateEmbeddedDraft.rb
+            $ref: examples/TemplateCreateEmbeddedDraftExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: examples/TemplateCreateEmbeddedDraft.py
+            $ref: examples/TemplateCreateEmbeddedDraftExample.py
         -
           lang: cURL
           label: cURL
           source:
-            $ref: examples/TemplateCreateEmbeddedDraft.sh
+            $ref: examples/TemplateCreateEmbeddedDraftExample.sh
       x-meta:
         seo:
           title: '_t__TemplateCreateEmbeddedDraft::SEO::TITLE'
@@ -6406,37 +6406,37 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: examples/TemplateDelete.php
+            $ref: examples/TemplateDeleteExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: examples/TemplateDelete.cs
+            $ref: examples/TemplateDeleteExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: examples/TemplateDelete.ts
+            $ref: examples/TemplateDeleteExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: examples/TemplateDelete.java
+            $ref: examples/TemplateDeleteExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: examples/TemplateDelete.rb
+            $ref: examples/TemplateDeleteExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: examples/TemplateDelete.py
+            $ref: examples/TemplateDeleteExample.py
         -
           lang: cURL
           label: cURL
           source:
-            $ref: examples/TemplateDelete.sh
+            $ref: examples/TemplateDeleteExample.sh
       x-meta:
         seo:
           title: '_t__TemplateDelete::SEO::TITLE'
@@ -6521,37 +6521,37 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: examples/TemplateFiles.php
+            $ref: examples/TemplateFilesExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: examples/TemplateFiles.cs
+            $ref: examples/TemplateFilesExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: examples/TemplateFiles.ts
+            $ref: examples/TemplateFilesExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: examples/TemplateFiles.java
+            $ref: examples/TemplateFilesExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: examples/TemplateFiles.rb
+            $ref: examples/TemplateFilesExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: examples/TemplateFiles.py
+            $ref: examples/TemplateFilesExample.py
         -
           lang: cURL
           label: cURL
           source:
-            $ref: examples/TemplateFiles.sh
+            $ref: examples/TemplateFilesExample.sh
       x-meta:
         seo:
           title: '_t__TemplateFiles::SEO::TITLE'
@@ -6625,37 +6625,37 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: examples/TemplateFilesAsDataUri.php
+            $ref: examples/TemplateFilesAsDataUriExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: examples/TemplateFilesAsDataUri.cs
+            $ref: examples/TemplateFilesAsDataUriExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: examples/TemplateFilesAsDataUri.ts
+            $ref: examples/TemplateFilesAsDataUriExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: examples/TemplateFilesAsDataUri.java
+            $ref: examples/TemplateFilesAsDataUriExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: examples/TemplateFilesAsDataUri.rb
+            $ref: examples/TemplateFilesAsDataUriExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: examples/TemplateFilesAsDataUri.py
+            $ref: examples/TemplateFilesAsDataUriExample.py
         -
           lang: cURL
           label: cURL
           source:
-            $ref: examples/TemplateFilesAsDataUri.sh
+            $ref: examples/TemplateFilesAsDataUriExample.sh
       x-meta:
         seo:
           title: '_t__TemplateFiles::SEO::TITLE'
@@ -6736,37 +6736,37 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: examples/TemplateFilesAsFileUrl.php
+            $ref: examples/TemplateFilesAsFileUrlExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: examples/TemplateFilesAsFileUrl.cs
+            $ref: examples/TemplateFilesAsFileUrlExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: examples/TemplateFilesAsFileUrl.ts
+            $ref: examples/TemplateFilesAsFileUrlExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: examples/TemplateFilesAsFileUrl.java
+            $ref: examples/TemplateFilesAsFileUrlExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: examples/TemplateFilesAsFileUrl.rb
+            $ref: examples/TemplateFilesAsFileUrlExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: examples/TemplateFilesAsFileUrl.py
+            $ref: examples/TemplateFilesAsFileUrlExample.py
         -
           lang: cURL
           label: cURL
           source:
-            $ref: examples/TemplateFilesAsFileUrl.sh
+            $ref: examples/TemplateFilesAsFileUrlExample.sh
       x-meta:
         seo:
           title: '_t__TemplateFiles::SEO::TITLE'
@@ -6836,37 +6836,37 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: examples/TemplateGet.php
+            $ref: examples/TemplateGetExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: examples/TemplateGet.cs
+            $ref: examples/TemplateGetExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: examples/TemplateGet.ts
+            $ref: examples/TemplateGetExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: examples/TemplateGet.java
+            $ref: examples/TemplateGetExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: examples/TemplateGet.rb
+            $ref: examples/TemplateGetExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: examples/TemplateGet.py
+            $ref: examples/TemplateGetExample.py
         -
           lang: cURL
           label: cURL
           source:
-            $ref: examples/TemplateGet.sh
+            $ref: examples/TemplateGetExample.sh
       x-meta:
         seo:
           title: '_t__TemplateGet::SEO::TITLE'
@@ -6956,37 +6956,37 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: examples/TemplateList.php
+            $ref: examples/TemplateListExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: examples/TemplateList.cs
+            $ref: examples/TemplateListExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: examples/TemplateList.ts
+            $ref: examples/TemplateListExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: examples/TemplateList.java
+            $ref: examples/TemplateListExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: examples/TemplateList.rb
+            $ref: examples/TemplateListExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: examples/TemplateList.py
+            $ref: examples/TemplateListExample.py
         -
           lang: cURL
           label: cURL
           source:
-            $ref: examples/TemplateList.sh
+            $ref: examples/TemplateListExample.sh
       x-meta:
         seo:
           title: '_t__TemplateList::SEO::TITLE'
@@ -7063,37 +7063,37 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: examples/TemplateRemoveUser.php
+            $ref: examples/TemplateRemoveUserExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: examples/TemplateRemoveUser.cs
+            $ref: examples/TemplateRemoveUserExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: examples/TemplateRemoveUser.ts
+            $ref: examples/TemplateRemoveUserExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: examples/TemplateRemoveUser.java
+            $ref: examples/TemplateRemoveUserExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: examples/TemplateRemoveUser.rb
+            $ref: examples/TemplateRemoveUserExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: examples/TemplateRemoveUser.py
+            $ref: examples/TemplateRemoveUserExample.py
         -
           lang: cURL
           label: cURL
           source:
-            $ref: examples/TemplateRemoveUser.sh
+            $ref: examples/TemplateRemoveUserExample.sh
       x-meta:
         seo:
           title: '_t__TemplateRemoveUser::SEO::TITLE'
@@ -7177,37 +7177,37 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: examples/TemplateUpdateFiles.php
+            $ref: examples/TemplateUpdateFilesExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: examples/TemplateUpdateFiles.cs
+            $ref: examples/TemplateUpdateFilesExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: examples/TemplateUpdateFiles.ts
+            $ref: examples/TemplateUpdateFilesExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: examples/TemplateUpdateFiles.java
+            $ref: examples/TemplateUpdateFilesExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: examples/TemplateUpdateFiles.rb
+            $ref: examples/TemplateUpdateFilesExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: examples/TemplateUpdateFiles.py
+            $ref: examples/TemplateUpdateFilesExample.py
         -
           lang: cURL
           label: cURL
           source:
-            $ref: examples/TemplateUpdateFiles.sh
+            $ref: examples/TemplateUpdateFilesExample.sh
       x-meta:
         seo:
           title: '_t__TemplateUpdateFiles::SEO::TITLE'
@@ -7282,37 +7282,37 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: examples/UnclaimedDraftCreate.php
+            $ref: examples/UnclaimedDraftCreateExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: examples/UnclaimedDraftCreate.cs
+            $ref: examples/UnclaimedDraftCreateExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: examples/UnclaimedDraftCreate.ts
+            $ref: examples/UnclaimedDraftCreateExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: examples/UnclaimedDraftCreate.java
+            $ref: examples/UnclaimedDraftCreateExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: examples/UnclaimedDraftCreate.rb
+            $ref: examples/UnclaimedDraftCreateExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: examples/UnclaimedDraftCreate.py
+            $ref: examples/UnclaimedDraftCreateExample.py
         -
           lang: cURL
           label: cURL
           source:
-            $ref: examples/UnclaimedDraftCreate.sh
+            $ref: examples/UnclaimedDraftCreateExample.sh
       x-meta:
         seo:
           title: '_t__UnclaimedDraftCreate::SEO::TITLE'
@@ -7392,37 +7392,37 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: examples/UnclaimedDraftCreateEmbedded.php
+            $ref: examples/UnclaimedDraftCreateEmbeddedExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: examples/UnclaimedDraftCreateEmbedded.cs
+            $ref: examples/UnclaimedDraftCreateEmbeddedExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: examples/UnclaimedDraftCreateEmbedded.ts
+            $ref: examples/UnclaimedDraftCreateEmbeddedExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: examples/UnclaimedDraftCreateEmbedded.java
+            $ref: examples/UnclaimedDraftCreateEmbeddedExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: examples/UnclaimedDraftCreateEmbedded.rb
+            $ref: examples/UnclaimedDraftCreateEmbeddedExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: examples/UnclaimedDraftCreateEmbedded.py
+            $ref: examples/UnclaimedDraftCreateEmbeddedExample.py
         -
           lang: cURL
           label: cURL
           source:
-            $ref: examples/UnclaimedDraftCreateEmbedded.sh
+            $ref: examples/UnclaimedDraftCreateEmbeddedExample.sh
       x-meta:
         seo:
           title: '_t__UnclaimedDraftCreateEmbedded::SEO::TITLE'
@@ -7497,37 +7497,37 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: examples/UnclaimedDraftCreateEmbeddedWithTemplate.php
+            $ref: examples/UnclaimedDraftCreateEmbeddedWithTemplateExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: examples/UnclaimedDraftCreateEmbeddedWithTemplate.cs
+            $ref: examples/UnclaimedDraftCreateEmbeddedWithTemplateExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: examples/UnclaimedDraftCreateEmbeddedWithTemplate.ts
+            $ref: examples/UnclaimedDraftCreateEmbeddedWithTemplateExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: examples/UnclaimedDraftCreateEmbeddedWithTemplate.java
+            $ref: examples/UnclaimedDraftCreateEmbeddedWithTemplateExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: examples/UnclaimedDraftCreateEmbeddedWithTemplate.rb
+            $ref: examples/UnclaimedDraftCreateEmbeddedWithTemplateExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: examples/UnclaimedDraftCreateEmbeddedWithTemplate.py
+            $ref: examples/UnclaimedDraftCreateEmbeddedWithTemplateExample.py
         -
           lang: cURL
           label: cURL
           source:
-            $ref: examples/UnclaimedDraftCreateEmbeddedWithTemplate.sh
+            $ref: examples/UnclaimedDraftCreateEmbeddedWithTemplateExample.sh
       x-meta:
         seo:
           title: '_t__UnclaimedDraftCreateEmbeddedWithTemplate::SEO::TITLE'
@@ -7609,37 +7609,37 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: examples/UnclaimedDraftEditAndResend.php
+            $ref: examples/UnclaimedDraftEditAndResendExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: examples/UnclaimedDraftEditAndResend.cs
+            $ref: examples/UnclaimedDraftEditAndResendExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: examples/UnclaimedDraftEditAndResend.ts
+            $ref: examples/UnclaimedDraftEditAndResendExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: examples/UnclaimedDraftEditAndResend.java
+            $ref: examples/UnclaimedDraftEditAndResendExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: examples/UnclaimedDraftEditAndResend.rb
+            $ref: examples/UnclaimedDraftEditAndResendExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: examples/UnclaimedDraftEditAndResend.py
+            $ref: examples/UnclaimedDraftEditAndResendExample.py
         -
           lang: cURL
           label: cURL
           source:
-            $ref: examples/UnclaimedDraftEditAndResend.sh
+            $ref: examples/UnclaimedDraftEditAndResendExample.sh
       x-meta:
         seo:
           title: '_t__UnclaimedDraftEditAndResend::SEO::TITLE'
@@ -13442,32 +13442,32 @@ x-webhooks:
           lang: PHP
           label: PHP
           source:
-            $ref: examples/EventCallback.php
+            $ref: examples/EventCallbackExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: examples/EventCallback.cs
+            $ref: examples/EventCallbackExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: examples/EventCallback.ts
+            $ref: examples/EventCallbackExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: examples/EventCallback.java
+            $ref: examples/EventCallbackExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: examples/EventCallback.rb
+            $ref: examples/EventCallbackExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: examples/EventCallback.py
+            $ref: examples/EventCallbackExample.py
       tags:
         - 'Callbacks and Events'
       requestBody:
@@ -13489,32 +13489,32 @@ x-webhooks:
           lang: PHP
           label: PHP
           source:
-            $ref: examples/EventCallback.php
+            $ref: examples/EventCallbackExample.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: examples/EventCallback.cs
+            $ref: examples/EventCallbackExample.cs
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: examples/EventCallback.ts
+            $ref: examples/EventCallbackExample.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: examples/EventCallback.java
+            $ref: examples/EventCallbackExample.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: examples/EventCallback.rb
+            $ref: examples/EventCallbackExample.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: examples/EventCallback.py
+            $ref: examples/EventCallbackExample.py
       tags:
         - 'Callbacks and Events'
       requestBody:
