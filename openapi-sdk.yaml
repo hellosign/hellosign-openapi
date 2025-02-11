@@ -14305,6 +14305,7 @@ components:
 security:
   -
     api_key: []
+  -
     oauth2:
       - account_access
       - signature_request_access
