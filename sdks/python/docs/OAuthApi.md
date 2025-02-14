@@ -42,7 +42,7 @@ with ApiClient(configuration) as api_client:
 
         pprint(response)
     except ApiException as e:
-        print("Exception when calling Oauth#oauth_token_generate: %s\n" % e)
+        print("Exception when calling OAuth#oauth_token_generate: %s\n" % e)
 
 ```
 ```
@@ -105,7 +105,7 @@ with ApiClient(configuration) as api_client:
 
         pprint(response)
     except ApiException as e:
-        print("Exception when calling Oauth#oauth_token_refresh: %s\n" % e)
+        print("Exception when calling OAuth#oauth_token_refresh: %s\n" % e)
 
 ```
 ```

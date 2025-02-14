@@ -51,7 +51,7 @@ public class OauthTokenGenerateExample
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling Oauth#OauthTokenGenerate: " + e.Message);
+            Console.WriteLine("Exception when calling OAuth#OauthTokenGenerate: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }
@@ -149,7 +149,7 @@ public class OauthTokenRefreshExample
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling Oauth#OauthTokenRefresh: " + e.Message);
+            Console.WriteLine("Exception when calling OAuth#OauthTokenRefresh: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }

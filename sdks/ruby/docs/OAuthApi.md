@@ -38,7 +38,7 @@ begin
 
   p response
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling Oauth#oauth_token_generate: #{e}"
+  puts "Exception when calling OAuth#oauth_token_generate: #{e}"
 end
 
 ```
@@ -108,7 +108,7 @@ begin
 
   p response
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling Oauth#oauth_token_refresh: #{e}"
+  puts "Exception when calling OAuth#oauth_token_refresh: #{e}"
 end
 
 ```

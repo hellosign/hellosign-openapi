@@ -31,7 +31,7 @@ use Dropbox;
 
 $config = Dropbox\Sign\Configuration::getDefaultConfiguration();
 
-$o_auth_token_generate_request = (new Dropbox\Sign\Model\OauthTokenGenerateRequest())
+$o_auth_token_generate_request = (new Dropbox\Sign\Model\OAuthTokenGenerateRequest())
     ->setClientId("cc91c61d00f8bb2ece1428035716b")
     ->setClientSecret("1d14434088507ffa390e6f5528465")
     ->setCode("1b0d28d90c86c141")
@@ -39,13 +39,13 @@ $o_auth_token_generate_request = (new Dropbox\Sign\Model\OauthTokenGenerateReque
     ->setGrantType("authorization_code");
 
 try {
-    $response = (new Dropbox\Sign\Api\OauthApi(config: $config))->oauthTokenGenerate(
+    $response = (new Dropbox\Sign\Api\OAuthApi(config: $config))->oauthTokenGenerate(
         o_auth_token_generate_request: $o_auth_token_generate_request,
     );
 
     print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    echo "Exception when calling Oauth#oauthTokenGenerate: {$e->getMessage()}";
+    echo "Exception when calling OAuth#oauthTokenGenerate: {$e->getMessage()}";
 }
 
 ```
@@ -96,18 +96,18 @@ use Dropbox;
 
 $config = Dropbox\Sign\Configuration::getDefaultConfiguration();
 
-$o_auth_token_refresh_request = (new Dropbox\Sign\Model\OauthTokenRefreshRequest())
+$o_auth_token_refresh_request = (new Dropbox\Sign\Model\OAuthTokenRefreshRequest())
     ->setGrantType("refresh_token")
     ->setRefreshToken("hNTI2MTFmM2VmZDQxZTZjOWRmZmFjZmVmMGMyNGFjMzI2MGI5YzgzNmE3");
 
 try {
-    $response = (new Dropbox\Sign\Api\OauthApi(config: $config))->oauthTokenRefresh(
+    $response = (new Dropbox\Sign\Api\OAuthApi(config: $config))->oauthTokenRefresh(
         o_auth_token_refresh_request: $o_auth_token_refresh_request,
     );
 
     print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    echo "Exception when calling Oauth#oauthTokenRefresh: {$e->getMessage()}";
+    echo "Exception when calling OAuth#oauthTokenRefresh: {$e->getMessage()}";
 }
 
 ```

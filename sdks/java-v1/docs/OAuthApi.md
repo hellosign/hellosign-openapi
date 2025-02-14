@@ -41,22 +41,22 @@ public class OauthTokenGenerateExample
     {
         var config = Configuration.getDefaultApiClient();
 
-        var oauthTokenGenerateRequest = new OAuthTokenGenerateRequest();
-        oauthTokenGenerateRequest.clientId("cc91c61d00f8bb2ece1428035716b");
-        oauthTokenGenerateRequest.clientSecret("1d14434088507ffa390e6f5528465");
-        oauthTokenGenerateRequest.code("1b0d28d90c86c141");
-        oauthTokenGenerateRequest.state("900e06e2");
-        oauthTokenGenerateRequest.grantType("authorization_code");
+        var oAuthTokenGenerateRequest = new OAuthTokenGenerateRequest();
+        oAuthTokenGenerateRequest.clientId("cc91c61d00f8bb2ece1428035716b");
+        oAuthTokenGenerateRequest.clientSecret("1d14434088507ffa390e6f5528465");
+        oAuthTokenGenerateRequest.code("1b0d28d90c86c141");
+        oAuthTokenGenerateRequest.state("900e06e2");
+        oAuthTokenGenerateRequest.grantType("authorization_code");
 
         try
         {
             var response = new OAuthApi(config).oauthTokenGenerate(
-                oauthTokenGenerateRequest
+                oAuthTokenGenerateRequest
             );
 
             System.out.println(response);
         } catch (ApiException e) {
-            System.err.println("Exception when calling Oauth#oauthTokenGenerate");
+            System.err.println("Exception when calling OAuth#oauthTokenGenerate");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -126,19 +126,19 @@ public class OauthTokenRefreshExample
     {
         var config = Configuration.getDefaultApiClient();
 
-        var oauthTokenRefreshRequest = new OAuthTokenRefreshRequest();
-        oauthTokenRefreshRequest.grantType("refresh_token");
-        oauthTokenRefreshRequest.refreshToken("hNTI2MTFmM2VmZDQxZTZjOWRmZmFjZmVmMGMyNGFjMzI2MGI5YzgzNmE3");
+        var oAuthTokenRefreshRequest = new OAuthTokenRefreshRequest();
+        oAuthTokenRefreshRequest.grantType("refresh_token");
+        oAuthTokenRefreshRequest.refreshToken("hNTI2MTFmM2VmZDQxZTZjOWRmZmFjZmVmMGMyNGFjMzI2MGI5YzgzNmE3");
 
         try
         {
             var response = new OAuthApi(config).oauthTokenRefresh(
-                oauthTokenRefreshRequest
+                oAuthTokenRefreshRequest
             );
 
             System.out.println(response);
         } catch (ApiException e) {
-            System.err.println("Exception when calling Oauth#oauthTokenRefresh");
+            System.err.println("Exception when calling OAuth#oauthTokenRefresh");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
