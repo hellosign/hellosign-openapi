@@ -82,36 +82,38 @@ c.Proxy = webProxy;
 
 ```csharp
 using System;
+using System.Collections.Generic;
+using System.IO;
 
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
 using Dropbox.Sign.Model;
 
-public class Example
+namespace Dropbox.SignSandbox;
+
+public class AccountCreateExample
 {
-    public static void Main()
+    public static void Run()
     {
         var config = new Configuration();
-        // Configure HTTP basic authorization: api_key
         config.Username = "YOUR_API_KEY";
+        // config.AccessToken = "YOUR_ACCESS_TOKEN";
 
-        // or, configure Bearer (JWT) authorization: oauth2
-        // config.AccessToken = "YOUR_BEARER_TOKEN";
-
-        var accountApi = new AccountApi(config);
-
-        var data = new AccountCreateRequest(
+        var accountCreateRequest = new AccountCreateRequest(
             emailAddress: "newuser@dropboxsign.com"
         );
 
         try
         {
-            var result = accountApi.AccountCreate(data);
-            Console.WriteLine(result);
+            var response = new AccountApi(config).AccountCreate(
+                accountCreateRequest: accountCreateRequest
+            );
+
+            Console.WriteLine(response);
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling Dropbox Sign API: " + e.Message);
+            Console.WriteLine("Exception when calling Account#AccountCreate: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }

@@ -10,8 +10,9 @@ TARGET_DIR="${DIR}/../sandbox/dotnet"
 ARTIFACTS_DIR="${DIR}/../sandbox/dotnet/artifacts"
 
 mkdir -p "${ARTIFACTS_DIR}"
-
-rm -f "${ARTIFACTS_DIR}/"*
+rm -f "${ARTIFACTS_DIR}/*.nupkg"
+rm -f "${TARGET_DIR}/src/Dropbox.SignSandbox/*.cs"
+cp "${SDK_DIR}/templates/Entry.cs" "${TARGET_DIR}/src/Dropbox.SignSandbox/Entry.cs"
 
 docker run --rm -it \
   -v "${SDK_DIR}:${WORKING_DIR}" \
@@ -19,10 +20,10 @@ docker run --rm -it \
   -v "${TARGET_DIR}:/target" \
   -w "${WORKING_DIR}" \
   -u root:root \
-  mcr.microsoft.com/dotnet/sdk:6.0 dotnet pack -o /artifacts
+  mcr.microsoft.com/dotnet/sdk:9.0 dotnet pack -o /artifacts
 
 docker run --rm -it \
   -v "${TARGET_DIR}:${WORKING_DIR}" \
   -w "${WORKING_DIR}" \
   -u root:root \
-  mcr.microsoft.com/dotnet/sdk:6.0 dotnet build
+  mcr.microsoft.com/dotnet/sdk:9.0 dotnet build

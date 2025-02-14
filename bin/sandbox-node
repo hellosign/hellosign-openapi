@@ -10,8 +10,9 @@ TARGET_DIR="${DIR}/../sandbox/node"
 ARTIFACTS_DIR="${DIR}/../sandbox/node/artifacts"
 
 mkdir -p "${ARTIFACTS_DIR}"
-
-rm -f "${ARTIFACTS_DIR}/"*
+rm -f "${ARTIFACTS_DIR}/*.tgz"
+rm -f "${TARGET_DIR}/src/*.ts"
+rm -f "${TARGET_DIR}/src/*.js"
 rm -f "${TARGET_DIR}/package-lock.json"
 rm -rf "${TARGET_DIR}/node_modules"
 
@@ -20,15 +21,20 @@ docker run -it --rm \
   -v "${ARTIFACTS_DIR}:/artifacts" \
   -v "dropbox-sign-sdk-npm-cache:/root/.npm" \
   -w "${WORKING_DIR}" \
-  node:17 npm pack --pack-destination /artifacts
-
-mv "${ARTIFACTS_DIR}/"*.tgz "${ARTIFACTS_DIR}/dropbox-sign-sdk.tgz"
+  node:22 npm install
 
 docker run -it --rm \
-  -v "${TARGET_DIR}:${WORKING_DIR}" \
+  -v "${SDK_DIR}:${WORKING_DIR}" \
+  -v "${ARTIFACTS_DIR}:/artifacts" \
   -v "dropbox-sign-sdk-npm-cache:/root/.npm" \
   -w "${WORKING_DIR}" \
-  node:17 npm install
+  node:22 npm run build
 
-printf "\nDONE! Run with:\n\n"
-printf "\tnpx ts-node Example.ts"
+docker run -it --rm \
+  -v "${SDK_DIR}:${WORKING_DIR}" \
+  -v "${ARTIFACTS_DIR}:/artifacts" \
+  -v "dropbox-sign-sdk-npm-cache:/root/.npm" \
+  -w "${WORKING_DIR}" \
+  node:22 npm pack --pack-destination /artifacts
+
+mv "${ARTIFACTS_DIR}/"*.tgz "${ARTIFACTS_DIR}/dropbox-sign-sdk.tgz"

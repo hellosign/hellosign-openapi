@@ -29,52 +29,26 @@ Invites a user (specified using the `email_address` parameter) to your Team. If 
 ### TypeScript Example
 
 ```typescript
-import * as DropboxSign from "@dropbox/sign";
+import * as fs from 'fs';
+import api from "@dropbox/sign"
+import models from "@dropbox/sign"
 
-const teamApi = new DropboxSign.TeamApi();
+const apiCaller = new api.TeamApi();
+apiCaller.username = "YOUR_API_KEY";
+// apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-// Configure HTTP basic authorization: api_key
-teamApi.username = "YOUR_API_KEY";
+const teamAddMemberRequest = new models.TeamAddMemberRequest();
+teamAddMemberRequest.emailAddress = "george@example.com";
 
-// or, configure Bearer (JWT) authorization: oauth2
-// teamApi.accessToken = "YOUR_ACCESS_TOKEN";
+const teamId = "4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c";
 
-const data: DropboxSign.TeamAddMemberRequest = {
-  emailAddress: "george@example.com",
-};
-
-const result = teamApi.teamAddMember(data);
-result.then(response => {
+apiCaller.teamAddMember(
+    teamAddMemberRequest,
+    teamId,
+).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
-  console.log(error.body);
-});
-
-```
-
-### JavaScript Example
-
-```javascript
-import * as DropboxSign from "@dropbox/sign";
-
-const teamApi = new DropboxSign.TeamApi();
-
-// Configure HTTP basic authorization: api_key
-teamApi.username = "YOUR_API_KEY";
-
-// or, configure Bearer (JWT) authorization: oauth2
-// teamApi.accessToken = "YOUR_ACCESS_TOKEN";
-
-const data = {
-  emailAddress: "george@example.com",
-};
-
-const result = teamApi.teamAddMember(data);
-result.then(response => {
-  console.log(response.body);
-}).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
+  console.log("Exception when calling Team#teamAddMember:");
   console.log(error.body);
 });
 
@@ -117,52 +91,23 @@ Creates a new Team and makes you a member. You must not currently belong to a Te
 ### TypeScript Example
 
 ```typescript
-import * as DropboxSign from "@dropbox/sign";
+import * as fs from 'fs';
+import api from "@dropbox/sign"
+import models from "@dropbox/sign"
 
-const teamApi = new DropboxSign.TeamApi();
+const apiCaller = new api.TeamApi();
+apiCaller.username = "YOUR_API_KEY";
+// apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-// Configure HTTP basic authorization: api_key
-teamApi.username = "YOUR_API_KEY";
+const teamCreateRequest = new models.TeamCreateRequest();
+teamCreateRequest.name = "New Team Name";
 
-// or, configure Bearer (JWT) authorization: oauth2
-// teamApi.accessToken = "YOUR_ACCESS_TOKEN";
-
-const data: DropboxSign.TeamCreateRequest = {
-  name: "New Team Name"
-};
-
-const result = teamApi.teamCreate(data);
-result.then(response => {
+apiCaller.teamCreate(
+    teamCreateRequest,
+).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
-  console.log(error.body);
-});
-
-```
-
-### JavaScript Example
-
-```javascript
-import * as DropboxSign from "@dropbox/sign";
-
-const teamApi = new DropboxSign.TeamApi();
-
-// Configure HTTP basic authorization: api_key
-teamApi.username = "YOUR_API_KEY";
-
-// or, configure Bearer (JWT) authorization: oauth2
-// teamApi.accessToken = "YOUR_ACCESS_TOKEN";
-
-const data = {
-  name: "New Team Name"
-};
-
-const result = teamApi.teamCreate(data);
-result.then(response => {
-  console.log(response.body);
-}).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
+  console.log("Exception when calling Team#teamCreate:");
   console.log(error.body);
 });
 
@@ -204,44 +149,16 @@ Deletes your Team. Can only be invoked when you have a Team with only one member
 ### TypeScript Example
 
 ```typescript
-import * as DropboxSign from "@dropbox/sign";
+import * as fs from 'fs';
+import api from "@dropbox/sign"
+import models from "@dropbox/sign"
 
-const teamApi = new DropboxSign.TeamApi();
+const apiCaller = new api.TeamApi();
+apiCaller.username = "YOUR_API_KEY";
+// apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-// Configure HTTP basic authorization: api_key
-teamApi.username = "YOUR_API_KEY";
-
-// or, configure Bearer (JWT) authorization: oauth2
-// teamApi.accessToken = "YOUR_ACCESS_TOKEN";
-
-const result = teamApi.teamDelete();
-result.then(response => {
-  console.log(response.body);
-}).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
-  console.log(error.body);
-});
-
-```
-
-### JavaScript Example
-
-```javascript
-import * as DropboxSign from "@dropbox/sign";
-
-const teamApi = new DropboxSign.TeamApi();
-
-// Configure HTTP basic authorization: api_key
-teamApi.username = "YOUR_API_KEY";
-
-// or, configure Bearer (JWT) authorization: oauth2
-// teamApi.accessToken = "YOUR_ACCESS_TOKEN";
-
-const result = teamApi.teamDelete();
-result.then(response => {
-  console.log(response.body);
-}).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
+apiCaller.teamDelete().catch(error => {
+  console.log("Exception when calling Team#teamDelete:");
   console.log(error.body);
 });
 
@@ -281,44 +198,18 @@ Returns information about your Team as well as a list of its members. If you do 
 ### TypeScript Example
 
 ```typescript
-import * as DropboxSign from "@dropbox/sign";
+import * as fs from 'fs';
+import api from "@dropbox/sign"
+import models from "@dropbox/sign"
 
-const teamApi = new DropboxSign.TeamApi();
+const apiCaller = new api.TeamApi();
+apiCaller.username = "YOUR_API_KEY";
+// apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-// Configure HTTP basic authorization: api_key
-teamApi.username = "YOUR_API_KEY";
-
-// or, configure Bearer (JWT) authorization: oauth2
-// teamApi.accessToken = "YOUR_ACCESS_TOKEN";
-
-const result = teamApi.teamGet();
-result.then(response => {
+apiCaller.teamGet().then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
-  console.log(error.body);
-});
-
-```
-
-### JavaScript Example
-
-```javascript
-import * as DropboxSign from "@dropbox/sign";
-
-const teamApi = new DropboxSign.TeamApi();
-
-// Configure HTTP basic authorization: api_key
-teamApi.username = "YOUR_API_KEY";
-
-// or, configure Bearer (JWT) authorization: oauth2
-// teamApi.accessToken = "YOUR_ACCESS_TOKEN";
-
-const result = teamApi.teamGet();
-result.then(response => {
-  console.log(response.body);
-}).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
+  console.log("Exception when calling Team#teamGet:");
   console.log(error.body);
 });
 
@@ -358,44 +249,22 @@ Provides information about a team.
 ### TypeScript Example
 
 ```typescript
-import * as DropboxSign from "@dropbox/sign";
+import * as fs from 'fs';
+import api from "@dropbox/sign"
+import models from "@dropbox/sign"
 
-const teamApi = new DropboxSign.TeamApi();
+const apiCaller = new api.TeamApi();
+apiCaller.username = "YOUR_API_KEY";
+// apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-// Configure HTTP basic authorization: api_key
-teamApi.username = "YOUR_API_KEY";
+const teamId = "4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c";
 
-// or, configure Bearer (JWT) authorization: oauth2
-// teamApi.accessToken = "YOUR_ACCESS_TOKEN";
-
-const result = teamApi.teamInfo();
-result.then(response => {
+apiCaller.teamInfo(
+    teamId,
+).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
-  console.log(error.body);
-});
-
-```
-
-### JavaScript Example
-
-```javascript
-import * as DropboxSign from "@dropbox/sign";
-
-const teamApi = new DropboxSign.TeamApi();
-
-// Configure HTTP basic authorization: api_key
-teamApi.username = "YOUR_API_KEY";
-
-// or, configure Bearer (JWT) authorization: oauth2
-// teamApi.accessToken = "YOUR_ACCESS_TOKEN";
-
-const result = teamApi.teamInfo();
-result.then(response => {
-  console.log(response.body);
-}).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
+  console.log("Exception when calling Team#teamInfo:");
   console.log(error.body);
 });
 
@@ -437,48 +306,19 @@ Provides a list of team invites (and their roles).
 ### TypeScript Example
 
 ```typescript
-import * as DropboxSign from "@dropbox/sign";
+import * as fs from 'fs';
+import api from "@dropbox/sign"
+import models from "@dropbox/sign"
 
-const teamApi = new DropboxSign.TeamApi();
+const apiCaller = new api.TeamApi();
+apiCaller.username = "YOUR_API_KEY";
+// apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-// Configure HTTP basic authorization: api_key
-teamApi.username = "YOUR_API_KEY";
 
-// or, configure Bearer (JWT) authorization: oauth2
-// teamApi.accessToken = "YOUR_ACCESS_TOKEN";
-
-const emailAddress = "user@dropboxsign.com";
-
-const result = teamApi.teamInvites(emailAddress);
-result.then(response => {
+apiCaller.teamInvites().then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
-  console.log(error.body);
-});
-
-```
-
-### JavaScript Example
-
-```javascript
-import * as DropboxSign from "@dropbox/sign";
-
-const teamApi = new DropboxSign.TeamApi();
-
-// Configure HTTP basic authorization: api_key
-teamApi.username = "YOUR_API_KEY";
-
-// or, configure Bearer (JWT) authorization: oauth2
-// teamApi.accessToken = "YOUR_ACCESS_TOKEN";
-
-const emailAddress = "user@dropboxsign.com";
-
-const result = teamApi.teamInvites(emailAddress);
-result.then(response => {
-  console.log(response.body);
-}).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
+  console.log("Exception when calling Team#teamInvites:");
   console.log(error.body);
 });
 
@@ -520,48 +360,26 @@ Provides a paginated list of members (and their roles) that belong to a given te
 ### TypeScript Example
 
 ```typescript
-import * as DropboxSign from "@dropbox/sign";
+import * as fs from 'fs';
+import api from "@dropbox/sign"
+import models from "@dropbox/sign"
 
-const teamApi = new DropboxSign.TeamApi();
-
-// Configure HTTP basic authorization: api_key
-teamApi.username = "YOUR_API_KEY";
-
-// or, configure Bearer (JWT) authorization: oauth2
-// teamApi.accessToken = "YOUR_ACCESS_TOKEN";
+const apiCaller = new api.TeamApi();
+apiCaller.username = "YOUR_API_KEY";
+// apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
 const teamId = "4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c";
+const page = 1;
+const pageSize = 20;
 
-const result = teamApi.teamMembers(teamId);
-result.then(response => {
+apiCaller.teamMembers(
+    teamId,
+    page,
+    pageSize,
+).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
-  console.log(error.body);
-});
-
-```
-
-### JavaScript Example
-
-```javascript
-import * as DropboxSign from "@dropbox/sign";
-
-const teamApi = new DropboxSign.TeamApi();
-
-// Configure HTTP basic authorization: api_key
-teamApi.username = "YOUR_API_KEY";
-
-// or, configure Bearer (JWT) authorization: oauth2
-// teamApi.accessToken = "YOUR_ACCESS_TOKEN";
-
-const teamId = "4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c";
-
-const result = teamApi.teamMembers(teamId);
-result.then(response => {
-  console.log(response.body);
-}).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
+  console.log("Exception when calling Team#teamMembers:");
   console.log(error.body);
 });
 
@@ -605,54 +423,24 @@ Removes the provided user Account from your Team. If the Account had an outstand
 ### TypeScript Example
 
 ```typescript
-import * as DropboxSign from "@dropbox/sign";
+import * as fs from 'fs';
+import api from "@dropbox/sign"
+import models from "@dropbox/sign"
 
-const teamApi = new DropboxSign.TeamApi();
+const apiCaller = new api.TeamApi();
+apiCaller.username = "YOUR_API_KEY";
+// apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-// Configure HTTP basic authorization: api_key
-teamApi.username = "YOUR_API_KEY";
+const teamRemoveMemberRequest = new models.TeamRemoveMemberRequest();
+teamRemoveMemberRequest.emailAddress = "teammate@dropboxsign.com";
+teamRemoveMemberRequest.newOwnerEmailAddress = "new_teammate@dropboxsign.com";
 
-// or, configure Bearer (JWT) authorization: oauth2
-// teamApi.accessToken = "YOUR_ACCESS_TOKEN";
-
-const data: DropboxSign.TeamRemoveMemberRequest = {
-  emailAddress: "teammate@dropboxsign.com",
-  newOwnerEmailAddress: "new_teammate@dropboxsign.com",
-};
-
-const result = teamApi.teamRemoveMember(data);
-result.then(response => {
+apiCaller.teamRemoveMember(
+    teamRemoveMemberRequest,
+).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
-  console.log(error.body);
-});
-
-```
-
-### JavaScript Example
-
-```javascript
-import * as DropboxSign from "@dropbox/sign";
-
-const teamApi = new DropboxSign.TeamApi();
-
-// Configure HTTP basic authorization: api_key
-teamApi.username = "YOUR_API_KEY";
-
-// or, configure Bearer (JWT) authorization: oauth2
-// teamApi.accessToken = "YOUR_ACCESS_TOKEN";
-
-const data = {
-  emailAddress: "teammate@dropboxsign.com",
-  newOwnerEmailAddress: "new_teammate@dropboxsign.com",
-};
-
-const result = teamApi.teamRemoveMember(data);
-result.then(response => {
-  console.log(response.body);
-}).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
+  console.log("Exception when calling Team#teamRemoveMember:");
   console.log(error.body);
 });
 
@@ -694,48 +482,26 @@ Provides a paginated list of sub teams that belong to a given team.
 ### TypeScript Example
 
 ```typescript
-import * as DropboxSign from "@dropbox/sign";
+import * as fs from 'fs';
+import api from "@dropbox/sign"
+import models from "@dropbox/sign"
 
-const teamApi = new DropboxSign.TeamApi();
-
-// Configure HTTP basic authorization: api_key
-teamApi.username = "YOUR_API_KEY";
-
-// or, configure Bearer (JWT) authorization: oauth2
-// teamApi.accessToken = "YOUR_ACCESS_TOKEN";
+const apiCaller = new api.TeamApi();
+apiCaller.username = "YOUR_API_KEY";
+// apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
 const teamId = "4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c";
+const page = 1;
+const pageSize = 20;
 
-const result = teamApi.teamSubTeams(teamId);
-result.then(response => {
+apiCaller.teamSubTeams(
+    teamId,
+    page,
+    pageSize,
+).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
-  console.log(error.body);
-});
-
-```
-
-### JavaScript Example
-
-```javascript
-import * as DropboxSign from "@dropbox/sign";
-
-const teamApi = new DropboxSign.TeamApi();
-
-// Configure HTTP basic authorization: api_key
-teamApi.username = "YOUR_API_KEY";
-
-// or, configure Bearer (JWT) authorization: oauth2
-// teamApi.accessToken = "YOUR_ACCESS_TOKEN";
-
-const teamId = "4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c";
-
-const result = teamApi.teamSubTeams(teamId);
-result.then(response => {
-  console.log(response.body);
-}).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
+  console.log("Exception when calling Team#teamSubTeams:");
   console.log(error.body);
 });
 
@@ -779,52 +545,23 @@ Updates the name of your Team.
 ### TypeScript Example
 
 ```typescript
-import * as DropboxSign from "@dropbox/sign";
+import * as fs from 'fs';
+import api from "@dropbox/sign"
+import models from "@dropbox/sign"
 
-const teamApi = new DropboxSign.TeamApi();
+const apiCaller = new api.TeamApi();
+apiCaller.username = "YOUR_API_KEY";
+// apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-// Configure HTTP basic authorization: api_key
-teamApi.username = "YOUR_API_KEY";
+const teamUpdateRequest = new models.TeamUpdateRequest();
+teamUpdateRequest.name = "New Team Name";
 
-// or, configure Bearer (JWT) authorization: oauth2
-// teamApi.accessToken = "YOUR_ACCESS_TOKEN";
-
-const data: DropboxSign.TeamUpdateRequest = {
-  name: "New Team Name",
-};
-
-const result = teamApi.teamUpdate(data);
-result.then(response => {
+apiCaller.teamUpdate(
+    teamUpdateRequest,
+).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
-  console.log(error.body);
-});
-
-```
-
-### JavaScript Example
-
-```javascript
-import * as DropboxSign from "@dropbox/sign";
-
-const teamApi = new DropboxSign.TeamApi();
-
-// Configure HTTP basic authorization: api_key
-teamApi.username = "YOUR_API_KEY";
-
-// or, configure Bearer (JWT) authorization: oauth2
-// teamApi.accessToken = "YOUR_ACCESS_TOKEN";
-
-const data = {
-  name: "New Team Name",
-};
-
-const result = teamApi.teamUpdate(data);
-result.then(response => {
-  console.log(response.body);
-}).catch(error => {
-  console.log("Exception when calling Dropbox Sign API:");
+  console.log("Exception when calling Team#teamUpdate:");
   console.log(error.body);
 });
 

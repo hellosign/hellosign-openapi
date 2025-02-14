@@ -1,0 +1,14 @@
+{
+  "files": [
+    "./example_signature_request.pdf"
+  ],
+  "signers": [
+    {
+      "email_address": "jack@example.com",
+      "name": "Jack",
+      "order": 0
+    }
+  ],
+  "type": "request_signature",
+  "test_mode": true
+}

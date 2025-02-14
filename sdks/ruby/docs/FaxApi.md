@@ -25,16 +25,15 @@ Deletes the specified Fax from the system
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
-  # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
 end
 
-fax_api = Dropbox::Sign::FaxApi.new
-
 begin
-  fax_api.fax_delete("fa5c8a0b0f492d768749333ad6fcc214c111e967")
+  Dropbox::Sign::FaxApi.new.fax_delete(
+    "fa5c8a0b0f492d768749333ad6fcc214c111e967",
+  )
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling Dropbox Sign API: #{e}"
+  puts "Exception when calling Fax#fax_delete: #{e}"
 end
 
 ```
@@ -91,19 +90,17 @@ Downloads files associated with a Fax
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
-  # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
 end
 
-fax_api = Dropbox::Sign::FaxApi.new
-
-faxId = "fa5c8a0b0f492d768749333ad6fcc214c111e967"
-
 begin
-  file_bin = fax_api.fax_files(data)
-  FileUtils.cp(file_bin.path, "path/to/file.pdf")
+  response = Dropbox::Sign::FaxApi.new.fax_files(
+    "fa5c8a0b0f492d768749333ad6fcc214c111e967",
+  )
+
+  FileUtils.cp(response.path, "./file_response")
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling Dropbox Sign API: #{e}"
+  puts "Exception when calling Fax#fax_files: #{e}"
 end
 
 ```
@@ -160,19 +157,17 @@ Returns information about a Fax
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
-  # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
 end
 
-fax_api = Dropbox::Sign::FaxApi.new
-
-fax_id = "fa5c8a0b0f492d768749333ad6fcc214c111e967"
-
 begin
-  result = fax_api.fax_get(fax_id)
-  p result
+  response = Dropbox::Sign::FaxApi.new.fax_get(
+    "fa5c8a0b0f492d768749333ad6fcc214c111e967",
+  )
+
+  p response
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling Dropbox Sign API: #{e}"
+  puts "Exception when calling Fax#fax_get: #{e}"
 end
 
 ```
@@ -229,20 +224,20 @@ Returns properties of multiple Faxes
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
-  # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
 end
 
-fax_api = Dropbox::Sign::FaxApi.new
-
-page = 1
-page_size = 2
-
 begin
-  result = fax_api.fax_list({ page: page, page_size: page_size })
-  p result
+  response = Dropbox::Sign::FaxApi.new.fax_list(
+    {
+          page: 1,
+          page_size: 20,
+      },
+  )
+
+  p response
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling Dropbox Sign API: #{e}"
+  puts "Exception when calling Fax#fax_list: #{e}"
 end
 
 ```
@@ -300,27 +295,29 @@ Creates and sends a new Fax with the submitted file(s)
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
-  # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
 end
 
-fax_api = Dropbox::Sign::FaxApi.new
-
-data = Dropbox::Sign::FaxSendRequest.new
-data.files = [File.new("example_signature_request.pdf", "r")]
-data.test_mode = true
-data.recipient = "16690000001"
-data.sender = "16690000000"
-data.cover_page_to = "Jill Fax"
-data.cover_page_message = "I'm sending you a fax!"
-data.cover_page_from = "Faxer Faxerson"
-data.title = "This is what the fax is about!"
+fax_send_request = Dropbox::Sign::FaxSendRequest.new
+fax_send_request.recipient = "16690000001"
+fax_send_request.sender = "16690000000"
+fax_send_request.test_mode = true
+fax_send_request.cover_page_to = "Jill Fax"
+fax_send_request.cover_page_from = "Faxer Faxerson"
+fax_send_request.cover_page_message = "I'm sending you a fax!"
+fax_send_request.title = "This is what the fax is about!"
+fax_send_request.files = [
+    File.new("./example_fax.pdf", "r"),
+]
 
 begin
-  result = fax_api.fax_send(data)
-  p result
+  response = Dropbox::Sign::FaxApi.new.fax_send(
+    fax_send_request,
+  )
+
+  p response
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling Dropbox Sign API: #{e}"
+  puts "Exception when calling Fax#fax_send: #{e}"
 end
 
 ```

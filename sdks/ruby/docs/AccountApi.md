@@ -24,23 +24,21 @@ Creates a new Dropbox Sign Account that is associated with the specified `email_
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
-  # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
-
-  # or, configure Bearer (JWT) authorization: oauth2
-  # config.access_token = "YOUR_ACCESS_TOKEN"
+  # config.access_token = "YOUR_ACCESS_TOKEN";
 end
 
-account_api = Dropbox::Sign::AccountApi.new
-
-data = Dropbox::Sign::AccountCreateRequest.new
-data.email_address = "newuser@dropboxsign.com"
+account_create_request = Dropbox::Sign::AccountCreateRequest.new
+account_create_request.email_address = "newuser@dropboxsign.com"
 
 begin
-  result = account_api.account_create(data)
-  p result
+  response = Dropbox::Sign::AccountApi.new.account_create(
+    account_create_request,
+  )
+
+  p response
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling Dropbox Sign API: #{e}"
+  puts "Exception when calling Account#account_create: #{e}"
 end
 
 ```
@@ -97,20 +95,16 @@ Returns the properties and settings of your Account.
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
-  # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
-
-  # or, configure Bearer (JWT) authorization: oauth2
-  # config.access_token = "YOUR_ACCESS_TOKEN"
+  # config.access_token = "YOUR_ACCESS_TOKEN";
 end
 
-account_api = Dropbox::Sign::AccountApi.new
-
 begin
-  result = account_api.account_get({ email_address: "jack@example.com" })
-  p result
+  response = Dropbox::Sign::AccountApi.new.account_get
+
+  p response
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling Dropbox Sign API: #{e}"
+  puts "Exception when calling Account#account_get: #{e}"
 end
 
 ```
@@ -168,23 +162,22 @@ Updates the properties and settings of your Account. Currently only allows for u
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
-  # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
-
-  # or, configure Bearer (JWT) authorization: oauth2
-  # config.access_token = "YOUR_ACCESS_TOKEN"
+  # config.access_token = "YOUR_ACCESS_TOKEN";
 end
 
-account_api = Dropbox::Sign::AccountApi.new
-
-data = Dropbox::Sign::AccountUpdateRequest.new
-data.callback_url = "https://www.example.com/callback"
+account_update_request = Dropbox::Sign::AccountUpdateRequest.new
+account_update_request.callback_url = "https://www.example.com/callback"
+account_update_request.locale = "en-US"
 
 begin
-  result = account_api.account_update(data)
-  p result
+  response = Dropbox::Sign::AccountApi.new.account_update(
+    account_update_request,
+  )
+
+  p response
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling Dropbox Sign API: #{e}"
+  puts "Exception when calling Account#account_update: #{e}"
 end
 
 ```
@@ -241,23 +234,21 @@ Verifies whether an Dropbox Sign Account exists for the given email address.
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
-  # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
-
-  # or, configure Bearer (JWT) authorization: oauth2
-  # config.access_token = "YOUR_ACCESS_TOKEN"
+  # config.access_token = "YOUR_ACCESS_TOKEN";
 end
 
-account_api = Dropbox::Sign::AccountApi.new
-
-data = Dropbox::Sign::AccountVerifyRequest.new
-data.email_address = "some_user@dropboxsign.com"
+account_verify_request = Dropbox::Sign::AccountVerifyRequest.new
+account_verify_request.email_address = "some_user@dropboxsign.com"
 
 begin
-  result = account_api.account_verify(data)
-  p result
+  response = Dropbox::Sign::AccountApi.new.account_verify(
+    account_verify_request,
+  )
+
+  p response
 rescue Dropbox::Sign::ApiError => e
-  puts "Exception when calling Dropbox Sign API: #{e}"
+  puts "Exception when calling Account#account_verify: #{e}"
 end
 
 ```

@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+
+set -e
+
+DIR=$(cd `dirname $0` && pwd)
+
+WORKING_DIR="/app/openapi"
+SDK_DIR="${DIR}/../sdks/ruby"
+TARGET_DIR="${DIR}/../sandbox/ruby"
+ARTIFACTS_DIR="${DIR}/../sandbox/ruby/artifacts"
+
+rm -rf "${ARTIFACTS_DIR}"
+mkdir -p "${ARTIFACTS_DIR}/gems"
+
+docker run --rm \
+  -e GEM_HOME="/.gem-cache" \
+  -e BUNDLE_PATH="/.bundle-cache" \
+  -v "${SDK_DIR}:${WORKING_DIR}" \
+  -v "${ARTIFACTS_DIR}:/artifacts" \
+  -v "dropbox-sign-sdk-gem-cache:/.gem-cache" \
+  -v "dropbox-sign-sdk-bundle-cache:/.bundle-cache" \
+  -w "${WORKING_DIR}" \
+  ruby:3.4 gem build dropbox-sign.gemspec -o /artifacts/gems/dropbox-sign.gem
+
+docker run --rm \
+  -e GEM_HOME="/.gem-cache" \
+  -e BUNDLE_PATH="/.bundle-cache" \
+  -v "${ARTIFACTS_DIR}:/artifacts" \
+  -v "dropbox-sign-sdk-gem-cache:/.gem-cache" \
+  -v "dropbox-sign-sdk-bundle-cache:/.bundle-cache" \
+  -w "/artifacts" \
+  ruby:3.4 gem generate_index

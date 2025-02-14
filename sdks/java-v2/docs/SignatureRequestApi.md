@@ -40,72 +40,105 @@ Creates BulkSendJob which sends up to 250 SignatureRequests in bulk based off of
 ### Example
 
 ```java
+package com.dropbox.sign_sandbox;
+
 import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
 import com.dropbox.sign.model.*;
 
+import java.io.File;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
-public class Example {
-    public static void main(String[] args) {
-        var apiClient = Configuration.getDefaultApiClient()
-            .setApiKey("YOUR_API_KEY");
+public class SignatureRequestBulkCreateEmbeddedWithTemplateExample
+{
+    public static void main(String[] args)
+    {
+        var config = Configuration.getDefaultApiClient();
+        config.setUsername("YOUR_API_KEY");
 
-        // or, configure Bearer (JWT) authorization: oauth2
-        /*
-        var apiClient = Configuration.getDefaultApiClient()
-            .setBearerToken("YOUR_ACCESS_TOKEN");
-        */
+        var signerList2CustomFields1 = new SubBulkSignerListCustomField();
+        signerList2CustomFields1.name("company");
+        signerList2CustomFields1.value("123 LLC");
 
-        var signatureRequestApi = new SignatureRequestApi(apiClient);
+        var signerList2CustomFields = new ArrayList<SubBulkSignerListCustomField>(List.of (
+            signerList2CustomFields1
+        ));
 
-        var signerList1Signer = new SubSignatureRequestTemplateSigner()
-            .role("Client")
-            .name("George")
-            .emailAddress("george@example.com")
-            .pin("d79a3td");
+        var signerList2Signers1 = new SubSignatureRequestTemplateSigner();
+        signerList2Signers1.role("Client");
+        signerList2Signers1.name("Mary");
+        signerList2Signers1.emailAddress("mary@example.com");
+        signerList2Signers1.pin("gd9as5b");
 
-        var signerList1CustomFields = new SubBulkSignerListCustomField()
-            .name("company")
-            .value("ABC Corp");
+        var signerList2Signers = new ArrayList<SubSignatureRequestTemplateSigner>(List.of (
+            signerList2Signers1
+        ));
 
-        var signerList1 = new SubBulkSignerList()
-            .signers(List.of(signerList1Signer))
-            .customFields(List.of(signerList1CustomFields));
+        var signerList1CustomFields1 = new SubBulkSignerListCustomField();
+        signerList1CustomFields1.name("company");
+        signerList1CustomFields1.value("ABC Corp");
 
-        var signerList2Signer = new SubSignatureRequestTemplateSigner()
-            .role("Client")
-            .name("Mary")
-            .emailAddress("mary@example.com")
-            .pin("gd9as5b");
+        var signerList1CustomFields = new ArrayList<SubBulkSignerListCustomField>(List.of (
+            signerList1CustomFields1
+        ));
 
-        var signerList2CustomFields = new SubBulkSignerListCustomField()
-            .name("company")
-            .value("123 Corp");
+        var signerList1Signers1 = new SubSignatureRequestTemplateSigner();
+        signerList1Signers1.role("Client");
+        signerList1Signers1.name("George");
+        signerList1Signers1.emailAddress("george@example.com");
+        signerList1Signers1.pin("d79a3td");
 
-        var signerList2 = new SubBulkSignerList()
-            .signers(List.of(signerList2Signer))
-            .customFields(List.of(signerList2CustomFields));
+        var signerList1Signers = new ArrayList<SubSignatureRequestTemplateSigner>(List.of (
+            signerList1Signers1
+        ));
 
-        var cc1 = new SubCC().role("Accounting")
-            .emailAddress("accouting@email.com");
+        var signerList1 = new SubBulkSignerList();
+        signerList1.customFields(signerList1CustomFields);
+        signerList1.signers(signerList1Signers);
 
-        var data = new SignatureRequestBulkCreateEmbeddedWithTemplateRequest()
-            .clientId("1a659d9ad95bccd307ecad78d72192f8")
-            .templateIds(List.of("c26b8a16784a872da37ea946b9ddec7c1e11dff6"))
-            .subject("Purchase Order")
-            .message("Glad we could come to an agreement.")
-            .signerList(List.of(signerList1, signerList2))
-            .ccs(List.of(cc1))
-            .testMode(true);
+        var signerList2 = new SubBulkSignerList();
+        signerList2.customFields(signerList2CustomFields);
+        signerList2.signers(signerList2Signers);
 
-        try {
-            BulkSendJobSendResponse result = signatureRequestApi.signatureRequestBulkCreateEmbeddedWithTemplate(data);
-            System.out.println(result);
+        var signerList = new ArrayList<SubBulkSignerList>(List.of (
+            signerList1,
+            signerList2
+        ));
+
+        var ccs1 = new SubCC();
+        ccs1.role("Accounting");
+        ccs1.emailAddress("accounting@example.com");
+
+        var ccs = new ArrayList<SubCC>(List.of (
+            ccs1
+        ));
+
+        var signatureRequestBulkCreateEmbeddedWithTemplateRequest = new SignatureRequestBulkCreateEmbeddedWithTemplateRequest();
+        signatureRequestBulkCreateEmbeddedWithTemplateRequest.clientId("1a659d9ad95bccd307ecad78d72192f8");
+        signatureRequestBulkCreateEmbeddedWithTemplateRequest.templateIds(List.of (
+            "c26b8a16784a872da37ea946b9ddec7c1e11dff6"
+        ));
+        signatureRequestBulkCreateEmbeddedWithTemplateRequest.message("Glad we could come to an agreement.");
+        signatureRequestBulkCreateEmbeddedWithTemplateRequest.subject("Purchase Order");
+        signatureRequestBulkCreateEmbeddedWithTemplateRequest.testMode(true);
+        signatureRequestBulkCreateEmbeddedWithTemplateRequest.signerList(signerList);
+        signatureRequestBulkCreateEmbeddedWithTemplateRequest.ccs(ccs);
+
+        try
+        {
+            var response = new SignatureRequestApi(config).signatureRequestBulkCreateEmbeddedWithTemplate(
+                signatureRequestBulkCreateEmbeddedWithTemplateRequest
+            );
+
+            System.out.println(response);
         } catch (ApiException e) {
-            System.err.println("Exception when calling AccountApi#accountCreate");
+            System.err.println("Exception when calling SignatureRequest#signatureRequestBulkCreateEmbeddedWithTemplate");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -156,72 +189,105 @@ Creates BulkSendJob which sends up to 250 SignatureRequests in bulk based off of
 ### Example
 
 ```java
+package com.dropbox.sign_sandbox;
+
 import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
 import com.dropbox.sign.model.*;
 
+import java.io.File;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
-public class Example {
-    public static void main(String[] args) {
-        var apiClient = Configuration.getDefaultApiClient()
-            .setApiKey("YOUR_API_KEY");
+public class SignatureRequestBulkSendWithTemplateExample
+{
+    public static void main(String[] args)
+    {
+        var config = Configuration.getDefaultApiClient();
+        config.setUsername("YOUR_API_KEY");
+        // config.setAccessToken("YOUR_ACCESS_TOKEN");
 
-        // or, configure Bearer (JWT) authorization: oauth2
-        /*
-        var apiClient = Configuration.getDefaultApiClient()
-            .setBearerToken("YOUR_ACCESS_TOKEN");
-        */
+        var signerList2CustomFields1 = new SubBulkSignerListCustomField();
+        signerList2CustomFields1.name("company");
+        signerList2CustomFields1.value("123 LLC");
 
-        var signatureRequestApi = new SignatureRequestApi(apiClient);
+        var signerList2CustomFields = new ArrayList<SubBulkSignerListCustomField>(List.of (
+            signerList2CustomFields1
+        ));
 
-        var signerList1Signer = new SubSignatureRequestTemplateSigner()
-            .role("Client")
-            .name("George")
-            .emailAddress("george@example.com")
-            .pin("d79a3td");
+        var signerList2Signers1 = new SubSignatureRequestTemplateSigner();
+        signerList2Signers1.role("Client");
+        signerList2Signers1.name("Mary");
+        signerList2Signers1.emailAddress("mary@example.com");
+        signerList2Signers1.pin("gd9as5b");
 
-        var signerList1CustomFields = new SubBulkSignerListCustomField()
-            .name("company")
-            .value("ABC Corp");
+        var signerList2Signers = new ArrayList<SubSignatureRequestTemplateSigner>(List.of (
+            signerList2Signers1
+        ));
 
-        var signerList1 = new SubBulkSignerList()
-            .signers(List.of(signerList1Signer))
-            .customFields(List.of(signerList1CustomFields));
+        var signerList1CustomFields1 = new SubBulkSignerListCustomField();
+        signerList1CustomFields1.name("company");
+        signerList1CustomFields1.value("ABC Corp");
 
-        var signerList2Signer = new SubSignatureRequestTemplateSigner()
-            .role("Client")
-            .name("Mary")
-            .emailAddress("mary@example.com")
-            .pin("gd9as5b");
+        var signerList1CustomFields = new ArrayList<SubBulkSignerListCustomField>(List.of (
+            signerList1CustomFields1
+        ));
 
-        var signerList2CustomFields = new SubBulkSignerListCustomField()
-            .name("company")
-            .value("123 Corp");
+        var signerList1Signers1 = new SubSignatureRequestTemplateSigner();
+        signerList1Signers1.role("Client");
+        signerList1Signers1.name("George");
+        signerList1Signers1.emailAddress("george@example.com");
+        signerList1Signers1.pin("d79a3td");
 
-        var signerList2 = new SubBulkSignerList()
-            .signers(List.of(signerList2Signer))
-            .customFields(List.of(signerList2CustomFields));
+        var signerList1Signers = new ArrayList<SubSignatureRequestTemplateSigner>(List.of (
+            signerList1Signers1
+        ));
 
-        var cc1 = new SubCC()
-            .role("Accounting")
-            .emailAddress("accouting@email.com");
+        var signerList1 = new SubBulkSignerList();
+        signerList1.customFields(signerList1CustomFields);
+        signerList1.signers(signerList1Signers);
 
-        var data = new SignatureRequestBulkSendWithTemplateRequest()
-            .templateIds(List.of("c26b8a16784a872da37ea946b9ddec7c1e11dff6"))
-            .subject("Purchase Order")
-            .message("Glad we could come to an agreement.")
-            .signerList(List.of(signerList1, signerList2))
-            .ccs(List.of(cc1))
-            .testMode(true);
+        var signerList2 = new SubBulkSignerList();
+        signerList2.customFields(signerList2CustomFields);
+        signerList2.signers(signerList2Signers);
 
-        try {
-            BulkSendJobSendResponse result = signatureRequestApi.signatureRequestBulkSendWithTemplate(data);
-            System.out.println(result);
+        var signerList = new ArrayList<SubBulkSignerList>(List.of (
+            signerList1,
+            signerList2
+        ));
+
+        var ccs1 = new SubCC();
+        ccs1.role("Accounting");
+        ccs1.emailAddress("accounting@example.com");
+
+        var ccs = new ArrayList<SubCC>(List.of (
+            ccs1
+        ));
+
+        var signatureRequestBulkSendWithTemplateRequest = new SignatureRequestBulkSendWithTemplateRequest();
+        signatureRequestBulkSendWithTemplateRequest.templateIds(List.of (
+            "c26b8a16784a872da37ea946b9ddec7c1e11dff6"
+        ));
+        signatureRequestBulkSendWithTemplateRequest.message("Glad we could come to an agreement.");
+        signatureRequestBulkSendWithTemplateRequest.subject("Purchase Order");
+        signatureRequestBulkSendWithTemplateRequest.testMode(true);
+        signatureRequestBulkSendWithTemplateRequest.signerList(signerList);
+        signatureRequestBulkSendWithTemplateRequest.ccs(ccs);
+
+        try
+        {
+            var response = new SignatureRequestApi(config).signatureRequestBulkSendWithTemplate(
+                signatureRequestBulkSendWithTemplateRequest
+            );
+
+            System.out.println(response);
         } catch (ApiException e) {
-            System.err.println("Exception when calling AccountApi#accountCreate");
+            System.err.println("Exception when calling SignatureRequest#signatureRequestBulkSendWithTemplate");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -278,30 +344,36 @@ To be eligible for cancelation, a signature request must have been sent successf
 ### Example
 
 ```java
+package com.dropbox.sign_sandbox;
+
 import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.model.*;
 
-public class Example {
-    public static void main(String[] args) {
-        var apiClient = Configuration.getDefaultApiClient()
-            .setApiKey("YOUR_API_KEY");
+import java.io.File;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
-        // or, configure Bearer (JWT) authorization: oauth2
-        /*
-        var apiClient = Configuration.getDefaultApiClient()
-            .setBearerToken("YOUR_ACCESS_TOKEN");
-        */
+public class SignatureRequestCancelExample
+{
+    public static void main(String[] args)
+    {
+        var config = Configuration.getDefaultApiClient();
+        config.setUsername("YOUR_API_KEY");
+        // config.setAccessToken("YOUR_ACCESS_TOKEN");
 
-        var signatureRequestApi = new SignatureRequestApi(apiClient);
-
-        var signatureRequestId = "2f9781e1a8e2045224d808c153c2e1d3df6f8f2f";
-
-        try {
-            signatureRequestApi.signatureRequestCancel(signatureRequestId);
+        try
+        {
+            new SignatureRequestApi(config).signatureRequestCancel(
+                "fa5c8a0b0f492d768749333ad6fcc214c111e967"
+            );
         } catch (ApiException e) {
-            System.err.println("Exception when calling AccountApi#accountCreate");
+            System.err.println("Exception when calling SignatureRequest#signatureRequestCancel");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -350,6 +422,8 @@ Creates a new SignatureRequest with the submitted documents to be signed in an e
 ### Example
 
 ```java
+package com.dropbox.sign_sandbox;
+
 import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
@@ -357,54 +431,67 @@ import com.dropbox.sign.auth.*;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
-public class Example {
-    public static void main(String[] args) {
-        var apiClient = Configuration.getDefaultApiClient()
-            .setApiKey("YOUR_API_KEY");
+public class SignatureRequestCreateEmbeddedExample
+{
+    public static void main(String[] args)
+    {
+        var config = Configuration.getDefaultApiClient();
+        config.setUsername("YOUR_API_KEY");
+        // config.setAccessToken("YOUR_ACCESS_TOKEN");
 
-        // or, configure Bearer (JWT) authorization: oauth2
-        /*
-        var apiClient = Configuration.getDefaultApiClient()
-            .setBearerToken("YOUR_ACCESS_TOKEN");
-        */
+        var signingOptions = new SubSigningOptions();
+        signingOptions.defaultType(SubSigningOptions.DefaultTypeEnum.DRAW);
+        signingOptions.draw(true);
+        signingOptions.phone(false);
+        signingOptions.type(true);
+        signingOptions.upload(true);
 
-        var signatureRequestApi = new SignatureRequestApi(apiClient);
+        var signers1 = new SubSignatureRequestSigner();
+        signers1.name("Jack");
+        signers1.emailAddress("jack@example.com");
+        signers1.order(0);
 
-        var signer1 = new SubSignatureRequestSigner()
-            .emailAddress("jack@example.com")
-            .name("Jack")
-            .order(0);
+        var signers2 = new SubSignatureRequestSigner();
+        signers2.name("Jill");
+        signers2.emailAddress("jill@example.com");
+        signers2.order(1);
 
-        var signer2 = new SubSignatureRequestSigner()
-            .emailAddress("jill@example.com")
-            .name("Jill")
-            .order(1);
+        var signers = new ArrayList<SubSignatureRequestSigner>(List.of (
+            signers1,
+            signers2
+        ));
 
-        var signingOptions = new SubSigningOptions()
-            .draw(true)
-            .type(true)
-            .upload(true)
-            .phone(true)
-            .defaultType(SubSigningOptions.DefaultTypeEnum.DRAW);
+        var signatureRequestCreateEmbeddedRequest = new SignatureRequestCreateEmbeddedRequest();
+        signatureRequestCreateEmbeddedRequest.clientId("b6b8e7deaf8f0b95c029dca049356d4a2cf9710a");
+        signatureRequestCreateEmbeddedRequest.message("Please sign this NDA and then we can discuss more. Let me know if you\nhave any questions.");
+        signatureRequestCreateEmbeddedRequest.subject("The NDA we talked about");
+        signatureRequestCreateEmbeddedRequest.testMode(true);
+        signatureRequestCreateEmbeddedRequest.title("NDA with Acme Co.");
+        signatureRequestCreateEmbeddedRequest.ccEmailAddresses(List.of (
+            "lawyer1@dropboxsign.com",
+            "lawyer2@dropboxsign.com"
+        ));
+        signatureRequestCreateEmbeddedRequest.files(List.of (
+            new File("./example_signature_request.pdf")
+        ));
+        signatureRequestCreateEmbeddedRequest.signingOptions(signingOptions);
+        signatureRequestCreateEmbeddedRequest.signers(signers);
 
-        var data = new SignatureRequestCreateEmbeddedRequest()
-            .clientId("ec64a202072370a737edf4a0eb7f4437")
-            .title("NDA with Acme Co.")
-            .subject("The NDA we talked about")
-            .message("Please sign this NDA and then we can discuss more. Let me know if you have any questions.")
-            .signers(List.of(signer1, signer2))
-            .ccEmailAddresses(List.of("lawyer1@dropboxsign.com", "lawyer2@dropboxsign.com"))
-            .addFilesItem(new File("example_signature_request.pdf"))
-            .signingOptions(signingOptions)
-            .testMode(true);
+        try
+        {
+            var response = new SignatureRequestApi(config).signatureRequestCreateEmbedded(
+                signatureRequestCreateEmbeddedRequest
+            );
 
-        try {
-            SignatureRequestGetResponse result = signatureRequestApi.signatureRequestCreateEmbedded(data);
-            System.out.println(result);
+            System.out.println(response);
         } catch (ApiException e) {
-            System.err.println("Exception when calling AccountApi#accountCreate");
+            System.err.println("Exception when calling SignatureRequest#signatureRequestCreateEmbedded");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -453,52 +540,65 @@ Creates a new SignatureRequest based on the given Template(s) to be signed in an
 ### Example
 
 ```java
+package com.dropbox.sign_sandbox;
+
 import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
 import com.dropbox.sign.model.*;
 
+import java.io.File;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
-public class Example {
-    public static void main(String[] args) {
-        var apiClient = Configuration.getDefaultApiClient()
-            .setApiKey("YOUR_API_KEY");
+public class SignatureRequestCreateEmbeddedWithTemplateExample
+{
+    public static void main(String[] args)
+    {
+        var config = Configuration.getDefaultApiClient();
+        config.setUsername("YOUR_API_KEY");
+        // config.setAccessToken("YOUR_ACCESS_TOKEN");
 
-        // or, configure Bearer (JWT) authorization: oauth2
-        /*
-        var apiClient = Configuration.getDefaultApiClient()
-            .setBearerToken("YOUR_ACCESS_TOKEN");
-        */
+        var signingOptions = new SubSigningOptions();
+        signingOptions.defaultType(SubSigningOptions.DefaultTypeEnum.DRAW);
+        signingOptions.draw(true);
+        signingOptions.phone(false);
+        signingOptions.type(true);
+        signingOptions.upload(true);
 
-        var signatureRequestApi = new SignatureRequestApi(apiClient);
+        var signers1 = new SubSignatureRequestTemplateSigner();
+        signers1.role("Client");
+        signers1.name("George");
+        signers1.emailAddress("george@example.com");
 
-        var signer1 = new SubSignatureRequestTemplateSigner()
-            .role("Client")
-            .name("George");
+        var signers = new ArrayList<SubSignatureRequestTemplateSigner>(List.of (
+            signers1
+        ));
 
-        var subSigningOptions = new SubSigningOptions()
-            .draw(true)
-            .type(true)
-            .upload(true)
-            .phone(false)
-            .defaultType(SubSigningOptions.DefaultTypeEnum.DRAW);
+        var signatureRequestCreateEmbeddedWithTemplateRequest = new SignatureRequestCreateEmbeddedWithTemplateRequest();
+        signatureRequestCreateEmbeddedWithTemplateRequest.clientId("b6b8e7deaf8f0b95c029dca049356d4a2cf9710a");
+        signatureRequestCreateEmbeddedWithTemplateRequest.templateIds(List.of (
+            "c26b8a16784a872da37ea946b9ddec7c1e11dff6"
+        ));
+        signatureRequestCreateEmbeddedWithTemplateRequest.message("Glad we could come to an agreement.");
+        signatureRequestCreateEmbeddedWithTemplateRequest.subject("Purchase Order");
+        signatureRequestCreateEmbeddedWithTemplateRequest.testMode(true);
+        signatureRequestCreateEmbeddedWithTemplateRequest.signingOptions(signingOptions);
+        signatureRequestCreateEmbeddedWithTemplateRequest.signers(signers);
 
-        var data = new SignatureRequestCreateEmbeddedWithTemplateRequest()
-            .clientId("ec64a202072370a737edf4a0eb7f4437")
-            .templateIds(List.of("c26b8a16784a872da37ea946b9ddec7c1e11dff6"))
-            .subject("Purchase Order")
-            .message("Glad we could come to an agreement.")
-            .signers(List.of(signer1))
-            .signingOptions(subSigningOptions)
-            .testMode(true);
+        try
+        {
+            var response = new SignatureRequestApi(config).signatureRequestCreateEmbeddedWithTemplate(
+                signatureRequestCreateEmbeddedWithTemplateRequest
+            );
 
-        try {
-            SignatureRequestGetResponse result = signatureRequestApi.signatureRequestCreateEmbeddedWithTemplate(data);
-            System.out.println(result);
+            System.out.println(response);
         } catch (ApiException e) {
-            System.err.println("Exception when calling AccountApi#accountCreate");
+            System.err.println("Exception when calling SignatureRequest#signatureRequestCreateEmbeddedWithTemplate");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -549,6 +649,8 @@ Edits and sends a SignatureRequest with the submitted documents. If `form_fields
 ### Example
 
 ```java
+package com.dropbox.sign_sandbox;
+
 import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
@@ -556,61 +658,75 @@ import com.dropbox.sign.auth.*;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-public class Example {
-    public static void main(String[] args) {
-        var apiClient = Configuration.getDefaultApiClient()
-            .setApiKey("YOUR_API_KEY");
+public class SignatureRequestEditExample
+{
+    public static void main(String[] args)
+    {
+        var config = Configuration.getDefaultApiClient();
+        config.setUsername("YOUR_API_KEY");
+        // config.setAccessToken("YOUR_ACCESS_TOKEN");
 
-        // or, configure Bearer (JWT) authorization: oauth2
-        /*
-        var apiClient = Configuration.getDefaultApiClient()
-            .setBearerToken("YOUR_ACCESS_TOKEN");
-        */
+        var fieldOptions = new SubFieldOptions();
+        fieldOptions.dateFormat(SubFieldOptions.DateFormatEnum.DD_MM_YYYY);
 
-        var signatureRequestApi = new SignatureRequestApi(apiClient);
+        var signingOptions = new SubSigningOptions();
+        signingOptions.defaultType(SubSigningOptions.DefaultTypeEnum.DRAW);
+        signingOptions.draw(true);
+        signingOptions.phone(false);
+        signingOptions.type(true);
+        signingOptions.upload(true);
 
-        var signer1 = new SubSignatureRequestSigner()
-            .emailAddress("jack@example.com")
-            .name("Jack")
-            .order(0);
+        var signers1 = new SubSignatureRequestSigner();
+        signers1.name("Jack");
+        signers1.emailAddress("jack@example.com");
+        signers1.order(0);
 
-        var signer2 = new SubSignatureRequestSigner()
-            .emailAddress("jill@example.com")
-            .name("Jill")
-            .order(1);
+        var signers2 = new SubSignatureRequestSigner();
+        signers2.name("Jill");
+        signers2.emailAddress("jill@example.com");
+        signers2.order(1);
 
-        var signingOptions = new SubSigningOptions()
-            .draw(true)
-            .type(true)
-            .upload(true)
-            .phone(true)
-            .defaultType(SubSigningOptions.DefaultTypeEnum.DRAW);
+        var signers = new ArrayList<SubSignatureRequestSigner>(List.of (
+            signers1,
+            signers2
+        ));
 
-        var subFieldOptions = new SubFieldOptions()
-            .dateFormat(SubFieldOptions.DateFormatEnum.DDMMYYYY);
+        var signatureRequestEditRequest = new SignatureRequestEditRequest();
+        signatureRequestEditRequest.message("Please sign this NDA and then we can discuss more. Let me know if you\nhave any questions.");
+        signatureRequestEditRequest.subject("The NDA we talked about");
+        signatureRequestEditRequest.testMode(true);
+        signatureRequestEditRequest.title("NDA with Acme Co.");
+        signatureRequestEditRequest.ccEmailAddresses(List.of (
+            "lawyer1@dropboxsign.com",
+            "lawyer2@dropboxsign.com"
+        ));
+        signatureRequestEditRequest.files(List.of (
+            new File("./example_signature_request.pdf")
+        ));
+        signatureRequestEditRequest.metadata(Map.of (
+            "custom_id", 1234,
+            "custom_text", "NDA #9"
+        ));
+        signatureRequestEditRequest.fieldOptions(fieldOptions);
+        signatureRequestEditRequest.signingOptions(signingOptions);
+        signatureRequestEditRequest.signers(signers);
 
-        var signatureRequestId = "2f9781e1a8e2045224d808c153c2e1d3df6f8f2f";
+        try
+        {
+            var response = new SignatureRequestApi(config).signatureRequestEdit(
+                "fa5c8a0b0f492d768749333ad6fcc214c111e967",
+                signatureRequestEditRequest
+            );
 
-        var data = new SignatureRequestEditRequest()
-            .title("NDA with Acme Co.")
-            .subject("The NDA we talked about")
-            .message("Please sign this NDA and then we can discuss more. Let me know if you have any questions.")
-            .signers(List.of(signer1, signer2))
-            .ccEmailAddresses(List.of("lawyer1@dropboxsign.com", "lawyer2@dropboxsign.com"))
-            .addFilesItem(new File("example_signature_request.pdf"))
-            .metadata(Map.of("custom_id", 1234, "custom_text", "NDA #9"))
-            .signingOptions(signingOptions)
-            .fieldOptions(subFieldOptions)
-            .testMode(true);
-
-        try {
-            SignatureRequestGetResponse result = signatureRequestApi.signatureRequestEdit(signatureRequestId, data);
-            System.out.println(result);
+            System.out.println(response);
         } catch (ApiException e) {
-            System.err.println("Exception when calling AccountApi#accountCreate");
+            System.err.println("Exception when calling SignatureRequest#signatureRequestEdit");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -660,6 +776,8 @@ Edits a SignatureRequest with the submitted documents to be signed in an embedde
 ### Example
 
 ```java
+package com.dropbox.sign_sandbox;
+
 import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
@@ -667,59 +785,68 @@ import com.dropbox.sign.auth.*;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
-public class Example {
-    public static void main(String[] args) {
-        var apiClient = Configuration.getDefaultApiClient()
-            .setApiKey("YOUR_API_KEY");
+public class SignatureRequestEditEmbeddedExample
+{
+    public static void main(String[] args)
+    {
+        var config = Configuration.getDefaultApiClient();
+        config.setUsername("YOUR_API_KEY");
+        // config.setAccessToken("YOUR_ACCESS_TOKEN");
 
-        // or, configure Bearer (JWT) authorization: oauth2
-        /*
-        var apiClient = Configuration.getDefaultApiClient()
-            .setBearerToken("YOUR_ACCESS_TOKEN");
-        */
+        var signingOptions = new SubSigningOptions();
+        signingOptions.defaultType(SubSigningOptions.DefaultTypeEnum.DRAW);
+        signingOptions.draw(true);
+        signingOptions.phone(false);
+        signingOptions.type(true);
+        signingOptions.upload(true);
 
-        var signatureRequestApi = new SignatureRequestApi(apiClient);
+        var signers1 = new SubSignatureRequestSigner();
+        signers1.name("Jack");
+        signers1.emailAddress("jack@example.com");
+        signers1.order(0);
 
-        var signer1 = new SubSignatureRequestSigner()
-            .emailAddress("jack@example.com")
-            .name("Jack")
-            .order(0);
+        var signers2 = new SubSignatureRequestSigner();
+        signers2.name("Jill");
+        signers2.emailAddress("jill@example.com");
+        signers2.order(1);
 
-        var signer2 = new SubSignatureRequestSigner()
-            .emailAddress("jill@example.com")
-            .name("Jill")
-            .order(1);
+        var signers = new ArrayList<SubSignatureRequestSigner>(List.of (
+            signers1,
+            signers2
+        ));
 
-        var signingOptions = new SubSigningOptions()
-            .draw(true)
-            .type(true)
-            .upload(true)
-            .phone(true)
-            .defaultType(SubSigningOptions.DefaultTypeEnum.DRAW);
+        var signatureRequestEditEmbeddedRequest = new SignatureRequestEditEmbeddedRequest();
+        signatureRequestEditEmbeddedRequest.clientId("b6b8e7deaf8f0b95c029dca049356d4a2cf9710a");
+        signatureRequestEditEmbeddedRequest.message("Please sign this NDA and then we can discuss more. Let me know if you\nhave any questions.");
+        signatureRequestEditEmbeddedRequest.subject("The NDA we talked about");
+        signatureRequestEditEmbeddedRequest.testMode(true);
+        signatureRequestEditEmbeddedRequest.title("NDA with Acme Co.");
+        signatureRequestEditEmbeddedRequest.ccEmailAddresses(List.of (
+            "lawyer1@dropboxsign.com",
+            "lawyer2@dropboxsign.com"
+        ));
+        signatureRequestEditEmbeddedRequest.files(List.of (
+            new File("./example_signature_request.pdf")
+        ));
+        signatureRequestEditEmbeddedRequest.signingOptions(signingOptions);
+        signatureRequestEditEmbeddedRequest.signers(signers);
 
-        var signatureRequestId = "2f9781e1a8e2045224d808c153c2e1d3df6f8f2f";
-
-        var data = new SignatureRequestEditEmbeddedRequest()
-            .clientId("ec64a202072370a737edf4a0eb7f4437")
-            .title("NDA with Acme Co.")
-            .subject("The NDA we talked about")
-            .message("Please sign this NDA and then we can discuss more. Let me know if you have any questions.")
-            .signers(List.of(signer1, signer2))
-            .ccEmailAddresses(List.of("lawyer1@dropboxsign.com", "lawyer2@dropboxsign.com"))
-            .addFilesItem(new File("example_signature_request.pdf"))
-            .signingOptions(signingOptions)
-            .testMode(true);
-
-        try {
-            SignatureRequestGetResponse result = signatureRequestApi.signatureRequestEditEmbedded(
-                signatureRequestId,
-                data
+        try
+        {
+            var response = new SignatureRequestApi(config).signatureRequestEditEmbedded(
+                "fa5c8a0b0f492d768749333ad6fcc214c111e967",
+                signatureRequestEditEmbeddedRequest
             );
-            System.out.println(result);
+
+            System.out.println(response);
         } catch (ApiException e) {
-            System.err.println("Exception when calling SignatureRequestApi#signatureRequestEditEmbedded");
+            System.err.println("Exception when calling SignatureRequest#signatureRequestEditEmbedded");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -769,57 +896,66 @@ Edits a SignatureRequest based on the given Template(s) to be signed in an embed
 ### Example
 
 ```java
+package com.dropbox.sign_sandbox;
+
 import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
 import com.dropbox.sign.model.*;
 
+import java.io.File;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
-public class Example {
-    public static void main(String[] args) {
-        var apiClient = Configuration.getDefaultApiClient()
-            .setApiKey("YOUR_API_KEY");
+public class SignatureRequestEditEmbeddedWithTemplateExample
+{
+    public static void main(String[] args)
+    {
+        var config = Configuration.getDefaultApiClient();
+        config.setUsername("YOUR_API_KEY");
+        // config.setAccessToken("YOUR_ACCESS_TOKEN");
 
-        // or, configure Bearer (JWT) authorization: oauth2
-        /*
-        var apiClient = Configuration.getDefaultApiClient()
-            .setBearerToken("YOUR_ACCESS_TOKEN");
-        */
+        var signingOptions = new SubSigningOptions();
+        signingOptions.defaultType(SubSigningOptions.DefaultTypeEnum.DRAW);
+        signingOptions.draw(true);
+        signingOptions.phone(false);
+        signingOptions.type(true);
+        signingOptions.upload(true);
 
-        var signatureRequestApi = new SignatureRequestApi(apiClient);
+        var signers1 = new SubSignatureRequestTemplateSigner();
+        signers1.role("Client");
+        signers1.name("George");
+        signers1.emailAddress("george@example.com");
 
-        var signer1 = new SubSignatureRequestTemplateSigner()
-            .role("Client")
-            .name("George");
+        var signers = new ArrayList<SubSignatureRequestTemplateSigner>(List.of (
+            signers1
+        ));
 
-        var subSigningOptions = new SubSigningOptions()
-            .draw(true)
-            .type(true)
-            .upload(true)
-            .phone(false)
-            .defaultType(SubSigningOptions.DefaultTypeEnum.DRAW);
+        var signatureRequestEditEmbeddedWithTemplateRequest = new SignatureRequestEditEmbeddedWithTemplateRequest();
+        signatureRequestEditEmbeddedWithTemplateRequest.clientId("b6b8e7deaf8f0b95c029dca049356d4a2cf9710a");
+        signatureRequestEditEmbeddedWithTemplateRequest.templateIds(List.of (
+            "c26b8a16784a872da37ea946b9ddec7c1e11dff6"
+        ));
+        signatureRequestEditEmbeddedWithTemplateRequest.message("Glad we could come to an agreement.");
+        signatureRequestEditEmbeddedWithTemplateRequest.subject("Purchase Order");
+        signatureRequestEditEmbeddedWithTemplateRequest.testMode(true);
+        signatureRequestEditEmbeddedWithTemplateRequest.signingOptions(signingOptions);
+        signatureRequestEditEmbeddedWithTemplateRequest.signers(signers);
 
-        var signatureRequestId = "2f9781e1a8e2045224d808c153c2e1d3df6f8f2f";
-
-        var data = new SignatureRequestEditEmbeddedWithTemplateRequest()
-            .clientId("ec64a202072370a737edf4a0eb7f4437")
-            .templateIds(List.of("c26b8a16784a872da37ea946b9ddec7c1e11dff6"))
-            .subject("Purchase Order")
-            .message("Glad we could come to an agreement.")
-            .signers(List.of(signer1))
-            .signingOptions(subSigningOptions)
-            .testMode(true);
-
-        try {
-            SignatureRequestGetResponse result = signatureRequestApi.signatureRequestEditEmbeddedWithTemplate(
-                signatureRequestId,
-                data
+        try
+        {
+            var response = new SignatureRequestApi(config).signatureRequestEditEmbeddedWithTemplate(
+                "fa5c8a0b0f492d768749333ad6fcc214c111e967",
+                signatureRequestEditEmbeddedWithTemplateRequest
             );
-            System.out.println(result);
+
+            System.out.println(response);
         } catch (ApiException e) {
-            System.err.println("Exception when calling SignatureRequestApi#editEmbeddedWithTemplate");
+            System.err.println("Exception when calling SignatureRequest#signatureRequestEditEmbeddedWithTemplate");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -871,69 +1007,85 @@ Edits and sends a SignatureRequest based off of the Template(s) specified with t
 ### Example
 
 ```java
+package com.dropbox.sign_sandbox;
+
 import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
 import com.dropbox.sign.model.*;
 
+import java.io.File;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
-public class Example {
-    public static void main(String[] args) {
-        var apiClient = Configuration.getDefaultApiClient()
-            .setApiKey("YOUR_API_KEY");
+public class SignatureRequestEditWithTemplateExample
+{
+    public static void main(String[] args)
+    {
+        var config = Configuration.getDefaultApiClient();
+        config.setUsername("YOUR_API_KEY");
+        // config.setAccessToken("YOUR_ACCESS_TOKEN");
 
-        // or, configure Bearer (JWT) authorization: oauth2
-        /*
-        var apiClient = Configuration.getDefaultApiClient()
-            .setBearerToken("YOUR_ACCESS_TOKEN");
-        */
+        var signingOptions = new SubSigningOptions();
+        signingOptions.defaultType(SubSigningOptions.DefaultTypeEnum.DRAW);
+        signingOptions.draw(true);
+        signingOptions.phone(false);
+        signingOptions.type(true);
+        signingOptions.upload(true);
 
-        var signatureRequestApi = new SignatureRequestApi(apiClient);
+        var signers1 = new SubSignatureRequestTemplateSigner();
+        signers1.role("Client");
+        signers1.name("George");
+        signers1.emailAddress("george@example.com");
 
-        var signer1 = new SubSignatureRequestTemplateSigner()
-            .role("Client")
-            .emailAddress("george@example.com")
-            .name("George");
+        var signers = new ArrayList<SubSignatureRequestTemplateSigner>(List.of (
+            signers1
+        ));
 
-        var cc1 = new SubCC()
-            .role("Accounting")
-            .emailAddress("accouting@emaple.com");
+        var ccs1 = new SubCC();
+        ccs1.role("Accounting");
+        ccs1.emailAddress("accounting@example.com");
 
-        var customField1 = new SubCustomField()
-            .name("Cost")
-            .value("$20,000")
-            .editor("Client")
-            .required(true);
+        var ccs = new ArrayList<SubCC>(List.of (
+            ccs1
+        ));
 
-        var signingOptions = new SubSigningOptions()
-            .draw(true)
-            .type(true)
-            .upload(true)
-            .phone(false)
-            .defaultType(SubSigningOptions.DefaultTypeEnum.DRAW);
+        var customFields1 = new SubCustomField();
+        customFields1.name("Cost");
+        customFields1.editor("Client");
+        customFields1.required(true);
+        customFields1.value("$20,000");
 
-        var signatureRequestId = "2f9781e1a8e2045224d808c153c2e1d3df6f8f2f";
+        var customFields = new ArrayList<SubCustomField>(List.of (
+            customFields1
+        ));
 
-        var data = new SignatureRequestEditWithTemplateRequest()
-            .templateIds(List.of("c26b8a16784a872da37ea946b9ddec7c1e11dff6"))
-            .subject("Purchase Order")
-            .message("Glad we could come to an agreement.")
-            .signers(List.of(signer1))
-            .ccs(List.of(cc1))
-            .customFields(List.of(customField1))
-            .signingOptions(signingOptions)
-            .testMode(true);
+        var signatureRequestEditWithTemplateRequest = new SignatureRequestEditWithTemplateRequest();
+        signatureRequestEditWithTemplateRequest.templateIds(List.of (
+            "61a832ff0d8423f91d503e76bfbcc750f7417c78"
+        ));
+        signatureRequestEditWithTemplateRequest.message("Glad we could come to an agreement.");
+        signatureRequestEditWithTemplateRequest.subject("Purchase Order");
+        signatureRequestEditWithTemplateRequest.testMode(true);
+        signatureRequestEditWithTemplateRequest.signingOptions(signingOptions);
+        signatureRequestEditWithTemplateRequest.signers(signers);
+        signatureRequestEditWithTemplateRequest.ccs(ccs);
+        signatureRequestEditWithTemplateRequest.customFields(customFields);
 
-        try {
-            SignatureRequestGetResponse result = signatureRequestApi.signatureRequestEditWithTemplate(
-                signatureRequestId,
-                data
+        try
+        {
+            var response = new SignatureRequestApi(config).signatureRequestEditWithTemplate(
+                "fa5c8a0b0f492d768749333ad6fcc214c111e967",
+                signatureRequestEditWithTemplateRequest
             );
-            System.out.println(result);
+
+            System.out.println(response);
         } catch (ApiException e) {
-            System.err.println("Exception when calling AccountApi#accountCreate");
+            System.err.println("Exception when calling SignatureRequest#signatureRequestEditWithTemplate");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -985,33 +1137,38 @@ If the files are currently being prepared, a status code of `409` will be return
 ### Example
 
 ```java
+package com.dropbox.sign_sandbox;
+
 import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.model.*;
 
 import java.io.File;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
-public class Example {
-    public static void main(String[] args) {
-        var apiClient = Configuration.getDefaultApiClient()
-            .setApiKey("YOUR_API_KEY");
+public class SignatureRequestFilesExample
+{
+    public static void main(String[] args)
+    {
+        var config = Configuration.getDefaultApiClient();
+        config.setUsername("YOUR_API_KEY");
+        // config.setAccessToken("YOUR_ACCESS_TOKEN");
 
-        // or, configure Bearer (JWT) authorization: oauth2
-        /*
-        var apiClient = Configuration.getDefaultApiClient()
-            .setBearerToken("YOUR_ACCESS_TOKEN");
-        */
-
-        var signatureRequestApi = new SignatureRequestApi(apiClient);
-
-        var signatureRequestId = "fa5c8a0b0f492d768749333ad6fcc214c111e967";
-
-        try {
-            File result = signatureRequestApi.signatureRequestFiles(signatureRequestId, "pdf");
-            result.renameTo(new File("file_response.pdf"));
+        try
+        {
+            var response = new SignatureRequestApi(config).signatureRequestFiles(
+                "fa5c8a0b0f492d768749333ad6fcc214c111e967",
+                "pdf"
+            );
+            response.renameTo(new File("./file_response"));
         } catch (ApiException e) {
-            System.err.println("Exception when calling AccountApi#accountCreate");
+            System.err.println("Exception when calling SignatureRequest#signatureRequestFiles");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -1063,32 +1220,38 @@ If the files are currently being prepared, a status code of `409` will be return
 ### Example
 
 ```java
+package com.dropbox.sign_sandbox;
+
 import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
 import com.dropbox.sign.model.*;
 
-public class Example {
-    public static void main(String[] args) {
-        var apiClient = Configuration.getDefaultApiClient()
-            .setApiKey("YOUR_API_KEY");
+import java.io.File;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
-        // or, configure Bearer (JWT) authorization: oauth2
-        /*
-        var apiClient = Configuration.getDefaultApiClient()
-            .setBearerToken("YOUR_ACCESS_TOKEN");
-        */
+public class SignatureRequestFilesAsDataUriExample
+{
+    public static void main(String[] args)
+    {
+        var config = Configuration.getDefaultApiClient();
+        config.setUsername("YOUR_API_KEY");
+        // config.setAccessToken("YOUR_ACCESS_TOKEN");
 
-        var signatureRequestApi = new SignatureRequestApi(apiClient);
+        try
+        {
+            var response = new SignatureRequestApi(config).signatureRequestFilesAsDataUri(
+                "fa5c8a0b0f492d768749333ad6fcc214c111e967"
+            );
 
-        var signatureRequestId = "fa5c8a0b0f492d768749333ad6fcc214c111e967";
-
-        try {
-            FileResponseDataUri result = signatureRequestApi.signatureRequestFilesAsDataUri(signatureRequestId);
-            System.out.println(result);
+            System.out.println(response);
         } catch (ApiException e) {
-            System.err.println("Exception when calling AccountApi#accountCreate");
+            System.err.println("Exception when calling SignatureRequest#signatureRequestFilesAsDataUri");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -1139,32 +1302,39 @@ If the files are currently being prepared, a status code of `409` will be return
 ### Example
 
 ```java
+package com.dropbox.sign_sandbox;
+
 import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
 import com.dropbox.sign.model.*;
 
-public class Example {
-    public static void main(String[] args) {
-        var apiClient = Configuration.getDefaultApiClient()
-            .setApiKey("YOUR_API_KEY");
+import java.io.File;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
-        // or, configure Bearer (JWT) authorization: oauth2
-        /*
-        var apiClient = Configuration.getDefaultApiClient()
-            .setBearerToken("YOUR_ACCESS_TOKEN");
-        */
+public class SignatureRequestFilesAsFileUrlExample
+{
+    public static void main(String[] args)
+    {
+        var config = Configuration.getDefaultApiClient();
+        config.setUsername("YOUR_API_KEY");
+        // config.setAccessToken("YOUR_ACCESS_TOKEN");
 
-        var signatureRequestApi = new SignatureRequestApi(apiClient);
+        try
+        {
+            var response = new SignatureRequestApi(config).signatureRequestFilesAsFileUrl(
+                "fa5c8a0b0f492d768749333ad6fcc214c111e967",
+                1
+            );
 
-        var signatureRequestId = "fa5c8a0b0f492d768749333ad6fcc214c111e967";
-
-        try {
-            FileResponse result = signatureRequestApi.signatureRequestFilesAsFileUrl(signatureRequestId);
-            System.out.println(result);
+            System.out.println(response);
         } catch (ApiException e) {
-            System.err.println("Exception when calling AccountApi#accountCreate");
+            System.err.println("Exception when calling SignatureRequest#signatureRequestFilesAsFileUrl");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -1214,32 +1384,38 @@ Returns the status of the SignatureRequest specified by the `signature_request_i
 ### Example
 
 ```java
+package com.dropbox.sign_sandbox;
+
 import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
 import com.dropbox.sign.model.*;
 
-public class Example {
-    public static void main(String[] args) {
-        var apiClient = Configuration.getDefaultApiClient()
-            .setApiKey("YOUR_API_KEY");
+import java.io.File;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
-        // or, configure Bearer (JWT) authorization: oauth2
-        /*
-        var apiClient = Configuration.getDefaultApiClient()
-            .setBearerToken("YOUR_ACCESS_TOKEN");
-        */
+public class SignatureRequestGetExample
+{
+    public static void main(String[] args)
+    {
+        var config = Configuration.getDefaultApiClient();
+        config.setUsername("YOUR_API_KEY");
+        // config.setAccessToken("YOUR_ACCESS_TOKEN");
 
-        var signatureRequestApi = new SignatureRequestApi(apiClient);
+        try
+        {
+            var response = new SignatureRequestApi(config).signatureRequestGet(
+                "fa5c8a0b0f492d768749333ad6fcc214c111e967"
+            );
 
-        var signatureRequestId = "fa5c8a0b0f492d768749333ad6fcc214c111e967";
-
-        try {
-            SignatureRequestGetResponse result = signatureRequestApi.signatureRequestGet(signatureRequestId);
-            System.out.println(result);
+            System.out.println(response);
         } catch (ApiException e) {
-            System.err.println("Exception when calling AccountApi#accountCreate");
+            System.err.println("Exception when calling SignatureRequest#signatureRequestGet");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -1290,40 +1466,41 @@ Take a look at our [search guide](/api/reference/search/) to learn more about qu
 ### Example
 
 ```java
+package com.dropbox.sign_sandbox;
+
 import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
 import com.dropbox.sign.model.*;
 
-public class Example {
-    public static void main(String[] args) {
-        var apiClient = Configuration.getDefaultApiClient()
-            .setApiKey("YOUR_API_KEY");
+import java.io.File;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
-        // or, configure Bearer (JWT) authorization: oauth2
-        /*
-        var apiClient = Configuration.getDefaultApiClient()
-            .setBearerToken("YOUR_ACCESS_TOKEN");
-        */
+public class SignatureRequestListExample
+{
+    public static void main(String[] args)
+    {
+        var config = Configuration.getDefaultApiClient();
+        config.setUsername("YOUR_API_KEY");
+        // config.setAccessToken("YOUR_ACCESS_TOKEN");
 
-        var signatureRequestApi = new SignatureRequestApi(apiClient);
-
-        var accountId = "accountId";
-        var page = 1;
-        var pageSize = 20;
-        String query = null;
-
-        try {
-            SignatureRequestListResponse result = signatureRequestApi.signatureRequestList(
-                accountId,
-                page,
-                pageSize,
-                query
+        try
+        {
+            var response = new SignatureRequestApi(config).signatureRequestList(
+                null,
+                1,
+                20,
+                null
             );
-            System.out.println(result);
+
+            System.out.println(response);
         } catch (ApiException e) {
-            System.err.println("Exception when calling AccountApi#accountCreate");
+            System.err.println("Exception when calling SignatureRequest#signatureRequestList");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -1375,32 +1552,38 @@ Releases a held SignatureRequest that was claimed and prepared from an [Unclaime
 ### Example
 
 ```java
+package com.dropbox.sign_sandbox;
+
 import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
 import com.dropbox.sign.model.*;
 
-public class Example {
-    public static void main(String[] args) {
-        var apiClient = Configuration.getDefaultApiClient()
-            .setApiKey("YOUR_API_KEY");
+import java.io.File;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
-        // or, configure Bearer (JWT) authorization: oauth2
-        /*
-        var apiClient = Configuration.getDefaultApiClient()
-            .setBearerToken("YOUR_ACCESS_TOKEN");
-        */
+public class SignatureRequestReleaseHoldExample
+{
+    public static void main(String[] args)
+    {
+        var config = Configuration.getDefaultApiClient();
+        config.setUsername("YOUR_API_KEY");
+        // config.setAccessToken("YOUR_ACCESS_TOKEN");
 
-        var signatureRequestApi = new SignatureRequestApi(apiClient);
+        try
+        {
+            var response = new SignatureRequestApi(config).signatureRequestReleaseHold(
+                "fa5c8a0b0f492d768749333ad6fcc214c111e967"
+            );
 
-        var signatureRequestId = "2f9781e1a8e2045224d808c153c2e1d3df6f8f2f";
-
-        try {
-            SignatureRequestGetResponse result = signatureRequestApi.signatureRequestReleaseHold(signatureRequestId);
-            System.out.println(result);
+            System.out.println(response);
         } catch (ApiException e) {
-            System.err.println("Exception when calling AccountApi#accountCreate");
+            System.err.println("Exception when calling SignatureRequest#signatureRequestReleaseHold");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -1451,35 +1634,42 @@ Sends an email to the signer reminding them to sign the signature request. You c
 ### Example
 
 ```java
+package com.dropbox.sign_sandbox;
+
 import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
 import com.dropbox.sign.model.*;
 
-public class Example {
-    public static void main(String[] args) {
-        var apiClient = Configuration.getDefaultApiClient()
-            .setApiKey("YOUR_API_KEY");
+import java.io.File;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
-        // or, configure Bearer (JWT) authorization: oauth2
-        /*
-        var apiClient = Configuration.getDefaultApiClient()
-            .setBearerToken("YOUR_ACCESS_TOKEN");
-        */
+public class SignatureRequestRemindExample
+{
+    public static void main(String[] args)
+    {
+        var config = Configuration.getDefaultApiClient();
+        config.setUsername("YOUR_API_KEY");
+        // config.setAccessToken("YOUR_ACCESS_TOKEN");
 
-        var signatureRequestApi = new SignatureRequestApi(apiClient);
+        var signatureRequestRemindRequest = new SignatureRequestRemindRequest();
+        signatureRequestRemindRequest.emailAddress("john@example.com");
 
-        var signatureRequestId = "2f9781e1a8e2045224d808c153c2e1d3df6f8f2f";
+        try
+        {
+            var response = new SignatureRequestApi(config).signatureRequestRemind(
+                "fa5c8a0b0f492d768749333ad6fcc214c111e967",
+                signatureRequestRemindRequest
+            );
 
-        var data = new SignatureRequestRemindRequest()
-            .emailAddress("john@example.com");
-
-        try {
-            SignatureRequestGetResponse result = signatureRequestApi.signatureRequestRemind(signatureRequestId, data);
-            System.out.println(result);
+            System.out.println(response);
         } catch (ApiException e) {
-            System.err.println("Exception when calling AccountApi#accountCreate");
+            System.err.println("Exception when calling SignatureRequest#signatureRequestRemind");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -1533,30 +1723,35 @@ Unlike /signature_request/cancel, this endpoint is synchronous and your access w
 ### Example
 
 ```java
+package com.dropbox.sign_sandbox;
+
 import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.model.*;
 
-public class Example {
-    public static void main(String[] args) {
-        var apiClient = Configuration.getDefaultApiClient()
-            .setApiKey("YOUR_API_KEY");
+import java.io.File;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
-        // or, configure Bearer (JWT) authorization: oauth2
-        /*
-        var apiClient = Configuration.getDefaultApiClient()
-            .setBearerToken("YOUR_ACCESS_TOKEN");
-        */
+public class SignatureRequestRemoveExample
+{
+    public static void main(String[] args)
+    {
+        var config = Configuration.getDefaultApiClient();
+        config.setUsername("YOUR_API_KEY");
 
-        var signatureRequestApi = new SignatureRequestApi(apiClient);
-
-        var signatureRequestId = "2f9781e1a8e2045224d808c153c2e1d3df6f8f2f";
-
-        try {
-            signatureRequestApi.signatureRequestRemove(signatureRequestId);
+        try
+        {
+            new SignatureRequestApi(config).signatureRequestRemove(
+                "fa5c8a0b0f492d768749333ad6fcc214c111e967"
+            );
         } catch (ApiException e) {
-            System.err.println("Exception when calling AccountApi#accountCreate");
+            System.err.println("Exception when calling SignatureRequest#signatureRequestRemove");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -1605,6 +1800,8 @@ Creates and sends a new SignatureRequest with the submitted documents. If `form_
 ### Example
 
 ```java
+package com.dropbox.sign_sandbox;
+
 import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
@@ -1612,59 +1809,74 @@ import com.dropbox.sign.auth.*;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-public class Example {
-    public static void main(String[] args) {
-        var apiClient = Configuration.getDefaultApiClient()
-            .setApiKey("YOUR_API_KEY");
+public class SignatureRequestSendExample
+{
+    public static void main(String[] args)
+    {
+        var config = Configuration.getDefaultApiClient();
+        config.setUsername("YOUR_API_KEY");
+        // config.setAccessToken("YOUR_ACCESS_TOKEN");
 
-        // or, configure Bearer (JWT) authorization: oauth2
-        /*
-        var apiClient = Configuration.getDefaultApiClient()
-            .setBearerToken("YOUR_ACCESS_TOKEN");
-        */
+        var fieldOptions = new SubFieldOptions();
+        fieldOptions.dateFormat(SubFieldOptions.DateFormatEnum.DD_MM_YYYY);
 
-        var signatureRequestApi = new SignatureRequestApi(apiClient);
+        var signingOptions = new SubSigningOptions();
+        signingOptions.defaultType(SubSigningOptions.DefaultTypeEnum.DRAW);
+        signingOptions.draw(true);
+        signingOptions.phone(false);
+        signingOptions.type(true);
+        signingOptions.upload(true);
 
-        var signer1 = new SubSignatureRequestSigner()
-            .emailAddress("jack@example.com")
-            .name("Jack")
-            .order(0);
+        var signers1 = new SubSignatureRequestSigner();
+        signers1.name("Jack");
+        signers1.emailAddress("jack@example.com");
+        signers1.order(0);
 
-        var signer2 = new SubSignatureRequestSigner()
-            .emailAddress("jill@example.com")
-            .name("Jill")
-            .order(1);
+        var signers2 = new SubSignatureRequestSigner();
+        signers2.name("Jill");
+        signers2.emailAddress("jill@example.com");
+        signers2.order(1);
 
-        var signingOptions = new SubSigningOptions()
-            .draw(true)
-            .type(true)
-            .upload(true)
-            .phone(true)
-            .defaultType(SubSigningOptions.DefaultTypeEnum.DRAW);
+        var signers = new ArrayList<SubSignatureRequestSigner>(List.of (
+            signers1,
+            signers2
+        ));
 
-        var subFieldOptions = new SubFieldOptions()
-            .dateFormat(SubFieldOptions.DateFormatEnum.DDMMYYYY);
+        var signatureRequestSendRequest = new SignatureRequestSendRequest();
+        signatureRequestSendRequest.message("Please sign this NDA and then we can discuss more. Let me know if you\nhave any questions.");
+        signatureRequestSendRequest.subject("The NDA we talked about");
+        signatureRequestSendRequest.testMode(true);
+        signatureRequestSendRequest.title("NDA with Acme Co.");
+        signatureRequestSendRequest.ccEmailAddresses(List.of (
+            "lawyer1@dropboxsign.com",
+            "lawyer2@dropboxsign.com"
+        ));
+        signatureRequestSendRequest.files(List.of (
+            new File("./example_signature_request.pdf")
+        ));
+        signatureRequestSendRequest.metadata(Map.of (
+            "custom_id", 1234,
+            "custom_text", "NDA #9"
+        ));
+        signatureRequestSendRequest.fieldOptions(fieldOptions);
+        signatureRequestSendRequest.signingOptions(signingOptions);
+        signatureRequestSendRequest.signers(signers);
 
-        var data = new SignatureRequestSendRequest()
-            .title("NDA with Acme Co.")
-            .subject("The NDA we talked about")
-            .message("Please sign this NDA and then we can discuss more. Let me know if you have any questions.")
-            .signers(List.of(signer1, signer2))
-            .ccEmailAddresses(List.of("lawyer1@dropboxsign.com", "lawyer2@dropboxsign.com"))
-            .addFilesItem(new File("example_signature_request.pdf"))
-            .metadata(Map.of("custom_id", 1234, "custom_text", "NDA #9"))
-            .signingOptions(signingOptions)
-            .fieldOptions(subFieldOptions)
-            .testMode(true);
+        try
+        {
+            var response = new SignatureRequestApi(config).signatureRequestSend(
+                signatureRequestSendRequest
+            );
 
-        try {
-            SignatureRequestGetResponse result = signatureRequestApi.signatureRequestSend(data);
-            System.out.println(result);
+            System.out.println(response);
         } catch (ApiException e) {
-            System.err.println("Exception when calling AccountApi#accountCreate");
+            System.err.println("Exception when calling SignatureRequest#signatureRequestSend");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -1713,64 +1925,84 @@ Creates and sends a new SignatureRequest based off of the Template(s) specified 
 ### Example
 
 ```java
+package com.dropbox.sign_sandbox;
+
 import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
 import com.dropbox.sign.model.*;
 
+import java.io.File;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
-public class Example {
-    public static void main(String[] args) {
-        var apiClient = Configuration.getDefaultApiClient()
-            .setApiKey("YOUR_API_KEY");
+public class SignatureRequestSendWithTemplateExample
+{
+    public static void main(String[] args)
+    {
+        var config = Configuration.getDefaultApiClient();
+        config.setUsername("YOUR_API_KEY");
+        // config.setAccessToken("YOUR_ACCESS_TOKEN");
 
-        // or, configure Bearer (JWT) authorization: oauth2
-        /*
-        var apiClient = Configuration.getDefaultApiClient()
-            .setBearerToken("YOUR_ACCESS_TOKEN");
-        */
+        var signingOptions = new SubSigningOptions();
+        signingOptions.defaultType(SubSigningOptions.DefaultTypeEnum.DRAW);
+        signingOptions.draw(true);
+        signingOptions.phone(false);
+        signingOptions.type(true);
+        signingOptions.upload(true);
 
-        var signatureRequestApi = new SignatureRequestApi(apiClient);
+        var signers1 = new SubSignatureRequestTemplateSigner();
+        signers1.role("Client");
+        signers1.name("George");
+        signers1.emailAddress("george@example.com");
 
-        var signer1 = new SubSignatureRequestTemplateSigner()
-            .role("Client")
-            .emailAddress("george@example.com")
-            .name("George");
+        var signers = new ArrayList<SubSignatureRequestTemplateSigner>(List.of (
+            signers1
+        ));
 
-        var cc1 = new SubCC()
-            .role("Accounting")
-            .emailAddress("accouting@emaple.com");
+        var ccs1 = new SubCC();
+        ccs1.role("Accounting");
+        ccs1.emailAddress("accounting@example.com");
 
-        var customField1 = new SubCustomField()
-            .name("Cost")
-            .value("$20,000")
-            .editor("Client")
-            .required(true);
+        var ccs = new ArrayList<SubCC>(List.of (
+            ccs1
+        ));
 
-        var signingOptions = new SubSigningOptions()
-            .draw(true)
-            .type(true)
-            .upload(true)
-            .phone(false)
-            .defaultType(SubSigningOptions.DefaultTypeEnum.DRAW);
+        var customFields1 = new SubCustomField();
+        customFields1.name("Cost");
+        customFields1.editor("Client");
+        customFields1.required(true);
+        customFields1.value("$20,000");
 
-        var data = new SignatureRequestSendWithTemplateRequest()
-            .templateIds(List.of("c26b8a16784a872da37ea946b9ddec7c1e11dff6"))
-            .subject("Purchase Order")
-            .message("Glad we could come to an agreement.")
-            .signers(List.of(signer1))
-            .ccs(List.of(cc1))
-            .customFields(List.of(customField1))
-            .signingOptions(signingOptions)
-            .testMode(true);
+        var customFields = new ArrayList<SubCustomField>(List.of (
+            customFields1
+        ));
 
-        try {
-            SignatureRequestGetResponse result = signatureRequestApi.signatureRequestSendWithTemplate(data);
-            System.out.println(result);
+        var signatureRequestSendWithTemplateRequest = new SignatureRequestSendWithTemplateRequest();
+        signatureRequestSendWithTemplateRequest.templateIds(List.of (
+            "61a832ff0d8423f91d503e76bfbcc750f7417c78"
+        ));
+        signatureRequestSendWithTemplateRequest.message("Glad we could come to an agreement.");
+        signatureRequestSendWithTemplateRequest.subject("Purchase Order");
+        signatureRequestSendWithTemplateRequest.testMode(true);
+        signatureRequestSendWithTemplateRequest.signingOptions(signingOptions);
+        signatureRequestSendWithTemplateRequest.signers(signers);
+        signatureRequestSendWithTemplateRequest.ccs(ccs);
+        signatureRequestSendWithTemplateRequest.customFields(customFields);
+
+        try
+        {
+            var response = new SignatureRequestApi(config).signatureRequestSendWithTemplate(
+                signatureRequestSendWithTemplateRequest
+            );
+
+            System.out.println(response);
         } catch (ApiException e) {
-            System.err.println("Exception when calling AccountApi#accountCreate");
+            System.err.println("Exception when calling SignatureRequest#signatureRequestSendWithTemplate");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -1823,36 +2055,43 @@ Updating the email address of a signer will generate a new `signature_id` value.
 ### Example
 
 ```java
+package com.dropbox.sign_sandbox;
+
 import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
 import com.dropbox.sign.model.*;
 
-public class Example {
-    public static void main(String[] args) {
-        var apiClient = Configuration.getDefaultApiClient()
-            .setApiKey("YOUR_API_KEY");
+import java.io.File;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
-        // or, configure Bearer (JWT) authorization: oauth2
-        /*
-        var apiClient = Configuration.getDefaultApiClient()
-            .setBearerToken("YOUR_ACCESS_TOKEN");
-        */
+public class SignatureRequestUpdateExample
+{
+    public static void main(String[] args)
+    {
+        var config = Configuration.getDefaultApiClient();
+        config.setUsername("YOUR_API_KEY");
+        // config.setAccessToken("YOUR_ACCESS_TOKEN");
 
-        var signatureRequestApi = new SignatureRequestApi(apiClient);
+        var signatureRequestUpdateRequest = new SignatureRequestUpdateRequest();
+        signatureRequestUpdateRequest.signatureId("2f9781e1a8e2045224d808c153c2e1d3df6f8f2f");
+        signatureRequestUpdateRequest.emailAddress("john@example.com");
 
-        var signatureRequestId = "2f9781e1a8e2045224d808c153c2e1d3df6f8f2f";
+        try
+        {
+            var response = new SignatureRequestApi(config).signatureRequestUpdate(
+                "fa5c8a0b0f492d768749333ad6fcc214c111e967",
+                signatureRequestUpdateRequest
+            );
 
-        var data = new SignatureRequestUpdateRequest()
-            .emailAddress("john@example.com")
-            .signatureId("78caf2a1d01cd39cea2bc1cbb340dac3");
-
-        try {
-            SignatureRequestGetResponse result = signatureRequestApi.signatureRequestUpdate(signatureRequestId, data);
-            System.out.println(result);
+            System.out.println(response);
         } catch (ApiException e) {
-            System.err.println("Exception when calling AccountApi#accountCreate");
+            System.err.println("Exception when calling SignatureRequest#signatureRequestUpdate");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());

@@ -23,68 +23,44 @@ Creates a new Draft that can be claimed using the claim URL. The first authentic
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
+from datetime import date, datetime
 from pprint import pprint
 
-from dropbox_sign import ApiClient, ApiException, Configuration, apis, models
+from dropbox_sign import ApiClient, ApiException, Configuration, api, models
 
 configuration = Configuration(
-    # Configure HTTP basic authorization: api_key
     username="YOUR_API_KEY",
-    # or, configure Bearer (JWT) authorization: oauth2
     # access_token="YOUR_ACCESS_TOKEN",
 )
 
 with ApiClient(configuration) as api_client:
-    unclaimed_draft_api = apis.UnclaimedDraftApi(api_client)
-
-    signer_1 = models.SubUnclaimedDraftSigner(
-        email_address="jack@example.com",
+    signers_1 = models.SubUnclaimedDraftSigner(
         name="Jack",
+        email_address="jack@example.com",
         order=0,
     )
 
-    signer_2 = models.SubUnclaimedDraftSigner(
-        email_address="jill@example.com",
-        name="Jill",
-        order=1,
-    )
+    signers = [
+        signers_1,
+    ]
 
-    signing_options = models.SubSigningOptions(
-        draw=True,
-        type=True,
-        upload=True,
-        phone=False,
-        default_type="draw",
-    )
-
-    field_options = models.SubFieldOptions(
-        date_format="DD - MM - YYYY",
-    )
-
-    data = models.UnclaimedDraftCreateRequest(
-        subject="The NDA we talked about",
+    unclaimed_draft_create_request = models.UnclaimedDraftCreateRequest(
         type="request_signature",
-        message="Please sign this NDA and then we can discuss more. Let me know if you have any questions.",
-        signers=[signer_1, signer_2],
-        cc_email_addresses=[
-            "lawyer1@dropboxsign.com",
-            "lawyer2@dropboxsign.com",
-        ],
-        files=[open("example_signature_request.pdf", "rb")],
-        metadata={
-            "custom_id": 1234,
-            "custom_text": "NDA #9",
-        },
-        signing_options=signing_options,
-        field_options=field_options,
         test_mode=True,
+        files=[
+            open("./example_signature_request.pdf", "rb").read(),
+        ],
+        signers=signers,
     )
 
     try:
-        response = unclaimed_draft_api.unclaimed_draft_create(data)
+        response = api.UnclaimedDraftApi(api_client).unclaimed_draft_create(
+            unclaimed_draft_create_request=unclaimed_draft_create_request,
+        )
+
         pprint(response)
     except ApiException as e:
-        print("Exception when calling Dropbox Sign API: %s\n" % e)
+        print("Exception when calling UnclaimedDraft#unclaimed_draft_create: %s\n" % e)
 
 ```
 ```
@@ -129,32 +105,39 @@ Creates a new Draft that can be claimed and used in an embedded iFrame. The firs
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
+from datetime import date, datetime
 from pprint import pprint
 
-from dropbox_sign import ApiClient, ApiException, Configuration, apis, models
+from dropbox_sign import ApiClient, ApiException, Configuration, api, models
 
 configuration = Configuration(
-    # Configure HTTP basic authorization: api_key
     username="YOUR_API_KEY",
-    # or, configure Bearer (JWT) authorization: oauth2
     # access_token="YOUR_ACCESS_TOKEN",
 )
 
 with ApiClient(configuration) as api_client:
-    unclaimed_draft_api = apis.UnclaimedDraftApi(api_client)
-
-    data = models.UnclaimedDraftCreateEmbeddedRequest(
-        client_id="ec64a202072370a737edf4a0eb7f4437",
-        files=[open("example_signature_request.pdf", "rb")],
-        requester_email_address="jack@dropboxsign.com",
-        test_mode=True,
+    unclaimed_draft_create_embedded_request = (
+        models.UnclaimedDraftCreateEmbeddedRequest(
+            client_id="b6b8e7deaf8f0b95c029dca049356d4a2cf9710a",
+            requester_email_address="jack@dropboxsign.com",
+            test_mode=True,
+            files=[
+                open("./example_signature_request.pdf", "rb").read(),
+            ],
+        )
     )
 
     try:
-        response = unclaimed_draft_api.unclaimed_draft_create_embedded(data)
+        response = api.UnclaimedDraftApi(api_client).unclaimed_draft_create_embedded(
+            unclaimed_draft_create_embedded_request=unclaimed_draft_create_embedded_request,
+        )
+
         pprint(response)
     except ApiException as e:
-        print("Exception when calling Dropbox Sign API: %s\n" % e)
+        print(
+            "Exception when calling UnclaimedDraft#unclaimed_draft_create_embedded: %s\n"
+            % e
+        )
 
 ```
 ```
@@ -199,47 +182,62 @@ Creates a new Draft with a previously saved template(s) that can be claimed and 
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
+from datetime import date, datetime
 from pprint import pprint
 
-from dropbox_sign import ApiClient, ApiException, Configuration, apis, models
+from dropbox_sign import ApiClient, ApiException, Configuration, api, models
 
 configuration = Configuration(
-    # Configure HTTP basic authorization: api_key
     username="YOUR_API_KEY",
-    # or, configure Bearer (JWT) authorization: oauth2
     # access_token="YOUR_ACCESS_TOKEN",
 )
 
 with ApiClient(configuration) as api_client:
-    unclaimed_draft_api = apis.UnclaimedDraftApi(api_client)
+    ccs_1 = models.SubCC(
+        role="Accounting",
+        email_address="accounting@dropboxsign.com",
+    )
 
-    signer_1 = models.SubUnclaimedDraftTemplateSigner(
+    ccs = [
+        ccs_1,
+    ]
+
+    signers_1 = models.SubUnclaimedDraftTemplateSigner(
         role="Client",
         name="George",
         email_address="george@example.com",
     )
 
-    cc_1 = models.SubCC(
-        role="Accounting",
-        email_address="accounting@example.com",
-    )
+    signers = [
+        signers_1,
+    ]
 
-    data = models.UnclaimedDraftCreateEmbeddedWithTemplateRequest(
-        client_id="ec64a202072370a737edf4a0eb7f4437",
-        template_ids=["61a832ff0d8423f91d503e76bfbcc750f7417c78"],
-        requester_email_address="jack@dropboxsign.com",
-        signers=[signer_1],
-        ccs=[cc_1],
-        test_mode=True,
+    unclaimed_draft_create_embedded_with_template_request = (
+        models.UnclaimedDraftCreateEmbeddedWithTemplateRequest(
+            client_id="b6b8e7deaf8f0b95c029dca049356d4a2cf9710a",
+            requester_email_address="jack@dropboxsign.com",
+            template_ids=[
+                "61a832ff0d8423f91d503e76bfbcc750f7417c78",
+            ],
+            test_mode=False,
+            ccs=ccs,
+            signers=signers,
+        )
     )
 
     try:
-        response = unclaimed_draft_api.unclaimed_draft_create_embedded_with_template(
-            data
+        response = api.UnclaimedDraftApi(
+            api_client
+        ).unclaimed_draft_create_embedded_with_template(
+            unclaimed_draft_create_embedded_with_template_request=unclaimed_draft_create_embedded_with_template_request,
         )
+
         pprint(response)
     except ApiException as e:
-        print("Exception when calling Dropbox Sign API: %s\n" % e)
+        print(
+            "Exception when calling UnclaimedDraft#unclaimed_draft_create_embedded_with_template: %s\n"
+            % e
+        )
 
 ```
 ```
@@ -284,34 +282,34 @@ Creates a new signature request from an embedded request that can be edited prio
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
+from datetime import date, datetime
 from pprint import pprint
 
-from dropbox_sign import ApiClient, ApiException, Configuration, apis, models
+from dropbox_sign import ApiClient, ApiException, Configuration, api, models
 
 configuration = Configuration(
-    # Configure HTTP basic authorization: api_key
     username="YOUR_API_KEY",
-    # or, configure Bearer (JWT) authorization: oauth2
     # access_token="YOUR_ACCESS_TOKEN",
 )
 
 with ApiClient(configuration) as api_client:
-    unclaimed_draft_api = apis.UnclaimedDraftApi(api_client)
-
-    data = models.UnclaimedDraftEditAndResendRequest(
-        client_id="ec64a202072370a737edf4a0eb7f4437",
-        test_mode=True,
+    unclaimed_draft_edit_and_resend_request = models.UnclaimedDraftEditAndResendRequest(
+        client_id="b6b8e7deaf8f0b95c029dca049356d4a2cf9710a",
+        test_mode=False,
     )
 
-    signature_request_id = "2f9781e1a83jdja934d808c153c2e1d3df6f8f2f"
-
     try:
-        response = unclaimed_draft_api.unclaimed_draft_edit_and_resend(
-            signature_request_id, data
+        response = api.UnclaimedDraftApi(api_client).unclaimed_draft_edit_and_resend(
+            signature_request_id="fa5c8a0b0f492d768749333ad6fcc214c111e967",
+            unclaimed_draft_edit_and_resend_request=unclaimed_draft_edit_and_resend_request,
         )
+
         pprint(response)
     except ApiException as e:
-        print("Exception when calling Dropbox Sign API: %s\n" % e)
+        print(
+            "Exception when calling UnclaimedDraft#unclaimed_draft_edit_and_resend: %s\n"
+            % e
+        )
 
 ```
 ```

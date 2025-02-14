@@ -1,0 +1,12 @@
+{
+  "files": [
+    "./example_fax.pdf"
+  ],
+  "test_mode": "true",
+  "recipient": "16690000001",
+  "sender": "16690000000",
+  "cover_page_to": "Jill Fax",
+  "cover_page_message": "I'm sending you a fax!",
+  "cover_page_from": "Faxer Faxerson",
+  "title": "This is what the fax is about!"
+}

@@ -271,4 +271,3 @@ $generate = new GenerateExamples(
 $generate->setUseSnakeCase(true);
 
 $generate->run();
-

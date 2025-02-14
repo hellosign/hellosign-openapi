@@ -155,18 +155,17 @@ function copy_examples()
   mkdir -p "${SDK_DIR}/examples"
 
   if [[ "${SDK}" == "dotnet" ]]; then
-    cp -r "${DIR}/examples/"*.cs "${SDK_DIR}/examples/"
+    cp -r "${DIR}/sandbox/dotnet/src/Dropbox.SignSandbox/"*.cs "${SDK_DIR}/examples/"
   elif [[ "${SDK}" == "java-v2" || "${SDK}" == "java-v1" ]]; then
-    cp -r "${DIR}/examples/"*.java "${SDK_DIR}/examples/"
+    cp -r "${DIR}/sandbox/java/src/main/java/com/dropbox/sign_sandbox/"*.java "${SDK_DIR}/examples/"
   elif [[ "${SDK}" == "node" ]]; then
-    cp -r "${DIR}/examples/"*.js "${SDK_DIR}/examples/"
-    cp -r "${DIR}/examples/"*.ts "${SDK_DIR}/examples/"
+    cp -r "${DIR}/sandbox/node/src/"*.ts "${SDK_DIR}/examples/"
   elif [[ "${SDK}" == "php" ]]; then
-    cp -r "${DIR}/examples/"*.php "${SDK_DIR}/examples/"
+    cp -r "${DIR}/sandbox/php/src/"*.php "${SDK_DIR}/examples/"
   elif [[ "${SDK}" == "python" ]]; then
-    cp -r "${DIR}/examples/"*.py "${SDK_DIR}/examples/"
+    cp -r "${DIR}/sandbox/python/src/"*.py "${SDK_DIR}/examples/"
   elif [[ "${SDK}" == "ruby" ]]; then
-    cp -r "${DIR}/examples/"*.rb "${SDK_DIR}/examples/"
+    cp -r "${DIR}/sandbox/ruby/src/"*.rb "${SDK_DIR}/examples/"
   fi
 }
 
