@@ -23,5 +23,5 @@ try {
 
     print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    echo "Exception when calling OAuth#oauthTokenGenerate: {$e->getMessage()}";
+    echo "Exception when calling OAuthApi#oauthTokenGenerate: {$e->getMessage()}";
 }

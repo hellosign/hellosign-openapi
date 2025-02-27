@@ -5,13 +5,11 @@ import models from "@dropbox/sign"
 const apiCaller = new api.FaxLineApi();
 apiCaller.username = "YOUR_API_KEY";
 
-const number = undefined;
-
 apiCaller.faxLineGet(
-    number,
+  undefined, // number
 ).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling FaxLine#faxLineGet:");
+  console.log("Exception when calling FaxLineApi#faxLineGet:");
   console.log(error.body);
 });

@@ -9,15 +9,15 @@ const reportCreateRequest = new models.ReportCreateRequest();
 reportCreateRequest.startDate = "09/01/2020";
 reportCreateRequest.endDate = "09/01/2020";
 reportCreateRequest.reportType = [
-    models.ReportCreateRequest.ReportTypeEnum.UserActivity,
-    models.ReportCreateRequest.ReportTypeEnum.DocumentStatus,
+  models.ReportCreateRequest.ReportTypeEnum.UserActivity,
+  models.ReportCreateRequest.ReportTypeEnum.DocumentStatus,
 ];
 
 apiCaller.reportCreate(
-    reportCreateRequest,
+  reportCreateRequest,
 ).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling Report#reportCreate:");
+  console.log("Exception when calling ReportApi#reportCreate:");
   console.log(error.body);
 });

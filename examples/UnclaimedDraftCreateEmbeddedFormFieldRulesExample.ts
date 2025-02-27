@@ -12,7 +12,7 @@ formFieldRules1Triggers1.operator = models.SubFormFieldRuleTrigger.OperatorEnum.
 formFieldRules1Triggers1.value = "foo";
 
 const formFieldRules1Triggers = [
-    formFieldRules1Triggers1,
+  formFieldRules1Triggers1,
 ];
 
 const formFieldRules1Actions1 = new models.SubFormFieldRuleAction();
@@ -21,7 +21,7 @@ formFieldRules1Actions1.type = models.SubFormFieldRuleAction.TypeEnum.FieldVisib
 formFieldRules1Actions1.fieldId = "uniqueIdHere_2";
 
 const formFieldRules1Actions = [
-    formFieldRules1Actions1,
+  formFieldRules1Actions1,
 ];
 
 const formFieldRules1 = new models.SubFormFieldRule();
@@ -31,7 +31,7 @@ formFieldRules1.triggers = formFieldRules1Triggers;
 formFieldRules1.actions = formFieldRules1Actions;
 
 const formFieldRules = [
-    formFieldRules1,
+  formFieldRules1,
 ];
 
 const formFieldsPerDocument1 = new models.SubFormFieldsPerDocumentText();
@@ -62,8 +62,8 @@ formFieldsPerDocument2.name = "";
 formFieldsPerDocument2.page = 1;
 
 const formFieldsPerDocument = [
-    formFieldsPerDocument1,
-    formFieldsPerDocument2,
+  formFieldsPerDocument1,
+  formFieldsPerDocument2,
 ];
 
 const unclaimedDraftCreateEmbeddedRequest = new models.UnclaimedDraftCreateEmbeddedRequest();
@@ -71,16 +71,16 @@ unclaimedDraftCreateEmbeddedRequest.clientId = "b6b8e7deaf8f0b95c029dca049356d4a
 unclaimedDraftCreateEmbeddedRequest.requesterEmailAddress = "jack@dropboxsign.com";
 unclaimedDraftCreateEmbeddedRequest.testMode = false;
 unclaimedDraftCreateEmbeddedRequest.fileUrls = [
-    "https://www.dropbox.com/s/ad9qnhbrjjn64tu/mutual-NDA-example.pdf?dl=1",
+  "https://www.dropbox.com/s/ad9qnhbrjjn64tu/mutual-NDA-example.pdf?dl=1",
 ];
 unclaimedDraftCreateEmbeddedRequest.formFieldRules = formFieldRules;
 unclaimedDraftCreateEmbeddedRequest.formFieldsPerDocument = formFieldsPerDocument;
 
 apiCaller.unclaimedDraftCreateEmbedded(
-    unclaimedDraftCreateEmbeddedRequest,
+  unclaimedDraftCreateEmbeddedRequest,
 ).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling UnclaimedDraft#unclaimedDraftCreateEmbedded:");
+  console.log("Exception when calling UnclaimedDraftApi#unclaimedDraftCreateEmbedded:");
   console.log(error.body);
 });

@@ -15,5 +15,5 @@ try {
         fax_id: "fa5c8a0b0f492d768749333ad6fcc214c111e967",
     );
 } catch (Dropbox\Sign\ApiException $e) {
-    echo "Exception when calling Fax#faxDelete: {$e->getMessage()}";
+    echo "Exception when calling FaxApi#faxDelete: {$e->getMessage()}";
 }

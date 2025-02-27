@@ -20,5 +20,5 @@ try {
 
     print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    echo "Exception when calling FaxLine#faxLineAreaCodeGet: {$e->getMessage()}";
+    echo "Exception when calling FaxLineApi#faxLineAreaCodeGet: {$e->getMessage()}";
 }

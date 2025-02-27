@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.Json;
 
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
@@ -37,7 +38,7 @@ public class TemplateUpdateFilesExample
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling Template#TemplateUpdateFiles: " + e.Message);
+            Console.WriteLine("Exception when calling TemplateApi#TemplateUpdateFiles: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }

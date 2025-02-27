@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.Json;
 
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
@@ -24,7 +25,7 @@ public class AccountGetExample
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling Account#AccountGet: " + e.Message);
+            Console.WriteLine("Exception when calling AccountApi#AccountGet: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }

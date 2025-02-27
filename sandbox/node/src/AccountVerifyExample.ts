@@ -10,10 +10,10 @@ const accountVerifyRequest = new models.AccountVerifyRequest();
 accountVerifyRequest.emailAddress = "some_user@dropboxsign.com";
 
 apiCaller.accountVerify(
-    accountVerifyRequest,
+  accountVerifyRequest,
 ).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling Account#accountVerify:");
+  console.log("Exception when calling AccountApi#accountVerify:");
   console.log(error.body);
 });

@@ -19,5 +19,5 @@ try {
 
     copy($response->getRealPath(), __DIR__ . '/file_response');
 } catch (Dropbox\Sign\ApiException $e) {
-    echo "Exception when calling SignatureRequest#signatureRequestFiles: {$e->getMessage()}";
+    echo "Exception when calling SignatureRequestApi#signatureRequestFiles: {$e->getMessage()}";
 }

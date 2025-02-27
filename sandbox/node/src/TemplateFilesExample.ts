@@ -6,15 +6,12 @@ const apiCaller = new api.TemplateApi();
 apiCaller.username = "YOUR_API_KEY";
 // apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-const templateId = "f57db65d3f933b5316d398057a36176831451a35";
-const fileType = undefined;
-
 apiCaller.templateFiles(
-    templateId,
-    fileType,
+  "f57db65d3f933b5316d398057a36176831451a35", // templateId
+  undefined, // fileType
 ).then(response => {
   fs.createWriteStream('./file_response').write(response.body);
 }).catch(error => {
-  console.log("Exception when calling Template#templateFiles:");
+  console.log("Exception when calling TemplateApi#templateFiles:");
   console.log(error.body);
 });

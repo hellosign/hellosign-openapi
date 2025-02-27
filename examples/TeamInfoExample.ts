@@ -6,13 +6,11 @@ const apiCaller = new api.TeamApi();
 apiCaller.username = "YOUR_API_KEY";
 // apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-const teamId = "4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c";
-
 apiCaller.teamInfo(
-    teamId,
+  "4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c", // teamId
 ).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling Team#teamInfo:");
+  console.log("Exception when calling TeamApi#teamInfo:");
   console.log(error.body);
 });

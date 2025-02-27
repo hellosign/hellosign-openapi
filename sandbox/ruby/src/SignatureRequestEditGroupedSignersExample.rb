@@ -1,8 +1,9 @@
+require "json"
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
-    config.username = "YOUR_API_KEY";
-    # config.access_token = "YOUR_ACCESS_TOKEN";
+    config.username = "YOUR_API_KEY"
+    # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
 grouped_signers_2_signers_1 = Dropbox::Sign::SubSignatureRequestSigner.new
@@ -68,21 +69,24 @@ signature_request_edit_request.cc_email_addresses = [
     "lawyer1@dropboxsign.com",
     "lawyer2@dropboxsign.com",
 ]
-signature_request_edit_request.metadata = {
-    "custom_id": 1234,
-    "custom_text": "NDA #9",
-}
+signature_request_edit_request.metadata = JSON.parse(<<-EOD
+    {
+        "custom_id": 1234,
+        "custom_text": "NDA #9"
+    }
+    EOD
+)
 signature_request_edit_request.field_options = field_options
 signature_request_edit_request.signing_options = signing_options
 signature_request_edit_request.grouped_signers = grouped_signers
 
 begin
     response = Dropbox::Sign::SignatureRequestApi.new.signature_request_edit(
-        "fa5c8a0b0f492d768749333ad6fcc214c111e967",
+        "fa5c8a0b0f492d768749333ad6fcc214c111e967", # signature_request_id
         signature_request_edit_request,
     )
 
     p response
 rescue Dropbox::Sign::ApiError => e
-    puts "Exception when calling SignatureRequest#signature_request_edit: #{e}"
+    puts "Exception when calling SignatureRequestApi#signature_request_edit: #{e}"
 end

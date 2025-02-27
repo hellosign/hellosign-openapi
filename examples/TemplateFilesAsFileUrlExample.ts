@@ -6,15 +6,12 @@ const apiCaller = new api.TemplateApi();
 apiCaller.username = "YOUR_API_KEY";
 // apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-const templateId = "f57db65d3f933b5316d398057a36176831451a35";
-const forceDownload = 1;
-
 apiCaller.templateFilesAsFileUrl(
-    templateId,
-    forceDownload,
+  "f57db65d3f933b5316d398057a36176831451a35", // templateId
+  1, // forceDownload
 ).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling Template#templateFilesAsFileUrl:");
+  console.log("Exception when calling TemplateApi#templateFilesAsFileUrl:");
   console.log(error.body);
 });

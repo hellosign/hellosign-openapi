@@ -11,10 +11,10 @@ teamRemoveMemberRequest.emailAddress = "teammate@dropboxsign.com";
 teamRemoveMemberRequest.newOwnerEmailAddress = "new_teammate@dropboxsign.com";
 
 apiCaller.teamRemoveMember(
-    teamRemoveMemberRequest,
+  teamRemoveMemberRequest,
 ).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling Team#teamRemoveMember:");
+  console.log("Exception when calling TeamApi#teamRemoveMember:");
   console.log(error.body);
 });

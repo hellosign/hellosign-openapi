@@ -10,7 +10,7 @@ signerList2CustomFields1.name = "company";
 signerList2CustomFields1.value = "123 LLC";
 
 const signerList2CustomFields = [
-    signerList2CustomFields1,
+  signerList2CustomFields1,
 ];
 
 const signerList2Signers1 = new models.SubSignatureRequestTemplateSigner();
@@ -20,7 +20,7 @@ signerList2Signers1.emailAddress = "mary@example.com";
 signerList2Signers1.pin = "gd9as5b";
 
 const signerList2Signers = [
-    signerList2Signers1,
+  signerList2Signers1,
 ];
 
 const signerList1CustomFields1 = new models.SubBulkSignerListCustomField();
@@ -28,7 +28,7 @@ signerList1CustomFields1.name = "company";
 signerList1CustomFields1.value = "ABC Corp";
 
 const signerList1CustomFields = [
-    signerList1CustomFields1,
+  signerList1CustomFields1,
 ];
 
 const signerList1Signers1 = new models.SubSignatureRequestTemplateSigner();
@@ -38,7 +38,7 @@ signerList1Signers1.emailAddress = "george@example.com";
 signerList1Signers1.pin = "d79a3td";
 
 const signerList1Signers = [
-    signerList1Signers1,
+  signerList1Signers1,
 ];
 
 const signerList1 = new models.SubBulkSignerList();
@@ -50,8 +50,8 @@ signerList2.customFields = signerList2CustomFields;
 signerList2.signers = signerList2Signers;
 
 const signerList = [
-    signerList1,
-    signerList2,
+  signerList1,
+  signerList2,
 ];
 
 const ccs1 = new models.SubCC();
@@ -59,13 +59,13 @@ ccs1.role = "Accounting";
 ccs1.emailAddress = "accounting@example.com";
 
 const ccs = [
-    ccs1,
+  ccs1,
 ];
 
 const signatureRequestBulkCreateEmbeddedWithTemplateRequest = new models.SignatureRequestBulkCreateEmbeddedWithTemplateRequest();
 signatureRequestBulkCreateEmbeddedWithTemplateRequest.clientId = "1a659d9ad95bccd307ecad78d72192f8";
 signatureRequestBulkCreateEmbeddedWithTemplateRequest.templateIds = [
-    "c26b8a16784a872da37ea946b9ddec7c1e11dff6",
+  "c26b8a16784a872da37ea946b9ddec7c1e11dff6",
 ];
 signatureRequestBulkCreateEmbeddedWithTemplateRequest.message = "Glad we could come to an agreement.";
 signatureRequestBulkCreateEmbeddedWithTemplateRequest.subject = "Purchase Order";
@@ -74,10 +74,10 @@ signatureRequestBulkCreateEmbeddedWithTemplateRequest.signerList = signerList;
 signatureRequestBulkCreateEmbeddedWithTemplateRequest.ccs = ccs;
 
 apiCaller.signatureRequestBulkCreateEmbeddedWithTemplate(
-    signatureRequestBulkCreateEmbeddedWithTemplateRequest,
+  signatureRequestBulkCreateEmbeddedWithTemplateRequest,
 ).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling SignatureRequest#signatureRequestBulkCreateEmbeddedWithTemplate:");
+  console.log("Exception when calling SignatureRequestApi#signatureRequestBulkCreateEmbeddedWithTemplate:");
   console.log(error.body);
 });

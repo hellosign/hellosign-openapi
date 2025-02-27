@@ -4,6 +4,7 @@ import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
@@ -58,10 +59,12 @@ public class SignatureRequestSendExample
         signatureRequestSendRequest.files(List.of (
             new File("./example_signature_request.pdf")
         ));
-        signatureRequestSendRequest.metadata(Map.of (
-            "custom_id", 1234,
-            "custom_text", "NDA #9"
-        ));
+        signatureRequestSendRequest.metadata(JSON.deserialize("""
+            {
+                "custom_id": 1234,
+                "custom_text": "NDA #9"
+            }
+        """, Map.class));
         signatureRequestSendRequest.fieldOptions(fieldOptions);
         signatureRequestSendRequest.signingOptions(signingOptions);
         signatureRequestSendRequest.signers(signers);
@@ -74,7 +77,7 @@ public class SignatureRequestSendExample
 
             System.out.println(response);
         } catch (ApiException e) {
-            System.err.println("Exception when calling SignatureRequest#signatureRequestSend");
+            System.err.println("Exception when calling SignatureRequestApi#signatureRequestSend");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());

@@ -24,8 +24,8 @@ signers2.emailAddress = "jill@example.com";
 signers2.order = 1;
 
 const signers = [
-    signers1,
-    signers2,
+  signers1,
+  signers2,
 ];
 
 const signatureRequestEditEmbeddedRequest = new models.SignatureRequestEditEmbeddedRequest();
@@ -35,23 +35,21 @@ signatureRequestEditEmbeddedRequest.subject = "The NDA we talked about";
 signatureRequestEditEmbeddedRequest.testMode = true;
 signatureRequestEditEmbeddedRequest.title = "NDA with Acme Co.";
 signatureRequestEditEmbeddedRequest.ccEmailAddresses = [
-    "lawyer1@dropboxsign.com",
-    "lawyer2@dropboxsign.com",
+  "lawyer1@dropboxsign.com",
+  "lawyer2@dropboxsign.com",
 ];
 signatureRequestEditEmbeddedRequest.files = [
-    fs.createReadStream("./example_signature_request.pdf"),
+  fs.createReadStream("./example_signature_request.pdf"),
 ];
 signatureRequestEditEmbeddedRequest.signingOptions = signingOptions;
 signatureRequestEditEmbeddedRequest.signers = signers;
 
-const signatureRequestId = "fa5c8a0b0f492d768749333ad6fcc214c111e967";
-
 apiCaller.signatureRequestEditEmbedded(
-    signatureRequestId,
-    signatureRequestEditEmbeddedRequest,
+  "fa5c8a0b0f492d768749333ad6fcc214c111e967", // signatureRequestId
+  signatureRequestEditEmbeddedRequest,
 ).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling SignatureRequest#signatureRequestEditEmbedded:");
+  console.log("Exception when calling SignatureRequestApi#signatureRequestEditEmbedded:");
   console.log(error.body);
 });

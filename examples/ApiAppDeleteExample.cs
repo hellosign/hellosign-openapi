@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.Json;
 
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
@@ -24,7 +25,7 @@ public class ApiAppDeleteExample
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling ApiApp#ApiAppDelete: " + e.Message);
+            Console.WriteLine("Exception when calling ApiAppApi#ApiAppDelete: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }

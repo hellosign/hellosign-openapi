@@ -74,10 +74,12 @@ $signature_request_edit_request = (new Dropbox\Sign\Model\SignatureRequestEditRe
         "lawyer1@dropboxsign.com",
         "lawyer2@dropboxsign.com",
     ])
-    ->setMetadata([
-        "custom_id" => 1234,
-        "custom_text" => "NDA #9",
-    ])
+    ->setMetadata(json_decode(<<<'EOD'
+        {
+            "custom_id": 1234,
+            "custom_text": "NDA #9"
+        }
+    EOD, true))
     ->setFieldOptions($field_options)
     ->setSigningOptions($signing_options)
     ->setGroupedSigners($grouped_signers);
@@ -90,5 +92,5 @@ try {
 
     print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    echo "Exception when calling SignatureRequest#signatureRequestEdit: {$e->getMessage()}";
+    echo "Exception when calling SignatureRequestApi#signatureRequestEdit: {$e->getMessage()}";
 }

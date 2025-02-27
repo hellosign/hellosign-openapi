@@ -5,15 +5,12 @@ import models from "@dropbox/sign"
 const apiCaller = new api.FaxApi();
 apiCaller.username = "YOUR_API_KEY";
 
-const page = 1;
-const pageSize = 20;
-
 apiCaller.faxList(
-    page,
-    pageSize,
+  1, // page
+  20, // pageSize
 ).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling Fax#faxList:");
+  console.log("Exception when calling FaxApi#faxList:");
   console.log(error.body);
 });

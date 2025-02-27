@@ -18,5 +18,5 @@ try {
 
     print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    echo "Exception when calling ApiApp#apiAppGet: {$e->getMessage()}";
+    echo "Exception when calling ApiAppApi#apiAppGet: {$e->getMessage()}";
 }

@@ -1,3 +1,4 @@
+import json
 from datetime import date, datetime
 from pprint import pprint
 
@@ -13,4 +14,4 @@ with ApiClient(configuration) as api_client:
             signature_request_id="fa5c8a0b0f492d768749333ad6fcc214c111e967",
         )
     except ApiException as e:
-        print("Exception when calling SignatureRequest#signature_request_remove: %s\n" % e)
+        print("Exception when calling SignatureRequestApi#signature_request_remove: %s\n" % e)

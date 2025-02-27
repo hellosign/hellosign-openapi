@@ -27,8 +27,8 @@ signers2.emailAddress = "jill@example.com";
 signers2.order = 1;
 
 const signers = [
-    signers1,
-    signers2,
+  signers1,
+  signers2,
 ];
 
 const signatureRequestSendRequest = new models.SignatureRequestSendRequest();
@@ -37,25 +37,25 @@ signatureRequestSendRequest.subject = "The NDA we talked about";
 signatureRequestSendRequest.testMode = true;
 signatureRequestSendRequest.title = "NDA with Acme Co.";
 signatureRequestSendRequest.ccEmailAddresses = [
-    "lawyer1@dropboxsign.com",
-    "lawyer2@dropboxsign.com",
+  "lawyer1@dropboxsign.com",
+  "lawyer2@dropboxsign.com",
 ];
 signatureRequestSendRequest.files = [
-    fs.createReadStream("./example_signature_request.pdf"),
+  fs.createReadStream("./example_signature_request.pdf"),
 ];
-signatureRequestSendRequest.metadata = {
-    "custom_id": 1234,
-    "custom_text": "NDA #9",
+signatureRequestSendRequest.metadata =   {
+  "custom_id": 1234,
+  "custom_text": "NDA #9"
 };
 signatureRequestSendRequest.fieldOptions = fieldOptions;
 signatureRequestSendRequest.signingOptions = signingOptions;
 signatureRequestSendRequest.signers = signers;
 
 apiCaller.signatureRequestSend(
-    signatureRequestSendRequest,
+  signatureRequestSendRequest,
 ).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling SignatureRequest#signatureRequestSend:");
+  console.log("Exception when calling SignatureRequestApi#signatureRequestSend:");
   console.log(error.body);
 });

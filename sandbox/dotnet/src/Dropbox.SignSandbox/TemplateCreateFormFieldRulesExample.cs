@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.Json;
 
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
@@ -150,7 +151,7 @@ public class TemplateCreateFormFieldRulesExample
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling Template#TemplateCreate: " + e.Message);
+            Console.WriteLine("Exception when calling TemplateApi#TemplateCreate: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }

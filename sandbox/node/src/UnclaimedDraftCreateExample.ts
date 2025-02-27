@@ -12,22 +12,22 @@ signers1.emailAddress = "jack@example.com";
 signers1.order = 0;
 
 const signers = [
-    signers1,
+  signers1,
 ];
 
 const unclaimedDraftCreateRequest = new models.UnclaimedDraftCreateRequest();
 unclaimedDraftCreateRequest.type = models.UnclaimedDraftCreateRequest.TypeEnum.RequestSignature;
 unclaimedDraftCreateRequest.testMode = true;
 unclaimedDraftCreateRequest.files = [
-    fs.createReadStream("./example_signature_request.pdf"),
+  fs.createReadStream("./example_signature_request.pdf"),
 ];
 unclaimedDraftCreateRequest.signers = signers;
 
 apiCaller.unclaimedDraftCreate(
-    unclaimedDraftCreateRequest,
+  unclaimedDraftCreateRequest,
 ).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling UnclaimedDraft#unclaimedDraftCreate:");
+  console.log("Exception when calling UnclaimedDraftApi#unclaimedDraftCreate:");
   console.log(error.body);
 });

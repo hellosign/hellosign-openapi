@@ -5,19 +5,14 @@ import models from "@dropbox/sign"
 const apiCaller = new api.FaxLineApi();
 apiCaller.username = "YOUR_API_KEY";
 
-const country = undefined;
-const state = undefined;
-const province = undefined;
-const city = undefined;
-
 apiCaller.faxLineAreaCodeGet(
-    country,
-    state,
-    province,
-    city,
+  undefined, // country
+  undefined, // state
+  undefined, // province
+  undefined, // city
 ).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling FaxLine#faxLineAreaCodeGet:");
+  console.log("Exception when calling FaxLineApi#faxLineAreaCodeGet:");
   console.log(error.body);
 });

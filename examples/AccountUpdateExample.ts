@@ -11,10 +11,10 @@ accountUpdateRequest.callbackUrl = "https://www.example.com/callback";
 accountUpdateRequest.locale = "en-US";
 
 apiCaller.accountUpdate(
-    accountUpdateRequest,
+  accountUpdateRequest,
 ).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling Account#accountUpdate:");
+  console.log("Exception when calling AccountApi#accountUpdate:");
   console.log(error.body);
 });

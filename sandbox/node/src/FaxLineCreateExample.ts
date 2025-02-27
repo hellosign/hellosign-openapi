@@ -10,10 +10,10 @@ faxLineCreateRequest.areaCode = 209;
 faxLineCreateRequest.country = models.FaxLineCreateRequest.CountryEnum.Us;
 
 apiCaller.faxLineCreate(
-    faxLineCreateRequest,
+  faxLineCreateRequest,
 ).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling FaxLine#faxLineCreate:");
+  console.log("Exception when calling FaxLineApi#faxLineCreate:");
   console.log(error.body);
 });

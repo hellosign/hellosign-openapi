@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.Json;
 
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
@@ -73,7 +74,7 @@ public class SignatureRequestCreateEmbeddedExample
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling SignatureRequest#SignatureRequestCreateEmbedded: " + e.Message);
+            Console.WriteLine("Exception when calling SignatureRequestApi#SignatureRequestCreateEmbedded: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }

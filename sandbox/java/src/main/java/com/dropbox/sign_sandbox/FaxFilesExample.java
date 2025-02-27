@@ -4,6 +4,7 @@ import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
@@ -23,11 +24,11 @@ public class FaxFilesExample
         try
         {
             var response = new FaxApi(config).faxFiles(
-                "fa5c8a0b0f492d768749333ad6fcc214c111e967"
+                "fa5c8a0b0f492d768749333ad6fcc214c111e967" // faxId
             );
             response.renameTo(new File("./file_response"));
         } catch (ApiException e) {
-            System.err.println("Exception when calling Fax#faxFiles");
+            System.err.println("Exception when calling FaxApi#faxFiles");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());

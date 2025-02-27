@@ -4,6 +4,7 @@ import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
@@ -24,12 +25,12 @@ public class TemplateFilesAsDataUriExample
         try
         {
             var response = new TemplateApi(config).templateFilesAsDataUri(
-                "f57db65d3f933b5316d398057a36176831451a35"
+                "f57db65d3f933b5316d398057a36176831451a35" // templateId
             );
 
             System.out.println(response);
         } catch (ApiException e) {
-            System.err.println("Exception when calling Template#templateFilesAsDataUri");
+            System.err.println("Exception when calling TemplateApi#templateFilesAsDataUri");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());

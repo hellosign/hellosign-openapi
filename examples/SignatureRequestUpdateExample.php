@@ -23,5 +23,5 @@ try {
 
     print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    echo "Exception when calling SignatureRequest#signatureRequestUpdate: {$e->getMessage()}";
+    echo "Exception when calling SignatureRequestApi#signatureRequestUpdate: {$e->getMessage()}";
 }

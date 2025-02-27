@@ -12,10 +12,10 @@ accountCreateRequest.clientId = "cc91c61d00f8bb2ece1428035716b";
 accountCreateRequest.clientSecret = "1d14434088507ffa390e6f5528465";
 
 apiCaller.accountCreate(
-    accountCreateRequest,
+  accountCreateRequest,
 ).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling Account#accountCreate:");
+  console.log("Exception when calling AccountApi#accountCreate:");
   console.log(error.body);
 });

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.Json;
 
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
@@ -30,7 +31,7 @@ public class TeamUpdateExample
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling Team#TeamUpdate: " + e.Message);
+            Console.WriteLine("Exception when calling TeamApi#TeamUpdate: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }

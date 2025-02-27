@@ -21,5 +21,5 @@ try {
 
     print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    echo "Exception when calling FaxLine#faxLineAddUser: {$e->getMessage()}";
+    echo "Exception when calling FaxLineApi#faxLineAddUser: {$e->getMessage()}";
 }

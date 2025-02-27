@@ -27,8 +27,8 @@ signers2.emailAddress = "jill@example.com";
 signers2.order = 1;
 
 const signers = [
-    signers1,
-    signers2,
+  signers1,
+  signers2,
 ];
 
 const signatureRequestEditRequest = new models.SignatureRequestEditRequest();
@@ -37,28 +37,26 @@ signatureRequestEditRequest.subject = "The NDA we talked about";
 signatureRequestEditRequest.testMode = true;
 signatureRequestEditRequest.title = "NDA with Acme Co.";
 signatureRequestEditRequest.ccEmailAddresses = [
-    "lawyer1@dropboxsign.com",
-    "lawyer2@dropboxsign.com",
+  "lawyer1@dropboxsign.com",
+  "lawyer2@dropboxsign.com",
 ];
 signatureRequestEditRequest.files = [
-    fs.createReadStream("./example_signature_request.pdf"),
+  fs.createReadStream("./example_signature_request.pdf"),
 ];
-signatureRequestEditRequest.metadata = {
-    "custom_id": 1234,
-    "custom_text": "NDA #9",
+signatureRequestEditRequest.metadata =   {
+  "custom_id": 1234,
+  "custom_text": "NDA #9"
 };
 signatureRequestEditRequest.fieldOptions = fieldOptions;
 signatureRequestEditRequest.signingOptions = signingOptions;
 signatureRequestEditRequest.signers = signers;
 
-const signatureRequestId = "fa5c8a0b0f492d768749333ad6fcc214c111e967";
-
 apiCaller.signatureRequestEdit(
-    signatureRequestId,
-    signatureRequestEditRequest,
+  "fa5c8a0b0f492d768749333ad6fcc214c111e967", // signatureRequestId
+  signatureRequestEditRequest,
 ).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling SignatureRequest#signatureRequestEdit:");
+  console.log("Exception when calling SignatureRequestApi#signatureRequestEdit:");
   console.log(error.body);
 });

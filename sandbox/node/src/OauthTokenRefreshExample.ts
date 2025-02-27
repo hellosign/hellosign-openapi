@@ -9,10 +9,10 @@ oAuthTokenRefreshRequest.grantType = "refresh_token";
 oAuthTokenRefreshRequest.refreshToken = "hNTI2MTFmM2VmZDQxZTZjOWRmZmFjZmVmMGMyNGFjMzI2MGI5YzgzNmE3";
 
 apiCaller.oauthTokenRefresh(
-    oAuthTokenRefreshRequest,
+  oAuthTokenRefreshRequest,
 ).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling OAuth#oauthTokenRefresh:");
+  console.log("Exception when calling OAuthApi#oauthTokenRefresh:");
   console.log(error.body);
 });

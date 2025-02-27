@@ -11,14 +11,14 @@ unclaimedDraftCreateEmbeddedRequest.clientId = "b6b8e7deaf8f0b95c029dca049356d4a
 unclaimedDraftCreateEmbeddedRequest.requesterEmailAddress = "jack@dropboxsign.com";
 unclaimedDraftCreateEmbeddedRequest.testMode = true;
 unclaimedDraftCreateEmbeddedRequest.files = [
-    fs.createReadStream("./example_signature_request.pdf"),
+  fs.createReadStream("./example_signature_request.pdf"),
 ];
 
 apiCaller.unclaimedDraftCreateEmbedded(
-    unclaimedDraftCreateEmbeddedRequest,
+  unclaimedDraftCreateEmbeddedRequest,
 ).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling UnclaimedDraft#unclaimedDraftCreateEmbedded:");
+  console.log("Exception when calling UnclaimedDraftApi#unclaimedDraftCreateEmbedded:");
   console.log(error.body);
 });

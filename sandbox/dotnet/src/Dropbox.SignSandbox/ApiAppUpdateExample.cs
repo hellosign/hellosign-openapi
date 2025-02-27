@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.Json;
 
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
@@ -54,7 +55,7 @@ public class ApiAppUpdateExample
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling ApiApp#ApiAppUpdate: " + e.Message);
+            Console.WriteLine("Exception when calling ApiAppApi#ApiAppUpdate: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }

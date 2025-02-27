@@ -85,5 +85,5 @@ try {
 
     print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    echo "Exception when calling SignatureRequest#signatureRequestBulkCreateEmbeddedWithTemplate: {$e->getMessage()}";
+    echo "Exception when calling SignatureRequestApi#signatureRequestBulkCreateEmbeddedWithTemplate: {$e->getMessage()}";
 }

@@ -11,18 +11,16 @@ const mergeFields = [
 
 const embeddedEditUrlRequest = new models.EmbeddedEditUrlRequest();
 embeddedEditUrlRequest.ccRoles = [
-    "",
+  "",
 ];
 embeddedEditUrlRequest.mergeFields = mergeFields;
 
-const templateId = "f57db65d3f933b5316d398057a36176831451a35";
-
 apiCaller.embeddedEditUrl(
-    templateId,
-    embeddedEditUrlRequest,
+  "f57db65d3f933b5316d398057a36176831451a35", // templateId
+  embeddedEditUrlRequest,
 ).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling Embedded#embeddedEditUrl:");
+  console.log("Exception when calling EmbeddedApi#embeddedEditUrl:");
   console.log(error.body);
 });

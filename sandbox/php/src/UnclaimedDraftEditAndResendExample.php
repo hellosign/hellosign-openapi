@@ -23,5 +23,5 @@ try {
 
     print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    echo "Exception when calling UnclaimedDraft#unclaimedDraftEditAndResend: {$e->getMessage()}";
+    echo "Exception when calling UnclaimedDraftApi#unclaimedDraftEditAndResend: {$e->getMessage()}";
 }

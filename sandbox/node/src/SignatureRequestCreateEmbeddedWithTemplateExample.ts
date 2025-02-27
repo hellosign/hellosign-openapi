@@ -19,13 +19,13 @@ signers1.name = "George";
 signers1.emailAddress = "george@example.com";
 
 const signers = [
-    signers1,
+  signers1,
 ];
 
 const signatureRequestCreateEmbeddedWithTemplateRequest = new models.SignatureRequestCreateEmbeddedWithTemplateRequest();
 signatureRequestCreateEmbeddedWithTemplateRequest.clientId = "b6b8e7deaf8f0b95c029dca049356d4a2cf9710a";
 signatureRequestCreateEmbeddedWithTemplateRequest.templateIds = [
-    "c26b8a16784a872da37ea946b9ddec7c1e11dff6",
+  "c26b8a16784a872da37ea946b9ddec7c1e11dff6",
 ];
 signatureRequestCreateEmbeddedWithTemplateRequest.message = "Glad we could come to an agreement.";
 signatureRequestCreateEmbeddedWithTemplateRequest.subject = "Purchase Order";
@@ -34,10 +34,10 @@ signatureRequestCreateEmbeddedWithTemplateRequest.signingOptions = signingOption
 signatureRequestCreateEmbeddedWithTemplateRequest.signers = signers;
 
 apiCaller.signatureRequestCreateEmbeddedWithTemplate(
-    signatureRequestCreateEmbeddedWithTemplateRequest,
+  signatureRequestCreateEmbeddedWithTemplateRequest,
 ).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling SignatureRequest#signatureRequestCreateEmbeddedWithTemplate:");
+  console.log("Exception when calling SignatureRequestApi#signatureRequestCreateEmbeddedWithTemplate:");
   console.log(error.body);
 });

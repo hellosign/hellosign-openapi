@@ -16,5 +16,5 @@ try {
         signature_request_id: "fa5c8a0b0f492d768749333ad6fcc214c111e967",
     );
 } catch (Dropbox\Sign\ApiException $e) {
-    echo "Exception when calling SignatureRequest#signatureRequestCancel: {$e->getMessage()}";
+    echo "Exception when calling SignatureRequestApi#signatureRequestCancel: {$e->getMessage()}";
 }

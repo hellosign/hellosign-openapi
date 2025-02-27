@@ -6,10 +6,9 @@ const apiCaller = new api.TeamApi();
 apiCaller.username = "YOUR_API_KEY";
 // apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-
 apiCaller.teamInvites().then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling Team#teamInvites:");
+  console.log("Exception when calling TeamApi#teamInvites:");
   console.log(error.body);
 });

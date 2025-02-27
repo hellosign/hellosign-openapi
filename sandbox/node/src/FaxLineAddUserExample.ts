@@ -10,10 +10,10 @@ faxLineAddUserRequest.number = "[FAX_NUMBER]";
 faxLineAddUserRequest.emailAddress = "member@dropboxsign.com";
 
 apiCaller.faxLineAddUser(
-    faxLineAddUserRequest,
+  faxLineAddUserRequest,
 ).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling FaxLine#faxLineAddUser:");
+  console.log("Exception when calling FaxLineApi#faxLineAddUser:");
   console.log(error.body);
 });

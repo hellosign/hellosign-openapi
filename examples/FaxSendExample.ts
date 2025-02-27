@@ -14,14 +14,14 @@ faxSendRequest.coverPageFrom = "Faxer Faxerson";
 faxSendRequest.coverPageMessage = "I'm sending you a fax!";
 faxSendRequest.title = "This is what the fax is about!";
 faxSendRequest.files = [
-    fs.createReadStream("./example_fax.pdf"),
+  fs.createReadStream("./example_fax.pdf"),
 ];
 
 apiCaller.faxSend(
-    faxSendRequest,
+  faxSendRequest,
 ).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling Fax#faxSend:");
+  console.log("Exception when calling FaxApi#faxSend:");
   console.log(error.body);
 });

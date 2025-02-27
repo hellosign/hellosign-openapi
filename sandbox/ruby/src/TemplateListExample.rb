@@ -1,8 +1,9 @@
+require "json"
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
-    config.username = "YOUR_API_KEY";
-    # config.access_token = "YOUR_ACCESS_TOKEN";
+    config.username = "YOUR_API_KEY"
+    # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
 begin
@@ -17,5 +18,5 @@ begin
 
     p response
 rescue Dropbox::Sign::ApiError => e
-    puts "Exception when calling Template#template_list: #{e}"
+    puts "Exception when calling TemplateApi#template_list: #{e}"
 end

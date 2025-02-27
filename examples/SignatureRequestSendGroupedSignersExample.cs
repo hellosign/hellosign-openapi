@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.Json;
 
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
@@ -90,11 +91,12 @@ public class SignatureRequestSendGroupedSignersExample
                 "lawyer1@dropboxsign.com",
                 "lawyer2@dropboxsign.com",
             ],
-            metadata: new Dictionary<string, object>
-            {
-                ["custom_id"] = 1234,
-                ["custom_text"] = "NDA #9",
-            },
+            metadata: JsonSerializer.Deserialize<Dictionary<string, object>>("""
+                {
+                    "custom_id": 1234,
+                    "custom_text": "NDA #9"
+                }
+            """),
             fieldOptions: fieldOptions,
             signingOptions: signingOptions,
             groupedSigners: groupedSigners
@@ -110,7 +112,7 @@ public class SignatureRequestSendGroupedSignersExample
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling SignatureRequest#SignatureRequestSend: " + e.Message);
+            Console.WriteLine("Exception when calling SignatureRequestApi#SignatureRequestSend: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }

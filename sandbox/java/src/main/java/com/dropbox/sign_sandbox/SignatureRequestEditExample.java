@@ -4,6 +4,7 @@ import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
@@ -58,10 +59,12 @@ public class SignatureRequestEditExample
         signatureRequestEditRequest.files(List.of (
             new File("./example_signature_request.pdf")
         ));
-        signatureRequestEditRequest.metadata(Map.of (
-            "custom_id", 1234,
-            "custom_text", "NDA #9"
-        ));
+        signatureRequestEditRequest.metadata(JSON.deserialize("""
+            {
+                "custom_id": 1234,
+                "custom_text": "NDA #9"
+            }
+        """, Map.class));
         signatureRequestEditRequest.fieldOptions(fieldOptions);
         signatureRequestEditRequest.signingOptions(signingOptions);
         signatureRequestEditRequest.signers(signers);
@@ -69,13 +72,13 @@ public class SignatureRequestEditExample
         try
         {
             var response = new SignatureRequestApi(config).signatureRequestEdit(
-                "fa5c8a0b0f492d768749333ad6fcc214c111e967",
+                "fa5c8a0b0f492d768749333ad6fcc214c111e967", // signatureRequestId
                 signatureRequestEditRequest
             );
 
             System.out.println(response);
         } catch (ApiException e) {
-            System.err.println("Exception when calling SignatureRequest#signatureRequestEdit");
+            System.err.println("Exception when calling SignatureRequestApi#signatureRequestEdit");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());

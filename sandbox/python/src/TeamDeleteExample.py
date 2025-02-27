@@ -1,3 +1,4 @@
+import json
 from datetime import date, datetime
 from pprint import pprint
 
@@ -12,4 +13,4 @@ with ApiClient(configuration) as api_client:
     try:
         api.TeamApi(api_client).team_delete()
     except ApiException as e:
-        print("Exception when calling Team#team_delete: %s\n" % e)
+        print("Exception when calling TeamApi#team_delete: %s\n" % e)

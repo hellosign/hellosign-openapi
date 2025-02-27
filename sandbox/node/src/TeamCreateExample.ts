@@ -10,10 +10,10 @@ const teamCreateRequest = new models.TeamCreateRequest();
 teamCreateRequest.name = "New Team Name";
 
 apiCaller.teamCreate(
-    teamCreateRequest,
+  teamCreateRequest,
 ).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling Team#teamCreate:");
+  console.log("Exception when calling TeamApi#teamCreate:");
   console.log(error.body);
 });

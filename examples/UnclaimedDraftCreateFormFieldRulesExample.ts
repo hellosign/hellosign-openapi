@@ -12,7 +12,7 @@ formFieldRules1Triggers1.operator = models.SubFormFieldRuleTrigger.OperatorEnum.
 formFieldRules1Triggers1.value = "foo";
 
 const formFieldRules1Triggers = [
-    formFieldRules1Triggers1,
+  formFieldRules1Triggers1,
 ];
 
 const formFieldRules1Actions1 = new models.SubFormFieldRuleAction();
@@ -21,7 +21,7 @@ formFieldRules1Actions1.type = models.SubFormFieldRuleAction.TypeEnum.FieldVisib
 formFieldRules1Actions1.fieldId = "uniqueIdHere_2";
 
 const formFieldRules1Actions = [
-    formFieldRules1Actions1,
+  formFieldRules1Actions1,
 ];
 
 const formFieldRules1 = new models.SubFormFieldRule();
@@ -31,7 +31,7 @@ formFieldRules1.triggers = formFieldRules1Triggers;
 formFieldRules1.actions = formFieldRules1Actions;
 
 const formFieldRules = [
-    formFieldRules1,
+  formFieldRules1,
 ];
 
 const formFieldsPerDocument1 = new models.SubFormFieldsPerDocumentText();
@@ -62,24 +62,24 @@ formFieldsPerDocument2.name = "";
 formFieldsPerDocument2.page = 1;
 
 const formFieldsPerDocument = [
-    formFieldsPerDocument1,
-    formFieldsPerDocument2,
+  formFieldsPerDocument1,
+  formFieldsPerDocument2,
 ];
 
 const unclaimedDraftCreateRequest = new models.UnclaimedDraftCreateRequest();
 unclaimedDraftCreateRequest.type = models.UnclaimedDraftCreateRequest.TypeEnum.RequestSignature;
 unclaimedDraftCreateRequest.testMode = false;
 unclaimedDraftCreateRequest.fileUrls = [
-    "https://www.dropbox.com/s/ad9qnhbrjjn64tu/mutual-NDA-example.pdf?dl=1",
+  "https://www.dropbox.com/s/ad9qnhbrjjn64tu/mutual-NDA-example.pdf?dl=1",
 ];
 unclaimedDraftCreateRequest.formFieldRules = formFieldRules;
 unclaimedDraftCreateRequest.formFieldsPerDocument = formFieldsPerDocument;
 
 apiCaller.unclaimedDraftCreate(
-    unclaimedDraftCreateRequest,
+  unclaimedDraftCreateRequest,
 ).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling UnclaimedDraft#unclaimedDraftCreate:");
+  console.log("Exception when calling UnclaimedDraftApi#unclaimedDraftCreate:");
   console.log(error.body);
 });

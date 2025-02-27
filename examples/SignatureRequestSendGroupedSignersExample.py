@@ -1,3 +1,4 @@
+import json
 from datetime import date, datetime
 from pprint import pprint
 
@@ -80,10 +81,12 @@ with ApiClient(configuration) as api_client:
             "lawyer1@dropboxsign.com",
             "lawyer2@dropboxsign.com",
         ],
-        metadata={
-            "custom_id": 1234,
-            "custom_text": "NDA #9",
-        },
+        metadata=json.loads("""
+            {
+                "custom_id": 1234,
+                "custom_text": "NDA #9"
+            }
+        """),
         field_options=field_options,
         signing_options=signing_options,
         grouped_signers=grouped_signers,
@@ -96,4 +99,4 @@ with ApiClient(configuration) as api_client:
 
         pprint(response)
     except ApiException as e:
-        print("Exception when calling SignatureRequest#signature_request_send: %s\n" % e)
+        print("Exception when calling SignatureRequestApi#signature_request_send: %s\n" % e)

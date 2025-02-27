@@ -10,10 +10,10 @@ const teamUpdateRequest = new models.TeamUpdateRequest();
 teamUpdateRequest.name = "New Team Name";
 
 apiCaller.teamUpdate(
-    teamUpdateRequest,
+  teamUpdateRequest,
 ).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling Team#teamUpdate:");
+  console.log("Exception when calling TeamApi#teamUpdate:");
   console.log(error.body);
 });

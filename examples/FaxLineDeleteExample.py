@@ -1,3 +1,4 @@
+import json
 from datetime import date, datetime
 from pprint import pprint
 
@@ -17,4 +18,4 @@ with ApiClient(configuration) as api_client:
             fax_line_delete_request=fax_line_delete_request,
         )
     except ApiException as e:
-        print("Exception when calling FaxLine#fax_line_delete: %s\n" % e)
+        print("Exception when calling FaxLineApi#fax_line_delete: %s\n" % e)

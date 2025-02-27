@@ -4,6 +4,7 @@ import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
@@ -24,10 +25,10 @@ public class ApiAppDeleteExample
         try
         {
             new ApiAppApi(config).apiAppDelete(
-                "0dd3b823a682527788c4e40cb7b6f7e9"
+                "0dd3b823a682527788c4e40cb7b6f7e9" // clientId
             );
         } catch (ApiException e) {
-            System.err.println("Exception when calling ApiApp#apiAppDelete");
+            System.err.println("Exception when calling ApiAppApi#apiAppDelete");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());

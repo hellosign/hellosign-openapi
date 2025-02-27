@@ -9,8 +9,8 @@ apiCaller.username = "YOUR_API_KEY";
 const oauth = new models.SubOAuth();
 oauth.callbackUrl = "https://example.com/oauth";
 oauth.scopes = [
-    models.SubOAuth.ScopesEnum.BasicAccountInfo,
-    models.SubOAuth.ScopesEnum.RequestSignature,
+  models.SubOAuth.ScopesEnum.BasicAccountInfo,
+  models.SubOAuth.ScopesEnum.RequestSignature,
 ];
 
 const whiteLabelingOptions = new models.SubWhiteLabelingOptions();
@@ -20,17 +20,17 @@ whiteLabelingOptions.primaryButtonTextColor = "#ffffff";
 const apiAppCreateRequest = new models.ApiAppCreateRequest();
 apiAppCreateRequest.name = "My Production App";
 apiAppCreateRequest.domains = [
-    "example.com",
+  "example.com",
 ];
 apiAppCreateRequest.customLogoFile = fs.createReadStream("CustomLogoFile.png");
 apiAppCreateRequest.oauth = oauth;
 apiAppCreateRequest.whiteLabelingOptions = whiteLabelingOptions;
 
 apiCaller.apiAppCreate(
-    apiAppCreateRequest,
+  apiAppCreateRequest,
 ).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling ApiApp#apiAppCreate:");
+  console.log("Exception when calling ApiAppApi#apiAppCreate:");
   console.log(error.body);
 });

@@ -16,5 +16,5 @@ try {
         client_id: "0dd3b823a682527788c4e40cb7b6f7e9",
     );
 } catch (Dropbox\Sign\ApiException $e) {
-    echo "Exception when calling ApiApp#apiAppDelete: {$e->getMessage()}";
+    echo "Exception when calling ApiAppApi#apiAppDelete: {$e->getMessage()}";
 }

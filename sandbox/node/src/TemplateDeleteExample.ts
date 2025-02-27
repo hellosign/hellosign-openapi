@@ -6,11 +6,9 @@ const apiCaller = new api.TemplateApi();
 apiCaller.username = "YOUR_API_KEY";
 // apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-const templateId = "f57db65d3f933b5316d398057a36176831451a35";
-
 apiCaller.templateDelete(
-    templateId,
+  "f57db65d3f933b5316d398057a36176831451a35", // templateId
 ).catch(error => {
-  console.log("Exception when calling Template#templateDelete:");
+  console.log("Exception when calling TemplateApi#templateDelete:");
   console.log(error.body);
 });

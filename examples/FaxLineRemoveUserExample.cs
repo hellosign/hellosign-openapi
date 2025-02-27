@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.Json;
 
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
@@ -30,7 +31,7 @@ public class FaxLineRemoveUserExample
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling FaxLine#FaxLineRemoveUser: " + e.Message);
+            Console.WriteLine("Exception when calling FaxLineApi#FaxLineRemoveUser: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }

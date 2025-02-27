@@ -19,7 +19,7 @@ signers1.name = "George";
 signers1.emailAddress = "george@example.com";
 
 const signers = [
-    signers1,
+  signers1,
 ];
 
 const ccs1 = new models.SubCC();
@@ -27,7 +27,7 @@ ccs1.role = "Accounting";
 ccs1.emailAddress = "accounting@example.com";
 
 const ccs = [
-    ccs1,
+  ccs1,
 ];
 
 const customFields1 = new models.SubCustomField();
@@ -37,12 +37,12 @@ customFields1.required = true;
 customFields1.value = "$20,000";
 
 const customFields = [
-    customFields1,
+  customFields1,
 ];
 
 const signatureRequestSendWithTemplateRequest = new models.SignatureRequestSendWithTemplateRequest();
 signatureRequestSendWithTemplateRequest.templateIds = [
-    "61a832ff0d8423f91d503e76bfbcc750f7417c78",
+  "61a832ff0d8423f91d503e76bfbcc750f7417c78",
 ];
 signatureRequestSendWithTemplateRequest.message = "Glad we could come to an agreement.";
 signatureRequestSendWithTemplateRequest.subject = "Purchase Order";
@@ -53,10 +53,10 @@ signatureRequestSendWithTemplateRequest.ccs = ccs;
 signatureRequestSendWithTemplateRequest.customFields = customFields;
 
 apiCaller.signatureRequestSendWithTemplate(
-    signatureRequestSendWithTemplateRequest,
+  signatureRequestSendWithTemplateRequest,
 ).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling SignatureRequest#signatureRequestSendWithTemplate:");
+  console.log("Exception when calling SignatureRequestApi#signatureRequestSendWithTemplate:");
   console.log(error.body);
 });

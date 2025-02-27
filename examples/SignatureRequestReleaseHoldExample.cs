@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.Json;
 
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
@@ -26,7 +27,7 @@ public class SignatureRequestReleaseHoldExample
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling SignatureRequest#SignatureRequestReleaseHold: " + e.Message);
+            Console.WriteLine("Exception when calling SignatureRequestApi#SignatureRequestReleaseHold: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }

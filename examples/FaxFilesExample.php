@@ -17,5 +17,5 @@ try {
 
     copy($response->getRealPath(), __DIR__ . '/file_response');
 } catch (Dropbox\Sign\ApiException $e) {
-    echo "Exception when calling Fax#faxFiles: {$e->getMessage()}";
+    echo "Exception when calling FaxApi#faxFiles: {$e->getMessage()}";
 }

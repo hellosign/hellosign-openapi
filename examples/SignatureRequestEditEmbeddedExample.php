@@ -56,5 +56,5 @@ try {
 
     print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    echo "Exception when calling SignatureRequest#signatureRequestEditEmbedded: {$e->getMessage()}";
+    echo "Exception when calling SignatureRequestApi#signatureRequestEditEmbedded: {$e->getMessage()}";
 }

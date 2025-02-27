@@ -1,3 +1,4 @@
+require "json"
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
@@ -14,5 +15,5 @@ begin
 
     p response
 rescue Dropbox::Sign::ApiError => e
-    puts "Exception when calling OAuth#oauth_token_refresh: #{e}"
+    puts "Exception when calling OAuthApi#oauth_token_refresh: #{e}"
 end

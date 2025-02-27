@@ -18,5 +18,5 @@ try {
 
     print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    echo "Exception when calling SignatureRequest#signatureRequestFilesAsDataUri: {$e->getMessage()}";
+    echo "Exception when calling SignatureRequestApi#signatureRequestFilesAsDataUri: {$e->getMessage()}";
 }

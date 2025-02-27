@@ -1,8 +1,9 @@
+require "json"
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
-    config.username = "YOUR_API_KEY";
-    # config.access_token = "YOUR_ACCESS_TOKEN";
+    config.username = "YOUR_API_KEY"
+    # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
 account_update_request = Dropbox::Sign::AccountUpdateRequest.new
@@ -16,5 +17,5 @@ begin
 
     p response
 rescue Dropbox::Sign::ApiError => e
-    puts "Exception when calling Account#account_update: #{e}"
+    puts "Exception when calling AccountApi#account_update: #{e}"
 end

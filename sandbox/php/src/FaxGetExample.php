@@ -17,5 +17,5 @@ try {
 
     print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    echo "Exception when calling Fax#faxGet: {$e->getMessage()}";
+    echo "Exception when calling FaxApi#faxGet: {$e->getMessage()}";
 }

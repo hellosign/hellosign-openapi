@@ -10,10 +10,10 @@ faxLineRemoveUserRequest.number = "[FAX_NUMBER]";
 faxLineRemoveUserRequest.emailAddress = "member@dropboxsign.com";
 
 apiCaller.faxLineRemoveUser(
-    faxLineRemoveUserRequest,
+  faxLineRemoveUserRequest,
 ).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling FaxLine#faxLineRemoveUser:");
+  console.log("Exception when calling FaxLineApi#faxLineRemoveUser:");
   console.log(error.body);
 });

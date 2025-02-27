@@ -6,11 +6,9 @@ const apiCaller = new api.SignatureRequestApi();
 apiCaller.username = "YOUR_API_KEY";
 // apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-const signatureRequestId = "fa5c8a0b0f492d768749333ad6fcc214c111e967";
-
 apiCaller.signatureRequestCancel(
-    signatureRequestId,
+  "fa5c8a0b0f492d768749333ad6fcc214c111e967", // signatureRequestId
 ).catch(error => {
-  console.log("Exception when calling SignatureRequest#signatureRequestCancel:");
+  console.log("Exception when calling SignatureRequestApi#signatureRequestCancel:");
   console.log(error.body);
 });

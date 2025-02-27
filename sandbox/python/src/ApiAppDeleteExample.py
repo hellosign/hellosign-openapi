@@ -1,3 +1,4 @@
+import json
 from datetime import date, datetime
 from pprint import pprint
 
@@ -14,4 +15,4 @@ with ApiClient(configuration) as api_client:
             client_id="0dd3b823a682527788c4e40cb7b6f7e9",
         )
     except ApiException as e:
-        print("Exception when calling ApiApp#api_app_delete: %s\n" % e)
+        print("Exception when calling ApiAppApi#api_app_delete: %s\n" % e)

@@ -1,8 +1,9 @@
+require "json"
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
-    config.username = "YOUR_API_KEY";
-    # config.access_token = "YOUR_ACCESS_TOKEN";
+    config.username = "YOUR_API_KEY"
+    # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
 field_options = Dropbox::Sign::SubFieldOptions.new
@@ -42,10 +43,13 @@ signature_request_send_request.cc_email_addresses = [
 signature_request_send_request.files = [
     File.new("./example_signature_request.pdf", "r"),
 ]
-signature_request_send_request.metadata = {
-    "custom_id": 1234,
-    "custom_text": "NDA #9",
-}
+signature_request_send_request.metadata = JSON.parse(<<-EOD
+    {
+        "custom_id": 1234,
+        "custom_text": "NDA #9"
+    }
+    EOD
+)
 signature_request_send_request.field_options = field_options
 signature_request_send_request.signing_options = signing_options
 signature_request_send_request.signers = signers
@@ -57,5 +61,5 @@ begin
 
     p response
 rescue Dropbox::Sign::ApiError => e
-    puts "Exception when calling SignatureRequest#signature_request_send: #{e}"
+    puts "Exception when calling SignatureRequestApi#signature_request_send: #{e}"
 end

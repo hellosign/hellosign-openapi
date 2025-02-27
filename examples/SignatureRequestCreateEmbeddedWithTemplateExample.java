@@ -4,6 +4,7 @@ import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
 import com.dropbox.sign.auth.*;
+import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
@@ -56,7 +57,7 @@ public class SignatureRequestCreateEmbeddedWithTemplateExample
 
             System.out.println(response);
         } catch (ApiException e) {
-            System.err.println("Exception when calling SignatureRequest#signatureRequestCreateEmbeddedWithTemplate");
+            System.err.println("Exception when calling SignatureRequestApi#signatureRequestCreateEmbeddedWithTemplate");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.Json;
 
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
@@ -32,7 +33,7 @@ public class OauthTokenGenerateExample
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling OAuth#OauthTokenGenerate: " + e.Message);
+            Console.WriteLine("Exception when calling OAuthApi#OauthTokenGenerate: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }

@@ -18,5 +18,5 @@ try {
         fax_line_delete_request: $fax_line_delete_request,
     );
 } catch (Dropbox\Sign\ApiException $e) {
-    echo "Exception when calling FaxLine#faxLineDelete: {$e->getMessage()}";
+    echo "Exception when calling FaxLineApi#faxLineDelete: {$e->getMessage()}";
 }

@@ -6,11 +6,9 @@ const apiCaller = new api.ApiAppApi();
 apiCaller.username = "YOUR_API_KEY";
 // apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
-const clientId = "0dd3b823a682527788c4e40cb7b6f7e9";
-
 apiCaller.apiAppDelete(
-    clientId,
+  "0dd3b823a682527788c4e40cb7b6f7e9", // clientId
 ).catch(error => {
-  console.log("Exception when calling ApiApp#apiAppDelete:");
+  console.log("Exception when calling ApiAppApi#apiAppDelete:");
   console.log(error.body);
 });

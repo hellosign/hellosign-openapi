@@ -19,7 +19,7 @@ signers1.name = "George";
 signers1.emailAddress = "george@example.com";
 
 const signers = [
-    signers1,
+  signers1,
 ];
 
 const ccs1 = new models.SubCC();
@@ -27,7 +27,7 @@ ccs1.role = "Accounting";
 ccs1.emailAddress = "accounting@example.com";
 
 const ccs = [
-    ccs1,
+  ccs1,
 ];
 
 const customFields1 = new models.SubCustomField();
@@ -37,12 +37,12 @@ customFields1.required = true;
 customFields1.value = "$20,000";
 
 const customFields = [
-    customFields1,
+  customFields1,
 ];
 
 const signatureRequestEditWithTemplateRequest = new models.SignatureRequestEditWithTemplateRequest();
 signatureRequestEditWithTemplateRequest.templateIds = [
-    "61a832ff0d8423f91d503e76bfbcc750f7417c78",
+  "61a832ff0d8423f91d503e76bfbcc750f7417c78",
 ];
 signatureRequestEditWithTemplateRequest.message = "Glad we could come to an agreement.";
 signatureRequestEditWithTemplateRequest.subject = "Purchase Order";
@@ -52,14 +52,12 @@ signatureRequestEditWithTemplateRequest.signers = signers;
 signatureRequestEditWithTemplateRequest.ccs = ccs;
 signatureRequestEditWithTemplateRequest.customFields = customFields;
 
-const signatureRequestId = "fa5c8a0b0f492d768749333ad6fcc214c111e967";
-
 apiCaller.signatureRequestEditWithTemplate(
-    signatureRequestId,
-    signatureRequestEditWithTemplateRequest,
+  "fa5c8a0b0f492d768749333ad6fcc214c111e967", // signatureRequestId
+  signatureRequestEditWithTemplateRequest,
 ).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling SignatureRequest#signatureRequestEditWithTemplate:");
+  console.log("Exception when calling SignatureRequestApi#signatureRequestEditWithTemplate:");
   console.log(error.body);
 });

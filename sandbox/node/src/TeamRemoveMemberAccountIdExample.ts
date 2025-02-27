@@ -10,10 +10,10 @@ const teamRemoveMemberRequest = new models.TeamRemoveMemberRequest();
 teamRemoveMemberRequest.accountId = "f57db65d3f933b5316d398057a36176831451a35";
 
 apiCaller.teamRemoveMember(
-    teamRemoveMemberRequest,
+  teamRemoveMemberRequest,
 ).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling Team#teamRemoveMember:");
+  console.log("Exception when calling TeamApi#teamRemoveMember:");
   console.log(error.body);
 });

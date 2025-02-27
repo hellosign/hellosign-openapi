@@ -20,5 +20,5 @@ try {
 
     print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    echo "Exception when calling BulkSendJob#bulkSendJobGet: {$e->getMessage()}";
+    echo "Exception when calling BulkSendJobApi#bulkSendJobGet: {$e->getMessage()}";
 }

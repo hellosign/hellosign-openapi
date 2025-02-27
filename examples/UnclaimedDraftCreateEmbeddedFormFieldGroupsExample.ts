@@ -12,7 +12,7 @@ formFieldGroups1.groupLabel = "Radio Item Group 1";
 formFieldGroups1.requirement = "require_0-1";
 
 const formFieldGroups = [
-    formFieldGroups1,
+  formFieldGroups1,
 ];
 
 const formFieldsPerDocument1 = new models.SubFormFieldsPerDocumentRadio();
@@ -46,8 +46,8 @@ formFieldsPerDocument2.name = "";
 formFieldsPerDocument2.page = 1;
 
 const formFieldsPerDocument = [
-    formFieldsPerDocument1,
-    formFieldsPerDocument2,
+  formFieldsPerDocument1,
+  formFieldsPerDocument2,
 ];
 
 const unclaimedDraftCreateEmbeddedRequest = new models.UnclaimedDraftCreateEmbeddedRequest();
@@ -55,16 +55,16 @@ unclaimedDraftCreateEmbeddedRequest.clientId = "b6b8e7deaf8f0b95c029dca049356d4a
 unclaimedDraftCreateEmbeddedRequest.requesterEmailAddress = "jack@dropboxsign.com";
 unclaimedDraftCreateEmbeddedRequest.testMode = false;
 unclaimedDraftCreateEmbeddedRequest.fileUrls = [
-    "https://www.dropbox.com/s/ad9qnhbrjjn64tu/mutual-NDA-example.pdf?dl=1",
+  "https://www.dropbox.com/s/ad9qnhbrjjn64tu/mutual-NDA-example.pdf?dl=1",
 ];
 unclaimedDraftCreateEmbeddedRequest.formFieldGroups = formFieldGroups;
 unclaimedDraftCreateEmbeddedRequest.formFieldsPerDocument = formFieldsPerDocument;
 
 apiCaller.unclaimedDraftCreateEmbedded(
-    unclaimedDraftCreateEmbeddedRequest,
+  unclaimedDraftCreateEmbeddedRequest,
 ).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling UnclaimedDraft#unclaimedDraftCreateEmbedded:");
+  console.log("Exception when calling UnclaimedDraftApi#unclaimedDraftCreateEmbedded:");
   console.log(error.body);
 });

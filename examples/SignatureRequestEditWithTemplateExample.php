@@ -39,7 +39,7 @@ $custom_fields_1 = (new Dropbox\Sign\Model\SubCustomField())
     ->setName("Cost")
     ->setEditor("Client")
     ->setRequired(true)
-    ->setValue("$20,000");
+    ->setValue('$20,000');
 
 $custom_fields = [
     $custom_fields_1,
@@ -65,5 +65,5 @@ try {
 
     print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    echo "Exception when calling SignatureRequest#signatureRequestEditWithTemplate: {$e->getMessage()}";
+    echo "Exception when calling SignatureRequestApi#signatureRequestEditWithTemplate: {$e->getMessage()}";
 }

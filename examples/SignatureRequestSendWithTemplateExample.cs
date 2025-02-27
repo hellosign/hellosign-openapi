@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.Json;
 
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
@@ -80,7 +81,7 @@ public class SignatureRequestSendWithTemplateExample
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling SignatureRequest#SignatureRequestSendWithTemplate: " + e.Message);
+            Console.WriteLine("Exception when calling SignatureRequestApi#SignatureRequestSendWithTemplate: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }

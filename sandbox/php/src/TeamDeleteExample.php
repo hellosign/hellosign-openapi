@@ -14,5 +14,5 @@ $config->setUsername("YOUR_API_KEY");
 try {
     (new Dropbox\Sign\Api\TeamApi(config: $config))->teamDelete();
 } catch (Dropbox\Sign\ApiException $e) {
-    echo "Exception when calling Team#teamDelete: {$e->getMessage()}";
+    echo "Exception when calling TeamApi#teamDelete: {$e->getMessage()}";
 }

@@ -18,8 +18,8 @@ signerRoles2.name = "Witness";
 signerRoles2.order = 1;
 
 const signerRoles = [
-    signerRoles1,
-    signerRoles2,
+  signerRoles1,
+  signerRoles2,
 ];
 
 const formFieldsPerDocument1 = new models.SubFormFieldsPerDocumentText();
@@ -51,8 +51,8 @@ formFieldsPerDocument2.name = "";
 formFieldsPerDocument2.page = 1;
 
 const formFieldsPerDocument = [
-    formFieldsPerDocument1,
-    formFieldsPerDocument2,
+  formFieldsPerDocument1,
+  formFieldsPerDocument2,
 ];
 
 const mergeFields1 = new models.SubMergeField();
@@ -64,8 +64,8 @@ mergeFields2.name = "Is Registered?";
 mergeFields2.type = models.SubMergeField.TypeEnum.Checkbox;
 
 const mergeFields = [
-    mergeFields1,
-    mergeFields2,
+  mergeFields1,
+  mergeFields2,
 ];
 
 const templateCreateRequest = new models.TemplateCreateRequest();
@@ -75,10 +75,10 @@ templateCreateRequest.subject = "Please sign this document";
 templateCreateRequest.testMode = true;
 templateCreateRequest.title = "Test Template";
 templateCreateRequest.fileUrls = [
-    "https://www.dropbox.com/s/ad9qnhbrjjn64tu/mutual-NDA-example.pdf?dl=1",
+  "https://www.dropbox.com/s/ad9qnhbrjjn64tu/mutual-NDA-example.pdf?dl=1",
 ];
 templateCreateRequest.ccRoles = [
-    "Manager",
+  "Manager",
 ];
 templateCreateRequest.fieldOptions = fieldOptions;
 templateCreateRequest.signerRoles = signerRoles;
@@ -86,10 +86,10 @@ templateCreateRequest.formFieldsPerDocument = formFieldsPerDocument;
 templateCreateRequest.mergeFields = mergeFields;
 
 apiCaller.templateCreate(
-    templateCreateRequest,
+  templateCreateRequest,
 ).then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling Template#templateCreate:");
+  console.log("Exception when calling TemplateApi#templateCreate:");
   console.log(error.body);
 });

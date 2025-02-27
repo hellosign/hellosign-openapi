@@ -7,6 +7,6 @@ apiCaller.username = "YOUR_API_KEY";
 // apiCaller.accessToken = "YOUR_ACCESS_TOKEN";
 
 apiCaller.teamDelete().catch(error => {
-  console.log("Exception when calling Team#teamDelete:");
+  console.log("Exception when calling TeamApi#teamDelete:");
   console.log(error.body);
 });

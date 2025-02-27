@@ -1,3 +1,4 @@
+import json
 from datetime import date, datetime
 from pprint import pprint
 
@@ -22,4 +23,4 @@ with ApiClient(configuration) as api_client:
 
         pprint(response)
     except ApiException as e:
-        print("Exception when calling UnclaimedDraft#unclaimed_draft_edit_and_resend: %s\n" % e)
+        print("Exception when calling UnclaimedDraftApi#unclaimed_draft_edit_and_resend: %s\n" % e)

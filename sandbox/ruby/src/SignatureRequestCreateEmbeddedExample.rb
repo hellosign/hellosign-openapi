@@ -1,8 +1,9 @@
+require "json"
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
-    config.username = "YOUR_API_KEY";
-    # config.access_token = "YOUR_ACCESS_TOKEN";
+    config.username = "YOUR_API_KEY"
+    # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
 signing_options = Dropbox::Sign::SubSigningOptions.new
@@ -50,5 +51,5 @@ begin
 
     p response
 rescue Dropbox::Sign::ApiError => e
-    puts "Exception when calling SignatureRequest#signature_request_create_embedded: #{e}"
+    puts "Exception when calling SignatureRequestApi#signature_request_create_embedded: #{e}"
 end

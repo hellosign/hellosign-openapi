@@ -21,5 +21,5 @@ try {
 
     print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    echo "Exception when calling Account#accountCreate: {$e->getMessage()}";
+    echo "Exception when calling AccountApi#accountCreate: {$e->getMessage()}";
 }

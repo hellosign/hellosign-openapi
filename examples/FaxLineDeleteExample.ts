@@ -9,8 +9,8 @@ const faxLineDeleteRequest = new models.FaxLineDeleteRequest();
 faxLineDeleteRequest.number = "[FAX_NUMBER]";
 
 apiCaller.faxLineDelete(
-    faxLineDeleteRequest,
+  faxLineDeleteRequest,
 ).catch(error => {
-  console.log("Exception when calling FaxLine#faxLineDelete:");
+  console.log("Exception when calling FaxLineApi#faxLineDelete:");
   console.log(error.body);
 });

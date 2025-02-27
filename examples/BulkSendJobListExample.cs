@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.Json;
 
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
@@ -27,7 +28,7 @@ public class BulkSendJobListExample
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling BulkSendJob#BulkSendJobList: " + e.Message);
+            Console.WriteLine("Exception when calling BulkSendJobApi#BulkSendJobList: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }

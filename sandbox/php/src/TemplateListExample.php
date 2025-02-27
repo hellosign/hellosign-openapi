@@ -21,5 +21,5 @@ try {
 
     print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    echo "Exception when calling Template#templateList: {$e->getMessage()}";
+    echo "Exception when calling TemplateApi#templateList: {$e->getMessage()}";
 }

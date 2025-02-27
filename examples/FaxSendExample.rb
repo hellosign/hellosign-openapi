@@ -1,7 +1,8 @@
+require "json"
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
-    config.username = "YOUR_API_KEY";
+    config.username = "YOUR_API_KEY"
 end
 
 fax_send_request = Dropbox::Sign::FaxSendRequest.new
@@ -23,5 +24,5 @@ begin
 
     p response
 rescue Dropbox::Sign::ApiError => e
-    puts "Exception when calling Fax#fax_send: #{e}"
+    puts "Exception when calling FaxApi#fax_send: #{e}"
 end

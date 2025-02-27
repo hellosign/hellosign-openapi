@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.Json;
 
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
@@ -26,7 +27,7 @@ public class EmbeddedSignUrlExample
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling Embedded#EmbeddedSignUrl: " + e.Message);
+            Console.WriteLine("Exception when calling EmbeddedApi#EmbeddedSignUrl: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }

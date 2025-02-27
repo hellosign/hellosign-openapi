@@ -21,5 +21,5 @@ try {
 
     print_r($response);
 } catch (Dropbox\Sign\ApiException $e) {
-    echo "Exception when calling Team#teamUpdate: {$e->getMessage()}";
+    echo "Exception when calling TeamApi#teamUpdate: {$e->getMessage()}";
 }

@@ -1,7 +1,8 @@
+require "json"
 require "dropbox-sign"
 
 Dropbox::Sign.configure do |config|
-    config.username = "YOUR_API_KEY";
+    config.username = "YOUR_API_KEY"
 end
 
 report_create_request = Dropbox::Sign::ReportCreateRequest.new
@@ -19,5 +20,5 @@ begin
 
     p response
 rescue Dropbox::Sign::ApiError => e
-    puts "Exception when calling Report#report_create: #{e}"
+    puts "Exception when calling ReportApi#report_create: #{e}"
 end
